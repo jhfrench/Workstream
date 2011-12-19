@@ -10,13 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 21:01:14  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:54:21-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
  --->
 <cfset variables.colspan=decrementvalue(variables.colspan)>

@@ -12,6 +12,7 @@
 	$Log$
 	||
 	END FUSEDOC --->
+</cfsilent>
 <cfoutput>
 	<tr>
 		<td colspan="#variables.colspan#" class="HeadText#session.workstream_text_size#White" bgcolor="008000">

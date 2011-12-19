@@ -105,10 +105,6 @@
 <cfif compare(listsort(attributes.notification_cc_id,"numeric"),listsort(attributes.orig_notification_cc,"numeric"))>
 	<cfinclude template="qry_update_task_notification_cc.cfm">
 </cfif>
-<cfif len(attributes.file_path) AND compare(attributes.file_path,0)>
-	<cfset file_paths=URLDecode(attributes.file_path)>
-	<cfinclude template="qry_update_task_files.cfm">
-</cfif>
 
 <cfif isdefined("attributes.custom_drops_collection") or isdefined("attributes.custom_text_collection")>
 	<cfinclude template="qry_upload_delete_user_answers.cfm">

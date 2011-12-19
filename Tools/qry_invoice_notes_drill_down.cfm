@@ -21,7 +21,7 @@ WHERE Time_Entry.notes_id=Notes.notes_id
 	AND Time_Entry.emp_id=#attributes.emp_id#
 	AND MONTH(Time_Entry.date)=#attributes.month#
 	AND YEAR(Time_Entry.date)=#attributes.year#
-ORDER BY Time_Entry.date
+ORDER BY Time_Entry.date, Time_Entry.time_entry_id
 </cfquery>
 </cfsilent>
 

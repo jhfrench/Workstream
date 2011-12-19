@@ -9,14 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:51:16  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:55:43-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- (KL | 7/30/01): added the casting logic to the query so that the dates would display in a more readable fashion for the users of the marketing grid.
-(KL|8/8/01) ; updated query to pull the proper task information. (AS|8/27/01) ; Marketing has changed their mind about what they want here. So I have re-done the query. PLEASE BE AWARE, I HAVE MOVED MOST (ALL) OF THE QUERY LOGIC INTO VIEWS IN SQL SERVER. IF YOU HAVE A QUERY CHANGE TO MAKE, TAKE A LOOK AT THE VIEWS....
 	||
 	Variables:- ->sortby1: a variable set so the grid can be filtered by the columns
 		- ->sortby2: a variable set so the grid can be filtered by the columns

@@ -31,8 +31,8 @@
 		<cfloop from="1" to="#evaluate("attributes.field#type_id#")#" index="ii">
 			<cfset variables.current_field_title=evaluate("attributes.type_#type_id#_num_#ii#_name")>
 			<cfquery name="add_custom_fields" datasource="#application.datasources.main#">
-			INSERT INTO User_Fields(field_type_id, field_title, active_id)
-			VALUES(#type_id#, '#variables.current_field_title#', 2)
+			INSERT INTO User_Fields (field_type_id, field_title, active_ind)
+			VALUES (#type_id#, '#variables.current_field_title#', 2)
 			</cfquery>
 			<cfquery name="get_last_custom_field" datasource="#application.datasources.main#">
 			SELECT MAX(user_field_id) AS current_field

@@ -21,7 +21,7 @@
 		<div id="code_options">
 		<a href="javascript:void(0);" onclick="javascript:Element.toggle('root_code_entry');Element.toggle('code_options');">Specify A Root Code</a>
 		</div>
-		<div id="root_code_entry" style="visibility: hidden;">
+		<div id="root_code_entry" style="display:none;">
 		<cfinput type="Text" required="No"  name="root_code" size="4" class="RegText#session.workstream_text_size#">&nbsp;*<br />
 		Note: If you select a root code yourself, make sure that it isn't used already.
 		</div>

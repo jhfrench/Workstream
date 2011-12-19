@@ -8,15 +8,7 @@
 
 	||
 	Edits:
-$Log$
-Revision 1.0  2005/02/15 20:54:34  daugherty
-Initial revision
-
-Revision 1.2  2001-10-15 12:17:54-04  french
-Optimizing queries by removing join to security table (replaced username lookup with emp_id from previous query).
-
-Revision 1.1  2001-10-11 11:04:57-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
+	$Log$
 	||
 	Variables:
 	END FUSEDOC --->

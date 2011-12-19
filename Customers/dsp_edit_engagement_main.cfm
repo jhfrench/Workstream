@@ -64,9 +64,9 @@
 		<td rowspan="2" colspan="1" class="RegText#session.workstream_text_size#Bd">
 			Product<br>
 			<cfselect name="product_id" query="get_products" value="product_id" display="product_name" selected="#get_engagement_main.product_id#" required="yes" message="Please choose which product this engagement applies to." size="4" class="RegText#session.workstream_text_size#"></cfselect>
-		Status  <select name="active_id" class="RegText#session.workstream_text_size#">
-					<option value="1" <cfif get_engagement_main.active_id EQ 1>selected</cfif>>Active</option>
-					<option value="0" <cfif get_engagement_main.active_id EQ 0>selected</cfif>>Inactive</option>
+		Status  <select name="active_ind" class="RegText#session.workstream_text_size#">
+					<option value="1" <cfif get_engagement_main.active_ind EQ 1>selected</cfif>>Active</option>
+					<option value="0" <cfif get_engagement_main.active_ind EQ 0>selected</cfif>>Inactive</option>
 				</select>
 		</td>
 		<td width="55%" class="Note#session.workstream_text_size#">

@@ -41,7 +41,7 @@
 <cfoutput>
 	<tr valign="top">
 		<td class="RegText#session.workstream_text_size#">
-			<label for="retire#user_field_id#">Retire<input type="checkbox"<cfif active_id EQ 1> checked</cfif> name="retire" id="retire#user_field_id#" value="#user_field_id#" class="RegText#session.workstream_text_size#"></label>
+			<label for="retire#user_field_id#">Retire<input type="checkbox"<cfif active_ind EQ 1> checked</cfif> name="retire" id="retire#user_field_id#" value="#user_field_id#" class="RegText#session.workstream_text_size#"></label>
 		</td>
 		<td class="RegText#session.workstream_text_size#">
 			#field_title#: <cfif field_type_id EQ 1>

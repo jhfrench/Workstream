@@ -9,15 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 21:01:06  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:54:25-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
-	 
-	Took pop-up calendar code and put it in common_files.
 	||
 	END FUSEDOC --->
 

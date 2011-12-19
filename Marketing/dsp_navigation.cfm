@@ -10,13 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:50:53  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:55:58-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- (KL | 9/28/2001) evaluating for Display_To_Nav
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->

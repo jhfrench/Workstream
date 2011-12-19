@@ -17,18 +17,22 @@
 <cfparam name="attributes.notification_to_id" default="">
 <cfparam name="attributes.notification_cc_id" default="">
 </cfsilent>
-	<cfinclude template="qry_insert_new_task.cfm">
-	<cfinclude template="qry_update_task_owner.cfm">
-	<cfinclude template="qry_update_task_team.cfm">
-	<cfinclude template="qry_update_task_qa.cfm">
-	<cfinclude template="qry_update_task_reminder_days.cfm">
-	<cfinclude template="qry_update_task_reminder_cc.cfm">
-	<cfinclude template="qry_update_task_notification.cfm">
-	<cfinclude template="qry_update_task_notification_cc.cfm">
-<cfif len(attributes.file_path) AND compare(attributes.file_path,0)>
-	<cfset file_paths=URLDecode(attributes.file_path)>
-	<cfinclude template="qry_update_task_files.cfm">
-</cfif>
+<cfinclude template="qry_insert_new_task.cfm">
+<cfinclude template="qry_update_task_owner.cfm">
+<cfinclude template="qry_update_task_team.cfm">
+<cfinclude template="qry_update_task_qa.cfm">
+<cfinclude template="qry_update_task_reminder_days.cfm">
+<cfinclude template="qry_update_task_reminder_cc.cfm">
+<cfinclude template="qry_update_task_notification.cfm">
+<cfinclude template="qry_update_task_notification_cc.cfm">
+
+<cfquery name="update_associated_file" datasource="#application.datasources.main#">
+UPDATE Associated_File
+SET task_id=#attributes.task_id#
+WHERE task_id=0
+	AND created_by=#session.user_account_id#
+</cfquery>
+
 <cfif compare(attributes.linked_task_id,0)>
 	<cfset attributes.base_task_id=attributes.task_id>
 	<cfinclude template="../common_files/qry_task_attach.cfm">

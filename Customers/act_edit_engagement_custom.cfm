@@ -35,8 +35,8 @@ WHERE User_Fields.user_field_id=User_Field_Project_Link.user_field_id
 		<cfset tmpVar=evaluate("attributes.type_#type_id#_num_1_name")>
 		<cfset tmpVar=Replace(tmpVar, "', /,%", "''", "All")>
 			<cfquery name="add_custom_fields" datasource="#application.datasources.main#">
-			INSERT INTO User_Fields(field_type_id, field_title, active_id)
-			VALUES(#type_id#, '#tmpVar#', 2)
+			INSERT INTO User_Fields (field_type_id, field_title, active_ind)
+			VALUES (#type_id#, '#tmpVar#', 2)
 			</cfquery>
 			<cfquery name="get_last_custom_field" datasource="#application.datasources.main#">
 			SELECT MAX(user_field_id) AS current_field

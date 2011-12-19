@@ -10,13 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2006-11-16 04:16:51  french
-	Task 50669: Modified code to make system appear professional again.
-	
-	Revision 1.1  2001-10-11 10:54:44-04  long
-	added $log $ for edits.  To all CFM files that have fusedocs.
-	
-	(KL | 9/27/2001) added task_type_id to the select list. 
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page

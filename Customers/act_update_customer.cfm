@@ -18,7 +18,7 @@ UPDATE Customer
 SET root_code='#attributes.root_code#',
 	description='#attributes.description#', 
 	company_id=#attributes.company_id#,
-	active_ind=#attributes.active_id#,<cfif len(company_address1)>
+	active_ind=#attributes.active_ind#,<cfif len(company_address1)>
 	company_address1='#attributes.company_address1#',</cfif><cfif len(company_address2)>
 	company_address2='#attributes.company_address2#',</cfif><cfif len(company_city)>
 	company_city = '#attributes.company_city#',</cfif>

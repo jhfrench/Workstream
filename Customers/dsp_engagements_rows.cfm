@@ -11,6 +11,7 @@
 	$Log$
 	||
 	END FUSEDOC --->
+</cfsilent>
 <cfoutput query="get_engagements">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2><td class="RegText#session.workstream_text_size#">
@@ -31,8 +32,8 @@
 		<td class="RegText#session.workstream_text_size#">
 			#active_ind_type#
 		</td>
-		<td class="RegText#session.workstream_text_size#">
-			<cfif session.workstream_engagement_edit><a href="javascript:engagement('#project_id#');" class="RegText#session.workstream_text_size#">Edit</a><cfelse>&nbsp;</cfif>
-		</td>
+		<cfif session.workstream_engagement_edit><td class="RegText#session.workstream_text_size#">
+			<a href="javascript:engagement('#project_id#');" class="RegText#session.workstream_text_size#">Edit</a>
+		</td></cfif>
 	</tr>
 </cfoutput>

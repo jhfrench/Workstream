@@ -13,7 +13,7 @@
 	||
 	END FUSEDOC --->
 </cfsilent>
-<div id="popCal" style="position:absolute; width:160px; height:170px; z-index:2; left: 0px; top: 2px; visibility: hidden"> 
+<div id="popCal" style="position:absolute; width:160px; height:170px; z-index:2; left: 0px; top: 2px; display:none;"> 
 	<applet mayscript codebase="<cfoutput>#request.dir_level##application.graphbase#</cfoutput>" code="tcaldate.class"  name="tL1" id="tL1" width="160" height="170">
 		<param name="link" value="%Y.%M.%D">
 		<param name="_jvalid" value="63">

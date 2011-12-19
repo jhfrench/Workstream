@@ -45,8 +45,8 @@
 		
 	switch(cgi.http_host) {
 		case "127.0.0.1:8500":
-		case "nash.hitsshq.com":
-		case "faad.hitsshq.com": {
+		case "192.168.1.6:8500":
+		case "boston:8500": {
 			variables.environment_name="Development";
 			variables.sessiontimeout="3";
 			break;
@@ -59,9 +59,7 @@
 			break;
 		}
 		
-		case "heckler.hq.nasa.gov":
-		case "faad.hq.nasa.gov":
-		case "faad.nasa.gov": {
+		default: {
 			variables.environment_name="Production";
 			variables.sessiontimeout="0.04166666666665";
 			break;

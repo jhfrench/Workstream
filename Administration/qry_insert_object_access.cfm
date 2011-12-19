@@ -10,19 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2006/09/15 22:25:13  csy
-<>
-
-Revision 1.0  2006-08-16 09:32:13-04  csy
-Initial revision
-
-Revision 1.0  2005-02-15 15:27:42-05  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:55:29-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
-
- 
 	||
  --->
 <cfloop collection="#attributes#" item="field">

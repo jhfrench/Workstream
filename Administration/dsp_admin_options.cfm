@@ -10,28 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.4  2006/09/15 22:26:35  csy
-<>
-
-Revision 1.0  2006-08-16 09:31:59-04  csy
-Initial revision
-
-Revision 1.3  2006-07-07 14:01:26-04  csy
-task 43700 Included instructions to set and save a profile
-
-Revision 1.2  2006-05-31 15:21:37-04  csy
-<>
-
-Revision 1.1  2006-05-04 10:43:56-04  csy
-task 43700 Modified code so that user's new selection of companies to be viewed is saved to the database. When a user logs into workstream the next time ,his/her last selection fo company names in the "View These Companies" drop down list  is still  highlighted.
-
-Revision 1.0  2005-02-15 15:27:22-05  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:55:38-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->

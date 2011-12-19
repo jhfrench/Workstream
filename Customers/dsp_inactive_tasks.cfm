@@ -16,7 +16,7 @@
 	<-- Outgoing Paramater
 	
 	END FUSEDOC --->
- <cfif attributes.active_id eq 1>
+ <cfif attributes.active_ind eq 1>
  <div align="center" class="headtext<cfoutput>#session.workstream_text_size#</cfoutput>">Tasks to be closed</div>
    
     <table cellpadding="4" cellspacing="0" border="0" align="center" width="95%">
@@ -51,7 +51,7 @@
 <input type="hidden" name="project_code" value="#attributes.project_code#" >
 <input type="hidden" name="description" value="#attributes.description#">
 <input type="hidden" name="billable_type_id" value="#attributes.billable_type_id#">
-<input type="hidden" name="active_id" value="#attributes.active_id#">
+<input type="hidden" name="active_ind" value="#attributes.active_ind#">
 <input type="hidden" name="company_id" value="#attributes.company_id#">
 <input type="hidden" name="budget" value="#attributes.budget#">
 <input type="hidden" name="start_date" value="#attributes.start_date#">
@@ -76,7 +76,7 @@
 <input type="hidden" name="project_code" value="#attributes.project_code#" >
 <input type="hidden" name="description" value="#attributes.description#">
 <input type="hidden" name="billable_type_id" value="#attributes.billable_type_id#">
-<input type="hidden" name="active_id" value="#attributes.active_id#">
+<input type="hidden" name="active_ind" value="#attributes.active_ind#">
 <input type="hidden" name="company_id" value="#attributes.company_id#">
 <input type="hidden" name="budget" value="#attributes.budget#">
 <input type="hidden" name="start_date" value="#attributes.start_date#">

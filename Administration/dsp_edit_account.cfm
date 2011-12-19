@@ -10,19 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/09/14 13:00:48  pciske
-task 34623 - added code to disable All Option checkbox if the current user does not have security access
-
-Revision 1.0  2005-02-15 15:27:23-05  daugherty
-Initial revision
-
-Revision 1.2  2002-03-08 16:52:37-05  long
-added link to edit employee if the user has access to edit users.  Also changed the query so that non-Nucleus people can only grant access to reports that they themselves have access to.
-
-Revision 1.1  2001-10-11 10:55:38-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
-
- 
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->

@@ -9,17 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:46:02  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:56:23-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
-	 
-	(KL | 9/17/2001) removed the Align attribute from the cfform tag
-	(KL | 10/2/2001) Added the act_new_engagement_instructions.cfm code for the instructions pop up
-	(JF | 10/8/1) Turned new engagement screen into a 'wizard' in order to add new engagement details and simplify process.
 	||
 	END FUSEDOC --->
 <cfparam name="attributes.step" default="1">

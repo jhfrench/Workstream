@@ -20,7 +20,7 @@ SET description='#attributes.description#',
 	project_code='#attributes.project_code#',
 	budget=#attributes.budget#,
 	billable_type_id=#attributes.billable_type_id#,
-	active_ind=#attributes.active_id#,
+	active_ind=#attributes.active_ind#,
 	company_id=#attributes.company_id#
 WHERE Project_id=#project_id#
 </cfquery>

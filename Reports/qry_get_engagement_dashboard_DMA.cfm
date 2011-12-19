@@ -29,7 +29,7 @@ FROM Project
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	LEFT OUTER JOIN Emp_Contact ON Project.IE_Emp_ID=Emp_Contact.emp_id
 	LEFT OUTER JOIN Flat_Rate ON Project.project_id=Flat_Rate.project_id
-WHERE Project.active_id IN (#attributes.inactive#)
+WHERE Project.active_ind IN (#attributes.inactive#)
 	AND Project.status IS NOT NULL
 	<!--- THIS LINE IS CRITICAL SO THE WRONG CUSTOMER DOESNT SEE THE WRONG STUFF 
 	AND (Project.customer_id = 982 or Project.customer_id = 1130 or Project.customer_id = 1132)--->

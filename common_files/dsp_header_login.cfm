@@ -26,7 +26,7 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 		<meta http-equiv="expires" content="#now()#">
 		<link href="common_files/application.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />
-		<link href="common_files/non_screen.css?cache_escape=#variables.cache_escape#" rel="stylesheet" type="text/css" media="print" />
+		<link href="common_files/print.css?cache_escape=#variables.cache_escape#" rel="stylesheet" type="text/css" media="print" />
 		<link href="common_files/handheld.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" media="handheld" />
 		<link href="common_files/screen.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" media="screen" /></cfoutput>
 		<script src="common_files/prototype.js" type="text/javascript"></script>
@@ -83,9 +83,9 @@
 					</tr>
 					<tr valign=top>
 						<td width="200">
-							<img src="images/spacer.gif" alt="" width="200" height="220" border="0"><br />
-							<div style="position:relative;top:-170px;left:522px;width:200px;color:white;">
-								<i>This <acronym title="United States">US</acronym> Government computer is for authorized users only.  By accessing this system you are consenting to complete monitoring with no expectation of privacy.  Unauthorized access or use may subject you to disciplinary action and criminal prosecution.</i>
+							<img src="images/spacer.gif" alt="" width="400" height="220" border="0"><br />
+							<div style="position:relative;top:-170px;left:722px;width:200px;">
+								<i>This <acronym title="Applied Internet Technologies">AIT</acronym> computer is for authorized users only.  By accessing this system you are consenting to complete monitoring with no expectation of privacy.  Unauthorized access or use may subject you to disciplinary action and criminal prosecution.</i>
 							</div>
 						</td>
 						<td width="550">

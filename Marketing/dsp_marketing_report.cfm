@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:50:52  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:55:58-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 	</cfsilent>
@@ -61,7 +53,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 				<td>	<a href="javascript:drill_down('#project_id#');">#dateFormat(statusbestfewdate, 'mm/dd/yyyy')#</a>&nbsp;</td>
 				<td><a href="javascript:drill_down('#project_id#');">	#dateFormat(statuscontractdate, 'mm/dd/yyyy')#</a>&nbsp;</td>
 				<td><a href="javascript:drill_down('#project_id#');">	#overview#</a>&nbsp;</td>
-				<td><a href="javascript:drill_down('#project_id#');">	#active_id#</td>
+				<td><a href="javascript:drill_down('#project_id#');">	#active_ind#</td>
 				<td><a href="javascript:drill_down('#project_id#');">	#company_size#</a>&nbsp;</td>
 				<cfset counter =1>
 				<cfoutput>

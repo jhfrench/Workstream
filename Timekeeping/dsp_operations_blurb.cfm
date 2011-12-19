@@ -17,19 +17,19 @@
 		<cfset large="12">
 		<cfset small="11">
 		<cfset plotAreaLeft=63/100>
-		<cfset variables.graph_height=(operations_blurb.recordcount*16.5)+50>
+		<cfset variables.graph_height=(operations_blurb.recordcount*16.5)+150>
 	</cfcase>
 	<cfcase value="Md">
 		<cfset large="12">
 		<cfset small="11">
 		<cfset plotAreaLeft=63/100>
-		<cfset variables.graph_height=(operations_blurb.recordcount*14.95)+50>
+		<cfset variables.graph_height=(operations_blurb.recordcount*14.95)+150>
 	</cfcase>
 	<cfdefaultcase>
 		<cfset large="12">
 		<cfset small="9">
 		<cfset plotAreaLeft=63/100>
-		<cfset variables.graph_height=(operations_blurb.recordcount*14.1)+50>
+		<cfset variables.graph_height=(operations_blurb.recordcount*14.1)+150>
 	</cfdefaultcase>
 </cfswitch>
 </cfsilent>

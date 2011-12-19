@@ -24,6 +24,7 @@ WHERE Project.customer_id=Customer.customer_id
 	AND Project.company_id=#session.workstream_company_id#
 	AND ISNULL(Project.status,0) > 0
 GROUP BY Customer.description
+ORDER BY total_count DESC, Customer.description
 </cfquery>
 </cfsilent>
 

@@ -10,19 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2006/04/07 18:10:27  csy
-task 42742 Edit task id field
-
-Revision 1.1  2005-06-21 10:52:42-04  french
-Expanded task_id box. Task 33277
-
-Revision 1.0  2005-02-15 15:58:23-05  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:55:26-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->

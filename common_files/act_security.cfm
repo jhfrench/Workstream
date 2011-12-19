@@ -37,7 +37,7 @@
 		<!--- if the user's user_account_id is not defined in the session scope and the fuseaction is not for the login page --->
 		<cfif len(url.fuseaction)>
 			<!--- if we have a fuseaction in the URL --->
-			<!--- 3. Prevent from navigating TCWD after timed out or logged out --->
+			<!--- 3. Prevent from navigating the application after timed out or logged out --->
 			<cfif find(variables.current_location, listfirst(cgi.http_referer,"?"))>
 				<!---if the refer is the same application, then the session has timed out--->
 				<cfset variables.error_message="It looks like your session timed out (they only last #variables.sessiontimeout*24*60# minutes). Please login again.">
@@ -64,7 +64,7 @@
 <cfelse>
 	<!--- if we have a fuseaction in the URL and the fuseaction is not for one of the protected pages --->
 	<cfset variables.page_is_secure_ind=0>
-	<cfif len(cgi.http_referer) AND NOT (findnocase("nasa.gov", cgi.http_referer) OR findnocase("hitsshq.com", cgi.http_referer) OR findnocase("127.0.0.1", cgi.http_referer))>
+	<cfif len(cgi.http_referer) AND NOT (findnocase("127.0.0.1", cgi.http_referer) OR findnocase("localhost", cgi.http_referer) OR findnocase("boston", cgi.http_referer) OR findnocase("192.168.1.6", cgi.http_referer))>
 		<!--- if we do know the refering page, and the refering page doesn't originate from nasa.gov or hitsshq.com --->
 		<!--- 2. Prevent unauthorized interface attempts from other applications --->
 		<cfset variables.error_message="This is a United States of America Government site. Any unauthenticated access is prohibited.2">

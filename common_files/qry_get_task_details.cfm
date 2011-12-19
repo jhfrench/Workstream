@@ -10,13 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:42:08  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:57:38-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page

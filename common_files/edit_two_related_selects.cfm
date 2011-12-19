@@ -10,16 +10,6 @@
 	
 	Edits: 	
 	$Log$
-	Revision 1.0  2006/04/07 18:30:34  csy
-	task 42743 Edid customer and engagement fields
-
-	Revision 1.1  2005-06-21 11:01:20-04  french
-	Applying style guide. Task 33277
-
-	Revision 1.0  2005-05-26 10:43:11-04  french
-	Adding two_related_selects to workstream. Modified code so that it can handle multiple selections for both boxes.
-
-
 </fusedoc>
 --->
 

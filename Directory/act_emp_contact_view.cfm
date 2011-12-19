@@ -5,19 +5,12 @@
 	<!---FUSEDOC
 	||
 	Responsibilities: I loop over the query of employee demographic data returned from query and send an email to employee in the email list
-									I send a HTML email to employee with an embedded, prepopulated form,
+	I send a HTML email to employee with an embedded, prepopulated form,
 	||
 	Name: Victor Blell
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:46:19  daugherty
-Initial revision
-
-Revision 1.0  2003-03-21 11:38:12-05  blell
-created template
-
-
 	||
 
 	--> emp_id: id that identifies user to workstream

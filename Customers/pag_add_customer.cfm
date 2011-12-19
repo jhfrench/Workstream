@@ -14,4 +14,4 @@
 </cfsilent>
 <cfinclude template="act_set_root_code.cfm">
 <cfinclude template="act_add_customer.cfm">
-<cflocation addtoken="No" url="index.cfm?fuseaction=Customers.customers">
+<cflocation url="index.cfm?fuseaction=Customers.customers" addtoken="no">

@@ -276,16 +276,16 @@
 	}
 
 /*<!---HOVER--> */
-	.NavTextLg:hover, .NavTextMd:hover, .NavTextSm:hover, 
-	.RegTextSm:hover, .RegTextMd:hover, .RegTextLg:hover,
-	.RegTextSmWhite:hover, .RegTextMdWhite:hover, .RegTextLgWhite:hover,
-	.RepLinkLg:hover, .RepLinkMd:hover, .RepLinkSm:hover,
-	.RepLinkLgBlack:hover, .RepLinkMdBlack:hover, .RepLinkSmBlack:hover
+	A.NavTextLg:hover, A.NavTextMd:hover, A.NavTextSm:hover, 
+	A.RegTextSm:hover, A.RegTextMd:hover, A.RegTextLg:hover,
+	A.RegTextSmWhite:hover, A.RegTextMdWhite:hover, A.RegTextLgWhite:hover,
+	A.RepLinkLg:hover, A.RepLinkMd:hover, A.RepLinkSm:hover,
+	A.RepLinkLgBlack:hover, A.RepLinkMdBlack:hover, A.RepLinkSmBlack:hover
 	{
 		color: #970000;
 	}
 	
-	.ModuleBullet:hover
+	A.ModuleBullet:hover
 	{
 		color: #ffffff;
 	}

@@ -17,7 +17,7 @@ SELECT Project.customer_id, Project.description, Project.budget,
     Project.product_id, Project.billable_type_id, Project.mission,
     Project.vision, Project.business_case, Project.project_start, 
 	Project.project_end, Project.status, Project.ie_emp_id,
-	Project.active_id, Project.file_path, Project.date_go_live,
+	Project.active_ind, Project.file_path, Project.date_go_live,
 	Project.eng_status, Project.LOE
 FROM Project
 WHERE Project.project_id=#attributes.project_id#
