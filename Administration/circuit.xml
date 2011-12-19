@@ -1,0 +1,320 @@
+<!-- Administration/circuit.xml
+	Author: Jeromy French -->
+<!--
+<fusedoc language="ColdFusion MX" specification="2.0" template="circuit.xml">
+	<responsibilities>
+		I defined the fuseactions for the Administration module. Please keep fuseactions in alphabetical order.
+	</responsibilities>
+	<properties>
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/31/2007" role="FuseCoder" comments="Created File">
+			$Id:$
+		</history>
+	</properties>
+	<IO>
+		<in>
+
+		</in>
+		<passthrough>
+
+		</passthrough>
+		<out>
+
+		</out>
+	</IO>
+</fusedoc>
+-->
+
+<circuit access="public">
+	<prefuseaction callsuper="true">
+		<include template="../common_files/act_header.cfm"/>
+	</prefuseaction>
+	
+	<fuseaction name="add_user">
+		<include template="pag_add_user.cfm"/>
+	</fuseaction>
+	<fuseaction name="administer_sorter_table">
+		<include template="pag_administer_sorter_table"/>
+	</fuseaction>
+	<fuseaction name="administer_user_menu">
+		<include template="pag_administer_user_menu.cfm"/>
+	</fuseaction>
+	<fuseaction name="business_category_distribution">
+		<include template="pag_business_category_distribution.cfm"/>
+	</fuseaction>
+	<fuseaction name="cause_error">
+		<include template="pag_cause_error.cfm"/>
+	</fuseaction>
+	<fuseaction name="clean_up_old_accounts">
+		<include template="act_clean_up_old_accounts.cfm"/>
+		<include template="act_vendor_renewal_notices.cfm"/>
+		<include template="act_refresh_ccr_data.cfm"/>
+		<include template="act_awards_module_visibility.cfm"/>
+	</fuseaction>
+	<fuseaction name="copy_user_access">
+		<include template="pag_copy_user_access.cfm"/>
+	</fuseaction>
+	<fuseaction name="create_update_triggers">
+		<include template="pag_create_update_triggers.cfm"/>
+	</fuseaction>
+	<fuseaction name="display_help_article">
+		<include template="pag_display_help_article.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_help_article">
+		<include template="pag_edit_help_articles.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_help_faq">
+		<include template="pag_edit_help_faq.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_link_business_function_hier">
+		<include template="pag_edit_link_business_function_hier.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_link_ccr_nvdb_category">
+		<include template="pag_edit_link_ccr_nvdb_category.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_link_module_privilege">
+		<include template="pag_edit_link_module_privilege.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_link_program_year_hierarchy">
+		<include template="pag_edit_link_program_year_hierarchy.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_link_screen_comments">
+		<include template="pag_edit_link_screen_comments.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_link_screen_help_article">
+		<include template="pag_edit_link_screen_help_article.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_link_screen_requirement">
+		<include template="pag_edit_link_screen_requirement.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_link_user_account_status">
+		<include template="pag_edit_link_user_account_status.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_navigation_access">
+		<include template="pag_edit_navigation_access.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_nsm_entity">
+		<include template="pag_edit_nsm_entity.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_nsm_privileges">
+		<include template="pag_edit_nsm_privileges.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_account_status">
+		<include template="pag_edit_ref_account_status.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_address_type">
+		<include template="pag_edit_ref_address_type.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_business_category">
+		<include template="pag_edit_ref_business_category.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_business_function">
+		<include template="pag_edit_ref_business_function.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_ccr_business_type">
+		<include template="pag_edit_ref_ccr_business_type.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_ccr_certification_type">
+		<include template="pag_edit_ref_ccr_certification_type.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_ccr_organization_type">
+		<include template="pag_edit_ref_ccr_organization_type.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_ccr_status">
+		<include template="pag_edit_ref_ccr_status.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_center">
+		<include template="pag_edit_ref_center.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_comments_type">
+		<include template="pag_edit_ref_comments_type.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_contact_type">
+		<include template="pag_edit_ref_contact_type.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_country">
+		<include template="pag_edit_ref_country.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_date">
+		<include template="pag_edit_ref_date.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_email_category">
+		<include template="pag_edit_ref_email_category.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_form_element_type">
+		<include template="pag_edit_ref_form_element_type.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_fsc">
+		<include template="pag_edit_ref_fsc.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_geographic_area">
+		<include template="pag_edit_ref_geographic_area.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_hierarchy_level">
+		<include template="pag_edit_ref_hierarchy_level.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_m_p_approval_status">
+		<include template="pag_edit_ref_m_p_approval_status.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_m_p_status">
+		<include template="pag_edit_ref_m_p_status.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_module">
+		<include template="pag_edit_ref_module.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_naics">
+		<include template="pag_edit_ref_naics.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_numeric_multiplier">
+		<include template="pag_edit_ref_numeric_multiplier.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_organization">
+		<include template="pag_edit_ref_organization"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_priority">
+		<include template="pag_edit_ref_priority.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_privilege">
+		<include template="pag_edit_ref_privilege.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_product_service">
+		<include template="pag_edit_ref_product_service.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_product_version">
+		<include template="pag_edit_ref_product_version.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_program_year">
+		<include template="pag_edit_ref_program_year.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_report_output_format">
+		<include template="pag_edit_ref_report_output_format.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_requirement_type">
+		<include template="pag_edit_ref_requirement_type.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_resource_link_type">
+		<include template="pag_edit_ref_resource_link_type.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_screen">
+		<include template="pag_edit_ref_screen.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_state_province">
+		<include template="pag_edit_ref_state_province.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_upload_source">
+		<include template="pag_edit_ref_upload_source.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_system_note">
+		<include template="pag_edit_system_note.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_user">
+		<include template="pag_edit_user.cfm"/>
+	</fuseaction>
+	<fuseaction name="execute_sql">
+		<include template="pag_execute_sql.cfm"/>
+	</fuseaction>
+	<fuseaction name="list_help_articles">
+		<include template="pag_list_help_articles.cfm"/>
+	</fuseaction>
+	<fuseaction name="list_link_tables">
+		<include template="pag_list_link_tables.cfm"/>
+	</fuseaction>
+	<fuseaction name="list_ref_tables">
+		<include template="pag_list_ref_tables.cfm"/>
+	</fuseaction>
+	<fuseaction name="list_system_notes">
+		<include template="pag_list_system_notes.cfm"/>
+	</fuseaction>
+	<fuseaction name="lock_business_function">
+		<include template="pag_lock_business_function.cfm"/>
+	</fuseaction>
+	<fuseaction name="manage_email">
+		<include template="pag_manage_email.cfm"/>
+	</fuseaction>
+	<fuseaction name="manage_email_subscriptions">
+		<include template="pag_manage_email_subscriptions.cfm"/>
+	</fuseaction>
+	<fuseaction name="manage_mentor_protege">
+		<include template="pag_manage_mentor_protege.cfm"/>
+	</fuseaction>
+	<fuseaction name="manage_nsm_structure">
+		<include template="pag_manage_nsm_structure.cfm"/>
+	</fuseaction>
+	<fuseaction name="manage_opt-out_list">
+		<include template="pag_manage_opt-out_list.cfm"/>
+	</fuseaction>
+	<fuseaction name="manage_system_access">
+		<include template="pag_manage_system_access.cfm"/>
+	</fuseaction>
+	<fuseaction name="manage_user_access">
+		<include template="pag_manage_user_access.cfm"/>
+	</fuseaction>
+	<fuseaction name="manage_user_profiles">
+		<include template="pag_manage_user_profiles.cfm"/>
+	</fuseaction>
+	<fuseaction name="manage_vendor_data">
+		<include template="pag_manage_vendor_data.cfm"/>
+	</fuseaction>
+	<fuseaction name="manually_add_nsm">
+		<include template="pag_manually_add_nsm.cfm"/>
+	</fuseaction>
+	<fuseaction name="metrics_report">
+		<include template="pag_metrics_report.cfm"/>
+	</fuseaction>
+	<fuseaction name="opt-out">
+		<include template="pag_opt-out.cfm"/>
+	</fuseaction>
+	<fuseaction name="process_upload">
+		<include template="../common_files/act_process_upload.cfm"/>
+		<include template="pag_upload.cfm"/>
+	</fuseaction>
+	<fuseaction name="refresh_ccr_data">
+		<include template="act_refresh_ccr_data.cfm"/>
+	</fuseaction>
+	<fuseaction name="reset_application_variables">
+		<include template="qry_update_application_name.cfm"/>
+	</fuseaction>
+	<fuseaction name="reset_password">
+		<include template="pag_reset_password.cfm"/>
+		<include template="pag_administer_user_menu.cfm"/>
+	</fuseaction>
+	<fuseaction name="screen_lock_message">
+		<include template="dsp_screen_lock_message.cfm"/>
+	</fuseaction>
+	<fuseaction name="set_deactivated_date">
+		<include template="pag_set_deactivated_date.cfm"/>
+	</fuseaction>
+	<fuseaction name="specify_module_for_nsm_edit">
+		<include template="pag_specify_module_for_nsm_edit.cfm"/>
+	</fuseaction>
+	<fuseaction name="upload">
+		<include template="pag_upload.cfm"/>
+	</fuseaction>
+	<fuseaction name="upload_mdm_data">
+		<include template="pag_upload_mdm_data.cfm"/>
+	</fuseaction>
+	<fuseaction name="user_list">
+		<include template="pag_user_list.cfm"/>
+	</fuseaction>
+	<fuseaction name="view_application_variables">
+		<include template="pag_view_application_variables.cfm"/>
+	</fuseaction>
+	<fuseaction name="view_calendar">
+		<include template="../common_files/pag_view_calendar.cfm"/>
+	</fuseaction>
+	<fuseaction name="view_log_upload">
+		<include template="pag_view_log_upload.cfm"/>
+	</fuseaction>
+	<fuseaction name="view_sent_email">
+		<include template="pag_view_sent_email.cfm"/>
+	</fuseaction>
+	<fuseaction name="view_user_access">
+		<include template="pag_view_user_access.cfm"/>
+	</fuseaction>
+	<fuseaction name="view_user_activity">
+		<include template="pag_view_user_activity.cfm"/>
+	</fuseaction>
+
+	<postfuseaction>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</postfuseaction>
+</circuit>

@@ -1,0 +1,146 @@
+<!-- Application_Manager/circuit.xml
+	Author: Jeromy French -->
+<!--
+<fusedoc language="ColdFusion MX" specification="2.0" template="circuit.xml">
+	<responsibilities>
+		I am used to set fuses in a calling application. This allows an application outside of Application_Manger to treat the Application_Manger code like a native circuit.
+	</responsibilities>
+	<properties>
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="3/10/2009" role="FuseCoder" comments="Created File">
+			$Id:$
+		</history>
+	</properties>
+	<IO>
+		<in>
+
+		</in>
+		<passthrough>
+
+		</passthrough>
+		<out>
+
+		</out>
+	</IO>
+</fusedoc>
+-->
+<circuit access="public"> 
+	<prefuseaction callsuper="true">
+		<set name="variables.circuit_label" value="Application_Manager"/>
+	</prefuseaction>
+	<fuseaction name="application_settings">
+		<include template="main/pag_application_settings.cfm"/>
+		<include template="main/dsp_menu.cfm"/>
+	</fuseaction>
+	<fuseaction name="cause_error">
+		<include template="main/dsp_cause_error.cfm"/>
+	</fuseaction>
+	<fuseaction name="create_installation_step1">
+		<include template="main/qry_get_product.cfm"/>
+		<include template="main/qry_get_ref_environment.cfm"/>
+		<include template="main/qry_get_ref_host_server.cfm"/>
+		<include template="main/qry_get_ref_email_server.cfm"/>
+		<include template="main/pag_create_installation_step1.cfm"/>
+	</fuseaction>
+	<fuseaction name="create_installation_step2">
+		<include template="main/qry_get_ref_database_server.cfm"/>
+		<include template="main/qry_get_support_contact_info.cfm"/>
+		<include template="main/pag_create_installation_step2.cfm"/>
+	</fuseaction>
+	<fuseaction name="create_product">
+		<include template="main/pag_create_product.cfm"/>
+	</fuseaction>
+	<fuseaction name="create_ref_database_server">
+		<include template="main/pag_create_ref_database_server.cfm"/>
+	</fuseaction>
+	<fuseaction name="create_ref_email_server">
+		<include template="main/pag_create_ref_email_server.cfm"/>
+	</fuseaction>
+	<fuseaction name="create_ref_environment">
+		<include template="main/pag_create_ref_environment.cfm"/>
+	</fuseaction>
+	<fuseaction name="create_ref_host_server">
+		<include template="main/pag_create_ref_host_server.cfm"/>
+	</fuseaction>
+	<fuseaction name="create_ref_support_contact_type">
+		<include template="main/qry_get_ref_support_contact_type.cfm"/>
+		<include template="main/pag_create_ref_support_contact_type.cfm"/>
+	</fuseaction>
+	<fuseaction name="create_support_contact_info">
+		<include template="main/qry_get_ref_support_contact_type.cfm"/>
+		<include template="main/pag_create_support_contact_info.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_installation">
+		<include template="main/pag_edit_installation.cfm"/>
+	</fuseaction>
+	<fuseaction name="hosting_network_overview">
+		<include template="main/pag_hosting_network_overview.cfm"/>
+	</fuseaction>
+	<fuseaction name="insert_installation">
+		<include template="main/act_insert_installation.cfm"/>
+		<set name="attributes.value_inserted" value="#attributes.url_to_base#"/>
+		<include template="main/dsp_insert_thank_you.cfm"/>
+		<include template="main/dsp_menu.cfm"/>
+	</fuseaction>
+	<fuseaction name="insert_product">
+		<include template="main/qry_insert_product"/>
+		<set name="attributes.value_inserted" value="#attributes.product_name#"/>
+		<include template="main/dsp_insert_thank_you.cfm"/>
+		<include template="main/dsp_menu.cfm"/>
+	</fuseaction>
+	<fuseaction name="insert_ref_database_server">
+		<include template="main/qry_insert_ref_database_server.cfm"/>
+		<set name="attributes.value_inserted" value="#attributes.database_server_name#"/>
+		<include template="main/dsp_insert_thank_you.cfm"/>
+		<include template="main/dsp_menu.cfm"/>
+	</fuseaction>
+	<fuseaction name="insert_ref_email_server">
+		<include template="main/qry_insert_ref_email_server.cfm"/>
+		<set name="attributes.value_inserted" value="#attributes.email_server_name#"/>
+		<include template="main/dsp_insert_thank_you.cfm"/>
+		<include template="main/dsp_menu.cfm"/>
+	</fuseaction>
+	<fuseaction name="insert_ref_environment">
+		<include template="main/qry_insert_ref_environment.cfm"/>
+		<set name="attributes.value_inserted" value="#attributes.environment_name#"/>
+		<include template="main/dsp_insert_thank_you.cfm"/>
+		<include template="main/dsp_menu.cfm"/>
+	</fuseaction>
+	<fuseaction name="insert_ref_host_server">
+		<include template="main/qry_insert_ref_host_server.cfm"/>
+		<set name="attributes.value_inserted" value="#attributes.host_server_name#"/>
+		<include template="main/dsp_insert_thank_you.cfm"/>
+		<include template="main/dsp_menu.cfm"/>
+	</fuseaction>
+	<fuseaction name="insert_ref_support_contact_type">
+		<include template="main/qry_insert_ref_support_contact_type.cfm"/>
+		<set name="attributes.value_inserted" value="#attributes.support_contact_type_name#"/>
+		<include template="main/dsp_insert_thank_you.cfm"/>
+		<include template="main/dsp_menu.cfm"/>
+	</fuseaction>
+	<fuseaction name="insert_support_contact_info">
+		<include template="main/qry_insert_support_contact_info.cfm"/>
+		<set name="attributes.value_inserted" value="#attributes.last_name#"/>
+		<include template="main/dsp_insert_thank_you.cfm"/>
+		<include template="main/dsp_menu.cfm"/>
+	</fuseaction>
+	<fuseaction name="login">
+		<include template="main/pag_login.cfm"/>
+	</fuseaction>
+	<fuseaction name="logout">
+		<include template="main/act_logout.cfm"/>
+	</fuseaction>
+	<fuseaction name="reports">
+		<include template="main/pag_view_reports.cfm"/>
+	</fuseaction>
+	<fuseaction name="server_details">
+		<include template="main/pag_server_details.cfm"/>
+	</fuseaction>
+	<fuseaction name="view_error_diagnostics">
+		<include template="main/../errortemplates/dsp_view_error_diagnostics.cfm"/>
+	</fuseaction>
+	<fuseaction name="welcome">
+		<include template="main/dsp_menu.cfm"/>
+	</fuseaction>
+	<postfuseaction>
+	</postfuseaction>
+</circuit>

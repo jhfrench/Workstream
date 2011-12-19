@@ -1,0 +1,89 @@
+<!-- common_files/circuit.xml
+	Author: Jeromy French -->
+<!--
+<fusedoc language="ColdFusion MX" specification="2.0" template="circuit.xml">
+	<responsibilities>
+	</responsibilities>
+	<properties>
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/31/2007" role="FuseCoder" comments="Created File">
+			$Id:$
+		</history>
+	</properties>
+	<IO>
+		<in>
+
+		</in>
+		<passthrough>
+
+		</passthrough>
+		<out>
+
+		</out>
+	</IO>
+</fusedoc>
+-->
+
+<circuit access="public">
+	<prefuseaction callsuper="true">
+	</prefuseaction>
+	<fuseaction name="administration_nav">
+		<include template="../Administration/pag_welcome.cfm"/>
+	</fuseaction>
+	<fuseaction name="bw_report_links">
+		<include template="pag_bw_report_links.cfm"/>
+	</fuseaction>
+	<fuseaction name="change_password">
+		<include template="act_header.cfm"/>
+		<include template="pag_change_password.cfm"/>
+		<include template="dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_user_profile">
+		<include template="act_header.cfm"/>
+		<include template="pag_edit_user_profile.cfm"/>
+		<include template="dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="forget_password">
+		<include template="act_header.cfm"/>
+		<include template="pag_forget_password.cfm"/>
+		<include template="dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="login">
+		<include template="act_header.cfm"/>
+		<include template="pag_login.cfm"/>
+		<include template="dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="logout">
+		<include template="act_logout.cfm"/>
+	</fuseaction>
+	<fuseaction name="main">
+		<include template="act_header.cfm"/>
+		<include template="pag_main.cfm"/>
+		<include template="dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="process_upload">
+		<include template="pag_process_upload.cfm"/>
+	</fuseaction>
+	<fuseaction name="relocate_login">
+		<include template="pag_relocate_login.cfm"/>
+	</fuseaction>
+	<fuseaction name="view_calendar">
+		<include template="pag_view_calendar.cfm"/>
+	</fuseaction>
+	<fuseaction name="view_forum">
+		<include template="act_header.cfm"/>
+		<include template="pag_view_forum.cfm"/>
+		<include template="dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="welcome">
+		<include template="act_header.cfm"/>
+		<include template="dsp_menu.cfm"/>
+		<include template="dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="welcome_messages">
+		<include template="act_header.cfm"/>
+		<include template="dsp_welcome_messages.cfm"/>
+		<include template="dsp_footer.cfm"/>
+	</fuseaction>
+	<postfuseaction>
+	</postfuseaction>
+</circuit>

@@ -1,0 +1,99 @@
+<!-- Home/circuit.xml
+	Author: Jeromy French -->
+<!--
+<fusedoc language="ColdFusion MX" specification="2.0" template="circuit.xml">
+	<responsibilities>
+	</responsibilities>
+	<properties>
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/31/2007" role="FuseCoder" comments="Created File">
+			$Id:$
+		</history>
+	</properties>
+	<IO>
+		<in>
+
+		</in>
+		<passthrough>
+
+		</passthrough>
+		<out>
+
+		</out>
+	</IO>
+</fusedoc>
+-->
+<circuit access="public">
+	<prefuseaction callsuper="true">
+	</prefuseaction>
+	<fuseaction name="add_forum_message">
+		<include template="../common_files/act_header.cfm"/>
+		<include template="dsp_discussion_form.cfm"/>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="change_password">
+		<include template="../common_files/act_header.cfm"/>
+		<include template="pag_change_password.cfm"/>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="coming_soon">
+		<include template="dsp_coming_soon.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_user_preference">
+		<include template="pag_edit_user_preference.cfm"/>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_user_profile">
+		<include template="../common_files/act_header.cfm"/>
+		<include template="pag_edit_user_profile.cfm"/>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="forget_password">
+		<include template="../common_files/act_header.cfm"/>
+		<include template="pag_forget_password.cfm"/>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="forget_username">
+		<include template="../common_files/act_header.cfm"/>
+		<include template="pag_forget_username.cfm"/>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="forum_commands">
+		<include template="dsp_forum_commands.cfm"/>
+	</fuseaction>
+	<fuseaction name="login">
+		<include template="../common_files/act_header.cfm"/>
+		<include template="pag_login.cfm"/>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="logout">
+		<include template="act_logout.cfm"/>
+	</fuseaction>
+	<fuseaction name="main">
+		<include template="../common_files/act_header.cfm"/>
+		<include template="pag_main.cfm"/>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="message_commands">
+		<include template="dsp_message_commands.cfm"/>
+	</fuseaction>
+	<fuseaction name="module_commands">
+		<include template="dsp_module_commands.cfm"/>
+	</fuseaction>	
+	<fuseaction name="view_forum">
+		<include template="../common_files/act_header.cfm"/>
+		<include template="pag_view_forum.cfm"/>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="welcome">
+		<include template="../common_files/act_header.cfm"/>
+		<include template="dsp_menu.cfm"/>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="welcome_messages">
+		<include template="../common_files/act_header.cfm"/>
+		<include template="pag_welcome_messages.cfm"/>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</fuseaction>
+	<postfuseaction>
+	</postfuseaction>
+</circuit>

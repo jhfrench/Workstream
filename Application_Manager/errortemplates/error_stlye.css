@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.content {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: small;
+	background-image: url(middle-BG.jpg);
+	background-repeat: repeat-y;
+	padding: 0 30px 0 30px;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.header {
+	color:#922005;
+	font-size: 1.2em;
+	font-weight:bold;
+}

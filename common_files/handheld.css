@@ -1,0 +1,15 @@
+.screen_only {
+	display: none;
+	}
+.loginBox {
+	left:0px;
+	top:0px;
+	width:302px;
+	height:202px;
+	border-style: solid;
+	border-color: white;
+	border-width: 1px;
+	}
+.login_background {
+	background-color:black;
+	}

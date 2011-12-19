@@ -1,0 +1,54 @@
+<!-- Requirements/circuit.xml
+	Author: Jeromy French -->
+<!--
+<fusedoc language="ColdFusion MX" specification="2.0" template="circuit.xml">
+	<responsibilities>
+	</responsibilities>
+	<properties>
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
+			$Id:$
+		</history>
+	</properties>
+	<IO>
+		<in>
+
+		</in>
+		<passthrough>
+
+		</passthrough>
+		<out>
+
+		</out>
+	</IO>
+</fusedoc>
+-->
+
+<circuit access="public">
+	<prefuseaction callsuper="true">
+		<include template="../common_files/act_header.cfm"/>
+	</prefuseaction>
+	<fuseaction name="welcome">
+		<include template="dsp_menu.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_comment">
+		<include template="pag_edit_comments.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_requirement">
+		<include template="pag_edit_requirements.cfm"/>
+	</fuseaction>
+	<fuseaction name="mark_requirement_complete">
+		<include template="dsp_mark_requirement_complete.cfm"/>
+	</fuseaction>
+	<fuseaction name="change_requirement_listing_options">
+		<include template="dsp_change_requirement_listing_options.cfm"/>
+	</fuseaction>
+	<fuseaction name="requirements_document">
+		<include template="dsp_requirements_document.cfm"/>
+	</fuseaction>
+	<fuseaction name="view_all_comments">
+		<include template="pag_view_all_comments.cfm"/>
+	</fuseaction>
+	<postfuseaction>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</postfuseaction>
+</circuit>

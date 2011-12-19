@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /Administration/
+Disallow: /Awards/
+Disallow: /common_files/
+Disallow: /Help/
+Disallow: /Home/
+Disallow: /Mentor_Protégé/
+Disallow: /Mentor_Protege/
+Disallow: /Mentor_Protg/
+Disallow: /Requirements/
+Disallow: /Search/
+Disallow: /Vendor/

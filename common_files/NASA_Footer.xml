@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="NASA_Footer.xsl" ?>
+<channel>
+	<item>
+		<title>+ Freedom of Information Act</title>
+		<link>http://www.hq.nasa.gov/office/pao/FOIA/agency/</link>
+	</item>
+	<item>
+		<title>+ Budgets, Strategic Plans and Accountability Reports</title>
+		<link>http://www.nasa.gov/about/budget/index.html</link>
+	</item>
+	<item>
+		<title>+ The President's Management Agenda</title>
+		<link>http://www.nasa.gov/about/highlights/HP_Management.html</link>
+	</item>
+	<item>
+		<title>+ Privacy Policy and Important Notices</title>
+		<link>http://www.nasa.gov/about/highlights/HP_Privacy.html</link>
+	</item>
+	<item>
+		<title>+ Inspector General Hotline</title>
+		<link>http://www.hq.nasa.gov/office/oig/hq/hotline.html</link>
+	</item>
+	<item>
+		<title>+ Equal Employment Opportunity Data Posted Pursuant to the No Fear Act</title>
+		<link>http://www.hq.nasa.gov/office/codee/nofear.html</link>
+	</item>
+	<item>
+		<title>+ Information-Dissemination Priorities and Inventories</title>
+		<link>http://www.nasa.gov/about/contact/information_inventories_schedules.html</link>
+	</item>
+	<item>
+		<title>+ USA.gov-Your First Click to the US Government</title>
+		<link>http://www.usa.gov/</link>
+	</item>
+	<item>
+		<title>+ ExpectMore-A Program Which Determines Whether Government Programs Are Effective</title>
+		<link>http://www.whitehouse.gov/omb/expectmore/</link>
+	</item>
+</channel>
