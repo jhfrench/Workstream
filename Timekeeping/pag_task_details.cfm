@@ -35,10 +35,10 @@
 		<cfset attributes.project_id=get_task_details.project_id>
 	</cfif>
 	<cfinclude template="../common_files/act_call_big_project_list.cfm">
-	<cfinclude template="qry_get_priorities.cfm">
+	<cfinclude template="../common_files/qry_get_priorities.cfm">
 	<cfinclude template="qry_get_ref_icon.cfm"><!--- 
 	<cfinclude template="qry_get_notification_frequency.cfm"> --->
-	<cfinclude template="qry_get_task_stati.cfm">
+	<cfinclude template="../common_files/qry_get_task_stati.cfm">
 	
 	<cfif get_task_details.recordcount>
 		<cfset attributes.active_only=1>

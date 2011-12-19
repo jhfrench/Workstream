@@ -14,7 +14,7 @@
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
 </cfsilent>
-<cfinclude template="../timekeeping/qry_get_task_stati.cfm">
+<cfinclude template="../common_files/qry_get_task_stati.cfm">
 	<tr valign="top">
 		<td align="center">
 			<input type="checkbox" name="task_stati_box" value="1" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">

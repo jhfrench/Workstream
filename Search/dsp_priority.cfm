@@ -14,7 +14,7 @@
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
 </cfsilent>
-<cfinclude template="../timekeeping/qry_get_priorities.cfm">
+<cfinclude template="../common_files/qry_get_priorities.cfm">
 <cfoutput>
 	<tr valign="top">
 		<td align="center">

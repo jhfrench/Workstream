@@ -18,7 +18,7 @@
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="100%">
 	<cfinclude template="act_engagement_list_order.cfm">
 	<cfinclude template="../common_files/qry_engagement_list.cfm">
-	<cfinclude template="dsp_dropdowns.cfm">
+	<cfinclude template="../common_files/dsp_dropdowns.cfm">
 	<cfinclude template="dsp_engagement_list_header.cfm">
 	<cfinclude template="dsp_engagement_list.cfm">
 </table>

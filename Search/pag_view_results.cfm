@@ -29,12 +29,11 @@
 <cfparam name="attributes.task_name" default="">
 </cfsilent>
 <cfinclude template="../common_files/act_client_vars.cfm">
-<cfinclude template="../timekeeping/act_task_list_order.cfm">
+<cfinclude template="../common_files/act_task_list_order.cfm">
 <cfinclude template="qry_search.cfm">
 <table align="center" cellpadding="0" cellspacing="0" border="0" width="100%">
-	<!---<cfinclude template="../timekeeping/dsp_dropdowns.cfm">--->
-    <cfinclude template="../timekeeping/dsp_task_list_header.cfm"> 
-	<cfinclude template="../timekeeping/dsp_task_list.cfm">
+    <cfinclude template="../common_files/dsp_task_list_header.cfm"> 
+	<cfinclude template="../common_files/dsp_task_list.cfm">
  
 
 </table>

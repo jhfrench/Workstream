@@ -34,10 +34,10 @@
 <cfelse>
 	<cfinclude template="dsp_no_new_task.cfm">
 </cfif>
-<cfinclude template="qry_get_priorities.cfm">
+<cfinclude template="../common_files/qry_get_priorities.cfm">
 <cfinclude template="qry_get_ref_icon.cfm"><!--- 
 <cfinclude template="qry_get_notification_frequency.cfm"> --->
-<cfinclude template="qry_get_task_stati.cfm">
+<cfinclude template="../common_files/qry_get_task_stati.cfm">
 <iframe src="../common_files/pop_cal/popcjs.htm" name="gToday:normal:agenda.js" id="gToday:normal:agenda.js" scrolling="no" frameborder="0" style="border:ridge;visibility:hidden;position:absolute;z-index:65535"></iframe>
 <!--- <cfinclude template="../common_files/dsp_pop_calendar.cfm">
 <cfmodule template="../common_files/act_calendar.cfm" form_name="task_details" field_name="date_start,due_date"> --->
