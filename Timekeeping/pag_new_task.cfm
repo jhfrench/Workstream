@@ -25,7 +25,7 @@
 			<form name="to_edit" action="index.cfm?fuseaction=Timekeeping.task_details" method = "post">
 				<input type="hidden" name="task_id" value="<cfoutput>#insert_new_task.task_id#</cfoutput>">
 			</form>	
-			<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+			<script language="JavaScript" type="text/javascript">
 		    <!--
 		    	document.to_edit.submit();
 		    //-->
@@ -35,7 +35,7 @@
 	<cfinclude template="dsp_no_new_task.cfm">
 </cfif>
 <cfinclude template="qry_get_priorities.cfm">
-<cfinclude template="qry_get_icons.cfm"><!--- 
+<cfinclude template="qry_get_ref_icon.cfm"><!--- 
 <cfinclude template="qry_get_notification_frequency.cfm"> --->
 <cfinclude template="qry_get_task_stati.cfm">
 <iframe src="../common_files/pop_cal/popcjs.htm" name="gToday:normal:agenda.js" id="gToday:normal:agenda.js" scrolling="no" frameborder="0" style="border:ridge;visibility:hidden;position:absolute;z-index:65535"></iframe>

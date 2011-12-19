@@ -10,17 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/12/19 20:29:59  french
-	Added engagement name to output. Restructured query to union results within the subquery. Added link to engagement details. Task 38852
-
-	Revision 1.0  2005-02-15 16:01:14-05  daugherty
-	Initial revision
-
-	Revision 1.2  2001-11-05 10:55:33-05  french
-	Changed 'reload form' from 'button' to 'reset' input type.
-
-	Revision 1.1  2001-10-11 10:54:22-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
  --->
 </cfsilent>

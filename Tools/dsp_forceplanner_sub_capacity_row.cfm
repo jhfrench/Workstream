@@ -10,15 +10,9 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 21:01:12  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:54:22-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
  --->
+</cfsilent>
 <cfoutput>
 	<tr bgcolor="##E1E1E1" class="SubHeadText#session.workstream_text_size#">
 		<!--- <td bgcolor="##ffffff" colspan="3" valign="bottom" align="right" class="SubHeadText#session.workstream_text_size#"></td> --->

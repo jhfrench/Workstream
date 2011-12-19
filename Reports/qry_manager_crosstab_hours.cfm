@@ -8,24 +8,7 @@
 
 	||
 	Edits:
-	$Log: qry_manager_crosstab_hours.cfm,v $
-	Revision 1.4  2005-12-02 14:52:59-05  french
-	Removed hard-coded supervisor emp_id. Added supervisor data to output. Task 38058
-
-	Revision 1.3  2005-03-09 13:14:06-05  stetzer
-	<>
-
-	Revision 1.2  2005-03-09 09:14:34-05  french
-	Need closing ')' for subquery.
-
-	Revision 1.1  2005-03-03 14:09:16-05  french
-	Modified report to use Link_Employee_Supervisor table, where we now hold employee/Supervisor relationship data. Task 30220
-
-	Revision 1.0  2005-02-15 15:57:53-05  daugherty
-	Initial revision
-
-	Revision 1.1  2001-10-11 11:03:55-04  long
-	added $log $ for edits.  To all CFM files that have fusedocs.
+	$Log$
 	||
 	END FUSEDOC --->
 <cfquery name="manager_crosstab_hours" datasource="#application.datasources.main#">

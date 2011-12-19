@@ -10,20 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2006/09/15 22:27:59  csy
-	<>
-
-	Revision 1.0  2006-08-16 09:32:08-04  csy
-	Initial revision
-
-	Revision 1.0  2005-02-15 15:27:34-05  daugherty
-	Initial revision
-
-	Revision 1.1  2001-11-21 12:37:17-05  french
-	Added ability to update all application variables.
-
-	Revision 1.0  2001-11-07 11:14:35-05  french
-	Added workstream management.
 	||
 	Variables:
 	<-> [attributes.change_me]: list of variable names to update to the current date/time

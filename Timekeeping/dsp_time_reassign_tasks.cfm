@@ -10,16 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.2  2006/08/11 11:00:38  french
-Making time reassign work with two-related-selects.
-
-Revision 1.1  2005-03-09 13:22:28-05  stetzer
-<>
-
-Revision 1.1  2001-10-11 10:54:59-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->

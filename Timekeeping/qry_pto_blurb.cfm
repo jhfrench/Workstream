@@ -10,21 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.5  2005/08/25 15:52:32  long
-	task 35115- added code to make sure that the PTO query returns values for the user even if they aren't currently viewing information for the company they work for.
-
-	Revision 1.4  2005-08-16 17:05:51-04  french
-	Modified code to account for employees who don't participate in PTO benefit. Task 34921
-
-	Revision 1.3  2005-08-11 15:04:30-04  french
-	Changed query so that PTO balances can be calculated since end of previous month. Task 34645
-
-	Revision 1.2  2005-08-02 16:16:37-04  french
-	Completely revamped code to process faster and show more useful information to the user. Task 34645
-
-	Revision 1.1  2005-03-09 13:27:03-05  stetzer
-	<>
-
 	||
 	--> application.datasources.main: string that contains the name of the datasource AS mapped in CF administrator
 	--> session.user_account_id: number that uniquely identifies the user

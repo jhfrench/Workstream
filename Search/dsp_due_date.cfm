@@ -10,18 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2006/05/04 18:54:42  csy
-	Task 42743 Dynimically populate the due date operator drop down list.
-
-	Revision 1.0  2005-02-15 15:58:18-05  daugherty
-	Initial revision
-
-	Revision 1.1  2003-01-08 10:39:11-05  blell
-	Added new calendar
-
-	Revision 1.0  2001-10-17 10:39:27-04  french
-	Created file to display date field search capability.
-
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->

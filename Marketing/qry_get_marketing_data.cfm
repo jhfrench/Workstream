@@ -25,7 +25,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 
 <!---     <cfquery name="marketing" datasource="#application.datasources.main#">
 SELECT marketing.marketing_id, Marketing.Projected_Revenue, Marketing.Probability, 
-    Marketing.Project_Code, Marketing.Project_ID, 
+    Marketing.project_code, Marketing.Project_ID, 
     (cast(datepart(mm,Marketing.StatusAboveDate) as varchar(2)) +'/'+ cast(datepart(dd, Marketing.StatusAboveDate) as varchar(2)) +'/'+ cast(datepart(yyyy, Marketing.StatusAboveDate) as varchar(4))) as StatusAboveDate, 
     (cast(datepart(mm,Marketing.StatusInDate) as varchar(2)) +'/'+ cast(datepart(dd, Marketing.StatusInDate) as varchar(2)) +'/'+ cast(datepart(yyyy, Marketing.StatusInDate) as varchar(4))) as StatusInDate, 
     (cast(datepart(mm,Marketing.StatusBestFewDate) as varchar(2)) +'/'+ cast(datepart(dd, Marketing.StatusBestFewDate) as varchar(2)) +'/'+ cast(datepart(yyyy, Marketing.StatusBestFewDate) as varchar(4))) as StatusBestFewDate,
@@ -65,7 +65,7 @@ ORDER BY task_id desc
     Emp_Contact.Emp_ID = Phone.Emp_ID LEFT OUTER JOIN
     Email ON Email.Email_Type_ID = 1 AND 
     Emp_Contact.Emp_ID = Email.Emp_ID
-WHERE (Marketing.Project_Code LIKE '6005.%')
+WHERE (Marketing.project_code LIKE '6005.%')
 <cfif SortBy1 is not 'None'>and (#SortBy1# like '%#SortBy1stuff#%'</cfif>
 <cfif sortBy2 is not 'None'>#SortBy2andor# #SortBy2# like '%#SortBy2stuff#%'</cfif>
 <cfif SortBy3 is not 'None'>#SortBy3andor# #SortBy3# like '%#SortBy3stuff#%'</cfif>
@@ -79,7 +79,7 @@ GROUP BY task_info.last_task,task_info.task_id, Marketing.Projected_Revenue,
     Emp_Contact.Name, Emp_Contact.LName, Location.Address1, 
     Location.Address2, Location.City, Location.State, Location.Zip, 
     Phone.Phone_Number, Phone.Extension, Email.Email, 
-    Marketing.Project_Code, Emp_Contact1.Name, 
+    Marketing.project_code, Emp_Contact1.Name, 
     Emp_Contact1.Name + ' ' + Emp_Contact1.LName, 
     Project.Description, task_info.Date, Project.Active_ID, 
     Emp_Contact1.Emp_ID, marketing.marketing_id, Emp_Contact.emp_id

@@ -36,10 +36,10 @@
 			</ol>
 		</td>
 	</tr>
-<input type="hidden" name="billable_id" value="#attributes.billable_id#">
+<input type="hidden" name="billable_type_id" value="#attributes.billable_type_id#">
 <input type="hidden" name="budget" value="#attributes.budget#">
 <input type="hidden" name="business_case" value="#attributes.business_case#">
-<input type="hidden" name="customers_id" value="#attributes.customers_id#">
+<input type="hidden" name="customer_id" value="#attributes.customer_id#">
 <input type="hidden" name="description" value="#attributes.description#">
 <input type="hidden" name="last_loaded" value="#now()#">
 <input type="hidden" name="mission" value="#attributes.mission#">
@@ -48,9 +48,9 @@
 <input type="hidden" name="project_start" value="#attributes.project_start#">
 <input type="hidden" name="req_custom" value="#attributes.req_custom#">
 <cfif isdefined("attributes.strip_trailing")><input type="hidden" name="strip_trailing" value="1"></cfif>
-<cfif isdefined("attributes.visible_to")><input type="hidden" name="visible_to" value="#attributes.visible_to#"></cfif>
+<cfif isdefined("attributes.company_id")><input type="hidden" name="company_id" value="#attributes.company_id#"></cfif>
 <input type="hidden" name="vision" value="#attributes.vision#">
-<cfswitch expression="#attributes.billable_id#">
+<cfswitch expression="#attributes.billable_type_id#">
 <cfcase value="3">
 <input type="hidden" name="end_date" value="#attributes.end_date#">
 <input type="hidden" name="start_date" value="#attributes.start_date#">

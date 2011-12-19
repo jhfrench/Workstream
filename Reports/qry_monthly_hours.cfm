@@ -32,38 +32,38 @@
 <cfquery name="monthly_hours" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name, Emp_Contact.lname, Project.project_code AS clientcode,
 	CASE
-		WHEN Customers.description != Project.description
+		WHEN Customer.description != Project.description
 	<cfif session.workstream_project_list_order EQ 2>
-			THEN (Project.project_code + ' - ' + Customers.description + ' - ' + Project.description)
+			THEN (Project.project_code + ' - ' + Customer.description + ' - ' + Project.description)
 		ELSE (Project.project_code + ' - ' + Project.description)
 	<cfelse>
-			THEN (Customers.description + ' - ' + Project.description + ' (' + Project.project_code + ')')
+			THEN (Customer.description + ' - ' + Project.description + ' (' + Project.project_code + ')')
 		ELSE (Project.description + ' (' + Project.project_code + ')')
 	</cfif>END AS clientname, REF_Employee_Classification.employee_classification,
 	SUM(Time_Entry.hours) AS hours, Company.company
 FROM Emp_Contact, Time_Entry, Project,
-	Demographics_Ngauge Demographics, Customers, Company,
+	Demographics_Ngauge Demographics, Customer, Company,
 	REF_Employee_Classification
 WHERE Emp_Contact.emp_id=Time_Entry.emp_id
 	AND Time_Entry.Project_id=Project.project_id
 	AND Time_Entry.emp_id=Demographics.emp_id
 	AND Emp_Contact.emp_id=Company.emp_id
-	AND Project.customers_id=Customers.customers_id
+	AND Project.customer_id=Customer.customer_id
 	AND Demographics.employee_classification_id*=REF_Employee_Classification.employee_classification_id
 	AND Time_Entry.date BETWEEN Demographics.effective_from AND ISNULL(Demographics.effective_to, Time_Entry.date)
 	AND Demographics.effective_from <= #variables.through_date#
 	AND ISNULL(Demographics.effective_to,#variables.from_date#) >= #variables.from_date#
 	AND Time_Entry.date BETWEEN #variables.from_date# AND #variables.through_date#
 	AND Company.company IN (#session.workstream_company_select_list#)
-	AND Project.billable_id IN (<cfif flag_non_billable>2<cfelse>1, 3, 4</cfif>)
+	AND Project.billable_type_id IN (<cfif flag_non_billable>2<cfelse>1, 3, 4</cfif>)
 GROUP BY Emp_Contact.name, Emp_Contact.lname,
 	CASE
-		WHEN Customers.description != Project.description
+		WHEN Customer.description != Project.description
 		<cfif session.workstream_project_list_order EQ 2>
-			THEN (Project.project_code + ' - ' + Customers.description + ' - ' + Project.description)
+			THEN (Project.project_code + ' - ' + Customer.description + ' - ' + Project.description)
 		ELSE (Project.project_code + ' - ' + Project.description)
 		<cfelse>
-			THEN (Customers.description + ' - ' + Project.description + ' (' + Project.project_code + ')')
+			THEN (Customer.description + ' - ' + Project.description + ' (' + Project.project_code + ')')
 		ELSE (Project.description + ' (' + Project.project_code + ')')
 	</cfif>END, Project.project_code,
 	REF_Employee_Classification.employee_classification, Company.company

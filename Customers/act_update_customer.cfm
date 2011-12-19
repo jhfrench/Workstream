@@ -9,20 +9,12 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:45:33  daugherty
-	Initial revision
-
-	Revision 1.2  2002-01-08 18:33:26-05  french
-	Old code was evaluating Emp_Contact.disable, a field that does not exist in the workstream data model. Modified code to account for this.
-
-	Revision 1.1  2001-11-15 10:13:05-05  long
-	Changed the isolation level from Serializable to read_committed
 	||
 	END FUSEDOC --->
 <cftransaction isolation="READ_COMMITTED">
-<!--- I update the customers table with the information that is only located on the customers table --->
+<!--- I update the Customer table with the information that is only located on the Customer table --->
 <cfquery name="update_customers" datasource="#application.datasources.main#">
-UPDATE Customers
+UPDATE Customer
 SET root_code='#attributes.root_code#',
 	description='#attributes.description#', 
 	company_id=#attributes.company_id#,
@@ -32,13 +24,13 @@ SET root_code='#attributes.root_code#',
 	company_city = '#attributes.company_city#',</cfif>
 	company_state='#attributes.company_state#'<cfif len(company_zip)>,
 	company_zip ='#attributes.company_zip#'</cfif>
-WHERE customers_id=#attributes.customers_id#
+WHERE customer_id=#attributes.customer_id#
 </cfquery>
 <cfquery name="update_projects" datasource="#application.datasources.main#">
 UPDATE Project
 SET root_code='#attributes.root_code#',
 	project_code='#attributes.root_code#'+RIGHT(project_code,LEN(project_code)-4)
-WHERE customers_id=#attributes.customers_id#
+WHERE customer_id=#attributes.customer_id#
 </cfquery>
 <!--- See if the fields for name and Last Name are populate on the form. --->
 <cfif len(attributes.name) OR len(attributes.lname)>
@@ -50,51 +42,51 @@ WHERE customers_id=#attributes.customers_id#
 		AND lname='#attributes.lname#'
 		AND emp_contact_type=4    
 	</cfquery>	
-<!--- If the person is already in the system as a billing contact, update the customers table to reference the existing contact --->	
+<!--- If the person is already in the system as a billing contact, update the Customer table to reference the existing contact --->	
 	<cfif len(get_contact_name.emp_id)>
 		<cfquery name="update_emp_contact" datasource="#application.datasources.main#">
-		UPDATE Customers
+		UPDATE Customer
 	    SET emp_contact_id=#get_contact_name.emp_id#
-	    WHERE customers_id=#attributes.customers_id#
+	    WHERE customer_id=#attributes.customer_id#
 		</cfquery>
 	<!--- If the person doesn't exist in the system, insert him into the system --->	
 	<cfelse>
 			<cfquery name="insert_new_contact" datasource="#application.datasources.main#">
-			INSERT INTO emp_contact (name, lname, emp_contact_type)
+			INSERT INTO Emp_Contact (name, lname, emp_contact_type)
 			VALUES ('#attributes.name#', '#attributes.lname#', 4)
 			</cfquery>
-	<!--- and  update the customers table with the new contact information --->		
+	<!--- and  update the Customer table with the new contact information --->		
 			<cfquery name="update_customer" datasource="#application.datasources.main#">
-			UPDATE Customers
+			UPDATE Customer
 			SET emp_contact_id=(SELECT MAX(emp_id) AS emp_contact_id FROM Emp_Contact)
-			WHERE customers_id=#attributes.customers_id#
+			WHERE customer_id=#attributes.customer_id#
 			</cfquery>
 	</cfif>
 <!---This is if the form is empty for contact information --->	
 <cfelse>
 	<cfquery name="get_contact" datasource="#application.datasources.main#">
 	SELECT emp_contact_id
-	FROM customers
-	WHERE customers_id=#attributes.customers_id#
+	FROM Customer
+	WHERE customer_id=#attributes.customer_id#
 	</cfquery>
 	<cfif len(get_contact.emp_contact_id)>
 		<cfquery name="remove_contact" datasource="#application.datasources.main#">
-		UPDATE customers
+		UPDATE Customer
 		SET emp_contact_id=NULL
-		WHERE customers_id=#attributes.customers_id#    
+		WHERE customer_id=#attributes.customer_id#    
 		</cfquery>
 	</cfif>
 </cfif>
 <!--- Update the visible to table, by deleting all the existing entries and then looping through the list of companies that 
 the customer is visible to and insert them into the table. --->
 <cfquery name="delete_old" datasource="#application.datasources.main#">
-DELETE FROM Customer_Visible_To
-WHERE code='#attributes.root_code#'
+DELETE FROM Link_Customer_Company
+WHERE customer_id='#attributes.customer_id#'
 </cfquery>
-<cfloop index="ii" list="#attributes.visible_to#">
-	<cfquery name="insert_visible_to" datasource="#application.datasources.main#">
-	INSERT INTO customer_visible_to (code, visible_to)
-	VALUES ('#attributes.root_code#', #ii#)
+<cfloop index="ii" list="#attributes.company_id#">
+	<cfquery name="insert_company_id" datasource="#application.datasources.main#">
+	INSERT INTO Link_Customer_Company (customer_id, company_id)
+	VALUES ('#attributes.customer_id#', #ii#)
 	</cfquery>
 </cfloop>
 </cftransaction>

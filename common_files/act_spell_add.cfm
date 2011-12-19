@@ -18,7 +18,7 @@ SELECT Emp_Contact.lname AS lname, Emp_Contact.name AS first_name
 FROM Emp_Contact
 WHERE Emp_Contact.emp_id=#session.user_account_id#
 </cfquery>
-<cfmail subject="Please add new word to dictionary" to="french@nucleusweb.com" from="#application.erroremailfrom#" server="#application.emailserver#" type="HTML">
+<cfmail subject="Please add new word to dictionary" to="jeromy_french@hotmail.com" from="#application.erroremailfrom#" server="#application.emailserver#" type="HTML">
 <font face="Arial,Helvetica,sans-serif" size="1">
 Word: '#attributes.suggested_word#'<br>
 Requestor: #get_requestor.lname#, #get_requestor.first_name#<br>
@@ -34,5 +34,5 @@ Time: #TimeFormat(now(), "h:mm TT")#<br>
 	<input type="submit" value="add">
 </form>
 </font>
-<cfmailparam name="Reply-To" value="french@nucleusweb.com">
+<cfmailparam name="Reply-To" value="jeromy_french@hotmail.com">
 </cfmail>

@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 21:01:59  daugherty
-	Initial revision
-
-	Revision 1.0  2002-02-19 14:54:26-05  french
-	Creating drill-down to the notes level from the invoice tool.
-
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	END FUSEDOC --->

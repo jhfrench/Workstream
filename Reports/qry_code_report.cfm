@@ -24,7 +24,7 @@ FROM Emp_Contact
 		INNER JOIN Demographics_Ngauge AS Demographics ON Emp_Contact.emp_id = Demographics.emp_id
 			AND Time_Entry.date BETWEEN Demographics.effective_from AND isnull(Demographics.effective_to, #createODBCDate(attributes.through_date)#)
 		INNER JOIN Project ON Time_Entry.project_id = Project.project_id
-		INNER JOIN Customers ON Project.customers_id = Customers.customers_id
+		INNER JOIN Customer ON Project.customer_id = Customer.customer_id
 		INNER JOIN Company ON Emp_Contact.emp_id = Company.emp_id
 		INNER JOIN REF_Companies ON Company.company = REF_Companies.company_id
 		LEFT OUTER JOIN REF_Employee_Classification

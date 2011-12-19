@@ -103,7 +103,7 @@ limitations under the License.
 				
 		// auto-append script extension:
 		fb_.standardExtension = fb_.app.scriptFileDelimiter;
-		fb_.extension = listLast(fb_.verbInfo.attributes.template,".");
+		fb_.extension = listlast(fb_.verbInfo.attributes.template,".");
 		if (listFindNoCase(fb_.app.maskedFileDelimiters,fb_.extension,',') eq 0 and 
 				listFindNoCase(fb_.app.maskedFileDelimiters,'*',',') eq 0) {
 			fb_.template = fb_.verbInfo.attributes.template & "." & fb_.standardExtension;

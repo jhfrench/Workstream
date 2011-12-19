@@ -9,9 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:45:49  daugherty
-	Initial revision
-
 	||
 	END FUSEDOC --->
     </cfsilent>

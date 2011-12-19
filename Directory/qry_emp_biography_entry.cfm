@@ -10,15 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:46:54  daugherty
-	Initial revision
-
-	Revision 1.1  2001-10-30 11:35:44-05  french
-	Initial query writing.
-
-	Revision 1.0  2001-10-16 17:05:50-04  french
-	Initial revision
-
 	||
 	Variables:
  --->

@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 
 <cfquery name="tasks_to_inactive" datasource="#application.datasources.main#">
-SELECT task.description as task_description, Task.Name, Task.Project_Code, Emp_Contact.Name+' '+ 
+SELECT task.description as task_description, Task.Name, Task.project_code, Emp_Contact.Name+' '+ 
     Emp_Contact.LName as task_owner, Task.Project_id, Task.Task_ID
 FROM Task
 	INNER JOIN Team ON Task.Task_ID = Team.Task_ID

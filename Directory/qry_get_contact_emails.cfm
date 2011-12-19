@@ -10,13 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:46:58  daugherty
-	Initial revision
-
-	Revision 1.0  2003-03-21 11:35:21-05  blell
-	created template.
-
-
 	||
 	Variables:
 	--> application.datasources.main: datasource for the application

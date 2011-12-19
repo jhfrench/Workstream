@@ -1,5 +1,5 @@
 
-<!--Customers/pag_add_edit.cfm
+<!--Marketing/pag_add_edit.cfm
 	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC

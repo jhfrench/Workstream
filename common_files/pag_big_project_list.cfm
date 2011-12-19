@@ -19,7 +19,7 @@
 </cfsilent>
 <cfif attributes.project_id NEQ 0>
 	<cfinclude template="qry_get_selected_project_data.cfm">
-	<cfset attributes.default1=get_selected_project_data.customers_id>
+	<cfset attributes.default1=get_selected_project_data.customer_id>
 	<cfset attributes.default2=get_selected_project_data.project_id>
 </cfif>
 <cfinclude template="act_okbutton.cfm">

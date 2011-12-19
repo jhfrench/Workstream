@@ -39,7 +39,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 <cfparam name="attributes.order_by" default="date_due">
-<cfif NOT compare(listlast(attributes.fuseaction, '.'),"admin_options")>
+<cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"admin_options")>
 	<cfset request.colspan=3>
 <cfelse>
 	<cfset request.colspan=2>

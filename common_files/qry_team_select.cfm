@@ -26,12 +26,12 @@
 SELECT Emp_Contact.emp_id AS emp_id, Emp_Contact.lname AS lname, 
 	LEFT(Emp_Contact.name,2) AS f_init, 
 	Emp_Contact.name as name, Emp_Contact.lname+', '+LEFT(Emp_Contact.name,2) AS display<cfif isdefined("variables.email_only")>, email_type_id</cfif>
-FROM Emp_Contact, Company_Visible_To, Security<cfif isdefined("variables.email_only")>, Email</cfif>
-WHERE Emp_Contact.emp_id=Company_Visible_To.emp_id<cfif isdefined("variables.email_only")>
+FROM Emp_Contact, Link_Company_Emp_Contact, Security<cfif isdefined("variables.email_only")>, Email</cfif>
+WHERE Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id<cfif isdefined("variables.email_only")>
 	AND Emp_Contact.emp_id=Email.emp_id
 	AND Email.email_type_id=1</cfif>
 	AND Emp_Contact.emp_id=Security.emp_id
-	AND (Company_Visible_To.company_id IN (#session.workstream_company_select_list#)<cfif NOT attributes.all_employees>
+	AND (Link_Company_Emp_Contact.company_id IN (#session.workstream_company_select_list#)<cfif NOT attributes.all_employees>
 		AND Security.disable=0</cfif><cfif len(variables.emp_id_match)>
 	OR Emp_Contact.emp_id IN (#variables.emp_id_match#)</cfif>)
 	AND #application.team_changed#=#application.team_changed#

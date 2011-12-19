@@ -8,19 +8,7 @@
 	Name: Victor Blell
 	||
 	Edits: 
-		$Log$
-		Revision 1.1  2006/09/15 22:24:03  csy
-		<>
-
-		Revision 1.0  2006-08-16 09:31:55-04  csy
-		Initial revision
-
-		Revision 1.0  2005-02-15 15:27:17-05  daugherty
-		Initial revision
-
-		Revision 1.0  2003-04-15 10:11:42-04  blell
-		initial creation.
-
+	$Log$
 	||
 	Variable:
 	END FUSEDOC --->

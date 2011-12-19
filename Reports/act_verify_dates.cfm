@@ -25,6 +25,16 @@
 		<span class="Note<cfoutput>#session.workstream_text_size#</cfoutput>">You have selected an invalid date range, please check your dates and try again.</span>
 	</cfif>
 <cfelse>
+	<!--- $issue$: clear this out, should just be the redirect --->
+	<cfquery name="clear_starting_point" datasource="#application.datasources.main#">
+	UPDATE REF_Screen
+	SET starting_point_ind=0,
+		check_variable='attributes.from_date'
+	WHERE fuseaction='#attributes.fuseaction#'
+	</cfquery>
+	Not a starting point
+	<cfabort>
+	<!--- $issue$: clear above out, should just be the redirect --->
 	<cflocation url="index.cfm?fuseaction=Reports.report">	  
 </cfif>
 

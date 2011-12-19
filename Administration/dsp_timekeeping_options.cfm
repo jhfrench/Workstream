@@ -10,20 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.3  2006/09/15 22:28:35  csy
-	<>
-
-	Revision 1.0  2006-08-16 09:32:04-04  csy
-	Initial revision
-
-	Revision 1.2  2005-11-10 14:44:49-05  french
-	Added notes_display_sort and task_list_order to profile feature. Task 37440
-
-	Revision 1.1  2005-11-01 08:27:54-05  french
-	Added task details note sorting options. Task 37158
-
-	Revision 1.0  2005-02-15 15:27:29-05  daugherty
-	Initial revision
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->

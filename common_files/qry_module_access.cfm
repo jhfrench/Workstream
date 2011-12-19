@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:54:37  daugherty
-	Initial revision
-
-	Revision 1.2  2001-11-01 11:58:39-05  french
-	Specified the table in the ORDER BY.
-
-	Revision 1.1  2001-10-11 11:04:55-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	--> application.datasource.main: string that contains the name of the datasource as mapped in CF administrator
 	<-- module_name: string containing the name of the module

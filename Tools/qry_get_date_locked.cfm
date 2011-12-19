@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 21:01:57  daugherty
-	Initial revision
-
-	Revision 1.1  2001-11-13 15:11:03-05  french
-	Made modifications to account for the possibility that a company does not have a date locked.
-
-	Revision 1.0  2001-11-13 15:04:31-05  french
-	Initial file creation.
-
 	||
 	--> session.workstream_company_select_list: this is the list of company id's that the user has selscted as their list of companies that they have access to view information for.
 	<--company: string containing the name of the company

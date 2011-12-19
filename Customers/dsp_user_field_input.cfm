@@ -10,14 +10,6 @@
 	|| 
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:45:55  daugherty
-	Initial revision
-
-	Revision 1.2  2001-10-19 11:26:12-04  french
-	Added additional notes.
-
-	Revision 1.1  2001-10-11 10:56:27-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfinclude template="qry_get_user_field_types.cfm">

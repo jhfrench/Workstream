@@ -10,17 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2005/07/13 21:31:33  stetzer
-	Fixing bug with custom fields (was not deleting previous entry for text entries)
-
-	Revision 1.1  2005-03-09 13:28:20-05  stetzer
-	<>
-
-	Revision 1.1  2001-11-01 16:20:58-05  french
-	Rewrote responsibilities.
-
-	Revision 1.0  2001-10-18 16:17:13-04  french
-	Created file for custom field support.
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
  --->

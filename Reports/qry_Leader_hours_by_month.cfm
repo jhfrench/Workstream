@@ -14,15 +14,15 @@
 <cfquery name="Agg_hours_by_month" datasource="#application.datasources.main#">
 SELECT SUM(Time_Entry.Hours) AS sumofhours, MONTH(Time_Entry.Date) AS month, 
 	YEAR(Time_Entry.Date) AS year, Emp_Contact.lname + ', ' + Emp_Contact.name AS name, 
-	(Customers.description + '-' + Project.description + '(' + Project.project_code + ')') AS clientname
-FROM Time_Entry, Emp_Contact, Project, Customers
-WHERE Customers.customers_id=Project.customers_id
+	(Customer.description + '-' + Project.description + '(' + Project.project_code + ')') AS clientname
+FROM Time_Entry, Emp_Contact, Project, Customer
+WHERE Customer.customer_id=Project.customer_id
 	AND Time_Entry.Project_id=Project.project_id
 	AND Time_Entry.Emp_ID=Emp_Contact.Emp_ID
 	AND emp_contact.emp_id=#attributes.emp_id# 
 	AND MONTH(time_entry.[date])=#attributes.month#
 	AND YEAR(time_entry.[date])=#attributes.year#
-GROUP BY Customers.description, Project.project_code, 
+GROUP BY Customer.description, Project.project_code, 
 	Emp_Contact.name, Emp_Contact.lname, Project.description, 
 	MONTH(Time_Entry.Date), YEAR(Time_Entry.Date)
 ORDER BY clientname

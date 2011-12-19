@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2006/04/07 18:19:16  csy
-	task 42742 Edit task priority field
-
-	Revision 1.0  2005-02-15 15:58:20-05  daugherty
-	Initial revision
-
-	Revision 1.0  2001-10-17 11:12:34-04  french
-	Created file to search tasks based on prioirty.
-
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->

@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:22:24  stetzer
-	<>
-
-	Revision 1.4  2003-03-28 11:10:46-05  blell
-	moved task back to top
-	
-	Revision 1.2  2002-08-12 14:43:47-04  long
-	Added required to the date field.
 	||
 	<-> attributes.referer: string that incidicates which fuseaction to pursue.
 	<-- attributes.notes_id: number that corresponds to the identity column of the Notes table

@@ -10,16 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:23:03  stetzer
-	<>
-
-	Revision 1.2  2001-12-12 10:59:33-05  long
-	added an include with the javascript to validate the hours field
-	
-	Revision 1.1  2001-10-11 10:54:54-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
-	
-	
 	||
  --->
 <cfset project_entry="1">

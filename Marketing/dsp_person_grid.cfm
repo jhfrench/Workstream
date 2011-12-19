@@ -1,5 +1,5 @@
 
-<!--Customers/dsp_person_grid.cfm
+<!--Marketing/dsp_person_grid.cfm
 	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC

@@ -10,19 +10,13 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 21:01:46  daugherty
-	Initial revision
-
-	Revision 1.0  2002-02-19 14:54:25-05  french
-	Creating drill-down to the notes level from the invoice tool.
-
 	||
 	Variables:
 	END FUSEDOC --->
 <cfset attributes.emp_id=ListFirst(attributes.emp_id_project,"|")>
-<cfset attributes.project_id=ListLast(attributes.emp_id_project,"|")>
+<cfset attributes.project_id=listlast(attributes.emp_id_project,"|")>
 <cfset attributes.month=ListFirst(attributes.date,"|")>
-<cfset attributes.year=ListLast(attributes.date,"|")>
+<cfset attributes.year=listlast(attributes.date,"|")>
 </cfsilent>
 <cfinclude template="qry_get_emp_name.cfm">
 <cfinclude template="qry_invoice_notes_drill_down.cfm">

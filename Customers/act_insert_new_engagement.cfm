@@ -13,15 +13,15 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="insert_project" datasource="#application.datasources.main#">
-INSERT INTO Project (root_code, customers_id, description,
+INSERT INTO Project (root_code, customer_id, description,
 	creator<cfif len(attributes.vision)>, vision</cfif><cfif len(attributes.mission)>, mission</cfif>
 	<cfif len(attributes.business_case)>, business_case</cfif><cfif len(attributes.project_end)>, project_end</cfif><cfif len(attributes.project_start)>, project_start</cfif>,
-	product_id, billable_id, project_code,
+	product_id, billable_type_id, project_code,
 	active_ind, company_id, budget)
-VALUES ('#get_root_code.root_code#', #attributes.customers_id#, '#attributes.description#',
+VALUES ('#get_root_code.root_code#', #attributes.customer_id#, '#attributes.description#',
 	#session.user_account_id#<cfif len(attributes.vision)>, '#attributes.vision#'</cfif><cfif len(attributes.mission)>, '#attributes.mission#'</cfif>
 	<cfif len(attributes.business_case)>,' #attributes.business_case#'</cfif><cfif len(attributes.project_end)>, '#attributes.project_end#'</cfif><cfif len(attributes.project_start)>, '#attributes.project_start#'</cfif>, 
-	#attributes.product_id#, #attributes.billable_id#, '#variables.new_code#',
+	#attributes.product_id#, #attributes.billable_type_id#, '#variables.new_code#',
 	1, #get_root_code.company_id#, #attributes.budget#)
 </cfquery>
 <cfquery name="get_project_id" datasource="#application.datasources.main#">
@@ -33,7 +33,7 @@ FROM Project
 WHERE project_id=#get_project_id.project_id#
 </cfquery>
 
-<cfswitch expression="#attributes.billable_id#">
+<cfswitch expression="#attributes.billable_type_id#">
 <!--- <cfcase value="1">
 hourly
 </cfcase> --->
@@ -57,13 +57,13 @@ non-billable
 </cfswitch>
 
 <cfquery name="delete_old" datasource="#application.datasources.main#">
-DELETE Project_Visible_To
+DELETE Link_Project_Company
 WHERE project_id=#get_project_id.project_id#
-	AND company_id IN (#variables.visible_to#)
+	AND company_id IN (#variables.company_id#)
 </cfquery>
 <cfquery name="insert_visible" datasource="#application.datasources.main#">
-INSERT INTO Project_Visible_To (project_id, company_id)
+INSERT INTO Link_Project_Company (project_id, company_id)
 SELECT #get_project_id.project_id# AS project_id, company_id
 FROM REF_Companies
-WHERE company_id IN (#variables.visible_to#)
+WHERE company_id IN (#variables.company_id#)
 </cfquery>

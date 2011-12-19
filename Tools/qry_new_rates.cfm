@@ -33,7 +33,7 @@ FROM Billing_Rate
 	INNER JOIN Emp_Contact ON Billing_Rate.Emp_ID = Emp_Contact.Emp_ID
 	INNER JOIN Company ON Emp_Contact.Emp_ID = Company.Emp_ID
 WHERE Billing_Rate.Rate IS NULL
-	AND Project.Billable_ID = 1
+	AND Project.billable_type_id = 1
     AND company.company IN(#session.workstream_company_select_list#)
 ORDER BY name
 </cfquery>

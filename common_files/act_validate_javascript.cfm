@@ -17,7 +17,7 @@
 <!--common_files/act_validate_javascript.cfm (pt2)
 	Author: Jeromy F-->
 <cfoutput>
-<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<script language="JavaScript" type="text/javascript">
 	<!--
 	function submit_input_form()
 	{

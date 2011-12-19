@@ -21,7 +21,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 </cfsilent>
 <cfif evaluate("#query#.CurrentRow") EQ evaluate("#query#.recordcount")><!-- I only want this after  the client code changes -->
 				<cfinclude template="dsp_summary_hours.cfm"> 
-				<cfinclude template="Dsp_employee_classification_hours.cfm">
+				<cfinclude template="dsp_employee_classification_hours.cfm">
 				<tr>
 				<td colspan="3">
 					&nbsp;&nbsp;

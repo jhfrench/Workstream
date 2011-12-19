@@ -10,16 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/12/20 20:22:38  french
-Minor modifications to line up the columns on the output and to speed up the output. Task 38852
-
-Revision 1.0  2005-02-15 16:00:49-05  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:54:29-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
  --->
 <cfset variables.quote='"'>
@@ -29,7 +19,6 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <cfset variables.total_requested=get_week_days.hours_in_month*get_subordinates.recordcount>
 <cfset variables.task_processed="">
 </cfsilent>
-<cf_htmlhead>
 <script language="JavaScript">
 <!--
 function ReleaseRowFields(arg, arg1)
@@ -128,5 +117,3 @@ return;}
 </cfif>
 //-->
 </script>
-</cf_htmlhead>
-

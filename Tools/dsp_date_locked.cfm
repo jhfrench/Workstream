@@ -9,17 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 21:01:03  daugherty
-	Initial revision
-
-	Revision 1.3  2001-11-13 15:11:02-05  french
-	Made modifications to account for the possibility that a company does not have a date locked.
-
-	Revision 1.2  2001-11-13 15:05:06-05  french
-	Improving aesthetics; adding display of last time date was locked.
-
-	Revision 1.0  2001-10-11 10:54:26-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 </cfsilent>

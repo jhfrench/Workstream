@@ -1,5 +1,5 @@
 
-<!-- customers/dsp_new_engagement_instructions.cfm
+<!-- Customers/dsp_new_engagement_instructions.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC

@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/11/28 17:35:43  stetzer
-	<>
-
-	Revision 1.0  2005-02-15 15:42:00-05  daugherty
-	Initial revision
-
-	Revision 1.1  2001-10-18 12:08:44-04  french
-	Moved to common_files from Customers.
-
 	||
 	END FUSEDOC --->
 <cfquery name="get_drop_down_options" datasource="#application.datasources.main#">

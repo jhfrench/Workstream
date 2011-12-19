@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:27:42  stetzer
-<>
-
-Revision 1.2  2001-10-12 11:48:12-04  french
-Reinstated delete function and added condition to where statement. Now when a task is associated to a task, any previous identical entries in the table will be removed. This will keep a user from (uselessly) associating the same file to a task twice.
-
-Revision 1.1  2001-10-11 10:54:36-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page

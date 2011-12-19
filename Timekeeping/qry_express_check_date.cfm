@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:23:36  stetzer
-	<>
-
-	Revision 1.2  2002-03-18 11:18:57-05  french
-	Adding code to account for a user entering time before they are a valid employee (as determiend by demographics.effective_from).
-
-	Revision 1.1  2001-10-11 10:54:50-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
  --->
 <cfquery name="express_check_date" datasource="#application.datasources.main#">

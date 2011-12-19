@@ -1,5 +1,5 @@
 
-<!-- common_files/qry_Get_pto_summary.cfm
+<!-- common_files/qry_get_pto_summary.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC
@@ -9,18 +9,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:42:05  daugherty
-	Initial revision
-
-	Revision 1.2  2002-04-02 15:58:23-05  lee
-	added where condition disable_PTO flag
-
-	Revision 1.1  2002-01-24 13:37:09-05  long
-	added logic to use the PTO start date so numbers won't be artifically low.
-
-	Revision 1.0  2001-12-27 16:33:39-05  long
-	created the file
-
 	||
 	Variables:
 	

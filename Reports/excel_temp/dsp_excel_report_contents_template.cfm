@@ -26,7 +26,7 @@
 	<cfset curr_col = 0>
 	<cfset rownum = 0>
 	<cfset begin_data_row = static_rows_used>
-	<CFSET STARTROW = totalrecords>
+	<cfset STARTROW = totalrecords>
 	<cfset totals = StructNew()>
 
 
@@ -37,7 +37,7 @@
 </cfoutput>	
 
 	<!--- ADD COLUMN HEADERS VIA PASSED LIST --->	
-	<CFLOOP INDEX="col_value" LIST="#wkst_col_list#" DELIMITERS=",">		
+	<cfloop INDEX="col_value" LIST="#wkst_col_list#" DELIMITERS=",">		
 		<cfoutput>
 	 	arr_#wkst_id#(#rownum#,#curr_col#) = "#col_value#"
 		<cfset curr_col = curr_col + 1>
@@ -61,7 +61,7 @@
 			arr_#wkst_id#(#rownum#,#curr_col#) = "#dateFormat(work_date, 'mm/dd/yy')#"
 			<cfset curr_col = curr_col + 1>
 			
-			arr_#wkst_id#(#rownum#,#curr_col#) = "#Project_Code#"			
+			arr_#wkst_id#(#rownum#,#curr_col#) = "#project_code#"			
 			<cfset curr_col = curr_col + 1>
 			
 			arr_#wkst_id#(#rownum#,#curr_col#) = "#trim(Description)#"			

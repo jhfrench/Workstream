@@ -123,12 +123,12 @@ WHERE d.Effective_To IS NULL
 	ON  REF_product.product_id = security_product_access.product_id
     WHERE emp_id = #attributes.emp_id#
     </cfquery>  
-	<cfif ListFindNoCase(ValueList(get_product_access.product_name), "workstream")>
+	<cfif ListFindNoCase(valuelist(get_product_access.product_name), "workstream")>
 		<cfset workstream = "1">
 	</cfif>
 	<cfquery name="get_visible_companies" datasource="#application.datasources.main#">
     SELECT company_id
-    FROM company_visible_to
+    FROM Link_Company_Emp_Contact
     WHERE emp_id = #attributes.emp_id#
     </cfquery>
 	<cfset visable_company = valuelist(get_visible_companies.company_id)>

@@ -16,7 +16,7 @@
 	END FUSEDOC --->
 <cfset sup_id=Get_Client_info.sup_id>
 <cfquery name="ind_emp" datasource="#application.datasources.main#">
-SELECT Project.Project_Code AS code, 
+SELECT Project.project_code AS code, 
     Project.Description AS client, Demographics.emp_id, 
     Time_Entry.Hours, Time_Entry.Date
 FROM Project, Demographics, Time_Entry

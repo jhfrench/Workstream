@@ -9,15 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:46:00  daugherty
-	Initial revision
-
-	Revision 1.2  2002-04-09 09:51:52-04  french
-	Added ability to drill down to list of open tasks for a given engagement.
-
-	Revision 1.1  2001-10-11 10:56:24-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
-	(KL | 9/14/2001) added logic to make the access to the edit function database driven.
 	||
 	END FUSEDOC --->
 <cfparam name="attributes.inactive" default="0">

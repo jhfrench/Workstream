@@ -10,12 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 21:01:18  daugherty
-	Initial revision
-
-	Revision 1.1  2001-10-11 13:15:28-04  long
-	Added FuseDoc
-
 	||
 	Variables:
 	END FUSEDOC --->

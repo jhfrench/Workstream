@@ -59,7 +59,7 @@
 	<cfoutput query="get_priorities"><cfif priority_id EQ get_task_details.priority><span class="RegText#session.workstream_text_size#">#description#</span></cfif></cfoutput></cfif>---><br>
 			<cfoutput>
 			Icon<br>
-			<cfset tabindex=incrementvalue(tabindex)><cfselect query="get_icons" name="icon_id" display="icon_name" value="icon_id" selected="#get_task_details.icon_id#" tabindex="#tabindex#" class="RegText#session.workstream_text_size#">
+			<cfset tabindex=incrementvalue(tabindex)><cfselect query="get_ref_icon" name="icon_id" display="icon_name" value="icon_id" selected="#get_task_details.icon_id#" tabindex="#tabindex#" class="RegText#session.workstream_text_size#">
 			</cfselect>
 		</td>
 	</tr>

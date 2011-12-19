@@ -10,20 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:22:26  stetzer
-	<>
-
-	Revision 1.4  2001-12-12 11:00:14-05  long
-	added an onchange in javascript to validate the hours field
-
-	Revision 1.3  2001-11-30 14:05:16-05  french
-	Displaying customer name.
-
-	Revision 1.2  2001-11-14 12:33:32-05  french
-	Changed date drop-down box to be driven by date-locked.
-
-	Revision 1.1  2001-10-11 10:54:59-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->

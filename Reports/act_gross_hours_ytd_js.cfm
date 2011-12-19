@@ -11,8 +11,7 @@
 	Edits:
 	||
 	END FUSEDOC --->
-
-<cf_htmlhead>	
+</cfsilent>
 <script language="javascript">
 <!--
 //function selectAllList(list,list_sting): This function is needed for selecting all items from 
@@ -50,4 +49,3 @@
 	}
 //-->	
 </script>
-</cf_htmlhead>

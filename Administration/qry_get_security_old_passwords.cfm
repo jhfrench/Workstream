@@ -9,16 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2006/09/15 22:25:49  csy
-	<>
-
-	Revision 1.0  2006-08-16 09:32:12-04  csy
-	Initial revision
-
-	Revision 1.0  2005-02-15 15:27:40-05  daugherty
-	Initial revision
-
-
 	||
 	--> attributes.new_pass: string returned from sbmitting form
 	--> attributes.conf_pass: string returned from sbmitting form

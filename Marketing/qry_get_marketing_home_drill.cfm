@@ -9,14 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:51:17  daugherty
-	Initial revision
-
-	Revision 1.2  2001-11-30 11:59:09-05  french
-	Fixing report access error and de-stetzering..
-
-	Revision 1.1  2001-10-11 10:55:43-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <!---THIS IS THE MORE STRICT VERSION OF THE QUERY. HOLD ONTO THIS PENDING WHAT SCOFIELD WANST TO DO WITH THIS.

@@ -6,13 +6,10 @@
 	||
 	Responsibilities: 
 	||
-	Name: Jeromy French (french@nucleusweb.com)
+	Name: Jeromy French (jeromy_french@hotmail.com)
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2006/03/31 07:43:51  french
-	Modifed query so that it will retrieve active employee/supervisor relationships even if the supllied criteria date is after "tomorrow".
-
 	||
  --->
 <cfparam name="attributes.date_linked" default="">
@@ -22,7 +19,8 @@ SELECT Emp_Contact.name, Emp_Contact.lname,
 	(LEFT(Emp_Contact.name,2) + LEFT(Emp_Contact.lname,2)) AS initials,
 	Emp_Contact.emp_id,
 	Emp_Contact.lname + ', '+ LEFT(Emp_Contact.name,2) AS display
-FROM Emp_Contact, Link_Employee_Supervisor, Demographics, Security
+FROM Emp_Contact, Link_Employee_Supervisor, Demographics_Ngauge AS Demographics,
+	Security
 WHERE Emp_Contact.emp_id=Link_Employee_Supervisor.emp_id
 	AND Emp_Contact.emp_id=Demographics.emp_id
 	AND Emp_Contact.emp_id=Security.emp_id

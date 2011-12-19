@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 21:01:29  daugherty
-	Initial revision
-
-	Revision 1.0  2001-11-28 13:48:53-05  french
-	Initial file creation.
-
 	||
 	END FUSEDOC --->
 <cfset attributes.one_field=attributes.user_field_id>

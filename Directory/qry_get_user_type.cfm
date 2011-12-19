@@ -9,12 +9,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:47:14  daugherty
-	Initial revision
-
-	Revision 1.0  2002-03-11 13:09:09-05  long
-	created file
-
 	||
 	Variables:
 	

@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:28:25  stetzer
-	<>
-
-	Revision 1.1  2002-02-06 14:40:11-05  french
-	Removed delete statement that was removing answers to archived information.
-
-	Revision 1.0  2001-10-18 16:17:14-04  french
-	Created file for custom field support.
-
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
  --->

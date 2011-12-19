@@ -24,7 +24,7 @@
 	<form name="tempform">
 		<input type="hidden" name="linked_task_id" value="<cfoutput>#attributes.linked_task_id#</cfoutput>">
 	</form>
-<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<script language="JavaScript" type="text/javascript">
 <!--
 function movename()
 	{

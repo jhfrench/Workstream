@@ -10,11 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2006/05/19 13:13:13  pciske
-	Initial revision
-
-	
-
 	||
 	Variables:
 	--> 

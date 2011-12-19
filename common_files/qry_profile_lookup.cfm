@@ -18,7 +18,7 @@ FROM User_Profile
 WHERE emp_id=#session.user_account_id#
 	<cfif isdefined("attributes.fuseaction")>
 		<cfif isdefined("attributes.profile_id")>AND profile_id=#attributes.profile_id#</cfif>
-		<cfif compare(listlast(attributes.fuseaction, '.'),"load_profile") AND isdefined("attributes.profile_name")>AND profile_name='#attributes.profile_name#'<cfelse>
+		<cfif comparenocase(listlast(attributes.fuseaction, '.'),"load_profile") AND isdefined("attributes.profile_name")>AND profile_name='#attributes.profile_name#'<cfelse>
 ORDER BY profile_name</cfif>
 	<cfelse>
 	AND primary_profile=1

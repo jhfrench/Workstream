@@ -10,17 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:45:32  daugherty
-	Initial revision
-
-	Revision 1.3  2001-11-02 14:06:44-05  french
-	Removed evaluation from insert statement.
-
-	Revision 1.2  2001-11-01 16:25:02-05  french
-	Made changes that allows workstream to map one custom field to multiple projects.
-
-	Revision 1.1  2001-10-11 10:56:39-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfif isdefined("delete_user_field_list")>

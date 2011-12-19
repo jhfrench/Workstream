@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:27:08  stetzer
-	<>
-
-	Revision 1.1  2002-12-27 17:50:39-05  french
-	Fixed this problem: When reassigning time from one task to another, the Time_Entry.project_id is not inheriting the project_id from the new task; it is keeping the old project_id.
-
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted from the express timekeeping page

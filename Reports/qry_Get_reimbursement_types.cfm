@@ -1,5 +1,5 @@
 
-<!--Customers/qry_Get_reimbursement_types.cfm
+<!--Reports/qry_get_reimbursement_types.cfm
 	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC

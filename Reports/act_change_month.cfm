@@ -10,19 +10,10 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:03:45  stetzer
-	<>
-
-	Revision 1.1  2001-12-18 12:06:23-05  french
-	I have no idea what I was working on.
-
-	Revision 1.0  2001-11-07 16:37:05-05  french
-	Adding team details to bottom of admin/planning report.
-
 	||
 	END FUSEDOC --->
-<cf_htmlhead>
-<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+</cfsilent>
+<script language="JavaScript" type="text/javascript">
 <!--
 function change_month(time_month, time_year) { 
 	document.drill_down.reset();
@@ -32,5 +23,3 @@ function change_month(time_month, time_year) {
 }
 //-->
 </script>
-</cf_htmlhead>
-

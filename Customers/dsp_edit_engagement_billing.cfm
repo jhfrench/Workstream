@@ -10,30 +10,13 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.3  2005/08/26 15:19:37  stetzer
-	<>
-
-	Revision 1.2  2005-08-26 09:53:44-04  stetzer
-	Added LOE Field
-
-	Revision 1.1  2005-04-06 18:02:47-04  stetzer
-	<>
-
-	Revision 1.0  2005-02-15 15:45:43-05  daugherty
-	Initial revision
-
-	Revision 1.2  2002-01-24 16:24:52-05  french
-	Removed decimalformat from budget (formatting was causing client-side validation to get mad).
-
-	Revision 1.1  2001-10-11 10:56:34-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfset variables.start=1>
 </cfsilent>
 <cfparam name="engagement_dashboard_Return" default="0">
 <cfparam name="IE_Emp_ID_Filter" default="All">
-<cfparam name="Customers_ID_Filter" default="All">
+<cfparam name="customer_id_Filter" default="All">
 <cfparam name="Sort" default="Customers.Description,Project.Description">
 <cfinclude template="qry_get_engagement_main.cfm">
 <cfinclude template="qry_get_billable_types.cfm">
@@ -50,7 +33,7 @@
 	<tr valign="top">
 		<td class="RegText#session.workstream_text_size#Bd">
 			Billing Type<br>
-			<cfselect name="billable_id" size="4" query="get_billable_types" value="billable_id" display="billable_type" selected="#get_engagement_main.billable_id#" onchange="javascript:submit();" required="Yes" message="Please specify the billing type for this engagement." class="RegText#session.workstream_text_size#"></cfselect>
+			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="billable_type" selected="#get_engagement_main.billable_type_id#" onchange="javascript:submit();" required="Yes" message="Please specify the billing type for this engagement." class="RegText#session.workstream_text_size#"></cfselect>
 		</td>
 		<td class="RegText#session.workstream_text_size#Bd">
 			Budget<br>
@@ -64,7 +47,7 @@
 			</ol>
 		</td>
 	</tr>
-<cfswitch expression="#get_engagement_main.billable_id#">
+<cfswitch expression="#get_engagement_main.billable_type_id#">
 <cfcase value="3">
 <cfinclude template="qry_get_flat_rate.cfm">
 	<tr valign="top">
@@ -105,9 +88,9 @@
 <input type="hidden" name="project_id" value="#attributes.project_id#">
 <input type="hidden" name="option" value="2">
 <input type="hidden" name="edit" value="1">
-<input type="hidden" name="original_billable_id" value="#get_engagement_main.billable_id#">
+<input type="hidden" name="original_billable_type_id" value="#get_engagement_main.billable_type_id#">
 <input type="hidden" name="engagement_dashboard_Return" value="#engagement_dashboard_Return#">
-<input type="hidden" name="Customers_ID_FIlter" value="#customers_id_Filter#">
+<input type="hidden" name="customer_id_FIlter" value="#customer_id_Filter#">
 <input type="hidden" name="IE_Emp_ID_FIlter" value="#IE_Emp_ID_Filter#">
 <input type="hidden" name="Sort" value="#sort#">
 </cfform>

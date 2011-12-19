@@ -10,16 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:23:31  stetzer
-<>
-
-Revision 1.2  2003-03-24 15:44:53-05  blell
-added update for project_id.
-
-Revision 1.1  2001-10-11 10:54:51-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> [attributes.delete]: boolean that indicates a the specified record should be deleted from the table. If attributes.delete does not exist than the record should be updated with the provided data.

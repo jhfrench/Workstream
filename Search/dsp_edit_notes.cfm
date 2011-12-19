@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2006/04/07 18:19:37  csy
-	task 42742 Edit task notes field
-
-	Revision 1.0  2005-02-15 15:58:19-05  daugherty
-	Initial revision
-
-	Revision 1.0  2001-10-17 10:39:54-04  french
-	Created file to allow user to search for tasks with notes containing some text specified by the user.
-
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->

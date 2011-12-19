@@ -53,8 +53,8 @@
 						</select>
 						<cfif isdefined("IE_Emp_ID_Filter") and comparenocase(IE_Emp_ID_Filter, "ALl")>
 						<input type="hidden" name="IE_Emp_ID_Filter" value="#IE_Emp_ID_Filter#"></cfif>
-                      <cfif isdefined("Customers_ID_FIlter")and  comparenocase(Customers_ID_FIlter, "ALl")>
-						<input type="hidden" name="Customers_ID_FIlter" value="#Customers_ID_FIlter#">
+                      <cfif isdefined("customer_id_FIlter")and  comparenocase(customer_id_FIlter, "ALl")>
+						<input type="hidden" name="customer_id_FIlter" value="#customer_id_FIlter#">
                    </cfif>
 					</td>
 				</tr>

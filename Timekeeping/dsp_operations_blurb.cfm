@@ -10,16 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:21:20  stetzer
-<>
-
-Revision 1.2  2002-01-02 09:47:21-05  french
-Made corrections to last_month logic so that data is correct in January.
-
-Revision 1.1  2001-10-11 10:55:18-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- (KL | 8/31/01) added the logic "And last_month NEQ 0" to the if statement to keep the divide by zero error from occuring.
 	||
  --->
 <cfswitch expression="#session.workstream_text_size#">
@@ -27,98 +17,35 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 		<cfset large="12">
 		<cfset small="11">
 		<cfset plotAreaLeft=63/100>
-		<cfset graphheight=(operations_blurb.recordcount*15.5)+50>
+		<cfset variables.graph_height=(operations_blurb.recordcount*15.5)+50>
 	</cfcase>
 	<cfcase value="Md">
 		<cfset large="12">
 		<cfset small="11">
 		<cfset plotAreaLeft=63/100>
-		<cfset graphheight=(operations_blurb.recordcount*13.95)+50>
+		<cfset variables.graph_height=(operations_blurb.recordcount*13.95)+50>
 	</cfcase>
 	<cfdefaultcase>
 		<cfset large="12">
 		<cfset small="9">
 		<cfset plotAreaLeft=63/100>
-		<cfset graphheight=(operations_blurb.recordcount*13.1)+50>
+		<cfset variables.graph_height=(operations_blurb.recordcount*13.1)+50>
 	</cfdefaultcase>
 </cfswitch>
-
-<cfset xaxislabels="">
-<cfset dataset0yvalues="">
-<cfset dataset1yvalues="">
-<cfset dataset2yvalues="">
-
-<cfoutput query="operations_blurb">
-	<cfset xaxislabels=listprepend(xaxislabels,description)>
-	<cfset dataset0yvalues=listprepend(dataset0yvalues,(green/total))>
-	<cfset dataset1yvalues=listprepend(dataset1yvalues,(yellow/total))>
-	<cfset dataset2yvalues=listprepend(dataset2yvalues,(red/total))>
-</cfoutput>
 </cfsilent>
 
-
-<cfoutput><applet code="javachart.applet.stackBarApp.class" codebase="#request.dir_level##application.graphbase#" width="300" height="#graphheight#">
-	<param name="plotAreaColor" value="ffffff">
-	<param name="backgroundColor" value="ffffff">
-	<param name="2D" value="yes">
-	<param name="CopyrightNotification" value="JavaChart is a copyrighted work, and subject to full legal protection">
-
-	<param name="plotAreaTop" value="1.017">
-	<param name="plotAreaBottom" value=".001">
-	<param name="plotAreaRight" value=".999">
-	<param name="plotAreaLeft" value="#plotAreaLeft#">
-	
-	<param name="yAxisOptions" value="gridOn,minTickOn">
-	<param name="yAxisGridColor" value="c0c0c0">
-	<param name="yAxisLabelColor" value="black">
-	<param name="yaxislabelformat" value="1">
-	<param name="yAxisLabelFont" value="Trebuchet MS,#small#,1">
-	<param name="yAxisLabelPrecision" value="1">
-	<param name="yAxisTickColor" value="black">
-	<param name="yAxisTitle" value="">
-	<param name="yAxisTitleColor" value="black">
-	<param name="yAxisTitleFont" value="Trebuchet MS,#large#,1">
-	
-	<param name="xAxisGridColor" value="black">
-	<param name="xAxisLabelColor" value="black">
-	<param name="xAxisLabelFont" value="Trebuchet MS,#small#,0">
-	<param name="xAxisTickColor" value="black">
-	<param name="xAxisTitle" value="Month">
-	<param name="xAxisLabels" value="#xaxislabels#">
-	<param name="xAxisTitleColor" value="black">
-	<param name="xAxisTitleFont" value="Trebuchet MS,#large#,1">
-	<param name="yAxisOptions" value="gridOn, tickOff">
-	
-	<param name="barLabelsOn" value="false">
-	<param name="barLabelColor" value="black">
-	<param name="barLabelFormat" value="1">
-	<param name="barLabelPrecision" value="4">
-	
-	<param name="dwellUseXValue" value="false">
-	<param name="dwellUseYValue" value="false">
-	
-	<param name="dataset0yvalues" value="#dataset0yvalues#">
-	<param name="dataset1yvalues" value="#dataset1yvalues#">
-	<param name="dataset2yvalues" value="#dataset2yvalues#">
-	<param name="dataset0Color" value="green">
-	<param name="dataset0LabelColor" value="black">
-	<param name="dataset0Name" value="Flat Rate">
-	<param name="dataset1yURL" value="fake">
-	<param name="dataset1LabelColor" value="black">
-	<param name="dataset1Name" value="Hourly">
-	<param name="dataset1Color" value="yellow">
-	<param name="dataset2yURL" value="fake">
-	<param name="dataset2LabelColor" value="black">
-	<param name="dataset2Name" value="Per Incident">
-	<param name="dataset2Color" value="red">
-	
-	<param name="legendOff" value="true">
-	<param name="legendVertical" value="true">
-	<param name="legendColor" value="ffffff">
-	<param name="legendllX" value=".7">
-	<param name="legendllY" value=".6">
-	<param name="legendLabelFont" value="Trebuchet MS,#small#,1">
-	<param name="legendLabelColor" value="black">
-	<param name="iconWidth" value=".02">
-	<param name="iconHeight" value=".02">
-</applet></cfoutput>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="2" section_color="800000" section_title="Account Mgmt Dashboard" title_class="HeadText#session.workstream_text_size#White">
+	<tr>
+		<td colspan="2">
+			<cfchart scaleFrom="40000" scaleTo="10" font="Trebuchet MS" fontSize="#small#" gridLines="4" show3D="yes" foregroundcolor="##c0c0c0" databackgroundcolor="##ffffff" chartwidth="450" chartheight="#variables.graph_height#">
+				<cfchartseries type="horizontalbar" query="operations_blurb" valueColumn="green" itemColumn="description" seriescolor="##33CC99" paintstyle="shade" />
+				<cfchartseries type="horizontalbar" query="operations_blurb" valueColumn="yellow" itemColumn="description" seriescolor="yellow" paintstyle="shade" />
+				<cfchartseries type="horizontalbar" query="operations_blurb" valueColumn="red" itemColumn="description" seriescolor="red" paintstyle="shade" />
+			</cfchart>
+			<div align="center">
+				<a href="index.cfm?fuseaction=Reports.engagement_dashboard_staff" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">Click here for full engagement details and timelines.</a>
+			</div>
+		</td>
+	</tr>
+</table>

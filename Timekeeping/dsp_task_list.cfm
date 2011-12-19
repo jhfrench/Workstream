@@ -40,7 +40,7 @@
 </cfsilent>
 <cfif task_list.recordcount>
 <cfoutput query="task_list" group="#group#">
-<cfif compare(listlast(attributes.fuseaction, '.'),"output")>
+<cfif comparenocase(listlast(attributes.fuseaction, '.'),"output")>
 	<cfinclude template="dsp_dropdowns.cfm">
 	<cfinclude template="dsp_task_list_header.cfm"> 
 </cfif>
@@ -59,7 +59,7 @@
 </cfoutput>
 </cfoutput>
 <cfelse>
-	<cfif compare(listlast(attributes.fuseaction, '.'), "task_list") and compare(listlast(attributes.fuseaction, '.'),"output")>
+	<cfif comparenocase(listlast(attributes.fuseaction, '.'), "task_list") and comparenocase(listlast(attributes.fuseaction, '.'),"output")>
 		<cfinclude template="dsp_dropdowns.cfm">
 		<cfinclude template="dsp_task_list_header.cfm"> 
 	</cfif>

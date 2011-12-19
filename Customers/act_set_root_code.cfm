@@ -46,7 +46,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 		<cfset code_prefix=get_prefix.prefix>
 <cfquery name="New_Root" datasource="#application.datasources.main#">
 SELECT MAX(root_code)+1 AS 'new_code'
-FROM customers
+FROM Customer
 WHERE root_code LIKE '#Code_Prefix#%' 
 	AND root_code NOT LIKE '9999%'
 	AND root_code NOT LIKE '9998%'

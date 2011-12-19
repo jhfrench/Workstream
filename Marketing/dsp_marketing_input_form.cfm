@@ -1,5 +1,5 @@
 
-<!--Customers/dsp_marketing_input_form.cfm
+<!--Marketing/dsp_marketing_input_form.cfm
 	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC

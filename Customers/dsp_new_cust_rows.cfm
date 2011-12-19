@@ -42,7 +42,7 @@
 		<cfinput type="Text" required="Yes" message="Please enter a Root Name" name="description" class="RegText#session.workstream_text_size#">
 	</td>
 	<td>
-		<cfselect name="billable_id" size="1" class="RegText#session.workstream_text_size#">
+		<cfselect name="billable_type_id" size="1" class="RegText#session.workstream_text_size#">
 			<option value="1" selected>Yes
 			<option value="2">No
 		</cfselect>

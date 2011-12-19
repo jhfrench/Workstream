@@ -10,15 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 21:01:45  daugherty
-	Initial revision
-
-	Revision 1.2  2002-02-26 12:30:14-05  french
-	Changed page header to make it easier to read for Adam.
-
-	Revision 1.1  2001-10-11 13:15:21-04  long
-	Added FuseDoc
-
 	||
 	Variables:
 	END FUSEDOC --->

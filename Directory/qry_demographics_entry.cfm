@@ -10,20 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:46:52  daugherty
-	Initial revision
-
-	Revision 1.4  2002-04-15 15:51:08-04  lee
-	added-  insert overtime status
-
-	Revision 1.3  2002-03-08 16:34:43-05  long
-	added the ability for an employee to have muitiple managers
-
-	Revision 1.2  2001-10-16 17:07:29-04  french
-	Finishing first implementation of employee entry function.
-
-	Revision 1.1  2001-10-11 12:18:12-04  long
-	Added FuseDoc
 	||
 	Variables:
  --->

@@ -9,14 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:45:33  daugherty
-	Initial revision
-
-	Revision 1.2  2001-11-15 10:13:04-05  long
-	Changed the isolation level from Serializable to read_committed
-
-	(KL | 9/12/2001) Bug fix so that the "Flat-Rate" function works right.
-	(KL | 9/17/2001) Bug fix so that the "Flat-Rate" function works right.
 	||
 	-->project_id:  the id that indicates the engagement.
 	END FUSEDOC --->
@@ -27,13 +19,13 @@ UPDATE Project
 SET description='#attributes.description#',
 	project_code='#attributes.project_code#',
 	budget=#attributes.budget#,
-	billable_id=#attributes.billable_id#,
+	billable_type_id=#attributes.billable_type_id#,
 	active_ind=#attributes.active_id#,
 	company_id=#attributes.company_id#
 WHERE Project_id=#project_id#
 </cfquery>
 
-<cfif billable_id eq 3>
+<cfif billable_type_id eq 3>
 
 	<cfquery name="get_flat_rate" datasource="#application.datasources.main#">
         SELECT project_id
@@ -66,10 +58,10 @@ WHERE Project_id=#project_id#
 </cfif>
 
 <cfquery name="delete_old" datasource="#application.datasources.main#">
-DELETE Project_Visible_To
+DELETE Link_Project_Company
 WHERE project_id=#attributes.project_id#
-<cfloop list="#attributes.visible_to#" index="ii">
-INSERT INTO Project_Visible_To (project_id, company_id)
+<cfloop list="#attributes.company_id#" index="ii">
+INSERT INTO Link_Project_Company (project_id, company_id)
 VALUES (#attributes.project_id#, #ii#)
 </cfloop>
 </cfquery>

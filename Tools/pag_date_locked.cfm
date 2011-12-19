@@ -9,17 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 21:01:33  daugherty
-	Initial revision
-
-	Revision 1.3  2001-11-13 15:30:10-05  french
-	Added second condition so that warning message won't display when the user first accesses date locked page.
-
-	Revision 1.2  2001-11-13 15:05:07-05  french
-	Improving aesthetics; adding display of last time date was locked.
-
-	Revision 1.0  2001-10-11 10:54:18-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfoutput>

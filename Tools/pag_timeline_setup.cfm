@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 21:01:50  daugherty
-	Initial revision
-
-	Revision 1.0  2001-11-28 13:49:10-05  french
-	Initial file creation.
-
 	||
 	END FUSEDOC --->
 <cfparam name="session.last_submitted" default="#now()#">

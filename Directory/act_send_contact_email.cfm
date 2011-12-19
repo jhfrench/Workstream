@@ -10,11 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:46:22  daugherty
-	Initial revision
-
-	Revision 1.2  2003-08-04 14:25:55-04  blell
-	initial creation
 	||
 	--> lname: string containing the last name of an employee
 	--> name: string containing the first name of an employee
@@ -33,10 +28,9 @@
 	<cfset hyperlinkedTo="#hyperlinkedTo##server_name##PATH_INFO#?fuseaction=employee_contact_view">
 	
 	<!--- @ make sure if behind the dmz we are the only ones getting emails --->
-	
 	<cfif left(cgi.http_host, 7) eq "10.1.1."> 
 		<cfset application.emailserver="mail.nucleussolutions.com">
-		<cfset variables.send_to="blell@nucleusweb.com">
+		<cfset variables.send_to="jeromy_french@hotmail.com">
 	</cfif>
 	
 	<cfif isdefined("variables.send_to")>

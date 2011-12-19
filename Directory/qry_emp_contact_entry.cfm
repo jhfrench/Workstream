@@ -10,17 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:46:55  daugherty
-	Initial revision
-
-	Revision 1.3  2002-03-08 16:35:48-05  long
-	changed a select max(x)  to select @@identity
-
-	Revision 1.2  2001-10-16 17:07:30-04  french
-	Finishing first implementation of employee entry function.
-
-	Revision 1.1  2001-10-11 12:18:08-04  long
-	Added FuseDoc
 	||
 	Variables:
  --->

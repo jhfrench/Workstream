@@ -1,5 +1,5 @@
 
-<!--Customers/dsp_add_contact_grid.cfm
+<!--Marketing/dsp_add_contact_grid.cfm
 	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -25,7 +25,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <td align="center">
 <cfgrid query="get_people_by_project_id" name="person_grid" width="800" insert="yes" sort="no" bold="No" italic="No" appendkey="Yes" highlighthref="Yes"  griddataalign="LEFT" gridlines="Yes" rowheaders="No" rowheaderalign="LEFT" rowheaderitalic="No" rowheaderbold="No" colheaders="Yes" colheaderalign="LEFT" colheaderitalic="No" colheaderbold="Yes" selectmode="edit" picturebar="No">
 
-<cfgridcolumn name="Project_Code"  header ="Project Code" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="no" display="Yes" headerbold="No" headeritalic="No">
+<cfgridcolumn name="project_code"  header ="Project Code" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="no" display="Yes" headerbold="No" headeritalic="No">
 
 <cfgridcolumn name="description"  header ="Project Name" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="no" display="Yes" headerbold="No" headeritalic="No">
 

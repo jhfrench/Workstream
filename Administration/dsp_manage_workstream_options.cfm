@@ -10,18 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2006/09/15 22:29:30  csy
-	<>
-
-	Revision 1.0  2006-08-16 09:32:00-04  csy
-	Initial revision
-
-	Revision 1.0  2005-02-15 15:27:24-05  daugherty
-	Initial revision
-
-	Revision 1.0  2001-11-21 12:37:28-05  french
-	Added ability to update all application variables.
-
 	||
 	Variables:
 	--> session.workstream_text_size: string indicating the size the user's text size preference

@@ -50,7 +50,7 @@
 		</td>
 <cfset variables.tabindex=incrementvalue(variables.tabindex)>
 		<td align="center" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
-			<textarea rows="<CFOUTPUT>#session.workstream_express_notes_height#" cols="#session.workstream_express_notes_width#" name="notes_#DEX#" tabindex="#variables.tabindex#</CFOUTPUT>" wrap="soft" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>"></textarea>
+			<textarea rows="<cfoutput>#session.workstream_express_notes_height#" cols="#session.workstream_express_notes_width#" name="notes_#DEX#" tabindex="#variables.tabindex#</cfoutput>" wrap="soft" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>"></textarea>
 		</td>
 <cfset variables.tabindex=incrementvalue(variables.tabindex)>
 	</tr>

@@ -10,9 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:47:02  daugherty
-	Initial revision
-
 	||
 	Variables:
 	--> application.team_changed: date of the last time emp_contact, security or demographics tables were changed

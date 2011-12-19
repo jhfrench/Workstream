@@ -9,15 +9,7 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:12:32  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:04-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 </cfsilent>
-<cflocation url="index.cfm?fuseaction=turnover" addtoken="No">
+<cflocation url="index.cfm?fuseaction=Reports.turnover" addtoken="No">

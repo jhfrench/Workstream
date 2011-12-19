@@ -20,8 +20,8 @@ SELECT 1 as constant, Task.due_date AS date_due, Task.task_id AS task_id,
 	Task_Details.time_used AS time_used, Task_Details.task_icon AS task_icon, 
 	Task_Details.percent_time_used AS percent_time_used, Task_Details.task_owner AS task_owner,
 	(CASE WHEN Task.status_id=4 THEN Task_Details.task_status+' by '+Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
-	(Customers.description + '-' + Project.description) AS project_name, Project.Project_Code AS Project_Code
-FROM Task, Team, Emp_Contact,  Customers, Project, Project_Visible_To,
+	(Customer.description + '-' + Project.description) AS project_name, Project.project_code AS project_code
+FROM Task, Team, Emp_Contact,  Customer, Project, Link_Project_Company,
 	(SELECT Path.task_id AS task_id, ISNULL(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
 		(ISNULL(CASE WHEN ISNULL(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
 		REF_Status.status as task_status, Emp_Contact.lname as task_owner
@@ -45,11 +45,11 @@ FROM Task, Team, Emp_Contact,  Customers, Project, Project_Visible_To,
 		AND Team.roll_id=1 AND Task.task_id=Team.task_id 
 		AND Emp_Contact.emp_id=Team.emp_id)
 AS Task_Details
-WHERE Customers.customers_id=Project.customers_id
+WHERE Customer.customer_id=Project.customer_id
 	AND Task_Details.task_id=Team.task_id AND Task.project_id=Project.project_id 
 	AND Task.task_id=Task_Details.task_id AND Emp_Contact.emp_id=Team.emp_id 
-	AND Project_Visible_To.project_id=Project.project_id 
-	AND Project_Visible_To.company_id IN (#session.workstream_company_id#)
+	AND Link_Project_Company.project_id=Project.project_id 
+	AND Link_Project_Company.company_id IN (#session.workstream_company_id#)
 	AND Team.roll_id=3
 	AND Project.project_id=#attributes.project_id#
 	AND project.project_type_id!=3

@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:12:39  stetzer
-	<>
-
-	Revision 1.0  2001-11-05 18:00:11-05  french
-	Initial file creation and coding.
-
 	||
 	END FUSEDOC --->
 <cfquery name="admin_planning_main" datasource="#application.datasources.main#">

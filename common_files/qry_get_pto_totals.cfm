@@ -9,27 +9,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.3  2005/08/12 14:42:18  french
-	Corrected error caused when an employee has some PTO data in the current year, but not in the previous year. Task 34645
-
-	Revision 1.2  2005-08-02 16:19:06-04  french
-	Completely revamped code to process faster and show more useful information to the user. Task 34645
-
-	Revision 1.1  2005-02-24 14:17:23-05  long
-	task 30048 - Moved some where criteria into the join so we don't make an inner join out of an outer join
-
-	Revision 1.0  2005-02-15 15:42:05-05  daugherty
-	Initial revision
-
-	Revision 1.2 2002-04-05 14:27:43-05 lee
-	Added check to make sure a person without a record for carryover limit is accepted
-
-	Revision 1.1 2002-04-02 16:00:00-05 lee
-	added condition that if rollover is greater than carryover limit THEN use carryover limit
-
-	Revision 1.0 2002-03-14 10:46:47-05 long
-	Created the query.
-
 	||
 	Variables:
 	

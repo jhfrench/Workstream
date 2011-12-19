@@ -10,26 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2006/03/31 21:20:16  csy
-	task 42740 Updated code to redirect user to Engagement Dashboard screen
-
-	Revision 1.0  2005-02-15 15:45:27-05  daugherty
-	Initial revision
-
-	Revision 1.5  2002-10-15 10:14:35-04  blell
-	replaced all inputs to escape single quotes in strings and also apostrophys.
-
-	Revision 1.4  2001-11-15 10:12:58-05  long
-	Changed the isolation level from Serializable to read_committed
-
-	Revision 1.3  2001-11-01 16:47:55-05  french
-	Fixing problem with retiring tasks.
-
-	Revision 1.2  2001-11-01 16:25:02-05  french
-	Made changes that allows workstream to map one custom field to multiple projects.
-
-	Revision 1.1  2001-10-11 10:56:42-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC ---></cfsilent>
 <!--- <cftransaction isolation="READ_COMMITTED"></cftransaction> --->
@@ -82,7 +62,7 @@ WHERE User_Fields.user_field_id=User_Field_Project_Link.user_field_id
 </cfloop>
 </cfif>
 <cfif engagement_dashboard_return EQ 1>
-	<cflocation url="../index.cfm?fuseaction=Reports.engagement_dashboard&customers_id_filter=#customers_id_filter#&ie_emp_id_filter=#ie_emp_id_filter#&sort=#sort#&###Project_ID#" addtoken="no">
+	<cflocation url="../index.cfm?fuseaction=Reports.engagement_dashboard&customer_id_filter=#customer_id_filter#&ie_emp_id_filter=#ie_emp_id_filter#&sort=#sort#&###Project_ID#" addtoken="no">
 </cfif>
 
 

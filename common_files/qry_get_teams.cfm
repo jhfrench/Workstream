@@ -30,10 +30,10 @@ FROM
 		AND Company.emp_id=#session.user_account_id#
 		AND #application.team_changed#=#application.team_changed#
 	UNION ALL
-	SELECT REF_companies.company AS company, Company_Visible_To.company_id AS company_id
-	FROM Company_Visible_To, REF_companies
-	WHERE Company_Visible_To.company_id = REF_companies.company_id
-		AND Company_Visible_To.emp_id=#session.user_account_id#)
+	SELECT REF_companies.company AS company, Link_Company_Emp_Contact.company_id AS company_id
+	FROM Link_Company_Emp_Contact, REF_companies
+	WHERE Link_Company_Emp_Contact.company_id = REF_companies.company_id
+		AND Link_Company_Emp_Contact.emp_id=#session.user_account_id#)
 AS Elligible_Companies
 GROUP BY company, company_id
 ORDER BY company

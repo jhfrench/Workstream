@@ -9,14 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:45:36  daugherty
-	Initial revision
-
-	Revision 1.2  2001-11-01 12:04:03-05  french
-	Verifying that customer_edit is used correctly as a boolean.
-
-	Revision 1.1  2001-10-11 10:56:36-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||	 
 		END FUSEDOC --->
 </cfsilent>
@@ -34,11 +26,11 @@
 		<td align="center" class="RegText#session.workstream_text_size#">
 			<cfif Get_customers.drill><a href="javascript:customer('#clientcode#')" class="RegText#session.workstream_text_size#"></cfif>
 				#active#
-			<cfif Get_customers.drill></a></cfif>
+			<cfif get_customers.drill></a></cfif>
 		</td>
 		<cfif session.workstream_customer_edit>
 		<td align="center" class="RegText#session.workstream_text_size#">
-				<a href="javascript:edit('#customers_id#')" class="RegText#session.workstream_text_size#">Edit</a>
+				<a href="javascript:edit('#customer_id#')" class="RegText#session.workstream_text_size#">Edit</a>
 		</td>
 		</cfif>
 	</tr>

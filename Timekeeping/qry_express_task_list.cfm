@@ -9,18 +9,7 @@
 	Name: Jeromy French
 	||
 	Edits:
-	$Log: qry_express_task_list.cfm,v $
-	Revision 1.3  2006-11-08 07:26:45-04  french
-	Removed all generic codes except PTO and holiday.
-
-	Revision 1.2  2005-06-13 09:26:45-04  french
-	Added 'Summer Hours (0018)' enterprise-wide code. Task 33020
-
-	Revision 1.1  2005-03-09 13:23:38-05  stetzer
-	<>
-
-	Revision 1.2  2002-03-14 10:56:20-05  long
-	commented out a nucleus only portion of the query so that it can point to a custom folder for nucleus
+	$Log$
 	||
  --->
 <cfquery name="express_task_list" datasource="#application.datasources.main#">

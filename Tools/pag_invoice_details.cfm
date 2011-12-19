@@ -10,25 +10,13 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 21:01:44  daugherty
-	Initial revision
-
-	Revision 1.3  2002-02-26 12:31:37-05  french
-	Changed page header to make it easier to read for Adam.
-
-	Revision 1.2  2002-02-19 14:54:55-05  french
-	Creating drill-down to the notes level from the invoice tool.
-
-	Revision 1.1  2001-10-11 13:15:25-04  long
-	Added FuseDoc
-
 	||
 	Variables:
 	END FUSEDOC --->
-<cfset attributes.billable_id=ListLast(attributes.project_id,"|")>
+<cfset attributes.billable_type_id=listlast(attributes.project_id,"|")>
 <cfset attributes.project_id=ListFirst(attributes.project_id,"|")>
 <cfset attributes.month=ListFirst(attributes.drill_through,"|")>
-<cfset attributes.year=ListLast(attributes.drill_through,"|")>
+<cfset attributes.year=listlast(attributes.drill_through,"|")>
 </cfsilent>
 <cfinclude template="qry_invoice_details.cfm">
 <table align="center" cellpadding="1" cellspacing="0" border="1" bordercolor="#772862" width="70%">

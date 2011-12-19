@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:23:34  stetzer
-	<>
-
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> request.time_entry_id: number that uniquely identifies a time entry

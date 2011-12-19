@@ -18,19 +18,17 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 
 	 
 	||
-	-->#code#:this is the variable that is passed into the query so that there can be a join on the visible_to table
+	-->#code#:this is the variable that is passed into the query so that there can be a join on the company_id table
 	END FUSEDOC --->
 <cfquery name="get_visable_to" datasource="#application.datasources.main#">
-SELECT Customer_Visible_To.Code, REF_companies.Company, 
-    Customer_Visible_To.Visible_to
-FROM Customer_Visible_To INNER JOIN
-    REF_companies ON 
-    Customer_Visible_To.Visible_to = REF_companies.Company_ID
-where code = '#code#'
+SELECT Link_Customer_Company.Code, REF_companies.Company, 
+    Link_Customer_Company.company_id
+FROM Link_Customer_Company
+	INNER JOIN REF_companies ON Link_Customer_Company.Visible_to = REF_companies.Company_ID
+WHERE code = '#code#'
 </cfquery>
-<cfset selected = valuelist(get_visable_to.visible_to)>
 <cfquery name="get_other_companies" datasource="#application.datasources.main#">
-Select company
-from REF_Companies
-where company NOT IN (#Quotedvaluelist(get_visable_to.visible_to)#)
+SELECT Company
+FROM REF_Companies
+WHERE company NOT IN (#valuelist(get_visable_to.company_id)#)
 </cfquery>

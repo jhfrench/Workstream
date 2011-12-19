@@ -21,11 +21,11 @@
 		Customer<br>
 		<cfmodule template="../common_files/two_related_selects.cfm"
 				query="get_valid_projects"
-				name1="customers_id"
+				name1="customer_id"
 				name2="project_id"
 				display1="customer"
 				display2="display"
-				value1="customers_id"
+				value1="customer_id"
 				value2="project_id"
 				multiple1="0"
 				multiple2="0"

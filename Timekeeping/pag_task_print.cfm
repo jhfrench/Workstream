@@ -10,19 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.3  2005/12/07 20:09:07  stetzer
-Added custome fields to printable view
-
-Revision 1.2  2005-11-28 15:24:57-05  stetzer
-Adding Associated Tasks to printable output.
-
-Revision 1.1  2005-03-09 13:22:56-05  stetzer
-<>
-
-Revision 1.1  2001-10-11 10:54:55-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->

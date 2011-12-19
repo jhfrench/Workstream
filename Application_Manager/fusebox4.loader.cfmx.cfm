@@ -355,8 +355,8 @@ This software consists of voluntary contributions made by many individuals on be
       fb_.aDirs=ListToArray(fb_.path,"/");
       for (fb_.j=1; fb_.j LTE arrayLen(fb_.aDirs); fb_.j=fb_.j + 1) {
         if (fb_.aDirs[fb_.j] EQ "..") {
-          fb_.rootpath=listPrepend(fb_.rootpath, ListLast(fb_.rootdir, "/"), "/");
-          fb_.rootdir=ListDeleteAt(fb_.rootdir, ListLen(fb_.rootdir), "\/");
+          fb_.rootpath=listPrepend(fb_.rootpath, listlast(fb_.rootdir, "/"), "/");
+          fb_.rootdir=listdeleteat(fb_.rootdir, ListLen(fb_.rootdir), "\/");
         }
         else {
           fb_.rootpath=listPrepend(fb_.rootpath, "..", "/");
@@ -506,8 +506,8 @@ This software consists of voluntary contributions made by many individuals on be
     fb_.aDirs=ListToArray(fb_.application.fusebox.parsePath,fb_.application.fusebox.osdelimiter);
     for (fb_.i=1; fb_.i LTE arrayLen(fb_.aDirs); fb_.i=fb_.i + 1) {
       if (fb_.aDirs[fb_.i] EQ "..") {
-        fb_.application.fusebox.parseRootPath=listPrepend(fb_.application.fusebox.parseRootPath, ListLast(fb_.rootdir, fb_.application.fusebox.osdelimiter), fb_.application.fusebox.osdelimiter);
-        fb_.rootdir=ListDeleteAt(fb_.rootdir, ListLen(fb_.rootdir), fb_.application.fusebox.osdelimiter);
+        fb_.application.fusebox.parseRootPath=listPrepend(fb_.application.fusebox.parseRootPath, listlast(fb_.rootdir, fb_.application.fusebox.osdelimiter), fb_.application.fusebox.osdelimiter);
+        fb_.rootdir=listdeleteat(fb_.rootdir, ListLen(fb_.rootdir), fb_.application.fusebox.osdelimiter);
       }
       else {
         fb_.application.fusebox.parseRootPath=listPrepend(fb_.application.fusebox.parseRootPath, "..", fb_.application.fusebox.osdelimiter);
@@ -548,8 +548,8 @@ This software consists of voluntary contributions made by many individuals on be
         fb_.aDirs=ListToArray(fb_.path,"/");
         for (fb_.k=1; fb_.k LTE arrayLen(fb_.aDirs); fb_.k=fb_.k + 1) {
           if (fb_.aDirs[fb_.k] EQ "..") {
-            fb_.rootpath=listPrepend(fb_.rootpath, ListLast(fb_.rootdir, "/"), "/");
-            fb_.rootdir=listDeleteAt(fb_.rootdir, ListLen(fb_.rootdir), "/");
+            fb_.rootpath=listPrepend(fb_.rootpath, listlast(fb_.rootdir, "/"), "/");
+            fb_.rootdir=listdeleteat(fb_.rootdir, ListLen(fb_.rootdir), "/");
           }
           else {
             fb_.rootpath=listPrepend(fb_.rootpath, "..", "/");

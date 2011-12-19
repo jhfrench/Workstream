@@ -16,7 +16,7 @@
 <cfset variables.file_path=URLDecode(File_Path)>
 <cfquery name="edit_engagement_main" datasource="#application.datasources.main#">
 UPDATE Project
-SET Project.customers_id=#attributes.customers_id#,
+SET Project.customer_id=#attributes.customer_id#,
 	Project.description='#attributes.description#',
 	Project.product_id=#attributes.product_id#,
 	Project.project_end=#createodbcdatetime(attributes.project_end)#,
@@ -33,7 +33,7 @@ SET Project.customers_id=#attributes.customers_id#,
 <cfif len(variables.file_path)>,Project.file_path='#variables.file_path#'</cfif>
 WHERE Project.project_id=#attributes.project_id#
 </cfquery>
-<cfif attributes.customers_id NEQ get_customer_name_code.customers_id>
+<cfif attributes.customer_id NEQ get_customer_name_code.customer_id>
 	<cfquery name="update_project_code" datasource="#application.datasources.main#">
 	/*re-initialize this project code so that it will not interfere with new project code assignment*/
 	UPDATE Project
@@ -43,7 +43,7 @@ WHERE Project.project_id=#attributes.project_id#
 	<cfquery name="get_max_code" datasource="#application.datasources.main#">
 	SELECT MAX(project_code) AS max_code
 	FROM Project
-	WHERE Project.customers_id=#attributes.customers_id#
+	WHERE Project.customer_id=#attributes.customer_id#
 	</cfquery>
 	<cfset variables.max_code=get_max_code.max_code+(1/1000)>
 	<cfset variables.add_zeroes=8-len(variables.max_code)>
@@ -53,15 +53,15 @@ WHERE Project.project_id=#attributes.project_id#
 	WHERE Project.project_id=#attributes.project_id#
 	</cfquery>
 </cfif>
-<cfquery name="update_visible_to" datasource="#application.datasources.main#">
-DELETE Project_Visible_To
+<cfquery name="update_company_id" datasource="#application.datasources.main#">
+DELETE Link_Project_Company
 WHERE project_id=#attributes.project_id#
-<cfloop list="#attributes.visible_to#" index="ii">
-INSERT INTO Project_Visible_To (project_id, company_id)
+<cfloop list="#attributes.company_id#" index="ii">
+INSERT INTO Link_Project_Company (project_id, company_id)
 VALUES (#attributes.project_id#, #ii#)
 </cfloop>
 </cfquery>
 <cfif engagement_dashboard_return EQ 1>
-	<cflocation url="../index.cfm?fuseaction=Reports.engagement_dashboard&customers_id_filter=#customers_id_filter#&ie_emp_id_filter=#ie_emp_id_filter#&sort=#sort#&###Project_ID#" addtoken="no">
+	<cflocation url="../index.cfm?fuseaction=Reports.engagement_dashboard&customer_id_filter=#customer_id_filter#&ie_emp_id_filter=#ie_emp_id_filter#&sort=#sort#&###Project_ID#" addtoken="no">
 </cfif>
 </cfsilent>

@@ -1,5 +1,5 @@
 
-<!--Customers/qry_get_people_by_project_id.cfm
+<!--Marketing/qry_get_people_by_project_id.cfm
 	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -24,7 +24,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
     project.project_id, Location.Address1, Location.Address2, Location.City, 
     Location.State, Location.Zip, Emp_Contact.LName, 
     Emp_Contact.Name, Emp_Contact.Emp_ID, 
-    Project.Project_Code, Project.Description
+    Project.project_code, Project.Description
 FROM Emp_Contact INNER JOIN
     Marketing_Emp ON 
     Emp_Contact.Emp_ID = Marketing_Emp.Emp_id INNER JOIN

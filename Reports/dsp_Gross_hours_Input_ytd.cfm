@@ -19,21 +19,21 @@
 		<td  align ="center">Gross Hours Report - Breakdown</td>
 	</tr>
 </table>
+<cfform action="index.cfm?fuseaction=Reports.gross_hours_ytd" method="POST" name="gross_hours_ytd">
 <table border="0" cellpadding="4" cellspacing="0" align="center" width="35%">
 	<tr class="subheadText<cfoutput>#session.workstream_text_size#</cfoutput>">
 		<td>
-			<cfinclude template="../common_files/dsp_pop_calendar.cfm">		
-			<cfmodule template="../common_files/act_calendar.cfm" form_name="gross_hours_ytd" field_name="from_date,to_date">
-			<cfform action="index.cfm?fuseaction=Reports.gross_hours_ytd" method="POST" name="gross_hours_ytd">
-			
 			From:
 		</td>
 		<td>
 			<cfinput type="datefield" name="from_date" value="" required="Yes" validate="date" message="Please enter a properly formatted from date." size="11" class="RegText#session.workstream_text_size#">
-			
-			&nbsp;&nbsp;&nbsp;&nbsp;
-			
+			</td>
+	</tr>
+	<tr class="subheadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<td>
 			To:
+		</td>
+		<td>
 			<cfinput type="datefield" name="to_date" value="" required="Yes" validate="date" message="Please enter a properly formatted to date." size="11" class="RegText#session.workstream_text_size#"><br>
 			</td>
 	</tr>
@@ -43,12 +43,10 @@
 			Sort By:	
 		</td>
 		<td>
-		<cfoutput>						
-			<select name="sort_by" size="1" class="RegText#session.workstream_text_size#" style="width:130px">
-		</cfoutput>			
-				<option value="Emp_Contact.LName" selected>Employees
-				<option value="Loc1.City, Emp_Contact.LName">Location
-				<option value="REF_Employee_Classification.employee_classification, Emp_Contact.LName">Employee Type
+			<select name="sort_by" size="1" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>" style="width:130px">
+				<option value="Emp_Contact.lname" selected>Employees
+				<option value="Loc1.city, Emp_Contact.lname">Location
+				<option value="REF_Employee_Classification.employee_classification, Emp_Contact.lname">Employee Type
 			</select>
 		</td>
 	</tr>		
@@ -93,8 +91,8 @@
 		<td colspan="3">
 			<cfoutput>
 				<input type="submit" onclick="selectAllList('display_person','ALL');" name="submit_criteria" value="Generate Report" Size="10" style="width:210px">
-			</cfoutput>			
-		</cfform>
+			</cfoutput>
 		</td>
 	</tr>
 </table>
+</cfform>

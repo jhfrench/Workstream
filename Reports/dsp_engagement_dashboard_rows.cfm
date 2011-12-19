@@ -75,19 +75,19 @@
 	<tr  bgcolor="#variables.tr_bgcolor#"> 
 		<td class="RegText#session.workstream_text_size#" valign="top">
 			<a name="#Project_ID#">
-					<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=3&engagement_dashboard_Return=1&Customers_ID_Filter=#Customers_ID_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">
+					<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=3&engagement_dashboard_Return=1&customer_id_Filter=#customer_id_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">
 			<!--- Show Status Color Image and SET Status Color Variable baised on the status code--->
 			<cfswitch expression="#status#">
 				<cfcase value="3">
-					<img src="../images/Icons/Red_Flag.gif" width="16" height="15" border="0">
+					<img src="images/Icons/Red_Flag.gif" width="16" height="15" border="0">
 					<cfset variables.status_color="Red">
 				</cfcase>
 				<cfcase value="2">
-					<img src="../images/Icons/Yellow_Warning.gif" width="16" height="15" border="0">
+					<img src="images/Icons/Yellow_Warning.gif" width="16" height="15" border="0">
 					<cfset variables.status_color="Yellow">
 				</cfcase>
 				<cfcase value="1">
-					<img src="../images/Icons/Green_Check.gif" width="16" height="15" border="0">
+					<img src="images/Icons/Green_Check.gif" width="16" height="15" border="0">
 					<cfset variables.status_color="Green">
 				</cfcase>
 				<cfdefaultcase>
@@ -100,7 +100,7 @@
 			</a>
 		</td>
 		<td class="RegText#session.workstream_text_size#" valign="top">
-			<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=1&engagement_dashboard_Return=1&Customers_ID_Filter=#Customers_ID_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">#Customers_Description# - #description#(#Project_Code#)</a>
+			<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=1&engagement_dashboard_Return=1&customer_id_Filter=#customer_id_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">#customer_description# - #description#(#project_code#)</a>
 		</td>
 		<td class="RegText#session.workstream_text_size#" valign="top">
 			#LName# <cfif NOT len(lname)>&nbsp;</cfif>
@@ -143,7 +143,7 @@
 			#Vision# <cfif NOT len(vision)>&nbsp;</cfif>
 		</td>
 		<td class="RegText#session.workstream_text_size#" align="right" valign="top">
-		<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=2&engagement_dashboard_Return=1&Customers_ID_Filter=#Customers_ID_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">
+		<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=2&engagement_dashboard_Return=1&customer_id_Filter=#customer_id_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">
 			#numberformat(Budget,'$___,___,___,___')#
 			<cfif loe gt 0><br>h #LOE#</cfif></a>
 			<cfif NOT total_bill_amount eq ''><br>Invoiced:<br><a href="index.cfm?fuseaction=Invoice_Posted_List&project_ID_filter=#Project_ID#"> <i>#numberformat(Total_Bill_Amount,'$___,___,___,___')#</i></a></cfif>
@@ -170,10 +170,10 @@
 		<td>&nbsp;</td>
 		<td>
 			<!--- I display the list of customers Selecting previously selected items. --->
-			<select name="Customers_ID_Filter" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+			<select name="customer_id_Filter" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 				<option value="all" >All Customers</option>
-				<CFOUTPUT query="Get_Engagement_Customers">
-					<option value="#Customers_ID#"<cfif Customers_ID_Filter EQ Customers_ID> Selected</cfif>>#Description#</option>
+				<cfoutput query="Get_Engagement_Customers">
+					<option value="#customer_id#"<cfif customer_id_Filter EQ customer_id> Selected</cfif>>#Description#</option>
 				</cfoutput>
 			</select>
 		</td>
@@ -202,8 +202,8 @@
 				<option value="Project_end Desc">Due Date - Desc</option>
 				<option value="Status">Status</option>
 				<option value="Status DESC">Status - Desc</option>
-				<option value="Project.Budget">Revenue</option>
-				<option value="Project.Budget DeSc">Revenue - Desc</option>
+				<option value="Project.budget">Revenue</option>
+				<option value="Project.budget DeSc">Revenue - Desc</option>
 				<option value="Project.Date_Updated">Date Updated</option>
 				<option value="Project.Date_Updated Desc">Date Updated - Desc</option>
 			</select>

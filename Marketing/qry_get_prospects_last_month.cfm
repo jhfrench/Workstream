@@ -24,8 +24,9 @@
 <cfquery name="prospects" datasource="#application.datasources.main#">
 SELECT COUNT(Project_ID) AS prospects, MONTH(DATEADD(m,-1,GETDATE())) AS nice_month
 FROM Project
-WHERE MONTH(Date_Entered) = MONTH(DATEADD(m,-1,GETDATE()))
-	AND YEAR(Date_Entered) = YEAR(DATEADD(m,-1,GETDATE())) and Root_code = 6005
+WHERE MONTH(date_entered) = MONTH(DATEADD(m,-1,GETDATE()))
+	AND YEAR(date_entered) = YEAR(DATEADD(m,-1,GETDATE()))
+	AND root_code = 6005
 <!--- Select Count(Project_ID) as Prospects,(cast(datepart(month,Prospecting_Begin) as varchar(2))) as Nice_Month
 From Marketing_For_Web_Query
 Where DatePart(Month,Prospecting_Begin) = (DateDiff(month,{fn now()},-1))
@@ -34,8 +35,9 @@ Group by (cast(datepart(mm,Prospecting_Begin) as varchar(2))) --->
 <cfquery name="prospects_this_month" datasource="#application.datasources.main#">
 SELECT COUNT(Project_ID) AS prospects_this_month, MONTH(DATEADD(m,0,GETDATE())) AS nice_month
 FROM Project
-WHERE MONTH(Date_Entered) = MONTH(DATEADD(m,0,GETDATE()))
-	AND YEAR(Date_Entered) = YEAR(DATEADD(m,0,GETDATE())) and Root_code = 6005
+WHERE MONTH(date_entered) = MONTH(DATEADD(m,0,GETDATE()))
+	AND YEAR(date_entered) = YEAR(DATEADD(m,0,GETDATE()))
+	AND root_code = 6005
 <!--- Select Count(Project_ID) as Prospects,(cast(datepart(month,Prospecting_Begin) as varchar(2))) as Nice_Month
 From Marketing_For_Web_Query
 Where DatePart(Month,Prospecting_Begin) = (DateDiff(month,{fn now()},-1))

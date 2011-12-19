@@ -29,6 +29,6 @@ WHERE REF_Module.module_id=Security_Module_Access.module_id
 	AND Security_Module_Access.emp_id=#session.user_account_id#
 	AND #application.last_updated#=#application.last_updated#
 </cfquery>
-<cfset session.workstream_object_access=ValueList(get_navigation.report_name)>
+<cfset session.workstream_object_access=valuelist(get_navigation.report_name)>
 </cfsilent>
 

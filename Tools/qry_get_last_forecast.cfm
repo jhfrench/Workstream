@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 21:02:07  daugherty
-	Initial revision
-
-	Revision 1.0  2001-11-28 13:49:11-05  french
-	Initial file creation.
-
 	||
  --->
 <cfquery name="get_last_forecast" datasource="#application.datasources.main#">

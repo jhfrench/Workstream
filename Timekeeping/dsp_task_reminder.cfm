@@ -13,7 +13,7 @@
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
-<cfif compare(listlast(attributes.fuseaction, '.'),"new_task")>
+<cfif comparenocase(listlast(attributes.fuseaction, '.'),"new_task")>
 	<cfset variables.reminder_days=get_completion_days.reminder_days>
 	<cfset variables.cc_list=valuelist(get_prep_email.email_id)><!--- 
 	<cfset variables.notification_frequency_id=get_task_details.notification_frequency_id> --->

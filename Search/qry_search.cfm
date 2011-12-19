@@ -10,38 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.10  2006/05/31 18:36:05  csy
-	task44371 Modified qry to make task search from the home page work
-
-	Revision 1.9  2006-05-10 09:07:54-04  csy
-	task 44371  Updated query to allow task search from the home page
-
-	Revision 1.8  2006-05-09 12:00:59-04  csy
-	<>
-
-	Revision 1.7  2006-05-03 12:16:50-04  csy
-	task42742 Modified code back  so that if a check box is unchecked and item(s) in the corresponding field is/are selected  security is not applied on that field.
-
-	Revision 1.6  2006-04-25 10:07:35-04  french
-	Task 42742: Applied security in a way that efficiently uses the data workstream data model (projects are children of customers). Added TOP 500 limitation so that if a user ever neglects to provide criteria for a task search the system won't have to retrieve too many tasks.
-
-	Revision 1.5 2006-04-12 13:00:21-04 csy
-	task 42743 Modified code to allow search when a check box is checked and a selection in the associate text box is not made
-
-	Revision 1.4 2006-04-07 12:57:12-04 csy
-	task 42742 Modified query to reinforce security
-
-	Revision 1.3 2006-02-13 16:46:32-05 stetzer
-	<>
-
-	Revision 1.2 2006-02-13 16:45:36-05 stetzer
-	Change Needs Customer Review by in where to IN statement
-
-	Revision 1.1 2005-06-21 10:53:49-04 french
-	Modified search query so that it will accept customer criteria. Task 33277
-
-	Revision 1.0 2005-02-15 15:58:29-05 daugherty
-	Initial revision
 	||
 	--> application.datasources.main: string that contains the name of the datasource AS mapped in CF administrator
 	--> session.user_account_id: id that identifies user to workstream
@@ -109,7 +77,7 @@
 	<cfset variables.use_project_criteria=0>
 </cfif>
 
-<cfif isdefined("attributes.customer_id_box") AND len(attributes.customers_id)>
+<cfif isdefined("attributes.customer_id_box") AND len(attributes.customer_id)>
 	<cfset variables.use_customer_criteria=1>
 <cfelse>
 	<cfset variables.use_customer_criteria=0>
@@ -123,8 +91,8 @@ SELECT TOP 500 1 AS constant, Task.due_date AS date_due, Task.task_id AS task_id
 	Task_Details.task_id AS task_id, Task_Details.time_used AS time_used, Task_Details.task_icon AS task_icon, 
 	Task_Details.percent_time_used AS percent_time_used, Task_Details.task_owner AS task_owner,
 	(CASE WHEN Task.status_id IN (4,10) THEN Task_Details.task_status+' by '+Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
-	(Customers.description+'-'+Project.description) AS project_name, priority
-FROM Task, Team, Emp_Contact, Project, Customers,
+	(Customer.description+'-'+Project.description) AS project_name, priority
+FROM Task, Team, Emp_Contact, Project, Customer,
 	(SELECT Path.task_id AS task_id, ISNULL(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
 		(ISNULL(CASE WHEN ISNULL(Task.budgeted_hours,0)=0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
 		REF_Status.status AS task_status, Emp_Contact.lname AS task_owner, priority
@@ -171,13 +139,13 @@ FROM Task, Team, Emp_Contact, Project, Customers,
 		AND Team.roll_id=1 AND Task.task_id=Team.task_id 
 		AND Emp_Contact.emp_id=Team.emp_id)
 AS Task_Details
-WHERE Project.customers_id=Customers.customers_id
+WHERE Project.customer_id=Customer.customer_id
 	AND Task_Details.task_id=Team.task_id
 	AND Task.project_id=Project.project_id 
 	AND Task.task_id=Task_Details.task_id
 	AND Emp_Contact.emp_id=Team.emp_id
 	AND Team.roll_id=3<cfif variables.use_customer_criteria>
-	AND Customers.customers_id IN (#attributes.customers_id#) /*if the user specifies customer criteria, limit the results to just those customers*/</cfif>
+	AND Customer.customer_id IN (#attributes.customer_id#) /*if the user specifies customer criteria, limit the results to just those customers*/</cfif>
 <cfif isdefined("session.workstream_task_list_order")>ORDER BY #session.workstream_task_list_order#</cfif>
 </cfquery>
 </cfsilent>

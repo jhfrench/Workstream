@@ -26,21 +26,21 @@
  --->
 <cfquery name="engagement_list" datasource="#application.datasources.main#">
 SELECT Project.project_code AS project_code, Project.project_id AS project_id, Project.project_end AS project_end,
-	Customers.description + ' - ' + Project.description AS project_name, ISNULL(Project.mission,'No mission specified') AS project_mission,
+	Customer.description + ' - ' + Project.description AS project_name, ISNULL(Project.mission,'No mission specified') AS project_mission,
 	COUNT(Task.task_id) AS task_count
-FROM Customers, Project, Task, Team, Emp_Contact, Project_Visible_To
+FROM Customer, Project, Task, Team, Emp_Contact, Link_Project_Company
 WHERE (Project.active_ind=<cfif NOT session.workstream_show_closed_engagements>1<cfelse>0 OR project_end IS NOT NULL</cfif>) 
-	AND Customers.customers_id=Project.customers_id
+	AND Customer.customer_id=Project.customer_id
 	AND Team.emp_id=<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#session.user_account_id#</cfif> 
 	AND Project.project_id=Task.Project_id 
 	AND Task.task_id=Team.task_id AND Team.Emp_ID=Emp_Contact.Emp_ID 
-	AND Project_Visible_To.project_id=Project.project_id 
-	AND Project_Visible_To.company_id IN (#session.workstream_company_id#)
+	AND Link_Project_Company.project_id=Project.project_id 
+	AND Link_Project_Company.company_id IN (#session.workstream_company_id#)
 	And project.project_type_id <> 3
 	AND ((Team.roll_id IN (1,<cfif session.workstream_show_team>4,</cfif>0) 
 	AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>11,</cfif><cfif NOT session.workstream_show_on_hold>7,</cfif>0)) 
 	OR (Team.roll_id=3 AND Task.status_id=4))
-GROUP BY Customers.description, Project.project_code, Project.project_id, Project.description, Project.project_end, Project.mission
+GROUP BY Customer.description, Project.project_code, Project.project_id, Project.description, Project.project_end, Project.mission
 <cfif isdefined("session.workstream_engagement_list_order")>ORDER BY #session.workstream_engagement_list_order#</cfif>
 </cfquery>
 </cfsilent>

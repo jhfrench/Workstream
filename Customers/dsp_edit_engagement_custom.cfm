@@ -10,34 +10,13 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.3  2006/03/31 21:18:56  csy
-	task 42740 Defined and added  attributes variables to form
-
-	Revision 1.2  2005-06-14 17:21:55-04  stetzer
-	<>
-
-	Revision 1.1  2005-06-14 17:20:11-04  stetzer
-	<>
-
-	Revision 1.0  2005-02-15 15:45:43-05  daugherty
-	Initial revision
-
-	Revision 1.3  2001-10-18 13:37:34-04  french
-	Corrected typo. Sure am glad I have to comment this.
-
-	Revision 1.2  2001-10-18 12:05:31-04  french
-	Moved custom field queries to common_files so they can be used for the Timekeeping module too.
-
-	Revision 1.1  2001-10-11 10:56:33-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
-
 	||
 	END FUSEDOC --->
 <cfset variables.start=1>
 </cfsilent>
 <cfparam name="engagement_dashboard_Return" default="0">
 <cfparam name="IE_Emp_ID_Filter" default="All">
-<cfparam name="Customers_ID_Filter" default="All">
+<cfparam name="customer_id_Filter" default="All">
 <cfparam name="Sort" default="Customers.Description,Project.Description">
 <cfset attributes.req_custom=1>
 <cfset attributes.field1=1>
@@ -111,7 +90,7 @@
 <input type="hidden" name="option" value="3">
 <input type="hidden" name="edit" value="1">
 <input type="hidden" name="engagement_dashboard_Return" value="#engagement_dashboard_Return#">
-<input type="hidden" name="Customers_ID_FIlter" value="#customers_id_Filter#">
+<input type="hidden" name="customer_id_FIlter" value="#customer_id_Filter#">
 <input type="hidden" name="IE_Emp_ID_FIlter" value="#IE_Emp_ID_Filter#">
 <input type="hidden" name="Sort" value="#sort#">
 </cfoutput>

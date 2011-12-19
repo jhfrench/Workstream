@@ -27,6 +27,6 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	<a href="index.cfm?fuseaction=Manager_individual_hours_input" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">Choose another employee to view.</a>
 	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#" section_color="ffffff" section_title="Individual Hours Report"  gutter="false" align="center" colspan="5">
 	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="SubHeadText#session.workstream_text_size#" section_color="ffffff" section_title="From: #attributes.from_date# &nbsp;To: #attributes.through_date#" gutter="false" align="center" colspan="5">
-	<cfinclude template="Dsp_Indiv_Row_Header.cfm">
+	<cfinclude template="dsp_Indiv_Row_Header.cfm">
 	<cfinclude template="dsp_indiv_rows_output.cfm">
 </table>

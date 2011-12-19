@@ -149,7 +149,7 @@ The following task #variables.notification_text#: #prepare_email.task_name# (#at
 Due: #prepare_email.date_due#
 Description: #prepare_email.description#
 
-<a href='http://workstream.nucleussolutions.com/index.cfm?fuseaction=Timekeeping.task_details&task_id=#attributes.task_id#'>View task #attributes.task_id#</a>">
+<a href='http://#cgi.http_host#/index.cfm?fuseaction=Timekeeping.task_details&task_id=#attributes.task_id#'>View task #attributes.task_id#</a>">
 
 		<cfmodule template="../common_files/act_email.cfm" email_to="#variables.email_to#" email_from="#variables.email_from#" email_subject="#variables.email_subject#" email_body="#variables.email_body#" email_type="HTML">
 

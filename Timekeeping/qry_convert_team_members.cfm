@@ -10,13 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:23:23  stetzer
-<>
-
-Revision 1.1  2001-10-11 10:54:52-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> get_task_details.owner_id: number that uniquely identifies the owner of a task

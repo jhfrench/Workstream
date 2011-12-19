@@ -33,9 +33,9 @@ WHERE Project.project_id=Hours_ID.project_id
 	AND Hours_ID.emp_id=Emp_Contact.emp_id
 	AND Hours_ID.emp_id=Demographics.emp_id
 	AND ('#attributes.month#/1/#attributes.year#' BETWEEN Billing_Rate.rates_good_from AND Billing_Rate.rates_good_to OR Billing_Rate.rates_good_to IS NULL)
-	AND Project.billable_id=#attributes.billable_id#
+	AND Project.billable_type_id=#attributes.billable_type_id#
 	AND Project.project_id=#attributes.project_id#
-GROUP BY Hours_ID.project_id, Project.billable_id, Hours_ID.hours, 
+GROUP BY Hours_ID.project_id, Project.billable_type_id, Hours_ID.hours, 
 	Billing_Rate.rate, Hours_ID.emp_id, Emp_Contact.name, 
 	Emp_Contact.lname, Demographics.pin, Project.project_code, 
 	Project.description

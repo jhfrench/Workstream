@@ -10,12 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 21:01:19  daugherty
-	Initial revision
-
-	Revision 1.0  2002-02-19 14:54:24-05  french
-	Creating drill-down to the notes level from the invoice tool.
-
 	||
 	Variables:
 	END FUSEDOC --->

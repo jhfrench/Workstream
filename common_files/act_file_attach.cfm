@@ -13,7 +13,7 @@
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
-<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<script language="JavaScript" type="text/javascript">
 <!--
 	function movename()
 		{

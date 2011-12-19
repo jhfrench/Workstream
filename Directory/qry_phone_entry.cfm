@@ -10,15 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:47:15  daugherty
-	Initial revision
-
-	Revision 1.1  2002-03-08 16:40:42-05  long
-	removed the listchangedelims, so that the phone numbers will pass validation when they come back out of the database for editing
-
-	Revision 1.0  2001-10-16 17:05:55-04  french
-	Initial revision
-
 	||
 	Variables:
  --->

@@ -21,10 +21,10 @@ Group by Lname, Emp_ID
 ORDER BY LName
 </cfquery>
 <cfquery name="get_engagement_customers" datasource="#application.datasources.main#">
-SELECT Customers.Description, Customers.Customers_ID	
-FROM Project, Customers
-Where Customers.Customers_ID = Project.Customers_ID and Project.Status <> 0
-Group by Customers.Description, Customers.Customers_ID
-ORDER BY Customers.Description
+SELECT Customer.Description, Customer.customer_id	
+FROM Project, Customer
+Where Customer.customer_id = Project.customer_id and Project.Status <> 0
+Group by Customer.Description, Customer.customer_id
+ORDER BY Customer.Description
 </cfquery>
 </cfsilent>

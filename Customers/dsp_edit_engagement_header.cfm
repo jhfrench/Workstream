@@ -15,7 +15,7 @@
 <cfoutput>
 	<tr>
 		<td colspan="#variables.colspan#" class="HeadText#session.workstream_text_size#White" bgcolor="008000">
-			&nbsp;Edit Engagement for <a href="javascript:engagement_list('#get_customer_name_code.root_code#');" class="HeadText#session.workstream_text_size#White">#get_customer_name_code.project_name#- #get_customer_name_code.Project_Code#</a>
+			&nbsp;Edit Engagement for <a href="javascript:engagement_list('#get_customer_name_code.root_code#');" class="HeadText#session.workstream_text_size#White">#get_customer_name_code.project_name#- #get_customer_name_code.project_code#</a>
 		</td>
 	</tr>
 </cfoutput>

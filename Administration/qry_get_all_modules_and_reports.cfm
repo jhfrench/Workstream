@@ -10,29 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2006/09/15 22:25:58  csy
-	<>
-
-	Revision 1.0  2006-08-16 09:32:11-04  csy
-	Initial revision
-
-	Revision 1.1  2005-09-14 09:01:43-04  pciske
-	task 34623 - added derived table to determine if the account being edited has different All Option access than the current user; used to disable All Option checkbox
-
-	Revision 1.0  2005-02-15 15:27:39-05  daugherty
-	Initial revision
-
-	Revision 1.4  2002-03-11 10:39:36-05  long
-	Changed the query so that it only returns active reports and modules.
-
-	Revision 1.3  2002-02-08 09:02:22-05  long
-	Added evaluation of user level to determine what the administrator is allowed to grant access to. Wrote query for the more limited access portion.
-
-	Revision 1.2  2001-11-21 17:53:57-05  french
-	Added ordering by object name
-
-	Revision 1.1  2001-10-11 10:55:30-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
  --->
 <cfquery name="get_all_modules_and_reports" datasource="#application.datasources.main#">

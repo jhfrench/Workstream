@@ -21,7 +21,7 @@ SELECT 1 AS overall_order, (Emp_Contact.lname+', '+Emp_Contact.name) AS name,<cf
 	SUM(CASE WHEN DAY(Time_Entry.date)=#ii# THEN Time_Entry.hours ELSE 0 END) AS [day#ii#],</cfloop>
 	SUM(CASE WHEN Time_Entry.date IS NOT NULL THEN Time_Entry.hours ELSE 0 END) AS total
 FROM Emp_Contact, Time_Entry, Company,
-	Demographics<cfif isdefined("attributes.office_location") AND attributes.office_location NEQ "ALL">, Location</cfif>
+	Demographics_Ngauge Demographics<cfif isdefined("attributes.office_location") AND attributes.office_location NEQ "ALL">, Location</cfif>
 WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND Emp_Contact.emp_id=Time_Entry.emp_id
 	AND Emp_Contact.emp_id=Company.emp_id
@@ -45,7 +45,7 @@ SELECT 2 AS overall_order, 'Total' AS name,<cfloop from="1" to="#variables.daysi
 	SUM(CASE WHEN DAY(Time_Entry.date)=#ii# THEN Time_Entry.hours ELSE 0 END) AS [day#ii#],</cfloop>
 	SUM(CASE WHEN Time_Entry.date IS NOT NULL THEN Time_Entry.hours ELSE 0 END) AS total
 FROM Emp_Contact, Time_Entry, Company,
-	Demographics<cfif isdefined("attributes.office_location") AND attributes.office_location NEQ "ALL">, Location</cfif>
+	Demographics_Ngauge Demographics<cfif isdefined("attributes.office_location") AND attributes.office_location NEQ "ALL">, Location</cfif>
 WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND Emp_Contact.emp_id=Time_Entry.emp_id
 	AND Emp_Contact.emp_id=Company.emp_id

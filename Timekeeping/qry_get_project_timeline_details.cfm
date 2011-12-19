@@ -10,21 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:26:12  stetzer
-	<>
-
-	Revision 1.3  2001-11-28 13:50:54-05  french
-	Modified code to recognize options that should be ignored as specified by the user during timeline creation.
-
-	Revision 1.2  2001-11-01 16:18:22-05  french
-	Changed capitaliztion of Tables to make query easier to read.
-
-	Revision 1.1  2001-10-30 11:13:24-05  french
-	Initial query coding.
-
-	Revision 1.0  2001-10-29 16:28:08-05  french
-	File creation.
-
 	||
 	END FUSEDOC --->
 <cfquery name="get_project_timeline_details" datasource="#application.datasources.main#">

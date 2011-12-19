@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:45:53  daugherty
-	Initial revision
-
 	||
 	--> application.application_specific_settings.image_dir: string that contains main path to the folder where all images are kept
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size

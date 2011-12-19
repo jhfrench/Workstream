@@ -10,14 +10,6 @@
 	|| 
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:45:56  daugherty
-	Initial revision
-
-	Revision 1.2  2001-11-01 16:25:05-05  french
-	Made changes that allows workstream to map one custom field to multiple projects.
-
-	Revision 1.1  2001-10-11 10:56:26-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfparam name="variables.start" default="1">

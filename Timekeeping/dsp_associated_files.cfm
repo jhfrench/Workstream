@@ -17,7 +17,7 @@
  --->
 </cfsilent>
 			Associated files<br>
-			<cfif compare(listlast(attributes.fuseaction, '.'),"new_task") AND get_associated_files.recordcount>
+			<cfif comparenocase(listlast(attributes.fuseaction, '.'),"new_task") AND get_associated_files.recordcount>
 			<cfoutput query="get_associated_files">
 				<cfset variables.file_img="NA">
 				<cfif listfindnocase(variables.valid_files,left(listlast(file_path,"."),3))>

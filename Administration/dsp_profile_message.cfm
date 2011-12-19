@@ -31,7 +31,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 		<td align="center" colspan="2" valign="top" class="SubHeadText#session.workstream_text_size#">
 			<br>&nbsp;
 			<br>&nbsp;
-			Your profile has been <cfif compare(listlast(attributes.fuseaction, '.'),"load_profile")>sav<cfelse>load</cfif>ed.
+			Your profile has been <cfif comparenocase(listlast(attributes.fuseaction, '.'),"load_profile")>sav<cfelse>load</cfif>ed.
 			<br>&nbsp;
 			<br>&nbsp;
 		</td>

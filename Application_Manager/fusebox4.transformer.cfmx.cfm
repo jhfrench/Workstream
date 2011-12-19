@@ -86,7 +86,7 @@ This software consists of voluntary contributions made by many individuals on be
         fb_.temp=structNew();
         fb_.temp.xmlName="do";
         fb_.temp.circuit=ListFirst(fb_.xnPreprocessFA[fb_.i].xmlAttributes['action'], '.');
-        fb_.temp.fuseaction=ListLast(fb_.xnPreprocessFA[fb_.i].xmlAttributes['action'], '.');
+        fb_.temp.fuseaction=listlast(fb_.xnPreprocessFA[fb_.i].xmlAttributes['action'], '.');
         fb_.temp.phase=fb_.phase;
         fb_.temp.xmlAttributes=structNew();
         for (fb_.anItem in fb_.xnPreprocessFA[fb_.i].xmlAttributes) {
@@ -120,7 +120,7 @@ This software consists of voluntary contributions made by many individuals on be
         fb_.temp=structNew();
         fb_.temp.xmlName="do";
         fb_.temp.circuit=ListFirst(fb_.xnPostprocessFA[fb_.i].xmlAttributes['action'], '.');
-        fb_.temp.fuseaction=ListLast(fb_.xnPostprocessFA[fb_.i].xmlAttributes['action'], '.');
+        fb_.temp.fuseaction=listlast(fb_.xnPostprocessFA[fb_.i].xmlAttributes['action'], '.');
         fb_.temp.phase=fb_.phase;
         fb_.temp.xmlAttributes=structNew();
         for (fb_.anItem in fb_.xnPostprocessFA[fb_.i].xmlAttributes) {
@@ -241,7 +241,7 @@ This software consists of voluntary contributions made by many individuals on be
         else {
           // parse new FA
           myFusebox.thisCircuit   =ListFirst(fb_.aFuseaction, '.');
-          myFusebox.thisFuseaction=ListLast(fb_.aFuseaction, '.');
+          myFusebox.thisFuseaction=listlast(fb_.aFuseaction, '.');
         }
       </cfscript>
 

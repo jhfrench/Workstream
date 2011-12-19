@@ -27,10 +27,10 @@ SELECT COUNT(Task.task_id) AS task_count,
 	valid_weeks.week_in_year AS week_entered, valid_weeks.year_num AS year_entered,
 	ISNULL((AVG(DATEDIFF(hh,entry_date,complete_date))/24.00),0.00) AS days_to_complete
 FROM Task,
-	(SELECT DATEPART(wk,REF_Days.date) AS week_in_year, YEAR(REF_Days.date) AS year_num
-	FROM REF_Days
+	(SELECT DATEPART(wk,REF_Date.date) AS week_in_year, REF_Date.date_year AS year_num
+	FROM REF_Date
 	WHERE date>
-		(SELECT MIN(Task.entry_Date) AS earliest_date
+		(SELECT MIN(Task.entry_date) AS earliest_date
 		FROM Task
 		WHERE tasks_pre_defined_id=55
 			AND complete_date IS NOT NULL)
@@ -39,7 +39,7 @@ FROM Task,
 		FROM Task
 		WHERE tasks_pre_defined_id=55
 			AND complete_date IS NOT NULL)
-	GROUP BY DATEPART(wk,REF_Days.date), YEAR(REF_Days.date))
+	GROUP BY DATEPART(wk,REF_Date.odbc_date), REF_Date.date_year)
 AS valid_weeks
 WHERE valid_weeks.week_in_year*=DATEPART(wk,entry_date)
 	AND valid_weeks.year_num*=YEAR(entry_date)

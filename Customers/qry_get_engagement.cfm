@@ -20,13 +20,13 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfquery name="get_engagement" datasource="#application.datasources.main#">
-    SELECT Project.Description, Project.Project_Code, Project.Budget, 
-    REF_Billable.Billable_Type, project.billable_id, project.active_id,
+    SELECT Project.Description, Project.project_code, Project.budget, 
+    REF_Billable.Billable_Type, project.billable_type_id, project.active_id,
     REF_Active_Indicator.Active_Ind_Type, Flat_Rate.Months, project.company_id,
     Flat_Rate.End_Date, Flat_Rate.Start_Date
 FROM Project INNER JOIN
     REF_Billable ON 
-    Project.Billable_ID = REF_Billable.Billable_ID INNER JOIN
+    Project.billable_type_id = REF_Billable.billable_type_id INNER JOIN
     REF_Active_Indicator ON 
     Project.Active_ID = REF_Active_Indicator.Active_Ind LEFT OUTER
      JOIN

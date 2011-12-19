@@ -1,5 +1,5 @@
 
-<!--Customers/qry_marketing_grid.cfm
+<!--Marketing/qry_marketing_grid.cfm
 	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC

@@ -38,7 +38,7 @@ function fb_canonicalPath(path, delim) {
 	var dirArray=listToArray(path, "/\");
 	var i="";
 	for (i=1; i LTE arraylen(dirArray); i=i+1) {
-		// don't convert this loop to CFLOOP without thinking
+		// don't convert this loop to cfloop without thinking
 		if (dirArray[i] EQ ".") {
 			arrayDeleteAt(dirArray, i);
 			i=i-1;

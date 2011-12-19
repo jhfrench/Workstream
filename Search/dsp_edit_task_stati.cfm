@@ -10,17 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2006/04/07 18:15:54  csy
-	task 42742 Edit task status field
-
-	Revision 1.0  2005-02-15 15:58:26-05  daugherty
-	Initial revision
-
-	Revision 1.2  2002-04-19 11:58:57-04  french
-	Removed 'used_by"search' because it performed no function. Tabbed comments over.
-
-	Revision 1.1  2001-10-11 10:55:24-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->

@@ -10,19 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.2  2005/03/09 18:28:28  stetzer
-<>
-
-Revision 1.1  2005-03-04 11:22:10-05  french
-Fixing date entry to use SQL GETDATE().
-
-Revision 1.0  2005-02-15 16:00:43-05  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:54:31-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.notes_#ii#: string that contains the notes that correspond to a particular time entry

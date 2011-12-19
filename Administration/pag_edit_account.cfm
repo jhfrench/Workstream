@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2006/09/15 22:28:04  csy
-	<>
-
-	Revision 1.0  2006-08-16 09:32:07-04  csy
-	Initial revision
-
-	Revision 1.1  2006-07-05 13:27:54-04  french
-	Added ability to edit auciliary attributes of an account.
-
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->

@@ -1,5 +1,5 @@
 
-<!--Admin/qry_get_company_visible_to_access.cfm
+<!--Admin/qry_get_Link_Company_Emp_Contact_access.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -10,20 +10,17 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2006/07/05 17:27:02  french
-	Initial revision.
-
 	||
  --->
-<cfquery name="get_company_visible_to_access" datasource="#application.datasources.main#">
+<cfquery name="get_link_company_emp_contact_access" datasource="#application.datasources.main#">
 SELECT REF_Companies.company_id, REF_Companies.company, 
 	CASE
-		WHEN Company_Visible_To.Company_Visible_To_id IS NULL THEN '' 
+		WHEN Link_Company_Emp_Contact.Link_Company_Emp_Contact_id IS NULL THEN '' 
 		ELSE ' SELECTED'
 	END AS has_company_access
 FROM REF_Companies
-	LEFT OUTER JOIN Company_Visible_To ON REF_Companies.company_id=Company_Visible_To.company_id
-		AND Company_Visible_To.emp_id=#attributes.emp_id#
+	LEFT OUTER JOIN Link_Company_Emp_Contact ON REF_Companies.company_id=Link_Company_Emp_Contact.company_id
+		AND Link_Company_Emp_Contact.emp_id=#attributes.emp_id#
 ORDER BY REF_Companies.company, REF_Companies.company_id
 </cfquery>
 </cfsilent>

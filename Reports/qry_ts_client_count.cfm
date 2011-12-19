@@ -13,13 +13,13 @@
 	||
 	END FUSEDOC --->
 <cfquery name="ts_client_count" datasource="#application.datasources.main#" cachedafter="02/02/1978">
-SELECT LEFT(Customers.description,8) AS customer, COUNT(Task.task_id) AS task_count
-FROM Task, Project, Customers
+SELECT LEFT(Customer.description,8) AS customer, COUNT(Task.task_id) AS task_count
+FROM Task, Project, Customer
 WHERE Task.project_id=Project.project_id
-	AND Project.customers_id=Customers.customers_id
+	AND Project.customer_id=Customer.customer_id
 	AND Task.name LIKE 'TS%'
 	AND #session.workstream_cache_query#=#session.workstream_cache_query#
-GROUP BY LEFT(Customers.description,8)
+GROUP BY LEFT(Customer.description,8)
 ORDER BY task_count DESC
 </cfquery>
 </cfsilent>

@@ -9,15 +9,9 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:11:17  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:15-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
 	||
 	END FUSEDOC --->
+</cfsilent>
 <cfinclude template="Act_verify_dates.cfm">
 <cfinclude template="qry_hours_code.cfm">
 <table border="0" cellpadding="4" cellspacing="0" align="center" width="95%">
@@ -33,7 +27,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 				</cfif>
 				<cfinclude template="dsp_hours_code_row_header.cfm">
 			</cfif>
-		<cfinclude template="Dsp_hours_code_rows.cfm">
+		<cfinclude template="dsp_hours_code_rows.cfm">
 		<cfif hours_code.recordcount EQ hours_code.CurrentRow>
 			<cfinclude template="dsp_hours_code_totals.cfm">
 		</cfif>

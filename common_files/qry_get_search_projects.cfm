@@ -20,36 +20,36 @@
 	<cfset variables.valid_codes=session.workstream_company_select_list>
 </cfif>
 <cfquery name="get_search_projects" datasource="#application.datasources.main#">
-SELECT Customers.customers_id, Customers.description + ' (' + Customers.root_code + ')' AS customer,
+SELECT Customer.customer_id, Customer.description + ' (' + Customer.root_code + ')' AS customer,
 	Project.description AS project_name,
 	Project.project_id AS project_id,
 	Project.project_code AS project_code, 
-	CASE WHEN
-	Customers.description != Project.description
+	CASE
+		WHEN Customer.description != Project.description
 	<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
-		THEN (Project.project_code + ' - ' + Customers.description + ' - ' + Project.description) 
+		THEN (Project.project_code + ' - ' + Customer.description + ' - ' + Project.description) 
 		ELSE (Project.project_code + ' - ' + Project.description)
 	<cfelse>
-		THEN (Customers.description + ' - ' + Project.description + ' (' + Project.project_code + ')') 
+		THEN (Customer.description + ' - ' + Project.description + ' (' + Project.project_code + ')') 
 		ELSE (Project.description + ' (' + Project.project_code + ')') 
 	</cfif>END AS display
-FROM Customers, Project, Project_Visible_To, Customer_Visible_To
-WHERE Customers.customers_id = Project.customers_id
-	AND Project.project_id = Project_Visible_To.project_id
-	AND Customers.root_code = Customer_Visible_To.code
-	AND Customer_Visible_To.visible_to IN (#variables.valid_codes#)
-	AND Project_Visible_To.company_id IN (#variables.valid_codes#)
+FROM Customer, Project, Link_Project_Company, Link_Customer_Company
+WHERE Customer.customer_id = Project.customer_id
+	AND Project.project_id = Link_Project_Company.project_id
+	AND Customer.customer_id = Link_Customer_Company.customer_id
+	AND Link_Customer_Company.company_id IN (#variables.valid_codes#)
+	AND Link_Project_Company.company_id IN (#variables.valid_codes#)
 	AND Project.project_type_id!=3 
-GROUP BY Customers.customers_id, Customers.description, Customers.root_code,
+GROUP BY Customer.customer_id, Customer.description, Customer.root_code,
 	Project.description, Project.project_id, Project.project_code,
-	Project.billable_id, Project.company_id, 
+	Project.billable_type_id, Project.company_id, 
 	CASE
-		WHEN Customers.description != Project.description
+		WHEN Customer.description != Project.description
 	<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
-		THEN (Project.project_code + ' - ' + Customers.description + ' - ' + Project.description) 
+		THEN (Project.project_code + ' - ' + Customer.description + ' - ' + Project.description) 
 		ELSE (Project.project_code + ' - ' + Project.description)
 	<cfelse>
-		THEN (Customers.description + ' - ' + Project.description + ' (' + Project.project_code + ')') 
+		THEN (Customer.description + ' - ' + Project.description + ' (' + Project.project_code + ')') 
 		ELSE (Project.description + ' (' + Project.project_code + ')') 
 	</cfif>END
 ORDER BY display

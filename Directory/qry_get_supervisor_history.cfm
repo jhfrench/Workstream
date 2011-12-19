@@ -10,12 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:47:13  daugherty
-	Initial revision
-
-	Revision 1.1  2001-10-11 12:20:54-04  long
-	Added FuseDoc
-
 	||
 	Variables:
 	--> attributes.emp_id: number containing the unique identifier of the individual being requested

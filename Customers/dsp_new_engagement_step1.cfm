@@ -30,13 +30,13 @@
 	<tr valign="top">
 		<td colspan="2" class="RegText#session.workstream_text_size#Bd">
 			Root Name<br>
-			<cfselect name="customers_id" size="1" query="get_root_codes" value="customers_id" required="Yes" display="display" class="RegText#session.workstream_text_size#"></cfselect><br>
+			<cfselect name="customer_id" size="1" query="get_root_codes" value="customer_id" required="Yes" display="display" class="RegText#session.workstream_text_size#"></cfselect><br>
 			Engagement Name<br>
 			<cfinput type="Text" name="description" required="Yes" message="Please enter an Engagement Name" class="RegText#session.workstream_text_size#">
 		</td>
 		<td class="RegText#session.workstream_text_size#Bd">
 			Visible To<br>
-			<cfselect name="visible_to" query="get_companies" value="company_id" display="Company" size="4" required="Yes" message="Please specify which companies should see this engagement." multiple="yes" class="RegText#session.workstream_text_size#"></cfselect>
+			<cfselect name="company_id" query="get_companies" value="company_id" display="Company" size="4" required="Yes" message="Please specify which companies should see this engagement." multiple="yes" class="RegText#session.workstream_text_size#"></cfselect>
 		</td>
 		<td width="55%" class="Note#session.workstream_text_size#">
 			<ol type="1" class="Note#session.workstream_text_size#">
@@ -57,7 +57,7 @@
 		</td>
 		<td class="RegText#session.workstream_text_size#Bd">
 			Billing Type<br>
-			<cfselect name="billable_id" size="4" query="get_billable_types" value="billable_id" display="billable_type" required="Yes" message="Please specify the billing type for this engagement." class="RegText#session.workstream_text_size#"></cfselect>
+			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="billable_type" required="Yes" message="Please specify the billing type for this engagement." class="RegText#session.workstream_text_size#"></cfselect>
 		</td>
 		<td width="55%" class="Note#session.workstream_text_size#">
 			<ol type="1" start="2" class="Note#session.workstream_text_size#">

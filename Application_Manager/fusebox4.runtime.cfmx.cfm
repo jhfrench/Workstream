@@ -186,7 +186,7 @@ This software consists of voluntary contributions made by many individuals on be
 	<cfif ListLen(attributes.fuseaction, '.') EQ 2>
 	  <cfscript>
 	    myFusebox.thisCircuit   =ListFirst(attributes.fuseaction, '.');
-	    myFusebox.thisFuseaction=ListLast(attributes.fuseaction, '.');
+	    myFusebox.thisFuseaction=listlast(attributes.fuseaction, '.');
 		 myFusebox.originalCircuit   =myFusebox.thisCircuit;
 		 myFusebox.originalFuseaction=myFusebox.thisFuseaction;
 	  </cfscript>
@@ -455,7 +455,7 @@ This software consists of voluntary contributions made by many individuals on be
 			<cfset fb_.type=cfcatch.type />
 			<cfset fb_.errorFile=application.fusebox.errortemplatesPath & fb_.type & ".cfm" />
 			<cfloop condition="NOT fileExists(application.fusebox.approotdirectory & fb_.errorFile) AND len(fb_.type) GT 0">
-				<cfset fb_.type=listDeleteAt(fb_.type, listLen(fb_.type, "."), ".") />
+				<cfset fb_.type=listdeleteat(fb_.type, listLen(fb_.type, "."), ".") />
 				<cfset fb_.errorFile=application.fusebox.errortemplatesPath & fb_.type & ".cfm" />
 			</cfloop>
 			<cfif FileExists(application.fusebox.approotdirectory & fb_.errorFile)>

@@ -21,7 +21,7 @@
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
-<cfif compare(listlast(attributes.fuseaction, '.'),"print_task")>
+<cfif comparenocase(listlast(attributes.fuseaction, '.'),"print_task")>
 	<cfset get_print_details=0>
 <cfelse>
 	<cfset get_print_details=1>
@@ -36,9 +36,9 @@ SELECT Task.task_type_id, Task.task_id AS task_id, Task.name AS task_name, ISNUL
 	ISNULL(Task_Accum.budgeted_hours,0) AS budgeted_hours, Task_Accum.hours_used AS hours_used, 
 	Task_Accum.image_width AS image_width, Task_Accum.percent_used AS percent_used,
 	Task_Owner.emp_id AS owner_id, Task_QA.emp_id AS qa_id,
-	Customers.description AS customer_name, Project.description AS project_name, Project.project_id AS project_id,
+	Customer.description AS customer_name, Project.description AS project_name, Project.project_id AS project_id,
 	Task.notification_frequency_id, Task_Source.source_name
-FROM Task, REF_Status, Project, Customers,<cfif get_print_details> REF_Priority,</cfif>
+FROM Task, REF_Status, Project, Customer,<cfif get_print_details> REF_Priority,</cfif>
 	(SELECT Task.task_id, Task.budgeted_hours AS budgeted_hours, 
 		ISNULL(SUM(Time_Entry.hours),0) AS hours_used, 
 		(CASE WHEN ISNULL(Task.budgeted_hours,0)=0 THEN 0 ELSE SUM(Time_Entry.hours)/Task.budgeted_hours*200 END) AS image_width, 
@@ -70,7 +70,7 @@ WHERE Task.task_id=#attributes.task_id#
 	AND Task.task_id=Task_Owner.task_id
 	AND Task.task_id=Task_QA.task_id
 	AND Task.project_id=Project.project_id
-	AND Project.customers_id=Customers.customers_id
+	AND Project.customer_id=Customer.customer_id
 	<cfif get_print_details>AND Task.priority_id=REF_Priority.priority_id
 	AND Task.status_id=REF_Status.status_id</cfif>
 </cfquery>

@@ -19,7 +19,7 @@
 <cfset msg="Please choose an engagement code.">
 </cfsilent>
 
-<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<script language="JavaScript" type="text/javascript">
 <!--
 function checkTheDescription(arg){
 	if (arg == "to_inbox"){

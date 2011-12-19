@@ -77,7 +77,7 @@
 	<html>
 		<head>
 			<title>#application.html_title#</title>
-			<script language="javascript" type="text/javascript">
+			<script language="JavaScript" type="text/javascript">
 				alert("#variables.error_message#");
 				window.location.href="#variables.new_location#";
 			</script>

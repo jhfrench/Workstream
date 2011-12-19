@@ -1,5 +1,5 @@
 
-<!--Customers/qry_get_contact_count.cfm
+<!--Marketing/qry_get_contact_count.cfm
 	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -42,7 +42,7 @@ FROM (SELECT COUNT(marketing_emp.emp_id) AS people
           Emp_Contact.Emp_ID = Phone.Emp_ID LEFT OUTER JOIN
           Email ON Email.Email_Type_ID = 1 AND 
           Emp_Contact.Emp_ID = Email.Emp_ID
-      WHERE (Marketing.Project_Code LIKE '6005.%')
+      WHERE (Marketing.project_code LIKE '6005.%')
 	 <cfif SortBy1 is not 'None'>and (#SortBy1# like '%#SortBy1stuff#%'</cfif>
 <cfif sortBy2 is not 'None'>#SortBy2andor# #SortBy2# like '%#SortBy2stuff#%'</cfif>
 <cfif SortBy3 is not 'None'>#SortBy3andor# #SortBy3# like '%#SortBy3stuff#%'</cfif>

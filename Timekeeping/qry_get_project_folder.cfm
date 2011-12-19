@@ -12,9 +12,9 @@
 	||
 	END FUSEDOC --->
 <cfquery name="get_project_folder" datasource="#application.datasources.main#">
-SELECT Customers.description AS company
-FROM Customers, Project, Project_Planning
-WHERE Customers.customers_id=Project.customers_id
+SELECT Customer.description AS company
+FROM Customer, Project, Project_Planning
+WHERE Customer.customer_id=Project.customer_id
 	AND Project.project_id=Project_Planning.project_id
 	AND Project_Planning.project_planning_id=1
 </cfquery>

@@ -35,7 +35,7 @@
 			Priority<br><cfset tabindex=incrementvalue(tabindex)>
 			<cfselect name="priority_id" query="get_priorities" display="description" value="priority_id" selected="3" tabindex="#tabindex#" class="RegText#session.workstream_text_size#"></cfselect><br>
 			Icon<br><cfset tabindex=incrementvalue(tabindex)>
-			<cfselect query="get_icons" name="icon_id" display="icon_name" value="icon_id" selected="1" tabindex="#tabindex#" class="RegText#session.workstream_text_size#"></cfselect><br>
+			<cfselect query="get_ref_icon" name="icon_id" display="icon_name" value="icon_id" selected="1" tabindex="#tabindex#" class="RegText#session.workstream_text_size#"></cfselect><br>
 			Hours Budgeted<br><cfset tabindex=incrementvalue(tabindex)>
 			<cfinput name="budgeted_hours" required="Yes" validate="float" message="Please enter a number for hours budgeted." size="4" tabindex="#tabindex#" class="RegText#session.workstream_text_size#"><br>
 		</td>

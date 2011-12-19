@@ -43,7 +43,7 @@
 
 <cfinclude template="qry_find_notification_recipient.cfm"> 
 <cfmail type="HTML" to="#notification_recipient.recipient_email#" from="#application.erroremailfrom#" subject="Manager's Verification of Hours" server="#application.emailserver#">
-<cfmailparam name="Reply-To" value="long@nucleusweb.com">
+<cfmailparam name="Reply-To" value="jeromy_french@hotmail.com">
 <pre>John, 
 
 	The manager #name# #lname# has verified the hours for his/her employees for the dates 

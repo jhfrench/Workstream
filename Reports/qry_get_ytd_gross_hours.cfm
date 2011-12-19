@@ -13,13 +13,13 @@
 	END FUSEDOC --->
 <cfif listcontainsnocase(attributes.display_person, "ALL")>
 	<!--- If the user has selected all, remove it from the list, the emp_id will still remain for query --->
-	<cfset attributes.display_person=ListDeleteAt(attributes.display_person, 1,",")>
+	<cfset attributes.display_person=listdeleteat(attributes.display_person, 1,",")>
 </cfif>
 <cfquery name="qry_get_ytd_gross_hours" datasource="#application.datasources.main#">
 SELECT ISNULL(employee_classification, 'Unknown') AS employee_classification, Emp_Contact.name, Emp_Contact.lname,
 	ISNULL(Location.city, 'Unknown') AS city,
-	SUM(CASE WHEN Project.billable_id=2 THEN Time_Entry.hours ELSE 0 END) AS non_billable, 
-	SUM(CASE WHEN Project.billable_id != 2 THEN Time_Entry.hours ELSE 0 END) AS billable,
+	SUM(CASE WHEN Project.billable_type_id=2 THEN Time_Entry.hours ELSE 0 END) AS non_billable, 
+	SUM(CASE WHEN Project.billable_type_id != 2 THEN Time_Entry.hours ELSE 0 END) AS billable,
 	Demographics.emp_id, ISNULL(SUM(Time_Entry.hours), 0) AS gross_hours
 FROM Time_Entry
 	RIGHT OUTER JOIN Demographics ON Time_Entry.emp_id=Demographics.emp_id

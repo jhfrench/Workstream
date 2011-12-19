@@ -21,7 +21,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cf_htmlhead>
-<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<script language="JavaScript" type="text/javascript">
 <!--
 function validate_number(arg1){
 	

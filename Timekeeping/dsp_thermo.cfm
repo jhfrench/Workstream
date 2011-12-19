@@ -24,11 +24,11 @@
 </cfsilent>
 	<tr align="left"><td colspan="3" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 
-<b>Data Operations Jobs:<br><cfoutput query="revenue_goal_dept"><a href="http://workstream.nucleusweb.com/index.cfm?fuseaction=Reports.sql_schedule&show_all=yes">#numberformat(revenue_progress,'___,___')#</a></cfoutput></b>
+<b>Data Operations Jobs:<br><cfoutput query="revenue_goal_dept"><a href="index.cfm?fuseaction=Reports.sql_schedule&show_all=yes">#numberformat(revenue_progress,'___,___')#</a></cfoutput></b>
 <!--- <b>New Revenue Progress:</b> --->
 </td>
 <td colspan="3" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
-<b>NRT Alerts:<br><cfoutput query="revenue_goal_dept2"><a href="http://workstream.nucleusweb.com/index.cfm?fuseaction=Reports.NRT_Report">#numberformat(revenue_progress,'___,___')#</a></cfoutput></b>
+<b>NRT Alerts:<br><cfoutput query="revenue_goal_dept2"><a href="index.cfm?fuseaction=Reports.NRT_Report">#numberformat(revenue_progress,'___,___')#</a></cfoutput></b>
 </td></tr>
 
 <tr align="right"><td colspan="3" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">

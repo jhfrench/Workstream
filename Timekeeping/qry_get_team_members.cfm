@@ -10,18 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:26:30  stetzer
-	<>
-
-	Revision 1.2  2001-10-31 14:04:45-05  french
-	Fixing GROUP BY to account for last name change.
-
-	Revision 1.1  2001-10-31 14:03:18-05  french
-	Made changes to display last name instead of first name.
-
-	Revision 1.0  2001-10-29 16:27:51-05  french
-	File creation.
-
 	||
 	END FUSEDOC --->
 <cfquery name="get_team_members" datasource="#application.datasources.main#">

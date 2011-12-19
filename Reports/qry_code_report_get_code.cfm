@@ -15,7 +15,7 @@
 	||
 	END FUSEDOC --->
 <cfquery name="get_code" datasource="#application.datasources.main#">
-SELECT Project.Project_Code + + ' - ' + + Project.Description AS display
+SELECT Project.project_code + + ' - ' + + Project.Description AS display
 FROM Project
 WHERE project_id=#attributes.project_id#
 </cfquery>

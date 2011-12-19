@@ -10,25 +10,19 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:28:05  stetzer
-<>
-
-Revision 1.1  2001-10-11 10:54:33-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
 <cfquery name="update_task_qa" datasource="#application.datasources.main#">
-<cfif NOT compare(listlast(attributes.fuseaction, '.'),"new_task")>
-INSERT INTO Team(task_id,emp_id,roll_id)
-VALUES (#attributes.task_id#,#attributes.task_qa#,3)
+<cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"new_task")>
+INSERT INTO Team(task_id, emp_id, roll_id)
+VALUES (#attributes.task_id#, #attributes.task_qa#, 3)
 <cfelse>
 UPDATE Team
 SET emp_id=#attributes.task_qa#
-WHERE task_id=#attributes.task_id# AND roll_id=3
+WHERE task_id=#attributes.task_id#
+	AND roll_id=3
 </cfif>
 </cfquery>
 </cfsilent>

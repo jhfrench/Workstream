@@ -25,19 +25,19 @@
 		<cfset large="16">
 		<cfset small="11">
 		<cfset plotAreaLeft=12/100>
-		<cfset graphheight=(revenue_report.recordcount*15.5)+10>
+		<cfset variables.graph_height=(revenue_report.recordcount*15.5)+10>
 	</cfcase>
 	<cfcase value="Md">
 		<cfset large="15">
 		<cfset small="11">
 		<cfset plotAreaLeft=11/100>
-		<cfset graphheight=(revenue_report.recordcount*13.95)+10>
+		<cfset variables.graph_height=(revenue_report.recordcount*13.95)+10>
 	</cfcase>
 	<cfdefaultcase>
 		<cfset large="14">
 		<cfset small="9">
 		<cfset plotAreaLeft=10/100>
-		<cfset graphheight=(revenue_report.recordcount*13.1)+10>
+		<cfset variables.graph_height=(revenue_report.recordcount*13.1)+10>
 	</cfdefaultcase>
 </cfswitch>
 <cfset xaxislabels="">
@@ -56,7 +56,7 @@
 </cfoutput>
 </cfsilent>
 Sales By Billing Type<br>
-<cfoutput><applet code="javachart.applet.stackBarApp.class" codebase="#request.dir_level##application.graphbase#" width="600" height="#graphheight#">
+<cfoutput><applet code="javachart.applet.stackBarApp.class" codebase="#request.dir_level##application.graphbase#" width="600" height="#variables.graph_height#">
 	<param name="plotAreaColor" value="ffffff">
 	<param name="backgroundColor" value="ffffff">
 	<param name="2D" value="yes">

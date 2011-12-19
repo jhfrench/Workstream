@@ -36,14 +36,14 @@ FROM Emp_Contact INNER JOIN
     Emp_Contact.Emp_ID = Company.Emp_ID INNER JOIN
     REF_companies ON 
     Company.Company = REF_companies.Company_ID INNER JOIN
-    Company_Visible_To ON 
-    Emp_Contact.Emp_ID = Company_Visible_To.emp_id LEFT OUTER
+    Link_Company_Emp_Contact ON 
+    Emp_Contact.Emp_ID = Link_Company_Emp_Contact.emp_id LEFT OUTER
      JOIN
     REF_Employee_Classification ON 
     Demographics.employee_classification_ID = REF_Employee_Classification.employee_classification_ID
 
 WHERE security.disable <> 1 and ((Time_entry.date>='#start_date#') AND 
-    (Time_entry.date<='#end_Date#'))  and demographics.overtime =1 <cfif compareNoCase(attributes.pin, "all")>and Emp_Contact.Emp_ID in (#attributes.pin#)<cfelse>and company_visible_to.company_id in(#session.workstream_company_select_list#)</cfif>
+    (Time_entry.date<='#end_Date#'))  and demographics.overtime =1 <cfif compareNoCase(attributes.pin, "all")>and Emp_Contact.Emp_ID in (#attributes.pin#)<cfelse>AND Link_Company_Emp_Contact.company_id in(#session.workstream_company_select_list#)</cfif>
 GROUP BY Emp_Contact.Name, Emp_Contact.LName, 
     REF_Employee_Classification.employee_classification, Emp_Contact.Emp_ID
 </cfquery>

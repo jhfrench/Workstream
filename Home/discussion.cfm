@@ -28,7 +28,7 @@
 
 <!---  set style levels equal to the attributes count so with each recursion a new style is drawn from sheet --->
 <cfif isdefined("attributes.level_bgcolors")>
-	<cfset variables.bgcolor_list=ListDeleteAt(attributes.level_bgcolors, 1, ',')>
+	<cfset variables.bgcolor_list=listdeleteat(attributes.level_bgcolors, 1, ',')>
 </cfif>
 
 

@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2006/07/05 17:26:51  french
-	Initial revision.
-
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
@@ -28,7 +25,7 @@
 		</td>
 		<td valign="top" class="RegText#session.workstream_text_size#">
 			<cfselect name="company_id" multiple="Yes" required="Yes" message="Please make sure this user has access to at least one company." size="10" class="RegText#session.workstream_text_size#">
-			<cfloop query="get_company_visible_to_access">
+			<cfloop query="get_link_company_emp_contact_access">
 				<option value="#company_id#"#has_company_access#>#company#</option>
 			</cfloop>
 			</cfselect>

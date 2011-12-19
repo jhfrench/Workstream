@@ -1,5 +1,5 @@
 
-<!--Timekeeping/qry_get_icons.cfm
+<!--Timekeeping/qry_get_ref_icon.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -16,7 +16,7 @@
 	<-- icon_name: string that contains the name (of the icon) to display to the user
  --->
 <cfparam name="application.icons_changed" default="#now()#">
-<cfquery name="get_icons" cachedafter="02/02/1978" datasource="#application.datasources.main#">
+<cfquery name="get_ref_icon" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT icon_id, icon_name
 FROM REF_Icon
 WHERE active_ind=1

@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:47:17  daugherty
-	Initial revision
-
-	Revision 1.0  2002-04-15 15:45:49-04  lee
-	initial revision
-
 	||
 	END FUSEDOC --->
 <cfset attributes.Carryover_limit="40">

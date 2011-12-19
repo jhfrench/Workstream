@@ -10,12 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2006/05/19 13:13:12  pciske
-	Initial revision
-
-	Revision 1.1  2001-10-11 12:17:59-04  long
-	Added FuseDoc
-
 	||
 	Variables:
 	--> application.team_changed: date of the last time emp_contact, security or demographics tables were changed

@@ -10,24 +10,21 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:26:52  stetzer
-	<>
-
 	||
  --->
 <cfquery name="operations_blurb" datasource="#application.datasources.main#">
-SELECT Customers.description,
+SELECT Customer.description,
 	SUM(CASE WHEN status = 1 THEN 1 ELSE 0 END) AS green,
 	SUM(CASE WHEN status = 2 THEN 1 ELSE 0 END) AS yellow,
 	SUM(CASE WHEN status = 3 THEN 1 ELSE 0 END) AS red,
 	COUNT(status) AS total
-FROM Project, Customers
-WHERE Project.customers_id=Customers.customers_id
+FROM Project, Customer
+WHERE Project.customer_id=Customer.customer_id
 	AND Project.active_ind=1
 	AND Project.company_id=#session.workstream_company_id#
 	AND Project.status IS NOT NULL
 	AND Project.status > 0
-GROUP BY Customers.description
+GROUP BY Customer.description
 </cfquery>
 </cfsilent>
 

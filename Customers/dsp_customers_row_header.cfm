@@ -9,12 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:45:37  daugherty
-	Initial revision
-
-	Revision 1.2  2001-11-01 12:04:03-05  french
-	Verifying that customer_edit is used correctly as a boolean.
-
 	||
 	END FUSEDOC --->
 <cfif session.workstream_customer_edit>

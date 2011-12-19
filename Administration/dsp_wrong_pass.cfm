@@ -10,16 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2006/09/15 22:28:30  csy
-	<>
-
-	Revision 1.0  2006-08-16 09:32:05-04  csy
-	Initial revision
-
-	Revision 1.0  2005-02-15 15:27:30-05  daugherty
-	Initial revision
-
-	
 	||
 	END FUSEDOC --->
 <cfparam name="attributes.msg" default="0">

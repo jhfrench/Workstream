@@ -23,7 +23,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 
 <cfoutput query="customer_change"> 
 	<tr>
-		<td><input type="input" name="root_code" value="#Root_code#" size="4" maxlength="4" class="RegText#session.workstream_text_size#"></td>
+		<td><input type="input" name="root_code" value="#root_code#" size="4" maxlength="4" class="RegText#session.workstream_text_size#"></td>
 		<td colspan="2"><input type="input" name="description" value="#description#" size="50" class="RegText#session.workstream_text_size#"></td>
 		<td><cfselect name="company_id" size="1" query="get_companies" value="company_id" display="Company" selected="#company_id#" class="RegText#session.workstream_text_size#"></cfselect></td>
 		<td><select name="active_id" size="1" class="RegText#session.workstream_text_size#">

@@ -31,7 +31,7 @@ FROM LOG_Email
 	LEFT OUTER JOIN Demographics ON Link_Email_Demographics.demographics_id=Demographics.demographics_id
 	LEFT OUTER JOIN Link_Email_Upload ON LOG_Email.email_id=Link_Email_Upload.email_id
 	LEFT OUTER JOIN LOG_Upload ON Link_Email_Upload.upload_id=LOG_Upload.upload_id
-	LEFT OUTER JOIN User_Account ON NVL(LOG_Email.created_by,0)=User_Account.user_account_id<cfif isdefined("attributes.email_id")>
+	LEFT OUTER JOIN User_Account ON ISNULL(LOG_Email.created_by,0)=User_Account.user_account_id<cfif isdefined("attributes.email_id")>
 WHERE LOG_Email.email_id IN (#attributes.email_id#)</cfif>
 ORDER BY LOG_Email.email_id, Demographics.email_address
 </cfquery>

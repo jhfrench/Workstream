@@ -13,9 +13,9 @@
 	||
 	END FUSEDOC --->
 <cfquery name="ts_completion_by_customer" datasource="#application.datasources.main#" cachedafter="02/02/1978">
-SELECT LEFT(Customers.description,8) AS description, AVG(Customer_Completion.completion_turnaround_hours) AS avg_hours
-FROM Customers, Project,
-	(SELECT Project.customers_id, 
+SELECT LEFT(Customer.description,8) AS description, AVG(Customer_Completion.completion_turnaround_hours) AS avg_hours
+FROM Customer, Project,
+	(SELECT Project.customer_id, 
 		(DATEDIFF(hour, Task.entry_date, ISNULL(Task.complete_date, 
            CASE WHEN status_id != 7 THEN GETDATE() 
            ELSE NULL END))) 
@@ -24,10 +24,10 @@ FROM Customers, Project,
 	WHERE Project.project_id=Task.project_id
 		AND Task.name LIKE 'TS%')
 AS Customer_Completion
-WHERE Customer_Completion.customers_id=Customers.customers_id
+WHERE Customer_Completion.customer_id=Customer.customer_id
 	AND Customer_Completion.completion_turnaround_hours !=0
 	AND #session.workstream_cache_query#=#session.workstream_cache_query#
-GROUP BY LEFT(Customers.description,8)
+GROUP BY LEFT(Customer.description,8)
 ORDER BY avg_hours
 </cfquery>
 </cfsilent>

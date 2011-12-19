@@ -23,7 +23,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <cfif comparenocase(temp_et,employee_classification)>
 <cfset temp_et=employee_classification>
 <cfif Emp_type_hours GT 0>
-<cfinclude template="Dsp_employee_classification_hours.cfm">
+<cfinclude template="dsp_employee_classification_hours.cfm">
 </cfif>
 	<tr class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
 			<td colspan="2" align="center">

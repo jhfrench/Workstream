@@ -10,16 +10,13 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2006/07/05 17:27:14  french
-	Initial revision.
-
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creaticalllass and refers to text size
  --->
 <cfif isdefined("make_changes") AND len(attributes.company_id)>
 	<cfinclude template="act_edit_auxiliary.cfm">
 </cfif>
-<cfinclude template="qry_get_company_visible_to_access.cfm">
+<cfinclude template="qry_get_link_company_emp_contact_access.cfm">
 <cfinclude template="qry_get_user_details.cfm">
 <cfform action="index.cfm?fuseaction=Administration.edit_auxiliary" name="timekeeping_options" method="POST">
 <table align="center" bgcolor="#cccccc" border="0" cellpadding="0" cellspacing="0">

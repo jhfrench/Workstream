@@ -24,14 +24,14 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	SELECT junk2.*, note, expense_id
 FROM NOTES inner join (
 	SELECT Reimbursement_Type, Work_date,  expense_id,
-	     Description, Project_Code,
+	     Description, project_code,
 	[Name], LName,
 	<cfloop query="Get_Expense_Type">
 		SUM([#Get_Expense_Type.Expense_Type#]) as '#Get_Expense_Type.Expense_Type#',
 	</cfloop>NOTES_ID
 	FROM (
 	select REF_Reimbursement_Type.Reimbursement_Type, expense.Work_date, 
-	    Notes.Note, Project.Description, Project.Project_Code,NOTES.NOTES_ID,
+	    Notes.Note, Project.Description, Project.project_code,NOTES.NOTES_ID,
 
 		<cfloop query="Get_Expense_Type">
 			(case when #Get_Expense_Type.Expense_Type_ID# = expense_amount.expense_type_id then expense_amount else 0.00 end) as '#Get_Expense_Type.Expense_Type#',
@@ -61,7 +61,7 @@ FROM NOTES inner join (
     
 	) AS JUNK
 	GROUP BY Reimbursement_Type, Work_date, 
-	   Description, Project_Code, expense_id,
+	   Description, project_code, expense_id,
 	[Name], LName   ,NOTES_ID 
 	) as junk2 on junk2.notes_id = notes.notes_id
 ORDER BY  Reimbursement_Type,Work_date

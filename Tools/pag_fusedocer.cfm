@@ -5,20 +5,10 @@
 	||
 	Responsibilities: I enter and display information that makes a fusedoc. This template can be easily modified to use queries to extract information such as programmer's names, etc.
 	||
-	Name: Jeromy French (french@nucleusweb.com)
+	Name: Jeromy French (jeromy_french@hotmail.com)
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 21:01:41  daugherty
-	Initial revision
-
-	Revision 1.2  2002-04-17 17:05:48-04  french
-	General updates and improvements.
-
-	Revision 1.1  2001-10-11 10:54:15-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
-	
-	(JF | 2/7/1) Modified template to loop through list of names--firstname_lastname--in order to generate options for the directory and pin select boxes;  (JF | 2/7/1) Placed conditions around cfsilent tags in order to make resulting FuseDocs compatible with older versions of CF.
 	||
 	<-> directory: string passed from entry form
 	<-> prefix: string passed from entry form
@@ -112,7 +102,7 @@ Cut and Paste the following code:
 	<cfelse>
 		<cfloop list="#form.pin#" index="ii">
 		<cfset first_name="#first_name# #ii#"></cfloop>
-		<cfset last_init=Left(ListLast(form.pin, "_"), 1)>
+		<cfset last_init=Left(listlast(form.pin, "_"), 1)>
 	</cfif>
 	<cfset author="#first_name# #last_init#">
 </cfif>

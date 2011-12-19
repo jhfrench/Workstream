@@ -10,37 +10,16 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.4  2006/06/23 16:02:52  csy
-	task 45728 I changed statuses' wordings
-
-	Revision 1.3  2006-06-06 17:43:58-04  csy
-	task 44329
-
-	Revision 1.2  2006-06-06 15:19:28-04  stetzer
-	<>
-
-	Revision 1.1  2005-02-18 09:27:14-05  daugherty
-	moved changes back from prod.
-
-	Revision 1.0  2005-02-15 15:45:44-05  daugherty
-	Initial revision
-
-	Revision 1.3  2002-03-29 09:57:58-05  french
-	Made ie_emp_id a single select box because the data model does not handle mutiple IEs for one account.
-
-	Revision 1.2  2002-01-28 09:55:02-05  french
-	Adding Project.date_go_live.
-
 	||
 	END FUSEDOC --->
 <cfset variables.start=1>
 <cfparam name="engagement_dashboard_Return" default="0">
 <cfparam name="IE_Emp_ID_Filter" default="All">
-<cfparam name="Customers_ID_Filter" default="All">
+<cfparam name="customer_id_Filter" default="All">
 <cfparam name="Sort" default="Customers.Description,Project.Description">
 </cfsilent>
 <cfinclude template="qry_get_engagement_main.cfm">
-<cfinclude template="qry_get_visible_to.cfm">
+<cfinclude template="qry_get_company_id.cfm">
 <cfinclude template="qry_get_root_codes.cfm">
 <cfinclude template="qry_get_companies.cfm">
 <cfinclude template="../common_files/qry_get_products.cfm">
@@ -57,15 +36,15 @@
 	<tr valign="top">
 		<td colspan="1" class="RegText#session.workstream_text_size#Bd">
 			Root Name<br>
-			<cfselect name="customers_id" size="1" query="get_root_codes" value="customers_id" selected="#get_engagement_main.customers_id#" required="Yes" display="display" class="RegText#session.workstream_text_size#"></cfselect><br>
+			<cfselect name="customer_id" size="1" query="get_root_codes" value="customer_id" selected="#get_engagement_main.customer_id#" required="Yes" display="display" class="RegText#session.workstream_text_size#"></cfselect><br>
 			Engagement Name<br>
 			<cfinput type="Text" name="description" value="#get_engagement_main.description#" required="Yes" message="Please enter an Engagement Name" class="RegText#session.workstream_text_size#" size="45">
 		</td>
 		<td class="RegText#session.workstream_text_size#Bd">
 			Visible To<br>
-			<select name="visible_to" multiple size="4" class="RegText#session.workstream_text_size#"></cfoutput>
+			<select name="company_id" multiple size="4" class="RegText#session.workstream_text_size#"></cfoutput>
 				<cfoutput query="get_companies">
-					<option value="#company_id#"<cfif listcontains(valuelist(get_visible_to.company_id),company_id)> selected</cfif>>#company#</option>
+					<option value="#company_id#"<cfif listcontains(valuelist(get_company_id.company_id),company_id)> selected</cfif>>#company#</option>
 				</cfoutput><cfoutput>
 			</select>
 		</td>
@@ -166,7 +145,7 @@ get_engagement_main.business_case#</textarea>
 <input type="hidden" name="option" value="1">
 <input type="hidden" name="edit" value="1">
 <input type="hidden" name="engagement_dashboard_Return" value="#engagement_dashboard_Return#">
-<input type="hidden" name="Customers_ID_FIlter" value="#customers_id_Filter#">
+<input type="hidden" name="customer_id_FIlter" value="#customer_id_Filter#">
 <input type="hidden" name="IE_Emp_ID_FIlter" value="#IE_Emp_ID_Filter#">
 <input type="hidden" name="Sort" value="#sort#">
 </cfoutput>

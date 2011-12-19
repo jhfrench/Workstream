@@ -10,17 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2006/06/06 14:39:03  stetzer
-	<>
-
-	Revision 1.0  2005-02-15 15:45:46-05  daugherty
-	Initial revision
-
-	Revision 1.2  2002-01-24 16:27:03-05  french
-	No changes of consequence.
-
-	Revision 1.1  2001-10-11 10:56:33-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfoutput>

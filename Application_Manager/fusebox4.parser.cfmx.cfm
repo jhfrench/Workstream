@@ -279,7 +279,7 @@ This software consists of voluntary contributions made by many individuals on be
 		<cfcase value="include">
 		<cfscript>
 			fb_.template=fb_.fuseQ[fb_.i].xmlAttributes.template;
-			fb_.templateDelimiter=ListLast(fb_.template, '.');
+			fb_.templateDelimiter=listlast(fb_.template, '.');
 			if (NOT ( ListFindNoCase(application.fusebox.maskedFileDelimiters, fb_.templateDelimiter, ',') OR ListFindNoCase(application.fusebox.maskedFileDelimiters, '*', ',') )) {
 				fb_.template=fb_.template & '.' & application.fusebox.scriptFileDelimiter;
 			}
@@ -366,7 +366,7 @@ This software consists of voluntary contributions made by many individuals on be
 		<cfcase value="plugin">
 		<cfscript>
 			fb_.template=fb_.fuseQ[fb_.i].plugin.template;
-			fb_.templateDelimiter=ListLast(fb_.template, '.');
+			fb_.templateDelimiter=listlast(fb_.template, '.');
 			if (NOT ( ListFindNoCase(application.fusebox.maskedFileDelimiters, fb_.templateDelimiter, ',')
 				OR ListFindNoCase(application.fusebox.maskedFileDelimiters, '*', ',') )) {
 					fb_.template=fb_.template & '.' & application.fusebox.scriptFileDelimiter;

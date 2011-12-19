@@ -38,7 +38,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 		<tr>
 			<td class="RegText#session.workstream_text_size#">#name# #lname#</td>
 			<td class="RegText#session.workstream_text_size#"><a href="javascript:expense('#expense_id#')">#dateFormat(work_date, 'mm/dd/yy')#</a></td>
-			<td class="RegText#session.workstream_text_size#">#Project_Code#</td>
+			<td class="RegText#session.workstream_text_size#">#project_code#</td>
 			<td class="RegText#session.workstream_text_size#">#trim(Description)#</td>
 			<cfset currow = get_expenses.CurrentRow>
 			<cfset rowtotal = 0>

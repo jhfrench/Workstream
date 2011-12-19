@@ -10,20 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2005/12/20 20:22:40  french
-	Minor modifications to line up the columns on the output and to speed up the output. Task 38852
-
-	Revision 1.1  2005-12-19 15:29:57-05  french
-	Added engagement name to output. Restructured query to union results within the subquery. Added link to engagement details. Task 38852
-
-	Revision 1.0  2005-02-15 16:01:08-05  daugherty
-	Initial revision
-
-	Revision 1.2  2002-01-10 13:58:02-05  french
-	Fixing problem caused by the unlikely scenario that a person has over 999 hours budgeted for a task. Anything over 999 caused the DecimalFormat to insert a comma into the number which breaks the following NumberFormat.
-
-	Revision 1.1  2001-10-11 10:54:25-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
  --->
 <cfset variables.task_processed="">

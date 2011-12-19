@@ -13,9 +13,9 @@ $
 
 	||
 	END FUSEDOC --->
-	
-	<cfif len(attributes.optional_new_category)>
-		<cfinclude template="qry_insert_optional_category.cfm">
-	</cfif>
-	
-	<cfinclude template="qry_insert_expense_data.cfm">
+</cfsilent>
+<cfif len(attributes.optional_new_category)>
+	<cfinclude template="qry_insert_optional_category.cfm">
+</cfif>
+
+<cfinclude template="qry_insert_expense_data.cfm">

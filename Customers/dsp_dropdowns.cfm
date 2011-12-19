@@ -16,7 +16,7 @@
 <cfoutput>
 	<tr bgcolor="##008000">
 		<td colspan="7" class="HeadText#session.workstream_text_size#White">
-			Open Tasks for #get_open_tasks.project_name#-#get_open_tasks.Project_Code#
+			Open Tasks for #get_open_tasks.project_name#-#get_open_tasks.project_code#
 		</td>
 	</tr>
 </cfoutput>

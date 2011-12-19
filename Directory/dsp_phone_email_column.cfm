@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:46:43  daugherty
-	Initial revision
-
-	Revision 1.1  2002-03-08 16:27:09-05  long
-	making the form pre-populate if possible.
-
-	Revision 1.0  2001-10-16 17:05:47-04  french
-	Initial revision
-
 	||
 	END FUSEDOC --->
 </cfsilent>

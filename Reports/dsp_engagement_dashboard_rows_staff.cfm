@@ -26,7 +26,7 @@
 <cfif status EQ 2><img src="../images/Icons/Yellow_Warning.gif" width=16 height=15 border="0"></cfif>
 <cfif status EQ 1><img src="../images/Icons/Green_Check.gif" width=16 height=15 border="0"></cfif></td>
 			<td class="RegText#session.workstream_text_size#" valign="top">
-#Customers_Description# - #description#
+#customer_description# - #description#
 		</td>
 		<td class="RegText#session.workstream_text_size#" valign="top">
 			#LName# <cfif NOT len(lname)>&nbsp;</cfif>
@@ -68,9 +68,9 @@
 	<tr>
 		<td>&nbsp;</td>
 		<td>
-			<select name="Customers_ID_Filter" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>" >
+			<select name="customer_id_Filter" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>" >
 				<option value="all" >All Customers</option><cfoutput query="Get_Engagement_Customers">
-				<option value="#Customers_ID#"<cfif Customers_ID_Filter EQ Customers_ID> selected</cfif>>#Description#</option></cfoutput>
+				<option value="#customer_id#"<cfif customer_id_Filter EQ customer_id> selected</cfif>>#Description#</option></cfoutput>
 			</select>
 		</td>
 		<td align="left" colspan="100%">
@@ -86,15 +86,15 @@
 		<select name="sort" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 			<option value="Customers.Description,Project.Description">Select Sort Variable</option>
 			<option value="Customers.Description,Project.Description">Customer</option>
-			<option value="Customers.Description,Project.Description Desc">Customer - Desc</option>
+			<option value="Customers.description,Project.description DESC">Customer - Desc</option>
 			<option value="LName">IE</option>
 			<option value="LName Desc">IE - Desc</option>
 			<option value="Project_end">Due Date</option>
 			<option value="Project_end Desc">Due Date - Desc</option>
 			<option value="Status">Status</option>
 			<option value="Status DESC">Status - Desc</option>
-			<option value="Project.Budget">Revenue</option>
-			<option value="Project.Budget DeSc">Revenue - Desc</option>
+			<option value="Project.budget">Revenue</option>
+			<option value="Project.budget DeSc">Revenue - Desc</option>
 			<option value="Project.Date_Updated">Date Updated</option>
 			<option value="Project.Date_Updated Desc">Date Updated - Desc</option>
 		</select>

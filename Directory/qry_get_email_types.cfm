@@ -10,12 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:47:01  daugherty
-	Initial revision
-
-	Revision 1.0  2001-10-16 17:05:51-04  french
-	Initial revision
-
 	||
 	Variables:
 	--> application.datasources.main: datasource for the application

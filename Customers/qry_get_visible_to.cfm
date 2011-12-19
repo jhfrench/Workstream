@@ -1,5 +1,5 @@
 
-<!--Customers/qry_get_visible_to.cfm
+<!--Customers/qry_get_company_id.cfm
 	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -20,9 +20,9 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	 
 	||
 	END FUSEDOC --->
-<cfquery name="get_visible_to" datasource="#application.datasources.main#">
+<cfquery name="get_company_id" datasource="#application.datasources.main#">
 SELECT company_id
-FROM Project_Visible_To
+FROM Link_Project_Company
 WHERE project_id=#attributes.project_id#
 </cfquery>
 </cfsilent>

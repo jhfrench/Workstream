@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 21:01:10  daugherty
-	Initial revision
-
-	Revision 1.2  2001-11-05 10:54:06-05  french
-	Removed commnented line, indented edit remark.
-
-	Revision 1.1  2001-10-11 10:54:23-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
  --->
 </cfsilent>

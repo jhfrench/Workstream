@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/06/24 20:35:25  stetzer
-	<>
-
-	Revision 1.0  2005-02-15 16:00:56-05  daugherty
-	Initial revision
-
-	Revision 1.0  2001-11-28 13:48:30-05  french
-	Initial file creation.
-
 	||
 	--> attributes.emp_id: list of ids that the user wishes to grant access to the new timeline; may contain an entire company which includes the company name
 	--> attributes.hide_user_field_item_id: id that identifies a field the user wants to use to flag tasks that should not be displayed in a timeline

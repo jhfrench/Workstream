@@ -10,19 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:22:38  stetzer
-<>
-
-Revision 1.3  2001-12-12 10:59:42-05  long
-added an include with the javascript to validate the hours field
-
-Revision 1.2  2001-11-07 15:50:30-05  long
-Moved the express task list query to the index page so that this template can be called from the custom directory with the custom query driving it.
-
-Revision 1.1  2001-10-11 10:54:58-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
-
- 
 	||
  --->
 </cfsilent>

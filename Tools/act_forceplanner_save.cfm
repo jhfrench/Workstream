@@ -10,17 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 21:00:51  daugherty
-	Initial revision
-
-	Revision 1.3  2001-11-28 13:48:15-05  french
-	Placed queries into their own templates. Also made change to the way force_month and year are used.
-
-	Revision 1.2  2001-11-15 10:12:57-05  long
-	Changed the isolation level from Serializable to read_committed
-	
-	Revision 1.1  2001-10-11 10:54:28-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
  --->
 <cfset variables.update_count=0>

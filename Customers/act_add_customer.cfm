@@ -33,16 +33,16 @@
 		</cfif>
 	</cfif>
 	<cfquery name="insert_Customer" datasource="#application.datasources.main#">
-	INSERT INTO Customers (root_code, description, billable_id,
+	INSERT INTO Customer (root_code, description, billable_type_id,
 		company_id<cfif len(attributes.company_address1)>, company_address1</cfif><cfif len(attributes.company_address2)>, company_address2</cfif><cfif len(attributes.company_city)>, company_city</cfif>, company_state<cfif len(attributes.company_zip)>, company_zip</cfif><cfif len(attributes.lname)>, emp_contact_id</cfif>, active_ind)
-	VALUES ('#new_code#', '#attributes.description#', #attributes.billable_id#,
+	VALUES ('#new_code#', '#attributes.description#', #attributes.billable_type_id#,
 		#attributes.company_id# <cfif len(attributes.company_address1)>, '#attributes.company_address1#'</cfif><cfif len(attributes.company_address2)>, '#attributes.company_address2#'</cfif><cfif len(attributes.company_city)>, '#attributes.company_city#'</cfif>, '#attributes.company_state#'<cfif len(attributes.company_zip)>, '#attributes.company_zip#'</cfif><cfif len(attributes.lname)>, #Get_new_emp_id.emp_id#</cfif>, 1)
 	</cfquery>
-	<cfquery name="visible_to" datasource="#application.datasources.main#">
-	INSERT INTO Customer_Visible_To (code, visible_to)
+	<cfquery name="company_id" datasource="#application.datasources.main#">
+	INSERT INTO Link_Customer_Company (code, company_id)
 	SELECT '#new_code#', company_id
 	FROM REF_Companies
-	WHERE company_id IN (<cfif isdefined("attributes.visible_to")>#attributes.visible_to#<cfelse>#attributes.company_id#</cfif>)
+	WHERE company_id IN (<cfif isdefined("attributes.company_id")>#attributes.company_id#<cfelse>#attributes.company_id#</cfif>)
 	</cfquery>
 </cftransaction>
 </cfsilent>

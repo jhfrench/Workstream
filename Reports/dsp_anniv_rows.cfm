@@ -14,6 +14,7 @@
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
+</cfsilent>
 <cfoutput query="annivarsary">
 <tr<cfif currentrow MOD 2> bgcolor="##e1e1e1"</cfif> class="RegText#session.workstream_text_size#">
 	<td>#lname#</td>

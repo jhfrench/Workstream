@@ -19,7 +19,7 @@
  --->
 </cfsilent>
 			Linked tasks
-		<cfif compare(listlast(attributes.fuseaction, '.'),"new_task") AND get_associated_tasks.recordcount>
+		<cfif comparenocase(listlast(attributes.fuseaction, '.'),"new_task") AND get_associated_tasks.recordcount>
 		<table border="0" cellpadding="1" cellspacing="1">
 			<cfoutput>
 			<tr>

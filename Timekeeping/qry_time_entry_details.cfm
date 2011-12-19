@@ -9,27 +9,7 @@
 	Name: Jeromy French
 	||
 	Edits:
-	$Id: qry_time_entry_details.cfm 27935 2006-12-01 16:39:11Z jfrench $
-	Task 49908 2006/11/27 Cecile Sy
-	Updated query to pull task status for each  entry note. I also had a separate query for QA and resolution notes combined 
-
-	Revision 1.5  2006-11-16 04:16:51  french
-	Task 50669: Modified code to make system appear professional again.
-	
-	Revision 1.4  2005/11/01 13:29:30  french
-	Added task details note sorting options. Task 37158
-
-	Revision 1.3  2005-03-09 13:29:54-05  stetzer
-	<>
-
-	Revision 1.2  2005-03-09 13:27:22-05  stetzer
-	<>
-
-	Revision 1.1  2005-03-08 12:18:54-05  french
-	Modified order of notes for Adam. He wants the to display in the order they were entered and not by order of the day the work was performed.
-
-	Revision 1.0  2005-02-15 16:00:27-05  daugherty
-	Initial revision
+	$Log$
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page

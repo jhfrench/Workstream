@@ -15,7 +15,7 @@
 
 <cfparam name="attributes.priority_id" default="">
 <cfparam name="attributes.task_id" default="">
-<cfparam name="attributes.customers_id" default="">
+<cfparam name="attributes.customer_id" default="">
 <cfparam name="attributes.project_id" default="">
 <cfparam name="attributes.task_stati" default="">
 <cfparam name="attributes.task_owner" default="">
@@ -85,7 +85,7 @@
 	<cfif isdefined("attributes.customer_id_box")>
 	<input type="hidden" name="customer_id_box" value= "1">
 	</cfif>
-  	<input type="hidden" name="customers_id"    value="#attributes.customers_id#">
+  	<input type="hidden" name="customer_id"    value="#attributes.customer_id#">
 	<cfif isdefined("attributes.project_id_box")>
 	<input type="hidden" name="project_id_box" value= "1">
 	</cfif>

@@ -39,7 +39,7 @@
 </cfoutput>
  
 <!--- NOW THAT WE HAVE THE CORRECT NUMBER OF TABS, NAME THEM VIA THE LIST PASSED --->	
-<CFLOOP INDEX="current_wkst_name" LIST="#tab_names_list#" DELIMITERS=",">
+<cfloop INDEX="current_wkst_name" LIST="#tab_names_list#" DELIMITERS=",">
 	
 	<!--- Loop over the list of names and set the wkst names to the values --->		
 	<cfoutput>
@@ -52,7 +52,7 @@
 		<cfset curr_sheet = curr_sheet + 1>
 	</cfoutput>
 	
-</CFLOOP>
+</cfloop>
 	
 
 

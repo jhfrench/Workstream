@@ -41,11 +41,11 @@
 </cfif>
 <cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id,"|") GT 1>
 	<cfset attributes.Inbox_owner = listlast(attributes.emp_id,"|")>
-	<cfset attributes.emp_id = listDeleteAt(attributes.emp_id, "2","|")>
+	<cfset attributes.emp_id = listdeleteat(attributes.emp_id, "2","|")>
 </cfif>
 
 <cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id) GT 1 AND ListFind(session.workstream_task_list_order, "task_owner")>
-	<cfset variables.temp_task_list_order=ListDeleteAt(session.workstream_task_list_order, ListFind(session.workstream_task_list_order, "task_owner"))>
+	<cfset variables.temp_task_list_order=listdeleteat(session.workstream_task_list_order, ListFind(session.workstream_task_list_order, "task_owner"))>
 <cfelse>
 	<cfset variables.temp_task_list_order=session.workstream_task_list_order>
 </cfif>
@@ -56,8 +56,9 @@ SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id AS task_id,
 	Task.status_id AS status_id, Task_Details.time_used AS time_used, Task_Details.task_icon AS task_icon, 
 	Task_Details.percent_time_used AS percent_time_used, Task_Details.task_owner AS task_owner,
 	(CASE WHEN Task.status_id IN (4,10) THEN Task_Details.task_status+' by '+Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
-	(Customers.description + '-' + Project.description) AS project_name, priority
-FROM Task, Team, Emp_Contact,  Customers, Project, Project_Visible_To, 
+	(Customer.description + '-' + Project.description) AS project_name, priority
+FROM Task, Team, Emp_Contact,
+	Customer, Project, Link_Project_Company, 
 	(SELECT Path.task_id AS task_id, ISNULL(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
 		(ISNULL(CASE WHEN ISNULL(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
 		REF_Status.status as task_status, Emp_Contact.lname as task_owner, priority
@@ -72,27 +73,30 @@ FROM Task, Team, Emp_Contact,  Customers, Project, Project_Visible_To,
 		AS Valid_Tasks, Task, REF_Icon
 		WHERE Valid_Tasks.task_id=Task.task_id AND REF_Icon.icon_id=Task.icon_id)
 	AS Path
-	<cfif from_invoice>INNER<cfelse>LEFT OUTER</cfif> JOIN
-		(SELECT SUM(hours) as hours_used, task_id as task_id
+	<cfif from_invoice>INNER<cfelse>LEFT OUTER</cfif> JOIN (
+		SELECT SUM(hours) as hours_used, task_id as task_id
 		FROM Time_Entry<cfif from_invoice>
 		WHERE DATEPART(m, Time_Entry.date)=#attributes.month#
 			AND DATEPART(yyyy, Time_Entry.date)=#attributes.year#</cfif>
-		GROUP BY task_id)
-	AS Recorded_Hours
-	ON Path.task_id = Recorded_Hours.task_id
-	WHERE Task.task_id=Path.task_id AND REF_Status.status_id=Task.status_id 
-		AND Team.roll_id=1 AND Task.task_id=Team.task_id 
-		AND Emp_Contact.emp_id=Team.emp_id)
-AS Task_Details
-WHERE Customers.customers_id=Project.customers_id
-	AND Task_Details.task_id=Team.task_id AND Task.project_id=Project.project_id 
-	AND Task.task_id=Task_Details.task_id AND Emp_Contact.emp_id=Team.emp_id 
-	AND Project_Visible_To.project_id=Project.project_id 
-	AND Project_Visible_To.company_id IN (#session.workstream_company_id#)
+		GROUP BY task_id
+	) AS Recorded_Hours ON Path.task_id = Recorded_Hours.task_id
+	WHERE Task.task_id=Path.task_id
+		AND REF_Status.status_id=Task.status_id
+		AND Task.task_id=Team.task_id 
+		AND Team.roll_id=1
+		AND Emp_Contact.emp_id=Team.emp_id
+) AS Task_Details
+WHERE Customer.customer_id=Project.customer_id
+	AND Task_Details.task_id=Team.task_id
+	AND Task.project_id=Project.project_id 
+	AND Task.task_id=Task_Details.task_id
+	AND Emp_Contact.emp_id=Team.emp_id 
+	AND Link_Project_Company.project_id=Project.project_id 
+	AND Link_Project_Company.company_id IN (#session.workstream_company_id#)
 	AND Team.roll_id=3<cfif isdefined("attributes.project_id")>
 	AND Project.project_id=#attributes.project_id#</cfif>
-	AND project.project_type_id!=3
-	<cfif isdefined("session.workstream_task_list_order")>ORDER BY <cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id) GT 1>task_owner,#variables.temp_task_list_order#<cfelse>#session.workstream_task_list_order#</cfif></cfif>
+	AND project.project_type_id!=3<cfif isdefined("session.workstream_task_list_order")>
+ORDER BY <cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id) GT 1>task_owner, #variables.temp_task_list_order#<cfelse>#session.workstream_task_list_order#</cfif></cfif>
 </cfquery>
 </cfsilent>
 

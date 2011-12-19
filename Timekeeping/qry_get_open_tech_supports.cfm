@@ -9,19 +9,13 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:24:26  stetzer
-	<>
-
-	Revision 1.0  2002-07-22 09:19:28-04  peters
-	Initial Revision.
-
 	||
 	END FUSEDOC --->
 <cfquery name="qry_get_open_tech_supports" cachedwithin="#createtimespan(0,0,10,0)#" datasource="#application.datasources.main#">
 SELECT COUNT(Task.task_id) AS open_tasks
-FROM Task, Project, Customers, Team, Emp_Contact, REF_Status
+FROM Task, Project, Customer, Team, Emp_Contact, REF_Status
 WHERE Task.project_id=Project.project_id
-	AND Project.root_code=Customers.root_code
+	AND Project.customer_id=Customer.customer_id
 	AND Task.task_id=Team.task_id
 	AND Team.emp_id=Emp_Contact.emp_id
 	AND REF_Status.status_id=Task.status_id

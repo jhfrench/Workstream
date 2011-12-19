@@ -9,13 +9,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:46:59  daugherty
-	Initial revision
-
-	Revision 1.0  2003-03-21 11:30:08-05  blell
-	created template.
-
-
 	||
 	Variables:
 

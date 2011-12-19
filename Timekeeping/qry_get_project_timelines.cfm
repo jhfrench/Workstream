@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 21:00:11  daugherty
-	Initial revision
-
-	Revision 1.1  2001-10-29 13:58:25-05  french
-	Modified query.
-
-	Revision 1.0  2001-10-29 13:10:20-05  french
-	File creation.
-
 	||
 	END FUSEDOC --->
 <cfquery name="get_project_timelines" datasource="#application.datasources.main#">

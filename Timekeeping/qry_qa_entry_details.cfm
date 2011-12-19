@@ -10,26 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.5  2006-11-16 04:16:51  french
-	Task 50669: Modified code to make system appear professional again.
-	
-	Revision 1.4  2006-04-12 16:08:36-04  csy
-	task 43531 Modifed code to seperate notes in Print Task QA section.
-
-	Revision 1.3  2006-03-31 04:22:53-05  french
-	Added task details note sorting options. Task 37158
-
-	Revision 1.2  2006-02-15 08:22:01-05  stetzer
-	Changed date to pull from Notes table rather than Time_Entry table so we can display the time in addition to the date.
-
-	Revision 1.1  2005-03-09 13:27:04-05  stetzer
-	<>
-
-	Revision 1.2  2002-04-11 14:22:36-04  french
-	Made change to also show second initial of employee.
-
-	Revision 1.1  2001-10-11 10:54:39-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted from the express timekeeping page

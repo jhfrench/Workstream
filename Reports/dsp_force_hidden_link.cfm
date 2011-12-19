@@ -22,7 +22,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	END FUSEDOC --->
 </cfsilent>
 <cf_htmlhead>
-<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<script language="JavaScript" type="text/javascript">
 <!--<cfoutput>
 function sup_to_emp(fldValue) { 
 	document.sup_to_emp.reset();

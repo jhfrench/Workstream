@@ -21,21 +21,21 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	END FUSEDOC --->
 <!--- I get the root code and the billable id for the selected root --->
 <cfquery name="get_root_code" datasource="#application.datasources.main#">
-SELECT LEFT(root_code, 4) AS root_code, billable_id, company_id, description
-FROM Customers
-WHERE customers_id=#attributes.customers_id#
+SELECT LEFT(root_code, 4) AS root_code, billable_type_id, company_id, description
+FROM Customer
+WHERE customer_id=#attributes.customer_id#
 </cfquery>
 
-<cfif isdefined("attributes.visible_to")>
-	<cfset variables.visible_to=attributes.visible_to>
+<cfif isdefined("attributes.company_id")>
+	<cfset variables.company_id=attributes.company_id>
 <cfelse>
-	<!--- If no visible_to is define I retrieve the companies that the root is visible to and set that as the default list for the new engagement. --->
-	<cfquery name="get_visible_to" datasource="#application.datasources.main#">
-	SELECT visible_to AS visible
-	FROM Customer_Visible_To
+	<!--- If no company_id is define I retrieve the companies that the root is visible to and set that as the default list for the new engagement. --->
+	<cfquery name="get_company_id" datasource="#application.datasources.main#">
+	SELECT company_id AS visible
+	FROM Link_Customer_Company
 	WHERE code='#get_root_code.root_code#'
 	</cfquery>
-	<cfset variables.visible_to=valuelist(get_visible_to.visible)>
+	<cfset variables.company_id=valuelist(get_company_id.visible)>
 </cfif>
 
 <!--- I check to see if the root code has any existing engagements --->

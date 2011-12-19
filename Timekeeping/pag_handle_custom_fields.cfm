@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:22:40  stetzer
-	<>
-
-	Revision 1.1  2001-10-18 16:17:42-04  french
-	Mde changes for custom field support.
-
-	Revision 1.0  2001-10-18 12:14:04-04  french
-	Renaming file.
 	||
  --->
 </cfsilent>

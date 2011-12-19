@@ -1,5 +1,5 @@
 
-<!--Customers/act_upd_marketing.cfm
+<!--Marketing/act_upd_marketing.cfm
 	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -125,17 +125,17 @@ Added $log $ for edits to all CFM files that have fusedocs.
 		<cfif compare(MARKETING.DESCRIPTION[ii], "")>
 
 			<cfquery name="get_max_code" datasource="#application.datasources.main#">
-                   SELECT MAX(project_code) AS project_code, customers_id
+                   SELECT MAX(project_code) AS project_code, customer_id
 				FROM project
 				WHERE project_code LIKE '6005.%'
-				GROUP BY customers_id
+				GROUP BY customer_id
                </cfquery>
 <!--- <cfset overview = evaluate(#MARKETING.OVERVIEW[ii]#)>		 --->	
 <cfset  project_code = get_max_code.project_code +0.001>
 			<cfquery name="insert_project" datasource="#application.datasources.main#">
                    INSERT INTO project
-			    (description, active_id, project_code, customers_id, company_id, billable_id) 
-			    VALUES('#MARKETING.DESCRIPTION[ii]#', 2, #variables.project_code#, #get_max_code.customers_id#, 9, 2)
+			    (description, active_id, project_code, customer_id, company_id, billable_type_id) 
+			    VALUES('#MARKETING.DESCRIPTION[ii]#', 2, #variables.project_code#, #get_max_code.customer_id#, 9, 2)
                </cfquery>
 			<cfquery name="get_max_id" datasource="#application.datasources.main#">
                    select max(project_id) as project_id

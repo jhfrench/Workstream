@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2006/09/15 22:25:08  csy
-	<>
-
-	Revision 1.0  2006-08-16 09:32:14-04  csy
-	Initial revision
-
-	Revision 1.1  2006-07-05 13:26:04-04  french
-	Modified code so that not all updates will attempt to change the password, etc.
-
 	||
  --->
 <cfparam name="attributes.update_security_details" default="1">
