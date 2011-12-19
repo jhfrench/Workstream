@@ -89,34 +89,34 @@
 			Totals
 		</td>
 		<!--- <td class="SubHeadText#session.workstream_text_size#">
-			#DecimalFormat(Authorized_Leave_tot)#
+			#decimalformat(Authorized_Leave_tot)#
 		</td> --->
 		<td class="SubHeadText#session.workstream_text_size#">
-			#DecimalFormat(bereavement_tot)#
+			#decimalformat(bereavement_tot)#
 		</td>
 		<td class="SubHeadText#session.workstream_text_size#">
-			#DecimalFormat(holiday_tot)#
+			#decimalformat(holiday_tot)#
 		</td>
 		<td class="SubHeadText#session.workstream_text_size#">
-			#DecimalFormat(jury_duty_tot)#
+			#decimalformat(jury_duty_tot)#
 		</td>
 		<!--- <td class="SubHeadText#session.workstream_text_size#">
-			#DecimalFormat(sick_tot)#
+			#decimalformat(sick_tot)#
 		</td> --->
 		<td class="SubHeadText#session.workstream_text_size#">
-			#DecimalFormat(std_ltd_tot)#
+			#decimalformat(std_ltd_tot)#
 		</td>
 		<td class="SubHeadText#session.workstream_text_size#">
-			#DecimalFormat(Unpaid_tot)#
+			#decimalformat(Unpaid_tot)#
 		</td>	
 		<!--- <td class="SubHeadText#session.workstream_text_size#">
-			#DecimalFormat(Vacation_tot)#
+			#decimalformat(Vacation_tot)#
 		</td>	 --->
 		<td class="SubHeadText#session.workstream_text_size#">
-			#DecimalFormat(pto_tot)#
+			#decimalformat(pto_tot)#
 		</td>
 		<td class="SubHeadText#session.workstream_text_size#">
-			#DecimalFormat(gross_grand_tot)#
+			#decimalformat(gross_grand_tot)#
 		</td>
 	</tr>
 	<tr class="SubHeadText#session.workstream_text_size#">

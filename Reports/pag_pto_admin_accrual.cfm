@@ -9,14 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:12:16  stetzer
-	<>
-
-	Revision 1.2  2001-10-16 09:29:50-04  french
-	Tightened code. Corrected badly-mapped call to a module in common_files. Is this template even used anymore?
-
-	Revision 1.1  2001-10-11 11:04:07-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfparam name="earned" default="0">

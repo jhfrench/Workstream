@@ -10,13 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:14:21  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:03:54-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
 	||
 	END FUSEDOC --->
 <cfquery name="get_first_elligible" datasource="#application.datasources.main#">

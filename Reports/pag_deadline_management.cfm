@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:10:43  stetzer
-	<>
-
-	Revision 1.0  2001-11-08 09:14:51-05  french
-	Adding deadline management report.
-
 	||
 	END FUSEDOC --->
 <cfparam name="attributes.admin_month" default="#month(now())#">

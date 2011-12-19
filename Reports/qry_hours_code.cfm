@@ -9,12 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2005/05/02 15:23:20  french
-	Modified report to better handle historical data, particularly for employees who have left the company or have experienced a demographics update. The old demographics record was being eliminated (and the data joined to it) because it was not the active (effective_to=NULL) demographics record. Task 31799
-
-	Revision 1.1  2005-03-09 13:13:47-05  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 <cfquery name="Hours_Code" datasource="#application.datasources.main#">

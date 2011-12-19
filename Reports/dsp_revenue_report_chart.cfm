@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:09:10  stetzer
-	<>
-
-	Revision 1.2  2001-10-30 11:39:12-05  french
-	Made changes to accomodate new billing type (
-
-	Revision 1.1  2001-10-11 11:04:29-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfset temp_year=0>
@@ -76,9 +68,9 @@
 	<tr>
 		<td align="center" class="RegText#session.workstream_text_size#"><cfif year NEQ temp_year>#year#<cfelse>&nbsp;</cfif></td>
 		<td align="left" class="RegText#session.workstream_text_size#">#MonthAsString(month)#</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">#DecimalFormat(flat_revenue)#</td>
-		<td align="right" class="RegText#session.workstream_text_size#">#DecimalFormat(hour_revenue)#</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">#DecimalFormat(incident_revenue)#</td>
+		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">#decimalformat(flat_revenue)#</td>
+		<td align="right" class="RegText#session.workstream_text_size#">#decimalformat(hour_revenue)#</td>
+		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">#decimalformat(incident_revenue)#</td>
 		<td align="right" class="RegText#session.workstream_text_size#">#dollarformat(month_revenue)#</td>
 	</tr>
 </cfif>
@@ -121,30 +113,30 @@
 	<tr bgcolor="##c0c0c0">
 		<td align="center" class="RegText#session.workstream_text_size#">Totals:</td>
 		<td align="center" class="RegText#session.workstream_text_size#">#revisedrecordcount# months</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(total_flat)#</td>
-		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(total_hour)#</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(total_incident)#</td>
+		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#decimalformat(total_flat)#</td>
+		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#decimalformat(total_hour)#</td>
+		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#decimalformat(total_incident)#</td>
 		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#dollarformat(total_revenue)#</td>
 	</tr>
 	<tr bgcolor="##c0c0c0">
 		<td align="left" colspan="2" class="RegText#session.workstream_text_size#">Monthly Average</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;<cfif revisedrecordcount>#DecimalFormat(total_flat/revisedrecordcount)#<cfelse>0</cfif></td>
-		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;<cfif revisedrecordcount>#DecimalFormat(total_hour/revisedrecordcount)#<cfelse>0</cfif></td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;<cfif revisedrecordcount>#DecimalFormat(total_incident/revisedrecordcount)#<cfelse>0</cfif></td>
+		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;<cfif revisedrecordcount>#decimalformat(total_flat/revisedrecordcount)#<cfelse>0</cfif></td>
+		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;<cfif revisedrecordcount>#decimalformat(total_hour/revisedrecordcount)#<cfelse>0</cfif></td>
+		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;<cfif revisedrecordcount>#decimalformat(total_incident/revisedrecordcount)#<cfelse>0</cfif></td>
 		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;<cfif revisedrecordcount>#dollarformat(total_revenue/revisedrecordcount)#<cfelse>0</cfif></td>
 	</tr>
 	<tr bgcolor="##c0c0c0">
 		<td align="left" colspan="2" class="RegText#session.workstream_text_size#">3 Month Average</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(tri_month_flat/3)#</td>
-		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(tri_month_hour/3)#</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(tri_month_incident/3)#</td>
+		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#decimalformat(tri_month_flat/3)#</td>
+		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#decimalformat(tri_month_hour/3)#</td>
+		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#decimalformat(tri_month_incident/3)#</td>
 		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#dollarformat(tri_month_revenue/3)#</td>
 	</tr>
 	<tr bgcolor="##c0c0c0">
 		<td align="left" colspan="2" class="RegText#session.workstream_text_size#">12 Month Average</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(twelve_month_flat/12)#</td>
-		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(twelve_month_hour/12)#</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(twelve_month_incident/12)#</td>
+		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#decimalformat(twelve_month_flat/12)#</td>
+		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#decimalformat(twelve_month_hour/12)#</td>
+		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#decimalformat(twelve_month_incident/12)#</td>
 		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#dollarformat(twelve_month_revenue/12)#</td>
 	</tr>
 </cfoutput>

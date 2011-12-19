@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:13:02  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 <cfquery name="get_all_option" datasource="#application.datasources.main#">

@@ -10,16 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:20:16  stetzer
-<>
-
-Revision 1.2  2002-04-11 16:26:19-04  lee
-changed email from address and added reply-to param
-
-Revision 1.1  2001-10-11 10:55:17-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
  --->
 <cfquery name="send_isay_link" datasource="#application.datasources.main#">

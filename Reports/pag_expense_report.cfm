@@ -9,15 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:11:04  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:16-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
-	 
-	(KL | 8/30/2001) added DSP_ to the "no_results" include...
 	||
 	END FUSEDOC --->
 </cfsilent>

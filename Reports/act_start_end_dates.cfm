@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:04:10  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 <cfloop from="1" to="7" index="ii">

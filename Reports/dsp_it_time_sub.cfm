@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:07:29  stetzer
-	<>
-
-	Revision 1.1  2001-11-13 20:04:16-05  french
-	Adding hours to sub chart.
-
-	Revision 1.0  2001-11-08 10:01:47-05  french
-	Creating IT Time report.
-
 	||
 	END FUSEDOC --->
 </cfsilent>
@@ -55,10 +46,10 @@
 			<a href="javascript:list_to_employee('#emp_id#')" onmouseover="MM_displayStatusMsg('View details for #Replace(name,"'","")# #Replace(lname,"'","")#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#lname#, #name#</a>
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(it_hours)#
+			#decimalformat(it_hours)#
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(it_time_percent)#
+			#decimalformat(it_time_percent)#
 		</td>
 	</tr>
 </cfoutput>

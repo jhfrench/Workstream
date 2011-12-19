@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:13:58  stetzer
-	<>
-
-	Revision 1.1  2001-11-13 20:04:17-05  french
-	Adding hours to sub chart.
-
-	Revision 1.0  2001-11-08 10:01:50-05  french
-	Creating IT Time report.
-
 	||
 	END FUSEDOC --->
 <cfquery name="it_time_sub" datasource="#application.datasources.main#">

@@ -9,17 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:14:36  stetzer
-<>
-
-Revision 1.2  2001-10-15 15:29:30-04  long
-Using a subquery to get the ids of PTO project codes.
-
-Revision 1.1  2001-10-11 11:03:51-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 <cfquery name="get_name" datasource="#application.datasources.main#" >

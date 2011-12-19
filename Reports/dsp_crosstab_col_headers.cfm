@@ -9,9 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:05:06  stetzer
-	<>
-
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->

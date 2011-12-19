@@ -9,16 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:11:52  stetzer
-<>
-
-Revision 1.2  2002-03-07 10:21:30-05  long
-Changed the file to work with a single query
-
-Revision 1.1  2001-10-11 11:04:12-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
-
-
 	||
 	END FUSEDOC --->
 </cfsilent>

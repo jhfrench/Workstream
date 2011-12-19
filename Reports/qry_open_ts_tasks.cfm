@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:14:26  stetzer
-	<>
-
-	Revision 1.0  2002-01-07 10:37:40-05  french
-	Creating tech support report.
-
 	||
 	END FUSEDOC --->
 <cfquery name="open_ts_tasks" datasource="#application.datasources.main#">

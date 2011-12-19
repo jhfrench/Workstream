@@ -39,9 +39,9 @@
 			</div>
 		</td>
 		<td valign="top">
-			<table bgcolor="##808080" cellpadding="0" cellspacing="1" border="0" width="100%">
+			<table cellpadding="1" cellspacing="0" border="0" width="100%">
 				<tr bgcolor="##c0c0c0">
-					<td bgcolor="##ffffff"></td>
+					<td bgcolor="##ffffff">&nbsp;</td>
 					<td>&nbsp;&nbsp;</td>
 					<td class="SubHeadText#session.workstream_text_size#">Project</td>
 					<td class="SubHeadText#session.workstream_text_size#">Hours</td>
@@ -49,11 +49,11 @@
 				</tr>
 			<cfloop query="time_allocation_blurb">
 				<tr bgcolor="##<cfif (currentrow MOD 2)>E1E1E1<cfelse>ffffff</cfif>">
-					<td bgcolor="##ffffff"></td>
-					<td bgcolor="#listgetat(variables.color_list,time_allocation_blurb.currentrow)#"></td>
+					<td bgcolor="##ffffff">&nbsp;</td>
+					<td bgcolor="#listgetat(variables.color_list,time_allocation_blurb.currentrow)#">&nbsp;</td>
 					<td class="RegText#session.workstream_text_size#">#project_name#</td>
-					<td align="right" class="RegText#session.workstream_text_size#">#DecimalFormat(project_hours)#</td>
-					<td align="right" class="RegText#session.workstream_text_size#"><cfif variables.this_month NEQ 0><cfset variables.allocation_percent=project_hours/variables.this_month*100>#DecimalFormat(variables.allocation_percent)#<cfelse>0.00</cfif>%</td>
+					<td align="right" class="RegText#session.workstream_text_size#">#decimalformat(project_hours)#</td>
+					<td align="right" class="RegText#session.workstream_text_size#"><cfif variables.this_month NEQ 0><cfset variables.allocation_percent=project_hours/variables.this_month*100>#decimalformat(variables.allocation_percent)#<cfelse>0.00</cfif>%</td>
 				</tr>
 			</cfloop>
 			</table>

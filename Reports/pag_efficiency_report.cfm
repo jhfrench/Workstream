@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:10:45  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 <cfparam name="attributes.admin_month" default="#month(now())#">

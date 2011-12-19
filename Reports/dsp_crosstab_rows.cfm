@@ -9,9 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:05:12  stetzer
-	<>
-
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
@@ -22,9 +19,9 @@
 			<tr<cfif manager_crosstab_hours.currentrow MOD 2> bgcolor="##e1e1e1"</cfif> class="RegText#session.workstream_text_size#">	
 				<td nowrap>#manager_crosstab_hours.name#</td>
 			<cfloop from="1" to="#manager_crosstab_codes.recordcount#" index="ii">
-				<td align="right">#DecimalFormat(evaluate("manager_crosstab_hours.code#ii#"))#</td>
+				<td align="right">#decimalformat(evaluate("manager_crosstab_hours.code#ii#"))#</td>
 			</cfloop>
-				<td align="right">#DecimalFormat(manager_crosstab_hours.total_hours)#</td>
+				<td align="right">#decimalformat(manager_crosstab_hours.total_hours)#</td>
 			</tr>
 		</cfoutput>
 

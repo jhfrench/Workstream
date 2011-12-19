@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:05:22  stetzer
-	<>
-
-	Revision 1.0  2001-11-08 09:14:49-05  french
-	Adding deadline management report.
-
 	||
 	--> due_year: number containing a year
 	--> due_month: number containing a month

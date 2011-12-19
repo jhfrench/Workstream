@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:07:19  stetzer
-	<>
-
-	Revision 1.0  2001-12-07 13:58:42-05  french
-	Creating Implementation Analysis Report
-
 	||
 	END FUSEDOC --->
 </cfsilent>

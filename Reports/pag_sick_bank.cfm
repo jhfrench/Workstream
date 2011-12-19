@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:12:25  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 <cfparam name="attributes.emp_id" default="">

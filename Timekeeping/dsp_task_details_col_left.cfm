@@ -20,7 +20,7 @@
 
 <cfset width=min(numberformat(get_task_details.image_width,"______"),variables.var1)>
 <cfset width2=variables.var1-width>
-<cfset alt="Time used for #get_task_details.task_name#: #variables.hours_used# out of #get_task_details.budgeted_hours# hours (#DecimalFormat(get_task_details.percent_used)#%)">
+<cfset alt="Time used for #get_task_details.task_name#: #variables.hours_used# out of #get_task_details.budgeted_hours# hours (#decimalformat(get_task_details.percent_used)#%)">
 
 <cfif get_task_details.qa_id EQ session.user_account_id AND get_task_details.status_id EQ 4>
 	<cfset notes_type_selected=2>
@@ -74,7 +74,7 @@
 	<cfif listfind("1,5", session.workstream_emp_contact_type) OR session.workstream_show_hours_data_ind EQ 1><!--- show time data to employees or customers if their company is set up to view hours---><tr bordercolor="##ffffff">
 		<td colspan="2" class="SubHeadText#session.workstream_text_size#">
 			Time Used&nbsp;<br>
-			<span class="RegText#session.workstream_text_size#">#variables.hours_used#<cfif get_task_details.budgeted_hours> out of #get_task_details.budgeted_hours# budgeted hours (#DecimalFormat(get_task_details.percent_used)#%)</cfif></span>
+			<span class="RegText#session.workstream_text_size#">#variables.hours_used#<cfif get_task_details.budgeted_hours> out of #get_task_details.budgeted_hours# budgeted hours (#decimalformat(get_task_details.percent_used)#%)</cfif></span>
 
 		</td>
 	</tr>

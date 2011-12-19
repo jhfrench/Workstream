@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:11:25  stetzer
-	<>
-
-	Revision 1.1  2001-12-07 14:38:32-05  french
-	Added the function that updates the tasks_pre_defined_id before running queries.
-
-	Revision 1.0  2001-12-07 13:58:43-05  french
-	Creating Implementation Analysis Report
-
 	||
 	END FUSEDOC --->
 </cfsilent>

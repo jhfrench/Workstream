@@ -9,13 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:09:20  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:28-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
 	||
 	END FUSEDOC --->		
 </cfsilent>
@@ -25,7 +18,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 					Summary Hours: 
 				</td>
 				<td align="left">
-					<cfoutput>#DecimalFormat(total_hours)#</cfoutput><cfset grand_total_hours = total_hours + grand_total_hours> <cfset Emp_type_hours = total_hours + Emp_Type_hours>	<cfset total_hours=0>
+					<cfoutput>#decimalformat(total_hours)#</cfoutput><cfset grand_total_hours = total_hours + grand_total_hours> <cfset Emp_type_hours = total_hours + Emp_Type_hours>	<cfset total_hours=0>
 				</td>
 			</tr>
 			<tr>

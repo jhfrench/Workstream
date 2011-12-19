@@ -10,18 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:10:26  stetzer
-	<>
-
-	Revision 1.2  2001-11-07 16:38:10-05  french
-	Adding team details to bottom of admin/planning report.
-
-	Revision 1.1  2001-11-06 17:55:44-05  french
-	Added ability to to handle no data returned from main query.
-
-	Revision 1.0  2001-11-05 18:00:10-05  french
-	Initial file creation and coding.
-
 	||
 	END FUSEDOC --->
 <cfparam name="attributes.admin_month" default="#month(now())#">

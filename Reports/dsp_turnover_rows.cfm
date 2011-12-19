@@ -10,13 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:09:50  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:26-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
 	||
 	END FUSEDOC --->
 <cfset total_pop=0>
@@ -30,7 +23,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 		<cfloop list="#reasons#" index="ii">
 		<cfparam name="dataset#ii#" default="0">
 		<td align="center" class="RegText#session.workstream_text_size#">#evaluate("#ii#")#</td>
-		<td align="center" class="RegText#session.workstream_text_size#">#DecimalFormat(evaluate("#ii#")/pop*100)#%</td><cfset "dataset#ii#"=#evaluate("dataset#ii#")#+#evaluate("#ii#")#>
+		<td align="center" class="RegText#session.workstream_text_size#">#decimalformat(evaluate("#ii#")/pop*100)#%</td><cfset "dataset#ii#"=#evaluate("dataset#ii#")#+#evaluate("#ii#")#>
 		</cfloop>
 	</tr>
 </cfoutput>
@@ -41,7 +34,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 		<td align="center" class="RegText#session.workstream_text_size#Bd">#Total_population.total_pop#</td>
 		<cfloop list="#reasons#" index="ii">
 		<td align="center" class="RegText#session.workstream_text_size#Bd">#evaluate("dataset#ii#")#</td>
-		<td align="center" class="RegText#session.workstream_text_size#Bd">#DecimalFormat(evaluate("dataset#ii#")/Total_population.total_pop*100)#%</td>
+		<td align="center" class="RegText#session.workstream_text_size#Bd">#decimalformat(evaluate("dataset#ii#")/Total_population.total_pop*100)#%</td>
 		</cfloop>
 	</tr>
 </cfoutput>

@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:07:26  stetzer
-	<>
-
-	Revision 1.0  2001-11-08 10:01:46-05  french
-	Creating IT Time report.
-
 	||
 	END FUSEDOC --->
 <cfset temp_year=0>

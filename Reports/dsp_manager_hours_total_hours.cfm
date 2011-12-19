@@ -10,15 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.1  2005/03/09 18:07:57  stetzer
-	<>
-
-	Revision 1.1  2002-03-07 10:30:31-05  long
-	Formatted the file for easier reading
-
-	Revision 1.0  2002-03-07 08:55:36-05  long
-	Created new file, broken out from a previous file.  Changed the file structure to support a new and better query
-
 	||
 	Variables:
 	

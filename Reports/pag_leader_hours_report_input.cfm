@@ -9,17 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.2  2005/09/08 22:12:57  french
-Added month/year drop downs to Leadership Hours Report and Personal Hours Summary. Task 35598
-
-Revision 1.1  2005-03-09 13:11:36-05  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:13-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 </cfsilent>

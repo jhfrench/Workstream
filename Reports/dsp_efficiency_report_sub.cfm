@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:05:38  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 </cfsilent>
@@ -49,10 +46,10 @@
 			<a href="javascript:list_to_employee('#emp_id#')" onmouseover="MM_displayStatusMsg('View details for #Replace(name,"'","")# #Replace(lname,"'","")#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#lname#, #name#</a>
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(efficiency_hours)#
+			#decimalformat(efficiency_hours)#
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(efficiency_percent)#
+			#decimalformat(efficiency_percent)#
 		</td>
 	</tr>
 </cfoutput>

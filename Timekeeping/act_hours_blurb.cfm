@@ -46,7 +46,7 @@
 		<cfset variables.difference=numberformat((variables.this_month-variables.last_month)/variables.last_month*100)>
 	</cfif>
 </cfoutput>
-<cfset variables.hours_blurb="According to your time entries, this month you worked #DecimalFormat(variables.this_month)# hours. Last month you worked #DecimalFormat(variables.last_month)# hours.">
+<cfset variables.hours_blurb="According to your time entries, this month you worked #decimalformat(variables.this_month)# hours. Last month you worked #decimalformat(variables.last_month)# hours.">
 <cfif variables.difference GT 0>
 	<cfset variables.hours_blurb="#variables.hours_blurb# This is an increase of #variables.difference#% from last month.">
 <cfelseif variables.difference LT 0>
@@ -54,7 +54,7 @@
 	<cfset variables.hours_blurb="#variables.hours_blurb# This is a decrease of #variables.difference#% from last month.">
 </cfif>
 <cfoutput query="time_allocation_blurb" maxrows="1">
-	<cfset variables.big_hours=DecimalFormat(project_hours)>
+	<cfset variables.big_hours=decimalformat(project_hours)>
 	<cfset variables.big_project=project_name>
 </cfoutput>
 <cfif time_allocation_blurb.recordcount>

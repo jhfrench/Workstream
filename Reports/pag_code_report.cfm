@@ -9,9 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:10:34  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 <cfset variables.month_loop=1>

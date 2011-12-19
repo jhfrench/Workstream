@@ -27,7 +27,7 @@
 			<a href="javascript:task_to_ind('#emp_id#|#task_id#');" onmouseover="MM_displayStatusMsg('View individual time entries for #last_name#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#last_name#</a>
 		</td>
 		<td align="right">
-			<a href="javascript:task_to_ind('#emp_id#|#task_id#');" onmouseover="MM_displayStatusMsg('View individual time entries for #last_name#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#DecimalFormat(hours)#</a>
+			<a href="javascript:task_to_ind('#emp_id#|#task_id#');" onmouseover="MM_displayStatusMsg('View individual time entries for #last_name#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#decimalformat(hours)#</a>
 		</td>
 		<td align="center">
 			<cfinput type="checkbox" name="reassign_hours" value="#emp_id#" required="Yes" message="Please mark which hours you wish to reassign." class="RegText#session.workstream_text_size#">

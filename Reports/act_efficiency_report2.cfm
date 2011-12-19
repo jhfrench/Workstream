@@ -1,4 +1,4 @@
-
+<!--- $issue$ is this template used? --->
 <!--Reports/act_efficiency_report2.cfm
 	Author: Jeromy F  -->
 <cfsilent>
@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:03:49  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 

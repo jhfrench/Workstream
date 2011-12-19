@@ -9,19 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.3  2006/05/22 13:15:12  csy
-task 44018 I got rid of url variable "inactive"
-
-Revision 1.2  2006-05-11 16:01:28-04  csy
-task44018
-
-Revision 1.1  2005-03-09 13:12:21-05  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:05-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
 	Variables:
 	+++template="Qry_object_access.cfm"

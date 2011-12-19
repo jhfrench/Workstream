@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:09:45  stetzer
-	<>
-
-	Revision 1.0  2002-01-07 10:37:37-05  french
-	Creating tech support report.
-
 	||
 	END FUSEDOC --->
 </cfsilent>

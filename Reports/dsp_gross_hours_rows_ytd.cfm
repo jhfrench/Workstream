@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:06:55  stetzer
-	<>
-
-	Revision 1.0  2002-03-18 10:23:36-05  long
-	Changed the page so that it uses the new query that uses the demographic snapshot.
-
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
@@ -45,15 +39,15 @@
 		</td>	
 
 		<td class="RegText#session.workstream_text_size#">
-			#DecimalFormat(non_billable)#
+			#decimalformat(non_billable)#
 		</td>
 
 		<td class="RegText#session.workstream_text_size#">
-			#DecimalFormat(billable)#
+			#decimalformat(billable)#
 		</td>		
 
 		<td class="RegText#session.workstream_text_size#">
-			#DecimalFormat(Gross_Hours)#
+			#decimalformat(Gross_Hours)#
 		</td>
 		</cfoutput>
 	</tr>
@@ -76,15 +70,15 @@
 		</td>	
 			
 		<td class="SubHeadText#session.workstream_text_size#">
-			#DecimalFormat(nonbillable_grand_tot)#
+			#decimalformat(nonbillable_grand_tot)#
 		</td>
 
 		<td class="SubHeadText#session.workstream_text_size#">
-			#DecimalFormat(billable_grand_tot)#
+			#decimalformat(billable_grand_tot)#
 		</td>		
 
 		<td class="SubHeadText#session.workstream_text_size#">
-			#DecimalFormat(gross_grand_tot)#
+			#decimalformat(gross_grand_tot)#
 		</td>
 	</tr>
 	</cfoutput>

@@ -28,7 +28,7 @@
 <cfoutput query="Agg_hours_by_week">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<td class="RegText#session.workstream_text_size#"><cfif variables.show_details_ind>#month#/#year# </cfif>Week #week#</td>
-		<td align="right" class="RegText#session.workstream_text_size#">#DecimalFormat(sumofhours)#</td>
+		<td align="right" class="RegText#session.workstream_text_size#">#decimalformat(sumofhours)#</td>
 	</tr>
 </cfoutput>
 <cfif NOT variables.show_details_ind>

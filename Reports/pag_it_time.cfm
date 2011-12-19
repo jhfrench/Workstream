@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:11:30  stetzer
-	<>
-
-	Revision 1.1  2001-11-08 12:23:29-05  french
-	Changed form name to make drill-down work.
-
-	Revision 1.0  2001-11-08 10:01:48-05  french
-	Creating IT Time report.
-
 	||
 	END FUSEDOC --->
 <cfparam name="attributes.admin_month" default="#month(now())#">

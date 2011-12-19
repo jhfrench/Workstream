@@ -41,7 +41,7 @@
 		</td>
 	<cfloop list="#emp_id_loop#" index="ii">
 		<td class="RegText#session.workstream_text_size#">
-			<cfset current_budget=Replace(DecimalFormat(#evaluate("budget#ii#")#), ",", "", "all")>
+			<cfset current_budget=Replace(decimalformat(#evaluate("budget#ii#")#), ",", "", "all")>
 			<cfif listgetat(current_budget,2,".") EQ 0><cfset current_budget=numberformat(current_budget)></cfif>
 			<cfparam name="sum_#ii#" default="0">
 			<cfif len(previously_assigned)><cfset "sum_#ii#"=#evaluate("budget#ii#")#+#evaluate("sum_#ii#")#><cfset "task_assign#task_id#"=#evaluate("task_assign#task_id#")#+current_budget><cfelse><cfset current_budget=0></cfif>

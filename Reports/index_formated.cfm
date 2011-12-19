@@ -9,44 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:10:18  stetzer
-	<>
-
-	Revision 1.12  2002-03-07 10:16:17-05  long
-	changed the object name of the managers individual hours report to work properly.
-
-	Revision 1.11  2002-02-08 16:55:04-05  french
-	Removing some comments. Implementing Adam's dashboard changes into RCS.
-
-	Revision 1.10  2002-01-07 10:24:04-05  french
-	Adding TS reports.
-
-	Revision 1.9 2001-12-07 10:56:39-05 french
-	Added case for IP (traffic cop) report.
-
-	Revision 1.8 2001-12-07 10:52:57-05 long
-	Added the lost time case to the index.
-
-	Revision 1.7 2001-11-27 14:52:52-05 french
-	Consolidated IT Time and Admin/Planning report into one pag_ file.
-
-	Revision 1.6 2001-11-13 04:57:46-05 peters
-	Added case statements for new Gross Hours Breakdown report.
-
-	Revision 1.5 2001-11-08 10:02:03-05 french
-	Adding IT Time report.
-
-	Revision 1.4 2001-11-08 09:15:29-05 french
-	Adding deadline management report.
-
-	Revision 1.3 2001-11-05 18:05:03-05 french
-	Adding admin/planning report.
-
-	Revision 1.2 2001-10-16 12:14:33-04 french
-	Minor formatting changes for display or readability.
-
-	Revision 1.1 2001-10-11 11:04:22-04 long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	Variables:
 	END FUSEDOC --->

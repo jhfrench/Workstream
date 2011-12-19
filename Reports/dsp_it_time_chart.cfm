@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:07:23  stetzer
-	<>
-
-	Revision 1.0  2001-11-08 10:01:45-05  french
-	Creating IT Time report.
-
 	||
 	END FUSEDOC --->
 <cfset lowest_year=year(now())>
@@ -39,8 +33,8 @@
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<td align="center" class="RegText#session.workstream_text_size#"><cfif time_year NEQ temp_year>#time_year#<cfset temp_year=time_year><cfelse>&nbsp;</cfif></td>
 		<td align="left" class="RegText#session.workstream_text_size#"><a href="javascript:change_month('#time_month#','#time_year#');" class="RegText#session.workstream_text_size#">#MonthAsString(time_month)#</a></td>
-		<td align="right" class="RegText#session.workstream_text_size#">#DecimalFormat(ap_time)#</td>
-		<td align="right" class="RegText#session.workstream_text_size#">#DecimalFormat(ap_percent)#</td>
+		<td align="right" class="RegText#session.workstream_text_size#">#decimalformat(ap_time)#</td>
+		<td align="right" class="RegText#session.workstream_text_size#">#decimalformat(ap_percent)#</td>
 	</tr>
 </cfoutput>
 </table>

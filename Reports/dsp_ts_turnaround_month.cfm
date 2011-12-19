@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:09:46  stetzer
-	<>
-
-	Revision 1.0  2002-01-07 10:37:38-05  french
-	Creating tech support report.
-
 	||
 	END FUSEDOC --->
 <cfset Y_TickBar="708090">

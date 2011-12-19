@@ -9,9 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:08:34  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 <cfinclude template="../common_files/qry_express_check_date.cfm">

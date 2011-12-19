@@ -9,14 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:06:21  stetzer
-	<>
-
-	Revision 1.2  2001-11-01 12:04:04-05  french
-	Verifying that customer_edit is used correctly as a boolean.
-
-	Revision 1.1  2001-10-11 10:56:32-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfset today = now()>

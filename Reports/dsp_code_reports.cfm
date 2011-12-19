@@ -10,19 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2005/03/18 15:19:30  french
-	Adding customer description to project name display.
-
-	Revision 1.1  2005-03-09 13:04:50-05  stetzer
-	<>
-
-	Revision 1.2  2002-02-08 16:53:15-05  french
-	Changing format to match other reports.
-
-	Revision 1.1  2001-10-11 11:04:50-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
-	
-	(KL | 8/7/01) Removed an extra incrementing of the employee type totals.
 	||
 	END FUSEDOC --->
 <cfif variables.month_loop GT 1>
@@ -105,7 +92,7 @@
 			Total Hours for #variables.employee_classification#:
 		</td>
 		<td align="right" class="SubHeadText#session.workstream_text_size#">
-			#DecimalFormat(Emp_Type_Hours)#
+			#decimalformat(Emp_Type_Hours)#
 		</td>
 	</tr>
 </cfif>
@@ -128,7 +115,7 @@
 </cfloop>
 </cfif>
 		<td align="right" class="SubHeadText#session.workstream_text_size#">
-			#DecimalFormat(grand_total_hours)#
+			#decimalformat(grand_total_hours)#
 		</td>
 	</tr>
 </cfoutput>

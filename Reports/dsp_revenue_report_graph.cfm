@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:09:13  stetzer
-	<>
-
-	Revision 1.2  2001-10-30 11:39:13-05  french
-	Made changes to accomodate new billing type (
-
-	Revision 1.1  2001-10-11 11:04:28-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfswitch expression="#session.workstream_text_size#">

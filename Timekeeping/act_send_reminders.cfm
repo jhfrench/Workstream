@@ -10,19 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:20:21  stetzer
-	<>
-
-	Revision 1.3  2002-04-22 11:13:37-04  french
-	Small changes.
-
-	Revision 1.2  2002-04-11 16:26:15-04  lee
-	changed email from address and added reply-to param
-	
-	Revision 1.1  2001-10-11 10:55:16-04  long
-	added $log $ for edits.  To all CFM files that have fusedocs.
-	
-	(JF | 9/7/1) added condition that will prevent reminders for completed tasks.
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: number that uniquely identifies a task

@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:13:52  stetzer
-	<>
-
-	Revision 1.1  2001-12-07 17:45:09-05  french
-	Added DESC to ip_count order.
-
-	Revision 1.0  2001-12-07 13:58:44-05  french
-	Creating Implementation Analysis Report
-
 	||
 	<-- ip_count:
 	<-- product_name:

@@ -10,12 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.1  2005/03/09 18:10:03  stetzer
-	<>
-
-	Revision 1.1  2001-10-11 13:06:19-04  long
-	Added FuseDoc
-
 	||
 	Variables:
 	

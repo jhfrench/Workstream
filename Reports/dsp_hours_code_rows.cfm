@@ -9,13 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:07:00  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:40-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
@@ -24,6 +17,6 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 		<td width="25">&nbsp;&nbsp;</td>
 		<td><cfoutput>#employee_classification#</cfoutput></td>
 		<td width="25">&nbsp;&nbsp;</td>
-		<td width="60"><cfoutput>#DecimalFormat(hours)#</cfoutput><cfset total_hours=total_hours+hours></td>
+		<td width="60"><cfoutput>#decimalformat(hours)#</cfoutput><cfset total_hours=total_hours+hours></td>
 		<td width="25">&nbsp;&nbsp;</td>
 	</tr>

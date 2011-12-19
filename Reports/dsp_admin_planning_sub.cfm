@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:04:36  stetzer
-	<>
-
-	Revision 1.1  2001-11-13 20:04:15-05  french
-	Adding hours to sub chart.
-
-	Revision 1.0  2001-11-07 16:37:06-05  french
-	Adding team details to bottom of admin/planning report.
-
 	||
 	END FUSEDOC --->
 <table align="left" border="0" cellpadding="2" cellspacing="0">
@@ -54,10 +45,10 @@
 			<a href="javascript:list_to_employee('#emp_id#')" onmouseover="MM_displayStatusMsg('View details for #Replace(name,"'","")# #Replace(lname,"'","")#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#lname#, #name#</a>
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(admin_hours)#
+			#decimalformat(admin_hours)#
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(admin_planning_percent)#
+			#decimalformat(admin_planning_percent)#
 		</td>
 	</tr>
 </cfoutput>

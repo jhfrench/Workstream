@@ -14,7 +14,6 @@
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
 </cfsilent>
-<cfinclude template="qry_operations_blurb.cfm">
 <table cellpadding="0" cellspacing="3" border="0" width="100%">
 <tr valign="top">
 	<td width="25%">
@@ -27,9 +26,8 @@
 	</td>
 	<td width="25%">
 		<table cellpadding="0" cellspacing="0" border="0" width="100%">
-			<cfinclude template="../common_files/qry_get_revenue_goal.cfm">
-			<cfmodule template="../common_files/dsp_section_title.cfm" colspan="2" section_color="008080" section_title="Revenue Goal" title_class="HeadText#session.workstream_text_size#White">
-			<cfinclude template="dsp_revenue_progress.cfm">
+			<cfmodule template="../common_files/dsp_section_title.cfm" colspan="2" section_color="800000" section_title="#listlast(session.workstream_company_name)# Life" title_class="HeadText#session.workstream_text_size#White">
+			<cfmodule template="../common_files/dsp_section_text.cfm" colspan="2" section_color="ffffff" section_text="#life_blurb#">
 		</table>
 	</td>
 	<td width="25%">
@@ -41,8 +39,9 @@
 	</td>
 	<td width="25%">
 		<table cellpadding="0" cellspacing="0" border="0" width="100%">
-			<cfmodule template="../common_files/dsp_section_title.cfm" colspan="2" section_color="800000" section_title="#listlast(session.workstream_company_name)# Life" title_class="HeadText#session.workstream_text_size#White">
-			<cfmodule template="../common_files/dsp_section_text.cfm" colspan="2" section_color="ffffff" section_text="#life_blurb#">
+			<cfinclude template="../common_files/qry_get_revenue_goal.cfm">
+			<cfmodule template="../common_files/dsp_section_title.cfm" colspan="2" section_color="008080" section_title="Revenue Goal" title_class="HeadText#session.workstream_text_size#White">
+			<cfinclude template="dsp_revenue_progress.cfm">
 		</table>
 	</td>
 </tr>

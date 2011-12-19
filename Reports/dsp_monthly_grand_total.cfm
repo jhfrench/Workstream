@@ -9,13 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:07:59  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:36-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
 	||
 	END FUSEDOC --->
 </cfsilent>
@@ -32,7 +25,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 					Grand Total Hours:
 				</td>
 				<td align="left">
-					<cfoutput>#DecimalFormat(grand_total_hours)#</cfoutput>
+					<cfoutput>#decimalformat(grand_total_hours)#</cfoutput>
 				</td>
 			</tr>
 	</cfif>

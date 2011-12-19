@@ -10,13 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:19:54  stetzer
-<>
-
-Revision 1.1  2001-10-11 10:55:20-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
  --->
 </cfsilent>

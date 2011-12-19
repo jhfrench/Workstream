@@ -11,11 +11,11 @@ fieldset legend {
 .toolbar {background-image:url("../images/middle.jpg");background-repeat:repeat-x;}
 .menubar {background-image:url("../images/menubar.jpg");background-repeat:no-repeat;}
 .menubar2 {background-image:url("../images/menubar2.jpg");background-repeat:repeat-x;}
-.formtextlabel {font-family:Arial; font-size:8pt; color:white;}
+.formtextlabel {font-family:Trebuchet MS, Tahoma, sans-serif, Arial; font-size:8pt; color:white;}
 .iconbar {background-image:url("../images/iconbar.jpg");background-repeat:no-repeat;}
 .modulebar {background-image:url("../images/modulebar.jpg");background-repeat:no-repeat;}
 .headRow {background-image:url("../images/table_bg.jpg");background-repeat:repeat-x;background-color:#aaaaaa;}
-.mainNav {font-family:Arial; font-size:10pt; color:white; width:100%}
+.mainNav {font-family:Trebuchet MS, Tahoma, sans-serif, Arial; font-size:10pt; color:white; width:100%}
 .mainNav a{font-size:10pt; color:white; text-decoration:none;}
 .mainNav a:hover {color:white; text-decoration:underline;}
 .mainbody {padding:16px;width:95%;}
@@ -95,7 +95,7 @@ fieldset legend {
 .legend {font-size:8pt;}
 
 .forum {
-	font-family:Arial;
+	font-family:Trebuchet MS, Tahoma, sans-serif, Arial;
 	font-size:12px;
 	padding:1px;
 	}
@@ -105,7 +105,7 @@ fieldset legend {
 	FONT-SIZE: 8pt;
 	COLOR: #115E96;
 	FONT-STYLE: normal;
-	FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+	FONT-FAMILY: Trebuchet MS, Tahoma, sans-serif, Arial;
 	TEXT-DECORATION: none;
 	PADDING-BOTTOM: 5px
 	}
@@ -114,7 +114,7 @@ fieldset legend {
 	FONT-SIZE: 8pt;
 	COLOR: #666666;
 	FONT-STYLE: normal;
-	FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+	FONT-FAMILY: Trebuchet MS, Tahoma, sans-serif, Arial;
 	TEXT-DECORATION: none;
 	PADDING-BOTTOM: 5px
 	}
@@ -123,7 +123,7 @@ fieldset legend {
 	FONT-SIZE: 8pt;
 	COLOR: #666666;
 	FONT-STYLE: normal;
-	FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+	FONT-FAMILY: Trebuchet MS, Tahoma, sans-serif, Arial;
 	TEXT-DECORATION: none
 	}
 .calendar{
@@ -131,7 +131,7 @@ fieldset legend {
 	FONT-SIZE: 8pt;
 	COLOR: #666666;
 	FONT-STYLE: normal;
-	FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+	FONT-FAMILY: Trebuchet MS, Tahoma, sans-serif, Arial;
 	TEXT-DECORATION: none
 	}
 A.calendar{
@@ -139,7 +139,7 @@ A.calendar{
 	FONT-SIZE: 8pt;
 	COLOR: #666666;
 	FONT-STYLE: normal;
-	FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+	FONT-FAMILY: Trebuchet MS, Tahoma, sans-serif, Arial;
 	TEXT-DECORATION: underline
 	}
 .calendartoday{
@@ -147,7 +147,7 @@ A.calendar{
 	FONT-SIZE: 8pt;
 	COLOR: #9C0000;
 	FONT-STYLE: normal;
-	FONT-FAMILY: verdana, arial, helvetica, sans-serif;
+	FONT-FAMILY: Trebuchet MS, Tahoma, sans-serif, Arial;
 	TEXT-DECORATION: underline
 	}
 

@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:08:36  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 </cfsilent>
@@ -31,7 +28,7 @@
 <cfoutput query="Agg_hours_by_month">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<td align="left" class="RegText#session.workstream_text_size#">#clientname#</td>
-		<td align="right" class="RegText#session.workstream_text_size#">#DecimalFormat(sumofhours)#</td>
+		<td align="right" class="RegText#session.workstream_text_size#">#decimalformat(sumofhours)#</td>
 	</tr>
 </cfoutput>
 </table>

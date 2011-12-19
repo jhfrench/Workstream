@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:05:18  stetzer
-	<>
-
-	Revision 1.0  2001-11-08 09:14:48-05  french
-	Adding deadline management report.
-
 	||
 	--> due_year: number containing a year
 	--> due_month: number containing a month
@@ -40,7 +34,7 @@
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<td align="center" class="RegText#session.workstream_text_size#"><cfif due_year NEQ temp_year>#due_year#<cfset temp_year=due_year><cfelse>&nbsp;</cfif></td>
 		<td align="left" class="RegText#session.workstream_text_size#"><a href="javascript:change_month('#due_month#','#due_year#');" class="RegText#session.workstream_text_size#">#MonthAsString(due_month)#</a></td>
-		<td align="right" class="RegText#session.workstream_text_size#">#DecimalFormat(on_time_percent)#</td>
+		<td align="right" class="RegText#session.workstream_text_size#">#decimalformat(on_time_percent)#</td>
 	</tr>
 </cfoutput>
 </table>

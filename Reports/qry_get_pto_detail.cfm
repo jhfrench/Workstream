@@ -9,11 +9,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.1  2005/03/09 18:13:20  stetzer
-	<>
-
-	Revision 1.0  2001-12-27 16:33:55-05  long
-	created the file
 	||
 	Variables:
 	END FUSEDOC --->

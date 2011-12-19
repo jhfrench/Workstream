@@ -10,13 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:19:59  stetzer
-<>
-
-Revision 1.1  2001-10-11 10:55:20-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
 	--> attributes.order_by: string containing column header selected as the priority column for ordering the task_list query results
 	--> attributes.reorder: boolean that allows the list to be ordered by new submission

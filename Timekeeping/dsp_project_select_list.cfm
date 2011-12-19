@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2006/03/31 08:05:49  french
-	Changed display text to use SQL-calculated value instead of CF-calculated value.
-
-	Revision 1.1  2005-03-09 13:21:27-05  stetzer
-	<>
-
-	Revision 1.0  2001-11-13 10:04:57-05  french
-	Created file to remove from dsp_task_new_col_right.cfm.
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->

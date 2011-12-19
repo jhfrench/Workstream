@@ -10,18 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:21:31  stetzer
-	<>
-
-	Revision 1.2  2001-10-29 15:28:09-05  french
-	Moved variable from 'pag_' level directly to this 'dsp_' where it is used.
-
-	Revision 1.1  2001-10-29 13:27:56-05  french
-	Removed line that was including this file from itself.
-
-	Revision 1.0  2001-10-29 13:25:45-05  french
-	File creation.
-
 	||
  --->
 <cfset variables.checked="no">

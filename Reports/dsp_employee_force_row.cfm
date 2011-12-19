@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:05:44  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:46-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 </cfsilent>
@@ -45,7 +37,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 			#DateFormat(date_completed,"mm/dd/yy")#
 		</td>
 		<td class="RegText#session.workstream_text_size#<cfif on_budget EQ 0>Red</cfif>">
-			<cfif listgetat(hours_used,2,".") GT 0>#DecimalFormat(hours_used)#<cfelse>#numberformat(hours_used)#</cfif><cfif budgeted_hours GT 0>/#DecimalFormat(budgeted_hours)# #numberformat(budget_used)#%</cfif>
+			<cfif listgetat(hours_used,2,".") GT 0>#decimalformat(hours_used)#<cfelse>#numberformat(hours_used)#</cfif><cfif budgeted_hours GT 0>/#decimalformat(budgeted_hours)# #numberformat(budget_used)#%</cfif>
 		</td>
 	</tr>
 </cfoutput>

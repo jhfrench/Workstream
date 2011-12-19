@@ -9,9 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:12:37  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 <cfquery name="account_status_report" datasource="#application.datasources.main#">

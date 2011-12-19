@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:12:56  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 <cfquery name="efficiency_report_sub" datasource="#application.datasources.main#">

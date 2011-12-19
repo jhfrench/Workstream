@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:12:28  stetzer
-	<>
-
-	Revision 1.0  2002-01-07 10:37:39-05  french
-	Creating tech support report.
-
 	||
 	END FUSEDOC --->
 <cfset variables.link='<a href="javascript:document.reset_cache.submit();" class="RegText#session.workstream_text_size#White">Update Graphs</a>'>

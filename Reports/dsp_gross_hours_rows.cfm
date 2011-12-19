@@ -19,10 +19,10 @@
 			#name#
 		</td>
 		<cfloop from="1" to="#variables.daysinmonth#" index="ii"><td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(evaluate("Day#ii#"))#		
+			#decimalformat(evaluate("Day#ii#"))#		
 		</td></cfloop>
 		<td class="RegText#session.workstream_text_size#">
-			#DecimalFormat(total)#
+			#decimalformat(total)#
 		</td>
 	</tr>
 </cfoutput>

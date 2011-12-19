@@ -10,39 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.10  2006-11-16 04:16:51  french
-	Task 50669: Modified code to make system appear professional again.
-	
-	Revision 1.9  2006-08-15 18:37:02-04  csy
-	Task 43531 I updated code to allow note entries separation.
-	
-	Revision 1.8  2006-04-12 16:06:49-04  csy
-	task 43531 Modifed code to seperate notes in Print Task QA section.
-	
-	Revision 1.7  2006-02-14 17:46:20-05  stetzer
-	Added TIME to the QA note (was already there for Resolution Note).
-	
-	Revision 1.6  2005-12-07 15:09:04-05  stetzer
-	Added custome fields to printable view
-	
-	Revision 1.5  2005-12-06 15:35:21-05  stetzer
-	<>
-	
-	Revision 1.4  2005-11-28 15:25:03-05  stetzer
-	Adding Associated Tasks to printable output.
-	
-	Revision 1.3  2005-06-27 14:52:32-04  stetzer
-	A compromise
-	
-	Revision 1.2  2005-06-27 14:43:22-04  stetzer
-	People may not like this.. Easier for me to read.
-	
-	Revision 1.1  2005-03-09 13:22:02-05  stetzer
-	<>
-	
-	Revision 1.1  2001-10-11 10:55:03-04  long
-	added $log $ for edits.  To all CFM files that have fusedocs.
-
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->

@@ -40,10 +40,10 @@
 		<cfset label_ii="#label_ii# #year#">
 	</cfif>
 	<cfset xaxislabels=listappend(xaxislabels,label_ii)>
-	<cfset dataset0yvalues=ListAppend(dataset0yvalues, DecimalFormat(Prospect))>
-	<cfset dataset1yvalues=ListAppend(dataset1yvalues, DecimalFormat(Qualify))>
-	<cfset dataset2yvalues=ListAppend(dataset2yvalues, DecimalFormat(Propose))>
-	<cfset dataset3yvalues=ListAppend(dataset3yvalues, DecimalFormat(Close))>
+	<cfset dataset0yvalues=ListAppend(dataset0yvalues, decimalformat(Prospect))>
+	<cfset dataset1yvalues=ListAppend(dataset1yvalues, decimalformat(Qualify))>
+	<cfset dataset2yvalues=ListAppend(dataset2yvalues, decimalformat(Propose))>
+	<cfset dataset3yvalues=ListAppend(dataset3yvalues, decimalformat(Close))>
 	<cfset temp_year=year>
 </cfoutput>
 <cfoutput>

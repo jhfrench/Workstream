@@ -10,24 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:21:29  stetzer
-	<>
-
-	Revision 1.4  2001-11-28 13:50:24-05  french
-	Modified code to recognize options that should be ignored as specified by the user during timeline creation.
-
-	Revision 1.3  2001-10-31 14:27:50-05  french
-	Added the ability to exclude tasks from a project timeline if they are under the category of "Do not display this".
-
-	Revision 1.2  2001-10-31 14:03:18-05  french
-	Made changes to display last name instead of first name.
-
-	Revision 1.1  2001-10-30 11:13:04-05  french
-	First coding of file.
-
-	Revision 1.0  2001-10-29 16:27:31-05  french
-	File creation.
-
 	||
  --->
 <cfset variables.quote='"'>

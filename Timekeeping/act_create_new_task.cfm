@@ -10,17 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:19:52  stetzer
-	<>
-
-	Revision 1.3  2002-02-01 09:57:25-05  french
-	Added check to prevent error caused by trying to attach a document then submitting without selecting a document in the pop-up window.
-
-	Revision 1.2  2001-11-13 10:26:11-05  french
-	Added the ability to attach tasks.
-
-	Revision 1.1  2001-10-11 10:55:21-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
  --->
 <cfparam name="attributes.task_team" default="">

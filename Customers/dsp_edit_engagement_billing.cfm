@@ -65,7 +65,7 @@
 <cfinclude template="qry_get_incident_charge.cfm">
 	<tr valign="top">
 		<td colspan="2" class="RegText#session.workstream_text_size#">
-			Incident Charge: $ <cfinput type="text" name="charge" value="#DecimalFormat(get_incident_charge.charge)#" required="yes" validate="integer" message="Please enter, per incident, the charge to the customer." size="4" class="RegText#session.workstream_text_size#"><br>
+			Incident Charge: $ <cfinput type="text" name="charge" value="#decimalformat(get_incident_charge.charge)#" required="yes" validate="integer" message="Please enter, per incident, the charge to the customer." size="4" class="RegText#session.workstream_text_size#"><br>
 		</td>
 		<td width="55%" class="Note#session.workstream_text_size#">
 			<ol type="1" start="#variables.start#" class="Note#session.workstream_text_size#">

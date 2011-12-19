@@ -9,13 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:04:12  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:52-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
 	||
 	END FUSEDOC --->
 <cfset temp_year=0>
@@ -43,7 +36,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 		<cfset counter=0>
 		<cfloop list="#reasons#" index="ii">
 		<cfparam name="dataset#counter#" default="">
-		<cfset percent=DecimalFormat(evaluate("#ii#")/pop*100)>
+		<cfset percent=decimalformat(evaluate("#ii#")/pop*100)>
 		<cfset "dataset#counter#"=listappend(evaluate("dataset#counter#"), percent)>
 		<cfset counter=incrementvalue(counter)>
 		</cfloop>

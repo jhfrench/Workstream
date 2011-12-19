@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:05:24  stetzer
-	<>
-
-	Revision 1.1  2001-11-08 09:28:39-05  french
-	Adding note to explain why some employees may disappear from month to month.
-
-	Revision 1.0  2001-11-08 09:14:50-05  french
-	Adding deadline management report.
-
 	||
 	--> emp_id: number that uniquely identifies an employee
 	--> lname: string containing the last name of an employee
@@ -56,7 +47,7 @@
 			<a href="javascript:list_to_employee('#emp_id#')" onmouseover="MM_displayStatusMsg('View details for #Replace(name,"'","")# #Replace(lname,"'","")#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#lname#, #name#</a>
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(on_time)#
+			#decimalformat(on_time)#
 		</td>
 	</tr>
 </cfoutput>

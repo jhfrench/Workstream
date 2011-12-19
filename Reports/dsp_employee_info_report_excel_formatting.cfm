@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:06:03  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 </cfsilent>

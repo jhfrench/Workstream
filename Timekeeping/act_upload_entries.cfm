@@ -10,20 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:20:28  stetzer
-	<>
-
-	Revision 1.4  2002-04-25 13:59:23-04  french
-	Modified code to handle non-numeric entries from Time_Entry (for LewisCo).
-
-	Revision 1.3  2001-11-15 10:12:58-05  long
-	Changed the isolation level from Serializable to read_committed
-
-	Revision 1.2  2001-10-29 11:51:02-05  french
-	Added condition to set hours to 0 if hours are not specified but notes are.
-
-	Revision 1.1  2001-10-11 10:55:15-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
  --->
 <cfif len(attributes.hours) EQ 0>

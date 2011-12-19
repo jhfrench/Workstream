@@ -11,20 +11,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:03:54  stetzer
-	<>
-
-	Revision 1.4  2002-04-16 16:05:40-04  lee
-	added query to get reipient email from that specified in REF_objects
-
-	Revision 1.3  2002-04-16 14:07:20-04  french
-	Minor code formatting.
-
-	Revision 1.2  2002-04-11 16:26:24-04  lee
-	changed email from address and added reply-to param
-	
-	Revision 1.1  2001-10-11 11:04:53-04  long
-	added $log $ for edits.  To all CFM files that have fusedocs.
 	||
 	Variables:
 	--> name: the managers first name

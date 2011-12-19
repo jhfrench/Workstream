@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:21:18  stetzer
-	<>
-
-	Revision 1.0  2001-11-27 16:06:05-05  french
-	Adding file to display a message when a user tries to view task details for a task that does not exist.
-
 	||
  --->
 </cfsilent>

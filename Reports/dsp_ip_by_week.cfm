@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:07:12  stetzer
-	<>
-
-	Revision 1.0  2001-12-07 13:58:39-05  french
-	Creating Implementation Analysis Report
-
 	||
 	END FUSEDOC --->
 <cfset variables.temp_year=0>

@@ -9,9 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:12:34  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 <cfset variables.overtime_ind=0>

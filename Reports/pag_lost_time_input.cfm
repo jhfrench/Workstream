@@ -9,9 +9,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.1  2005/03/09 18:11:42  stetzer
-	<>
-
 	||
 	Variables:
 	

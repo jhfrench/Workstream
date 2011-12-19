@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:13:54  stetzer
-	<>
-
-	Revision 1.0  2001-12-07 13:58:45-05  french
-	Creating Implementation Analysis Report
-
 	||
 	<-- days_to_complete: number of days it takes to complete an average IP started in the given week
 	<-- task_count: number of IPs created in the given week

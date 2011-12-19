@@ -9,14 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:10:31  stetzer
-	<>
-
-	Revision 1.2  2002-02-08 16:53:58-05  french
-	Changing format to match other reports.
-
-	Revision 1.1  2001-10-11 11:04:20-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfset variables.month_loop=0>

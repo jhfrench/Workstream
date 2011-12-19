@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:06:15  stetzer
-	<>
-
-	Revision 1.0  2002-01-28 09:59:02-05  french
-	Initial file creation (files added to RCS by Jeromy on behalf of Adam).
-
 	||
 	END FUSEDOC --->
 </cfsilent>

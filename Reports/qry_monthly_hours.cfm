@@ -8,23 +8,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2005/03/18 15:19:31  french
-	Adding customer description to project name display.
-
-	Revision 1.1  2005-03-09 13:14:15-05  stetzer
-	<>
-
-	Revision 1.3  2002-02-18 09:56:46-05  long
-	Added code to allow a user to have mulitple demographic records and not double the records returned.
-
-	Revision 1.2  2002-01-17 08:24:23-05  long
-	Added changes to accomidate the effective from and to dates in Demographics table.  The query now accuratly represents the point in time for each employeee when the query is run for.
-	
-	Revision 1.1  2001-10-11 11:03:54-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
-	
-	(JF | 2/8/2) Reformatted query for speeed.
-	(KL | 8/7/01) added logic to include the flat rate codes in the billable hours report.
 	||
 	END FUSEDOC --->
 <cfparam name="session.workstream_project_list_order" default="1">

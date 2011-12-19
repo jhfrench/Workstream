@@ -9,14 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:06:44  stetzer
-	<>
-
-	Revision 1.2  2001-12-06 13:54:33-05  french
-	Applying style sheet correctly for the Reports module.
-
-	Revision 1.1  2001-10-11 11:04:42-04  long
-	added $log $ for edits.  To all CFM files that have fusedocs.
 	||
 	--> attributes.report_name: this is the name of the report that the form is submitting to.
 	--> attributes.required: this is wether or not the form fields will be required. 

@@ -9,9 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:11:47  stetzer
-	<>
-
 	||
 	Variables:
 	- ->from_date: this is the beginning of the date range of the report.

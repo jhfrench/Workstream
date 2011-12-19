@@ -9,14 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:07:32  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:38-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 <cfparam name="variables.show_details_ind" default="1">
@@ -36,7 +28,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 		<cfif variables.show_details_ind><td align="center" class="Regtext#session.workstream_text_size#">#name#</td>
 		<td align="center" class="Regtext#session.workstream_text_size#">#month#/#year#</td></cfif>
 		<td align="left" class="Regtext#session.workstream_text_size#">#clientname#</td>
-		<td align="right" class="Regtext#session.workstream_text_size#">#DecimalFormat(sumofhours)#</td>
+		<td align="right" class="Regtext#session.workstream_text_size#">#decimalformat(sumofhours)#</td>
 	</tr>
 </cfoutput>
 </table>
@@ -55,7 +47,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<cfif variables.show_details_ind><td align="center" class="Regtext#session.workstream_text_size#">#name#</td></cfif>
 		<td align="left" class="Regtext#session.workstream_text_size#"><cfif variables.show_details_ind>#month#/#year# </cfif>Week #week#</td>
-		<td align="right" class="Regtext#session.workstream_text_size#">#DecimalFormat(sumofhours)#</td>
+		<td align="right" class="Regtext#session.workstream_text_size#">#decimalformat(sumofhours)#</td>
 	</tr>
 </cfoutput>
 </table>

@@ -15,7 +15,7 @@
 	--> session.user_account_id: number that uniquely identifies the user
  --->
 <cfquery name="time_allocation_blurb" datasource="#application.datasources.main#">
-SELECT SUM(hours) AS project_hours, (Customer.description + '-' + Project.description) AS project_name, Project.project_id
+SELECT SUM(hours) AS project_hours, (Customer.description + ' - ' + Project.description) AS project_name, Project.project_id
 FROM Time_Entry, Project, Customer
 WHERE Customer.customer_id=Project.customer_id
 	AND Time_Entry.project_id=Project.project_id

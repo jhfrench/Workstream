@@ -9,15 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:10:58  stetzer
-<>
-
-Revision 1.1  2001-10-11 10:56:24-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
-
-
-	 
-	(KL | 9/14/2001) added logic to make the access to the edit function database driven.
 	||
 	END FUSEDOC --->
 <cfparam name="attributes.inactive" default="0">

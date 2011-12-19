@@ -1,7 +1,7 @@
 /* may-common css */
 
 body {background-color:#000000; margin:0px;}
-body, table, td, form, input, select, textarea, label, h1, h3, h4, h5, h6, pre {font-family:Arial; font-size:x-small; color:#000000; }  
+body, table, td, form, input, select, textarea, label, h1, h3, h4, h5, h6, pre {font-family:Trebuchet MS, Tahoma, sans-serif, Arial; font-size:x-small; color:#000000; }  
 /*/*/a{} 
 html body { font-size:69%; background-color:#000000; margin:0px;}
 html table, html td, html form, html input, html select, html textarea, html label, html h1, html h3, html h4, html h5, html h6 {font-size:1em;}    
@@ -63,11 +63,11 @@ a:hover {text-decoration:underline;}
 .resultsMeterMiss {letter-spacing:1px; color:#cccccc;}
 
 /* Copied by Venu from original css.Added for Search */
-.categoryLnkBig {font-family:Arial; font-weight:bold; color:#333333;}
+.categoryLnkBig {font-family:Trebuchet MS, Tahoma, sans-serif, Arial; font-weight:bold; color:#333333;}
 .categoryLnkBig {color:#006699;}
 .categoryLnkBig:hover {text-decoration:underline;}
 .categoryLnkBigSelect {color:#006699; text-decoration:underline;}
-.categoryLnkSmall {font-family:Arial; color:#333333;}
+.categoryLnkSmall {font-family:Trebuchet MS, Tahoma, sans-serif, Arial; color:#333333;}
 .categoryLnkSmall {color:#006699;}
 .categoryLnkSmall:hover {text-decoration:underline;}
 .categoryLnkSmallSelect {color:#006699; text-decoration:underline;} 

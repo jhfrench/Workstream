@@ -33,7 +33,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	</cfloop>
 		<td align="center" valign="bottom" class="RegText#session.workstream_text_size#">
 			<cfif variables.total_requested><cfset variables.total_capacity=requested_sum/variables.total_requested*100><cfelse><cfset variables.total_capacity=0></cfif>
-			#DecimalFormat(variables.total_capacity)#%
+			#decimalformat(variables.total_capacity)#%
 		</td>
 		<td align="center" valign="bottom" class="RegText#session.workstream_text_size#">
 			#attributes.capacity_assigned#

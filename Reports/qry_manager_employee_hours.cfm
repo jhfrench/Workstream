@@ -9,9 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:14:09  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 <cfset sup_id=Get_Client_info.sup_id>

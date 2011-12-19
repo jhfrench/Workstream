@@ -9,19 +9,11 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:10:06  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:23-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 </cfsilent>
 	
-<cfparam NAME="CURR_SHEET" DEFAULT="1">			<!--- WE KEEP TRACK OF WHAT WORKSHEET WE ARE AUTOMATING WITH THIS VARIABLE --->	
+<cfparam NAME="CURR_SHEET" DEFAULT="1"><!--- WE KEEP TRACK OF WHAT WORKSHEET WE ARE AUTOMATING WITH THIS VARIABLE --->	
 
 <cfparam name="from_date" default="1/1/01">
 <cfparam name="through_date" default="7/30/02">

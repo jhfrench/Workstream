@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:12:50  stetzer
-	<>
-
-	Revision 1.1  2001-11-08 09:33:13-05  french
-	Added condition to remove tasks due in the future.
-
-	Revision 1.0  2001-11-08 09:14:52-05  french
-	Adding deadline management report.
-
 	||
 	--> get_subordinates.emp_id: query results from common_files/qry_get_subordinates.cfm
 	<-- due_year: number containing a year

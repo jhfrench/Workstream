@@ -9,17 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:14:40  stetzer
-<>
-
-Revision 1.2  2001-10-15 14:22:26-04  long
-Removed hard code of the project_id and sub-ed in a query that gets the ID of the PTO project code.
-
-Revision 1.1  2001-10-11 11:03:50-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 </cfsilent>

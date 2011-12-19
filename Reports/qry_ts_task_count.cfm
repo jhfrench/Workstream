@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:15:00  stetzer
-	<>
-
-	Revision 1.0  2002-01-07 10:37:45-05  french
-	Creating tech support report.
-
 	||
 	END FUSEDOC --->
 <cfquery name="ts_task_count" datasource="#application.datasources.main#" cachedafter="02/02/1978">

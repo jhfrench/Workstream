@@ -9,9 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:09:02  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 <cfset variables.only_one=0>

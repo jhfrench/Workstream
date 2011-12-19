@@ -9,9 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:14:24  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 <cfquery name="get_objects" datasource="#application.datasources.main#">

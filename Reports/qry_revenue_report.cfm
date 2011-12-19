@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:14:43  stetzer
-	<>
-
-	Revision 1.2  2001-10-30 11:39:14-05  french
-	Made changes to accomodate new billing type (
-
-	Revision 1.1  2001-10-11 11:03:50-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfquery name="revenue_report" datasource="#application.datasources.main#">

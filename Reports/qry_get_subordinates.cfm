@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:13:35  stetzer
-<>
-
 	||
 	END FUSEDOC --->
 <cfquery name="get_subordinates" datasource="#application.datasources.main#">

@@ -10,16 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:20:56  stetzer
-<>
-
-Revision 1.2  2001-12-12 11:00:53-05  long
-added an onclick to the button  in javascript to validate the hours field then submit the form if it passes.
-
-Revision 1.1  2001-10-11 10:55:12-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
-
- 
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->

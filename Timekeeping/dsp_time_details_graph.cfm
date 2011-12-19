@@ -15,7 +15,7 @@
  --->
 <cfset width=min(get_task_accumulated.image_width,variables.var1)>
 <cfset width2=variables.var1-width>
-<cfset alt="Time used for #get_task_details.task_name# (#get_task_accumulated.hours_used# out of #get_task_accumulated.budgeted_hours# hours--#DecimalFormat(get_task_accumulated.percent_used)#%)">
+<cfset alt="Time used for #get_task_details.task_name# (#get_task_accumulated.hours_used# out of #get_task_accumulated.budgeted_hours# hours--#decimalformat(get_task_accumulated.percent_used)#%)">
 </cfsilent>
 	<tr class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 		<td colspan="2">

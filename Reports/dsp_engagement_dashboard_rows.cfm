@@ -13,51 +13,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.14  2006/05/11 20:24:07  csy
-	task44329 Changed Needs QA Review with Needs Customer Review
-
-	Revision 1.13  2006-03-31 16:15:13-05  csy
-	task 42740 Hyperlinked icon on dashboard.
-
-	Revision 1.12  2006-03-28 11:38:52-05  csy
-	task42738 Added the engagement number(project code) to the name of the engagement in parenthesis
-
-	Revision 1.11  2005-11-07 12:39:37-05  stetzer
-	<>
-
-	Revision 1.10  2005-11-07 12:37:29-05  stetzer
-	<>
-
-	Revision 1.9  2005-11-07 12:34:55-05  stetzer
-	<>
-
-	Revision 1.8  2005-11-07 12:28:17-05  stetzer
-	<>
-
-	Revision 1.7  2005-11-07 12:25:21-05  stetzer
-	<>
-
-	Revision 1.6  2005-08-26 16:16:58-04  stetzer
-	<>
-
-	Revision 1.5  2005-08-26 11:23:51-04  stetzer
-	<>
-
-	Revision 1.4  2005-08-26 10:32:12-04  stetzer
-	<>
-
-	Revision 1.3  2005-08-26 10:21:49-04  stetzer
-	Added LOE and fixed hyperlink for billing that was lost.
-
-	Revision 1.2  2005-08-26 10:16:56-04  stetzer
-	<>
-
-	Revision 1.1  2005-03-09 13:06:10-05  stetzer
-	<>
-
-	Revision 1.0  2002-01-28 09:59:01-05  french
-	Initial file creation (files added to RCS by Jeromy on behalf of Adam).
-
 	||
 	END FUSEDOC --->
 <cfset today=now()>

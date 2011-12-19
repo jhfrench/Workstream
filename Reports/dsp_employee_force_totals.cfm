@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:05:49  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:46-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 </cfsilent>
@@ -43,10 +35,10 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 			Average number of days assigned to complete a task:
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(employee_force_totals.given_days)#
+			#decimalformat(employee_force_totals.given_days)#
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(team_force_totals.given_days)#
+			#decimalformat(team_force_totals.given_days)#
 		</td>
 	</tr>
 	<tr class="SubHeadText#session.workstream_text_size#">
@@ -54,10 +46,10 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 			Average number of days used to complete a task:
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(employee_force_totals.duration_days)#
+			#decimalformat(employee_force_totals.duration_days)#
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(team_force_totals.duration_days)#
+			#decimalformat(team_force_totals.duration_days)#
 		</td>
 	</tr>
 	<tr bgcolor="##E1E1E1" class="SubHeadText#session.workstream_text_size#">
@@ -65,10 +57,10 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 			Percent of tasks completed on time or early:
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(employee_force_totals.on_time)#%
+			#decimalformat(employee_force_totals.on_time)#%
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(team_force_totals.on_time)#%
+			#decimalformat(team_force_totals.on_time)#%
 		</td>
 	</tr>
 	<tr class="SubHeadText#session.workstream_text_size#">
@@ -76,10 +68,10 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 			Percent of tasks completed on or under budget:
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(employee_force_totals.on_budget)#%
+			#decimalformat(employee_force_totals.on_budget)#%
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DecimalFormat(team_force_totals.on_budget)#%
+			#decimalformat(team_force_totals.on_budget)#%
 		</td>
 	</tr>
 </cfoutput>

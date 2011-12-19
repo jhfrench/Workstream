@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:13:56  stetzer
-	<>
-
-	Revision 1.0  2001-11-08 10:01:49-05  french
-	Creating IT Time report.
-
 	||
 	END FUSEDOC --->
 <cfquery name="it_time_main" datasource="#application.datasources.main#">

@@ -9,32 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:14:34  stetzer
-<>
-
-Revision 1.7  2001-11-07 09:32:45-05  long
-Added case for a user that is not in the standard accrual structure and has not been employed for the entire year.
-
-Revision 1.6  2001-10-29 15:45:11-05  daugherty
-Fixed wierd RCS merge issue.
-
-Revision 1.5  2001-10-29 15:38:30-05  daugherty
-OOPS
-
-Revision 1.4  2001-10-15 16:51:52-04  long
-<>
-
-Revision 1.3  2001-10-15 15:30:29-04  long
-Using session.workstream_company_select list instead of the hard code Company = 9
-
-Revision 1.2  2001-10-15 12:15:58-04  long
-Removed the hard coded project_id for the PTO hours and am now using the project_type_id to determine what codes are PTO.
-
-Revision 1.1  2001-10-11 11:03:52-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 </cfsilent>

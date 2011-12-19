@@ -9,14 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:12:14  stetzer
-	<>
-
-	Revision 1.2  2001-10-16 12:14:34-04  french
-	Minor formatting changes for display or readability.
-
-	Revision 1.1  2001-10-11 11:04:07-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfparam name="variables.individual" default="yes">

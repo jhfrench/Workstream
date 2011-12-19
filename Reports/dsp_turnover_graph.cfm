@@ -9,16 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:09:48  stetzer
-	<>
-
-	Revision 1.2  2001-12-14 18:07:27-05  french
-	Changed graph type, repositioned legend.
-
-	Revision 1.1  2001-10-11 11:04:27-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
-	
-	 (JF | 3/13/1) Converted column chart to line chart, took off 3d.
 	||
 	END FUSEDOC --->
 <cfif evaluate("#query_name#.recordcount")>

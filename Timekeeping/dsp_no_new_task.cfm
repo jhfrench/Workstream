@@ -10,18 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:21:16  stetzer
-	<>
-
-	Revision 1.2  2001-12-17 12:09:46-05  french
-	Giving more information to the user.
-
-	Revision 1.1  2001-12-17 12:02:08-05  french
-	Added task's ID for helping user identify the task they've already entered.
-
-	Revision 1.0  2001-12-17 11:35:25-05  french
-	Initial file creation.
-
 	||
 	Variables:
 	END FUSEDOC --->

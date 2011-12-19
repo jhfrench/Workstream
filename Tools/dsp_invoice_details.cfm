@@ -32,10 +32,10 @@
 		<a href="javascript:list_to_emp('#emp_id#');" onmouseover="MM_displayStatusMsg('View details for #variables.StatusMsg#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#pin#</a>
 	</td>
 	<td align="right" class="RegText#session.workstream_text_size#">
-		#DecimalFormat(rate)#
+		#decimalformat(rate)#
 	</td>
 	<td align="right" class="RegText#session.workstream_text_size#">
-		<a href="javascript:emp_to_notes('#emp_id#|#attributes.project_id#','#attributes.drill_through#');" onmouseover="MM_displayStatusMsg('View notes from #variables.StatusMsg#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#DecimalFormat(hours)#</a><cfset variables.sum_hours=sum_hours+hours>
+		<a href="javascript:emp_to_notes('#emp_id#|#attributes.project_id#','#attributes.drill_through#');" onmouseover="MM_displayStatusMsg('View notes from #variables.StatusMsg#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#decimalformat(hours)#</a><cfset variables.sum_hours=sum_hours+hours>
 	</td>
 	<td align="right" class="RegText#session.workstream_text_size#">
 		#dollarformat(bill)#<cfset variables.sum_bill=sum_bill+bill>
@@ -45,7 +45,7 @@
 <cfoutput>
 <tr>
 	<td align="right" colspan="5" class="SubHeadText#session.workstream_text_size#">Totals:<span class="RegText#session.workstream_text_size#"> #invoice_details.recordcount# Employee<cfif invoice_details.recordcount NEQ 1>s</cfif></span></td>
-	<td align="right" class="RegText#session.workstream_text_size#">#DecimalFormat(variables.sum_hours)#</td>
+	<td align="right" class="RegText#session.workstream_text_size#">#decimalformat(variables.sum_hours)#</td>
 	<td align="right" class="RegText#session.workstream_text_size#">#dollarformat(variables.sum_bill)#</td>
 </tr>
 </cfoutput>

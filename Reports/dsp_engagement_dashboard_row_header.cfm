@@ -9,26 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.5  2006/05/05 22:22:32  csy
-	task 44018  Added hidden fields to allow query to remember  custormer and IE filters when choosing "All", "Inactive" or "Active"
-
-	Revision 1.4  2006-04-03 12:45:45-04  csy
-	task 42739 Added new engagement link
-
-	Revision 1.3  2006-03-29 14:33:26-05  csy
-	task 42737 Modified code to move dropdown to the right
-
-	Revision 1.2  2006-03-28 10:21:11-05  csy
-	task 42737  Added a single entry form that will allow users to select and output "Active", "Inactive" or "All"  engagements.
-
-	Revision 1.1  2005-03-09 13:06:17-05  stetzer
-	<>
-
-	Revision 1.2  2001-11-01 12:04:04-05  french
-	Verifying that customer_edit is used correctly as a boolean.
-
-	Revision 1.1  2001-10-11 10:56:32-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfset today = now()>
