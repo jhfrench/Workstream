@@ -31,6 +31,6 @@
 	    REF_Location_Type Rlt ON 
 	    Lt.Location_Type_Id = Rlt.Location_Type_ID
 			AND
-		Lt.Emp_ID =#variables.emp_id#
+		Lt.emp_id =#variables.emp_id#
 	</cfquery>
 </cfsilent>

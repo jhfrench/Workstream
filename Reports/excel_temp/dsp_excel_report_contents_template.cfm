@@ -70,7 +70,7 @@
 			<cfset currow = get_expenses.CurrentRow>
 			
 			<cfloop query="get_expense_type">
-				arr_#wkst_id#(#rownum#,#curr_col#) = "#dollarFormat(get_expenses[expense_type][currow])#"				
+				arr_#wkst_id#(#rownum#,#curr_col#) = "#dollarformat(get_expenses[expense_type][currow])#"				
 				<cfset curr_col = curr_col + 1>
 				
 				<!--- <cfset totals[Expense_Type] =totals[Expense_Type] + get_expenses[expense_type][currow]> --->
@@ -83,7 +83,7 @@
 		<!--- </cfoutput> --->	
 
 <!--- 			<cfloop query="get_expense_type">
-				arr_#wkst_id#(#rownum#,#curr_col#) = "#dollarFormat(totals[Expense_Type])#"				
+				arr_#wkst_id#(#rownum#,#curr_col#) = "#dollarformat(totals[Expense_Type])#"				
 				<cfset curr_col = curr_col + 1>
 			</cfloop> --->
 			<cfset rownum = rownum + 1> 

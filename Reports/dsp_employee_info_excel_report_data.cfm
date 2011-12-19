@@ -114,7 +114,7 @@
 			
 		<!--- Annual Salary --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Annual Salary")>
-			data_array(#variables.rownum#,#variables.current_col_num#)="#DollarFormat(Decrypt(get_employee_info.salary,"sillyputty"))#"	<!---  --->		
+			data_array(#variables.rownum#,#variables.current_col_num#)="#dollarformat(Decrypt(get_employee_info.salary,"sillyputty"))#"	<!---  --->		
 			<cfset variables.current_col_num = variables.current_col_num + 1>
 		</cfif>
 			

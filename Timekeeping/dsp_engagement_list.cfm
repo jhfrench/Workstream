@@ -4,27 +4,20 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I display the workstream project/engagement list.
+	Responsibilities: I display the workstream project list.
 	||
 	Name: Jeromy French
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:20:48  stetzer
-<>
-
-Revision 1.1  2001-10-11 10:55:13-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
 	--> application.application_specific_settings.image_dir: string that contains main path to the folder where all images are kept
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
-	--> project_code: numeric code of the project/engagement
-	--> project_end: date or string containing targeted completion date for the project/engagement
-	--> project_mission: string containing the desired outcome of the project/engagement
-	--> project_name: name or description of the project/engagement
-	--> task_count: number of tasks associated with the project/engagement that meets the user's specifications (ie on the team, not hidden, not completed)
+	--> project_code: numeric code of the project
+	--> project_end: date or string containing targeted completion date for the project
+	--> project_mission: string containing the desired outcome of the project
+	--> project_name: name or description of the project
+	--> task_count: number of tasks associated with the project that meets the user's specifications (ie on the team, not hidden, not completed)
  --->
 <cfset variables.quote='"'>
 <cfset variables.StatusMsg_replace="',#variables.quote#">
@@ -42,7 +35,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <cfelse>
 	<tr>
 		<td align="center" colspan="4" class="Note<cfoutput>#session.workstream_text_size#</cfoutput>">
-			You have no engagements that meet your criteria.
+			You have no projects that meet your criteria.
 		</td>
 	</tr>
 </cfif>

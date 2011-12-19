@@ -14,7 +14,7 @@
 	--> application.team_changed: date of the last time emp_contact, security or demographics tables were changed
 	--> session.workstream_company_id: id that identifies company of the user to workstream
 	--> session.workstream_company_select_list: id of the companies that the employee wishes to see
-	<-- company: number that contains the REF_Companies.company_id for an employee
+	<-- company: number that contains the REF_Company.company_id for an employee
 	<-- emp_id: id that identifies user to workstream
 	<-- f_init: string containing the first initial of an employee
 	<-- lname: string containing the last name of an employee

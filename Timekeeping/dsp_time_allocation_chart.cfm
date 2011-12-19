@@ -37,7 +37,7 @@
 		<td valign="top" width="30%" class="RegText#session.workstream_text_size#">
 			#variables.work_allocation_text#
 			<div align="center">
-			<cfchart chartHeight="150" chartWidth="300" font="Trebuchet MS" fontsize="#variables.small#" fontBold="yes" show3D="yes" pieSliceStyle="sliced" showLegend="no">
+			<cfchart chartHeight="150" chartWidth="300" font="Trebuchet MS" fontsize="#variables.small#" fontBold="yes" show3D="yes" pieSliceStyle="solid" showLegend="no">
 			    <cfchartseries type="pie" query="time_allocation_blurb" valueColumn="project_hours" itemColumn="project_name" colorlist="#variables.color_list#" dataLabelStyle="none" paintStyle="raise" />
 			</cfchart>
 			Hover over a pie slice to see details.
@@ -48,7 +48,7 @@
 				<tr bgcolor="##c0c0c0">
 					<td bgcolor="##ffffff"></td>
 					<td>&nbsp;&nbsp;</td>
-					<td class="SubHeadText#session.workstream_text_size#">Engagement</td>
+					<td class="SubHeadText#session.workstream_text_size#">Project</td>
 					<td class="SubHeadText#session.workstream_text_size#">Hours</td>
 					<td class="SubHeadText#session.workstream_text_size#">Percent</td>
 				</tr>

@@ -36,7 +36,7 @@ created template
 	-->  Phone_Number: string containing Phone Number for a person
     -->  Extension: string containing Phone Extension for a person
 	-->  Phone_id: string containing Phone ID for a person
-	--> Email_Type_ID: string containing email Type ID for a person
+	--> email_type_id: string containing email Type ID for a person
     --> Email_Type: string containing email Type for a person 
 	--> Email: string containing email for a person
 	--> Email_ID: string containing email ID for a person
@@ -95,9 +95,9 @@ created template
 				<td class="SubHeadText#session.workstream_text_size#" valign="top" align="right">#email_type#:</td>
 				<td class="RegText#session.workstream_text_size#">&nbsp;</td>
 				<td class="RegText#session.workstream_text_size#">
-					<input type="text" name="email_#Email_Type_ID#" value="#email#" size="40" class="RegText#session.workstream_text_size#">
+					<input type="text" name="email_#email_type_id#" value="#email#" size="40" class="RegText#session.workstream_text_size#">
 					<input type="hidden" name="email_id" value="#email_id#">
-					<input type="hidden" name="Email_Type_ID" value="#Email_Type_ID#">
+					<input type="hidden" name="email_type_id" value="#email_type_id#">
 				</td>
 			</tr>
 		</cfloop>

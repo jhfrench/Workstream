@@ -41,7 +41,7 @@
 	<cfquery name="company_id" datasource="#application.datasources.main#">
 	INSERT INTO Link_Customer_Company (code, company_id)
 	SELECT '#new_code#', company_id
-	FROM REF_Companies
+	FROM REF_Company
 	WHERE company_id IN (<cfif isdefined("attributes.company_id")>#attributes.company_id#<cfelse>#attributes.company_id#</cfif>)
 	</cfquery>
 </cftransaction>

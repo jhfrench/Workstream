@@ -30,8 +30,8 @@ WHERE Customer.customer_id=Project.customer_id
 	<cfset temp_date=createodbcdatetime(CreateDate(Year(get_first_elligible.first_elligible),Month(get_first_elligible.first_elligible),1))>
 </cfif>
 <cfquery name="new_engage_output" datasource="#application.datasources.main#">
-SELECT ISNULL(Engagement_By_Month.root_code,0) AS root_code, ISNULL(Engagement_By_Month.customer_name,'NO NEW ENGAGEMENTS') AS customer_name, ABCD.Month AS month_entered,
-	ABCD.year AS year_entered, ISNULL(Engagement_By_Month.engagement_count,0) AS engagement_count
+SELECT ISNULL(Project_By_Month.root_code,0) AS root_code, ISNULL(Project_By_Month.customer_name,'NO NEW ENGAGEMENTS') AS customer_name, ABCD.Month AS month_entered,
+	ABCD.year AS year_entered, ISNULL(Project_By_Month.engagement_count,0) AS engagement_count
 FROM ABCD_Months ABCD,
 	(SELECT Customer.root_code AS root_code, Customer.description AS customer_name, COUNT(Project.project_id) AS engagement_count, 
 		MONTH(Project.date_entered) AS month_entered, YEAR(Project.date_entered) AS year_entered
@@ -40,12 +40,12 @@ FROM ABCD_Months ABCD,
 		AND Project.customer_id IS NOT NULL
 		AND Customer.root_code IN (#attributes.root_code#)
 	GROUP BY YEAR(Project.date_entered), MONTH(Project.date_entered), Customer.description, Customer.root_code)
-AS Engagement_By_Month
-WHERE ABCD.month*=Engagement_By_Month.month_entered
-	AND ABCD.year*=Engagement_By_Month.year_entered
+AS Project_By_Month
+WHERE ABCD.month*=Project_By_Month.month_entered
+	AND ABCD.year*=Project_By_Month.year_entered
 	AND ABCD.start <= GETDATE()
 	<cfif len(get_first_elligible.first_elligible)>AND ABCD.start >= #temp_date#</cfif>
-ORDER BY ABCD.year DESC, ABCD.month DESC, Engagement_By_Month.customer_name
+ORDER BY ABCD.year DESC, ABCD.month DESC, Project_By_Month.customer_name
 </cfquery>
 <cfquery name="selected_companies" datasource="#application.datasources.main#">
 SELECT Customer.description AS customer_name

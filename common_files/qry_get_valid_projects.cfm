@@ -21,7 +21,7 @@
 <cfquery name="get_valid_projects" datasource="#application.datasources.main#">
 SELECT Customer.customer_id, Customer.description + ' (' + Customer.root_code + ')' AS customer,
 	Project.description AS project_name,
-	Project.project_id AS project_id,
+	Project.project_id,
 	Project.project_code AS project_code, 
 	CASE WHEN
 	Customer.description != Project.description

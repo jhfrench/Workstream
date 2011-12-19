@@ -28,7 +28,7 @@
 			<label for="show_closed"><input type="checkbox" name="show_closed" id="show_closed"<cfif isdefined("session.workstream_show_closed") AND session.workstream_show_closed> checked</cfif>> Show Completed Tasks</label>
 		</td>
 		<td class="RegText#session.workstream_text_size#">
-			<label for="show_closed_engagements"><input type="checkbox" name="show_closed_engagements" id="show_closed_engagements"<cfif isdefined("session.workstream_show_closed_engagements") AND session.workstream_show_closed_engagements> checked</cfif>> Show Closed Engagements</label>
+			<label for="show_closed_engagements"><input type="checkbox" name="show_closed_engagements" id="show_closed_engagements"<cfif isdefined("session.workstream_show_closed_engagements") AND session.workstream_show_closed_engagements> checked</cfif>> Show Closed Projects</label>
 		</td>
 	</tr>
 	<tr>

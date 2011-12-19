@@ -16,7 +16,7 @@
 	--> project_name: string that contains the name of the project or engagement the task is assigned to
  --->
 <cfset alt="See more projects.">
-<cfset msg="Please choose an engagement code.">
+<cfset msg="Please choose a project code.">
 </cfsilent>
 
 <script language="JavaScript" type="text/javascript">

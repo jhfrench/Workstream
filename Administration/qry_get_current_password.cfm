@@ -39,7 +39,7 @@ Use DAF to encrypt the current password and new password
 	<cfelse>
 		AND emp_id = '#session.user_account_id#'
 	</cfif>
-</CFQUERY>
+</cfquery>
 
 
 <cfif isdefined("attributes.new_pass") and len(attributes.new_pass)>

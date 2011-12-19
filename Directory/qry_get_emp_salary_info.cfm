@@ -21,7 +21,7 @@ SELECT salary_id, salary, date_recorded,
 	date_implemented, salary_change_type_id,
 	increase_amount, increase_percent
 FROM Salary
-WHERE emp_id=#attributes.emp_id#<cfif session.workstream_company_id NEQ 9>
+WHERE emp_id=#attributes.emp_id#<cfif session.workstream_company_id NEQ 1>
 	AND 1=0</cfif>
 ORDER BY date_recorded
 </cfquery>

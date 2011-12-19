@@ -47,7 +47,7 @@ FROM NOTES inner join (
 		    expense.reimbursement_type_id = REF_Reimbursement_Type.Reimbursement_ID
 		     INNER JOIN
 		    Emp_Contact ON 
-		    expense.emp_id = Emp_Contact.Emp_ID INNER JOIN
+		    expense.emp_id = Emp_Contact.emp_id INNER JOIN
 		    Project ON expense.project_id = Project.project_id ON 
 		    expense_amount.expense_id = expense.expense_id INNER JOIN
 		    Notes ON expense.notes_id = Notes.Notes_ID

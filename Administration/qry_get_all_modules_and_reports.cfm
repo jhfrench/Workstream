@@ -37,15 +37,13 @@ SELECT REF_Module.Module_Name, REF_Module.module_id, REF_Objects.report_name,
     REF_Objects.object_id, Editable.Object_security, Editable.Module_security,
 	ISNULL(Security_Object_Access.all_option, 0) AS object_all_option,
 	ISNULL(all_option_editable.all_option, 0) AS object_all_option_editable
-FROM Security_Object_Access INNER JOIN
-    REF_Module INNER JOIN
-    REF_Objects ON 
-    REF_Module.module_id=REF_Objects.module_id INNER JOIN
-    Security_Module_Access ON 
-    REF_Module.module_id=Security_Module_Access.module_id AND
-    Security_Module_Access.Emp_ID=#session.user_account_id#/*session.user_account_id*/ 
-	ON Security_Object_Access.object_id=REF_Objects.object_id AND 
-    Security_Object_Access.emp_id=#session.user_account_id# /*session.user_account_id*/
+FROM Security_Object_Access
+	INNER JOIN REF_Module
+	INNER JOIN REF_Objects ON REF_Module.module_id=REF_Objects.module_id
+	INNER JOIN Security_Module_Access ON REF_Module.module_id=Security_Module_Access.module_id AND
+    Security_Module_Access.emp_id=#session.user_account_id#/*session.user_account_id*/ 
+	ON Security_Object_Access.object_id=REF_Objects.object_id
+	AND Security_Object_Access.emp_id=#session.user_account_id# /*session.user_account_id*/
 	INNER JOIN
         (SELECT REF_Objects.object_id, REF_Module.module_id, 
            ISNULL(Security_Object_Access.active_ind, 0) 
@@ -53,18 +51,14 @@ FROM Security_Object_Access INNER JOIN
            ISNULL(Security_Module_Access.Active_Ind, 0) 
            AS Module_security
     	  FROM Security_Object_Access RIGHT OUTER JOIN
-           REF_Module INNER JOIN
-           REF_Objects ON 
-           REF_Module.module_id=REF_Objects.module_id LEFT
+           REF_Module
+	INNER JOIN        REF_Objects ON        REF_Module.module_id=REF_Objects.module_id LEFT
             OUTER JOIN
-           Security_Module_Access ON 
-           REF_Module.module_id=Security_Module_Access.module_id
-            AND Security_Module_Access.Emp_ID=#attributes.emp_id# /*attributes.emp_id*/ ON 
-           Security_Object_Access.object_id=REF_Objects.object_id
+           Security_Module_Access ON        REF_Module.module_id=Security_Module_Access.module_id
+            AND Security_Module_Access.emp_id=#attributes.emp_id# /*attributes.emp_id*/ ON        Security_Object_Access.object_id=REF_Objects.object_id
             AND Security_Object_Access.emp_id=#attributes.emp_id# /*attributes.emp_id*/) 
-    editable ON 
-    editable.module_id=REF_Module.module_id AND 
-    REF_Objects.object_id=editable.object_id
+    editable ON editable.module_id=REF_Module.module_id
+	AND REF_Objects.object_id=editable.object_id
 	INNER JOIN (
 		SELECT REF_Objects.object_id, REF_Module.module_id, Security_Object_Access.all_option
 		FROM Security_Object_Access 
@@ -73,7 +67,7 @@ FROM Security_Object_Access INNER JOIN
 					ON REF_Module.module_id=REF_Objects.module_id 
 				LEFT OUTER JOIN Security_Module_Access 
 					ON REF_Module.module_id=Security_Module_Access.module_id
-            				AND Security_Module_Access.Emp_ID=#attributes.emp_id# /*attributes.emp_id*/ 
+            				AND Security_Module_Access.emp_id=#attributes.emp_id# /*attributes.emp_id*/ 
 				ON Security_Object_Access.object_id=REF_Objects.object_id
             			AND Security_Object_Access.emp_id=#attributes.emp_id# /*attributes.emp_id*/
 	) all_option_editable

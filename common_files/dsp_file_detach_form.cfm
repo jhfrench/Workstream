@@ -34,7 +34,7 @@
 	<cfoutput query="get_associated_files">
 	<tr>
 		<td align="center">
-			<input type="Checkbox" name="del_file" value="#file_id#" class="RegText#session.workstream_text_size#">	
+			<input type="checkbox" name="del_file" value="#file_id#" class="RegText#session.workstream_text_size#">	
 		</td>
 		<td>
 			<a href="#file_path#" target="_blank" class="SelectText#session.workstream_text_size#">#file_path#</a>

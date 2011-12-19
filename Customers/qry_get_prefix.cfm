@@ -15,7 +15,7 @@
 	END FUSEDOC --->
 <cfquery name="get_prefix" datasource="#application.datasources.main#">
 SELECT code_prefix AS prefix
-FROM REF_Companies
+FROM REF_Company
 WHERE company_id=#attributes.company_id#
 </cfquery>
 </cfsilent>

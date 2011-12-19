@@ -72,7 +72,7 @@ are storing more than required and, if so, delete the oldest one --->
 		<!--- insert new one --->
 		<cfquery name="insert_new_password" datasource="#application.datasources.main#">
 			INSERT INTO security_old_passwords(emp_id,password,date_created)
-			values('#attributes.emp_id#','#variables.new_pass#',#createodbcdate(now())#)
+			values('#attributes.emp_id#','#variables.new_pass#',GETDATE())
 		</cfquery> 
 		
 		<!--- check if we are over necessary history, then delete last if needed --->
@@ -86,10 +86,12 @@ are storing more than required and, if so, delete the oldest one --->
 		<cfif get_password_history.old_passwords GT application.password_history>
 			<cfquery name="delete_oldest_password" datasource="#application.datasources.main#">
 				delete from security_old_passwords
-				where date_created = (select min(date_created) 
-										from security_old_passwords 
-										where emp_id = '#attributes.emp_id#')
-				and emp_id = '#attributes.emp_id#'
+				where date_created = (
+						select min(date_created) 
+						from security_old_passwords 
+						where emp_id = '#attributes.emp_id#'
+					)
+					and emp_id = '#attributes.emp_id#'
 			</cfquery>
 		</cfif>
 	</cfif>

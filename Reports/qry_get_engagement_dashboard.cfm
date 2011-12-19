@@ -32,7 +32,7 @@ FROM Project
 	INNER JOIN REF_Billable ON Project.billable_type_id = REF_Billable.billable_type_id
 	INNER JOIN REF_Active_Indicator ON Project.Active_InD = REF_Active_Indicator.Active_Ind
 	INNER JOIN Customer ON Project.customer_id = Customer.customer_id
-	LEFT OUTER JOIN Emp_Contact ON Project.IE_Emp_ID = Emp_Contact.Emp_ID
+	LEFT OUTER JOIN Emp_Contact ON Project.IE_Emp_ID = Emp_Contact.emp_id
 	LEFT OUTER JOIN Flat_Rate ON Project.project_id = Flat_Rate.project_id
     LEFT OUTER JOIN (
 		SELECT project_id,SUM(Total_Bill_Amount) AS Total_Bill_Amount

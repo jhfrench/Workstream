@@ -105,7 +105,7 @@
 		SELECT last_password_date
 		FROM Security
 		WHERE username='#auth_user#'
-	</CFQUERY>
+	</cfquery>
 	<cfif get_last_password_date.recordcount GT 0>
 		<cfif len(get_last_password_date.last_password_date)>
 			<cfset session.workstream_last_password_date = get_last_password_date.last_password_date>

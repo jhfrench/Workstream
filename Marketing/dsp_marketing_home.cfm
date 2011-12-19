@@ -1,5 +1,4 @@
 
-
 <!--Marketing/dsp_marketing_form.cfm
 	Author: Jeromy F  -->
 <cfsilent>
@@ -11,13 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:50:49  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:56:00-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- (JF | 8/29/1) Made fomratting changes as promised. Note that bold text ins't distinctive when user selects 'small' text size.
 	||
 	Variables:
 	END FUSEDOC --->
@@ -99,7 +91,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 				<tr>
 					<td valign="top" width="1%">&nbsp;</td>
 					<cfoutput><td valign="top" width="39%" class="RegText#session.workstream_text_size#">
-						<span class="RegText#session.workstream_text_size#Bd">Total sales for Nucleus YTD has been #DollarFormat(ytd_revenue)#.</span> The goal for #Year(now())# is <cfif get_revenue_goals.revenue_goal>#DollarFormat(get_revenue_goals.revenue_goal)#<cfelse>Unknown</cfif>.
+						<span class="RegText#session.workstream_text_size#Bd">Total sales for Nucleus YTD has been #dollarformat(ytd_revenue)#.</span> The goal for #Year(now())# is <cfif get_revenue_goal.revenue_goal>#dollarformat(get_revenue_goal.revenue_goal)#<cfelse>Unknown</cfif>.
 					</td>
 					<td valign="top" align="center" width="60%" class="RegText#session.workstream_text_size#">
 						<applet code="javachart.applet.speedoApp.class" codebase="#request.dir_level##application.graphbase#" width="200" height="100">

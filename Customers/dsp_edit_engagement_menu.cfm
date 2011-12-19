@@ -16,7 +16,7 @@
 	<tr>
 		<td class="SubHeadText#session.workstream_text_size#">1. <a href="javascript:edit_engagement('1')" class="SubHeadText#session.workstream_text_size#">Main engagement details</a></td>
 		<td class="RegText#session.workstream_text_size#">
-			(Engagement code, name, status, visible-to, mission, vision, business case)
+			(Project code, name, status, visible-to, mission, vision, business case)
 		</td>
 	</tr>
 	<tr>
@@ -31,10 +31,10 @@
 			(Add, delete, edit)
 		</td>
 	</tr>
-<!--- 	<Tr>
+	<tr>
 	<td class="RegText#session.workstream_text_size#" colspan=100%>
-		<a href="index.cfm?fuseaction=engagements&Project_ID=#Project_ID#">Engagement list for this customer</a>
+		<a href="index.cfm?fuseaction=Customers.engagements&Project_ID=#Project_ID#">Project list for this customer</a>
 	</td>
-	</TR> --->
+	</tr>
 </cfoutput>
 

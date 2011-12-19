@@ -27,8 +27,8 @@ $Log:
 <cfoutput query="get_emp_salary_info">
 	<tr>
 		<td class="RegText#session.workstream_text_size#">#dateformat(get_emp_salary_info.date_implemented,'mm/dd/yyyy')#</td>
-		<td class="RegText#session.workstream_text_size#">#DollarFormat(Decrypt(get_emp_salary_info.salary,"sillyputty"))#</td>
-		<td class="RegText#session.workstream_text_size#">#DollarFormat(Decrypt(get_emp_salary_info.increase_amount,"sillyputty"))#</td>
+		<td class="RegText#session.workstream_text_size#">#dollarformat(Decrypt(get_emp_salary_info.salary,"sillyputty"))#</td>
+		<td class="RegText#session.workstream_text_size#">#dollarformat(Decrypt(get_emp_salary_info.increase_amount,"sillyputty"))#</td>
 		<td class="RegText#session.workstream_text_size#">#Decrypt(get_emp_salary_info.increase_percent,"sillyputty")#</td>
 	</tr>
 </cfoutput>

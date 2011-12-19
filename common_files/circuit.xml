@@ -85,6 +85,38 @@
 		<include template="dsp_welcome_messages.cfm"/>
 		<include template="dsp_footer.cfm"/>
 	</fuseaction>
+	<fuseaction name="file_attach">
+		<set name="request.pagetitle" value="Attach Files"/>
+		<include template="pag_file_attach.cfm"/>
+	</fuseaction>
+	<fuseaction name="file_detach">
+		<set name="request.pagetitle" value="Detach Files"/>
+		<include template="pag_file_detach.cfm"/>
+	</fuseaction>
+	<fuseaction name="project_list">
+		<set name="request.pagetitle" value="Select A Project"/>
+		<include template="pag_big_project_list.cfm"/>
+	</fuseaction>
+	<fuseaction name="task_attach">
+		<set name="request.pagetitle" value="Attach Task"/>
+		<include template="pag_task_attach.cfm"/>
+	</fuseaction>
+	<fuseaction name="task_detach">
+		<set name="request.pagetitle" value="Detach Task"/>
+		<include template="pag_task_detach.cfm"/>
+	</fuseaction>
+	<fuseaction name="team_list">
+		<set name="request.pagetitle" value="Select An Employee"/>
+		<include template="pag_big_team_list.cfm"/>
+	</fuseaction>
+	<fuseaction name="spell_check">
+		<set name="request.pagetitle" value="Spell Check"/>
+		<include template="pag_spell_check.cfm"/>
+	</fuseaction>
+	<fuseaction name="spell_entry">
+		<set name="request.pagetitle" value="Spell Check"/>
+		<include template="pag_spell_entry.cfm"/>
+	</fuseaction>
 	<postfuseaction>
 	</postfuseaction>
 </circuit>

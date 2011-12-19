@@ -21,14 +21,13 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="name" datasource="#application.datasources.main#">          
-SELECT REF_companies.Company, Emp_Contact.Name, 
-    Emp_Contact.LName, Emp_Contact.Emp_ID
-FROM Company INNER JOIN
-    Emp_Contact ON 
-    Company.Emp_ID = Emp_Contact.Emp_ID INNER JOIN
-    REF_companies ON 
-    Company.Company = REF_companies.Company_ID INNER JOIN
-    Security ON Emp_Contact.Emp_ID = Security.Emp_ID
-WHERE security.disable <> 1 and emp_contact.emp_id = #attributes.emp_id#
+SELECT REF_Company.company, Emp_Contact.name, 
+    Emp_Contact.lname, Emp_Contact.emp_id
+FROM Company
+	INNER JOIN Emp_Contact ON Company.emp_id = Emp_Contact.emp_id
+	INNER JOIN REF_Company ON Company.Company = REF_Company.Company_ID
+	INNER JOIN Security ON Emp_Contact.emp_id = Security.emp_id
+WHERE security.disable <> 1
+	AND emp_contact.emp_id = #attributes.emp_id#
 ORDER BY lname, name
 </cfquery>

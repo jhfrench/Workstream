@@ -25,7 +25,7 @@ FROM Emp_Contact
 	INNER JOIN Time_Entry ON Emp_Contact.emp_id=Time_Entry.emp_id
 	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
 	INNER JOIN Company ON Emp_Contact.emp_id=Company.emp_id 
-	INNER JOIN REF_Companies ON Company.company=REF_companies.company_id
+	INNER JOIN REF_Company ON Company.company=REF_Company.company_id
 	INNER JOIN Demographics ON Emp_Contact.emp_id=Demographics.emp_id
 	LEFT OUTER JOIN REF_Employee_Classification ON Demographics.employee_classification_id=REF_Employee_Classification.employee_classification_id
 WHERE Time_Entry.date BETWEEN #variables.from_date# AND #variables.through_date#

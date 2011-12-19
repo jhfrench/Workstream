@@ -60,10 +60,10 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 			</select>
 		</td>
 		<td class="SubHeadText#session.workstream_text_size#">
-			Engagement list display order<br>
+			Project list display order<br>
 			<cfselect name="project_list_order" required="yes" message="Please choose an order for your engagement list." class="RegText#session.workstream_text_size#">
-				<option value="1"<cfif session.workstream_project_list_order EQ 1> selected</cfif>>Engagement (Code)</option>
-				<option value="2"<cfif session.workstream_project_list_order EQ 2> selected</cfif>>Code - Engagement</option>
+				<option value="1"<cfif session.workstream_project_list_order EQ 1> selected</cfif>>Project (Code)</option>
+				<option value="2"<cfif session.workstream_project_list_order EQ 2> selected</cfif>>Code - Project</option>
 			</cfselect>
 		</td>
 	</tr>

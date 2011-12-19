@@ -29,23 +29,23 @@ SELECT REF_Merit_Pool.description AS merit_pool, REF_Department.department_name,
 	Salary1.date_implemented, Salary1.salary_change_type, Salary1.increase_amount,
 	Salary1.increase_percent,
 	DATEADD(d, 30, CAST(MONTH(Demographics.Hire_Date)+1 AS VARCHAR(2))+'/1/'+CAST(YEAR(Demographics.Hire_Date) AS VARCHAR(4))) AS benefit_start_date,--the first of the month following hire date, plus thirty days
-	REF_Companies.Company, Office.city
+	REF_Company.Company, Office.city
 FROM Company
 	INNER JOIN Demographics
 	INNER JOIN Emp_Contact
-		ON Demographics.Emp_ID=Emp_Contact.Emp_ID
-		ON Company.Emp_ID=Emp_Contact.Emp_ID
-	INNER JOIN REF_Companies
-		ON Company.Company=REF_Companies.Company_ID
+		ON Demographics.emp_id=Emp_Contact.emp_id
+		ON Company.emp_id=Emp_Contact.emp_id
+	INNER JOIN REF_Company
+		ON Company.Company=REF_Company.Company_ID
 	LEFT OUTER JOIN (SELECT Salary.*, REF_Salary_Change_Type.description AS salary_change_type
 			FROM Salary, REF_Salary_Change_Type
 			WHERE REF_Salary_Change_Type.salary_change_type_id=Salary.salary_change_type_id
 				AND #createodbcdate(attributes.start_date)# BETWEEN Salary.date_implemented AND ISNULL(Salary.date_through,GETDATE())/*Get salary as of specified date*/) AS Salary1
-		ON Emp_Contact.Emp_ID=Salary1.emp_id 
+		ON Emp_Contact.emp_id=Salary1.emp_id 
 	LEFT OUTER JOIN Link_Employee_Supervisor
 		ON Emp_Contact.emp_id=Link_Employee_Supervisor.emp_id
 	LEFT OUTER JOIN Emp_Contact Supervisor
-		ON Link_Employee_Supervisor.supervisor_id=Supervisor.Emp_ID
+		ON Link_Employee_Supervisor.supervisor_id=Supervisor.emp_id
 	LEFT OUTER JOIN (SELECT Source_Data.emp_id, Source_Data.rating, Source_Data.date_recorded
 		FROM Performance_Review AS Source_Data,
 			(SELECT emp_id, MAX(date_recorded) AS date_recorded
@@ -55,11 +55,11 @@ FROM Company
 		WHERE Source_Data.emp_id=Latest.emp_id
 			AND Source_Data.date_recorded=Latest.date_recorded
 			) AS Performance_Review 
-		ON Emp_Contact.Emp_ID=Performance_Review.emp_id 
+		ON Emp_Contact.emp_id=Performance_Review.emp_id 
 	LEFT OUTER JOIN (SELECT emp_id, title, date_start FROM Job_Title WHERE #createodbcdate(attributes.start_date)# BETWEEN Job_Title.date_start AND ISNULL(Job_Title.date_end, GETDATE())) AS Job_Title
-		ON Emp_Contact.Emp_ID=Job_Title.emp_id 
+		ON Emp_Contact.emp_id=Job_Title.emp_id 
 	LEFT OUTER JOIN REF_Employee_Classification 
-		ON Demographics.employee_classification_ID=REF_Employee_Classification.employee_classification_ID
+		ON Demographics.employee_classification_id=REF_Employee_Classification.employee_classification_id
 	LEFT OUTER JOIN REF_Department 
 		ON Demographics.DOB=REF_Department.department_id
 	LEFT OUTER JOIN REF_Merit_Pool 

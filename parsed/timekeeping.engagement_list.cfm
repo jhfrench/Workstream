@@ -11,7 +11,7 @@
 <cfcatch type="missingInclude"><cfif len(cfcatch.MissingFileName) gte 30 and right(cfcatch.MissingFileName,30) is "../common_files/act_header.cfm">
 <cfthrow type="fusebox.missingFuse" message="missing Fuse" detail="You tried to include a fuse ../common_files/act_header.cfm in circuit Timekeeping which does not exist (from fuseaction Timekeeping.$prefuseaction).">
 <cfelse><cfrethrow></cfif></cfcatch></cftry>
-<cfset request.pagetitle = "Engagement List" />
+<cfset request.pagetitle = "Project List" />
 <cftry>
 <cfoutput><cfinclude template="../Timekeeping/pag_engagement_list.cfm"></cfoutput>
 <cfcatch type="missingInclude"><cfif len(cfcatch.MissingFileName) gte 23 and right(cfcatch.MissingFileName,23) is "pag_engagement_list.cfm">

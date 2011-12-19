@@ -88,7 +88,7 @@
 			#customer_name#
 		</td>
 		<td align="right" class="SubHeadText#session.workstream_text_size#">
-			Engagement:
+			Project:
 		</td>
 		<td class="RegText#session.workstream_text_size#">
 			#replace(project_name,"#customer_name#-","")#

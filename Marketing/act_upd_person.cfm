@@ -50,7 +50,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 		<cfquery name="update_name" datasource="#application.datasources.main#">
 		update emp_contact
 		set name = '#name#'
-		where emp_id = #PERSON_GRID.EMP_ID[ii]#              
+		where emp_id = #PERSON_GRID.emp_id[ii]#              
           </cfquery>
 	</cfif>
 	<!--- if the last name has changed update it --->
@@ -58,7 +58,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 		<cfquery name="update_lname" datasource="#application.datasources.main#">
 			update emp_contact
 			set lname = '#lname#'
-			where emp_id = #PERSON_GRID.EMP_ID[ii]#       
+			where emp_id = #PERSON_GRID.emp_id[ii]#       
           </cfquery>
 	</cfif>
 <!--- if the email is new then insert --->
@@ -67,14 +67,14 @@ Added $log $ for edits to all CFM files that have fusedocs.
 		<cfquery name="insert_email" datasource="#application.datasources.main#">
 	         INSERT INTO email
 		    (email, emp_id, email_type_id)
-		    values('#email#', #PERSON_GRID.EMP_ID[ii]#, 1)
+		    values('#email#', #PERSON_GRID.emp_id[ii]#, 1)
 	     </cfquery>
 	<!--- Otherwise update the record --->
 	<cfelseif compare(person_grid.email[ii], "")>
 		<cfquery name="update_email" datasource="#application.datasources.main#">
 	         update email
 		    set email = '#email#'
-		    where emp_id = #PERSON_GRID.EMP_ID[ii]# and email_type_id = 1
+		    where emp_id = #PERSON_GRID.emp_id[ii]# and email_type_id = 1
 	     </cfquery>
 	</cfif>
 	<!--- if the phone number is new then insert. --->
@@ -88,14 +88,14 @@ Added $log $ for edits to all CFM files that have fusedocs.
 		    , emp_id, phone_type_id)
 		    values('#phone_number#'
 		    <cfif IsNumeric(person_grid.extension[ii])>,#extension#</cfif>
-		    , #PERSON_GRID.EMP_ID[ii]#, 1)
+		    , #PERSON_GRID.emp_id[ii]#, 1)
 	     </cfquery>
 	<cfelseif  IsNumeric(person_grid.extension[ii])>
 		<cfquery name="update_phone" datasource="#application.datasources.main#">
 	         	update phone
 			set phone_number = '#phone_number#'
 			<cfif IsNumeric(person_grid.extension[ii])> ,extension = #extension#</cfif>
-			where emp_id = #PERSON_GRID.EMP_ID[ii]# and phone_type_id = 1
+			where emp_id = #PERSON_GRID.emp_id[ii]# and phone_type_id = 1
 	     </cfquery>
 	</cfif>
 	
@@ -124,7 +124,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 			    ,'#city#', 
 			   '#state#'
 			    ,'#zip#'
-			    , #PERSON_GRID.EMP_ID[ii]#, 1)
+			    , #PERSON_GRID.emp_id[ii]#, 1)
 		     </cfquery>
 		</cfif>
 	<cfelseif compare(person_grid.address1[ii], "") 
@@ -139,7 +139,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 		    , city = '#city#'
 		    ,state = '#state#'
 		    ,zip = '#zip#'
-		    where emp_id = #PERSON_GRID.EMP_ID[ii]# and location_type_id =1
+		    where emp_id = #PERSON_GRID.emp_id[ii]# and location_type_id =1
 	     </cfquery>
 	</cfif>
 	</cftransaction>

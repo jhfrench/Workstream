@@ -4,7 +4,7 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I display the workstream project/engagement list.
+	Responsibilities: I display the workstream project list.
 	||
 	Name: Jeromy French
 	||

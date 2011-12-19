@@ -112,7 +112,7 @@
 			
 		<!--- Annual Salary --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Annual Salary")>
-			<td valign="top" class="RegText#session.workstream_text_size#" nowrap><!--- #DollarFormat(decrypt(get_employee_info.salary, "sillyputty"))# ---></td>		
+			<td valign="top" class="RegText#session.workstream_text_size#" nowrap><!--- #dollarformat(decrypt(get_employee_info.salary, "sillyputty"))# ---></td>		
 		</cfif>
 			
 		<!--- Salary Change Date --->

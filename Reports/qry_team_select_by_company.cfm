@@ -25,10 +25,10 @@
 <cfquery name="team_select" datasource="#application.datasources.main#">
 SELECT Emp_Contact.lname AS lname, LEFT(Emp_Contact.name,2) AS f_init, Emp_Contact.name AS name,
 	Emp_Contact.emp_id AS emp_id, Company.company, 
-	ISNULL(REF_Companies.company,'NA') AS company_name
-FROM Emp_Contact, Company, REF_Companies, Security
+	ISNULL(REF_Company.company,'NA') AS company_name
+FROM Emp_Contact, Company, REF_Company, Security
 WHERE Emp_Contact.emp_id=Company.emp_id
-	AND Company.company*=REF_Companies.company_id
+	AND Company.company*=REF_Company.company_id
 	AND Emp_Contact.emp_id=Security.emp_id
 	AND Security.disable=0
 	AND Company.company IN (#session.workstream_company_select_list#)

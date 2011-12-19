@@ -39,9 +39,9 @@ Added $log $ for edits to all CFM files that have fusedocs.
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="PTO_hours" datasource="#application.datasources.main#">
-select demographics.emp_id, emp_contact.name, emp_contact.lname,sum(isnull(time_entry.hours,0)) as 'PTO_Hours_Used',
+select demographics.emp_id, emp_contact.name, emp_contact.lname,sum(ISNULL(time_entry.hours,0)) as 'PTO_Hours_Used',
 /*<!-- this is when the person doesn't fall into the regular accrual structure, if they don't fit in, the field pto_type_indicator is filled wth the number of pto HOURS that they will accrue through the whole year. so take the hours in the pto_type_indicator field and divide by 12 to get the monthly accrual, and then multiply the monthly accrual by the number of months passed so far for the number of months tht the employee has ben accruing time this year, - 1 (because you don't get your hours for this month until the month is over. -->*/
-isnull(case when pto_type_indicator > 0 then (CASE WHEN YEAR(HIRE_DATE) <> YEAR(GETDATE())  THEN pto_type_indicator /12 * (month(GETDATE()) - 1)ELSE pto_type_indicator /12 * (MONTH(GETDATE()) - month(tenure_date ))END)  else 
+ISNULL(case when pto_type_indicator > 0 then (CASE WHEN YEAR(HIRE_DATE) <> YEAR(GETDATE())  THEN pto_type_indicator /12 * (month(GETDATE()) - 1)ELSE pto_type_indicator /12 * (MONTH(GETDATE()) - month(tenure_date ))END)  else 
 /*<!-- If you haven't had your anniversary this year yet or your anniversary is this month, take the number of months this year minus 1 as the multiplier, else take the month of your anniversary minus 1 as the multiplier --> */
 (CASE WHEN MONTH(tenure_date) >= MONTH(GETDATE()) THEN month(GETDATE()) -1 else month(tenure_date) -1 end) *  
 /*<!--- When you have had your anniversary this year already, then --->*/
@@ -87,10 +87,10 @@ left Outer JOIN PTO_HOURS ON PTO_HOURS.emp_id = demographics.emp_id left outer J
 AND year(time_entry.date) like year(GETDATE())
 inner join company on demographics.emp_id = company.emp_id inner join emp_contact on demographics.emp_id = emp_contact.emp_id
 WHERE security.disable <> 1 
-AND company IN (#session.workstream_company_select_list#) <cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.Emp_ID IN (#PreserveSingleQuotes(attributes.form_Pin)#))</cfif>
+AND company IN (#session.workstream_company_select_list#) <cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.emp_id IN (#PreserveSingleQuotes(attributes.form_Pin)#))</cfif>
 <!--- <cfif individual>and demographics.emp_id=#emp_id#</cfif> --->
 
 GROUP BY year(time_entry.date), project_id, name, lname, demographics.emp_id, demographics.tenure_date,demographics.hire_date,PTO_TYPE_INDICATOR, TIME_ROLLOVER_from_2000
 ORDER BY year(time_entry.date), lname, name
 </cfquery>
-<!--- 		<cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.Emp_ID IN (#PreserveSingleQuotes(attributes.form_Pin)#))</cfif> --->
+<!--- 		<cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.emp_id IN (#PreserveSingleQuotes(attributes.form_Pin)#))</cfif> --->

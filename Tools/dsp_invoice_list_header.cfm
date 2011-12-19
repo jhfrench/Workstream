@@ -16,7 +16,7 @@
 </cfsilent>
 <tr class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
 	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
-		Engagement
+		Project
 	</td>
 	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
 		Billing Type

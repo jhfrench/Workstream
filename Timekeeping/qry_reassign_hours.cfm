@@ -15,13 +15,14 @@
 	--> attributes.task_id: list that contains task id's submitted from the express timekeeping page
  --->
 <cfquery name="get_project_id" datasource="#application.datasources.main#">
-SELECT project_id AS project_id
+SELECT project_id
 FROM Task
 WHERE task_id=#attributes.reassign_task_id#
 </cfquery>
 <cfquery name="reassign_hours" datasource="#application.datasources.main#">
 UPDATE Time_Entry
-SET task_id=#attributes.reassign_task_id#, project_id=#get_project_id.project_id#
+SET task_id=#attributes.reassign_task_id#,
+	project_id=#get_project_id.project_id#
 WHERE emp_id IN (#attributes.reassign_hours#)
 	AND task_id=#attributes.task_id#
 	AND date > '#express_check_date.date_locked#'

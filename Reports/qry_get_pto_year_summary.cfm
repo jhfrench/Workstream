@@ -24,7 +24,7 @@ FROM
 		[date] AS transaction_date, 'Rollup of past PTO Usage' AS comments
 	FROM Time_Entry
 	WHERE Time_Entry.emp_id=#attributes.emp_id#
-		AND Time_Entry.Project_id IN (SELECT project_id FROM Project WHERE project_type_id=1)
+		AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id=1)
 		AND [date] >= #createodbcdatetime(Get_PTO_Start.pto_start_date)#
 	UNION ALL
 	SELECT 0 AS hours_out, ISNULL(PTO_Grant.granted_hours, 0) AS hours_in, 

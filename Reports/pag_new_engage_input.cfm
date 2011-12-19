@@ -24,12 +24,12 @@
 <cfinclude template="qry_new_engage_input.cfm">
 <cfform action="index.cfm?fuseaction=Reports.new_engagement_output" name="new_engagement" method="POST">
 <table align="center" border="0" cellpadding="1" cellspacing="0">
-	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="008080" section_title="New Engagement Report" title_class="HeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="008080" section_title="New Project Report" title_class="HeadText#session.workstream_text_size#White">
 	<cfinclude template="dsp_new_engage_input.cfm">
 <cfoutput>
 	<tr>
 		<td align="center" colspan="1" class="RegText#session.workstream_text_size#">
-			<input type="submit" value="Look Up Engagements" class="RegText#session.workstream_text_size#">
+			<input type="submit" value="Look Up Projects" class="RegText#session.workstream_text_size#">
 		</td>
 	</tr>
 </cfoutput>

@@ -20,8 +20,8 @@ SELECT Project.project_code AS code,
     Project.Description AS client, Demographics.emp_id, 
     Time_Entry.Hours, Time_Entry.Date
 FROM Project, Demographics, Time_Entry
-WHERE Demographics.Emp_ID = Time_Entry.Emp_ID
-	AND Project.project_id = Time_Entry.Project_id
+WHERE Demographics.emp_id = Time_Entry.emp_id
+	AND Project.project_id = Time_Entry.project_id
 	AND demographics.emp_id = #sup_id#
 	AND Time_Entry.date >= '#From_date#'
 	AND Time_Entry.date <= '#Through_Date#'

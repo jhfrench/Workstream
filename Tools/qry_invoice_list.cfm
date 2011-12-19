@@ -19,14 +19,14 @@ SELECT Customer.root_code, Project.project_code,
 	Customer.description AS customers_name, Project.description AS project_name, 
 	Project.project_id, REF_Billable.billable_type, More_GD_Details.bill AS bill, More_GD_Details.total_tasks AS total_tasks, REF_Billable.billable_type_id
 FROM Project, Customer, REF_Billable,
-	(SELECT COUNT(Task.task_id) AS total_tasks, Invoice_Details.project_id AS project_id, Invoice_Details.bill AS bill
+	(SELECT COUNT(Task.task_id) AS total_tasks, Invoice_Details.project_id, Invoice_Details.bill AS bill
 	FROM Task,
-		(SELECT Project_Bill.project_id AS project_id, SUM(Project_Bill.bill) AS bill
+		(SELECT Project_Bill.project_id, SUM(Project_Bill.bill) AS bill
 		FROM Project,
-			(SELECT Hours_ID.project_id AS project_id,
+			(SELECT Hours_ID.project_id,
 				SUM((Hours_ID.hours*ISNULL(Billing_Rate.rate,0))) AS bill, Project.billable_type_id AS billable_type_id
 			FROM Project, Billing_Rate, (
-					SELECT SUM(Time_Entry.hours) AS hours, Time_Entry.project_id AS project_id, Time_Entry.emp_id
+					SELECT SUM(Time_Entry.hours) AS hours, Time_Entry.project_id, Time_Entry.emp_id
 					FROM Time_Entry, Company
 					WHERE Time_Entry.emp_id=Company.emp_id
 						AND DATEPART(m, Time_Entry.date)=#attributes.month#

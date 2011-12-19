@@ -34,7 +34,7 @@
 				<td align='center'>
 					<input type='checkbox' name='project_id_box' value='1' class='RegText#session.workstream_text_size#'>
 				</td>
-				<td class='RegText#session.workstream_text_size#'>Engagement<br>(may take a<br>moment to display)</td>
+				<td class='RegText#session.workstream_text_size#'>Project<br>(may take a<br>moment to display)</td>
 				<td>">
 
 <!--- 			<select name="project_id2" multiple size="6" onclick="checkbox_project_id()" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">

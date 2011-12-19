@@ -21,7 +21,7 @@
 <input type="hidden" name="step" value="2">
 	<tr bgcolor="##c0c0c0">
 		<td align="center" colspan="3" class="SubHeadText#session.workstream_text_size#">
-			Engagement Details
+			Project Details
 		</td>
 		<td align="center" class="SubHeadText#session.workstream_text_size#">
 			Instructions
@@ -31,8 +31,8 @@
 		<td colspan="2" class="RegText#session.workstream_text_size#Bd">
 			Root Name<br>
 			<cfselect name="customer_id" size="1" query="get_root_codes" value="customer_id" required="Yes" display="display" class="RegText#session.workstream_text_size#"></cfselect><br>
-			Engagement Name<br>
-			<cfinput type="Text" name="description" required="Yes" message="Please enter an Engagement Name" class="RegText#session.workstream_text_size#">
+			Project Name<br>
+			<cfinput type="Text" name="description" required="Yes" message="Please enter an Project Name" class="RegText#session.workstream_text_size#">
 		</td>
 		<td class="RegText#session.workstream_text_size#Bd">
 			Visible To<br>

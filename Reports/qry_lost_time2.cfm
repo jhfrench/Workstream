@@ -42,11 +42,11 @@ FROM Emp_Contact, Time_Entry te, Security, Company
 WHERE 
 	 te.date between '#from_date#' and '#TO_DATE#'
 	AND (company.company IN (#session.workstream_company_select_list#))
-	AND Emp_Contact.Emp_ID *= te.Emp_ID 
-	AND Emp_Contact.Emp_ID = Security.Emp_ID 
-	AND Emp_Contact.Emp_ID = Company.Emp_ID 
-	<cfif NOT listcontainsnoCase(attributes.emp_id,"ALL" )> AND (Emp_Contact.Emp_ID IN (#PreserveSingleQuotes(attributes.emp_id)#))</cfif>
-	GROUP BY security.Emp_ID, [name], lname
+	AND Emp_Contact.emp_id *= te.emp_id 
+	AND Emp_Contact.emp_id = Security.emp_id 
+	AND Emp_Contact.emp_id = Company.emp_id 
+	<cfif NOT listcontainsnoCase(attributes.emp_id,"ALL" )> AND (Emp_Contact.emp_id IN (#PreserveSingleQuotes(attributes.emp_id)#))</cfif>
+	GROUP BY security.emp_id, [name], lname
 	ORDER BY lname, name
 </cfquery>
 </cfsilent>

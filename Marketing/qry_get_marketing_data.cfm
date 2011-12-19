@@ -25,7 +25,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 
 <!---     <cfquery name="marketing" datasource="#application.datasources.main#">
 SELECT marketing.marketing_id, Marketing.Projected_Revenue, Marketing.Probability, 
-    Marketing.project_code, Marketing.Project_ID, 
+    Marketing.project_code, Marketing.project_id, 
     (cast(datepart(mm,Marketing.StatusAboveDate) as varchar(2)) +'/'+ cast(datepart(dd, Marketing.StatusAboveDate) as varchar(2)) +'/'+ cast(datepart(yyyy, Marketing.StatusAboveDate) as varchar(4))) as StatusAboveDate, 
     (cast(datepart(mm,Marketing.StatusInDate) as varchar(2)) +'/'+ cast(datepart(dd, Marketing.StatusInDate) as varchar(2)) +'/'+ cast(datepart(yyyy, Marketing.StatusInDate) as varchar(4))) as StatusInDate, 
     (cast(datepart(mm,Marketing.StatusBestFewDate) as varchar(2)) +'/'+ cast(datepart(dd, Marketing.StatusBestFewDate) as varchar(2)) +'/'+ cast(datepart(yyyy, Marketing.StatusBestFewDate) as varchar(4))) as StatusBestFewDate,
@@ -38,7 +38,7 @@ SELECT marketing.marketing_id, Marketing.Projected_Revenue, Marketing.Probabilit
     Phone.Phone_Number AS phone, Phone.Extension, 
     Email.Email, 
     Emp_Contact1.Name + ' ' + Emp_Contact1.LName AS source, 
-    Emp_Contact1.Emp_ID AS source_id, Project.Description, 
+    Emp_Contact1.emp_id AS source_id, Project.Description, 
 
 task_info.task_id, 
 task_info.last_task,
@@ -49,29 +49,24 @@ FROM (select top 1 project_id, task_id, task.name as last_task, (select max(time
 	where project_id = 504
 ORDER BY task_id desc
     ) as task_info RIGHT OUTER JOIN
-    Marketing INNER JOIN
-    Project ON 
-    Marketing.Project_ID = Project.project_id LEFT OUTER JOIN
-    Marketing_Emp INNER JOIN
-    Emp_Contact ON 
-    Marketing_Emp.Emp_id = Emp_Contact.Emp_ID ON 
-    Project.project_id = Marketing_Emp.Project_id LEFT OUTER JOIN
-    Emp_Contact Emp_Contact1 ON 
-    Marketing.Source = Emp_Contact1.Emp_ID ON 
-    task_info.Project_id = Project.project_id LEFT OUTER JOIN
-    Location ON Location.Location_Type_Id = 1 AND 
-    Emp_Contact.Emp_ID = Location.Emp_ID LEFT OUTER JOIN
-    Phone ON Phone.Phone_type_id = 1 AND 
-    Emp_Contact.Emp_ID = Phone.Emp_ID LEFT OUTER JOIN
-    Email ON Email.Email_Type_ID = 1 AND 
-    Emp_Contact.Emp_ID = Email.Emp_ID
+    Marketing
+	INNER JOIN Project ON Marketing.project_id = Project.project_id
+	LEFT OUTER JOIN  Marketing_Emp
+	INNER JOIN Emp_Contact ON Marketing_Emp.emp_id = Emp_Contact.emp_id ON Project.project_id = Marketing_Emp.project_id
+	LEFT OUTER JOIN  Emp_Contact Emp_Contact1 ON Marketing.Source = Emp_Contact1.emp_id ON task_info.project_id = Project.project_id
+	LEFT OUTER JOIN  Location ON Location.Location_Type_Id = 1
+	AND Emp_Contact.emp_id = Location.emp_id
+	LEFT OUTER JOIN  Phone ON Phone.Phone_type_id = 1
+	AND Emp_Contact.emp_id = Phone.emp_id
+	LEFT OUTER JOIN  Email ON Email.email_type_id = 1
+	AND Emp_Contact.emp_id = Email.emp_id
 WHERE (Marketing.project_code LIKE '6005.%')
 <cfif SortBy1 is not 'None'>and (#SortBy1# like '%#SortBy1stuff#%'</cfif>
 <cfif sortBy2 is not 'None'>#SortBy2andor# #SortBy2# like '%#SortBy2stuff#%'</cfif>
 <cfif SortBy3 is not 'None'>#SortBy3andor# #SortBy3# like '%#SortBy3stuff#%'</cfif>
 <cfif SortBy1   is not 'None' or SortBy2 is not 'None'  or SortBy3 is not 'None' >)</cfif> 
 GROUP BY task_info.last_task,task_info.task_id, Marketing.Projected_Revenue, 
-    Marketing.Probability, Marketing.Project_ID, 
+    Marketing.Probability, Marketing.project_id, 
     Marketing.StatusAboveDate, Marketing.StatusInDate, 
     Marketing.StatusBestFewDate, Marketing.StatusContractDate, 
     Marketing.Converted_To_CustomerCode, 
@@ -82,7 +77,7 @@ GROUP BY task_info.last_task,task_info.task_id, Marketing.Projected_Revenue,
     Marketing.project_code, Emp_Contact1.Name, 
     Emp_Contact1.Name + ' ' + Emp_Contact1.LName, 
     Project.Description, task_info.Date, Project.Active_ID, 
-    Emp_Contact1.Emp_ID, marketing.marketing_id, Emp_Contact.emp_id
+    Emp_Contact1.emp_id, marketing.marketing_id, Emp_Contact.emp_id
 </cfquery> --->
 
 <cfquery name="marketing" datasource="#application.datasources.main#">

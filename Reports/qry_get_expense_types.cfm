@@ -23,11 +23,9 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <cfquery name="get_Expense_Type" datasource="#application.datasources.main#">
 SELECT REF_Expense_Type.Expense_Type, 
     REF_Expense_Type.Expense_type_ID
-FROM expense_amount INNER JOIN
-    expense ON 
-    expense_amount.expense_id = expense.expense_id INNER JOIN
-    REF_Expense_Type ON 
-    expense_amount.Expense_type_id = REF_Expense_Type.Expense_type_ID
+FROM expense_amount
+	INNER JOIN expense ON expense_amount.expense_id = expense.expense_id
+	INNER JOIN REF_Expense_Type ON expense_amount.Expense_type_id = REF_Expense_Type.Expense_type_ID
     WHERE (expense.Work_date >='#From_Date#' AND expense.Work_date <='#Through_Date#')
      <cfif compare(project_id, 0) or  isdefined("attributes.emp_id")>
 	<cfif compare(project_id, 0) >and expense.project_id = #attributes.project_id#</cfif>

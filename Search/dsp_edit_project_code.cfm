@@ -49,7 +49,7 @@
 				<td align='center'>
 					<input type='checkbox' name='project_id_box' value='1' class='RegText#session.workstream_text_size#'>
 				</td>
-				<td class='RegText#session.workstream_text_size#'>Engagement<br>(may take a<br>moment to display)</td>
+				<td class='RegText#session.workstream_text_size#'>Project<br>(may take a<br>moment to display)</td>
 				<td>">
 				<cfelse>
 					
@@ -79,7 +79,7 @@
 				<td align='center'>
 					<input type='checkbox' checked ='checked' name='project_id_box' value='1' class='RegText#session.workstream_text_size#'>
 				</td>
-				<td class='RegText#session.workstream_text_size#'>Engagement<br>(may take a<br>moment to display)</td>
+				<td class='RegText#session.workstream_text_size#'>Project<br>(may take a<br>moment to display)</td>
 				<td>">
 				</cfif>
 				

@@ -33,7 +33,7 @@ SELECT ISNULL(Task.task_id,0) AS task_id
 FROM Task, Team
 WHERE Task.task_id=Team.Task_ID
 	AND Team.Roll_ID=1
-	AND Team.Emp_ID=#attributes.task_owner#
+	AND Team.emp_id=#attributes.task_owner#
 	AND Task.name='#attributes.task_name#'
 	AND Task.due_date='#attributes.due_date#'
 	AND Task.icon_id=#attributes.icon_id#

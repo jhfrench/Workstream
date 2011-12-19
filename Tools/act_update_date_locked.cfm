@@ -16,9 +16,9 @@ DELETE FROM Date_Locked
 WHERE company_id IN (#attributes.company_id#)
 
 INSERT INTO Date_Locked(company_id, date_locked)
-SELECT REF_Companies.company_id AS company_id, #createodbcdatetime(attributes.date_locked)# AS date_locked
-FROM REF_Companies
-WHERE REF_Companies.company_id IN (#attributes.company_id#)
+SELECT REF_Company.company_id AS company_id, #createodbcdatetime(attributes.date_locked)# AS date_locked
+FROM REF_Company
+WHERE REF_Company.company_id IN (#attributes.company_id#)
 </cfquery>
 </cfsilent>
 

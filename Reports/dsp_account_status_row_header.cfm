@@ -16,7 +16,7 @@
 <cfoutput> 
 <tr bgcolor="##c0c0c0">
 	<td class="RegText#session.workstream_text_size#Bd">
-		Engagement
+		Project
 	</td>
 	<td class="RegText#session.workstream_text_size#Bd">
 		ID

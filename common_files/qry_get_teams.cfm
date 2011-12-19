@@ -10,32 +10,24 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:42:08  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:57:38-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="get_teams" datasource="#application.datasources.main#">
 SELECT *
-FROM
-	(SELECT REF_Companies.company AS company, REF_Companies.company_id AS company_id
-	FROM Company, REF_Companies
-	WHERE Company.company=REF_Companies.company_id
+FROM (
+	SELECT REF_Company.company AS company, REF_Company.company_id AS company_id
+	FROM Company, REF_Company
+	WHERE Company.company=REF_Company.company_id
 		AND Company.emp_id=#session.user_account_id#
 		AND #application.team_changed#=#application.team_changed#
 	UNION ALL
-	SELECT REF_companies.company AS company, Link_Company_Emp_Contact.company_id AS company_id
-	FROM Link_Company_Emp_Contact, REF_companies
-	WHERE Link_Company_Emp_Contact.company_id = REF_companies.company_id
-		AND Link_Company_Emp_Contact.emp_id=#session.user_account_id#)
-AS Elligible_Companies
+	SELECT REF_Company.company AS company, Link_Company_Emp_Contact.company_id AS company_id
+	FROM Link_Company_Emp_Contact, REF_Company
+	WHERE Link_Company_Emp_Contact.company_id = REF_Company.company_id
+		AND Link_Company_Emp_Contact.emp_id=#session.user_account_id#
+	) AS Elligible_Companies
 GROUP BY company, company_id
 ORDER BY company
 </cfquery>
-

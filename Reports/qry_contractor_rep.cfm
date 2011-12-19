@@ -21,21 +21,18 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 
 
  <cfquery name="get_Employee_ID" datasource="#application.datasources.main#">
-    SELECT Emp_Contact.Emp_ID, Emp_Contact.Name, 
+    SELECT Emp_Contact.emp_id, Emp_Contact.Name, 
     Emp_Contact.LName, Demographics.pin, 
-    REF_companies.Company, 
+    REF_Company.company, 
     (CASE WHEN Security.Disable = 0 THEN 'Active' ELSE 'Inactive'
      END) AS status
-FROM Demographics INNER JOIN
-    Emp_Contact ON 
-    Demographics.Emp_ID = Emp_Contact.Emp_ID INNER JOIN
-    Company ON 
-    Emp_Contact.Emp_ID = Company.Emp_ID INNER JOIN
-    REF_companies ON 
-    Company.Company = REF_companies.Company_ID INNER JOIN
-    Security ON Emp_Contact.Emp_ID = Security.Emp_ID
-WHERE (Demographics.employee_classification_ID = 4) AND 
-    (company.Company IN (#session.workstream_company_select_list#)) and Demographics.effective_to IS NULL
+FROM Demographics
+	INNER JOIN Emp_Contact ON Demographics.emp_id = Emp_Contact.emp_id
+	INNER JOIN Company ON Emp_Contact.emp_id = Company.emp_id
+	INNER JOIN REF_Company ON Company.Company = REF_Company.Company_ID
+	INNER JOIN Security ON Emp_Contact.emp_id = Security.emp_id
+WHERE (Demographics.employee_classification_id = 4)
+	AND (company.Company IN (#session.workstream_company_select_list#)) and Demographics.effective_to IS NULL
    </cfquery>
    </cfsilent>
    

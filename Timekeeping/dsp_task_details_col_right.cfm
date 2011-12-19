@@ -10,17 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.5  2006-11-16 04:16:51  french
-	Task 50669: Modified code to make system appear professional again.
-	
-	Revision 1.4  2006/04/27 08:16:51  french
-	Added gif and jpg icon support.
-
-	Revision 1.3  2006-03-31 09:36:45-05  csy
-	task 42736 change code to allow everyone to edit an engagement
-
-	Revision 1.2  2005-03-10 14:10:42-05  french
-	Expanding viewable area of task name field. Field in DB can hold up to 255 characters, so increased maxlength on field.
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	--> customer_name: string that identifies the customer for whom the task is created
@@ -40,7 +29,7 @@
 	<tr>
 		<td colspan="2" class="SubHeadText#session.workstream_text_size#" valign="top">
 			<input type="text" name="task_name" value="#htmleditformat(get_task_details.task_name)#"  valign="top" size="#variables.cols#" maxlength="255" class="RegText#session.workstream_text_size#"><br>
-			Customer: <span class="RegText#session.workstream_text_size#">#get_task_details.customer_name#</span>&nbsp;Engagement: <span class="RegText#session.workstream_text_size#">#replace(get_task_details.project_name,"#get_task_details.customer_name#-","")#</span>&nbsp;<img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See more projects." border="0"  onclick="OpenProjectWindow('project_id');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#incrementvalue(tabindex)#"><br>
+			Customer: <span class="RegText#session.workstream_text_size#">#get_task_details.customer_name#</span>&nbsp;Project: <span class="RegText#session.workstream_text_size#">#replace(get_task_details.project_name,"#get_task_details.customer_name#-","")#</span>&nbsp;<img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See more projects." border="0"  onclick="OpenProjectWindow('project_id');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#incrementvalue(tabindex)#"><br>
 			Description<!--- <cfif variables.edit><cfset tabindex=incrementvalue(tabindex)> <img src="#request.dir_level##application.application_specific_settings.image_dir#check.gif" valign="bottom" width="15" height="15" alt="Check spelling for the task details." border="0" onClick="OpenWLWindow('task_details');" tabindex="#tabindex#"></cfif> ---><br>
 			<textarea name="task_details" cols="#variables.cols#" rows="#descrip_rows#"  tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" wrap="soft"class="RegText#session.workstream_text_size#">#ReplaceList(ParagraphFormat(get_task_details.description),'<P>,"',",")#</textarea><br><!---<cfif NOT listfind("#valuelist(get_editing_priveleges.editing_priveleges)#,0",session.user_account_id)> onfocus="blur()" readonly</cfif>---> 
 	</cfoutput>

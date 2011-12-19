@@ -134,14 +134,14 @@ are storing more than required and, if so, delete the oldest one --->
 	
 	<!--- update fields in security table (UPDATE last_password_date ONLY if
 		company settings require password_expiration Check --->
-	<CFQUERY NAME="set new password" datasource="#application.datasources.main#">
+	<cfquery NAME="set new password" datasource="#application.datasources.main#">
 		UPDATE Security
 		SET password =  '#variables.new_pass#'
 		<cfif isdefined("last_password_date")>
 			,last_password_date =<cfif len(last_password_date)>#CreateODBCDate(last_password_date)#<cfelse>NULL</cfif>
 		</cfif>
 		WHERE Emp_ID = '#session.user_account_id#'
-	</CFQUERY>
+	</cfquery>
 
 </cftransaction>
 

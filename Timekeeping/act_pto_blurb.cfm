@@ -79,7 +79,7 @@
 		</cfif>
 		
 		<!--- Send user the the PTO report appropriate to their company --->
-		<cfif session.workstream_company_id EQ 9>
+		<cfif session.workstream_company_id EQ 1>
 			<cfset variables.pto_action="pto_accrual_input">
 		<cfelse>
 			<cfset variables.pto_action="pto_input">

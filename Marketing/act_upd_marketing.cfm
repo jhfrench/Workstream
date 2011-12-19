@@ -50,7 +50,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 					<cfif IsDate(MARKETING.statusbestfewdate[ii])> statusbestfewdate ='#MARKETING.STATUSBESTFEWDATE[ii]#' , </cfif>
 					<cfif IsDate(MARKETING.statuscontractdate[ii])>statuscontractdate = '#MARKETING.STATUSCONTRACTDATE[ii]#',</cfif> source = #session.user_account_id#
 					<cfif IsNumeric(MARKETING.company_size[ii])>,company_size ='#MARKETING.COMPANY_SIZE[ii]#'</cfif>
-					Where project_id = #MARKETING.PROJECT_ID[ii]#
+					Where project_id = #MARKETING.project_id[ii]#
 		          </cfquery>
 			</cfif>		
 		<cfloop from="1" to="3" index="jj">
@@ -64,7 +64,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 				state = evaluate("MARKETING.STATE#jj#[ii]");
 				original_state = evaluate("MARKETING.original.STATE#jj#[ii]");
 				zip = evaluate("MARKETING.ZIP#jj#[ii]");
-				emp_id = evaluate("MARKETING.EMP_ID#jj#[ii]");
+				emp_id = evaluate("MARKETING.emp_id#jj#[ii]");
 				phone = evaluate("MARKETING.PHONE#jj#[ii]");
 				original_phone = evaluate("MARKETING.original.PHONE#jj#[ii]");
 				extension = evaluate("MARKETING.EXTENSION#jj#[ii]");
@@ -116,7 +116,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 		<cfquery name="update_project" datasource="#application.datasources.main#">
                    update project
 			    set description = '#MARKETING.DESCRIPTION[ii]#', active_id = #MARKETING.ACTIVE_ID[ii]#
-			    where project_id = #MARKETING.PROJECT_ID[ii]#
+			    where project_id = #MARKETING.project_id[ii]#
                </cfquery>
 
 			<!--- INSERT AN ENTIERLY NEW MARKETING CODE --->
@@ -169,7 +169,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 					city = evaluate("MARKETING.CITY#jj#[ii]");
 					state = evaluate("MARKETING.STATE#jj#[ii]");
 					zip = evaluate("MARKETING.ZIP#jj#[ii]");
-					emp_id = evaluate("MARKETING.EMP_ID#jj#[ii]");
+					emp_id = evaluate("MARKETING.emp_id#jj#[ii]");
 					phone = evaluate("MARKETING.PHONE#jj#[ii]");
 					extension = evaluate("MARKETING.EXTENSION#jj#[ii]");
 					email = evaluate("MARKETING.EMAIL#jj#[ii]");

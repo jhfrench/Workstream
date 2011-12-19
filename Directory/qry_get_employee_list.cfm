@@ -24,17 +24,17 @@
  --->
 <cfquery name="get_employee_list" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT (Emp_Contact.lname + ', ' + Emp_Contact.name) AS name,
-	Emp_Contact.emp_id AS emp_id, REF_Companies.company AS company,
+	Emp_Contact.emp_id AS emp_id, REF_Company.company AS company,
 	ISNULL(Email.email,'NA') AS email, ISNULL(Phone.phone_number,'NA') AS phone_number,
 	ISNULL(Phone.extension,'NA') AS extension, Position_History.Position_ID
-FROM Emp_Contact, Company, REF_Companies,
+FROM Emp_Contact, Company, REF_Company,
 	Security, Email, Phone,
 	Position_History, Demographics_Ngauge AS Demographics
 WHERE Emp_Contact.emp_id=Company.emp_id
 	AND Emp_Contact.emp_id=Security.emp_id
 	AND Emp_Contact.emp_id*=Email.emp_id
 	AND Emp_Contact.emp_id*=Phone.emp_id
-	AND Company.company=REF_Companies.company_id
+	AND Company.company=REF_Company.company_id
 	AND Emp_Contact.emp_id = Position_History.emp_id
 	AND Demographics.emp_id = Emp_Contact.emp_id
 	AND Email.email_type_id = 1

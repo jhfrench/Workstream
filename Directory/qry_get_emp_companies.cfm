@@ -17,10 +17,10 @@
 	<-- company: string containing the name of any company the employee is associated with
  --->
 <cfquery name="get_emp_companies" datasource="#application.datasources.main#">
-SELECT REF_Companies.company
-FROM REF_Companies, Company
-WHERE REF_Companies.company_id=Company.company
+SELECT REF_Company.company
+FROM REF_Company, Company
+WHERE REF_Company.company_id=Company.company
 	AND Company.emp_id=#attributes.emp_id#
-ORDER BY REF_Companies.company
+ORDER BY REF_Company.company
 </cfquery>
 </cfsilent>

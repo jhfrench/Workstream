@@ -30,7 +30,7 @@
 	</tr>
 	<tr>
 		<td colspan="2" valign="top" class="RegText#session.workstream_text_size#">
-			<label for="all_employees"><input type="Checkbox" name="all_employees" id="all_employees" onClick="document.forms.all_employees.submit();" value="#all_employees_change#"> View <cfif compare(attributes.all_employees, 0)>Only Active<cfelse>Inactive</cfif> Employees</label>
+			<label for="all_employees"><input type="checkbox" name="all_employees" id="all_employees" onClick="document.forms.all_employees.submit();" value="#all_employees_change#"> View <cfif compare(attributes.all_employees, 0)>Only Active<cfelse>Inactive</cfif> Employees</label>
 		</td>
 	</tr>
 	<tr>

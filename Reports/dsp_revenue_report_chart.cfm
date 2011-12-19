@@ -79,7 +79,7 @@
 		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">#DecimalFormat(flat_revenue)#</td>
 		<td align="right" class="RegText#session.workstream_text_size#">#DecimalFormat(hour_revenue)#</td>
 		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">#DecimalFormat(incident_revenue)#</td>
-		<td align="right" class="RegText#session.workstream_text_size#">#DollarFormat(month_revenue)#</td>
+		<td align="right" class="RegText#session.workstream_text_size#">#dollarformat(month_revenue)#</td>
 	</tr>
 </cfif>
 <cfif month EQ 1>
@@ -95,16 +95,16 @@
 			#year# YTD
 		</td>
 		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">
-			#DollarFormat(ytd_flat)#<cfset ytd_flat=0>
+			#dollarformat(ytd_flat)#<cfset ytd_flat=0>
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DollarFormat(ytd_hour)#<cfset ytd_hour=0>
+			#dollarformat(ytd_hour)#<cfset ytd_hour=0>
 		</td>
 		<td align="right" bgcolor="##BAEE9B" align="right" class="RegText#session.workstream_text_size#">
-			#DollarFormat(ytd_incident)#<cfset ytd_incident=0>
+			#dollarformat(ytd_incident)#<cfset ytd_incident=0>
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DollarFormat(ytd_revenue)#<cfset ytd_revenue=0>
+			#dollarformat(ytd_revenue)#<cfset ytd_revenue=0>
 		</td>
 	</tr>
 	<cfset temp_year=year>
@@ -124,28 +124,28 @@
 		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(total_flat)#</td>
 		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(total_hour)#</td>
 		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(total_incident)#</td>
-		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#DollarFormat(total_revenue)#</td>
+		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#dollarformat(total_revenue)#</td>
 	</tr>
 	<tr bgcolor="##c0c0c0">
 		<td align="left" colspan="2" class="RegText#session.workstream_text_size#">Monthly Average</td>
 		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;<cfif revisedrecordcount>#DecimalFormat(total_flat/revisedrecordcount)#<cfelse>0</cfif></td>
 		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;<cfif revisedrecordcount>#DecimalFormat(total_hour/revisedrecordcount)#<cfelse>0</cfif></td>
 		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;<cfif revisedrecordcount>#DecimalFormat(total_incident/revisedrecordcount)#<cfelse>0</cfif></td>
-		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;<cfif revisedrecordcount>#DollarFormat(total_revenue/revisedrecordcount)#<cfelse>0</cfif></td>
+		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;<cfif revisedrecordcount>#dollarformat(total_revenue/revisedrecordcount)#<cfelse>0</cfif></td>
 	</tr>
 	<tr bgcolor="##c0c0c0">
 		<td align="left" colspan="2" class="RegText#session.workstream_text_size#">3 Month Average</td>
 		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(tri_month_flat/3)#</td>
 		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(tri_month_hour/3)#</td>
 		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(tri_month_incident/3)#</td>
-		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#DollarFormat(tri_month_revenue/3)#</td>
+		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#dollarformat(tri_month_revenue/3)#</td>
 	</tr>
 	<tr bgcolor="##c0c0c0">
 		<td align="left" colspan="2" class="RegText#session.workstream_text_size#">12 Month Average</td>
 		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(twelve_month_flat/12)#</td>
 		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(twelve_month_hour/12)#</td>
 		<td align="right" bgcolor="##BAEE9B" class="RegText#session.workstream_text_size#">&nbsp;#DecimalFormat(twelve_month_incident/12)#</td>
-		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#DollarFormat(twelve_month_revenue/12)#</td>
+		<td align="right" class="RegText#session.workstream_text_size#">&nbsp;#dollarformat(twelve_month_revenue/12)#</td>
 	</tr>
 </cfoutput>
 </table>

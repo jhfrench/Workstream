@@ -45,7 +45,7 @@ FROM Emp_Contact, Time_Entry, Project,
 	Demographics_Ngauge Demographics, Customer, Company,
 	REF_Employee_Classification
 WHERE Emp_Contact.emp_id=Time_Entry.emp_id
-	AND Time_Entry.Project_id=Project.project_id
+	AND Time_Entry.project_id=Project.project_id
 	AND Time_Entry.emp_id=Demographics.emp_id
 	AND Emp_Contact.emp_id=Company.emp_id
 	AND Project.customer_id=Customer.customer_id

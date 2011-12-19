@@ -31,7 +31,7 @@
 			Name
 		</td>
 		<td class="SubHeadText#session.workstream_text_size#">
-			Engagement
+			Project
 		</td>
 		<td class="SubHeadText#session.workstream_text_size#">
 			Status

@@ -14,7 +14,7 @@
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
  --->
 <cfquery name="get_valid_projects" datasource="#application.datasources.main#">
-SELECT LTRIM(Customer.description) AS customer, Project.description AS project_name, Project.project_id AS project_id,
+SELECT LTRIM(Customer.description) AS customer, Project.description AS project_name, Project.project_id,
     Project.project_code AS project_code
 FROM Customer, Project, Link_Project_Company, Link_Customer_Company
 WHERE Customer.customer_id = Project.customer_id

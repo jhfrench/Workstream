@@ -28,17 +28,17 @@ SELECT Employee_Data.employee_classification, Employee_Data.emp_id, Employee_Dat
 	ISNULL(Notes.note,'') AS note
 FROM (
 	SELECT Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname,
-		MAX(ISNULL(REF_Employee_Classification.employee_classification, 'None')) AS employee_classification, REF_Companies.company
+		MAX(ISNULL(REF_Employee_Classification.employee_classification, 'None')) AS employee_classification, REF_Company.company
 	FROM Emp_contact, Demographics, REF_Employee_Classification,
-		Company, REF_Companies
+		Company, REF_Company
 	WHERE Emp_Contact.emp_id=Demographics.emp_id
 		AND Emp_Contact.emp_id=Company.emp_id 
-		AND Company.company=REF_Companies.company_id 
+		AND Company.company=REF_Company.company_id 
 		AND REF_Employee_Classification.employee_classification_id =ISNULL(Demographics.employee_classification_id,7) 
 		AND ISNULL(Demographics.effective_to,#variables.from_date#) >= #variables.from_date#
 		AND ISNULL(Demographics.effective_from,#variables.through_date#) <= #variables.through_date#
 		AND Emp_Contact.emp_id IN (#attributes.included_emp_id#)
-	GROUP BY Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname, REF_Companies.company
+	GROUP BY Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname, REF_Company.company
 	) AS Employee_Data 
 	LEFT OUTER JOIN (
 		SELECT Time_Entry.emp_id, Time_Entry.date, Time_Entry.hours, Time_Entry.notes_id, 
@@ -53,35 +53,3 @@ ORDER BY Employee_Data.lname, Employee_Data.name, Employee_Data.employee_classif
 	Time_Entry_Data.date
 </cfquery>
 </cfsilent>
-
-<!--- OLD METHOD
-SELECT ISNULL(REF_Employee_Classification.employee_classification, 'None') AS employee_classification, 
-	Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname, 
-	Time_Entry.date,
-	<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>(Project.project_code + ' - ' + Project.description)<cfelse>(Project.description + ' (' + Project.project_code + ')')</cfif> AS display, 
-	Notes.note,
-	ISNULL(Time_Entry.Hours,0) AS hours, REF_Companies.company,
-	Emp_Contact.emp_id AS pin
-FROM Security INNER JOIN Emp_contact
-		ON Emp_Contact.emp_id = Security.emp_id
-	INNER JOIN Demographics
-		ON Demographics.emp_id = Emp_Contact.emp_id 
-	INNER JOIN Company
-		ON Emp_Contact.emp_id = Company.emp_id 
-	INNER JOIN REF_Companies
-		ON Company.company = REF_Companies.company_id 
-	LEFT OUTER JOIN Time_Entry
-		ON Time_Entry.emp_id = Emp_Contact.emp_id 
-		AND Time_Entry.date BETWEEN #variables.from_date# AND #variables.through_date#
-		AND Time_Entry.date BETWEEN effective_from AND ISNULL(effective_to, Time_Entry.date)
-	LEFT OUTER JOIN Project
-		ON Time_Entry.project_id = Project.project_id 
-	LEFT OUTER JOIN Notes
-		ON Time_Entry.notes_id = Notes.notes_id 
-	LEFT OUTER JOIN REF_Employee_Classification 
-		ON REF_Employee_Classification.employee_classification_id = Demographics.employee_classification_id
-WHERE Emp_Contact.emp_id IN (#attributes.included_emp_id#)
-	AND Demographics.effective_from <= #variables.through_date#
-	AND ISNULL(Demographics.effective_to,#variables.from_date#) >= #variables.from_date#
-ORDER BY Emp_Contact.Lname, Emp_Contact.name, ISNULL(REF_Employee_Classification.employee_classification, 'None'), Time_Entry.date
- --->

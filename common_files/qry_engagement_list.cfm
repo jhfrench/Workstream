@@ -18,22 +18,22 @@
 	--> session.workstream_show_team: number that indicates the desire of the user to hide or show tasks for which they are a member of the task team; 1 means include the task, 0 means exclude the task
 	--> session.workstream_engagement_list_order: list of query columns to ORDER BY
 	--> [attributes.emp_id]: emp_id of the peson whose inbox the user wants to see
-	<-- project_code: numeric code of the project/engagement
-	<-- project_end: date or string containing targeted completion date for the project/engagement
-	<-- project_mission: string containing the desired outcome of the project/engagement
-	<-- project_name: name or description of the project/engagement
-	<-- task_count: number of tasks associated with the project/engagement that meets the user's specifications (ie on the team, not hidden, not completed)
+	<-- project_code: numeric code of the project
+	<-- project_end: date or string containing targeted completion date for the project
+	<-- project_mission: string containing the desired outcome of the project
+	<-- project_name: name or description of the project
+	<-- task_count: number of tasks associated with the project that meets the user's specifications (ie on the team, not hidden, not completed)
  --->
 <cfquery name="engagement_list" datasource="#application.datasources.main#">
-SELECT Project.project_code AS project_code, Project.project_id AS project_id, Project.project_end AS project_end,
+SELECT Project.project_code AS project_code, Project.project_id, Project.project_end AS project_end,
 	Customer.description + ' - ' + Project.description AS project_name, ISNULL(Project.mission,'No mission specified') AS project_mission,
 	COUNT(Task.task_id) AS task_count
 FROM Customer, Project, Task, Team, Emp_Contact, Link_Project_Company
 WHERE (Project.active_ind=<cfif NOT session.workstream_show_closed_engagements>1<cfelse>0 OR project_end IS NOT NULL</cfif>) 
 	AND Customer.customer_id=Project.customer_id
 	AND Team.emp_id=<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#session.user_account_id#</cfif> 
-	AND Project.project_id=Task.Project_id 
-	AND Task.task_id=Team.task_id AND Team.Emp_ID=Emp_Contact.Emp_ID 
+	AND Project.project_id=Task.project_id 
+	AND Task.task_id=Team.task_id AND Team.emp_id=Emp_Contact.emp_id 
 	AND Link_Project_Company.project_id=Project.project_id 
 	AND Link_Project_Company.company_id IN (#session.workstream_company_id#)
 	And project.project_type_id <> 3

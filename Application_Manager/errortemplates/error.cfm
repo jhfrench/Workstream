@@ -209,7 +209,7 @@
 			StructDelete(request.safe_variables,"FUSEBOX_CALLER_PATH",true); //size~111
 			StructDelete(request.safe_variables,"FUSEBOX_APPLICATION_KEY",true); //size~70
 			StructDelete(request.safe_variables,"FUSEBOX_PARAMETERS",true); //size~64
-			StructDelete(request.safe_variables,"CFQUERY.EXECUTIONTIME",true); //size~63
+			StructDelete(request.safe_variables,"cfquery.EXECUTIONTIME",true); //size~63
 			StructDelete(request.safe_variables,"FUSEBOX_APPLICATION_PATH",true); //size~63
 			StructDelete(request.safe_variables,"__V",true); //size~61
 			StructDelete(request.safe_variables,"XFA",true); //size~46

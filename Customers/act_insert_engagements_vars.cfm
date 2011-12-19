@@ -9,14 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:45:30  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:56:40-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 <!--- I get the root code and the billable id for the selected root --->
@@ -29,7 +21,7 @@ WHERE customer_id=#attributes.customer_id#
 <cfif isdefined("attributes.company_id")>
 	<cfset variables.company_id=attributes.company_id>
 <cfelse>
-	<!--- If no company_id is define I retrieve the companies that the root is visible to and set that as the default list for the new engagement. --->
+	<!--- If no company_id is defined, I retrieve the companies that the root is visible to and set that as the default list for the new engagement. --->
 	<cfquery name="get_company_id" datasource="#application.datasources.main#">
 	SELECT company_id AS visible
 	FROM Link_Customer_Company

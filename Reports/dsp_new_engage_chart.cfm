@@ -27,7 +27,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 		<td align="center" class="SubHeadText#session.workstream_text_size#">Year</td>
 		<td align="center" class="SubHeadText#session.workstream_text_size#">Month</td>
 		<td align="center" class="SubHeadText#session.workstream_text_size#">Customer</td>
-		<td align="center" class="SubHeadText#session.workstream_text_size#">Engagements</td>
+		<td align="center" class="SubHeadText#session.workstream_text_size#">Projects</td>
 	</tr>
 </cfoutput>
 <cfoutput query="new_engage_output">

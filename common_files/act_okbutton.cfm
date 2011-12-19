@@ -12,6 +12,7 @@
 	$Log$
 	||
  --->
+</cfsilent>
 <script language="javascript">
 function OKButton()
 {

@@ -20,7 +20,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	END FUSEDOC --->
     <cfquery name="Sick_Hours" datasource="#application.datasources.main#">  
     SELECT Emp_Contact.Name, Emp_Contact.LName, 
-    Emp_Contact.Emp_ID, Demographics.pin, '24.00' AS allowed, 
+    Emp_Contact.emp_id, Demographics.pin, '24.00' AS allowed, 
     SUM(CASE WHEN project_code = 20 OR
     project_code = 1020 OR
     project_code = 2020 OR
@@ -102,18 +102,14 @@ added $log $ for edits.  To all CFM files that have fusedocs.
     project_code = 8021 OR
     project_code = 9021 THEN (hours) ELSE 0 END) 
     AS Remaining
-FROM Emp_Contact INNER JOIN
-    Time_Entry ON 
-    Emp_Contact.Emp_ID = Time_Entry.Emp_ID INNER JOIN
-    Demographics ON 
-    Emp_Contact.Emp_ID = Demographics.Emp_ID INNER JOIN
-    Company ON 
-    Emp_Contact.Emp_ID = Company.Emp_ID INNER JOIN
-    REF_companies ON 
-    Company.Company = REF_companies.Company_ID INNER JOIN
-    Project ON Time_Entry.Project_id = Project.project_id
-WHERE REF_companies.company  IN (#session.workstream_company_select_list#) and demographics.end_date IS NULL and datepart(yy,time_entry.date) = datepart(yy, GETDATE())
+FROM Emp_Contact
+	INNER JOIN Time_Entry ON Emp_Contact.emp_id = Time_Entry.emp_id
+	INNER JOIN Demographics ON Emp_Contact.emp_id = Demographics.emp_id
+	INNER JOIN Company ON Emp_Contact.emp_id = Company.emp_id
+	INNER JOIN REF_Company ON Company.Company = REF_Company.Company_ID
+	INNER JOIN Project ON Time_Entry.project_id = Project.project_id
+WHERE REF_Company.company  IN (#session.workstream_company_select_list#) and demographics.end_date IS NULL and datepart(yy,time_entry.date) = datepart(yy, GETDATE())
 GROUP BY emp_contact.lname, emp_contact.name, 
-    demographics.pin, emp_contact.emp_ID
+    demographics.pin, emp_contact.emp_id
 ORDER BY emp_contact.lname
 </cfquery>

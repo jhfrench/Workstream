@@ -36,7 +36,7 @@ SELECT Task.task_type_id, Task.task_id AS task_id, Task.name AS task_name, ISNUL
 	ISNULL(Task_Accum.budgeted_hours,0) AS budgeted_hours, Task_Accum.hours_used AS hours_used, 
 	Task_Accum.image_width AS image_width, Task_Accum.percent_used AS percent_used,
 	Task_Owner.emp_id AS owner_id, Task_QA.emp_id AS qa_id,
-	Customer.description AS customer_name, Project.description AS project_name, Project.project_id AS project_id,
+	Customer.description AS customer_name, Project.description AS project_name, Project.project_id,
 	Task.notification_frequency_id, Task_Source.source_name
 FROM Task, REF_Status, Project, Customer,<cfif get_print_details> REF_Priority,</cfif>
 	(SELECT Task.task_id, Task.budgeted_hours AS budgeted_hours, 

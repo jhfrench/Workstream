@@ -17,7 +17,7 @@
 </cfsilent>
 <cfoutput>
 	<tr bgcolor="##c0c0c0" class="SubHeadText#session.workstream_text_size#">
-		<td valign="bottom" class="SubHeadText#session.workstream_text_size#">Engagement</td>
+		<td valign="bottom" class="SubHeadText#session.workstream_text_size#">Project</td>
 		<td valign="bottom" class="SubHeadText#session.workstream_text_size#">Task Name</td>
 		<td valign="bottom" class="SubHeadText#session.workstream_text_size#">Task ID</td>
 		<td valign="bottom" class="SubHeadText#session.workstream_text_size#">Due Date</td>

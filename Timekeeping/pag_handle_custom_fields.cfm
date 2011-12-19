@@ -4,7 +4,7 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I check to see if the latest task requires any custom fields (which can be determined by searching for active custom fields that correspond to the task's engagement). If it does, I display the custom fields and submit the user's responses to the DB. Otherwise, the rest of pag_new_task.cfm is run.
+	Responsibilities: I check to see if the latest task requires any custom fields (which can be determined by searching for active custom fields that correspond to the task's project). If it does, I display the custom fields and submit the user's responses to the DB. Otherwise, the rest of pag_new_task.cfm is run.
 	||
 	Name: Jeromy French
 	||

@@ -38,7 +38,7 @@
 			Customer
 		</td>
 		<td>
-			Engagement
+			Project
 		</td>
 		<cfif variables.entry_type><td>
 			Task
@@ -102,7 +102,7 @@
 <cfif time_entry_edit.date GT DateFormat(now()-variables.go_back_to,'mm/dd/yy')>
 	<tr align="left" bgcolor="##990202" class="RegText#session.workstream_text_size#White">
 		<td colspan="6">
-		<label for="delete"><input type="Checkbox" name="delete" id="delete" value="1" class="RegText#session.workstream_text_size#">Delete This Record</label>&nbsp;</td>
+		<label for="delete"><input type="checkbox" name="delete" id="delete" value="1" class="RegText#session.workstream_text_size#">Delete This Record</label>&nbsp;</td>
 	</tr>
 </cfif>
 	<input type="hidden" name="notes_id" value="#notes_id#">

@@ -27,7 +27,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 </cfsilent>
 <cfform name="new_engagement" method="POST" action="index.cfm?fuseaction=#attributes.fuseaction#">
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="90%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#White" section_color="008000" section_title="&nbsp;Create New Engagement, Step #attributes.step#" colspan="5" gutter="false" align="left">
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#White" section_color="008000" section_title="&nbsp;Create New Project, Step #attributes.step#" colspan="5" gutter="false" align="left">
 	<cfinclude template="dsp_new_engagement_step#attributes.step#.cfm">
 </table>
 </cfform>

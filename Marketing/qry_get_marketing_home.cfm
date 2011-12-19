@@ -16,16 +16,16 @@
 <!---Adam - 082901 - THERE ARE TWO WAYS TO DO THIS QUERY - IT DEPENDS ON HOW STRICTLY YOU WANT TO FOLLOW THE FUNNEL STEPS. THIS QUERY IS MUCH MORE RIGID THAN THE ONE CURRENTLY ACTIVE. DOUBLE COUNTING IS POSSIBLE WITH THE ACTIVE QUERY - BUT NOT THIS ONE.
 
 SELECT 
-SUM(CASE WHEN (Prospecting_Begin IS NOT NULL AND 
-    Prospecting_End IS NULL AND Qualifying_Begin IS NULL AND Proposing_Begin IS NULL AND Closing_Begin IS NULL) THEN 1 ELSE 0
+SUM(CASE WHEN (Prospecting_Begin IS NOT NULL
+	AND Prospecting_End IS NULL AND Qualifying_Begin IS NULL AND Proposing_Begin IS NULL AND Closing_Begin IS NULL) THEN 1 ELSE 0
     END) AS Prospecting,
 SUM(CASE WHEN (Prospecting_End IS NOT NULL AND Qualifying_Begin IS NOT NULL AND Proposing_Begin IS NULL AND Closing_Begin IS NULL) THEN 1 ELSE 0
     END) AS Qualifying,
-SUM(CASE WHEN (Prospecting_End IS NOT NULL AND 
-    Qualifying_End IS NOT NULL AND Proposing_Begin IS NOT NULL AND Closing_Begin IS NULL) THEN 1 ELSE 0
+SUM(CASE WHEN (Prospecting_End IS NOT NULL
+	AND Qualifying_End IS NOT NULL AND Proposing_Begin IS NOT NULL AND Closing_Begin IS NULL) THEN 1 ELSE 0
     END) AS Proposing,
-SUM(CASE WHEN (Prospecting_End IS NOT NULL AND 
-    Qualifying_End IS NOT NULL AND Proposing_End IS NOT NULL AND Closing_Begin IS NOT NULL AND Closing_End IS NULL) THEN 1 ELSE 0
+SUM(CASE WHEN (Prospecting_End IS NOT NULL
+	AND Qualifying_End IS NOT NULL AND Proposing_End IS NOT NULL AND Closing_Begin IS NOT NULL AND Closing_End IS NULL) THEN 1 ELSE 0
     END) AS Closing
 FROM Marketing_For_Web_Query --->
 SELECT SUM(CASE WHEN (prospecting_begin IS NOT NULL AND prospecting_end IS NULL) THEN 1 ELSE 0 END) AS prospecting,

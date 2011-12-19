@@ -42,14 +42,14 @@ FROM
 		FROM Time_Entry
 		WHERE Time_Entry.emp_id=#session.user_account_id#
 			AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id=1)
-			AND Time_Entry.date >= (SELECT pto_start_date FROM REF_Companies WHERE company_id=#session.workstream_company_id#) 
+			AND Time_Entry.date >= (SELECT pto_start_date FROM REF_Company WHERE company_id=#session.workstream_company_id#) 
 			AND YEAR(Time_Entry.date) < YEAR(GETDATE())
 		GROUP BY Time_Entry.emp_id
 		UNION ALL
 		SELECT 0 AS hours_out, SUM(ISNULL(PTO_Grant.granted_hours, 0)) AS hours_in, PTO_Grant.emp_id
 		FROM PTO_Grant
 	 	WHERE PTO_Grant.emp_id=#session.user_account_id#
-			AND date_granted >= (SELECT pto_start_date FROM REF_Companies WHERE company_id=#session.workstream_company_id#) 
+			AND date_granted >= (SELECT pto_start_date FROM REF_Company WHERE company_id=#session.workstream_company_id#) 
 			AND YEAR(date_granted) < YEAR(GETDATE())
 		GROUP BY PTO_Grant.emp_id) AS Previous_Years_Hours
 	GROUP BY emp_id) AS Carryover 
@@ -65,11 +65,11 @@ FROM
 					BETWEEN REF_PTO_Hours.min_year AND REF_PTO_Hours.max_year) 
 			END 
 		AS pto_hours_earned 
-	FROM Company, ABCD_Months, REF_Companies, Demographics_Ngauge AS Demographics
+	FROM Company, ABCD_Months, REF_Company, Demographics_Ngauge AS Demographics
 		LEFT OUTER JOIN PTO_Rollover ON Demographics.emp_id=PTO_Rollover.emp_id
 			AND PTO_Rollover.rollover_year=YEAR(GETDATE())
 	WHERE Company.emp_id=Demographics.emp_id
-		AND REF_Companies.company_id=Company.company
+		AND REF_Company.company_id=Company.company
 		AND DATEADD(D, 30, Demographics.hire_date) < GETDATE()
 		AND ((GETDATE() BETWEEN Demographics.effective_from AND Demographics.effective_to) 
 			OR Demographics.effective_to IS NULL)

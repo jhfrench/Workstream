@@ -16,8 +16,8 @@
 	
 <cfquery name="notification_recipient" datasource="#application.datasources.main#">	
 SELECT email AS recipient_email
-FROM REF_Objects INNER JOIN Email ON Email.Emp_id = REF_Objects.Notification_to
-WHERE object_id=19 AND Email.Email_Type_ID=1
+FROM REF_Objects INNER JOIN Email ON Email.emp_id = REF_Objects.Notification_to
+WHERE object_id=19 AND Email.email_type_id=1
 </cfquery>	
 	
 </cfsilent>

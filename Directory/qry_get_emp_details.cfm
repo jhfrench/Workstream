@@ -23,7 +23,7 @@ SELECT Emp_Contact.name AS fname, Emp_Contact.lname AS lname,
 	Demographics.ssn AS ssn, Demographics.dob, 
 	Demographics.hire_date, ISNULL(Demographics.photo,'nopic.jpg') AS photo, Demographics.end_date,
 	<!--- Demographics.supervisor AS sup_id, Supervisor.sup_name, --->
-	ISNUll(Emp_Contact.credentials,'') AS credentials, Emp_Biography.biography
+	ISNULL(Emp_Contact.credentials,'') AS credentials, Emp_Biography.biography
 FROM Emp_Contact, Demographics_Ngauge AS Demographics, Emp_Biography,
 	(SELECT ISNULL((lname + ', ' + name),'NA') AS sup_name, Demographics.emp_id as emp_id
 	FROM Emp_Contact, Demographics_Ngauge AS Demographics

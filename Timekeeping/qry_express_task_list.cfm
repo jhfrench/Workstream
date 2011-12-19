@@ -36,18 +36,18 @@ FROM
 			FROM Team
 			WHERE task_id=task.task_id
 				AND roll_id=4 
-				AND team.emp_id=#session.user_account_id#)<cfif session.workstream_company_id EQ 9>
+				AND team.emp_id=#session.user_account_id#)<cfif session.workstream_company_id EQ 1>
 	UNION ALL
 	/*generic codes like PTO*/
 	SELECT Task.name AS task_name, Task.task_id AS workflow_id, 3 AS grouper
 	FROM Task
 	WHERE Task.status_id NOT IN (7,11,13)
-		AND Task.task_id IN (713,714,719)
+		AND Task.task_id IN (713,714,719)<!--- $issue$: static tasks from original system, probably need to be replicated --->
 	UNION ALL
 	/*marketing codes*/
 	SELECT Task.name AS task_name, Task.task_id AS workflow_id, 4 AS grouper
 	FROM Task
-	WHERE (task_id BETWEEN 4648 AND 4706)
+	WHERE (task_id BETWEEN 4648 AND 4706)<!--- $issue$: static tasks from original system, probably need to be replicated --->
 		AND Task.status_id NOT IN (7,11,13)</cfif>) AS Express_Task_List
 ORDER BY grouper, Express_Task_List.task_name
 </cfquery>

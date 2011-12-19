@@ -13,13 +13,13 @@
 	||
 	END FUSEDOC --->
 <cfquery name="get_client_variables" datasource="#application.datasources.main#">
-SELECT Demographics.pin, Emp_Contact.emp_id, REF_Companies.company, 
+SELECT Demographics.pin, Emp_Contact.emp_id, REF_Company.company, 
 	Demographics.manager_non_id AS [level]
-FROM Emp_Contact, Demographics, Company, Security, REF_Companies
+FROM Emp_Contact, Demographics, Company, Security, REF_Company
 WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND Emp_Contact.emp_id=Company.emp_id
 	AND Emp_Contact.emp_id=Security.emp_id
-	AND Company.Company=REF_Companies.Company_ID
+	AND Company.Company=REF_Company.Company_ID
 	AND Security.Disable!=1
 	AND NT_User_Name='#cgi.remote_user#'
 	AND Demographics.effective_to IS NULL

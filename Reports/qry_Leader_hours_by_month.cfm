@@ -17,8 +17,8 @@ SELECT SUM(Time_Entry.Hours) AS sumofhours, MONTH(Time_Entry.Date) AS month,
 	(Customer.description + '-' + Project.description + '(' + Project.project_code + ')') AS clientname
 FROM Time_Entry, Emp_Contact, Project, Customer
 WHERE Customer.customer_id=Project.customer_id
-	AND Time_Entry.Project_id=Project.project_id
-	AND Time_Entry.Emp_ID=Emp_Contact.Emp_ID
+	AND Time_Entry.project_id=Project.project_id
+	AND Time_Entry.emp_id=Emp_Contact.emp_id
 	AND emp_contact.emp_id=#attributes.emp_id# 
 	AND MONTH(time_entry.[date])=#attributes.month#
 	AND YEAR(time_entry.[date])=#attributes.year#

@@ -43,11 +43,10 @@ WHERE emp_id = #session.user_account_id#
 <cfquery name="REFname" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.emp_id
 FROM Emp_Contact, Security, Company<!--- 
-    INNER JOIN
-    Supervisor ON 
-    Emp_Contact.Emp_ID = Supervisor.Emp_ID --->
-WHERE Emp_Contact.Emp_ID = Security.Emp_ID
-	AND Emp_Contact.Emp_ID = Company.Emp_ID
+   
+	INNER JOIN Supervisor ON Emp_Contact.emp_id = Supervisor.emp_id --->
+WHERE Emp_Contact.emp_id = Security.emp_id
+	AND Emp_Contact.emp_id = Company.emp_id
 	AND security.disable!=1 
 	AND security.Disable_PTO!=1
 	AND Emp_contact_type=1

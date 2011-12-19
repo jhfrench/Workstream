@@ -24,8 +24,8 @@
                           (SELECT     LEFT(Emp_Contact.name, 2) AS f_init
                             FROM          Emp_Contact
                             WHERE      Emp_Contact.emp_id = Performance_Review.reviewer_id) AS f_init
-FROM         Performance_Review INNER JOIN
-                      REF_Review_Type ON Performance_Review.review_type_id = REF_Review_Type.review_type_id
+FROM         Performance_Review
+	INNER JOIN                   REF_Review_Type ON Performance_Review.review_type_id = REF_Review_Type.review_type_id
 WHERE     (Performance_Review.emp_id = #attributes.emp_id#)
 </cfquery>
 </cfsilent>

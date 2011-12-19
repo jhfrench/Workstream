@@ -40,12 +40,6 @@
 <cfinclude template="qry_get_notification_frequency.cfm"> --->
 <cfinclude template="qry_get_task_stati.cfm">
 
-<!---  //////////vblell| 11/26/02 added new calendar, commented out old ///////// --->
-
-<!--- <cfinclude template="../common_files/dsp_pop_calendar.cfm"> --->
-<!--- <cfmodule template="../common_files/act_calendar.cfm" form_name="task_details" field_name="due_date"> --->
-
-
 <cfif get_task_details.recordcount>
 	<cfset attributes.active_only=1>
 	<cfinclude template="qry_get_task_team.cfm">

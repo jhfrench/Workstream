@@ -15,9 +15,9 @@
 <--company_id: the ID number associated with the selected company.
 	END FUSEDOC --->
 <cfquery name="get_company_list" datasource="#application.datasources.main#">
-	select * 
-	from REF_companies  
-	where company_id IN(#session.workstream_company_select_list#)  
+SELECT * 
+FROM REF_Company
+WHERE company_id IN (#session.workstream_company_select_list#)  
 </cfquery>
 </cfsilent>
 

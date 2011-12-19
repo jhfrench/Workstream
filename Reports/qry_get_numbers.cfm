@@ -31,7 +31,7 @@ GROUP BY thequarter, theyear
 ORDER BY theyear, thequarter
 </cfquery>
 <cfquery name="total_population" datasource="#application.datasources.main#">
-SELECT COUNT(Emp_Contact.Emp_ID) AS total_pop
+SELECT COUNT(Emp_Contact.emp_id) AS total_pop
 FROM Emp_Contact, Company, Demographics_Ngauge Demographics
 WHERE Emp_Contact.emp_id=Company.emp_id
 	AND Emp_Contact.emp_id = Demographics.emp_id

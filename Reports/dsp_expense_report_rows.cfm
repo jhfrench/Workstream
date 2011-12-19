@@ -43,10 +43,10 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 			<cfset currow = get_expenses.CurrentRow>
 			<cfset rowtotal = 0>
 			<cfset grandtotal = 0 >
-			<cfloop query="get_expense_type"><td class="RegText#session.workstream_text_size#">#dollarFormat(get_expenses[expense_type][currow])#
+			<cfloop query="get_expense_type"><td class="RegText#session.workstream_text_size#">#dollarformat(get_expenses[expense_type][currow])#
 <cfset rowtotal= rowtotal + get_expenses[expense_type][currow]>
 <cfset totals[Expense_Type] =totals[Expense_Type] + get_expenses[expense_type][currow]></cfloop></td>
-			<td class="RegText#session.workstream_text_size#">#dollarFormat(rowtotal)#</td>
+			<td class="RegText#session.workstream_text_size#">#dollarformat(rowtotal)#</td>
 		</tr>
 		<tr bgcolor="##D5E4E6">
 		<td class="RegText#session.workstream_text_size#" >Note:</td>
@@ -56,7 +56,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 		<tr>
 			<td class="RegText#session.workstream_text_size#" colspan="4">Totals</td>
 			<cfloop query="get_expense_type">
-			<td class="RegText#session.workstream_text_size#">#dollarFormat(totals[Expense_Type])#</td>
+			<td class="RegText#session.workstream_text_size#">#dollarformat(totals[Expense_Type])#</td>
 			<cfset grandtotal=grandtotal + totals[Expense_Type]>
 			</cfloop>
 			<td class="SubHeadText#session.workstream_text_size#">#dollarformat(grandtotal)#</td>

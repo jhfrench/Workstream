@@ -20,7 +20,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	--> customer_name: string that identifies the customer for whom the task is created
-	--> project_name: string that contains the name of the project or engagement the task is assigned to
+	--> project_name: string that contains the name of the project the task is assigned to
  --->
 </cfsilent>
 <cfoutput>

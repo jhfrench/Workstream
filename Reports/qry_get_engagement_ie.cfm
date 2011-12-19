@@ -14,9 +14,9 @@ I get the names of IE's on current engagements.
 	END FUSEDOC --->
 
 <cfquery name="get_engagement_ie" datasource="#application.datasources.main#">
-SELECT Emp_contact.Lname,Emp_Contact.Emp_ID 	
+SELECT Emp_contact.Lname,Emp_Contact.emp_id 	
 FROM Project, Emp_Contact
-Where Emp_Contact.Emp_ID = Project.IE_Emp_ID and Status <> 0
+Where Emp_Contact.emp_id = Project.IE_Emp_ID and Status <> 0
 Group by Lname, Emp_ID
 ORDER BY LName
 </cfquery>

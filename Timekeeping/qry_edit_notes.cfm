@@ -21,7 +21,8 @@
 DELETE FROM Notes
 <cfelse>
 UPDATE Notes
-SET Date=#CreateODBCDate(now())#, note='#attributes.note#'
+SET date=GETDATE(),
+	note='#attributes.note#'
 </cfif>
 WHERE notes_id=#attributes.notes_id#
 </cfquery>

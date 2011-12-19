@@ -19,7 +19,7 @@
 <input type="hidden" name="step" value="4">
 	<tr bgcolor="##c0c0c0">
 		<td align="center" colspan="1" class="SubHeadText#session.workstream_text_size#">
-			Engagement Details
+			Project Details
 		</td>
 		<td align="center" class="SubHeadText#session.workstream_text_size#">
 			Instructions

@@ -20,7 +20,7 @@ WHERE emp_id=#attributes.emp_id#
 /*insert new access*/
 INSERT INTO Link_Company_Emp_Contact (emp_id, company_id)
 SELECT #attributes.emp_id# AS emp_id, company_id
-FROM REF_Companies
+FROM REF_Company
 WHERE company_id IN (#attributes.company_id#)
 </cfquery>
 </cfsilent>

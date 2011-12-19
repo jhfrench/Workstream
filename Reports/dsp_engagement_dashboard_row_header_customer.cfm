@@ -21,10 +21,10 @@
 			<table cellpadding="0" cellspacing="0" width="100%">
 				<tr bgcolor="##008080">
 					<td class="HeadText#session.workstream_text_size#White">
-						Engagement Dashboard - #dateformat(today,'mm/dd/yy')#
+						Project Dashboard - #dateformat(today,'mm/dd/yy')#
 					</td>
 					<td align="right" class="HeadText#session.workstream_text_size#White" colspan="2">
-						Engagement view: <select name="inactive" onchange="javascript:document.forms.inactive.submit();">
+						Project view: <select name="inactive" onchange="javascript:document.forms.inactive.submit();">
 							<option value="1,2"<cfif NOT comparenocase(attributes.inactive,"1,2")> SELECTED</cfif>>All</option>
 							<option value="2"<cfif attributes.inactive EQ 2> SELECTED</cfif>>Active only</option>
 							<option value="1"<cfif attributes.inactive EQ 1> SELECTED</cfif>>Inactive only</option>
@@ -37,7 +37,7 @@
 </form>
 	<tr bgcolor="##c0c0c0" valign="bottom">
 		<td colspan="2" class="SubHeadText#session.workstream_text_size#">
-			Customer &amp;<br>Engagement Name
+			Customer &amp;<br>Project Name
 		</td>
 		<td class="SubHeadText#session.workstream_text_size#">
 			IE

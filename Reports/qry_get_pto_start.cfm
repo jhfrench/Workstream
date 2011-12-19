@@ -18,7 +18,7 @@
 	END FUSEDOC --->
 <cfquery name="get_pto_start" datasource="#application.datasources.main#">
 SELECT pto_start_date
-FROM REF_Companies
+FROM REF_Company
 WHERE company_id=#session.workstream_company_id#
 </cfquery>
 </cfsilent>

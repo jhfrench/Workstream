@@ -17,11 +17,11 @@
 	<--date locked: date through which time can be entered into workstream (loop from present to date-locked)
 	END FUSEDOC --->
 <cfquery name="get_date_locked" datasource="#application.datasources.main#">
-SELECT REF_Companies.company_id, REF_Companies.company, Date_Locked.date_locked
-FROM REF_Companies, Date_Locked
-WHERE REF_Companies.company_id*=Date_Locked.company_id
-	AND REF_Companies.company_id IN(#session.workstream_company_select_list#)
-ORDER BY REF_Companies.company
+SELECT REF_Company.company_id, REF_Company.company, Date_Locked.date_locked
+FROM REF_Company, Date_Locked
+WHERE REF_Company.company_id*=Date_Locked.company_id
+	AND REF_Company.company_id IN(#session.workstream_company_select_list#)
+ORDER BY REF_Company.company
 </cfquery>
 </cfsilent>
 

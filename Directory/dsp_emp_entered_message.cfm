@@ -15,7 +15,7 @@
 <cfquery name="get_administrators" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.emp_id, Email.email
 FROM Company, Security_Object_Access, Emp_Contact, Email
-WHERE Company.Emp_ID=Security_Object_Access.emp_id
+WHERE Company.emp_id=Security_Object_Access.emp_id
 	AND Company.emp_id=Emp_Contact.emp_id
 	AND Emp_Contact.emp_id=Email.emp_id
 	AND Company.company=#session.workstream_company_id#

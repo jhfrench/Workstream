@@ -23,7 +23,7 @@
 </cfform>
 	<tr bgcolor="##c0c0c0" class="SubHeadText#session.workstream_text_size#">
 		<td valign="bottom" class="SubHeadText#session.workstream_text_size#">
-			Engagement
+			Project
 		</td>
 		<td valign="bottom" class="SubHeadText#session.workstream_text_size#">
 			Task

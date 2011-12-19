@@ -13,7 +13,7 @@
 	||
 	--> attributes.emp_id: list of ids that the user wishes to grant access to the new timeline; may contain an entire company which includes the company name
 	--> attributes.hide_user_field_item_id: id that identifies a field the user wants to use to flag tasks that should not be displayed in a timeline
-	--> attributes.project_id: id that uniquely identifies a project; in this case used to specify which engagement a timeline is built for
+	--> attributes.project_id: id that uniquely identifies a project; in this case used to specify for which project a timeline is built 
 	--> attributes.project_planning_name: string containing name that the user wishes to identify a project timeline
 	--> attributes.user_field_id: id that uniquely identifies the user field that the user wants to use to organize the timeline
 	END FUSEDOC --->

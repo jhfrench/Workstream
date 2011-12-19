@@ -8,17 +8,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2006/08/17 16:00:28  jlittle
-	Task #47019 - Removing join to Demographics table - it was causing duplicate rows to be returned, and making some other improvements that JF suggested
-
-	Revision 1.1  2005-03-09 13:13:49-05  stetzer
-	<>
-
-	Revision 1.2  2001-12-06 14:35:03-05  french
-	Applying style sheet correctly to Reports module. Adding Customer.description to output.
-
-	Revision 1.1  2001-10-11 11:03:57-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfquery name="get_hours" datasource="#application.datasources.main#">

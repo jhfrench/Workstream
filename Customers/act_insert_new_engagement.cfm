@@ -17,12 +17,14 @@ INSERT INTO Project (root_code, customer_id, description,
 	creator<cfif len(attributes.vision)>, vision</cfif><cfif len(attributes.mission)>, mission</cfif>
 	<cfif len(attributes.business_case)>, business_case</cfif><cfif len(attributes.project_end)>, project_end</cfif><cfif len(attributes.project_start)>, project_start</cfif>,
 	product_id, billable_type_id, project_code,
-	active_ind, company_id, budget)
+	active_ind, company_id, budget,
+	status)
 VALUES ('#get_root_code.root_code#', #attributes.customer_id#, '#attributes.description#',
 	#session.user_account_id#<cfif len(attributes.vision)>, '#attributes.vision#'</cfif><cfif len(attributes.mission)>, '#attributes.mission#'</cfif>
 	<cfif len(attributes.business_case)>,' #attributes.business_case#'</cfif><cfif len(attributes.project_end)>, '#attributes.project_end#'</cfif><cfif len(attributes.project_start)>, '#attributes.project_start#'</cfif>, 
 	#attributes.product_id#, #attributes.billable_type_id#, '#variables.new_code#',
-	1, #get_root_code.company_id#, #attributes.budget#)
+	1, #get_root_code.company_id#, #attributes.budget#,
+	1)
 </cfquery>
 <cfquery name="get_project_id" datasource="#application.datasources.main#">
 SELECT IDENT_CURRENT('Project') AS project_id
@@ -64,6 +66,6 @@ WHERE project_id=#get_project_id.project_id#
 <cfquery name="insert_visible" datasource="#application.datasources.main#">
 INSERT INTO Link_Project_Company (project_id, company_id)
 SELECT #get_project_id.project_id# AS project_id, company_id
-FROM REF_Companies
+FROM REF_Company
 WHERE company_id IN (#variables.company_id#)
 </cfquery>

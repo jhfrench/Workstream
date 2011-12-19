@@ -26,7 +26,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 
 <cfgrid name="marketing" width="900" query="marketing" insert="no" sort="Yes" bold="No" italic="No" appendkey="Yes" highlighthref="Yes"  griddataalign="LEFT" gridlines="Yes" rowheaders="No" rowheaderalign="LEFT" rowheaderitalic="No" rowheaderbold="No" colheaders="Yes" colheaderalign="LEFT" colheaderitalic="No" colheaderbold="Yes" selectmode="edit" picturebar="No">
 
-<cfgridcolumn name="project_code" header="Engagement" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="no" 
+<cfgridcolumn name="project_code" header="Project" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="no" 
 display="Yes" headerbold="No" headeritalic="No" > 
 
  <cfgridcolumn name="description" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 

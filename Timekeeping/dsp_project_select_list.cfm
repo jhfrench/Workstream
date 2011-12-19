@@ -24,7 +24,7 @@
 </cfsilent>
 <tr>
 	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>" valign="top">
-		Customer &amp; Engagement
+		Customer &amp; Project
 		<cfoutput><img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="#alt#" border="0"  onclick="OpenProjectWindow('project_id');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#incrementvalue(tabindex)#"></cfoutput><br>
 		<cfset tabindex=incrementvalue(tabindex)>
 		<cfselect name="project_id" size="5" tabindex="#tabindex#" required="yes" message="#msg#" class="RegText#session.workstream_text_size#">

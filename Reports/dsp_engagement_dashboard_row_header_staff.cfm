@@ -25,7 +25,7 @@
 <form name="inactive" action="index.cfm?fuseaction=Reports.engagements" method="post">
 	<tr bgcolor="##008080">
 		<td colspan="100%" class="HeadText#session.workstream_text_size#White"><b>
-			Engagement Dashboard - #DateFormat(today,'mm/dd/yy')#</b>
+			Project Dashboard - #DateFormat(today,'mm/dd/yy')#</b>
 			<input type="Hidden" name="client_code" value="NOTHING">
 		</td>
 
@@ -33,7 +33,7 @@
 </form>
 	<tr>
 		<td colspan="2" bgcolor="##c0c0c0" class="SubHeadText#session.workstream_text_size#">
-			Customer & Engagement Name
+			Customer & Project Name
 		</td>
 <td bgcolor="##c0c0c0" class="SubHeadText#session.workstream_text_size#">
 			IE

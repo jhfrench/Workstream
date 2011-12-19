@@ -21,8 +21,8 @@
    
     <table cellpadding="4" cellspacing="0" border="0" align="center" width="95%">
 <tr bgcolor="#0000ff">
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Engagement Code</td>
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Engagement Name</td>
+	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Project Code</td>
+	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Project Name</td>
 	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Task Name</td>
 	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Task Desctiption</td>
 	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Task Owner</td>

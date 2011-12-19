@@ -26,26 +26,21 @@ Added $log $ for edits to all CFM files that have fusedocs.
 <cfquery name="GetEmpDetails" datasource="#application.datasources.main#">
 <cfif isdefined("attributes.drill_down")>          
 SELECT Emp_Contact.Name AS name, 
-    Emp_Contact.LName AS lname, Emp_Contact.Emp_ID AS pin, 
+    Emp_Contact.LName AS lname, Emp_Contact.emp_id AS pin, 
     PTO_Hours.Pto_Type_Indicator, REF_Day_Length.Day_Length, 
-    REF_companies.Company
-FROM Emp_Contact INNER JOIN
-    PTO_Hours ON 
-    Emp_Contact.Emp_ID = PTO_Hours.Emp_ID INNER JOIN
-    Company ON 
-    Emp_Contact.Emp_ID = Company.Emp_ID INNER JOIN
-    Demographics ON 
-    Emp_Contact.Emp_ID = Demographics.Emp_ID INNER JOIN
-    REF_companies ON 
-    Company.Company = REF_companies.Company_ID LEFT OUTER
+    REF_Company.company
+FROM Emp_Contact
+	INNER JOIN PTO_Hours ON Emp_Contact.emp_id = PTO_Hours.emp_id
+	INNER JOIN Company ON Emp_Contact.emp_id = Company.emp_id
+	INNER JOIN Demographics ON Emp_Contact.emp_id = Demographics.emp_id
+	INNER JOIN REF_Company ON Company.Company = REF_Company.Company_ID LEFT OUTER
      JOIN
-    REF_Day_Length ON 
-    Demographics.Day_Length_ID = REF_Day_Length.Day_Length_ID
+    REF_Day_Length ON Demographics.Day_Length_ID = REF_Day_Length.Day_Length_ID
 WHERE (company.company IN
 	(select company_id 
 	from Link_Company_Emp_Contact 
 	where emp_id = #session.user_account_id#)) 
-AND (Emp_Contact.Emp_ID IN ('#PreserveSingleQuotes(attributes.drill_down)#'))
+AND (Emp_Contact.emp_id IN ('#PreserveSingleQuotes(attributes.drill_down)#'))
 ORDER BY lname
 <cfelse>
 SELECT DISTINCT Emp_Contact.Name AS name, Emp_Contact.LName AS lname, 
@@ -54,7 +49,7 @@ SELECT DISTINCT Emp_Contact.Name AS name, Emp_Contact.LName AS lname,
 FROM Link_Company_Emp_Contact, Emp_Contact, PTO_Hours, Demographics, REF_Day_Length, security,
 	(SELECT ISNULL(SUM(Time_Entry.hours),0) AS used_hours, Company.emp_id AS emp_id
 	FROM Time_entry, Company
-	WHERE time_entry.project_ID IN (SELECT project_id
+	WHERE time_entry.project_id IN (SELECT project_id
 									FROM Project
 									WHERE project_type_id = 1)
 		AND Company.company IN 
@@ -77,33 +72,28 @@ WHERE Link_Company_Emp_Contact.emp_id = emp_contact.emp_id
 		AND Demographics.Day_Length_ID *= REF_Day_Length.Day_Length_ID
 		AND Demographics.Effective_To IS NULL 
 		And Security.Disable <> 1
-		<cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.Emp_ID IN (#PreserveSingleQuotes(attributes.form_Pin)#))</cfif>
+		<cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.emp_id IN (#PreserveSingleQuotes(attributes.form_Pin)#))</cfif>
 ORDER BY lname
 <!--- SELECT DISTINCT 
     Emp_Contact.Name AS name, Emp_Contact.LName AS lname, 
-    Emp_Contact.Emp_ID AS pin, PTO_Hours.Pto_Type_Indicator, 
+    Emp_Contact.emp_id AS pin, PTO_Hours.Pto_Type_Indicator, 
     ISNULL(REF_Day_Length.Day_Length, 8) AS day_length, 
     ISNULL
         ((SELECT SUM(hours) AS Used_hours
        FROM Time_entry
-       WHERE time_entry.project_ID IN (117, 147, 180, 365, 399, 
+       WHERE time_entry.project_id IN (117, 147, 180, 365, 399, 
            513, 548, 575) AND year(time_entry.date) 
-           = year(GETDATE()) AND 
-           emp_contact.emp_id = time_entry.emp_id), 0) 
+           = year(GETDATE())
+	AND        emp_contact.emp_id = time_entry.emp_id), 0) 
     AS Used_hours
-FROM Emp_Contact INNER JOIN
-    PTO_Hours ON 
-    Emp_Contact.Emp_ID = PTO_Hours.Emp_ID INNER JOIN
-    Company ON 
-    Emp_Contact.Emp_ID = Company.Emp_ID INNER JOIN
-    Demographics ON 
-    Emp_Contact.Emp_ID = Demographics.Emp_ID INNER JOIN
-    Time_Entry ON 
-    Emp_Contact.Emp_ID = Time_Entry.Emp_ID LEFT OUTER JOIN
-    REF_Day_Length ON 
-    Demographics.Day_Length_ID = REF_Day_Length.Day_Length_ID
+FROM Emp_Contact
+	INNER JOIN PTO_Hours ON Emp_Contact.emp_id = PTO_Hours.emp_id
+	INNER JOIN Company ON Emp_Contact.emp_id = Company.emp_id
+	INNER JOIN Demographics ON Emp_Contact.emp_id = Demographics.emp_id
+	INNER JOIN Time_Entry ON Emp_Contact.emp_id = Time_Entry.emp_id
+	LEFT OUTER JOIN  REF_Day_Length ON Demographics.Day_Length_ID = REF_Day_Length.Day_Length_ID
      AND Demographics.Effective_To IS NULL
-    WHERE (company.company != 9)<cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.Emp_ID IN (#PreserveSingleQuotes(attributes.form_Pin)#))</cfif>
+    WHERE (company.company != 9)<cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.emp_id IN (#PreserveSingleQuotes(attributes.form_Pin)#))</cfif>
 ORDER BY lname 
 --->
 </cfif>

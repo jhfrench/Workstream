@@ -24,7 +24,7 @@
 <cfform name="edit_engagement_main" action="index.cfm?fuseaction=Customers.edit_engagement" method="post">
 	<tr bgcolor="##c0c0c0">
 		<td align="center" colspan="2" class="SubHeadText#session.workstream_text_size#">
-			Engagement Details
+			Project Details
 		</td>
 		<td align="center" class="SubHeadText#session.workstream_text_size#">
 			Instructions

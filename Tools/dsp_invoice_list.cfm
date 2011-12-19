@@ -23,7 +23,7 @@
 			#billable_type#
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
-			#DollarFormat(bill)#
+			#dollarformat(bill)#
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
 			<a href="javascript:list_to_tasks('#project_id#');" onmouseover="MM_displayStatusMsg('View tasks for #StatusMsg#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#total_tasks#</a>

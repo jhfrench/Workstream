@@ -14,7 +14,7 @@
 	--> attributes.task_id: list that contains task id's submitted from the express timekeeping page
  --->
 <cfquery name="get_project_id" datasource="#application.datasources.main#">
-SELECT project_id AS project_id
+SELECT project_id
 FROM Task
 WHERE task_id=#attributes.reassign_task_id#
 </cfquery>

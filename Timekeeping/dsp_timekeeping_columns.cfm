@@ -28,14 +28,13 @@
 	<td width="30%">
 		<table cellpadding="0" cellspacing="0" border="0" width="100%">
 		<!--- $issue$: bring this back into play --->
-		<cfif NOT comparenocase(listlast(session.workstream_company_name),"Nucleus")>
-			<cfinclude template="qry_revenue_goal.cfm">
-			<cfinclude template="qry_revenue_goal_dept.cfm">
+		<cfif session.workstream_company_id EQ 1>
+			<cfinclude template="../common_files/qry_get_revenue_goal.cfm">
 			<cfmodule template="../common_files/dsp_section_title.cfm" colspan="4" section_color="78A0EB" section_title="Operations Metrics" title_class="HeadText#session.workstream_text_size#White">
 			<cfinclude template="dsp_thermo.cfm">
 		<cfelse>
 			<cfmodule template="../common_files/dsp_section_title.cfm" colspan="2" section_color="78A0EB" section_title="Hours Worked" title_class="HeadText#session.workstream_text_size#White">
-			<cfmodule template="../common_files/dsp_section_text.cfm" colspan="2" section_color="ffffff" section_text="#hours_blurb#" title_class="RegText#session.workstream_text_size#">
+			<cfmodule template="../common_files/dsp_section_text.cfm" colspan="2" section_color="ffffff" section_text="#variables.hours_blurb#" title_class="RegText#session.workstream_text_size#">
 			<cfmodule template="../common_files/dsp_section_text.cfm" colspan="2" section_color="ffffff" section_text="&nbsp;">
 		</cfif>
 		</table>
@@ -43,11 +42,7 @@
 	<td width="30%">
 		<table cellpadding="0" cellspacing="0" border="0" width="100%">
 			<cfmodule template="../common_files/dsp_section_title.cfm" colspan="2" section_color="800000" section_title="#listlast(session.workstream_company_name)# Life" title_class="HeadText#session.workstream_text_size#White">
-<cfif NOT comparenocase(listlast(session.workstream_company_name),"Nucleus")>
-			<cfmodule template="../common_files/dsp_section_text.cfm" colspan="2" section_color="ffffff" section_text="#cc_blurb# #life_blurb#">
-<cfelse>
 			<cfmodule template="../common_files/dsp_section_text.cfm" colspan="2" section_color="ffffff" section_text="#life_blurb#">
-</cfif>
 		</table>
 	</td>
 </tr>

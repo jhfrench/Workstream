@@ -26,16 +26,16 @@
 </tr>
 <tr valign="top">
 	<td class="RegText#session.workstream_text_size#" width="50%">
-		Engagement<br>
+		Project<br>
 </cfoutput>
-		<cfselect name="project_id" size="5" required="yes" message="Please specify the engagement for your new project timeline." class="RegText#session.workstream_text_size#">
+		<cfselect name="project_id" size="5" required="yes" message="Please specify the project for your new project timeline." class="RegText#session.workstream_text_size#">
 		<cfoutput query="get_valid_projects">
 			<option value="#project_id#"><cfif session.workstream_project_list_order EQ 1>#customer# #replace(project_name,customer,"","ALL")# (#project_code#)<cfelse>#project_code# - #customer# #replace(project_name,customer,"","ALL")#</cfif></option>
 		</cfoutput>
 	</cfselect>
 	</td>
 	<td><cfset variables.start=incrementvalue(variables.start)>
-		<ol type="1" start="<cfoutput>#variables.start#" class="Note#session.workstream_text_size#</cfoutput>"><li>Select the engagement that contains (or will contain) the tasks for this timeline. Please note that timelines are organized by using custom fields. If your engagement does not use custom fields it will not appear in this select list. You can add custom fields by editing the engagement from the Customers module. See your workstream administrator for more details.</li></ol>
+		<ol type="1" start="<cfoutput>#variables.start#" class="Note#session.workstream_text_size#</cfoutput>"><li>Select the project that contains (or will contain) the tasks for this timeline. Please note that timelines are organized by using custom fields. If your project does not use custom fields it will not appear in this select list. You can add custom fields by editing the project from the Customers module. See your workstream administrator for more details.</li></ol>
 	</td>
 </tr>
 <input type="hidden" name="step" value="2">

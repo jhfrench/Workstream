@@ -17,7 +17,7 @@
 <cfquery name="populate_employee_form" datasource="#application.datasources.main#">
 SELECT ec.Name, ec.LName, ec.Credentials, ec.MI, 
 	ec.Emp_contact_Type, d.Employee_Type_ID, d.SSN, d.pin, d.Hire_Date, d.DOB, 
-	d.Manager_non_id, d.Photo, d.employee_classification_ID, 
+	d.Manager_non_id, d.Photo, d.employee_classification_id, 
 	work_loc.Address1 AS address1_1, 
 	work_loc.Address2 AS address2_1, work_loc.City AS city_1, 
 	work_loc.State AS state_1, work_loc.Zip AS zip_1, 
@@ -38,59 +38,59 @@ SELECT ec.Name, ec.LName, ec.Credentials, ec.MI,
 	pager_phone.Extension AS phone_5_ext, 
 	Emp_Biography.biography
 FROM Emp_Contact ec
-	INNER JOIN Demographics_Ngauge d ON ec.Emp_ID = d.Emp_ID
-	LEFT OUTER JOIN Emp_Biography ON ec.Emp_ID = Emp_Biography.emp_id
+	INNER JOIN Demographics_Ngauge d ON ec.emp_id = d.emp_id
+	LEFT OUTER JOIN Emp_Biography ON ec.emp_id = Emp_Biography.emp_id
 	LEFT OUTER JOIN (
 		SELECT *
 		FROM phone
 		WHERE phone_type_id = 5
-	) AS pager_phone ON  ec.Emp_ID = pager_phone.Emp_ID
+	) AS pager_phone ON  ec.emp_id = pager_phone.emp_id
 	LEFT OUTER JOIN (
 		SELECT *
 		FROM email
 		WHERE email_type_id = 2
-	) AS Home_Email ON ec.Emp_ID = home_email.Emp_ID
+	) AS Home_Email ON ec.emp_id = home_email.emp_id
 	LEFT OUTER JOIN (
 		SELECT *
 		FROM email
 		WHERE email_type_id = 3
-	) pager_email ON ec.Emp_ID = pager_email.Emp_ID
+	) pager_email ON ec.emp_id = pager_email.emp_id
 	LEFT OUTER JOIN (
 		SELECT *
 		FROM phone
 		WHERE phone_type_id = 1
-	) AS work_phone ON ec.Emp_ID = work_phone.Emp_ID
+	) AS work_phone ON ec.emp_id = work_phone.emp_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM phone
 		WHERE phone_type_id = 2
-	) home_phone ON ec.Emp_ID = home_phone.Emp_ID
+	) home_phone ON ec.emp_id = home_phone.emp_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM phone
 		WHERE phone_type_id = 3
-	) fax_phone ON ec.Emp_ID = fax_phone.Emp_ID
+	) fax_phone ON ec.emp_id = fax_phone.emp_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM phone
 		WHERE phone_type_id = 4
-	) cell_phone ON ec.Emp_ID = cell_phone.Emp_ID
+	) cell_phone ON ec.emp_id = cell_phone.emp_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM email
 		WHERE email_type_id = 1
-	) work_email ON ec.Emp_ID = work_email.Emp_ID
+	) work_email ON ec.emp_id = work_email.emp_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM location
 		WHERE location_type_id = 1
-	) work_loc ON ec.Emp_ID = work_loc.Emp_ID
+	) work_loc ON ec.emp_id = work_loc.emp_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM location WHERE location_type_id = 2
-	) home_loc ON ec.Emp_ID = home_loc.Emp_ID
+	) home_loc ON ec.emp_id = home_loc.emp_id
 WHERE d.Effective_To IS NULL
-	AND ec.Emp_ID = #attributes.emp_id#
+	AND ec.emp_id = #attributes.emp_id#
 </cfquery>
 <cfoutput query="populate_employee_form">
 	<cfset address1_1 = address1_1>

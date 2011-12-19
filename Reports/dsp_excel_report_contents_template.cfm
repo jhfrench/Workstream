@@ -81,7 +81,7 @@
 				<cfset dynamic_col = curr_col + 65>
 				column_letter = (chr(#dynamic_col#))
 				assign_sheet.Range(column_letter & #format_rownum#).VerticalAlignment =  -4160 
-				arr_#wkst_id#(#rownum#,#curr_col#) = "#dollarFormat(get_expenses[expense_type][currow])#"								
+				arr_#wkst_id#(#rownum#,#curr_col#) = "#dollarformat(get_expenses[expense_type][currow])#"								
 				<cfset curr_col = curr_col + 1>
 				<cfset expense_end_col = curr_col + 64>
 				<!--- <cfset totals[Expense_Type] =totals[Expense_Type] + get_expenses[expense_type][currow]> --->
@@ -123,7 +123,7 @@
 		row_total = "F" & #xx# & ":" & chr(#expense_end_col#) & #xx#
 		col = chr(#expense_end_col# + 1) & #xx#
 		assign_sheet.Range(col).VerticalAlignment =  -4160 			
-		assign_sheet.Range(col).value = "#DOLLARFORMAT(0)#"
+		assign_sheet.Range(col).value = "#dollarformat(0)#"
 		assign_sheet.Range(col).formula = "=sum(" & row_total & ")"
 		assign_sheet.Range(col).Font.Bold = True
 		assign_sheet.Range(col).EntireColumn.AutoFit
@@ -138,7 +138,7 @@
 		formula_cell = col & formula_cell
 		col = col & 8 & ":" & col & (#rownum# + 6)
 		assign_sheet.Range(col).VerticalAlignment =  -4160 
-		assign_sheet.Range(formula_cell).value = "#DOLLARFORMAT(0)#"
+		assign_sheet.Range(formula_cell).value = "#dollarformat(0)#"
 		assign_sheet.Range(formula_cell).formula = "=sum(" & col & ")"
 		assign_sheet.Range(formula_cell).Font.Bold = True
 		assign_sheet.Range(formula_cell).EntireColumn.AutoFit
@@ -149,7 +149,7 @@
 		col = chr(#grand_total#)
 		col = col & formula_cell
 		assign_sheet.Range(col).Font.Bold = True
-		assign_sheet.Range(col).value = "#DOLLARFORMAT(0)#"
+		assign_sheet.Range(col).value = "#dollarformat(0)#"
 		range = "f" & formula_cell & ":" & chr(#expense_end_col# ) & formula_cell
 		assign_sheet.Range(col).formula = "=sum(" & range & ")"
 	

@@ -59,7 +59,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <table align="center" border="0" cellpadding="1" cellspacing="0">
 <cfoutput>
 	<tr>
-		<td align="center" class="SubHeadText#session.workstream_text_size#">New Engagements Over Time<span class="RegText#session.workstream_text_size#"> (see bottom for selected customers)</span></td>
+		<td align="center" class="SubHeadText#session.workstream_text_size#">New Projects Over Time<span class="RegText#session.workstream_text_size#"> (see bottom for selected customers)</span></td>
 	</tr>
 	<tr>
 		<td align="center" class="SubHeadText#session.workstream_text_size#">
@@ -82,7 +82,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 				<param name="yAxisLabelFont" value="Trebuchet MS,#small#,1">
 				
 				<param name="dataset0yValues" value="#dataset0yvalue#">
-				<param name="dataset0name" value="Engagements">
+				<param name="dataset0name" value="Projects">
 				<param name="dataset0Color" value="006666">
 				<param name="dataset0LineWidth" value="2">
 				<param name="dataset0Links" value="#dataset0Links#">

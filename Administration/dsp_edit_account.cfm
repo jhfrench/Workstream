@@ -54,7 +54,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 		</td>
 	</tr>
 	<tr valign="top" class="RegText#session.workstream_text_size#">
-		<td colspan="2">&nbsp;Disable User: <input type="Checkbox" name="disable"<cfif disable> checked</cfif>  class="RegText#session.workstream_text_size#">
+		<td colspan="2">&nbsp;Disable User: <input type="checkbox" name="disable"<cfif disable> checked</cfif>  class="RegText#session.workstream_text_size#">
 		</td>
 	</tr>
 	<cfmodule template="dsp_submit_options.cfm" include_reset="1" reset_value="Reset Options" submit_value="Save Settings">
@@ -69,16 +69,16 @@ Added $log $ for edits to all CFM files that have fusedocs.
 <cfset index=ListFind(module_num,module_id)>
 	<tr bgcolor="#listgetat(module_color,index)#" valign="top" class="RegText#session.workstream_text_size#">
 		<td class="SubHeadText#session.workstream_text_size#<cfif module_id NEQ 4>White</cfif>">
-			<input type="Checkbox" name="M#module_id#"<cfif module_security> checked</cfif>  class="RegText#session.workstream_text_size#"> #module_name#
+			<input type="checkbox" name="M#module_id#"<cfif module_security> checked</cfif>  class="RegText#session.workstream_text_size#"> #module_name#
 		</td>
 		<td class="SubHeadText#session.workstream_text_size#<cfif module_id NEQ 4>White</cfif>">All Option</td>
 	</tr>
 </cfif>
 	<tr bgcolor="##e6e6e6" valign="top" class="RegText#session.workstream_text_size#">
 		<td class="RegText#session.workstream_text_size#">
-			&nbsp;&nbsp;&nbsp;&nbsp;<input type="Checkbox" name="R#object_id#"<cfif object_security> checked</cfif>  class="RegText#session.workstream_text_size#"> #report_name#
+			&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="R#object_id#"<cfif object_security> checked</cfif>  class="RegText#session.workstream_text_size#"> #report_name#
 		</td>
-		<td class="RegText#session.workstream_text_size#"><input type="Checkbox" name="A_O#object_id#"<cfif object_all_option_editable> checked</cfif> <cfif not object_all_option> disabled</cfif> class="RegText#session.workstream_text_size#"></td>
+		<td class="RegText#session.workstream_text_size#"><input type="checkbox" name="A_O#object_id#"<cfif object_all_option_editable> checked</cfif> <cfif not object_all_option> disabled</cfif> class="RegText#session.workstream_text_size#"></td>
 	</tr>
 	<cfset variables.module_name=module_name>
 </cfoutput>
