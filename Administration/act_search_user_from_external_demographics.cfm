@@ -1,12 +1,12 @@
 <!-- Administration/act_search_user_from_external_demographics.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_search_user_from_external_demographics.cfm">
 	<responsibilities>
 		I display the result of the center and dlastname search of external demographics warehouse. I also allow a selection for further processing.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/19/10) Cleaning up verbiage and row coloring.
 		</history>
@@ -31,7 +31,7 @@
 
 <!--- display the result of the query in a form --->
 <cfoutput>
-<form name="external_demographics_user_form" action="index.cfm?fuseaction=Administration.add_user" method="post">
+<form name="external_demographics_user_form" action="index.cfm?fuseaction=Administration.add_user" method="POST">
 <div class="datachart" style="border:1px solid ##999999">
 <table width="100%" cellspacing="1" cellpadding="4" border="0" bgcolor="##cccccc" summary="table head describes the data held in the table within this table">
 	<tr bgcolor="##cccccc">

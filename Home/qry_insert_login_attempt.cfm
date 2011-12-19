@@ -24,5 +24,5 @@
 <!--- always insert the encrypted password, never clear text --->
 <cfquery name="get_login_information" datasource="#application.datasources.main#">
 INSERT INTO Login_Attempt (user_name, password, success_ind)
-VALUES (NVL(<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(attributes.user_name)#">,'--not specified--'), <cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.password#">, #attributes.success_ind#)
+VALUES (ISNULL(<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(attributes.user_name)#">,'--not specified--'), <cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.password#">, #attributes.success_ind#)
 </cfquery>

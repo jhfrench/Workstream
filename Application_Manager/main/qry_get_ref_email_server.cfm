@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_get_ref_email_server" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_get_ref_email_server" datasource="#application.datasources.main#">
 SELECT *
 FROM REF_Email_Server
 WHERE active_ind=1

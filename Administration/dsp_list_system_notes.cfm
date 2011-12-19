@@ -1,12 +1,12 @@
 <!-- Administration/dsp_list_system_notes.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_list_system_notes.cfm">
 	<responsibilities>
 		Page to display a list of messages.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/21/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="9/21/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -29,7 +29,7 @@
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the data held in the table below">
 	<tr>
-		<td align="left"><h2 style="margin:0px">Administer Messages</h2></td>
+		<td align="left"><h2 style="margin:0px" id="top-side">Administer Messages</h2></td>
 	</tr>
 	<tr>
 		<td align="left" class="menuItem" bgcolor="#eeeeee" onmouseover="new Effect.Highlight(this, {duration:0.1,startcolor:'#5394bd',endcolor:'#5394bd',restorecolor:'#5394bd'});this.style.cursor='pointer';" onmouseout="new Effect.Highlight(this, {duration:0.25,startcolor:'#999999',endcolor:'#bbbbbb',restorecolor:'#eeeeee'});">
@@ -38,7 +38,7 @@
 	</tr>
 </table>
 
-<img src="images/spacer.gif" alt="" width="560" height="1" /><br />
+<img src="images/spacer.gif" alt="" width="560" height="1"><br />
 
 <div class="datachart" style="border:1px solid #999999">
 <table cellpadding="3" cellspacing="0" width="100%" border="0" summary="Table displays system messages">

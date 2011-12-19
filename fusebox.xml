@@ -2,16 +2,17 @@
 <fusebox>
 	<circuits>
 		<circuit alias="Administration" path="Administration/" parent=""/>
-		<circuit alias="Awards" path="Awards/" parent=""/>
 		<circuit alias="common_files" path="common_files/" parent=""/>
+		<circuit alias="Customers" path="Customers/" parent=""/>
+		<circuit alias="Directory" path="Directory/" parent=""/>
 		<circuit alias="Help" path="Help/" parent=""/>
 		<circuit alias="Home" path="Home/" parent=""/>
-		<circuit alias="Mentor_Protégé" path="Mentor_Protege/" parent=""/>
-		<circuit alias="Mentor_Protege" path="Mentor_Protege/" parent=""/>
-		<circuit alias="Mentor_Protg" path="Mentor_Protege/" parent=""/>
+		<circuit alias="Marketing" path="Marketing/" parent=""/>
+		<circuit alias="Reports" path="Reports/" parent=""/>
 		<circuit alias="Requirements" path="Requirements/" parent=""/>
 		<circuit alias="Search" path="Search/" parent=""/>
-		<circuit alias="Vendor" path="Vendor/" parent=""/>
+		<circuit alias="Timekeeping" path="Timekeeping/" parent=""/>
+		<circuit alias="Tools" path="Tools/" parent=""/>
 	</circuits>
 
 	<classes>
@@ -19,7 +20,7 @@
 
 	<parameters>
 		<parameter name="fuseactionVariable" value="fuseaction" />
-		<parameter name="defaultFuseaction" value="common_files.relocate_login" />
+		<parameter name="defaultFuseaction" value="Timekeeping.home" />
 		<parameter name="precedenceFormOrUrl" value="form" />
 		<parameter name="mode" value="production" /><!--In Fusebox 5.1, the modes are: production, development-circuit-load and development-full-load.-->
 		<parameter name="password" value="default"/>

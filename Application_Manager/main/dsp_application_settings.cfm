@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_get_application_basic_details" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_get_application_basic_details" datasource="#application.datasources.main#">
 <!--- /* Following query used to get CF application.name and other generic application variables. It is a cached query controlled by the Application_Manager tool. */ --->
 SELECT Installation.installation_id, Installation.application_name, Installation.active_ind,
 	Installation.error_handling_enabled_ind, Installation.log_page_request_ind, Installation_URL.url_to_base,

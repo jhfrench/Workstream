@@ -1,5 +1,5 @@
 <!-- Administration/qry_deactivate_ref_risk_rating.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_deactivate_ref_risk_rating.cfm">
 	<responsibilities>

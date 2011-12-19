@@ -1,0 +1,145 @@
+<!-- Customers/circuit.xml
+	Author: Jeromy French -->
+<!--
+<fusedoc language="ColdFusion MX" specification="2.0" template="circuit.xml"/>
+	<responsibilities>
+		I defined the fuseactions for the Administration module. Please keep fuseactions in alphabetical order.
+	</responsibilities>
+	<properties>
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/31/2007" role="FuseCoder" comments="Created File"/>
+			$Id:$
+		</history>
+	</properties>
+	<IO>
+		<in>
+
+		</in>
+		<passthrough>
+
+		</passthrough>
+		<out>
+
+		</out>
+	</IO>
+</fusedoc>
+-->
+
+<circuit access="public">
+	<prefuseaction callsuper="true">
+		<include template="../common_files/act_header.cfm"/>
+	</prefuseaction>
+
+
+	<fuseaction name="date_locked">
+		<!-- <set name="attributes.object_name" value="Date Locked"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Change Date Locked"/>
+		<include template="pag_date_locked.cfm"/>
+	</fuseaction>
+	<fuseaction name="daily_process">
+		<set name="attributes.object_name" value="Daily Processes"/>
+		<include template="pag_daily_processes.cfm"/>
+	</fuseaction>
+	<!-- begin expense form -->
+	<fuseaction name="expense_entry">
+		<!-- <set name="attributes.object_name" value="Expenses"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Expense Entry"/>
+		<include template="pag_expense_entry.cfm"/>
+	</fuseaction>
+	<fuseaction name="expense_insert">
+		<!-- <set name="attributes.object_name" value="Expenses"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Expense Report Insert"/>
+		<include template="pag_expense_input.cfm"/>
+	</fuseaction>
+	<fuseaction name="expense_edit">
+		<!-- <set name="attributes.object_name" value="Expenses"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Edit Expense Report"/>
+		<include template="Pag_expense_edit.cfm"/>
+	</fuseaction>
+	<fuseaction name="expense_update">
+		<!-- <set name="attributes.object_name" value="Expenses"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Edit Expense Report"/>
+		<include template="Pag_expense_update.cfm"/>
+	</fuseaction>
+	<!-- end expense form -->
+	<fuseaction name="forceplanner_entry">
+		<!-- <set name="attributes.object_name" value="Forceplanner"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="ForcePlanner"/>
+		<include template="pag_forceplanner.cfm"/>
+	</fuseaction>
+	<fuseaction name="forceplanner_save">
+		<!-- <set name="attributes.object_name" value="Forceplanner"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="ForcePlanner"/>
+		<include template="pag_forceplanner_save.cfm"/>
+	</fuseaction>
+	<fuseaction name="fusedocer">
+		<!-- <set name="attributes.object_name" value="FuseDoc'er"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Fuse Doc'er"/>
+		<include template="pag_fusedocer.cfm"/>
+	</fuseaction>
+	<!-- Begin Home -->
+	<fuseaction name="home">
+		<set name="request.pagetitle" value="Tools Home"/>
+		<include template="pag_home.cfm"/>
+	</fuseaction>
+	<!-- End Home -->
+	<fuseaction name="insert_rate">
+		<!-- <set name="attributes.object_name" value="Rate Change"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Customer Rate Change"/>
+		<include template="pag_insert_rate_change.cfm"/>
+	</fuseaction>
+	<!-- End billing rate insert -->
+	<fuseaction name="invoice_details">
+		<!-- <set name="attributes.object_name" value="Invoice Details"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Invoice List"/>
+		<include template="pag_invoice_details.cfm"/>
+	</fuseaction>
+	<fuseaction name="invoice_notes_drill_down">
+		<!-- <set name="attributes.object_name" value="Invoice Details"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Invoice Notes"/>
+		<include template="pag_invoice_notes_drill_down.cfm"/>
+	</fuseaction>
+	<fuseaction name="invoice_list">
+		<!-- <set name="attributes.object_name" value="Invoice Details"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Invoice List"/>
+		<include template="pag_invoice_list.cfm"/>
+	</fuseaction>
+	<fuseaction name="query_interface">
+		<!-- <set name="attributes.object_name" value="Query Interface"/> -->
+		<set name="request.pagetitle" value="Query Interface"/>
+		<include template="pag_query_interface.cfm"/>
+	</fuseaction>
+	<!-- Begin billing rate insert -->
+	<fuseaction name="rate_change">
+		<!-- <set name="attributes.object_name" value="Rate Change"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Customer Rate Change"/>
+		<include template="pag_rate_change.cfm"/>
+	</fuseaction>
+						
+	<fuseaction name="tech_task">
+		<!-- <set name="attributes.object_name" value="Tech Support"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Tech Support"/>
+		<include template="pag_home.cfm"/>
+	</fuseaction>
+	<fuseaction name="timeline_setup">
+		<set name="request.pagetitle" value="Timeline Setup"/>
+		<include template="pag_timeline_setup.cfm"/>
+	</fuseaction>
+
+	<postfuseaction>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</postfuseaction>
+</circuit>

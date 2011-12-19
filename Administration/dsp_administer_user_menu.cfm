@@ -29,8 +29,13 @@
 
 <cfoutput>
 #attributes.display_message#
-<h2 style="margin:0px"><a href="index.cfm?fuseaction=Administration.manage_user_profiles">Manage User Profiles</a> &gt #get_user_information.first_name# #get_user_information.last_name#</h2>
-<a href='javascript:edit_navigation_access(#attributes.user_account_id#);'>Manage User's Access</a> | <a href="javascript:view_user_activity('#attributes.user_account_id#');">View User Activity</a>
+<h2 style="margin:0px" id="top-side"><a href="index.cfm?fuseaction=Administration.manage_user_profiles">Manage User Profiles</a> &gt #get_user_information.first_name# #get_user_information.last_name#</h2>
+<p>
+	Password last updated #dateformat(get_user_password.created_date, "mm/dd/yyyy")# #timeformat(get_user_password.created_date)# by #get_user_password.first_name# #get_user_password.last_name#.
+</p>
+<a href="javascript:reset_password(#attributes.user_account_id#);">Reset Password</a><br />
+<a href='javascript:edit_navigation_access(#attributes.user_account_id#);'>Manage User's Access</a><br />
+<a href="javascript:view_user_activity('#attributes.user_account_id#');">View User Activity</a>
 <cfform action="index.cfm?fuseaction=Administration.administer_user_menu" method="post" name="Edit_user_form">
 <div class="datachart" style="border:1px solid ##999999">
 <table cellspacing="1" cellpadding="4" width="100%" border="0" bgcolor="##cccccc" summary="options for editing a user">
@@ -40,19 +45,19 @@
 		<tr>
 			<td><label for="first_name">First Name</label>:</td>
 			<td>
-				<cfinput type="text" name="first_name" id="first_name" size="50" maxlength="4000" required="yes" message="You must enter your full name" value="#get_user_information.first_name#">
+				<cfinput type="text" name="first_name" id="first_name" size="50" maxlength ="4000" required="yes" message="You must enter your full name" value="#get_user_information.first_name#">
 			</td>
 		</tr>
 		<tr>
 			<td><label for="middle_initial">Middle Initial</label>:</td>
 			<td>
-				<cfinput type="text" name="middle_initial" id="middle_initial" size="50" maxlength="4000" required="no" message="You must enter your full name" value="#get_user_information.middle_initial#">
+				<cfinput type="text" name="middle_initial" id="middle_initial" size="50" maxlength ="4000" required="no" message="You must enter your full name" value="#get_user_information.middle_initial#">
 			</td>
 		</tr>
 		<tr>
 			<td><label for="last_name">Last Name</label>:</td>
 			<td>
-				<cfinput type="text" name="last_name" id="last_name" size="50" maxlength="4000" required="yes" message="You must enter your full name" value="#get_user_information.last_name#">
+				<cfinput type="text" name="last_name" id="last_name" size="50" maxlength ="4000" required="yes" message="You must enter your full name" value="#get_user_information.last_name#">
 			</td>
 		</tr>
 		<tr>
@@ -69,7 +74,7 @@
 			<td><label for="work_phone">Phone</label>:</td>
 			<td>
 				<cfset attributes.work_phone=replace(get_user_information.work_phone, "+", "", "ALL")>
-				<cfinput type="text" name="work_phone" id="work_phone" size="50" maxlength="4000" required="no" validate="telephone" validateat="onserver,onsubmit" value="#attributes.work_phone#">
+				<cfinput type="text" name="work_phone" id="work_phone" size="50" maxlength ="4000" required="no" validate="telephone" validateat="onserver,onsubmit" value="#attributes.work_phone#">
 			</td>
 		</tr>
 		<tr>
@@ -90,14 +95,6 @@
 					#get_user_information.account_status#
 					<input type="hidden" name="account_status_id" value="#get_user_information.account_status_id#" />
 				</cfif>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="javascript:reset_password(#attributes.user_account_id#);" onclick="hide();">Reset Password</a>
-			</td>
-			<td>
-					Password last updated #dateformat(get_user_password.created_date, "mm/dd/yyyy")# #timeformat(get_user_password.created_date)# by #get_user_password.first_name# #get_user_password.last_name#.
 			</td>
 		</tr>
 		</table>

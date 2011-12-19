@@ -1,12 +1,12 @@
 <!-- Administration/qry_insert_ref_business_function.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_insert_ref_business_function.cfm">
 	<responsibilities>
 		Query to insert new business function.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/21/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="6/21/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -33,7 +33,6 @@ VALUES (#attributes.parent_business_function_id#, '#attributes.description#', '#
 	#attributes.sort_order#, #session.user_account_id#, #attributes.active_ind#)
 </cfquery>
 <cfquery name="get_business_function_id" datasource="#application.datasources.main#">
-SELECT REF_Business_Function_SEQ.currval AS business_function_id
-FROM Dual
+SELECT IDENT_CURRENT('REF_Business_Function') AS business_function_id
 </cfquery>
 <cfset caller.attributes.business_function_id=get_business_function_id.business_function_id>

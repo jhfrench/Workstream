@@ -13,10 +13,10 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_insert_l_installation_supporting_db" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_insert_l_installation_supporting_db" datasource="#application.datasources.main#">
 INSERT INTO L_Installation_Supporting_DB (installation_id, supporting_database_id, database_server_id,
 	datasource_name, date_created, active_ind)
 SELECT #attributes.installation_id#, #attributes.supporting_database_id#, #evaluate("attributes.database_server_id_#database_count_ii#")#,
-	'#evaluate("attributes.datasource_name_#database_count_ii#")#', sysdate, 1
+	'#evaluate("attributes.datasource_name_#database_count_ii#")#', GETDATE(), 1
 FROM Dual
 </cfquery>

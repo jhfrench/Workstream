@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfform name="create_ref_database_server" action="index.cfm?fuseaction=#variables.circuit_label#.insert_ref_database_server" method="post">
+<cfform name="create_ref_database_server" action="index.cfm?fuseaction=main.insert_ref_database_server" method="post">
 <table width="60%">
 	<tr>
 		<td width="50">Database server name</td>

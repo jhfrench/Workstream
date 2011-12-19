@@ -1,12 +1,12 @@
 <!-- Home/dsp_forget_password_form.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_forget_password_form.cfm">
 	<responsibilities>
 		I provide the form where a user enters username to get password reset.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

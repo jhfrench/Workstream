@@ -20,29 +20,29 @@
 </fusedoc>
 --->
 <cfquery name="get_target_email_audience" datasource="#application.datasources.main#">
-SELECT Target_Email_Audience.demographics_id, Target_Email_Audience.email_address, NVL(Email_Blacklist.active_ind,0) AS blacklist_ind
+SELECT Target_Email_Audience.demographics_id, Target_Email_Audience.email_address, ISNULL(Email_Blacklist.active_ind,0) AS blacklist_ind
 FROM (
 <cfswitch expression="#attributes.user_type_id#">
 	<cfcase value="1">
-		SELECT MIN(Demographics.demographics_id) AS demographics_id, LOWER(Demographics.email_address) AS email_address
+		SELECT MIN(Demographics.demographics_id) AS demographics_id, Demographics.email_address
 		FROM Access_User_Business_Function
 			INNER JOIN Demographics ON Access_User_Business_Function.user_account_id=Demographics.user_account_id
 		WHERE Access_User_Business_Function.active_ind=1
 			AND Demographics.active_ind=1
-			AND Access_User_Business_Function.business_function_id=#get_screen_details.business_function_id# /*people who can manage email; ie: Small Business Specialists*/
-		GROUP BY LOWER(Demographics.email_address)
+			AND Access_User_Business_Function.business_function_id=#get_screen_details.business_function_id# /*people who can manage email*/
+		GROUP BY Demographics.email_address
 	</cfcase>
 	<cfcase value="2">
-		SELECT MIN(Demographics.demographics_id) AS demographics_id, LOWER(Demographics.email_address) AS email_address
+		SELECT MIN(Demographics.demographics_id) AS demographics_id, Demographics.email_address
 		FROM User_Email_Subscription
 			INNER JOIN Demographics ON User_Email_Subscription.user_account_id=Demographics.user_account_id
 		WHERE User_Email_Subscription.active_ind=1
 			AND Demographics.active_ind=1
 			AND User_Email_Subscription.email_category_id IN (<cfqueryparam cfsqltype="cf_sql_integer" list="yes" value="#attributes.email_category_id#">)
-		GROUP BY LOWER(Demographics.email_address)
+		GROUP BY Demographics.email_address
 	</cfcase>
 	<cfcase value="3">
-		SELECT MIN(Demographics.demographics_id) AS demographics_id, LOWER(Demographics.email_address) AS email_address
+		SELECT MIN(Demographics.demographics_id) AS demographics_id, Demographics.email_address
 		FROM Business
 			INNER JOIN Link_Business_Contact ON Business.parent_business_id=Link_Business_Contact.parent_business_id
 			INNER JOIN Demographics ON Link_Business_Contact.demographics_id=Demographics.demographics_id<cfif comparenocase(attributes.email_category_id, 0)>
@@ -76,7 +76,7 @@ FROM (
 				WHERE Link_Business_Address.active_ind=1
 					AND Address.state_province_id IN (<cfqueryparam cfsqltype="cf_sql_integer" list="yes" value="#attributes.state_province_id#">)
 				)</cfif>
-		GROUP BY LOWER(Demographics.email_address)
+		GROUP BY Demographics.email_address
 	</cfcase>
 </cfswitch>
 	) Target_Email_Audience

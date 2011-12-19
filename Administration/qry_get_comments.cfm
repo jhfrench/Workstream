@@ -1,12 +1,12 @@
 <!-- Administration/qry_get_comments.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_comments.cfm">
 	<responsibilities>
 		Query to get comments from Comments table.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/9/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="7/9/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -31,7 +31,7 @@ WHERE active_ind=1
 </cfquery>--->
 <cfparam name="comments_id" default="0">
 <cfquery name="get_comments" datasource="#application.datasources.main#">
-SELECT comments_id, comments_id, SUBSTR(description, 1, 100)||'...' as description
+SELECT comments_id, comments_id, SUBSTRING(description, 1, 100)+'...' as description
 FROM Comments
 WHERE <cfif attributes.comments_id NEQ 0>comments_id=#attributes.comments_id#<cfelse>active_ind=1</cfif>
 ORDER BY description

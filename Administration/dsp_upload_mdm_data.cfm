@@ -25,18 +25,18 @@
 SELECT *
 FROM Hierarchy_Upload
 WHERE parent_organization_id IS NULL
-	AND NVL(theme,'.')!='.'
-ORDER BY NVL(project_wbs,'!'), NVL(program,'!'), NVL(theme,'!'),
-	NVL(mission,'!')
+	AND ISNULL(theme,'.')!='.'
+ORDER BY ISNULL(project_wbs,'!'), ISNULL(program,'!'), ISNULL(theme,'!'),
+	ISNULL(mission,'!')
 </cfquery>
 
 <cfif get_bad_hierarchy_upload.recordcount EQ 0 AND variables.error_ind EQ 0>
-	All of the records from your file were successfully integrated into the <cfoutput>#application.product_name#</cfoutput> <acronym title="NASA Structure Management">NSM</acronym> structure.
+	All of the records from your file were successfully integrated into the FAAD <acronym title="NASA Structure Management">NSM</acronym> structure.
 <cfelseif get_bad_hierarchy_upload.recordcount>
-	<table border="0" cellpadding="1" cellspacing="0" summary="Table lists all the records that could not be integrated into the <cfoutput>#application.product_name#</cfoutput> NSM structure">
+	<table border="0" cellpadding="1" cellspacing="0" summary="Table lists all the records that could not be integrated into the FAAD NSM structure">
 		<tr>
 			<td colspan="7" title="table cell describes the data held in thecells below">
-				The following records could not be integrated into the <cfoutput>#application.product_name#</cfoutput> <acronym title="NASA Structure Management">NSM</acronym> structure:
+				The following records could not be integrated into the FAAD <acronym title="NASA Structure Management">NSM</acronym> structure:
 			</td>
 		</tr>
 		<tr>

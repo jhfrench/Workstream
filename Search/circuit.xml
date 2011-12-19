@@ -1,0 +1,65 @@
+<!-- Customers/circuit.xml
+	Author: Jeromy French -->
+<!--
+<fusedoc language="ColdFusion MX" specification="2.0" template="circuit.xml"/>
+	<responsibilities>
+		I defined the fuseactions for the Administration module. Please keep fuseactions in alphabetical order.
+	</responsibilities>
+	<properties>
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/31/2007" role="FuseCoder" comments="Created File"/>
+			$Id:$
+		</history>
+	</properties>
+	<IO>
+		<in>
+
+		</in>
+		<passthrough>
+
+		</passthrough>
+		<out>
+
+		</out>
+	</IO>
+</fusedoc>
+-->
+
+<circuit access="public">
+	<prefuseaction callsuper="true">
+		<include template="../common_files/act_header.cfm"/>
+	</prefuseaction>
+
+
+		<!-- Begin  Search -->
+		<fuseaction name="home">
+			<!-- <set name="attributes.object_name" value="search">	
+			<include template="../common_files/act_object_access.cfm"> -->
+			<set name="request.pagetitle" value="Search"/>
+			<include template="pag_search.cfm"/>
+		</fuseaction>
+		<!-- End  Search-->
+		<!-- Begin Search Results -->
+		<fuseaction name="output">
+			<!-- <set name="attributes.object_name" value="search">	
+			<include template="../common_files/act_object_access.cfm"> -->
+			<set name="request.pagetitle" value="Search Results"/>
+			<include template="pag_view_results.cfm"/>
+		</fuseaction>
+		<fuseaction name="search">
+			<!-- <set name="attributes.object_name" value="search">	
+			<include template="../common_files/act_object_access.cfm"> -->
+			<set name="request.pagetitle" value="Search"/>
+			<include template="pag_search.cfm"/>
+		</fuseaction>
+		<fuseaction name="edit_search">
+			<!-- <set name="attributes.object_name" value="search">	
+			<include template="../common_files/act_object_access.cfm"> -->
+			<set name="request.pagetitle" value="Search"/>
+			<include template="pag_edit_search.cfm"/>
+		</fuseaction>
+		<!-- End Search Results -->
+
+	<postfuseaction>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</postfuseaction>
+</circuit>

@@ -24,7 +24,7 @@
 --->
 
 <cfquery name="get_requirement_type" datasource="#application.datasources.main#">
-SELECT requirement_type_id, description, sort_order
+SELECT requirement_type_id, description,sort_order
 FROM REF_Requirement_Type
 <cfif attributes.requirement_type_id NEQ 0>WHERE requirement_type_id=#attributes.requirement_type_id#</cfif>
 ORDER BY sort_order

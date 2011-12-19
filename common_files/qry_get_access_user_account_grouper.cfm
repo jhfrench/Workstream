@@ -31,7 +31,7 @@ WHERE active_ind=1
 	AND module_id=#attributes.module_id#
 	AND privilege_id=#attributes.privilege_id#
 	AND organization_id=#attributes.organization_id#<cfif isdefined("attributes.center_id")>
-	AND NVL(center_id,0)=#attributes.center_id#</cfif>
+	AND ISNULL(center_id,0)=#attributes.center_id#</cfif>
 	AND user_account_id=#attributes.user_account_id#
 </cfquery>
 <cfset caller.get_access_user_account_grouper=get_access_user_account_grouper>

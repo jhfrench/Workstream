@@ -13,7 +13,6 @@
 </fusedoc>
 --->
 
-<cfquery name="get_page_request_id" datasource="#application.datasources.application_manager#">
-SELECT LOG_PAGE_REQUEST_SEQ.CURRVAL AS page_request_id
-FROM Dual
+<cfquery name="get_page_request_id" datasource="#application.datasources.main#">
+SELECT IDENT_CURRENT('LOG_Page_Request') AS page_request_id
 </cfquery>

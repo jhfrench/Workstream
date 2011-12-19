@@ -1,5 +1,5 @@
 <!-- common_files/qry_gt_ref_state.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_edit_ref_state.cfm">
 	<responsibilities>

@@ -1,5 +1,5 @@
 <!-- Administration/qry_update_application_name.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_update_application_name.cfm">
 	<responsibilities>

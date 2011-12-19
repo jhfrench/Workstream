@@ -22,8 +22,7 @@
 --->
 
 <cfquery name="get_expired_passwords" datasource="#application.datasources.main#">
-SELECT Demographics.demographics_id, Demographics.user_account_id, Demographics.email_address,
-	User_Account.user_name
+SELECT Demographics.user_account_id, Demographics.email_address, User_Account.user_name
 FROM User_Password
 	INNER JOIN Demographics ON User_Password.user_account_id=Demographics.user_account_id
 	INNER JOIN User_Account ON User_Password.user_account_id=User_Account.user_account_id
@@ -32,15 +31,5 @@ WHERE User_Password.active_ind=1
 	AND Demographics.active_ind=1
 	AND Link_User_Account_Status.active_ind=1
 	AND Link_User_Account_Status.account_status_id=1
-	AND 90-TRUNC(SYSDATE-User_Password.created_date) BETWEEN -179 AND 1
-	/*Vendor registrations only need to renew once a year*/
-	AND Demographics.demographics_id NOT IN (
-		SELECT demographics_id
-		FROM Business
-			INNER JOIN Link_Business_Contact ON Business.parent_business_id=Link_Business_Contact.parent_business_id
-		WHERE Business.active_ind=1
-			AND Link_Business_Contact.active_ind=1
-			AND Link_Business_Contact.contact_type_id=8
-	)
-	AND Demographics.email_address LIKE '%@%' /*valid emails only*/
+	AND 90-(DATEDIFF(D, User_Password.created_date, GETDATE())) BETWEEN -179 AND 1
 </cfquery>

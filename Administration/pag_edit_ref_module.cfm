@@ -1,12 +1,12 @@
 <!-- Administration/pag_edit_ref_module.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_edit_ref_module.cfm">
 	<responsibilities>
 		I display the form for editing module and act(send information to DB) when the form is submitted.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -24,7 +24,6 @@
 </fusedoc>
 --->
 
-<cfparam name="attributes.method" default="">
 <cfparam name="attributes.module_id" default="0">
 <cfparam name="attributes.description" default="">
 
@@ -39,3 +38,4 @@
 <cfinclude template="../common_files/qry_get_ref_module.cfm">
 
 <cfinclude template="dsp_edit_ref_module.cfm">
+

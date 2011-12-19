@@ -28,7 +28,6 @@
 	<prefuseaction callsuper="true">
 		<include template="../common_files/act_header.cfm"/>
 	</prefuseaction>
-	
 	<fuseaction name="add_user">
 		<include template="pag_add_user.cfm"/>
 	</fuseaction>
@@ -38,17 +37,11 @@
 	<fuseaction name="administer_user_menu">
 		<include template="pag_administer_user_menu.cfm"/>
 	</fuseaction>
-	<fuseaction name="business_category_distribution">
-		<include template="pag_business_category_distribution.cfm"/>
-	</fuseaction>
 	<fuseaction name="cause_error">
 		<include template="pag_cause_error.cfm"/>
 	</fuseaction>
 	<fuseaction name="clean_up_old_accounts">
 		<include template="act_clean_up_old_accounts.cfm"/>
-		<include template="act_vendor_renewal_notices.cfm"/>
-		<include template="act_refresh_ccr_data.cfm"/>
-		<include template="act_awards_module_visibility.cfm"/>
 	</fuseaction>
 	<fuseaction name="copy_user_access">
 		<include template="pag_copy_user_access.cfm"/>
@@ -56,20 +49,20 @@
 	<fuseaction name="create_update_triggers">
 		<include template="pag_create_update_triggers.cfm"/>
 	</fuseaction>
+	<fuseaction name="data_factory_ping">
+		<include template="act_data_factory_ping.cfm"/>
+	</fuseaction>
 	<fuseaction name="display_help_article">
 		<include template="pag_display_help_article.cfm"/>
-	</fuseaction>
-	<fuseaction name="edit_help_article">
-		<include template="pag_edit_help_articles.cfm"/>
 	</fuseaction>
 	<fuseaction name="edit_help_faq">
 		<include template="pag_edit_help_faq.cfm"/>
 	</fuseaction>
+	<fuseaction name="edit_help_article">
+		<include template="pag_edit_help_articles.cfm"/>
+	</fuseaction>
 	<fuseaction name="edit_link_business_function_hier">
 		<include template="pag_edit_link_business_function_hier.cfm"/>
-	</fuseaction>
-	<fuseaction name="edit_link_ccr_nvdb_category">
-		<include template="pag_edit_link_ccr_nvdb_category.cfm"/>
 	</fuseaction>
 	<fuseaction name="edit_link_module_privilege">
 		<include template="pag_edit_link_module_privilege.cfm"/>
@@ -101,26 +94,8 @@
 	<fuseaction name="edit_ref_account_status">
 		<include template="pag_edit_ref_account_status.cfm"/>
 	</fuseaction>
-	<fuseaction name="edit_ref_address_type">
-		<include template="pag_edit_ref_address_type.cfm"/>
-	</fuseaction>
-	<fuseaction name="edit_ref_business_category">
-		<include template="pag_edit_ref_business_category.cfm"/>
-	</fuseaction>
 	<fuseaction name="edit_ref_business_function">
 		<include template="pag_edit_ref_business_function.cfm"/>
-	</fuseaction>
-	<fuseaction name="edit_ref_ccr_business_type">
-		<include template="pag_edit_ref_ccr_business_type.cfm"/>
-	</fuseaction>
-	<fuseaction name="edit_ref_ccr_certification_type">
-		<include template="pag_edit_ref_ccr_certification_type.cfm"/>
-	</fuseaction>
-	<fuseaction name="edit_ref_ccr_organization_type">
-		<include template="pag_edit_ref_ccr_organization_type.cfm"/>
-	</fuseaction>
-	<fuseaction name="edit_ref_ccr_status">
-		<include template="pag_edit_ref_ccr_status.cfm"/>
 	</fuseaction>
 	<fuseaction name="edit_ref_center">
 		<include template="pag_edit_ref_center.cfm"/>
@@ -128,17 +103,8 @@
 	<fuseaction name="edit_ref_comments_type">
 		<include template="pag_edit_ref_comments_type.cfm"/>
 	</fuseaction>
-	<fuseaction name="edit_ref_contact_type">
-		<include template="pag_edit_ref_contact_type.cfm"/>
-	</fuseaction>
 	<fuseaction name="edit_ref_country">
 		<include template="pag_edit_ref_country.cfm"/>
-	</fuseaction>
-	<fuseaction name="edit_ref_date">
-		<include template="pag_edit_ref_date.cfm"/>
-	</fuseaction>
-	<fuseaction name="edit_ref_email_category">
-		<include template="pag_edit_ref_email_category.cfm"/>
 	</fuseaction>
 	<fuseaction name="edit_ref_form_element_type">
 		<include template="pag_edit_ref_form_element_type.cfm"/>
@@ -152,17 +118,8 @@
 	<fuseaction name="edit_ref_hierarchy_level">
 		<include template="pag_edit_ref_hierarchy_level.cfm"/>
 	</fuseaction>
-	<fuseaction name="edit_ref_m_p_approval_status">
-		<include template="pag_edit_ref_m_p_approval_status.cfm"/>
-	</fuseaction>
-	<fuseaction name="edit_ref_m_p_status">
-		<include template="pag_edit_ref_m_p_status.cfm"/>
-	</fuseaction>
 	<fuseaction name="edit_ref_module">
-		<include template="pag_edit_ref_module.cfm"/>
-	</fuseaction>
-	<fuseaction name="edit_ref_naics">
-		<include template="pag_edit_ref_naics.cfm"/>
+		<include template="pag_edit_ref_module"/>
 	</fuseaction>
 	<fuseaction name="edit_ref_numeric_multiplier">
 		<include template="pag_edit_ref_numeric_multiplier.cfm"/>
@@ -203,6 +160,27 @@
 	<fuseaction name="edit_ref_upload_source">
 		<include template="pag_edit_ref_upload_source.cfm"/>
 	</fuseaction>
+	<fuseaction name="edit_ref_email_category">
+		<include template="pag_edit_ref_email_category.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_business_category">
+		<include template="pag_edit_ref_business_category.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_naics">
+		<include template="pag_edit_ref_naics.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_contact_type">
+		<include template="pag_edit_ref_contact_type.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_address_type">
+		<include template="pag_edit_ref_address_type.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_m_p_approval_status">
+		<include template="pag_edit_ref_m_p_approval_status.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_ref_m_p_status">
+		<include template="pag_edit_ref_m_p_status.cfm"/>
+	</fuseaction>
 	<fuseaction name="edit_system_note">
 		<include template="pag_edit_system_note.cfm"/>
 	</fuseaction>
@@ -230,6 +208,9 @@
 	<fuseaction name="manage_email">
 		<include template="pag_manage_email.cfm"/>
 	</fuseaction>
+	<fuseaction name="manage_opt-out_list">
+		<include template="pag_manage_opt-out_list.cfm"/>
+	</fuseaction>
 	<fuseaction name="manage_email_subscriptions">
 		<include template="pag_manage_email_subscriptions.cfm"/>
 	</fuseaction>
@@ -238,9 +219,6 @@
 	</fuseaction>
 	<fuseaction name="manage_nsm_structure">
 		<include template="pag_manage_nsm_structure.cfm"/>
-	</fuseaction>
-	<fuseaction name="manage_opt-out_list">
-		<include template="pag_manage_opt-out_list.cfm"/>
 	</fuseaction>
 	<fuseaction name="manage_system_access">
 		<include template="pag_manage_system_access.cfm"/>
@@ -264,11 +242,8 @@
 		<include template="pag_opt-out.cfm"/>
 	</fuseaction>
 	<fuseaction name="process_upload">
-		<include template="../common_files/act_process_upload.cfm"/>
+		<include template="act_process_upload.cfm"/>
 		<include template="pag_upload.cfm"/>
-	</fuseaction>
-	<fuseaction name="refresh_ccr_data">
-		<include template="act_refresh_ccr_data.cfm"/>
 	</fuseaction>
 	<fuseaction name="reset_application_variables">
 		<include template="qry_update_application_name.cfm"/>
@@ -304,16 +279,15 @@
 	<fuseaction name="view_log_upload">
 		<include template="pag_view_log_upload.cfm"/>
 	</fuseaction>
-	<fuseaction name="view_sent_email">
-		<include template="pag_view_sent_email.cfm"/>
-	</fuseaction>
 	<fuseaction name="view_user_access">
 		<include template="pag_view_user_access.cfm"/>
 	</fuseaction>
 	<fuseaction name="view_user_activity">
 		<include template="pag_view_user_activity.cfm"/>
 	</fuseaction>
-
+	<fuseaction name="welcome">
+		<include template="pag_welcome.cfm"/>
+	</fuseaction>
 	<postfuseaction>
 		<include template="../common_files/dsp_footer.cfm"/>
 	</postfuseaction>

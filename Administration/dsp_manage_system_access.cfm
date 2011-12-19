@@ -1,10 +1,10 @@
 <!-- Administration/dsp_manage_system_access.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_manage_system_access.cfm">
 	<responsibilities>
 	</responsibilities>
-		Page to help administrator to manage application system access.
+		Page to help administrator to manage FAAD system access.
 	<properties>
 		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="10/4/2007" role="FuseCoder" comments="Created File">
 			$Id:$
@@ -24,7 +24,7 @@
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the data held in the table below">
 	<tr>
 		<th align="left">
-			<h2 style="margin:0px">Manage System Access</h2>
+			<h2 style="margin:0px" id="top-side">Manage System Access</h2>
 		</th>
 	</tr>
 </table>
@@ -41,13 +41,13 @@
 		<td id="description" scope="row"><label for="module_id_#module_id#">#description#</label></td>
 		<td id="module_id"><input type="checkbox" name="module_id" id="module_id_#module_id#" value="#module_id#"<cfif get_ref_module.locked_ind EQ 1> checked="checked"</cfif>/></td>
 		<td id="comments_#module_id#">
-        <input type="text" name="comments_#module_id#" id="comments" value="<cfif len(get_ref_module.comments)>#get_ref_module.comments#</cfif>" maxlength="4000" size="50" title="Enter comments for #description#" /></td>
+        <input type="text" name="comments_#module_id#" id="comments" value="<cfif len(get_ref_module.comments)>#get_ref_module.comments#</cfif>" maxlength="4000" size="50" title="Enter comments for #description#"/></td>
 	</tr>
 	</cfloop>
 	<tr bgcolor="##dddddd">
 		<td align="center" colspan="3">
-			<input type="hidden" name="module_id_list" value="#variables.all_module_id#" />
-			<input type="submit" name="method" value="Submit" alt="submit" />&nbsp;&nbsp;
+			<input type="hidden" name="module_id_list" value="#variables.all_module_id#"/>
+			<input type="submit" alt="submit" name="method" value="Submit"/>&nbsp;&nbsp;
 			<input type="button" name="cancel_button" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

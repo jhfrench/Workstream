@@ -1,12 +1,12 @@
 <!-- common_files/act_administer_sorter_table.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_administer_sorter_table.cfm">
 	<responsibilities>
 		I act (send information to DB) when a user edits data in the sorter table and submits the form.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/28/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="6/28/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

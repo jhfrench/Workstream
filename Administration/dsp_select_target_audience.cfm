@@ -19,10 +19,10 @@
 	</IO>
 </fusedoc>
 --->
-Select the audience you wish to receive your email:
+Select the audience you wish to receive your emal:
 <p>
-<input type="radio" name="user_type_id" id="user_type_id_1" value="1" onclick="Element.hide('other_options');Element.hide('email_category');" /><label for="user_type_id_1">Small Business Specialists</label><br />
-<input type="radio" name="user_type_id" id="user_type_id_2" value="2" onclick="Element.hide('other_options');Element.show('email_category');" /><label for="user_type_id_2"><acronym title="National Aeronautics and Space Administration">NASA</acronym> Customer Users</label><br />
+<input type="radio" name="user_type_id" id="user_type_id_1" value="1" onclick="Element.hide('other_options');Element.hide('email_category');" /><label for="user_type_id_1">Core Administration Users</label><br />
+<input type="radio" name="user_type_id" id="user_type_id_2" value="2" onclick="Element.hide('other_options');Element.show('email_category');" /><label for="user_type_id_2">NASA Customer Users</label><br />
 <input type="radio" name="user_type_id" id="user_type_id_3" value="3" onclick="Element.show('other_options');Element.show('email_category');" /><label for="user_type_id_3">Public Vendor POC Users</label>
 </p>
 <div id="other_options" style="display:none">

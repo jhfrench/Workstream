@@ -38,7 +38,7 @@
 			<tr>
 				<td width="20%"><label for="first_name">First Name</label>:</td>
 				<td width="80%">
-					<cfinput type="text" name="first_name" id="first_name" size="50" maxlength="4000" required="yes" message="You must enter your full name" value="#givenname#">
+					<cfinput type="text" name="first_name" id="first_name" size="50" maxlength ="4000" required="yes" message="You must enter your full name" value="#givenname#">
 				</td>
 			</tr>
 			<tr>
@@ -50,13 +50,13 @@
 			<tr>
 				<td width="20%"><label for="last_name">Last Name</label>:</td>
 				<td width="80%">
-					<cfinput type="text" name="last_name" id="last_name" size="50" maxlength="4000" required="yes" message="You must enter your full name" value="#sn#">
+					<cfinput type="text" name="last_name" id="last_name" size="50" maxlength ="4000" required="yes" message="You must enter your full name" value="#sn#">
 				</td>
 			</tr>
 			<tr>
 				<td width="20%"><label for="user_name">Username</label>:</td>
 				<td width="80%">#agencyuid#
-					<input type="hidden" name="user_name" id="user_name" size="50" maxlength="4000" required="yes" message="You must enter a user name" value="#agencyuid#" />
+					<input type="hidden" name="user_name" id="user_name" size="50" maxlength ="4000" required="yes" message="You must enter a user name" value="#agencyuid#" />
 				</td>
 			</tr>
 			<tr>
@@ -69,7 +69,7 @@
 				<td width="20%"><label for="work_phone">Work Phone</label>:</td>
 				<td width="80%">
 					<cfset attributes.work_phone=replace(telephonenumber, "+", "", "ALL")>
-					<cfinput type="text" name="work_phone" id="work_phone" size="50" maxlength="4000" required="no" validate="telephone" validateat="onserver, onsubmit" value="#attributes.work_phone#">
+					<cfinput type="text" name="work_phone" id="work_phone" size="50" maxlength ="4000" required="no" validate="telephone" validateat="onserver, onsubmit" value="#attributes.work_phone#">
 				</td>
 			</tr>
 			<tr>
@@ -86,8 +86,8 @@
 		<td align="center">
 			<input type="hidden" name="center_id" value="#get_ref_center.center_id#" />
 			<input type="hidden" name="uupic" value="#attributes.uupic#" />
-			<cfinput type="submit" name="method" alt="Add User" value="Add User">
-			<cfinput type="button" name="cancel" value="Cancel" alt="cancel" onClick="this.form.action='index.cfm?fuseaction=Administration.add_user'; this.form.reset(); this.form.submit();">
+			<cfinput name="method" type="submit" alt="Add User" value="Add User">
+			<cfinput name="cancel" type="button" value="Cancel" alt="cancel" onClick="this.form.action='index.cfm?fuseaction=Administration.add_user'; this.form.reset(); this.form.submit();">
 		</td>
 	</tr>
 </table>

@@ -1,5 +1,5 @@
 <!-- Administration/act_edit_user.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_edit_user.cfm">
 	<responsibilities>

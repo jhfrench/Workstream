@@ -1,12 +1,12 @@
 <!-- Administration/dsp_edit_ref_screen.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_ref_screen.cfm">
 	<responsibilities>
 		I display the form for screen maintenance.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/15/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="6/15/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -33,10 +33,8 @@
 			<cfform name="choose_screen" action="" method="post">
 			<tr>
 				<td colspan="3">
-					Retrieve an existing <label for="screen_id">screen</label>:<br />
-					<cfselect name="screen_id" id="screen_id" value="screen_id" display="fuseaction" query="get_ref_screen" selected="#attributes.screen_id#"></cfselect>
-					<input type="submit" name="method" value="Retrieve Screen Settings" /><br />
-					<a href="index.cfm?fuseaction=Administration.edit_ref_screen">Add new REF_Screen record</a>
+					<cfselect name="screen_id" value="screen_id" display="fuseaction" query="get_ref_screen" selected="#attributes.screen_id#"></cfselect><input type="submit" alt="Retrieve Screen Settings" value="Retrieve Screen Settings" />
+					<br /><a href="index.cfm?fuseaction=Administration.edit_ref_screen">Add new REF_Screen record</a>
 				</td>
 			</tr>
 			</cfform>
@@ -51,7 +49,7 @@
 			<tr>
 				<td><label for="new_fuseaction">Fuseaction (no need to type '[module].')</label>: </td>
 				<td align="left" colspan="2">
-					<cfinput type="text" name="new_fuseaction" id="new_fuseaction" value="#listlast(attributes.new_fuseaction,'.')#" size="45" maxlength="45" required="yes" message="Please enter fuseaction">
+					<cfinput type="text" name="new_fuseaction" id="fuseaction" value="#listlast(attributes.new_fuseaction,'.')#" size="45" maxlength="45" required="yes" message="Please enter fuseaction">
 				</td>
 			</tr>
 			<tr>
@@ -68,7 +66,7 @@
 					<br />(If supplied, system will check for the existence of this variable. If the variable is not defined, system will redirect user to fuseaction selected as 'relocate')
 				</td>
 				<cfif attributes.screen_id EQ 0>
-					<input type="hidden" name="active_ind" value="1" />
+					<input type="hidden" name="active_ind" value="1"/>
 				<cfelse>
 				<td align="left">
 					<cfif attributes.active_ind>
@@ -116,7 +114,7 @@
 		<td align="center" colspan="3">
 			<cfoutput>
 			<input type="hidden" name="screen_id" value="#attributes.screen_id#" />
-			<input type="submit" name="submit" value=" Submit " alt="submit" />
+			<input type="submit" alt="submit" value="Submit" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 			</cfoutput>
 		</td>

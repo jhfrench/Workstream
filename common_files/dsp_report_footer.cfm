@@ -3,7 +3,7 @@
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_report_footer.cfm">
 	<responsibilities>
-		I display footer for application reports.
+		I display footer for FAAD application.
 	</responsibilities>
 	<properties>
 		<history email="marithe.le@nasa.gov" author="Marithe Le" type="create" date="4/21/2008" role="FuseCoder" comments="Created File">

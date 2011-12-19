@@ -1,12 +1,12 @@
 <!-- Home/dsp_edit_user_profile_form.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_user_profile_form.cfm">
 	<responsibilities>
 		I display the form for editing user profile.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/3/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="9/3/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -37,20 +37,20 @@
 			<tr>
 				<td><label for="first_name">First Name</label>:</td>
 				<td>
-					<cfinput type="text" name="first_name" id="first_name" value="#get_user_information_profile.first_name#" size="50" maxlength="4000" required="yes" message="You must enter your full name">
+					<cfinput type="text" name="first_name" id="first_name" size="50" required="yes"  message="You must enter your full name" value="#get_user_information_profile.first_name#" maxlength="4000">
 				</td>
 			</tr>
 			<!--- add middle_initial here --->
 			<tr>
 				<td><label for="middle_initial">Middle Initial</label>:</td>
 				<td>
-					<cfinput type="text" name="middle_initial" value="#get_user_information_profile.middle_initial#" size="50" maxlength="50" required="no" message="You must enter your full name" />
+					<cfinput type="text" name="middle_initial" size="50" maxlength="50" required="no" message="You must enter your full name" value="#get_user_information_profile.middle_initial#">
 				</td>
 			</tr>
 			<tr>
 				<td><label for="last_name">Last Name</label>:</td>
 				<td>
-					<cfinput type="text" name="last_name" id="last_name" value="#get_user_information_profile.last_name#" size="50" maxlength="4000" required="yes" message="You must enter your full name" />
+					<cfinput type="text" name="last_name" id="last_name" size="50" required="yes" message="You must enter your full name" value="#get_user_information_profile.last_name#">
 				</td>
 			</tr>
 			<tr>
@@ -60,14 +60,14 @@
 			<tr>
 				<td><label for="email_address">Email</label>:</td>
 				<td>
-					<cfinput type="text" name="email_address" id="email_address" value="#get_user_information_profile.email_address#" size="50" maxlength="4000" required="yes" validate="email" validateat="onserver, onsubmit" message="You must enter a valid email address." />
+					<cfinput type="text" name="email_address" id="email_address" size="50" maxlength="4000" required="yes" validate="email" validateat="onserver, onsubmit" message="You must enter a valid email address." "#get_user_information_profile.email_address#" />
 				</td>
 			</tr>
 			<tr>
 				<td><label for="work_phone">Phone</label>:</td>
 				<td>
-					<cfset attributes.work_phone=replace(get_user_information_profile.work_phone, "+", "", "ALL")>
-					<cfinput type="text" name="work_phone" id="work_phone" value="#attributes.work_phone#" size="50" maxlength="4000" required="no" validate="telephone" validateat="onserver,onsubmit">
+					<cfset attributes.work_phone=Replace(get_user_information_profile.work_phone, "+", "", "ALL")>
+					<cfinput type="text" name="work_phone" id="work_phone" size="50" required="no" validate="telephone"  validateat="onserver,onsubmit" value="#attributes.work_phone#" maxlength="4000">
 				</td>
 			</tr>
 			<tr>

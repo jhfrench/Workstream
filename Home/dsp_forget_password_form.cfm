@@ -1,12 +1,12 @@
 <!-- Home/dsp_forget_password_form.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_forget_password_form.cfm">
 	<responsibilities>
 		I provide the form where a user enters username to get password reset.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -35,7 +35,7 @@
 				<label for="username" accesskey="u">Username</label>:
 			</td>
 			<td width="89%">
-				<cfinput type="text" name="user_name" id="user_name" size="20" maxlength="4000" value="#xmlformat(attributes.user_name)#" required="yes" message="Please enter a username." />
+				<cfinput name="user_name" id="user_name" type="text" size="20" value="#xmlformat(attributes.user_name)#" required="yes" message="Please enter username" maxlength="4000">
 			</td>
 		</tr>
 		<tr>

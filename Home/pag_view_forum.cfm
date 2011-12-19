@@ -93,7 +93,7 @@
 			
 						<tr bgcolor="D7D8DA">
 						<!--- for formatting purposes the colspan of the top level must be equivalent to the number of levels defined in the custom tag.  the first td should contain the collapse and expand functionality --->				
-							<td valign="top"><div class="forum" id="collapse#discussion_id#" title="icon will collapse or expand the entire discussion thread an all sub topics"><a href="javascript:void(0);" onclick="javascript:blocking('#discussion_id#');" /><img src="images/collapse.gif" alt="icon will collapse or expand discussion entry #discussion_id#" border="0" name="collapse-expand#discussion_id#" /></a></div>
+							<td valign="top"><div class="forum" id="collapse#discussion_id#" title="icon will collapse or expand the entire discussion thread an all sub topics"><a href="##" onclick="javascript:blocking('#discussion_id#');"><img src="images/collapse.gif" alt="icon will collapse or expand discussion entry #discussion_id#" border="0" name="collapse-expand#discussion_id#"></a></div>
 					
 							<div class="forum" id="#discussion_id#" title="Top level discussion thread entry">
 							Posted By: #created_by# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #dateformat(created_date, "mm/dd/yyyy")# at #timeformat(created_date, 'h:mm tt')#

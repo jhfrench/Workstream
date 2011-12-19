@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_get_application_specific_settings" cachedafter="02/02/1978" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_get_application_specific_settings" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT setting_name, setting_value
 FROM Custom_Setting
 WHERE active_ind=1

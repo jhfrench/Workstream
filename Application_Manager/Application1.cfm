@@ -29,10 +29,10 @@
 	sessiontimeout="0.04166666666665"
 	setclientcookies="yes"
 	setdomaincookies="no">
-<cfset application.product_name="NVDB">
-<cfset application.html_title="NASA Vendor Database">
+<cfset application.product_name="FAAD">
+<cfset application.html_title="Federal Assistance Award Data">
 <cfset application.active_ind="1">
-<cfset application.erroremailfrom="NVDB@nasa.gov">
+<cfset application.erroremailfrom="FAAD@nasa.gov">
 <cfset application.product_id="122">
 <cfset application.support_email_recipients="">
 <cfset application.installation_id="459">
@@ -51,7 +51,7 @@
 <cfset application.application_specific_settings.show_requirements_ind=1 >
 
 <cfset application.browser_navigation_enabled_ind="1">
-<cfset application.datasources.main="NVDB">
+<cfset application.datasources.main="FAAD">
 
 <cfswitch expression="#cgi.http_host#">
 	<cfcase value="nash.hitsshq.com">

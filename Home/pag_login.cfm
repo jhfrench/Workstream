@@ -1,12 +1,12 @@
 <!-- Home/pag_login.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_login.cfm">
 	<responsibilities>
 		I act as the page that contains the login form and the login action template.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfform name="create_installation_step2" action="index.cfm?fuseaction=#variables.circuit_label#.insert_installation" method="post">
+<cfform name="create_installation_step2" action="index.cfm?fuseaction=main.insert_installation" method="post">
 <table width="60%">
 	<tr>
 		<td colspan="2" class="Forum_AltHeaderText">Installation</td>

@@ -13,8 +13,7 @@
 </fusedoc>
 --->
 
-
-<cfquery name="insert_page_request" datasource="#application.datasources.application_manager#">
+<cfquery name="insert_page_request" datasource="#application.datasources.main#">
 INSERT INTO LOG_Page_Request (url_requested, user_identification)
 VALUES (<cfqueryparam cfsqltype="cf_sql_varchar" value="#cgi.http_host##cgi.script_name#?#cgi.query_string#">, <cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.user_identification#">)
 </cfquery>

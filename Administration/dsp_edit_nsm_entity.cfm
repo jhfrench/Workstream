@@ -24,11 +24,11 @@
 <cfinclude template="qry_get_nsm_entity.cfm">
 
 <cfquery name="get_entity_associated_data_counts" datasource="#application.datasources.main#">
-SELECT NVL(SUM(NVL(active_ind,0)),0) AS count1
+SELECT ISNULL(SUM(ISNULL(active_ind,0)),0) AS count1
 FROM Variance_Explanation
 WHERE organization_id=#attributes.organization_id#
 UNION ALL
-SELECT NVL(SUM(NVL(active_ind,0)),0) AS count1
+SELECT ISNULL(SUM(ISNULL(active_ind,0)),0) AS count1
 FROM Phasing_Plan
 WHERE organization_id=#attributes.organization_id#
 </cfquery>
@@ -52,19 +52,19 @@ WHERE organization_id=#attributes.organization_id#
 		</td>
 	</tr>
 	<tr bgcolor="##dcdcdc">
-		<td>Code</td>
+		<td><label for="organization_code"></label>Code</td>
 		<td>
 			#organization_code#
 		</td>
 	</tr>
 	<cfif get_nsm_entity.organization_id NEQ 0 AND listlast(listsort(valuelist(get_entity_associated_data_counts.count1),"numeric")) EQ 0>
 	<tr bgcolor="##dcdcdc">
-		<td><label for="delete">Delete</label></td>
+		<td><label for="delete"></label>Delete</td>
 		<td>
-			<input type="checkbox" name="delete_hierarchy_assignment_ind" value="1" id="delete" />
+			<input type="checkbox" name="delete_hierarchy_assignment_ind" value="1" id="delete"/>
 		</td>
 	</tr>
 	</cfif>
-	<input type="hidden" name="organization_id" value="#get_nsm_entity.organization_id#" />
-	<input type="hidden" name="hierarchy_assignment_id" value="#hierarchy_assignment_id#" />
+	<input type="hidden" name="organization_id" value="#get_nsm_entity.organization_id#"/>
+	<input type="hidden" name="hierarchy_assignment_id" value="#hierarchy_assignment_id#"/>
 </cfoutput>

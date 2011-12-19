@@ -31,7 +31,7 @@
 	<cfoutput query="get_nsm_hierarchy_organizations">
 		<tr bgcolor="##dcdcdc">
 			<td>
-				<input type="radio" name="organization_id" value="#organization_id#" id="#organization_id#" />
+				<input type="radio" name="organization_id" value="#organization_id#" id="#organization_id#"/>
 			</td>
 			<td><label for="#organization_id#"><cfloop from="1" to="#hierarchy_level#" index="ii">&nbsp;&nbsp;</cfloop>#organization_description# (#organization_code#)</label></td>
 		</tr>

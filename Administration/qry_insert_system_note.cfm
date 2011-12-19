@@ -1,12 +1,12 @@
 <!-- Administration/qry_insert_system_note.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_insert_system_note.cfm">
 	<responsibilities>
 		Query to insert a new system note into System_Note table.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="8/22/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="8/22/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -33,7 +33,6 @@ VALUES ('#left(attributes.note_text,3950)#', '#dateformat(attributes.display_sta
 
 <!--- get the id of the inserted record --->
 <cfquery name="get_system_note_id" datasource="#application.datasources.main#">
-SELECT System_Note_SEQ.currval AS system_note_id
-FROM Dual
+SELECT IDENT_CURRENT('System_Note') AS system_note_id
 </cfquery>
 <cfset attributes.system_note_id=get_system_note_id.system_note_id>

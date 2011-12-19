@@ -1,4 +1,4 @@
-<!-- main/qry_insert_login_attempt.cfm
+<!-- Home/qry_insert_login_attempt.cfm
 	Author: Jeromy French -->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_insert_login_attempt.cfm">
@@ -23,7 +23,7 @@
 </fusedoc>
 --->
 <!--- always insert the encrypted password, never clear text --->
-<cfquery name="get_login_information" datasource="#application.datasources.application_manager#">
+<cfquery name="get_login_information" datasource="#application.datasources.main#">
 INSERT INTO Login_Attempt (user_name, password, success_ind)
-VALUES (NVL('#attributes.user_name#','UNSPECIFIED'), NVL('#attributes.password#','UNSPECIFIED'), #attributes.success_ind#)
+VALUES (ISNULL('#attributes.user_name#','UNSPECIFIED'), ISNULL('#attributes.password#','UNSPECIFIED'), #attributes.success_ind#)
 </cfquery>

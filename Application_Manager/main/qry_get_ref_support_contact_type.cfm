@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_get_ref_support_contact_type" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_get_ref_support_contact_type" datasource="#application.datasources.main#">
 SELECT *
 FROM REF_Support_Contact_Type
 WHERE active_ind=1

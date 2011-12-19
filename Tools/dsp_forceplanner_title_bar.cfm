@@ -1,0 +1,40 @@
+
+<!--Tools/dsp_forceplanner_title_bar.cfm
+	Author: Jeromy F -->
+<cfsilent>
+	<!---FUSEDOC
+	||
+	Responsibilities: 
+	||
+	Name: Jeromy French
+	||
+	Edits:
+	$Log$
+Revision 1.0  2005/02/15 21:01:14  daugherty
+Initial revision
+
+Revision 1.1  2001-10-11 10:54:21-04  long
+added $log $ for edits.  To all CFM files that have fusedocs.
+
+ 
+	||
+ --->
+<cfset variables.colspan=decrementvalue(variables.colspan)>
+</cfsilent>
+<cfoutput>
+<form name="ChangeMonth" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST">
+	<tr bgcolor="##772862" class="HeadText#session.workstream_text_size#White">
+		<td colspan="#variables.colspan#" align="left" valign="bottom" class="HeadText#session.workstream_text_size#White">
+			&nbsp;#session.workstream_company_name# ForcePlanner for <select name="force_month" onchange="form.submit();" class="ToolTextSm">
+				<cfloop from="1" to="12" index="ii"><option value="#ii#"<cfif ii EQ attributes.force_month> selected</cfif>>#MonthAsString(ii)#</option>
+				</cfloop>
+				</select>
+				<select name="force_year" onchange="form.submit();" class="ToolTextSm">
+					<cfloop from="#get_years.min_year#" to="#get_years.max_year#" index="ii"><option value="#ii#"<cfif ii EQ attributes.force_year> selected</cfif>>#ii#</option>
+				</cfloop>
+				</select>
+		</td>
+	</tr>
+</form>
+</cfoutput>
+

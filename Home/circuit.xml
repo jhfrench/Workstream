@@ -1,5 +1,5 @@
 <!-- Home/circuit.xml
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!--
 <fusedoc language="ColdFusion MX" specification="2.0" template="circuit.xml">
 	<responsibilities>
@@ -82,6 +82,11 @@
 	<fuseaction name="view_forum">
 		<include template="../common_files/act_header.cfm"/>
 		<include template="pag_view_forum.cfm"/>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="view_screensaver_message">
+		<include template="../common_files/act_header.cfm"/>
+		<include template="pag_view_screensaver_message.cfm"/>
 		<include template="../common_files/dsp_footer.cfm"/>
 	</fuseaction>
 	<fuseaction name="welcome">

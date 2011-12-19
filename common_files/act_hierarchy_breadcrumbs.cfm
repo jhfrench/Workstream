@@ -61,7 +61,7 @@ ORDER BY Breadcrumb_Hierarchy.sort_order DESC
 	<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table contains navigation breadcrumbs">
 		<tr>
 			<th align="left">
-			<h2 style="margin:0px">
+			<h2 style="margin:0px" id="top-side">
 			<cfif attributes.use_link_ind EQ 1>
 				<cfoutput query="get_hierarchy_breadcrumbs">
 					<cfif recordcount NEQ currentrow><a href="javascript:#attributes.function_name#(#get_hierarchy_breadcrumbs.organization_id#,#get_hierarchy_breadcrumbs.next_l_p_y_h_id#);">#description#</a> &gt; <cfelse>#description#</cfif>
@@ -84,7 +84,7 @@ ORDER BY Breadcrumb_Hierarchy.sort_order DESC
 			<!--- if the breadcrumb is used in funds control --->
 			<cfif comparenocase(variables.fund_control_breadcrumbs_ind,0)>
 			<cfoutput>
-			<h2 style="margin:0px">
+			<h2 style="margin:0px" id="top-side">
 				<cfmodule template="act_drilldown_form.cfm" function_name="output_mission_level" fuseaction="#attributes.fuseaction#" field_name="fund_id" field_value="" processform="1" program_year_id="#attributes.program_year_id#">
 				<a href="index.cfm?fuseaction=Administration.fund_control_welcome">Fund Control</a> &gt; 
 				<cfif isdefined("attributes.next_hierarchy_level_id") OR isdefined("attributes.l_p_y_h_id")>

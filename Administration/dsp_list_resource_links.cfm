@@ -1,5 +1,5 @@
 <!-- Administration/dsp_list_resource_links.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_list_resource_links.cfm">
 	<responsibilities>
@@ -30,7 +30,7 @@
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="Table displays administor resource area">
 	<tr>
 		<th align="left">
-			<h2 style="margin:0px">Administer Resource Area</h2>
+			<h2 style="margin:0px" id="top-side">Administer Resource Area</h2>
 		</th>
 	</tr>
 	<tr>

@@ -1,5 +1,5 @@
 <!-- common_files/dsp_navigation_sub.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_navigation_sub.cfm">
 	<responsibilities>

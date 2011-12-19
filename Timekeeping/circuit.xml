@@ -1,0 +1,134 @@
+<!-- Customers/circuit.xml
+	Author: Jeromy French -->
+<!--
+<fusedoc language="ColdFusion MX" specification="2.0" template="circuit.xml"/>
+	<responsibilities>
+		I defined the fuseactions for the Administration module. Please keep fuseactions in alphabetical order.
+	</responsibilities>
+	<properties>
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/31/2007" role="FuseCoder" comments="Created File"/>
+			$Id:$
+		</history>
+	</properties>
+	<IO>
+		<in>
+
+		</in>
+		<passthrough>
+
+		</passthrough>
+		<out>
+
+		</out>
+	</IO>
+</fusedoc>
+-->
+
+<circuit access="public">
+	<prefuseaction callsuper="true">
+		<include template="../common_files/act_header.cfm"/>
+	</prefuseaction>
+
+
+	<fuseaction name="home">
+		<!-- <set name="attributes.object_name" value="Home"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="Timekeeping"/>
+		<include template="pag_timekeeping.cfm"/>
+	</fuseaction>
+	<fuseaction name="delete_task">
+		<set name="request.pagetitle" value="Delete Task"/>
+		<include template="pag_delete_task.cfm"/>
+	</fuseaction>
+	<fuseaction name="engagement_list">
+		<set name="request.pagetitle" value="Engagement List"/>
+		<!-- <set name="attributes.object_name" value="Engagement List"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<include template="pag_engagement_list.cfm"/>
+	</fuseaction>
+	<fuseaction name="express_entry">
+		<set name="request.pagetitle" value="Express Timekeeping Entry"/>
+		<!-- <set name="attributes.object_name" value="Express Entry"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<include template="qry_express_task_list.cfm"/>
+		<include template="pag_express_entry.cfm"/>
+	</fuseaction>
+	<fuseaction name="individual_time">
+	<!-- 		cfset attributes.object_name="Time Entry"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="Individual Time Entries"/>
+		<include template="pag_individual_time.cfm"/>
+	</fuseaction>
+	<fuseaction name="new_task">
+		<set name="request.pagetitle" value="Create New Task"/>
+		<set name="attributes.task_id" value="0"/>
+		<!-- <set name="attributes.object_name" value="New Task"/>
+		<set name="request.XFA.case_drill" value="case_drill"/>
+		<set name="request.xfa.task_details" value="task_details"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<include template="pag_new_task.cfm"/>
+	</fuseaction>
+	<fuseaction name="pre_name">
+		<!-- <set name="attributes.object_name" value="Task List"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="Pre Defined Task Names"/>
+		<include template="pag_pre_name.cfm"/>
+		<set name="no_banner" value="1"/>
+	</fuseaction>
+	<fuseaction name="print_task">
+		<!-- <set name="attributes.object_name" value="Task List"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Printable Task Sheet"/>
+		<include template="pag_task_print.cfm"/>
+	</fuseaction>
+	<fuseaction name="project_timeline">
+		<set name="request.pagetitle" value="Project Timeline"/>
+		<!-- <set name="attributes.object_name" value="Project Timeline"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<include template="pag_project_timeline.cfm"/>
+	</fuseaction>
+	<fuseaction name="task_details">
+		<!-- <set name="attributes.object_name" value="Task List"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="View Task Details"/>
+		<set name="request.XFA.case_drill" value="case_drill"/>
+		<include template="pag_task_details.cfm"/>
+	</fuseaction>
+	<fuseaction name="task_list">
+		<set name="request.pagetitle" value="Task List"/>
+		<!-- <set name="attributes.object_name" value="Task List"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<include template="pag_task_list.cfm"/>
+	</fuseaction>
+	<fuseaction name="time_details">
+		<!-- <set name="attributes.object_name" value="Task List"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="Time Details"/>
+		<include template="pag_time_details.cfm"/>
+	</fuseaction>
+	<fuseaction name="time_entry">
+		<set name="request.pagetitle" value="Time Entry"/>
+		<!-- <set name="attributes.object_name" value="Time Entry"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<include template="pag_time_entry.cfm"/>
+	</fuseaction>
+	<fuseaction name="time_entry_edit">
+		<set name="request.pagetitle" value="Time Entry/Notes Edit"/>
+		<include template="../common_files/qry_get_valid_projects.cfm"/>
+		<include template="pag_time_entry_edit.cfm"/>
+	</fuseaction>
+	<fuseaction name="timekeeping_options">
+		<!-- <set name="attributes.object_name" value="Home"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="Timekeeping Options"/>
+		<include template="pag_timekeeping_options.cfm"/>
+	</fuseaction>
+	<fuseaction name="act_upload_file">
+		<set name="request.pagetitle" value="Upload File"/>
+		<include template="../common_files/act_upload_file.cfm"/>
+	</fuseaction>
+
+	<postfuseaction>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</postfuseaction>
+</circuit>

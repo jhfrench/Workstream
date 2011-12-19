@@ -30,11 +30,11 @@
 <cfset variables.administration_fuseactions=structkeylist(application.fusebox.circuits.administration.fuseactions)>
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="Table head decsribes the table below this table">
 	<tr>
-		<th align="left"><h2 style="margin:0px">Manage Drop-Down Lists</h2>
+		<th align="left"><h2 style="margin:0px" id="top-side">Manage Drop-Down Lists</h2>
 		</th>
 	</tr>
 </table>
-<br /><img src="images/spacer.gif" alt="" width="560" height="1" /><br />
+<br /><img src="images/spacer.gif" alt="" width="560" height="1"><br />
 <div class="datachart">
 	<table cellspacing="1" cellpadding="2" border="0" bgcolor="#eeeeee" width="200" summary="table displays list of reference tables">
 		<tr bgcolor="999999">

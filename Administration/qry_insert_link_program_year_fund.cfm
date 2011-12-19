@@ -1,12 +1,12 @@
 <!-- Administration/qry_insert_link_program_year_fund.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_insert_link_program_year_fund.cfm">
 	<responsibilities>
 		I insert new fund into Link_Program_Year_Fund_table.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="8/20/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="8/20/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

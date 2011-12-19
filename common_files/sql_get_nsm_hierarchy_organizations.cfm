@@ -24,7 +24,6 @@
 --->
 <cfparam name="attributes.center_ind" default="0">
 <cfparam name="attributes.limit_to_user_access_ind" default="0">
-<cfparam name="attributes.privilege_id" default="2"><!--- default is write access --->
 <cfparam name="attributes.show_all_fields_ind" default="1">
 <cfparam name="attributes.start_with" default="">
 <cfoutput>
@@ -50,7 +49,7 @@ FROM (
 				FROM Access_User_Account_Grouper
 				WHERE active_ind=1
 					AND program_year_id=#attributes.program_year_id#
-					AND Access_User_Account_Grouper.privilege_id IN (#attributes.privilege_id#)
+					AND privilege_id=2 /*only show records to which the user can write*/
 					AND module_id=#attributes.module_id#<cfif len(attributes.start_with)>
 					AND organization_id=#attributes.start_with#</cfif>
 					AND user_account_id=#session.user_account_id#
@@ -62,7 +61,24 @@ FROM (
 			REF_Center.sort_order, REF_Hierarchy_Level.hierarchy_level_id, REF_Hierarchy_Level.description
 		ORDER BY REF_Center.sort_order
 	<cfelse>
-		<cfinclude template="sql_get_user_organization_privilege_access.cfm">
+		SELECT Hierarchy_Assignment.organization_id, Hierarchy_Assignment.parent_organization_id, Link_Program_Year_Hierarchy.hierarchy_level_id,
+			level AS hierarchy_level/*native Oracle hierarchy function*/, LPAD(' ',2*(level-1)) + REF_Organization.description AS spaced_view, SYS_CONNECT_BY_PATH(REF_Organization.description, '&raquo;') AS path,
+			REF_Organization.description AS organization_description, REF_Organization.organization_code
+		FROM Hierarchy_Assignment
+			INNER JOIN Link_Program_Year_Hierarchy ON Hierarchy_Assignment.l_p_y_h_id=Link_Program_Year_Hierarchy.l_p_y_h_id
+				AND Hierarchy_Assignment.active_ind=1
+				AND Link_Program_Year_Hierarchy.active_ind=1
+				AND Link_Program_Year_Hierarchy.program_year_id=#attributes.program_year_id#
+			INNER JOIN REF_Organization ON Hierarchy_Assignment.organization_id=REF_Organization.organization_id
+				AND REF_Organization.active_ind=1<cfif attributes.limit_to_user_access_ind AND NOT isdefined("attributes.hierarchy_level_id")>
+			INNER JOIN Access_User_Account_Grouper ON REF_Organization.organization_id=Access_User_Account_Grouper.organization_id
+				AND Access_User_Account_Grouper.program_year_id=Link_Program_Year_Hierarchy.program_year_id
+				AND Access_User_Account_Grouper.active_ind=1
+				AND Access_User_Account_Grouper.privilege_id=2 /*only show records to which the user can write*/
+				AND Access_User_Account_Grouper.module_id=#attributes.module_id#
+				AND Access_User_Account_Grouper.user_account_id=#session.user_account_id#</cfif>
+		START WITH Hierarchy_Assignment.parent_organization_id<cfif NOT len(attributes.start_with)> IS NULL<cfelse> IN (#attributes.start_with#)</cfif>
+		CONNECT BY PRIOR Hierarchy_Assignment.organization_id=Hierarchy_Assignment.parent_organization_id
 	</cfif>
 	) Data<cfif isdefined("attributes.hierarchy_level_id")><cfif NOT attributes.center_ind AND attributes.limit_to_user_access_ind>
 	INNER JOIN Access_User_Account_Grouper ON Data.organization_id=Access_User_Account_Grouper.organization_id

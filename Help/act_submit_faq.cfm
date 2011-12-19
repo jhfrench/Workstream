@@ -1,5 +1,5 @@
 <!-- Help/act_submit_faq.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!--- 
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_submit_faq.cfm">
 	<responsibilities>
@@ -33,7 +33,6 @@
 <cfelse>
 	<cfset variables.created_by="NULL">
 </cfif>
-
 <!--- reorder the OTHER help faqs associated with a specified screen --->
 <cfquery name="update_help_faq_sort_order" datasource="#application.datasources.main#">
 UPDATE Help_FAQ
@@ -47,40 +46,39 @@ WHERE active_ind=1
 	)
 	AND sort_order >= #attributes.sort_order#
 </cfquery>
-
 <!--- insert new text into Help_FAQ, get help_faq_id --->
 <cfinclude template="../common_files/qry_insert_help_faq.cfm">
 <cfquery name="get_help_faq_id" datasource="#application.datasources.main#">
-SELECT HELP_FAQ_SEQ.currval AS help_faq_id
-FROM Dual
+SELECT IDENT_CURRENT('HELP_FAQ') AS help_faq_id
 </cfquery>
 <cfset attributes.help_faq_id=get_help_faq_id.help_faq_id>
-
 <!--- insert into Link_Screen_Help_FAQ (help_faq_id, screen_id) --->
 <cfloop list="#attributes.screen_id#" index="variables.screen_id">
 	<cfinclude template="../common_files/qry_insert_link_screen_help_faq.cfm">
 </cfloop>
-
-<cfinclude template="../common_files/qry_get_help_email_recipients.cfm">
+	
+<cfquery name="get_help_email_recipients" datasource="#application.datasources.main#">
+SELECT Demographics.email_address
+FROM Demographics
+	INNER JOIN Access_User_Business_Function ON Demographics.user_account_id=Access_User_Business_Function.user_account_id
+	INNER JOIN REF_Business_Function ON Access_User_Business_Function.business_function_id=REF_Business_Function.business_function_id
+WHERE Demographics.active_ind=1
+	AND Access_User_Business_Function.active_ind=1
+	AND REF_Business_Function.active_ind=1
+	AND REF_Business_Function.description='Manage Help Module'
+GROUP BY Demographics.email_address
+ORDER BY Demographics.email_address
+</cfquery>
+<cfset variables.help_email_recipients=valuelist(get_help_email_recipients.email_address)>
 
 <!--- This is the email that sends the question to the people identified to handle questions, if those people are known --->
 <cfif len(variables.help_email_recipients) AND len(application.email_server_name)>
 	<!-- email sent to <cfoutput>#variables.help_email_recipients#, from #application.application_specific_settings.system_email_sender# by server #application.email_server_name#</cfoutput> -->
-	
-	<cfscript>
-		attributes.email_recipients_demographics_id=valuelist(get_help_email_recipients.demographics_id);
-		attributes.reply_to=application.application_specific_settings.system_email_sender;
-		attributes.subject="#application.product_name# FAQ";
-		attributes.email_body="A #application.product_name# user asked the following question:<br />
-	'#attributes.question#'";
-		variables.created_by=0;
-	</cfscript>
-	<cfmail to="#variables.help_email_recipients#" from="#application.application_specific_settings.system_email_sender#" subject="#attributes.subject#" server="#application.email_server_name#" type="html">
-A #application.product_name# user<cfif isdefined("session.first_name") AND isdefined("session.last_name")>, #session.first_name# #session.last_name#,</cfif> asked the following question:<br />
-"#attributes.question#"<br />
-Please <a href="#listfirst(cgi.http_referer,"?")#?fuseaction=Administration.list_help_articles">respond using the #application.product_name# interface</a>.
+	<cfmail to="#variables.help_email_recipients#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# FAQ" server="#application.email_server_name#" type="html">
+	A #application.product_name# user<cfif isdefined("session.first_name") AND isdefined("session.last_name")>, #session.first_name# #session.last_name#,</cfif> asked the following question:<br />
+	"#attributes.question#"<br />
+	Please <a href="#listfirst(cgi.http_referer,"?")#?fuseaction=Administration.list_help_articles">respond using the #application.product_name# interface</a>.
 	</cfmail>
-	<cfinclude template="../common_files/act_log_email.cfm">
 <cfelse>
 	<!-- No email sent (no email recipients, or no email server) -->
 </cfif>

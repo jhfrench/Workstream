@@ -1,12 +1,12 @@
 <!-- Administration/dsp_edit_ref_program_year.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_ref_program_year.cfm">
 	<responsibilities>
 		I display the form for program year maintenance.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/16/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="9/16/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -28,11 +28,10 @@
 <cfparam name="attributes.method" default="">
 <cfmodule template="../common_files/qry_get_program_year.cfm" exclude_future_years_ind="0" program_year_id="0">
 <form name="edit_ref_program_year_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
-	<label for="program_year_id">Program Year</label><br/>
-	<select name="program_year_id" id="program_year_id">
+	<select name="program_year_id">
 	<cfloop query="get_program_year"><option value="#program_year_id#" <cfif not comparenocase(get_program_year.program_year_id, attributes.program_year_id)>selected</cfif>>#description#</option></cfloop>
-	</select><br />
-	<input type="submit" name="method" value="Retrieve and edit program year" />
+	</select>
+	<input name="method" type="submit" alt="Retrieve and edit program year" value="Retrieve and edit program year"/>
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_program_year.cfm" program_year_id="#attributes.program_year_id#">
@@ -53,11 +52,11 @@
 				<td><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" required="yes" tabindex="1" message="Please enter description." maxlength="4000">
 				</td>
-				<td><label for="sort_order">sort order</label>: 
+				<td><label for="sort_order">Sort Order</label>: 
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="6" maxlength="12" required="yes" tabindex="2" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.program_year_id EQ 0>
-					<input type="hidden" name="active_ind" value="1" />
+					<input type="hidden" name="active_ind" value="1"/>
 				<cfelse>
 				<td>
 					<span title="describes the purpose of the radio buttons that follow">Active?</span>
@@ -72,9 +71,9 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#" />
-			<input type="hidden" name="program_year_id" value="#attributes.program_year_id#" />
-			<input type="submit" name="submit" value=" Submit " alt="submit" />
+			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
+			<input type="hidden" name="program_year_id" value="#attributes.program_year_id#"/>
+			<input type="submit" alt="submit" value="Submit" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

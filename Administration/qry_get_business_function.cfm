@@ -1,5 +1,5 @@
 <!-- Administration/qry_get_business_function.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_business_function.cfm">
 	<responsibilities>

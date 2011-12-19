@@ -1,5 +1,5 @@
 <!-- Home/pag_welcome_messages.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_welcome_messages.cfm">
 	<responsibilities>

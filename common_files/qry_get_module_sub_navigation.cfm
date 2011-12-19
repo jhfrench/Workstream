@@ -1,5 +1,5 @@
 <!-- common_files/qry_get_module_sub_navigation.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_module_sub_navigation.cfm">
 	<responsibilities>

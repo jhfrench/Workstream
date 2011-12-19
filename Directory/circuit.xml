@@ -1,0 +1,156 @@
+<!-- Customers/circuit.xml
+	Author: Jeromy French -->
+<!--
+<fusedoc language="ColdFusion MX" specification="2.0" template="circuit.xml"/>
+	<responsibilities>
+		I defined the fuseactions for the Administration module. Please keep fuseactions in alphabetical order.
+	</responsibilities>
+	<properties>
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/31/2007" role="FuseCoder" comments="Created File"/>
+			$Id:$
+		</history>
+	</properties>
+	<IO>
+		<in>
+
+		</in>
+		<passthrough>
+
+		</passthrough>
+		<out>
+
+		</out>
+	</IO>
+</fusedoc>
+-->
+
+<circuit access="public">
+	<prefuseaction callsuper="true">
+		<include template="../common_files/act_header.cfm"/>
+	</prefuseaction>
+
+
+	<fuseaction name="home">
+		<!-- <set name="request.pagetitle" value="Employee Directory"/>
+		<include template="pag_directory.cfm"> -->
+		<!-- <set name="attributes.object_name" value="Employee List"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Employee List"/>
+		<include template="pag_employee_list.cfm"/>
+	</fuseaction>
+	<fuseaction name="emp_edit">
+		<set name="request.workstream_action" value="emp_update"/>
+		<!-- <set name="attributes.object_name" value="Edit Employee"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Edit An Employee"/>
+		<include template="pag_emp_edit.cfm"/>
+	</fuseaction>
+	<fuseaction name="emp_update">
+		<include template="qry_get_locations.cfm"/>
+		<include template="qry_get_phone_types.cfm"/>
+		<include template="qry_get_email_types.cfm"/>
+		<set name="request.workstream_action" value="emp_update"/>
+		<!-- <set name="attributes.object_name" value="Edit Employee"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<include template="act_update_emp.cfm"/>
+	</fuseaction>
+	<fuseaction name="emp_entry">
+		<!-- <set name="attributes.object_name" value="Employee List"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<!-- <set name="attributes.object_name" value="Employee Entry"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Enter New Employee"/>
+		<include template="pag_emp_entry.cfm"/>
+	</fuseaction>
+	<fuseaction name="emp_remove">
+		<!-- <set name="attributes.object_name" value="Employee List"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Remove An Employee"/>
+		<include template="pag_emp_remove.cfm"/>
+	</fuseaction>
+	<fuseaction name="employee_details">
+		<!-- <set name="attributes.object_name" value="Employee List"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Employee Details"/>
+		<include template="pag_emp_details.cfm"/>
+	</fuseaction>
+	<fuseaction name="benefits_entry">
+		<set name="no_banner" value="1"/>
+		<!-- <set name="attributes.object_name" value="Employee List"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="New Benefit"/>
+		<include template="pag_benefits_entry.cfm"/>
+	</fuseaction>
+	<fuseaction name="supervisor_entry">
+		<set name="no_banner" value="1"/>
+		<!-- <set name="attributes.object_name" value="Employee List"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="New Supervisor"/>
+		<include template="pag_supervisor_entry.cfm"/>
+	</fuseaction>
+	<fuseaction name="salary_entry">
+		<set name="no_banner" value="1"/>
+		<!-- <set name="attributes.object_name" value="Employee List"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="New Salary"/>
+		<include template="pag_salary_entry.cfm"/>
+	</fuseaction>
+	<fuseaction name="business_unit_entry">
+		<set name="no_banner" value="1"/>
+		<!-- <set name="attributes.object_name" value="Employee List"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="New Business Unit"/>
+		<include template="pag_business_unit_entry.cfm"/>
+	</fuseaction>
+	<fuseaction name="position_number_change">
+		<set name="no_banner" value="1"/>
+		<set name="attributes.object_name" value="position_number_change"/>	
+		<set name="request.pagetitle" value="position_number_change"/>		
+		<include template="../../monitor/Position_Number_Change.cfm"/>
+	</fuseaction>	
+	<fuseaction name="emp_retire">
+		<set name="no_banner" value="1"/>
+		<!-- <set name="attributes.object_name" value="emp_retire">	 -->
+		<set name="request.pagetitle" value="emp_retire"/>		
+		<include template="../../monitor/emp_retire.cfm"/>
+	</fuseaction>
+	<fuseaction name="review_entry">
+		<set name="no_banner" value="1"/>
+		<!-- <set name="attributes.object_name" value="Employee List"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="New Review"/>
+		<include template="pag_performance_review_entry.cfm"/>
+	</fuseaction>
+	<fuseaction name="job_title_entry">
+		<set name="no_banner" value="1"/>
+		<!-- <set name="attributes.object_name" value="Employee List"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="New Job Title"/>
+		<include template="pag_job_title_entry.cfm"/>
+	</fuseaction>
+	<fuseaction name="employee_list">
+		<!-- <set name="attributes.object_name" value="Employee List"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Employee List"/>
+		<include template="pag_employee_list.cfm"/>
+	</fuseaction>
+	<fuseaction name="employee_contact_email">
+	<!-- this fuse is only accessed by cf administration's scheduling function -->
+		<include template="qry_get_email.cfm"/>
+		<include template="act_send_contact_email.cfm"/>
+	</fuseaction>
+	<fuseaction name="employee_contact_view">
+		<include template="qry_get_demographics.cfm"/>
+		<include template="qry_get_contact_phones.cfm"/>
+		<include template="qry_get_contact_emails.cfm"/>
+		<include template="qry_get_contact_locations.cfm"/>
+		<include template="act_emp_contact_view.cfm"/>
+	</fuseaction>
+	<fuseaction name="employee_contact_update">
+		<include template="act_emp_contact_update.cfm"/>
+	</fuseaction>
+
+	<postfuseaction>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</postfuseaction>
+</circuit>

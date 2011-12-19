@@ -13,12 +13,12 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_insert_support_contact_info" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_insert_support_contact_info" datasource="#application.datasources.main#">
 INSERT INTO Support_Contact_Info (support_contact_type_id, last_name, first_name,
 	phone, email, date_created, 
 	active_ind)
 SELECT #attributes.support_contact_type_id#, '#attributes.last_name#', '#attributes.first_name#',
-	'#attributes.phone#', '#attributes.email#', sysdate,
+	'#attributes.phone#', '#attributes.email#', GETDATE(),
 	1
 FROM Dual
 </cfquery>

@@ -1,6 +1,6 @@
 
 <!-- common_files/qry_get_link_program_year_fund.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_link_program_year_fund.cfm">
 	<responsibilities>

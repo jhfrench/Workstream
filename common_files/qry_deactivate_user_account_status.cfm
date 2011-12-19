@@ -1,5 +1,5 @@
 <!-- common_files/qry_deactivate_user_account_status.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_deactivate_user_account_status.cfm">
 	<responsibilities>

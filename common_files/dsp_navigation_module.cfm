@@ -1,5 +1,5 @@
 <!-- common_files/dsp_navigation_module.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_navigation_module.cfm">
 	<responsibilities>
@@ -37,8 +37,8 @@
 	variables.flyout_opened_ind=0;
 </cfscript>
 <cfloop query="get_module_sub_navigation">
-	<cfif get_module_sub_navigation.module_id NEQ variables.module_id>
-		<cfset variables.module_id=get_module_sub_navigation.module_id>
+	<cfif module_id NEQ variables.module_id>
+		<cfset variables.module_id=module_id>
 		<cfif currentrow NEQ 1>
 			<!--- we're dealing with a new module, so need to close the last one --->
 			</ul>
@@ -71,15 +71,12 @@
 </cfif>
 	</ul>
 </div>
-		</td>
-		<cfif application.application_specific_settings.use_program_year_ind><td bgcolor="##333333">
-			<div style="color:##FFFFFF;"><acronym title="Fiscal Year">FY</acronym> #get_program_year.description# Data (<a href="index.cfm?fuseaction=Home.edit_user_preference">change</a>)</div>
-		</td></cfif><cfif application.use_help_module_ind>
+		</td><cfif application.use_help_module_ind>
 		<td align="center" bgcolor="##A80104" style="width: 6em;">
 		<a href="javascript:void('Access the #application.html_title# help system');" onclick="javascript:Effect.toggle('help_area','appear');return false;" style="text-decoration:none; cursor:help; color:##FFFFFF; font-weight:bold;" title="Access the #application.html_title# help system">Help</a>
 		</td></cfif>
-		<td align="right" bgcolor="##333333" style="width: 16em;">
-			&nbsp;<cfif isdefined("session.user_account_id")><cfif session.password_created_by EQ session.user_account_id><a href="index.cfm?fuseaction=Home.logout" title="end your #application.html_title# session" style="color:##FFFFFF;font-weight:bold;"><strong>Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></strong></a></cfif><cfelse><a href="index.cfm?fuseaction=Home.login" title="log into the #application.html_title#" style="color:##FFFFFF;font-weight:bold;"><strong>Login for More Access</strong></a></cfif>
+		<td align="right" bgcolor="##333333">
+			&nbsp;<cfif isdefined("session.user_account_id")><cfif session.password_created_by EQ session.user_account_id><a href="index.cfm?fuseaction=Home.logout" style="color:##FFFFFF;"><strong>Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></strong></a></cfif><cfelse><a href="index.cfm?fuseaction=Home.login" style="color:##FFFFFF;"><strong>Login for More Access</strong></a></cfif>
 		</td>
 		
 	</tr>

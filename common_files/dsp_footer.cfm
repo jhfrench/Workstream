@@ -1,5 +1,5 @@
 <!-- common_files/dsp_footer.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_footer.cfm">
 	<responsibilities>
@@ -10,9 +10,6 @@
 			$Id:$
 			(3/15/11 | JF)
 			Adding right-hand column shuttle watermark.
-			
-			(8/5/11 | JF)
-			Instead of loading the help area to the screen then fading it out with the on-load event, we should just load it with style display:none.
 		</history>
 	</properties>
 	<IO>
@@ -25,30 +22,25 @@
 	</IO>
 </fusedoc>
 --->
-<cfsavecontent variable="variables.odd_footer">
-								</div>
-							</div>
-						</td>
-</cfsavecontent>
-<cfparam name="attributes.odd_footer" default="#variables.odd_footer#">
 
 <!-- END MAIN BODY -->
 <cfif listfindnocase("Administration.clean_up_old_accounts,Home.login,Home.forget_password,Home.forget_username", url.fuseaction)>
-<cfoutput>#attributes.odd_footer#</cfoutput>
+							</div>
+						</div>
 <cfelse>
 					</td>
 					<td bgcolor="#cccccc" width="1"><img src="images/spacer.gif" alt="" height="1" width="1" border="0" /></td>
-					<td align="center" valign="top" id="help_win_area" class="screen_only">
+					<td align="center" valign="top" id="help_win_area">
 					<cfif application.use_help_module_ind>
 						<!-- [[ RIGHT COLUMN START ]] -->
-						<div style="display:none; height:1px; overflow:hidden;">
+						<div style="visibility:hidden; height:1px; overflow:hidden">
 						Help
 						</div>
 						<cfinclude template="../Help/dsp_screen_help.cfm">
 						<!-- [[ RIGHT COLUMN END ]] -->
 					</cfif>
 					<img src="images/spacer.gif" alt="" height="10" width="252" border="0" /><br />
-					<img src="images/watermark_shuttle.jpg" alt="space shuttle watermark" height="345" width="200" border="0" />
+					<img src="images/watermark_shuttle.jpg" alt="space shuttle watermark" height="345" width="200" border="0" class="screen_only" />
 					</td>
 </cfif>
 				</tr>
@@ -77,10 +69,10 @@
 					<td align="right" style="white-space: nowrap;"><a href="http://www.nasa.gov/home/index.html" title="NASA.gov homepage"><img src="images/footer_logo_nasa.gif" alt="National Aeronautics and Space Administration" width="49" height="48" border="0" /></a><img src="images/spacer.gif" alt="" width="6" align="right" height="48" border="0" /></td>
 					<td class="footerLnk">
 						<img src="images/spacer.gif" alt="" width="170" height="10" border="0" /><br /><cfoutput>
-						<acronym title="National Aeronautics and Space Administration">NASA</acronym> Official: #application.application_specific_settings.nasa_official#<br />
+						NASA Official: #application.application_specific_settings.nasa_official#<br />
 						Curator: <acronym title="Headquarters Information Technology Support Services">HITSS</acronym><br />
 						Last Updated: #dateformat(application.last_updated, "mmmm d, yyyy")#<!-- #application.product_release_version# --></cfoutput><br />
-						<a class="footerLnk" href="http://www.nasa.gov/about/contact/index.html">+ Contact <acronym title="National Aeronautics and Space Administration">NASA</acronym></a><br />
+						<a class="footerLnk" href="http://www.nasa.gov/about/contact/index.html">+ Contact NASA</a><br />
 						<a class="footerLnk" href="http://www.nasa.gov/sitemap/sitemap_nasa.html">+ SiteMap</a><br />
 					</td>
 				</tr>

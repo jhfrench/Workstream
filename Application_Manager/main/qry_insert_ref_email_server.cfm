@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_insert_ref_email_server" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_insert_ref_email_server" datasource="#application.datasources.main#">
 INSERT INTO REF_Email_Server (email_server_name, sort_order)
 VALUES ('#attributes.email_server_name#', 1)
 </cfquery>

@@ -1,5 +1,5 @@
 <!-- Administration/pag_execute_sql.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_execute_sql.cfm">
 	<responsibilities>
@@ -74,7 +74,7 @@
 		<br />
 		<textarea cols="80" rows="20" name="sql_to_execute">#attributes.sql_to_execute#</textarea>
 		<br />
-		<input type="submit" name="submit" value=" Submit " alt="submit" />
+		<input type="submit" alt="submit" />
 	</form>
 	</cfoutput>
 </cfif>

@@ -1,12 +1,12 @@
 <!-- Administration/dsp_edit_ref_center.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko -->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_ref_center.cfm">
 	<responsibilities>
 		I display the form for center maintenance.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/14/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="9/14/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -29,11 +29,10 @@
 <cfparam name="attributes.method" default="">
 <cfmodule template="../common_files/qry_get_ref_center.cfm" center_id="0">
 <form name="edit_ref_center_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
-	Retrieve an existing <label for="center_id">center</label>:<br />
-	<select name="center_id"id="center_id">
+	<select name="center_id">
 	<cfloop query="get_ref_center"><option value="#center_id#" <cfif not comparenocase(get_ref_center.center_id, attributes.center_id)>selected</cfif>>#description#</option></cfloop>
-	</select><br />
-	<input type="submit" name="method" value="Retrieve and edit center" />
+	</select>
+	<input name="method" type="submit" alt="Retrieve and edit center" value="Retrieve and edit center"/>
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_center.cfm" center_id="#attributes.center_id#">
@@ -68,11 +67,11 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="sort_order">sort order</label>: 
+					<label for="sort_order">Sort Order</label>: 
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value= #IIf(attributes.center_id EQ 0, (""), ("get_ref_center.sort_order"))# size="6" maxlength="12" required="yes" tabindex="4" message="Please enter sort order.">
 				</td>
 				<cfif attributes.center_id EQ 0>
-					<input type="hidden" name="active_ind" value="1" />
+					<input type="hidden" name="active_ind" value="1"/>
 				<cfelse>
 				<td colspan="2"><span title="describes the purpose of the radio buttons that follow">Active?</span>
 					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>
@@ -85,8 +84,8 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#" />
-			<input type="hidden" name="center_id" value="#attributes.center_id#" />
+			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
+			<input type="hidden" name="center_id" value="#attributes.center_id#"/>
 			<input name="submit" type="submit" alt="submit" value="Submit" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>

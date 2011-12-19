@@ -1,12 +1,12 @@
 <!-- Administration/dsp_external_demographics_add_user_form.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_external_demographics_add_user_form.cfm">
 	<responsibilities>
 		I display the user information in a form when new user is to be added.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -35,7 +35,7 @@
 <!--- since we can only get description of center from external demographics warehouse, we have to get a corresponding id from our table to faster query running --->
 <cfmodule template="../common_files/qry_get_ref_center.cfm" display_all_centers_ind="0" center_abbreviation="#get_external_demographics_data.ou#">
 
-<cfform action="index.cfm?fuseaction=Administration.add_user" method="post" name="Add_user_form">
+<cfform action="index.cfm?fuseaction=Administration.add_user" method="POST" name="Add_user_form">
 <cfif attributes.uupic EQ 0>
 	<!--- if a new user without record in ldap --->
 	<cfinclude template="dsp_add_user_not_in_ldap.cfm">

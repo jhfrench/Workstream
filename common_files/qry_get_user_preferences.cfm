@@ -1,11 +1,11 @@
 <!-- common_files/qry_get_user_preferences.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_user_preferences.cfm">
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -31,9 +31,9 @@ SELECT User_Preferences.user_preferences_id, User_Preferences.user_account_id, U
 	User_Preferences.text_size, User_Preferences.numeric_multiplier_id, REF_Numeric_Multiplier.divisor_to_1,
 	REF_Numeric_Multiplier.numeric_format_mask
 FROM User_Preferences
-	LEFT OUTER JOIN REF_Numeric_Multiplier ON User_Preferences.numeric_multiplier_id=REF_Numeric_Multiplier.numeric_multiplier_id
+	INNER JOIN REF_Numeric_Multiplier ON User_Preferences.numeric_multiplier_id=REF_Numeric_Multiplier.numeric_multiplier_id
 WHERE <cfif attributes.user_preferences_id NEQ 0>User_Preferences.user_preferences_id=#attributes.user_preferences_id#<cfelse>User_Preferences.active_ind=1
-	AND User_Preferences.user_account_id=<cfif isdefined("session.user_account_id")>#session.user_account_id#<cfelse>#get_username.user_account_id#</cfif></cfif>
+	AND user_account_id=<cfif isdefined("session.user_account_id")>#session.user_account_id#<cfelse>#get_username.user_account_id#</cfif></cfif>
 ORDER BY User_Preferences.user_preferences_id
 </cfquery>
 
@@ -53,4 +53,4 @@ ORDER BY User_Preferences.user_preferences_id
 </cfif>
 
 <cfset caller.get_user_preferences=get_user_preferences>
-<!--- <cfoutput>session.numeric_format_mask=#session.numeric_format_mask#</cfoutput> --->
+<cfoutput><!-- session.numeric_format_mask=#session.numeric_format_mask# --></cfoutput>

@@ -1,5 +1,5 @@
 <!-- Administration/pag_list_help_articles.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_list_help_articles.cfm">
 	<responsibilities>

@@ -17,7 +17,7 @@
 
 <cfswitch expression="#attributes.server_type#">
 	<cfcase value="REF_Host_Server">
-		<cfquery name="qry_get_host_servers" datasource="#application.datasources.application_manager#">
+		<cfquery name="qry_get_host_servers" datasource="#application.datasources.main#">
 		SELECT Installation.installation_id, Installation.product_id, REF_Host_Server.host_server_name,
 			Product.product_name
 		FROM Installation
@@ -37,7 +37,7 @@
 		</cfquery>
 		<div align="center">
 		<cfoutput>
-			<img src="main/web-server-icon.jpg" width="48" height="48" border="0" />
+			<img src="main/web-server-icon.jpg" width="48" height="48" border="0">
 			<br />#qry_get_host_servers.host_server_name# Applications:
 		</cfoutput>
 		<cfoutput query="qry_get_host_servers">
@@ -46,7 +46,7 @@
 		</div>
 	</cfcase>
 	<cfcase value="REF_Database_Server">
-		<cfquery name="qry_get_database_servers" datasource="#application.datasources.application_manager#">
+		<cfquery name="qry_get_database_servers" datasource="#application.datasources.main#">
 		SELECT Installation.installation_id, Installation.product_id, REF_Database_Server.database_server_name,
 			Product.product_name
 		FROM Installation
@@ -68,7 +68,7 @@
 		</cfquery>
 		<div align="center">
 		<cfoutput>
-			<img src="main/data-server-icon.jpg" width="48" height="48" border="0" />
+			<img src="main/data-server-icon.jpg" width="48" height="48" border="0">
 			<br />#qry_get_database_servers.database_server_name# Applications:
 		</cfoutput>
 		<cfoutput query="qry_get_database_servers">
@@ -77,7 +77,7 @@
 		</div>
 	</cfcase>
 	<cfcase value="REF_Email_Server">
-		<cfquery name="qry_get_email_servers" datasource="#application.datasources.application_manager#">
+		<cfquery name="qry_get_email_servers" datasource="#application.datasources.main#">
 		SELECT Installation.installation_id, Installation.product_id, REF_Email_Server.email_server_name,
 			Product.product_name
 		FROM Installation
@@ -97,7 +97,7 @@
 		</cfquery>
 		<div align="center">
 		<cfoutput>
-			<img src="main/email-server-icon.jpg" width="48" height="48" border="0" />
+			<img src="main/email-server-icon.jpg" width="48" height="48" border="0">
 			<br />#qry_get_email_servers.email_server_name# Applications:
 		</cfoutput>
 		<cfoutput query="qry_get_email_servers">
@@ -107,16 +107,16 @@
 	</cfcase>
 </cfswitch>
 
-<p><a href="index.cfm?fuseaction=#variables.circuit_label#.server_details">Return to Network Diagram</a></p>
+<p><a href="index.cfm?fuseaction=main.server_details">Return to Network Diagram</a></p>
 
-<form name="form_server_details" action="index.cfm?fuseaction=#variables.circuit_label#.application_settings" method="post">
+<form name="form_server_details" action="index.cfm?fuseaction=main.application_settings" method="post">
 	<input type="hidden" name="product_id" value="" />
 </form>
 
 <script language="javascript">
 function submit_form(product_id, installation_id) {
 	document.forms.form_server_details.product_id.value=product_id;
-	document.forms.form_server_details.action='index.cfm?fuseaction=<cfoutput>#variables.circuit_label#</cfoutput>.application_settings#'+installation_id;
+	document.forms.form_server_details.action='index.cfm?fuseaction=main.application_settings#'+installation_id;
 	document.forms.form_server_details.submit();
 }
 </script>

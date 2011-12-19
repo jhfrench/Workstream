@@ -1,5 +1,5 @@
 <!-- Requirements/act_edit_requirements.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_edit_requirements.cfm">
 	<responsibilities>
@@ -46,8 +46,7 @@
 			#attributes.product_version_id#, #attributes.priority_id#, #session.user_account_id#)
 		</cfquery>
 		<cfquery name="get_requirement_id" datasource="#application.datasources.main#">
-		SELECT Requirement_SEQ.currval AS requirement_id
-		FROM Dual
+		SELECT IDENT_CURRENT('Requirement') AS requirement_id
 		</cfquery>
 		<!--- insert into Link_Screen_Requirement (requirement_id, screen_id) --->
 		<cfquery name="insert_link_screen_requirement" datasource="#application.datasources.main#">

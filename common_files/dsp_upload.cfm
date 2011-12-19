@@ -3,7 +3,7 @@
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_upload.cfm">
 	<responsibilities>
-		I give the user an interface for uploading data into the NVDB system.
+		I give the user an interface for uploading data into the FAAD system.
 	</responsibilities>
 	<properties>
 		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/22/2007" role="FuseCoder" comments="Created File">
@@ -79,7 +79,7 @@
 	<tr id="upload_in_progress" style="display:none">
 		<td align="center">
 			<h2>Loading your file</h2>
-			<img src="images/loading.gif" alt="Animated gif that shows a gear and reads Loading your file" width="48" height="48" style="padding:30px;" align="center" />
+			<img src="images/loading.gif" alt="Animated gif that shows a gear and reads Loading your file" width="48" height="48" style="padding:30px;" align="center">
 		</td>
 	</tr>
 </table>

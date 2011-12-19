@@ -1,12 +1,12 @@
 <!-- Administration/dsp_edit_system_note.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_system_note.cfm">
 	<responsibilities>
 		I display the form for editing message and act(send information to DB) when the form is submitted.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="8/22/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="8/22/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -55,7 +55,7 @@
 					<textarea name="note_text" id="note_text" cols="50" rows="5"><cfif attributes.system_note_id NEQ 0>#trim(get_system_note.note_text)#<cfelse>#attributes.note_text#</cfif></textarea>				
 				</td>
 				<cfif attributes.system_note_id EQ 0>
-					<input type="hidden" name="active_ind" value="1" />
+					<input type="hidden" name="active_ind" value="1"/>
 				<cfelse>
 				<td><span title="Describes the purpose of the radio buttons following">Active?</span>
 					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>
@@ -68,14 +68,14 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#" />
-			<input type="hidden" name="system_note_id" value="#attributes.system_note_id#" />
+			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
+			<input type="hidden" name="system_note_id" value="#attributes.system_note_id#"/>
 			<cfif attributes.system_note_id EQ 0>
-				<input type="submit" name="send_system_note" value=" Submit System Note " alt="Submit System Note" />
+				<input type="submit" alt="Submit System Note" name="send_system_note" value=" Submit System Note "/>
 			<cfelse>
-				<input type="submit" name="update_system_note" value=" Update System Note " alt="Update System Note" />
+				<input type="submit" alt="Update System Note" name="update_system_note" value=" Update System Note "/>
 			</cfif>
-			&nbsp;&nbsp;<input type="button" name="cancel_button" value="Cancel" alt="cancel" onclick="javascript:history.go(-1)" />
+			&nbsp;&nbsp;<input type="button" name="cancel_button" value="Cancel" alt="cancel" onclick="javascript:history.go(-1)"/>
 		</td>
 	</tr>
 </table>

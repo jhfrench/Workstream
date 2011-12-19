@@ -1,5 +1,5 @@
 <!-- common_files/qry_insert_link_user_account_status.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_insert_link_user_account_status.cfm">
 	<responsibilities>

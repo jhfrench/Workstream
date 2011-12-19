@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfform name="create_ref_environment" action="index.cfm?fuseaction=#variables.circuit_label#.insert_ref_environment" method="post">
+<cfform name="create_ref_environment" action="index.cfm?fuseaction=main.insert_ref_environment" method="post">
 <table width="60%">
 	<tr>
 		<td width="50">Environment name</td>

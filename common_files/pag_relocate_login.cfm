@@ -20,15 +20,4 @@
 	</IO>
 </fusedoc>
 --->
-
-<cfswitch expression="#cgi.http_host#">
-	<cfcase value="nash.hitsshq.com,nvdb.hitsshq.com,bronze.sef.hq.nasa.gov,nvdb.sef.hq.nasa.gov,brass.hq.nasa.gov,nvdb.hq.nasa.gov,nvdb.nasa.gov">
-		<cflocation url="index.cfm?fuseaction=Search.search_vendors" addtoken="no">
-	</cfcase>
-	<cfcase value="vendors.nvdb.hitsshq.com,vendors.nvdb.sef.hq.nasa.gov,vendors.nvdb.hq.nasa.gov,vendors.nvdb.nasa.gov">
-		<cflocation url="index.cfm?fuseaction=Vendor.challenge_screen" addtoken="no">
-	</cfcase>
-	<cfdefaultcase>
-		<cfset variables.error=variables.unknown_url>
-	</cfdefaultcase>
-</cfswitch>
+<cflocation url="index.cfm?fuseaction=#application.fusebox.defaultfuseaction#" addtoken="no">

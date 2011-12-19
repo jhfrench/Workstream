@@ -1,0 +1,75 @@
+<!-- Customers/circuit.xml
+	Author: Jeromy French -->
+<!--
+<fusedoc language="ColdFusion MX" specification="2.0" template="circuit.xml"/>
+	<responsibilities>
+		I defined the fuseactions for the Administration module. Please keep fuseactions in alphabetical order.
+	</responsibilities>
+	<properties>
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/31/2007" role="FuseCoder" comments="Created File"/>
+			$Id:$
+		</history>
+	</properties>
+	<IO>
+		<in>
+
+		</in>
+		<passthrough>
+
+		</passthrough>
+		<out>
+
+		</out>
+	</IO>
+</fusedoc>
+-->
+
+<circuit access="public">
+	<prefuseaction callsuper="true">
+		<include template="../common_files/act_header.cfm"/>
+	</prefuseaction>
+
+
+		<fuseaction name="add">
+			<!-- <set name="attributes.object_name" value="marketing">	
+			<include template="../common_files/act_object_access.cfm"> -->
+			<include template="qry_get_people_by_project_id.cfm"/>
+			<include template="pag_add_edit.cfm"/>
+		</fuseaction>
+		<fuseaction name="add_edit">
+			<!-- <set name="attributes.object_name" value="marketing">	
+			<include template="../common_files/act_object_access.cfm"> -->
+			<include template="pag_add_edit.cfm"/>
+		</fuseaction>
+		 <fuseaction name="edit">
+			<!-- <set name="attributes.object_name" value="marketing">	
+			<include template="../common_files/act_object_access.cfm"> -->
+			<include template="act_upd_person.cfm"/>
+		</fuseaction>
+		<fuseaction name="grid">
+			<!-- <set name="attributes.object_name" value="marketing">	
+			<include template="../common_files/act_object_access.cfm"> -->
+			<set name="request.pagetitle" value="Marketing"/>
+			<include template="pag_marketing_grid.cfm"/>
+		</fuseaction>
+		<fuseaction name="home_drill">
+			<!-- <set name="attributes.object_name" value="marketing">	
+			<include template="../common_files/act_object_access.cfm"> -->
+			<include template="pag_marketing_home_drill.cfm"/>
+		</fuseaction>
+		<fuseaction name="line">
+			<!-- <set name="attributes.object_name" value="marketing">	
+			<include template="../common_files/act_object_access.cfm"> -->
+			<set name="request.pagetitle" value="Marketing"/>
+			<include template="pag_marketing_line.cfm"/>
+		</fuseaction>
+		<fuseaction name="submit_marketing">
+			<!-- <set name="attributes.object_name" value="marketing">	
+			<include template="../common_files/act_object_access.cfm"> -->
+			<include template="act_upd_marketing.cfm"/>
+		</fuseaction>
+
+	<postfuseaction>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</postfuseaction>
+</circuit>

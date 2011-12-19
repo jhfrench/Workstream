@@ -1,8 +1,3 @@
-.cfdebug {
-	display: none;
-	}
-.container {
-	}
 .screen_only {
 	display: none;
 	}
@@ -15,12 +10,4 @@
 	border-style: solid;
 	border-color: white;
 	border-width: 1px;
-	}
-.main_body {
-	}
-textarea {
-	width:600px;
-	height:500px;
-	border:1px solid #000000;
-	background-color:#CCCCCC;
 	}

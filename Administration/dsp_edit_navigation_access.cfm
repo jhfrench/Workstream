@@ -22,17 +22,38 @@
 </fusedoc>
 --->
 
+<cfif isdefined("attributes.relevant_business_function_id") AND len(attributes.relevant_business_function_id)>
+	<cfinclude template="qry_deactivate_access_user_business_function.cfm">
+	<cfif len(attributes.business_function_id)>
+		<cfinclude template="../common_files/qry_insert_access_user_business_function.cfm">
+	</cfif>
+</cfif>
+
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_nsm_privileges" fuseaction="Administration.edit_nsm_privileges" field_name="module_id" field_value="" processform="1" field2_name="user_account_id" field2_value="#attributes.user_account_id#" program_year_id="#attributes.program_year_id#">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="view_user_access" fuseaction="Administration.view_user_access" field_name="user_account_id" field_value="" field2_name="program_year_id" field2_value="#attributes.program_year_id#">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="administer_user_menu" fuseaction="Administration.administer_user_menu" field_name="user_account_id" field_value="">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="view_user_activity" fuseaction="Administration.view_user_activity" field_name="user_account_id" field_value="">
+
+<cfinclude template="../common_files/qry_get_user_information.cfm">
+<cfinclude template="../common_files/qry_get_user_navigation_access.cfm">
+<cfset variables.module_description="thiswill_never_match_jf">
 <form name="form_edit_navigation_access" action="index.cfm?fuseaction=Administration.edit_navigation_access" method="post">
+
+
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the data held in the table below">
 	<tr>
 		<td align="left">
-			<h2 style="margin:0px"><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit User Access &gt;<ul><cfoutput query="get_user_information">#first_name# #last_name#<cfif currentrow NEQ recordcount>, </cfif></cfoutput></ul></h2>
+			<h2 style="margin:0px" id="top-side"><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit User Access</h2>
 		</td>
 	</tr>
 	<tr>
-		<td>
-			<cfoutput><a href="javascript:administer_user_menu('#attributes.user_account_id#');">Manage User's Profile</a> | <a href="javascript:view_user_activity('#attributes.user_account_id#');">View User Activity</a></cfoutput>
+		<td><cfoutput>
+			<a href="javascript:administer_user_menu('#attributes.user_account_id#');">Manage User's Profile</a><br />
+			<a href="javascript:view_user_activity('#attributes.user_account_id#');">View User Activity</a></cfoutput>
 		</td>
+	</tr>
+	<tr>
+		<th>You are administering user access for: <cfoutput query="get_user_information">#first_name# #last_name#<cfif currentrow NEQ recordcount>, </cfif></cfoutput></th>
 	</tr>
 	<cfif isdefined("attributes.relevant_business_function_id") AND len(attributes.relevant_business_function_id)>
 	<tr>
@@ -52,10 +73,6 @@
 		<td colspan="2" title="Module associated to #business_function_description#">
 			#module_description#
 			<cfset variables.module_description=module_description>
-			<cfif assign_hier_privileges_ind AND listfind(variables.assigned_module_id,module_id)>
-				&nbsp;<a href="javascript:edit_nsm_privileges(#module_id#);">Edit Organization Privileges</a>
-			</cfif>
-
 		</td>
 	</tr>
 	</cfif>
@@ -65,7 +82,7 @@
 		<cfset variables.row_color="dddddd">
 	</cfif>
 	<!--- <tr bgcolor="###IIF(currentrow MOD 2, DE('#eeeeee'), DE('#dddddd'))#" onMouseOver="this.bgColor='##cfdee3';this.style.cursor='hand';"> --->
-	<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cccccc';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';">
+	<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';" onclick="javascript:Element.toggle('var_id_#currentrow#'); return false;">
 		<td>
 			<input type="checkbox" name="business_function_id" id="business_function_id_#business_function_id#" value="#business_function_id#"#checked_ind#/>
 		</td>
@@ -83,7 +100,7 @@
 			<input type="hidden" name="old_business_function_id" value="#valuelist(get_user_navigation_access.old_business_function_id)#" />
 			<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
 			</cfoutput>
-			<input type="submit" name="submit" value="Submit" onclick="hide();" alt="submit" />
+			<input type="submit" alt="submit" name="submit" value="Submit" onclick="hide();" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

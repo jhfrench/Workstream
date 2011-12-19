@@ -52,11 +52,8 @@
 
 <label for="subject" style="width:100px">Subject:</label> <cfinput type="text" name="subject" id="subject" value="" size="50" maxlength="200" required="yes" message="Please enter a subject." /><br />
 
-<cfset variables.email_body_limit=5000>
 <label for="email_body" style="width:100px">Text</label><br />
-<cftextarea name="email_body" id="email_body" cols="85" rows="15" required="yes" message="Please enter the text of your email." onKeyDown="text_counter(document.form_manage_email.email_body,'email_body_count',#variables.email_body_limit#)" onChange="text_counter(document.form_manage_email.email_body,'email_body_count',#variables.email_body_limit#)"></cftextarea><br />
-Only the first #variables.email_body_limit# characters of your capability statement will be saved. You have <span id="email_body_count" title="Email body characters remaining.">#variables.email_body_limit#</span> characters remaining. Please consider attaching longer emails using the "Attach files" option that follows.<br />
-
+<cftextarea name="email_body" id="email_body" cols="85" rows="15" required="yes" message="Please enter the text of your email."></cftextarea><br />
 
 <label for="upload_id" style="width:100px">Attach files</label> 
 <a onclick="javascript:Element.toggle('upload_frame');Element.toggle('show_upload_frame');Element.toggle('hide_upload_frame');" id="show_upload_frame"><img src="images/expand.gif" border="0" alt="Show child details"> Show Upload</a><a onclick="javascript:Element.toggle('upload_frame');Element.toggle('show_upload_frame');Element.toggle('hide_upload_frame');" id="hide_upload_frame" style="display:none;"><img src="images/collapse.gif" border="0" alt="Hide child details" /> Hide Upload</a><br />
@@ -65,10 +62,8 @@ Only the first #variables.email_body_limit# characters of your capability statem
 <cfinclude template="../common_files/act_upload.cfm">
 <div align="center">
 	<iframe id="upload_frame" style="display:none;width:400px; height:210px; border:0px;" frameborder="0" src="index.cfm?fuseaction=common_files.process_upload&upload_source_type_id=2&<cfoutput>user_account_id=#session.user_account_id#&cache_escape=#variables.cache_escape#</cfoutput>" title="Upload documents">
-</iframe>
 </div>
-
-Please note that a copy of this message will automatically be sent your email address (#session.email_address#).<br />
+</iframe>
 
 <div align="center">
 	<input type="hidden" name="upload_id" id="upload_id" value="0" />

@@ -91,7 +91,7 @@
 		WHERE User_Account.user_account_id IN (#attributes.user_account_id#)
 			AND REF_Screen.active_ind=1
 			AND REF_Screen.module_id IN (#attributes.module_id#)
-			AND REF_Screen.business_function_id NOT IN (
+			AND business_function_id NOT IN (
 				SELECT business_function_id
 				FROM REF_Screen
 				WHERE active_ind=1

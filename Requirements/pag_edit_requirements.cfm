@@ -29,7 +29,7 @@
 <cfset attributes.requirement_type_id=0>
 <cfinclude template="../common_files/qry_get_requirement_type.cfm">
 <cfinclude template="qry_get_priority.cfm">
-<cfinclude template="../common_files/qry_get_fuseactions.cfm">
+<cfinclude template="qry_get_fuseactions.cfm">
 <cfinclude template="qry_get_requirement.cfm">
 <cfmodule template="qry_get_ref_product_version.cfm" product_version_id="#get_requirement.product_version_id#">
 <cfinclude template="dsp_edit_requirements.cfm">

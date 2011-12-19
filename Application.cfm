@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
 <!-- sourcecode/Application.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="Application.cfm">
 	<responsibilities>
@@ -40,87 +40,41 @@
 <cfinclude template="#variables.path_prefix#act_application_settings.cfm"> --->
 
 <cfscript>
-	variables.datasources.application_manager="NVDB";
+	variables.datasources.application_manager="Application_Manager";
 	variables.path_prefix="Application_Manager/";
 		
 	switch(cgi.http_host) {
+		case "127.0.0.1:8500":
 		case "nash.hitsshq.com":
-		case "nvdb.hitsshq.com": {
+		case "faad.hitsshq.com": {
 			variables.environment_name="Development";
 			variables.sessiontimeout="3";
-			variables.modules_allowed="1,2,4,5";
-			variables.mast_image_name="mast.jpg";
 			break;
 		}
 		
-		case "vendors.nvdb.hitsshq.com": {
-			variables.environment_name="Development";
-			variables.sessiontimeout="3";
-			variables.modules_allowed="1,3";
-			variables.mast_image_name="mast2.jpg";
-			break;
-		}
-		
-		case "bronze.sef.hq.nasa.gov": {
+		case "procyon.sef.hq.nasa.gov":
+		case "faad.sef.hq.nasa.gov": {
 			variables.environment_name="SEF";
 			variables.sessiontimeout="0.04166666666665";
-			variables.modules_allowed="1,2,4,5";
-			variables.mast_image_name="mast.jpg";
-			variables.datasources.application_manager="NVDB_Security";
 			break;
 		}
 		
-		case "nvdb.sef.hq.nasa.gov": {
-			variables.environment_name="SEF";
-			variables.sessiontimeout="0.04166666666665";
-			variables.modules_allowed="1,2,4,5";
-			variables.mast_image_name="mast.jpg";
-			break;
-		}
-		
-		case "vendors.nvdb.sef.hq.nasa.gov": {
-			variables.environment_name="SEF";
-			variables.sessiontimeout="0.04166666666665";
-			variables.modules_allowed="1,3";
-			variables.mast_image_name="mast2.jpg";
-			break;
-		}
-		
-		case "brass.hq.nasa.gov":
-		case "nvdb.hq.nasa.gov":
-		case "nvdb.nasa.gov": {
+		case "heckler.hq.nasa.gov":
+		case "faad.hq.nasa.gov":
+		case "faad.nasa.gov": {
 			variables.environment_name="Production";
 			variables.sessiontimeout="0.04166666666665";
-			variables.modules_allowed="1,2,4,5";
-			variables.mast_image_name="mast.jpg";
-			break;
-		}
-		
-		case "vendors.nvdb.hq.nasa.gov":
-		case "vendors.nvdb.nasa.gov": {
-			variables.environment_name="Production";
-			variables.sessiontimeout="0.04166666666665";
-			variables.modules_allowed="1,3";
-			variables.mast_image_name="mast2.jpg";
 			break;
 		}
 	}
 </cfscript>
 	
-<cftry>
-	<cfquery name="get_last_updated" datasource="#variables.datasources.application_manager#">
-	SELECT last_updated
-	FROM Last_Updated
-	</cfquery>
-	<cfset variables.last_updated=get_last_updated.last_updated>
-	
-	<cfcatch type="database">
-		<!--- if CF can't talk to the database, let's at least get the application to the point that it can activate the error-handling --->
-		<cfset variables.last_updated=now()>
-	</cfcatch>
-</cftry>
+<cfquery name="get_last_updated" datasource="#variables.datasources.application_manager#">
+SELECT last_updated
+FROM Last_Updated
+</cfquery>
 
-<cfapplication name="NVDB_#dateformat(variables.last_updated,'yyyy_mm_dd')#_#timeformat(variables.last_updated,'HH:MM')#_#left(cgi.script_name,42)#"
+<cfapplication name="skeleton_#dateformat(get_last_updated.last_updated,'yyyy_mm_dd')#_#timeformat(get_last_updated.last_updated,'HH:MM')#_#left(cgi.script_name,38)#"
 	applicationtimeout="3"
 	clientmanagement="no"
 	clientstorage="registry"
@@ -150,6 +104,7 @@
 	<cfmodule template="#variables.path_prefix#act_log_page_request.cfm" log_type_id="1" user_identification="#variables.user_identification#">
 </cfif>
 
+<cfset request.dir_level="">
 <!--- for manually setting application variables, instead of having them reside in a database
 
 <cfdump var="#application.application_specific_settings#">

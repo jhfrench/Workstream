@@ -1,0 +1,35 @@
+
+<!--Reports/pag_supervisor_force.cfm
+	Author: Jeromy F  -->
+<cfsilent>
+	<!--- FUSEDOC
+	||
+	Responsibilities: I display the rows for the supervisor's ForcePlanner report. This report shows direct report's tasks and hours for complete and incomplete, budgeted and un-budgeted tasks.
+	||
+	Name: Jeromy French
+	||
+	Edits:
+	$Log$
+Revision 1.1  2005/03/09 18:12:27  stetzer
+<>
+
+Revision 1.1  2001-10-11 11:04:05-04  long
+added $log $ for edits.  To all CFM files that have fusedocs.
+
+
+	 
+	||
+	END FUSEDOC --->
+<cfparam name="attributes.from_date" default="#month(now())#/1/#year(now())#">
+<cfparam name="attributes.to_date" default="#month(now())#/#DaysInMonth(now())#/#year(now())#">
+</cfsilent>
+<cfinclude template="../common_files/dsp_pop_calendar.cfm">
+<cfmodule template="../common_files/act_calendar.cfm" form_name="date_range" field_name="from_date,to_date">
+<cfinclude template="qry_supervisor_force.cfm">
+<table align="center" border="0" cellpadding="1" cellspacing="0" width="100%">
+	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="10" gutter="0" section_color="008080" section_title="&nbsp;ForcePlanner Report" title_class="HeadText#session.workstream_text_size#White">
+	<cfinclude template="dsp_supervisor_force_header.cfm">
+	<cfinclude template="dsp_supervisor_force_row.cfm">
+</table>
+<cfinclude template="act_force_hidden_links.cfm">
+

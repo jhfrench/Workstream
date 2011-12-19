@@ -1,5 +1,5 @@
 <!-- Administration/qry_get_all_help_articles.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_all_help_articles.cfm">
 	<responsibilities>
@@ -26,7 +26,7 @@
 
 <cfquery name="get_all_help_articles" datasource="#application.datasources.main#">
 SELECT Help_Article.help_article_id, Help_Article.help_article_title AS help_article_title, Help_Article.help_article_text,
-	LENGTH(Help_Article.help_article_text) AS article_length, Help_Article.sort_order AS sort_order, Help_Article.active_ind,
+	LEN(Help_Article.help_article_text) AS article_length, Help_Article.sort_order AS sort_order, Help_Article.active_ind,
 	Demographics.last_name, Demographics.first_name
 FROM Help_Article
 	INNER JOIN Demographics ON Help_Article.created_by=Demographics.user_account_id

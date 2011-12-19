@@ -40,7 +40,7 @@ Click on a server to see what applications that server supports.
 			#environment_name#
 		</th>
 		
-		<cfquery name="qry_get_host_servers" datasource="#application.datasources.application_manager#">
+		<cfquery name="qry_get_host_servers" datasource="#application.datasources.main#">
 		SELECT Installation.environment_id, REF_Host_Server.host_server_id, REF_Host_Server.host_server_name
 		FROM Installation
 			INNER JOIN REF_Host_Server ON Installation.host_server_id=REF_Host_Server.host_server_id
@@ -56,7 +56,7 @@ Click on a server to see what applications that server supports.
 					<td align="center" bgcolor="##FF00#variables.blue_code#" valign="top">
 						<p>&nbsp;</p>
 						<a href="javascript:submit_form('REF_Host_Server',#host_server_id#);">
-						<img src="main/web-server-icon.jpg" alt="#host_server_name#" width="48" height="48" border="0" /><br />#host_server_name#
+						<img src="main/web-server-icon.jpg" alt="#host_server_name#" width="48" height="48" border="0"><br />#host_server_name#
 						</a>
 						<p>&nbsp;</p>
 					</td>
@@ -65,7 +65,7 @@ Click on a server to see what applications that server supports.
 			</table>
 		</td>
 		
-		<cfquery name="qry_get_database_servers" datasource="#application.datasources.application_manager#">
+		<cfquery name="qry_get_database_servers" datasource="#application.datasources.main#">
 		SELECT Installation.environment_id, REF_Database_Server.database_server_id, REF_Database_Server.database_server_name
 		FROM Installation
 			INNER JOIN L_Installation_Supporting_DB ON Installation.installation_id=L_Installation_Supporting_DB.installation_id
@@ -83,7 +83,7 @@ Click on a server to see what applications that server supports.
 					<td align="center" bgcolor="##FF66#variables.blue_code#" valign="top">
 						<p>&nbsp;</p>
 						<a href="javascript:submit_form('REF_Database_Server',#database_server_id#);">
-						<img src="main/data-server-icon.jpg" alt="#database_server_name#" width="48" height="48" border="0" /><br />#database_server_name#
+						<img src="main/data-server-icon.jpg" alt="#database_server_name#" width="48" height="48" border="0"><br />#database_server_name#
 						</a>
 						<p>&nbsp;</p>
 					</td>
@@ -92,7 +92,7 @@ Click on a server to see what applications that server supports.
 			</table>
 		</td>
 		
-		<cfquery name="qry_get_email_servers" datasource="#application.datasources.application_manager#">
+		<cfquery name="qry_get_email_servers" datasource="#application.datasources.main#">
 		SELECT Installation.environment_id, REF_Email_Server.email_server_id, REF_Email_Server.email_server_name
 		FROM Installation
 			INNER JOIN REF_Email_Server ON Installation.email_server_id=REF_Email_Server.email_server_id
@@ -109,7 +109,7 @@ Click on a server to see what applications that server supports.
 					<td align="center" bgcolor="##FFAA#variables.blue_code#" valign="top">
 						<p>&nbsp;</p>
 						<a href="javascript:submit_form('REF_Email_Server',#email_server_id#);">
-						<img src="main/email-server-icon.jpg" alt="#email_server_name#" width="48" height="48" border="0" /><br />#email_server_name#
+						<img src="main/email-server-icon.jpg" alt="#email_server_name#" width="48" height="48" border="0"><br />#email_server_name#
 						</a>
 						<p>&nbsp;</p>
 					</td>
@@ -122,7 +122,7 @@ Click on a server to see what applications that server supports.
 </cfoutput>
 </table>
 
-<form name="form_hosting_network_overview" action="index.cfm?fuseaction=<cfoutput>#variables.circuit_label#</cfoutput>.server_details" method="post">
+<form name="form_hosting_network_overview" action="index.cfm?fuseaction=main.server_details" method="post">
 	<input type="hidden" name="server_type" value="" />
 	<input type="hidden" name="server_id" value="" />
 </form>

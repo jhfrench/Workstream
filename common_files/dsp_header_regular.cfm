@@ -1,9 +1,9 @@
 <!-- common_files/dsp_header_regular.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_header_regular.cfm">
 	<responsibilities>
-		I display a header that shows on most pages.
+		I display a header for FAAD.
 	</responsibilities>
 	<properties>
 		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/17/2007" role="FuseCoder" comments="Created File">
@@ -22,21 +22,20 @@
 </fusedoc>
 --->
 
-<cfscript>
-variables.icon_number=3; //variables.icon_number needs to be equal to the number of static icons in the navigation block
-variables.access_message="";
-variables.allowed_modules=valuelist(get_module_navigation.module_id);
-if (NOT isdefined("session.text_size")) session.text_size="none";
-if (variables.page_is_secure_ind AND listfind(get_screen_details.screen_access_ind,1) EQ 0)
-	variables.access_message="Your access is not authorized for this screen.";
-else
-	if (listfind(get_screen_details.locked_ind,1)) {
-		variables.access_message="This module has been locked.";
-		if (len(get_screen_details.lock_module_comment))
-			variables.access_message="#variables.access_message#<br />#get_screen_details.lock_module_comment#";
-	}
-</cfscript>
+<cfset variables.access_message="">
+<cfset variables.allowed_modules=valuelist(get_module_navigation.module_id)>
 <cfmodule template="qry_get_system_note.cfm">
+
+<cfif variables.page_is_secure_ind AND listfind(get_screen_details.screen_access_ind,1) EQ 0>
+	<!--- user is accessing a secured screen to which they have not been granted permissions --->
+	<cfset variables.access_message="Your access is not authorized for this screen.">
+<cfelseif listfind(get_screen_details.locked_ind,1)>
+	<!--- prevent access to the screen with the module that is locked. --->
+	<cfset variables.access_message="This module has been locked.">
+	<cfif len(get_screen_details.lock_module_comment)>
+		<cfset variables.access_message="#variables.access_message#<br />#get_screen_details.lock_module_comment#">
+	</cfif>
+</cfif>
 
 <cfoutput>
 <html>
@@ -45,7 +44,7 @@ else
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 		<meta http-equiv="expires" content="#now()#">
 		<cfswitch expression="#session.text_size#">
-			<cfcase value="alt2,alt3"><link href="common_files/#application.product_name#_#session.text_size#.css?cache_escape=#qry_get_last_updated.last_updated#" title="#session.text_size#" rel="stylesheet" type="text/css" media="screen" /></cfcase>
+			<cfcase value="alt2,alt3"><link href="common_files/FAAD_#session.text_size#.css?cache_escape=#qry_get_last_updated.last_updated#" title="#session.text_size#" rel="stylesheet" type="text/css" media="screen" /></cfcase>
 			<cfdefaultcase><link href="common_files/application.css?cache_escape=#qry_get_last_updated.last_updated#" rel="stylesheet" type="text/css" media="screen" /></cfdefaultcase>
 		</cfswitch>
 
@@ -115,7 +114,7 @@ else
 			}
 		}
 
-		//this is where we fade the system messages in and out
+		//this is where we fade the FAAD system messages in and out
 		function fadeMessages()
 			{
 				var temp;
@@ -175,7 +174,7 @@ else
 		<cfif get_screen_details.business_function_id EQ 19>
 			<tr>
 				<td colspan="3" align="center">
-					<div style="padding-bottom:8px;font-size:11pt;"><strong>Welcome to the #application.application_specific_settings.nasa_organization# #application.html_title# (#application.product_name#).</strong></div>
+					<div style="padding-bottom:8px;font-size:11pt;"><strong>Welcome to the Office of Small Business' Federal Assistance Award Data (FAAD).</strong></div>
 				</td>
 			</tr>
 		</cfif>

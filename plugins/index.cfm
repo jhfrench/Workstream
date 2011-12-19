@@ -23,4 +23,4 @@
 	</IO>
 </fusedoc>
 --->
-<cflocation url="../index.cfm?fuseaction=#application.default_fuseaction#" addtoken="no">
+<cflocation url="../index.cfm?fuseaction=Home.login&requested_page=#application.fusebox.defaultfuseaction#" addtoken="no">

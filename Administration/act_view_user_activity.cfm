@@ -8,11 +8,9 @@
 	<properties>
 		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/19/2010" role="FuseCoder" comments="Created File">
 			$Id:$
-			(JF | 7/19/10)
-			Adding ability to view user's activity.
+			(JF | 7/19/10) Adding ability to view user's activity.
 			
-			(JF | 6/13/11)
-			Adding ability to jump to error diagnostics.
+			(JF | 7/19/10) Making T-SQL compliant.
 		</history>
 	</properties>
 	<IO>
@@ -54,18 +52,13 @@ ORDER BY Login_Attempt.login_attempt_id DESC
 
 <!---retrieve specified user's activity from the LOG_Page_Request table--->
 <cfquery name="get_view_user_activity" datasource="#application.datasources.main#">
-SELECT LOG_Page_Request.page_request_id, NVL(REPLACE(LISTFIRST(LISTLAST(LOG_Page_Request.url_requested, '?'),'&'), 'fuseaction=', ''), LOG_Page_Request.url_requested) AS url_requested, LOG_Page_Request.page_load_time,
-	LOG_Page_Request.created_date AS request_date, TO_CHAR(LOG_Page_Request.created_date, 'HH24:MI:SS') AS request_time, TO_CHAR(LOG_Page_Request.created_date, 'HH24') AS request_hour, 
+SELECT LOG_Page_Request.page_request_id, ISNULL(REPLACE(dbo.LISTFIRST(dbo.LISTLAST(LOG_Page_Request.url_requested, '?'),'&'), 'fuseaction=', ''), LOG_Page_Request.url_requested) AS url_requested, LOG_Page_Request.page_load_time,
+	LOG_Page_Request.created_date AS request_date, CAST(LOG_Page_Request.created_date AS time(7)) AS request_time, DATEPART("Hh", LOG_Page_Request.created_date) AS request_hour, 
 	REF_Date.day_of_week_number, REF_Date.date_year, REF_Date.date_month,
-	TO_CHAR(REF_Date.odbc_date, 'WW') AS date_week, REF_Date.date_day,
-	Error_Log.error_log_id
+	DATEPART("wk",REF_Date.odbc_date) AS date_week, REF_Date.date_day
 FROM LOG_Page_Request
-	INNER JOIN User_Account ON LOG_Page_Request.user_identification=User_Account.user_account_id
-	LEFT OUTER JOIN REF_Date ON TO_CHAR(LOG_Page_Request.created_date, 'YYYY/MM/DD')=TO_CHAR(REF_Date.odbc_date, 'YYYY/MM/DD')
-	LEFT OUTER JOIN Error_Log ON User_Account.user_name=Error_Log.username
-		AND LOG_Page_Request.page_load_time IS NULL
-		AND LOG_Page_Request.created_date BETWEEN Error_Log.error_sql_datetime-(45/86400) AND Error_Log.error_sql_datetime+(45/86400) /*errors that happened within 45 seconds (earlier or later) of the page reqest */
-WHERE LOG_Page_Request.user_identification=<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.user_account_id#">
+	LEFT OUTER JOIN REF_Date ON CAST(LOG_Page_Request.created_date AS DATE)=CAST(REF_Date.odbc_date AS DATE)
+WHERE LOG_Page_Request.user_identification='#attributes.user_account_id#'
 	AND LOG_Page_Request.url_requested LIKE '%#cgi.server_name#%'
 	AND LOG_Page_Request.url_requested NOT LIKE '%view_help%'<cfif isdate(attributes.start_date) AND isdate(attributes.end_date)>
 	AND LOG_Page_Request.created_date BETWEEN <cfqueryparam cfsqltype="cf_sql_date" value="#createodbcdate(attributes.start_date)#"> AND <cfqueryparam cfsqltype="cf_sql_date" value="#createodbcdate(attributes.end_date)#"></cfif>

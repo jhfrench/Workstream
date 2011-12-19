@@ -14,17 +14,17 @@
 --->
 
 <cfset variables.application_name="Application_Temp#now()#">
-<cfquery name="qry_insert_installation" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_insert_installation" datasource="#application.datasources.main#">
 INSERT INTO Installation (application_name, email_server_id, environment_id,
 	host_server_id, product_id, date_created,
 	active_ind)
 SELECT '#variables.application_name#', #attributes.email_server_id#, #attributes.environment_id#, 
-	#attributes.host_server_id#, #attributes.product_id#, sysdate,
+	#attributes.host_server_id#, #attributes.product_id#, GETDATE(),
 	1
 FROM Dual
 </cfquery>
 
-<cfquery name="qry_get_installation_id" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_get_installation_id" datasource="#application.datasources.main#">
 SELECT MAX(installation_id) AS installation_id
 FROM Installation
 WHERE product_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.product_id#">

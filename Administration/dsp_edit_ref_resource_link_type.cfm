@@ -1,12 +1,12 @@
 <!-- Administration/dsp_edit_ref_resource_link_type.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_ref_resource_link_type.cfm">
 	<responsibilities>
 		I display the form for resource link type maintenance.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/17/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="9/17/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -28,11 +28,10 @@
 <cfparam name="attributes.method" default="">
 <cfmodule template="../common_files/qry_get_ref_resource_link_type.cfm" resource_link_type_id="0">
 <form name="ref_resource_link_type_edit_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
-	Retrieve an existing <label for="resource_link_type_id">resource link type</label>:<br />
-	<select name="resource_link_type_id" id="resource_link_type_id">
+	<select name="resource_link_type_id">
 	<cfloop query="get_ref_resource_link_type"><option value="#resource_link_type_id#" <cfif not comparenocase(get_ref_resource_link_type.resource_link_type_id, attributes.resource_link_type_id)>selected</cfif>>#description#</option></cfloop>
-	</select><br />
-	<input type="submit" name="method" value="Retrieve and edit resource link type" />
+	</select>
+	<input name="method" type="submit" alt="Retrieve and edit resource link type" value="Retrieve and edit resource link type"/>
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_resource_link_type.cfm"  resource_link_type_id="#attributes.resource_link_type_id#">
@@ -51,11 +50,11 @@
 				<td><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" required="yes" message="Please enter description." maxlength="2000">
 				</td>
-				<td><label for="sort_order">sort order</label>: 
+				<td><label for="sort_order">Sort Order</label>: 
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#get_ref_resource_link_type_count.count1+1#" size="6" maxlength="12" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.resource_link_type_id EQ 0>
-					<input type="hidden" name="active_ind" value="1" />
+					<input type="hidden" name="active_ind" value="1"/>
 				<cfelse>
 				<td>
 					<span title="describes the purpose of the radio buttons that follow">Active?</span>
@@ -72,7 +71,7 @@
 		<td align="center">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="resource_link_type_id" value="#attributes.resource_link_type_id#" />
-			<input type="submit" name="submit" value=" Submit " alt="submit" />
+			<input type="submit" alt="submit"value=" Submit "/>
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

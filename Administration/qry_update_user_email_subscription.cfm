@@ -1,5 +1,5 @@
 <!-- Administration/qry_update_user_email_subscription.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_update_user_email_subscription.cfm">
 	<responsibilities>

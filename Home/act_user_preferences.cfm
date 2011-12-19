@@ -1,5 +1,5 @@
 <!-- Home/act_user_preferences.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_user_preferences.cfm">
 	<responsibilities>

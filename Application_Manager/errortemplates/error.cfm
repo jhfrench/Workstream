@@ -16,9 +16,6 @@
 			
 			JF: 7/30/10
 			Converted to faster cfscript; split cftry into multiple blocks so one failure wouldn't wipe out other data.
-			
-			JF: 5/26/11
-			Pulled more scopes out of main Error_Log insert and added cftry around the Error_Log updates. This should drastically cut down on the number of un-loggable errors.
 		</history>
 	</properties>
 </fusedoc>
@@ -26,42 +23,30 @@
 
 <cfsilent>
 	<cfscript>
-		if(NOT isdefined("session.email_address")) {
+		if(not isdefined("session.email_address")) {
 			session.email_address="Unknown email";
 		}
-		if(NOT isdefined("session.first_name")) {
+		if(not isdefined("session.first_name")) {
 			session.first_name="Unknown first name";
 		}
-		if(NOT isdefined("session.last_name")) {
+		if(not isdefined("session.last_name")) {
 			session.last_name="Unknown last name";
 		}
-		if(NOT isdefined("session.user_name")) {
-			if (isdefined("application.login_for_error")) {
-				session.user_name=evaluate(application.login_for_error);
-			}
-			else {
-				session.user_name="Unknown user name";
-			}
+		if(not isdefined("session.user_name")) {
+			session.user_name="Unknown user name";
 		}
-		if(NOT isdefined("application.product_name")) {
+		if(not isdefined("application.product_name")) {
 			application.product_name="";
 		}
-		if(NOT isdefined("application.email_server_name")) {
+		if(not isdefined("application.erroremailfrom")) {
+			application.erroremailfrom="FAAD@nasa.gov";
+		}
+		if(not isdefined("application.email_server_name")) {
 			application.email_server_name="";
-		}
-		
-		if(NOT isdefined("application.erroremailfrom")) {
-			application.erroremailfrom="#application.product_name#@nasa.gov";
-		}
-		if(isdefined("session.email_address")) {
-			variables.reply_to=session.email_address;
-		}
-		else {
-			variables.reply_to=application.erroremailfrom;
 		}
 		variables.errordate=dateformat(now(), "mm/dd/yy");
 		variables.errortime=timeformat(now(), "hh:mm:ss TT");
-		variables.error_diagnostics=stripcr(replacelist(error.diagnostics, "<p>,<pre>,</pre>,</P>,<hr>,<b>,</b>,<ol>,<li>,</ol>,<p>,</p>,'", ",,,,,,,,,,,,"));
+		variables.error_diagnostics=StripCR(ReplaceList(error.diagnostics, "<p>,<pre>,</pre>,</P>,<hr>,<b>,</b>,<ol>,<li>,</ol>,<p>,</p>,'", ",,,,,,,,,,,,"));
 		variables.error_querystring=error.querystring;
 		variables.error_remoteaddress=error.remoteaddress;
 		variables.error_httpreferer=error.httpreferer;
@@ -73,7 +58,7 @@
 
 <cftry>
 	<cfset request.safe_application=structcopy(application)>
-	<cfset delete_junk=structdelete(request.safe_application,"fusebox",true)>
+	<cfset delete_junk=StructDelete(request.safe_application,"fusebox",true)>
 	<cfwddx action="cfml2wddx" input="#request.safe_application#" output="application_variables" usetimezoneinfo="no">
 	
 	<cfcatch type="Any">
@@ -115,9 +100,9 @@
 <cftry>
 	<cfscript>
 		request.safe_error=duplicate(error);
-		structdelete(request.safe_error,"GeneratedContent",true);
-		structdelete(request.safe_error,"StackTrace",true);
-		structdelete(request.safe_error,"RootCause",true);
+		StructDelete(request.safe_error,"GeneratedContent",true);
+		StructDelete(request.safe_error,"StackTrace",true);
+		StructDelete(request.safe_error,"RootCause",true);
 	</cfscript>
 	<cfwddx action="cfml2wddx" input="#request.safe_error#" output="error_variables" usetimezoneinfo="no">
 	
@@ -158,11 +143,11 @@
 <cftry>
 	<!--- delete out the local variables we just appended to the request scope --->
 	<cfscript>
-		structdelete(request,"__fusebox",true);
-		structdelete(request,"safe_application",true);
-		structdelete(request,"safe_cgi",true);
-		structdelete(request,"safe_error",true);
-		structdelete(request,"safe_variables",true);
+		StructDelete(request,"__fusebox",true);
+		StructDelete(request,"safe_application",true);
+		StructDelete(request,"safe_cgi",true);
+		StructDelete(request,"safe_error",true);
+		StructDelete(request,"safe_variables",true);
 	</cfscript>
 	<cfwddx action="cfml2wddx" input="#request#" output="request_variables" usetimezoneinfo="no">
 	
@@ -173,153 +158,94 @@
 </cftry>
 
 <!--- Insert error data into the Error_Log table --->
-<cftry>
-	<cftransaction>
-	
-		<cfquery name="insert_error_info" datasource="#application.datasources.application_manager#">
-		INSERT INTO Error_Log (erroring_template, erroring_querystring, http_referer,
-			diagnostics, cgi_variables, client_variables,
+		<cfquery name="insert_error_info" datasource="#application.datasources.main#">
+		INSERT INTO Error_Log (erroring_template, erroring_querystring, 
+			http_referer,  diagnostics, application_variables,
+			attributes_variables, cgi_variables, client_variables,
+			form_variables, request_variables, session_variables,
 			url_variables, username, remote_address,
 			user_browser, error_web_datetime, error_sql_datetime)
-		SELECT '#variables.error_template#', '#variables.error_querystring#', '#variables.error_httpreferer#',
-			'#variables.error_diagnostics#', '#cgi_variables#', '#client_variables#', 
+		SELECT '#variables.error_template#', '#variables.error_querystring#',
+			'#variables.error_httpreferer#','#variables.error_diagnostics#', '#application_variables#',
+			'#attributes_variables#', '#cgi_variables#', '#client_variables#', 
+			'#form_variables#', '#request_variables#', '#session_variables#',
 			'#url_variables#', '#session.user_name#', '#variables.error_remoteaddress#',
-			'#variables.error_browser#', TO_DATE('#DateFormat(variables.error_datetime,"yyyy-mm-dd")# #TimeFormat(variables.error_datetime,"hh:mm:ss")#','YYYY-MM-DD HH24:MI:SS'), SYSDATE
+			'#variables.error_browser#', #createodbcdatetime(variables.error_datetime)#, GETDATE()
 		FROM Dual
 		</cfquery>
 		
-		<cfquery name="get_next_error_log_id" datasource="#application.datasources.application_manager#">
-		SELECT error_log_seq.currval AS error_log_id
-		FROM Dual
-		</cfquery>
-		<cfset request.error_log_id=get_next_error_log_id.error_log_id>
-		
-		<cftry>
-			<cfquery name="insert_error_info" datasource="#application.datasources.application_manager#">
-			UPDATE Error_Log
-			SET session_variables=<cfqueryparam value="#session_variables#" cfsqltype="CF_SQL_CLOB">
-			WHERE error_log_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#request.error_log_id#">
-			</cfquery>
-			
-			<cfcatch type="any">
-			</cfcatch>
-		</cftry>
-		
-		<cftry>
-			<cfquery name="insert_error_info" datasource="#application.datasources.application_manager#">
-			UPDATE Error_Log
-			SET application_variables=<cfqueryparam value="#application_variables#" cfsqltype="CF_SQL_CLOB">
-			WHERE error_log_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#request.error_log_id#">
-			</cfquery>
-			
-			<cfcatch type="any">
-			</cfcatch>
-		</cftry>
-		
-		<cftry>
-			<cfquery name="insert_error_info" datasource="#application.datasources.application_manager#">
-			UPDATE Error_Log
-			SET attributes_variables=<cfqueryparam value="#attributes_variables#" cfsqltype="CF_SQL_CLOB">
-			WHERE error_log_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#request.error_log_id#">
-			</cfquery>
-			
-			<cfcatch type="any">
-			</cfcatch>
-		</cftry>
-		
-		<cftry>
-			<cfquery name="insert_error_info" datasource="#application.datasources.application_manager#">
-			UPDATE Error_Log
-			SET error_variables=<cfqueryparam value="#error_variables#" cfsqltype="CF_SQL_CLOB">
-			WHERE error_log_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#request.error_log_id#">
-			</cfquery>
+<cftry>
+	<cfquery name="get_next_error_log_id" datasource="#application.datasources.main#">
+	SELECT IDENT_CURRENT('Error_Log') AS error_log_id
+	</cfquery>
+	<cfset request.error_log_id=get_next_error_log_id.error_log_id>
 	
-			<cfcatch type="any">
-			</cfcatch>
-		</cftry>
+	<cfquery name="insert_error_info" datasource="#application.datasources.main#">
+	UPDATE Error_Log
+	SET error_variables='#error_variables#'
+	WHERE error_log_id=#request.error_log_id#
+	</cfquery>
+
+	<cftry>
+		<!--- duplicate variables scope into the request scope, then clean out stuff we don't need to pare down the size; do this in descending order of size of element being cut --->
+		<cfscript>
+			request.safe_variables=structcopy(variables);
+			StructDelete(request.safe_variables,"CFERROR",true); //size~72645
+			StructDelete(request.safe_variables,"ERROR",true); //size~72634
+			StructDelete(request.safe_variables,"MYFUSEBOX",true); //size~27947
+			StructDelete(request.safe_variables,"__FUSEBOXAPPCFC",true); //size~11862
+			StructDelete(request.safe_variables,"application_variables",true); //size~6908
+			StructDelete(request.safe_variables,"error_variables",true); //size~5700
+			StructDelete(request.safe_variables,"cgi_variables",true); //size~4173
+			StructDelete(request.safe_variables,"session_variables",true); //size~1840
+			StructDelete(request.safe_variables,"EVENT",true); //size~13384
+			StructDelete(request.safe_variables,"attributes_variables",true); //size~638
+			StructDelete(request.safe_variables,"form_variables",true); //size~493
+			StructDelete(request.safe_variables,"ATTRIBUTES",true); //size~391
+			StructDelete(request.safe_variables,"url_variables",true); //size~303
+			StructDelete(request.safe_variables,"request_variables",true); //size~224
+			StructDelete(request.safe_variables,"client_variables",true); //size~220
+			StructDelete(request.safe_variables,"GET_NEXT_ERROR_LOG_ID",true); //size~190
+			StructDelete(request.safe_variables,"FUSEBOX_CALLER_PATH",true); //size~111
+			StructDelete(request.safe_variables,"FUSEBOX_APPLICATION_KEY",true); //size~70
+			StructDelete(request.safe_variables,"FUSEBOX_PARAMETERS",true); //size~64
+			StructDelete(request.safe_variables,"CFQUERY.EXECUTIONTIME",true); //size~63
+			StructDelete(request.safe_variables,"FUSEBOX_APPLICATION_PATH",true); //size~63
+			StructDelete(request.safe_variables,"__V",true); //size~61
+			StructDelete(request.safe_variables,"XFA",true); //size~46
+			StructDelete(request.safe_variables,"LOCALE",true); //size~8
+		</cfscript>
+		<cfwddx action="cfml2wddx" input="#request.safe_variables#" output="local_variables" usetimezoneinfo="no">
 		
-		<cftry>
-			<cfquery name="insert_error_info" datasource="#application.datasources.application_manager#">
-			UPDATE Error_Log
-			SET form_variables=<cfqueryparam value="#form_variables#" cfsqltype="CF_SQL_CLOB">
-			WHERE error_log_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#request.error_log_id#">
-			</cfquery>
+		<cfcatch type="Any">
+			<cfparam name="local_variables" default="WDDX FAILED">
+		</cfcatch>
+	</cftry>
 	
-			<cfcatch type="any">
-			</cfcatch>
-		</cftry>
-		
-		<cftry>
-			<cfquery name="insert_error_info" datasource="#application.datasources.application_manager#">
-			UPDATE Error_Log
-			SET request_variables=<cfqueryparam value="#request_variables#" cfsqltype="CF_SQL_CLOB">
-			WHERE error_log_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#request.error_log_id#">
-			</cfquery>
-			
-			<cfcatch type="any">
-			</cfcatch>
-		</cftry>
-		
-		<cftry>
-			<!--- duplicate variables scope into the request scope, then clean out stuff we don't need to pare down the size; do this in descending order of size of element being cut --->
-			<cfscript>
-				request.safe_variables=structcopy(variables);
-				structdelete(request.safe_variables,"CFERROR",true); //size~72645
-				structdelete(request.safe_variables,"ERROR",true); //size~72634
-				structdelete(request.safe_variables,"MYFUSEBOX",true); //size~27947
-				structdelete(request.safe_variables,"__FUSEBOXAPPCFC",true); //size~11862
-				structdelete(request.safe_variables,"application_variables",true); //size~6908
-				structdelete(request.safe_variables,"error_variables",true); //size~5700
-				structdelete(request.safe_variables,"cgi_variables",true); //size~4173
-				structdelete(request.safe_variables,"session_variables",true); //size~1840
-				structdelete(request.safe_variables,"EVENT",true); //size~13384
-				structdelete(request.safe_variables,"attributes_variables",true); //size~638
-				structdelete(request.safe_variables,"form_variables",true); //size~493
-				structdelete(request.safe_variables,"ATTRIBUTES",true); //size~391
-				structdelete(request.safe_variables,"url_variables",true); //size~303
-				structdelete(request.safe_variables,"request_variables",true); //size~224
-				structdelete(request.safe_variables,"client_variables",true); //size~220
-				structdelete(request.safe_variables,"GET_NEXT_ERROR_LOG_ID",true); //size~190
-				structdelete(request.safe_variables,"FUSEBOX_CALLER_PATH",true); //size~111
-				structdelete(request.safe_variables,"FUSEBOX_APPLICATION_KEY",true); //size~70
-				structdelete(request.safe_variables,"FUSEBOX_PARAMETERS",true); //size~64
-				structdelete(request.safe_variables,"CFQUERY.EXECUTIONTIME",true); //size~63
-				structdelete(request.safe_variables,"FUSEBOX_APPLICATION_PATH",true); //size~63
-				structdelete(request.safe_variables,"__V",true); //size~61
-				structdelete(request.safe_variables,"XFA",true); //size~46
-				structdelete(request.safe_variables,"LOCALE",true); //size~8
-			</cfscript>
-			<cfwddx action="cfml2wddx" input="#request.safe_variables#" output="local_variables" usetimezoneinfo="no">
-			
-			<cfcatch type="Any">
-				<cfparam name="local_variables" default="WDDX FAILED">
-			</cfcatch>
-		</cftry>
-		
-		<cfquery name="insert_error_info" datasource="#application.datasources.application_manager#">
-		UPDATE Error_Log
-		SET local_variables=<cfqueryparam value="#local_variables#" cfsqltype="CF_SQL_CLOB">
-		WHERE error_log_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#request.error_log_id#">
-		</cfquery>
-	</cftransaction>
+	<cfquery name="insert_error_info" datasource="#application.datasources.main#">
+	UPDATE Error_Log
+	SET local_variables='#local_variables#'
+	WHERE error_log_id=#request.error_log_id#
+	</cfquery>
 	
-	<cfcatch>
+	<cfcatch><!--- 
 		<cfoutput>
-		<!---<pre>
+		<pre>
 		#CFCATCH.Detail#
 		#CFCATCH.Message#
 		#CFCATCH.SQLState#
 		#CFCATCH.Type#
-		</pre>--->
-		</cfoutput>
+		</pre>
+		</cfoutput> --->
+		<!-- Database save failed -->
 	</cfcatch>
 </cftry>
 
 <cftry>
 	<!--- This is the email that the error causes to be sent. --->
 	<cfif len(application.support_email_recipients) AND len(application.email_server_name)>
-		<!-- email sent to <cfoutput>#application.support_email_recipients#, from #variables.reply_to# by server #application.email_server_name#</cfoutput> -->
-		<cfmail to="#application.support_email_recipients#" from="#variables.reply_to#" subject="#application.product_name# Tech Support Problem" server="#application.email_server_name#" type="HTML">
+		<!-- email sent to <cfoutput>#application.support_email_recipients#, from #application.erroremailfrom# by server #application.email_server_name#</cfoutput> -->
+		<cfmail to="#application.support_email_recipients#" from="#application.erroremailfrom#" subject="#application.product_name# Tech Support Problem" server="#application.email_server_name#" type="HTML">
 		<html>
 		<head>
 			<title>HITSS Application Error</title>
@@ -360,20 +286,19 @@
 		</font>
 		</body>
 		</html>
-		<cfmailparam name="Reply-To" value="#variables.reply_to#">
+		<cfmailparam name="Reply-To" value="#application.erroremailfrom#">
 		</cfmail>
-		<!-- Email sent -->
 	<cfelse>
 		<!-- No email sent (no email recipients, or no email server) -->
 	</cfif>
 	<cfcatch>
 		<cfoutput>
-		<!---<pre>
+		<!-- 
 		#CFCATCH.Detail#
 		#CFCATCH.Message#
 		#CFCATCH.SQLState#
 		#CFCATCH.Type#
-		</pre>--->
+		 -->
 		</cfoutput>
 	</cfcatch>
 </cftry>
@@ -383,14 +308,13 @@
 	<html>
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-			<meta http-equiv="pragma" content="no-cache" />
 			<title>HITSS Application Error</title>
-			<link href="Application_Manager/errortemplates/error_stlye.css" rel="stylesheet" type="text/css" />
+			<link href="https://pavo.hq.nasa.gov/Application_Manager/errortemplates/error_stlye.css" rel="stylesheet" type="text/css" />
 		</head>
 		<body>
 			<table class="center" width="686" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td><img src="Application_Manager/errortemplates/top.jpg" width="686" height="140" /></td>
+					<td><img src="https://pavo.hq.nasa.gov/Application_Manager/errortemplates/top.jpg" width="686" height="140" /></td>
 				</tr>
 				<tr>
 					<td class="content">
@@ -419,7 +343,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td><img src="Application_Manager/errortemplates/bottom.jpg" width="686" height="21" /></td>
+					<td><img src="https://pavo.hq.nasa.gov/Application_Manager/errortemplates/bottom.jpg" width="686" height="21" /></td>
 				</tr>
 			</table>
 		</body>
@@ -427,12 +351,12 @@
 	</cfoutput>
 	<cfcatch>
 		<cfoutput>
-		<!---<pre>
+		<!-- 
 		#CFCATCH.Detail#
 		#CFCATCH.Message#
 		#CFCATCH.SQLState#
 		#CFCATCH.Type#
-		</pre>--->
+		 -->
 		</cfoutput>
 	</cfcatch>
 </cftry>

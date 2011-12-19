@@ -1,5 +1,5 @@
 <!-- sourcecode/fusebox.init.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="fusebox.init.cfm">
 	<responsibilities>

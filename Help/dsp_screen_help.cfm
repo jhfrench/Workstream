@@ -1,5 +1,5 @@
 <!-- Help/dsp_screen_help.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_screen_help.cfm">
 	<responsibilities>
@@ -8,8 +8,6 @@
 	<properties>
 		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/16/2007" role="FuseCoder" comments="Created File">
 			$Id:$
-			(8/5/11 | JF)
-			Instead of loading the help area to the screen then fading it out with the on-load event, we should just load it with style display:none.
 		</history>
 	</properties>
 	<IO>
@@ -27,16 +25,9 @@
 --->
 <cfinclude template="../common_files/qry_get_screen_help_articles.cfm">
 <cfinclude template="../common_files/qry_get_screen_help_faqs.cfm">
-<cfscript>
-if (NOT isdefined("application.use_help_faq_ind")) {
-	application.use_help_faq_ind=0;
-}
-if (NOT isdefined("application.use_help_search_ind")) {
-	application.use_help_search_ind=0;
-}
-variables.button_width=220/(1+application.use_help_faq_ind+application.use_help_search_ind);
-</cfscript>
-
+<cfparam name="application.use_help_faq_ind" default="0">
+<cfparam name="application.use_help_search_ind" default="0">
+<cfset variables.button_width=220/(1+application.use_help_faq_ind+application.use_help_search_ind)>
 <cfoutput>
 <script type="text/javascript" language="javascript">
 // <![CDATA[
@@ -120,16 +111,16 @@ function open_help_detail(article_type_id, article_id) {
 	}
 // ]]>
 </script>
-<div id="help_area" class="sys_messages" style="display:none;margin-right:0px;">
+<div id="help_area" class="sys_messages" style="margin-right:0px;">
 	<table class="formname" border="0" cellpadding="0" cellspacing="0" bgcolor="##d1dee5" cols="3" width="100%" summary="Table to display help articles, frequently asked questions, and a capability to search either category.">
 		<thead>
 			<tr valign="top" align="center">
-				<th colspan="3" class="menubar"><a href="javascript:void(0);" onclick="Element.hide('help_area');" title="close the help section"><img src="images/close.png" align="right" class="closeBox" border="0" alt="close the help section" /></a>Help</th>
+				<th colspan="3" class="menubar"><a href="javascript:void(Element.hide('help_area');)" onclick="Element.hide('help_area');" title="close the help section"><img src="images/close.png" align="right" class="closeBox" border="0" alt="close the help section" /></a>Help</th>
 			</tr><cfif application.use_help_faq_ind+application.use_help_search_ind>
 			<tr>
-				<th id="button_article" style="background-color:##fcf2f5; border:1px solid black; width:#variables.button_width#px;"><a href="javascript:void(0);" onclick="javascript:show_articles();hide_faqs();hide_search();" name="button_article_a" style="text-decoration:none; cursor: pointer;">Articles</a></th>
-				<cfif application.use_help_faq_ind><th id="button_faq" style="background-color:##bbbbbb; border:1px solid black; width:#variables.button_width#px;"><a href="javascript:void(0);" onclick="javascript:hide_articles();show_faqs();<cfif application.use_help_search_ind>hide_search();</cfif>" name="button_faq_a" style="text-decoration:none; cursor: pointer;"><acronym title="Frequently Asked Questions">FAQ</acronym></a></th></cfif>
-				<cfif application.use_help_search_ind><th id="button_search" style="background-color:##bbbbbb; border:1px solid black; width:#variables.button_width#px;"><a href="javascript:void(0);" onclick="javascript:hide_articles();<cfif application.use_help_faq_ind>hide_faqs();</cfif>show_search();" name="button_search_a" style="text-decoration:none; cursor: pointer;">Search</a></th></cfif>
+				<th id="button_article" style="background-color:##fcf2f5; border:1px solid black; width:#variables.button_width#px;"><a href="##button_article_a" onclick="javascript:show_articles();hide_faqs();hide_search();" name="button_article_a" style="text-decoration:none; cursor: pointer;">Articles</a></th>
+				<cfif application.use_help_faq_ind><th id="button_faq" style="background-color:##bbbbbb; border:1px solid black; width:#variables.button_width#px;"><a href="##button_faq_a" onclick="javascript:hide_articles();show_faqs();<cfif application.use_help_search_ind>hide_search();</cfif>" name="button_faq_a" style="text-decoration:none; cursor: pointer;"><acronym title="Frequently Asked Questions">FAQ</acronym></a></th></cfif>
+				<cfif application.use_help_search_ind><th id="button_search" style="background-color:##bbbbbb; border:1px solid black; width:#variables.button_width#px;"><a href="##button_search_a" onclick="javascript:hide_articles();<cfif application.use_help_faq_ind>hide_faqs();</cfif>show_search();" name="button_search_a" style="text-decoration:none; cursor: pointer;">Search</a></th></cfif>
 			</tr></cfif>
 		</thead>
 		<tbody>
@@ -143,7 +134,7 @@ function open_help_detail(article_type_id, article_id) {
 							<ul>
 								<!--- display records from query --->
 								<cfloop query="get_screen_help_articles">
-									<li><a href="javascript:void(0);" onclick="new Ajax.Updater('help_main_articles','index.cfm?fuseaction=Help.view_help_article&help_article_id=#help_article_id#',{method:'get',evalScripts:true});">#help_article_title#</a><cfif listfind(variables.allowed_business_function_id, 246)>&nbsp;(<a href="javascript:edit_help_article(#help_article_id#);">edit</a>)</cfif></li>
+									<li><a href="javascript:void(new Ajax.Updater('help_main_articles','index.cfm?fuseaction=Help.view_help_article&help_article_id=#help_article_id#',{method:'get',evalScripts:true});)" onclick="new Ajax.Updater('help_main_articles','index.cfm?fuseaction=Help.view_help_article&help_article_id=#help_article_id#',{method:'get',evalScripts:true});">#help_article_title#</a><cfif listfind(variables.allowed_business_function_id, 246)>&nbsp;(<a href="javascript:edit_help_article(#help_article_id#);">edit</a>)</cfif></li>
 								</cfloop>
 							</ul>
 						</div><cfif application.use_help_faq_ind>
@@ -153,7 +144,7 @@ function open_help_detail(article_type_id, article_id) {
 							<ul>
 								<!--- display records from query --->
 								<cfloop query="get_screen_help_faqs">
-									<li><a href="javascript:void(0);" onclick="new Ajax.Updater('help_main_faqs','index.cfm?fuseaction=Help.view_help_faq&help_faq_id=#help_faq_id#',{method:'get',evalScripts:true});">#question#</a><cfif listfind(variables.allowed_business_function_id, 246)>&nbsp;(<a href="javascript:edit_help_faq(#help_faq_id#);">edit</a>)</cfif></li>
+									<li><a href="javascript:void(new Ajax.Updater('help_main_faqs','index.cfm?fuseaction=Help.view_help_faq&help_faq_id=#help_faq_id#',{method:'get',evalScripts:true});)" onclick="new Ajax.Updater('help_main_faqs','index.cfm?fuseaction=Help.view_help_faq&help_faq_id=#help_faq_id#',{method:'get',evalScripts:true});">#question#</a><cfif listfind(variables.allowed_business_function_id, 246)>&nbsp;(<a href="javascript:edit_help_faq(#help_faq_id#);">edit</a>)</cfif></li>
 								</cfloop>
 							</ul>
 						</div></cfif><cfif application.use_help_search_ind>
@@ -186,6 +177,11 @@ function open_help_detail(article_type_id, article_id) {
 						onSlide: function(v) { scrollVertical(v, $('help_top'), slider_help);  },
 						onChange: function(v) { scrollVertical(v, $('help_top'), slider_help); }
 						});
+				
+					// scroll the element vertically based on its width and the slider maximum value
+					function scrollVertical(value, element, slider) {
+						element.scrollTop=Math.round(value/slider.maximum*(element.scrollHeight-element.offsetHeight));
+						}
 				
 					// ]]>
 					</script>

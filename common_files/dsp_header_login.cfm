@@ -1,5 +1,5 @@
 <!-- common_files/dsp_header_login.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_header_login.cfm">
 	<responsibilities>
@@ -25,10 +25,10 @@
 		<cfoutput><title>#application.html_title#</title>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 		<meta http-equiv="expires" content="#now()#">
-		<link href="common_files/application.css?cache_escape=#application.cache_escape#" type="text/css" rel="stylesheet" />
-		<link href="common_files/non_screen.css?cache_escape=#application.cache_escape#" rel="stylesheet" type="text/css" media="print" />
-		<link href="common_files/handheld.css?cache_escape=#application.cache_escape#" type="text/css" rel="stylesheet" media="handheld" />
-		<link href="common_files/screen.css?cache_escape=#application.cache_escape#" type="text/css" rel="stylesheet" media="screen" /></cfoutput>
+		<link href="common_files/application.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />
+		<link href="common_files/non_screen.css?cache_escape=#variables.cache_escape#" rel="stylesheet" type="text/css" media="print" />
+		<link href="common_files/handheld.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" media="handheld" />
+		<link href="common_files/screen.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" media="screen" /></cfoutput>
 		<script src="common_files/prototype.js" type="text/javascript"></script>
 		<script src="common_files/scriptaculous.js" type="text/javascript"></script>
 		<style type="text/css">
@@ -43,17 +43,17 @@
 		<link href="http://www.nasa.gov/favicon.ico" rel="shortcut icon" />
 	</head>
 
-	<body<cfif NOT findnocase("mobile", cgi.http_user_agent)> onLoad="new Effect.Grow('loginB'); setTimeout('document.form_login.user_name.focus();', 1250);"</cfif>>
+	<body<cfif NOT findnocase("mobile", cgi.http_user_agent)> onLoad="new Effect.Grow('loginB');"</cfif>>
 	<table cellpadding="0" cellspacing="0" border="0" width="100%" style="height: 100%" summary="Table displays login information">
 		<tr valign="top" style="height: 65px">
 			<td>
 				<!-- [[ HEADER START ]] -->
-				<table class="header" cellspacing="0" cellpadding="0" bgcolor="#cccccc" border="0" cols="2" width="100%" summary="Table displays login form">
+				<table class="header" cellspacing="0" cellpadding="0" bgcolor="#cccccc" border="0" cols="2" width="100%" summary="Table displays login information">
 					<tbody>
 						<tr>
-							<td valign="middle" width="50%"><img src="images/spacer.gif" border="0" alt="" width="366" height="1" /><a href="#begin_page_content" title="Skip to content"><img src="images/spacer.gif" border="0" alt="" width="1" height="1" /></a><br />
+							<td valign="middle" width="50%"><img src="images/spacer.gif" border="0" alt="" width="366" height="1"><a href="#begin_page_content" title="Skip to content"><img src="images/spacer.gif" border="0" alt="" width="1" height="1"></a><br />
 								<a href="http://www.nasa.gov/" target="_blank" title="NASA.gov homepage opens in a new window"><img height="51" alt="NASA-National Aeronautics and Space Administration" src="images/logo_nasa.gif" width="288" border="0" /></a></td>
-							<td valign="middle" width="50%" height="65"><img src="images/spacer.gif" border="0" alt="" width="364" height="1" /><br />
+							<td valign="middle" width="50%" height="65"><img src="images/spacer.gif" border="0" alt="" width="364" height="1"><br />
 								<!-- [[ QUICK LINKS START ]] -->
 								<table cellspacing="0" cellpadding="0" width="364" border="0" cols="3" summary="Table displays nasa links">
 									<tbody>
@@ -62,7 +62,7 @@
 											<td width="19"> </td>
 											<td width="344">
 												<a class="headerLnk" href="http://www.nasa.gov/home/index.html">+ Visit NASA.gov</a><br />
-												<a class="headerLnk" href="http://www.nasa.gov/about/contact/index.html">+ Contact <acronym title="National Aeronautics and Space Administration">NASA</acronym></a><br />
+												<a class="headerLnk" href="http://www.nasa.gov/about/contact/index.html">+ Contact NASA</a><br />
 											</td>
 										</tr>
 									</tbody>
@@ -77,13 +77,16 @@
 		</tr>
 		<tr valign="top">
 			<td class="login_background">
-				<table border="0" cellpadding="0" cellspacing="0" cols="2" summary="table displays login form and warning about using government resources">
+				<table cellpadding="0" cellspacing="0" border="0" cols="2" summary="table displays warning about entering">
 					<tr>
-						<td colspan="2"><img src="images/spacer.gif" alt="" width="750" height="115" border="0" /></td>
+						<td colspan="2"><img src="images/spacer.gif" alt="" width="750" height="162" border="0"></td>
 					</tr>
 					<tr valign=top>
 						<td width="200">
-							<img src="images/spacer.gif" alt="" width="200" height="410" border="0" />
+							<img src="images/spacer.gif" alt="" width="200" height="220" border="0"><br />
+							<div style="position:relative;top:-170px;left:522px;width:200px;color:white;">
+								<i>This <acronym title="United States">US</acronym> Government computer is for authorized users only.  By accessing this system you are consenting to complete monitoring with no expectation of privacy.  Unauthorized access or use may subject you to disciplinary action and criminal prosecution.</i>
+							</div>
 						</td>
 						<td width="550">
 							<a name="begin_page_content"></a>

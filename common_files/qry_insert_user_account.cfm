@@ -1,12 +1,12 @@
 <!-- common_files/qry_insert_user_account.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_insert_user_account.cfm">
 	<responsibilities>
 	I insert username into user account table
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/21/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="6/21/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

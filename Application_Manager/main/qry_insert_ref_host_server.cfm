@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_insert_ref_host_server" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_insert_ref_host_server" datasource="#application.datasources.main#">
 INSERT INTO REF_Host_Server (host_server_name, sort_order)
 VALUES ('#attributes.host_server_name#', 1)
 </cfquery>

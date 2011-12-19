@@ -1,5 +1,5 @@
 <!-- sourcecode/pag_application_unavailable.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_application_unavailable.cfm">
 	<responsibilities>
@@ -19,7 +19,6 @@
 	</IO>
 </fusedoc>
 --->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />

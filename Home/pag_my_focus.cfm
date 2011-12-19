@@ -40,6 +40,6 @@ The financial management table is next and is a future enhancement. The right mo
 <cfinclude template="dsp_internal_execution_plan_inbox.cfm">
 <cfinclude template="dsp_funds_distribution_inbox.cfm">
 
-	<img src="images/spacer.gif" width="530" height="1" alt="" border="0" /><br />
+	<img src="images/spacer.gif" width="530" height="1" alt="" border="0"><br />
 	<hr width="517" style="margin-top:2px;" align="left">
 	<small><strong>Hidden Windows</strong>:<span id="stub_sys5"> <a href="javascript:void(Element.show('sys5'));void(Element.hide(this));" onclick="Element.show('sys5');Element.hide(this);">[Funds Status]</a></span><span id="stub_sys4"> <a href="javascript:void(Element.show('sys4'));void(Element.hide(this));" onclick="Element.show('sys4');Element.hide(this);">[Resources]</a></span><span id="stub_sys8"> <a href="javascript:void(Element.show('sys8'));void(Element.hide(this));" onclick="Element.show('sys8');Element.hide(this);">[Financial Health]</a></span><span id="stub_sys6"> <a href="javascript:void(Element.show('sys6'));void(Element.hide(this));" onclick="Element.show('sys6');Element.hide(this);">[Pending Phasing Plans]</a></span><span id="stub_sys7"> <a href="javascript:void(Element.show('sys7'));void(Element.hide(this));" onclick="Element.show('sys7');Element.hide(this);">[Internal Execution Plan Inbox]</a></span><span id="stub_sys10" style="display: none"> <a href="javascript:void(Element.show('sys10'));void(Element.hide(this));" onclick="Element.show('sys10');Element.hide(this);">[Funds Distribution Inbox]</a></span></small>

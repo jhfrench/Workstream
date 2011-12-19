@@ -28,21 +28,19 @@
 <cfoutput>
 <cfform name="form_comments" action="index.cfm?fuseaction=Requirements.edit_comment" method="post">
 <div class="datachart" style="border:1px solid ##999999">
-<table cellspacing="1" cellpadding="4" width="100%" border="0" bgcolor="##cccccc" summary="Allows user to enter comments about an application screen.">
+<table cellspacing="1" cellpadding="4" width="100%" border="0" bgcolor="##cccccc" summary="table head describes the table held within this table">
 	<tr bgcolor="##cccccc"><th><strong><cfif attributes.comments_id EQ 0>ADD NEW COMMENT<cfelse>EDIT EXISTING COMMENT</cfif></strong></th></tr>
 	<tr bgcolor="##eeeeee">
 		<td>
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="table displays comment">
 			<tr>
-				<td colspan="2">
-					<label for="screen_id">Fuseaction</label>:
-					<br /><cfselect name="screen_id" id="screen_id" query="get_fuseactions" value="screen_id" display="display" selected="#variables.screen_id#" required="yes" message="Please specify the fuseaction for this comments." />
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
+				<td>
 					<label for="comments_type_id">Comment Type</label>:
 					<br /><cfselect name="comments_type_id" id="comments_type_id" query="get_comments_type" value="comments_type_id" display="description" selected="#get_comment.comments_type_id#" required="yes" message="Please specify the type of comments you are entering." />
+				</td>
+				<td colspan="2">
+					<label for="screen_id">Fuseaction</label>:
+					<br /><cfselect name="screen_id" id="screen_id" query="get_fuseactions" value="screen_id" display="fuseaction" selected="#variables.screen_id#" required="yes" message="Please specify the fuseaction for this comments." />
 				</td>
 			</tr>
 			<tr>
@@ -50,28 +48,28 @@
 					<label for="comments_number">Comment Number</label>:
 					<br /><cfinput type="text" name="comments_number" id="comments_number" value="#get_comment.comments_number#" size="3" maxlength="200" required="yes" validate="integer" message="Please enter a comments number.">
 				</td>
+				<cfif attributes.comments_id EQ 0>
+					<input type="hidden" name="active_ind" value="1" />
+				<cfelse>
 				<td>
-					<label for="sort_order">sort order</label>:
+					<span title="associated with the radio buttons to the right">Active?</span>
+					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes</label>
+					<cfinput type="radio" name="active_ind" id="active_ind_no" value="0"><label for="active_ind_no">No</label>
+				</td>
+				</cfif>
+				<td>
+					<label for="sort_order">Sort Order</label>:
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#get_comment.sort_order#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter a sort order.">
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
+				<td colspan="3">
 					<label for="comment_description">Comment description</label>:
 					<br />
 					<cfif get_comment.active_ind EQ 0>
 						#trim(get_comment.comment_description)#
 					<cfelse>
 						<textarea name="comment_description" id="comment_description" cols="50" rows="10">#trim(get_comment.comment_description)#</textarea>
-					</cfif>
-					<cfif attributes.comments_id EQ 0>
-						<input type="hidden" name="active_ind" value="1" />
-					<cfelse>
-						<p>
-							<span title="associated with the radio buttons to the right">Active?</span>
-							<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes</label>
-							<cfinput type="radio" name="active_ind" id="active_ind_no" value="0"><label for="active_ind_no">No</label>
-						</p>
 					</cfif>
 				</td>
 			</tr>
@@ -84,7 +82,7 @@
 			<cfif get_comment.active_ind EQ 0>
 				You cannot edit an inactive comments
 			<cfelse>
-			<input type="submit" name="send_req" value="Update Comments" alt="Update Comments" />
+			<input type="submit" alt="Update Comments" name="send_req" value="Update Comments" />
 			</cfif>
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>

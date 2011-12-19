@@ -34,15 +34,11 @@
 		<cfinclude template="dsp_select_target_audience.cfm">
 	</cfcase>
 	<cfcase value="2">
-		<cfif isdefined("attributes.user_type_id")>
-			<cfinclude template="qry_get_target_email_audience.cfm">
-			<cfinclude template="dsp_compose_email.cfm">   
-		<cfelse>
-			Please <a href="index.cfm?fuseaction=Administration.manage_email">go back</a> and specify an audience for your message.
-		</cfif>   
+		<cfinclude template="qry_get_target_email_audience.cfm">
+		<cfinclude template="dsp_compose_email.cfm">      
 	</cfcase>
 	<cfcase value="3">
-		<cfinclude template="../common_files/act_send_email.cfm">
+		<cfinclude template="act_send_email.cfm">
 	</cfcase>
 </cfswitch>
 </cfform>

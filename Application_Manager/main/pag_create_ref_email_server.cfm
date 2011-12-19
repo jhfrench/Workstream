@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfform name="create_ref_email_server" action="index.cfm?fuseaction=#variables.circuit_label#.insert_ref_email_server" method="post">
+<cfform name="create_ref_email_server" action="index.cfm?fuseaction=main.insert_ref_email_server" method="post">
 <table width="60%">
 	<tr>
 		<td width="50">Email server name</td>

@@ -1,5 +1,5 @@
 <!-- main/circuit.xml
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!--
 <fusedoc language="ColdFusion MX" specification="2.0" template="circuit.xml">
 	<responsibilities>
@@ -23,8 +23,7 @@
 </fusedoc>
 -->
 <circuit access="public"> 
-	<prefuseaction callsuper="true">
-		<set name="variables.circuit_label" value="main"/>
+	<prefuseaction callsuper="true"> 
 	</prefuseaction>
 	<fuseaction name="application_settings">
 		<include template="pag_application_settings.cfm"/>

@@ -31,7 +31,7 @@ FROM Dual
 <cfelse>
 INSERT INTO Hierarchy_Assignment (organization_id, parent_organization_id, l_p_y_h_id,
 	center_id, active_ind, created_by)
-SELECT REF_Organization.organization_id, <cfif attributes.parent_organization_id NEQ 0>#attributes.parent_organization_id#<cfelse>''</cfif> AS parent_organization_id, NVL(Hierarchy_Assignment.l_p_y_h_id,1) AS l_p_y_h_id,
+SELECT REF_Organization.organization_id, <cfif attributes.parent_organization_id NEQ 0>#attributes.parent_organization_id#<cfelse>''</cfif> AS parent_organization_id, ISNULL(Hierarchy_Assignment.l_p_y_h_id,1) AS l_p_y_h_id,
 	<cfif len(attributes.center_id)>#attributes.center_id#<cfelse>''</cfif> AS center_id, <cfif isdefined("attributes.delete_hierarchy_assignment_ind")>0<cfelse>1</cfif> AS active_ind, #session.user_account_id# AS created_by
 FROM REF_Organization, (
 	/*based on the new parent organization, determine the hierarchy level the updated organization fits into*/

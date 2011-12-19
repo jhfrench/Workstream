@@ -25,7 +25,7 @@
 
 <cfquery name="get_screen_help_search" datasource="#application.datasources.main#">
 SELECT Help_Article.help_article_id AS help_id, Help_Article.help_article_title AS help_title, Help_Article.help_article_text,
-	Help_Article.created_date, Demographics.last_name || ', ' || Demographics.first_name AS article_author, SUBSTR(Help_Article.help_article_text, 1, 50)||'...' AS help_text_short,
+	Help_Article.created_date, Demographics.last_name + ', ' + Demographics.first_name AS article_author, SUBSTRING(Help_Article.help_article_text, 1, 50)+'...' AS help_text_short,
 	1 AS main_sort_order, Help_Article.sort_order AS secondary_sort_order
 FROM Help_Article
 	INNER JOIN Demographics ON Help_Article.created_by=Demographics.user_account_id
@@ -39,7 +39,7 @@ WHERE Help_Article.active_ind=1
 	)<cfif application.use_help_faq_ind>
 UNION ALL
 SELECT Help_FAQ.help_faq_id, Help_FAQ.question, Help_FAQ.answer,
-	Help_FAQ.created_date, Demographics.last_name || ', ' || Demographics.first_name AS response_author, SUBSTR(Help_FAQ.answer, 1, 50)||'...' AS help_text_short,
+	Help_FAQ.created_date, Demographics.last_name + ', ' + Demographics.first_name AS response_author, SUBSTRING(Help_FAQ.answer, 1, 50)+'...' AS help_text_short,
 	2 AS main_sort_order, Help_FAQ.sort_order AS secondary_sort_order
 FROM Help_FAQ
 	INNER JOIN Demographics ON Help_FAQ.answered_by=Demographics.user_account_id

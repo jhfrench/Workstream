@@ -1,12 +1,12 @@
 <!-- Administration/dsp_edit_ref_business_function.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_ref_business_function.cfm">
 	<responsibilities>
 		I desplay the form for business function maintenance.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/14/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="9/14/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -30,11 +30,11 @@
 <cfmodule template="qry_get_business_function.cfm" business_function_id="0">
 
 <form name="ref_business_function_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
-	Retrieve an existing <label for="business_function_id">business function</label>:<br/>
-	<select name="business_function_id" id="business_function_id">
+	<label for="business_function_id">Retrieve an existing business function</label>:<br/>
+	<select name="business_function_id">
 	<cfloop query="get_business_function"><option value="#business_function_id#"<cfif not comparenocase(get_business_function.business_function_id, attributes.business_function_id)> selected</cfif>>#description#</option></cfloop>
-	</select><br />
-	<input type="submit" name="method" value="Retrieve and edit business function" />
+	</select>
+	<input name="method" type="submit" alt="Retrieve and edit business function" value="Retrieve and edit business function"/>
 </form>
 <br/>
 <cfform name="REF_business_function_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
@@ -82,12 +82,12 @@
 				</tr>
 				<tr>
 					<td>
-						<label for="sort_order">sort order</label>:<br />
+						<label for="sort_order">Sort Order</label>:<br />
 						<cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="6" maxlength="12" required="no" validate="integer" message="Please enter sort order.">
 					</td>
 					<td>
 					<cfif attributes.business_function_id EQ 0>
-						<input type="hidden" name="active_ind" value="1" />
+						<input type="hidden" name="active_ind" value="1"/>
 					<cfelse>
 						<span title="describes the purpose of the radio buttons that follow">Active?</span><br />
 						<cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="#variables.active_ind_yes#"><label for="active_ind_yes">Yes</label>
@@ -100,8 +100,8 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#" />
-			<input type="hidden" name="business_function_id" value="#attributes.business_function_id#" />
+			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
+			<input type="hidden" name="business_function_id" value="#attributes.business_function_id#"/>
 			<input name="submit" type="submit" alt="submit" value="Submit" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>

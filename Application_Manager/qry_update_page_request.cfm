@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="update_page_request" datasource="#application.datasources.application_manager#">
+<cfquery name="update_page_request" datasource="#application.datasources.main#">
 UPDATE LOG_Page_Request
 SET page_load_time=<cfqueryparam cfsqltype="cf_sql_integer" value="#variables.page_load_time#">
 WHERE page_request_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.page_request_id#">

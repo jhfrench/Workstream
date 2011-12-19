@@ -1,5 +1,5 @@
 <!-- Requirements/act_edit_comments.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_edit_comments.cfm">
 	<responsibilities>
@@ -46,8 +46,7 @@
 			#session.user_account_id#)
 		</cfquery>
 		<cfquery name="get_comments_id" datasource="#application.datasources.main#">
-		SELECT Comments_SEQ.currval AS comments_id
-		FROM Dual
+		SELECT IDENT_CURRENT('Comments') AS comments_id
 		</cfquery>
 		<cfset attributes.comments_id=get_comments_id.comments_id>
 		<!--- insert into Link_Screen_Comments (comments_id, screen_id) --->

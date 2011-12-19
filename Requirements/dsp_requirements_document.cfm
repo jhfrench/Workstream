@@ -30,7 +30,7 @@
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the table witing ">
 	<tr>
-		<th align="left"><h2 style="margin:0px">Requirements Document</h2></th>
+		<th align="left"><h2 style="margin:0px" id="top-side">Requirements Document</h2></th>
 	</tr>
 </table>
 
@@ -61,7 +61,8 @@
 		</tr>
 	</cfif>
 	<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cccccc';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';">
-		<td align="right" scope="row" valign="top"><a href="index.cfm?fuseaction=Requirements.edit_requirement&requirement_id=#requirement_id#">#product_version#-#requirement_number#.#sort_order#</a></td>
+		<cfset variables.formatted_requirement_number=ucase("#trim(acronym)#.#requirement_number#.#sort_order#")>
+		<td align="right" scope="row" valign="top"><a href="index.cfm?fuseaction=Requirements.edit_requirement&requirement_id=#requirement_id#">#variables.formatted_requirement_number#</a></td>
 		<td valign="top">#requirement#</td>
 		<td align="center" valign="top"><cfif requirement_coded_ind>DONE</cfif>&nbsp;</td>
 	</tr>

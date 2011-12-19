@@ -1,5 +1,5 @@
-<!-- main/act_logout.cfm
-	Author: Jeromy French -->
+<!-- Home/act_logout.cfm
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_logout.cfm">
 	<responsibilities>

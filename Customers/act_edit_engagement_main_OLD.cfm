@@ -1,0 +1,89 @@
+
+<!--Customers/act_edit_engagement_main.cfm
+	Author: Jeromy French  -->
+<cfsilent>
+	<!--- FUSEDOC
+	||
+	Responsibilities: I display the list of details that a user can edit on an engagement.
+	||
+	Name: Jeromy F
+	||
+	Edits:
+	$Log$
+	Revision 1.0  2005/02/15 20:45:29  daugherty
+	Initial revision
+
+	Revision 1.8  2002-04-22 18:01:41-04  french
+	Removed comments from project_code update query.
+
+	Revision 1.6  2002-04-22 17:55:28-04  french
+	Logic tweaking for project_code reassignment.
+
+	Revision 1.5  2002-04-22 17:26:20-04  french
+	Added code to update the project_code if the engagement is reassigned to a different customer code (ie from Nucleus Tech Support to Agere).
+
+	Revision 1.4  2002-01-28 09:55:02-05  french
+	Adding Project.date_go_live.
+
+	Revision 1.3  2002-01-24 16:23:46-05  french
+	Minor coding changes.
+
+	Revision 1.2  2001-12-18 12:37:46-05  long
+	Added the setting of the decoded file path to a variable so that SQL can escape the single ticks in file names.
+	
+	Revision 1.1  2001-10-11 10:56:41-04  long
+	Added $log $ for edits to all CFM files that have fusedocs.
+	||
+	END FUSEDOC --->
+<cfparam name="attributes.ie_emp_id" default="0">
+<cfset variables.file_path=URLDecode(File_Path)>
+<cfquery name="edit_engagement_main" datasource="#application.datasources.main#">
+UPDATE Project
+SET Project.customers_id=#attributes.customers_id#,
+	Project.description='#attributes.description#',
+	Project.product_id=#attributes.product_id#,
+	Project.project_end=#createodbcdatetime(attributes.project_end)#,
+	Project.project_start=#createodbcdatetime(attributes.project_start)#,
+	Project.mission='#attributes.mission#',
+	Project.vision='#attributes.vision#',
+	Project.business_case='#attributes.business_case#' ,
+	Project.status=#attributes.status#,
+	Project.ie_emp_id=#attributes.ie_emp_id#,
+	Project.date_updated=GETDATE(),
+	Project.active_id=#attributes.active_id#
+<cfif len(attributes.date_go_live)>,Project.date_go_live=#createodbcdatetime(attributes.date_go_live)#</cfif>
+<cfif len(variables.file_path)>,Project.file_path='#variables.file_path#'</cfif>
+WHERE Project.project_id=#attributes.project_id#
+</cfquery>
+<cfif attributes.customers_id NEQ get_customer_name_code.customers_id>
+	<cfquery name="update_project_code" datasource="#application.datasources.main#">
+	/*re-initialize this project code so that it will not interfere with new project code assignment*/
+	UPDATE Project
+	SET Project.project_code=''
+	WHERE Project.project_id=#attributes.project_id#
+	</cfquery>
+	<cfquery name="get_max_code" datasource="#application.datasources.main#">
+	SELECT MAX(project_code) AS max_code
+	FROM Project
+	WHERE Project.customers_id=#attributes.customers_id#
+	</cfquery>
+	<cfset variables.max_code=get_max_code.max_code+(1/1000)>
+	<cfset variables.add_zeroes=8-len(variables.max_code)>
+	<cfquery name="update_project_code" datasource="#application.datasources.main#">
+	UPDATE Project
+	SET Project.project_code='#variables.max_code#<cfloop from="1" to="#variables.add_zeroes#" index="ii">0</cfloop>'
+	WHERE Project.project_id=#attributes.project_id#
+	</cfquery>
+</cfif>
+<cfquery name="update_visible_to" datasource="#application.datasources.main#">
+DELETE Project_Visible_To
+WHERE project_id=#attributes.project_id#
+<cfloop list="#attributes.visible_to#" index="ii">
+INSERT INTO Project_Visible_To (project_id, company_id)
+VALUES (#attributes.project_id#, #ii#)
+</cfloop>
+</cfquery>
+<cfif engagement_dashboard_return EQ 1>
+	<cflocation url="../index.cfm?fuseaction=Reports.Engagement_Dashboard&customers_id_filter=#customers_id_filter#&ie_emp_id_filter=#ie_emp_id_filter#&sort=#sort#" addtoken="yes">
+</cfif>
+</cfsilent>

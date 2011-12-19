@@ -1,0 +1,64 @@
+
+<!--Customers/qry_get_open_tasks.cfm
+	Author: Jeromy F  -->
+<cfsilent>
+	<!--- FUSEDOC
+	||
+	Responsibilities: 
+	||
+	Name: Jeromy French
+	||
+	Edits:
+	$Log$
+	Revision 1.1  2006/03/31 15:41:04  csy
+	task 42741 Modified code to include  engagement code to title
+
+	Revision 1.0  2005-02-15 15:46:11-05  daugherty
+	Initial revision
+
+	||
+	END FUSEDOC --->
+<cfparam name="attributes.project_id" default="0">
+<cfquery name="get_open_tasks" datasource="#application.datasources.main#">
+SELECT 1 as constant, Task.due_date AS date_due, Task.task_id AS task_id, 
+	Task.name AS task_name, ISNULL(Task.description, 'No description provided.') AS task_description,
+	ISNULL(Task.budgeted_hours,0) AS time_budgeted, Task.status_id AS status_id, 
+	Task_Details.time_used AS time_used, Task_Details.task_icon AS task_icon, 
+	Task_Details.percent_time_used AS percent_time_used, Task_Details.task_owner AS task_owner,
+	(CASE WHEN Task.status_id=4 THEN Task_Details.task_status+' by '+Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
+	(Customers.description + '-' + Project.description) AS project_name, Project.Project_Code AS Project_Code
+FROM Task, Team, Emp_Contact,  Customers, Project, Project_Visible_To,
+	(SELECT Path.task_id AS task_id, ISNULL(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
+		(ISNULL(CASE WHEN ISNULL(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
+		REF_Status.status as task_status, Emp_Contact.lname as task_owner
+	FROM Task, REF_Status, Team, Emp_Contact,
+		(SELECT Valid_Tasks.task_id AS task_id, CASE WHEN REF_Icon.path='0' THEN 'document.gif' ELSE REF_Icon.path END as path
+			FROM
+			(SELECT Task.task_id
+			FROM Task
+			WHERE Task.project_id=#attributes.project_id#
+				AND Task.status_id!=11) 
+		AS Valid_Tasks, Task, REF_Icon
+		WHERE Valid_Tasks.task_id=Task.task_id AND REF_Icon.icon_id=Task.icon_id)
+	AS Path
+	LEFT OUTER JOIN
+		(SELECT SUM(hours) as hours_used, task_id as task_id
+		FROM Time_Entry
+		GROUP BY task_id)
+	AS Recorded_Hours
+	ON Path.task_id = Recorded_Hours.task_id
+	WHERE Task.task_id=Path.task_id AND REF_Status.status_id=Task.status_id 
+		AND Team.roll_id=1 AND Task.task_id=Team.task_id 
+		AND Emp_Contact.emp_id=Team.emp_id)
+AS Task_Details
+WHERE Customers.customers_id=Project.customers_id
+	AND Task_Details.task_id=Team.task_id AND Task.project_id=Project.project_id 
+	AND Task.task_id=Task_Details.task_id AND Emp_Contact.emp_id=Team.emp_id 
+	AND Project_Visible_To.project_id=Project.project_id 
+	AND Project_Visible_To.company_id IN (#session.workstream_company_id#)
+	AND Team.roll_id=3
+	AND Project.project_id=#attributes.project_id#
+	AND project.project_type_id!=3
+	<cfif isdefined("session.workstream_task_list_order")>ORDER BY #session.workstream_task_list_order#</cfif>
+</cfquery>
+</cfsilent>

@@ -1,13 +1,13 @@
 
 <!-- Administration/pag_list_link_tables.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_list_link_tables.cfm">
 	<responsibilities>
 	</responsibilities>
 		I show a list of link tables that can be administered developers. 
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/10/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="7/10/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -27,10 +27,10 @@
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary "table head describes the data held in the table below">
 	<tr>
-		<th align="left"><h2 style="margin:0px">Administer System LINK Tables</h2></th>
+		<th align="left"><h2 style="margin:0px" id="top-side">Administer System LINK Tables</h2></th>
 	</tr>
 </table>
-<img src="images/spacer.gif" alt="" width="560" height="1" /><br />
+<img src="images/spacer.gif" alt="" width="560" height="1"><br />
 <table cellspacing="1" cellpadding="3" border="0" bgcolor="#eeeeee" width="100%" summary="Table displays active links navigation">
 	<tr valign="top">
 		<td>

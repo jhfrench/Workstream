@@ -1,12 +1,12 @@
 <!-- Administration/qry_insert_ref_product_version.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_insert_ref_product_version.cfm">
 	<responsibilities>
 		Query to insert a new product version into REF_Product_Version table.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="8/24/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="8/24/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

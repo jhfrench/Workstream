@@ -1,0 +1,291 @@
+
+/* textboxnoshow is what is used to make the textboxes inbisible in a table (see Work Location selection code */
+
+/*<!--- Ngauge Styles --->*/
+.VSnPLg,
+.VSnBLg,
+.VSnPSm,
+.VSnBSm,
+.VSnP,
+.VSnB 
+{font-family:arial, helvetica, sans-serif;}
+
+.VSnBLg,		
+.VSnBSm,
+.VSnB 
+{font-weight:bold;}
+
+
+.VSnPSm,
+.VSnBSm
+{font-size:10px;}
+
+.VSnP,
+.VSnB
+{font-size:11px;}
+	
+.VSnPLg,
+.VSnBLg
+{font-size:14px;}	
+/*<!---SIZES--> */
+	/*<!---16px--> */
+	.HeadTextLg,
+	.HeadTextLgWhite
+	{
+		font-size: 16px;
+	}
+	
+	/*<!---15px--> */
+	.HeadTextMd,
+	.HeadTextMdWhite
+	{
+		font-size: 15px;
+	}
+	
+	/*<!---14px--> */
+	.HeadTextSm,
+	.HeadTextSmWhite,
+	.NoteLg,
+	.RepLinkLg,
+	.RepLinkLgBlack
+	.SubHeadTextLg,
+	.SubHeadTextLgWhite
+	{
+		font-size: 14px;
+	}
+	
+	/*<!---13px--> */
+	.BoldNoteSmRed,
+	.NoteMd,
+	.RepLinkMd,
+	.RepLinkMdBlack,
+	.SubHeadTextMd,
+	.SubHeadTextMdWhite
+	
+	{
+		font-size: 13px;
+	}
+	
+	/*<!---12px--> */
+	.NavTextLg,
+	.NoteSm,
+	.RegTextLg,
+	.RegTextLgBd,
+	.RegTextLgIt,
+	.RegTextLgRed,
+	.RegTextLgWhite,
+	.RepLinkSm,
+	.RepLinkSmBlack
+	.SelectTextLg,
+	.SubHeadTextSm,
+	.SubHeadTextSmWhite,
+	.ToolTextLg
+	{
+		font-size: 12px;
+	}
+	
+	/*<!---11px--> */
+	.NavTextMd,
+	.RegTextMd,
+	.RegTextMdBd,
+	.RegTextMdWhite,
+	.SelectTextMd,
+	.ToolTextMd,
+	.RegTextMdIt,
+	.RegTextMdRed
+	{
+		font-size: 11px;
+	}
+	
+	/*<!---10px--> */
+	.NavTextSm,
+	.RegTextSm,
+	.RegTextSmBd,
+	.RegTextSmWhite,
+	.SelectTextSm,
+	.ToolTextSm,
+	.RegTextSmIt,
+	.RegTextSmRed,
+	.ModuleBullet
+	{
+		font-size: 10px;
+	}
+	
+/*<!---COLOR--> */
+	/*<!---Black/Regular--> */
+	.HeadTextLg, .HeadTextMd, .HeadTextSm,
+	.SubHeadTextLg, .SubHeadTextMd, .SubHeadTextSm,
+	.NavTextLg, .NavTextMd, .NavTextSm,
+	.RegTextLgBd, .RegTextMdBd, .RegTextSmBd,
+	.RegTextLg, .RegTextMd, .RegTextSm, .RegTextBd, .RegTextLgIt, .RegTextMdIt, 
+	.RegTextSmIt,
+	.RepLinkLgBlack, .RepLinkMdBlack, .RepLinkSmBlack
+	{
+		color: #000000;
+	}
+	
+	/*<!---Blue--> */
+	A.RegTextLg, A.RegTextMd, A.RegTextSm
+	{
+		color: #483d8b;
+	}
+	
+	/*<!---Grey--> */
+	.ModuleBullet
+	{
+		color: #e5e5e5;
+	}
+	
+	/*<!---White--> */
+	.HeadTextLgWhite, .HeadTextMdWhite, .HeadTextSmWhite,
+	.SubHeadTextLgWhite, .SubHeadTextMdWhite, .SubHeadTextSmWhite,
+	.RegTextLgWhite, .RegTextMdWhite, .RegTextSmWhite,
+	A.RegTextLgWhite, A.RegTextMdWhite, A.RegTextSmWhite,
+	.SelectTextLg, .SelectTextMd, .SelectTextSm,
+	.ToolTextLg, .ToolTextMd, .ToolTextSm,
+	.RepLinkLg, .RepLinkMd, .RepLinkSm 
+	{
+		color: #ffffff;
+	}
+	
+	/*<!---Red--> */
+	.BoldNoteLgRed, .BoldNoteMdRed, .BoldNoteSmRed,
+	.RegTextSmRed, .RegTextMdRed, .RegTextLgRed
+	{
+		color: #ff0000;
+	}
+	
+	/*<!---Orange--> */
+	.NoteLg, .NoteMd, .NoteSm
+	{
+		color: #FF8000;
+	}
+
+/*<!---FONT-WEIGHT--> */
+	/*<!---Normal--> */
+	.NoteLg, .NoteMd, .NoteSm,
+	.NavTextLg, .NavTextMd, .NavTextSm,
+	.RegTextLg, .RegTextMd, .RegTextSm,
+	.RegTextLgWhite, .RegTextMdWhite, .RegTextSmWhite,
+	.RegTextSmIt,  .RegTextLgIt, .RegTextMdIt,
+	.RegTextSmRed, .RegTextMdRed, .RegTextLgRed,
+	.SelectTextLg, .SelectTextMd, .SelectTextSm,
+	.ToolTextLg, .ToolTextMd, .ToolTextSm
+	{
+		font-weight: normal;
+	}
+	
+	/*<!---Bold--> */
+	.HeadTextLg, .HeadTextMd, .HeadTextSm,
+	.HeadTextLgWhite, .HeadTextMdWhite, .HeadTextSmWhite,
+	.ModuleBullet,
+	.SubHeadTextLg, .SubHeadTextMd, .SubHeadTextSm,
+	.SubHeadTextLgWhite, .SubHeadTextMdWhite, .SubHeadTextSmWhite,
+	.RegTextLgBd, .RegTextMdBd, .RegTextSmBd,
+	.BoldNoteSmRed,
+	.RepLinkLg, .RepLinkMd, .RepLinkSm,
+	.RepLinkLgBlack, .RepLinkMdBlack, .RepLinkSmBlack
+	{
+		font-weight: bold;
+	}
+	
+	
+/*<!---MISCELLANEOUS--> */
+	/*<!---Font--> */
+	.NavTextLg, .NavTextMd, .NavTextSm
+	{
+		font-family: sans-serif;
+	}
+	
+	.NoteLg, .NoteMd, .NoteSm,
+	.NoteBdRed
+	{
+		font-family: geneva, verdana, Tahoma, sans-serif, Arial;
+	}
+	
+	.HeadTextLg, .HeadTextMd, .HeadTextSm,
+	.HeadTextLgWhite, .HeadTextMdWhite, .HeadTextSmWhite,
+	.SubHeadTextLg, .SubHeadTextMd, .SubHeadTextSm,
+	.SubHeadTextLgWhite, .SubHeadTextMdWhite, .SubHeadTextSmWhite,
+	.RegTextLg, .RegTextMd, .RegTextSm,
+	.RegTextLgBd, .RegTextMdBd, .RegTextSmBd,
+	.RegTextLgWhite, .RegTextMdWhite, .RegTextSmWhite,
+	.RegTextLgIt, .RegTextMdIt, .RegTextSmIt,
+	.RegTextLgRed, .RegTextMdRed, .RegTextSmRed,
+	.SelectTextLg, .SelectTextMd, .SelectTextSm,
+	.ToolTextLg, .ToolTextMd, .ToolTextSm,
+	.RepLinkLg, .RepLinkMd, .RepLinkSm,
+	.RepLinkLgBlack, .RepLinkMdBlack, .RepLinkSmBlack
+	
+	{
+		font-family: Trebuchet MS, Tahoma, sans-serif, Arial;
+	}
+	
+	.ModuleBullet
+	{
+		font-family: Verdana;
+	}
+
+	/*<!---Style/Variant/Decoration--> */
+	.HeadTextLg, .HeadTextMd, .HeadTextSm,
+	.HeadTextLgWhite, .HeadTextMdWhite, .HeadTextSmWhite,
+	.ModuleBullet,
+	.NavTextLg, .NavTextMd, .NavTextSm,
+	.SubHeadTextLg, .SubHeadTextMd, .SubHeadTextSm,
+	.SubHeadTextLgWhite, .SubHeadTextMdWhite, .SubHeadTextSmWhite,
+	.RegTextLg, .RegTextMd, .RegTextSm,
+	.RegTextLgBd, .RegTextMdBd, .RegTextSmBd,
+	.RegTextLgWhite, .RegTextMdWhite, .RegTextSmWhite,
+	.RegTextLgRed, .RegTextMdRed, .RegTextSmRed,
+	.NoteLg, .NoteMd, .NoteSm,
+	.NoteBdRed,
+	.RepLinkLg, .RepLinkMd, .RepLinkSm,
+	.RepLinkLgBlack, .RepLinkMdBlack, .RepLinkSmBlack
+	{
+		font-style: normal;
+		font-variant: normal;
+		text-decoration: none;
+	}
+
+	.RegTextLgIt, .RegTextMdIt, .RegTextSmIt
+	{
+		font-style: italic;
+	}
+/*<!---BACKGROUND--> */
+	/*<!---Light Blue--> */
+	.SelectTextLg, .SelectTextMd, .SelectTextSm
+	{
+		background: #78A0EB;
+	}
+	
+	/*<!---Purple--> */
+	.ToolTextLg, .ToolTextMd, .ToolTextSm
+	{
+		background: #772862;
+	}
+	
+	/*<!---Light Grey--> */
+	.NavTextLg, .NavTextMd, .NavTextSm
+	{
+		background: #cccccc;
+	}
+	
+	.ModuleBullet
+	{
+		text-shadow: 5pt 5pt grey;
+	}
+
+/*<!---HOVER--> */
+	.NavTextLg:hover, .NavTextMd:hover, .NavTextSm:hover, 
+	.RegTextSm:hover, .RegTextMd:hover, .RegTextLg:hover,
+	.RegTextSmWhite:hover, .RegTextMdWhite:hover, .RegTextLgWhite:hover,
+	.RepLinkLg:hover, .RepLinkMd:hover, .RepLinkSm:hover,
+	.RepLinkLgBlack:hover, .RepLinkMdBlack:hover, .RepLinkSmBlack:hover
+	{
+		color: #970000;
+	}
+	
+	.ModuleBullet:hover
+	{
+		color: #ffffff;
+	}

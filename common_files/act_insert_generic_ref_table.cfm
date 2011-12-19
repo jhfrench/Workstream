@@ -1,5 +1,5 @@
 <!-- common_files/act_insert_generic_ref_table.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_insert_generic_ref_table.cfm">
 	<responsibilities>

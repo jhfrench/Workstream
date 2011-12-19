@@ -56,10 +56,11 @@
 		<cfoutput>
 		<html>
 			<head>
-			<script language="javascript" type="text/javascript">
-				alert("#variables.error_message#");
-				window.location.href="#variables.new_location#";
-			</script>
+				<title>#variables.error_message#</title>
+				<script language="javascript" type="text/javascript">
+					alert("#variables.error_message#");
+					window.location.href="#variables.new_location#";
+				</script>
 			</head>
 			<body>
 				<a href="#variables.new_location#">#variables.error_message#</a>

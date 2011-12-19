@@ -29,11 +29,10 @@
 <cfset attributes.code="">
 <cfoutput>
 <form name="edit_ref_country_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
-	Retrieve an existing <label for="country_id">country</label>:<br />
-	<select name="country_id" id="country_id">
+	<select name="country_id">
 	<cfloop query="get_ref_country"><option value="#country_id#" <cfif not comparenocase(get_ref_country.country_id, attributes.country_id)>selected</cfif>>#description#</option></cfloop>
-	</select><br />
-	<input type="submit" name="method" value="Retrieve and edit country" />
+	</select>
+	<input name="method" type="submit" alt="Retrieve and edit country" value="Retrieve and edit country"/>
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_country.cfm" country_id="#attributes.country_id#">
@@ -57,11 +56,11 @@
                 <td><label for="code">Code</label>: 
 					<br /><cfinput type="text" name="code" id="code" value="#attributes.code#" size="20" tabindex="2" required="yes" message="Please enter code." maxlength="20">
 				</td>
-				<td><label for="sort_order">sort order</label>: 
+				<td><label for="sort_order">Sort Order</label>: 
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="10" maxlength="3" tabindex="3" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.country_id EQ 0>
-					<input type="hidden" name="active_ind" value="1" />
+					<input type="hidden" name="active_ind" value="1"/>
 				<cfelse>
 				<td colspan="2"><span title="describes the purpose of the radio buttons that follow">Active?</span>
 					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>
@@ -74,9 +73,9 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#" />
-			<input type="hidden" name="country_id" value="#attributes.country_id#" />
-			<input type="submit" name="submit" value=" Submit " alt="submit" />
+			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
+			<input type="hidden" name="country_id" value="#attributes.country_id#"/>
+			<input type="submit" alt="submit" value="Submit" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

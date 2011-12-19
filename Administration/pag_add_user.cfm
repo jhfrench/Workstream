@@ -1,12 +1,12 @@
 <!-- Administration/pag_add_user.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_add_user.cfm">
 	<responsibilities>
 		I display the result of the center an dlastname search of external demographics warehouse. I also allow a selection for further processing.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -25,13 +25,10 @@
 <cfparam name="variables.display_message" default="">
 <cfparam name="attributes.method" default="">
 
-
-<h2 style="margin:0px">Add User</h2>
-
 <cfswitch expression="#attributes.method#">
 	<cfcase value="search">
 		<!--- check if the user enters a last name --->
-		 <cfif NOT len(attributes.last_name)>
+		<cfif NOT len(attributes.last_name)>
 			<cfset variables.display_message=variables.display_message & "<li>Please enter lastname</li>">
 		</cfif>
 		<cfif len(variables.display_message)>

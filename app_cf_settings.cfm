@@ -1,5 +1,5 @@
 <!-- sourcecode/app_cf_settings.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="app_cf_settings.cfm">
 	<responsibilities>
@@ -25,25 +25,25 @@
 	
 	<cfscript>
 		application.active_ind=1;
-		application.application_full_name="NVDB:inst_459_date_#dateformat(variables.last_updated,'yyyy_mm_dd')#_#timeformat(variables.last_updated,'HH:MM')#_vers_587_env_21_host_83_email_21_lc_0_ldb_412_cust_1068";
+		application.application_full_name="skeleton:inst_459_date_2009-11-13 14:15:19_vers_587_env_21_host_83_email_21_lc_0_ldb_412_cust_1068";
 		application.browser_navigation_enabled_ind=1;
-		application.datasources.main=variables.datasources.application_manager;//$issue$: this should really be DB-driven
-		application.datasources.application_manager=variables.datasources.application_manager;
-		application.default_fuseaction="Home.home";
-		application.erroremailfrom="NVDB@nasa.gov";
-		application.html_title="NASA Vendor Database";
+		application.datasources.main="workstream";
+		application.erroremailfrom="FAAD@nasa.gov";
+		application.html_title="Federal Assistance Award Data";
 		application.inactive_link="pag_application_unavailable.cfm";
-		application.installation_id=459;
-		application.last_updated=createodbcdatetime(variables.last_updated);
-			application.cache_escape="#dateformat(application.last_updated,'yyyymmdd')##timeformat(application.last_updated,'hhmmss')#"; //this string of numbers will only update during deployments, which is useful for managing css and javascript include caching
+		application.installation_id=460;
+		application.last_updated=createodbcdatetime(get_last_updated.last_updated);
+		application.log_page_request_ind=1;
 		application.login_for_error="session.last_name";
 		application.product_id=122;
-		application.product_name="NVDB";
-		application.product_release_version="1.4.0";
+		application.product_name="FAAD";
+		application.product_release_version="4.0.0";
 		application.support_email_recipients="jeromy.h.french@nasa.gov";
 		application.use_help_module_ind=1;
 		application.use_help_faq_ind=1;
 		application.use_help_search_ind=1;
+		
+		application.team_changed=now();
 		
 		switch(variables.environment_name) {
 			case "Development": {
@@ -51,7 +51,6 @@
 				application.email_server_name="smtp.hq.nasa.gov";
 				application.environment_name="Development";
 				application.host_server_name="Nash";
-				application.log_page_request_ind=0;
 				break;
 			}
 			
@@ -60,7 +59,6 @@
 				application.email_server_name="smtp.hq.nasa.gov";
 				application.environment_name="SEF";
 				application.host_server_name="Procyon";
-				application.log_page_request_ind=1;
 				break;
 			}
 			
@@ -68,17 +66,13 @@
 				application.error_handling_enabled_ind=1;
 				application.email_server_name="smtp.hq.nasa.gov";
 				application.environment_name="Production";
-				application.host_server_name="Brass";
-				application.log_page_request_ind=1;
+				application.host_server_name="Heckler";
 				break;
 			}
 		}
-
-		// this application does not use different program years
-		attributes.program_year_id=1;
 	</cfscript>
 	
-	<cfquery name="get_application_specific_settings" datasource="#application.datasources.application_manager#">
+	<cfquery name="get_application_specific_settings" datasource="#application.datasources.main#">
 	SELECT setting_name, setting_value
 	FROM Custom_Setting
 	WHERE active_ind=1
@@ -112,3 +106,6 @@
 <cfset variables.locale=CreateObject("java", "java.util.Locale")>
 <cfset variables.locale=variables.locale.init("en", "US")>
 <cfset variables.locale.setDefault(variables.locale)> --->
+
+<!--- this application does not use different program years --->
+<cfset attributes.program_year_id=1>

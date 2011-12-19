@@ -1,12 +1,12 @@
 <!-- Administration/dsp_edit_ref_hierarchy_level.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_ref_hierarchy_level.cfm">
 	<responsibilities>
 		I display the form for hierarchy level maintenance.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/17/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="9/17/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -28,11 +28,10 @@
 <cfparam name="attributes.method" default="">
 <cfmodule template="../common_files/qry_get_ref_hierarchy_level.cfm" hierarchy_level_id="0">
 <form name="edit_ref_heirarchy_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
-	Retrieve an existing <label for="hierarchy_level_id">heirarchy level</label>:<br />
-	<select name="hierarchy_level_id" id="hierarchy_level_id">
+	<select name="hierarchy_level_id">
 	<cfloop query="get_ref_hierarchy_level"><option value="#hierarchy_level_id#" <cfif not comparenocase(get_ref_hierarchy_level.hierarchy_level_id, attributes.hierarchy_level_id)>selected</cfif>>#description#</option></cfloop>
-	</select><br />
-	<input type="submit" name="method" value="Retrieve and edit heirarchy level" />
+	</select>
+	<input name="method" type="submit" alt="Retrieve and edit heirarchy level" value="Retrieve and edit heirarchy level"/>
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_hierarchy_level.cfm" hierarchy_level_id="#attributes.hierarchy_level_id#">
@@ -51,7 +50,7 @@
 				<td><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" required="yes" tabindex="1" message="Please enter description." maxlength="400">
 				</td>
-				<td><label for="sort_order">sort order</label>: 
+				<td><label for="sort_order">Sort Order</label>: 
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value=
                     #IIf(attributes.hierarchy_level_id EQ 0, ("get_ref_hierarchy_level.recordcount+1"), ("get_ref_hierarchy_level.sort_order"))# size="6" maxlength="6" required="yes"
 				 			tabindex="2" validate="integer" message="Please enter sort order.">
@@ -84,7 +83,7 @@
 		<td align="center">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="attributes.hierarchy_level_id" value="#attributes.hierarchy_level_id#" />
-			<input type="submit" name="submit" value=" Submit " alt="submit" />
+			<input type="submit" alt="submit" value="Submit" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 	</tr>
 </table>

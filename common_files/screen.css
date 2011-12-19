@@ -1,7 +1,4 @@
-.container {
-	margin-left: auto;
-	margin-right: auto;
-	width:750px;
+.screen_only {
 	}
 .loginBox {
 	position:relative;
@@ -17,11 +14,4 @@
 	background-color:black;
 	background-image: url(../images/login_splash.jpg);
 	background-repeat:no-repeat;
-	}
-.main_body {
-	left:0px;
-	top:0px;
-	width:546px;
-	}
-.screen_only {
 	}

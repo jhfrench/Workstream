@@ -30,14 +30,5 @@ WHERE User_Password.active_ind=1
 	AND Demographics.active_ind=1
 	AND Link_User_Account_Status.active_ind=1
 	AND Link_User_Account_Status.account_status_id=2
-	AND 90-TRUNC(SYSDATE-User_Password.created_date) < -180
-	/*Vendor registrations only need to renew once a year*/
-	AND Demographics.demographics_id NOT IN (
-		SELECT demographics_id
-		FROM Business
-			INNER JOIN Link_Business_Contact ON Business.parent_business_id=Link_Business_Contact.parent_business_id
-		WHERE Business.active_ind=1
-			AND Link_Business_Contact.active_ind=1
-			AND Link_Business_Contact.contact_type_id=8
-	)
+	AND 90-(DATEDIFF(D, User_Password.created_date, GETDATE())) < -180
 </cfquery>

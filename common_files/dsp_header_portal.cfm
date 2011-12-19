@@ -1,5 +1,5 @@
 <!-- common_files/dsp_header_portal.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_header_portal.cfm">
 	<responsibilities>
@@ -9,9 +9,6 @@
 		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/17/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(10/15/07 | JF) Brought right-hand help column more to the left.
-			
-			(8/5/11 | JF)
-			Instead of loading the help area to the screen then fading it out with the on-load event, we should just load it with style display:none.
 		</history>
 	</properties>
 	<IO>
@@ -37,8 +34,8 @@ else
 		if (len(get_screen_details.lock_module_comment))
 			variables.access_message="#variables.access_message#<br />#get_screen_details.lock_module_comment#";
 	}
-</cfscript><!---
-<cfmodule template="qry_get_system_note.cfm">--->
+</cfscript><!--- 
+<cfmodule template="qry_get_system_note.cfm"> --->
 
 <cfoutput>
 <html xmlns='http://www.w3.org/1999/xhtml'>
@@ -55,30 +52,32 @@ else
 		<meta name="dc.publisher" content="National Aeronautics and Space Administration: #application.application_specific_settings.nasa_official#" />
 		<!--Meta Data ends-->
 		<link href="http://www.nasa.gov/favicon.ico" rel="SHORTCUT ICON" />
-		<link href="common_files/application.css?cache_escape=#application.cache_escape#" type="text/css" rel="stylesheet" />
-		<link href="common_files/common.css?cache_escape=#application.cache_escape#" type="text/css" rel="stylesheet" />
-		<link href="common_files/print.css?cache_escape=#application.cache_escape#" rel="stylesheet" type="text/css" media="print" />
-		<link href="common_files/handheld.css?cache_escape=#application.cache_escape#" type="text/css" rel="stylesheet" media="handheld" />
-		<link href="common_files/screen.css?cache_escape=#application.cache_escape#" type="text/css" rel="stylesheet" media="screen" />
-		<script src="common_files/common.js?cache_escape=#application.cache_escape#" type="text/javascript" language="javascript"></script>
-		<script src="common_files/prototype.js?cache_escape=#application.cache_escape#" type="text/javascript" language="javascript"></script>
-		<script src="common_files/scriptaculous.js?cache_escape=#application.cache_escape#" type="text/javascript" language="javascript"></script>
-		<script src="common_files/block.js?cache_escape=#application.cache_escape#" type="text/javascript" language="javascript"></script>
-		<script src="common_files/SpryMenuBar.js?cache_escape=#application.cache_escape#" type="text/javascript" language="javascript"></script>
+		<link href="common_files/ngauge.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />
+		<link href="common_files/application.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />
+		<link href="common_files/common.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />
+		<link href="common_files/print.css?cache_escape=#variables.cache_escape#" rel="stylesheet" type="text/css" media="print" />
+		<link href="common_files/handheld.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" media="handheld" />
+		<link href="common_files/screen.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" media="screen" />
+		<script src="common_files/common.js?cache_escape=#variables.cache_escape#" type="text/javascript" language="javascript"></script>
+		<script src="common_files/prototype.js?cache_escape=#variables.cache_escape#" type="text/javascript"></script>
+		<script src="common_files/scriptaculous.js?cache_escape=#variables.cache_escape#" type="text/javascript"></script>
+		<script src="common_files/slider.js?cache_escape=#variables.cache_escape#" type="text/javascript"></script>
+		<script src="common_files/block.js?cache_escape=#variables.cache_escape#" type="text/javascript"></script>
+		<script src="common_files/SpryMenuBar.js?cache_escape=#variables.cache_escape#" type="text/javascript"></script>
 	</head>
-<body bgcolor="##000000" onLoad="#get_screen_details.body_onload#">
+<body bgcolor="##000000" onLoad="<cfif application.use_help_module_ind>Element.hide('help_area');</cfif>#get_screen_details.body_onload#">
 <map name="map"> 
 	<area shape="rect" coords="0,96,160,119" href="http://www.nasa.gov/centers/hq/home/index.html" alt="NASA Headquarters">
 </map>
-<table bgcolor="##ffffff" border="0" cellspacing="0" cellpadding="0" class="container">
+<table align="center" bgcolor="##ffffff" width="1000" border="0" cellspacing="0" cellpadding="0">
 	<tr>
-		<td bgcolor="##000000" colspan="5" height="10" width="750"><img src="images/spacer.gif" alt="" height="10" width="1" border="0" /></td>
+		<td bgcolor="##000000" colspan="5" height="10" width="1000"><img src="images/spacer.gif" alt="" height="10" width="1" border="0" /></td>
 	</tr>
 	<tr> 
-		<td bgcolor="##000000" rowspan="4" width="10" class="screen_only"><img src="images/spacer.gif" alt="" height="1" width="10" border="0" /></td>
-		<td colspan="3" width="730">
+		<td bgcolor="##000000" rowspan="4" width="10"><img src="images/spacer.gif" alt="" height="1" width="10" border="0" /></td>
+		<td colspan="3" width="980">
 		<!-- Header starts -->
-			<table bgcolor="##cccccc" cellpadding="0" cellspacing="0" border="0" width="730" class="screen_only">
+			<table bgcolor="##cccccc" cellpadding="0" cellspacing="0" border="0" width="980" class="screen_only">
 				<tr>
 					<td valign="middle" width="366">
 						<a href="http://www.nasa.gov/home/index.html"><img src="images/logo_nasa.gif" width="288" height="51" alt="National Aeronautics and Space Administration" border="0" /></a>
@@ -91,7 +90,7 @@ else
 								<td width="166">
 									<!-- Skip navigation link -->
 									<a href="##begin_page_content" title="hidden browser link to skip repetitive navigation" class="footerLnk">- Skip Nav</a><br />
-									<a href="http://www.nasa.gov/about/contact/index.html" class="footerLnk">+ Contact <acronym title="National Aeronautics and Space Administration">NASA</acronym></a><br />
+									<a href="http://www.nasa.gov/about/contact/index.html" class="footerLnk">+ Contact NASA</a><br />
 									<a href="http://www.nasa.gov/sitemap/sitemap_nasa.html" class="footerLnk">+ SiteMap</a>
 									<div style="position:absolute;top:-100em;left:-100em;">
 										<cfloop query="get_hidden_navigation_links">
@@ -126,7 +125,7 @@ else
 			</table>
 		<!-- Header ends -->
 		<!-- Top Nav Bar starts -->
-			<table width="730" border="0" cellspacing="0" cellpadding="0" class="screen_only">
+			<table width="980" border="0" cellspacing="0" cellpadding="0" class="screen_only">
 				<tbody>
 				<tr> 
 					<td><a onBlur="swapImg('navti0','images/nav_top_0_0.gif');" onFocus="swapImg('navti0','images/nav_top_0_1.gif');" onMouseOut="swapImg('navti0','images/nav_top_0_0.gif');" onMouseOver="swapImg('navti0','images/nav_top_0_1.gif');" href="http://www.nasa.gov/about/highlights/index.html"><img id="navti0" name="navti0" border="0" title="ABOUT NASA" alt="ABOUT NASA" height="25" width="123" src="images/nav_top_0_0.gif" /></a></td>
@@ -142,9 +141,9 @@ else
 				<tr>
 					<td colspan="6">
 					<cfif application.application_specific_settings.banner_only_ind>
-						<a href="#application.application_specific_settings.nasa_organization_url#"><img src="images/mast.jpg" alt="				#application.application_specific_settings.nasa_organization#" width="730" height="120" border="0" /></a>
+						<a href="#application.application_specific_settings.nasa_organization_url#"><img src="images/mast.jpg" alt="				#application.application_specific_settings.nasa_organization#" width="980" height="120" border="0" /></a>
 					<cfelse>
-						<table height="150" width="730" border="0" cellspacing="0" cellpadding="0" cols="2">
+						<table height="150" width="980" border="0" cellspacing="0" cellpadding="0" cols="2">
 							<tr>
 								<td bgcolor="##006699" height="148" style="color:##FFFFFF;font-size:24px;font-weight:bold;text-align:center;" class="forum">
 									#application.application_specific_settings.nasa_organization#
@@ -157,10 +156,8 @@ else
 				</tr>
 				<tr> 
 					<td valign="top" colspan="6">
-					<cfinclude template="qry_get_module_sub_navigation.cfm" />
-					<cfif application.application_specific_settings.use_program_year_ind>
-						<cfmodule template="qry_get_program_year.cfm" program_year_id="#session.program_year_id#">
-					</cfif>
+					<cfinclude template="qry_get_module_sub_navigation.cfm" /><!--- 
+					<cfmodule template="qry_get_program_year.cfm" program_year_id="#session.program_year_id#"> --->
 					<cfinclude template="dsp_navigation_module.cfm" />
 					</td>
 				</tr>
@@ -171,14 +168,14 @@ else
 		<td bgcolor="##000000" rowspan="4" width="10"><img src="images/spacer.gif" alt="" height="1" width="10" border="0" /></td>
 	</tr>
 	<tr>
-		<td valign="top" width="546">
+		<td valign="top" width="796">
 		<!-- START MAIN BODY -->
 		<a name="begin_page_content"></a>
-			<table bgcolor="##ffffff" border="0" cellspacing="0" cellpadding="0" cols="3" class="main_body">
+			<table bgcolor="##ffffff" border="0" cellspacing="0" cellpadding="0" cols="3" width="796">
 				<tr>
 					<td><img src="images/spacer.gif" alt="" height="400" width="2" border="0" /></td>
 					<td valign="top" width="363"> 
-						<img src="images/spacer.gif" alt="" height="1" width="450" border="0" />
+						<img src="images/spacer.gif" alt="" height="1" width="700" border="0" />
 
 <!--- if user does not have access to this fuseaction, tell them and abort processing --->
 <cfif len(variables.access_message)>

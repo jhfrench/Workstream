@@ -1,12 +1,12 @@
 <!-- common_files/qry_get_user_password.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_user_password.cfm">
 	<responsibilities>
 	I get the active password of a user.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/6/7) Renamed template to reflect table name.
 		</history>

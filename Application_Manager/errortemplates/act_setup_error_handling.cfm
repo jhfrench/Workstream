@@ -15,7 +15,7 @@
 
 <cfif isdefined("application.installation_id") AND NOT (isdefined("application.error_handling_enabled_ind") OR isdefined("application.email_server_name"))>
 	<!--- see if error handling is enabled --->
-	<cfquery name="qry_get_error_handling_enabled_ind" datasource="#application.datasources.application_manager#">
+	<cfquery name="qry_get_error_handling_enabled_ind" datasource="#application.datasources.main#">
 	SELECT Installation.error_handling_enabled_ind, REF_Email_Server.email_server_name
 	FROM Installation
 		INNER JOIN REF_Email_Server ON Installation.email_server_id=REF_Email_Server.email_server_id

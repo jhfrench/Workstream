@@ -125,9 +125,9 @@
 			</tr>
 			<tr>
 				<td colspan=2 align=center>
-					<input type="submit" name="submit" value="Submit" alt="submit" />
+					<input type="submit" alt="submit" value="Submit">
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="reset" name="reset" value="Reset" />
+					<input type="reset" value="Reset">
 				</td>
 			</tr>
 		</cfform>

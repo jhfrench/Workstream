@@ -135,7 +135,7 @@ This software consists of voluntary contributions made by many individuals on be
 			directory="#fb_.application.fusebox.approotdirectory#"
 			name="fb_.dirlist"
 			filter="fusebox.xml*" />
-		<cfif fb_.dirlist.recordCount NEQ 1>
+		<cfif fb_.dirlist.recordcount NEQ 1>
 			<cfthrow type="fusebox.forceLoadException.noFuseboxXml"
 				message="Couldn't reliably locate fusebox.xml"
 				detail="Either fusebox.xml isn't located where it should be, or you have two files with names matching the expression fusebox.xml*" />
@@ -151,7 +151,7 @@ This software consists of voluntary contributions made by many individuals on be
 				directory="#fb_.application.fusebox.approotdirectory##application.fusebox.circuits[fb_.i].path#"
 				name="fb_.dirlist"
 				filter="circuit.xml*" />
-			<cfif fb_.dirlist.recordCount NEQ 1>
+			<cfif fb_.dirlist.recordcount NEQ 1>
 				<cfthrow type="fusebox.forceLoadException.noCircuitXml"
 					message="Couldn't reliably locate #fb_.i#/circuit.xml"
 					detail="Either circuit.xml isn't located where it should be in the #fb_.i# circuit, or you have two files with names matching the expression circuit.xml*" />

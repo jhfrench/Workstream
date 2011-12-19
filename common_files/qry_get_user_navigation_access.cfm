@@ -8,8 +8,6 @@
 	<properties>
 		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/12/2007" role="FuseCoder" comments="Created File">
 			$Id:$
-			(JF | 3/29/11)
-			Adding ability to show administrator the business functions that cannot be taken away (REF_Business_Function.default_access_ind=1).
 		</history>
 	</properties>
 	<IO>
@@ -28,21 +26,9 @@
 
 <cfquery name="get_user_navigation_access" datasource="#application.datasources.main#">
 SELECT REF_Module.module_id, REF_Module.description AS module_description, REF_Business_Function.business_function_id,
-	REF_Business_Function.description AS business_function_description, REF_Business_Function.default_access_ind, REF_Module.assign_hier_privileges_ind,
-	CASE
-		WHEN REF_Business_Function.default_access_ind=1 THEN REF_Module.module_id
-		WHEN Access_User_Business_Function.business_function_id IS NOT NULL THEN REF_Module.module_id
-		ELSE 0
-	END AS accessible_module_id,
-	CASE
-		WHEN REF_Business_Function.default_access_ind=1 THEN ' checked="checked" disabled="disabled" /><input type="hidden" name="business_function_id" value="'||REF_Business_Function.business_function_id||'" '
-		WHEN Access_User_Business_Function.business_function_id IS NOT NULL THEN ' checked="checked"'
-		ELSE ''
-	END AS checked_ind,
-	CASE
-		WHEN Access_User_Business_Function.business_function_id IS NOT NULL THEN REF_Business_Function.business_function_id
-		ELSE 0
-	END AS old_business_function_id
+	REF_Business_Function.description AS business_function_description, REF_Business_Function.default_access_ind,
+	CASE WHEN Access_User_Business_Function.business_function_id IS NOT NULL THEN ' CHECKED' ELSE '' END AS checked_ind,
+	CASE WHEN Access_User_Business_Function.business_function_id IS NOT NULL THEN REF_Business_Function.business_function_id ELSE 0 END AS old_business_function_id
 FROM REF_Module
 	INNER JOIN REF_Screen ON REF_Module.module_id=REF_Screen.module_id
 	INNER JOIN REF_Business_Function ON REF_Screen.business_function_id=REF_Business_Function.business_function_id
@@ -60,7 +46,7 @@ WHERE REF_Module.active_ind=1
 	AND REF_Screen.active_ind=1
 	AND REF_Business_Function.active_ind=1
 GROUP BY REF_Module.module_id, REF_Module.description, REF_Business_Function.business_function_id,
-	REF_Business_Function.description, REF_Business_Function.default_access_ind, REF_Module.assign_hier_privileges_ind,
-	Access_User_Business_Function.business_function_id, REF_Module.sort_order, REF_Business_Function.sort_order
+	REF_Business_Function.description, REF_Business_Function.default_access_ind, Access_User_Business_Function.business_function_id,
+	REF_Module.sort_order, REF_Business_Function.sort_order
 ORDER BY REF_Module.sort_order, REF_Business_Function.sort_order
 </cfquery>

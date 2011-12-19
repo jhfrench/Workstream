@@ -1,12 +1,12 @@
 <!-- Administration/dsp_edit_link_program_year_hierarchy.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_link_program_year_hierarchy.cfm">
 	<responsibilities>
 		I display the form for link program year hierarchy maintenance.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/6/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="7/6/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -42,7 +42,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td><label for="sort_order">sort order</label>: 
+				<td><label for="sort_order">Sort Order</label>: 
 					<br /><cfinput type="text" name="sort_order" id="sort_order" size="3" maxlength="3" value="#get_link_program_year_hierarchy.recordcount+1#" required="yes" message="Please enter sort order.">
 				</td>
 				<cfif attributes.l_p_y_h_id EQ 0>
@@ -59,9 +59,9 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#" />
-			<input type="hidden" name="l_p_y_h_id" value="#attributes.l_p_y_h_id#" />
-			<input type="submit" name="submit" value=" Submit " alt="submit" />
+			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
+			<input type="hidden" name="l_p_y_h_id" value="#attributes.l_p_y_h_id#"/>
+			<input type="submit" alt="submit" name="submit" value="Submit" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

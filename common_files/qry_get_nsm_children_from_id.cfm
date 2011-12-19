@@ -23,7 +23,7 @@
 
 <cfquery name="get_nsm_children_from_id" datasource="#application.datasources.main#">
 	select a.* from 
-		(SELECT Hierarchy_Assignment.organization_id, NVL(Hierarchy_Assignment.parent_organization_id,0) AS parent_organization_id, Link_Program_Year_Hierarchy.hierarchy_level_id,
+		(SELECT Hierarchy_Assignment.organization_id, ISNULL(Hierarchy_Assignment.parent_organization_id,0) AS parent_organization_id, Link_Program_Year_Hierarchy.hierarchy_level_id,
 			REF_Organization.description AS organization_description, REF_Organization.organization_code
 		FROM Hierarchy_Assignment
 			INNER JOIN Link_Program_Year_Hierarchy ON Hierarchy_Assignment.l_p_y_h_id=Link_Program_Year_Hierarchy.l_p_y_h_id
@@ -32,7 +32,7 @@
   			AND Link_Program_Year_Hierarchy.program_year_id=#attributes.program_year_id#
 			INNER JOIN REF_Organization ON Hierarchy_Assignment.organization_id=REF_Organization.organization_id
   			AND REF_Organization.active_ind=1
-  			START WITH NVL(Hierarchy_Assignment.parent_organization_id,0)= #attributes.delete_organization_id#
+  			START WITH ISNULL(Hierarchy_Assignment.parent_organization_id,0)= #attributes.delete_organization_id#
   			CONNECT BY PRIOR Hierarchy_Assignment.organization_id=Hierarchy_Assignment.parent_organization_id) a
 	 WHERE 1=1
 	<cfif isdefined("attributes.lowest_hierarchy_level_delete")>

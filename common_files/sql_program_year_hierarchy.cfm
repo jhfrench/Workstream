@@ -3,6 +3,7 @@
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="sql_program_year_hierarchy.cfm">
 	<responsibilities>
+		I display the my ICET page to the user
 	</responsibilities>
 	<properties>
 		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="3/15/2009" role="FuseCoder" comments="Created File">

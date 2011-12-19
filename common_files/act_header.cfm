@@ -1,9 +1,9 @@
 <!-- common_files/act_header.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_header.cfm">
 	<responsibilities>
-		I make determinations that will result in the correct header being shown for this application and the desired page.
+		I process the header for NVDB.
 	</responsibilities>
 	<properties>
 		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/19/2007" role="FuseCoder" comments="Created File">
@@ -21,10 +21,9 @@
 </fusedoc>
 --->
 
-<!--- this string of numbers will always be unique, which is useful for defeating the browser caching that interferes with Ajax calls --->
+<!--- this string of numbers will always be unique, which is useful for defeating the browser caching of the Main navigation menu --->
 <cfset variables.cache_escape="#dateformat(now(),'yyyymmdd')##timeformat(now(),'hhmmss')#">
 
-<!--- $issue$: the following list of login fuseactions would be nice to be DB-driven --->
 <cfif listfindnocase("Home.login,Home.forget_password,Home.forget_username", url.fuseaction)>
 	<cfinclude template="dsp_header_login.cfm">
 <cfelse>
@@ -42,6 +41,10 @@
 	<cfif application.application_specific_settings.normal_navigation_ind NEQ 1>
 		<cfset attributes.module_description=listfirst(replace(url.fuseaction,"_", " "),".")>
 	</cfif>
+
+	<!--- variables.icon_number needs to be equal to the number of static icons in the navigation block --->
+	<cfset variables.icon_number=3>
+	<cfparam name="session.text_size" default="none">
 	
 	<cfinclude template="dsp_header_portal.cfm">
 </cfif>

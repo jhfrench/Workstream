@@ -27,38 +27,19 @@
 <!--- get the query that gets the records for the password expiring --->
 <cfinclude template="qry_get_password_about_to_expire.cfm">
 
-
-<cfif get_password_about_to_expire.recordcount GT 0>
-	<!--- send email to the affected people --->
-	<cfscript>
-		attributes.email_recipients_demographics_id=valuelist(get_password_about_to_expire.demographics_id);
-		attributes.reply_to=application.application_specific_settings.system_email_sender;
-		attributes.subject="Your #application.product_name# password is getting old!";
-		attributes.email_body="Your #application.product_name# password will expire in XYZ days. Please log on with username ABC to change your password at...";
-		variables.created_by=0;
-	</cfscript>
-	<cfinclude template="../common_files/act_log_email.cfm">
-	<cfoutput query="get_password_about_to_expire">
-		<cfmail to="#get_password_about_to_expire.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#attributes.subject#" server="#application.email_server_name#" type="html">
-Your #application.product_name# password will expire in #days_to_password_expire# days. Please log on with username #user_name# to change your password at <a href="#variables.url_to_application#">#variables.url_to_application#</a>
-		</cfmail>
-	</cfoutput>
-</cfif>
+<!--- send email to the affected people --->
+<cfoutput>
+<cfloop query="get_password_about_to_expire">
+	<cfmail to="#get_password_about_to_expire.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="Your #application.product_name# password is getting old!" server="#application.email_server_name#" type="html">
+	Your #application.product_name# password will expire in #days_to_password_expire# days. Please log on with username #user_name# to change your password at <a href="#variables.url_to_application#">#variables.url_to_application#</a>
+	</cfmail>
+</cfloop>
+</cfoutput>
 
 <!--- User's passwords expire every 90 days --->
 <cfinclude template="qry_get_expired_passwords.cfm">
 
 <cfif get_expired_passwords.recordcount GT 0>
-	<cfscript>
-		attributes.email_recipients_demographics_id=valuelist(get_expired_passwords.demographics_id);
-		attributes.reply_to=application.application_specific_settings.system_email_sender;
-		attributes.subject="#application.product_name# Account Locked";
-		attributes.email_body="Your #application.product_name# 'XYZ' account has been locked because your password has expired.<br />
-Please contact the Help Desk at 202-358-HELP(4357) to re-activate your account if you still need access.";
-		variables.created_by=0;
-	</cfscript>
-	<cfinclude template="../common_files/act_log_email.cfm">
-	
 	<!--- send email to the affected people --->
 	<cfoutput query="get_expired_passwords">
 		<cfmail to="#get_expired_passwords.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# Account Locked" server="#application.email_server_name#" type="html">
@@ -102,6 +83,3 @@ Please contact the Help Desk at 202-358-HELP(4357) to re-activate your account i
 	WHERE user_account_id IN (#valuelist(get_accounts_to_deactivate.user_account_id)#)
 	</cfquery>
 </cfif>
-
-
-<cfoutput>Account clean-up process ran (#get_password_about_to_expire.recordcount# warnings, #get_expired_passwords.recordcount# expirations, #get_accounts_to_deactivate.recordcount# deactivations).<br /></cfoutput>

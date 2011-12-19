@@ -1,11 +1,11 @@
 <!-- Administration/pag_edit_link_user_account_status.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_edit_link_user_account_status.cfm">
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/10/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="7/10/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -78,7 +78,7 @@
 		<td>
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="l_u_a_s_id" value="#attributes.l_u_a_s_id#" />
-			<input type="submit" name="submit" value=" Submit " alt="submit" />
+			<input type="submit" alt="submit" name="submit" value=" Submit " />
 		</td>
 	</tr>
 </table>

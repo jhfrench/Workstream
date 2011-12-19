@@ -1,12 +1,12 @@
 <!-- Administration/dsp_edit_user_form.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_user_form.cfm">
 	<responsibilities>
 		I display the form for editing user.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/5/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="6/5/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/6/7) I moved this template from common_files because it's only being called from the Administration module.
 		</history>
@@ -50,7 +50,7 @@
 	</cfif>
 	<tr>
 		<td><label for="password">New Password</label>:</td>
-		<td><input name="password" id="password" type="password" size="20" value="#attributes.password#" />
+		<td><input name="password" id="password" type="password" size="20" value="#attributes.password#"/>
 		<!--- $issue$ change this to a drop down of REF_Account_Status, with user's status pre-selected --->
 		<cfif NOT comparenocase(attributes.action, "edit_user") AND get_user_information.user_account_id NEQ session.user_account_id>
 			<input type="checkbox" name="account_status_id" value="1"<cfif account_status_id NEQ 1> checked</cfif>/> Lock
@@ -59,12 +59,12 @@
 	</tr>
 	<tr>
 		<td><label for="confirm_password">Confirm Password</label>:</td>
-		<td><input name="confirm_password" id="confirm_password" type="password" size="20" value="#attributes.confirm_password#" /></td>
+		<td><input name="confirm_password" id="confirm_password" type="password" size="20" value="#attributes.confirm_password#"/></td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<input name="user_account_id" type="hidden" value="#get_user_information.user_account_id#" />
-			<input name="method" type="submit" alt="update user" size="20" value="<cfif NOT comparenocase(attributes.action, 'edit_user')>Update<cfelse>Add</cfif> User" />
+			<input name="user_account_id" type="hidden" value="#get_user_information.user_account_id#"/>
+			<input name="method" type="submit" alt="update user" size="20" value="<cfif NOT comparenocase(attributes.action, 'edit_user')>Update<cfelse>Add</cfif> User"/>
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

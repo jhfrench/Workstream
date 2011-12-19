@@ -1,5 +1,5 @@
 <!-- Home/dsp_user_preferences.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_user_preferences.cfm">
 	<responsibilities>
@@ -26,10 +26,10 @@
 </cfoutput>
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the data held in the table below">
 	<tr>
-		<th align="left"><h2 style="margin:0px">User Preferences</h2></th>
+		<th align="left"><h2 style="margin:0px" id="top-side">User Preferences</h2></th>
 	</tr>
 </table>
-<img src="images/spacer.gif" alt="" width="560" height="1" /><br />
+<img src="images/spacer.gif" alt="" width="560" height="1"><br />
 <cfoutput>
 <cfform name="form_user_preferences_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
 <div class="datachart" style="border:1px solid ##999999">

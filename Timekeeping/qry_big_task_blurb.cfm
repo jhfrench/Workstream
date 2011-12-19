@@ -1,0 +1,34 @@
+
+<!--Timekeeping/qry_big_task_blurb.cfm
+	Author: Jeromy F -->
+<cfsilent>
+	<!---FUSEDOC
+	||
+	Responsibilities: I retrieve the hours an employee worked in the last two months.
+	||
+	Name: Jeromy French
+	||
+	Edits:
+	$Log$
+Revision 1.1  2005/03/09 18:23:10  stetzer
+<>
+
+Revision 1.1  2001-10-11 10:54:53-04  long
+added $log $ for edits.  To all CFM files that have fusedocs.
+
+ 
+	||
+	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
+	--> session.user_account_id: number that uniquely identifies the user
+ --->
+<cfquery name="big_task_blurb" datasource="#application.datasources.main#">
+SELECT TOP 1 SUM(Time_Entry.hours) AS project_hours, Time_Entry.project_id AS project_id, Project.description AS project_name
+FROM Time_Entry, Project
+WHERE Time_Entry.emp_id=#session.user_account_id#
+	AND MONTH(Time_Entry.date) = MONTH(GETDATE())
+	AND YEAR(Time_Entry.date) = YEAR(GETDATE())
+	AND Project.project_id=Time_Entry.project_id
+GROUP BY Time_Entry.project_id, Project.description
+ORDER BY project_hours DESC
+</cfquery>
+</cfsilent>

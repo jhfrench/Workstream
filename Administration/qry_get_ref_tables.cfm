@@ -27,14 +27,13 @@
 --->
 
 <cfquery name="get_ref_tables" datasource="#application.datasources.main#">
-SELECT All_Tab_Columns.table_name, NVL(REF_Screen.fuseaction,'Not_Defined') AS fuseaction, 
+SELECT All_Tab_Columns.table_name, ISNULL(REF_Screen.fuseaction,'Not_Defined') AS fuseaction, 
 LOWER(All_Tab_Columns.table_name) AS lower_table_name, 
 	COUNT(*) AS column_count
-FROM All_Tab_Columns 
-	LEFT OUTER JOIN REF_Screen ON 'Administration.edit_'||LOWER(All_Tab_Columns.table_name)=REF_Screen.fuseaction 
+FROM information_schema.columns AS All_Tab_Columns 
+	LEFT OUTER JOIN REF_Screen ON 'Administration.edit_'+LOWER(All_Tab_Columns.table_name)=REF_Screen.fuseaction 
 WHERE All_Tab_Columns.table_name NOT LIKE 'BIN$%' 
-	AND All_Tab_Columns.table_name LIKE 'REF_%' 
-	AND All_Tab_Columns.owner = '#application.product_name#_APPL'
+	AND All_Tab_Columns.table_name LIKE 'REF_%'
 GROUP BY All_Tab_Columns.table_name, REF_Screen.fuseaction 
 ORDER BY All_Tab_Columns.table_name
 </cfquery>

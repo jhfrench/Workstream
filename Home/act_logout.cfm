@@ -1,5 +1,5 @@
 <!-- Home/act_logout.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_logout.cfm">
 	<responsibilities>
@@ -36,15 +36,5 @@
 	</cfcatch>
 </cftry>
 
-<cfswitch expression="#cgi.http_host#">
-	<cfcase value="nash.hitsshq.com,nvdb.hitsshq.com,bronze.sef.hq.nasa.gov,nvdb.sef.hq.nasa.gov,brass.hq.nasa.gov,nvdb.hq.nasa.gov,nvdb.nasa.gov">
-		<cfparam name="attributes.requested_page" default="Search.search_vendors">
-	</cfcase>
-	<cfcase value="vendors.nvdb.hitsshq.com,vendors.nvdb.sef.hq.nasa.gov,vendors.nvdb.hq.nasa.gov,vendors.nvdb.nasa.gov">
-		<cfparam name="attributes.requested_page" default="Vendor.challenge_screen">
-	</cfcase>
-	<cfdefaultcase>
-		<cfparam name="attributes.requested_page" default="#application.fusebox.defaultfuseaction#">
-	</cfdefaultcase>
-</cfswitch>
+<cfparam name="attributes.requested_page" default="#application.fusebox.defaultfuseaction#">
 <cflocation url="index.cfm?fuseaction=Home.login&requested_page=#attributes.requested_page#" addtoken="no">

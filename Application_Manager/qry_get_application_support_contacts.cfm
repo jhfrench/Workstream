@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_get_application_support_contacts" cachedafter="02/02/1978" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_get_application_support_contacts" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT L_Installation_Support_Contact.l_i_s_c_id, L_Installation_Support_Contact.send_email_ind, L_Installation_Support_Contact.notes,
 	L_Installation_Support_Contact.display_contact_ind, Support_Contact_Info.last_name, Support_Contact_Info.first_name, 
 	Support_Contact_Info.phone, Support_Contact_Info.email, Support_Contact_Info.support_contact_type_id, 

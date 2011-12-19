@@ -9,9 +9,8 @@
 	padding: 0 30px 0 30px;
 }
 
-.center {
-	margin-left: auto;
-	margin-right: auto;
+.center
+	{margin: 50px auto 20px auto;
 }
 
 .header {

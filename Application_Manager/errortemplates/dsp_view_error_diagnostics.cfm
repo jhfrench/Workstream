@@ -63,7 +63,7 @@
 
 <body>
 
-<!--- <cfquery name="qry_get_error_diagnostics_datasource" datasource="#application.datasources.application_manager#">
+<!--- <cfquery name="qry_get_error_diagnostics_datasource" datasource="#application.datasources.main#">
 SELECT Installation.installation_id, Product.product_name, REF_Environment.environment_name,
 	Installation_URL.url_to_base
 FROM Installation
@@ -77,20 +77,20 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 
 <cfif isdefined("attributes.error_log_id") AND len(attributes.error_log_id)>
 	<cftry>
-		<cfquery name="qry_get_error_log_details" datasource="#application.datasources.application_manager#">
+		<cfquery name="qry_get_error_log_details" datasource="#application.datasources.main#">
 		SELECT *
 		FROM Error_Log
 		WHERE error_log_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.error_log_id#">
 		</cfquery>
 		
-		<cfquery name="get_previous_error_log" datasource="#application.datasources.application_manager#">
-		SELECT NVL(MAX(error_log_id),0) AS error_log_id
+		<cfquery name="get_previous_error_log" datasource="#application.datasources.main#">
+		SELECT ISNULL(MAX(error_log_id),0) AS error_log_id
 		FROM Error_Log
 		WHERE error_log_id < <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.error_log_id#">
 		</cfquery>
 		
-		<cfquery name="get_next_error_log" datasource="#application.datasources.application_manager#">
-		SELECT NVL(MIN(error_log_id),0) AS error_log_id
+		<cfquery name="get_next_error_log" datasource="#application.datasources.main#">
+		SELECT ISNULL(MIN(error_log_id),0) AS error_log_id
 		FROM Error_Log
 		WHERE error_log_id > <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.error_log_id#">
 		</cfquery>
@@ -100,7 +100,7 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 		</cfcatch>
 	</cftry>
 </cfif>
-<form name="whatever" action="index.cfm?fuseaction=#variables.circuit_label#.view_error_diagnostics" method="post" class="struct">
+<form name="whatever" action="index.cfm?fuseaction=main.view_error_diagnostics" method="post" class="struct">
 	<!--- <label>Select application installation</label>:
 	<select name="installation_id" size="1">
 		<cfloop query="qry_get_error_diagnostics_datasource"><option value="#installation_id#"<cfif comparenocase(attributes.installation_id,installation_id) EQ 0> SELECTED</cfif>>#product_name# #environment_name#, (#url_to_base#)</option>
@@ -109,11 +109,11 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 	<br /> --->
 	<label for="error_log_id">Enter error number</label>: 
 	<cfif isdefined("get_previous_error_log")>
-		&lt;<a href="index.cfm?fuseaction=#variables.circuit_label#.view_error_diagnostics&display_all=0&error_log_id=#get_previous_error_log.error_log_id#">last</a>&nbsp;
+		&lt;<a href="index.cfm?fuseaction=main.view_error_diagnostics&display_all=0&error_log_id=#get_previous_error_log.error_log_id#">last</a>&nbsp;
 	</cfif>
 	<input type="text" name="error_log_id" id="error_log_id" value="#attributes.error_log_id#" size="6" class="wddx" />
 	
-		&nbsp;<a href="index.cfm?fuseaction=#variables.circuit_label#.view_error_diagnostics&display_all=0&error_log_id=<cfif isdefined("get_next_error_log") AND get_next_error_log.error_log_id NEQ 0>#get_next_error_log.error_log_id#<cfelse>#attributes.error_log_id+1#</cfif>"><cfif NOT isdefined("get_next_error_log") OR get_next_error_log.error_log_id EQ 0>try </cfif>next</a>&gt;
+		&nbsp;<a href="index.cfm?fuseaction=main.view_error_diagnostics&display_all=0&error_log_id=<cfif isdefined("get_next_error_log") AND get_next_error_log.error_log_id NEQ 0>#get_next_error_log.error_log_id#<cfelse>#attributes.error_log_id+1#</cfif>"><cfif NOT isdefined("get_next_error_log") OR get_next_error_log.error_log_id EQ 0>try </cfif>next</a>&gt;
 	
 	<br />
 	<label for="display_all">Display All WDDX</label>: 

@@ -1,12 +1,12 @@
 <!-- common_files/qry_insert_demographics.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_insert_demographics.cfm">
 	<responsibilities>
 	I enter information into Demographics table.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -33,7 +33,7 @@ INSERT INTO Demographics (user_account_id, last_name, first_name,
 	middle_initial, email_address, work_phone,
 	center_id, uupic, title,
 	fax_phone, created_by)
-VALUES(#attributes.user_account_id#, NVL('#attributes.last_name#','Unknown'), '#attributes.first_name#',
+VALUES(#attributes.user_account_id#, '#attributes.last_name#', '#attributes.first_name#',
 	'#attributes.middle_initial#', '#attributes.email_address#', '#attributes.work_phone#',
 	#attributes.center_id#, '#attributes.uupic#', '#attributes.title#',
 	'#attributes.fax_phone#', #session.user_account_id#)

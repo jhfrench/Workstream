@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfform name="create_product" action="index.cfm?fuseaction=#variables.circuit_label#.insert_product" method="post">
+<cfform name="create_product" action="index.cfm?fuseaction=main.insert_product" method="post">
 <table width="60%">
 	<tr>
 		<td colspan="2" class="Forum_AltHeaderText">Product</td>
@@ -34,7 +34,7 @@
 	<tr>
 		<td class="Forum_AltHeaderText">When the application is "down", where is the page that users should see (relative to the application's root)?</td>
 		<td>
-			<input type="text" name="inactive_link" value=""  maxlength="400" size="40" />
+			<input type="text" name="inactive_link" value=""  maxlength="400" size="40"/>
 		</td>
 	</tr>
 	<tr>

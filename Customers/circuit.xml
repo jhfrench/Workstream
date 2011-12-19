@@ -1,0 +1,126 @@
+<!-- Customers/circuit.xml
+	Author: Jeromy French -->
+<!--
+<fusedoc language="ColdFusion MX" specification="2.0" template="circuit.xml"/>
+	<responsibilities>
+		I defined the fuseactions for the Administration module. Please keep fuseactions in alphabetical order.
+	</responsibilities>
+	<properties>
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/31/2007" role="FuseCoder" comments="Created File"/>
+			$Id:$
+		</history>
+	</properties>
+	<IO>
+		<in>
+
+		</in>
+		<passthrough>
+
+		</passthrough>
+		<out>
+
+		</out>
+	</IO>
+</fusedoc>
+-->
+
+<circuit access="public">
+	<prefuseaction callsuper="true">
+		<include template="../common_files/act_header.cfm"/>
+	</prefuseaction>
+	<fuseaction name="add_customer">
+		<!-- <set name="attributes.object_name" value="customers"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="Add Customer"/>
+		<include template="pag_add_customer.cfm"/>
+	</fuseaction>
+	<fuseaction name="add_engagement">
+		<!-- <set name="attributes.object_name" value="new engagement"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="Add Engagements"/>
+		<include template="pag_add_engagement.cfm"/>
+	</fuseaction>
+	<fuseaction name="customers">
+<!-- Begin  Customers Screen -->
+		<!-- <set name="attributes.object_name" value="customers"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="Customers"/>
+		<include template="pag_customers.cfm"/>
+	</fuseaction>
+	<fuseaction name="disable_task">
+<!-- Begin Engagements Screen-->
+		<!-- <set name="attributes.object_name" value="customers"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="Inactivate Tasks"/>
+		<include template="pag_inactive_tasks.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_billing_details">
+		<!-- <set name="attributes.object_name" value="customers"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="Edit Engagements"/>
+		<include template="pag_edit_engagement.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_custom_fields">
+		<!-- <set name="attributes.object_name" value="customers"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="Edit Engagements"/>
+		<include template="pag_edit_engagement.cfm"/>
+	</fuseaction>
+	<fuseaction name="edit_customer">
+<!-- Begin Edit Root/Project-->
+		<!-- <set name="attributes.object_name" value="customers"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="Edit Customer"/>
+		<include template="pag_edit_customer.cfm"/>		
+	</fuseaction>
+	<fuseaction name="edit_engagement">
+<!-- Begin Engagements Screen-->
+		<!-- <set name="attributes.object_name" value="customers"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="Edit Engagements"/>
+		<include template="pag_edit_engagement.cfm"/>
+	</fuseaction>
+	<fuseaction name="engagements">
+<!-- Begin Engagements Screen-->
+		<!-- <set name="attributes.object_name" value="customers"/>
+		<include template="../common_files/act_object_access.cfm"> -->
+		<set name="request.pagetitle" value="Engagements"/>
+		<include template="pag_engagements.cfm"/>
+	</fuseaction>
+	<fuseaction name="instructions">
+<!-- Begin View Engagement Instructions -->
+		<set name="request.pagetitle" value="New Engagement Instructions"/>
+		<set name="no_banner" value="1"/>
+		<include template="dsp_new_engagement_instructions.cfm"/>
+	</fuseaction>
+	<fuseaction name="new_customer">
+<!-- Begin New Customer -->
+		<!-- <set name="attributes.object_name" value="new customers"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->		
+		<set name="request.pagetitle" value="New Customer"/>
+		<include template="pag_new_customer.cfm"/>		
+	</fuseaction>
+	<fuseaction name="new_engagement">
+<!-- Begin New_Project  -->
+		<!-- <set name="attributes.object_name" value="new engagement"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="New Engagement"/>
+		<include template="pag_new_engagement.cfm"/>		
+	</fuseaction>
+	<fuseaction name="open_tasks">
+		<!-- <set name="attributes.object_name" value="customers"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="Open Tasks"/>
+		<include template="pag_open_tasks.cfm"/>		
+	</fuseaction>
+	<fuseaction name="update_customers">
+<!-- Begin  Customers Screen -->
+		<!-- <set name="attributes.object_name" value="customers"/>	
+		<include template="../common_files/act_object_access.cfm"/> -->
+		<set name="request.pagetitle" value="Update Customers"/>
+		<include template="pag_update_customers.cfm"/>
+	</fuseaction>
+	<postfuseaction>
+		<include template="../common_files/dsp_footer.cfm"/>
+	</postfuseaction>
+</circuit>

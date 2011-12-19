@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfform name="create_support_contact_info" action="index.cfm?fuseaction=#variables.circuit_label#.insert_support_contact_info" method="post">
+<cfform name="create_support_contact_info" action="index.cfm?fuseaction=main.insert_support_contact_info" method="post">
 <table width="60%">
 	<tr>
 		<td colspan="2" class="Forum_AltHeaderText">Support Contact</td>

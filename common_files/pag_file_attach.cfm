@@ -1,0 +1,39 @@
+
+<!--common_files/pag_file_attach.cfm
+	Author: Jeromy F -->
+<cfsilent>
+	<!---FUSEDOC
+	||
+	Responsibilities: I allow the user to associate a file path with a task.
+	||
+	Name: Jeromy French
+	||
+	Edits:
+	$Log$
+Revision 1.0  2005/02/15 20:41:39  daugherty
+Initial revision
+
+Revision 1.1  2001-10-11 10:57:45-04  long
+added $log $ for edits.  To all CFM files that have fusedocs.
+
+ 
+	||
+	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
+	<-- bgcolor: string that sets the backgroud color of this pop-up window
+ --->
+<cfset bgcolor="##78A0EB">
+<cfparam name="attributes.submit_flag" default=0>
+<cfparam name="additions" default="">
+</cfsilent>
+<cf_htmlhead>
+<cfinclude template="act_file_attach.cfm">
+</cf_htmlhead>
+<cfif NOT attributes.submit_flag>
+<cfoutput>
+<table cellspacing="2" cellpadding="0" width="100%" border="0" align="center" class="SelectText#session.workstream_text_size#">
+<cfinclude template="dsp_file_attach_header.cfm">
+<cfinclude template="dsp_file_attach_form.cfm">
+</table>
+</cfoutput>
+</cfif>
+

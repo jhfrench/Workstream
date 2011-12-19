@@ -1,12 +1,12 @@
 <!-- Home/act_login.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_login.cfm">
 	<responsibilities>
 		I authenticate users logging in.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -40,7 +40,7 @@ FROM User_Password
 </cfquery>
 <cfif get_password.recordcount EQ 0>
 	<cfquery name="get_username" datasource="#application.datasources.main#">
-	SELECT user_account_id, SYSDATE AS password_created_date
+	SELECT user_account_id, GETDATE() AS password_created_date
 	FROM User_Account
 	</cfquery>
 	<cfmodule template="../common_files/act_encrypt.cfm" encryption_type="password_encryption" string_to_encrypt="#attributes.password#" user_account_id="#get_username.user_account_id#" password_created_date="#get_username.password_created_date#">
@@ -63,6 +63,8 @@ FROM User_Password
 				session.password_created_by=get_username.password_created_by;
 			</cfscript>
 	
+			<!--- $issue$ next two files should be consolidated --->
+			<cfinclude template="../common_files/act_load_profile.cfm">
 			<cfinclude template="../common_files/qry_get_user_preferences.cfm">
 	
 			<!--- If known, send the user to the page they originally requested (unless the page they requested is "Home.login", it makes no sense to "send" them to the login page once they've logged in) --->
@@ -79,15 +81,15 @@ FROM User_Password
 		<!--- if user is not active --->
 		<cfelse>
 			<!--- Log the user as unsuccessful attempt --->
-			<cfset variables.display_message="#application.product_name# cannot authorize your access because your username/password combination is not correct.">
+			<cfset variables.display_message="<acronym title='#application.html_title#'>#application.product_name#</acronym> cannot authorize your access because your username/password combination is not correct.">
 		</cfif>
 	<!--- if user is not active --->
 	<cfelse>
-		<cfset variables.display_message="#application.product_name# cannot authorize your access because your username/password combination is not correct.">
+		<cfset variables.display_message="<acronym title='#application.html_title#'>#application.product_name#</acronym> cannot authorize your access because your username/password combination is not correct.">
 	</cfif>
 <!--- if account does not exist --->
 <cfelse>
-	<cfset variables.display_message="#application.product_name# cannot authorize your access because your username/password combination is not correct.">
+	<cfset variables.display_message="<acronym title='#application.html_title#'>#application.product_name#</acronym> cannot authorize your access because your username/password combination is not correct.">
 </cfif>
 
 <!--- keep track of login attempt --->
@@ -101,23 +103,16 @@ FROM User_Password
 	<cfinclude template="qry_get_login_attempt.cfm">
     
 	<cfif get_login_attempt.recordcount GT 4 AND get_username.recordcount EQ 1>
+		<!--- <cfset variables.display_message="The system has locked the '#attributes.user_name#' account. #variables.display_message#"> --->
 		<cfif get_login_attempt.recordcount EQ 5>
 			<cfset attributes.user_account_id=get_username.user_account_id>
 			<cfinclude template="../common_files/qry_deactivate_user_account_status.cfm">
 			<cfinclude template="../common_files/qry_insert_link_user_account_status.cfm">
 		</cfif>
-		<cfscript>
-			attributes.email_recipients_demographics_id=get_username.demographics_id;
-			attributes.reply_to=application.application_specific_settings.system_email_sender;
-			attributes.subject="#application.product_name# Account Locked";
-			attributes.email_body="Your #application.product_name# '#attributes.user_name#' account has been locked.
+		<cfmail to="#get_username.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# Account Locked" server="#application.email_server_name#">
+Your #application.product_name# '#attributes.user_name#' account has been locked.
 
-Please contact the Help Desk at 202-358-HELP(4357) to re-activate your account or if you did not attempt to log in.";
-			variables.created_by=0;
-		</cfscript>
-		<cfmail to="#get_username.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#attributes.subject#" server="#application.email_server_name#">
-#attributes.email_body#
+Please contact the Help Desk at 202-358-HELP(4357) to re-activate your account or if you did not attempt to log in.
 		</cfmail>
-		<cfinclude template="../common_files/act_log_email.cfm">
 	</cfif>
 </cfif>

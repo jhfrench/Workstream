@@ -1,0 +1,39 @@
+
+<!--Reports/pag_leader_hours_report.cfm
+	Author: Jeromy F  -->
+<cfsilent>
+	<!--- FUSEDOC
+	||
+	Responsibilities: I
+
+	||
+	Edits:
+	$Log$
+	Revision 1.1  2005/03/09 18:11:34  stetzer
+	<>
+
+	Revision 1.3  2001-12-04 10:15:31-05  french
+	Changing the width of the table.
+
+	Revision 1.2  2001-12-02 17:58:15-05  french
+	Formatting changes.
+
+	Revision 1.1  2001-10-11 11:04:13-04  long
+	Added $log $ for edits to all CFM files that have fusedocs.
+	||
+	END FUSEDOC --->
+<cfset blah=1>
+</cfsilent>
+<cfinclude template="qry_leader_hours_by_month.cfm">
+<table border="0" cellpadding="0" cellspacing="2" align="center">
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#White" section_color="008080" section_title="Leadership Hours Report for #monthasstring(attributes.month)# #attributes.year#: #Agg_hours_by_week.name#" gutter="false" align="center">
+	<tr>
+		<td valign="top">
+			<cfinclude template="dsp_personal_summary_by_code.cfm">
+		</td>
+		<td valign="top">
+			<cfinclude template="dsp_personal_summary_by_week.cfm">
+		</td>
+	</tr>
+</table>
+

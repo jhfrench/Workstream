@@ -1,0 +1,15 @@
+
+/* control the layout, font and font-color of the calendar cell */
+.CalHead { font: vernada; font-size: 8pt; border-width:0; border-color:333333; border-style:solid; background-color:silver;color:blue; text-align:center}
+.CalCell   { font: vernada; font-size: 8pt; border-width:0; border-color:333333; border-style:solid; background-color:white;color:blue; text-align:center}
+.CellAnchor {text-decoration:none; font:9pt vernada;}
+
+/* styles for the "today" part at the bottom */
+.Today {text-decoration:none; font:8pt vernada; color:black;}
+
+/* styles for the date selectors (buttons and combos) at the top */
+.MonthNav { font: vernada; font-size: 8pt; border-width:1; border-color:000000; border-style:solid; background-color:white;color:grey}
+/*.MonthNav {vertical-align:middle; text-decoration:none; height:22; width:18; font:10pt Fixedsys; color:black;}*/
+.CalTitle { font: vernada; font-size: 8pt; border-width:0; border-color:333333; border-style:solid; background-color:white;color:grey}
+
+

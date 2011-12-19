@@ -1,12 +1,12 @@
 <!-- common_files/act_process_password.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_process_password.cfm">
 	<responsibilities>
 		I compare passwords to be sure old password is not same as new password when a user is changing password, then check if it meets 2810 requirements before allawing a change.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/6/7) Changed template name.
 		</history>

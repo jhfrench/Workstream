@@ -65,7 +65,7 @@
 	<tr bgcolor="##999999">
 		<td align="center" colspan="6">
 			<input type="hidden" name="affected_requirements" value="#valuelist(get_screen_requirements.l_s_r_id)#" />
-			<input type="submit" name="submit" value=" Submit " alt="submit" />
+			<input type="submit" alt="submit" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>
@@ -89,7 +89,7 @@
 	</tr>
 	<tr>
 		<td align="center" colspan="3">
-			<input type="submit" name="submit" value=" Submit " alt="submit" />
+			<input type="submit" alt="submit" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

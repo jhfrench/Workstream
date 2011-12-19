@@ -26,7 +26,7 @@
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="Table displays managing user access">
 	<tr>
 		<th align="left">
-			<h2 style="margin:0px"><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit Access</h2>
+			<h2 style="margin:0px" id="top-side"><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit Access</h2>
 		</th>
 	</tr>
 </table>
@@ -62,7 +62,7 @@
 	<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';">
 		<td align="center">&nbsp;
 		<cfif required_ind>
-			(mandatory)<input type="hidden" name="module_id" value="#module_id#" />
+			(mandatory)<input type="hidden" name="module_id" value="#module_id#"/>
 		<cfelse>
 			<input type="checkbox" name="module_id" value="#module_id#"<cfif listfind(variables.assigned_module_id,module_id)> checked="checked"</cfif>/>
 		</cfif>
@@ -86,7 +86,7 @@
 			<input type="hidden" name="program_year_id" value="#attributes.program_year_id#" />
 			<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
 			</cfoutput>
-			<input type="submit" name="save" value="Save" alt="Save" />
+			<input type="submit" alt="Save" value="Save"/>
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

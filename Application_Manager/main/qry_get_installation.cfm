@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_get_installation" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_get_installation" datasource="#application.datasources.main#">
 SELECT *
 FROM Installation
 WHERE active_ind=1

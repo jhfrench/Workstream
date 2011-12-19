@@ -28,7 +28,7 @@
 
 <cfif NOT isdefined("attributes.show_comment_history_labels")>
 <!--- only show this the first time this template is being called (it calls itself) --->
-<h3 style="margin:0px">History for This Requirement:</h3>
+<h3 style="margin:0px" id="top-side">History for This Requirement:</h3>
 <!--- History for this requirement: --->
 <br />
 <div class="datachart" style="border:1px solid ##999999">

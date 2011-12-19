@@ -1,12 +1,12 @@
 <!-- common_files/act_check_password_text.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_check_password_text.cfm">
 	<responsibilities>
 		I check password to be sure it contains at lest three of security criteria(upper case, lower case, a number, a special character) and the length is between 8 and 12 characters.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/12/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="6/12/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

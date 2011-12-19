@@ -1,5 +1,5 @@
 <!-- Help/dsp_submit_faq.cfm
-	Author: Jeromy French -->
+	Author: Jeromy French-->
 <!--- 
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_submit_faq.cfm">
 	<responsibilities>

@@ -33,7 +33,7 @@
 <cfset errMsg=arrayNew(1)>
 
 <cfinclude template="../common_files/qry_get_comments_type.cfm">
-<cfmodule template="../common_files/qry_get_fuseactions.cfm">
+<cfinclude template="qry_get_fuseactions.cfm">
 
 <!--- set error messages to empty string --->
 <cfloop from="1" to="10" index="errlist">

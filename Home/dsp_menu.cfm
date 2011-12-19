@@ -41,11 +41,11 @@
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the data held in the tablebelow">
 	<tr>
 		<th align="left">
-			<h2 style="margin:0px">Home</h2>
+			<h2 style="margin:0px" id="top-side">Home</h2>
 		</th>
 	</tr>
 </table>
-<img src="images/spacer.gif" alt="" width="560" height="1" /><br />
+<img src="images/spacer.gif" alt="" width="560" height="1"><br />
 <table cellspacing="1" cellpadding="3" border="0" bgcolor="#eeeeee" width="100%" summary="Table displays menu">
 	<tr valign="top">
 		<td>

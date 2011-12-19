@@ -13,10 +13,10 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_insert_installation_url" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_insert_installation_url" datasource="#application.datasources.main#">
 INSERT INTO Installation_URL (installation_id, url_to_base, date_created,
 	active_ind)
-SELECT #attributes.installation_id#, '#attributes.url_to_base#', sysdate,
+SELECT #attributes.installation_id#, '#attributes.url_to_base#', GETDATE(),
 	1
 FROM Dual
 </cfquery>

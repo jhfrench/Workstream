@@ -1,12 +1,12 @@
 <!-- Administration/dsp_edit_link_business_function_hier.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_link_business_function_hier.cfm">
 	<responsibilities>
 		I display the form for link business function hier maintenance.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/17/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="9/17/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -39,7 +39,7 @@
 				<td><label for="l_p_y_h_id">Link Program Year Hierarchy</label>: 
 					<br /><cfselect name="l_p_y_h_id" id="l_p_y_h_id" query="get_link_program_year_hierarchy" value="l_p_y_h_id" display="program_year_hierarchy_level" selected="#attributes.l_p_y_h_id#" required="yes" message="Please specify link program year / hierarchy level."></cfselect>
 				</td>
-				<td><label for="sort_order">sort order</label>: 
+				<td><label for="sort_order">Sort Order</label>: 
 					<br /><cfinput type="text" name="sort_order" id="sort_order" size="3" maxlength="3" value="#get_link_business_function_hier.recordcount+1#" required="yes" message="Please enter sort order.">
 				</td>
 			</tr>
@@ -49,7 +49,7 @@
 				 		<cfinput type="radio" name="required_ind" id="required_ind_no" value="0" ><label for="required_ind_no">No </label>
 				</td>
 				<cfif attributes.l_b_f_h_id EQ 0>
-					<input type="hidden" name="active_ind" value="1" />
+					<input type="hidden" name="active_ind" value="1"/>
 				<cfelse>
 				<td colspan="2"><span title="describes the purpose of the radio buttons that follow">Active?</span>
 					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>
@@ -62,9 +62,9 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#" />
-			<input type="hidden" name="l_b_f_h_id" value="#attributes.l_b_f_h_id#" />
-			<input type="submit" name="submit" value=" Submit " alt="submit" />
+			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
+			<input type="hidden" name="l_b_f_h_id" value="#attributes.l_b_f_h_id#"/>
+			<input type="submit" alt="submit" name="submit" value="Submit" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

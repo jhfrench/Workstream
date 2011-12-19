@@ -1,12 +1,12 @@
 <!-- Administration/dsp_edit_ref_privilege.cfm
-	Author: Jeromy French -->
+	Author: Lyudmila Klimenko-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_ref_privilege.cfm">
 	<responsibilities>
 		I display the form for user privilege maintenance.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/16/2007" role="FuseCoder" comments="Created File">
+		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="9/16/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -28,11 +28,10 @@
 <cfparam name="attributes.method" default="">
 <cfmodule template="../common_files/qry_get_ref_privilege.cfm" privilege_id="0">
 <form name="edit_ref_privilege_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
-	Retrieve an existing <label for="privilege_id">privilege</label>:<br />
-	<select name="privilege_id" id="privilege_id">
+	<select name="privilege_id">
 	<cfloop query="get_ref_privilege"><option value="#privilege_id#" <cfif not comparenocase(get_ref_privilege.privilege_id, attributes.privilege_id)>selected</cfif>>#description#</option></cfloop>
-	</select><br />
-	<input type="submit" name="method" value="Retrieve and edit privilege" />
+	</select>
+	<input name="method" type="submit" alt="Retrieve and edit privilege" value="Retrieve and edit privilege"/>
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_privilege.cfm" privilege_id="#attributes.privilege_id#">
@@ -52,14 +51,14 @@
 				<td><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" tabindex="1" message="Please enter description." maxlength="4000">
 				</td>
-				<td><label for="sort_order">sort order</label>: 
+				<td><label for="sort_order">Sort Order</label>: 
 					<br /><cfinput type="text" name="sort_order" id="sort_order" 
                     value= #IIf(attributes.privilege_id EQ 0, ("get_ref_privilege.recordcount+1"), 
                     ("get_ref_privilege.sort_order"))# size="3" maxlength="3"
 					required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.privilege_id EQ 0>
-					<input type="hidden" name="active_ind" value="1" />
+					<input type="hidden" name="active_ind" value="1"/>
 				<cfelse>
 				<td colspan="2"><span title="describes the purpose of the radio buttons that follow">Active?</span>
 					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>
@@ -72,9 +71,9 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#" />
-			<input type="hidden" name="privilege_id" value="#attributes.privilege_id#" />
-			<input type="submit" name="submit" value=" Submit " alt="submit" />
+			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
+			<input type="hidden" name="privilege_id" value="#attributes.privilege_id#"/>
+			<input type="submit" alt="submit"value=" Submit " />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

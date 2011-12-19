@@ -1,12 +1,12 @@
 <!-- Administration/dsp_search_user_from_external_demographics.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_search_user_from_external_demographics.cfm">
 	<responsibilities>
 		I display the search form the administrator uses to get user information from external demographics warehouse.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -64,12 +64,12 @@
 	</tr>
 	<tr>
 		<td><label for="last_name">Last Name</label></td>
-		<td><input name="last_name" type="text" value="#attributes.last_name#" size="20"  maxlength="4000" tabindex="2" /></td>
+		<td><input name="last_name" type="text" value="#attributes.last_name#" size="20"  maxlength="4000" tabindex="2"/></td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
 		<td>
-			<input name="method" type="submit" alt="Search" value="Search" tabindex="3" />
+			<input name="method" type="submit" alt="Search" value="Search" tabindex="3"/>
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

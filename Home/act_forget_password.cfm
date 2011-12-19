@@ -1,12 +1,12 @@
 <!-- Home/act_forget_password.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_forget_password.cfm">
 	<responsibilities>
 		I provide the form where a user enters username to get password reset.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -30,8 +30,7 @@
 		<table cellspacing="1" cellpadding="4" width="100%" border="0" width="250" summary="Table displays invalid username">
 		<tr>
 			<td style="color:white;">
-			<cfoutput>#application.product_name#</cfoutput> cannot authorize your access because your username is invalid. You may <a href="index.cfm?fuseaction=Home.login" title="go back" style="color:yellow;">try to log in again</a>.
-	
+			<cfoutput><acronym title="#application.html_title#">#application.product_name#</acronym></cfoutput> cannot authorize your access because your username is invalid. You may <a href="index.cfm?fuseaction=Home.login" title="go back" style="color:yellow;">try to log in again</a>.
 			</td>
 		</tr>
 		</table>

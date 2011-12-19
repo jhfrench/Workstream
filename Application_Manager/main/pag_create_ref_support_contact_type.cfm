@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfform name="create_ref_support_contact_type" action="index.cfm?fuseaction=#variables.circuit_label#.insert_ref_support_contact_type" method="post">
+<cfform name="create_ref_support_contact_type" action="index.cfm?fuseaction=main.insert_ref_support_contact_type" method="post">
 <table width="60%">
 	<tr>
 		<td width="50">Current support contact types</td>

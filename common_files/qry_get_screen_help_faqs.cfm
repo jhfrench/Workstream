@@ -32,8 +32,8 @@
 SELECT Help_FAQ.help_faq_id, Help_FAQ.question, Help_FAQ.answer,
 	Help_FAQ.active_ind, Help_FAQ.sort_order, Help_FAQ.created_date,
 	REF_Module.description AS module, REF_Screen.fuseaction, REF_Business_Function.description AS business_function,
-	REF_Business_Function.acronym, Link_Screen_Help_FAQ.l_s_h_f_id, Demographics.last_name || ', ' || Demographics.first_name AS response_author,
-	SUBSTR(Help_FAQ.answer, 1, 50)||'...' AS help_faq_text_short
+	REF_Business_Function.acronym, Link_Screen_Help_FAQ.l_s_h_f_id, Demographics.last_name + ', ' + Demographics.first_name AS response_author,
+	SUBSTRING(Help_FAQ.answer, 1, 50)+'...' AS help_faq_text_short
 FROM Link_Screen_Help_FAQ
 	INNER JOIN Help_FAQ ON Link_Screen_Help_FAQ.help_faq_id=Help_FAQ.help_faq_id
 	INNER JOIN REF_Screen ON Link_Screen_Help_FAQ.screen_id=REF_Screen.screen_id

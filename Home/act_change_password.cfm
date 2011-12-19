@@ -1,12 +1,12 @@
 <!-- Home/act_change_password.cfm
-	Author: Jeromy French -->
+	Author: Omoniyi Fajemidupe-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_change_password.cfm">
 	<responsibilities>
 		I process the password supplied to be sure it meets standards (like it has not been used within the last ten times, entered password matches confirm password, etc.) when changing passwords.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
+		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

@@ -13,8 +13,8 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_get_report_output" datasource="#application.datasources.application_manager#">
-SELECT Date_Period.date_period<cfif listfind(attributes.metric_id, 1)>, NVL(LOG_Page_Request.page_count,0) AS page_count</cfif><cfif listfind(attributes.metric_id, 2)>, NVL(Error_LOG.error_count,0) AS error_count</cfif><cfif listfind(attributes.metric_id, 3)>, NVL(Error_LOG.error_count,0)/NVL(LOG_Page_Request.page_count,NVL(Error_LOG.error_count,1))*1000 AS error_rate</cfif>
+<cfquery name="qry_get_report_output" datasource="#application.datasources.main#">
+SELECT Date_Period.date_period<cfif listfind(attributes.metric_id, 1)>, ISNULL(LOG_Page_Request.page_count,0) AS page_count</cfif><cfif listfind(attributes.metric_id, 2)>, ISNULL(Error_LOG.error_count,0) AS error_count</cfif><cfif listfind(attributes.metric_id, 3)>, ISNULL(Error_LOG.error_count,0)/ISNULL(LOG_Page_Request.page_count,ISNULL(Error_LOG.error_count,1))*1000 AS error_rate</cfif>
 FROM (
 		SELECT TO_CHAR(created_date, 'yyyy mm') AS date_period
 		FROM (

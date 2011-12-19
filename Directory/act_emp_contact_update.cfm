@@ -1,0 +1,156 @@
+
+<!-- directory/act_emp_contact_update.cfm
+	Author: Victor B-->
+<cfsilent>
+	<!--- FUSEDOC
+	||
+	Responsibilities: I update the employee contact information submitted from the form.
+	||
+	Name: Victor Blell
+	||
+	Edits: 
+	$Log$
+	Revision 1.0  2005/02/15 20:46:18  daugherty
+	Initial revision
+
+	Revision 1.0  2003-03-21 11:35:43-05  blell
+	created template.
+
+
+
+	||
+	Variables:
+	
+	END FUSEDOC --->
+	
+</cfsilent>
+
+
+<cfif len(attributes.emp_id)>
+	<cfoutput>
+	<CFTRANSACTION>
+		<!--- //////////////////////////        Phone and extensions delete        \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
+		
+		 <cfloop index="ii" list="#attributes.phone_id#" delimiters=",">
+			<cfquery name="phone_delete" datasource="#application.datasources.main#">
+				DELETE PHONE
+				WHERE emp_id=#attributes.emp_id#
+					AND
+				Phone_id=#ii#
+			</cfquery>
+		</cfloop> 
+		
+		<!--- //////////////////////////        Phone and extensions inserts         \\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
+						
+		<cfloop index="ii" list="#attributes.phone_type_id#">
+			<cfif len(evaluate("attributes.phone_number_#ii#"))>
+				<cfquery name="Phone_insert" datasource="#application.datasources.main#">
+					<cfif isdefined("attributes.extension_#ii#") and len(evaluate("attributes.extension_#ii#"))>
+					<cfset attributes.extension=evaluate("attributes.extension_#ii#")>
+						INSERT INTO Phone(emp_id,phone_number,extension,phone_type_id)
+						VALUES(#attributes.emp_id#,'#evaluate("attributes.phone_number_#ii#")#','#attributes.extension#', #ii#)
+					<cfelse>
+						INSERT INTO Phone(emp_id,phone_number,phone_type_id)
+						VALUES(#attributes.emp_id#,'#evaluate("attributes.phone_number_#ii#")#', #ii#)
+					</cfif>
+				</cfquery>
+			</cfif>
+		</cfloop>
+	
+		<!--- //////////////////////////////////        emails delete        \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
+		
+		 <cfloop index="ii" list="#attributes.email_id#" delimiters=",">
+			<cfquery name="delete_email" datasource="#application.datasources.main#">
+				DELETE EMAIL
+				WHERE emp_id=#attributes.emp_id#
+					AND
+				email_id=#ii#
+			</cfquery>
+		</cfloop> 
+	
+		<!--- ///////////////////////////////////        Emails inserts       \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
+			
+		<cfloop index="ii" list="#attributes.email_type_id#">
+			<cfif len(evaluate("attributes.email_#ii#"))>
+				<cfquery name="email_insert" datasource="#application.datasources.main#">
+					INSERT INTO EMAIL(emp_id,email,email_type_id)
+					VALUES(#attributes.emp_id#,'#evaluate("attributes.email_#ii#")#', #ii#)
+				</cfquery>
+			</cfif>
+		</cfloop>
+	
+	
+	<!--- //////////////////////////////////        Location delete        \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
+		
+		<cfloop index="ii" list="#attributes.location_id#" delimiters=",">
+			<cfquery name="location_delete" datasource="#application.datasources.main#">
+				DELETE LOCATION
+				WHERE emp_id=#attributes.emp_id#
+					AND
+				location_id=#ii#
+			</cfquery>
+		</cfloop>
+	
+	<!--- /////////////////////////////////       Location insert       \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
+			
+		<cfloop index="ii" list="#attributes.location_type_id#">
+			<cfif len(evaluate("attributes.address1_#ii#"))>
+			
+				<cfif len(evaluate("attributes.address2_#ii#"))>
+					<cfset attributes.address2=evaluate("attributes.address2_#ii#")>
+				</cfif>
+				
+				<cfif len(evaluate("attributes.city_#ii#"))>
+					<cfset attributes.city=evaluate("attributes.city_#ii#")>
+				</cfif>
+				
+				<cfif len(evaluate("attributes.state_#ii#"))>
+					<cfset attributes.state=evaluate("attributes.state_#ii#")>
+				</cfif>
+				
+				<cfif len(evaluate("attributes.zip_#ii#"))>
+					<cfset attributes.zip=evaluate("attributes.zip_#ii#")>
+				</cfif>
+				
+				<cfquery name="location_insert" datasource="#application.datasources.main#">
+						INSERT INTO LOCATION(emp_id,address1,address2,city, state,zip, location_type_id)
+						VALUES(#attributes.emp_id#,'#evaluate("attributes.address1_#ii#")#','#evaluate("attributes.address2_#ii#")#', '#evaluate("attributes.city_#ii#")#', '#evaluate("attributes.state_#ii#")#', '#evaluate("attributes.zip_#ii#")#', #ii#)
+				</cfquery>
+				
+			</cfif>
+		</cfloop>
+		
+		<!--- /////////////////////////////       Biography delete &  insert       \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
+		
+
+			<cfif len(attributes.biography)>
+				<cfif len(emp_biography_id)>
+					<cfquery name="biography_delete" datasource="#application.datasources.main#">
+						DELETE EMP_BIOGRAPHY
+						WHERE emp_id=#attributes.emp_id#
+							AND
+						emp_biography_id=#attributes.emp_biography_id#
+					</cfquery>
+			</cfif>
+				<cfquery name="biography_insert" datasource="#application.datasources.main#">
+					INSERT INTO EMP_BIOGRAPHY(emp_id,biography)
+					VALUES(#attributes.emp_id#,'#attributes.biography#')
+				</cfquery>
+			</cfif>
+	
+			
+	
+	</CFTRANSACTION>
+		<form action="index.cfm?fuseaction=employee_details" method="post" name="forward_form">
+			<input type="hidden" name="emp_id" value="#attributes.emp_id#">
+		</form>
+		<cf_htmlhead>
+	<script language="javascript" type="text/javascript">
+			function forward_form(){ 
+				document.forward_form.submit();
+			}
+		</script>
+	</cf_htmlhead>
+		<body onload="javascript:forward_form()">	
+	</cfoutput>
+</cfif>

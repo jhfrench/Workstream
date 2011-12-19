@@ -37,7 +37,7 @@
 	</cfif>
 	
 	<cfquery name="get_most_recent" datasource="#application.datasources.main#">
-	SELECT organization_id<cfif attributes.center_ind>, NVL(center_id,0) AS center_id</cfif>, MAX(created_date) AS deactivated_date
+	SELECT organization_id<cfif attributes.center_ind>, ISNULL(center_id,0) AS center_id</cfif>, MAX(created_date) AS deactivated_date
 	FROM #attributes.table_name#
 	GROUP BY organization_id<cfif attributes.center_ind>, center_id</cfif>
 	</cfquery>
@@ -50,13 +50,13 @@
 				SET active_ind=0,
 					deactivated_date=#createodbcdate(deactivated_date)#
 				WHERE organization_id=#organization_id#<cfif attributes.center_ind>
-					AND NVL(center_id,0)=#center_id#</cfif>
+					AND ISNULL(center_id,0)=#center_id#</cfif>
 					AND #attributes.primary_key#=(
 						SELECT MAX(#attributes.primary_key#)
 						FROM #attributes.table_name#
 						WHERE active_ind=0
 							AND organization_id=#organization_id#<cfif attributes.center_ind>
-							AND NVL(center_id,0)=#center_id#</cfif>
+							AND ISNULL(center_id,0)=#center_id#</cfif>
 							AND deactivated_date IS NULL
 						)
 				</cfquery>
@@ -72,7 +72,7 @@
 		</cfquery>
 	
 		<cfquery name="get_most_recent" datasource="#application.datasources.main#">
-		SELECT organization_id<cfif attributes.center_ind>, NVL(center_id,0) AS center_id</cfif>, MIN(created_date) AS deactivated_date
+		SELECT organization_id<cfif attributes.center_ind>, ISNULL(center_id,0) AS center_id</cfif>, MIN(created_date) AS deactivated_date
 		FROM #attributes.table_name#
 		WHERE active_ind=0
 			AND deactivated_date IS NOT NULL
@@ -85,7 +85,7 @@
 <form name="form_set_deactivated_date" action="index.cfm?fuseaction=<cfoutput>#attributes.fuseaction#</cfoutput>" method="post">
 <label for="table_name">Table name</label><br /><input type="text" name="table_name" id="table_name" size="40" maxlength="40" value="Internal_Execution_Plan" />
 <p></p>
-<label for="primary_key">Primary key</label><br /><input type="text" name="primary_key" id="primary_key" size="40" value="i_e_p_id"  maxlength="40" />
+<label for="primary_key">Primary key</label><br /><input type="text" name="primary_key" id="primary_key" size="40" value="i_e_p_id"  maxlength="40"/>
 <p></p>
 <label for="center_ind">Worry about center?</label><br /><input type="checkbox" name="center_ind" id="center_ind" value="1" checked="checked" />
 <p></p>

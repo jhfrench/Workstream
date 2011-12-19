@@ -13,15 +13,15 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_insert_supporting_database" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_insert_supporting_database" datasource="#application.datasources.main#">
 INSERT INTO Supporting_Database (database_name, datasource_description, date_created,
 	active_ind)
-SELECT '#evaluate("attributes.database_name_#database_count_ii#")#', '#evaluate("attributes.datasource_description_#database_count_ii#")#', sysdate,
+SELECT '#evaluate("attributes.database_name_#database_count_ii#")#', '#evaluate("attributes.datasource_description_#database_count_ii#")#', GETDATE(),
 	1
 FROM Dual
 </cfquery>
 
-<cfquery name="qry_get_supporting_database_id" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_get_supporting_database_id" datasource="#application.datasources.main#">
 SELECT MAX(supporting_database_id) AS supporting_database_id
 FROM Supporting_Database
 WHERE database_name='#evaluate("attributes.database_name_#database_count_ii#")#'

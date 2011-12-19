@@ -29,7 +29,7 @@
 <cfparam name="session.last_name" default="French">
 <cfparam name="session.email_address" default="jeromy.h.french@nasa.gov">
 <cfquery name="get_report_screens" datasource="#application.datasources.main#">
-SELECT 'pag_'||REPLACE(fuseaction,'#variables.directory#.','')||'.cfm' AS page_name, description AS business_function, REPLACE(fuseaction,'Reports.','') AS page_guts
+SELECT 'pag_'+REPLACE(fuseaction,'#variables.directory#.','')+'.cfm' AS page_name, description AS business_function, REPLACE(fuseaction,'Reports.','') AS page_guts
 FROM REF_Screen
 	INNER JOIN REF_Business_Function ON REF_Screen.business_function_id=REF_Business_Function.business_function_id
 WHERE fuseaction LIKE '#variables.directory#.%'
@@ -84,10 +84,10 @@ ORDER BY REF_Business_Function.description
 </cfswitch>
 	</cfsavecontent>
 	</cfoutput>
-	<cffile action="write" file="/nasahq/data/www/docs/jfrench/#application.product_name#/trunk/sourcecode/#variables.directory#/#page_name#" output="#variables.output#" mode="777" addnewline="No" attributes="normal">
+	<cffile action="write" file="/nasahq/data/www/docs/jfrench/FAAD/trunk/sourcecode/#variables.directory#/#page_name#" output="#variables.output#" mode="777" addnewline="No" attributes="normal">
 	<cfif listfindnocase("output,bw",listgetat(page_name, 2, '_'))>
 		<cfloop list="act_,qry_get_,dsp_" index="type_ii">
-			<cffile action="write" file="/nasahq/data/www/docs/jfrench/#application.product_name#/trunk/sourcecode/#variables.directory#/#type_ii##page_guts#.cfm" output="act_#page_guts#.cfm" mode="777" addnewline="No" attributes="normal">
+			<cffile action="write" file="/nasahq/data/www/docs/jfrench/FAAD/trunk/sourcecode/#variables.directory#/#type_ii##page_guts#.cfm" output="act_#page_guts#.cfm" mode="777" addnewline="No" attributes="normal">
 		</cfloop>
 	</cfif>
 </cfloop>

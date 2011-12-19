@@ -13,10 +13,10 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_insert_product_version" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_insert_product_version" datasource="#application.datasources.main#">
 INSERT INTO Product_Version (installation_id, product_release_version, subversion_release_version,
 	date_created, active_ind)
 SELECT #attributes.installation_id#, '#attributes.product_release_version#', '#attributes.subversion_release_version#',
-	sysdate, 1
+	GETDATE(), 1
 FROM Dual
 </cfquery>

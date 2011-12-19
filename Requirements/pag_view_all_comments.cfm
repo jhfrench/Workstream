@@ -28,7 +28,7 @@
 <cfset variables.comments_type="">
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table headers describe the data held within this table">
 	<tr>
-		<th align="left"><h2 style="margin:0px">Comments Document</h2></th>
+		<th align="left"><h2 style="margin:0px" id="top-side">Comments Document</h2></th>
 	</tr>
 </table>
 

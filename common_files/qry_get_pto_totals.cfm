@@ -1,0 +1,107 @@
+
+<!-- common_files/qry_get_pto_totals.cfm
+	Author: Jeromy F-->
+<cfsilent>
+	<!--- FUSEDOC
+	||
+	Responsibilities: I 
+
+	||
+	Edits: 
+	$Log$
+	Revision 1.3  2005/08/12 14:42:18  french
+	Corrected error caused when an employee has some PTO data in the current year, but not in the previous year. Task 34645
+
+	Revision 1.2  2005-08-02 16:19:06-04  french
+	Completely revamped code to process faster and show more useful information to the user. Task 34645
+
+	Revision 1.1  2005-02-24 14:17:23-05  long
+	task 30048 - Moved some where criteria into the join so we don't make an inner join out of an outer join
+
+	Revision 1.0  2005-02-15 15:42:05-05  daugherty
+	Initial revision
+
+	Revision 1.2 2002-04-05 14:27:43-05 lee
+	Added check to make sure a person without a record for carryover limit is accepted
+
+	Revision 1.1 2002-04-02 16:00:00-05 lee
+	added condition that if rollover is greater than carryover limit THEN use carryover limit
+
+	Revision 1.0 2002-03-14 10:46:47-05 long
+	Created the query.
+
+	||
+	Variables:
+	
+	END FUSEDOC --->
+<cfquery name="get_carryover" cachedafter="02/02/1978" datasource="#application.datasources.main#">
+SELECT ISNULL(carryover_limit, 40) AS carryover_limit
+FROM PTO_Rollover
+WHERE emp_id=#session.user_account_id#
+	AND rollover_year=YEAR(GETDATE())-1
+	AND #year(now())#=#year(now())#
+</cfquery>
+<cfif NOT len(get_carryover.carryover_limit)>
+	<cfset variables.carryover_limit=40>
+<cfelse>
+	<cfset variables.carryover_limit=get_carryover.carryover_limit>
+</cfif>
+<cfquery name="get_pto_totals" cachedwithin="#createtimespan(0,0,10,0)#" datasource="#application.datasources.main#">
+SELECT ISNULL(Carryover.emp_id,Junk.emp_id) AS emp_id,
+	ISNULL(SUM(Junk.pto_hours_earned), 0) AS pto_hours_earned, 
+	ISNULL(
+		CASE
+			WHEN Carryover.rollover > #variables.carryover_limit# THEN #variables.carryover_limit# 
+			ELSE rollover 
+		END, 0
+	) AS rollover
+FROM 
+
+	(SELECT (MAX(hours_in) - MAX(hours_out)) AS rollover, emp_id 
+	FROM
+		(SELECT SUM(ISNULL(Time_Entry.hours, 0)) AS hours_out, 0 AS hours_in, Time_Entry.emp_id
+		FROM Time_Entry
+		WHERE Time_Entry.emp_id=#session.user_account_id#
+			AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id=1)
+			AND Time_Entry.date >= (SELECT pto_start_date FROM REF_Companies WHERE company_id=#session.workstream_company_id#) 
+			AND YEAR(Time_Entry.date) < YEAR(GETDATE())
+		GROUP BY Time_Entry.emp_id
+		UNION ALL
+		SELECT 0 AS hours_out, SUM(ISNULL(PTO_Grant.granted_hours, 0)) AS hours_in, PTO_Grant.emp_id
+		FROM PTO_Grant
+	 	WHERE PTO_Grant.emp_id=#session.user_account_id#
+			AND date_granted >= (SELECT pto_start_date FROM REF_Companies WHERE company_id=#session.workstream_company_id#) 
+			AND YEAR(date_granted) < YEAR(GETDATE())
+		GROUP BY PTO_Grant.emp_id) AS Previous_Years_Hours
+	GROUP BY emp_id) AS Carryover 
+	
+	FULL OUTER JOIN
+
+	(SELECT Demographics.emp_id,
+		CASE 
+			WHEN PTO_Rollover.pto_override > 0 THEN pto_override/12 
+			ELSE (SELECT accrual_rate
+				FROM REF_PTO_Hours
+				WHERE ISNULL(YEAR(GETDATE())-YEAR(Demographics.hire_date),0) 
+					BETWEEN REF_PTO_Hours.min_year AND REF_PTO_Hours.max_year) 
+			END 
+		AS pto_hours_earned 
+	FROM Company, ABCD_Months, REF_Companies, Demographics_Ngauge AS Demographics
+		LEFT OUTER JOIN PTO_Rollover ON Demographics.emp_id=PTO_Rollover.emp_id
+			AND PTO_Rollover.rollover_year=YEAR(GETDATE())
+	WHERE Company.emp_id=Demographics.emp_id
+		AND REF_Companies.company_id=Company.company
+		AND DATEADD(D, 30, Demographics.hire_date) < GETDATE()
+		AND ((GETDATE() BETWEEN Demographics.effective_from AND Demographics.effective_to) 
+			OR Demographics.effective_to IS NULL)
+		AND Demographics.emp_id=#session.user_account_id#
+		AND ABCD_Months.month > MONTH(GETDATE())
+		AND ABCD_Months.year=YEAR(GETDATE()))
+	AS Junk
+
+	ON Junk.emp_id=Carryover.emp_id
+WHERE #application.last_updated#=#application.last_updated#
+	AND #month(now())#=#month(now())#
+GROUP BY Carryover.emp_id, Junk.emp_id, rollover
+</cfquery>
+</cfsilent>

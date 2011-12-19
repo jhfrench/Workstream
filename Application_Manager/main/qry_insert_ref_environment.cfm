@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_insert_ref_environment" datasource="#application.datasources.application_manager#">
+<cfquery name="qry_insert_ref_environment" datasource="#application.datasources.main#">
 INSERT INTO REF_Environment (environment_name, sort_order)
 VALUES ('#attributes.environment_name#', 1)
 </cfquery>
