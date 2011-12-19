@@ -59,7 +59,7 @@ created template
 
 	<cfoutput>
 	<table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="##f3f3f3" bordercolorlight="##ededed" bordercolordark="##fbfbfb" class="RegText#session.workstream_text_size#">
-	<form action="index.cfm?fuseaction=employee_contact_update" method="post" name="input_form"  class="RegText#session.workstream_text_size#">
+	<form action="index.cfm?fuseaction=Directory.employee_contact_update" method="post" name="input_form"  class="RegText#session.workstream_text_size#">
 		<tr>
 			<td colspan="2" class="SubHeadText#session.workstream_text_size#">Name:</td>
 			<td class="SubHeadText#session.workstream_text_size#">

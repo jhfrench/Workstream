@@ -46,6 +46,6 @@
 	<!--- <cfmodule template="../common_files/dsp_section_title.cfm" align="left" colspan="3" gutter="0" section_color="5F5F5F" section_title="&nbsp;Task Count Analysis-#variables.link#" title_class="SubHeadText#session.workstream_text_size#White">
 	<cfinclude template="dsp_ts_counts.cfm"> --->
 </table>
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" directory_action="../Timekeeping/" fuseaction="task_details">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="reset_cache" field_name="reset_cache" fuseaction="tech_support">
 

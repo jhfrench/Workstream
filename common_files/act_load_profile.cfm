@@ -10,17 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/11/10 19:44:55  french
-	Added notes_display_sort and task_list_order to profile feature. Task 37440
-
-	Revision 1.0  2005-02-15 15:41:05-05  daugherty
-	Initial revision
-
-	Revision 1.2  2001-11-02 15:58:29-05  french
-	Removing unnecessary fields from user_profile settings.
-
-	Revision 1.1  2001-10-11 10:58:03-04  long
-	added $log $ for edits.  To all CFM files that have fusedocs.
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->

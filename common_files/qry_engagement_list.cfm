@@ -29,7 +29,7 @@ SELECT Project.project_code AS project_code, Project.project_id AS project_id, P
 	Customers.description + ' - ' + Project.description AS project_name, ISNULL(Project.mission,'No mission specified') AS project_mission,
 	COUNT(Task.task_id) AS task_count
 FROM Customers, Project, Task, Team, Emp_Contact, Project_Visible_To
-WHERE (Project.active_id=<cfif NOT session.workstream_show_closed_engagements>2<cfelse>1 OR project_end IS NOT NULL</cfif>) 
+WHERE (Project.active_ind=<cfif NOT session.workstream_show_closed_engagements>1<cfelse>0 OR project_end IS NOT NULL</cfif>) 
 	AND Customers.customers_id=Project.customers_id
 	AND Team.emp_id=<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#session.user_account_id#</cfif> 
 	AND Project.project_id=Task.Project_id 

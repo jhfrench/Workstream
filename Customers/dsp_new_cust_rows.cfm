@@ -4,26 +4,27 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I
-
+	Responsibilities:
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:45:50  daugherty
-	Initial revision
-
 	||
 	END FUSEDOC --->
+    </cfsilent>
 <tr>
-	<td>
-		<input type="button" name="Root_Code" value="Specify A Root Code" onclick="javascript:document.all.showlayer.style.visibility='visible';javascript:document.all.shownote.style.visibility='visible';" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
-	</td>
+	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">Root Code</td>
 	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">Company</td>
 	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">Visible to</td>
 </tr>
 <tr>
-	<td valign="top" style="visibility: hidden;" id="showlayer" class="Note<cfoutput>#session.workstream_text_size#</cfoutput>">
-		<cfinput type="Text" required="No"  name="root_code" size="4" class="RegText#session.workstream_text_size#">&nbsp;*
+	<td valign="top" class="Note<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<div id="code_options">
+		<a href="javascript:void(0);" onclick="javascript:Element.toggle('root_code_entry');Element.toggle('code_options');">Specify A Root Code</a>
+		</div>
+		<div id="root_code_entry" style="visibility: hidden;">
+		<cfinput type="Text" required="No"  name="root_code" size="4" class="RegText#session.workstream_text_size#">&nbsp;*<br />
+		Note: If you select a root code yourself, make sure that it isn't used already.
+		</div>
 	</td>
 	<td valign="top">
 		<cfselect name="company_ID" message="Please Select a Company" query="get_companies" value="company_id" display="Company" selected="#session.workstream_company_name#" required="Yes" size="1" class="RegText#session.workstream_text_size#"></cfselect>

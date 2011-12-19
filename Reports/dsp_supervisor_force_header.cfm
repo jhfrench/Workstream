@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:09:23  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:27-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 </cfsilent>
@@ -25,7 +17,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <cfform name="date_range" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST">
 	<tr bgcolor="##5F5F5F" class="HeadText#session.workstream_text_size#White">
 		<td colspan="9" align="left" valign="bottom" class="SubHeadText#session.workstream_text_size#White">
-			&nbsp;Tasks due between <cfinput type="text" name="from_date" value="#attributes.from_date#" size="10" onClick="ShowDate(1)" validate="date" class="RegText#session.workstream_text_size#"> and <cfinput type="text" name="to_date" value="#attributes.to_date#" size="10" onClick="ShowDate(2)" validate="date" class="RegText#session.workstream_text_size#">&nbsp;<input type="Submit" value="Retrieve Taskss" class="RegText#session.workstream_text_size#">
+			&nbsp;Tasks due between <cfinput type="datefield" name="from_date" value="#attributes.from_date#" size="10" validate="date" class="RegText#session.workstream_text_size#"> and <cfinput type="datefield" name="to_date" value="#attributes.to_date#" size="10" validate="date" class="RegText#session.workstream_text_size#">&nbsp;<input type="Submit" value="Retrieve Taskss" class="RegText#session.workstream_text_size#">
 		</td>
 	</tr>
 </cfform>

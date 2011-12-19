@@ -64,7 +64,7 @@ FROM User_Password
 			</cfscript>
 	
 			<!--- $issue$ next two files should be consolidated --->
-			<cfinclude template="../common_files/act_load_profile.cfm">
+			<cfinclude template="../common_files/act_general_user_info.cfm">
 			<cfinclude template="../common_files/qry_get_user_preferences.cfm">
 	
 			<!--- If known, send the user to the page they originally requested (unless the page they requested is "Home.login", it makes no sense to "send" them to the login page once they've logged in) --->

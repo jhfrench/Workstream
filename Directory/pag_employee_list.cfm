@@ -10,18 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.3  2006/09/05 09:44:32  french
-	Corrected header width.
-
-	Revision 1.1  2006-01-10 17:06:21-05  stetzer
-	adjusted header width
-	
-	Revision 1.0  2005-02-15 15:46:47-05  daugherty
-	Initial revision
-	
-	Revision 1.1  2001-10-11 10:56:08-04  long
-	added $log $ for edits.  To all CFM files that have fusedocs.
-
 	||
 	END FUSEDOC --->
 <cfif listlen(session.workstream_company_select_list) GT 1>
@@ -36,5 +24,5 @@
 	<cfinclude template="dsp_employee_list_header.cfm">
 	<cfinclude template="dsp_employee_list_row.cfm">
 </table>
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_employee" field_name="emp_id" fuseaction="employee_details">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_employee" field_name="emp_id" fuseaction="Directory.employee_details">
 

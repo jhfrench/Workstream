@@ -10,19 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.2  2005/12/20 20:22:41  french
-Minor modifications to line up the columns on the output and to speed up the output. Task 38852
-
-Revision 1.1  2005-12-19 15:29:58-05  french
-Added engagement name to output. Restructured query to union results within the subquery. Added link to engagement details. Task 38852
-
-Revision 1.0  2005-02-15 16:01:09-05  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:54:24-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
 	||
 	--> session.workstream_text_size: string that determines what size the user wants text
 	--> variables.emp_init_loop: list of employee initials

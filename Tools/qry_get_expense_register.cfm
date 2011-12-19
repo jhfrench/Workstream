@@ -32,6 +32,6 @@ WHERE Expense.expense_status_id=REF_Expense_Status.expense_status_id
 	<cfif isdefined("attributes.expense_status_id") AND len(attributes.expense_status_id)>
 		AND Expense.expense_status_id = #attributes.expense_status_id#
 	</cfif>
-ORDER BY <cfif isdefined("url.order_by")>#url.order_by#<cfelse>Expense.date_incurred</cfif>
+ORDER BY <cfif isdefined("attributes.order_by")>#attributes.order_by#<cfelse>Expense.date_incurred</cfif>
 </cfquery>
 </cfsilent>

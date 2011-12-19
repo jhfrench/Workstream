@@ -10,21 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:20:44  stetzer
-	<>
-
-	Revision 1.3  2002-02-19 13:00:41-05  french
-	Moved reseeding of variables.text_answer outside of get_drop_down_options loop.
-
-	Revision 1.2  2002-02-05 10:10:32-05  french
-	Added reseeding of variables.text_answer so that a blank answer would not be superceded by the value of a previous custom field.
-
-	Revision 1.1  2002-02-04 18:18:27-05  french
-	Fixing problem caused by commas in variables.custom_answers_text elements (which alters the list size and element positions). Changed delimiter to ';'.
-
-	Revision 1.0  2001-10-18 16:17:12-04  french
-	Created file for custom field support.
-
 	||
  --->
 <cfset variables.text_answer="">

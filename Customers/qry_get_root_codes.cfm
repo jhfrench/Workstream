@@ -28,7 +28,7 @@ SELECT Customers.root_code, LTRIM(Customers.description), Customers.customers_id
 FROM Customers, Customer_Visible_To
 WHERE Customers.root_code=Customer_Visible_To.code
 	AND Customer_Visible_To.visible_to IN (#session.workstream_company_select_list#,0)
-	AND Customers.active_id=2
+	AND Customers.active_ind=1
 GROUP BY Customers.root_code, LTRIM(Customers.description), Customers.customers_id, 
 (<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>root_code+' - '+LTRIM(Customers.description)<cfelse>LTRIM(Customers.description)+' ('+Customers.root_code+')'</cfif>)
 ORDER BY <cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>Customers.root_code<cfelse>LTRIM(Customers.description)</cfif>

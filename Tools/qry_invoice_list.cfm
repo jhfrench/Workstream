@@ -1,21 +1,6 @@
 
 <!--Tools/qry_invoice_list.cfm
 	Author: Jeromy F  -->
-	
-	
-<cfparam name="run_post" default="0">
-
-<cfif run_post contains '1'>
-
-
-<cflocation url="../../monitor/Invoice_Post.cfm">
-<!--- <cfinclude template="../../monitor/Invoice_Post.cfm"> --->
-
-</cfif>
-	
-	
-	
-	
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -28,6 +13,7 @@
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	END FUSEDOC --->
+<cfparam name="run_post" default="0">
 <cfquery name="invoice_list" datasource="#application.datasources.main#">
 SELECT Customers.root_code, Project.project_code, 
 	Customers.description AS customers_name, Project.description AS project_name, 
@@ -39,15 +25,15 @@ FROM Project, Customers, REF_Billable,
 		FROM Project,
 			(SELECT Hours_ID.project_id AS project_id,
 				SUM((Hours_ID.hours*ISNULL(Billing_Rate.rate,0))) AS bill, Project.billable_id AS billable_id
-			FROM Project, Billing_Rate, 
-				(SELECT SUM(Time_Entry.hours) AS hours, Time_Entry.project_id AS project_id, Time_Entry.emp_id
-				FROM Time_Entry, Company
-				WHERE Time_Entry.emp_id=Company.emp_id
-					AND DATEPART(m, Time_Entry.date)=#attributes.month#
-					AND DATEPART(yyyy, Time_Entry.date)=#attributes.year#
-					AND Company.company IN (#session.workstream_company_select_list#)
-				GROUP BY project_id, Time_Entry.emp_id)
-			AS Hours_ID
+			FROM Project, Billing_Rate, (
+					SELECT SUM(Time_Entry.hours) AS hours, Time_Entry.project_id AS project_id, Time_Entry.emp_id
+					FROM Time_Entry, Company
+					WHERE Time_Entry.emp_id=Company.emp_id
+						AND DATEPART(m, Time_Entry.date)=#attributes.month#
+						AND DATEPART(yyyy, Time_Entry.date)=#attributes.year#
+						AND Company.company IN (#session.workstream_company_select_list#)
+					GROUP BY project_id, Time_Entry.emp_id
+				) AS Hours_ID
 			WHERE Project.project_id=Hours_ID.project_id
 				AND Billing_Rate.emp_id=Hours_ID.emp_id
 				AND Project.project_id=Billing_Rate.project_id

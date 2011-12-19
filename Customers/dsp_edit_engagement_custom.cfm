@@ -35,7 +35,7 @@
 	END FUSEDOC --->
 <cfset variables.start=1>
 </cfsilent>
-<cfparam name="Engagement_Dashboard_Return" default="0">
+<cfparam name="engagement_dashboard_Return" default="0">
 <cfparam name="IE_Emp_ID_Filter" default="All">
 <cfparam name="Customers_ID_Filter" default="All">
 <cfparam name="Sort" default="Customers.Description,Project.Description">
@@ -44,7 +44,7 @@
 <cfset attributes.field2=1>
 
 <cfinclude template="../common_files/qry_get_user_fields.cfm">
-<cfform name="edit_engagement_main" action="index.cfm?fuseaction=edit_engagement" method="post">
+<cfform name="edit_engagement_main" action="index.cfm?fuseaction=Customers.edit_engagement" method="post">
 <cfoutput>
 	<tr bgcolor="##c0c0c0">
 		<td align="center" class="SubHeadText#session.workstream_text_size#">
@@ -110,7 +110,7 @@
 <input type="hidden" name="project_id" value="#attributes.project_id#">
 <input type="hidden" name="option" value="3">
 <input type="hidden" name="edit" value="1">
-<input type="hidden" name="Engagement_Dashboard_Return" value="#Engagement_Dashboard_Return#">
+<input type="hidden" name="engagement_dashboard_Return" value="#engagement_dashboard_Return#">
 <input type="hidden" name="Customers_ID_FIlter" value="#customers_id_Filter#">
 <input type="hidden" name="IE_Emp_ID_FIlter" value="#IE_Emp_ID_Filter#">
 <input type="hidden" name="Sort" value="#sort#">

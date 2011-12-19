@@ -34,7 +34,7 @@
 	||
 	END FUSEDOC --->
 <cfset variables.start=1>
-<cfparam name="Engagement_Dashboard_Return" default="0">
+<cfparam name="engagement_dashboard_Return" default="0">
 <cfparam name="IE_Emp_ID_Filter" default="All">
 <cfparam name="Customers_ID_Filter" default="All">
 <cfparam name="Sort" default="Customers.Description,Project.Description">
@@ -44,7 +44,7 @@
 <cfinclude template="qry_get_root_codes.cfm">
 <cfinclude template="qry_get_companies.cfm">
 <cfinclude template="../common_files/qry_get_products.cfm">
-<cfform name="task_details" action="index.cfm?fuseaction=edit_engagement" method="post">
+<cfform name="task_details" action="index.cfm?fuseaction=Customers.edit_engagement" method="post">
 <cfoutput>
 	<tr bgcolor="##c0c0c0">
 		<td align="center" colspan="2" class="SubHeadText#session.workstream_text_size#">
@@ -86,8 +86,8 @@
 			Product<br>
 			<cfselect name="product_id" query="get_products" value="product_id" display="product_name" selected="#get_engagement_main.product_id#" required="yes" message="Please choose which product this engagement applies to." size="4" class="RegText#session.workstream_text_size#"></cfselect>
 		Status  <select name="active_id" class="RegText#session.workstream_text_size#">
-					<option value="1" <cfif get_engagement_main.active_id EQ 1>selected</cfif>>Inactive</option>
-					<option value="2" <cfif get_engagement_main.active_id EQ 2>selected</cfif>>Active</option>
+					<option value="1" <cfif get_engagement_main.active_id EQ 1>selected</cfif>>Active</option>
+					<option value="0" <cfif get_engagement_main.active_id EQ 0>selected</cfif>>Inactive</option>
 				</select>
 		</td>
 		<td width="55%" class="Note#session.workstream_text_size#">
@@ -165,7 +165,7 @@ get_engagement_main.business_case#</textarea>
 <input type="hidden" name="project_id" value="#attributes.project_id#">
 <input type="hidden" name="option" value="1">
 <input type="hidden" name="edit" value="1">
-<input type="hidden" name="Engagement_Dashboard_Return" value="#Engagement_Dashboard_Return#">
+<input type="hidden" name="engagement_dashboard_Return" value="#engagement_dashboard_Return#">
 <input type="hidden" name="Customers_ID_FIlter" value="#customers_id_Filter#">
 <input type="hidden" name="IE_Emp_ID_FIlter" value="#IE_Emp_ID_Filter#">
 <input type="hidden" name="Sort" value="#sort#">

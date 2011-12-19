@@ -31,7 +31,7 @@
 	<cfset variables.recordcount=get_subordinates.recordcount>
 </cfif>
 </cfsilent>
-<cfform name="report" action="index.cfm?fuseaction=manager_hours">
+<cfform name="report" action="index.cfm?fuseaction=Reports.manager_hours">
 <table align="center" border="0" cellpadding="2" cellspacing="0" width="40%">
 	<cfinclude template="dsp_manager_hours_input.cfm">
 </table>

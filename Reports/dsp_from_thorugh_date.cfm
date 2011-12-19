@@ -28,7 +28,7 @@
 <cfparam name="attributes.required" default="No">
 </cfsilent>
 <cfoutput>
-<cfform name="report" action="index.cfm?fuseaction=#attributes.action#"> 
+<cfform name="report" action="index.cfm?fuseaction=Reports.#attributes.action#"> 
 <table align="center" border="0" cellpadding="2" cellspacing="0" width="40%">
 	<tr bgcolor="##008080">
 		<td colspan="2" class="HeadText#session.workstream_text_size#White">#attributes.report_name#</td>
@@ -37,8 +37,12 @@
 		<td colspan="2" class="RegText#session.workstream_text_size#White">Enter Dates (mm/dd/yyyy)</td>
 	</tr>
 	<tr>	
-		<td class="RegText#session.workstream_text_size#">From: <cfinput type="Text" name="From_date" required="#attributes.required#" size="9" validate="date" message="You must enter a valid from date" class="RegText#session.workstream_text_size#"></td>
-		<td class="RegText#session.workstream_text_size#">To: <cfinput type="Text" name="through_date" required="#attributes.required#" size="9" validate="date" message="You must enter a valid through date" class="RegText#session.workstream_text_size#"></td>
+		<td class="RegText#session.workstream_text_size#">
+			<label for="from_date">From</label>: <cfinput type="datefield" name="from_date" id="from_date" required="#attributes.required#" size="9" validate="date" message="You must enter a valid from date" class="RegText#session.workstream_text_size#">
+		</td>
+		<td class="RegText#session.workstream_text_size#">
+			<label for="through_date">To</label>: <cfinput type="datefield" name="through_date" id="through_date" required="#attributes.required#" size="9" validate="date" message="You must enter a valid through date" class="RegText#session.workstream_text_size#">
+		</td>
 	</tr>
 	<tr>
 		<td align="center" colspan="2"><input type="Submit" value="Enter Dates" class="RegText#session.workstream_text_size#"></td>

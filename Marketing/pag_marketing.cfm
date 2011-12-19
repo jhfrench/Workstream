@@ -16,9 +16,10 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 
  
 	||
-	Variables: +++template="qry_get_marketing_data.cfm"
-			+++ template="dsp_marketing_form.cfm"
-			+++ template="dsp_marketing_sort_form.cfm"
+	Variables:
+	+++template="qry_get_marketing_data.cfm"
+	+++ template="dsp_marketing_form.cfm"
+	+++ template="dsp_marketing_sort_form.cfm"
 	END FUSEDOC --->
 <cfinclude template="qry_get_marketing_data.cfm">
 <cfinclude template="qry_get_contact_count.cfm">

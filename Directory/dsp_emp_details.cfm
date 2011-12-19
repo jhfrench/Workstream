@@ -10,21 +10,9 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2006/01/19 18:59:14  stetzer
-<>
-
-Revision 1.0  2005-02-15 15:46:33-05  daugherty
-Initial revision
-
-Revision 1.2  2002-03-08 16:24:42-05  long
-added link to the edit employee screen
-
-Revision 1.1  2001-10-11 10:56:12-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
-
-
 	||
 	END FUSEDOC --->
+</cfsilent>
 <cfoutput>
 	<tr valign="top">
 		<td align="left" width="148" class="RegText#session.workstream_text_size#">
@@ -49,32 +37,32 @@ Added $log $ for edits to all CFM files that have fusedocs.
 	<cfinclude template="dsp_emp_location.cfm">
 </cfif>
 
-<cfif listcontains(valuelist(get_navigation.action),"emp_entry")>
+<cfif listcontains(valuelist(get_user_access.fuseaction),"emp_entry")>
 	
-	<cfif listcontains("126,609,253,41" ,session.user_account_id)>
+	<cfif listcontains("1" ,session.user_account_id)>
 	<!--- <cfif session.user_account_id EQ 126 OR session.user_account_id EQ 609> --->
 		<cfinclude template="dsp_emp_supervisor.cfm">
 	</cfif>
 
 	<cfinclude template="dsp_emp_position_number.cfm">
 		
-	<!--- Only Sheila and Adam can see this so hard code it--->
-	<cfif listcontains("126,609,253,41" ,session.user_account_id)>
+	<!--- Only Jeromy can see this so hard code it--->
+	<cfif listcontains("1" ,session.user_account_id)>
 			<cfinclude template="dsp_emp_salary_info.cfm">
 	</cfif>
 	
-	<!--- Only Sheila, Adam and the owner can see this --->
-	<cfif listcontains("126,609,253,41" ,session.user_account_id)>
+	<!--- Only Jeromy can see this --->
+	<cfif listcontains("1" ,session.user_account_id)>
 		<cfinclude template="dsp_emp_benefits_info.cfm">
 	</cfif>
 	
-	<!--- Only Sheila, Adam and the owner can see this --->
-	<cfif listcontains("126,609,253,41" ,session.user_account_id)>
+	<!--- Only Jeromy can see this --->
+	<cfif listcontains("1" ,session.user_account_id)>
 		<cfinclude template="dsp_emp_performance_review.cfm">
 	</cfif>
 	
-	<!--- Only Sheila, Adam and the owner can see this --->
-	<cfif listcontains("126,609,253,41" ,session.user_account_id)>
+	<!--- Only Jeromy can see this --->
+	<cfif listcontains("1" ,session.user_account_id)>
 		<cfinclude template="dsp_emp_job_titles.cfm">
 	</cfif>
 </cfif>
@@ -85,7 +73,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 		</td>
 		<td width="20%"></td>
 	</tr>
-<cfif session.user_account_id EQ 126 OR session.user_account_id EQ 609 OR session.user_account_id EQ 253 OR session.user_account_id EQ emp_id OR session.user_account_id EQ 41>
+<cfif session.user_account_id EQ 1>
 	<tr>
 		<td align="left" width="148" class="RegText#session.workstream_text_size#">
 		<cfoutput>

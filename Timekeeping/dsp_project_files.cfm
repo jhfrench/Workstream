@@ -10,27 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.6  2005/06/24 19:19:12  stetzer
-	<>
-
-	Revision 1.5  2005-06-23 15:37:32-04  stetzer
-	<>
-
-	Revision 1.4  2005-06-23 15:29:52-04  stetzer
-	<>
-
-	Revision 1.3  2005-06-23 15:26:06-04  stetzer
-	Trying to add the upload function
-
-	Revision 1.2  2005-06-22 12:04:59-04  stetzer
-	Changes to make the linked documents work from Keel2 rather than individual web servers. Also needed a way to indentify which project folder should hold what docs. Was showing "Agere" for everything.
-
-	Revision 1.1  2001-12-10 18:22:21-05  french
-	Added ability to dynamically retrieve supporting documents based on the company. This might need to be changed to engagement level in the future.
-
-	Revision 1.0  2001-10-29 18:03:41-05  french
-	File creation.
-
 	||
  --->
 <cfset variables.valid_files="cfm,doc,htm,msg,pdf,ppt,sql,txt,xls,zip">

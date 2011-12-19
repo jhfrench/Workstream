@@ -1,5 +1,5 @@
 
-<!--directory/dsp_job_title_entry_header.cfm
+<!--Directory/dsp_job_title_entry_header.cfm
 	Author: Damon S -->
 <cfsilent>
 	<!---FUSEDOC
@@ -9,11 +9,10 @@
 	Name: Damon Scott
 	||
 	Edits:
-$Log: 
-
- 
+	$Log: 
 	||
  --->
+</cfsilent>
 <cfoutput>
 	<tr bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td<cfif isdefined("colspan")> colspan="#colspan#"</cfif> class="SubHeadText#session.workstream_text_size#">

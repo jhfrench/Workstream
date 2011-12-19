@@ -9,22 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/03 19:08:49  french
-	Removed logic that restricted weekly sum results to projects that user could see; this isn't necessary and it was actually causing a cartesion becase Project_Visible_To had some duplicates. Task 30220
-
-	Revision 1.0  2005-02-15 15:57:49-05  daugherty
-	Initial revision
-
-	Revision 1.3  2001-12-02 17:58:16-05  french
-	Formatting changes.
-
-	Revision 1.2  2001-11-06 12:21:11-05  long
-	Bug fix, removed an extra close cfslient tag
-	
-	Revision 1.1  2001-10-11 11:03:57-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
-
-	(KL|8/8/01) ; removed logic that only shows hours for visible codes, because you should be able to see all codes that you have time entered under. 
 	||
 	END FUSEDOC --->
 <cfquery name="Agg_hours_by_month" datasource="#application.datasources.main#">
@@ -57,45 +41,3 @@ WHERE Emp_Contact.emp_id=Time_Entry.emp_id
 GROUP BY MONTH(Time_Entry.date), YEAR(Time_Entry.date), DATEPART(WEEK, Time_Entry.Date), Emp_Contact.name, Emp_Contact.lname
 </cfquery>
 </cfsilent>
-
-
-<!--- <cfquery name="Agg_hours_by_month" datasource="#application.datasources.main#">
-SELECT SUM(Time_Entry.Hours) AS Sumofhours, DATEPART(month, 
-    time_entry.date) AS month, DATEPART(year, time_entry.date) 
-    AS [year], Emp_Contact.Name, 
-    Project.Description + '(' + Project.Project_Code + ')' AS clientname
-FROM Time_Entry INNER JOIN
-    Emp_Contact ON 
-    Time_Entry.Emp_ID = Emp_Contact.Emp_ID INNER JOIN
-    Project ON Time_Entry.Project_id = Project.project_id INNER JOIN
-    Customer_Visible_To ON 
-    Project.Project_Code = Customer_Visible_To.Code
-WHERE emp_contact.emp_id =#attributes.emp_id# and customer_visible_to.visible_to IN (#session.workstream_company_select_list#)
-and project.Project_code=customer_visible_to.code
- and
-DatePart(month,time_entry.[date]) = #attributes.month#
-and
-DatePart(year,time_entry.[date]) = #attributes.year#
-GROUP BY  Project.Project_Code, Emp_Contact.Name,
-    Project.Description, DATEPART(month, 
-    Time_Entry.Date) , DATEPART(year, Time_Entry.Date)
-ORDER BY clientname
-</cfquery>
-
-<cfquery name="Agg_hours_by_week" datasource="#application.datasources.main#">
-SELECT SUM(Time_Entry.Hours) AS Sumofhours, DATEPART(month, 
-    Time_Entry.Date) AS month, DATEPART(year, Time_Entry.Date) 
-    AS year, DATEPART(WEEK, Time_Entry.Date) AS week, 
-    Emp_Contact.name
-FROM Emp_Contact, Time_Entry, Project, Customer_Visible_To
-WHERE Emp_Contact.emp_id = Time_Entry.emp_id
-	AND Time_Entry.project_id = Project.project_id
-	AND Project.project_code = Customer_Visible_To.code
-	AND Emp_Contact.emp_id = #attributes.emp_id#
-	AND customer_visible_to.visible_to IN (#session.workstream_company_select_list#)
-	AND Project.project_code = Customer_Visible_To.code 
-	AND DATEPART(month, Time_Entry.date) = #attributes.month# 
-	AND DATEPART(year, Time_Entry.date) = #attributes.year#
-GROUP BY DATEPART(month, Time_Entry.date), DATEPART(year, Time_Entry.date), 
-	DATEPART(WEEK, Time_Entry.Date), Emp_Contact.name
-</cfquery> --->

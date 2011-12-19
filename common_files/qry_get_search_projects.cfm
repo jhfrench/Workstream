@@ -41,13 +41,10 @@ WHERE Customers.customers_id = Project.customers_id
 	AND Project_Visible_To.company_id IN (#variables.valid_codes#)
 	AND Project.project_type_id!=3 
 GROUP BY Customers.customers_id, Customers.description, Customers.root_code,
-	Project.description,
-	Project.project_id,
-	Project.project_code,
-	Project.billable_id,
-	Project.company_id, 
-	CASE WHEN
-	Customers.description != Project.description
+	Project.description, Project.project_id, Project.project_code,
+	Project.billable_id, Project.company_id, 
+	CASE
+		WHEN Customers.description != Project.description
 	<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
 		THEN (Project.project_code + ' - ' + Customers.description + ' - ' + Project.description) 
 		ELSE (Project.project_code + ' - ' + Project.description)

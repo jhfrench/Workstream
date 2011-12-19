@@ -21,9 +21,9 @@
 
  --->
 <cfquery name="get_emp_position_number_history" datasource="#application.datasources.main#">
-SELECT position_id, effective_startdate, effective_enddate
+SELECT position_id, effective_start_date, effective_end_date
 FROM  Position_History
-WHERE emp_id = #attributes.emp_id#
-ORDER BY effective_startdate
+WHERE emp_id=#attributes.emp_id#
+ORDER BY effective_start_date
 </cfquery>
 </cfsilent>

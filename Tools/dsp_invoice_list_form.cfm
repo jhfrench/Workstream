@@ -44,7 +44,7 @@
 <cfset first_year=Year(get_extreme_dates.min_date)>
 <cfset last_year=Year(now())>
 </cfsilent>
-<cfform action="index.cfm?fuseaction=invoice_list" name="invoice_list" method="POST">
+<cfform action="index.cfm?fuseaction=Tools.invoice_list" name="invoice_list" method="POST">
 <cfoutput>
 <tr align="center" bgcolor="##772862" class="SubHeadText#session.workstream_text_size#">
 	<td colspan="5" class="SubHeadText#session.workstream_text_size#White">

@@ -15,8 +15,6 @@
 	Revision 1.2  2001-11-01 12:04:03-05  french
 	Verifying that customer_edit is used correctly as a boolean.
 
-	Revision 1.1  2001-10-11 10:56:37-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfif session.workstream_customer_edit>
@@ -27,7 +25,7 @@
 </cfsilent>
 <cfoutput>
 	<tr bgcolor="##008000">	      
-	   <form name="inactive" action="index.cfm?fuseaction=customers" method="post">
+	   <form name="inactive" action="index.cfm?fuseaction=Customers.customers" method="post">
 	   	<td colspan="1" class="HeadText#session.workstream_text_size#White">
 			Customer List
 	   	</td>

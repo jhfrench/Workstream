@@ -26,7 +26,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
-<cfif session.user_account_id EQ 41>
+<cfif session.user_account_id EQ 1>
 	<cfset variables.type="text">
 <cfelse>
 	<cfset variables.type="password">

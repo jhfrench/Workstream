@@ -23,7 +23,7 @@ SELECT Customers.description,
 	COUNT(status) AS total
 FROM Project, Customers
 WHERE Project.customers_id=Customers.customers_id
-	AND Project.active_id=2 
+	AND Project.active_ind=1
 	AND Project.company_id=#session.workstream_company_id#
 	AND Project.status IS NOT NULL
 	AND Project.status > 0

@@ -10,23 +10,6 @@
 	|| 
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:45:51  daugherty
-	Initial revision
-
-	Revision 1.5  2001-11-02 14:07:06-05  french
-	Made the budget field allow decmials.
-
-	Revision 1.4  2001-11-01 16:25:04-05  french
-	Made changes that allows workstream to map one custom field to multiple projects.
-
-	Revision 1.3  2001-10-19 11:26:12-04  french
-	Added additional notes.
-	
-	Revision 1.2  2001-10-11 18:10:43-04  french
-	Removed the requirement that end_date be filled in.
-	
-	Revision 1.1  2001-10-11 10:56:28-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfset variables.start=1>

@@ -30,7 +30,7 @@
 	||
 	END FUSEDOC --->
 <cfoutput>
-<form action="index.cfm?fuseaction=manage_workstream" name="manage_workstream" method="post">
+<form action="index.cfm?fuseaction=Administration.manage_workstream" name="manage_workstream" method="post">
 	<tr bgcolor="##e6e6e6">
 		<td class="RegText#session.workstream_text_size#">
 			<label for="application_variables"><input type="checkbox" name="application_variables" value="1" id="application_variables" class="RegText#session.workstream_text_size#"> All application variables.</label>

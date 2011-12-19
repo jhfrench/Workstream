@@ -27,6 +27,6 @@ Added $log $ for edits to all CFM files that have fusedocs.
 
 <table align="center" border="1" cellpadding="0" cellpadding="0" bordercolor="gray"  cellspacing="0" width="98%">
 	<cfinclude template="dsp_engagement_dashboard_row_header.cfm">
-	<cfinclude template="dsp_Engagement_dashboard_rows.cfm">
+	<cfinclude template="dsp_engagement_dashboard_rows.cfm">
 </table>
 

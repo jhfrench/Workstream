@@ -1,5 +1,5 @@
 
-<!-- directory/act_update_email.cfm
+<!-- Directory/act_update_email.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC

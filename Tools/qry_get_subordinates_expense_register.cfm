@@ -23,6 +23,6 @@ WHERE Expense.expense_status_id=REF_Expense_Status.expense_status_id
 	AND Link_Employee_Supervisor.supervisor_id=#attributes.emp_id#
 	AND Expense.date_incurred BETWEEN Link_Employee_Supervisor.date_start AND ISNULL(Link_Employee_Supervisor.date_end,GETDATE())
 	AND Expense.expense_status_id=1
-ORDER BY <cfif isdefined("url.order_by")>#url.order_by#<cfelse>Expense.date_incurred</cfif>
+ORDER BY <cfif isdefined("attributes.order_by")>#attributes.order_by#<cfelse>Expense.date_incurred</cfif>
 </cfquery>
 </cfsilent>

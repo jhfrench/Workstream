@@ -9,9 +9,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:41:05  daugherty
-	Initial revision
-
 	||
 	Variables:
 	

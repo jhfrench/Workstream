@@ -67,7 +67,7 @@ function isEmpty()
 <cfmodule template="../common_files/act_calendar.cfm" form_name="input_form" field_name="date_entered,due_date">
 <cfinclude template="../common_files/qry_get_search_projects.cfm">
 <cfinclude template="../common_files/qry_get_date_operator.cfm">
-<cfform name="input_form" action="index.cfm?fuseaction=output" method="POST">
+<cfform name="input_form" action="index.cfm?fuseaction=Search.output" method="POST">
 <table align="center" cellpadding="0" cellspacing="0" border="0" width="80%">
  	<cfinclude template="dsp_search_header.cfm">
 	<cfinclude template="dsp_search_row_top.cfm">

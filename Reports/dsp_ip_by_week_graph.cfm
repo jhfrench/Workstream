@@ -10,18 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:07:14  stetzer
-	<>
-
-	Revision 1.2  2001-12-07 17:47:43-05  french
-	Changed start degrees for pie graph.
-
-	Revision 1.1  2001-12-07 14:17:32-05  french
-	Fixed pie graph display error caused by providing less (or more) colors than there are data sets.
-
-	Revision 1.0  2001-12-07 13:58:41-05  french
-	Creating Implementation Analysis Report
-
 	||
 	END FUSEDOC --->
 <cfset Y_TickBar="708090">

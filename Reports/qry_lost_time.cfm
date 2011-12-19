@@ -112,7 +112,7 @@ FROM Emp_Contact INNER JOIN
     REF_companies ON 
     Company.Company = REF_companies.Company_ID INNER JOIN
     Project ON Time_Entry.Project_id = Project.project_id
-WHERE REF_companies.company  IN (#session.workstream_company_select_list#) and demographics.end_date is null and datepart(yy,time_entry.date) = datepart(yy, GETDATE())
+WHERE REF_companies.company  IN (#session.workstream_company_select_list#) and demographics.end_date IS NULL and datepart(yy,time_entry.date) = datepart(yy, GETDATE())
 GROUP BY emp_contact.lname, emp_contact.name, 
     demographics.pin, emp_contact.emp_ID
 ORDER BY emp_contact.lname

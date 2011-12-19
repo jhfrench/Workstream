@@ -3,7 +3,7 @@
 <cfset through_date = form.through_date_Expense> --->
 
 <cfquery name="get_Reimbursement"  datasource="#application.datasources.main#">
-SELECT   REF_Reimbursement_Type.Reimbursement_Type, REF_Reimbursement_Type.Reimbursement_ID
+SELECT reimbursement_type, reimbursement_id
 FROM REF_Reimbursement_Type
 </cfquery>
 
@@ -13,26 +13,18 @@ FROM REF_Expense_Type
 ORDER BY Expense_ID
 </cfquery>
 <cfquery name="expenses" datasource="#application.datasources.main#">
-SELECT Emp_Contact.Name, Emp_Contact.LName, 
-    expense.Work_date, Notes.Note, 
-    expense_amount.Expense_type_id, 
-    expense_amount.expense_amount, 
-    REF_Reimbursement_Type.Reimbursement_Type, 
-    REF_Expense_Type.Expense_Type
-FROM Emp_Contact INNER JOIN
-    expense ON 
-    Emp_Contact.Emp_ID = expense.emp_id INNER JOIN
-    expense_amount ON 
-    expense.expense_id = expense_amount.expense_id INNER JOIN
-    Notes ON expense.notes_id = Notes.Notes_ID INNER JOIN
-    REF_Reimbursement_Type ON 
-    expense.reimbursement_type_id = REF_Reimbursement_Type.Reimbursement_ID
-     INNER JOIN
-    REF_Expense_Type ON 
-    expense_amount.Expense_type_id = REF_Expense_Type.Expense_ID
-WHERE (Expense.emp_id = #emp_id#) AND 
-    (Expense.Work_Date >= '#from_date#') AND 
-    (Expense.Work_Date <= '#through_date#')
+SELECT Emp_Contact.name, Emp_Contact.lname, Expense.work_date,
+	Notes.note, Expense_Amount.expense_type_id, Expense_Amount.expense_amount, 
+	REF_Reimbursement_Type.reimbursement_type, REF_Expense_Type.expense_type
+FROM Emp_Contact
+	INNER JOIN Expense ON Emp_Contact.Emp_ID = Expense.emp_id
+	INNER JOIN Expense_Amount ON Expense.expense_id = Expense_Amount.expense_id
+	INNER JOIN Notes ON Expense.notes_id = Notes.Notes_ID
+	INNER JOIN REF_Reimbursement_Type ON Expense.reimbursement_type_id = REF_Reimbursement_Type.Reimbursement_ID
+	INNER JOIN REF_Expense_Type ON Expense_Amount.Expense_type_id = REF_Expense_Type.Expense_ID
+WHERE Expense.emp_id = #emp_id#
+	AND Expense.Work_Date >= '#from_date#'
+	AND Expense.Work_Date <= '#through_date#'
 ORDER BY REF_Reimbursement_Type.reimbursement_type, work_date, project_id
 </cfquery>
 

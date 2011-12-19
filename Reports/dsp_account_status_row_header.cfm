@@ -10,11 +10,9 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:04:22  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
+</cfsilent>
 <cfoutput> 
 <tr bgcolor="##c0c0c0">
 	<td class="RegText#session.workstream_text_size#Bd">

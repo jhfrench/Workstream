@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:08:41  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 <cfset Y_TickBar="708090">

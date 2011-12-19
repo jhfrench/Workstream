@@ -64,7 +64,7 @@
 			#DateFormat(Date_Updated,'mm/dd/yy')#
 		</td>
 	</tr></cfoutput>
-<cfform action="index.cfm?fuseaction=Engagement_Dashboard">
+<cfform action="index.cfm?fuseaction=engagement_dashboard">
 	<tr>
 		<td>&nbsp;</td>
 		<td>
@@ -106,7 +106,7 @@
 </cfform>
 	<tr>
 		<td colspan="100%" <cfoutput>class="RegText#session.workstream_text_size#"</cfoutput>>
-			<br><a href="index.cfm?fuseaction=Customers.home&Engagement_Dashboard_Return=1">Add another engagement to this Dashboard.</a>
+			<br><a href="index.cfm?fuseaction=Customers.home&engagement_dashboard_Return=1">Add another engagement to this Dashboard.</a>
 		</td>
 	</tr>
 	

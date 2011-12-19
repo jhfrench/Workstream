@@ -1,5 +1,5 @@
 
-<!--directory/dsp_benefits_entry_header.cfm
+<!--Directory/dsp_benefits_entry_header.cfm
 	Author: Damon S -->
 <cfsilent>
 	<!---FUSEDOC
@@ -14,6 +14,7 @@ $Log:
  
 	||
  --->
+</cfsilent>
 <cfoutput>
 	<tr bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td<cfif isdefined("colspan")> colspan="#colspan#"</cfif> class="SubHeadText#session.workstream_text_size#">

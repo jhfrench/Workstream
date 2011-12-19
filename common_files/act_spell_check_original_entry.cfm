@@ -10,13 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:41:10  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:58:01-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
  --->
 <cf_htmlhead>

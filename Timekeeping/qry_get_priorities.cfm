@@ -25,7 +25,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 SELECT priority_id, description
 FROM REF_Priority
 WHERE #application.last_updated#=#application.last_updated#
-ORDER BY display_order
+ORDER BY sort_order
 </cfquery>
 </cfsilent>
 

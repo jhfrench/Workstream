@@ -19,6 +19,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 
 	||
 	END FUSEDOC --->
+</cfsilent>
 <table cellpadding="0" cellspacing="0" border="0" width="80%">
 	<tr>
 		<td<cfoutput> colspan"#get_emp_location.recordcount#" class="SubHeadText#session.workstream_text_size#"</cfoutput>>

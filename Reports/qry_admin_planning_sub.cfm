@@ -10,18 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:12:41  stetzer
-	<>
-
-	Revision 1.1  2001-11-13 20:04:16-05  french
-	Adding hours to sub chart.
-
-	Revision 1.0  2001-11-07 16:37:07-05  french
-	Adding team details to bottom of admin/planning report.
-
-	Revision 1.0  2001-11-05 18:00:11-05  french
-	Initial file creation and coding.
-
 	||
 	END FUSEDOC --->
 <cfquery name="admin_planning_sub" datasource="#application.datasources.main#">

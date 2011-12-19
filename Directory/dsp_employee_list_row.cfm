@@ -10,19 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2006/01/10 22:06:28  stetzer
-Added pos num and hris to list
-
-Revision 1.0  2005-02-15 15:46:32-05  daugherty
-Initial revision
-
-Revision 1.2  2003-01-08 10:40:09-05  blell
-Move extension to the left next to employee name for better name extension match.
-
-Revision 1.1  2001-10-11 10:56:11-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	--> company: id that identifies the user's company
@@ -51,7 +38,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <cfelse>
 #phone#
 </cfif></td>
-		<td class="RegText#session.workstream_text_size#">#Emp_ID#</td>
+		<td class="RegText#session.workstream_text_size#">#emp_id#</td>
 		<td class="RegText#session.workstream_text_size#">#position_ID#</td>
 
 

@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:04:25  stetzer
-	<>
-
-	Revision 1.1  2001-11-07 16:38:10-05  french
-	Adding team details to bottom of admin/planning report.
-
-	Revision 1.0  2001-11-05 18:00:08-05  french
-	Initial file creation and coding.
-
 	||
 	END FUSEDOC --->
 <cfset lowest_year=year(now())>

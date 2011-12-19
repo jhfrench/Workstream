@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2006/03/31 15:41:04  csy
-	task 42741 Modified code to include  engagement code to title
-
-	Revision 1.0  2005-02-15 15:46:11-05  daugherty
-	Initial revision
-
 	||
 	END FUSEDOC --->
 <cfparam name="attributes.project_id" default="0">

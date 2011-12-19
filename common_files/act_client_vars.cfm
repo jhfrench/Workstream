@@ -10,16 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/10/31 22:16:01  french
-Added notes_display_sort processing. Task 37158
-
-Revision 1.0  2005-02-15 15:41:00-05  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:58:05-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
 	--> [attributes.order_by]: string that contains the column to give ordering preference to
 	--> [attributes.project_list_order]: number that corresponds to how the user wishes to order and display the project list pulldown

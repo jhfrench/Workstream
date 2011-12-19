@@ -19,6 +19,6 @@ SELECT Expense.accounting_approval_memo, Expense.amount, Expense.client_billable
 	Expense.paid_by_id, Expense.payee_name, Expense.project_id, 
 	Expense.supervisor_approval_emp_id, Expense.supervisor_approval_memo
 FROM Expense
-WHERE Expense.expense_id=<cfif isdefined("url.expense_id")>#url.expense_id#<cfelse>#attributes.expense_id#</cfif>
+WHERE Expense.expense_id=<cfif isdefined("attributes.expense_id")>#attributes.expense_id#<cfelse>#attributes.expense_id#</cfif>
 </cfquery>
 </cfsilent>

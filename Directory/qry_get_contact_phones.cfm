@@ -28,14 +28,11 @@
 	<--  Phone_id: string containing Phone ID for a person
  --->
 <cfquery name="get_contact_phones" datasource="#application.datasources.main#">
-SELECT Rpt.Phone_Type_ID, 
-    Rpt.Phone_Type, Ph.Phone_Number, 
-    Ph.Extension, Ph.Phone_id
-FROM REF_Phone_Type Rpt LEFT OUTER JOIN
-    Phone Ph ON 
-    Rpt.Phone_Type_ID = Ph.Phone_type_id 
-		AND 
-    Ph.Emp_ID = #variables.emp_id#
+SELECT REF_Phone_Type.Phone_Type_ID, REF_Phone_Type.Phone_Type, Phone.Phone_Number, 
+    Phone.Extension, Phone.Phone_id
+FROM REF_Phone_Type
+	LEFT OUTER JOIN Phone ON REF_Phone_Type.Phone_Type_ID = Phone.Phone_type_id 
+		AND Phone.emp_id = #variables.emp_id#
 </cfquery>
 </cfsilent>
 

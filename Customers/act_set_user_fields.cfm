@@ -29,7 +29,7 @@
 			<cfset current_user_field_delete=listgetat(Delete_User_Field_List,ii)>
 			<cfquery name="Add_User_Field_Items" datasource="#application.datasources.main#">
 			UPDATE User_Fields
-			SET Active_Id=1 
+			SET active_ind=0
 			WHERE user_field_id=#current_user_field_delete#
 			</cfquery>
 		</cfloop>

@@ -10,14 +10,9 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:45:54  daugherty
-	Initial revision
-
-
- 
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
- --->
+	END FUSEDOC --->
+</cfsilent>
 <cfoutput>
 	<tr bgcolor="##c0c0c0" class="SubHeadText#session.workstream_text_size#">
 		<td class="SubHeadText#session.workstream_text_size#">

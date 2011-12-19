@@ -28,15 +28,13 @@ HAVING (billing_rate.rate IS NULL )
 SELECT Project.Description, Emp_Contact.Name, 
     Emp_Contact.LName, Billing_Rate.Rate, Billing_Rate.Emp_ID, 
     Billing_Rate.Project_ID, Billing_Rate.Billing_Rate_ID, Billing_Rate.rates_good_from,Billing_Rate.rates_good_to
-FROM Billing_Rate INNER JOIN
-    Project ON 
-    Billing_Rate.Project_ID = Project.project_id INNER JOIN
-    Emp_Contact ON 
-    Billing_Rate.Emp_ID = Emp_Contact.Emp_ID INNER JOIN
-    Company ON 
-    Emp_Contact.Emp_ID = Company.Emp_ID
-WHERE (Billing_Rate.Rate IS NULL) AND (Project.Billable_ID = 1) 
-    AND (company.company IN(#session.workstream_company_select_list#))
+FROM Billing_Rate
+	INNER JOIN Project ON Billing_Rate.Project_ID = Project.project_id
+	INNER JOIN Emp_Contact ON Billing_Rate.Emp_ID = Emp_Contact.Emp_ID
+	INNER JOIN Company ON Emp_Contact.Emp_ID = Company.Emp_ID
+WHERE Billing_Rate.Rate IS NULL
+	AND Project.Billable_ID = 1
+    AND company.company IN(#session.workstream_company_select_list#)
 ORDER BY name
 </cfquery>
 

@@ -1,5 +1,5 @@
 
-<!--directory/dsp_benefits_entry_form.cfm
+<!--Directory/dsp_benefits_entry_form.cfm
 	Author: Damon S -->
 <cfsilent>
 	<!---FUSEDOC

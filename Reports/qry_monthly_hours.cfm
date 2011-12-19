@@ -28,6 +28,7 @@
 	||
 	END FUSEDOC --->
 <cfparam name="session.workstream_project_list_order" default="1">
+<cfparam name="Flag_Non_Billable" default="False">
 <cfquery name="monthly_hours" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name, Emp_Contact.lname, Project.project_code AS clientcode,
 	CASE
@@ -41,7 +42,7 @@ SELECT Emp_Contact.name, Emp_Contact.lname, Project.project_code AS clientcode,
 	</cfif>END AS clientname, REF_Employee_Classification.employee_classification,
 	SUM(Time_Entry.hours) AS hours, Company.company
 FROM Emp_Contact, Time_Entry, Project,
-	Demographics, Customers, Company,
+	Demographics_Ngauge Demographics, Customers, Company,
 	REF_Employee_Classification
 WHERE Emp_Contact.emp_id=Time_Entry.emp_id
 	AND Time_Entry.Project_id=Project.project_id

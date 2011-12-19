@@ -33,16 +33,6 @@
 	END FUSEDOC --->
 <cfset today = now()>
 </cfsilent>
-<!---<cfoutput>
-<form name="inactive" action="index.cfm?fuseaction=engagements" method="post">
-	<tr bgcolor="##008080">
-		<td colspan="100%" class="HeadText#session.workstream_text_size#White"><b>
-			Engagement Dashboard - #DateFormat(today,'mm/dd/yy')#</b>
-			<input type="Hidden" name="client_code" value="NOTHING">
-		</td>
-
-	</tr>
-</form>--->
 <cfoutput>
 <form name="inactive" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
 	<tr>

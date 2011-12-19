@@ -22,7 +22,7 @@
 <cfset today = now()>
 </cfsilent>
 <cfoutput>
-<form name="inactive" action="index.cfm?fuseaction=engagements" method="post">
+<form name="inactive" action="index.cfm?fuseaction=Reports.engagements" method="post">
 	<tr bgcolor="##008080">
 		<td colspan="100%" class="HeadText#session.workstream_text_size#White"><b>
 			Engagement Dashboard - #DateFormat(today,'mm/dd/yy')#</b>

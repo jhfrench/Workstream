@@ -9,12 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:41:57  daugherty
-	Initial revision
-
-	Revision 1.0  2001-12-10 18:33:43-05  long
-	Created file
-
 	||
 	END FUSEDOC --->
 <cfquery name="get_case_notes" datasource="#application.datasources.main#">

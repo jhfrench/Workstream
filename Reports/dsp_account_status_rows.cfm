@@ -14,6 +14,7 @@
 
 	||
 	END FUSEDOC --->
+</cfsilent>
 <cfoutput query="account_status_report"> 
 	<tr<cfif NOT (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<td valign="top" class="RegText#session.workstream_text_size#">

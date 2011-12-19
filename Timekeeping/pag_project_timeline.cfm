@@ -36,7 +36,7 @@
 </cfform>
 
 <cfif isdefined("attributes.project_planning_id")>
-<form name="task_details" action="index.cfm?fuseaction=act_upload_file" method="post" enctype="multipart/form-data">
+<form name="task_details" action="index.cfm?fuseaction=Timekeeping.act_upload_file" method="post" enctype="multipart/form-data">
 <cfoutput>
 <table>
 <Tr><Td class="RegText#session.workstream_text_size#">

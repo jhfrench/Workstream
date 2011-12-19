@@ -22,7 +22,7 @@
 		<cfif isdefined("attributes.to_inbox") AND len(attributes.to_inbox)>
 			<cflocation url="index.cfm?fuseaction=Timekeeping.task_list" addtoken="No">
 		<cfelseif isdefined("attributes.to_edit") AND len(attributes.to_edit)>
-			<form name="to_edit" action="index.cfm?fuseaction=<cfoutput>#request.xfa.task_details#</cfoutput>" method = "post">
+			<form name="to_edit" action="index.cfm?fuseaction=Timekeeping.task_details" method = "post">
 				<input type="hidden" name="task_id" value="<cfoutput>#insert_new_task.task_id#</cfoutput>">
 			</form>	
 			<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">

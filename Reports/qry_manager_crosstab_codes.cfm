@@ -9,15 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2005/12/02 19:52:45  french
-	Removed hard-coded supervisor emp_id. Added supervisor data to output. Task 38058
-
-	Revision 1.1  2005-03-03 14:09:48-05  french
-	Modified report to use Link_Employee_Supervisor table, where we now hold employee/Supervisor relationship data. Task 30220
-
-	Revision 1.0  2005-02-15 15:57:52-05  daugherty
-	Initial revision
-
 	||
 	END FUSEDOC --->
 <cfquery name="manager_crosstab_codes" datasource="#application.datasources.main#">

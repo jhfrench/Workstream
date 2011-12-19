@@ -29,7 +29,7 @@
 	<-> responsibilities: string passed from entry form
 	<-> variables: string passed from entry form
  --->
-<cfform name="submit_fusedoc" action="index.cfm?fuseaction=fusedocer" method="POST">
+<cfform name="submit_fusedoc" action="index.cfm?fuseaction=Tools.fusedocer" method="POST">
 <cfinclude template="../common_files/qry_team_select.cfm">
 <cfparam name="attributes.pin" default="  123  ">
 <cfoutput>
@@ -45,7 +45,7 @@
 	<tr class="SubHeadText#session.workstream_text_size#">
 		<td align="right" valign="top" class="SubHeadText#session.workstream_text_size#">&lt;--</td>
 		<td><select name="directory" class="RegText#session.workstream_text_size#">
-				<cfloop list="directory1,directory2,sample_directory/sub_directory,etc" index="ii">
+				<cfloop list="directory1,directory2,sample_Directory/sub_directory,etc" index="ii">
 				<option value="#ii#" selected>#ii#/</option></cfloop>
 			</select>
 		</td>
@@ -128,12 +128,6 @@ Cut and Paste the following code:
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 21:01:41  daugherty
-	Initial revision
-
-	Revision 1.2  2002-04-17 17:05:48-04  french
-	General updates and improvements.
-
 	||<cfif isdefined("form.variables") AND len(form.variables)><cfloop list="#form.variables#" index="ii">
 	<cfoutput>#Trim(ii)#</cfoutput></cfloop><cfelse>
 	Variables:

@@ -10,24 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.5  2006/05/11 20:24:26  csy
-	task44329 Changed Needs QA Review with Needs Customer Review
-
-	Revision 1.4  2005-10-13 17:44:17-04  stetzer
-	<>
-
-	Revision 1.3  2005-10-13 17:41:21-04  stetzer
-	<>
-
-	Revision 1.2  2005-08-26 15:34:32-04  french
-	Improvements to customer-specific engagement dashboard. Task 34802
-
-	Revision 1.1  2005-03-09 13:06:13-05  stetzer
-	<>
-
-	Revision 1.0  2002-01-28 09:59:02-05  french
-	Initial file creation (files added to RCS by Jeromy on behalf of Adam).
-
 	||
 	END FUSEDOC --->
 </cfsilent>

@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:41:34  daugherty
-	Initial revision
-
-	Revision 1.0  2001-11-13 10:23:54-05  french
-	Initial file creation.
-
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	--> due_date: date that the task is due

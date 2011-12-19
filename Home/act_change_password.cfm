@@ -32,7 +32,7 @@
 <cfparam name="attributes.old_password" default="">
 
 <!--- if the update user button is pressed run the code below --->
-<!--- comment 1. this whole block has to do with checking if the string is not null before proceeding --->
+<!--- comment 1. this whole block has to do with checking if the string IS NOT NULL before proceeding --->
 <cfset variables.password_accepted_ind=0>
 <!--- check old password --->
 <cfif NOT len(attributes.old_password)>
@@ -48,7 +48,7 @@
 </cfif>
 <!--- end comment 1 --->
 
-<!---comment 2. if it passes the first check (making sure nothing is null then proceed to this block --->
+<!---comment 2. if it passes the first check (making sure nothing IS NULL then proceed to this block --->
 <cfif len(variables.display_message) EQ 0>
 	<cfinclude template="../common_files/act_validate_password_change.cfm">
 </cfif>

@@ -1,5 +1,5 @@
 
-<!--directory/dsp_salary_entry_form.cfm
+<!--Directory/dsp_salary_entry_form.cfm
 	Author: Damon S -->
 <cfsilent>
 	<!---FUSEDOC

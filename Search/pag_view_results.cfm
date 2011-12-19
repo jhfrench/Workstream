@@ -39,8 +39,8 @@
 
 </table>
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="order_by" field_name="order_by" fuseaction="output" processform="true" field2_name="reorder" field2_value="1">
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" directory_action="../Timekeeping/" fuseaction="task_details">
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_time" directory_action="../Timekeeping/" field_name="task_id" fuseaction="time_details">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_time" field_name="task_id" fuseaction="Timekeeping.time_details">
 
 
 <cfoutput>
@@ -49,7 +49,7 @@
 <tr>
 <td align="center">&nbsp;</td>
 <td class="RegText#session.workstream_text_size#">
- <form name="edit_form" action="index.cfm?fuseaction=edit_search" method="POST" >
+ <form name="edit_form" action="index.cfm?fuseaction=Search.edit_search" method="POST" >
     <cfif isdefined("attributes.task_name_box")>
    <input type="hidden" name="task_name_box" value= "1">
    </cfif>

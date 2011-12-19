@@ -10,10 +10,8 @@
 	||
 	Edits:
 	$Log: 
-	
 	||
 	END FUSEDOC --->
-
 </cfsilent>
 <cftransaction isolation="READ_COMMITTED">
 	<cfinclude template="qry_emp_job_title_entry.cfm">

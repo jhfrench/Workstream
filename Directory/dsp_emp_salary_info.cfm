@@ -13,8 +13,9 @@ $Log:
 
 	||
 	END FUSEDOC --->
+</cfsilent>
 <cfoutput>
-<span class="SubHeadText#session.workstream_text_size#">Salary Info <a href="##" onclick="window.open('index.cfm?fuseaction=salary_entry&emp_id=#attributes.emp_id#', 'Salary', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=420,height=125');">ADD</a></span><br>
+<span class="SubHeadText#session.workstream_text_size#">Salary Info <a href="##" onclick="window.open('index.cfm?fuseaction=Directory.salary_entry&emp_id=#attributes.emp_id#', 'Salary', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=420,height=125');">ADD</a></span><br>
 <table>
 <tr>
 	<td class="RegText#session.workstream_text_size#" width="25%">Date Implemented</td>

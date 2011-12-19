@@ -35,7 +35,7 @@ FROM Demographics INNER JOIN
     Company.Company = REF_companies.Company_ID INNER JOIN
     Security ON Emp_Contact.Emp_ID = Security.Emp_ID
 WHERE (Demographics.employee_classification_ID = 4) AND 
-    (company.Company IN (#session.workstream_company_select_list#)) and Demographics.effective_to is null
+    (company.Company IN (#session.workstream_company_select_list#)) and Demographics.effective_to IS NULL
    </cfquery>
    </cfsilent>
    

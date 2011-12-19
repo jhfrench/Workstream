@@ -9,14 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:41:33  daugherty
-	Initial revision
-
-	Revision 1.2  2001-11-07 10:13:52-05  french
-	Minor code formatting.
-
-	Revision 1.1  2001-10-11 10:57:47-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	Variables:
 	<-- attributes.display_this_button: Displays specific buttons for submiting, reseting or going back on a form.

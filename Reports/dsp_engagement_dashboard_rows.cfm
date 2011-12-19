@@ -75,7 +75,7 @@
 	<tr  bgcolor="#variables.tr_bgcolor#"> 
 		<td class="RegText#session.workstream_text_size#" valign="top">
 			<a name="#Project_ID#">
-					<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=3&Engagement_Dashboard_Return=1&Customers_ID_Filter=#Customers_ID_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">
+					<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=3&engagement_dashboard_Return=1&Customers_ID_Filter=#Customers_ID_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">
 			<!--- Show Status Color Image and SET Status Color Variable baised on the status code--->
 			<cfswitch expression="#status#">
 				<cfcase value="3">
@@ -100,7 +100,7 @@
 			</a>
 		</td>
 		<td class="RegText#session.workstream_text_size#" valign="top">
-			<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=1&Engagement_Dashboard_Return=1&Customers_ID_Filter=#Customers_ID_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">#Customers_Description# - #description#(#Project_Code#)</a>
+			<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=1&engagement_dashboard_Return=1&Customers_ID_Filter=#Customers_ID_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">#Customers_Description# - #description#(#Project_Code#)</a>
 		</td>
 		<td class="RegText#session.workstream_text_size#" valign="top">
 			#LName# <cfif NOT len(lname)>&nbsp;</cfif>
@@ -143,7 +143,7 @@
 			#Vision# <cfif NOT len(vision)>&nbsp;</cfif>
 		</td>
 		<td class="RegText#session.workstream_text_size#" align="right" valign="top">
-		<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=2&Engagement_Dashboard_Return=1&Customers_ID_Filter=#Customers_ID_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">
+		<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=2&engagement_dashboard_Return=1&Customers_ID_Filter=#Customers_ID_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">
 			#numberformat(Budget,'$___,___,___,___')#
 			<cfif loe gt 0><br>h #LOE#</cfif></a>
 			<cfif NOT total_bill_amount eq ''><br>Invoiced:<br><a href="index.cfm?fuseaction=Invoice_Posted_List&project_ID_filter=#Project_ID#"> <i>#numberformat(Total_Bill_Amount,'$___,___,___,___')#</i></a></cfif>
@@ -165,7 +165,7 @@
 <!--- This form is used for restricting and sorting the records displayed above.
 	  Restriction can be placed on Customer and IE.  Sorting can be done on any column
  --->
-<cfform action="index.cfm?fuseaction=Engagement_Dashboard">
+<cfform action="index.cfm?fuseaction=Reports.engagement_dashboard">
 	<tr>
 		<td>&nbsp;</td>
 		<td>
@@ -217,7 +217,7 @@
 	<tr>
 		<td colspan="100%" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 			<br>
-			<a href="index.cfm?fuseaction=Customers.home&Engagement_Dashboard_Return=1">Add another engagement to this Dashboard.</a>
+			<a href="index.cfm?fuseaction=Customers.home&engagement_dashboard_Return=1">Add another engagement to this Dashboard.</a>
 		</td>
 	</tr>
 

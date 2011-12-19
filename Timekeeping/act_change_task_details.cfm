@@ -50,35 +50,23 @@
 <cfif compare(attributes.task_status,attributes.orig_task_status_id)>
 	<cfinclude template="qry_update_task_status.cfm">
 	<cfswitch expression="#attributes.task_status#">
-		<cfcase value="4">
+		<cfcase value="3">
 			<cfmodule template="act_send_notification.cfm" note_type="qa_ready" task_id="#attributes.task_id#">
 		</cfcase>
-		<cfcase value="5">
+		<cfcase value="4">
 			<cfmodule template="act_send_notification.cfm" note_type="needs_work" task_id="#attributes.task_id#">
 		</cfcase>
-		<cfcase value="11">
-			<cfif attributes.project_id EQ 1123>
-				<cfinclude template="act_send_isay_link.cfm">
-			</cfif>
+		<cfcase value="7">
 			<cfmodule template="act_send_notification.cfm" note_type="completed" task_id="#attributes.task_id#">
 		</cfcase>
-
-		<cfcase value="15">
-			<cfmodule template="act_send_notification.cfm" note_type="qa_review_test_ready" task_id="#attributes.task_id#">
-		</cfcase>
-
-		<cfcase value="16">
+		<cfcase value="8">
 			<cfmodule template="act_send_notification.cfm" note_type="qa_review_sandbox_ready" task_id="#attributes.task_id#">
 		</cfcase>
-
-		<cfcase value="17">
+		
+		<cfcase value="5">
 			<cfmodule template="act_send_notification.cfm" note_type="qa_review_test_failed" task_id="#attributes.task_id#">
 		</cfcase>
-
-		<cfcase value="18">
-			<cfmodule template="act_send_notification.cfm" note_type="qa_review_sandbox_failed" task_id="#attributes.task_id#">
-		</cfcase>
-
+		
 		<cfcase value="19">
 			<cfmodule template="act_send_notification.cfm" note_type="qa_review_test_passed" task_id="#attributes.task_id#">
 		</cfcase>

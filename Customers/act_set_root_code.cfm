@@ -21,6 +21,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	(KL | 9/7/2001) removed the hard code for the code prefix and replaced it with the client variable "prefix"
 	||
 	END FUSEDOC --->
+</cfsilent>
 <cfinclude template="qry_get_prefix.cfm">
 	<cfif NOT len(root_code)>
 		<!--- <cfif NOT compare(attributes.company_id,"1")>

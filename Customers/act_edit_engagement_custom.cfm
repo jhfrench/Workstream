@@ -35,13 +35,13 @@
 <!--- <cftransaction isolation="READ_COMMITTED"></cftransaction> --->
 <cfquery name="get_user_fields" datasource="#application.datasources.main#">
 UPDATE User_Fields
-SET active_id=2
+SET active_ind=1
 FROM User_Fields, User_Field_Project_Link
 WHERE User_Fields.user_field_id=User_Field_Project_Link.user_field_id
 	AND User_Field_Project_Link.project_id=#attributes.project_id#
 <cfif isdefined("attributes.retire")>
 UPDATE User_Fields
-SET active_id=1
+SET active_ind=0
 FROM User_Fields, User_Field_Project_Link
 WHERE User_Fields.user_field_id=User_Field_Project_Link.user_field_id
 	AND User_Field_Project_Link.project_id=#attributes.project_id#
@@ -82,7 +82,7 @@ WHERE User_Fields.user_field_id=User_Field_Project_Link.user_field_id
 </cfloop>
 </cfif>
 <cfif engagement_dashboard_return EQ 1>
-	<cflocation url="../index.cfm?fuseaction=Reports.Engagement_Dashboard&customers_id_filter=#customers_id_filter#&ie_emp_id_filter=#ie_emp_id_filter#&sort=#sort#&###Project_ID#" addtoken="no">
+	<cflocation url="../index.cfm?fuseaction=Reports.engagement_dashboard&customers_id_filter=#customers_id_filter#&ie_emp_id_filter=#ie_emp_id_filter#&sort=#sort#&###Project_ID#" addtoken="no">
 </cfif>
 
 

@@ -10,32 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.3  2006/04/17 22:42:35  stetzer
-Added -1 option for Pos Num for contractors and non-LCG people
-
-Revision 1.2  2006-01-30 12:11:44-05  stetzer
-Made pos number non-editable on emp_edit path
-
-Revision 1.1  2006-01-10 15:49:03-05  stetzer
-Added Position Number as a required field
-
-Revision 1.0  2005-02-15 15:46:34-05  daugherty
-Initial revision
-
-Revision 1.5  2002-04-15 15:52:57-04  lee
-added overtime and PTO Bank Hours entries
-
-Revision 1.4  2002-03-08 16:22:32-05  long
-changed to accomidate new data fields, and added the ability to prepopulate the form with data, so as to make this an edit form also
-
-Revision 1.3  2001-11-06 16:37:14-05  long
-added code to allow the selection of whether or not the -----#company_name#-----caption returns the list of employees or not.
-
-Revision 1.2  2001-10-16 17:07:28-04  french
-Finishing first implementation of employee entry function.
-
-Revision 1.1  2001-10-11 10:56:12-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 </cfsilent>

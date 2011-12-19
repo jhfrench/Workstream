@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2006/08/11 11:03:25  french
-	Making task linking work with two-related-selects.
-
-	Revision 1.0  2005-02-15 15:41:33-05  daugherty
-	Initial revision
-
-	Revision 1.0  2001-11-13 10:23:53-05  french
-	Initial file creation.
-
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	<-- base_task_id: number that uniquely defines the base task

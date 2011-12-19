@@ -10,21 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:20:41  stetzer
-	<>
-
-	Revision 1.3  2003-01-08 11:22:51-05  blell
-	<>
-
-	Revision 1.2  2003-01-08 11:22:03-05  blell
-	<>
-
-	Revision 1.1  2002-11-26 11:59:25-05  blell
-	Made associated task pop up width 800 for better display.
-
-	Revision 1.0  2001-11-13 10:25:38-05  french
-	Initial file creation.
-
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	--> due_date: date that the task is due

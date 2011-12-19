@@ -102,18 +102,6 @@
 		<set name="request.pagetitle" value="New Business Unit"/>
 		<include template="pag_business_unit_entry.cfm"/>
 	</fuseaction>
-	<fuseaction name="position_number_change">
-		<set name="no_banner" value="1"/>
-		<set name="attributes.object_name" value="position_number_change"/>	
-		<set name="request.pagetitle" value="position_number_change"/>		
-		<include template="../../monitor/Position_Number_Change.cfm"/>
-	</fuseaction>	
-	<fuseaction name="emp_retire">
-		<set name="no_banner" value="1"/>
-		<!-- <set name="attributes.object_name" value="emp_retire">	 -->
-		<set name="request.pagetitle" value="emp_retire"/>		
-		<include template="../../monitor/emp_retire.cfm"/>
-	</fuseaction>
 	<fuseaction name="review_entry">
 		<set name="no_banner" value="1"/>
 		<!-- <set name="attributes.object_name" value="Employee List"/>

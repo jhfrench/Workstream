@@ -36,7 +36,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	<cfinclude template="dsp_expense_report_rows.cfm">
 	
 </table> 
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="expense" directory_action="../tools/" fuseaction="Expense_edit" field_name="expense_id">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="expense" fuseaction="Tools.expense_edit" field_name="expense_id">
 
 <cfelse>
 <cfinclude template="dsp_no_results.cfm">

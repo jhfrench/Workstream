@@ -24,17 +24,17 @@
 		<td>
 			<cfinclude template="../common_files/dsp_pop_calendar.cfm">		
 			<cfmodule template="../common_files/act_calendar.cfm" form_name="gross_hours_ytd" field_name="from_date,to_date">
-			<cfform action="index.cfm?fuseaction=gross_hours_ytd" method="POST" name="gross_hours_ytd">
+			<cfform action="index.cfm?fuseaction=Reports.gross_hours_ytd" method="POST" name="gross_hours_ytd">
 			
 			From:
 		</td>
 		<td>
-			<cfinput type="text" name="from_date" value="" required="Yes" validate="date" message="Please enter a properly formatted from date." size="11" class="RegText#session.workstream_text_size#" onClick="ShowDate(1)">
+			<cfinput type="datefield" name="from_date" value="" required="Yes" validate="date" message="Please enter a properly formatted from date." size="11" class="RegText#session.workstream_text_size#">
 			
 			&nbsp;&nbsp;&nbsp;&nbsp;
 			
 			To:
-			<cfinput type="text" name="to_date" value="" required="Yes" validate="date" message="Please enter a properly formatted to date." size="11" class="RegText#session.workstream_text_size#" onClick="ShowDate(2)"><br>
+			<cfinput type="datefield" name="to_date" value="" required="Yes" validate="date" message="Please enter a properly formatted to date." size="11" class="RegText#session.workstream_text_size#"><br>
 			</td>
 	</tr>
 	

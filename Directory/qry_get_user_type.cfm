@@ -1,5 +1,5 @@
 
-<!-- directory/qry_get_user_type.cfm
+<!-- Directory/qry_get_user_type.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC

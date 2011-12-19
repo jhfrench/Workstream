@@ -37,5 +37,5 @@
 </cfoutput>
 </table>
 </form>
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_employee" field_name="emp_id" directory_action="../Directory/" fuseaction="employee_details">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_employee" field_name="emp_id" fuseaction="Directory.employee_details">
 

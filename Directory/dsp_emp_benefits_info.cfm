@@ -13,10 +13,10 @@ $Log:
 
 	||
 	END FUSEDOC --->
-
+</cfsilent>
 <cfoutput>
 <span class="SubHeadText#session.workstream_text_size#">Benefits Info <a href="##" onclick="
-javascript:window.open('index.cfm?fuseaction=benefits_entry&emp_id=#attributes.emp_id#', 'files', 'toolbar=0, location=0, directories=0, status=0, menubar=0, scrollbars=0, resizable=0, copyhistory=0, width=420, height=250');">ADD</a></span><br>
+javascript:window.open('index.cfm?fuseaction=Directory.benefits_entry&emp_id=#attributes.emp_id#', 'files', 'toolbar=0, location=0, directories=0, status=0, menubar=0, scrollbars=0, resizable=0, copyhistory=0, width=420, height=250');">ADD</a></span><br>
 <table>
 	<tr>
 		<td class="RegText#session.workstream_text_size#" width="25%">Type</td>

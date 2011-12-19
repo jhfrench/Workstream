@@ -1,5 +1,5 @@
 
-<!--directory/dsp_supervisor_entry_header.cfm
+<!--Directory/dsp_supervisor_entry_header.cfm
 	Author: Damon S -->
 <cfsilent>
 	<!---FUSEDOC

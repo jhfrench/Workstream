@@ -9,9 +9,10 @@
 	Name: Jeromy French
 	||
 	Edits:
+	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
- --->
+	END FUSEDOC --->
+</cfsilent>
 <cfoutput>
 	<tr bgcolor="##008000">
 		<td colspan="7" class="HeadText#session.workstream_text_size#White">

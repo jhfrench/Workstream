@@ -20,6 +20,6 @@
 			description
 	FROM REF_Salary_Change_Type
 	WHERE active_ind = 1
-	ORDER BY display_order
+	ORDER BY sort_order
 </cfquery>
 </cfsilent>

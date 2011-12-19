@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:41:57  daugherty
-	Initial revision
-
-	Revision 1.0  2001-11-13 10:23:57-05  french
-	Initial file creation.
-
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page

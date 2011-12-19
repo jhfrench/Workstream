@@ -19,6 +19,7 @@
 	Added $log $ for edits to all CFM files that have fusedocs.
 	||	 
 		END FUSEDOC --->
+</cfsilent>
 <cfoutput query="get_customers">
 	<tr<cfif (currentrow MOD 2) EQ 0> bgcolor="##E1E1E1"</cfif>>
 		<td class="RegText#session.workstream_text_size#">

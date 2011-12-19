@@ -44,5 +44,5 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <table align="left" border="0" cellpadding="1" cellspacing="0" width="40%">
 	<cfinclude template="dsp_employee_force_totals.cfm">
 </table>
-	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" directory_action="../Timekeeping/" fuseaction="task_details">
+	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
 

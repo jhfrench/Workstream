@@ -23,7 +23,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <tr>
 	<td>
 
-<CFFORM name="myform" Action="index.cfm?fuseaction=insert_rate">
+<CFFORM name="myform" Action="index.cfm?fuseaction=Tools.insert_rate">
 
 <cfgrid name="customer_rate" width="600" query="new_rates" sort="Yes" bold="No" italic="No" appendkey="No" highlighthref="Yes"  griddataalign="LEFT" gridlines="Yes" rowheaders="No" rowheaderalign="LEFT" rowheaderitalic="No" rowheaderbold="No" colheaders="Yes" colheaderalign="LEFT" colheaderitalic="No" colheaderbold="Yes" selectmode="EDIT" picturebar="No">
 

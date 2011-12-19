@@ -9,14 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2005/08/24 16:27:35  pciske
-	task 34622 - revised join between demographics and time_entry to map the demographics record active at the time of the time_entry with the hours entered
-
-	Revision 1.1  2005-03-09 13:12:44-05  stetzer
-	<>
-
-
-	(KL | 8/7/01) ; added the logic to limit the report results by the companies that the user is allowed to see.
 	||
 	END FUSEDOC --->
 <cfquery name="#query#" datasource="#application.datasources.main#">
@@ -28,19 +20,13 @@ SELECT Emp_Contact.name, Emp_Contact.lname,
 	</cfloop></cfif>SUM(Time_Entry.hours) AS hours, 
 	REF_companies.company
 FROM Emp_Contact 
-		INNER JOIN Time_Entry 
-			ON Emp_Contact.emp_id = Time_Entry.emp_id
-		INNER JOIN Demographics 
-			ON Emp_Contact.emp_id = Demographics.emp_id
+		INNER JOIN Time_Entry ON Emp_Contact.emp_id = Time_Entry.emp_id
+		INNER JOIN Demographics_Ngauge AS Demographics ON Emp_Contact.emp_id = Demographics.emp_id
 			AND Time_Entry.date BETWEEN Demographics.effective_from AND isnull(Demographics.effective_to, #createODBCDate(attributes.through_date)#)
-		INNER JOIN Project 
-			ON Time_Entry.project_id = Project.project_id
-		INNER JOIN Customers
-			ON Project.customers_id = Customers.customers_id
-		INNER JOIN Company
-			ON Emp_Contact.emp_id = Company.emp_id
-		INNER JOIN REF_Companies
-			ON Company.company = REF_Companies.company_id
+		INNER JOIN Project ON Time_Entry.project_id = Project.project_id
+		INNER JOIN Customers ON Project.customers_id = Customers.customers_id
+		INNER JOIN Company ON Emp_Contact.emp_id = Company.emp_id
+		INNER JOIN REF_Companies ON Company.company = REF_Companies.company_id
 		LEFT OUTER JOIN REF_Employee_Classification
 			ON Demographics.employee_classification_id = REF_Employee_Classification.employee_classification_id
 WHERE Time_Entry.date BETWEEN #CreateODBCDate(attributes.from_date)# AND #CreateODBCDate(attributes.through_date)#

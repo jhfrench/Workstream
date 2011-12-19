@@ -80,11 +80,11 @@
 			<td colspan="6" align="center">You have no expense records that match your criteria.</td>
 		</tr>
 	</cfif>
-	<cfform action="index.cfm?fuseaction=expense_entry" method="post" name="date_range"> 
+	<cfform action="index.cfm?fuseaction=Tools.expense_entry" method="post" name="date_range"> 
 	<tr>
 		
 		<td colspan="6" align="center">
-			Specify: <BR>Date Range: <cfinput type="text" name="begin_date" required="NO" validate="date"  size="11" class="RegText#session.workstream_text_size#" onclick="gfPop.fPopCalendar(this.form.begin_date);"> to <cfinput type="text" name="end_date" required="NO" validate="date"  size="11" class="RegText#session.workstream_text_size#" onclick="gfPop.fPopCalendar(this.form.end_date);"><BR>
+			Specify: <BR>Date Range: <cfinput type="datefield" name="begin_date" required="NO" validate="date"  size="11" class="RegText#session.workstream_text_size#"> to <cfinput type="datefield" name="end_date" required="NO" validate="date"  size="11" class="RegText#session.workstream_text_size#"><BR>
 Status: <cfselect name="expense_status_id" size="1" query="get_expense_status" value="expense_status_id" display="description"></cfselect>
 <BR>
 <input type="submit" name="submit" value="Submit">
@@ -105,7 +105,7 @@ Status: <cfselect name="expense_status_id" size="1" query="get_expense_status" v
 	<td colspan="5"><input type="submit" name="New" value="New"></td>
 </tr>
 	</cfform>
-	<cfform action="index.cfm?fuseaction=expense_insert" method="post" name="expense_insert"> 
+	<cfform action="index.cfm?fuseaction=Tools.expense_insert" method="post" name="expense_insert"> 
 	<cfinclude template="dsp_expense_entry_form.cfm">	
 	</cfform>
 </table>

@@ -27,7 +27,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 		</td>
 	</tr>
 	
-<form action="index.cfm?fuseaction=spell_check" method="post">
+<form action="index.cfm?fuseaction=common_files.spell_check" method="post">
 	<input type="hidden" name="message" VALUE="#message#">
 	<input type="hidden" name="language" VALUE="#language#">
 <cfif isdefined("next_length")>

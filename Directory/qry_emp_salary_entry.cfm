@@ -18,7 +18,7 @@
 <cfquery name="get_old_salary" datasource="#application.datasources.main#">
 SELECT TOP 1 date_recorded, salary, salary_id
 FROM Salary
-WHERE emp_id='#form.emp_id#'
+WHERE emp_id='#attributes.emp_id#'
 ORDER BY date_recorded ASC
 </cfquery>
 	<cfif get_old_salary.recordcount>
@@ -39,9 +39,9 @@ ORDER BY date_recorded ASC
 INSERT INTO Salary (emp_id, salary, date_recorded,
 	 date_implemented, active_ind, entered_by,
 	 salary_change_type_id, increase_amount, increase_percent)
-VALUES (#form.emp_id#, '#variables.salary#', GETDATE(),
-	'#form.date#', 1, #session.user_account_id#,
-	#form.salary_change_type#, '#variables.increase_amount#', '#variables.increase_percent#')
+VALUES (#attributes.emp_id#, '#variables.salary#', GETDATE(),
+	'#attributes.date#', 1, #session.user_account_id#,
+	#attributes.salary_change_type#, '#variables.increase_amount#', '#variables.increase_percent#')
 </cfquery>
 
 <cfif deactivate_record>

@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:41:12  daugherty
-	Initial revision
-
-	Revision 1.0  2001-12-07 14:38:58-05  french
-	Created the function that updates the tasks_pre_defined_id before running queries.
-
 	||
 	END FUSEDOC --->
 <cfquery name="get_tasks_pre_defined" datasource="#application.datasources.main#">

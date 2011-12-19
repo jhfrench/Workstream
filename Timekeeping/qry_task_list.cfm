@@ -51,10 +51,9 @@
 </cfif>
 
 <cfquery name="task_list" datasource="#application.datasources.main#">
-SELECT 1 as constant, Task.due_date AS date_due, Task.task_id AS task_id, 
-	Task.name AS task_name, ISNULL(Task.description, 'No description provided.') AS task_description,
-	ISNULL(Task.budgeted_hours,0) AS time_budgeted, Task.status_id AS status_id, 
-	Task_Details.time_used AS time_used, Task_Details.task_icon AS task_icon, 
+SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id AS task_id, 
+	Task.name AS task_name, ISNULL(Task.description, 'No description provided.') AS task_description, ISNULL(Task.budgeted_hours,0) AS time_budgeted,
+	Task.status_id AS status_id, Task_Details.time_used AS time_used, Task_Details.task_icon AS task_icon, 
 	Task_Details.percent_time_used AS percent_time_used, Task_Details.task_owner AS task_owner,
 	(CASE WHEN Task.status_id IN (4,10) THEN Task_Details.task_status+' by '+Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
 	(Customers.description + '-' + Project.description) AS project_name, priority
@@ -68,7 +67,7 @@ FROM Task, Team, Emp_Contact,  Customers, Project, Project_Visible_To,
 			(SELECT Task.task_id, REF_p.description as priority
 			FROM Task Inner join REF_priority REF_p on task.priority_id=REF_p.priority_id, Team
 			WHERE Task.task_id=Team.task_id <cfif NOT from_invoice>AND Team.emp_id IN (<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#session.user_account_id#</cfif>)
-				AND ((Team.roll_id IN (1,<cfif session.workstream_show_team>4,</cfif>0) AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>11,</cfif><cfif NOT session.workstream_show_on_hold>7,</cfif>13)) OR (Team.roll_id=3 AND Task.status_id IN (4,10)))</cfif>
+				AND ((Team.roll_id IN (1,<cfif session.workstream_show_team>4,</cfif>0) AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>13)) OR (Team.roll_id=3 AND Task.status_id IN (4,10)))</cfif>
 			GROUP BY Task.task_id, REF_p.description) 
 		AS Valid_Tasks, Task, REF_Icon
 		WHERE Valid_Tasks.task_id=Task.task_id AND REF_Icon.icon_id=Task.icon_id)

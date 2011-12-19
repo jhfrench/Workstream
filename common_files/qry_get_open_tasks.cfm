@@ -10,23 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2006/08/11 10:12:41  french
-	Making time reassign work with two-related-selects.
-
-	Revision 1.0  2005-02-15 15:42:03-05  daugherty
-	Initial revision
-
-	Revision 1.2  2001-11-13 10:21:40-05  french
-	Added 'display' output and ordering logic to correspond to user's ordering preference.
-
-	Revision 1.1  2001-11-12 12:46:57-05  french
-	Updating fusedoc.
-
-	Revision 1.0  2001-11-12 12:45:11-05  french
-	Moved qry_get_open_tasks.cfm from Timekeeping to common_files.
-	
-	Revision 1.1  2001-10-11 10:54:46-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	<-- display: string combination of task_id and task_name

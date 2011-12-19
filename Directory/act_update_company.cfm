@@ -1,5 +1,5 @@
 
-<!-- directory/act_update_company.cfm
+<!-- Directory/act_update_company.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC

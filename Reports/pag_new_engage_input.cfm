@@ -22,7 +22,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="qry_new_engage_input.cfm">
-<cfform action="index.cfm?fuseaction=new_engagement_output" name="new_engagement" method="POST">
+<cfform action="index.cfm?fuseaction=Reports.new_engagement_output" name="new_engagement" method="POST">
 <table align="center" border="0" cellpadding="1" cellspacing="0">
 	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="008080" section_title="New Engagement Report" title_class="HeadText#session.workstream_text_size#White">
 	<cfinclude template="dsp_new_engage_input.cfm">

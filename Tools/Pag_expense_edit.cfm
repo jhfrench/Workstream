@@ -1,5 +1,5 @@
 
-<!--reports/Pag_expense_edit.cfm
+<!--reports/pag_expense_edit.cfm
 	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -9,14 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 21:01:34  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:54:18-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 </cfsilent>
@@ -26,7 +18,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <cfinclude template="../common_files/qry_expense_types.cfm">
 <cfinclude template="qry_expense_crosstab.cfm">
 	<cfset num_expense=Round(Get_Expense_Type.recordcount/2)>
-	<cfset End_Row=(Get_Expense_Type.recordcount)>
+	<cfset End_Row=Get_Expense_Type.recordcount>
 	<cfset start=1>
 <cfinclude template="../common_files/qry_project_code.cfm">
 

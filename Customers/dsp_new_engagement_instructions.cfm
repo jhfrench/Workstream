@@ -21,6 +21,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	Variables:
 	
 	END FUSEDOC --->
+</cfsilent>
 <cfset bgcolor="##78A0EB">
 <table cellpadding="2" cellspacing="2" border="0" bgcolor="<cfoutput>#bgcolor#</cfoutput>">
 	<tr>

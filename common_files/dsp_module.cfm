@@ -10,17 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:41:24  daugherty
-	Initial revision
-
-	Revision 1.3  2001-11-20 14:09:46-05  long
-	Capitalization change made the "g" lower case, to correspond with workstreams' name as perscribed by the company.
-
-	Revision 1.2  2001-10-31 16:40:57-05  french
-	Added quotes around the body tag attributes.
-
-	Revision 1.1  2001-10-11 10:57:53-04  long
-	added $log $ for edits.  To all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">	

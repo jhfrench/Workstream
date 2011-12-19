@@ -26,7 +26,6 @@ WHERE Task.status_id=REF_Status.status_id
 	AND Task.priority_id=REF_Priority.priority_id
 	AND Team.roll_id=1
 	AND Project.customers_id=Customers.customers_id
-	AND Project.root_code=6540
 	AND (Task.status_id!=11
 		OR Task.complete_date BETWEEN DATEADD(wk,-1,GETDATE()) AND GETDATE()
 	)

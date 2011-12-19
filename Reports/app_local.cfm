@@ -22,14 +22,6 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <cfparam name="attributes.fuseaction" default="report">
 <cfset request.dir_level="../">
 <cfset request.navigation="../Reports/dsp_navigation.cfm">
-<cfset day="Never_Equal">
-<cfset total_hours=0>
-<cfparam name="Flag_Non_Billable" default="False">
-<cfset temp_et="This_should_never_be_equal">
-<cfset temp_cn="This_should_never_be_equal">
-<cfset temp_cc="This_should_never_be_equal">
-<cfset grand_total_hours=0>
-<cfset Emp_type_hours=0>
 <cfset attributes.module_id=6>
 <cfinclude template="../common_files/qry_get_navigation.cfm">
 </cfsilent>

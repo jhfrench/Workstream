@@ -10,17 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:26:38  stetzer
-<>
-
-Revision 1.3  2001-11-15 10:13:49-05  long
-Changed the isolation level from serializible to read_committed
-
-Revision 1.2  2001-10-12 11:42:58-04  french
-Added ceiling() function to budgeted hours (the DB was setting the budget to 0 for any budgets under 1). Also completed the variables section of the FuseDoc.
-
-Revision 1.1  2001-10-11 10:54:41-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.budgeted_hours: number of hours that the task is targeted to take; if the number is less than 1 it will be bumped up to 1 hour because otherwise the DB would knock it down to 0

@@ -13,7 +13,7 @@
 	task 45384 - I modified to allow not only project code incrementing but also project code naming conformity.
 
 	Revision 1.2  2006-06-30 09:51:47-04  csy
-	task 45384 I modified query so that 0 ( a numeric value) is returned when value is null.
+	task 45384 I modified query so that 0 ( a numeric value) is returned when value IS NULL.
 
 	
 	Revision 1.0  2005-02-15 15:45:30-05  daugherty

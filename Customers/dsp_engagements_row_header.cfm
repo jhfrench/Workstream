@@ -9,25 +9,11 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2006/03/31 15:34:43  csy
-	task 42741 Modified code to include customer name to title
-
-	Revision 1.0  2005-02-15 15:45:47-05  daugherty
-	Initial revision
-
-	Revision 1.3  2002-04-09 09:48:37-04  french
-	Minor HTML formatting.
-
-	Revision 1.2  2001-11-01 12:04:04-05  french
-	Verifying that customer_edit is used correctly as a boolean.
-
-	Revision 1.1  2001-10-11 10:56:32-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 
 <cfoutput>
-<form name="inactive" action="index.cfm?fuseaction=engagements" method="post">
+<form name="inactive" action="index.cfm?fuseaction=Customers.engagements" method="post">
 	<tr bgcolor="##008000">
 		<td colspan="<cfif session.workstream_engagement_edit>3<cfelse>2</cfif>" class="HeadText#session.workstream_text_size#White">
 			Engagements for #get_engagements.Cust_Description#

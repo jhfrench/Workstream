@@ -10,18 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.5  2005/10/13 21:48:28  stetzer
-	<>
-
-	Revision 1.4  2005-10-13 17:46:08-04  stetzer
-	<>
-
-	Revision 1.3  2005-10-13 17:41:14-04  stetzer
-	<>
-
-	Revision 1.2  2005-08-26 15:34:30-04  french
-	Improvements to customer-specific engagement dashboard. Task 34802
-
 	||
 	END FUSEDOC --->
 <cfset today = now()>

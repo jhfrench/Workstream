@@ -27,6 +27,13 @@
 <circuit access="public">
 	<prefuseaction callsuper="true">
 		<include template="../common_files/act_header.cfm"/>
+		<set name="day" value="Never_Equal"/>
+		<set name="total_hours" value="0"/>
+		<set name="temp_et" value="This_should_never_be_equal"/>
+		<set name="temp_cn" value="This_should_never_be_equal"/>
+		<set name="temp_cc" value="This_should_never_be_equal"/>
+		<set name="grand_total_hours" value="0"/>
+		<set name="Emp_type_hours" value="0"/>
 	</prefuseaction>
 
 

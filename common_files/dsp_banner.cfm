@@ -9,15 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:41:15  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:57:58-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
-	 
-	(KL | 9/7/2001) Changed the hard coded session.workstream_company_id eq 9 to use a client variable set from the database.
 	||
 	Variables:
 	
@@ -28,7 +19,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <table border=0 cellPadding=0 cellSpacing=0 width="100%" bgcolor="0000ff">
 	<tr valign="middle">
 		<td align="right" width="276" valign="middle"><img src="<cfoutput>#request.dir_level##application.application_specific_settings.image_dir#</cfoutput>banner_left.jpg" width="270" height="81" alt="" border="0"></td>
-		<td width="276" height="100"><cfset counter=1><cfloop list="#session.workstream_module_access#" index="ii"><cfoutput><img src="#request.dir_level##application.application_specific_settings.image_dir#transparent.gif" width="#counter#" height="7" alt="" border="0"><a href="#request.dir_level##ii#/index.cfm?fuseaction=home" class="ModuleBullet"><img src="#request.dir_level##application.application_specific_settings.image_dir#red_bullet.gif" width="13" height="4" alt="" border="0">&nbsp;#ii#</cfoutput></a><br><cfset counter=counter+9></cfloop></td>
+		<td width="276" height="100"><cfset counter=1></td>
 	<td></td>
 	<td></td>
 	</tr>

@@ -1,5 +1,5 @@
 
-<!--directory/pag_salary_entry.cfm
+<!--Directory/pag_salary_entry.cfm
 	Author: Damon S -->
 <cfsilent>
 	<!---FUSEDOC
@@ -12,10 +12,10 @@
 	
 	||
 	Variables:
-	--> url.emp_id: number containing the unique identifier of the individual being requested
+	--> attributes.emp_id: number containing the unique identifier of the individual being requested
  --->
-<cfset variables.bgcolor="##78A0EB">
-<cfset attributes.emp_id = url.emp_id>
+<cfset variables.bgcolor="##78A0EB"><!--- 
+<cfset attributes.emp_id = url.emp_id> --->
 </cfsilent>
 <cfform action="act_salary_submit.cfm" name="benefits" method="POST">
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="100%" class="SelectText<cfoutput>#session.workstream_text_size#</cfoutput>">

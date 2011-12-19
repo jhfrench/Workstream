@@ -10,17 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2006/09/15 22:26:22  csy
-	<>
-
-	Revision 1.0  2006-08-16 09:32:09-04  csy
-	Initial revision
-
-	Revision 1.1  2005-11-10 14:44:41-05  french
-	Added notes_display_sort and task_list_order to profile feature. Task 37440
-
-	Revision 1.0  2005-02-15 15:27:35-05  daugherty
-	Initial revision
 	||
  --->
 <cfif isdefined("attributes.primary_profile")>

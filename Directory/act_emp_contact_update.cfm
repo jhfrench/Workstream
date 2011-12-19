@@ -1,5 +1,5 @@
 
-<!-- directory/act_emp_contact_update.cfm
+<!-- Directory/act_emp_contact_update.cfm
 	Author: Victor B-->
 <cfsilent>
 	<!--- FUSEDOC
@@ -141,7 +141,7 @@
 			
 	
 	</CFTRANSACTION>
-		<form action="index.cfm?fuseaction=employee_details" method="post" name="forward_form">
+		<form action="index.cfm?fuseaction=Directory.employee_details" method="post" name="forward_form">
 			<input type="hidden" name="emp_id" value="#attributes.emp_id#">
 		</form>
 		<cf_htmlhead>

@@ -10,13 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:51:19  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:55:41-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- (AS|8/27/01) ; Marketing has changed their mind about what they want here. So I have re-done the query. PLEASE BE AWARE, I HAVE MOVED MOST (ALL) OF THE QUERY LOGIC INTO VIEWS IN SQL SERVER. IF YOU HAVE A QUERY CHANGE TO MAKE, TAKE A LOOK AT THE VIEWS.... (JF | 8/29/1) Rewrote query to pull information most efficiently.
 	||
 	Variables:
 	-->sortby1: a variable set so the grid can be filtered by the columns

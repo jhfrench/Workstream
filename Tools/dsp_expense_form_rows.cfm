@@ -35,8 +35,8 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	</td>
 	  <td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">Date: </td>
        <td>
-	  <cfif isdefined("get_expense_values.work_date")>  <cfinput type="Text" name="DateField1" message="Enter a date." validate="date" required="Yes" size="12" onClick="ShowDate(1)" class="RegText#session.workstream_text_size#" value="#DateFormat(get_expense_values.work_date,'mm/dd/yyyy')#"><cfelse>
-	  <cfinput type="Text" name="DateField1" message="Enter a date." validate="date" required="Yes" size="12" onClick="ShowDate(1)" class="RegText#session.workstream_text_size#">
+	  <cfif isdefined("get_expense_values.work_date")>  <cfinput type="datefield" name="DateField1" message="Enter a date." validate="date" required="Yes" size="12" class="RegText#session.workstream_text_size#" value="#DateFormat(get_expense_values.work_date,'mm/dd/yyyy')#"><cfelse>
+	  <cfinput type="datefield" name="DateField1" message="Enter a date." validate="date" required="Yes" size="12" class="RegText#session.workstream_text_size#">
 </cfif>
 		<cfinclude template="../common_files/dsp_pop_calendar.cfm">
      	</td>

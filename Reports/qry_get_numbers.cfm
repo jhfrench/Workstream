@@ -33,7 +33,7 @@ SELECT SUM(CASE WHEN Demographics.hire_date <= date_end AND (Demographics.end_da
 FROM ABCD_Quarter, Demographics, Company,  Turnover
 WHERE Turnover.demographics_id =* Demographics.demographics_id 
 	AND Company.emp_id = Demographics.emp_id 
-	AND company IN (#session.workstream_company_select_list#) and hire_date is not null  and date_start >= '#date_start#' 
+	AND company IN (#session.workstream_company_select_list#) and hire_date IS NOT NULL  and date_start >= '#date_start#' 
 	AND date_end <= DATEADD(qq,1,  GETDATE())
 GROUP BY thequarter, theyear
 ORDER BY theyear, thequarter

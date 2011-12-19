@@ -154,7 +154,7 @@ This software consists of voluntary contributions made by many individuals on be
 					fb_.fuseQ[fb_.i].xmlAttributes.value=fb_.fuseQ[fb_.i].circuit & '.' & fb_.fuseQ[fb_.i].xmlAttributes.value;
 				}
 			}
-			// if the attribute 'overwrite' is FALSE then treat this like a CFPARAM
+			// if the attribute 'overwrite' is FALSE then treat this like a cfparam
 			if (StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes, "overwrite") AND NOT fb_.fuseQ[fb_.i].xmlAttributes.overwrite) {
 				fb_appendLine('<cfif NOT IsDefined("' & fb_.fuseQ[fb_.i].xmlAttributes.name & '")>');
 				fb_increaseIndent();
@@ -179,7 +179,7 @@ This software consists of voluntary contributions made by many individuals on be
 				fb_appendSegment('"' &  fb_.fuseQ[fb_.i].xmlAttributes.value & '">');
 			}
 			fb_appendNewline();
-			// if the attribute 'overwrite' is FALSE then treat this like a CFPARAM
+			// if the attribute 'overwrite' is FALSE then treat this like a cfparam
 			if (StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes, "overwrite") AND NOT fb_.fuseQ[fb_.i].xmlAttributes.overwrite) {
 				fb_decreaseIndent();
 				fb_appendLine('</cfif>');
@@ -189,7 +189,7 @@ This software consists of voluntary contributions made by many individuals on be
 
 		<cfcase value="invoke">
 		<cfscript>
-			// if returning a value and the attribute 'overwrite' is FALSE then treat this like a CFPARAM
+			// if returning a value and the attribute 'overwrite' is FALSE then treat this like a cfparam
 			if (StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes, "returnVariable") AND LEN(fb_.fuseQ[fb_.i].xmlAttributes.returnVariable) AND StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes, "overwrite") AND NOT fb_.fuseQ[fb_.i].xmlAttributes.overwrite) {
 				fb_appendLine('<cfif NOT IsDefined("' & fb_.fuseQ[fb_.i].xmlAttributes.returnVariable & '")>');
 				fb_increaseIndent();
@@ -224,7 +224,7 @@ This software consists of voluntary contributions made by many individuals on be
 				);
 			}
 			fb_appendNewline();
-			// if returning a value and the attribute 'overwrite' is FALSE then treat this like a CFPARAM
+			// if returning a value and the attribute 'overwrite' is FALSE then treat this like a cfparam
 			if (StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes, "returnVariable") AND StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes, "overwrite") AND NOT fb_.fuseQ[fb_.i].xmlAttributes.overwrite) {
 				fb_decreaseIndent();
 				fb_appendLine('</cfif>');
@@ -238,7 +238,7 @@ This software consists of voluntary contributions made by many individuals on be
 			if (NOT StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes, "arguments")) {
 				fb_.fuseQ[fb_.i].xmlAttributes.arguments="";
 			}
-			// if returning a value and the attribute 'overwrite' is FALSE then treat this like a CFPARAM
+			// if returning a value and the attribute 'overwrite' is FALSE then treat this like a cfparam
 			if (StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes, "overwrite") AND NOT fb_.fuseQ[fb_.i].xmlAttributes.overwrite) {
 				fb_appendIndent();
 				fb_appendSegment('<cfif NOT IsDefined("' & fb_.fuseQ[fb_.i].xmlAttributes.object & '")>');
@@ -268,7 +268,7 @@ This software consists of voluntary contributions made by many individuals on be
 			}
 			
 			fb_appendSegment(' />');
-			// if returning a value and the attribute 'overwrite' is FALSE then treat this like a CFPARAM
+			// if returning a value and the attribute 'overwrite' is FALSE then treat this like a cfparam
 			if (StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes, "overwrite") AND NOT fb_.fuseQ[fb_.i].xmlAttributes.overwrite) {
 				fb_decreaseIndent();
 				fb_appendLine('</cfif>');

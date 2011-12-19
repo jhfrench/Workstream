@@ -1,5 +1,5 @@
 
-<!-- directory/act_update_locations.cfm
+<!-- Directory/act_update_locations.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC

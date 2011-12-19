@@ -19,7 +19,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	 
 	||
 	END FUSEDOC --->
-
+    </cfsilent>
 <tr>
 	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
 		Name

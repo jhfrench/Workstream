@@ -10,16 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:41:09  daugherty
-Initial revision
-
-Revision 1.2  2002-04-11 16:26:04-04  lee
-changed email from address and added reply-to param
-
-Revision 1.1  2001-10-11 10:58:01-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->

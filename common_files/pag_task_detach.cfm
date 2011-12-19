@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:41:42  daugherty
-	Initial revision
-
-	Revision 1.0  2001-11-13 10:23:56-05  french
-	Initial file creation.
-
 	||
 	<-- bgcolor: string that sets the backgroud color of this pop-up window
  --->

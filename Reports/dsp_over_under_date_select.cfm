@@ -34,9 +34,9 @@
 	</cfif>
 </cfloop>
 <cfif variables.overtime_ind>
-	<cfset variables.action="index.cfm?fuseaction=overtime">
+	<cfset variables.action="index.cfm?fuseaction=Reports.overtime">
 <cfelse>
-	<cfset variables.action="index.cfm?fuseaction=undertime">
+	<cfset variables.action="index.cfm?fuseaction=Reports.undertime">
 </cfif>
 <cfform action="#variables.action#" method="POST">
 	<tr bgcolor="##5F5F5F" class="SubHeadText#session.workstream_text_size#White">

@@ -36,6 +36,6 @@
 	<cfinclude template="dsp_invoice_details_header.cfm">
 	<cfinclude template="dsp_invoice_details.cfm">
 </table>
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_emp" field_name="emp_id" field2_name="ignore_owner" field2_value="#attributes.month#|#attributes.year#" directory_action="../Directory/" fuseaction="employee_details">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_emp" field_name="emp_id" field2_name="ignore_owner" field2_value="#attributes.month#|#attributes.year#" fuseaction="Directory.employee_details">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="emp_to_notes" field_name="emp_id_project" field2_name="date" field2_value="#attributes.month#|#attributes.year#" fuseaction="invoice_notes_drill_down">
 

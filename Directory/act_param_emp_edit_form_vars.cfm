@@ -1,5 +1,5 @@
 
-<!-- directory/act_param_emp_edit_form_vars.cfm
+<!-- Directory/act_param_emp_edit_form_vars.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC
@@ -9,15 +9,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:46:21  daugherty
-	Initial revision
-
-	Revision 1.1  2002-03-15 16:47:59-05  long
-	changed the hardcoded params to loop over the number of options comming out of the database.
-
-	Revision 1.0  2002-02-14 09:20:54-05  long
-	Created File
-
 	||
 	Variables:
 	

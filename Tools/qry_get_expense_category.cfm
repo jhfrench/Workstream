@@ -21,7 +21,7 @@ WHERE REF_Expense_Category.expense_category_id IN
 	(SELECT expense_category_id
 	FROM Expense
 	WHERE Expense.date_deleted IS NULL
-		AND Expense.emp_id=41)
+		AND Expense.emp_id=#session.workstream_emp_id#)
 	OR (REF_Expense_Category.accounting_approval_ind=1
 		AND REF_Expense_Category.active_ind=1)
 ORDER BY order_by

@@ -31,8 +31,8 @@
 	<cfset attributes.expense_note=get_expense_details.expense_note>
 	<cfset attributes.paid_by_id=get_expense_details.paid_by_id>
 	<cfset attributes.payee_name=get_expense_details.payee_name>
-	<cfset attributes.project_id=get_expense_details.project_id>
-	<cfset attributes.supervisor_flag=url.supervisor_flag>
+	<cfset attributes.project_id=get_expense_details.project_id><!--- 
+	<cfset attributes.supervisor_flag=url.supervisor_flag> --->
 	<cfset attributes.expense_status_id=get_expense_details.expense_status_id>
 	<cfset attributes.accounting_approval_memo=get_expense_details.accounting_approval_memo>
 	<cfset attributes.supervisor_approval_memo=get_expense_details.supervisor_approval_memo>
@@ -57,7 +57,7 @@
 		Date
 	</td>
 	<td>
-		<cfinput type="text" name="date_incurred" value="#dateformat(attributes.date_incurred,'mm/dd/yyyy')#" required="Yes" validate="date" message="Please enter the date this expense was paid (mm/dd/yyyy format)." size="11" class="RegText#session.workstream_text_size#" onclick="gfPop.fPopCalendar(this.form.date_incurred);">
+		<cfinput type="datefield" name="date_incurred" value="#dateformat(attributes.date_incurred,'mm/dd/yyyy')#" required="Yes" validate="date" message="Please enter the date this expense was paid (mm/dd/yyyy format)." size="11" class="RegText#session.workstream_text_size#">
 	</td>
 </tr>
 <tr>

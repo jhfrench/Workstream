@@ -37,7 +37,7 @@ WHERE Customers.customers_id = Project.customers_id
 		(SELECT project_id
 		FROM user_fields, user_field_project_link
 		WHERE user_fields.user_field_id=user_field_project_link.user_field_id
-			AND user_fields.active_id=2
+			AND user_fields.active_ind=1
 		GROUP BY project_id)
 GROUP BY LTRIM(Customers.description),
 	Project.description,

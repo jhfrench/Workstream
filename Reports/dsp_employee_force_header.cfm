@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/03/09 18:05:41  stetzer
-<>
-
-Revision 1.1  2001-10-11 11:04:46-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 </cfsilent>
@@ -25,7 +17,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <cfform name="date_range" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST"><input type="hidden" name="emp_id" value="#variables.emp_id#">
 	<tr bgcolor="##5F5F5F" class="HeadText#session.workstream_text_size#White">
 		<td colspan="8" align="left" valign="bottom" class="SubHeadText#session.workstream_text_size#White">
-			&nbsp;Tasks due between <cfinput type="text" name="from_date" value="#attributes.from_date#" size="10" onClick="ShowDate(1)" validate="date" class="RegText#session.workstream_text_size#"> and <cfinput type="text" name="to_date" value="#attributes.to_date#" size="10" onClick="ShowDate(2)" validate="date" class="RegText#session.workstream_text_size#">&nbsp;<label for="show_completed"><input type="Checkbox"<cfif isdefined("attributes.show_completed")> checked</cfif> onClick="javascript:document.date_range.submit();" name="show_completed" id="show_completed" class="RegText#session.workstream_text_size#">Show only completed tasks</label>&nbsp;<label for="show_budgeted"><input type="Checkbox"<cfif isdefined("attributes.show_budgeted")> checked</cfif> onClick="javascript:document.date_range.submit();" name="show_budgeted" id="show_budgeted" class="RegText#session.workstream_text_size#">Show only budgeted tasks</label>&nbsp;<input type="Submit" value="Retrieve tasks" class="RegText#session.workstream_text_size#">
+			&nbsp;Tasks due between <cfinput type="datefield" name="from_date" value="#attributes.from_date#" size="10" validate="date" class="RegText#session.workstream_text_size#"> and <cfinput type="datefield" name="to_date" value="#attributes.to_date#" size="10" validate="date" class="RegText#session.workstream_text_size#">&nbsp;<label for="show_completed"><input type="Checkbox"<cfif isdefined("attributes.show_completed")> checked</cfif> onClick="javascript:document.date_range.submit();" name="show_completed" id="show_completed" class="RegText#session.workstream_text_size#">Show only completed tasks</label>&nbsp;<label for="show_budgeted"><input type="Checkbox"<cfif isdefined("attributes.show_budgeted")> checked</cfif> onClick="javascript:document.date_range.submit();" name="show_budgeted" id="show_budgeted" class="RegText#session.workstream_text_size#">Show only budgeted tasks</label>&nbsp;<input type="Submit" value="Retrieve tasks" class="RegText#session.workstream_text_size#">
 		</td>
 	</tr>
 </cfform>

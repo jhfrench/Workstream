@@ -66,9 +66,6 @@ else
 		<script src="common_files/SpryMenuBar.js?cache_escape=#variables.cache_escape#" type="text/javascript"></script>
 	</head>
 <body bgcolor="##000000" onLoad="<cfif application.use_help_module_ind>Element.hide('help_area');</cfif>#get_screen_details.body_onload#">
-<map name="map"> 
-	<area shape="rect" coords="0,96,160,119" href="http://www.nasa.gov/centers/hq/home/index.html" alt="NASA Headquarters">
-</map>
 <table align="center" bgcolor="##ffffff" width="1000" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td bgcolor="##000000" colspan="5" height="10" width="1000"><img src="images/spacer.gif" alt="" height="10" width="1" border="0" /></td>
@@ -76,65 +73,15 @@ else
 	<tr> 
 		<td bgcolor="##000000" rowspan="4" width="10"><img src="images/spacer.gif" alt="" height="1" width="10" border="0" /></td>
 		<td colspan="3" width="980">
-		<!-- Header starts -->
-			<table bgcolor="##cccccc" cellpadding="0" cellspacing="0" border="0" width="980" class="screen_only">
-				<tr>
-					<td valign="middle" width="366">
-						<a href="http://www.nasa.gov/home/index.html"><img src="images/logo_nasa.gif" width="288" height="51" alt="National Aeronautics and Space Administration" border="0" /></a>
-					</td>
-					<td valign="middle" height="72" width="186">
-						<table width="186" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<td bgcolor="##666666" width="1"><img src="images/spacer.gif" alt="" height="45" width="1" border="0" /></td>
-								<td width="19"><img src="images/spacer.gif" alt="" height="1" width="1" border="0" /></td>
-								<td width="166">
-									<!-- Skip navigation link -->
-									<a href="##begin_page_content" title="hidden browser link to skip repetitive navigation" class="footerLnk">- Skip Nav</a><br />
-									<a href="http://www.nasa.gov/about/contact/index.html" class="footerLnk">+ Contact NASA</a><br />
-									<a href="http://www.nasa.gov/sitemap/sitemap_nasa.html" class="footerLnk">+ SiteMap</a>
-									<div style="position:absolute;top:-100em;left:-100em;">
-										<cfloop query="get_hidden_navigation_links">
-										<a href="index.cfm?fuseaction=#fuseaction###begin_page_content" title="hidden browser link to view #business_function_description#"></a></cfloop>
-									</div>
-								</td>
-							</tr>
-						</table>
-					</td>
-					<td bgcolor="##cccccc" valign="middle" height="65" width="178">
-						<form name="search" id="search" method="get" action="http://search.nasa.gov/nasasearch/search/search.jsp">
-						<table cellpadding="0" cellspacing="0" border="0">
-							<tr>
-								<td rowspan="2" width="20"><img src="images/spacer.gif" alt="" height="1" width="1" border="0" /></td>
-								<td colspan="3">
-									<label for="searchfield"><img src="images/title_find_it_sm.gif" alt="FIND IT @ NASA" width="92" height="16" title="FIND IT @ NASA" border="0" /></label>
-								</td>
-							</tr>
-							<tr>
-								<td valign="top">
-									<input type="text" name="nasaInclude" value="" size="9"  maxlength="100" class="search" title="searchfield" id="searchfield" />
-								</td>
-								<td width="8"><img src="images/spacer.gif" alt="" height="1" width="1" border="0" /></td>
-								<td valign="top">
-									<a href="javascript:document.search.submit();"><img name="Go" src="images/button_go.gif" width="38" height="20" alt="Go" title="Go" border="0" /></a>
-								</td>
-							</tr>
-						</table>
-						</form>
-					</td>
-				</tr>
-			</table>
-		<!-- Header ends -->
+			<div style="position:absolute;top:-100em;left:-100em;">
+				<!-- Skip navigation link -->
+				<a href="##begin_page_content" title="hidden browser link to skip repetitive navigation" class="footerLnk">- Skip Nav</a>
+				<cfloop query="get_hidden_navigation_links">
+				<a href="index.cfm?fuseaction=#fuseaction###begin_page_content" title="hidden browser link to view #business_function_description#"></a></cfloop>
+			</div>
 		<!-- Top Nav Bar starts -->
 			<table width="980" border="0" cellspacing="0" cellpadding="0" class="screen_only">
 				<tbody>
-				<tr> 
-					<td><a onBlur="swapImg('navti0','images/nav_top_0_0.gif');" onFocus="swapImg('navti0','images/nav_top_0_1.gif');" onMouseOut="swapImg('navti0','images/nav_top_0_0.gif');" onMouseOver="swapImg('navti0','images/nav_top_0_1.gif');" href="http://www.nasa.gov/about/highlights/index.html"><img id="navti0" name="navti0" border="0" title="ABOUT NASA" alt="ABOUT NASA" height="25" width="123" src="images/nav_top_0_0.gif" /></a></td>
-					<td><a onBlur="swapImg('navti1','images/nav_top_1_0.gif');" onFocus="swapImg('navti1','images/nav_top_1_1.gif');" onMouseOut="swapImg('navti1','images/nav_top_1_0.gif');" onMouseOver="swapImg('navti1','images/nav_top_1_1.gif');" href="http://www.nasa.gov/news/highlights/index.html"><img id="navti1" name="navti1" border="0" title="LATEST NEWS" alt="LATEST NEWS" height="25" width="140" src="images/nav_top_1_0.gif" /></a></td>
-					<td><a onBlur="swapImg('navti2','images/nav_top_2_0.gif');" onFocus="swapImg('navti2','images/nav_top_2_1.gif');" onMouseOut="swapImg('navti2','images/nav_top_2_0.gif');" onMouseOver="swapImg('navti2','images/nav_top_2_1.gif');" href="http://www.nasa.gov/multimedia/highlights/index.html"><img id="navti2" name="navti2" border="0" title="MULTIMEDIA" alt="MULTIMEDIA" height="25" width="119" src="images/nav_top_2_0.gif" /></a></td>
-					<td><a onBlur="swapImg('navti3','images/nav_top_3_0.gif');" onFocus="swapImg('navti3','images/nav_top_3_1.gif');" onMouseOut="swapImg('navti3','images/nav_top_3_0.gif');" onMouseOver="swapImg('navti3','images/nav_top_3_1.gif');" href="http://www.nasa.gov/missions/highlights/index.html"><img id="navti3" name="navti3" border="0" title="MISSIONS" alt="MISSIONS" height="25" width="106" src="images/nav_top_3_0.gif" /></a></td>
-					<td><a onBlur="swapImg('navti4','images/nav_top_4_0.gif');" onFocus="swapImg('navti4','images/nav_top_4_1.gif');" onMouseOut="swapImg('navti4','images/nav_top_4_0.gif');" onMouseOver="swapImg('navti4','images/nav_top_4_1.gif');" href="http://mynasa.nasa.gov/portal/site/mynasa/index.jsp?bandwidth=high"><img id="navti4" name="navti4" border="0" title="MyNASA" alt="MyNASA" height="25" width="101" src="images/nav_top_4_0.gif" /></a></td>
-					<td><a onBlur="swapImg('navti5','images/nav_top_5_0.gif');" onFocus="swapImg('navti5','images/nav_top_5_1.gif');" onMouseOut="swapImg('navti5','images/nav_top_5_0.gif');" onMouseOver="swapImg('navti5','images/nav_top_5_1.gif');" href="http://www.nasa.gov/about/career/index.html"><img id="navti5" name="navti5" border="0" title="WORK FOR NASA" alt="WORK FOR NASA" height="25" width="141" src="images/nav_top_5_0.gif" /></a></td>
-				</tr>
 				<tr>
 					<td height="1" colspan="6"><img src="images/spacer.gif" alt="" height="1" width="1" border="0" /></td>
 				</tr>

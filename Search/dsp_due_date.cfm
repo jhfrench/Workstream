@@ -35,11 +35,10 @@
 			Due date
 		</td>
 		<td class="RegText#session.workstream_text_size#">
-			<select name="due_date_operator" class="RegText#session.workstream_text_size#">
-				<cfloop query="get_date_operator">
-			   <option value="#operator_ind#">#operator#</option>
-		       </cfloop>
-				
+			<select name="date_entered_operator" class="RegText#session.workstream_text_size#">
+				<option value="1">Less Than</option>
+				<option value="2">Between</option>
+				<option value="3">Greater Than</option>
 			</select>&nbsp;<input type="Text" name="due_date" size="12" onclick="gfPop.fPopCalendar(this.form.due_date);checkbox_due_date()" class="RegText#session.workstream_text_size#" maxlength="10">
 		</td>
 	</tr>

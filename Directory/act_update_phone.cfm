@@ -1,5 +1,5 @@
 
-<!-- directory/act_update_phone.cfm
+<!-- Directory/act_update_phone.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC

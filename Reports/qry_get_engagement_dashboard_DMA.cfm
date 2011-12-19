@@ -40,7 +40,7 @@ SELECT Project.status,
 	Emp_Contact.Name, Project.Project_ID, Project.Date_Entered,Project.Date_Updated, Project.Project_End,(Project.File_Path) AS File_Path, Project.date_go_live, Project.eng_status	
 FROM Project 
 	INNER JOIN REF_Billable ON  Project.Billable_ID=REF_Billable.Billable_ID
-	INNER JOIN REF_Active_Indicator ON Project.active_id=REF_Active_Indicator.active_ind
+	INNER JOIN REF_Active_Indicator ON Project.active_ind=REF_Active_Indicator.active_ind
 	INNER JOIN Customers ON Project.Customers_ID=Customers.Customers_ID
 	LEFT OUTER JOIN Emp_Contact ON Project.IE_Emp_ID=Emp_Contact.Emp_ID
 	LEFT OUTER JOIN Flat_Rate ON Project.project_id=Flat_Rate.Project_id

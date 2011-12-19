@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:41:58  daugherty
-	Initial revision
-
 	||
 	END FUSEDOC --->
 <cfquery name="get_client_variables" datasource="#application.datasources.main#">

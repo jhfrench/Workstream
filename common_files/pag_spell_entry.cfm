@@ -10,13 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:41:40  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:57:43-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
@@ -27,7 +20,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <cflock name="spell" timeout="100">
 	<cfx_spell action="LANGUAGES" name="Lang">
 </cflock>
-<cfform action="index.cfm?fuseaction=spell_check&formname=#formname#" name="spell" method="POST">
+<cfform action="index.cfm?fuseaction=common_files.spell_check&formname=#formname#" name="spell" method="POST">
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="100%" class="SelectText<cfoutput>#session.workstream_text_size#</cfoutput>">
 	<cfinclude template="dsp_spell_entry_header.cfm">
 	<cfinclude template="dsp_spell_entry_form.cfm">

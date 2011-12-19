@@ -22,7 +22,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 </cfsilent>
 <table align="center"> 
 <tr>
-<cfform name="Filter" action="index.cfm?fuseaction=Marketing">
+<cfform name="Filter" action="index.cfm?fuseaction=Marketing.Marketing">
 
 <td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 <select name="SortBy1"  class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">

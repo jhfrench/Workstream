@@ -50,7 +50,7 @@
 </cfoutput>
 	<tr>
 		<td colspan="6" align="center"  class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
-		Are you sure that you want to inactivate all these tasks? <form action="index.cfm?fuseaction=update_engagement" method="post" name="change"> <input type="Submit" value="Continue" name="Submit" tabindex="3"> <input type="Button" value="Back" name="back" onclick="history.go(-1)">
+		Are you sure that you want to inactivate all these tasks? <form action="index.cfm?fuseaction=Customers.update_engagement" method="post" name="change"> <input type="Submit" value="Continue" name="Submit" tabindex="3"> <input type="Button" value="Back" name="back" onclick="history.go(-1)">
 		</td>
 	</tr>
 </table>
@@ -80,7 +80,7 @@
 </form> 
 <cfelse>
 
-<form action="index.cfm?fuseaction=update_engagement" method="post" name="auto">
+<form action="index.cfm?fuseaction=Customers.update_engagement" method="post" name="auto">
 <cfoutput>
 <input type="Hidden" name="project_id" value="#attributes.project_id#">
 <input type="Hidden" name="project_code" value="#attributes.project_code#" >

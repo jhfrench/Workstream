@@ -17,7 +17,7 @@
 </cfif>
 <cfoutput>
 
-<cfform name="query_interface" action="index.cfm?fuseaction=query_interface" method="POST">
+<cfform name="query_interface" action="index.cfm?fuseaction=Tools.query_interface" method="POST">
 <table border="0" cellpadding="0" cellspacing="0">
 	<tr>
 		<td align="center">

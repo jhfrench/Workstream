@@ -17,7 +17,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="../common_files/qry_project_code.cfm">
-<cfform action="index.cfm?fuseaction=code_Report" method="POST" name="code">
+<cfform action="index.cfm?fuseaction=Reports.code_Report" method="POST" name="code">
 <table align="center" border="0" cellpadding="4" cellspacing="0">
 	<tr class="subheadText<cfoutput>#session.workstream_text_size#</cfoutput>">
 		<td>

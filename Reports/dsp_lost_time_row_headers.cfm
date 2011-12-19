@@ -9,15 +9,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.1  2005/03/09 18:07:44  stetzer
-	<>
-
-	Revision 1.1  2001-11-29 13:41:22-05  long
-	rolled up vacation, authorized leave, and sick into pto
-
-	Revision 1.0  2001-11-27 15:44:27-05  long
-	Created File
-
 	||
 	Variables:
 	

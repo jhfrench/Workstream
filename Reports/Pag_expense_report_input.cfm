@@ -18,6 +18,6 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="../common_files/qry_project_code.cfm">
-<cfform name="expense" action="index.cfm?fuseaction=expense_report">
+<cfform name="expense" action="index.cfm?fuseaction=Reports.expense_report">
 	<cfinclude template="dsp_expense_input_form.cfm">
 </cfform>

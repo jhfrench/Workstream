@@ -23,7 +23,7 @@
 	||
 	END FUSEDOC --->
 </cfsilent>
-<cfform action="index.cfm?fuseaction=date_locked" method="POST">
+<cfform action="index.cfm?fuseaction=Tools.date_locked" method="POST">
 <cfoutput>
 	<tr bgcolor="##c0c0c0">
 		<td class="SubHeadText#session.workstream_text_size#">Company, Previous Date Locked</td>

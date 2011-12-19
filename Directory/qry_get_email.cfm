@@ -1,5 +1,5 @@
 
-<!-- directory/qry_get_email.cfm
+<!-- Directory/qry_get_email.cfm
 	Author: Victor B.-->
 <cfsilent>
 	<!---FUSEDOC

@@ -16,8 +16,8 @@
 		VALUES ('#attributes.name#', '#attributes.lname#', 4)
 		</cfquery>
 		<cfquery name="get_new_emp_id" datasource="#application.datasources.main#">
-		SELECT MAX(emp_id) as emp_id
-		From Emp_contact
+		SELECT MAX(emp_id) AS emp_id
+		FROM Emp_contact
 		</cfquery>
 		<cfif compare(attributes.phone, "")>
 			<cfquery name="insert_contact_phone" datasource="#application.datasources.main#">
@@ -34,25 +34,15 @@
 	</cfif>
 	<cfquery name="insert_Customer" datasource="#application.datasources.main#">
 	INSERT INTO Customers (root_code, description, billable_id,
-		company_id<cfif Compare(attributes.company_address1, "")>, company_address1</cfif><cfif Compare(attributes.company_address2, "")>, company_address2</cfif><cfif Compare(attributes.company_city, "")>, company_city</cfif>, company_state<cfif Compare(attributes.company_zip, "")>, company_zip</cfif><cfif compare(attributes.lname, "")>, emp_contact_id</cfif>, active_id)
+		company_id<cfif len(attributes.company_address1)>, company_address1</cfif><cfif len(attributes.company_address2)>, company_address2</cfif><cfif len(attributes.company_city)>, company_city</cfif>, company_state<cfif len(attributes.company_zip)>, company_zip</cfif><cfif len(attributes.lname)>, emp_contact_id</cfif>, active_ind)
 	VALUES ('#new_code#', '#attributes.description#', #attributes.billable_id#,
-		#attributes.company_id# <cfif Compare(attributes.company_address1, "")>, '#attributes.company_address1#'</cfif><cfif Compare(attributes.company_address2, "")>, '#attributes.company_address2#'</cfif><cfif Compare(attributes.company_city, "")>, '#attributes.company_city#'</cfif>, '#attributes.company_state#'<cfif Compare(attributes.company_zip, "")>, '#attributes.company_zip#'</cfif><cfif compare(attributes.lname, "")>, #Get_new_emp_id.emp_id#</cfif>, 2)
+		#attributes.company_id# <cfif len(attributes.company_address1)>, '#attributes.company_address1#'</cfif><cfif len(attributes.company_address2)>, '#attributes.company_address2#'</cfif><cfif len(attributes.company_city)>, '#attributes.company_city#'</cfif>, '#attributes.company_state#'<cfif len(attributes.company_zip)>, '#attributes.company_zip#'</cfif><cfif len(attributes.lname)>, #Get_new_emp_id.emp_id#</cfif>, 1)
 	</cfquery>
-	<cfif isdefined("Visible_to")>
-		<cfloop index="ii" list="#visible_to#">
-			<cfquery name="visible_to" datasource="#application.datasources.main#">
-			INSERT INTO customer_visible_to (Code, visible_to)
-			VALUES ('#new_code#', '#ii#')
-			</cfquery>
-		</cfloop>
-	<cfelse>
-		<cfquery name="visible_to" datasource="#application.datasources.main#">
-		INSERT INTO customer_visible_to (Code, visible_to)	
-		VALUES ('#new_code#', '#Company_id#')
-		</cfquery>
-	</cfif> 
-<!--- <cfabort> --->
+	<cfquery name="visible_to" datasource="#application.datasources.main#">
+	INSERT INTO Customer_Visible_To (code, visible_to)
+	SELECT '#new_code#', company_id
+	FROM REF_Companies
+	WHERE company_id IN (<cfif isdefined("attributes.visible_to")>#attributes.visible_to#<cfelse>#attributes.company_id#</cfif>)
+	</cfquery>
 </cftransaction>
 </cfsilent>
-
-

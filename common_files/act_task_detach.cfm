@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:41:12  daugherty
-	Initial revision
-
-	Revision 1.0  2001-11-13 10:23:52-05  french
-	Initial file creation.
-
 	||
  --->
 <cfquery name="task_detach" datasource="#application.datasources.main#">

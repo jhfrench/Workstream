@@ -21,5 +21,5 @@
 	<cfinclude template="dsp_account_status_row_header.cfm">
 	<cfinclude template="dsp_account_status_rows.cfm">
 </table>
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="task_jump" directory_action="../Timekeeping/" fuseaction="task_details" field_name="task_id">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="task_jump" fuseaction="Timekeeping.task_details" field_name="task_id">
 

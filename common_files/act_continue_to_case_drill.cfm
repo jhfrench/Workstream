@@ -9,20 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:41:00  daugherty
-Initial revision
-
-Revision 1.0  2002-01-07 10:41:35-05  long
-Readded to RCS, fixed code that allows the page to submit without knowing the Project_id.
-
-Revision 1.0  2001-10-29 09:50:27-05  long
-Initial revision
-
-Revision 1.1  2001-10-11 10:54:03-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
-
- 
-	 
 	||
 	Variables:
 	

@@ -11,9 +11,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:41:04  daugherty
-	Initial revision
-
 	||
 	Variables:
 	==> fields:  this is the list

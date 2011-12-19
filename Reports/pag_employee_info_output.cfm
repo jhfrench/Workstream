@@ -21,7 +21,7 @@
 <cfinclude template="dsp_employee_info_excel_report.cfm">	
 <cfset variables.total_columns = (listlen(attributes.report_elements)) - (listlen(attributes.columns_not_to_print))+1>
 
-<cfform action="index.cfm?fuseaction=HR_Output" method="POST">
+<cfform action="index.cfm?fuseaction=Reports.HR_Output" method="POST">
 	<cfoutput>
 		<table align="center" border="0" cellpadding="4" cellspacing="0">
 			<cfmodule template="../common_files/dsp_section_title.cfm" section_title="Employee Information Report" section_color="008080" align="left" colspan="#variables.total_columns#" gutter="0" title_class="HeadText#session.workstream_text_size#White"> 

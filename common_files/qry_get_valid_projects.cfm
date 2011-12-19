@@ -38,7 +38,7 @@ WHERE Customers.customers_id = Project.customers_id
 	AND Customers.root_code = Customer_Visible_To.code
 	AND Customer_Visible_To.visible_to IN (#variables.valid_codes#)
 	AND Project_Visible_To.company_id IN (#variables.valid_codes#) 
-	AND (Project.active_id = 2 AND (Project.project_end IS NULL OR GETDATE() < Project.project_end))
+	AND (Project.active_ind = 1 AND (Project.project_end IS NULL OR GETDATE() < Project.project_end))
 	<cfif session.workstream_emp_contact_type NEQ 2>AND (
 		(1 = CASE WHEN (Project.company_id = #session.workstream_company_id# AND Project.billable_id IN (2))
 		OR Project.billable_id NOT IN (2) THEN 1 ELSE 0 END)

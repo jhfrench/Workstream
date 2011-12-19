@@ -9,33 +9,23 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:45:31  daugherty
-	Initial revision
-
-	Revision 1.2  2001-10-11 18:12:38-04  french
-	Made changes to Flat_Rate insert so that the end_date is populated only if the user has specified it from the web page.
-	
-	Revision 1.1  2001-10-11 10:56:40-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
-	 
-	(KL | 9/11/2001) Bug fix so that the "Flat-Rate" function works right.
 	||
 	END FUSEDOC --->
+</cfsilent>
 <cfquery name="insert_project" datasource="#application.datasources.main#">
 INSERT INTO Project (root_code, customers_id, description,
 	creator<cfif len(attributes.vision)>, vision</cfif><cfif len(attributes.mission)>, mission</cfif>
 	<cfif len(attributes.business_case)>, business_case</cfif><cfif len(attributes.project_end)>, project_end</cfif><cfif len(attributes.project_start)>, project_start</cfif>,
 	product_id, billable_id, project_code,
-	active_id, company_id, budget)
+	active_ind, company_id, budget)
 VALUES ('#get_root_code.root_code#', #attributes.customers_id#, '#attributes.description#',
 	#session.user_account_id#<cfif len(attributes.vision)>, '#attributes.vision#'</cfif><cfif len(attributes.mission)>, '#attributes.mission#'</cfif>
 	<cfif len(attributes.business_case)>,' #attributes.business_case#'</cfif><cfif len(attributes.project_end)>, '#attributes.project_end#'</cfif><cfif len(attributes.project_start)>, '#attributes.project_start#'</cfif>, 
 	#attributes.product_id#, #attributes.billable_id#, '#variables.new_code#',
-	2, #get_root_code.company_id#, #attributes.budget#)
+	1, #get_root_code.company_id#, #attributes.budget#)
 </cfquery>
 <cfquery name="get_project_id" datasource="#application.datasources.main#">
-SELECT MAX(project_id) AS project_id
-FROM Project
+SELECT IDENT_CURRENT('Project') AS project_id
 </cfquery>
 <cfquery name="get_project_code" datasource="#application.datasources.main#">
 SELECT project_code

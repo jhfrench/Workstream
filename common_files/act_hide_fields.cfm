@@ -9,9 +9,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:41:04  daugherty
-	Initial revision
-
 	||
 	Variables:
 	END FUSEDOC --->
@@ -19,10 +16,10 @@
 </cfsilent>
 <cfif isdefined("Form.Fieldnames")>
 	<cfset fieldnames_processed="">
-	<cfloop list="#Form.Fieldnames#" index="ii">
-		<cfif ListFind(fieldnames_processed, ii) EQ 0 AND ListFindNoCase(attributes.Exclude, ii) EQ 0>
-			<cfoutput><input type="hidden" name="#ii#" value="#HTMLEditFormat(form[ii])#"></cfoutput>
-			<cfset fieldnames_processed=ListAppend(fieldnames_processed, ii)>
+	<cfloop list="#form.fieldnames#" index="variables.ii">
+		<cfif ListFind(fieldnames_processed, variables.ii) EQ 0 AND ListFindNoCase(attributes.Exclude, variables.ii) EQ 0>
+			<cfoutput><input type="hidden" name="#variables.ii#" value="#HTMLEditFormat(form[variables.ii])#"></cfoutput>
+			<cfset fieldnames_processed=listappend(fieldnames_processed, variables.ii)>
 		</cfif>
 	</cfloop>
 </cfif>

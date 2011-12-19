@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:41:27  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:57:51-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
-	 (DD | 10/5/2001) Added width and height attributes to the div tag.
 	||
 	END FUSEDOC --->
 </cfsilent>

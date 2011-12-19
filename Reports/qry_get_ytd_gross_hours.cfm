@@ -9,12 +9,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:13:41  stetzer
-	<>
-
-	Revision 1.1  2002-03-18 10:21:51-05  long
-	added comment logging
-
 	||
 	END FUSEDOC --->
 <cfif listcontainsnocase(attributes.display_person, "ALL")>
@@ -27,24 +21,27 @@ SELECT ISNULL(employee_classification, 'Unknown') AS employee_classification, Em
 	SUM(CASE WHEN Project.billable_id=2 THEN Time_Entry.hours ELSE 0 END) AS non_billable, 
 	SUM(CASE WHEN Project.billable_id != 2 THEN Time_Entry.hours ELSE 0 END) AS billable,
 	Demographics.emp_id, ISNULL(SUM(Time_Entry.hours), 0) AS gross_hours
-FROM Time_Entry RIGHT OUTER JOIN Demographics
-	ON Time_Entry.emp_id=Demographics.emp_id
-	INNER JOIN Emp_Contact
-	ON Demographics.emp_id= Emp_Contact.emp_id	
-	LEFT OUTER JOIN Project
-	ON Time_Entry.project_id=Project.project_id 
-	LEFT OUTER JOIN Location
-	ON Emp_Contact.emp_id=Location.emp_id
+FROM Time_Entry
+	RIGHT OUTER JOIN Demographics ON Time_Entry.emp_id=Demographics.emp_id
+	INNER JOIN Emp_Contact ON Demographics.emp_id= Emp_Contact.emp_id	
+	LEFT OUTER JOIN Project	ON Time_Entry.project_id=Project.project_id
+	LEFT OUTER JOIN Location ON Emp_Contact.emp_id=Location.emp_id
 	AND Location.location_type_id=1<CFIF NOT listfind(display_office,"ALL")>
-	<!--- Need to qualify the list of locations with single quotes since its a string value --->AND Location.City IN (#ListQualify(display_office,"'",",","ALL")#) </cfif>
-	LEFT OUTER JOIN REF_Employee_Classification
-	ON REF_Employee_Classification.employee_classification_id=Demographics.employee_classification_id
+	<!--- Need to qualify the list of locations with single quotes since its a string value --->
+	AND Location.City IN (#ListQualify(display_office,"'",",","ALL")#) </cfif>
+	LEFT OUTER JOIN REF_Employee_Classification ON REF_Employee_Classification.employee_classification_id=Demographics.employee_classification_id
 WHERE Time_Entry.date BETWEEN #CreateODBCDate(attributes.from_date)# AND #CreateODBCDate(attributes.to_date)#
-	AND (Demographics.effective_from <= #CreateODBCDate(attributes.to_date)# AND Demographics.effective_to >= #CreateODBCDate(attributes.from_date)#  
-		OR (Demographics.effective_to IS NULL AND Demographics.effective_from  <= #CreateODBCDate(attributes.to_date)#))
+	AND (
+		Demographics.effective_from <= #CreateODBCDate(attributes.to_date)#
+		AND Demographics.effective_to >= #CreateODBCDate(attributes.from_date)#  
+		OR (
+			Demographics.effective_to IS NULL
+			AND Demographics.effective_from  <= #CreateODBCDate(attributes.to_date)#)
+		)
 --Something wrong?
 	AND Demographics.emp_id IN (#attributes.display_person#)
-GROUP BY employee_classification, Demographics.emp_id, Demographics.employee_classification_id, Emp_Contact.name, Emp_Contact.lname, Location.city 
+GROUP BY employee_classification, Demographics.emp_id, Demographics.employee_classification_id,
+	Emp_Contact.name, Emp_Contact.lname, Location.city 
 ORDER BY #sort_by#
 </cfquery>
 </cfsilent>

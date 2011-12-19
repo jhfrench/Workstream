@@ -175,15 +175,15 @@ CSAct[/*CMP*/ 'GoLiveAction6'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_15
 	</tr>
 	<tr>
 		<td COLSPAN=2 align="right" valign="middle" class="RegText#session.workstream_text_size#">
-			<a href="index.cfm?fuseaction=home_Drill&variable=Qualifying" class="RegText#session.workstream_text_size#">#marketing_home.Qualifying#</a>&nbsp;&nbsp;</td>
+			<a href="index.cfm?fuseaction=Marketing.home_Drill&variable=Qualifying" class="RegText#session.workstream_text_size#">#marketing_home.Qualifying#</a>&nbsp;&nbsp;</td>
 		<td COLSPAN=6>
-			<a href="index.cfm?fuseaction=home_Drill&variable=Qualifying"><img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_06.gif" WIDTH=214 HEIGHT=41 border="0"></a></td>
+			<a href="index.cfm?fuseaction=Marketing.home_Drill&variable=Qualifying"><img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_06.gif" WIDTH="214" HEIGHT="41" border="0"></a></td>
 	</tr>
 	<tr>
 		<td COLSPAN=3 align="right">
-			<img SRC="#request.dir_level##application.application_specific_settings.image_dir#zzz_funnel_grid_07.gif" align="absmiddle" WIDTH=10 HEIGHT=38><font size="2" face="arial"><a href="index.cfm?fuseaction=home_Drill&variable=Proposing" class="RegText#session.workstream_text_size#">#marketing_home.Proposing#</a>&nbsp;&nbsp;</td>
+			<img SRC="#request.dir_level##application.application_specific_settings.image_dir#zzz_funnel_grid_07.gif" align="absmiddle" WIDTH=10 HEIGHT=38><font size="2" face="arial"><a href="index.cfm?fuseaction=Marketing.home_Drill&variable=Proposing" class="RegText#session.workstream_text_size#">#marketing_home.Proposing#</a>&nbsp;&nbsp;</td>
 		<td COLSPAN=5>
-			<a href="index.cfm?fuseaction=home_Drill&variable=Proposing"><img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_08.gif" WIDTH=208 HEIGHT=41 border="0"></a></td>
+			<a href="index.cfm?fuseaction=home_Drill&variable=Proposing"><img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_08.gif" WIDTH="208" HEIGHT="41" border="0"></a></td>
 	</tr>
 	<tr>
 		<td COLSPAN=5 align="right" class="RegText#session.workstream_text_size#">

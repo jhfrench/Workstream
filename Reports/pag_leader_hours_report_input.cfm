@@ -23,7 +23,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 </cfsilent>
-<cfform action="index.cfm?fuseaction=Leadership_hours" name="leader">
+<cfform action="index.cfm?fuseaction=Reports.Leadership_hours" name="leader">
 <table border="0" cellpadding="0" cellspacing="2" align="center">
 	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#White" section_color="008080" section_title="Leadership Time Reports" gutter="false" align="center">
 			<cfinclude template="dsp_leader_report_select.cfm">

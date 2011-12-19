@@ -10,17 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:24:41  stetzer
-	<>
-
-	Revision 1.3  2002-02-08 14:19:39-05  french
-	Removed redundant evaluations.
-
-	Revision 1.2  2002-02-08 12:12:29-05  long
-	Changed the query with Tim's help to reduct the possibibity of deadlocks.
-	
-	Revision 1.1  2001-10-11 10:54:45-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page

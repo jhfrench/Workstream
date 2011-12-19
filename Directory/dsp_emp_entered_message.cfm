@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:46:35  daugherty
-	Initial revision
-
-	Revision 1.0  2001-10-16 17:05:45-04  french
-	Initial revision
-
 	||
 	END FUSEDOC --->
 <cfquery name="get_administrators" datasource="#application.datasources.main#">
@@ -25,7 +19,7 @@ WHERE Company.Emp_ID=Security_Object_Access.emp_id
 	AND Company.emp_id=Emp_Contact.emp_id
 	AND Emp_Contact.emp_id=Email.emp_id
 	AND Company.company=#session.workstream_company_id#
-	AND Security_Object_Access.object_id=41
+	AND Security_Object_Access.object_id=41<!--- $issue$: this needs to be altered to use new security/navigation model --->
 	AND Security_Object_Access.active_ind=1
 	AND Email.email_type_id=1
 ORDER BY Emp_Contact.lname, Emp_Contact.name, Emp_Contact.emp_id

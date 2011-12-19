@@ -16,10 +16,9 @@
 		
  --->
 <cfquery name="get_review_types" datasource="#application.datasources.main#">
-	SELECT 	review_type_id,
-			description
-	FROM REF_Review_Type
-	WHERE active_ind = 1
-	ORDER BY display_order
+SELECT 	review_type_id, description
+FROM REF_Review_Type
+WHERE active_ind = 1
+ORDER BY sort_order
 </cfquery>
 </cfsilent>

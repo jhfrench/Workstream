@@ -16,10 +16,9 @@
 		
  --->
 <cfquery name="get_benefit_types" datasource="#application.datasources.main#">
-	SELECT 	benefit_type_id,
-			description
-	FROM REF_Benefit_Type
-	WHERE active_ind = 1
-	ORDER BY display_order
+SELECT 	benefit_type_id, description
+FROM REF_Benefit_Type
+WHERE active_ind = 1
+ORDER BY sort_order
 </cfquery>
 </cfsilent>

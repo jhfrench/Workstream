@@ -34,12 +34,10 @@
 			Date entered
 		</td>
 		<td class="RegText#session.workstream_text_size#">
-	
 			<select name="date_entered_operator" class="RegText#session.workstream_text_size#">
-				<cfloop query="get_date_operator">
-			<option value="#operator_ind#" <cfif attributes.date_entered_operator eq operator_ind>selected</cfif>>#operator#</option>
-		</cfloop>
-
+				<option value="1"<cfif attributes.due_date_operator EQ 1> SELECTED="selected"</cfif>>Less Than</option>
+				<option value="2"<cfif attributes.due_date_operator EQ 2> SELECTED="selected"</cfif>>Between</option>
+				<option value="3"<cfif attributes.due_date_operator EQ 3> SELECTED="selected"</cfif>>Greater Than</option>
 			</select>&nbsp;<input type="Text" name="date_entered" size="12" value="#attributes.date_entered#"  onclick="gfPop.fPopCalendar(this.form.date_entered);checkbox_date_entered()" class="RegText#session.workstream_text_size#" maxlength="10">
 		</td>
 	</tr>

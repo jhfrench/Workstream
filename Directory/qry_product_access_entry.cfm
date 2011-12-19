@@ -1,5 +1,5 @@
 
-<!-- directory/qry_product_access_entry.cfm
+<!-- Directory/qry_product_access_entry.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC

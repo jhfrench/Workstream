@@ -10,32 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/08/26 18:11:56  stetzer
-	<>
-
-	Revision 1.0  2005-02-15 15:45:28-05  daugherty
-	Initial revision
-
-	Revision 1.8  2002-04-22 18:01:41-04  french
-	Removed comments from project_code update query.
-
-	Revision 1.6  2002-04-22 17:55:28-04  french
-	Logic tweaking for project_code reassignment.
-
-	Revision 1.5  2002-04-22 17:26:20-04  french
-	Added code to update the project_code if the engagement is reassigned to a different customer code (ie from Nucleus Tech Support to Agere).
-
-	Revision 1.4  2002-01-28 09:55:02-05  french
-	Adding Project.date_go_live.
-
-	Revision 1.3  2002-01-24 16:23:46-05  french
-	Minor coding changes.
-
-	Revision 1.2  2001-12-18 12:37:46-05  long
-	Added the setting of the decoded file path to a variable so that SQL can escape the single ticks in file names.
-	
-	Revision 1.1  2001-10-11 10:56:41-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfparam name="attributes.ie_emp_id" default="0">
@@ -53,7 +27,7 @@ SET Project.customers_id=#attributes.customers_id#,
 	Project.status=#attributes.status#,
 	Project.ie_emp_id=#attributes.ie_emp_id#,
 	Project.date_updated=GETDATE(),
-	Project.active_id=#attributes.active_id#,
+	Project.active_ind=#attributes.active_id#,
 	Project.eng_status=#attributes.eng_status#
 <cfif len(attributes.date_go_live)>,Project.date_go_live=#createodbcdatetime(attributes.date_go_live)#</cfif>
 <cfif len(variables.file_path)>,Project.file_path='#variables.file_path#'</cfif>
@@ -88,6 +62,6 @@ VALUES (#attributes.project_id#, #ii#)
 </cfloop>
 </cfquery>
 <cfif engagement_dashboard_return EQ 1>
-	<cflocation url="../index.cfm?fuseaction=Reports.Engagement_Dashboard&customers_id_filter=#customers_id_filter#&ie_emp_id_filter=#ie_emp_id_filter#&sort=#sort#&###Project_ID#" addtoken="no">
+	<cflocation url="../index.cfm?fuseaction=Reports.engagement_dashboard&customers_id_filter=#customers_id_filter#&ie_emp_id_filter=#ie_emp_id_filter#&sort=#sort#&###Project_ID#" addtoken="no">
 </cfif>
 </cfsilent>

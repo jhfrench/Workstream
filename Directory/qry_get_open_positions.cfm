@@ -15,27 +15,27 @@
  --->
 
 <cfquery name="get_position_numbers" datasource="#application.datasources.main#">
-Select * 
-from Positions
+SELECT * 
+FROM Positions
 	LEFT  OUTER JOIN (
-		Select Position_ID, Effective_StartDate, Effective_EndDate
-		From Position_History,
+		SELECT position_id, effective_start_date, effective_end_date
+		FROM Position_History,
 			(
-				Select Max(Position_History_ID) as Position_History_ID 
-				From position_history
-				Group By Position_ID
-			) as inner_query
-		Where Position_History.Position_History_ID = Inner_Query.Position_History_ID
-	) AS Inner_Query2 ON Positions.Position_ID = Inner_Query2.Position_ID
-Where Active_ind = 1 
-	and (
+				SELECT MAX(position_history_id) AS position_history_id
+				FROM Position_History
+				GROUP BY position_id
+			) AS inner_query
+		Where Position_History.position_history_id = Inner_Query.position_history_id
+	) AS Inner_Query2 ON Positions.position_id = Inner_Query2.position_id
+WHERE active_ind = 1 
+	AND (
 		(
-			Inner_Query2.Position_ID is not null 
-			and Inner_Query2.Effective_EndDate < GETDATE()
+			Inner_Query2.position_id IS NOT NULL
+				AND Inner_Query2.effective_end_date < GETDATE()
 		)
 	or 
 		(
-			Inner_Query2.Position_ID is null
+			Inner_Query2.position_id IS NULL
 		)
 )
 </cfquery>

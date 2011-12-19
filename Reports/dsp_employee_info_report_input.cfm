@@ -21,7 +21,7 @@
 <cfset attributes.report_elements="Merit Pool,Dept,Status,EE Type,PT Hours,Employee Name,Birth Date,Gender,Hire Date,Term Date,Separation Code,Job Title,Job Date,Manager,Latest Perform Level,Annual Salary,Salary Change Date,% Inc,Inc Type,Annual Inc Amt,Benefits Start Date,Med CVG,PP Deduct Medical,Den CVG,PP Deduct Dental,PP LTD Dental,PP HCA Deduct 2002,PP DCA Deduct 2002,Flex Spending,PP CSP Deduct,Metro Check Deduct,Savings Bond Deduct,Company,Office"> <!--- Merit Pool,Dept,Status,EE Type,PT Hours,Employee Name,Birth Date,Gender,Spouse Name,SSN,Address,Home Phone,Hire Date,Term Date,Separation Code,Job Title,Job Date,Manager,FY2000 Perf. Level,FY2001 Perf. Level,FY2002 Perf. Level,FY2003 Mid-Year,Curr Annual Salary,% Inc.,Inc. Type,Annual Inc Amt,Interim Salary,10/31/02 Annual Salary,10/31/01 Annual Salary,Benefits Start Date,Med CVG,PP Deduct Medical,Den CVG,PP Deduct Dental,PP LTD Deduct,PP HCA Deduct 2002,PP DCA 2002,Flex Spending,HCA Deduct 2003,DCA Deduct 2003,PP CSP Deduct,Metro Check Deduct,Savings Bond Deduct,Company,Office--->
 <cfparam name="attributes.omitted_column_header_list" default="">
 
-<cfform action="index.cfm?fuseaction=HR_Output" method="POST">
+<cfform action="index.cfm?fuseaction=Reports.HR_Output" method="POST">
 	<input type="hidden" name="columns_not_to_print" value="">
 	<input type="hidden" name="columns_to_print" value="">
 	<input type="hidden" name="report_elements" value="#attributes.report_elements#">

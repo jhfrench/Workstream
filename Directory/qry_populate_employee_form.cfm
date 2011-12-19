@@ -1,5 +1,5 @@
 
-<!-- directory/qry_populate_employee_form.cfm
+<!-- Directory/qry_populate_employee_form.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC
@@ -10,65 +10,88 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.0  2005/02/15 20:47:16  daugherty
-	Initial revision
-
-	Revision 1.0  2002-03-11 13:48:52-05  long
-	created file
-
 	||
 	Variables:
 	
 	END FUSEDOC --->
-	<cfquery name="populate_employee_form" datasource="#application.datasources.main#">
-  SELECT ec.Name, ec.LName, ec.Credentials, ec.MI, 
-    ec.Emp_contact_Type, d.Employee_Type_ID, d.SSN, d.pin, d.Hire_Date, d.DOB, 
-    d.Manager_non_id, d.Photo, d.employee_classification_ID, 
-    work_loc.Address1 AS address1_1, 
-    work_loc.Address2 AS address2_1, work_loc.City AS city_1, 
-    work_loc.State AS state_1, work_loc.Zip AS zip_1, 
-    home_loc.Address1 AS address1_2, 
-    home_loc.Address2 AS address2_2, home_loc.City AS city_2, 
-    home_loc.State AS state_2, home_loc.Zip AS zip_2, 
-    work_email.Email AS email_1, home_email.Email AS email_2, 
-    pager_email.email as email_3,
+<cfquery name="populate_employee_form" datasource="#application.datasources.main#">
+SELECT ec.Name, ec.LName, ec.Credentials, ec.MI, 
+	ec.Emp_contact_Type, d.Employee_Type_ID, d.SSN, d.pin, d.Hire_Date, d.DOB, 
+	d.Manager_non_id, d.Photo, d.employee_classification_ID, 
+	work_loc.Address1 AS address1_1, 
+	work_loc.Address2 AS address2_1, work_loc.City AS city_1, 
+	work_loc.State AS state_1, work_loc.Zip AS zip_1, 
+	home_loc.Address1 AS address1_2, 
+	home_loc.Address2 AS address2_2, home_loc.City AS city_2, 
+	home_loc.State AS state_2, home_loc.Zip AS zip_2, 
+	work_email.Email AS email_1, home_email.Email AS email_2, 
+	pager_email.email as email_3,
 	work_phone.Phone_Number AS phone_1, 
-    work_phone.Extension AS phone_1_ext, 
-    home_phone.Phone_Number AS phone_2, 
-    home_phone.Extension AS phone_2_ext, 
-    fax_phone.Phone_Number AS phone_3, 
-    fax_phone.Extension AS phone_3_ext, 
-    cell_phone.Phone_Number AS phone_4, 
-    cell_phone.Extension AS phone_4_ext, 
-    pager_phone.Phone_Number AS phone_5, 
-    pager_phone.Extension AS phone_5_ext, 
-    Emp_Biography.biography
-FROM Emp_Contact ec INNER JOIN Demographics d 
-		ON ec.Emp_ID = d.Emp_ID LEFT OUTER JOIN
-        (SELECT * FROM Emp_Biography) Emp_Biography 
-		ON ec.Emp_ID = Emp_Biography.emp_id LEFT OUTER JOIN
-        (SELECT * FROM phone WHERE phone_type_id = 5) pager_phone 
-		ON  ec.Emp_ID = pager_phone.Emp_ID LEFT OUTER JOIN
-        (SELECT * FROM email WHERE email_type_id = 2) home_email 
-		ON ec.Emp_ID = home_email.Emp_ID LEFT OUTER JOIN
-		(SELECT * FROM email WHERE email_type_id = 3) pager_email 
-		ON ec.Emp_ID = pager_email.Emp_ID LEFT OUTER JOIN
-        (SELECT * FROM phone WHERE phone_type_id = 1) work_phone 
-		ON ec.Emp_ID = work_phone.Emp_ID LEFT OUTER JOIN
-        (SELECT * FROM phone WHERE phone_type_id = 2) home_phone 
-		ON ec.Emp_ID = home_phone.Emp_ID LEFT OUTER JOIN
-        (SELECT * FROM phone WHERE phone_type_id = 3) fax_phone 
-		ON ec.Emp_ID = fax_phone.Emp_ID LEFT OUTER JOIN
-        (SELECT * FROM phone WHERE phone_type_id = 4) cell_phone 
-		ON ec.Emp_ID = cell_phone.Emp_ID LEFT OUTER JOIN
-        (SELECT * FROM email WHERE email_type_id = 1) work_email 
-		ON ec.Emp_ID = work_email.Emp_ID LEFT OUTER JOIN
-        (SELECT * FROM location WHERE location_type_id = 1) work_loc 
-		ON ec.Emp_ID = work_loc.Emp_ID LEFT OUTER JOIN
-        (SELECT * FROM location WHERE location_type_id = 2) home_loc 
-		ON ec.Emp_ID = home_loc.Emp_ID
-WHERE d.Effective_To IS NULL AND ec.Emp_ID = #attributes.emp_id#
-    </cfquery>
+	work_phone.Extension AS phone_1_ext, 
+	home_phone.Phone_Number AS phone_2, 
+	home_phone.Extension AS phone_2_ext, 
+	fax_phone.Phone_Number AS phone_3, 
+	fax_phone.Extension AS phone_3_ext, 
+	cell_phone.Phone_Number AS phone_4, 
+	cell_phone.Extension AS phone_4_ext, 
+	pager_phone.Phone_Number AS phone_5, 
+	pager_phone.Extension AS phone_5_ext, 
+	Emp_Biography.biography
+FROM Emp_Contact ec
+	INNER JOIN Demographics_Ngauge d ON ec.Emp_ID = d.Emp_ID
+	LEFT OUTER JOIN Emp_Biography ON ec.Emp_ID = Emp_Biography.emp_id
+	LEFT OUTER JOIN (
+		SELECT *
+		FROM phone
+		WHERE phone_type_id = 5
+	) AS pager_phone ON  ec.Emp_ID = pager_phone.Emp_ID
+	LEFT OUTER JOIN (
+		SELECT *
+		FROM email
+		WHERE email_type_id = 2
+	) AS Home_Email ON ec.Emp_ID = home_email.Emp_ID
+	LEFT OUTER JOIN (
+		SELECT *
+		FROM email
+		WHERE email_type_id = 3
+	) pager_email ON ec.Emp_ID = pager_email.Emp_ID
+	LEFT OUTER JOIN (
+		SELECT *
+		FROM phone
+		WHERE phone_type_id = 1
+	) AS work_phone ON ec.Emp_ID = work_phone.Emp_ID
+	LEFT OUTER JOIN(
+		SELECT *
+		FROM phone
+		WHERE phone_type_id = 2
+	) home_phone ON ec.Emp_ID = home_phone.Emp_ID
+	LEFT OUTER JOIN(
+		SELECT *
+		FROM phone
+		WHERE phone_type_id = 3
+	) fax_phone ON ec.Emp_ID = fax_phone.Emp_ID
+	LEFT OUTER JOIN(
+		SELECT *
+		FROM phone
+		WHERE phone_type_id = 4
+	) cell_phone ON ec.Emp_ID = cell_phone.Emp_ID
+	LEFT OUTER JOIN(
+		SELECT *
+		FROM email
+		WHERE email_type_id = 1
+	) work_email ON ec.Emp_ID = work_email.Emp_ID
+	LEFT OUTER JOIN(
+		SELECT *
+		FROM location
+		WHERE location_type_id = 1
+	) work_loc ON ec.Emp_ID = work_loc.Emp_ID
+	LEFT OUTER JOIN(
+		SELECT *
+		FROM location WHERE location_type_id = 2
+	) home_loc ON ec.Emp_ID = home_loc.Emp_ID
+WHERE d.Effective_To IS NULL
+	AND ec.Emp_ID = #attributes.emp_id#
+</cfquery>
 <cfoutput query="populate_employee_form">
 	<cfset address1_1 = address1_1>
 	<cfset address2_1 =address2_1>

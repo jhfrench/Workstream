@@ -56,7 +56,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 	</cfoutput>
 	</cfif>
 <cfelse>
-<cfform action="index.cfm?fuseaction=change_password" name="change_password" method="POST">
+<cfform action="index.cfm?fuseaction=Administration.change_password" name="change_password" method="POST">
 <cfinclude template="qry_get_user_details.cfm">
 <cfoutput>
 <table align="center" bgcolor="##cccccc" border="0" cellpadding="0" cellspacing="0">

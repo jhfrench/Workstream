@@ -10,15 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:20:23  stetzer
-	<>
-
-	Revision 1.1  2002-02-04 18:18:27-05  french
-	Fixing problem caused by commas in variables.custom_answers_text elements (which alters the list size and element positions). Changed delimiter to ';'.
-
-	Revision 1.0  2001-10-18 16:17:11-04  french
-	Created file for custom field support.
-
 	||
  --->
 <cfquery name="get_custom_responses" datasource="#application.datasources.main#">

@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:41:07  daugherty
-	Initial revision
-
 	||
 	Variables:
 	||

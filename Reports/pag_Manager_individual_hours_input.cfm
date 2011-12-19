@@ -20,7 +20,7 @@
 <cfparam name="attributes.all_employees" default="1">
 </cfsilent>
 <cfoutput>
-<cfform action="index.cfm?fuseaction=Manager_individual_hours" name="ind_hours">
+<cfform action="index.cfm?fuseaction=Reports.Manager_individual_hours" name="ind_hours">
 <table border="0" cellpadding="2" cellspacing="0" align="center" width="40%">
 <tr>
 	<td>

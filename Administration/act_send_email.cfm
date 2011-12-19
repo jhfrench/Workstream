@@ -24,7 +24,7 @@
 <cfinclude template="qry_get_email_recipients.cfm">
 
 <cfif get_email_recipients.recordcount EQ 0>
-	<cfoutput>Your message has no valid recipients, so it cannot be sent<cfif len(attributes.carbon_copy_to)>;<br /> the following recipient(s) have opted out of receiving <acronym title="Federal Assistance Award Data">FAAD</acronym> emails:<br /> #variables.carbon_copy_to#</cfif>.</cfoutput>
+	<cfoutput>Your message has no valid recipients, so it cannot be sent<cfif len(attributes.carbon_copy_to)>;<br /> the following recipient(s) have opted out of receiving Workstream emails:<br /> #variables.carbon_copy_to#</cfif>.</cfoutput>
 <cfelse>
 <cfset variables.created_by=session.user_account_id>
 <!--- INSERT MESSAGE DETAILS INTO DATABASE: --->
@@ -54,7 +54,7 @@
 	</cfloop>
 </cfif>
 
-You have received this message because you are subscribed to one or more mailing lists with the Federal Assistance Award Data. If you wish to no longer receive emails from this system, please use this link to opt-out: #listfirst(cgi.http_referer,"?")#?fuseaction=Administration.opt-out<cfif listlen(variables.email_recipients) EQ 1>&email_address=#variables.email_recipients#</cfif>
+You have received this message because you are subscribed to one or more mailing lists with Workstream. If you wish to no longer receive emails from this system, please use this link to opt-out: #listfirst(cgi.http_referer,"?")#?fuseaction=Administration.opt-out<cfif listlen(variables.email_recipients) EQ 1>&email_address=#variables.email_recipients#</cfif>
 </cfmail>
 Your message has been sent.
 </cfif>

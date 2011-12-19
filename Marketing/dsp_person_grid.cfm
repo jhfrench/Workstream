@@ -19,7 +19,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	 
 	||
 	END FUSEDOC --->
-<cfform name="person" action="index.cfm?fuseaction=edit">
+<cfform name="person" action="index.cfm?fuseaction=Marketing.edit">
 
 <tr>
 <td align="center">

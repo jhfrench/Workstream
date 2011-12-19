@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.0  2005/02/15 20:41:11  daugherty
-	Initial revision
-
-	Revision 1.0  2001-11-13 10:23:51-05  french
-	Initial file creation.
-
 	||
 	--> attributes.base_task_id: number that uniquely defines the base task
 	--> attributes.linked_task_id: list of tasks to be attached to a particular task

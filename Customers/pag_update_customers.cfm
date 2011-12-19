@@ -14,6 +14,6 @@
 
 	||
 	END FUSEDOC --->
-
+</cfsilent>
 <cfinclude template="act_update_customer.cfm">
-<cflocation url="index.cfm?fuseaction=customers" addtoken="No"> 
+<cflocation url="index.cfm?fuseaction=Customers.customers" addtoken="No"> 

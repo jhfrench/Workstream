@@ -10,22 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:46:38  daugherty
-Initial revision
-
-Revision 1.4  2002-10-02 11:52:56-04  long
-Removed Stupid Debugging output that I forgot to remove last version
-
-Revision 1.3  2002-10-02 11:52:19-04  long
-Made the change to the set of the sup id var.
-
-Revision 1.2  2002-10-02 11:41:12-04  long
-changed code so if there is no supervisor, then the page drills to itself
-
-Revision 1.1  2001-10-11 10:56:10-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
 	||
 	END FUSEDOC --->
 <cfinclude template="qry_get_supervisor_history.cfm">

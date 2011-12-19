@@ -9,12 +9,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.1  2005/03/09 18:07:39  stetzer
-	<>
-
-	Revision 1.0  2001-11-27 16:04:26-05  long
-	created the file
-
 	||
 	Variables:
 	
@@ -31,17 +25,17 @@
 		<td>
 			<cfinclude template="../common_files/dsp_pop_calendar.cfm">		
 			<cfmodule template="../common_files/act_calendar.cfm" form_name="lost_time" field_name="from_date,to_date" x_pos="relative">
-			<cfform action="index.cfm?fuseaction=lost_time" method="POST" name="lost_time">
+			<cfform action="index.cfm?fuseaction=Reports.lost_time" method="POST" name="lost_time">
 			
 			From:
 		</td>
 		<td>
-			<cfinput type="text" name="from_date" value="" required="Yes" validate="date" message="Please enter a properly formatted from date." size="11" class="RegText#session.workstream_text_size#" onClick="ShowDate(1)">
+			<cfinput type="datefield" name="from_date" value="" required="Yes" validate="date" message="Please enter a properly formatted from date." size="11" class="RegText#session.workstream_text_size#">
 			
 			&nbsp;&nbsp;&nbsp;&nbsp;
 			
 			To:
-			<cfinput type="text" name="to_date" value="" required="Yes" validate="date" message="Please enter a properly formatted to date." size="11" class="RegText#session.workstream_text_size#" onClick="ShowDate(2)"><br>
+			<cfinput type="datefield" name="to_date" value="" required="Yes" validate="date" message="Please enter a properly formatted to date." size="11" class="RegText#session.workstream_text_size#"><br>
 			</td>
 	</tr>
 	

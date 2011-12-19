@@ -31,14 +31,14 @@
 	END FUSEDOC --->
 <cfset variables.start=1>
 </cfsilent>
-<cfparam name="Engagement_Dashboard_Return" default="0">
+<cfparam name="engagement_dashboard_Return" default="0">
 <cfparam name="IE_Emp_ID_Filter" default="All">
 <cfparam name="Customers_ID_Filter" default="All">
 <cfparam name="Sort" default="Customers.Description,Project.Description">
 <cfinclude template="qry_get_engagement_main.cfm">
 <cfinclude template="qry_get_billable_types.cfm">
 <cfoutput>
-<cfform name="edit_engagement_main" action="index.cfm?fuseaction=edit_engagement" method="post">
+<cfform name="edit_engagement_main" action="index.cfm?fuseaction=Customers.edit_engagement" method="post">
 	<tr bgcolor="##c0c0c0">
 		<td align="center" colspan="2" class="SubHeadText#session.workstream_text_size#">
 			Engagement Details
@@ -106,7 +106,7 @@
 <input type="hidden" name="option" value="2">
 <input type="hidden" name="edit" value="1">
 <input type="hidden" name="original_billable_id" value="#get_engagement_main.billable_id#">
-<input type="hidden" name="Engagement_Dashboard_Return" value="#Engagement_Dashboard_Return#">
+<input type="hidden" name="engagement_dashboard_Return" value="#engagement_dashboard_Return#">
 <input type="hidden" name="Customers_ID_FIlter" value="#customers_id_Filter#">
 <input type="hidden" name="IE_Emp_ID_FIlter" value="#IE_Emp_ID_Filter#">
 <input type="hidden" name="Sort" value="#sort#">

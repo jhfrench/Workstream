@@ -1,5 +1,5 @@
 
-<!--directory/pag_supervisor_entry.cfm
+<!--Directory/pag_supervisor_entry.cfm
 	Author: Damon S -->
 <cfsilent>
 	<!---FUSEDOC
@@ -12,7 +12,7 @@
 	
 	||
 	Variables:
-	--> url.emp_id: number containing the unique identifier of the individual being requested
+	--> attributes.emp_id: number containing the unique identifier of the individual being requested
  --->
 <cfset variables.bgcolor="##78A0EB">
 <cfset attributes.emp_id=attributes.emp_id>

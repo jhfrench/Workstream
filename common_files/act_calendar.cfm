@@ -9,17 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:40:57  daugherty
-Initial revision
-
-Revision 1.2  2001-11-02 12:05:32-05  long
-still done
-
-Revision 1.1  2001-10-11 10:58:07-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 <cfset counter=0>

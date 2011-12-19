@@ -23,7 +23,7 @@
 <cfinclude template="../common_files/qry_get_task_details.cfm">
 <cfinclude template="qry_get_task_accumulated.cfm">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="task_to_ind" field_name="emp_id_task_id" field_value=0 fuseaction="Timekeeping.individual_time">
-<cfform name="time_details" action="index.cfm?fuseaction=time_details" method="POST">
+<cfform name="time_details" action="index.cfm?fuseaction=Timekeeping.time_details" method="POST">
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="100%">
 	<cfmodule template="../common_files/dsp_section_title.cfm" section_title=" #get_task_details.task_name# time entries" section_color="78A0EB" colspan="5" title_class="HeadText#session.workstream_text_size#White">
 	<cfinclude template="dsp_task_description_header.cfm">

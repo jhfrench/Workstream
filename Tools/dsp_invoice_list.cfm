@@ -35,7 +35,7 @@
 <cfoutput query="invoice_list">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif> class="RegText#session.workstream_text_size#">
 		<td class="RegText#session.workstream_text_size#">
-			<cfset StatusMsg=JSStringFormat("(#root_code##Replace(project_code,root_code,"")#) #trim(customers_name)# #trim(Replace(project_name,"#customers_name#",""))#")><a href="javascript:list_to_details('#project_id#|#billable_id#');" onmouseover="MM_displayStatusMsg('View details for #StatusMsg#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#StatusMsg#</a>
+			<cfset StatusMsg=JSStringFormat("(#root_code##Replace(project_code,root_code,"")#) #trim(customers_name)# #trim(Replace(project_name,customers_name,""))#")><a href="javascript:list_to_details('#project_id#|#billable_id#');" onmouseover="MM_displayStatusMsg('View details for #StatusMsg#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#StatusMsg#</a>
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
 			#billable_type#
@@ -45,12 +45,6 @@
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#">
 			<a href="javascript:list_to_tasks('#project_id#');" onmouseover="MM_displayStatusMsg('View tasks for #StatusMsg#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#total_tasks#</a>
-	<cfif authuser contains 'stetzer'>
-	&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../monitor/Invoice_Post_Individually.cfm?project_id=#project_id#&Total_bill_amount=#bill#">Post</a>
-	</cfif>
 		</td>
-
-	
-		
 	</tr>
 </cfoutput>

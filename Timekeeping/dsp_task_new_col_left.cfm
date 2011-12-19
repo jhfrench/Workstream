@@ -28,10 +28,10 @@
 		</td>
 		<td class="SubHeadText#session.workstream_text_size#" valign="top">
 			Start Date<br><cfset tabindex=incrementvalue(tabindex)>
-			<cfinput type="text" name="date_start" value="" required="Yes" validate="date" message="Please enter a properly formatted start date." size="11" tabindex="#tabindex#" class="RegText#session.workstream_text_size#" onclick="gfPop.fPopCalendar(this.form.date_start);">
+			<cfinput type="datefield" name="date_start" value="" required="Yes" validate="date" message="Please enter a properly formatted start date." size="11" tabindex="#tabindex#" class="RegText#session.workstream_text_size#">
 			<br>
 			Date Due<br><cfset tabindex=incrementvalue(tabindex)>
-			<cfinput type="text" name="due_date" value="" required="Yes" validate="date" message="Please enter a properly formatted due date." size="11" tabindex="#tabindex#" class="RegText#session.workstream_text_size#" onclick="gfPop.fPopCalendar(this.form.due_date);"><br>
+			<cfinput type="datefield" name="due_date" value="" required="Yes" validate="date" message="Please enter a properly formatted due date." size="11" tabindex="#tabindex#" class="RegText#session.workstream_text_size#"><br>
 			Priority<br><cfset tabindex=incrementvalue(tabindex)>
 			<cfselect name="priority_id" query="get_priorities" display="description" value="priority_id" selected="3" tabindex="#tabindex#" class="RegText#session.workstream_text_size#"></cfselect><br>
 			Icon<br><cfset tabindex=incrementvalue(tabindex)>

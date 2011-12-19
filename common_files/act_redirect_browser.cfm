@@ -10,13 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 20:41:08  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:58:01-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
-
 	||
 	--> [attributes.delay]: number of seconds to delay before reloacting to the specified page
 	--> [attributes.directory_action]: string containing directory structure information and any relative linking
