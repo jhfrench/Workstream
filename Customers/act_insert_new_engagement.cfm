@@ -29,11 +29,6 @@ VALUES ('#get_root_code.root_code#', #attributes.customer_id#, '#attributes.desc
 <cfquery name="get_project_id" datasource="#application.datasources.main#">
 SELECT IDENT_CURRENT('Project') AS project_id
 </cfquery>
-<cfquery name="get_project_code" datasource="#application.datasources.main#">
-SELECT project_code
-FROM Project
-WHERE project_id=#get_project_id.project_id#
-</cfquery>
 
 <cfswitch expression="#attributes.billable_type_id#">
 <!--- <cfcase value="1">
@@ -45,8 +40,10 @@ non-billable
 <cfcase value="3">
 	<!--- flat rate --->
 	<cfquery name="flat_rate" datasource="#application.datasources.main#">
-	INSERT INTO Flat_Rate (months, start_date<cfif len(attributes.end_date)>, end_date</cfif>, project_code, project_id, budget)
-	VALUES(#attributes.months#, '#attributes.start_date#'<cfif len(attributes.end_date)>, '#attributes.end_date#'</cfif>, '#get_project_code.project_code#', #get_project_id.project_id#, #attributes.budget#)
+	INSERT INTO Flat_Rate (months, rate_start_date<cfif len(attributes.end_date)>, rate_end_date</cfif>,
+		project_id, budget)
+	VALUES(#attributes.months#, '#attributes.start_date#'<cfif len(attributes.end_date)>, '#attributes.end_date#'</cfif>
+		#get_project_id.project_id#, #attributes.budget#)
 	</cfquery>
 </cfcase>
 <cfcase value="4">

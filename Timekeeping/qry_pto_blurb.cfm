@@ -38,11 +38,11 @@ FROM (
 		FROM PTO_Grant
 		WHERE PTO_Grant.emp_id=#session.user_account_id#
 		GROUP BY emp_id) AS Hours_Earned, 
-		Security, Link_Emp_Contact_Employer
+		Security, Link_Company_Emp_Contact
 	WHERE Security.emp_id *= Hours_Taken_Table.emp_id 
-		AND Link_Emp_Contact_Employer.emp_id = Security.emp_id
+		AND Link_Company_Emp_Contact.emp_id = Security.emp_id
 		AND Hours_Earned.emp_id =* Security.emp_id
-		AND Link_Emp_Contact_Employer.company_id IN (#company_list_use#)
+		AND Link_Company_Emp_Contact.company_id IN (#company_list_use#)
 		AND Security.emp_id=#session.user_account_id#) Remainder,
 	(SELECT SUM(Time_Entry.hours) AS hours_taken
 	FROM Time_Entry

@@ -141,15 +141,12 @@
 	<cfinclude template="dsp_custom_fields_print.cfm">
 
 <cfoutput>
-
-
 	<tr>
 		<td align="center" bgcolor="##000000" colspan="6" class="RegText#session.workstream_text_size#White">
-			The electronic version of this <a href="index.cfm?fuseaction=task_details&task_id=#Task_ID#">document</a> is the source document and all printed versions must be verified against it to ensure the accuracy of the information contained herein.
+			The electronic version of this <a href="javascript:task_details('#attributes.task_id#');" title="'View the digital version of this task.">document</a> is the source document and all printed versions must be verified against it to ensure the accuracy of the information contained herein.
 		</td>
 	</tr>
 </cfoutput>
-
 <tr>
 	<td></td>
 	<td></td>

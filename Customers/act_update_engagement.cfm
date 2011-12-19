@@ -34,18 +34,18 @@ WHERE Project_id=#project_id#
      </cfquery>
 	<cfif get_flat_rate.recordcount>
 		<cfquery name="update_flat_rate" datasource="#application.datasources.main#">
-		UPDATE flat_rate
+		UPDATE Flat_Rate
 		SET months=#attributes.months#,
-			start_date=#createodbcdate(attributes.start_date)#,
-			end_date=#createodbcdate(attributes.end_date)#,
+			rate_start_date=#createodbcdate(attributes.start_date)#,
+			rate_end_date=#createodbcdate(attributes.end_date)#,
 			budget=#attributes.budget#
 		WHERE project_id=#attributes.project_id#
 		</cfquery>
 	<cfelse>
 		<cfquery name="insert_flat_rate" datasource="#application.datasources.main#">
-		INSERT INTO Flat_Rate (project_code, months, start_date,
-			end_date, project_id, budget)
-		VALUES ('#attributes.project_code#', #attributes.months#, '#attributes.start_date#',
+		INSERT INTO Flat_Rate (months, rate_start_date,
+			rate_end_date, project_id, budget)
+		VALUES (#attributes.months#, '#attributes.start_date#',
 			'#attributes.end_date#', #attributes.project_id#, #attributes.budget#)
 		</cfquery>
 	</cfif>

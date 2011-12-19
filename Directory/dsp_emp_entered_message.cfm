@@ -14,11 +14,11 @@
 	END FUSEDOC --->
 <cfquery name="get_administrators" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.emp_id, Email.email
-FROM Link_Emp_Contact_Employer, Security_Object_Access, Emp_Contact, Email
-WHERE Link_Emp_Contact_Employer.emp_id=Security_Object_Access.emp_id
-	AND Link_Emp_Contact_Employer.emp_id=Emp_Contact.emp_id
+FROM Link_Company_Emp_Contact, Security_Object_Access, Emp_Contact, Email
+WHERE Link_Company_Emp_Contact.emp_id=Security_Object_Access.emp_id
+	AND Link_Company_Emp_Contact.emp_id=Emp_Contact.emp_id
 	AND Emp_Contact.emp_id=Email.emp_id
-	AND Link_Emp_Contact_Employer.company_id=#session.workstream_company_id#
+	AND Link_Company_Emp_Contact.company_id=#session.workstream_company_id#
 	AND Security_Object_Access.object_id=41<!--- $issue$: this needs to be altered to use new security/navigation model --->
 	AND Security_Object_Access.active_ind=1
 	AND Email.email_type_id=1

@@ -25,14 +25,14 @@ WHERE emp_id = #session.user_account_id#
 </cfquery>
 <cfquery name="REFname" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.emp_id
-FROM Emp_Contact, Security, Link_Emp_Contact_Employer
+FROM Emp_Contact, Security, Link_Company_Emp_Contact
 WHERE Emp_Contact.emp_id = Security.emp_id
-	AND Emp_Contact.emp_id = Link_Emp_Contact_Employer.emp_id
+	AND Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
 	AND security.disable!=1 
 	AND security.Disable_PTO!=1
 	AND Emp_contact_type=1
 	AND <cfif get_all_option.all_option>
-		Link_Emp_Contact_Employer.company_id IN (#session.workstream_selected_company_id#) 
+		Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#) 
 	<cfelse>
 		(emp_contact.emp_id=#session.user_account_id#<cfif subordinates.recordcount> OR emp_contact.emp_id IN (#valuelist(subordinates.emp_id)#)</cfif>)
 	</cfif>

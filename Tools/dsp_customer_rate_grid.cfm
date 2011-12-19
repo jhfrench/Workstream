@@ -35,9 +35,9 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 
 <cfgridcolumn name="Rate" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" display="Yes" headerbold="Yes" headeritalic="No">
 
-<cfgridcolumn name="rates_good_from" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" display="Yes" headerbold="Yes" headeritalic="No">
+<cfgridcolumn name="rate_start_date" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" display="Yes" headerbold="Yes" headeritalic="No">
 
-<cfgridcolumn name="rates_good_to" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" display="Yes" headerbold="Yes" headeritalic="No">
+<cfgridcolumn name="rate_end_date" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" display="Yes" headerbold="Yes" headeritalic="No">
 
 <cfgridcolumn name="billing_Rate_ID" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="no" display="no" headerbold="Yes" headeritalic="No">
 

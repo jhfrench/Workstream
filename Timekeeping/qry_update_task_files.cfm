@@ -15,13 +15,14 @@
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
 <cfquery name="update_task_files" datasource="#application.datasources.main#">
-<cfloop list="#file_paths#" index="ii">
-DELETE
-FROM Associated_Files
-WHERE task_id=#attributes.task_id# AND file_path='#ii#'
+<cfloop list="#file_paths#" index="variables.ii">
+UPDATE Associated_File
+SET active_ind=0
+WHERE task_id=#attributes.task_id#
+	AND file_path='#variables.ii#'
 
-INSERT INTO Associated_Files(task_id,file_path)
-VALUES (#attributes.task_id#,'#ii#')
+INSERT INTO Associated_File (task_id,file_path, created_by)
+VALUES (#attributes.task_id#,'#variables.ii#', #session.user_account_id#)
 </cfloop>
 </cfquery>
 </cfsilent>

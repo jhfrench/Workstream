@@ -22,10 +22,10 @@ FROM (
 	SELECT Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname,
 		MAX(ISNULL(REF_Employee_Classification.employee_classification, 'None')) AS employee_classification, REF_Company.description AS company
 	FROM Emp_contact, Demographics, REF_Employee_Classification,
-		Link_Emp_Contact_Employer, REF_Company
+		Link_Company_Emp_Contact, REF_Company
 	WHERE Emp_Contact.emp_id=Demographics.emp_id
-		AND Emp_Contact.emp_id=Link_Emp_Contact_Employer.emp_id 
-		AND Link_Emp_Contact_Employer.company_id=REF_Company.company_id 
+		AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id 
+		AND Link_Company_Emp_Contact.company_id=REF_Company.company_id 
 		AND REF_Employee_Classification.employee_classification_id =ISNULL(Demographics.employee_classification_id,7) 
 		AND ISNULL(Demographics.effective_to,#variables.from_date#) >= #variables.from_date#
 		AND ISNULL(Demographics.effective_from,#variables.through_date#) <= #variables.through_date#

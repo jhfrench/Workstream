@@ -22,14 +22,14 @@ FROM Emp_Contact
 	INNER JOIN Demographics ON Emp_Contact.emp_id = Demographics.emp_id
 	INNER JOIN REF_Employee_Classification ON Demographics.employee_classification_id = REF_Employee_Classification.employee_classification_id
     
-	INNER JOIN Link_Emp_Contact_Employer ON Emp_Contact.emp_id = Link_Emp_Contact_Employer.emp_id
+	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
 WHERE (Time_Entry.Date >= '#start_date#')
 	AND (Time_Entry.Date <= '#end_date#')
 	AND (Demographics.Overtime = 1)
 	 		AND
      		((REF_Employee_Classification.employee_classification_id <> 4) OR
     			(REF_Employee_Classification.employee_classification_id <> 1))
-			AND (Link_Emp_Contact_Employer.company_id IN(#session.workstream_selected_company_id#))
+			AND (Link_Company_Emp_Contact.company_id IN(#session.workstream_selected_company_id#))
 		<cfif listcontains(attributes.pin, "ALL") NEQ 1> 
 			AND Emp_contact.emp_id IN (#preservesinglequotes(attributes.pin)#) 
 		</cfif>

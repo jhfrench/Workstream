@@ -35,6 +35,7 @@
 <table align="center" border="1" bordercolor="#000000" cellpadding="3" cellspacing="0" width="95%">
 	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;Task:&nbsp; #get_task_details.task_name# (#attributes.task_id#) - as of #Dateformat(now(),"mm/dd/yy")# at #hour(now())#:#minute(now())#" section_color="000000" colspan="7" gutter=0 title_class="HeadText#session.workstream_text_size#White">
 	<cfinclude template="dsp_task_print_table.cfm">
+	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="task_details" field_name="task_id" fuseaction="Timekeeping.task_details">
 </table>
 <cfelse>
 <br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;

@@ -17,13 +17,13 @@ SELECT Elligible_Employees.name, Elligible_Employees.lname, Elligible_Employees.
 FROM Time_Entry, Project,
 	(SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.emp_id, REF_Employee_Classification.employee_classification
 	FROM Emp_Contact, Demographics, REF_Employee_Classification,
-		Link_Emp_Contact_Employer<cfif NOT variables.all_option>, Supervisor</cfif>
-	WHERE Emp_Contact.emp_id=Link_Emp_Contact_Employer.emp_id
+		Link_Company_Emp_Contact<cfif NOT variables.all_option>, Supervisor</cfif>
+	WHERE Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 		AND Demographics.emp_id=Emp_Contact.emp_id
 		AND Demographics.employee_classification_id*=REF_Employee_Classification.employee_classification_id<cfif NOT variables.all_option>
 		AND Supervisor.emp_id=Emp_Contact.emp_id 
 		AND Supervisor.sup_id = #session.user_account_id#</cfif>
-		AND Link_Emp_Contact_Employer.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
+		AND Link_Company_Emp_Contact.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
 		AND Demographics.hire_date < #createodbcdatetime(variables.end_date)#
 		AND (Demographics.end_date IS NULL
 			OR Demographics.end_date > #createodbcdatetime(variables.start_date)#))

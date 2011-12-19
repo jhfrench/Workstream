@@ -17,8 +17,8 @@ SELECT Elligible_Employees.name,
 	</cfloop>Elligible_Employees.emp_id, SUM(ISNULL(Time_Entry.hours,0)) AS total_hours
 FROM Time_Entry,
 	(SELECT Emp_Contact.emp_id, ISNULL(Emp_Contact.lname,'Unknown')+', '+ISNULL(Emp_Contact.name,'Unknown') AS name
-	FROM Emp_Contact, Link_Emp_Contact_Employer, <cfif variables.all_option>Demographics<cfelse>Link_Employee_Supervisor</cfif>
-	WHERE Emp_Contact.emp_id=Link_Emp_Contact_Employer.emp_id<cfif variables.all_option>
+	FROM Emp_Contact, Link_Company_Emp_Contact, <cfif variables.all_option>Demographics<cfelse>Link_Employee_Supervisor</cfif>
+	WHERE Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id<cfif variables.all_option>
 		AND Emp_Contact.emp_id=Demographics.emp_id
 		AND Demographics.hire_date < #createodbcdatetime(attributes.through_date)#
 		AND (Demographics.end_date IS NULL
@@ -29,7 +29,7 @@ FROM Time_Entry,
 		AND Link_Employee_Supervisor.date_start < #createodbcdatetime(attributes.through_date)#
 		AND (Link_Employee_Supervisor.date_end IS NULL
 			OR Link_Employee_Supervisor.date_end > #createodbcdatetime(attributes.from_date)#)</cfif>
-		AND Link_Emp_Contact_Employer.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
+		AND Link_Company_Emp_Contact.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
 	GROUP BY Emp_Contact.emp_id, ISNULL(Emp_Contact.lname,'Unknown')+', '+ISNULL(Emp_Contact.name,'Unknown')
 	) AS Elligible_Employees
 WHERE Time_Entry.emp_id=*Elligible_Employees.emp_id

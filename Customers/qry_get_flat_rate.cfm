@@ -21,7 +21,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfquery name="get_flat_rate" datasource="#application.datasources.main#">
-SELECT ISNULL(start_date,'') AS start_date, ISNULL(end_date,'') AS end_date, ISNULL(months,0) AS months
+SELECT ISNULL(rate_start_date,'') AS rate_start_date, ISNULL(rate_end_date,'') AS rate_end_date, ISNULL(months,0) AS months
 FROM Flat_Rate
 WHERE Flat_Rate.project_id=#attributes.project_id#
 </cfquery>

@@ -18,9 +18,9 @@
  --->
 <cfquery name="get_emp_companies" datasource="#application.datasources.main#">
 SELECT REF_Company.description AS company
-FROM REF_Company, Link_Emp_Contact_Employer
-WHERE REF_Company.company_id=Link_Emp_Contact_Employer.company_id
-	AND Link_Emp_Contact_Employer.emp_id=#attributes.emp_id#
+FROM REF_Company, Link_Company_Emp_Contact
+WHERE REF_Company.company_id=Link_Company_Emp_Contact.company_id
+	AND Link_Company_Emp_Contact.emp_id=#attributes.emp_id#
 ORDER BY REF_Company.description
 </cfquery>
 </cfsilent>

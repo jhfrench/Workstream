@@ -27,10 +27,10 @@ SELECT REF_Merit_Pool.description AS merit_pool, REF_Department.department_name,
 	Salary1.increase_percent,
 	DATEADD(d, 30, CAST(MONTH(Demographics.Hire_Date)+1 AS VARCHAR(2))+'/1/'+CAST(YEAR(Demographics.Hire_Date) AS VARCHAR(4))) AS benefit_start_date,--the first of the month following hire date, plus thirty days
 	REF_Company.description AS company, Office.city
-FROM Link_Emp_Contact_Employer
+FROM Link_Company_Emp_Contact
 	INNER JOIN Demographics ON Demographics.emp_id=Emp_Contact.emp_id
-	INNER JOIN Emp_Contact ON Link_Emp_Contact_Employer.emp_id=Emp_Contact.emp_id
-	INNER JOIN REF_Company ON Link_Emp_Contact_Employer.company_id=REF_Company.company_id
+	INNER JOIN Emp_Contact ON Link_Company_Emp_Contact.emp_id=Emp_Contact.emp_id
+	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id=REF_Company.company_id
 	LEFT OUTER JOIN (
 			SELECT Salary.*, REF_Salary_Change_Type.description AS salary_change_type
 			FROM Salary, REF_Salary_Change_Type
@@ -63,7 +63,7 @@ FROM Link_Emp_Contact_Employer
 		ON Emp_Contact.emp_id=Office.emp_id
 WHERE #createodbcdate(attributes.start_date)# BETWEEN Demographics.Hire_Date AND ISNULL(Demographics.End_Date,GETDATE())--Get only employees active as of specified date
 	AND #createodbcdate(attributes.start_date)# BETWEEN Link_Employee_Supervisor.date_start AND ISNULL(Link_Employee_Supervisor.date_end ,GETDATE())--Get supervisor as of specified date
-	AND Link_Emp_Contact_Employer.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
+	AND Link_Company_Emp_Contact.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
 ORDER BY Emp_Contact.LName, Emp_Contact.Name
 </cfquery>
 	

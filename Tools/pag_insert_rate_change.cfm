@@ -23,7 +23,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	END FUSEDOC --->
 <cfloop from="1" to="#ArrayLen(CUSTOMER_RATE.BILLING_RATE_ID)#" index="ii">
-	<cfif (isnumeric(CUSTOMER_RATE.RATE[ii])AND Compare(CUSTOMER_RATE.RATE[ii],CUSTOMER_RATE.ORIGINAL.RATE[ii]) )OR (IsDate(CUSTOMER_RATE.RATES_GOOD_TO[ii]) AND  Compare(CUSTOMER_RATE.RATES_GOOD_TO[ii], CUSTOMER_RATE.ORIGINAL.RATES_GOOD_TO[ii]))OR (IsDate(CUSTOMER_RATE.RATES_GOOD_FROM[ii]) AND Compare(CUSTOMER_RATE.RATES_GOOD_FROM[ii],CUSTOMER_RATE.Original.RATES_GOOD_FROM[ii]))>
+	<cfif (isnumeric(CUSTOMER_RATE.RATE[ii])AND Compare(CUSTOMER_RATE.RATE[ii],CUSTOMER_RATE.ORIGINAL.RATE[ii]) )OR (IsDate(CUSTOMER_RATE.rate_end_date[ii]) AND  Compare(CUSTOMER_RATE.rate_end_date[ii], CUSTOMER_RATE.ORIGINAL.rate_end_date[ii]))OR (IsDate(CUSTOMER_RATE.rate_start_date[ii]) AND Compare(CUSTOMER_RATE.rate_start_date[ii],CUSTOMER_RATE.Original.rate_start_date[ii]))>
 		<cfquery name="update_billing_rate" datasource="#application.datasources.main#">
 			UPDATE billing_rate 
 			SET
@@ -31,11 +31,11 @@ Added $log $ for edits to all CFM files that have fusedocs.
 				<cfif isnumeric(CUSTOMER_RATE.RATE[ii])AND Compare(CUSTOMER_RATE.RATE[ii],CUSTOMER_RATE.ORIGINAL.RATE[ii])> 
 					 Rate = #CUSTOMER_RATE.RATE[ii]#,
 				</cfif>
-				<cfif IsDate(CUSTOMER_RATE.RATES_GOOD_FROM[ii])AND Compare(CUSTOMER_RATE.RATES_GOOD_FROM[ii],CUSTOMER_RATE.Original.RATES_GOOD_FROM[ii])>
-					Rates_Good_From = #createodbcdatetime(CUSTOMER_RATE.RATES_GOOD_FROM[ii])#,
+				<cfif IsDate(CUSTOMER_RATE.rate_start_date[ii])AND Compare(CUSTOMER_RATE.rate_start_date[ii],CUSTOMER_RATE.Original.rate_start_date[ii])>
+					rate_start_date = #createodbcdatetime(CUSTOMER_RATE.rate_start_date[ii])#,
 				</cfif>
-				<cfif IsDate(CUSTOMER_RATE.RATES_GOOD_TO[ii]) AND  Compare(CUSTOMER_RATE.RATES_GOOD_TO[ii], CUSTOMER_RATE.ORIGINAL.RATES_GOOD_TO[ii])>
-					 Rates_Good_To =  #createodbcdatetime(CUSTOMER_RATE.RATES_GOOD_TO[ii])#
+				<cfif IsDate(CUSTOMER_RATE.rate_end_date[ii]) AND  Compare(CUSTOMER_RATE.rate_end_date[ii], CUSTOMER_RATE.ORIGINAL.rate_end_date[ii])>
+					 rate_end_date =  #createodbcdatetime(CUSTOMER_RATE.rate_end_date[ii])#
 				</cfif> 
 			</cf_removetrailingcomma>
 			WHERE Billing_Rate_ID = #CUSTOMER_RATE.BILLING_RATE_ID[ii]#

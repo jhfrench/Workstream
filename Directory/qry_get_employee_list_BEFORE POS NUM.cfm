@@ -27,17 +27,17 @@ SELECT (Emp_Contact.lname + ', ' + Emp_Contact.name) AS name,
 	Emp_Contact.emp_id AS emp_id, REF_Company.description AS company,
 	ISNULL(Email.email,'NA') AS email, ISNULL(Phone.phone_number,'NA') AS phone_number,
 	ISNULL(Phone.extension,'NA') AS extension
-FROM Emp_Contact, Link_Emp_Contact_Employer, REF_Company, Security, Email, Phone
-WHERE Emp_Contact.emp_id=Link_Emp_Contact_Employer.emp_id
+FROM Emp_Contact, Link_Company_Emp_Contact, REF_Company, Security, Email, Phone
+WHERE Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	AND Emp_Contact.emp_id=Security.emp_id
 	AND Emp_Contact.emp_id*=Email.emp_id
 	AND Emp_Contact.emp_id*=Phone.emp_id
-	AND Link_Emp_Contact_Employer.company_id=REF_Company.company_id
+	AND Link_Company_Emp_Contact.company_id=REF_Company.company_id
 	AND Email.email_type_id = 1
 	AND Phone.phone_type_id = 1
 	AND Security.disable=0
-	AND Link_Emp_Contact_Employer.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
+	AND Link_Company_Emp_Contact.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
 	AND #application.team_changed#=#application.team_changed#
-ORDER BY Link_Emp_Contact_Employer.company_id, Emp_Contact.lname, Emp_Contact.name
+ORDER BY Link_Company_Emp_Contact.company_id, Emp_Contact.lname, Emp_Contact.name
 </cfquery>
 </cfsilent>

@@ -25,12 +25,12 @@
 <cfquery name="team_select" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT Emp_Contact.emp_id AS emp_id, Emp_Contact.lname, LEFT(Emp_Contact.name,2) AS f_init, 
 	Emp_Contact.name, ISNULL(Emp_Contact.lname,'')+', '+LEFT(ISNULL(Emp_Contact.name,''),2) AS display<cfif isdefined("variables.email_only")>, email_type_id</cfif>
-FROM Emp_Contact, Link_Company_Emp_Contact, Security<cfif isdefined("variables.email_only")>, Email</cfif>
-WHERE Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id<cfif isdefined("variables.email_only")>
+FROM Emp_Contact, Security_Company_Access, Security<cfif isdefined("variables.email_only")>, Email</cfif>
+WHERE Emp_Contact.emp_id=Security_Company_Access.emp_id<cfif isdefined("variables.email_only")>
 	AND Emp_Contact.emp_id=Email.emp_id
 	AND Email.email_type_id=1</cfif>
 	AND Emp_Contact.emp_id=Security.emp_id
-	AND (Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)<cfif NOT attributes.all_employees>
+	AND (Security_Company_Access.company_id IN (#session.workstream_selected_company_id#)<cfif NOT attributes.all_employees>
 		AND Security.disable=0</cfif><cfif len(variables.emp_id_match)>
 	OR Emp_Contact.emp_id IN (#variables.emp_id_match#)</cfif>)
 	AND #application.team_changed#=#application.team_changed#

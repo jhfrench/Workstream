@@ -18,8 +18,8 @@ SELECT Project.status, Customer.description AS customer_description, Project.des
 	Project.project_code, Project.vision, Project.budget,
 	Project.Mission, REF_Billable.Billable_Type,
 	Project.billable_type_id, Project.Active_ID, REF_Active_Indicator.Active_Ind_Type,
-	Flat_Rate.Months, Project.company_id, Flat_Rate.End_Date,
-	Flat_Rate.Start_Date, Project.IE_Emp_ID, Emp_Contact.LName,
+	Flat_Rate.Months, Project.company_id, Flat_Rate.rate_end_date,
+	Flat_Rate.rate_start_date, Project.IE_Emp_ID, Emp_Contact.LName,
 	Emp_Contact.Name, Project.project_id, Project.date_entered
 	Project.Date_Updated, Project.Project_End, Project.File_Path,
 	Project.date_go_live, Project.eng_status	

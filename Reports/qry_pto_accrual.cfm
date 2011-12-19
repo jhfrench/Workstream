@@ -59,7 +59,7 @@ left Outer JOIN PTO_HOURS ON PTO_HOURS.emp_id = demographics.emp_id left outer J
 																FROM Project
 																WHERE project_type_id = 1) 
 AND year(time_entry.date) like year(GETDATE())
-inner join Link_Emp_Contact_Employer on demographics.emp_id = Link_Emp_Contact_Employer.emp_id
+inner join Link_Company_Emp_Contact on demographics.emp_id = Link_Company_Emp_Contact.emp_id
 inner join emp_contact on demographics.emp_id = emp_contact.emp_id
 WHERE security.disable <> 1 
 AND company_id IN (#session.workstream_selected_company_id#) <cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.emp_id IN (#preservesinglequotes(attributes.form_Pin)#))</cfif>

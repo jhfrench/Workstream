@@ -98,8 +98,8 @@
 FROM Emp_Contact
 	INNER JOIN Time_Entry ON Emp_Contact.emp_id = Time_Entry.emp_id
 	INNER JOIN Demographics ON Emp_Contact.emp_id = Demographics.emp_id
-	INNER JOIN Link_Emp_Contact_Employer ON Emp_Contact.emp_id = Link_Emp_Contact_Employer.emp_id
-	INNER JOIN REF_Company ON Link_Emp_Contact_Employer.company_id = REF_Company.company_id
+	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
+	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id = REF_Company.company_id
 	INNER JOIN Project ON Time_Entry.project_id = Project.project_id
 WHERE REF_Company.company_id  IN (#session.workstream_selected_company_id#) and demographics.end_date IS NULL and datepart(yy,time_entry.date) = datepart(yy, GETDATE())
 GROUP BY emp_contact.lname, emp_contact.name, 

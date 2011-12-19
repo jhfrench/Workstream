@@ -17,7 +17,7 @@
 <cfset bgcolor="##78A0EB">
 <cfparam name="attributes.submit_flag" default=0>
 </cfsilent>
-<cfif isdefined("attributes.del_file")>
+<cfif isdefined("attributes.deleted_file_id")>
 	<cfinclude template="act_file_detach.cfm">
 </cfif>
 <cfinclude template="qry_get_associated_files.cfm">

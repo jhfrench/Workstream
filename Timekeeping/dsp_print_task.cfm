@@ -18,8 +18,7 @@
 </cfsilent>
 <cfoutput>
 		<td align="right" valign="top" class="SubHeadText#session.workstream_text_size#">
-			 <a href="javascript:printable('#attributes.task_id#');" onmouseover="MM_displayStatusMsg('View a printable version of this task.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="Note#session.workstream_text_size#"><img src="#request.dir_level##application.application_specific_settings.image_dir#document.gif" width="16" height="16" alt="View a printable version of this task." border="0">Printable task sheet</a>
+			 <a href="javascript:printable('#attributes.task_id#');" title="'View a printable version of this task." class="Note#session.workstream_text_size#"><img src="#request.dir_level##application.application_specific_settings.image_dir#document.gif" width="16" height="16" alt="View a printable version of this task." border="0">Printable task sheet</a>
 		</td>
-		
 </cfoutput>
 

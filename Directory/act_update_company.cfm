@@ -19,7 +19,7 @@ WHERE emp_id=#attributes.emp_id#
 </cfquery> 
 
 <cfquery name="company_entry" datasource="#application.datasources.main#">
-INSERT INTO Link_Emp_Contact_Employer (emp_id, company_id)
+INSERT INTO Link_Company_Emp_Contact (emp_id, company_id)
 VALUES(#attributes.emp_id#,#attributes.company_id#)
 </cfquery> 
 

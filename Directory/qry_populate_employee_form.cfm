@@ -128,7 +128,7 @@ WHERE d.Effective_To IS NULL
 	</cfif>
 	<cfquery name="get_visible_companies" datasource="#application.datasources.main#">
     SELECT company_id
-    FROM Link_Company_Emp_Contact
+    FROM Security_Company_Access
     WHERE emp_id = #attributes.emp_id#
     </cfquery>
 	<cfset visable_company = valuelist(get_visible_companies.company_id)>

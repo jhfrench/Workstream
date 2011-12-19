@@ -25,7 +25,7 @@
 		</td>
 		<td valign="top" class="RegText#session.workstream_text_size#">
 			<cfselect name="company_id" multiple="Yes" required="Yes" message="Please make sure this user has access to at least one company." size="10" class="RegText#session.workstream_text_size#">
-			<cfloop query="get_link_company_emp_contact_access">
+			<cfloop query="get_security_company_access_access">
 				<option value="#company_id#"#has_company_access#>#company#</option>
 			</cfloop>
 			</cfselect>

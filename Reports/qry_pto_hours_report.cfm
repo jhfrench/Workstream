@@ -19,14 +19,14 @@ SELECT Emp_Contact.Name AS name,
     REF_Company.description AS company
 FROM Emp_Contact
 	INNER JOIN PTO_Hours ON Emp_Contact.emp_id = PTO_Hours.emp_id
-	INNER JOIN Link_Emp_Contact_Employer ON Emp_Contact.emp_id = Link_Emp_Contact_Employer.emp_id
+	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
 	INNER JOIN Demographics ON Emp_Contact.emp_id = Demographics.emp_id
-	INNER JOIN REF_Company ON Link_Emp_Contact_Employer.company_id = REF_Company.company_id LEFT OUTER
+	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id = REF_Company.company_id LEFT OUTER
      JOIN
     REF_Day_Length ON Demographics.Day_Length_ID = REF_Day_Length.Day_Length_ID
-WHERE (Link_Emp_Contact_Employer.company_id IN
+WHERE (Link_Company_Emp_Contact.company_id IN
 	(select company_id 
-	from Link_Company_Emp_Contact 
+	from Security_Company_Access 
 	where emp_id = #session.user_account_id#)) 
 AND (Emp_Contact.emp_id IN ('#preservesinglequotes(attributes.drill_down)#'))
 ORDER BY lname
@@ -34,24 +34,24 @@ ORDER BY lname
 SELECT DISTINCT Emp_Contact.Name AS name, Emp_Contact.LName AS lname, 
 	Emp_Contact.emp_id AS pin, Used_Hours.used_hours AS used_hours,
 		ISNULL(REF_Day_Length.Day_Length, 8) AS day_length, PTO_Hours.pto_type_indicator AS pto_type_indicator
-FROM Link_Company_Emp_Contact, Emp_Contact, PTO_Hours, Demographics, REF_Day_Length, security,
-	(SELECT ISNULL(SUM(Time_Entry.hours),0) AS used_hours, Link_Emp_Contact_Employer.emp_id AS emp_id
-	FROM Time_entry, Link_Emp_Contact_Employer
+FROM Security_Company_Access, Emp_Contact, PTO_Hours, Demographics, REF_Day_Length, security,
+	(SELECT ISNULL(SUM(Time_Entry.hours),0) AS used_hours, Link_Company_Emp_Contact.emp_id AS emp_id
+	FROM Time_entry, Link_Company_Emp_Contact
 	WHERE time_entry.project_id IN (SELECT project_id
 									FROM Project
 									WHERE project_type_id = 1)
-		AND Link_Emp_Contact_Employer.company_id IN 
+		AND Link_Company_Emp_Contact.company_id IN 
 			(SELECT company_id 
-			FROM Link_Company_Emp_Contact 
+			FROM Security_Company_Access 
 			WHERE emp_id = #session.user_account_id#)
-		AND Link_Emp_Contact_Employer.emp_id*=Time_Entry.emp_id
+		AND Link_Company_Emp_Contact.emp_id*=Time_Entry.emp_id
 		AND YEAR(time_entry.date) = YEAR(GETDATE())
-	GROUP BY Link_Emp_Contact_Employer.emp_id)
+	GROUP BY Link_Company_Emp_Contact.emp_id)
 AS Used_Hours
-WHERE Link_Company_Emp_Contact.emp_id = emp_contact.emp_id
-	and  Link_Company_Emp_Contact.company_id IN
+WHERE Security_Company_Access.emp_id = emp_contact.emp_id
+	and  Security_Company_Access.company_id IN
 	(select company_id 
-	from Link_Company_Emp_Contact 
+	from Security_Company_Access 
 	where emp_id = #session.user_account_id#)
 		AND Emp_Contact.emp_id=Security.emp_id  
 		AND Emp_Contact.emp_id=Used_Hours.emp_id

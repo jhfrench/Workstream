@@ -26,7 +26,7 @@ WHERE task_id=#attributes.task_id#
 </cfquery>
 <cfquery name="delete_associated_files" datasource="#application.datasources.main#">
 DELETE
-FROM Associated_Files
+FROM Associated_File
 WHERE task_id=#attributes.task_id#
 </cfquery>
 <cfquery name="delete_associated_tasks" datasource="#application.datasources.main#">

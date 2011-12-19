@@ -12,13 +12,14 @@
 	$Log$
  --->
 </cfsilent>
-<!--- $issue$ someday change the revenue_progress to be a stacked bar chart of the revenue for the different billing types --->
 <tr>
 	<td colspan="2" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 		<cfsavecontent variable="variables.chart_under_menu">
-			<cfchart chartHeight="140" chartWidth="220" font="Trebuchet MS" fontsize="#variables.small#" fontBold="yes" show3D="yes" pieSliceStyle="solid" showLegend="no">
-			    <cfchartseries type="line" query="get_revenue_goal" valueColumn="revenue_goal" itemColumn="fiscal_year" dataLabelStyle="none" paintStyle="raise" />
-			    <cfchartseries type="area" query="get_revenue_goal" valueColumn="revenue_progress" itemColumn="fiscal_year" dataLabelStyle="none" paintStyle="raise" />
+			<cfchart chartHeight="140" chartWidth="220" font="Trebuchet MS" fontsize="#variables.small#" fontBold="yes" show3D="yes" showLegend="no" seriesplacement="stacked">
+			    <cfchartseries type="line" query="get_revenue_goal" valueColumn="revenue_goal" itemColumn="fiscal_year" dataLabelStyle="none" seriescolor="##5A9A00" />
+				<cfchartseries type="bar" query="get_revenue_goal" valueColumn="hourly_revenue" itemColumn="fiscal_year" seriescolor="##005B9A" />
+				<cfchartseries type="bar" query="get_revenue_goal" valueColumn="flat_revenue" itemColumn="fiscal_year" seriescolor="##0191C8" />
+				<cfchartseries type="bar" query="get_revenue_goal" valueColumn="incident_revenue" itemColumn="fiscal_year" seriescolor="##74C2E1" />
 			</cfchart>
 		</cfsavecontent>
 		<div id="revenue_progress">

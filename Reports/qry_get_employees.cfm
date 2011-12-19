@@ -21,8 +21,8 @@ SELECT ISNULL(REF_Employee_Classification.employee_classification, 'None')
 FROM Emp_Contact
 	INNER JOIN Demographics ON Emp_Contact.emp_id = Demographics.emp_id
 	INNER JOIN Security ON Emp_Contact.emp_id = Security.emp_id
-	INNER JOIN Link_Emp_Contact_Employer ON Emp_Contact.emp_id = Link_Emp_Contact_Employer.emp_id
-	INNER JOIN REF_Company ON Link_Emp_Contact_Employer.company_id = REF_Company.company_id
+	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
+	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id = REF_Company.company_id
 	INNER JOIN Supervisor ON Emp_Contact.emp_id = Supervisor.emp_id
 	LEFT OUTER JOIN  REF_Employee_Classification ON Demographics.employee_classification_id = REF_Employee_Classification.employee_classification_id
 WHERE (Security.Disable <> 1) AND sup_id = #session.user_account_id# AND (

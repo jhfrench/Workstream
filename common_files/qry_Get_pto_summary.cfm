@@ -41,10 +41,10 @@ FROM (
 			AND (pg.emp_id IN (#preservesinglequotes(attributes.form_Pin)#))</cfif>
 		GROUP BY Emp_id
 	) AS hours_earned, Emp_contact ec, security,
-		Link_Emp_Contact_Employer  
+		Link_Company_Emp_Contact  
 WHERE ec.emp_id *= hours_taken_table.emp_id 
 	AND security.emp_id = ec.emp_id
-	AND Link_Emp_Contact_Employer.emp_id = ec.emp_id
+	AND Link_Company_Emp_Contact.emp_id = ec.emp_id
 	AND hours_earned.emp_id =* ec.emp_id
 	AND security.disable <> 1
 	AND security.Disable_PTO <> 1
