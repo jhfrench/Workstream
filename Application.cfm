@@ -46,6 +46,8 @@
 	switch(cgi.http_host) {
 		case "127.0.0.1:8500":
 		case "192.168.1.6:8500":
+		case "florence":
+		case "florence:80":
 		case "boston:8500": {
 			variables.environment_name="Development";
 			variables.sessiontimeout="3";
