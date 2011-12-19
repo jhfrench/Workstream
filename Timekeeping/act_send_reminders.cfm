@@ -60,7 +60,7 @@ WHERE Task.task_id=Task_Source.task_id
 The following task will be due in #datediff("d",now(),dateadd("d",1,date_due))# day<cfif countdown NEQ 1>s</cfif>: 
 Task name: #task_name# (http://#cgi.server_name#/index.cfm?fuseaction=Timekeeping.task_details&task_id=#task_id#)
 Task Number: #task_id#
-Due: #DateFormat(date_due,"mmm d, yyyy")#
+Due: #dateformat(date_due,"mmm d, yyyy")#
 Description
 -----------
 #description#

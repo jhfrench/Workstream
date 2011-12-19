@@ -9,17 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 21:01:43  daugherty
-Initial revision
-
-Revision 1.2  2002-03-06 13:17:55-05  long
-Removing the cfgridupdate and entering the data using standard SQL
-
-Revision 1.1  2001-10-11 10:54:15-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 <cfloop from="1" to="#ArrayLen(CUSTOMER_RATE.BILLING_RATE_ID)#" index="ii">

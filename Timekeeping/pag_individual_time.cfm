@@ -29,7 +29,7 @@
 <cfinclude template="../common_files/qry_get_task_details.cfm">
 <cfinclude template="qry_get_task_accumulated.cfm">
 <cfinclude template="../common_files/qry_get_open_tasks.cfm">
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="time_edit" field_name="time_entry_id" field_value=0 fuseaction="Timekeeping.time_entry_edit" given_referer="task_list">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="time_edit" field_name="time_entry_id" field_value=0 fuseaction="Timekeeping.time_entry_edit" given_referer="Timekeeping.task_list">
 <cfform name="time_details" action="index.cfm?fuseaction=Timekeeping.individual_time" method="POST">
 <table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
 	<cfmodule template="../common_files/dsp_section_title.cfm" section_title=" #get_task_details.task_name# time entries" section_color="0000ff" colspan="6" title_class="HeadText#session.workstream_text_size#White">

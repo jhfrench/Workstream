@@ -80,7 +80,7 @@
 	</tr>
 	<tr class="RegText#session.workstream_text_size#">
 		<td colspan="5" align="center" valign="top">
-			<input type="reset" class="RegText#session.workstream_text_size#"> <input type="Submit" value="Generate FuseDoc" class="RegText#session.workstream_text_size#">
+			<input type="reset" class="RegText#session.workstream_text_size#"> <input type="submit" value="Generate FuseDoc" class="RegText#session.workstream_text_size#">
 		</td>
 	</tr>
 </cfoutput>

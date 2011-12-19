@@ -50,7 +50,7 @@ This software consists of voluntary contributions made by many individuals on be
       fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
       fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
       fb_.temp=structNew();
-      fb_.temp.xmlName="set";
+      fb_.temp.xmlname="set";
       fb_.temp.circuit="";
       fb_.temp.fuseaction="";
       fb_.temp.phase=fb_.phase;
@@ -61,7 +61,7 @@ This software consists of voluntary contributions made by many individuals on be
     }
     // and the Plugin itself
     fb_.temp=StructNew();
-    fb_.temp.xmlName="plugin";
+    fb_.temp.xmlname="plugin";
     fb_.temp.circuit=myFusebox.thisCircuit;
     fb_.temp.fuseaction=myFusebox.thisFuseaction;
     fb_.temp.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i];
@@ -84,7 +84,7 @@ This software consists of voluntary contributions made by many individuals on be
       if (StructKeyExists(fb_.xnPreprocessFA[fb_.i].xmlAttributes, "action") AND
           ListLen(fb_.xnPreprocessFA[fb_.i].xmlAttributes['action'], '.') GTE 2) {
         fb_.temp=structNew();
-        fb_.temp.xmlName="do";
+        fb_.temp.xmlname="do";
         fb_.temp.circuit=ListFirst(fb_.xnPreprocessFA[fb_.i].xmlAttributes['action'], '.');
         fb_.temp.fuseaction=listlast(fb_.xnPreprocessFA[fb_.i].xmlAttributes['action'], '.');
         fb_.temp.phase=fb_.phase;
@@ -100,7 +100,7 @@ This software consists of voluntary contributions made by many individuals on be
   /* now add the actual fuseaction which is the target of this page request */
   fb_.phase="requestedFuseaction";
   fb_.temp=structNew();
-  fb_.temp.xmlName="do";
+  fb_.temp.xmlname="do";
   fb_.temp.circuit=myFusebox.thisCircuit;
   fb_.temp.fuseaction=myFusebox.thisFuseaction;
   fb_.temp.phase=fb_.phase;
@@ -118,7 +118,7 @@ This software consists of voluntary contributions made by many individuals on be
       if (StructKeyExists(fb_.xnPostprocessFA[fb_.i].xmlAttributes, "action") AND
           ListLen(fb_.xnPostprocessFA[fb_.i].xmlAttributes['action'], '.') GTE 2) {
         fb_.temp=structNew();
-        fb_.temp.xmlName="do";
+        fb_.temp.xmlname="do";
         fb_.temp.circuit=ListFirst(fb_.xnPostprocessFA[fb_.i].xmlAttributes['action'], '.');
         fb_.temp.fuseaction=listlast(fb_.xnPostprocessFA[fb_.i].xmlAttributes['action'], '.');
         fb_.temp.phase=fb_.phase;
@@ -133,7 +133,7 @@ This software consists of voluntary contributions made by many individuals on be
 
   /* be sure to reset the myFusebox.thisCircuit to that of the originalCircuit */
   fb_.temp=structNew();
-  fb_.temp.xmlName="set";
+  fb_.temp.xmlname="set";
   fb_.temp.circuit=myFusebox.originalCircuit;
   fb_.temp.fuseaction=myFusebox.originalFuseaction;
   fb_.temp.phase=fb_.phase;
@@ -144,7 +144,7 @@ This software consists of voluntary contributions made by many individuals on be
 
   /* be sure to reset the myFusebox.thisFuseaction to that of the originalFuseaction */
   fb_.temp=structNew();
-  fb_.temp.xmlName="set";
+  fb_.temp.xmlname="set";
   fb_.temp.circuit=myFusebox.originalCircuit;
   fb_.temp.fuseaction=myFusebox.originalFuseaction;
   fb_.temp.phase=fb_.phase;
@@ -163,7 +163,7 @@ This software consists of voluntary contributions made by many individuals on be
       fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
       fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
       fb_.temp=structNew();
-      fb_.temp.xmlName="set";
+      fb_.temp.xmlname="set";
       fb_.temp.circuit="";
       fb_.temp.fuseaction="";
       fb_.temp.phase=fb_.phase;
@@ -174,7 +174,7 @@ This software consists of voluntary contributions made by many individuals on be
     }
     // and the Plugin itself
     fb_.temp=StructNew();
-    fb_.temp.xmlName="plugin";
+    fb_.temp.xmlname="plugin";
     fb_.temp.circuit=myFusebox.thisCircuit;
     fb_.temp.fuseaction=myFusebox.thisFuseaction;
     fb_.temp.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i];
@@ -195,7 +195,7 @@ This software consists of voluntary contributions made by many individuals on be
       fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
       fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
       fb_.temp=structNew();
-      fb_.temp.xmlName="set";
+      fb_.temp.xmlname="set";
       fb_.temp.circuit="";
       fb_.temp.fuseaction="";
       fb_.temp.phase=fb_.phase;
@@ -206,7 +206,7 @@ This software consists of voluntary contributions made by many individuals on be
     }
     // and the Plugin itself
     fb_.temp=StructNew();
-    fb_.temp.xmlName="errorHandler";
+    fb_.temp.xmlname="errorHandler";
     fb_.temp.circuit=myFusebox.thisCircuit;
     fb_.temp.fuseaction=myFusebox.thisFuseaction;
     fb_.temp.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i];
@@ -269,7 +269,7 @@ This software consists of voluntary contributions made by many individuals on be
         // set the value of myFusebox.thisCircuit
         // (both here and at the end of the parsing of this <do> so that we always return to the right value of myFusebox.thisCircuit)
         fb_.temp=structNew();
-        fb_.temp.xmlName="set";
+        fb_.temp.xmlname="set";
         fb_.temp.circuit=myFusebox.thisCircuit;
         fb_.temp.fuseaction=myFusebox.thisFuseaction;
         fb_.temp.phase=fb_.phase;
@@ -282,7 +282,7 @@ This software consists of voluntary contributions made by many individuals on be
         // set the value of myFusebox.thisFuseaction
         // (both here and at the end of the parsing of this <do> so that we always return to the right value of myFusebox.thisFuseaction)
         fb_.temp=structNew();
-        fb_.temp.xmlName="set";
+        fb_.temp.xmlname="set";
         fb_.temp.circuit=myFusebox.thisCircuit;
         fb_.temp.fuseaction=myFusebox.thisFuseaction;
         fb_.temp.phase=fb_.phase;
@@ -295,7 +295,7 @@ This software consists of voluntary contributions made by many individuals on be
         // if this fuseaction has an exceptionHandler then insert space-holders for opening and closing <CFTRY></CFTRY> tags
         if (arrayLen(application.fusebox.pluginphases['fuseactionException']) GT 0) {
           fb_.temp=structNew();
-          fb_.temp.xmlName="beginExceptionHandler";
+          fb_.temp.xmlname="beginExceptionHandler";
           fb_.temp.circuit=myFusebox.thisCircuit;
           fb_.temp.fuseaction=myFusebox.thisFuseaction;
           fb_.temp.phase=fb_.phase;
@@ -316,7 +316,7 @@ This software consists of voluntary contributions made by many individuals on be
             fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
             fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
             fb_.temp=structNew();
-            fb_.temp.xmlName="set";
+            fb_.temp.xmlname="set";
             fb_.temp.circuit=myFusebox.thisCircuit;
             fb_.temp.fuseaction=myFusebox.thisFuseaction;
             fb_.temp.phase=fb_.phase;
@@ -328,7 +328,7 @@ This software consists of voluntary contributions made by many individuals on be
           }
           // and the Plugin itself
           fb_.temp=StructNew();
-          fb_.temp.xmlName="plugin";
+          fb_.temp.xmlname="plugin";
           fb_.temp.circuit=myFusebox.thisCircuit;
           fb_.temp.fuseaction=myFusebox.thisFuseaction;
           fb_.temp.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i];
@@ -385,7 +385,7 @@ This software consists of voluntary contributions made by many individuals on be
               }
               // make sure right value for myFusebox.thisCircuit is set
               fb_.temp=structNew();
-              fb_.temp.xmlName="set";
+              fb_.temp.xmlname="set";
               fb_.temp.circuit=myFusebox.thisCircuit;
               fb_.temp.fuseaction=myFusebox.thisFuseaction;
               fb_.temp.phase=fb_.phase;
@@ -396,7 +396,7 @@ This software consists of voluntary contributions made by many individuals on be
             }
             // since prefuseaction calls to super would have overwritten the myFusebox.thisCircuit we need to reset it again
             fb_.temp=structNew();
-            fb_.temp.xmlName="set";
+            fb_.temp.xmlname="set";
             fb_.temp.circuit=myFusebox.thisCircuit;
             fb_.temp.fuseaction=myFusebox.thisFuseaction;
             fb_.temp.phase=fb_.phase;
@@ -406,7 +406,7 @@ This software consists of voluntary contributions made by many individuals on be
             arrayAppend(fb_.xnPreFA, fb_.temp);
             // since prefuseaction calls to super would have overwritten the myFusebox.thisFuseaction we need to reset it again
             fb_.temp=structNew();
-            fb_.temp.xmlName="set";
+            fb_.temp.xmlname="set";
             fb_.temp.circuit=myFusebox.thisCircuit;
             fb_.temp.fuseaction=myFusebox.thisFuseaction;
             fb_.temp.phase=fb_.phase;
@@ -438,7 +438,7 @@ This software consists of voluntary contributions made by many individuals on be
               fb_.xnSuperPostFA=application.fusebox.circuits[fb_.aCircuit].postfuseaction.xml;
               // make sure right value for myFusebox.thisCircuit is set
               fb_.temp=structNew();
-              fb_.temp.xmlName="set";
+              fb_.temp.xmlname="set";
               fb_.temp.circuit=myFusebox.thisCircuit;
               fb_.temp.fuseaction=myFusebox.thisFuseaction;
               fb_.temp.phase=fb_.phase;
@@ -472,7 +472,7 @@ This software consists of voluntary contributions made by many individuals on be
 
             // since postfuseaction calls to super would have overwritten the myFusebox.thisCircuit we need to reset it again
             fb_.temp=structNew();
-            fb_.temp.xmlName="set";
+            fb_.temp.xmlname="set";
             fb_.temp.circuit=myFusebox.thisCircuit;
             fb_.temp.fuseaction=myFusebox.thisFuseaction;
             fb_.temp.phase=fb_.phase;
@@ -483,7 +483,7 @@ This software consists of voluntary contributions made by many individuals on be
 
             // since postfuseaction calls to super would have overwritten the myFusebox.thisFuseaction we need to reset it again
             fb_.temp=structNew();
-            fb_.temp.xmlName="set";
+            fb_.temp.xmlname="set";
             fb_.temp.circuit=myFusebox.thisCircuit;
             fb_.temp.fuseaction=myFusebox.thisFuseaction;
             fb_.temp.phase=fb_.phase;
@@ -527,7 +527,7 @@ This software consists of voluntary contributions made by many individuals on be
 	            fb_.temp.circuit=myFusebox.thisCircuit;
 	            fb_.temp.fuseaction=myFusebox.thisFuseaction;
 	            fb_.temp.phase=fb_.phase;
-	            fb_.temp.xmlName="conditional";
+	            fb_.temp.xmlname="conditional";
 	            fb_.temp.xmlAttributes=StructNew();
 	            fb_.temp.xmlAttributes['mode']="begin";
 	            for (fb_.anItem in fb_.xnFA[fb_.j].xmlAttributes) {
@@ -569,7 +569,7 @@ This software consists of voluntary contributions made by many individuals on be
 	            fb_.temp.circuit=myFusebox.thisCircuit;
 	            fb_.temp.fuseaction=myFusebox.thisFuseaction;
 	            fb_.temp.phase=fb_.phase;
-	            fb_.temp.xmlName="conditional";
+	            fb_.temp.xmlname="conditional";
 	            fb_.temp.xmlAttributes=StructNew();
 	            fb_.temp.xmlAttributes['mode']="else";
 							// fixed FB4.03 loop+if bug
@@ -608,7 +608,7 @@ This software consists of voluntary contributions made by many individuals on be
 	            fb_.temp.circuit=myFusebox.thisCircuit;
 	            fb_.temp.fuseaction=myFusebox.thisFuseaction;
 	            fb_.temp.phase=fb_.phase;
-	            fb_.temp.xmlName="conditional";
+	            fb_.temp.xmlname="conditional";
 	            fb_.temp.xmlAttributes=StructNew();
 	            fb_.temp.xmlAttributes['mode']="end";
 							// fixed FB4.03 loop+if bug
@@ -622,7 +622,7 @@ This software consists of voluntary contributions made by many individuals on be
 	            fb_.temp.circuit=myFusebox.thisCircuit;
 	            fb_.temp.fuseaction=myFusebox.thisFuseaction;
 	            fb_.temp.phase=fb_.phase;
-	            fb_.temp.xmlName="loop";
+	            fb_.temp.xmlname="loop";
 	            fb_.temp.xmlAttributes=StructNew();
 	            fb_.temp.xmlAttributes['mode']="begin";
 	            for (fb_.anItem in fb_.xnFA[fb_.j].xmlAttributes) {
@@ -660,7 +660,7 @@ This software consists of voluntary contributions made by many individuals on be
 	            fb_.temp.circuit=myFusebox.thisCircuit;
 	            fb_.temp.fuseaction=myFusebox.thisFuseaction;
 	            fb_.temp.phase=fb_.phase;
-	            fb_.temp.xmlName="loop";
+	            fb_.temp.xmlname="loop";
 	            fb_.temp.xmlAttributes=StructNew();
 	            fb_.temp.xmlAttributes['mode']="end";
 							// fixed FB4.03 loop+if bug
@@ -698,7 +698,7 @@ This software consists of voluntary contributions made by many individuals on be
 	          fb_.temp.circuit=myFusebox.thisCircuit;
 	          fb_.temp.fuseaction=myFusebox.thisFuseaction;
 	          fb_.temp.phase=fb_.phase;
-	          fb_.temp.xmlName="contentvariable";
+	          fb_.temp.xmlname="contentvariable";
 	          fb_.temp.xmlAttributes=StructNew();
 	          fb_.temp.xmlAttributes['contentvariable']=fb_.fuseQ[fb_.position+1].xmlAttributes['contentvariable'];
 	          fb_.temp.xmlAttributes['mode']="begin";
@@ -740,7 +740,7 @@ This software consists of voluntary contributions made by many individuals on be
             fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
             fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
             fb_.temp=structNew();
-            fb_.temp.xmlName="set";
+            fb_.temp.xmlname="set";
             fb_.temp.circuit=myFusebox.thisCircuit;
             fb_.temp.fuseaction=myFusebox.thisFuseaction;
             fb_.temp.phase=fb_.phase;
@@ -752,7 +752,7 @@ This software consists of voluntary contributions made by many individuals on be
           }
           // and the Plugin itself
           fb_.temp=StructNew();
-          fb_.temp.xmlName="plugin";
+          fb_.temp.xmlname="plugin";
           fb_.temp.circuit=myFusebox.thisCircuit;
           fb_.temp.fuseaction=myFusebox.thisFuseaction;
           fb_.temp.phase=fb_.phase;
@@ -777,7 +777,7 @@ This software consists of voluntary contributions made by many individuals on be
             fb_.temp.circuit=myFusebox.thisCircuit;
             fb_.temp.fuseaction=myFusebox.thisFuseaction;
             fb_.temp.phase=fb_.phase;
-            fb_.temp.xmlName="set";
+            fb_.temp.xmlname="set";
             fb_.temp.xmlAttributes=structNew();
             fb_.temp.xmlAttributes['name']="myFusebox.plugins.#fb_.plugin#.parameters.#fb_.name#";
             fb_.temp.xmlAttributes['value']=fb_.value;
@@ -786,7 +786,7 @@ This software consists of voluntary contributions made by many individuals on be
           }
           // and the Plugin itself
           fb_.temp=StructNew();
-          fb_.temp.xmlName="exceptionHandler";
+          fb_.temp.xmlname="exceptionHandler";
           fb_.temp.circuit=myFusebox.thisCircuit;
           fb_.temp.fuseaction=myFusebox.thisFuseaction;
           fb_.temp.phase=fb_.phase;
@@ -802,7 +802,7 @@ This software consists of voluntary contributions made by many individuals on be
         // we also did this when first parsing this <do>
         if (arrayLen(application.fusebox.pluginphases['fuseactionException']) GT 0) {
           fb_.temp=structNew();
-          fb_.temp.xmlName="endExceptionHandler";
+          fb_.temp.xmlname="endExceptionHandler";
           fb_.temp.circuit=myFusebox.thisCircuit;
           fb_.temp.fuseaction=myFusebox.thisFuseaction;
           fb_.temp.phase=fb_.phase;
@@ -816,7 +816,7 @@ This software consists of voluntary contributions made by many individuals on be
         // set the value of myFusebox.thisFuseaction
         // (this was also done at the beginning of the parsing of this <do> so that we always return to the right value of myFusebox.thisFuseaction)
         fb_.temp=structNew();
-        fb_.temp.xmlName="set";
+        fb_.temp.xmlname="set";
         fb_.temp.circuit=fb_.fuseQ[fb_.pointer].circuit;
         fb_.temp.fuseaction=fb_.fuseQ[fb_.pointer].fuseaction;
         fb_.temp.phase=fb_.phase;
@@ -829,7 +829,7 @@ This software consists of voluntary contributions made by many individuals on be
         // set the value of myFusebox.thisCircuit
         // (this was also done at the beginning of the parsing of this <do> so that we always return to the right value of myFusebox.thisCircuit)
         fb_.temp=structNew();
-        fb_.temp.xmlName="set";
+        fb_.temp.xmlname="set";
         fb_.temp.circuit=fb_.fuseQ[fb_.pointer].circuit;
         fb_.temp.fuseaction=fb_.fuseQ[fb_.pointer].fuseaction;
         fb_.temp.phase=fb_.phase;

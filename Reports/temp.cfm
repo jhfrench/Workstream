@@ -74,7 +74,7 @@ ORDER BY REF_Reimbursement_Type.reimbursement_type, work_date, project_id
 	</tr>
 		<cfoutput>
 		<tr>
-		   <td><strong>#DateFormat(work_date,"mm/d/yy")#</strong><br><br>#note# </td>
+		   <td><strong>#dateformat(work_date,"mm/d/yy")#</strong><br><br>#note# </td>
 		   <td>#code# </td>
 		<cfloop from="1" to="#Get_Expense_Type.recordcount#" index="ii">
 		   <td align="center">#dollarformat(evaluate("ExpenseType_#ii#"))#</td><cfset  total_hours_Date = total_hours_Date + Evaluate("ExpenseType_#ii#")><cfset "row_total#ii#" = evaluate("ExpenseType_#ii#") + evaluate("Row_Total#ii#")>
@@ -102,7 +102,7 @@ ORDER BY REF_Reimbursement_Type.reimbursement_type, work_date, project_id
  <cfoutput query="Expenses2">  	
 <cfif Expenses2.recordcount>	
 	<tr> 
-		   <td><strong>#DateFormat(work_date,"mm/d/yy")#</strong><br><br>#notes# </td>
+		   <td><strong>#dateformat(work_date,"mm/d/yy")#</strong><br><br>#notes# </td>
 		   <td>#code# </td>
 		   <td align="center">#dollarformat(ExpenseType_1)#</td><cfset  total_hours_Date = total_hours_Date + ExpenseType_1> <cfset row_total1 = ExpenseType_1 +Row_Total1>
 		   <td align="center">#dollarformat(ExpenseType_2)#</td><cfset  total_hours_Date = total_hours_Date + ExpenseType_2><cfset row_total2 = ExpenseType_2 +Row_Total2>
@@ -152,7 +152,7 @@ ORDER BY REF_Reimbursement_Type.reimbursement_type, work_date, project_id
 	<cfoutput query="Expenses3">  	
 <cfif Expenses3.recordcount>	
 	<tr>  
-	 	    <td><strong>#DateFormat(work_date,"mm/d/yy")#</strong><br><br>#notes# </td>
+	 	    <td><strong>#dateformat(work_date,"mm/d/yy")#</strong><br><br>#notes# </td>
 	   	    <td>#code# </td>
 	  	     <td align="center">#dollarformat(ExpenseType_1)#</td><cfset  total_hours_Date = total_hours_Date + ExpenseType_1> <cfset row_total1 = ExpenseType_1 +Row_Total1>
 		   <td align="center">#dollarformat(ExpenseType_2)#</td><cfset  total_hours_Date = total_hours_Date + ExpenseType_2><cfset row_total2 = ExpenseType_2 +Row_Total2>

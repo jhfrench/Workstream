@@ -37,7 +37,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td align="center" colspan="2"><input type="Submit" value="Enter Dates" class="RegText#session.workstream_text_size#"></td>
+		<td align="center" colspan="2"><input type="submit" value="Enter Dates" class="RegText#session.workstream_text_size#"></td>
 	</tr>	
 </table>
 </cfform>

@@ -12,7 +12,7 @@
 	||
 	END FUSEDOC --->
 </cfsilent>
-<cfparam NAME="CURR_SHEET" DEFAULT="1">			<!--- WE KEEP TRACK OF WHAT WORKSHEET WE ARE AUTOMATING WITH THIS VARIABLE --->	
+<cfparam name="CURR_SHEET" DEFAULT="1">			<!--- WE KEEP TRACK OF WHAT WORKSHEET WE ARE AUTOMATING WITH THIS VARIABLE --->	
 
 
 <cfinclude template="qry_Get_reimbursement_types.cfm">

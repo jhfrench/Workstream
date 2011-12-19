@@ -19,7 +19,7 @@
 <cfoutput>
 <form name="continue_on" method="post" action="#attributes.action#">
 	<cfloop list="#attributes.fields#" index="ii">
-	<input type="Hidden" name="#ii#" value="#evaluate(ii)#">
+	<input type="hidden" name="#ii#" value="#evaluate(ii)#">
 	</cfloop>
 </form>
 </cfoutput>

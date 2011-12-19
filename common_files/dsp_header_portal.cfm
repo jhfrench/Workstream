@@ -49,9 +49,9 @@ else
 		<meta name="dc.format" content="text/html" />
 		<meta name="dc.date.modified" content="#application.last_updated#" />
 		<meta name="dc.language" content="en" />
-		<meta name="dc.publisher" content="National Aeronautics and Space Administration: #application.application_specific_settings.nasa_official#" />
+		<meta name="dc.publisher" content="Applied Internet Technologies: #application.application_specific_settings.nasa_official#" />
 		<!--Meta Data ends-->
-		<link href="http://www.nasa.gov/favicon.ico" rel="SHORTCUT ICON" />
+		<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
 		<link href="common_files/ngauge.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />
 		<link href="common_files/application.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />
 		<link href="common_files/common.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />

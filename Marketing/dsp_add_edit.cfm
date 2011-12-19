@@ -33,13 +33,13 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	<tr>	
 		<td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>" align = "right">Delete</td>
 		<td><input type="radio" name="select" value="d"> 
-		<input type="Hidden" name="emp_id" value="<cfoutput>#attributes.cfgridkey#</cfoutput>">
-		<input type="Hidden" name="flag" value="1">
-		<input type="Hidden" name="cfgridkey" value="<cfoutput>#attributes.cfgridkey#</cfoutput>">
+		<input type="hidden" name="emp_id" value="<cfoutput>#attributes.cfgridkey#</cfoutput>">
+		<input type="hidden" name="flag" value="1">
+		<input type="hidden" name="cfgridkey" value="<cfoutput>#attributes.cfgridkey#</cfoutput>">
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="Submit" value="Submit" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>"></td>
+		<td colspan="2" align="center"><input type="submit" value="Submit" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>"></td>
 	</tr>
 
 </form>

@@ -93,14 +93,14 @@ return retValue;
 <table border="0" cellpadding="0" cellspacing="2">
 	<tr bordercolor="##ffffff">
 		<td class="SubHeadText#session.workstream_text_size#" valign="baseline">
-			Task Name <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See pre-defined task names." border="0"  onclick="OpenPreTaskWindow('task_name');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#incrementvalue(tabindex)#"><!--- <cfset tabindex=incrementvalue(tabindex)> <img src="#request.dir_level##application.application_specific_settings.image_dir#check.gif" valign="bottom" width="15" height="15" alt="Check spelling for the task name." border="0"  onClick="OpenWLWindow('task_name');" tabindex="#tabindex#"> ---><br>
+			Task Name <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See pre-defined task names." border="0"  onclick="OpenPreTaskWindow('task_name');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#incrementvalue(tabindex)#"><!--- <cfset tabindex=incrementvalue(tabindex)> <img src="#request.dir_level##application.application_specific_settings.image_dir#check.gif" valign="bottom" width="15" height="15" alt="Check spelling for the task name." border="0"  onclick="OpenWLWindow('task_name');" tabindex="#tabindex#"> ---><br>
 			<cfinput type="text" name="task_name" value="" required="Yes" message="Please enter a task name." size="70" tabindex="#tabindex#" maxlength="255" class="RegText#session.workstream_text_size#">
 		</td>
 	</tr>
 	<cfinclude template="dsp_project_select_list.cfm">
 	<tr>
 		<td class="SubHeadText#session.workstream_text_size#" valign="top">
-			Description<!--- <cfset tabindex=incrementvalue(tabindex)> <img src="#request.dir_level##application.application_specific_settings.image_dir#check.gif" valign="bottom" width="15" height="15" alt="Check spelling for the task details." border="0"  onClick="OpenWLWindow('task_details');" tabindex="#tabindex#"> ---><br>
+			Description<!--- <cfset tabindex=incrementvalue(tabindex)> <img src="#request.dir_level##application.application_specific_settings.image_dir#check.gif" valign="bottom" width="15" height="15" alt="Check spelling for the task details." border="0"  onclick="OpenWLWindow('task_details');" tabindex="#tabindex#"> ---><br>
 			
 			<textarea name="task_details" cols="#variables.cols#" rows="6" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" wrap="soft" class="RegText#session.workstream_text_size#"></textarea><br>
 	</cfoutput>

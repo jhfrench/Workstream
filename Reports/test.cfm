@@ -1,11 +1,11 @@
-<FORM NAME="f" ACTION="index.cfm?fuseaction=expense_insert" METHOD=POST onSubmit="return _CF_checkf(this)"> 
+<FORM name="f" ACTION="index.cfm?fuseaction=expense_insert" METHOD=POST onSubmit="return _CF_checkf(this)"> 
 	
 	
 	<table cellspacing="0" cellpadding="4" border="0" width="95%" align="center">
 	  <tr>
       	 <td valign="top"class="RegTextMd">Type of Expense: </td>
 	       <td colspan="3"> 
-			<SELECT NAME="Reimbursement_Type" SIZE="4" CLASS="RegTextMd">
+			<SELECT name="Reimbursement_Type" SIZE="4" class="RegTextMd">
 		       <option value="1" selected>
 	      		 Out Of Pocket Expense
 	      	 </option>
@@ -40,7 +40,7 @@
 			Date: 
 		</td>
        	<td>
-			<INPUT TYPE="Text" NAME="DateField1" ONCLICK="ShowDate(1)" SIZE="10">
+			<input TYPE="Text" name="DateField1" onclick="ShowDate(1)" SIZE="10">
            </td>
 	</tr>
 	<tr>
@@ -51,7 +51,7 @@
    						Airfare:
    					</td>
    					<td>
-   						<INPUT TYPE="Text" NAME="ExpenseType_1" CLASS="RegTextMd">
+   						<input TYPE="Text" name="ExpenseType_1" class="RegTextMd">
    					</td>
    				</tr>
    		   		<tr>
@@ -59,7 +59,7 @@
    						Office Supplies:
    					</td>
    					<td>
-   						<INPUT TYPE="Text" NAME="ExpenseType_2" CLASS="RegTextMd">
+   						<input TYPE="Text" name="ExpenseType_2" class="RegTextMd">
    					</td>
    				</tr>
    		   		<tr>
@@ -67,7 +67,7 @@
    						Rental Car:
 		   			</td>
    					<td>
-   						<INPUT TYPE="Text" NAME="ExpenseType_3" CLASS="RegTextMd">
+   						<input TYPE="Text" name="ExpenseType_3" class="RegTextMd">
 		   			</td>
    				</tr>
 				<tr>
@@ -75,7 +75,7 @@
 		   				Own Car Mileage:
    					</td>
 		   			<td>
-   						<INPUT TYPE="Text" NAME="ExpenseType_4" CLASS="RegTextMd">
+   						<input TYPE="Text" name="ExpenseType_4" class="RegTextMd">
 		   			</td>
    				</tr>
    		  		<tr>
@@ -83,7 +83,7 @@
    						Parking/Toll:
 	   				</td>
    					<td>
-   						<INPUT TYPE="Text" NAME="ExpenseType_5" CLASS="RegTextMd">
+   						<input TYPE="Text" name="ExpenseType_5" class="RegTextMd">
    					</td>
    				</tr>
    		   		<tr>
@@ -91,7 +91,7 @@
    						Taxi/Bus:
 		   			</td>
    					<td>
-   						<INPUT TYPE="Text" NAME="ExpenseType_6" CLASS="RegTextMd">
+   						<input TYPE="Text" name="ExpenseType_6" class="RegTextMd">
 		   			</td>
    				</tr>
    		   		<tr>
@@ -99,7 +99,7 @@
    						Lodging:
    					</td>
    					<td>
-		   				<INPUT TYPE="Text" NAME="ExpenseType_7" CLASS="RegTextMd">
+		   				<input TYPE="Text" name="ExpenseType_7" class="RegTextMd">
    					</td>
 		   		</tr>				
    			</table>
@@ -111,7 +111,7 @@
    						Breakfast:
 		   			</td>
    					<td>
-   						<INPUT TYPE="Text" NAME="ExpenseType_8" CLASS="RegText<cfoutput>Md</cfoutput>">
+   						<input TYPE="Text" name="ExpenseType_8" class="RegText<cfoutput>Md</cfoutput>">
 		   			</td>
    				</tr>
 				
@@ -120,7 +120,7 @@
 		   				Lunch:
    					</td>
 		   			<td>
-   						<INPUT TYPE="Text" NAME="ExpenseType_9" CLASS="RegText<cfoutput>Md</cfoutput>">
+   						<input TYPE="Text" name="ExpenseType_9" class="RegText<cfoutput>Md</cfoutput>">
 		   			</td>
    				</tr>
 			
@@ -129,7 +129,7 @@
    						Dinner:
 		   			</td>
    					<td>
-   						<INPUT TYPE="Text" NAME="ExpenseType_10" CLASS="RegText<cfoutput>Md</cfoutput>">
+   						<input TYPE="Text" name="ExpenseType_10" class="RegText<cfoutput>Md</cfoutput>">
 		   			</td>
    				</tr>
 			
@@ -138,7 +138,7 @@
    						Phone:
 		   			</td>
    					<td>
-   						<INPUT TYPE="Text" NAME="ExpenseType_11" CLASS="RegText<cfoutput>Md</cfoutput>">
+   						<input TYPE="Text" name="ExpenseType_11" class="RegText<cfoutput>Md</cfoutput>">
 		   			</td>
    				</tr>
 			
@@ -147,7 +147,7 @@
    						Tips:	
 		   			</td>
    					<td>
-   						<INPUT TYPE="Text" NAME="ExpenseType_12" CLASS="RegText<cfoutput>Md</cfoutput>">
+   						<input TYPE="Text" name="ExpenseType_12" class="RegText<cfoutput>Md</cfoutput>">
 		   			</td>
    				</tr>
 			
@@ -156,7 +156,7 @@
 		   				Misc:
    					</td>
 		   			<td>
-   						<INPUT TYPE="Text" NAME="ExpenseType_13" CLASS="RegText<cfoutput>Md</cfoutput>">
+   						<input TYPE="Text" name="ExpenseType_13" class="RegText<cfoutput>Md</cfoutput>">
 		   			</td>
    				</tr>
 			
@@ -165,7 +165,7 @@
    						Conference:
 		   			</td>
 		   			<td>
-   						<INPUT TYPE="Text" NAME="ExpenseType_14" CLASS="RegText<cfoutput>Md</cfoutput>">
+   						<input TYPE="Text" name="ExpenseType_14" class="RegText<cfoutput>Md</cfoutput>">
 		   			</td>
    				</tr>
 			
@@ -185,7 +185,7 @@
    <input type="hidden" name="emp_id" value="41">
    <tr>
    	<td align="right">
-		<input type="Submit" value="Submit" name="Insert">
+		<input type="submit" value="Submit" name="Insert">
 		<input type="Reset">
 	</td>
    </tr>

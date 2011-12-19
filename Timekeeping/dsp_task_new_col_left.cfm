@@ -44,8 +44,8 @@
 		<td colspan="2" class="SubHeadText#session.workstream_text_size#">
 			Status<br><cfset tabindex=incrementvalue(tabindex)>
 			<cfselect query="get_task_stati" name="task_status" display="status" value="status_id" selected="0" tabindex="#tabindex#" class="RegText#session.workstream_text_size#"></cfselect><p>
-			<input type="button" value="Create New Task" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" class="RegText#session.workstream_text_size#" onClick="checkTheDescription('');">
-			<input type="button" value="Submit To Inbox" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" class="RegText#session.workstream_text_size#" onClick="checkTheDescription('to_inbox');">
+			<input type="button" value="Create New Task" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" class="RegText#session.workstream_text_size#" onclick="checkTheDescription('');">
+			<input type="button" value="Submit To Inbox" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" class="RegText#session.workstream_text_size#" onclick="checkTheDescription('to_inbox');">
 			<input type="hidden" name="last_loaded" value="#now()#">
 			<input type="hidden" name="to_inbox" value="">
 		</td>
@@ -53,7 +53,7 @@
 	<tr>
 		<td colspan="2" class="SubHeadText#session.workstream_text_size#">
 			<input type="hidden" name="to_edit" value="">
-			<input type="button" value="Create And Edit" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" class="RegText#session.workstream_text_size#" onClick="checkTheDescription('to_edit');">
+			<input type="button" value="Create And Edit" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" class="RegText#session.workstream_text_size#" onclick="checkTheDescription('to_edit');">
 		</td>
 	</tr>
 </table>

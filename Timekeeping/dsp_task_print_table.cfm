@@ -72,13 +72,13 @@
 			Assigned:
 		</td>
 		<td class="RegText#session.workstream_text_size#">
-			#DateFormat(date_assigned,"mm/dd/yy")#
+			#dateformat(date_assigned,"mm/dd/yy")#
 		</td>
 		<td align="right" class="SubHeadText#session.workstream_text_size#">
 			Due:
 		</td>
 		<td class="RegText#session.workstream_text_size#">
-			#DateFormat(due_date,"mm/dd/yy")#
+			#dateformat(due_date,"mm/dd/yy")#
 		</td>
 		<td align="right" class="SubHeadText#session.workstream_text_size#">
 			Status:
@@ -104,7 +104,13 @@
 		</td>
 		<td colspan="5" class="RegText#session.workstream_text_size#"></cfoutput>
 		<cfset qa_note_type_id_list = "2,5">
-			<cfif time_entry_details.recordcount><cfoutput query="time_entry_details"><cfif time_entry_details.currentrow GT 1 and attributes.expand EQ 1 ><p></cfif>(#initials#: #DateFormat(date,"m/d")# #TimeFormat(date,"h:mm tt")#<cfif ListFindNoCase(qa_note_type_id_list,time_entry_details.notes_type_id)>, <b>QA</b></cfif>)  - #trim(note)#&nbsp;&nbsp;</cfoutput><cfelse>Resolution notes not yet entered for this task.</cfif>
+			<cfif time_entry_details.recordcount>
+			<cfoutput query="time_entry_details">
+				<p>(#initials#: #dateformat(date,"m/d")#<cfif ListFindNoCase(qa_note_type_id_list,time_entry_details.notes_type_id)>, <b>QA</b></cfif>)  - #trim(note)#</p>
+			</cfoutput>
+			<cfelse>
+				Resolution notes not yet entered for this task.
+			</cfif>
 		</td>
 	</tr>
 <!---<cfoutput>
@@ -113,7 +119,7 @@
 			QA Notes:
 		</td>
 		<td colspan="5" class="RegText#session.workstream_text_size#"></cfoutput>
-			<cfif qa_entry_details.recordcount><cfloop query="qa_entry_details"><cfoutput><cfif qa_entry_details.currentrow gt 1 and attributes.expand eq 1><p></cfif>#notes_type_id#(#initials# #DateFormat(date,"m/d")# #TimeFormat(date,"h:mm tt")#) -  #trim(note)#&nbsp;&nbsp;</cfoutput></cfloop><cfelse>QA notes not yet entered for this task.</cfif>
+			<cfif qa_entry_details.recordcount><cfloop query="qa_entry_details"><cfoutput><cfif qa_entry_details.currentrow gt 1 and attributes.expand eq 1><p></cfif>#notes_type_id#(#initials# #dateformat(date,"m/d")# #TimeFormat(date,"h:mm tt")#) -  #trim(note)#&nbsp;&nbsp;</cfoutput></cfloop><cfelse>QA notes not yet entered for this task.</cfif>
 		</td>
 	</tr>--->
 <cfoutput>
@@ -134,7 +140,7 @@
 			Associated Tasks:
 		</td>
 		<td colspan="5" class="RegText#session.workstream_text_size#"></cfoutput>
-			<cfif get_associated_tasks.recordcount><cfoutput query="get_associated_tasks"><a href="index.cfm?fuseaction=Timekeeping.print_task&task_id=#task_id#&expand=1"><img src="http://monitor.promisweb.com/document.gif" width=16 height=16 alt="" border="0"></a><a href="index.cfm?fuseaction=Timekeeping.task_details&task_id=#task_id#">#Task_ID#</a> - #name#<br></cfoutput><cfelse>No tasks currently associated with this task.</cfif>
+			<cfif get_associated_tasks.recordcount><cfoutput query="get_associated_tasks"><a href="index.cfm?fuseaction=Timekeeping.print_task&task_id=#task_id#&expand=1"><img src="#request.dir_level##application.application_specific_settings.image_dir#none.gif" width="16" height="16" alt="" border="0"></a><a href="index.cfm?fuseaction=Timekeeping.task_details&task_id=#task_id#">#task_id#</a> - #name#<br></cfoutput><cfelse>No tasks currently associated with this task.</cfif>
 		</td>
 	</tr>
 

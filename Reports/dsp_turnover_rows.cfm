@@ -30,7 +30,7 @@
 <cfoutput>
 	<tr>
 		<td></td>
-		<td colspan="2" class="RegText#session.workstream_text_size#Bd">Between #DateFormat(date_start, "mmm/yyyy")# and #DateFormat(dateadd("q", 1, now()), "mmm/yyyy")#:</td>
+		<td colspan="2" class="RegText#session.workstream_text_size#Bd">Between #dateformat(date_start, "mmm/yyyy")# and #dateformat(dateadd("q", 1, now()), "mmm/yyyy")#:</td>
 		<td align="center" class="RegText#session.workstream_text_size#Bd">#Total_population.total_pop#</td>
 		<cfloop list="#reasons#" index="ii">
 		<td align="center" class="RegText#session.workstream_text_size#Bd">#evaluate("dataset#ii#")#</td>

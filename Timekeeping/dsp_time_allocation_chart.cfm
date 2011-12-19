@@ -34,7 +34,7 @@
 				</cfchart>
 			</cfsavecontent>
 			<div id="time_allocation_chart" align="center">
-			     <cfoutput>#replacenocase(replacenocase(variables.chart_under_menu,'quality="high"', 'quality="high" wmode="transparent"', "ALL"),'<PARAM NAME="quality" VALUE="high"/>', '<PARAM NAME="quality" VALUE="high"/><PARAM NAME="wmode" VALUE="transparent"/>', "ALL")#</cfoutput>
+			     <cfoutput>#replacenocase(replacenocase(variables.chart_under_menu,'quality="high"', 'quality="high" wmode="transparent"', "ALL"),'<PARAM name="quality" value="high"/>', '<PARAM name="quality" value="high"/><PARAM name="wmode" value="transparent"/>', "ALL")#</cfoutput>
 			Hover over a pie slice to see details.
 			</div>
 		</td>

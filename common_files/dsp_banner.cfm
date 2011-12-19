@@ -38,12 +38,12 @@
 	<td align="center" rowspan="2" width="440"><cfif session.workstream_display_chat><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
  WIDTH="340" HEIGHT="127">
-	<PARAM NAME="MOVIE" VALUE="http://10.1.1.3/flashchat/newchatinterface.swf?userID=<cfoutput>#session.workstream_authuser#</cfoutput>">
-	<PARAM NAME="PLAY" VALUE="true">
-	<PARAM NAME="LOOP" VALUE="false">
-	<PARAM NAME="QUALITY" VALUE="high">
-	<PARAM NAME="MENU" VALUE="false">
-	<PARAM NAME="BGCOLOR" VALUE="#0000ff">
+	<PARAM name="MOVIE" value="http://10.1.1.3/flashchat/newchatinterface.swf?userID=<cfoutput>#session.workstream_authuser#</cfoutput>">
+	<PARAM name="PLAY" value="true">
+	<PARAM name="LOOP" value="false">
+	<PARAM name="QUALITY" value="high">
+	<PARAM name="MENU" value="false">
+	<PARAM name="BGCOLOR" value="#0000ff">
 	<EMBED SRC="http://10.1.1.3/flashchat/newchatinterface.swf?userID=<cfoutput>#session.workstream_authuser#</cfoutput>"
 	WIDTH="340" HEIGHT="127"
 	BGCOLOR="#0000FF"

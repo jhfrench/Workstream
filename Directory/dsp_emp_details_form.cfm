@@ -29,7 +29,7 @@
 				<font color=red>Birthday</font>: <cfinput type="text" name="dob" value="#dateformat(dob, 'mm/dd/yyyy')#" required="Yes" validate="date" message="Please enter a properly formatted birthdate." size="11" class="RegText#session.workstream_text_size#">&nbsp;
 				<font color=red>SSN</font>: <cfinput type="text" name="ssn" value="#ssn#" required="Yes" validate="social_security_number" message="Please enter a properly formatted SSN." size="11" class="RegText#session.workstream_text_size#">&nbsp;
 				<font color=red>Pin:</font> <cfinput type="text" name="pin" value="#pin#" required="Yes" message="Please enter a pin." size="6" class="RegText#session.workstream_text_size#">&nbsp;
-				Picture: <input type="text" Name="photo" size="10" value="#photo#" class="RegText#session.workstream_text_size#"><!--- <input type="file" name="photo" size="20" value="" class="RegText#session.workstream_text_size#"> --->
+				Picture: <input type="text" name="photo" size="10" value="#photo#" class="RegText#session.workstream_text_size#"><!--- <input type="file" name="photo" size="20" value="" class="RegText#session.workstream_text_size#"> --->
 			</td>
 		</tr>
 		<tr>
@@ -82,7 +82,7 @@
 					<tr>
 						<td class="SubHeadText#session.workstream_text_size#">&nbsp;</td>
 						<td class="RegText#session.workstream_text_size#" align="right">Hire date: </td>
-						<td class="RegText#session.workstream_text_size#" align="left"><cfinput type="text" name="hire_date" value="#DateFormat(hire_date, 'mm/dd/yyyy')#" required="Yes" validate="date" message="Please enter a properly formatted hire date." size="11" class="RegText#session.workstream_text_size#"></td>
+						<td class="RegText#session.workstream_text_size#" align="left"><cfinput type="text" name="hire_date" value="#dateformat(hire_date, 'mm/dd/yyyy')#" required="Yes" validate="date" message="Please enter a properly formatted hire date." size="11" class="RegText#session.workstream_text_size#"></td>
 						<td class="RegText#session.workstream_text_size#" align="right"><font color=red>Company: </td>
 						<td class="RegText#session.workstream_text_size#" align="left"><cfselect query="get_teams" name="company_id" value="company_id" display="company" selected="#company_id#" class="RegText#session.workstream_text_size#"></cfselect></td>
 					</tr>
@@ -121,7 +121,7 @@
 					<tr>
 						<td class="SubHeadText#session.workstream_text_size#">&nbsp;</td>
 						<td class="RegText#session.workstream_text_size#" align="right">Date Change Effective: </td>
-						<td class="RegText#session.workstream_text_size#" align="left"><cfinput type="Text" name="effective_from" required="Yes" validate="date" message="You must provide a date that the change becomes effective." value="#DateFormat(now(), 'mm/dd/yyyy')#" maxlength="10" size="11" class="RegText#session.workstream_text_size#"></td>
+						<td class="RegText#session.workstream_text_size#" align="left"><cfinput type="Text" name="effective_from" required="Yes" validate="date" message="You must provide a date that the change becomes effective." value="#dateformat(now(), 'mm/dd/yyyy')#" maxlength="10" size="11" class="RegText#session.workstream_text_size#"></td>
 						<td class="RegText#session.workstream_text_size#" align="right">&nbsp;</td>
 						<td class="RegText#session.workstream_text_size#" align="left">&nbsp;</td>
 					</tr>
@@ -135,7 +135,7 @@
 						</select></td>
 						<td class="RegText#session.workstream_text_size#" align="right">PTO Annual Accrual (if not standard accrual): </td>
 						<td class="RegText#session.workstream_text_size#" align="left"><cfinput type="text" name="PTO_override" value="" required="no"  size="3" class="RegText#session.workstream_text_size#" validate="float" message="Please enter a valid number for PTO Annual Hours Accrued.">
-<input type="Hidden" name="emp_id" value="<cfif isdefined("attributes.emp_id")>#attributes.emp_id#</cfif>"></td>
+<input type="hidden" name="emp_id" value="<cfif isdefined("attributes.emp_id")>#attributes.emp_id#</cfif>"></td>
 					</tr>
 				<tr>
 				<td colspan="100%" class="RegText#session.workstream_text_size#" align="left"><i>** If the position number drop-down is empty, or you can't find the appropriate position number, you need to mark the incumbant as inactive or have a new position approved.</i> </td>

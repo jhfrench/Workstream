@@ -22,7 +22,7 @@
 <table align="center" bgcolor="#cccccc" border="0" cellpadding="0" cellspacing="0">
 	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;Account Edit (#get_user_details.lname#, #get_user_details.name#)" section_color="808080" colspan="5" gutter=0 title_class="HeadText#session.workstream_text_size#">
 	<cfinclude template="dsp_edit_auxiliary.cfm">
-	<cfmodule template="dsp_submit_options.cfm" include_reset="1" reset_value="Reset Options" submit_value="Save Settings">
+	<cfmodule template="../common_files/dsp_submit_options.cfm" include_reset="1" reset_value="Reset Options" submit_value="Save Settings">
 </table>
 </cfform>
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_account" field_name="emp_id" fuseaction="edit_account">

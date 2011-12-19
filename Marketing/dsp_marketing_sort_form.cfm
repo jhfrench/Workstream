@@ -27,7 +27,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 <select name="SortBy1"  class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 <option value = "None" selected>No Filter</option>
-<option Value="project.project_code">Project Code</option>
+<option value="project.project_code">Project Code</option>
 <option value="project.description">CustomerName</option>
 <option value="task.Name">Task Name</option>
 </select>
@@ -41,7 +41,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 </select>
 <select name="SortBy2" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 <option value = "None" selected>No Filter</option>
-<option Value="project.project_code">Project Code</option>
+<option value="project.project_code">Project Code</option>
 <option value="project.description">CustomerName</option>
 <option value="task.Name">Task Name</option>
 </select>
@@ -55,7 +55,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 </select>
 <select name="SortBy3" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 <option value = "None" selected>No Filter</option>
-<option Value="project.project_code">Project Code</option>
+<option value="project.project_code">Project Code</option>
 <option value="project.name">CustomerName</option>
 <option value="task.Name">Task Name</option>
 </select>

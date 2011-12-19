@@ -134,7 +134,7 @@ are storing more than required and, if so, delete the oldest one --->
 	
 	<!--- update fields in security table (UPDATE last_password_date ONLY if
 		company settings require password_expiration Check --->
-	<cfquery NAME="set new password" datasource="#application.datasources.main#">
+	<cfquery name="set new password" datasource="#application.datasources.main#">
 		UPDATE Security
 		SET password =  '#variables.new_pass#'
 		<cfif isdefined("last_password_date")>

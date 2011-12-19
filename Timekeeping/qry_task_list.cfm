@@ -68,7 +68,16 @@ FROM Task, Team, Emp_Contact,
 			(SELECT Task.task_id, REF_p.description as priority
 			FROM Task Inner join REF_priority REF_p on task.priority_id=REF_p.priority_id, Team
 			WHERE Task.task_id=Team.task_id <cfif NOT from_invoice>AND Team.emp_id IN (<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#session.user_account_id#</cfif>)
-				AND ((Team.roll_id IN (1,<cfif session.workstream_show_team>4,</cfif>0) AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>13)) OR (Team.roll_id=3 AND Task.status_id IN (4,10)))</cfif>
+				AND (
+					(
+						Team.roll_id IN (1,<cfif session.workstream_show_team>4,</cfif>0)
+						AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>13)
+					)
+					OR (
+						Team.roll_id=3 
+						AND Task.status_id IN (4,10)
+					)
+				)</cfif>
 			GROUP BY Task.task_id, REF_p.description) 
 		AS Valid_Tasks, Task, REF_Icon
 		WHERE Valid_Tasks.task_id=Task.task_id AND REF_Icon.icon_id=Task.icon_id)

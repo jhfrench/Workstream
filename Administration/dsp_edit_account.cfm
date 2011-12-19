@@ -57,12 +57,12 @@ Added $log $ for edits to all CFM files that have fusedocs.
 		<td colspan="2">&nbsp;Disable User: <input type="checkbox" name="disable"<cfif disable> checked</cfif>  class="RegText#session.workstream_text_size#">
 		</td>
 	</tr>
-	<cfmodule template="dsp_submit_options.cfm" include_reset="1" reset_value="Reset Options" submit_value="Save Settings">
+	<cfmodule template="../common_files/dsp_submit_options.cfm" include_reset="1" reset_value="Reset Options" submit_value="Save Settings">
 	<input type="hidden" name="old_username" value="#username#">
 	<input type="hidden" name="old_password" value="#password#">
 	<input type="hidden" name="old_disable" value="#disable#">
-	<input type="Hidden" name="obj_list" value="#valuelist(get_all_modules_and_reports.object_id)#">
-	<input type="Hidden" name="module_list" value="#valuelist(get_all_modules_and_reports.module_id)#">
+	<input type="hidden" name="obj_list" value="#valuelist(get_all_modules_and_reports.object_id)#">
+	<input type="hidden" name="module_list" value="#valuelist(get_all_modules_and_reports.module_id)#">
 </cfoutput>
 <cfoutput query="get_all_modules_and_reports">
 <cfif compare(variables.module_name, module_name)>

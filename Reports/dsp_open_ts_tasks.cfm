@@ -27,7 +27,7 @@
 </cfoutput>
 <cfoutput query="open_ts_tasks">
 	<tr<cfif open_ts_tasks.currentrow MOD 2> bgcolor="##e1e1e1"</cfif>>
-		<td class="RegText#session.workstream_text_size#">#DateFormat(due_date,"mm/dd/yy")#</td>
+		<td class="RegText#session.workstream_text_size#">#dateformat(due_date,"mm/dd/yy")#</td>
 		<td class="RegText#session.workstream_text_size#">#task_id#</td>
 		<td class="RegText#session.workstream_text_size#">#budgeted_hours#</td>
 		<td class="RegText#session.workstream_text_size#">#lname#</td>

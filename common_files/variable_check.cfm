@@ -90,7 +90,7 @@
  	<meta http-equiv="refresh" content="5;url=<cfoutput>#request.content#</cfoutput>">
 </head>
 <body>
-	<link href="http://www.nasa.gov/favicon.ico" rel="shortcut icon">
+	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
 <br />
 <br />
 <cfoutput>

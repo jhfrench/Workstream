@@ -21,5 +21,5 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	END FUSEDOC --->
 
 <tr bgcolor="#0000ff">
-			<td colspan="8" align="center"><input type="Submit" value="Save Changes"></td>
+			<td colspan="8" align="center"><input type="submit" value="Save Changes"></td>
 		</tr>

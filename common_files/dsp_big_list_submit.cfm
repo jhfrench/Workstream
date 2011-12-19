@@ -16,7 +16,7 @@
 </cfsilent>
 	<tr>
 		<td align="center"> 
-			<input type="button"  Value="Return" onClick="OKButton()" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+			<input type="button"  value="Return" onclick="OKButton()" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 		</td>
 	</tr>
 

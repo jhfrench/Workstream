@@ -20,7 +20,7 @@
 			&nbsp;
 		</td>
 		<td valign="top">
-			<a href="javascript:time_edit('#time_entry_id#');" onmouseover="MM_displayStatusMsg('Edit this time entry.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#DateFormat(date,"mm/dd/yy")#</a>
+			<a href="javascript:time_edit('#time_entry_id#');" onmouseover="MM_displayStatusMsg('Edit this time entry.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#dateformat(date,"mm/dd/yy")#</a>
 		</td>
 		<td align="right" valign="top">
 			<a href="javascript:time_edit('#time_entry_id#');" onmouseover="MM_displayStatusMsg('Edit this time entry.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#decimalformat(hours)#</a>

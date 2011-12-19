@@ -15,6 +15,6 @@
 	END FUSEDOC --->
 <cfoutput>
 <td class="RegText#session.workstream_text_size#">
-	<input type="Button" value="Back" class="RegText#session.workstream_text_size#" onclick="history.go(-1)">
+	<input type="button" value="Back" class="RegText#session.workstream_text_size#" onclick="history.go(-1)">
 </td>
 </cfoutput>

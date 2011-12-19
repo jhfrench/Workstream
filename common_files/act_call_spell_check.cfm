@@ -28,7 +28,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 function OpenWLWindow(arg, arg1){
 <cfloop list="notes,task_details,task_name" index="ii">
 if (arg == "#ii#")
-	{window.open('#attributes.dir_level#common_files/index.cfm?fuseaction=spell_entry&formname=#ii#',"#ii#","toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=No,copyhistory=0,width=500,height=320");}
+	{window.open('index.cfm?fuseaction=common_files.spell_entry&formname=#ii#',"#ii#","toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=No,copyhistory=0,width=500,height=320");}
 </cfloop>
   }
 //-->

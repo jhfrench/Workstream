@@ -65,7 +65,7 @@
 				<a href="http://#REPLACE(file_path,"N:","10.1.1.176/Nuco1")#">
 			</cfif>
 			<cfif len(Date_Go_Live)>
-				<font color="red">Go-Live: </font>#DateFormat(Date_Go_Live,'mm/dd/yy')#</cfif><!--- <cfif NOT len(Date_Go_Live) or Date_Go_Live LT Today>#DateFormat(Project_End,'mm/dd/yy')#
+				<font color="red">Go-Live: </font>#dateformat(Date_Go_Live,'mm/dd/yy')#</cfif><!--- <cfif NOT len(Date_Go_Live) or Date_Go_Live LT Today>#dateformat(Project_End,'mm/dd/yy')#
 			</cfif>  --->
 			<cfif len(file_path)>
 				</a>
@@ -110,7 +110,7 @@
 		</td>
 		
 		<td class="RegText#session.workstream_text_size#" valign="top">
-			#DateFormat(Date_Updated,'mm/dd/yy')#
+			#dateformat(Date_Updated,'mm/dd/yy')#
 		</td>
 	</tr>
 </cfoutput>

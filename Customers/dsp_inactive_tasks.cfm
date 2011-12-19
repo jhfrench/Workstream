@@ -40,27 +40,27 @@
 </cfoutput>
 	<tr>
 		<td colspan="6" align="center"  class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
-		Are you sure that you want to inactivate all these tasks? <form action="index.cfm?fuseaction=Customers.update_engagement" method="post" name="change"> <input type="Submit" value="Continue" name="Submit" tabindex="3"> <input type="Button" value="Back" name="back" onclick="history.go(-1)">
+		Are you sure that you want to inactivate all these tasks? <form action="index.cfm?fuseaction=Customers.update_engagement" method="post" name="change"> <input type="submit" value="Continue" name="Submit" tabindex="3"> <input type="button" value="Back" name="back" onclick="history.go(-1)">
 		</td>
 	</tr>
 </table>
 
 
 <cfoutput>
-<input type="Hidden" name="project_id" value="#attributes.project_id#">
-<input type="Hidden" name="project_code" value="#attributes.project_code#" >
-<input type="Hidden" name="description" value="#attributes.description#">
-<input type="Hidden" name="billable_type_id" value="#attributes.billable_type_id#">
-<input type="Hidden" name="active_id" value="#attributes.active_id#">
-<input type="Hidden" name="company_id" value="#attributes.company_id#">
-<input type="Hidden" name="budget" value="#attributes.budget#">
-<input type="Hidden" name="start_date" value="#attributes.start_date#">
-<input type="Hidden" name="end_date" value="#attributes.end_date#">
-<input type="Hidden" name="months" value="#attributes.months#">
-<input type="Hidden" name="task_id" value="#task_id#">
-<input type="Hidden" name="company_id" value="#attributes.company_id#">
-<input type="Hidden" name="field_title" value="#attributes.field_title#">
-<input type="Hidden" name="new_code" value="#attributes.project_id#">
+<input type="hidden" name="project_id" value="#attributes.project_id#">
+<input type="hidden" name="project_code" value="#attributes.project_code#" >
+<input type="hidden" name="description" value="#attributes.description#">
+<input type="hidden" name="billable_type_id" value="#attributes.billable_type_id#">
+<input type="hidden" name="active_id" value="#attributes.active_id#">
+<input type="hidden" name="company_id" value="#attributes.company_id#">
+<input type="hidden" name="budget" value="#attributes.budget#">
+<input type="hidden" name="start_date" value="#attributes.start_date#">
+<input type="hidden" name="end_date" value="#attributes.end_date#">
+<input type="hidden" name="months" value="#attributes.months#">
+<input type="hidden" name="task_id" value="#task_id#">
+<input type="hidden" name="company_id" value="#attributes.company_id#">
+<input type="hidden" name="field_title" value="#attributes.field_title#">
+<input type="hidden" name="new_code" value="#attributes.project_id#">
 <cfloop from="1" to="#ListLen(attributes.Field_Title)#" index="ii">
 <cfset current_selection_title = "selection_title" & #ii#>
 <input type="hidden" name="#Current_Selection_Title#" value="#Evaluate(Current_Selection_Title)#">
@@ -72,19 +72,19 @@
 
 <form action="index.cfm?fuseaction=Customers.update_engagement" method="post" name="auto">
 <cfoutput>
-<input type="Hidden" name="project_id" value="#attributes.project_id#">
-<input type="Hidden" name="project_code" value="#attributes.project_code#" >
-<input type="Hidden" name="description" value="#attributes.description#">
-<input type="Hidden" name="billable_type_id" value="#attributes.billable_type_id#">
-<input type="Hidden" name="active_id" value="#attributes.active_id#">
-<input type="Hidden" name="company_id" value="#attributes.company_id#">
-<input type="Hidden" name="budget" value="#attributes.budget#">
-<input type="Hidden" name="start_date" value="#attributes.start_date#">
-<input type="Hidden" name="end_date" value="#attributes.end_date#">
-<input type="Hidden" name="months" value="#attributes.months#">
-<input type="Hidden" name="company_id" value="#attributes.company_id#">
-<input type="Hidden" name="field_title" value="#attributes.field_title#">
-<input type="Hidden" name="new_code" value="#attributes.project_id#">
+<input type="hidden" name="project_id" value="#attributes.project_id#">
+<input type="hidden" name="project_code" value="#attributes.project_code#" >
+<input type="hidden" name="description" value="#attributes.description#">
+<input type="hidden" name="billable_type_id" value="#attributes.billable_type_id#">
+<input type="hidden" name="active_id" value="#attributes.active_id#">
+<input type="hidden" name="company_id" value="#attributes.company_id#">
+<input type="hidden" name="budget" value="#attributes.budget#">
+<input type="hidden" name="start_date" value="#attributes.start_date#">
+<input type="hidden" name="end_date" value="#attributes.end_date#">
+<input type="hidden" name="months" value="#attributes.months#">
+<input type="hidden" name="company_id" value="#attributes.company_id#">
+<input type="hidden" name="field_title" value="#attributes.field_title#">
+<input type="hidden" name="new_code" value="#attributes.project_id#">
 <cfloop from="1" to="#ListLen(Field_Title)#" index="ii">
 <cfset current_selection_title = "selection_title" & #ii#>
 <input type="hidden" name="#Current_Selection_Title#" value="#Evaluate(Current_Selection_Title)#">

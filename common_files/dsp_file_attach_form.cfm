@@ -14,6 +14,7 @@
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	<-- bgcolor: string that sets the backgroud color of this pop-up window
  --->
+</cfsilent>
 <cfoutput>
 	<cfif isdefined("attributes.tempfilename")>
 	<tr>
@@ -41,6 +42,7 @@
 			<span class="SubHeadText#session.workstream_text_size#">Select the file that you would like to attach.</span>
 		</td>
 	</tr>
+<!--- $issue$: we do need to come up with a company-wide network drive--perhaps something with dropbox or similar, mapped to a consistent Drive letter?
 	<tr>
 		<td class="SubHeadText#session.workstream_text_size#">
 			&nbsp;
@@ -48,7 +50,7 @@
 		<td class="SelectText#session.workstream_text_size#">
 			Please save the file in Spinnaker/timekeeping documents to attach it to a task.
 		</td>
-	</tr>
+	</tr> --->
 <form action="" method="post" enctype="multipart/form-data" name="tempform" id="junk"  onsubmit="return false">
 	<tr>
 		<td class="SubHeadText#session.workstream_text_size#">
@@ -66,7 +68,7 @@
 		</td>
 		<td class="RegText#session.workstream_text_size#">
 			<input type="hidden" name="filename" value="">
-			<input type="Hidden" name="submit_flag" value="1">
+			<input type="hidden" name="submit_flag" value="1">
 			<input type="hidden" name="additions" value="">
 			<input type="submit" value="Submit" onclick="sync_files()" class="RegText#session.workstream_text_size#">
 			<input type="button" name="addfile" onclick="sync_files()" value="Attach another file " class="RegText#session.workstream_text_size#">

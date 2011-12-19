@@ -26,14 +26,14 @@
 </cfsilent>
 <cfoutput>
 <!--- Embed hidden fields including message and ignore list --->
-	<input type="hidden" name="message" VALUE="#message#">
-	<input type="hidden" name="language" VALUE="#language#">
+	<input type="hidden" name="message" value="#message#">
+	<input type="hidden" name="language" value="#language#">
 <cfif isdefined("next_length")>
-	<input type="hidden" name="length" VALUE="#next_length#">
-	<input type="hidden" name="position" VALUE="#next_position#">
-	<input type="hidden" name="ignore" VALUE="#ignore#">
-	<input type="hidden" name="formname" VALUE="#formname#">
-	<input type="hidden" name="notes" VALUE="#replacenocase(paragraphformat(Insert("--> ", Insert(" <--", message, next_position+Len(next_error)-1), next_position-1)), "<P>", "&nbsp;", "All")#">
+	<input type="hidden" name="length" value="#next_length#">
+	<input type="hidden" name="position" value="#next_position#">
+	<input type="hidden" name="ignore" value="#ignore#">
+	<input type="hidden" name="formname" value="#formname#">
+	<input type="hidden" name="notes" value="#replacenocase(paragraphformat(Insert("--> ", Insert(" <--", message, next_position+Len(next_error)-1), next_position-1)), "<P>", "&nbsp;", "All")#">
 	<tr bordercolor="##78A0EB" class="SelectText#session.workstream_text_size#">
 		<td width="10%" class="SelectText#session.workstream_text_size#">&nbsp;</td>
 		<td bordercolor="##000000" bgcolor="##ffffff" align="left" colspan="2" width="80%" class="RegText#session.workstream_text_size#">
@@ -93,8 +93,8 @@
 	</tr>
 	<tr bordercolor="##78A0EB" class="SelectText#session.workstream_text_size#">
 		<td align="center" width="50%" colspan="4" class="SelectText#session.workstream_text_size#">
-			<input type="submit" name="option" VALUE="Correct" class="RegText#session.workstream_text_size#">
-			<input type="submit" name="option" VALUE="Ignore" class="RegText#session.workstream_text_size#">
+			<input type="submit" name="option" value="Correct" class="RegText#session.workstream_text_size#">
+			<input type="submit" name="option" value="Ignore" class="RegText#session.workstream_text_size#">
 		</td>
 	</tr>
 </cfif>

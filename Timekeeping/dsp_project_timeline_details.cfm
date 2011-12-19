@@ -43,8 +43,8 @@
 		<td class="RegText#session.workstream_text_size#"><a href="javascript:list_to_details('#task_id#');" class="RegText#session.workstream_text_size#"><img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="#ReplaceList(task_description, variables.quote, variables.StatusMsg_replace_with)#" height="16" width="16" border="0">&nbsp;#task_name#</a></td>
 	<cfinclude template="qry_get_team_members.cfm">
 		<td class="RegText#session.workstream_text_size#">#listchangedelims(valuelist(get_team_members.name),", ")#</td>
-		<td class="RegText#session.workstream_text_size#">#DateFormat(assigned_date,"mm/dd/yy")#</td>
-		<td class="RegText#session.workstream_text_size#">#DateFormat(due_date,"mm/dd/yy")#</td>
+		<td class="RegText#session.workstream_text_size#">#dateformat(assigned_date,"mm/dd/yy")#</td>
+		<td class="RegText#session.workstream_text_size#">#dateformat(due_date,"mm/dd/yy")#</td>
 		<td class="RegText#session.workstream_text_size#">#status#</td>
 	</tr>
 </cfoutput>

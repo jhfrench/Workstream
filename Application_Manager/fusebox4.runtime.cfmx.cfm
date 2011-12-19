@@ -114,7 +114,7 @@ This software consists of voluntary contributions made by many individuals on be
 	</cfscript>
 	  
 	<!--- set up the appPath variable, which is the relative path from the web root to the app root --->
-	<cfset fb_.appPathVarName="FUSEBOX_APPLICATION_PATH" />
+	<cfset fb_.appPathVarname="FUSEBOX_APPLICATION_PATH" />
 	<cfif NOT structKeyExists(variables, fb_.appPathVarName)>
 		<cfthrow type="fusebox.missingAppPath"
 			message="#fb_.appPathVarName# not found."

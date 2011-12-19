@@ -8,8 +8,6 @@
 	<properties>
 		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/12/2007" role="FuseCoder" comments="Created File">
 			$Id:$
-			(3/15/11 | JF)
-			Adding right-hand column shuttle watermark.
 		</history>
 	</properties>
 	<IO>
@@ -40,7 +38,7 @@
 						<!-- [[ RIGHT COLUMN END ]] -->
 					</cfif>
 					<img src="images/spacer.gif" alt="" height="10" width="252" border="0" /><br />
-					<img src="images/watermark_shuttle.jpg" alt="space shuttle watermark" height="345" width="200" border="0" class="screen_only" />
+					<img src="images/watermark_reaper.jpg" alt="column watermark" height="345" width="200" border="0" class="screen_only" />
 					</td>
 </cfif>
 				</tr>

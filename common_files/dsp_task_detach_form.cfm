@@ -17,6 +17,7 @@
 	--> task_id: number that uniquely identifies a task
 	--> task_name: string that gives the name of the task
  --->
+</cfsilent>
 <form action="" method="post">
 <cfoutput>
 	<tr>

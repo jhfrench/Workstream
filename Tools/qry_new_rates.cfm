@@ -22,7 +22,7 @@ GROUP BY time_entry.emp_id, Time_entry.project_id,  Billing_Rate.rate
 HAVING (Billing_Rate.rate IS NULL )
 </cfquery>
 
-<cfquery NAME="new_rates" datasource="#application.datasources.main#">
+<cfquery name="new_rates" datasource="#application.datasources.main#">
 SELECT Project.description, Emp_Contact.name, Emp_Contact.lname,
 	Billing_Rate.Rate, Billing_Rate.emp_id, Billing_Rate.project_id,
 	Billing_Rate.Billing_Rate_ID, Billing_Rate.rate_start_date,Billing_Rate.rate_end_date

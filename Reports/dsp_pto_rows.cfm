@@ -45,7 +45,7 @@
 				<tr>
 					<td class="RegText#session.workstream_text_size#">&nbsp;</td>
 					<td class="RegText#session.workstream_text_size#">
-						#DateFormat(transaction_date,'mm/dd/yy')#
+						#dateformat(transaction_date,'mm/dd/yy')#
 					</td>
 					<td class="RegText#session.workstream_text_size#">
 						<cfif hours_out EQ 0>#comments#<cfelse><a href="javascript:time_edit('#time_entry_id#');" onmouseover="MM_displayStatusMsg('Edit this time entry.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#"><cfif len(comments)>#comments#<cfelse>PTO Usage</cfif></a></cfif>

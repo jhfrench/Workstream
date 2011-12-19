@@ -38,7 +38,7 @@
 			<input type="hidden" name="orig_owner" value="#task_owner#">
 			<input type="hidden" name="orig_team" value="#task_team#">
 			<input type="hidden" name="orig_qa" value="#task_qa#">
-			<input type="hidden" name="orig_due_date" value="#DateFormat(get_task_details.due_date,"mm/dd/yy")#">
+			<input type="hidden" name="orig_due_date" value="#dateformat(get_task_details.due_date,"mm/dd/yy")#">
 			<input type="hidden" name="orig_priority_id" value="#get_task_details.priority#">
 			<input type="hidden" name="orig_task_status_id" value="#get_task_details.status_id#">
 			<input type="hidden" name="orig_icon_id" value="#get_task_details.icon_id#">

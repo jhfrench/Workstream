@@ -58,7 +58,7 @@
 		<td class="RegText#session.workstream_text_size#Bd">
 			IE / Acc Mgmt<br>
 			<cfmodule template="../common_files/dsp_team_select.cfm" size="6" select_name="ie_emp_id" emp_id="#get_engagement_main.ie_emp_id#" class="RegText#session.workstream_text_size#">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../images/file_attach.gif" valign="bottom" width="60" height="20" alt="Associate a file path to this task." border="0"  onclick="window.open('../common_files/index.cfm?fuseaction=file_attach', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=420,height=210');" tabindex=""> 
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../images/file_attach.gif" valign="bottom" width="60" height="20" alt="Associate a file path to this task." border="0"  onclick="window.open('index.cfm?fuseaction=common_files.file_attach', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=420,height=210');" tabindex=""> 
 <input type="hidden" name="file_path" value="">Timeline: #get_engagement_main.file_path#
 		</td>
 		<td rowspan="2" colspan="1" class="RegText#session.workstream_text_size#Bd">
@@ -80,8 +80,8 @@
 	<tr valign="top">
 		<td colspan="2" class="RegText#session.workstream_text_size#">
 			<span class="RegText#session.workstream_text_size#Bd">Work Dates</span><br>
-			Start: <cfinput type="text" name="project_start" value="#DateFormat(get_engagement_main.project_start,"mm/dd/yy")#" required="yes" validate="date" message="Please enter a proper date for which work is to begin on this engagement." size="8" class="RegText#session.workstream_text_size#"> End: <cfinput type="text" name="project_end" value="#DateFormat(get_engagement_main.project_end,"mm/dd/yy")#" required="yes" validate="date" message="Please enter a proper date for which work is to end on this engagement." size="8" class="RegText#session.workstream_text_size#"> <p>
-Go Live: <cfinput type="text" name="date_go_live" value="#DateFormat(get_engagement_main.date_go_live,"mm/dd/yy")#" required="no" validate="date" message=" " size="8" class="RegText#session.workstream_text_size#"> Progress: <select name="status" class="RegText#session.workstream_text_size#">
+			Start: <cfinput type="text" name="project_start" value="#dateformat(get_engagement_main.project_start,"mm/dd/yy")#" required="yes" validate="date" message="Please enter a proper date for which work is to begin on this engagement." size="8" class="RegText#session.workstream_text_size#"> End: <cfinput type="text" name="project_end" value="#dateformat(get_engagement_main.project_end,"mm/dd/yy")#" required="yes" validate="date" message="Please enter a proper date for which work is to end on this engagement." size="8" class="RegText#session.workstream_text_size#"> <p>
+Go Live: <cfinput type="text" name="date_go_live" value="#dateformat(get_engagement_main.date_go_live,"mm/dd/yy")#" required="no" validate="date" message=" " size="8" class="RegText#session.workstream_text_size#"> Progress: <select name="status" class="RegText#session.workstream_text_size#">
 	<option value="0" <cfif get_engagement_main.status EQ 0>selected</cfif>>None</option>
 	<option value="1" <cfif get_engagement_main.status EQ 1>selected</cfif>>Green</option>
 	<option value="2" <cfif get_engagement_main.status EQ 2>selected</cfif>>Yellow</option>

@@ -14,13 +14,12 @@
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	<-- bgcolor: string that sets the backgroud color of this pop-up window
  --->
+ <!--- $issue$: need to convert all of this to use cffile because modern browsers don't share full path name with JavaScript--->
 <cfset bgcolor="##78A0EB">
 <cfparam name="attributes.submit_flag" default=0>
 <cfparam name="additions" default="">
 </cfsilent>
-<cf_htmlhead>
 <cfinclude template="act_file_attach.cfm">
-</cf_htmlhead>
 <cfif NOT attributes.submit_flag>
 <cfoutput>
 <table cellspacing="2" cellpadding="0" width="100%" border="0" align="center" class="SelectText#session.workstream_text_size#">

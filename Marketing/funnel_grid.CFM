@@ -203,19 +203,19 @@ CSAct[/*CMP*/ 'GoLiveAction6'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_15
 			<A HREF="index.cfm?fuseaction=home_Drill&variable=All"
 				ONMOUSEOVER="CSAction(new Array(/*CMP*/'GoLiveAction1'));return CSIShow(/*CMP*/'#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_13', 1);"
 				ONMOUSEOUT="CSAction(new Array(/*CMP*/'GoLiveAction2'));">
-				<img NAME="funnel_grid_13" SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_13.gif" WIDTH=133 HEIGHT=28 BORDER=0></A></CSOBJ></td>
+				<img name="funnel_grid_13" SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_13.gif" WIDTH=133 HEIGHT=28 BORDER=0></A></CSOBJ></td>
 		<td>
 			<CSOBJ W=89 H=28 T="Button" HT="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_14-over.gif" ST="" AL="" CSOVER="GoLiveAction3" CSOUT="GoLiveAction4">
 			<A HREF="index.cfm?fuseaction=Line"
 				ONMOUSEOVER="CSAction(new Array(/*CMP*/'GoLiveAction3'));return CSIShow(/*CMP*/'#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_14', 1);"
 				ONMOUSEOUT="CSAction(new Array(/*CMP*/'GoLiveAction4'));">
-				<img NAME="funnel_grid_14" SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_14.gif" WIDTH=89 HEIGHT=28 BORDER=0></A></CSOBJ></td>
+				<img name="funnel_grid_14" SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_14.gif" WIDTH=89 HEIGHT=28 BORDER=0></A></CSOBJ></td>
 		<td>
 			<CSOBJ W=83 H=28 T="Button" HT="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_15-over.gif" ST="" AL="" CSOVER="GoLiveAction5" CSOUT="GoLiveAction6">
 			<A HREF="index.cfm?fuseaction=Grid"
 				ONMOUSEOVER="CSAction(new Array(/*CMP*/'GoLiveAction5'));return CSIShow(/*CMP*/'#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_15', 1);"
 				ONMOUSEOUT="CSAction(new Array(/*CMP*/'GoLiveAction6'));">
-				<img NAME="funnel_grid_15" SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_15.gif" WIDTH=83 HEIGHT=28 BORDER=0></A></CSOBJ></td>
+				<img name="funnel_grid_15" SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_15.gif" WIDTH=83 HEIGHT=28 BORDER=0></A></CSOBJ></td>
 	</tr></cfoutput>
 </TABLE>
 <!-- End ImageReady Slices -->

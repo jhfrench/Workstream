@@ -19,6 +19,6 @@
 			&nbsp;&nbsp;
 		</td>
 		<td align="center" colspan="3">
-			<input type="Reset" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>"> | <input type="Submit" value="Reassign" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+			<input type="Reset" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>"> | <input type="submit" value="Reassign" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 		</td>
 	</tr>

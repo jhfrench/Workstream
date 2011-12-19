@@ -37,7 +37,7 @@
 			<option value="#ii#"<cfif attributes.year EQ ii> selected</cfif>>#ii#</option>
 		</cfloop>
 		</select><br>
-		<input type="Submit" value="Get Invoice List" class="RegText#session.workstream_text_size#">
+		<input type="submit" value="Get Invoice List" class="RegText#session.workstream_text_size#">
 <cfif session.user_account_id EQ 1>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<font color=White>Post Invoices</font><input type="checkbox" value="1" name="run_post">
 </cfif>

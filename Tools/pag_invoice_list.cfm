@@ -24,6 +24,6 @@
 	<cfinclude template="dsp_invoice_list.cfm">
 	<cfinclude template="dsp_invoice_list_form.cfm">
 </table>
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_details" field_name="project_id" field2_name="drill_through" field2_value="#attributes.month#|#attributes.year#" fuseaction="invoice_details">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_details" field_name="project_id" field2_name="drill_through" field2_value="#attributes.month#|#attributes.year#" fuseaction="Tools.invoice_details">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_tasks" field_name="project_id" field2_name="ignore_owner" field2_value="#attributes.month#|#attributes.year#" fuseaction="Timekeeping.task_list">
 

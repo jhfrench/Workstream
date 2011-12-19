@@ -25,7 +25,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 		<cfoutput query="customer_change">
 			<td colspan="2"><input type="text" name="name" value="#name#" size="25" class="RegText#session.workstream_text_size#"></td>
 			<td colspan="2"><input type="text" name="lname" value="#lname#" size="25" class="RegText#session.workstream_text_size#"></td>
-			<input type="Hidden" name="customer_id" value="#attributes.customer_id#">
+			<input type="hidden" name="customer_id" value="#attributes.customer_id#">
 		</cfoutput>
 			<td>
 				<cfinclude template="dsp_company_id_box.cfm">

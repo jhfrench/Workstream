@@ -39,6 +39,6 @@
 		<cfinclude template="dsp_expense_form_rows.cfm">
 		</div>
 		</table>
-		<cfoutput><input type="Hidden" name="EXPENSE_ID" value="#attributes.expense_id#"></cfoutput>
+		<cfoutput><input type="hidden" name="EXPENSE_ID" value="#attributes.expense_id#"></cfoutput>
 	</cfform>
 	

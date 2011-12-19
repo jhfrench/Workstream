@@ -35,7 +35,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	</td>
 	  <td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">Date: </td>
        <td>
-	  <cfif isdefined("get_expense_values.work_date")>  <cfinput type="datefield" name="DateField1" message="Enter a date." validate="date" required="Yes" size="12" class="RegText#session.workstream_text_size#" value="#DateFormat(get_expense_values.work_date,'mm/dd/yyyy')#"><cfelse>
+	  <cfif isdefined("get_expense_values.work_date")>  <cfinput type="datefield" name="DateField1" message="Enter a date." validate="date" required="Yes" size="12" class="RegText#session.workstream_text_size#" value="#dateformat(get_expense_values.work_date,'mm/dd/yyyy')#"><cfelse>
 	  <cfinput type="datefield" name="DateField1" message="Enter a date." validate="date" required="Yes" size="12" class="RegText#session.workstream_text_size#">
 </cfif>
 		<cfinclude template="../common_files/dsp_pop_calendar.cfm">
@@ -81,7 +81,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	<input type="hidden" name="emp_id" value="<cfoutput>#session.user_account_id#</cfoutput>">
 	<tr>
 		<td align="right">
-			<input type="Submit" value="Submit" name="Insert" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+			<input type="submit" value="Submit" name="Insert" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 			<input type="Reset" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 		</td>
 	</tr>

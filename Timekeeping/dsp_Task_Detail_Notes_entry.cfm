@@ -28,8 +28,9 @@
 					<td class="SubHeadText#session.workstream_text_size#">
 						Date: 
 							<select name="date" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" class="RegText#session.workstream_text_size#">
-							<cfloop from="0" to="#variables.go_back_to#" index="ii">
-								<option value="#DateFormat(now()-ii,'mm/dd/yy')#">#DateFormat(now()-ii,"mm/dd/yy (ddd)")#</option>
+							<cfloop from="0" to="#variables.go_back_to#" index="variables.date_adjust_ii">
+								<cfset variables.temp_date=now()-variables.date_adjust_ii>
+								<option value="#dateformat(variables.temp_date, 'mm/dd/yy')#">#dateformat(variables.temp_date,"mm/dd/yy (ddd)")#</option>
 							</cfloop>
 							</select>
 					</td>	
@@ -39,7 +40,7 @@
 				</tr>
 				<tr class="SubHeadText#session.workstream_text_size#">
 					<td class="SubHeadText#session.workstream_text_size#">
-						Notes <!--- <cfset tabindex=incrementvalue(tabindex)><img src="#request.dir_level##application.application_specific_settings.image_dir#check.gif" width="15" height="15" alt="Check spelling for these notes." border="0" onClick="OpenWLWindow('notes');" tabindex="#tabindex#"> --->
+						Notes <!--- <cfset tabindex=incrementvalue(tabindex)><img src="#request.dir_level##application.application_specific_settings.image_dir#check.gif" width="15" height="15" alt="Check spelling for these notes." border="0" onclick="OpenWLWindow('notes');" tabindex="#tabindex#"> --->
 					</td>
 					<td class="SubHeadText#session.workstream_text_size#">
 						Type: <cfset tabindex=incrementvalue(tabindex)><cfselect name="notes_type_id" query="get_note_types" display="notes_type" value="notes_type_id" selected="#notes_type_selected#" tabindex="#tabindex#" class="RegText#session.workstream_text_size#"></cfselect>

@@ -16,9 +16,9 @@
 <cfloop from="1" to="7" index="ii">
 	<cfset temp_date=dateadd("d", -ii, now())>
 	<cfif DayOfWeek(temp_date) EQ 1>
-		<cfset start_date=DateFormat(temp_date, "mm/dd/yy")>
+		<cfset start_date=dateformat(temp_date, "mm/dd/yy")>
 	<cfelseif DayOfWeek(temp_date) EQ 7>
-		<cfset end_date=DateFormat(dateadd("d", 7, temp_date), "mm/dd/yy")>
+		<cfset end_date=dateformat(dateadd("d", 7, temp_date), "mm/dd/yy")>
 	</cfif>
 </cfloop>
 <table border="0" cellpadding="4" cellspacing="0" align="center" width="25%">
@@ -41,7 +41,7 @@ Select a Week:
 <td>
 			
 			<cfselect name="pin" size="5" message="Please don't leave blank" required="Yes" multiple="Yes" class="RegText#session.workstream_text_size#">
-				<OPTION VALUE="ALL" selected>
+				<OPTION value="ALL" selected>
 					ALL
 					<cfoutput query="get_overtime_employees">
 				<option value="#emp_id#">

@@ -24,7 +24,7 @@
 			Customer List
 	   	</td>
 		<td align="right" colspan="#variables.row_colspan#" class="RegText#session.workstream_text_size#White">
-			<label for="inactive"><input type="checkbox" name="inactive" id="inactive" onClick="submit();" value="<cfif compare(attributes.inactive, 0)>0<cfelse>1</cfif>" class="RegText#session.workstream_text_size#White"> View <cfif compare(attributes.inactive, 0)>Only Active<cfelse>Inactive</cfif> Customers</label>
+			<label for="inactive"><input type="checkbox" name="inactive" id="inactive" onclick="submit();" value="<cfif compare(attributes.inactive, 0)>0<cfelse>1</cfif>" class="RegText#session.workstream_text_size#White"> View <cfif compare(attributes.inactive, 0)>Only Active<cfelse>Inactive</cfif> Customers</label>
 		</td>
 	   </form>
 	</tr>

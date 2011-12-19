@@ -9,17 +9,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.0  2005/02/15 21:01:38  daugherty
-Initial revision
-
-Revision 1.2  2001-11-15 10:13:02-05  long
-Changed the isolation level from Serializable to read_committed
-
-Revision 1.1  2001-10-11 10:54:17-04  long
-Added $log $ for edits to all CFM files that have fusedocs.
-
-
-	 
 	||
 	END FUSEDOC --->
 

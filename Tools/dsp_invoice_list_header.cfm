@@ -14,17 +14,19 @@
 	Variables:
 	END FUSEDOC --->
 </cfsilent>
-<tr class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+<cfoutput>
+<tr class="SubHeadText#session.workstream_text_size#">
+	<td class="SubHeadText#session.workstream_text_size#">
 		Project
 	</td>
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<td class="SubHeadText#session.workstream_text_size#">
 		Billing Type
 	</td>
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<td class="SubHeadText#session.workstream_text_size#">
 		Total Monthly Bill
 	</td>
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<td class="SubHeadText#session.workstream_text_size#">
 		Current Tasks
 	</td>
 </tr>
+</cfoutput>

@@ -81,7 +81,7 @@
 				alert("#variables.error_message#");
 				window.location.href="#variables.new_location#";
 			</script>
-			<link href="http://www.nasa.gov/favicon.ico" rel="shortcut icon">
+			<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
 		</head>
 		<body>
 			<a href="#variables.new_location#">#variables.error_message#</a>

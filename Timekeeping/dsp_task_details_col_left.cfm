@@ -47,11 +47,11 @@
 			Source<br>
 			<span class="RegText#session.workstream_text_size#">#get_task_details.source_name#</span><br>
 			Date Assigned<br>
-			<span class="RegText#session.workstream_text_size#">#DateFormat(get_task_details.date_assigned,"mm/dd/yy")#</span><br>
+			<span class="RegText#session.workstream_text_size#">#dateformat(get_task_details.date_assigned,"mm/dd/yy")#</span><br>
 			Date Due<br>
-			<cfset tabindex=incrementvalue(tabindex)><cfinput type="datefield" name="due_date" value="#DateFormat(get_task_details.due_date,'mm/dd/yy')#" required="Yes" validate="date" message="Please enter a properly formatted date" size="11" tabindex="#tabindex#" class="RegText#session.workstream_text_size#"><br>
+			<cfset tabindex=incrementvalue(tabindex)><cfinput type="datefield" name="due_date" value="#dateformat(get_task_details.due_date,'mm/dd/yy')#" required="Yes" validate="date" message="Please enter a properly formatted date" size="11" tabindex="#tabindex#" class="RegText#session.workstream_text_size#"><br>
 			Date Completed<br>
-			<span class="RegText#session.workstream_text_size#"><cfif len(get_task_details.complete_date) AND get_task_details.status_id EQ 11>#DateFormat(get_task_details.complete_date,"mm/dd/yy")#<cfelse>Not yet completed</cfif></span><br>
+			<span class="RegText#session.workstream_text_size#"><cfif len(get_task_details.complete_date) AND get_task_details.status_id EQ 11>#dateformat(get_task_details.complete_date,"mm/dd/yy")#<cfelse>Not yet completed</cfif></span><br>
 			</cfoutput>Priority<br>
 
 	<cfset tabindex=incrementvalue(tabindex)><cfselect name="priority_id" query="get_priorities" display="description" value="priority_id" selected="#get_task_details.priority#" tabindex="#tabindex#" class="RegText#session.workstream_text_size#"></cfselect>

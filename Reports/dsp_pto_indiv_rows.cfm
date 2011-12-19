@@ -16,7 +16,7 @@
 <cfoutput query="Showhours">
 <tr bgcolor="##FBEEA8">
 			<td></td>
-			<td class="RegText#session.workstream_text_size#">#DateFormat(date, "mm/dd/yy")#</td>
+			<td class="RegText#session.workstream_text_size#">#dateformat(date, "mm/dd/yy")#</td>
 			<td class="RegText#session.workstream_text_size#">#hours#</td>
 			<cfset remaining=remaining-hours>
 			<td class="RegText#session.workstream_text_size#">#remaining#</td>

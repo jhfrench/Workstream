@@ -13,6 +13,7 @@
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
+</cfsilent>
 	<tr>
 		<td align="center" class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
 			There are no documents associated with this task.

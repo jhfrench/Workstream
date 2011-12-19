@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="qry_pto_hours_report.cfm">
-<cfmodule template="../common_files/act_drilldown_form.cfm" fuseaction="PTO" Function_Name="drill_down" Field_Name="drill_down">
+<cfmodule template="../common_files/act_drilldown_form.cfm" fuseaction="PTO" Function_name="drill_down" Field_name="drill_down">
 <table align="center" width="60%" cellpadding="2" cellspacing="0">
 <cfif isdefined("attributes.drill_down")>
 	<cfinclude template="dsp_pto_report_header.cfm">

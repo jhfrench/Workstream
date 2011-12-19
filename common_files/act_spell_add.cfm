@@ -22,7 +22,7 @@ WHERE Emp_Contact.emp_id=#session.user_account_id#
 <font face="Arial,Helvetica,sans-serif" size="1">
 Word: '#attributes.suggested_word#'<br>
 Requestor: #get_requestor.lname#, #get_requestor.first_name#<br>
-Date: #DateFormat(now(),"mm/dd/yy")#<br>
+Date: #dateformat(now(),"mm/dd/yy")#<br>
 Time: #TimeFormat(now(), "h:mm TT")#<br>
 
 <form action="http://www.nucleusweb.com/cfx_spell/admin/dictadd.cfm">

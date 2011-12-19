@@ -54,7 +54,7 @@
 			<label for="#get_present_supervisor.emp_id#"><cfinput type="Checkbox" name="supervisor_id_list" value="#get_present_supervisor.emp_id#" id="#get_present_supervisor.emp_id#" checked="No">#get_present_supervisor.sup_name#</label>
 		</td>
 		<td class="SelectText#session.workstream_text_size#">			
-			<cfinput type="text" name="end_date_#get_present_supervisor.emp_id#" size="10" maxlength="10" required="No" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" class="RegText#session.workstream_text_size#" value="#DateFormat(Now(),'mm/dd/yy')#">
+			<cfinput type="text" name="end_date_#get_present_supervisor.emp_id#" size="10" maxlength="10" required="No" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" class="RegText#session.workstream_text_size#" value="#dateformat(Now(),'mm/dd/yy')#">
 		</td>
 		<!--- <td>&nbsp;</td> --->
 	</tr>
@@ -67,14 +67,14 @@
 				Last Date Under Most Recent Supervisor:			
 			</td>
 			<td class="SelectText#session.workstream_text_size#">
-				<cfinput type="text" name="end_date" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" class="RegText#session.workstream_text_size#" value="#DateFormat(Now(),'mm/dd/yy')#">
+				<cfinput type="text" name="end_date" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" class="RegText#session.workstream_text_size#" value="#dateformat(Now(),'mm/dd/yy')#">
 			</td>
 		</tr>
 	</cfif> --->
 	<tr align="center" bgcolor="##78A0EB">
 		<td colspan="2" class="SelectText#session.workstream_text_size#">
-			<input type="Hidden" name="num_present_supervisors" value="#get_present_supervisor.recordcount#">
-			<input type="Hidden" name="emp_id" value="#emp_id#">
+			<input type="hidden" name="num_present_supervisors" value="#get_present_supervisor.recordcount#">
+			<input type="hidden" name="emp_id" value="#emp_id#">
 			<input type="submit" value="Submit Supervisor" class="RegText#session.workstream_text_size#"><input type="button" onclick="javascript:window.close();" value="Cancel" class="RegText#session.workstream_text_size#">
 		</td>
 	</tr>

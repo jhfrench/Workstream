@@ -40,7 +40,7 @@
 		<meta name="dc.language" content="en" />
 		<meta name="dc.publisher" content="David Grove" />
 		<!--Meta Data ends-->
-		<link href="http://www.nasa.gov/favicon.ico" rel="SHORTCUT ICON" />
+		<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
 		<style type="text/css">
 		body {background-color:#FFFFFF; margin:0px;}
 		body, table, td, form, input, select, h1, h2, h3, h4, h5, h6, pre {font-family:Arial; font-size:12px; color:#000000;}

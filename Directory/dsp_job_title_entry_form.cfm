@@ -37,7 +37,7 @@ $Log:
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td class="SelectText#session.workstream_text_size#" colspan="2">
-			<input type="Hidden" name="emp_id" value="#emp_id#">
+			<input type="hidden" name="emp_id" value="#emp_id#">
 			<input type="submit" value="Submit Job Title" class="RegText#session.workstream_text_size#"><input type="button" onclick="javascript:window.close();" value="Cancel" class="RegText#session.workstream_text_size#">
 		</td>
 	</tr>

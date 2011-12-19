@@ -17,8 +17,8 @@
 <form name="inactive" action="index.cfm?fuseaction=Reports.engagements" method="post">
 	<tr bgcolor="##008080">
 		<td colspan="100%" class="HeadText#session.workstream_text_size#White"><b>
-			Project Dashboard - #DateFormat(today,'mm/dd/yy')#</b>
-			<input type="Hidden" name="client_code" value="NOTHING">
+			Project Dashboard - #dateformat(today,'mm/dd/yy')#</b>
+			<input type="hidden" name="client_code" value="NOTHING">
 		</td>
 
 	</tr>

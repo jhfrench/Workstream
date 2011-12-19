@@ -28,16 +28,16 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 	</tr>
 	
 <form action="index.cfm?fuseaction=common_files.spell_check" method="post">
-	<input type="hidden" name="message" VALUE="#message#">
-	<input type="hidden" name="language" VALUE="#language#">
+	<input type="hidden" name="message" value="#message#">
+	<input type="hidden" name="language" value="#language#">
 <cfif isdefined("next_length")>
-	<input type="hidden" name="suggested_word" VALUE="#word_to_correct#">
-	<input type="hidden" name="length" VALUE="#next_length#">
-	<input type="hidden" name="position" VALUE="#next_position#">
-	<input type="hidden" name="ignore" VALUE="#ignore#">
-	<input type="hidden" name="option" VALUE="Ignore">
-	<input type="hidden" name="formname" VALUE="#formname#">
-	<input type="hidden" name="notes" VALUE="#replacenocase(paragraphformat(Insert("--> ", Insert(" <--", message, next_position+Len(next_error)-1), next_position-1)), "<P>", "&nbsp;", "All")#">
+	<input type="hidden" name="suggested_word" value="#word_to_correct#">
+	<input type="hidden" name="length" value="#next_length#">
+	<input type="hidden" name="position" value="#next_position#">
+	<input type="hidden" name="ignore" value="#ignore#">
+	<input type="hidden" name="option" value="Ignore">
+	<input type="hidden" name="formname" value="#formname#">
+	<input type="hidden" name="notes" value="#replacenocase(paragraphformat(Insert("--> ", Insert(" <--", message, next_position+Len(next_error)-1), next_position-1)), "<P>", "&nbsp;", "All")#">
 </cfif>
 </form>
 </cfoutput>

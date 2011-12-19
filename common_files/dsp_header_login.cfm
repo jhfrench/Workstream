@@ -40,7 +40,7 @@
 		/* Modified to make default link behave like featureLnk */
 		a {color:#006699;text-decoration:none;}
 		</style>
-		<link href="http://www.nasa.gov/favicon.ico" rel="shortcut icon" />
+		<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
 	</head>
 
 	<body<cfif NOT findnocase("mobile", cgi.http_user_agent)> onLoad="new Effect.Grow('loginB');"</cfif>>

@@ -24,7 +24,7 @@
 	<title>Excel Report Automation</title>
 	
 	
-<cfparam NAME="CURR_SHEET" DEFAULT="1">			<!--- WE KEEP TRACK OF WHAT WORKSHEET WE ARE AUTOMATING WITH THIS VARIABLE --->	
+<cfparam name="CURR_SHEET" DEFAULT="1">			<!--- WE KEEP TRACK OF WHAT WORKSHEET WE ARE AUTOMATING WITH THIS VARIABLE --->	
 <cfset tab_names_list = "tab1,tab2,tab3,tab4">	<!--- LIST ALL THE WKST TAB NAMES IN THE REPORT --->	
 
 <script language="vbscript">

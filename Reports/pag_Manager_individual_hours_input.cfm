@@ -30,7 +30,7 @@
 </tr>
 <tr>
 	<td align="center" valign="top" class="RegText#session.workstream_text_size#">
-		<input type="Submit" value="Enter Dates" class="RegText#session.workstream_text_size#">
+		<input type="submit" value="Enter Dates" class="RegText#session.workstream_text_size#">
 	</td>
 </tr>
 </table>

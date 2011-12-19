@@ -31,10 +31,10 @@
 			#status#
 		</td>
 		<td class="RegText#session.workstream_text_size#">
-			#DateFormat(date_due,"mm/dd/yy")#
+			#dateformat(date_due,"mm/dd/yy")#
 		</td>
 		<td class="RegText#session.workstream_text_size#<cfif on_time EQ 0>Red</cfif>">
-			#DateFormat(date_completed,"mm/dd/yy")#
+			#dateformat(date_completed,"mm/dd/yy")#
 		</td>
 		<td class="RegText#session.workstream_text_size#<cfif on_budget EQ 0>Red</cfif>">
 			<cfif listgetat(hours_used,2,".") GT 0>#decimalformat(hours_used)#<cfelse>#numberformat(hours_used)#</cfif><cfif budgeted_hours GT 0>/#decimalformat(budgeted_hours)# #numberformat(budget_used)#%</cfif>

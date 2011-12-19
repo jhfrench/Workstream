@@ -26,7 +26,7 @@
 	<!-- see this all the time--->
 	<tr valign="top">
 		<td class="RegText#session.workstream_text_size#">
-			#DateFormat(date, "mm/dd/yy")#
+			#dateformat(date, "mm/dd/yy")#
 		</td>
 		<td class="RegText#session.workstream_text_size#">
 			#project_display#

@@ -15,6 +15,7 @@
 	<-- base_task_id: number that uniquely defines the base task
 	<-- linked_task_id: list of tasks to be attached to a particular task
  --->
+</cfsilent>
 <SCRIPT LANGUAGE="JavaScript1.1">
 function add_to_linked_task_id_list() {
 	with (document.attach_task.task_id) {
@@ -34,7 +35,7 @@ function add_to_linked_task_id_list() {
 </SCRIPT>
 <cfoutput>
 <cfform name="attach_task" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
-	<cfinclude template="qry_get_open_tasks.cfm">
+	<cfmodule template="qry_get_open_tasks.cfm" exclude_task_id="#attributes.base_task_id#">
 	<tr>
 		<td class="SubHeadText#session.workstream_text_size#">Specify one or more tasks to associate with this task:</td>
 	</tr>
@@ -59,7 +60,7 @@ function add_to_linked_task_id_list() {
 			<br>
 	<tr>
 		<td> 
-			<input type="button"  Value="Add to list below" onClick="add_to_linked_task_id_list()" class="RegText#session.workstream_text_size#">
+			<input type="button"  value="Add to list below" onclick="add_to_linked_task_id_list()" class="RegText#session.workstream_text_size#">
 		</td>
 	</tr>
 	<tr>

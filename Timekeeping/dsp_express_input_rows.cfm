@@ -25,7 +25,7 @@
 		<td align="center" class="RegText#session.workstream_text_size#">
 			<select name="date" tabindex="#variables.tabindex#" class="RegText#session.workstream_text_size#">
 			<cfloop from="0" to="#variables.go_back_to#" index="ii">
-				<<option value="#DateFormat(dateadd("m",1,now())-ii,'mm/dd/yy')#"<cfif NOT datediff("d",now(),dateadd("m",1,now())-ii)> SELECTED</cfif>>#DateFormat(dateadd("m",1,now())-ii,"mm/dd/yy (ddd)")#</option></cfloop>
+				<<option value="#dateformat(dateadd("m",1,now())-ii,'mm/dd/yy')#"<cfif NOT datediff("d",now(),dateadd("m",1,now())-ii)> SELECTED</cfif>>#dateformat(dateadd("m",1,now())-ii,"mm/dd/yy (ddd)")#</option></cfloop>
 			</select>
 		</td>
 </cfoutput>

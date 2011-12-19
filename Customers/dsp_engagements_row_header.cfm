@@ -17,10 +17,10 @@
 	<tr bgcolor="##008000">
 		<td colspan="<cfif session.workstream_engagement_edit>3<cfelse>2</cfif>" class="HeadText#session.workstream_text_size#White">
 			Projects for #get_engagements.Cust_Description#
-			<input type="Hidden" name="client_code" value="#attributes.client_code#">
+			<input type="hidden" name="client_code" value="#attributes.client_code#">
 		</td>
 		<td colspan="3" class="RegText#session.workstream_text_size#White">
-			<label for="inactive"><input type="checkbox" name="inactive" id="inactive" onClick="submit();" value="<cfif compare(attributes.inactive, 0)>0<cfelse>1</cfif>"> View <cfif compare(attributes.inactive, 0)>Only Active<cfelse>Inactive</cfif> Projects</label>
+			<label for="inactive"><input type="checkbox" name="inactive" id="inactive" onclick="submit();" value="<cfif compare(attributes.inactive, 0)>0<cfelse>1</cfif>"> View <cfif compare(attributes.inactive, 0)>Only Active<cfelse>Inactive</cfif> Projects</label>
 		</td>
 	</tr>
 </form>

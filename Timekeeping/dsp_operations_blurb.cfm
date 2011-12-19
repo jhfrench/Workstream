@@ -46,7 +46,7 @@
 				</cfchart>
 			</cfsavecontent>
 			<div id="operations_blurb" align="center">
-			     <cfoutput>#replacenocase(replacenocase(variables.chart_under_menu,'quality="high"', 'quality="high" wmode="transparent"', "ALL"),'<PARAM NAME="quality" VALUE="high"/>', '<PARAM NAME="quality" VALUE="high"/><PARAM NAME="wmode" VALUE="transparent"/>', "ALL")#</cfoutput>
+			     <cfoutput>#replacenocase(replacenocase(variables.chart_under_menu,'quality="high"', 'quality="high" wmode="transparent"', "ALL"),'<PARAM name="quality" value="high"/>', '<PARAM name="quality" value="high"/><PARAM name="wmode" value="transparent"/>', "ALL")#</cfoutput>
 				<a href="index.cfm?fuseaction=Reports.engagement_dashboard_staff" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">Click here for full project details and timelines.</a>
 			</div>
 		</td>

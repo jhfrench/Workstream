@@ -17,9 +17,9 @@
 	<tr valign="top">
 		<td align="left" width="148" class="RegText#session.workstream_text_size#">
 			<img src="#request.dir_level##application.application_specific_settings.image_dir#photos/#get_emp_details.photo#" width="144" height="144" alt="" border="0"><br>
-			<span class="SubHeadText#session.workstream_text_size#">Birthdate:</span> #DateFormat(get_emp_details.dob,"mm/dd")#<br>
-			<span class="SubHeadText#session.workstream_text_size#">Hire Date:</span> #DateFormat(get_emp_details.hire_date,"mm/dd/yy")#<br>
-			<cfif compare(get_emp_details.end_date,"")><span class="SubHeadText#session.workstream_text_size#">End Date:</span> #DateFormat(get_emp_details.end_date,"mm/dd/yy")#<br></cfif>
+			<span class="SubHeadText#session.workstream_text_size#">Birthdate:</span> #dateformat(get_emp_details.dob,"mm/dd")#<br>
+			<span class="SubHeadText#session.workstream_text_size#">Hire Date:</span> #dateformat(get_emp_details.hire_date,"mm/dd/yy")#<br>
+			<cfif compare(get_emp_details.end_date,"")><span class="SubHeadText#session.workstream_text_size#">End Date:</span> #dateformat(get_emp_details.end_date,"mm/dd/yy")#<br></cfif>
 			
 </cfoutput>
 <cfif get_emp_phone.recordcount>

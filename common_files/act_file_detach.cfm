@@ -13,8 +13,9 @@
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
+</cfsilent>
 <cfquery name="del_file" datasource="#application.datasources.main#">
 UPDATE Associated_File
 SET active_ind=0
-WHERE file_id IN (#attributes.deleted_file_id#)
+WHERE associated_file_id IN (#attributes.associated_file_id#)
 </cfquery>	

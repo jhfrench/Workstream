@@ -40,7 +40,7 @@
 <cfoutput>
 <table>
 <Tr><Td class="RegText#session.workstream_text_size#">
-<!--- <img src="../images/file_attach.gif" valign="bottom" width="60" height="20" alt="Associate a file path to this task." border="0"  onclick="window.open('../common_files/index.cfm?fuseaction=file_attach', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=420,height=210');" tabindex="">  --->
+<!--- <img src="../images/file_attach.gif" valign="bottom" width="60" height="20" alt="Associate a file path to this task." border="0"  onclick="window.open('index.cfm?fuseaction=common_files.file_attach', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=420,height=210');" tabindex="">  --->
 Add File:<br>
 <input class="RegText#session.workstream_text_size#" type="file" name="file_path" value="" size="40" >
 <br>
@@ -51,5 +51,3 @@ Add File:<br>
 </cfoutput>
 </form>
 </cfif>
-
-

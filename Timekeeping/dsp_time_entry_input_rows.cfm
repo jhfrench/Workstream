@@ -24,8 +24,9 @@
 		<td align="center" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
 		<cfoutput query="express_check_date">
 			<select name="date" tabindex="#variables.tabindex#" class="RegText#session.workstream_text_size#">
-			<cfloop from="0" to="#variables.go_back_to#" index="ii">
-				<option value="#DateFormat(dateadd("m",1,now())-ii,'mm/dd/yy')#"<cfif NOT datediff("d",now(),dateadd("m",1,now())-ii)> SELECTED</cfif>>#DateFormat(dateadd("m",1,now())-ii,"mm/dd/yy (ddd)")#</option></cfloop>
+			<cfloop from="0" to="#variables.go_back_to#" index="variables.date_adjust_ii">
+				<cfset variables.temp_date=dateadd("m",1,now())-variables.date_adjust_ii>
+				<option value="#dateformat(variables.temp_date,'mm/dd/yy')#"<cfif NOT datediff("d",now(),variables.temp_date)> SELECTED</cfif>>#dateformat(variables.temp_date,"mm/dd/yy (ddd)")#</option></cfloop>
 			</select>
 		</cfoutput>
 		</td>

@@ -30,7 +30,7 @@
 </cfsilent>
 
 <form name="continue_on" method="post" action="<cfoutput>#request.dir_level#</cfoutput>claim/index.cfm?fuseaction=<cfoutput>#request.XFA.case_drill#</cfoutput>">
-	<input type="Hidden" name="project_id" value="<cfoutput>#attributes.project_id#</cfoutput>">
+	<input type="hidden" name="project_id" value="<cfoutput>#attributes.project_id#</cfoutput>">
 </form>
 
 <script language="JavaScript">

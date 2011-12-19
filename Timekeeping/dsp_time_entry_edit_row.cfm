@@ -77,8 +77,9 @@
 	<tr class="RegText#session.workstream_text_size#">
 		<td>
 			<cfselect name="date" required="Yes" message="Please enter a valid date for this task." class="RegText#session.workstream_text_size#">
-			<cfloop from="0" to="#variables.go_back_to#" index="ii">
-				<option value="#DateFormat(now()-ii,'mm/dd/yy')#"<cfif NOT datediff("d", DateFormat(now()-ii,'mm/dd/yy'), date)> SELECTED</cfif>>#DateFormat(now()-ii,"mm/dd/yy (ddd)")#</option>
+			<cfloop from="0" to="#variables.go_back_to#" index="variables.date_adjust_ii">
+				<cfset variables.temp_date=dateformat(now()-variables.date_adjust_ii,'mm/dd/yy')>
+				<option value="#variables.temp_date#"<cfif NOT datediff("d", variables.temp_date, date)> SELECTED</cfif>>#dateformat(now()-variables.date_adjust_ii,"mm/dd/yy (ddd)")#</option>
 			</cfloop>
 			</cfselect>
 		</td>
@@ -99,7 +100,7 @@
 			<textarea name="note" cols="100" rows="4" wrap="soft" class="RegText#session.workstream_text_size#">#stripCR(note)#</textarea>
 		</td>
 	</tr>
-<cfif time_entry_edit.date GT DateFormat(now()-variables.go_back_to,'mm/dd/yy')>
+<cfif time_entry_edit.date GT dateformat(now()-variables.go_back_to,'mm/dd/yy')>
 	<tr align="left" bgcolor="##990202" class="RegText#session.workstream_text_size#White">
 		<td colspan="6">
 		<label for="delete"><input type="checkbox" name="delete" id="delete" value="1" class="RegText#session.workstream_text_size#">Delete This Record</label>&nbsp;</td>
