@@ -35,7 +35,7 @@ FROM Link_Project_Company, Task, Project, Customer
 WHERE Link_Project_Company.project_id=Task.project_id
 	AND Task.project_id=Project.project_id
 	AND Project.customer_id=Customer.customer_id
-	AND Link_Project_Company.company_id IN (#session.workstream_company_select_list#)
+	AND Link_Project_Company.company_id IN (#session.workstream_selected_company_id#)
 	AND Task.status_id != 11
 ORDER BY project_display, task_display
 </cfquery>

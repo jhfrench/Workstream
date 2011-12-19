@@ -27,11 +27,11 @@ FROM Project, Customer, REF_Billable,
 				SUM((Hours_ID.hours*ISNULL(Billing_Rate.rate,0))) AS bill, Project.billable_type_id AS billable_type_id
 			FROM Project, Billing_Rate, (
 					SELECT SUM(Time_Entry.hours) AS hours, Time_Entry.project_id, Time_Entry.emp_id
-					FROM Time_Entry, Company
-					WHERE Time_Entry.emp_id=Company.emp_id
+					FROM Time_Entry, Link_Emp_Contact_Employer
+					WHERE Time_Entry.emp_id=Link_Emp_Contact_Employer.emp_id
 						AND DATEPART(m, Time_Entry.date)=#attributes.month#
 						AND DATEPART(yyyy, Time_Entry.date)=#attributes.year#
-						AND Company.company IN (#session.workstream_company_select_list#)
+						AND Link_Emp_Contact_Employer.company_id IN (#session.workstream_selected_company_id#)
 					GROUP BY project_id, Time_Entry.emp_id
 				) AS Hours_ID
 			WHERE Project.project_id=Hours_ID.project_id
@@ -46,7 +46,7 @@ FROM Project, Customer, REF_Billable,
 			FROM Project, Flat_Rate
 			WHERE Project.project_id=Flat_Rate.project_id
 				AND Project.billable_type_id=3
-				AND Project.company_id IN (#session.workstream_company_select_list#)
+				AND Project.company_id IN (#session.workstream_selected_company_id#)
 				AND ((#attributes.month# = DATEPART(m,Flat_Rate.start_date) AND #attributes.year# = DATEPART(yyyy,Flat_Rate.start_date))
 				OR ('#attributes.month#/1/#attributes.year#' <= DATEADD(m,Flat_Rate.months-1,Flat_Rate.start_date)
 					AND '#attributes.month#/#DaysInMonth(CreateDate(attributes.year, attributes.month, 1))#/#attributes.year#' >= Flat_Rate.start_date
@@ -56,7 +56,7 @@ FROM Project, Customer, REF_Billable,
 			FROM Task, Project, Incident_Rate
 			WHERE Project.project_id=Task.project_id
 				AND Project.project_id=Incident_Rate.project_id
-				AND Project.company_id IN (#session.workstream_company_select_list#)
+				AND Project.company_id IN (#session.workstream_selected_company_id#)
 				AND MONTH(Task.entry_date)=#attributes.month#
 				AND YEAR(Task.entry_date)=#attributes.year#
 				AND Project.billable_type_id=4

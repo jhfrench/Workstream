@@ -17,7 +17,7 @@
 							<option value="<cfif isdefined("company_id")>#company_id#<cfelse>#company_id#</cfif>" selected>#company#</option>
 						</cfoutput>
 						<cfoutput query="get_companies">
-							<option value="#company_id#" >#company#</option>
+							<option value="#company_id#" >#description#</option>
 						</cfoutput>
 				</cfselect>
 				

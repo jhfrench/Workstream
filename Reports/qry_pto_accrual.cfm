@@ -85,12 +85,13 @@ left Outer JOIN PTO_HOURS ON PTO_HOURS.emp_id = demographics.emp_id left outer J
 																FROM Project
 																WHERE project_type_id = 1) 
 AND year(time_entry.date) like year(GETDATE())
-inner join company on demographics.emp_id = company.emp_id inner join emp_contact on demographics.emp_id = emp_contact.emp_id
+inner join Link_Emp_Contact_Employer on demographics.emp_id = Link_Emp_Contact_Employer.emp_id
+inner join emp_contact on demographics.emp_id = emp_contact.emp_id
 WHERE security.disable <> 1 
-AND company IN (#session.workstream_company_select_list#) <cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.emp_id IN (#PreserveSingleQuotes(attributes.form_Pin)#))</cfif>
+AND company_id IN (#session.workstream_selected_company_id#) <cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.emp_id IN (#preservesinglequotes(attributes.form_Pin)#))</cfif>
 <!--- <cfif individual>and demographics.emp_id=#emp_id#</cfif> --->
 
 GROUP BY year(time_entry.date), project_id, name, lname, demographics.emp_id, demographics.tenure_date,demographics.hire_date,PTO_TYPE_INDICATOR, TIME_ROLLOVER_from_2000
 ORDER BY year(time_entry.date), lname, name
 </cfquery>
-<!--- 		<cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.emp_id IN (#PreserveSingleQuotes(attributes.form_Pin)#))</cfif> --->
+<!--- 		<cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.emp_id IN (#preservesinglequotes(attributes.form_Pin)#))</cfif> --->

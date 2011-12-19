@@ -18,7 +18,7 @@
 <cfoutput>
 <tr>
 	<td class="RegText#session.workstream_text_size#" width="50%">
-	Allow these people<cfif listlen(session.workstream_company_select_list) GT 1> or companies</cfif> to view the new timeline<br>
+	Allow these people<cfif listlen(session.workstream_selected_company_id) GT 1> or companies</cfif> to view the new timeline<br>
 	<cfmodule template="../common_files/dsp_team_select.cfm" multi="1" size="5" valuelist="1" class="RegText#session.workstream_text_size#">
 	</td>
 	<td valign="top" class="Note#session.workstream_text_size#" width="50%"><cfset variables.start=incrementvalue(variables.start)>

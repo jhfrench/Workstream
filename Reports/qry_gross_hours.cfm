@@ -20,17 +20,17 @@
 SELECT 1 AS overall_order, (Emp_Contact.lname+', '+Emp_Contact.name) AS name,<cfloop from="1" to="#variables.daysinmonth#" index="ii">
 	SUM(CASE WHEN DAY(Time_Entry.date)=#ii# THEN Time_Entry.hours ELSE 0 END) AS [day#ii#],</cfloop>
 	SUM(CASE WHEN Time_Entry.date IS NOT NULL THEN Time_Entry.hours ELSE 0 END) AS total
-FROM Emp_Contact, Time_Entry, Company,
+FROM Emp_Contact, Time_Entry, Link_Emp_Contact_Employer,
 	Demographics_Ngauge Demographics<cfif isdefined("attributes.office_location") AND attributes.office_location NEQ "ALL">, Location</cfif>
 WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND Emp_Contact.emp_id=Time_Entry.emp_id
-	AND Emp_Contact.emp_id=Company.emp_id
+	AND Emp_Contact.emp_id=Link_Emp_Contact_Employer.emp_id
 	AND Demographics.effective_from <= #variables.date_closed#
 	AND Time_Entry.date BETWEEN Demographics.effective_from AND ISNULL(Demographics.effective_to, Time_Entry.date)
 	AND ISNULL(Demographics.effective_to,#variables.date_open#) >= #variables.date_open#
 	AND MONTH(Time_Entry.date)=#attributes.month#
 	AND YEAR(Time_Entry.date)=#attributes.year#
-	AND Company.company IN (#session.workstream_company_select_list#)
+	AND Link_Emp_Contact_Employer.company_id IN (#session.workstream_selected_company_id#)
 <cfif isdefined("attributes.emp_id") AND attributes.emp_id NEQ "ALL">
 	AND Emp_Contact.emp_id=#attributes.emp_id#
 </cfif>
@@ -44,17 +44,17 @@ UNION ALL
 SELECT 2 AS overall_order, 'Total' AS name,<cfloop from="1" to="#variables.daysinmonth#" index="ii">
 	SUM(CASE WHEN DAY(Time_Entry.date)=#ii# THEN Time_Entry.hours ELSE 0 END) AS [day#ii#],</cfloop>
 	SUM(CASE WHEN Time_Entry.date IS NOT NULL THEN Time_Entry.hours ELSE 0 END) AS total
-FROM Emp_Contact, Time_Entry, Company,
+FROM Emp_Contact, Time_Entry, Link_Emp_Contact_Employer,
 	Demographics_Ngauge Demographics<cfif isdefined("attributes.office_location") AND attributes.office_location NEQ "ALL">, Location</cfif>
 WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND Emp_Contact.emp_id=Time_Entry.emp_id
-	AND Emp_Contact.emp_id=Company.emp_id
+	AND Emp_Contact.emp_id=Link_Emp_Contact_Employer.emp_id
 	AND Demographics.effective_from <= #variables.date_closed#
 	AND Time_Entry.date BETWEEN Demographics.effective_from AND ISNULL(Demographics.effective_to, Time_Entry.date)
 	AND ISNULL(Demographics.effective_to,#variables.date_open#) >= #variables.date_open#
 	AND MONTH(Time_Entry.date)=#attributes.month#
 	AND YEAR(Time_Entry.date)=#attributes.year#
-	AND Company.company IN (#session.workstream_company_select_list#)
+	AND Link_Emp_Contact_Employer.company_id IN (#session.workstream_selected_company_id#)
 <cfif isdefined("attributes.emp_id") AND attributes.emp_id NEQ "ALL">
 	AND Emp_Contact.emp_id=#attributes.emp_id#
 </cfif>

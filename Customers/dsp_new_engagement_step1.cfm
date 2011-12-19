@@ -36,7 +36,7 @@
 		</td>
 		<td class="RegText#session.workstream_text_size#Bd">
 			Visible To<br>
-			<cfselect name="company_id" query="get_companies" value="company_id" display="Company" size="4" required="Yes" message="Please specify which companies should see this engagement." multiple="yes" class="RegText#session.workstream_text_size#"></cfselect>
+			<cfselect name="company_id" query="get_companies" value="company_id" display="description" size="4" required="Yes" message="Please specify which companies should see this engagement." multiple="yes" class="RegText#session.workstream_text_size#"></cfselect>
 		</td>
 		<td width="55%" class="Note#session.workstream_text_size#">
 			<ol type="1" class="Note#session.workstream_text_size#">

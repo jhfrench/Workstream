@@ -26,7 +26,7 @@ FROM (
 				from REF_Company
 				where company_id = #session.workstream_company_id#
 			)<cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> 
-		 	AND (te.emp_id IN (#PreserveSingleQuotes(attributes.form_Pin)#))</cfif>
+		 	AND (te.emp_id IN (#preservesinglequotes(attributes.form_Pin)#))</cfif>
 	  		AND te.project_id IN (
 					SELECT project_id
 					FROM Project
@@ -38,19 +38,19 @@ FROM (
 		SELECT SUM(pg.granted_hours) as Earned_hours, emp_id
 		FROM pto_grant pg
 	  	WHERE 1=1<cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> 
-			AND (pg.emp_id IN (#PreserveSingleQuotes(attributes.form_Pin)#))</cfif>
+			AND (pg.emp_id IN (#preservesinglequotes(attributes.form_Pin)#))</cfif>
 		GROUP BY Emp_id
 	) AS hours_earned, Emp_contact ec, security,
-		Company  
+		Link_Emp_Contact_Employer  
 WHERE ec.emp_id *= hours_taken_table.emp_id 
 	AND security.emp_id = ec.emp_id
-	AND company.emp_id = ec.emp_id
+	AND Link_Emp_Contact_Employer.emp_id = ec.emp_id
 	AND hours_earned.emp_id =* ec.emp_id
 	AND security.disable <> 1
 	AND security.Disable_PTO <> 1
-	AND company IN (#session.workstream_company_select_list#)<cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> 
- 	AND (ec.emp_id IN (#PreserveSingleQuotes(attributes.form_Pin)#))</cfif>
+	AND company_id IN (#session.workstream_selected_company_id#)<cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> 
+ 	AND (ec.emp_id IN (#preservesinglequotes(attributes.form_Pin)#))</cfif>
 
-ORDER BY company, lname, [name]
+ORDER BY company_id, lname, [name]
    </cfquery>
 </cfsilent>

@@ -10,12 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2005/09/08 22:12:52  french
-	Added month/year drop downs to Leadership Hours Report and Personal Hours Summary. Task 35598
-
-	Revision 1.1  2005-03-09 13:08:38-05  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 </cfsilent>
@@ -28,16 +22,16 @@
 	</tr>
 	<tr bgcolor="##c0c0c0">
 		<td class="RegText#session.workstream_text_size#Bd">Week</td>
-		<td class="RegText#session.workstream_text_size#Bd"><cfif blah>Total </cfif>Hours</td>
+		<td class="RegText#session.workstream_text_size#Bd"><cfif variables.show_details_ind>Total </cfif>Hours</td>
 	</tr>
 </cfoutput>
 <cfoutput query="Agg_hours_by_week">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td class="RegText#session.workstream_text_size#"><cfif blah>#month#/#year# </cfif>Week #week#</td>
+		<td class="RegText#session.workstream_text_size#"><cfif variables.show_details_ind>#month#/#year# </cfif>Week #week#</td>
 		<td align="right" class="RegText#session.workstream_text_size#">#DecimalFormat(sumofhours)#</td>
 	</tr>
 </cfoutput>
-<cfif NOT blah>
+<cfif NOT variables.show_details_ind>
 	<tr>
 		<td>
 			<cfinclude template="dsp_personal_summary_by_week_graph.cfm">

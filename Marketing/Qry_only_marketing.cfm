@@ -23,7 +23,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <cfquery name="only_marketing" datasource="#application.datasources.main#">
     	select *
 	from marketing
-	where company_id IN(#session.workstream_company_select_list#)
+	where company_id IN(#session.workstream_selected_company_id#)
 </cfquery>
 I use emp_id and a REF_*_type_id as the key.
 {

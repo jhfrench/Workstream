@@ -44,7 +44,7 @@
 			Visible To<br>
 			<select name="company_id" multiple size="4" class="RegText#session.workstream_text_size#"></cfoutput>
 				<cfoutput query="get_companies">
-					<option value="#company_id#"<cfif listcontains(valuelist(get_company_id.company_id),company_id)> selected</cfif>>#company#</option>
+					<option value="#company_id#"<cfif listcontains(valuelist(get_company_id.company_id),company_id)> selected</cfif>>#description#</option>
 				</cfoutput><cfoutput>
 			</select>
 		</td>

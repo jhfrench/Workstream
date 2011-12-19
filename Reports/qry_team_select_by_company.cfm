@@ -9,31 +9,22 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.1  2005/03/09 18:14:49  stetzer
-	<>
-
-	Revision 1.1  2002-04-11 14:25:09-04  french
-	Made change to also show second initial of employee.
-
-	Revision 1.0  2001-11-27 12:26:59-05  long
-	created file
-
 	||
 	Variables:
 	
 	END FUSEDOC --->
 <cfquery name="team_select" datasource="#application.datasources.main#">
 SELECT Emp_Contact.lname AS lname, LEFT(Emp_Contact.name,2) AS f_init, Emp_Contact.name AS name,
-	Emp_Contact.emp_id AS emp_id, Company.company, 
-	ISNULL(REF_Company.company,'NA') AS company_name
-FROM Emp_Contact, Company, REF_Company, Security
-WHERE Emp_Contact.emp_id=Company.emp_id
-	AND Company.company*=REF_Company.company_id
+	Emp_Contact.emp_id AS emp_id, Link_Emp_Contact_Employer.company_id, 
+	ISNULL(REF_Company.description,'NA') AS company_name
+FROM Emp_Contact, Link_Emp_Contact_Employer, REF_Company, Security
+WHERE Emp_Contact.emp_id=Link_Emp_Contact_Employer.emp_id
+	AND Link_Emp_Contact_Employer.company_id*=REF_Company.company_id
 	AND Emp_Contact.emp_id=Security.emp_id
 	AND Security.disable=0
-	AND Company.company IN (#session.workstream_company_select_list#)
+	AND Link_Emp_Contact_Employer.company_id IN (#session.workstream_selected_company_id#)
 	AND #application.team_changed#=#application.team_changed#
-ORDER BY Company.company, lname, f_init
+ORDER BY Link_Emp_Contact_Employer.company_id, lname, f_init
 </cfquery>
 </cfsilent>
 

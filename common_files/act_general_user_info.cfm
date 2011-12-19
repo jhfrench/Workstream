@@ -13,7 +13,7 @@
 	<-- session.workstream_account_changed: date that controls query caching for object navigation
 	<-- session.workstream_company_id: id that identifies company of the user to workstream
 	<-- session.workstream_company_name: string that contains company name of the user
-	<-- session.workstream_company_select_list: lit of company IDs that the user wishes to interact with
+	<-- session.workstream_selected_company_id: lit of company IDs that the user wishes to interact with
 	<-- session.workstream_emp_id: number that identifies user to workstream
 	<-- session.first_name: string that contains first name of the user
 	<-- session.last_name: string that contains last name of the user
@@ -74,7 +74,7 @@
 	<cfparam name="session.workstream_show_options" default=1>
 	<cfparam name="session.workstream_show_team" default=0>
 <!--These are the client variables that customize the workstream user experience-->
-	<cfset session.workstream_company_select_list=valuelist(general_user_info.company_id)>
+	<cfset session.workstream_selected_company_id=valuelist(general_user_info.company_id)>
 	<cfset session.workstream_text_size="Md">
 	<cfset session.workstream_project_list_order=1>
 	   <!-- These two variables are added to allow qry_create_profile to work -->

@@ -23,7 +23,7 @@
 </cfsilent>
 <cfoutput>
 	<tr class="SubHeadText#session.workstream_text_size#">
-		<cfif listlen(session.workstream_company_select_list) GT 1><td class="SubHeadText#session.workstream_text_size#">Company</td></cfif>
+		<cfif listlen(session.workstream_selected_company_id) GT 1><td class="SubHeadText#session.workstream_text_size#">Company</td></cfif>
 		<td class="SubHeadText#session.workstream_text_size#">Name</td>
 		<td class="SubHeadText#session.workstream_text_size#">Extension</td>
 		<td class="SubHeadText#session.workstream_text_size#">Work Phone</td>

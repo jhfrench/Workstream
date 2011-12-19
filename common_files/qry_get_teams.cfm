@@ -17,17 +17,17 @@
 <cfquery name="get_teams" datasource="#application.datasources.main#">
 SELECT *
 FROM (
-	SELECT REF_Company.company AS company, REF_Company.company_id AS company_id
-	FROM Company, REF_Company
-	WHERE Company.company=REF_Company.company_id
-		AND Company.emp_id=#session.user_account_id#
+	SELECT REF_Company.description AS company, REF_Company.company_id AS company_id
+	FROM Link_Emp_Contact_Employer, REF_Company
+	WHERE Link_Emp_Contact_Employer.company_id=REF_Company.company_id
+		AND Link_Emp_Contact_Employer.emp_id=#session.user_account_id#
 		AND #application.team_changed#=#application.team_changed#
 	UNION ALL
-	SELECT REF_Company.company AS company, Link_Company_Emp_Contact.company_id AS company_id
+	SELECT REF_Company.description AS company, Link_Company_Emp_Contact.company_id AS company_id
 	FROM Link_Company_Emp_Contact, REF_Company
 	WHERE Link_Company_Emp_Contact.company_id = REF_Company.company_id
 		AND Link_Company_Emp_Contact.emp_id=#session.user_account_id#
 	) AS Elligible_Companies
-GROUP BY company, company_id
-ORDER BY company
+GROUP BY description, company_id
+ORDER BY description
 </cfquery>

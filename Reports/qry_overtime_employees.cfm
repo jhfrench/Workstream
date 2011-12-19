@@ -21,13 +21,13 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 <cfquery name="get_overtime_employees" datasource="#application.datasources.main#">          
 SELECT Emp_Contact.name, Emp_Contact.lname, 
     Demographics.pin, Demographics.emp_id
-FROM Demographics, Emp_Contact, Security, Company
+FROM Demographics, Emp_Contact, Security, Link_Emp_Contact_Employer
 WHERE Demographics.emp_id = Emp_Contact.emp_id
 	AND Emp_Contact.emp_id = Security.emp_id
-	AND Emp_Contact.emp_id = Company.emp_id
+	AND Emp_Contact.emp_id = Link_Emp_Contact_Employer.emp_id
 	AND Security.disable != 1
 	AND Demographics.effective_to IS NULL
-	AND company.company IN (#session.workstream_company_select_list#)
+	AND Link_Emp_Contact_Employer.company_id IN (#session.workstream_selected_company_id#)
 	AND demographics.overtime = 1
 ORDER BY Emp_Contact.lName, Emp_Contact.Name
 </cfquery>	

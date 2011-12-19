@@ -30,16 +30,16 @@ FROM Emp_Contact
 	INNER JOIN Demographics ON Emp_Contact.emp_id = Demographics.emp_id
 	INNER JOIN REF_Employee_Classification ON Demographics.employee_classification_id = REF_Employee_Classification.employee_classification_id
     
-	INNER JOIN Company ON Emp_Contact.emp_id = Company.emp_id
+	INNER JOIN Link_Emp_Contact_Employer ON Emp_Contact.emp_id = Link_Emp_Contact_Employer.emp_id
 WHERE (Time_Entry.Date >= '#start_date#')
 	AND (Time_Entry.Date <= '#end_date#')
 	AND (Demographics.Overtime = 1)
 	 		AND
      		((REF_Employee_Classification.employee_classification_id <> 4) OR
     			(REF_Employee_Classification.employee_classification_id <> 1))
-			AND (company.company IN(#session.workstream_company_select_list#))
+			AND (Link_Emp_Contact_Employer.company_id IN(#session.workstream_selected_company_id#))
 		<cfif listcontains(attributes.pin, "ALL") NEQ 1> 
-			AND Emp_contact.emp_id IN (#PreserveSingleQuotes(attributes.pin)#) 
+			AND Emp_contact.emp_id IN (#preservesinglequotes(attributes.pin)#) 
 		</cfif>
 	GROUP BY Emp_Contact.Name, Emp_Contact.LName, 
     REF_Employee_Classification.employee_classification, Demographics.pin

@@ -30,13 +30,13 @@ FROM ABCD_Months,
 	(SELECT SUM(Time_Entry.hours * ISNULL(Billing_Rate.rate,0)) AS revenue,
 		MONTH(Time_Entry.date) AS revenue_month, YEAR(Time_Entry.date) AS revenue_year,
 		Project.billable_type_id AS billable_type_id
-	FROM Time_Entry, Company, Billing_Rate, Project
-	WHERE Time_Entry.emp_id=Company.emp_id
+	FROM Time_Entry, Link_Emp_Contact_Employer, Billing_Rate, Project
+	WHERE Time_Entry.emp_id=Link_Emp_Contact_Employer.emp_id
 		AND Time_Entry.emp_id=Billing_Rate.emp_id
 		AND Time_Entry.project_id=Billing_Rate.project_id
 		AND Project.project_id=Time_Entry.project_id
 		AND Project.billable_type_id=1
-		AND Company.company IN (#session.workstream_company_select_list#)
+		AND Link_Emp_Contact_Employer.company_id IN (#session.workstream_selected_company_id#)
 	GROUP BY MONTH(Time_Entry.date), YEAR(Time_Entry.date), Project.billable_type_id)
 AS Hour_Revenue,
 	(SELECT SUM((ISNULL(Flat_Rate.budget,0)/ISNULL(Months,1))) AS revenue, 
@@ -48,7 +48,7 @@ AS Hour_Revenue,
 			AND Flat_Rate.start_date <= GETDATE()
 			AND ABCD_Months.start <= GETDATE()
 			AND Project.billable_type_id=3
-			AND Project.company_id IN (#session.workstream_company_select_list#)
+			AND Project.company_id IN (#session.workstream_selected_company_id#)
 		GROUP BY ABCD_Months.month, ABCD_Months.year, Project.billable_type_id)
 AS Flat_Revenue,
 	(SELECT SUM(Temp_Incident.revenue) AS revenue,
@@ -63,7 +63,7 @@ AS Flat_Revenue,
 				AND YEAR(Task.entry_date)=*ABCD_Months.year
 				AND MONTH(Task.entry_date)=*ABCD_Months.month
 				AND Project.billable_type_id=4
-				AND Project.company_id IN (#session.workstream_company_select_list#)
+				AND Project.company_id IN (#session.workstream_selected_company_id#)
 			GROUP BY ABCD_Months.month, ABCD_Months.year, Project.billable_type_id, Incident_Rate.charge)
 	AS Temp_Incident
 GROUP BY Temp_Incident.revenue_month, Temp_Incident.revenue_year)

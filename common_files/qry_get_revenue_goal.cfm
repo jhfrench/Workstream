@@ -13,10 +13,10 @@
 	||
  --->
 <cfquery name="get_revenue_goal" datasource="#application.datasources.main#">
-SELECT SUM(revenue_progress) AS revenue_progress, SUM(revenue_goal) AS revenue_goal
+SELECT fiscal_year, SUM(revenue_progress) AS revenue_progress, SUM(revenue_goal) AS revenue_goal
 FROM Revenue_Goal
-WHERE fiscal_year=YEAR(GETDATE())
-	AND company_id=#session.workstream_company_id#
+WHERE company_id=#session.workstream_company_id#
+GROUP BY fiscal_year
 </cfquery>
 </cfsilent>
 

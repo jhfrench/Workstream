@@ -27,10 +27,10 @@
 		</div>
 	</td>
 	<td valign="top">
-		<cfselect name="company_ID" message="Please Select a Company" query="get_companies" value="company_id" display="Company" selected="#session.workstream_company_name#" required="Yes" size="1" class="RegText#session.workstream_text_size#"></cfselect>
+		<cfselect name="company_id" message="Please Select a Company" query="get_companies" value="company_id" display="description" selected="#session.workstream_company_name#" required="Yes" size="1" class="RegText#session.workstream_text_size#"></cfselect>
 	</td>
 	<td valign="top" rowspan="3">
-		<cfselect name="Visible_to" message="Please Select a Company" query="get_companies" value="company_id" display="Company" required="No" size="6" multiple="Yes" class="RegText#session.workstream_text_size#"></cfselect>
+		<cfselect name="Visible_to" message="Please Select a Company" query="get_companies" value="company_id" display="description" required="No" size="6" multiple="Yes" class="RegText#session.workstream_text_size#"></cfselect>
 	</td>
 </tr>
 <tr>

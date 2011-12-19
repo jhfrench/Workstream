@@ -24,7 +24,7 @@ Added $log $ for edits to all CFM files that have fusedocs.
 	END FUSEDOC --->
 <cfloop from="1" to="#ArrayLen(CUSTOMER_RATE.BILLING_RATE_ID)#" index="ii">
 	<cfif (isnumeric(CUSTOMER_RATE.RATE[ii])AND Compare(CUSTOMER_RATE.RATE[ii],CUSTOMER_RATE.ORIGINAL.RATE[ii]) )OR (IsDate(CUSTOMER_RATE.RATES_GOOD_TO[ii]) AND  Compare(CUSTOMER_RATE.RATES_GOOD_TO[ii], CUSTOMER_RATE.ORIGINAL.RATES_GOOD_TO[ii]))OR (IsDate(CUSTOMER_RATE.RATES_GOOD_FROM[ii]) AND Compare(CUSTOMER_RATE.RATES_GOOD_FROM[ii],CUSTOMER_RATE.Original.RATES_GOOD_FROM[ii]))>
-		<cfquery name="blah" datasource="#application.datasources.main#">
+		<cfquery name="update_billing_rate" datasource="#application.datasources.main#">
 			UPDATE billing_rate 
 			SET
 			<cf_removetrailingcomma>

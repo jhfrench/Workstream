@@ -17,7 +17,7 @@
 <cfif session.workstream_emp_contact_type EQ 2>
 	<cfset variables.valid_codes=session.workstream_company_id>
 <cfelse>
-	<cfset variables.valid_codes=session.workstream_company_select_list>
+	<cfset variables.valid_codes=session.workstream_selected_company_id>
 </cfif>
 <cfquery name="get_search_projects" datasource="#application.datasources.main#">
 SELECT Customer.customer_id, Customer.description + ' (' + Customer.root_code + ')' AS customer,

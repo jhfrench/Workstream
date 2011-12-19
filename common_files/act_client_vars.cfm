@@ -74,9 +74,9 @@
 			<cfset session.workstream_text_size=attributes.text_size>
 		</cfif>
 		<cfif isdefined("attributes.company_select_list")>
-			<cfset session.workstream_company_select_list=listsort(attributes.company_select_list,"numeric")>
+			<cfset session.workstream_selected_company_id=listsort(attributes.company_select_list,"numeric")>
 		<cfelse>
-			<cfset session.workstream_company_select_list=session.workstream_company_id>
+			<cfset session.workstream_selected_company_id=session.workstream_company_id>
 		</cfif>
 		<cfif isdefined("attributes.project_list_order")>
 			<cfset session.workstream_project_list_order=attributes.project_list_order>

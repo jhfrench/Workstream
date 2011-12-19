@@ -40,21 +40,21 @@ SELECT Emp_Contact.name, Emp_Contact.lname, Project.project_code AS clientcode,
 			THEN (Customer.description + ' - ' + Project.description + ' (' + Project.project_code + ')')
 		ELSE (Project.description + ' (' + Project.project_code + ')')
 	</cfif>END AS clientname, REF_Employee_Classification.employee_classification,
-	SUM(Time_Entry.hours) AS hours, Company.company
+	SUM(Time_Entry.hours) AS hours, Link_Emp_Contact_Employer.company_id
 FROM Emp_Contact, Time_Entry, Project,
-	Demographics_Ngauge Demographics, Customer, Company,
+	Demographics_Ngauge Demographics, Customer, Link_Emp_Contact_Employer,
 	REF_Employee_Classification
 WHERE Emp_Contact.emp_id=Time_Entry.emp_id
 	AND Time_Entry.project_id=Project.project_id
 	AND Time_Entry.emp_id=Demographics.emp_id
-	AND Emp_Contact.emp_id=Company.emp_id
+	AND Emp_Contact.emp_id=Link_Emp_Contact_Employer.emp_id
 	AND Project.customer_id=Customer.customer_id
 	AND Demographics.employee_classification_id*=REF_Employee_Classification.employee_classification_id
 	AND Time_Entry.date BETWEEN Demographics.effective_from AND ISNULL(Demographics.effective_to, Time_Entry.date)
 	AND Demographics.effective_from <= #variables.through_date#
 	AND ISNULL(Demographics.effective_to,#variables.from_date#) >= #variables.from_date#
 	AND Time_Entry.date BETWEEN #variables.from_date# AND #variables.through_date#
-	AND Company.company IN (#session.workstream_company_select_list#)
+	AND Link_Emp_Contact_Employer.company_id IN (#session.workstream_selected_company_id#)
 	AND Project.billable_type_id IN (<cfif flag_non_billable>2<cfelse>1, 3, 4</cfif>)
 GROUP BY Emp_Contact.name, Emp_Contact.lname,
 	CASE
@@ -66,7 +66,7 @@ GROUP BY Emp_Contact.name, Emp_Contact.lname,
 			THEN (Customer.description + ' - ' + Project.description + ' (' + Project.project_code + ')')
 		ELSE (Project.description + ' (' + Project.project_code + ')')
 	</cfif>END, Project.project_code,
-	REF_Employee_Classification.employee_classification, Company.company
+	REF_Employee_Classification.employee_classification, Link_Emp_Contact_Employer.company_id
 ORDER BY employee_classification, clientname, lname
 </cfquery>
 </cfsilent>

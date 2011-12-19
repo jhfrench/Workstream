@@ -18,26 +18,10 @@
 	If the admin granted the new user  access to multiple companies then 
 	grant that access
 	--->
-<cfif LEN(attributes.visable_company)>
-<cfloop list="#attributes.visable_company#" index="ii">
-	<cfquery name="Link_Company_Emp_Contact_entry" datasource="#application.datasources.main#">
-		INSERT INTO Link_Company_Emp_Contact(emp_id,company_id)
-		VALUES(#variables.emp_id#,#ii#)
-	</cfquery>
-</cfloop>
-<cfelse>
-<!--- 
-	If the admin didn't grant access to anything at all, then grant access to the 
-	company that the new employee works for.
- --->
+<cfset variables.linked_company_id=listappend(attributes.company_id, attributes.visable_company)>
 <cfquery name="Link_Company_Emp_Contact_entry" datasource="#application.datasources.main#">
-INSERT INTO Link_Company_Emp_Contact(emp_id,company_id)
-VALUES(#variables.emp_id#,#attributes.company_id#)
+INSERT INTO Link_Company_Emp_Contact (emp_id, company_id)
+SELECT #variables.emp_id# AS emp_id, REF_Company.company_id
+FROM REF_Company
+WHERE REF_Company.company_id IN (#variables.linked_company_id#)
 </cfquery>
-</cfif>	
-<!--- 
-<cfquery name="Link_Company_Emp_Contact_delete" datasource="#application.datasources.main#">
-DELETE Link_Company_Emp_Contact
-WHERE emp_id=#variables.emp_id#
-</cfquery> --->
-

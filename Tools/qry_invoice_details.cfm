@@ -20,9 +20,9 @@ SELECT Hours_ID.project_id, Hours_ID.hours, ISNULL(Billing_Rate.rate,0) AS rate,
 	Demographics.pin, Project.project_code, Project.description AS project_name
 FROM Project, Billing_Rate, Emp_Contact, Demographics,
 	(SELECT SUM(Hours) AS hours, project_id, Time_Entry.emp_id
-	FROM Time_Entry, Company
-	WHERE Time_Entry.emp_id=Company.emp_id
-		AND Company.company IN (#session.workstream_company_select_list#)
+	FROM Time_Entry, Link_Emp_Contact_Employer
+	WHERE Time_Entry.emp_id=Link_Emp_Contact_Employer.emp_id
+		AND Link_Emp_Contact_Employer.company_id IN (#session.workstream_selected_company_id#)
 		AND DATEPART(m, Time_Entry.date)=#attributes.month#
 		AND DATEPART(yyyy, Time_Entry.date)=#attributes.year#
 	GROUP BY project_id, Time_Entry.emp_id)

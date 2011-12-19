@@ -9,18 +9,11 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.1  2005/03/09 18:20:32  stetzer
-	<>
-
-	Revision 1.0  2001-12-12 11:00:59-05  long
-	created file
-
 	||
 	Variables:
 	
 	END FUSEDOC --->
 </cfsilent>
-<cf_htmlhead>
 <script language="JavaScript" type="text/javascript">
 <!--
 function validate_number(arg1){
@@ -55,4 +48,3 @@ function check_form(arg1){
 }
 //-->
 </SCRIPT>
-</cf_htmlhead>

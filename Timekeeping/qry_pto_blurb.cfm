@@ -15,8 +15,7 @@
 	--> session.user_account_id: number that uniquely identifies the user
  --->
 
-<cfset company_list_use = session.workstream_company_select_list>
-<cfset company_list_use = listappend(company_list_use, session.workstream_company_id)>
+<cfset company_list_use = listappend(session.workstream_selected_company_id, session.workstream_company_id)>
 <cfquery name="pto_blurb" cachedwithin="#createtimespan(0,0,10,0)#" datasource="#application.datasources.main#">
 SELECT ISNULL(Remainder.remain,0) AS remain, ISNULL(Remainder.remain,0)+ISNULL(Last_Month_Taken.hours_taken,0)-ISNULL(Last_Month_Earned.earned_hours,0) AS last_month, disable_pto
 FROM (
@@ -39,11 +38,11 @@ FROM (
 		FROM PTO_Grant
 		WHERE PTO_Grant.emp_id=#session.user_account_id#
 		GROUP BY emp_id) AS Hours_Earned, 
-		Security, Company
+		Security, Link_Emp_Contact_Employer
 	WHERE Security.emp_id *= Hours_Taken_Table.emp_id 
-		AND Company.emp_id = Security.emp_id
+		AND Link_Emp_Contact_Employer.emp_id = Security.emp_id
 		AND Hours_Earned.emp_id =* Security.emp_id
-		AND Company.company IN (#company_list_use#)
+		AND Link_Emp_Contact_Employer.company_id IN (#company_list_use#)
 		AND Security.emp_id=#session.user_account_id#) Remainder,
 	(SELECT SUM(Time_Entry.hours) AS hours_taken
 	FROM Time_Entry

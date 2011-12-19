@@ -26,46 +26,63 @@
 	--> lname: string containing the last name of an employee
 	<-- #attributes.select_name#: (variable name based on what is passed in through the module select_name attribute) number of the employee(s) selected
  --->
-
-<cfif isdefined("attributes.email_only")>
-	<cfset variables.email_only=1>
-</cfif>
-<cfif isdefined("attributes.emp_id")>
-	<cfset variables.emp_id_match=attributes.emp_id>
-<cfelse>
-	<cfset variables.emp_id_match=session.user_account_id>
-</cfif>
-<cfif isdefined("get_expense_details.emp_id")>
-	<cfset variables.emp_id_match=get_expense_details.emp_id>
-</cfif>
-<!--- <cfset variables.emp_id=get_expense_details.emp_id> --->
-<cfparam name="attributes.valuelist" default="true">
-<cfparam name="attributes.select_name" default="emp_id">
-<cfparam name="attributes.tabindex" default=0>
-<cfparam name="attributes.multi" default=0>
-<cfparam name="attributes.size" default=0>
-<cfparam name="attributes.onchange" default="">
-<cfparam name="attributes.show_team" default="0">
-<cfparam name="attributes.class" default="SelectText#session.workstream_text_size#">
-<cfparam name="attributes.selected_flag" default="1">
-<cfset variables.company_id=0>
+<cfscript>
+	if (isdefined("attributes.email_only")) {
+		variables.email_only=1;
+	}
+	if (isdefined("attributes.emp_id")) {
+		variables.emp_id_match=attributes.emp_id;
+	}
+	else {
+		variables.emp_id_match=session.user_account_id;
+	}
+	if (isdefined("get_expense_details.emp_id")) {
+		variables.emp_id_match=get_expense_details.emp_id;
+	}
+	
+	if (NOT isdefined("attributes.valuelist")) {
+		attributes.valuelist="true";
+	}
+	if (NOT isdefined("attributes.select_name")) {
+		attributes.select_name="emp_id";
+	}
+	if (NOT isdefined("attributes.tabindex")) {
+		attributes.tabindex=0;
+	}
+	if (NOT isdefined("attributes.multi")) {
+		attributes.multi=0;
+	}
+	if (NOT isdefined("attributes.size")) {
+		attributes.size=0;
+	}
+	if (NOT isdefined("attributes.onchange")) {
+		attributes.onchange="";
+	}
+	if (NOT isdefined("attributes.show_team")) {
+		attributes.show_team=0;
+	}
+	if (NOT isdefined("attributes.class")) {
+		attributes.class="SelectText#session.workstream_text_size#";
+	}
+	if (NOT isdefined("attributes.selected_flag")) {
+		attributes.selected_flag=1;
+	}
+	variables.company_id=0;
+</cfscript>
 </cfsilent>
 <cfif NOT isdefined("team_select.recordcount")><cfinclude template="qry_team_select.cfm"></cfif>
+<cfoutput>
 <cfif attributes.selected_flag>
-	<select name="<cfoutput>#attributes.select_name#"<cfif attributes.size> size="#attributes.size#"</cfif> <cfif attributes.multi> multiple</cfif><cfif len(attributes.onchange)> onchange="javascript:#attributes.onchange#"</cfif><cfif attributes.tabindex> tabindex="#attributes.tabindex#"</cfif><cfif len(attributes.class)> class="#attributes.class#"</cfif>></cfoutput>
-	<cfoutput query="team_select">		
-		<option value="#team_select.emp_id#"<cfif listfind(variables.emp_id_match, team_select.emp_id, ",")> selected</cfif>>#team_select.lname#, #team_select.f_init#
-		</option>
-	</cfoutput>
+	<select name="#attributes.select_name#"<cfif attributes.size> size="#attributes.size#"</cfif> <cfif attributes.multi> multiple</cfif><cfif len(attributes.onchange)> onchange="javascript:#attributes.onchange#"</cfif><cfif attributes.tabindex> tabindex="#attributes.tabindex#"</cfif><cfif len(attributes.class)> class="#attributes.class#"</cfif>>
+	<cfloop query="team_select">		
+		<option value="#emp_id#" title="#lname#, #name#"<cfif listfind(variables.emp_id_match, team_select.emp_id, ",")> selected</cfif>>#display#</option>
+	</cfloop>
 	</select>
 <cfelse>
-	<cfoutput>
 	<cfselect name="#attributes.element_name#" size="2" message="#attributes.message#" required="Yes" class="#attributes.class#">
-		
 		<cfloop query="team_select">
-			<option value="#emp_id#">#lname#, #f_init#</option>
+			<option value="#emp_id#" title="#lname#, #name#">#display#</option>
 		</cfloop>
-		
 	</cfselect>
-	</cfoutput>	
 </cfif>
+</cfoutput>	

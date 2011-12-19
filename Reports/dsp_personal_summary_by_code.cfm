@@ -19,13 +19,13 @@
 <table border="0" cellpadding="2" cellspacing="0">
 <cfoutput>
 	<tr bgcolor="##5F5F5F">
-		<td colspan="<cfif blah>3<cfelse>2</cfif>" class="SubHeadText#session.workstream_text_size#White">
+		<td colspan="<cfif variables.show_details_ind>3<cfelse>2</cfif>" class="SubHeadText#session.workstream_text_size#White">
 			Summary of Hours by Client Code &amp; Employee
 		</td>
 	</tr>
 	<tr bgcolor="##c0c0c0">
 		<td class="RegText#session.workstream_text_size#Bd">Client Name</td>
-		<td class="RegText#session.workstream_text_size#Bd"><cfif blah>Total </cfif>Hours</td>
+		<td class="RegText#session.workstream_text_size#Bd"><cfif variables.show_details_ind>Total </cfif>Hours</td>
 	</tr>
 </cfoutput>
 <cfoutput query="Agg_hours_by_month">

@@ -119,8 +119,8 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 					AND Task.project_id IN (<cfif variables.use_project_criteria>#attributes.project_id#<cfelse>#attributes.project_id_list#</cfif>)</cfif> /*limit to either user's access or search crietria, whichever is less*/<cfif isdefined("attributes.task_stati_box") AND isdefined("attributes.task_stati")>
 					AND Task.status_id IN (#attributes.task_stati#)</cfif><cfif isdefined("attributes.priority_id_box") AND isdefined("attributes.priority_id")>
 					AND Task.priority_id IN (#attributes.priority_id#)</cfif><cfif isdefined("variables.date_entered")>
-					AND Task.entry_date #PreserveSingleQuotes(variables.date_entered)#</cfif><cfif isdefined("variables.due_date")>
-					AND Task.due_date #PreserveSingleQuotes(variables.due_date)#</cfif>
+					AND Task.entry_date #preservesinglequotes(variables.date_entered)#</cfif><cfif isdefined("variables.due_date")>
+					AND Task.due_date #preservesinglequotes(variables.due_date)#</cfif>
 				GROUP BY Task.task_id, REF_Priority.description)<cfif isdefined("attributes.notes_box") AND len(attributes.notes) NEQ 0><cfset counter=0>
 			AS Temporary_Tab
 			WHERE Notes.task_id=Temporary_Tab.task_id

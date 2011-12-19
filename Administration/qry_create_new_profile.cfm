@@ -17,7 +17,7 @@ WHERE active =1
 </cfquery>
 
 <!--- Insert new option selections into table  --->
-<cfloop index = "company_id" list ="#session.workstream_company_select_list#">
+<cfloop index = "company_id" list ="#session.workstream_selected_company_id#">
 	<cfquery name="create_new_profile" datasource="#application.datasources.main#">
 	INSERT INTO CompanyVisibleInUserProfile (emp_id,company_id,active)
 	VALUES (#session.user_account_id#,#company_id#,1)

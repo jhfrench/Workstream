@@ -13,7 +13,7 @@
 	||
 	Variables:
 	--> application.team_changed: date of the last time emp_contact, security or demographics tables were changed
-	--> session.workstream_company_select_list: id of the companies that the employee wishes to see
+	--> session.workstream_selected_company_id: id of the companies that the employee wishes to see
 	<-- company: id that identifies the user's company
 	<-- email: string containing the email address of an employee
 	<-- emp_id: id that identifies user to workstream
@@ -24,17 +24,17 @@
  --->
 <cfquery name="get_employee_list" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT (Emp_Contact.lname + ', ' + Emp_Contact.name) AS name,
-	Emp_Contact.emp_id AS emp_id, REF_Company.company AS company,
+	Emp_Contact.emp_id AS emp_id, REF_Company.description AS company,
 	ISNULL(Email.email,'NA') AS email, ISNULL(Phone.phone_number,'NA') AS phone_number,
 	ISNULL(Phone.extension,'NA') AS extension, Position_History.Position_ID
-FROM Emp_Contact, Company, REF_Company,
+FROM Emp_Contact, Link_Emp_Contact_Employer, REF_Company,
 	Security, Email, Phone,
 	Position_History, Demographics_Ngauge AS Demographics
-WHERE Emp_Contact.emp_id=Company.emp_id
+WHERE Emp_Contact.emp_id=Link_Emp_Contact_Employer.emp_id
 	AND Emp_Contact.emp_id=Security.emp_id
 	AND Emp_Contact.emp_id*=Email.emp_id
 	AND Emp_Contact.emp_id*=Phone.emp_id
-	AND Company.company=REF_Company.company_id
+	AND Link_Emp_Contact_Employer.company_id=REF_Company.company_id
 	AND Emp_Contact.emp_id = Position_History.emp_id
 	AND Demographics.emp_id = Emp_Contact.emp_id
 	AND Email.email_type_id = 1
@@ -43,9 +43,9 @@ WHERE Emp_Contact.emp_id=Company.emp_id
 	AND Position_History.effective_end_date IS NULL
 	AND Demographics.End_Date IS NULL
 	AND Demographics.Effective_To IS NULL
-	AND Company.company IN (<cfif listlen(session.workstream_company_select_list)>#session.workstream_company_select_list#<cfelse>0</cfif>)
+	AND Link_Emp_Contact_Employer.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
 	AND #application.team_changed#=#application.team_changed#
 	AND 1=1
-ORDER BY Company.company, Emp_Contact.lname, Emp_Contact.name
+ORDER BY Link_Emp_Contact_Employer.company_id, Emp_Contact.lname, Emp_Contact.name
 </cfquery>
 </cfsilent>

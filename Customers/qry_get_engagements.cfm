@@ -24,7 +24,7 @@ WHERE Project.project_id=Link_Project_Company.project_id
 	AND Task.status_id!=11
 	AND Customer.active_id!=0
 	AND Project.active_id IN (<cfif compare(attributes.inactive, 0)>1,</cfif>2)
-	AND Link_Project_Company.company_id IN (#session.workstream_company_select_list#)
+	AND Link_Project_Company.company_id IN (#session.workstream_selected_company_id#)
 
 	AND Project.project_code like '#attributes.client_code#%'
 	

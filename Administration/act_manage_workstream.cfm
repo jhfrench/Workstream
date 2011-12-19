@@ -29,9 +29,8 @@
 	</cfif>
 	<cfif isdefined("attributes.application_variables")>
 		<cfquery name="Reset_Application_Name" datasource="#application.datasource.application_manager#">
-		UPDATE company_list
-		SET application_name=''
-		WHERE application_name='#GenCustInfo.Application_Name#'
+		UPDATE Last_Updated
+		SET last_updated=GETDATE()
 		</cfquery>
 		all application variables.
 	</cfif>

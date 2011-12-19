@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:22:12  stetzer
-	<>
-
-	Revision 1.2  2001-12-03 14:28:23-05  french
-	Fixing divide by zero error.
-
-	Revision 1.1  2001-10-11 10:55:02-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	Variables:
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
@@ -36,10 +28,13 @@
 		<cfif time_allocation_blurb.recordcount>
 		<td valign="top" width="30%" class="RegText#session.workstream_text_size#">
 			#variables.work_allocation_text#
-			<div align="center">
-			<cfchart chartHeight="150" chartWidth="300" font="Trebuchet MS" fontsize="#variables.small#" fontBold="yes" show3D="yes" pieSliceStyle="solid" showLegend="no">
-			    <cfchartseries type="pie" query="time_allocation_blurb" valueColumn="project_hours" itemColumn="project_name" colorlist="#variables.color_list#" dataLabelStyle="none" paintStyle="raise" />
-			</cfchart>
+			<cfsavecontent variable="variables.chart_under_menu">
+				<cfchart chartHeight="150" chartWidth="300" font="Trebuchet MS" fontsize="#variables.small#" fontBold="yes" show3D="yes" pieSliceStyle="solid" showLegend="no">
+				    <cfchartseries type="pie" query="time_allocation_blurb" valueColumn="project_hours" itemColumn="project_name" colorlist="#variables.color_list#" dataLabelStyle="none" paintStyle="raise" />
+				</cfchart>
+			</cfsavecontent>
+			<div id="time_allocation_chart" align="center">
+			     <cfoutput>#replacenocase(replacenocase(variables.chart_under_menu,'quality="high"', 'quality="high" wmode="transparent"', "ALL"),'<PARAM NAME="quality" VALUE="high"/>', '<PARAM NAME="quality" VALUE="high"/><PARAM NAME="wmode" VALUE="transparent"/>', "ALL")#</cfoutput>
 			Hover over a pie slice to see details.
 			</div>
 		</td>

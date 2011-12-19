@@ -10,16 +10,6 @@
 	||
 	Edits:
 	$Log$
-Revision 1.1  2005/12/20 20:22:44  french
-Minor modifications to line up the columns on the output and to speed up the output. Task 38852
-
-Revision 1.0  2005-02-15 16:01:40-05  daugherty
-Initial revision
-
-Revision 1.1  2001-10-11 10:54:16-04  long
-added $log $ for edits.  To all CFM files that have fusedocs.
-
- 
 	||
  --->
 <cfset variables.show_submit_button=0>

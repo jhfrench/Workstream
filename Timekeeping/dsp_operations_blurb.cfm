@@ -35,15 +35,18 @@
 </cfsilent>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="2" section_color="800000" section_title="Account Mgmt Dashboard" title_class="HeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="2" section_color="008000" section_title="Account Mgmt Dashboard" title_class="HeadText#session.workstream_text_size#White">
 	<tr>
 		<td colspan="2">
-			<cfchart font="Trebuchet MS" fontSize="#small#" gridLines="4" show3D="yes" foregroundcolor="##c0c0c0" databackgroundcolor="##ffffff" chartwidth="450" chartheight="#variables.graph_height#" seriesplacement="stacked">
-				<cfchartseries type="horizontalbar" query="operations_blurb" valueColumn="green_count" itemColumn="customer" seriescolor="##33CC99" paintstyle="shade" />
-				<cfchartseries type="horizontalbar" query="operations_blurb" valueColumn="yellow_count" itemColumn="customer" seriescolor="yellow" paintstyle="shade" />
-				<cfchartseries type="horizontalbar" query="operations_blurb" valueColumn="red_count" itemColumn="customer" seriescolor="red" paintstyle="shade" />
-			</cfchart>
-			<div align="center">
+			<cfsavecontent variable="variables.chart_under_menu">
+				<cfchart font="Trebuchet MS" fontSize="#small#" gridLines="4" show3D="yes" foregroundcolor="##c0c0c0" databackgroundcolor="##ffffff" chartwidth="450" chartheight="#variables.graph_height#" seriesplacement="stacked">
+					<cfchartseries type="horizontalbar" query="operations_blurb" valueColumn="green_count" itemColumn="customer" seriescolor="##33CC99" paintstyle="shade" />
+					<cfchartseries type="horizontalbar" query="operations_blurb" valueColumn="yellow_count" itemColumn="customer" seriescolor="yellow" paintstyle="shade" />
+					<cfchartseries type="horizontalbar" query="operations_blurb" valueColumn="red_count" itemColumn="customer" seriescolor="red" paintstyle="shade" />
+				</cfchart>
+			</cfsavecontent>
+			<div id="operations_blurb" align="center">
+			     <cfoutput>#replacenocase(replacenocase(variables.chart_under_menu,'quality="high"', 'quality="high" wmode="transparent"', "ALL"),'<PARAM NAME="quality" VALUE="high"/>', '<PARAM NAME="quality" VALUE="high"/><PARAM NAME="wmode" VALUE="transparent"/>', "ALL")#</cfoutput>
 				<a href="index.cfm?fuseaction=Reports.engagement_dashboard_staff" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">Click here for full project details and timelines.</a>
 			</div>
 		</td>

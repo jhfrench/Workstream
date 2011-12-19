@@ -19,7 +19,7 @@
 	<cfset session.workstream_account_changed=account_changed>
 	<cfset session.workstream_company_id=company_id>
 	<cfset session.workstream_company_name=company_name>
-	<cfset session.workstream_company_select_list=company_select_list>
+	<cfset session.workstream_selected_company_id=company_select_list>
 	<cfset session.workstream_emp_contact_type=1>
 	<cfset session.workstream_express_input_rows=express_input_rows>
 	<cfset session.workstream_express_notes_height=express_notes_height>

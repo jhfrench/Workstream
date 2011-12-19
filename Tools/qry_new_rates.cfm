@@ -23,16 +23,16 @@ HAVING (Billing_Rate.rate IS NULL )
 </cfquery>
 
 <cfquery NAME="new_rates" datasource="#application.datasources.main#">
-SELECT Project.Description, Emp_Contact.Name, Emp_Contact.LName,
+SELECT Project.description, Emp_Contact.name, Emp_Contact.lname,
 	Billing_Rate.Rate, Billing_Rate.emp_id, Billing_Rate.project_id,
 	Billing_Rate.Billing_Rate_ID, Billing_Rate.rates_good_from,Billing_Rate.rates_good_to
 FROM Billing_Rate
 	INNER JOIN Project ON Billing_Rate.project_id = Project.project_id
 	INNER JOIN Emp_Contact ON Billing_Rate.emp_id = Emp_Contact.emp_id
-	INNER JOIN Company ON Emp_Contact.emp_id = Company.emp_id
+	INNER JOIN Link_Emp_Contact_Employer ON Emp_Contact.emp_id = Link_Emp_Contact_Employer.emp_id
 WHERE Billing_Rate.Rate IS NULL
 	AND Project.billable_type_id = 1
-    AND Company.company IN (#session.workstream_company_select_list#)
+    AND Link_Emp_Contact_Employer.company_id IN (#session.workstream_selected_company_id#)
 ORDER BY name
 </cfquery>
 </cfsilent>

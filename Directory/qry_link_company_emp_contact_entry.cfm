@@ -21,8 +21,8 @@
 <cfif LEN(attributes.visable_company)>
 <cfloop list="#attributes.visable_company#" index="ii">
 	<cfquery name="Link_Company_Emp_Contact_entry" datasource="#application.datasources.main#">
-		INSERT INTO Link_Company_Emp_Contact(emp_id,company_id)
-		VALUES(#variables.emp_id#,#ii#)
+		INSERT INTO Link_Company_Emp_Contact (emp_id, company_id)
+		VALUES (#variables.emp_id#, #ii#)
 	</cfquery>
 </cfloop>
 <cfelse>

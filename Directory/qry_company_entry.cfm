@@ -15,11 +15,7 @@
  --->
 </cfsilent>
 <cfquery name="company_entry" datasource="#application.datasources.main#">
-INSERT INTO Company(emp_id, company)
+INSERT INTO Link_Emp_Contact_Employer (emp_id, company_id)
 VALUES(#variables.emp_id#, #attributes.company_id#)
-</cfquery><!--- 
-<cfquery name="company_delete" datasource="#application.datasources.main#">
-DELETE Company
-WHERE emp_id=#variables.emp_id#
-</cfquery> --->
+</cfquery>
 

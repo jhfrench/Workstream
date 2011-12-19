@@ -56,7 +56,7 @@ added $log $ for edits.  To all CFM files that have fusedocs.
 			View These Companies<br>
 			<select name="company_select_list" size="#min(get_teams.recordcount,5)#" multiple class="RegText#session.workstream_text_size#"></cfoutput>
 				<cfoutput query="get_teams">
-				<option value="#company_id#"<cfif listfind(session.workstream_company_select_list,company_id)> selected</cfif>>#company#</option></cfoutput><cfoutput>
+				<option value="#company_id#"<cfif listfind(session.workstream_selected_company_id,company_id)> selected</cfif>>#company#</option></cfoutput><cfoutput>
 			</select>
 		</td>
 		<td class="SubHeadText#session.workstream_text_size#">

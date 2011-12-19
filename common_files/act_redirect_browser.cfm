@@ -22,8 +22,10 @@
 <cfparam name="attributes.fuseaction" default="task_list">
 </cfsilent>
 <cfoutput>
-	<META HTTP-EQUIV="Refresh" Content= "#attributes.delay#; URL=#attributes.directory_action#index.cfm?fuseaction=#attributes.fuseaction#">
+	<script language="JavaScript" type="text/javascript">
+		window.location.href="#attributes.directory_action#index.cfm?fuseaction=#attributes.fuseaction#";
+	</script>
 	<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;
-	<div align="center" class="HeadText#session.workstream_text_size#">#attributes.display#</div>
+	<div align="center" class="HeadText#session.workstream_text_size#"><a href="#attributes.directory_action#index.cfm?fuseaction=#attributes.fuseaction#">#attributes.display#</a></div>
 </cfoutput>
 

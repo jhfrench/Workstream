@@ -12,7 +12,7 @@
 	$Log$
 	||
 	END FUSEDOC --->
-<cfif listlen(session.workstream_company_select_list) GT 1>
+<cfif listlen(session.workstream_selected_company_id) GT 1>
 	<cfset variables.title_column_span=8>
 <cfelse>
 	<cfset variables.title_column_span=7>

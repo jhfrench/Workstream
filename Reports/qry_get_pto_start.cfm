@@ -10,9 +10,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.1  2005/03/09 18:13:24  stetzer
-	<>
-
 	||
 	Variables:
 	END FUSEDOC --->

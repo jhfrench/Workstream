@@ -20,14 +20,14 @@ WHERE emp_id=#attributes.emp_id#
 	<cfif LEN(attributes.visable_company)>
 <cfloop list="#attributes.visable_company#" index="ii">
 	<cfquery name="link_company_emp_contact_entry" datasource="#application.datasources.main#">
-		INSERT INTO Link_Company_Emp_Contact(emp_id,company_id)
-		VALUES(#attributes.emp_id#,#ii#)
+		INSERT INTO Link_Company_Emp_Contact(emp_id, company_id)
+		VALUES(#attributes.emp_id#, #ii#)
 	</cfquery>
 </cfloop>
 <cfelse>
 <cfquery name="link_company_emp_contact_entry" datasource="#application.datasources.main#">
-INSERT INTO Link_Company_Emp_Contact(emp_id,company_id)
-VALUES(#attributes.emp_id#,#attributes.company_id#)
+INSERT INTO Link_Company_Emp_Contact(emp_id, company_id)
+VALUES(#attributes.emp_id#, #attributes.company_id#)
 </cfquery>
 </cfif>	
  

@@ -9,14 +9,6 @@
 	||
 	Edits: 
 	$Log$
-	Revision 1.2  2006-10-20 13:14:11-05  french
-	Task 48717: Previous code used to double results whenever an employee would have two or more Demographics records within the specified timeframe.
-
-	Revision 1.1  2002-03-07 10:23:45-05  long
-	added the ORDER BY statement
-
-	Revision 1.0  2002-03-07 08:28:33-05  long
-	created file to replace 3 other qry files
 	||
 	Variables:
 	
@@ -28,17 +20,17 @@ SELECT Employee_Data.employee_classification, Employee_Data.emp_id, Employee_Dat
 	ISNULL(Notes.note,'') AS note
 FROM (
 	SELECT Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname,
-		MAX(ISNULL(REF_Employee_Classification.employee_classification, 'None')) AS employee_classification, REF_Company.company
+		MAX(ISNULL(REF_Employee_Classification.employee_classification, 'None')) AS employee_classification, REF_Company.description AS company
 	FROM Emp_contact, Demographics, REF_Employee_Classification,
-		Company, REF_Company
+		Link_Emp_Contact_Employer, REF_Company
 	WHERE Emp_Contact.emp_id=Demographics.emp_id
-		AND Emp_Contact.emp_id=Company.emp_id 
-		AND Company.company=REF_Company.company_id 
+		AND Emp_Contact.emp_id=Link_Emp_Contact_Employer.emp_id 
+		AND Link_Emp_Contact_Employer.company_id=REF_Company.company_id 
 		AND REF_Employee_Classification.employee_classification_id =ISNULL(Demographics.employee_classification_id,7) 
 		AND ISNULL(Demographics.effective_to,#variables.from_date#) >= #variables.from_date#
 		AND ISNULL(Demographics.effective_from,#variables.through_date#) <= #variables.through_date#
 		AND Emp_Contact.emp_id IN (#attributes.included_emp_id#)
-	GROUP BY Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname, REF_Company.company
+	GROUP BY Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname, REF_Company.description
 	) AS Employee_Data 
 	LEFT OUTER JOIN (
 		SELECT Time_Entry.emp_id, Time_Entry.date, Time_Entry.hours, Time_Entry.notes_id, 

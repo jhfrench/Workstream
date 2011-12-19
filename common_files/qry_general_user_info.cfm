@@ -28,13 +28,13 @@
 </cfif>
 <cfquery name="general_user_info" datasource="#application.datasources.main#">
 SELECT ISNULL(REF_Company.show_hours_data_ind,0) AS show_hours_data_ind, REF_Company.pto_accrual_type_id AS pto_accrual_type_id, REF_Company.display_chat AS display_chat,
-	REF_Company.company_id AS company_id, REF_Company.company AS company_name, REF_Company.alternate_datasource,
+	REF_Company.company_id AS company_id, REF_Company.description AS company_name, REF_Company.alternate_datasource,
 	Emp_Contact.emp_id AS emp_id, Emp_Contact.name AS first_name, Emp_Contact.lname AS last_name,
 	Emp_Contact.emp_contact_type, Security.last_updated AS last_updated, ISNULL(Security.user_level, 0) AS user_level
-FROM Company, REF_Company, Emp_Contact, Security
-WHERE Company.emp_id=Emp_Contact.emp_id
+FROM Link_Emp_Contact_Employer, REF_Company, Emp_Contact, Security
+WHERE Link_Emp_Contact_Employer.emp_id=Emp_Contact.emp_id
 	AND Emp_Contact.emp_id=Security.emp_id 
-	AND Company.company=REF_Company.company_id
+	AND Link_Emp_Contact_Employer.company_id=REF_Company.company_id
 	AND Security.disable=0
 	AND Security.username='#variables.authorized_user#'
 </cfquery>

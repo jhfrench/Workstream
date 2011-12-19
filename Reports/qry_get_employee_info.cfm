@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:13:06  stetzer
-	<>
-
 	||
 	END FUSEDOC --->
 </cfsilent>
@@ -29,19 +26,17 @@ SELECT REF_Merit_Pool.description AS merit_pool, REF_Department.department_name,
 	Salary1.date_implemented, Salary1.salary_change_type, Salary1.increase_amount,
 	Salary1.increase_percent,
 	DATEADD(d, 30, CAST(MONTH(Demographics.Hire_Date)+1 AS VARCHAR(2))+'/1/'+CAST(YEAR(Demographics.Hire_Date) AS VARCHAR(4))) AS benefit_start_date,--the first of the month following hire date, plus thirty days
-	REF_Company.Company, Office.city
-FROM Company
-	INNER JOIN Demographics
-	INNER JOIN Emp_Contact
-		ON Demographics.emp_id=Emp_Contact.emp_id
-		ON Company.emp_id=Emp_Contact.emp_id
-	INNER JOIN REF_Company
-		ON Company.Company=REF_Company.Company_ID
-	LEFT OUTER JOIN (SELECT Salary.*, REF_Salary_Change_Type.description AS salary_change_type
+	REF_Company.description AS company, Office.city
+FROM Link_Emp_Contact_Employer
+	INNER JOIN Demographics ON Demographics.emp_id=Emp_Contact.emp_id
+	INNER JOIN Emp_Contact ON Link_Emp_Contact_Employer.emp_id=Emp_Contact.emp_id
+	INNER JOIN REF_Company ON Link_Emp_Contact_Employer.company_id=REF_Company.company_id
+	LEFT OUTER JOIN (
+			SELECT Salary.*, REF_Salary_Change_Type.description AS salary_change_type
 			FROM Salary, REF_Salary_Change_Type
 			WHERE REF_Salary_Change_Type.salary_change_type_id=Salary.salary_change_type_id
-				AND #createodbcdate(attributes.start_date)# BETWEEN Salary.date_implemented AND ISNULL(Salary.date_through,GETDATE())/*Get salary as of specified date*/) AS Salary1
-		ON Emp_Contact.emp_id=Salary1.emp_id 
+				AND #createodbcdate(attributes.start_date)# BETWEEN Salary.date_implemented AND ISNULL(Salary.date_through,GETDATE())/*Get salary as of specified date*/
+		) AS Salary1 ON Emp_Contact.emp_id=Salary1.emp_id 
 	LEFT OUTER JOIN Link_Employee_Supervisor
 		ON Emp_Contact.emp_id=Link_Employee_Supervisor.emp_id
 	LEFT OUTER JOIN Emp_Contact Supervisor
@@ -68,7 +63,7 @@ FROM Company
 		ON Emp_Contact.emp_id=Office.emp_id
 WHERE #createodbcdate(attributes.start_date)# BETWEEN Demographics.Hire_Date AND ISNULL(Demographics.End_Date,GETDATE())--Get only employees active as of specified date
 	AND #createodbcdate(attributes.start_date)# BETWEEN Link_Employee_Supervisor.date_start AND ISNULL(Link_Employee_Supervisor.date_end ,GETDATE())--Get supervisor as of specified date
-	AND Company.company IN (<cfif listlen(session.workstream_company_select_list)>#session.workstream_company_select_list#<cfelse>0</cfif>)
+	AND Link_Emp_Contact_Employer.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
 ORDER BY Emp_Contact.LName, Emp_Contact.Name
 </cfquery>
 	

@@ -56,7 +56,7 @@
 <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tr bgcolor="##78A0EB" class="HeadText#session.workstream_text_size#">
 		<td class="HeadText#session.workstream_text_size#">
-			<cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>Case<cfelse>Task</cfif> Inbox for #request.first_name# #request.last_name#
+			<cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>Case<cfelse>Task</cfif> Inbox for <cfmodule template="../common_files/dsp_team_select.cfm" emp_id="#attributes.emp_id#" show_team="1" onchange="form.submit();" fuseaction="#attributes.fuseaction#">
 		</td>
 		<td align="right" class="RegText#session.workstream_text_size#White">
 			<!--- <a class="SubHeadText#session.workstream_text_size#" href="index.cfm?fuseaction=<cfif comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>engagement_list">Project<cfelse>task_list">Task</cfif> View</a> --->&nbsp;
@@ -66,7 +66,6 @@
 				&nbsp;&nbsp;<label for="show_closed"><input type="checkbox" name="show_closed" id="show_closed" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_closed") AND session.workstream_show_closed> checked</cfif> class="SelectText#session.workstream_text_size#">Show Completed Tasks</label>
 				&nbsp;&nbsp;<label for="show_team"><input type="checkbox" name="show_team" id="show_team" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_team") AND session.workstream_show_team> checked</cfif> class="SelectText#session.workstream_text_size#">Show Team's Tasks</label>&nbsp;&nbsp;
 			</cfif>
-			Show Tasks for <cfmodule template="../common_files/dsp_team_select.cfm" emp_id="#attributes.emp_id#" show_team="1" onchange="form.submit();" fuseaction="#attributes.fuseaction#">
 		</td>
 	</tr>
 </table>

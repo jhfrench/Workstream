@@ -24,12 +24,12 @@ SELECT SUM(Time_Entry.hours) AS hours, Project.project_code AS clientcode,
 FROM Emp_Contact
 	INNER JOIN Time_Entry ON Emp_Contact.emp_id=Time_Entry.emp_id
 	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
-	INNER JOIN Company ON Emp_Contact.emp_id=Company.emp_id 
-	INNER JOIN REF_Company ON Company.company=REF_Company.company_id
+	INNER JOIN Link_Emp_Contact_Employer ON Emp_Contact.emp_id=Link_Emp_Contact_Employer.emp_id 
+	INNER JOIN REF_Company ON Link_Emp_Contact_Employer.company_id=REF_Company.company_id
 	INNER JOIN Demographics ON Emp_Contact.emp_id=Demographics.emp_id
 	LEFT OUTER JOIN REF_Employee_Classification ON Demographics.employee_classification_id=REF_Employee_Classification.employee_classification_id
 WHERE Time_Entry.date BETWEEN #variables.from_date# AND #variables.through_date#
-	AND Company.company IN (#session.workstream_company_select_list#)
+	AND Link_Emp_Contact_Employer.company_id IN (#session.workstream_selected_company_id#)
 	AND Time_Entry.date BETWEEN Demographics.effective_from AND ISNULL(Demographics.effective_to, Time_Entry.date)
 GROUP BY Project.project_code, Project.description, REF_Employee_Classification.employee_classification
 ORDER BY clientcode

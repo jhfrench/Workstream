@@ -28,7 +28,7 @@
 <cfset phone=ReplaceList(phone_number,list1,list2)>
 
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<cfif listlen(session.workstream_company_select_list) GT 1><td class="RegText#session.workstream_text_size#">#company#</td></cfif>
+		<cfif listlen(session.workstream_selected_company_id) GT 1><td class="RegText#session.workstream_text_size#">#company#</td></cfif>
 		<td class="RegText#session.workstream_text_size#"><a href="javascript:list_to_employee('#emp_id#');" onmouseover="MM_displayStatusMsg('View details for #Replace(name,"'","")#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#name#</a></td>
 		<td class="RegText#session.workstream_text_size#">#extension#</td>
 		<td class="RegText#session.workstream_text_size#"><cfif len(phone) EQ 10>

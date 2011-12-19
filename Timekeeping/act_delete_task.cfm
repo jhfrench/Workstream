@@ -10,14 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.1  2005/03/09 18:19:57  stetzer
-	<>
-
-	Revision 1.2  2001-11-13 10:26:12-05  french
-	Added the ability to attach tasks.
-
-	Revision 1.0  2001-10-11 10:55:20-04  long
-	Added $log $ for edits to all CFM files that have fusedocs.
 	||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page

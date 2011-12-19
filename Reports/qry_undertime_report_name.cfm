@@ -19,8 +19,8 @@ FROM Emp_Contact
 	INNER JOIN Time_Entry ON Emp_Contact.emp_id = Time_Entry.emp_id
 	INNER JOIN Demographics ON Emp_Contact.emp_id = Demographics.emp_id
 	INNER JOIN Security ON Emp_Contact.emp_id = Security.emp_id
-	INNER JOIN Company ON Emp_Contact.emp_id = Company.emp_id
-	INNER JOIN REF_Company ON Company.Company = REF_Company.Company_ID
+	INNER JOIN Link_Emp_Contact_Employer ON Emp_Contact.emp_id = Link_Emp_Contact_Employer.emp_id
+	INNER JOIN REF_Company ON Link_Emp_Contact_Employer.company_id = REF_Company.company_id
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
 	LEFT OUTER JOIN REF_Employee_Classification ON Demographics.employee_classification_id = REF_Employee_Classification.employee_classification_id
 WHERE Security.disable <> 1
@@ -28,7 +28,7 @@ WHERE Security.disable <> 1
 	AND Time_entry.date<='#end_Date#'
 	AND Demographics.overtime =1 <cfif compareNoCase(attributes.pin, "all")>
 	AND Emp_Contact.emp_id IN (#attributes.pin#)<cfelse>
-	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_company_select_list#)</cfif>
+	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)</cfif>
 GROUP BY Emp_Contact.Name, Emp_Contact.LName, REF_Employee_Classification.employee_classification,
 	Emp_Contact.emp_id
 </cfquery>
