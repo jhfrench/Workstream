@@ -66,13 +66,13 @@ else
 		<script src="common_files/SpryMenuBar.js?cache_escape=#variables.cache_escape#" type="text/javascript"></script>
 	</head>
 <body bgcolor="##000000" onLoad="<cfif application.use_help_module_ind>Element.hide('help_area');</cfif>#get_screen_details.body_onload#">
-<table align="center" bgcolor="##ffffff" width="1000" border="0" cellspacing="0" cellpadding="0">
+<table align="center" bgcolor="##ffffff" width="1180" border="0" cellspacing="0" cellpadding="0">
 	<tr>
-		<td bgcolor="##000000" colspan="5" height="10" width="1000"><img src="images/spacer.gif" alt="" height="10" width="1" border="0" /></td>
+		<td bgcolor="##000000" colspan="5" height="10" width="1180"><img src="images/spacer.gif" alt="" height="10" width="1" border="0" /></td>
 	</tr>
 	<tr> 
 		<td bgcolor="##000000" rowspan="4" width="10"><img src="images/spacer.gif" alt="" height="1" width="10" border="0" /></td>
-		<td colspan="3" width="980">
+		<td colspan="3" width="1160">
 			<div style="position:absolute;top:-100em;left:-100em;">
 				<!-- Skip navigation link -->
 				<a href="##begin_page_content" title="hidden browser link to skip repetitive navigation" class="footerLnk">- Skip Nav</a>
@@ -80,7 +80,7 @@ else
 				<a href="index.cfm?fuseaction=#fuseaction###begin_page_content" title="hidden browser link to view #business_function_description#"></a></cfloop>
 			</div>
 		<!-- Top Nav Bar starts -->
-			<table width="980" border="0" cellspacing="0" cellpadding="0" class="screen_only">
+			<table width="1160" border="0" cellspacing="0" cellpadding="0" class="screen_only">
 				<tbody>
 				<tr>
 					<td height="1" colspan="6"><img src="images/spacer.gif" alt="" height="1" width="1" border="0" /></td>
@@ -88,9 +88,9 @@ else
 				<tr>
 					<td colspan="6">
 					<cfif application.application_specific_settings.banner_only_ind>
-						<a href="#application.application_specific_settings.nasa_organization_url#"><img src="images/mast.jpg" alt="				#application.application_specific_settings.nasa_organization#" width="980" height="120" border="0" /></a>
+						<a href="#application.application_specific_settings.nasa_organization_url#"><img src="images/mast.jpg" alt="				#application.application_specific_settings.nasa_organization#" width="1160" height="120" border="0" /></a>
 					<cfelse>
-						<table height="150" width="980" border="0" cellspacing="0" cellpadding="0" cols="2">
+						<table height="150" width="1160" border="0" cellspacing="0" cellpadding="0" cols="2">
 							<tr>
 								<td bgcolor="##006699" height="148" style="color:##FFFFFF;font-size:24px;font-weight:bold;text-align:center;" class="forum">
 									#application.application_specific_settings.nasa_organization#
@@ -115,14 +115,14 @@ else
 		<td bgcolor="##000000" rowspan="4" width="10"><img src="images/spacer.gif" alt="" height="1" width="10" border="0" /></td>
 	</tr>
 	<tr>
-		<td valign="top" width="796">
+		<td valign="top" width="1076">
 		<!-- START MAIN BODY -->
 		<a name="begin_page_content"></a>
-			<table bgcolor="##ffffff" border="0" cellspacing="0" cellpadding="0" cols="3" width="796">
+			<table bgcolor="##ffffff" border="0" cellspacing="0" cellpadding="0" cols="3" width="1076">
 				<tr>
 					<td><img src="images/spacer.gif" alt="" height="400" width="2" border="0" /></td>
 					<td valign="top" width="363"> 
-						<img src="images/spacer.gif" alt="" height="1" width="700" border="0" />
+						<img src="images/spacer.gif" alt="" height="1" width="880" border="0" />
 
 <!--- if user does not have access to this fuseaction, tell them and abort processing --->
 <cfif len(variables.access_message)>

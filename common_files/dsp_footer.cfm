@@ -45,36 +45,15 @@
 			</table>
 		</td>
 	</tr>
+	<!-- Footer starts -->
 	<tr>
-		<td>
-			<!-- Footer starts -->
-			<table bgcolor="#cccccc" border="0" cellpadding="4" cellspacing="0" cols="3" width="100%" summary="Table displays footer information" class="screen_only">
-				<tr valign="top">
-					<td align="left" bgcolor="#cccccc">
-						<img src="images/spacer.gif" alt="" width="400" height="1" border="0" /><br />
-						<!--- xml file should eventually point to NASA public portal (like http://www.nasa.gov/includes/NASA_Footer.rss)--->
-						<!--- <iframe src="common_files/NASA_Footer.xml" width="400" height="185" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no">NASA Footer</iframe>--->
-						<a href="http://www.hq.nasa.gov/office/pao/FOIA/agency/">+ Freedom of Information Act</a><br />
-						<a href="http://www.nasa.gov/about/budget/index.html">+ Budgets, Strategic Plans and Accountability Reports</a><br />
-						<a href="http://www.nasa.gov/about/highlights/HP_Management.html">+ The President's Management Agenda</a><br />
-						<a href="http://www.nasa.gov/about/highlights/HP_Privacy.html">+ Privacy Policy and Important Notices</a><br />
-						<a href="http://www.hq.nasa.gov/office/oig/hq/hotline.html">+ Inspector General Hotline</a><br />
-						<a href="http://www.hq.nasa.gov/office/codee/nofear.html">+ Equal Employment Opportunity Data Posted Pursuant to the No Fear Act</a><br />
-						<a href="http://www.nasa.gov/about/contact/information_inventories_schedules.html">+ Information-Dissemination Priorities and Inventories</a><br />
-						<a href="http://www.usa.gov/">+ USA.gov-Your First Click to the US Government</a><br />
-						<a href="http://www.whitehouse.gov/omb/expectmore/">+ ExpectMore-A Program Which Determines Whether Government Programs Are Effective</a><br /> 
-					</td>
-					<td align="right" style="white-space: nowrap;"><a href="http://www.nasa.gov/home/index.html" title="NASA.gov homepage"><img src="images/footer_logo_nasa.gif" alt="National Aeronautics and Space Administration" width="49" height="48" border="0" /></a><img src="images/spacer.gif" alt="" width="6" align="right" height="48" border="0" /></td>
-					<td class="footerLnk">
-						<img src="images/spacer.gif" alt="" width="170" height="10" border="0" /><br /><cfoutput>
-						NASA Official: #application.application_specific_settings.nasa_official#<br />
-						Curator: <acronym title="Headquarters Information Technology Support Services">HITSS</acronym><br />
-						Last Updated: #dateformat(application.last_updated, "mmmm d, yyyy")#<!-- #application.product_release_version# --></cfoutput><br />
-						<a class="footerLnk" href="http://www.nasa.gov/about/contact/index.html">+ Contact NASA</a><br />
-						<a class="footerLnk" href="http://www.nasa.gov/sitemap/sitemap_nasa.html">+ SiteMap</a><br />
-					</td>
-				</tr>
-			</table>
+		<td width="1160" style="background-color: #cccccc;">
+			<div style="float: left;">
+				&nbsp;<cfoutput>&copy; #year(now())# Applied Internet Technologies</cfoutput>
+			</div>
+			<div style="float: right">
+				<cfoutput>Version #application.product_release_version# (Last Updated: #dateformat(application.last_updated, "mmmm d, yyyy")#)</cfoutput>&nbsp;
+			</div>
 		</td>
 	</tr>
 </table>
