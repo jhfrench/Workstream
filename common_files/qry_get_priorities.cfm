@@ -1,5 +1,5 @@
 
-<!--Timekeeping/qry_get_priorities.cfm
+<!--common_files/qry_get_priorities.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC

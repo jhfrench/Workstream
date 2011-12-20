@@ -1,5 +1,5 @@
 
-<!--timekeeping/pag_account_manage.cfm
+<!--Administration/pag_account_manage.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -13,6 +13,7 @@
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
+</cfsilent>
 <cfform action="index.cfm?fuseaction=Administration.edit_account" name="timekeeping_options" method="POST">
 <cfoutput>
 <table align="center" bgcolor="##cccccc" border="0" cellpadding="0" cellspacing="0">

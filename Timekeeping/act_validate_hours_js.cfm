@@ -1,5 +1,5 @@
 
-<!-- timekeeping/act_validate_hours_js.cfm
+<!-- Timekeeping/act_validate_hours_js.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC

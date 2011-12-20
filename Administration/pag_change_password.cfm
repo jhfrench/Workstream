@@ -1,5 +1,5 @@
 
-<!--timekeeping/pag_change_password.cfm
+<!--Administration/pag_change_password.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -13,6 +13,7 @@
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
+</cfsilent>
 <cfif isdefined("attributes.new_pass")>
 	<cfinclude template="qry_get_user_details.cfm">
 	<cfif NOT comparenocase(get_user_details.password,attributes.current_pass) AND NOT comparenocase(attributes.new_pass,attributes.confirm_pass)>

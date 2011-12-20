@@ -21,7 +21,7 @@
 </cfoutput>
 		<cfoutput query="get_navigation">
 			<cfif Display_To_Nav>	
-				<a href="#request.dir_level#timekeeping/<cfif custom_ind><cfif len(custom_url)>#custom_url#<cfelse>#hyperlink#</cfif><cfelse>index.cfm?fuseaction=#action#</cfif>" class="NavText#session.workstream_text_size#">#lcase(report_name)#</a>&nbsp;|&nbsp;
+				<a href="#request.dir_level#<cfif custom_ind><cfif len(custom_url)>#custom_url#<cfelse>#hyperlink#</cfif><cfelse>index.cfm?fuseaction=#action#</cfif>" class="NavText#session.workstream_text_size#">#lcase(report_name)#</a>&nbsp;|&nbsp;
 			</cfif>										
 		</cfoutput>
 <cfoutput>

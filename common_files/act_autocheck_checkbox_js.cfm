@@ -1,5 +1,5 @@
 
-<!--search/dsp_team_select.cfm
+<!--common_files/dsp_team_select.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
