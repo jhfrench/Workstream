@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 <cfset onload="ReturnForm();">
 <cfset bgcolor="##78A0EB">
@@ -21,7 +20,7 @@
 	<cfx_spell action="LANGUAGES" name="Lang">
 </cflock>
 <cfform action="index.cfm?fuseaction=common_files.spell_check&formname=#formname#" name="spell" method="POST">
-<table align="center" border="0" cellpadding="1" cellspacing="0" width="100%" class="SelectText<cfoutput>#session.workstream_text_size#</cfoutput>">
+<table align="center" border="0" cellpadding="1" cellspacing="0" width="100%" class="SelectText">
 	<cfinclude template="dsp_spell_entry_header.cfm">
 	<cfinclude template="dsp_spell_entry_form.cfm">
 </table>

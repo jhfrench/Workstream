@@ -18,7 +18,6 @@
 	--> [attributes.select_name]: string that sets the name of the select box
 	--> [attributes.size]: number that indicates how many options the select box should display simultaneously
 	--> [attributes.selected_flag]: flag that determines whether there are pre-selected items in the select box
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	--> variables.emp_id_match: item to default select if criteria matches
 	--> company: number that contains the REF_Company.company_id for an employee
 	--> emp_id: id that identifies user to workstream

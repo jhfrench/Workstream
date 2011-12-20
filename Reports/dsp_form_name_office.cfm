@@ -10,7 +10,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
 </cfsilent>
 <cfform action="index.cfm?fuseaction=Reports.gross_hours" method="POST">

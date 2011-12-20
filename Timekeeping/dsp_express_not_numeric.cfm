@@ -11,20 +11,19 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 </cfsilent>
-	<tr align="center" class="Note<cfoutput>#session.workstream_text_size#</cfoutput>BdRed">
-		<td colspan="5" class="Note<cfoutput>#session.workstream_text_size#</cfoutput>BdRed">
+	<tr align="center" class="NoteBdRed">
+		<td colspan="5" class="NoteBdRed">
 			One or more of the entries you just submitted contained hours that were not numeric. These entries were not processed:
 		</td>
 	</tr>
-	<tr align="center" class="Note<cfoutput>#session.workstream_text_size#</cfoutput>BdRed">
-		<td align="left" class="Note<cfoutput>#session.workstream_text_size#</cfoutput>BdRed">
+	<tr align="center" class="NoteBdRed">
+		<td align="left" class="NoteBdRed">
 			&nbsp;
 		</td>
-		<td align="left" colspan="4" class="Note<cfoutput>#session.workstream_text_size#</cfoutput>BdRed">
-			<ul class="Note<cfoutput>#session.workstream_text_size#</cfoutput>BdRed">
+		<td align="left" colspan="4" class="NoteBdRed">
+			<ul class="NoteBdRed">
 			<cfloop list="#notnumericentries#" index="ii">
 				<li><cfoutput>#ii#</cfoutput></li>
 			</cfloop>

@@ -11,15 +11,19 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
-<cfif NOT compare(session.workstream_text_size,"Lg")>
-	<cfset variables.cols=124>
-<cfelseif NOT compare(session.workstream_text_size,"Md")>
-	<cfset variables.cols=127>
-<cfelse>
-	<cfset variables.cols=130>
-</cfif>
+
+<cfswitch expression="#session.workstream_text_size#">
+	<cfcase value="Lg">
+		<cfset variables.cols=124>
+	</cfcase>
+	<cfcase value="Md">
+		<cfset variables.cols=127>
+	</cfcase>
+	<cfdefaultcase>
+		<cfset variables.cols=130>
+	</cfdefaultcase>
+</cfswitch>
 <cfset variables.descrip_rows=min(3,(len(get_task_details.description)/variables.cols+1))>
 <cfset variables.resolution_rows=min(8,time_entry_details.recordcount)>
 <cfif qa_entry_details.recordcount GT 1>

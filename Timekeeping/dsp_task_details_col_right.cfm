@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	--> customer_name: string that identifies the customer for whom the task is created
 	--> project_name: string that contains the name of the project or engagement the task is assigned to
  --->
@@ -37,14 +36,14 @@
 			<cfif time_entry_details.recordcount>
 				<cfset tabindex=incrementvalue(tabindex)>
 <cfset prev_status_id = "">
-				<cfoutput><textarea name="time_entry_details" cols="#variables.cols#" rows="#variables.resolution_rows#" tabindex="#tabindex#" wrap="soft"<!---  onfocus="blur()" ---> readonly class="RegText"></cfoutput><cfoutput query="time_entry_details"><cfif notes_type_id EQ 1>(#initials# #dateformat(date,"m/d")#) - </cfif><cfif notes_type_id NEQ 2>#trim(note)#&nbsp;&nbsp;</cfif></cfoutput></textarea><cfelse><span class="Note<cfoutput>#session.workstream_text_size#</cfoutput>">Resolution notes not yet entered for this task.</span>
+				<cfoutput><textarea name="time_entry_details" cols="#variables.cols#" rows="#variables.resolution_rows#" tabindex="#tabindex#" wrap="soft"<!---  onfocus="blur()" ---> readonly class="RegText"></cfoutput><cfoutput query="time_entry_details"><cfif notes_type_id EQ 1>(#initials# #dateformat(date,"m/d")#) - </cfif><cfif notes_type_id NEQ 2>#trim(note)#&nbsp;&nbsp;</cfif></cfoutput></textarea><cfelse><span class="Note">Resolution notes not yet entered for this task.</span>
 			</cfif><br>
 			QA Notes<br>
 			<cfif qa_entry_details.recordcount>
 <cfset prev_status_id = "">
 				<textarea name="qa_entry_details" <cfoutput>cols="#variables.cols#" rows="#qa_rows#"  tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" wrap="soft"<!---  onfocus="blur()" ---> readonly class="RegText</cfoutput>"><cfoutput query="qa_entry_details">(#initials# #dateformat(date,"m/d")#) - #note#&nbsp;&nbsp;</cfoutput></textarea>
 			<cfelse>
-				<span class="Note<cfoutput>#session.workstream_text_size#</cfoutput>">QA notes not yet entered for this task.</span>
+				<span class="Note">QA notes not yet entered for this task.</span>
 			</cfif>
 			<br>
 			<cfinclude template="dsp_associated_files.cfm"><br>

@@ -18,7 +18,7 @@
 <cfset attributes.emp_id = url.emp_id> --->
 </cfsilent>
 <cfform action="act_performance_review_submit.cfm" name="benefits" method="POST">
-<table align="center" border="0" cellpadding="1" cellspacing="0" width="100%" class="SelectText<cfoutput>#session.workstream_text_size#</cfoutput>">
+<table align="center" border="0" cellpadding="1" cellspacing="0" width="100%" class="SelectText">
 	<!--- <cfinclude template="../common_files/dsp_team_select.cfm"> --->
 	<cfinclude template="qry_get_review_types.cfm">
 	<cfinclude template="dsp_performance_review_entry_header.cfm">

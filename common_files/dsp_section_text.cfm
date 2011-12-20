@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
 <cfparam name="attributes.colspan" default=2>
 <cfparam name="attributes.section_text" default="">

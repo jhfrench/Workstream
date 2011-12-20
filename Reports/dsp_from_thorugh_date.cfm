@@ -12,7 +12,6 @@
 	||
 	--> attributes.report_name: this is the name of the report that the form is submitting to.
 	--> attributes.required: this is wether or not the form fields will be required. 
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	||
 	END FUSEDOC --->
 <cfparam name="attributes.action" default="index.cfm">

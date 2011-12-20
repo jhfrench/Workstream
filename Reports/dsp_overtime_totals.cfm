@@ -12,9 +12,8 @@
 	||
 	END FUSEDOC --->
 </cfsilent>
-	<tr class="RegTextIt">
-		<td colspan="2">Total Hours:</td>
-<cfoutput>
-		<td>#decimalformat(Total_Hours)#</td>
+	<tr>
+		<td colspan="2" class="RegTextIt">Total Hours:</td>
+		<td class="RegTextIt"><cfoutput>#decimalformat(Total_Hours)#</cfoutput></td>
 	</tr>
-</cfoutput>
+

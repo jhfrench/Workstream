@@ -61,7 +61,6 @@ $Log:
 			<cfset attributes.element_name = "reviewer_id">
 			<cfset attributes.message = "Please select a reviewer.">
 			<cfset attributes.class = "RegText">
-			<cfset attributes.class = attributes.class & session.workstream_text_size>
 			<cfinclude template="../common_files/dsp_team_select.cfm">
 		</td>
 	</tr>

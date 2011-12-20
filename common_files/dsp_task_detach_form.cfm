@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	--> due_date: date that the task is due
 	--> status: string indicating the progress of the task
 	--> task_id: number that uniquely identifies a task

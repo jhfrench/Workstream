@@ -12,7 +12,6 @@
 	$Log$
 	||
 	--> application.application_specific_settings.image_dir: string that contains main path to the folder where all images are kept
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	--> date_due: date when task is due
 	--> task_id: unique number that identifies task entry
 	--> task_name: name or title of the task
@@ -48,7 +47,7 @@
 </cfoutput>
 <cfelse>
 	<tr>
-		<td align="center" colspan="7" class="Note<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<td align="center" colspan="7" class="Note">
 			You have no tasks that meet your criteria.
 		</td>
 	</tr>

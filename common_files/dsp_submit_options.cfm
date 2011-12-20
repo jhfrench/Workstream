@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 <cfparam name="attributes.include_reset" default="1">
 <cfparam name="attributes.reset_value" default="Reset these options">

@@ -10,7 +10,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 <cfif listlen(get_task_details.hours_used,".") GT 1 AND listgetat(get_task_details.hours_used,2,".") GT 0>
 	<cfset variables.hours_used=decimalformat(get_task_details.hours_used)>

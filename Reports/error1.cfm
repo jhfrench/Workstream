@@ -10,7 +10,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
 </cfsilent>
 <div align="center" class="HeadText">There has been a problem with the report you requested. <br>

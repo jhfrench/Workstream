@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that determines what size the user wants text
 	--> variables.emp_init_loop: list of employee initials
  --->
 </cfsilent>

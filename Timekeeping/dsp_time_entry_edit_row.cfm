@@ -15,7 +15,6 @@
 	<-- attributes.notes_id: number that corresponds to the identity column of the Notes table
 	<-- attributes.time_entry_id: number that corresponds to the identity column of the Time_Entry table, set at pag_time_entry_edit.cfm.
 	--> [attributes.given_referer]: string that incidicates which fuseaction to pursue.
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	--> request.time_entry_id: number that corresponds to the identity column of the Time_Entry table, set at pag_time_entry_edit.cfm.
 	--> time_entry_edit.customer_description: string that identifies the customer for a particular task
 	--> time_entry_edit.date: date of when the work was done for a particular task

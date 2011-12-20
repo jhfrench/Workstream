@@ -39,7 +39,7 @@
 			</cfif>
 		</cfif>
 	<cfelse>
-	<div align="center" class="Note<cfoutput>#session.workstream_text_size#</cfoutput>">To edit a contact select the contact's name, to add a contact, click "add"</div>		
+	<div align="center" class="Note">To edit a contact select the contact's name, to add a contact, click "add"</div>		
 	</cfif>
 </cfif>
 			

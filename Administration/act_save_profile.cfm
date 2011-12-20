@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 <cfinclude template="../common_files/qry_profile_lookup.cfm">
 <cfif profile_lookup.recordcount>

@@ -16,7 +16,6 @@
 	--> [attributes.show_closed]: boolean that indicates the desire of the user to show tasks which have already been completed
 	--> [attributes.show_on_hold]: boolean that indicates the desire of the user to show tasks which have been put on hold
 	--> [attributes.show_team]: boolean that indicates the desire of the user to show tasks for which they are a member of the task team
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	<-- session.workstream_show_closed: number that indicates the desire of the user to hide or show tasks which have already been completed; 1 means include the task, 0 means exclude the task
 	<-- session.workstream_show_on_hold: number that indicates the desire of the user to hide or show tasks which have been put on hold; 1 means include the task, 0 means exclude the task
 	<-- session.workstream_show_team: number that indicates the desire of the user to hide or show tasks for which they are a member of the task team; 1 means include the task, 0 means exclude the task

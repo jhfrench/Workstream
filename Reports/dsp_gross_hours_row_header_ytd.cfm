@@ -10,7 +10,6 @@
 	||
 	Edits:
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
 </cfsilent>
 	<tr class="HeadTextWhite" bgcolor="#008080">

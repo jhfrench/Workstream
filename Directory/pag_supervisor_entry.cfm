@@ -22,7 +22,7 @@
 <cfinclude template="qry_get_present_supervisor.cfm">
 
 <cfform action="act_supervisor_submit.cfm" name="benefits" method="POST">
-<table border="0" cellpadding="1" cellspacing="0" width="100%" class="SelectText<cfoutput>#session.workstream_text_size#</cfoutput>">
+<table border="0" cellpadding="1" cellspacing="0" width="100%" class="SelectText">
 	<cfinclude template="dsp_supervisor_entry_header.cfm">
 	<cfinclude template="dsp_supervisor_entry_form.cfm">
 </table>

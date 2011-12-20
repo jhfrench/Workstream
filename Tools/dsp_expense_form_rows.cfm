@@ -67,7 +67,7 @@
 	</tr>
 	<tr>
 		<td valign="top" class="RegText">Notes:</td>
-		<td colspan="3" class="RegText<cfoutput>#session.workstream_text_size#"><textarea cols="60" rows="4" name="Note" wrap="auto" class="RegText</cfoutput>"><cfif isdefined("get_expense_values.note")><cfoutput>#get_expense_values.note#</cfoutput><cfelse>Type your notes here.</cfif></textarea></td>
+		<td colspan="3" class="RegText"><textarea cols="60" rows="4" name="Note" wrap="auto" class="RegText"><cfif isdefined("get_expense_values.note")><cfoutput>#get_expense_values.note#</cfoutput><cfelse>Type your notes here.</cfif></textarea></td>
 	</tr>
 	<input type="hidden" name="emp_id" value="<cfoutput>#session.user_account_id#</cfoutput>">
 	<tr>

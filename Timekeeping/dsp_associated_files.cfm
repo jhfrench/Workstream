@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	--> customer_name: string that identifies the customer for whom the task is created
 	--> project_name: string that contains the name of the project or engagement the task is assigned to
  --->
@@ -25,7 +24,7 @@
 				</cfif>
 			<a href="file:///#replace(file_path,'\','/')#" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" target="_blank" class="RegText"><img src="#request.dir_level##application.application_specific_settings.image_dir#icon_#variables.file_img#.gif" valign="bottom" width="16" height="16" border="0"> #file_path#</a><cfif currentrow NEQ get_associated_files.recordcount><br></cfif></cfoutput>
 			<cfelse>
-			<span class="Note<cfoutput>#session.workstream_text_size#</cfoutput>">No files currently associated with this task.</span>
+			<span class="Note">No files currently associated with this task.</span>
 			</cfif><br>
 			<cfoutput>
 			<input type="hidden" name="file_path" value="0">

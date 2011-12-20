@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
 	<tr valign="top">
 		<td width="10%" class="RegText">This could be report navigation with anchor links to the appropriate section</td>

@@ -11,17 +11,20 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 <cfset open_font='<font color="ff0000">'>
 <cfset close_font="</font>">
-<cfif NOT compare(session.workstream_text_size,"Lg")>
-	<cfset variables.too_big=526>
-<cfelseif NOT compare(session.workstream_text_size,"Md")>
-	<cfset variables.too_big=576>
-<cfelse>
-	<cfset variables.too_big=626>
-</cfif>
+<cfswitch expression="#session.workstream_text_size#">
+	<cfcase value="Lg">
+		<cfset variables.too_big=526>
+	</cfcase>
+	<cfcase value="Md">
+		<cfset variables.too_big=576>
+	</cfcase>
+	<cfdefaultcase>
+		<cfset variables.too_big=626>
+	</cfdefaultcase>
+</cfswitch>
 
 </cfsilent>
 <cfoutput>

@@ -11,12 +11,11 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 <cfset bgcolor="##78A0EB">
 <cfset colspan=3>
 </cfsilent>
-<table cellspacing="0" cellpadding="0" width="100%" border="1" align="center" class="SelectText<cfoutput>#session.workstream_text_size#</cfoutput>">
+<table cellspacing="0" cellpadding="0" width="100%" border="1" align="center" class="SelectText">
 <cfif isdefined("message") AND len(message)><cfinclude template="act_spell_check_process.cfm">
 <form action="index.cfm?fuseaction=common_files.spell_check" method="post">
 	<cfinclude template="dsp_spell_entry_header.cfm">

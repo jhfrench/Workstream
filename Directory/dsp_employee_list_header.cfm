@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	--> company: id that identifies the user's company
 	--> email: string containing the email address of an employee
 	--> emp_id: id that identifies user to workstream

@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 <cfquery name="get_requestor" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT Emp_Contact.lname AS lname, Emp_Contact.name AS first_name

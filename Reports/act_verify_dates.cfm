@@ -12,7 +12,6 @@
 	||
 	--> attributes.from_date: date when report should start
 	--> attributes.through_date: date when report should end
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
 </cfsilent>
 <cfparam default="" name="variables.from_date">
@@ -22,7 +21,7 @@
 		<cfset variables.from_date=createodbcdate(attributes.from_date)>
 		<cfset variables.through_date=createodbcdate(attributes.through_date)>
 	<cfelse>
-		<span class="Note<cfoutput>#session.workstream_text_size#</cfoutput>">You have selected an invalid date range, please check your dates and try again.</span>
+		<span class="Note">You have selected an invalid date range, please check your dates and try again.</span>
 	</cfif>
 <cfelse>
 	<!--- $issue$: clear this out, should just be the redirect --->

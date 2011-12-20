@@ -12,7 +12,6 @@
 	$Log$
 	||
 	--> application.application_specific_settings.image_dir: string that contains main path to the folder where all images are kept
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	--> project_code: numeric code of the project
 	--> project_end: date or string containing targeted completion date for the project
 	--> project_mission: string containing the desired outcome of the project
@@ -34,7 +33,7 @@
 </cfoutput>
 <cfelse>
 	<tr>
-		<td align="center" colspan="4" class="Note<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<td align="center" colspan="4" class="Note">
 			You have no projects that meet your criteria.
 		</td>
 	</tr>

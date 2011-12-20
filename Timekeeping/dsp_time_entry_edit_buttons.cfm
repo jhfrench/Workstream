@@ -12,7 +12,6 @@
 	$Log$
 	||
 	--> attributes.referer: string that incidicates which fuseaction to pursue.
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 </cfsilent>
 <cfif time_entry_edit.date GTE dateformat(now()-variables.go_back_to,"mm/dd/yy")>

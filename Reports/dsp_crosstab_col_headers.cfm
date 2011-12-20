@@ -10,7 +10,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
 	<tr bgcolor="#c0c0c0">
 		<td class="SubHeadText">Code:</td>

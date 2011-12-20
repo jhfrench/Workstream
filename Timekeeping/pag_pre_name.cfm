@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 <cfset bgcolor="##78A0EB">
 </cfsilent>
@@ -19,14 +18,14 @@
 <cfinclude template="qry_get_predefined_names.cfm">
 <cfset variables.select_size=min(get_predefined_names.recordcount,10)>
 <cfform name="pre_defined" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST">
-<table align="center" border="0" cellpadding="1" cellspacing="0" width="100%" class="SelectText<cfoutput>#session.workstream_text_size#">
+<table align="center" border="0" cellpadding="1" cellspacing="0" width="100%">
 	<tr>
 		<td class="SubHeadText">
 			Choose A Name:
 		</td>
 	</tr>
 	<tr>
-		<td align="center" class="SubHeadText"></cfoutput>
+		<td align="center" class="SubHeadText">
 			<cfselect query="get_predefined_names" name="task_name" display="pre_task_name" value="pre_task_name" size="#variables.select_size#" onChange="OKButton()" class="RegText"></cfselect>
 		</td>
 	</tr>

@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	<-- base_task_id: number that uniquely defines the base task
 	<-- linked_task_id: list of tasks to be attached to a particular task
  --->

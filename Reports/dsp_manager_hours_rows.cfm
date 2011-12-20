@@ -10,7 +10,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
 </cfsilent>
 <cfset variables.total_hours=variables.total_hours+hours>

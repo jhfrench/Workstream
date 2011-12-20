@@ -11,7 +11,6 @@
 	Edits:
 	$Log$ 
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 <cfparam name="attributes.order_by" default="date_due">
 <cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"admin_options")>

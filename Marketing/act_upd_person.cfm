@@ -187,7 +187,7 @@
 		</cfif>	</cftransaction>
 	<cflocation addtoken="No" url="index.cfm?fuseaction=marketing">
 <cfelse>
-		<div align="center" class="Note<cfoutput>#session.workstream_text_size#</cfoutput>">You must enter a name for the contact.</div>
+		<div align="center" class="Note">You must enter a name for the contact.</div>
 		<meta http-equiv="Refresh"  content="4; url=index.cfm">		
 </cfif>
 

@@ -12,7 +12,6 @@
 	$Log$
 	||
 	Variables:
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	<-> variables.allocation_percent: number of hours spent on a particular project divided by the total number of hours worked during the same time range
 	--> variables.color_list: list of hexadecimal color values
 	--> project_hours: number of hours spent on a particular project

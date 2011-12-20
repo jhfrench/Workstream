@@ -17,7 +17,7 @@
 	<td class="SubHeadText">Visible to</td>
 </tr>
 <tr>
-	<td valign="top" class="Note<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<td valign="top" class="Note">
 		<div id="code_options">
 		<a href="javascript:void(0);" onclick="javascript:Element.toggle('root_code_entry');Element.toggle('code_options');">Specify A Root Code</a>
 		</div>

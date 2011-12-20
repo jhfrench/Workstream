@@ -37,7 +37,7 @@
 </tr>
 </cfoutput>
 	<tr>
-		<td colspan="6" align="center"  class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<td colspan="6" align="center"  class="RegText">
 		Are you sure that you want to deactivate all these tasks? <form action="index.cfm?fuseaction=Customers.update_engagement" method="post" name="change"> <input type="submit" value="Continue" name="Submit" tabindex="3"> <input type="button" value="Back" name="back" onclick="history.go(-1)">
 		</td>
 	</tr>

@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	--> due_date: date that the task is due
 	--> status: string indicating the progress of the task
 	--> task_id: number that uniquely identifies a task
@@ -43,7 +42,7 @@
 			</cfoutput>
 		</table>
 		<cfelse>
-			<br><span class="Note<cfoutput>#session.workstream_text_size#</cfoutput>">No tasks currently associated with this task.</span><br>
+			<br><span class="Note">No tasks currently associated with this task.</span><br>
 		</cfif>
 			<cfoutput>
 			<input type="hidden" name="linked_task_id" value="0">

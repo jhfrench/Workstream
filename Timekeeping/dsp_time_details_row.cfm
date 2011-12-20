@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	--> emp_id: number returned from query that identifies a user to workstream
 	--> hours: number containing how many hours the person spent on the specified task
 	--> last_name: string containing a person's last name

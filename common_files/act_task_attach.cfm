@@ -13,7 +13,6 @@
 	||
 	--> attributes.base_task_id: number that uniquely defines the base task
 	--> attributes.linked_task_id: list of tasks to be attached to a particular task
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 <cfif attributes.base_task_id NEQ 0>
 	<cfinclude template="qry_task_attach.cfm">

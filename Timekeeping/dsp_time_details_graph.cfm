@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	||
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 <cfset width=min(get_task_accumulated.image_width,variables.var1)>
 <cfset width2=variables.var1-width>
