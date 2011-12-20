@@ -15,31 +15,31 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<tr align="center" class="SubHeadText#session.workstream_text_size#White">
-	<td align="center" bgcolor="##9A588A" colspan="8" class="SubHeadText#session.workstream_text_size#White">
+<tr align="center" class="SubHeadTextWhite">
+	<td align="center" bgcolor="##9A588A" colspan="8" class="SubHeadTextWhite">
 		&nbsp;#invoice_details.project_name#
 	</td>
 </tr>
-<tr align="center" class="SubHeadText#session.workstream_text_size#">
-	<td align="center" class="SubHeadText#session.workstream_text_size#">
+<tr align="center" class="SubHeadText">
+	<td align="center" class="SubHeadText">
 		Month/Year
 	</td>
-	<td align="center" class="SubHeadText#session.workstream_text_size#">
+	<td align="center" class="SubHeadText">
 		Project Code
 	</td>
-	<td align="center" class="SubHeadText#session.workstream_text_size#">
+	<td align="center" class="SubHeadText">
 		Name
 	</td>
-	<td align="center" class="SubHeadText#session.workstream_text_size#">
+	<td align="center" class="SubHeadText">
 		Pin
 	</td>
-	<td align="center" class="SubHeadText#session.workstream_text_size#">
-		Rate<span class="RegText#session.workstream_text_size#"> (per hour)</span>
+	<td align="center" class="SubHeadText">
+		Rate<span class="RegText"> (per hour)</span>
 	</td>
-	<td align="center" class="SubHeadText#session.workstream_text_size#">
+	<td align="center" class="SubHeadText">
 		Hours
 	</td>
-	<td align="center" class="SubHeadText#session.workstream_text_size#">
+	<td align="center" class="SubHeadText">
 		Bill
 	</td>
 </tr>

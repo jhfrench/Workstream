@@ -16,20 +16,20 @@
 <cfform action="index.cfm?fuseaction=Reports.gross_hours" method="POST">
 <cfoutput>
  	<tr bgcolor="##5F5F5F">
-		<td colspan="#variables.daysinmonth#" valign="middle" class="SubHeadText#session.workstream_text_size#White">
+		<td colspan="#variables.daysinmonth#" valign="middle" class="SubHeadTextWhite">
 				Office Location:</cfoutput>
-					<cfselect name="Office_Location" size="1" message="Please don't leave blank" required="Yes" class="RegText#session.workstream_text_size#">
+					<cfselect name="Office_Location" size="1" message="Please don't leave blank" required="Yes" class="RegText">
 						<option value="ALL">ALL</option><cfoutput query="office_loc">
 						<option value ="#Office_location#">#Office_location#</option></cfoutput>
 					</cfselect>
 					Name:
-			<cfselect name="emp_id" size="1" message="Please don't leave blank" required="Yes" class="RegText#session.workstream_text_size#"> 
+			<cfselect name="emp_id" size="1" message="Please don't leave blank" required="Yes" class="RegText"> 
 							<option value="ALL">ALL</option>
 						<cfoutput query="team_select">
 							<option value="#emp_id#">#lname#, #name#</option>
 						</cfoutput>
 						</cfselect>
-			<cfoutput><input type="submit" value="Submit" align="middle" class="RegText#session.workstream_text_size#">
+			<cfoutput><input type="submit" value="Submit" align="middle" class="RegText">
 			<input type="hidden" name="Flag1" value="true">
 			<input type="hidden" name="Flag2" value="true">
 			<input type="hidden" name="month" value="#month#">

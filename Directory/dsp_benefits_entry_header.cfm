@@ -17,10 +17,10 @@ $Log:
 </cfsilent>
 <cfoutput>
 	<tr bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td<cfif isdefined("colspan")> colspan="#colspan#"</cfif> class="SubHeadText#session.workstream_text_size#">
+		<td<cfif isdefined("colspan")> colspan="#colspan#"</cfif> class="SubHeadText">
 			<strong>Benefits Entry Form</strong>
 		</td>
-		<td<cfif isdefined("colspan")> colspan="#colspan#"</cfif> class="SubHeadText#session.workstream_text_size#">
+		<td<cfif isdefined("colspan")> colspan="#colspan#"</cfif> class="SubHeadText">
 			&nbsp;
 		</td>
 	</tr>

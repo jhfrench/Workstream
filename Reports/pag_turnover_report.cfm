@@ -20,13 +20,13 @@
 <cfinclude template="act_turnover_report.cfm">
 	<table align="center" cellspacing="0">
 		<cfif get_numbers.recordcount>
-			<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#White" section_color="008080" section_title="Turnover Report" gutter="1" align="left" colspan="#colspan#">
+			<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadTextWhite" section_color="008080" section_title="Turnover Report" gutter="1" align="left" colspan="#colspan#">
 			<cfinclude template="dsp_turnover_graph.cfm">
 			<cfinclude template="dsp_turnover_row_header.cfm">
 			<cfinclude template="dsp_turnover_rows.cfm">
 		<cfelse>
 			<tr>
-				<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">You have no turnover data entered.</td>
+				<td class="SubHeadText">You have no turnover data entered.</td>
 			</tr>
 </cfif>
 		</table>

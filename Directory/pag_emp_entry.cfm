@@ -34,7 +34,7 @@
 </cfif>
 <cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="emp_entry" method="POST">
 <table align="center" cellpadding="0" cellspacing="0" border="0" width="<cfoutput>#variables.table_width#</cfoutput>%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;User Entry" section_color="970000" colspan="8" gutter=0 title_class="HeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;User Entry" section_color="970000" colspan="8" gutter=0 title_class="HeadTextWhite">
 <cfif NOT isdefined("attributes.lname")>
 	<cfinclude template="dsp_emp_details_form.cfm">
 <cfelse>

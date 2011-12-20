@@ -17,20 +17,20 @@
 <cfinclude template="../common_files/qry_get_user_fields.cfm">
 <cfoutput>
 <tr>
-	<td class="RegText#session.workstream_text_size#" width="50%">
+	<td class="RegText" width="50%">
 	Allow these people<cfif listlen(session.workstream_selected_company_id) GT 1> or companies</cfif> to view the new timeline<br>
-	<cfmodule template="../common_files/dsp_team_select.cfm" multi="1" size="5" valuelist="1" class="RegText#session.workstream_text_size#">
+	<cfmodule template="../common_files/dsp_team_select.cfm" multi="1" size="5" valuelist="1" class="RegText">
 	</td>
-	<td valign="top" class="Note#session.workstream_text_size#" width="50%"><cfset variables.start=incrementvalue(variables.start)>
-		<ol type="1" start="#variables.start#" class="Note#session.workstream_text_size#"><li>Assign access to new timeline.</li></ol></td>
+	<td valign="top" class="Note" width="50%"><cfset variables.start=incrementvalue(variables.start)>
+		<ol type="1" start="#variables.start#" class="Note"><li>Assign access to new timeline.</li></ol></td>
 </tr>
 <cfif get_user_fields.field_type_id EQ 1>
 <tr>
-	<td class="RegText#session.workstream_text_size#">
+	<td class="RegText">
 <cfloop query="get_user_fields">
 	Do not show tasks that are marked with this selection<br>
 		<cfinclude template="../common_files/qry_get_drop_down_options.cfm">
-		<cfselect name="hide_user_field_item_id" required="Yes" class="RegText#session.workstream_text_size#">
+		<cfselect name="hide_user_field_item_id" required="Yes" class="RegText">
 			<option value="0">Use all the options</option>
 			<cfloop query="get_drop_down_options">
 			<option value="#get_drop_down_options.user_field_items_id#">#get_drop_down_options.selection_title#</option>
@@ -38,8 +38,8 @@
 		</cfselect>
 </cfloop>
 	</td>
-	<td valign="top" class="Note#session.workstream_text_size#"><cfset variables.start=incrementvalue(variables.start)>
-		<ol type="1" start="#variables.start#" class="Note#session.workstream_text_size#"><li>Optional: choose which option to use to omit tasks from timeline.</li></ol></td>
+	<td valign="top" class="Note"><cfset variables.start=incrementvalue(variables.start)>
+		<ol type="1" start="#variables.start#" class="Note"><li>Optional: choose which option to use to omit tasks from timeline.</li></ol></td>
 </tr>
 </cfif>
 <input type="hidden" name="project_id" value="#attributes.project_id#">

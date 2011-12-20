@@ -45,4 +45,4 @@
 </cfif>
 <cfset life_blurb="#life_blurb#. #session.workstream_company_name# currently has #total_employees# employees.">
 <!--- 
-<cfset life_blurb='#life_blurb# <a href="../index.cfm?fuseaction=Reports.personal_summary" class="RegText#session.workstream_text_size#">Click here to view the report.</a>'> --->
+<cfset life_blurb='#life_blurb# <a href="../index.cfm?fuseaction=Reports.personal_summary" class="RegText">Click here to view the report.</a>'> --->

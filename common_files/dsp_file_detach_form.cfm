@@ -19,31 +19,31 @@
 <form action="" method="post">
 <cfoutput>
 	<tr>
-		<td colspan="2" class="SelectText#session.workstream_text_size#">
+		<td colspan="2" class="SelectText">
 			Mark the files you wish to unbind from the task, or click on the file path to open the specified file.
 		</td>
 	</tr>
 	<tr>
-		<td align="center" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" class="SubHeadText">
 			Delete File
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			File Path
 		</td>
 	</tr>
 	<cfloop query="get_associated_files">
 	<tr>
 		<td align="center">
-			<input type="checkbox" name="associated_file_id" value="#associated_file_id#" id="associated_file_id_#associated_file_id#" class="RegText#session.workstream_text_size#">	
+			<input type="checkbox" name="associated_file_id" value="#associated_file_id#" id="associated_file_id_#associated_file_id#" class="RegText">	
 		</td>
 		<td>
-			<label for="associated_file_id_#associated_file_id#"><a href="#file_path#" target="_blank" class="SelectText#session.workstream_text_size#">#file_path#</a></label>
+			<label for="associated_file_id_#associated_file_id#"><a href="#file_path#" target="_blank" class="SelectText">#file_path#</a></label>
 		</td>	
 	</tr>
 	</cfloop>
 	<tr>
 		<td align="center" colspan="2">
- 			<input type="submit" value="Delete" class="RegText#session.workstream_text_size#">
+ 			<input type="submit" value="Delete" class="RegText">
 		</td>
 	</tr>
 </cfoutput>

@@ -18,27 +18,27 @@ $Log:
 </cfsilent>
 <cfoutput>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td class="SelectText#session.workstream_text_size#">
+		<td class="SelectText">
 			Date Begun:			
 		</td>
-		<td class="SelectText#session.workstream_text_size#">
-			<cfinput type="text" name="date_start" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this job title was granted.  (mm/dd/yy)" class="RegText#session.workstream_text_size#">
+		<td class="SelectText">
+			<cfinput type="text" name="date_start" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this job title was granted.  (mm/dd/yy)" class="RegText">
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td class="SelectText#session.workstream_text_size#">
+		<td class="SelectText">
 			Title:			
 		</td>
-		<td class="SelectText#session.workstream_text_size#">
+		<td class="SelectText">
 
-			<cfinput type="text" name="title" size="50" maxlength="50" required="Yes" message="Please enter a job title." class="RegText#session.workstream_text_size#">
+			<cfinput type="text" name="title" size="50" maxlength="50" required="Yes" message="Please enter a job title." class="RegText">
 
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td class="SelectText#session.workstream_text_size#" colspan="2">
+		<td class="SelectText" colspan="2">
 			<input type="hidden" name="emp_id" value="#emp_id#">
-			<input type="submit" value="Submit Job Title" class="RegText#session.workstream_text_size#"><input type="button" onclick="javascript:window.close();" value="Cancel" class="RegText#session.workstream_text_size#">
+			<input type="submit" value="Submit Job Title" class="RegText"><input type="button" onclick="javascript:window.close();" value="Cancel" class="RegText">
 		</td>
 	</tr>
 </cfoutput>

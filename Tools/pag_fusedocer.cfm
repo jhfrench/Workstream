@@ -23,64 +23,64 @@
 <cfinclude template="../common_files/qry_team_select.cfm">
 <cfparam name="attributes.pin" default="  123  ">
 <cfoutput>
-<table class="RegText#session.workstream_text_size#">
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#White" section_color="636332" section_title="&nbsp;FuseDoc'er" colspan="6" gutter=0>
-	<tr class="SubHeadText#session.workstream_text_size#">
+<table class="RegText">
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadTextWhite" section_color="636332" section_title="&nbsp;FuseDoc'er" colspan="6" gutter=0>
+	<tr class="SubHeadText">
 		<td></td>
 		<td>Directory</td>
 		<td>Prefix</td>
 		<td>Page Name</td>
 		<td>Suffix</td>
 	</tr>
-	<tr class="SubHeadText#session.workstream_text_size#">
-		<td align="right" valign="top" class="SubHeadText#session.workstream_text_size#">&lt;--</td>
-		<td><select name="directory" class="RegText#session.workstream_text_size#">
+	<tr class="SubHeadText">
+		<td align="right" valign="top" class="SubHeadText">&lt;--</td>
+		<td><select name="directory" class="RegText">
 				<cfloop list="directory1,directory2,sample_Directory/sub_directory,etc" index="ii">
 				<option value="#ii#" selected>#ii#/</option></cfloop>
 			</select>
 		</td>
-		<td><select name="prefix" class="RegText#session.workstream_text_size#">
+		<td><select name="prefix" class="RegText">
 				<cfloop list="act,app,dsp,pag,qry,sql" index="ii">
 				<option value="#ii#" selected>#ii#_</option></cfloop>
 			</select>
 		</td>
 		<td align="left" valign="top" width="5%">
-			<cfinput name="name" type="Text" maxlength="25" value="" required="Yes" message="Please enter a template name" class="RegText#session.workstream_text_size#">
+			<cfinput name="name" type="Text" maxlength="25" value="" required="Yes" message="Please enter a template name" class="RegText">
 		</td>
 		<td align="left">
-			<select name="suffix" class="RegText#session.workstream_text_size#">
+			<select name="suffix" class="RegText">
 				<option value="cfm" selected>.cfm</option>
 				<option value="html">.html</option>
 			</select>
 		</td>
 	</tr>
-	<tr class="RegText#session.workstream_text_size#">
+	<tr class="RegText">
 		<td align="right" valign="top"></td>
-		<td align="right" valign="top" class="SubHeadText#session.workstream_text_size#">Author: </td>
+		<td align="right" valign="top" class="SubHeadText">Author: </td>
 		<td>
-				<select name="pin" class="RegText#session.workstream_text_size#"></cfoutput><cfoutput query="team_select">
+				<select name="pin" class="RegText"></cfoutput><cfoutput query="team_select">
 					<option value="#name#_#lname#"<cfif NOT comparenocase(attributes.pin, "#name#_#lname#")> selected</cfif>>#name# #lname#</option></cfoutput>
 				</select>
 		</td>
-		<cfoutput><td align="left" valign="top" class="SubHeadText#session.workstream_text_size#">--&gt;</td>
+		<cfoutput><td align="left" valign="top" class="SubHeadText">--&gt;</td>
 	</tr>
-	<tr class="RegText#session.workstream_text_size#">
+	<tr class="RegText">
 		<td align="right" valign="top"></td>
-		<td colspan="2" align="right" valign="top" class="SubHeadText#session.workstream_text_size#">Responsibilities (written in first person)</td>
-		<td colspan="2" align="left" valign="top"><textarea name="responsibilities" cols="60" class="RegText#session.workstream_text_size#">I</textarea></td>
+		<td colspan="2" align="right" valign="top" class="SubHeadText">Responsibilities (written in first person)</td>
+		<td colspan="2" align="left" valign="top"><textarea name="responsibilities" cols="60" class="RegText">I</textarea></td>
 	</tr>
-	<tr class="RegText#session.workstream_text_size#">
-		<td colspan="5" align="left" valign="top" class="SubHeadText#session.workstream_text_size#">
+	<tr class="RegText">
+		<td colspan="5" align="left" valign="top" class="SubHeadText">
 			Variables and includes: Use commas to separate variables.<br> Be sure to use proper identifiers (+++ for includes, &lt;-- for outgoing variables, --&gt; for incoming variables).
 		</td>
 	</tr>
 	<tr>
 		<td></td>
-		<td colspan="4" align="left" valign="top"><textarea name="variables" cols="90" class="RegText#session.workstream_text_size#"></textarea></td>
+		<td colspan="4" align="left" valign="top"><textarea name="variables" cols="90" class="RegText"></textarea></td>
 	</tr>
-	<tr class="RegText#session.workstream_text_size#">
+	<tr class="RegText">
 		<td colspan="5" align="center" valign="top">
-			<input type="reset" class="RegText#session.workstream_text_size#"> <input type="submit" value="Generate FuseDoc" class="RegText#session.workstream_text_size#">
+			<input type="reset" class="RegText"> <input type="submit" value="Generate FuseDoc" class="RegText">
 		</td>
 	</tr>
 </cfoutput>

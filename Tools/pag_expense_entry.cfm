@@ -80,7 +80,7 @@
 	<tr>
 		
 		<td colspan="6" align="center">
-			Specify: <BR>Date Range: <cfinput type="datefield" name="begin_date" required="NO" validate="date"  size="11" class="RegText#session.workstream_text_size#"> to <cfinput type="datefield" name="end_date" required="NO" validate="date"  size="11" class="RegText#session.workstream_text_size#"><BR>
+			Specify: <BR>Date Range: <cfinput type="datefield" name="begin_date" required="NO" validate="date"  size="11" class="RegText"> to <cfinput type="datefield" name="end_date" required="NO" validate="date"  size="11" class="RegText"><BR>
 Status: <cfselect name="expense_status_id" size="1" query="get_expense_status" value="expense_status_id" display="description"></cfselect>
 <BR>
 <input type="submit" name="submit" value="Submit">

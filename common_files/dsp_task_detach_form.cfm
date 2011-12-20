@@ -21,15 +21,15 @@
 <form action="" method="post">
 <cfoutput>
 	<tr>
-		<td colspan="2" class="SelectText#session.workstream_text_size#">
+		<td colspan="2" class="SelectText">
 			Mark the tasks you wish to unbind from the task.
 		</td>
 	</tr>
 	<tr>
-		<td align="center" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" class="SubHeadText">
 			Delete Task
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Name
 		</td>
 	</tr>
@@ -37,9 +37,9 @@
 	<cfoutput query="get_associated_tasks">
 	<tr>
 		<td align="center">
-			<input type="checkbox" name="del_task" value="#task_link_id#" class="RegText#session.workstream_text_size#">	
+			<input type="checkbox" name="del_task" value="#task_link_id#" class="RegText">	
 		</td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			<img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="<cfif description EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>" height="10" width="9" border="0">&nbsp;#name#
 		</td>	
 	</tr>
@@ -47,7 +47,7 @@
 <cfoutput>
 	<tr>
 		<td align="center" colspan="2">
- 			<input type="submit" value="Unbind" class="RegText#session.workstream_text_size#">
+ 			<input type="submit" value="Unbind" class="RegText">
 		</td>
 	</tr>
 </cfoutput>

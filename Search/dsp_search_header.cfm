@@ -15,6 +15,6 @@
 	END FUSEDOC --->
 </cfsilent>
 	<tr>
-		<td colspan="3" align="left" bgcolor="#E2B412" class="HeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">&nbsp;Nucleus Knowledge Base Search</td>
+		<td colspan="3" align="left" bgcolor="#E2B412" class="HeadTextWhite">&nbsp;Nucleus Knowledge Base Search</td>
 	</tr>
 	

@@ -35,7 +35,7 @@
 </cfsilent>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="2" section_color="008000" section_title="Account Mgmt Dashboard" title_class="HeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="2" section_color="008000" section_title="Account Mgmt Dashboard" title_class="HeadTextWhite">
 	<tr>
 		<td colspan="2">
 			<cfsavecontent variable="variables.chart_under_menu">
@@ -47,7 +47,7 @@
 			</cfsavecontent>
 			<div id="operations_blurb" align="center">
 			     <cfoutput>#replacenocase(replacenocase(variables.chart_under_menu,'quality="high"', 'quality="high" wmode="transparent"', "ALL"),'<PARAM name="quality" value="high"/>', '<PARAM name="quality" value="high"/><PARAM name="wmode" value="transparent"/>', "ALL")#</cfoutput>
-				<a href="index.cfm?fuseaction=Reports.engagement_dashboard_staff" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">Click here for full project details and timelines.</a>
+				<a href="index.cfm?fuseaction=Reports.engagement_dashboard_staff" class="RegText">Click here for full project details and timelines.</a>
 			</div>
 		</td>
 	</tr>

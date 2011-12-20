@@ -64,7 +64,7 @@
 	<cfset variables.hours_blurb="Your timekeeping may not be up to date. #variables.hours_blurb#">
 </cfif>
  <cfif listfind(variables.allowed_modules, 3)> 
-	<cfset variables.hours_blurb='#variables.hours_blurb# <a href="index.cfm?fuseaction=Reports.personal_summary" class="RegText#session.workstream_text_size#">Click here to view the report.</a>'>
+	<cfset variables.hours_blurb='#variables.hours_blurb# <a href="index.cfm?fuseaction=Reports.personal_summary" class="RegText">Click here to view the report.</a>'>
  </cfif> 
 <cfif time_allocation_blurb.recordcount EQ 0>
 	<cfset variables.work_allocation_text="">

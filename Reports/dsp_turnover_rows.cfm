@@ -17,24 +17,24 @@
 <cfoutput query="Get_Numbers">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<td></td>
-		<td align="center" class="RegText#session.workstream_text_size#">#theyear#</td>
-		<td align="center" class="RegText#session.workstream_text_size#">#thequarter#</td>
-		<td align="center" class="RegText#session.workstream_text_size#">#pop#</td>
+		<td align="center" class="RegText">#theyear#</td>
+		<td align="center" class="RegText">#thequarter#</td>
+		<td align="center" class="RegText">#pop#</td>
 		<cfloop list="#reasons#" index="ii">
 		<cfparam name="dataset#ii#" default="0">
-		<td align="center" class="RegText#session.workstream_text_size#">#evaluate("#ii#")#</td>
-		<td align="center" class="RegText#session.workstream_text_size#">#decimalformat(evaluate("#ii#")/pop*100)#%</td><cfset "dataset#ii#"=#evaluate("dataset#ii#")#+#evaluate("#ii#")#>
+		<td align="center" class="RegText">#evaluate("#ii#")#</td>
+		<td align="center" class="RegText">#decimalformat(evaluate("#ii#")/pop*100)#%</td><cfset "dataset#ii#"=#evaluate("dataset#ii#")#+#evaluate("#ii#")#>
 		</cfloop>
 	</tr>
 </cfoutput>
 <cfoutput>
 	<tr>
 		<td></td>
-		<td colspan="2" class="RegText#session.workstream_text_size#Bd">Between #dateformat(date_start, "mmm/yyyy")# and #dateformat(dateadd("q", 1, now()), "mmm/yyyy")#:</td>
-		<td align="center" class="RegText#session.workstream_text_size#Bd">#Total_population.total_pop#</td>
+		<td colspan="2" class="RegTextBd">Between #dateformat(date_start, "mmm/yyyy")# and #dateformat(dateadd("q", 1, now()), "mmm/yyyy")#:</td>
+		<td align="center" class="RegTextBd">#Total_population.total_pop#</td>
 		<cfloop list="#reasons#" index="ii">
-		<td align="center" class="RegText#session.workstream_text_size#Bd">#evaluate("dataset#ii#")#</td>
-		<td align="center" class="RegText#session.workstream_text_size#Bd">#decimalformat(evaluate("dataset#ii#")/Total_population.total_pop*100)#%</td>
+		<td align="center" class="RegTextBd">#evaluate("dataset#ii#")#</td>
+		<td align="center" class="RegTextBd">#decimalformat(evaluate("dataset#ii#")/Total_population.total_pop*100)#%</td>
 		</cfloop>
 	</tr>
 </cfoutput>

@@ -15,35 +15,35 @@
 	END FUSEDOC --->
 </cfsilent>
 <table border="0" cellpadding="4" cellspacing="0" align="center" width="35%">
-	<tr bgcolor="##0000ff" class="headText<cfoutput>#session.workstream_text_size#</cfoutput>White">
+	<tr bgcolor="##0000ff" class="HeadTextWhite">
 		<td  align ="center">Gross Hours Report - Breakdown</td>
 	</tr>
 </table>
 <cfform action="index.cfm?fuseaction=Reports.gross_hours_ytd" method="POST" name="gross_hours_ytd">
 <table border="0" cellpadding="4" cellspacing="0" align="center" width="35%">
-	<tr class="subheadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<tr class="subHeadText">
 		<td>
 			From:
 		</td>
 		<td>
-			<cfinput type="datefield" name="from_date" value="" required="Yes" validate="date" message="Please enter a properly formatted from date." size="11" class="RegText#session.workstream_text_size#">
+			<cfinput type="datefield" name="from_date" value="" required="Yes" validate="date" message="Please enter a properly formatted from date." size="11" class="RegText">
 			</td>
 	</tr>
-	<tr class="subheadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<tr class="subHeadText">
 		<td>
 			To:
 		</td>
 		<td>
-			<cfinput type="datefield" name="to_date" value="" required="Yes" validate="date" message="Please enter a properly formatted to date." size="11" class="RegText#session.workstream_text_size#"><br>
+			<cfinput type="datefield" name="to_date" value="" required="Yes" validate="date" message="Please enter a properly formatted to date." size="11" class="RegText"><br>
 			</td>
 	</tr>
 	
-	<tr class="subheadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<tr class="subHeadText">
 		<td>
 			Sort By:	
 		</td>
 		<td>
-			<select name="sort_by" size="1" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>" style="width:130px">
+			<select name="sort_by" size="1" class="RegText" style="width:130px">
 				<option value="Emp_Contact.lname" selected>Employees
 				<option value="Loc1.city, Emp_Contact.lname">Location
 				<option value="REF_Employee_Classification.employee_classification, Emp_Contact.lname">Employee Type
@@ -51,13 +51,13 @@
 		</td>
 	</tr>		
 	
-	<tr class="subheadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<tr class="subHeadText">
 		<td>
 			Name:	
 		</td>
 		<td>	
 		<cfoutput>
-			<select name="display_person" class="RegText#session.workstream_text_size#" size="3" style="width:130px" multiple>
+			<select name="display_person" class="RegText" size="3" style="width:130px" multiple>
 		</cfoutput>
 				<option value="ALL" selected>All Employees
 				<cfoutput query="team_select">
@@ -69,18 +69,18 @@
 		</td>
 	</tr>	
 			
-	<tr class="subheadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<tr class="subHeadText">
 		<td>
 			Office:	
 		</td>
 		<td>
 		<cfoutput>
-			<select name="display_office" size="3" style="width:130px" multiple class="RegText#session.workstream_text_size#">
-				<option value="ALL" selected class="RegText#session.workstream_text_size#">All Offices</option>
+			<select name="display_office" size="3" style="width:130px" multiple class="RegText">
+				<option value="ALL" selected class="RegText">All Offices</option>
 		</cfoutput>			
 				<cfoutput query="office_loc">
 					<cfif Office_location is not ""><!--- Don't display blanks --->
-						<option value="#Office_location#" class="RegText#session.workstream_text_size#">#Office_location#</option>
+						<option value="#Office_location#" class="RegText">#Office_location#</option>
 					</cfif>
 				</cfoutput>
 			</select>

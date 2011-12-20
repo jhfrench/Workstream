@@ -20,8 +20,8 @@
 <table border="0" cellpadding="4" cellspacing="0" bordercolor="##000000" align="center" width="95%">
 	<cfoutput query="get_objects">
 		<tr>
-		<td class="SubHeadText#session.workstream_text_size#" align="right" bgcolor="##008080"><a href="<cfif custom_ind>#custom_url#<cfelse>index.cfm?fuseaction=#action#</cfif>" class="RepLink#session.workstream_text_size#">#report_name#</a></td>
-		<td class="RegText#session.workstream_text_size#">#description#</td>
+		<td class="SubHeadText" align="right" bgcolor="##008080"><a href="<cfif custom_ind>#custom_url#<cfelse>index.cfm?fuseaction=#action#</cfif>" class="RegTextWhite">#report_name#</a></td>
+		<td class="RegText">#description#</td>
 		</tr>
 	</cfoutput>
 </table>

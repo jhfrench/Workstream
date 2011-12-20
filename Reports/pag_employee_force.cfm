@@ -25,7 +25,7 @@
 <cfmodule template="../common_files/act_calendar.cfm" form_name="date_range" field_name="from_date,to_date">
 <cfinclude template="qry_employee_force.cfm">
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="100%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="9" gutter="0" section_color="008080" section_title="&nbsp;ForcePlanner Report for #request.employee_name#" title_class="HeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="9" gutter="0" section_color="008080" section_title="&nbsp;ForcePlanner Report for #request.employee_name#" title_class="HeadTextWhite">
 	<cfinclude template="dsp_employee_force_header.cfm">
 	<cfinclude template="dsp_employee_force_row.cfm"><!--- 
 	<cfinclude template="dsp_supervisor_force_row_header.cfm"> --->

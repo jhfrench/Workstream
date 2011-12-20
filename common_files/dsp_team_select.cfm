@@ -62,7 +62,7 @@
 		attributes.show_team=0;
 	}
 	if (NOT isdefined("attributes.class")) {
-		attributes.class="SelectText#session.workstream_text_size#";
+		attributes.class="SelectText";
 	}
 	if (NOT isdefined("attributes.selected_flag")) {
 		attributes.selected_flag=1;

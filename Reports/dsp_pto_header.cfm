@@ -15,7 +15,7 @@
 </cfsilent>
 <table border="0" cellpadding="4" cellspacing="0" align="center" width="95%">
 	<tr align="center">
-		<td class="HeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<td class="HeadText">
 			<cfif ListContains(form_pin,'all')>Manager</cfif> Personal Time Off Report
 		</td>
 	</tr>

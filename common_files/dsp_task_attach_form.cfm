@@ -37,7 +37,7 @@ function add_to_linked_task_id_list() {
 <cfform name="attach_task" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
 	<cfmodule template="qry_get_open_tasks.cfm" exclude_task_id="#attributes.base_task_id#">
 	<tr>
-		<td class="SubHeadText#session.workstream_text_size#">Specify one or more tasks to associate with this task:</td>
+		<td class="SubHeadText">Specify one or more tasks to associate with this task:</td>
 	</tr>
 	<tr>
 		<td>
@@ -60,19 +60,19 @@ function add_to_linked_task_id_list() {
 			<br>
 	<tr>
 		<td> 
-			<input type="button"  value="Add to list below" onclick="add_to_linked_task_id_list()" class="RegText#session.workstream_text_size#">
+			<input type="button"  value="Add to list below" onclick="add_to_linked_task_id_list()" class="RegText">
 		</td>
 	</tr>
 	<tr>
 		<td> 
-			<input type="text" name="linked_task_id" size="30" class="RegText#session.workstream_text_size#">
+			<input type="text" name="linked_task_id" size="30" class="RegText">
 			<input type="hidden" name="base_task_id" value="#attributes.base_task_id#">
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<input type="reset" class="RegText#session.workstream_text_size#">
-			<input type="submit" value="Submit" class="RegText#session.workstream_text_size#">
+			<input type="reset" class="RegText">
+			<input type="submit" value="Submit" class="RegText">
 		</td>
 	</tr>
 </cfform>

@@ -25,7 +25,7 @@
 	<cfinclude template="dsp_spell_check_add.cfm">
 <cfelse>
 	<tr>
-		<td align="center" colspan="4" class="HeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<td align="center" colspan="4" class="HeadText">
 			<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;There was no text to spell-check.
 		</td>
 	</tr>

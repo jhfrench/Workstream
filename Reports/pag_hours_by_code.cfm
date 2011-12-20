@@ -16,8 +16,8 @@
 <cfinclude template="qry_hours_code.cfm">
 <table border="0" cellpadding="4" cellspacing="0" align="center" width="95%">
 
-<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#" section_color="ffffff" section_title="Hours By Code Report"  gutter="false" align="center">
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="SubHeadText#session.workstream_text_size#" section_color="ffffff" section_title="From: #attributes.from_date# &nbsp;To: #attributes.through_date#" gutter="false" align="center">
+<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText" section_color="ffffff" section_title="Hours By Code Report"  gutter="false" align="center">
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="SubHeadText" section_color="ffffff" section_title="From: #attributes.from_date# &nbsp;To: #attributes.through_date#" gutter="false" align="center">
 	<cfoutput query="hours_code">
 		<cfif NOT temp_cc IS ClientCode>
 		   	<cfset count=0>

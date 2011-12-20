@@ -15,11 +15,11 @@
 </cfsilent>
 <cfoutput>
 <tr valign="bottom" bgcolor="##c0c0c0">
-	<td class="RegText#session.workstream_text_size#">Employee</td>
-	<cfloop from="1" to="#variables.daysinmonth#" index="ii"><td align="center" class="RegText#session.workstream_text_size#">
+	<td class="RegText">Employee</td>
+	<cfloop from="1" to="#variables.daysinmonth#" index="ii"><td align="center" class="RegText">
 		#dateformat(variables.report_date, "mmm")#<br>#ii#
 	</td></cfloop>
-	<td class="RegText#session.workstream_text_size#">
+	<td class="RegText">
 		Total
 	</td>
 </tr>

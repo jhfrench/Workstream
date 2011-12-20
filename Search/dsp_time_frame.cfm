@@ -26,11 +26,11 @@ document.input_attributes.task_name_box.checked=true
 		<td align="center">
 			<input type="checkbox" name="time_frame_box" value="1">
 		</td>
-		<td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<td class="RegText">
 			Time Frame
 		</td>
-		<td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
-			<input type="Text" name="Task_Name" size="20" onclick="checkbox_task_name()" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>"> Single Word Only
+		<td class="RegText">
+			<input type="Text" name="Task_Name" size="20" onclick="checkbox_task_name()" class="RegText"> Single Word Only
 		</td>
 </tr>
 

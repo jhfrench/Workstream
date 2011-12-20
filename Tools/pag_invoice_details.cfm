@@ -20,7 +20,7 @@
 </cfsilent>
 <cfinclude template="qry_invoice_details.cfm">
 <table align="center" cellpadding="1" cellspacing="0" border="1" bordercolor="#772862" width="70%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#White" section_color="772862" section_title="&nbsp;Invoice Details for Work Completed in #MonthAsString(attributes.month)#" colspan="8" gutter=0>
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadTextWhite" section_color="772862" section_title="&nbsp;Invoice Details for Work Completed in #MonthAsString(attributes.month)#" colspan="8" gutter=0>
 	<cfinclude template="dsp_invoice_details_header.cfm">
 	<cfinclude template="dsp_invoice_details.cfm">
 </table>

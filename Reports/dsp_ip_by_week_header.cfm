@@ -15,10 +15,10 @@
 </cfsilent>
 <cfoutput>
 <tr bgcolor="##c0c0c0" valign="bottom">
-	<td class="RegText#session.workstream_text_size#Bd">Year</td>
-	<td class="RegText#session.workstream_text_size#Bd">Week</td>
-	<td align="center" class="RegText#session.workstream_text_size#Bd" width="40">IP<br>count</td>
-	<td align="center" class="RegText#session.workstream_text_size#Bd" width="40">Avg&nbsp;days<br>to&nbsp;complete</td>
+	<td class="RegTextBd">Year</td>
+	<td class="RegTextBd">Week</td>
+	<td align="center" class="RegTextBd" width="40">IP<br>count</td>
+	<td align="center" class="RegTextBd" width="40">Avg&nbsp;days<br>to&nbsp;complete</td>
 </tr>
 </cfoutput>
 

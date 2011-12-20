@@ -32,15 +32,15 @@
 
 <cfif isdefined("attributes.title_row")>
 <tr valign="top"<CFIF LEN(ATTRIBUTES.BGCOLOR1)> BGCOLOR="<cfoutput>#ATTRIBUTES.BGCOLOR1#</cfoutput>"</CFIF>>
-	<td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>" colspan="<cfoutput>#attributes.col_span#</cfoutput>">
+	<td class="RegText" colspan="<cfoutput>#attributes.col_span#</cfoutput>">
 		<cfoutput>#attributes.title_row#</cfoutput>
 	</td>
 </tr>
 </cfif>
 <tr<CFIF LEN(ATTRIBUTES.BGCOLOR2)> BGCOLOR=<cfoutput>#ATTRIBUTES.BGCOLOR2#</cfoutput></CFIF>>
-	<td align="<cfoutput>#attributes.Align#</cfoutput>" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>" colspan="<cfoutput>#attributes.col_span#</cfoutput>">
+	<td align="<cfoutput>#attributes.Align#</cfoutput>" class="RegText" colspan="<cfoutput>#attributes.col_span#</cfoutput>">
 <cfoutput>
-<textarea cols="#attributes.col_num#" rows="#attributes.row_num#" name="#attributes.box_name#" class="RegText#session.workstream_text_size#" <cfif NOT attributes.form>onfocus="blur()" readonly</cfif>>#attributes.fill_value#</textarea>
+<textarea cols="#attributes.col_num#" rows="#attributes.row_num#" name="#attributes.box_name#" class="RegText" <cfif NOT attributes.form>onfocus="blur()" readonly</cfif>>#attributes.fill_value#</textarea>
 </cfoutput>
 	</td>
 </tr>

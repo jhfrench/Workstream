@@ -16,7 +16,7 @@ $Log:
  --->
 <cfoutput>
 	<tr bgcolor="##78A0EB">
-		<td colspan="2" class="SubHeadText#session.workstream_text_size#">
+		<td colspan="2" class="SubHeadText">
 			<strong>Supervisor Entry Form</strong>
 		</td>
 	</tr>

@@ -15,7 +15,7 @@
  --->
 </cfsilent>
 	<tr>
-		<td class="HeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<td class="HeadText">
 			Unbind Files
 		</td>
 	</tr>

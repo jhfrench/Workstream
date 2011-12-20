@@ -54,17 +54,17 @@
 <tr>
 	<td colspan="#variables.total_columns#">
 <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-	<tr bgcolor="##78A0EB" class="HeadText#session.workstream_text_size#">
-		<td class="HeadText#session.workstream_text_size#">
+	<tr bgcolor="##78A0EB">
+		<td class="HeadText">
 			<cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>Case<cfelse>Task</cfif> Inbox for <cfmodule template="../common_files/dsp_team_select.cfm" emp_id="#attributes.emp_id#" show_team="1" onchange="form.submit();" fuseaction="#attributes.fuseaction#">
 		</td>
-		<td align="right" class="RegText#session.workstream_text_size#White">
-			<!--- <a class="SubHeadText#session.workstream_text_size#" href="index.cfm?fuseaction=<cfif comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>engagement_list">Project<cfelse>task_list">Task</cfif> View</a> --->&nbsp;
+		<td align="right" class="RegTextWhite">
+			<!--- <a class="SubHeadText" href="index.cfm?fuseaction=<cfif comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>engagement_list">Project<cfelse>task_list">Task</cfif> View</a> --->&nbsp;
 			<cfif session.workstream_show_options>
-				<cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>&nbsp;&nbsp;<label for="show_closed_engagements"><input type="checkbox" name="show_closed_engagements" id="show_closed_engagements" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_closed_engagements") AND session.workstream_show_closed_engagements> checked</cfif> class="SelectText#session.workstream_text_size#">Show Completed Projects</label></cfif>
-				&nbsp;&nbsp;<label for="show_on_hold"><input type="checkbox" name="show_on_hold" id="show_on_hold" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_on_hold") AND session.workstream_show_on_hold> checked</cfif> class="SelectText#session.workstream_text_size#">Show Tasks On Hold</label>
-				&nbsp;&nbsp;<label for="show_closed"><input type="checkbox" name="show_closed" id="show_closed" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_closed") AND session.workstream_show_closed> checked</cfif> class="SelectText#session.workstream_text_size#">Show Completed Tasks</label>
-				&nbsp;&nbsp;<label for="show_team"><input type="checkbox" name="show_team" id="show_team" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_team") AND session.workstream_show_team> checked</cfif> class="SelectText#session.workstream_text_size#">Show Team's Tasks</label>&nbsp;&nbsp;
+				<cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>&nbsp;&nbsp;<label for="show_closed_engagements"><input type="checkbox" name="show_closed_engagements" id="show_closed_engagements" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_closed_engagements") AND session.workstream_show_closed_engagements> checked</cfif> class="SelectText">Show Completed Projects</label></cfif>
+				&nbsp;&nbsp;<label for="show_on_hold"><input type="checkbox" name="show_on_hold" id="show_on_hold" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_on_hold") AND session.workstream_show_on_hold> checked</cfif> class="SelectText">Show Tasks On Hold</label>
+				&nbsp;&nbsp;<label for="show_closed"><input type="checkbox" name="show_closed" id="show_closed" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_closed") AND session.workstream_show_closed> checked</cfif> class="SelectText">Show Completed Tasks</label>
+				&nbsp;&nbsp;<label for="show_team"><input type="checkbox" name="show_team" id="show_team" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_team") AND session.workstream_show_team> checked</cfif> class="SelectText">Show Team's Tasks</label>&nbsp;&nbsp;
 			</cfif>
 		</td>
 	</tr>

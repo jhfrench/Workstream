@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 <cfset variables.grandtotal=0>
 </cfsilent>
-	<tr bgcolor="#c0c0c0" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>Bd">
+	<tr bgcolor="#c0c0c0" class="RegTextBd">
 		<td>Total:</td>
 		<!--- Set the Grand Total Varable to 0 and then Calculate the total hours spent --->
 	<cfoutput query="manager_crosstab_codes">

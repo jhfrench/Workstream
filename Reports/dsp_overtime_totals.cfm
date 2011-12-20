@@ -12,7 +12,7 @@
 	||
 	END FUSEDOC --->
 </cfsilent>
-	<tr class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>It">
+	<tr class="RegTextIt">
 		<td colspan="2">Total Hours:</td>
 <cfoutput>
 		<td>#decimalformat(Total_Hours)#</td>

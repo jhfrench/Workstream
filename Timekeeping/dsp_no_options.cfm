@@ -15,7 +15,7 @@
  --->
 <cfinclude template="../common_files/qry_get_teams.cfm">
 	<tr valign="top">
-		<td align="center" colspan="2" valign="top" class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<td align="center" colspan="2" valign="top" class="SubHeadText">
 			<br>&nbsp;
 			No options available.
 			<br>&nbsp;

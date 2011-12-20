@@ -26,7 +26,7 @@
 </cfsilent>
 <cfoutput>
 <tr align="center">
-	<td class="SubHeadText#session.workstream_text_size#">
+	<td class="SubHeadText">
 <cfif variables.nein>
 		You have already entered this engagement.<br>If you wich to enter another engagement please <a href="index.cfm?fuseaction=Customers.new_engagement">start the 'new engagement wizard'</a> over again.
 <cfelse>

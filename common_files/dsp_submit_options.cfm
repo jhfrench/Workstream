@@ -20,8 +20,8 @@
 </cfsilent>
 <cfoutput>
 	<tr align="center">
-		<td align="center" colspan="#request.colspan#" class="RegText#session.workstream_text_size#">
-			<cfif attributes.include_reset><input type="Reset" value="#attributes.reset_value#" class="RegText#session.workstream_text_size#">&nbsp;</cfif><input type="submit" value="#attributes.submit_value#" class="RegText#session.workstream_text_size#">
+		<td align="center" colspan="#request.colspan#" class="RegText">
+			<cfif attributes.include_reset><input type="Reset" value="#attributes.reset_value#" class="RegText">&nbsp;</cfif><input type="submit" value="#attributes.submit_value#" class="RegText">
 		</td>
 	</tr>
 </cfoutput>

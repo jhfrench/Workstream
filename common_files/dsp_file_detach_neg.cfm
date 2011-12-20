@@ -15,7 +15,7 @@
  --->
 </cfsilent>
 	<tr>
-		<td align="center" class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<td align="center" class="SubHeadText">
 			There are no documents associated with this task.
 		</td>
 	</tr>

@@ -16,12 +16,12 @@
 
 </cfsilent>
 <table border="0" cellpadding="4" cellspacing="0" align="center" width="35%">
-	<tr bgcolor="##0000ff" class="headText<cfoutput>#session.workstream_text_size#</cfoutput>White">
+	<tr bgcolor="##0000ff" class="HeadTextWhite">
 		<td  align ="center">Lost Time Report</td>
 	</tr>
 </table>
 <table border="0" cellpadding="4" cellspacing="0" align="center" width="35%">
-	<tr class="subheadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<tr class="subHeadText">
 		<td>
 			<cfinclude template="../common_files/dsp_pop_calendar.cfm">		
 			<cfmodule template="../common_files/act_calendar.cfm" form_name="lost_time" field_name="from_date,to_date" x_pos="relative">
@@ -30,22 +30,22 @@
 			From:
 		</td>
 		<td>
-			<cfinput type="datefield" name="from_date" value="" required="Yes" validate="date" message="Please enter a properly formatted from date." size="11" class="RegText#session.workstream_text_size#">
+			<cfinput type="datefield" name="from_date" value="" required="Yes" validate="date" message="Please enter a properly formatted from date." size="11" class="RegText">
 			
 			&nbsp;&nbsp;&nbsp;&nbsp;
 			
 			To:
-			<cfinput type="datefield" name="to_date" value="" required="Yes" validate="date" message="Please enter a properly formatted to date." size="11" class="RegText#session.workstream_text_size#"><br>
+			<cfinput type="datefield" name="to_date" value="" required="Yes" validate="date" message="Please enter a properly formatted to date." size="11" class="RegText"><br>
 			</td>
 	</tr>
 	
-	<tr class="subheadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<tr class="subHeadText">
 		<td>
 			Name:	
 		</td>
 		<td>	
 		
-			<cfselect name="emp_id"  required="yes" message="you must select an employee"class="RegText#session.workstream_text_size#" size="3" style="width:130px" multiple>
+			<cfselect name="emp_id"  required="yes" message="you must select an employee"class="RegText" size="3" style="width:130px" multiple>
 		
 				<option value="ALL" selected>All Employees </option>
 				<cfoutput query="team_select">

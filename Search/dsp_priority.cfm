@@ -18,11 +18,11 @@
 <cfoutput>
 	<tr valign="top">
 		<td align="center">
-			<input type="checkbox" name="priority_id_box" value="1" class="RegText#session.workstream_text_size#">
+			<input type="checkbox" name="priority_id_box" value="1" class="RegText">
 		</td>
-		<td class="RegText#session.workstream_text_size#">Priority</td>
+		<td class="RegText">Priority</td>
 		<td>
-			<select name="priority_id" multiple size="3" onclick="checkbox_priority_id()" class="RegText#session.workstream_text_size#"></cfoutput>
+			<select name="priority_id" multiple size="3" onclick="checkbox_priority_id()" class="RegText"></cfoutput>
 			<cfoutput query="get_priorities">
 				<option value="#priority_id#">#description#</option>
 			</cfoutput>

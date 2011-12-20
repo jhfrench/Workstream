@@ -17,11 +17,11 @@
 <cfinclude template="../common_files/qry_get_task_stati.cfm">
 	<tr valign="top">
 		<td align="center">
-			<input type="checkbox" name="task_stati_box" value="1" <cfif len(attributes.task_stati)>checked="checked"</cfif> class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+			<input type="checkbox" name="task_stati_box" value="1" <cfif len(attributes.task_stati)>checked="checked"</cfif> class="RegText">
 		</td>
-		<td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">Task Status</td>
+		<td class="RegText">Task Status</td>
 		<td>
-			<select name="task_stati" multiple size="4" onclick="checkbox_task_stati()" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+			<select name="task_stati" multiple size="4" onclick="checkbox_task_stati()" class="RegText">
 			<cfoutput query="get_task_stati">
 				<option value="#status_id#"<cfif ListFind(attributes.task_stati, get_task_stati.status_id,",")>selected</cfif>>#status#</option>
 			</cfoutput>

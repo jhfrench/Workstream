@@ -14,25 +14,25 @@
 	END FUSEDOC --->
 <cfoutput>
 	<tr>
-		<td class="SubHeadText#session.workstream_text_size#">1. <a href="javascript:edit_engagement('1')" class="SubHeadText#session.workstream_text_size#">Main engagement details</a></td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="SubHeadText">1. <a href="javascript:edit_engagement('1')" class="SubHeadText">Main engagement details</a></td>
+		<td class="RegText">
 			(Project code, name, status, visible-to, mission, vision, business case)
 		</td>
 	</tr>
 	<tr>
-		<td class="SubHeadText#session.workstream_text_size#">2. <a href="javascript:edit_engagement('2')" class="SubHeadText#session.workstream_text_size#">Billing information</a></td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="SubHeadText">2. <a href="javascript:edit_engagement('2')" class="SubHeadText">Billing information</a></td>
+		<td class="RegText">
 			(Work start and end, billing type, budget, etc)
 		</td>
 	</tr>
 	<tr>
-		<td class="SubHeadText#session.workstream_text_size#">3. <a href="javascript:edit_engagement('3')" class="SubHeadText#session.workstream_text_size#">Custom fields</a></td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="SubHeadText">3. <a href="javascript:edit_engagement('3')" class="SubHeadText">Custom fields</a></td>
+		<td class="RegText">
 			(Add, delete, edit)
 		</td>
 	</tr>
 	<tr>
-	<td class="RegText#session.workstream_text_size#" colspan=100%>
+	<td class="RegText" colspan=100%>
 		<a href="index.cfm?fuseaction=Customers.engagements&Project_ID=#Project_ID#">Project list for this customer</a>
 	</td>
 	</tr>

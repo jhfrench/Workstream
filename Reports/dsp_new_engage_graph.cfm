@@ -52,10 +52,10 @@
 <table align="center" border="0" cellpadding="1" cellspacing="0">
 <cfoutput>
 	<tr>
-		<td align="center" class="SubHeadText#session.workstream_text_size#">New Projects Over Time<span class="RegText#session.workstream_text_size#"> (see bottom for selected customers)</span></td>
+		<td align="center" class="SubHeadText">New Projects Over Time<span class="RegText"> (see bottom for selected customers)</span></td>
 	</tr>
 	<tr>
-		<td align="center" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" class="SubHeadText">
 			<applet code="javachart.applet.columnApp.class" codebase="#request.dir_level##application.graphbase#" width="650" height="360">
 				<param name="plotAreaColor" value="ffffff">
 				<param name="backgroundColor" value="ffffff">
@@ -90,12 +90,12 @@
 		</td>
 	</tr>
 	<tr>
-		<td align="center" bgcolor="##a6a6a6" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" bgcolor="##a6a6a6" class="SubHeadText">
 			Selected customers:
 		</td>
 	</tr>
 	<tr>
-		<td align="left" class="RegText#session.workstream_text_size#"></cfoutput>
+		<td align="left" class="RegText"></cfoutput>
 			<cfoutput query="selected_companies">&nbsp;&nbsp; #customer_name#<br></cfoutput>
 		</td>
 	</tr>

@@ -20,23 +20,23 @@
 <cfoutput>
 <form action="index.cfm?fuseaction=Administration.manage_workstream" name="manage_workstream" method="post">
 	<tr bgcolor="##e6e6e6">
-		<td class="RegText#session.workstream_text_size#">
-			<label for="application_variables"><input type="checkbox" name="application_variables" value="1" id="application_variables" class="RegText#session.workstream_text_size#"> All application variables.</label>
+		<td class="RegText">
+			<label for="application_variables"><input type="checkbox" name="application_variables" value="1" id="application_variables" class="RegText"> All application variables.</label>
 		</td>
 	</tr>
 	<tr bgcolor="##e6e6e6">
-		<td class="RegText#session.workstream_text_size#">
-			<label for="icons_changed"><input type="checkbox" name="change_me" value="icons_changed" id="icons_changed" class="RegText#session.workstream_text_size#"> Icon caching</label>
+		<td class="RegText">
+			<label for="icons_changed"><input type="checkbox" name="change_me" value="icons_changed" id="icons_changed" class="RegText"> Icon caching</label>
 		</td>
 	</tr>
 	<tr bgcolor="##e6e6e6">
-		<td class="RegText#session.workstream_text_size#">
-			<label for="team_changed"><input type="checkbox" name="change_me" value="team_changed" id="team_changed" class="RegText#session.workstream_text_size#"> Team change (for task select list, main directory list, etc).</label>
+		<td class="RegText">
+			<label for="team_changed"><input type="checkbox" name="change_me" value="team_changed" id="team_changed" class="RegText"> Team change (for task select list, main directory list, etc).</label>
 		</td>
 	</tr>
 	<tr bgcolor="##e6e6e6">
-		<td align="center" class="RegText#session.workstream_text_size#">
-			<input type="Reset" class="RegText#session.workstream_text_size#"> | <input type="submit" value="Update" class="RegText#session.workstream_text_size#">
+		<td align="center" class="RegText">
+			<input type="Reset" class="RegText"> | <input type="submit" value="Update" class="RegText">
 		</td>
 	</tr>
 </form>

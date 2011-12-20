@@ -47,7 +47,7 @@
 <table align="center" cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
 <td align="center">&nbsp;</td>
-<td class="RegText#session.workstream_text_size#">
+<td class="RegText">
  <form name="edit_form" action="index.cfm?fuseaction=Search.edit_search" method="POST" >
     <cfif isdefined("attributes.task_name_box")>
    <input type="hidden" name="task_name_box" value= "1">
@@ -96,11 +96,11 @@
   	<input type="hidden" name="task_source"    value="#attributes.task_source#">
 	
 	</td>
-	<td class="RegText#session.workstream_text_size#">&nbsp;</td>
+	<td class="RegText">&nbsp;</td>
 	</tr>
 		<tr>
-		<td align="center" colspan="3" class="RegText#session.workstream_text_size#">
-			<br><input type="submit" value="Edit Search" class="RegText#session.workstream_text_size#">
+		<td align="center" colspan="3" class="RegText">
+			<br><input type="submit" value="Edit Search" class="RegText">
 		</td>
 	</tr>
  </form>

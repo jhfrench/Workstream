@@ -14,63 +14,63 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-	<tr bgcolor="##008080" class="SubHeadText#session.workstream_text_size#">
-		<td align="center" colspan="3" class="SubHeadText#session.workstream_text_size#White">
+	<tr bgcolor="##008080" class="SubHeadText">
+		<td align="center" colspan="3" class="SubHeadTextWhite">
 			Totals (#attributes.from_date# through #attributes.to_date#)
 		</td>
 	</tr>
-	<tr bgcolor="##c0c0c0" class="SubHeadText#session.workstream_text_size#">
-		<td class="RegText#session.workstream_text_size#">
+	<tr bgcolor="##c0c0c0" class="SubHeadText">
+		<td class="RegText">
 			&nbsp;
 		</td>
-		<td class="RegText#session.workstream_text_size#Bd">
+		<td class="RegTextBd">
 			You
 		</td>
-		<td class="RegText#session.workstream_text_size#Bd">
+		<td class="RegTextBd">
 			Nucleus
 		</td>
 	</tr>
-	<tr bgcolor="##E1E1E1" class="SubHeadText#session.workstream_text_size#">
-		<td class="RegText#session.workstream_text_size#">
+	<tr bgcolor="##E1E1E1" class="SubHeadText">
+		<td class="RegText">
 			Average number of days assigned to complete a task:
 		</td>
-		<td align="right" class="RegText#session.workstream_text_size#">
+		<td align="right" class="RegText">
 			#decimalformat(employee_force_totals.given_days)#
 		</td>
-		<td align="right" class="RegText#session.workstream_text_size#">
+		<td align="right" class="RegText">
 			#decimalformat(team_force_totals.given_days)#
 		</td>
 	</tr>
-	<tr class="SubHeadText#session.workstream_text_size#">
-		<td class="RegText#session.workstream_text_size#">
+	<tr class="SubHeadText">
+		<td class="RegText">
 			Average number of days used to complete a task:
 		</td>
-		<td align="right" class="RegText#session.workstream_text_size#">
+		<td align="right" class="RegText">
 			#decimalformat(employee_force_totals.duration_days)#
 		</td>
-		<td align="right" class="RegText#session.workstream_text_size#">
+		<td align="right" class="RegText">
 			#decimalformat(team_force_totals.duration_days)#
 		</td>
 	</tr>
-	<tr bgcolor="##E1E1E1" class="SubHeadText#session.workstream_text_size#">
-		<td class="RegText#session.workstream_text_size#">
+	<tr bgcolor="##E1E1E1" class="SubHeadText">
+		<td class="RegText">
 			Percent of tasks completed on time or early:
 		</td>
-		<td align="right" class="RegText#session.workstream_text_size#">
+		<td align="right" class="RegText">
 			#decimalformat(employee_force_totals.on_time)#%
 		</td>
-		<td align="right" class="RegText#session.workstream_text_size#">
+		<td align="right" class="RegText">
 			#decimalformat(team_force_totals.on_time)#%
 		</td>
 	</tr>
-	<tr class="SubHeadText#session.workstream_text_size#">
-		<td class="RegText#session.workstream_text_size#">
+	<tr class="SubHeadText">
+		<td class="RegText">
 			Percent of tasks completed on or under budget:
 		</td>
-		<td align="right" class="RegText#session.workstream_text_size#">
+		<td align="right" class="RegText">
 			#decimalformat(employee_force_totals.on_budget)#%
 		</td>
-		<td align="right" class="RegText#session.workstream_text_size#">
+		<td align="right" class="RegText">
 			#decimalformat(team_force_totals.on_budget)#%
 		</td>
 	</tr>

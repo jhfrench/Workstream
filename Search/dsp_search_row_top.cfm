@@ -15,7 +15,7 @@
 	END FUSEDOC --->
 </cfsilent>
 	<tr bgcolor="#c0c0c0">
-		<td align="center" class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">Include<br>in Search</td>
-		<td align="Left" class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">Search<br>Item</td>
-		<td align="Left" class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">Search<br>Criteria</td>
+		<td align="center" class="SubHeadText">Include<br>in Search</td>
+		<td align="Left" class="SubHeadText">Search<br>Item</td>
+		<td align="Left" class="SubHeadText">Search<br>Criteria</td>
 	</tr>

@@ -15,17 +15,17 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<tr class="SubHeadText#session.workstream_text_size#">
-	<td class="SubHeadText#session.workstream_text_size#">
+<tr class="SubHeadText">
+	<td class="SubHeadText">
 		Project
 	</td>
-	<td class="SubHeadText#session.workstream_text_size#">
+	<td class="SubHeadText">
 		Billing Type
 	</td>
-	<td class="SubHeadText#session.workstream_text_size#">
+	<td class="SubHeadText">
 		Total Monthly Bill
 	</td>
-	<td class="SubHeadText#session.workstream_text_size#">
+	<td class="SubHeadText">
 		Current Tasks
 	</td>
 </tr>

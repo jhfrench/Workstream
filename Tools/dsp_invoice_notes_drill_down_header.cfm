@@ -16,9 +16,9 @@
 </cfsilent>
 <cfoutput>
 	<tr bgcolor="##9A588A">
-		<td align="center" class="SubHeadText#session.workstream_text_size#White">Date</td>
-		<td align="center" class="SubHeadText#session.workstream_text_size#White">Hours</td>
-		<td align="center" class="SubHeadText#session.workstream_text_size#White">Notes</td>
+		<td align="center" class="SubHeadTextWhite">Date</td>
+		<td align="center" class="SubHeadTextWhite">Hours</td>
+		<td align="center" class="SubHeadTextWhite">Notes</td>
 	</tr>
 </cfoutput>
 

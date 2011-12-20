@@ -51,11 +51,11 @@
 <cfparam name="Zip" default="">
 
 	<cfoutput>
-	<table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="##f3f3f3" bordercolorlight="##ededed" bordercolordark="##fbfbfb" class="RegText#session.workstream_text_size#">
-	<form action="index.cfm?fuseaction=Directory.employee_contact_update" method="post" name="input_form"  class="RegText#session.workstream_text_size#">
+	<table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="##f3f3f3" bordercolorlight="##ededed" bordercolordark="##fbfbfb" class="RegText">
+	<form action="index.cfm?fuseaction=Directory.employee_contact_update" method="post" name="input_form"  class="RegText">
 		<tr>
-			<td colspan="2" class="SubHeadText#session.workstream_text_size#">Name:</td>
-			<td class="SubHeadText#session.workstream_text_size#">
+			<td colspan="2" class="SubHeadText">Name:</td>
+			<td class="SubHeadText">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					#get_demographics.fname#
 					&nbsp;
@@ -65,15 +65,15 @@
 		</tr>
 		
 		<!--- Phone --->
-		<tr><td colspan="3" bgcolor="##dadada" class="SubHeadText#session.workstream_text_size#">&nbsp;&nbsp;Phones</td></tr>
+		<tr><td colspan="3" bgcolor="##dadada" class="SubHeadText">&nbsp;&nbsp;Phones</td></tr>
 		<cfloop query="get_contact_phones">
 			<tr>
-				<td class="SubHeadText#session.workstream_text_size#" valign="top" align="right" width="15%">#Phone_type#:</td>
-				<td class="RegText#session.workstream_text_size#">&nbsp;</td>
-				<td class="RegText#session.workstream_text_size#">
-					<input type="text" name="phone_number_#phone_type_id#" value="#phone_number#" size="15" class="RegText#session.workstream_text_size#" maxlength="12">
+				<td class="SubHeadText" valign="top" align="right" width="15%">#Phone_type#:</td>
+				<td class="RegText">&nbsp;</td>
+				<td class="RegText">
+					<input type="text" name="phone_number_#phone_type_id#" value="#phone_number#" size="15" class="RegText" maxlength="12">
 					<cfif listcontainsnocase(phone_type, "work")>
-						Ext: <input type="text" name="extension_#phone_type_id#" value="#extension#" size="15" maxlength="4" class="RegText#session.workstream_text_size#">
+						Ext: <input type="text" name="extension_#phone_type_id#" value="#extension#" size="15" maxlength="4" class="RegText">
 					</cfif>
 					<input type="hidden" name="phone_id" value="#phone_id#">
 					<input type="hidden" name="phone_type_id" value="#phone_type_id#">
@@ -82,13 +82,13 @@
 		</cfloop>
 		
 		<!--- Emails --->
-		<tr><td colspan="3" bgcolor="##dadada" class="SubHeadText#session.workstream_text_size#">&nbsp;&nbsp;Emails</td></tr>
+		<tr><td colspan="3" bgcolor="##dadada" class="SubHeadText">&nbsp;&nbsp;Emails</td></tr>
 		<cfloop query="get_contact_emails">
 			<tr>
-				<td class="SubHeadText#session.workstream_text_size#" valign="top" align="right">#email_type#:</td>
-				<td class="RegText#session.workstream_text_size#">&nbsp;</td>
-				<td class="RegText#session.workstream_text_size#">
-					<input type="text" name="email_#email_type_id#" value="#email#" size="40" class="RegText#session.workstream_text_size#">
+				<td class="SubHeadText" valign="top" align="right">#email_type#:</td>
+				<td class="RegText">&nbsp;</td>
+				<td class="RegText">
+					<input type="text" name="email_#email_type_id#" value="#email#" size="40" class="RegText">
 					<input type="hidden" name="email_id" value="#email_id#">
 					<input type="hidden" name="email_type_id" value="#email_type_id#">
 				</td>
@@ -96,47 +96,47 @@
 		</cfloop>
 		
 		<!--- Addresses --->
-		<tr><td colspan="3" bgcolor="##dadada" class="SubHeadText#session.workstream_text_size#">&nbsp;&nbsp;Addresses</td></tr>
+		<tr><td colspan="3" bgcolor="##dadada" class="SubHeadText">&nbsp;&nbsp;Addresses</td></tr>
 		<cfloop query="get_contact_locations">
 			<tr>
-				<td rowspan="4" class="SubHeadText#session.workstream_text_size#" valign="top" align="right">#Location_Type#:</td>
-				<td class="RegText#session.workstream_text_size#" align="right">Street:</td>
-				<td class="RegText#session.workstream_text_size#">
-				<input type="text" name="address1_#location_type_id#" value="#address1#" size="60" class="RegText#session.workstream_text_size#"> &nbsp;&nbsp;
-				Apt:<input type="text" name="address2_#location_type_id#" value="#address2#" size="10" class="RegText#session.workstream_text_size#"></td>
+				<td rowspan="4" class="SubHeadText" valign="top" align="right">#Location_Type#:</td>
+				<td class="RegText" align="right">Street:</td>
+				<td class="RegText">
+				<input type="text" name="address1_#location_type_id#" value="#address1#" size="60" class="RegText"> &nbsp;&nbsp;
+				Apt:<input type="text" name="address2_#location_type_id#" value="#address2#" size="10" class="RegText"></td>
 			</tr>
 			<tr>
-				<td  align="right" class="RegText#session.workstream_text_size#">City:</td>
-				<td><input type="text" name="city_#location_type_id#" value="#city#" size="40" class="RegText#session.workstream_text_size#"></td>
+				<td  align="right" class="RegText">City:</td>
+				<td><input type="text" name="city_#location_type_id#" value="#city#" size="40" class="RegText"></td>
 			</tr>
 			<tr>
-				<td  align="right" class="RegText#session.workstream_text_size#">State:</td> 
-				<td><input type="text" name="state_#location_type_id#" value="#state#" size="40" class="RegText#session.workstream_text_size#"></td>
+				<td  align="right" class="RegText">State:</td> 
+				<td><input type="text" name="state_#location_type_id#" value="#state#" size="40" class="RegText"></td>
 			</tr>
 			<tr>
-				<td   align="right" class="RegText#session.workstream_text_size#">Zip:</td> 
-				<td><input type="text" name="zip_#location_type_id#" value="#zip#" size="5" maxlength="5" class="RegText#session.workstream_text_size#"></td>
+				<td   align="right" class="RegText">Zip:</td> 
+				<td><input type="text" name="zip_#location_type_id#" value="#zip#" size="5" maxlength="5" class="RegText"></td>
 			</tr>
 			<input type="hidden" name="location_id" value="#location_id#">
 			<input type="hidden" name="location_type_id" value="#location_type_id#">
 		</cfloop>
 		
 		<!--- biography --->
-		<tr><td colspan="3" bgcolor="##dadada" class="SubHeadText#session.workstream_text_size#">&nbsp;&nbsp;Biography</td></tr>
+		<tr><td colspan="3" bgcolor="##dadada" class="SubHeadText">&nbsp;&nbsp;Biography</td></tr>
 		<tr>
-			<td  class="SubHeadText#session.workstream_text_size#" valign="top" align="right">&nbsp;</td>
-			<td class="RegText#session.workstream_text_size#">&nbsp;</td>
+			<td  class="SubHeadText" valign="top" align="right">&nbsp;</td>
+			<td class="RegText">&nbsp;</td>
 			<td>
-				<textarea cols="100" rows="7" name="biography"  class="RegText#session.workstream_text_size#">#get_demographics.biography#</textarea>
+				<textarea cols="100" rows="7" name="biography"  class="RegText">#get_demographics.biography#</textarea>
 				<input type="hidden" name="emp_biography_id" value="#get_demographics.emp_biography_id#">
 			</td>
 		</tr>
 		
 		<tr>
-			<td colspan="3" bgcolor="##dadada" class="RegText#session.workstream_text_size#" align="center">
+			<td colspan="3" bgcolor="##dadada" class="RegText" align="center">
 				<br><br>
-				<input type="reset" class="RegText#session.workstream_text_size#">
-				<input type="submit" value="Update Record" class="RegText#session.workstream_text_size#">
+				<input type="reset" class="RegText">
+				<input type="submit" value="Update Record" class="RegText">
 			</td>
 		</tr>
 	</form>

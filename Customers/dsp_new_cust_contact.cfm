@@ -13,30 +13,30 @@
 	END FUSEDOC --->
     </cfsilent>
 <tr>
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<td class="SubHeadText">
 		Name
 	</td>
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<td class="SubHeadText">
 		Last Name
 	</td>
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<td class="SubHeadText">
 		Phone
 	</td>
-	<td colspan="2" class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<td colspan="2" class="SubHeadText">
 		Email
 	</td>
 </tr>
 <tr>
 	<td>
-		<cfinput type="Text" required="no" name="name" class="RegText#session.workstream_text_size#">
+		<cfinput type="Text" required="no" name="name" class="RegText">
 	</td>
 	<td>
-		<cfinput type="Text" required="no" name="lname" class="RegText#session.workstream_text_size#">
+		<cfinput type="Text" required="no" name="lname" class="RegText">
 	</td>
 	<td>
-		<cfinput type="Text" required="no" name="phone" validate="telephone" class="RegText#session.workstream_text_size#">
+		<cfinput type="Text" required="no" name="phone" validate="telephone" class="RegText">
 	</td>
 	<td colspan="2">
-		<cfinput type="Text" required="no" name="email" class="RegText#session.workstream_text_size#">
+		<cfinput type="Text" required="no" name="email" class="RegText">
 	</td>		
 </tr>

@@ -38,10 +38,10 @@
 </cfsilent>
 <cfoutput>
 <tr bgcolor="C0C0C0">
-	<td align="center" class="RegText#session.workstream_text_size#Bd">
+	<td align="center" class="RegTextBd">
 		Implementations Per Week
 	</td>
-	<td align="center" class="RegText#session.workstream_text_size#Bd">
+	<td align="center" class="RegTextBd">
 		Implementations per Product
 	</td>
 </tr>
@@ -120,10 +120,10 @@
 	</td>
 </tr>
 <tr bgcolor="C0C0C0">
-	<td align="center" class="RegText#session.workstream_text_size#Bd">
+	<td align="center" class="RegTextBd">
 		Average Number of Days to Complete an Implementation, by Week
 	</td><!--- 
-	<td align="center" class="RegText#session.workstream_text_size#Bd">&nbsp;</td> --->
+	<td align="center" class="RegTextBd">&nbsp;</td> --->
 </tr>
 <tr>
 	<td align="center">

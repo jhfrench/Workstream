@@ -16,8 +16,8 @@
 </cfsilent>
 <cfoutput>
 <form name="ChangeMonth" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST">
-	<tr bgcolor="##772862" class="HeadText#session.workstream_text_size#White">
-		<td colspan="#variables.colspan#" align="left" valign="bottom" class="HeadText#session.workstream_text_size#White">
+	<tr bgcolor="##772862" class="HeadTextWhite">
+		<td colspan="#variables.colspan#" align="left" valign="bottom" class="HeadTextWhite">
 			&nbsp;#session.workstream_company_name# ForcePlanner for <select name="force_month" onchange="form.submit();" class="ToolTextSm">
 				<cfloop from="1" to="12" index="ii"><option value="#ii#"<cfif ii EQ attributes.force_month> selected</cfif>>#MonthAsString(ii)#</option>
 				</cfloop>

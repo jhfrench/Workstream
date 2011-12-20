@@ -14,23 +14,23 @@
  --->
 </cfsilent>
 <cfoutput>
-	<tr bgcolor="##E1E1E1" class="SubHeadText#session.workstream_text_size#">
-		<!--- <td bgcolor="##ffffff" colspan="3" valign="bottom" align="right" class="SubHeadText#session.workstream_text_size#"></td> --->
-		<td colspan="2" valign="bottom" align="right" class="SubHeadText#session.workstream_text_size#">
+	<tr bgcolor="##E1E1E1" class="SubHeadText">
+		<!--- <td bgcolor="##ffffff" colspan="3" valign="bottom" align="right" class="SubHeadText"></td> --->
+		<td colspan="2" valign="bottom" align="right" class="SubHeadText">
 			Assigned&nbsp;hours
 		</td>
 	<cfloop list="#emp_id_loop#" index="ii">
-		<td align="center" valign="bottom" class="RegText#session.workstream_text_size#">
+		<td align="center" valign="bottom" class="RegText">
 			#evaluate("attributes.sum_#ii#")#
 		</td>
 	</cfloop>
-		<td align="center" class="RegText#session.workstream_text_size#">
+		<td align="center" class="RegText">
 			#requested_sum#
 		</td>
-		<td align="center" class="RegText#session.workstream_text_size#">
+		<td align="center" class="RegText">
 			#attributes.sum_assigned#
 		</td>
-		<td align="center" class="RegText#session.workstream_text_size#<cfif attributes.sum_remaining LT 0>Red</cfif>">
+		<td align="center" class="RegText<cfif attributes.sum_remaining LT 0>Red</cfif>">
 			#attributes.sum_remaining#
 		</td>
 	</tr>

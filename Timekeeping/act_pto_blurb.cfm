@@ -84,7 +84,7 @@
 		<cfelse>
 			<cfset variables.pto_action="pto_input">
 		</cfif>
-			<cfset variables.pto_blurb='#variables.pto_blurb# <a href="index.cfm?fuseaction=Reports.#variables.pto_action#" class="RegText#session.workstream_text_size#">Click here to view your PTO details.</a>'>
+			<cfset variables.pto_blurb='#variables.pto_blurb# <a href="index.cfm?fuseaction=Reports.#variables.pto_action#" class="RegText">Click here to view your PTO details.</a>'>
 	
 	</cfif>
 </cfif>

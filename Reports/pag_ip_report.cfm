@@ -19,18 +19,18 @@
 <cfoutput>
 <form name="drill_down" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
 <table align="center" border="0" cellpadding="0" cellspacing="1">
-	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="008080" section_title="Implementation Analysis Report" title_class="HeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="008080" section_title="Implementation Analysis Report" title_class="HeadTextWhite">
 	<tr valign="top">
 		<td>
 			<table border="0" cellpadding="2" cellspacing="0">
-	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="5" gutter="0" section_color="5F5F5F" section_title="Implementations by Week" title_class="SubHeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="5" gutter="0" section_color="5F5F5F" section_title="Implementations by Week" title_class="SubHeadTextWhite">
 	<cfinclude template="dsp_ip_by_week_header.cfm">
 	<cfinclude template="dsp_ip_by_week.cfm">
 			</table>
 		</td>
 		<td>
 			<table border="0" cellpadding="2" cellspacing="0">
-				<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="5F5F5F" section_title="Implementation Charts" title_class="SubHeadText#session.workstream_text_size#White">
+				<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="5F5F5F" section_title="Implementation Charts" title_class="SubHeadTextWhite">
 	<cfinclude template="dsp_ip_by_week_graph.cfm"><!--- 
 				<cfinclude template="dsp_ip_by_project.cfm"> --->
 			</table>

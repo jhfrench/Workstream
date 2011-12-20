@@ -28,9 +28,9 @@ WHERE Task.task_id=Team.Task_ID
 	AND Task.creator=#session.user_account_id#
 </cfquery>
 <cfif get_created_task.recordcount>
-	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="This form has probably already been submitted (task #get_created_task.task_id#); please ensure that you are not entering the same task twice." align="center" section_color="ffffff" colspan="2" gutter="0" title_class="Note#session.workstream_text_size#">
+	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="This form has probably already been submitted (task #get_created_task.task_id#); please ensure that you are not entering the same task twice." align="center" section_color="ffffff" colspan="2" gutter="0" title_class="Note">
 <cfelseif NOT compare(attributes.last_loaded,session.workstream_last_loaded)>
-	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="The new task was not created (#attributes.last_loaded# = #session.workstream_last_loaded#)." align="center" section_color="ffffff" colspan="2" gutter="0" title_class="Note#session.workstream_text_size#">
+	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="The new task was not created (#attributes.last_loaded# = #session.workstream_last_loaded#)." align="center" section_color="ffffff" colspan="2" gutter="0" title_class="Note">
 </cfif>
 </cfif>
 </table><br>

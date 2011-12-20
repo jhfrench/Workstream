@@ -17,23 +17,23 @@
 <cfinclude template="../common_files/qry_get_user_fields.cfm">
 <cfoutput>
 <tr valign="top">
-	<td class="RegText#session.workstream_text_size#" width="50%">
+	<td class="RegText" width="50%">
 <cfloop query="get_user_fields">
-	<cfinput type="radio" name="user_field_id" required="yes" message="Please choose a custom field." id="use#user_field_id#" value="#user_field_id#" class="RegText#session.workstream_text_size#">
+	<cfinput type="radio" name="user_field_id" required="yes" message="Please choose a custom field." id="use#user_field_id#" value="#user_field_id#" class="RegText">
 	#field_title#: <cfif field_type_id EQ 1>
 		<cfinclude template="../common_files/qry_get_drop_down_options.cfm">
-		<select name="#field_title#" class="RegText#session.workstream_text_size#">
+		<select name="#field_title#" class="RegText">
 			<cfloop query="get_drop_down_options">
 			<option value="#get_drop_down_options.user_field_items_id#">#get_drop_down_options.selection_title#</option>
 			</cfloop>
 		</select>
 	<cfelseif field_type_id EQ 2>
-		<input type="text" name="display_#get_user_fields.currentrow#" size="8" value="" class="RegText#session.workstream_text_size#">
+		<input type="text" name="display_#get_user_fields.currentrow#" size="8" value="" class="RegText">
 	</cfif><br>
 </cfloop>
 	</td>
 	<td><cfset variables.start=incrementvalue(variables.start)>
-		<ol type="1" start="#variables.start#" class="Note#session.workstream_text_size#"><li>Choose the custom field used to organize tasks.</li></ol>
+		<ol type="1" start="#variables.start#" class="Note"><li>Choose the custom field used to organize tasks.</li></ol>
 	</td>
 </tr>
 <input type="hidden" name="project_id" value="#attributes.project_id#">

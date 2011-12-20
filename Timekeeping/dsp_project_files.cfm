@@ -19,12 +19,12 @@
 <tr>
 	<td>&nbsp;<!--- <cfoutput>#dir_to_go_to#</cfoutput> ---></td>
 </tr>
-	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;Associated files" section_color="78A0EB" colspan="5" gutter="0" title_class="HeadText#session.workstream_text_size#">
+	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;Associated files" section_color="78A0EB" colspan="5" gutter="0" title_class="HeadText">
 <cfoutput>
 <tr bgcolor="##c0c0c0">
 	<td>&nbsp;</td>
-	<td class="SubHeadText#session.workstream_text_size#">Name</td>
-	<td class="SubHeadText#session.workstream_text_size#">Last Modified</td>
+	<td class="SubHeadText">Name</td>
+	<td class="SubHeadText">Last Modified</td>
 	<td>&nbsp;</td>
 </tr>
 </cfoutput>
@@ -35,8 +35,8 @@
 </cfif>
 <tr>
 	<td>&nbsp;</td>
-	<td class="RegText#session.workstream_text_size#"><a href="../../project_planning/#attributes.project_planning_id#/#name#" target="_blank" class="RegText#session.workstream_text_size#"><img src="#request.dir_level##application.application_specific_settings.image_dir#icon_#variables.file_img#.gif" valign="bottom" width="16" height="16" border="0"> #name#</a></td>
-	<td class="RegText#session.workstream_text_size#">#datelastmodified#</td>
+	<td class="RegText"><a href="../../project_planning/#attributes.project_planning_id#/#name#" target="_blank" class="RegText"><img src="#request.dir_level##application.application_specific_settings.image_dir#icon_#variables.file_img#.gif" valign="bottom" width="16" height="16" border="0"> #name#</a></td>
+	<td class="RegText">#datelastmodified#</td>
 	<td>&nbsp;</td>
 </tr>
 </cfoutput>

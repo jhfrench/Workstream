@@ -17,7 +17,7 @@
 <cfif day NEQ date> 
 <tr>
 	<td colspan="4">
-		  <hr color="##000000" size="1" class="RegText#session.workstream_text_size#">
+		  <hr color="##000000" size="1" class="RegText">
 	</td>
 </tr>
 </cfif>
@@ -25,16 +25,16 @@
 <cfset total_hours=total_hours+hours>
 	<!-- see this all the time--->
 	<tr valign="top">
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#dateformat(date, "mm/dd/yy")#
 		</td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#project_display#
 		</td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#decimalformat(hours)#
 		</td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#notes#
 		</td>
 	</tr>
@@ -42,11 +42,11 @@
 <!-- only see this after the date changes
 <tr>
 	<td colspan="4">
-		  <hr color="##000000" class="RegText#session.workstream_text_size#">
+		  <hr color="##000000" class="RegText">
 	</td>
 </tr>--->
 <tr bgcolor="##c0c0c0">
-	<td colspan="4" class="HeadText#session.workstream_text_size#White">
+	<td colspan="4" class="HeadTextWhite">
 		Total hours between #from_date# and #through_date#: #decimalformat(total_hours)#
 	</td>
 </tr>

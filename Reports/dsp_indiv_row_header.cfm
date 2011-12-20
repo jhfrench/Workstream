@@ -15,24 +15,24 @@
 </cfsilent>
 <cfoutput>
 	<tr bgcolor="##5F5F5F">
-		<td colspan="2" class="SubHeadText#session.workstream_text_size#White">
+		<td colspan="2" class="SubHeadTextWhite">
 			Full Name: <cfif IsDefined ("name.lname")>#name.lname#, #name.name#<cfelse>#last_name#, #first_name#</cfif>
 		</td>
-		<td colspan="2" class="SubHeadText#session.workstream_text_size#White">
+		<td colspan="2" class="SubHeadTextWhite">
 			Company: <cfif IsDefined ("name.lname")>#name.company#<cfelse>#company_name#</cfif>
 		</td>
 	</tr>
 	<tr bgcolor="##c0c0c0">
-		<td class="RegText#session.workstream_text_size#Bd">
+		<td class="RegTextBd">
 			Work&nbsp;Day
 		</td>
-		<td class="RegText#session.workstream_text_size#Bd">
+		<td class="RegTextBd">
 			Code
 		</td>
-		<td class="RegText#session.workstream_text_size#Bd">
+		<td class="RegTextBd">
 			Hours
 		</td>
-		<td class="RegText#session.workstream_text_size#Bd">
+		<td class="RegTextBd">
 			Notes
 		</td>
 	</tr>

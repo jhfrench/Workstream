@@ -15,31 +15,31 @@
 </cfsilent>
 <cfoutput> 
 <tr bgcolor="##c0c0c0">
-	<td class="RegText#session.workstream_text_size#Bd">
+	<td class="RegTextBd">
 		Project
 	</td>
-	<td class="RegText#session.workstream_text_size#Bd">
+	<td class="RegTextBd">
 		ID
 	</td>
-	<td class="RegText#session.workstream_text_size#Bd">
+	<td class="RegTextBd">
 		Name
 	</td>
-	<td align="center" class="RegText#session.workstream_text_size#Bd">
+	<td align="center" class="RegTextBd">
 		Status
 	</td>
-	<td class="RegText#session.workstream_text_size#Bd">
+	<td class="RegTextBd">
 		Priority
 	</td>
-	<td class="RegText#session.workstream_text_size#Bd">
+	<td class="RegTextBd">
 		Assigned
 	</td>
-	<td class="RegText#session.workstream_text_size#Bd">
+	<td class="RegTextBd">
 		Due
 	</td>
-	<td class="RegText#session.workstream_text_size#Bd">
+	<td class="RegTextBd">
 		Completed
 	</td>
-	<td class="RegText#session.workstream_text_size#Bd">
+	<td class="RegTextBd">
 		Owner
 	</td>
 </tr>

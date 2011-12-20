@@ -17,17 +17,17 @@
 <cfoutput>
 	<tr>
 		<td align="center">
-			<input type="checkbox" name="date_entered_box" value="1" class="RegText#session.workstream_text_size#">
+			<input type="checkbox" name="date_entered_box" value="1" class="RegText">
 		</td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			Date entered
 		</td>
-		<td class="RegText#session.workstream_text_size#">
-			<select name="date_entered_operator" class="RegText#session.workstream_text_size#">
+		<td class="RegText">
+			<select name="date_entered_operator" class="RegText">
 				<option value="1">Less Than</option>
 				<option value="2">Between</option>
 				<option value="3">Greater Than</option>
-			</select>&nbsp;<input type="Text" name="date_entered" size="12"  onclick="gfPop.fPopCalendar(this.form.date_entered);checkbox_date_entered()" class="RegText#session.workstream_text_size#" maxlength="10">
+			</select>&nbsp;<input type="Text" name="date_entered" size="12"  onclick="gfPop.fPopCalendar(this.form.date_entered);checkbox_date_entered()" class="RegText" maxlength="10">
 		</td>
 	</tr>
 </cfoutput>

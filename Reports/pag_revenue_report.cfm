@@ -16,12 +16,12 @@
 <cfinclude template="qry_revenue_report.cfm">
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="98%">
 <cfoutput>
-	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="008080" section_title="Monthly Sales" title_class="HeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="008080" section_title="Monthly Sales" title_class="HeadTextWhite">
 	<tr>
 		<td valign="top">
 			<cfinclude template="dsp_revenue_report_chart.cfm">
 		</td>
-		<td align="center" valign="top" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" valign="top" class="SubHeadText">
 		<cfif revisedrecordcount>
 			<cfinclude template="dsp_revenue_report_graph.cfm">
 		</cfif>

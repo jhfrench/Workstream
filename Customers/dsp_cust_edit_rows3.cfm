@@ -15,8 +15,8 @@
 
 	<tr>
 		<cfoutput query="customer_change">
-			<td colspan="2"><input type="text" name="name" value="#name#" size="25" class="RegText#session.workstream_text_size#"></td>
-			<td colspan="2"><input type="text" name="lname" value="#lname#" size="25" class="RegText#session.workstream_text_size#"></td>
+			<td colspan="2"><input type="text" name="name" value="#name#" size="25" class="RegText"></td>
+			<td colspan="2"><input type="text" name="lname" value="#lname#" size="25" class="RegText"></td>
 			<input type="hidden" name="customer_id" value="#attributes.customer_id#">
 		</cfoutput>
 			<td>

@@ -20,7 +20,7 @@
 </cfsilent>
 <cfinclude template="qry_get_employee_list.cfm">
 <table align="center" cellpadding="0" cellspacing="0" border="0" width="98%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;Employee Directory" section_color="970000" colspan="#variables.title_column_span#" gutter=0 title_class="HeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;Employee Directory" section_color="970000" colspan="#variables.title_column_span#" gutter=0 title_class="HeadTextWhite">
 	<cfinclude template="dsp_employee_list_header.cfm">
 	<cfinclude template="dsp_employee_list_row.cfm">
 </table>

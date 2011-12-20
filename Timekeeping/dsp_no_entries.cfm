@@ -15,13 +15,13 @@
  --->
 </cfsilent>
 	<tr>
-		<td colspan="2" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<td colspan="2" class="RegText">
 			&nbsp;&nbsp;
 		</td>
 		<td class="Note<cfoutput>#session.workstream_text_size#</cfoutput>">
 			No time entered for this task yet.
 		</td>
-		<td colspan="2" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<td colspan="2" class="RegText">
 			&nbsp;&nbsp;
 		</td>
 	</tr>

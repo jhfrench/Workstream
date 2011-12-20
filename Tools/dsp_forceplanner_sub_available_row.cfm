@@ -14,23 +14,23 @@
  --->
 </cfsilent>
 <cfoutput>
-	<tr bgcolor="##ffffff" class="SubHeadText#session.workstream_text_size#">
-		<!--- <td bgcolor="##ffffff" colspan="3" valign="bottom" align="right" class="SubHeadText#session.workstream_text_size#"></td> --->
-		<td colspan="2" valign="bottom" align="right" class="SubHeadText#session.workstream_text_size#">
+	<tr bgcolor="##ffffff" class="SubHeadText">
+		<!--- <td bgcolor="##ffffff" colspan="3" valign="bottom" align="right" class="SubHeadText"></td> --->
+		<td colspan="2" valign="bottom" align="right" class="SubHeadText">
 			Available&nbsp;hours
 		</td>
 	<cfloop list="#emp_id_loop#" index="ii">
-		<td align="center" valign="bottom" class="RegText#session.workstream_text_size#">
+		<td align="center" valign="bottom" class="RegText">
 			#get_week_days.hours_in_month#
 		</td>
 	</cfloop>
-		<td align="center" valign="bottom" class="RegText#session.workstream_text_size#">
+		<td align="center" valign="bottom" class="RegText">
 			#variables.total_requested#
 		</td>
-		<td align="center" valign="bottom" class="RegText#session.workstream_text_size#">
+		<td align="center" valign="bottom" class="RegText">
 			#variables.total_requested#
 		</td>
-		<td align="center" valign="bottom" class="RegText#session.workstream_text_size#">
+		<td align="center" valign="bottom" class="RegText">
 			#variables.total_requested#
 		</td>
 	</tr>

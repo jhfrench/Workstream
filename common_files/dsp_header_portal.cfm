@@ -52,7 +52,8 @@ else
 		<meta name="dc.publisher" content="Applied Internet Technologies: #application.application_specific_settings.nasa_official#" />
 		<!--Meta Data ends-->
 		<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
-		<link href="common_files/ngauge.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />
+		<cfset variables.cache_escape=gettickcount()>
+		<link href="common_files/ngauge_#session.workstream_text_size#.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />
 		<link href="common_files/application.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />
 		<link href="common_files/common.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />
 		<link href="common_files/print.css?cache_escape=#variables.cache_escape#" rel="stylesheet" type="text/css" media="print" />

@@ -15,11 +15,11 @@
  --->
 </cfsilent>
 <tr>
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>" valign="top">
+	<td class="SubHeadText" valign="top">
 		Customer &amp; Project
 		<cfoutput><img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="#alt#" border="0"  onclick="OpenProjectWindow('project_id');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#incrementvalue(tabindex)#"></cfoutput><br>
 		<cfset tabindex=incrementvalue(tabindex)>
-		<cfselect name="project_id" size="5" tabindex="#tabindex#" required="yes" message="#msg#" class="RegText#session.workstream_text_size#">
+		<cfselect name="project_id" size="5" tabindex="#tabindex#" required="yes" message="#msg#" class="RegText">
 			<cfoutput query="get_valid_projects">
 				<option value="#project_id#"<cfif isdefined("attributes.project_id") AND NOT comparenocase(attributes.project_id, get_valid_projects.project_id)> selected</cfif>>#display#</option>
 			</cfoutput>

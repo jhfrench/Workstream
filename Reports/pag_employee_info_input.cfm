@@ -13,6 +13,6 @@
 	END FUSEDOC --->
 </cfsilent>
 <table align="center" border="0" cellpadding="4" cellspacing="0">
-	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="#request.pagetitle#" section_color="008080" align="left" colspan="4" gutter="0" title_class="HeadText#session.workstream_text_size#White"> 
+	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="#request.pagetitle#" section_color="008080" align="left" colspan="4" gutter="0" title_class="HeadTextWhite"> 
 	<cfinclude template="dsp_employee_info_report_input.cfm">
 </table>

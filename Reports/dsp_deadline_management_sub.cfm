@@ -20,40 +20,40 @@
 <table align="left" border="0" cellpadding="1" cellspacing="0" width="40%">
 <cfoutput>
 	<tr bgcolor="##5F5F5F">
-		<td colspan="2" class="SubHeadText#session.workstream_text_size#White">
+		<td colspan="2" class="SubHeadTextWhite">
 			Deadline Management for 
-			<select name="admin_month" onchange="javascript:document.admin_planning.submit();" class="RegText#session.workstream_text_size#">
+			<select name="admin_month" onchange="javascript:document.admin_planning.submit();" class="RegText">
 				<cfloop from="1" to="12" index="ii">
 				<option value="#ii#"<cfif attributes.admin_month EQ ii> selected</cfif>>#monthAsString(ii)#</option></cfloop>
 			</select>
-			<select name="admin_year" onchange="javascript:document.admin_planning.submit();" class="RegText#session.workstream_text_size#">
+			<select name="admin_year" onchange="javascript:document.admin_planning.submit();" class="RegText">
 				<cfloop from="#lowest_year#" to="#year(now())#" index="ii">
 				<option value="#ii#"<cfif attributes.admin_year EQ ii> selected</cfif>>#ii#</option></cfloop>
 			</select>
 		</td>
 	</tr>
 	<tr bgcolor="##c0c0c0">
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Team member
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Percent
 		</td>
 	</tr>
 </cfoutput>
 <cfoutput query="deadline_management_sub">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td class="RegText#session.workstream_text_size#">
-			<a href="javascript:list_to_employee('#emp_id#')" onmouseover="MM_displayStatusMsg('View details for #Replace(name,"'","")# #Replace(lname,"'","")#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#lname#, #name#</a>
+		<td class="RegText">
+			<a href="javascript:list_to_employee('#emp_id#')" onmouseover="MM_displayStatusMsg('View details for #Replace(name,"'","")# #Replace(lname,"'","")#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">#lname#, #name#</a>
 		</td>
-		<td align="right" class="RegText#session.workstream_text_size#">
+		<td align="right" class="RegText">
 			#decimalformat(on_time)#
 		</td>
 	</tr>
 </cfoutput>
 <cfoutput>
 	<tr>
-		<td colspan="2" class="Note#session.workstream_text_size#">
+		<td colspan="2" class="Note">
 			Employees who have no tasks due in #MonthAsString(attributes.admin_month)# of #attributes.admin_year# will not appear in this table.
 		</td>
 	</tr>

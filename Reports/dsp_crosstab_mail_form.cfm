@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-	<tr align="left" class="RegText#session.workstream_text_size#"> 
+	<tr align="left" class="RegText"> 
 		<td>
 <form action="index.cfm?fuseaction=Reports.manager_cross_tab_mail" method="post">
 	<input type="hidden" name="from_date" value="#attributes.from_date#">

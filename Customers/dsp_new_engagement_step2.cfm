@@ -17,20 +17,20 @@
 <cfoutput>
 <input type="hidden" name="step" value="3">
 	<tr bgcolor="##c0c0c0">
-		<td align="center" colspan="1" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" colspan="1" class="SubHeadText">
 			Project Details
 		</td>
-		<td align="center" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" class="SubHeadText">
 			Instructions
 		</td>
 	</tr>
 	<tr valign="top">
-		<td class="RegText#session.workstream_text_size#">
-			<span class="RegText#session.workstream_text_size#Bd">Billing Details</span><br>
-			Budget: $<cfinput type="text" name="budget" required="yes" validate="float" message="Please specify a budget (as a number)." size="10" class="RegText#session.workstream_text_size#"><br>
+		<td class="RegText">
+			<span class="RegTextBd">Billing Details</span><br>
+			Budget: $<cfinput type="text" name="budget" required="yes" validate="float" message="Please specify a budget (as a number)." size="10" class="RegText"><br>
 		</td>
-		<td width="55%" class="Note#session.workstream_text_size#">
-			<ol type="1" class="Note#session.workstream_text_size#">
+		<td width="55%" class="Note">
+			<ol type="1" class="Note">
 				<li>Specify the total budget, in dollars, for this task.</li><cfset variables.start=incrementvalue(variables.start)>
 			</ol>
 		</td>
@@ -38,11 +38,11 @@
 <cfswitch expression="#attributes.billable_type_id#">
 <cfcase value="3">
 	<tr valign="top">
-		<td class="RegText#session.workstream_text_size#">
-			Start: <cfinput type="text" name="start_date" required="yes" validate="date" message="Please enter a proper date for which billing is to begin on this engagement." size="8" class="RegText#session.workstream_text_size#"> End: <cfinput type="text" name="end_date" required="no" validate="date" message="Please enter a proper date for which billing is to end on this engagement." size="8" class="RegText#session.workstream_text_size#"> Months: <cfinput type="text" name="months" required="yes" validate="integer" message="Please enter the number of months over which this engagement will be billed to the customer." size="2" class="RegText#session.workstream_text_size#"><br>
+		<td class="RegText">
+			Start: <cfinput type="text" name="start_date" required="yes" validate="date" message="Please enter a proper date for which billing is to begin on this engagement." size="8" class="RegText"> End: <cfinput type="text" name="end_date" required="no" validate="date" message="Please enter a proper date for which billing is to end on this engagement." size="8" class="RegText"> Months: <cfinput type="text" name="months" required="yes" validate="integer" message="Please enter the number of months over which this engagement will be billed to the customer." size="2" class="RegText"><br>
 		</td>
-		<td width="55%" class="Note#session.workstream_text_size#">
-			<ol type="1" start="#variables.start#" class="Note#session.workstream_text_size#">
+		<td width="55%" class="Note">
+			<ol type="1" start="#variables.start#" class="Note">
 				<li>Provide the dates, and the number of months, for which this engagement will be billed to the customer. Please note that the customer will be billed in equal increments.</li><cfset variables.start=incrementvalue(variables.start)>
 			</ol>
 		</td>
@@ -50,11 +50,11 @@
 </cfcase>
 <cfcase value="4">
 	<tr valign="top">
-		<td class="RegText#session.workstream_text_size#">
-			Incident Charge: $ <cfinput type="text" name="charge" required="yes" validate="integer" message="Please enter, per incident, the charge to the customer." size="4" class="RegText#session.workstream_text_size#"><br>
+		<td class="RegText">
+			Incident Charge: $ <cfinput type="text" name="charge" required="yes" validate="integer" message="Please enter, per incident, the charge to the customer." size="4" class="RegText"><br>
 		</td>
-		<td width="55%" class="Note#session.workstream_text_size#">
-			<ol type="1" start="#variables.start#" class="Note#session.workstream_text_size#">
+		<td width="55%" class="Note">
+			<ol type="1" start="#variables.start#" class="Note">
 				<li>Specify the per-incident charge that the customer will incur each time a new task is created under this engagement.</li><cfset variables.start=incrementvalue(variables.start)>
 			</ol>
 		</td>
@@ -62,12 +62,12 @@
 </cfcase>
 </cfswitch>
 	<tr valign="top">
-		<td class="RegText#session.workstream_text_size#">
-			<span class="RegText#session.workstream_text_size#Bd">Work Dates</span><br>
-			Start: <cfinput type="text" name="project_start" required="yes" validate="date" message="Please enter a proper date for which work is to begin on this engagement." size="8" class="RegText#session.workstream_text_size#"> End: <cfinput type="text" name="project_end" required="yes" validate="date" message="Please enter a proper date for which work is to end on this engagement." size="8" class="RegText#session.workstream_text_size#"> <br>
+		<td class="RegText">
+			<span class="RegTextBd">Work Dates</span><br>
+			Start: <cfinput type="text" name="project_start" required="yes" validate="date" message="Please enter a proper date for which work is to begin on this engagement." size="8" class="RegText"> End: <cfinput type="text" name="project_end" required="yes" validate="date" message="Please enter a proper date for which work is to end on this engagement." size="8" class="RegText"> <br>
 		</td>
-		<td width="55%" class="Note#session.workstream_text_size#">
-			<ol type="1" start="#variables.start#" class="Note#session.workstream_text_size#">
+		<td width="55%" class="Note">
+			<ol type="1" start="#variables.start#" class="Note">
 				<li>Provide the date work is to begin on the project, and the anticipated date that work will stop.</li><cfset variables.start=incrementvalue(variables.start)>
 			</ol>
 		</td>
@@ -76,11 +76,11 @@
 	<cfinclude template="dsp_user_field_input.cfm">
 </cfif>
 	<tr valign="top">
-		<td align="center" class="RegText#session.workstream_text_size#Bd">
-			<input type="submit" value="Proceed" class="RegText#session.workstream_text_size#">
+		<td align="center" class="RegTextBd">
+			<input type="submit" value="Proceed" class="RegText">
 		</td>
-		<td width="55%" class="Note#session.workstream_text_size#">
-			<ol type="1" start="#variables.start#" class="Note#session.workstream_text_size#">
+		<td width="55%" class="Note">
+			<ol type="1" start="#variables.start#" class="Note">
 				<li>Click this button when you are ready to proceed to the next step. The information for this new engagement will not be stored until the wizard is finished.</li><cfset variables.start=incrementvalue(variables.start)>
 			</ol>
 		</td>

@@ -15,9 +15,9 @@
 </cfsilent>
 <cfoutput>
 <tr bgcolor="##5F5F5F">
-	<td colspan="2" class="SubHeadText#session.workstream_text_size#White">
+	<td colspan="2" class="SubHeadTextWhite">
 		<label for="hide_supervisor">
-			<input type="Checkbox"<cfif isdefined("attributes.hide_supervisor")> checked</cfif> name="hide_supervisor" value="1" onclick="javascript:document.drill_down.submit();" id="hide_supervisor" class="SubHeadText#session.workstream_text_size#White"> Remove your data
+			<input type="Checkbox"<cfif isdefined("attributes.hide_supervisor")> checked</cfif> name="hide_supervisor" value="1" onclick="javascript:document.drill_down.submit();" id="hide_supervisor" class="SubHeadTextWhite"> Remove your data
 		</label>
 	</td>
 </tr>

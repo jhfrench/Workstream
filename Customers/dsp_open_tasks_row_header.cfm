@@ -14,26 +14,26 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-	<tr bgcolor="##c0c0c0" class="SubHeadText#session.workstream_text_size#">
-		<td class="SubHeadText#session.workstream_text_size#">
+	<tr bgcolor="##c0c0c0" class="SubHeadText">
+		<td class="SubHeadText">
 			Due
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			ID
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Time
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Owner
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Name
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Project
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Status
 		</td>
 	</tr>

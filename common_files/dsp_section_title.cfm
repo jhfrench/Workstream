@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 <cfparam name="attributes.colspan" default=4>
 <cfparam name="attributes.section_title" default="">
-<cfparam name="attributes.title_class" default="HeadText#session.workstream_text_size#White">
+<cfparam name="attributes.title_class" default="HeadTextWhite">
 <cfparam name="attributes.section_color" default="ffffff">
 <cfparam name="attributes.gutter" default=1>
 <cfparam name="attributes.align" default="left">

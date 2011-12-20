@@ -29,7 +29,7 @@
 	<cfset attributes.section_title="#attributes.section_title#; #get_emp_details.credentials#">
 </cfif>
 <table align="center" cellpadding="0" cellspacing="0" border="0" width="98%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="#attributes.section_title#" section_color="970000" colspan="8" gutter=0 title_class="HeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="#attributes.section_title#" section_color="970000" colspan="8" gutter=0 title_class="HeadTextWhite">
 	<cfinclude template="dsp_emp_details.cfm">
 </table>
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_employee" field_name="emp_id" fuseaction="Directory.employee_details">

@@ -18,9 +18,9 @@
 
 	<tr valign="top">
 		<td align="center">
-			<input type="checkbox" name="customer_id_box" value="1" <cfif isdefined("attributes.project_id_box") AND len(attributes.project_id)>checked="checked"</cfif> class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+			<input type="checkbox" name="customer_id_box" value="1" <cfif isdefined("attributes.project_id_box") AND len(attributes.project_id)>checked="checked"</cfif> class="RegText">
 		</td>
-		<td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">Customer</td>
+		<td class="RegText">Customer</td>
 		<td>
 		<cfif not len(attributes.project_id)>
 			<cfmodule template="../common_files/edit_two_related_selects.cfm"
@@ -47,9 +47,9 @@
 			</tr>
 			<tr valign='top'>
 				<td align='center'>
-					<input type='checkbox' name='project_id_box' value='1' class='RegText#session.workstream_text_size#'>
+					<input type='checkbox' name='project_id_box' value='1' class='RegText'>
 				</td>
-				<td class='RegText#session.workstream_text_size#'>Project<br>(may take a<br>moment to display)</td>
+				<td class='RegText'>Project<br>(may take a<br>moment to display)</td>
 				<td>">
 				<cfelse>
 					
@@ -77,13 +77,13 @@
 			</tr>
 			<tr valign='top'>
 				<td align='center'>
-					<input type='checkbox' checked ='checked' name='project_id_box' value='1' class='RegText#session.workstream_text_size#'>
+					<input type='checkbox' checked ='checked' name='project_id_box' value='1' class='RegText'>
 				</td>
-				<td class='RegText#session.workstream_text_size#'>Project<br>(may take a<br>moment to display)</td>
+				<td class='RegText'>Project<br>(may take a<br>moment to display)</td>
 				<td>">
 				</cfif>
 				
-<!--- 			<select name="project_id2" multiple size="6" onclick="checkbox_project_id()" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+<!--- 			<select name="project_id2" multiple size="6" onclick="checkbox_project_id()" class="RegText">
 			<cfoutput query="project">
 				<option value="#project_id#">#display#</option>
 			</cfoutput>

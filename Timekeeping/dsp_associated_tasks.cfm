@@ -23,22 +23,22 @@
 		<table border="0" cellpadding="1" cellspacing="1">
 			<cfoutput>
 			<tr>
-				<td class="RegText#session.workstream_text_size#Bd">Due date</td>
-				<td class="RegText#session.workstream_text_size#Bd"></td>
-				<td class="RegText#session.workstream_text_size#Bd">Task name</td>
-				<td class="RegText#session.workstream_text_size#Bd">Status</td>
+				<td class="RegTextBd">Due date</td>
+				<td class="RegTextBd"></td>
+				<td class="RegTextBd">Task name</td>
+				<td class="RegTextBd">Status</td>
 			</tr>
 			</cfoutput>
 			<cfoutput query="get_associated_tasks">
 			<tr>
-				<td class="RegText#session.workstream_text_size#">#dateformat(due_date,"mm/dd/yy")#</td>
-				<td class="RegText#session.workstream_text_size#">
+				<td class="RegText">#dateformat(due_date,"mm/dd/yy")#</td>
+				<td class="RegText">
 					<img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="<cfif description EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>" height="10" width="9" border="0">
 				</td>
-				<td class="RegText#session.workstream_text_size#">
-					<a href="javascript:list_to_task('#task_id#');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" class="RegText#session.workstream_text_size#">#name#</a>
+				<td class="RegText">
+					<a href="javascript:list_to_task('#task_id#');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" class="RegText">#name#</a>
 				</td>
-				<td class="RegText#session.workstream_text_size#">#status#</td>
+				<td class="RegText">#status#</td>
 			</tr>
 			</cfoutput>
 		</table>

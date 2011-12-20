@@ -18,9 +18,9 @@
 
 	<tr valign="top">
 		<td align="center">
-			<input type="checkbox" name="customer_id_box" value="1" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+			<input type="checkbox" name="customer_id_box" value="1" class="RegText">
 		</td>
-		<td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">Customer</td>
+		<td class="RegText">Customer</td>
 		<td>
 			<cfmodule template="../common_files/two_related_selects.cfm" query="get_search_projects" name1="customer_id"
 				name2="project_id" display1="customer" display2="display"
@@ -32,12 +32,12 @@
 			</tr>
 			<tr valign='top'>
 				<td align='center'>
-					<input type='checkbox' name='project_id_box' value='1' class='RegText#session.workstream_text_size#'>
+					<input type='checkbox' name='project_id_box' value='1' class='RegText'>
 				</td>
-				<td class='RegText#session.workstream_text_size#'>Project<br>(may take a<br>moment to display)</td>
+				<td class='RegText'>Project<br>(may take a<br>moment to display)</td>
 				<td>">
 
-<!--- 			<select name="project_id2" multiple size="6" onclick="checkbox_project_id()" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+<!--- 			<select name="project_id2" multiple size="6" onclick="checkbox_project_id()" class="RegText">
 			<cfoutput query="project">
 				<option value="#project_id#">#display#</option>
 			</cfoutput>

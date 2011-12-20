@@ -14,24 +14,24 @@
 <cfinclude template="qry_get_position_number_history.cfm">
 </cfsilent>
 <cfoutput>
-	<span class="SubHeadText#session.workstream_text_size#">Position Numbers <a href="javascript:position_number_change(#attributes.emp_id#);">ADD</a></span><br></span>
+	<span class="SubHeadText">Position Numbers <a href="javascript:position_number_change(#attributes.emp_id#);">ADD</a></span><br></span>
 
 <table>
 	<tr>
-		<td class="RegText#session.workstream_text_size#" width="25%">Position Number</td>
-		<td class="RegText#session.workstream_text_size#" width="25%">Date Started</td>
-		<td class="RegText#session.workstream_text_size#" width="25%">Date Ended</td>
+		<td class="RegText" width="25%">Position Number</td>
+		<td class="RegText" width="25%">Date Started</td>
+		<td class="RegText" width="25%">Date Ended</td>
 	</tr>
 </cfoutput>
 <cfoutput>
 	<tr>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#get_emp_position_number_history.position_id#<br>
 		</td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#dateformat(get_emp_position_number_history.effective_start_date,'mm/dd/yyyy')#
 		</td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#dateformat(get_emp_position_number_history.effective_end_date,'mm/dd/yyyy')#
 		</td>
 </cfoutput>

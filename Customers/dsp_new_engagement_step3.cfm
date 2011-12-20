@@ -18,20 +18,20 @@
 <cfoutput>
 <input type="hidden" name="step" value="4">
 	<tr bgcolor="##c0c0c0">
-		<td align="center" colspan="1" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" colspan="1" class="SubHeadText">
 			Project Details
 		</td>
-		<td align="center" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" class="SubHeadText">
 			Instructions
 		</td>
 	</tr>
 <cfinclude template="dsp_user_field_labels.cfm">
 	<tr valign="top">
-		<td align="center" class="RegText#session.workstream_text_size#Bd">
-			<input type="submit" value="Proceed" class="RegText#session.workstream_text_size#">
+		<td align="center" class="RegTextBd">
+			<input type="submit" value="Proceed" class="RegText">
 		</td>
-		<td width="55%" class="Note#session.workstream_text_size#">
-			<ol type="1" start="#variables.start#" class="Note#session.workstream_text_size#">
+		<td width="55%" class="Note">
+			<ol type="1" start="#variables.start#" class="Note">
 				<li>Click this button when you are ready to proceed to the next step. The information for this new engagement will not be stored until the wizard is finished.</li><cfset variables.start=incrementvalue(variables.start)>
 			</ol>
 		</td>

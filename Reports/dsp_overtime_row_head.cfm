@@ -20,25 +20,25 @@
 <cfset variables.compare_emp_id=emp_id>
 <cfif currentrow NEQ 1>
 	<tr>
-		<td<cfif (variables.overtime_ind AND variables.total_hours GT 40) OR (NOT variables.overtime_ind AND variables.total_hours LT 40)> bgcolor="##FF0000"</cfif> class="RegText#session.workstream_text_size#It">Total Hours:</td>
-		<td align="right"<cfif (variables.overtime_ind AND variables.total_hours GT 40) OR (NOT variables.overtime_ind AND variables.total_hours LT 40)> bgcolor="##FF0000"</cfif> class="RegText#session.workstream_text_size#It">#decimalformat(variables.total_hours)#</td>
+		<td<cfif (variables.overtime_ind AND variables.total_hours GT 40) OR (NOT variables.overtime_ind AND variables.total_hours LT 40)> bgcolor="##FF0000"</cfif> class="RegTextIt">Total Hours:</td>
+		<td align="right"<cfif (variables.overtime_ind AND variables.total_hours GT 40) OR (NOT variables.overtime_ind AND variables.total_hours LT 40)> bgcolor="##FF0000"</cfif> class="RegTextIt">#decimalformat(variables.total_hours)#</td>
 	</tr>
 </cfif>
 <cfset variables.total_hours=0>
 	<tr>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			#lname#, #name#
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			#employee_classification#
 		</td>
 	</tr>
 </cfif>
 	<tr<cfif variables.compare_row MOD 2> bgcolor="##e1e1e1"</cfif>>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#description#
 		</td>
-		<td align="right" class="RegText#session.workstream_text_size#">
+		<td align="right" class="RegText">
 			#decimalformat(hours)#<cfset variables.total_hours=variables.total_hours+hours>
 		</td>
 	</tr>
@@ -46,8 +46,8 @@
 </cfoutput>
 <cfoutput>
 	<tr>
-		<td<cfif (variables.overtime_ind AND variables.total_hours GT 40) OR (NOT variables.overtime_ind AND variables.total_hours LT 40)> bgcolor="##FF0000"</cfif> class="RegText#session.workstream_text_size#It">Total Hours:</td>
-		<td align="right"<cfif (variables.overtime_ind AND variables.total_hours GT 40) OR (NOT variables.overtime_ind AND variables.total_hours LT 40)> bgcolor="##FF0000"</cfif> class="RegText#session.workstream_text_size#It">#decimalformat(variables.total_hours)#</td>
+		<td<cfif (variables.overtime_ind AND variables.total_hours GT 40) OR (NOT variables.overtime_ind AND variables.total_hours LT 40)> bgcolor="##FF0000"</cfif> class="RegTextIt">Total Hours:</td>
+		<td align="right"<cfif (variables.overtime_ind AND variables.total_hours GT 40) OR (NOT variables.overtime_ind AND variables.total_hours LT 40)> bgcolor="##FF0000"</cfif> class="RegTextIt">#decimalformat(variables.total_hours)#</td>
 	</tr>
 </cfoutput>
 <cfelse>

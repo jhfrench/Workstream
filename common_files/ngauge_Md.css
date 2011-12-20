@@ -1,0 +1,191 @@
+
+/* trying to get rid of #session.workstream_text_size#*/
+
+/*<!--- Ngauge Styles --->*/
+
+/*<!---SIZES--> */
+	/*<!---15px--> */
+	.HeadText,
+	.HeadTextWhite
+	{
+		font-size: 15px;
+	}
+	
+	/*<!---13px--> */
+	.Note,
+	.SubHeadText,
+	.SubHeadTextWhite
+	{
+		font-size: 13px;
+	}
+	
+	/*<!---11px--> */
+	.RegText,
+	.RegTextBd,
+	.RegTextWhite,
+	.SelectText,
+	.ToolTextMd,
+	.RegTextIt,
+	.RegTextRed
+	{
+		font-size: 11px;
+	}
+	
+	/*<!---10px--> */
+	.ModuleBullet
+	{
+		font-size: 10px;
+	}
+	
+/*<!---COLOR--> */
+	/*<!---Black/Regular--> */
+	.HeadText,
+	.SubHeadText,
+	.RegTextBd,
+	.RegText,
+	.RegTextBd,
+	.RegTextIt
+	{
+		color: #000000;
+	}
+	
+	/*<!---Blue--> */
+	A.RegText
+	{
+		color: #483d8b;
+	}
+	
+	/*<!---Grey--> */
+	.ModuleBullet
+	{
+		color: #e5e5e5;
+	}
+	
+	/*<!---White--> */
+	.HeadTextWhite,
+	.SubHeadTextWhite,
+	.RegTextWhite,
+	A.RegTextWhite,
+	.SelectText,
+	.ToolTextMd
+	{
+		color: #ffffff;
+	}
+	
+	/*<!---Red--> */
+	.BoldNoteRed,
+	.RegTextRed
+	{
+		color: #ff0000;
+	}
+	
+	/*<!---Orange--> */
+	.Note
+	{
+		color: #FF8000;
+	}
+
+/*<!---FONT-WEIGHT--> */
+	/*<!---Normal--> */
+	.Note,
+	.RegText,
+	.RegTextWhite,
+	.RegTextIt,
+	.RegTextRed,
+	.SelectText,
+	.ToolTextMd
+	{
+		font-weight: normal;
+	}
+	
+	/*<!---Bold--> */
+	.HeadText,
+	.HeadTextWhite,
+	.ModuleBullet,
+	.SubHeadText,
+	.SubHeadTextWhite,
+	.RegTextBd
+	{
+		font-weight: bold;
+	}
+	
+	
+/*<!---MISCELLANEOUS--> */
+	/*<!---Font--> */
+	.Note
+	{
+		font-family: geneva, verdana, Tahoma, sans-serif, Arial;
+	}
+	
+	.HeadText,
+	.HeadTextWhite,
+	.SubHeadText,
+	.SubHeadTextWhite,
+	.RegText,
+	.RegTextBd,
+	.RegTextWhite,
+	.RegTextIt,
+	.RegTextRed,
+	.SelectText,
+	.ToolTextMd
+	{
+		font-family: Trebuchet MS, Tahoma, sans-serif, Arial;
+	}
+	
+	.ModuleBullet
+	{
+		font-family: Verdana;
+	}
+
+	/*<!---Style/Variant/Decoration--> */
+	.HeadText,
+	.HeadTextWhite,
+	.ModuleBullet,
+	.SubHeadText,
+	.SubHeadTextWhite,
+	.RegText,
+	.RegTextBd,
+	.RegTextWhite,
+	.RegTextRed,
+	.Note,
+	.NoteBdRed
+	{
+		font-style: normal;
+		font-variant: normal;
+		text-decoration: none;
+	}
+
+	.RegTextIt
+	{
+		font-style: italic;
+	}
+	
+/*<!---BACKGROUND--> */
+	/*<!---Light Blue--> */
+	.SelectText
+	{
+		background: #78A0EB;
+	}
+	
+	/*<!---Purple--> */
+	.ToolTextMd
+	{
+		background: #772862;
+	}
+	
+	.ModuleBullet
+	{
+		text-shadow: 5pt 5pt grey;
+	}
+
+/*<!---HOVER--> */
+	A.RegText:hover,
+	A.RegTextWhite:hover
+	{
+		color: #970000;
+	}
+	
+	A.ModuleBullet:hover
+	{
+		color: #ffffff;
+	}

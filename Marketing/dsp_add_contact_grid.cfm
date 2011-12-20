@@ -60,7 +60,7 @@ display="no" headerbold="No" headeritalic="No">
 </tr>
 <tr>
 	<td align="center"><input type="hidden" name="project_id" value="<cfoutput>#attributes.cfgridkey#</cfoutput>">
-<input type="submit" value="Submit"  class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>"></td>
+<input type="submit" value="Submit"  class="RegText"></td>
 </tr>
 
 </cfform>

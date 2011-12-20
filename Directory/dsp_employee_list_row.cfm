@@ -28,21 +28,21 @@
 <cfset phone=ReplaceList(phone_number,list1,list2)>
 
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<cfif listlen(session.workstream_selected_company_id) GT 1><td class="RegText#session.workstream_text_size#">#company#</td></cfif>
-		<td class="RegText#session.workstream_text_size#"><a href="javascript:list_to_employee('#emp_id#');" onmouseover="MM_displayStatusMsg('View details for #Replace(name,"'","")#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">#name#</a></td>
-		<td class="RegText#session.workstream_text_size#">#extension#</td>
-		<td class="RegText#session.workstream_text_size#"><cfif len(phone) EQ 10>
+		<cfif listlen(session.workstream_selected_company_id) GT 1><td class="RegText">#company#</td></cfif>
+		<td class="RegText"><a href="javascript:list_to_employee('#emp_id#');" onmouseover="MM_displayStatusMsg('View details for #Replace(name,"'","")#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">#name#</a></td>
+		<td class="RegText">#extension#</td>
+		<td class="RegText"><cfif len(phone) EQ 10>
 (#left(phone,3)#) #mid(phone,4,3)#-#right(phone,4)#
 <cfelseif len(phone) EQ 7>
 #left(phone,3)#-#right(phone,4)#
 <cfelse>
 #phone#
 </cfif></td>
-		<td class="RegText#session.workstream_text_size#">#emp_id#</td>
-		<td class="RegText#session.workstream_text_size#">#position_ID#</td>
+		<td class="RegText">#emp_id#</td>
+		<td class="RegText">#position_ID#</td>
 
 
-		<td class="RegText#session.workstream_text_size#"><a href="mailto:#email#" class="RegText#session.workstream_text_size#">#email#</a></td>
+		<td class="RegText"><a href="mailto:#email#" class="RegText">#email#</a></td>
 	</tr>
 </cfoutput>
 <cfelse>

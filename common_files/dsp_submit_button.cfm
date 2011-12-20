@@ -15,8 +15,8 @@
 </cfsilent>
 <cfoutput>
 	<tr>
-		<td align="center" colspan="3" class="RegText#session.workstream_text_size#">
-			<br><input type="submit" value="Search" class="RegText#session.workstream_text_size#">
+		<td align="center" colspan="3" class="RegText">
+			<br><input type="submit" value="Search" class="RegText">
 		</td>
 	</tr>
 </cfoutput>

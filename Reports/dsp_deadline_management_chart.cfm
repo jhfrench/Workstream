@@ -21,20 +21,20 @@
 <table border="0" cellpadding="1" cellspacing="0">
 <cfoutput>
 	<tr bgcolor="##c0c0c0">
-		<td colspan="3" align="center" colspan="2" class="SubHeadText#session.workstream_text_size#">Tasks completed on time</td>
+		<td colspan="3" align="center" colspan="2" class="SubHeadText">Tasks completed on time</td>
 	</tr>
 	<tr bgcolor="##c0c0c0">
-		<td class="SubHeadText#session.workstream_text_size#">Year</td>
-		<td class="SubHeadText#session.workstream_text_size#">Month</td>
-		<td align="center" class="SubHeadText#session.workstream_text_size#">%</td>
+		<td class="SubHeadText">Year</td>
+		<td class="SubHeadText">Month</td>
+		<td align="center" class="SubHeadText">%</td>
 	</tr>
 </cfoutput>
 <cfoutput query="deadline_management_main">
 <cfif due_year LT lowest_year><cfset lowest_year=due_year></cfif>
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td align="center" class="RegText#session.workstream_text_size#"><cfif due_year NEQ temp_year>#due_year#<cfset temp_year=due_year><cfelse>&nbsp;</cfif></td>
-		<td align="left" class="RegText#session.workstream_text_size#"><a href="javascript:change_month('#due_month#','#due_year#');" class="RegText#session.workstream_text_size#">#MonthAsString(due_month)#</a></td>
-		<td align="right" class="RegText#session.workstream_text_size#">#decimalformat(on_time_percent)#</td>
+		<td align="center" class="RegText"><cfif due_year NEQ temp_year>#due_year#<cfset temp_year=due_year><cfelse>&nbsp;</cfif></td>
+		<td align="left" class="RegText"><a href="javascript:change_month('#due_month#','#due_year#');" class="RegText">#MonthAsString(due_month)#</a></td>
+		<td align="right" class="RegText">#decimalformat(on_time_percent)#</td>
 	</tr>
 </cfoutput>
 </table>

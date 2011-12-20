@@ -14,7 +14,7 @@
 </cfsilent>
 <cfinclude template="qry_account_status_report.cfm">
 <table align="center" cellpadding="2" cellspacing="0">
-	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="10" gutter="0" section_color="008080" section_title="Account Task Matrix" title_class="HeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="10" gutter="0" section_color="008080" section_title="Account Task Matrix" title_class="HeadTextWhite">
 	<cfinclude template="dsp_account_status_row_header.cfm">
 	<cfinclude template="dsp_account_status_rows.cfm">
 </table>

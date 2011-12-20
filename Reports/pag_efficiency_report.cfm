@@ -20,7 +20,7 @@
 <cfoutput>
 <form name="drill_down" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
 <table align="center" border="0" cellpadding="2" cellspacing="0" width="98%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="008080" section_title="Percent of #variables.project_name# Time" title_class="HeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="008080" section_title="Percent of #variables.project_name# Time" title_class="HeadTextWhite">
 	<cfinclude template="dsp_efficiciency_header.cfm">
 <cfif get_hier_2_id.hier_2_id NEQ 0 AND get_hier_2_id.hier_2_id LT 4>
 	<cfinclude template="dsp_efficiency_report.cfm">
@@ -28,7 +28,7 @@
 	<cfif get_subordinates.recordcount>
 		<cfinclude template="dsp_efficiency_report.cfm">
 	<cfelse>
-		<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="ffffff" section_title="Your search returned no records." title_class="Note#session.workstream_text_size#">
+		<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="ffffff" section_title="Your search returned no records." title_class="Note">
 	</cfif>
 </cfif>
 </cfoutput>

@@ -14,6 +14,6 @@
 </cfsilent>
 <cfinclude template="qry_get_marketing_data.cfm">
 <table align="center">
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#" section_color="ffffff" section_title="Grid" colspan="1" gutter="false" align="center">
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText" section_color="ffffff" section_title="Grid" colspan="1" gutter="false" align="center">
 	<cfinclude template="dsp_marketing_form.cfm">
 </table>

@@ -19,12 +19,12 @@
 <cfinclude template="act_set_custom_responses.cfm">
 <cfoutput>
 	<tr valign="top">
-		<td valign="top" class="RegText#session.workstream_text_size#">
-			<span class="SubHeadText#session.workstream_text_size#">Custom Fields</span><br>
+		<td valign="top" class="RegText">
+			<span class="SubHeadText">Custom Fields</span><br>
 <cfloop query="get_user_fields">
 	<cfinclude template="../common_files/qry_get_drop_down_options.cfm">
 			#field_title#: <cfif field_type_id EQ 1>
-				<select name="custom_drops#user_field_id#" size="1" class="RegText#session.workstream_text_size#">
+				<select name="custom_drops#user_field_id#" size="1" class="RegText">
 					<cfloop query="get_drop_down_options">
 					<option value="#get_drop_down_options.user_field_items_id#"<cfif listfind(variables.custom_answers,user_field_items_id)> selected</cfif>>#get_drop_down_options.selection_title#</option>
 					</cfloop>
@@ -37,7 +37,7 @@
 						<cfset variables.text_answer=listgetat(variables.custom_answers_text,listfind(variables.custom_answers,user_field_items_id),"|")>
 					</cfif>
 					</cfloop>
-				<input type="text" name="custom_text#user_field_id#" size="12" value="#variables.text_answer#" maxlength="50" class="RegText#session.workstream_text_size#"><br>
+				<input type="text" name="custom_text#user_field_id#" size="12" value="#variables.text_answer#" maxlength="50" class="RegText"><br>
 				<cfset variables.custom_text=listappend(variables.custom_text,user_field_id)>
 			</cfif>
 </cfloop>

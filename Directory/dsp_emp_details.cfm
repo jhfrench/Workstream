@@ -15,11 +15,11 @@
 </cfsilent>
 <cfoutput>
 	<tr valign="top">
-		<td align="left" width="148" class="RegText#session.workstream_text_size#">
+		<td align="left" width="148" class="RegText">
 			<img src="#request.dir_level##application.application_specific_settings.image_dir#photos/#get_emp_details.photo#" width="144" height="144" alt="" border="0"><br>
-			<span class="SubHeadText#session.workstream_text_size#">Birthdate:</span> #dateformat(get_emp_details.dob,"mm/dd")#<br>
-			<span class="SubHeadText#session.workstream_text_size#">Hire Date:</span> #dateformat(get_emp_details.hire_date,"mm/dd/yy")#<br>
-			<cfif compare(get_emp_details.end_date,"")><span class="SubHeadText#session.workstream_text_size#">End Date:</span> #dateformat(get_emp_details.end_date,"mm/dd/yy")#<br></cfif>
+			<span class="SubHeadText">Birthdate:</span> #dateformat(get_emp_details.dob,"mm/dd")#<br>
+			<span class="SubHeadText">Hire Date:</span> #dateformat(get_emp_details.hire_date,"mm/dd/yy")#<br>
+			<cfif compare(get_emp_details.end_date,"")><span class="SubHeadText">End Date:</span> #dateformat(get_emp_details.end_date,"mm/dd/yy")#<br></cfif>
 			
 </cfoutput>
 <cfif get_emp_phone.recordcount>
@@ -30,8 +30,8 @@
 </cfif>
 		</td>
 <cfoutput>
-		<td class="RegText#session.workstream_text_size#">
-			<cfif compare(get_emp_details.biography,"")><span class="SubHeadText#session.workstream_text_size#">Biography</span><br>#get_emp_details.biography#<br></cfif>
+		<td class="RegText">
+			<cfif compare(get_emp_details.biography,"")><span class="SubHeadText">Biography</span><br>#get_emp_details.biography#<br></cfif>
 </cfoutput>
 <cfif get_emp_location.recordcount>
 	<cfinclude template="dsp_emp_location.cfm">
@@ -67,17 +67,17 @@
 	</cfif>
 </cfif>
 <cfif get_subordinates.recordcount>
-			<span class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">Direct Reports</span><br>
-			<cfoutput query="get_subordinates"><a href="javascript:list_to_employee('#emp_id#');" onmouseover="MM_displayStatusMsg('View details for #Replace(lname,"'","")# #Replace(fname,"'","")#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#"><cfif currentrow NEQ 1>; </cfif>#lname#, #fname#</a></cfoutput>
+			<span class="SubHeadText">Direct Reports</span><br>
+			<cfoutput query="get_subordinates"><a href="javascript:list_to_employee('#emp_id#');" onmouseover="MM_displayStatusMsg('View details for #Replace(lname,"'","")# #Replace(fname,"'","")#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText"><cfif currentrow NEQ 1>; </cfif>#lname#, #fname#</a></cfoutput>
 </cfif>
 		</td>
 		<td width="20%"></td>
 	</tr>
 <cfif session.user_account_id EQ 1>
 	<tr>
-		<td align="left" width="148" class="RegText#session.workstream_text_size#">
+		<td align="left" width="148" class="RegText">
 		<cfoutput>
-		<a href="javascript:edit_employee('#emp_id#');" onmouseover="MM_displayStatusMsg('#JSStringFormat('Edit #get_emp_details.lname# #get_emp_details.fname#.')#');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#">Edit Employee Information</a>
+		<a href="javascript:edit_employee('#emp_id#');" onmouseover="MM_displayStatusMsg('#JSStringFormat('Edit #get_emp_details.lname# #get_emp_details.fname#.')#');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">Edit Employee Information</a>
 		</cfoutput>
 		</td>
 		<td colspan="2">&nbsp;</td>

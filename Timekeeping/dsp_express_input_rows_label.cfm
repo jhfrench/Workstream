@@ -14,26 +14,26 @@
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 </cfsilent>
-	<tr bgcolor="#0000FF" class="HeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">
+	<tr bgcolor="#0000FF" class="HeadTextWhite">
 		<td align="center" colspan="4">
 			<em>-Express=</em> Time Entry
 		</td>
 	</tr>
-	<cfoutput><tr align="center" bgcolor="##C0C0C0" class="SubHeadText#session.workstream_text_size#">
-		<td align="center" class="SubHeadText#session.workstream_text_size#">
+	<cfoutput><tr align="center" bgcolor="##C0C0C0" class="SubHeadText">
+		<td align="center" class="SubHeadText">
 			Date
 		</td>
-		<td align="center" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" class="SubHeadText">
 			Hours
 		</td>
-		<td align="center" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" class="SubHeadText">
 			<cfif compare(fuseaction, "time_entry")>	
 				Task
 			<cfelse>
 				Code
 			</cfif>
 		</td>
-		<td align="center" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" class="SubHeadText">
 			Notes
 		</td>
 	</tr></cfoutput>

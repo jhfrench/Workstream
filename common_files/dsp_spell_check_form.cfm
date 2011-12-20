@@ -34,12 +34,12 @@
 	<input type="hidden" name="ignore" value="#ignore#">
 	<input type="hidden" name="formname" value="#formname#">
 	<input type="hidden" name="notes" value="#replacenocase(paragraphformat(Insert("--> ", Insert(" <--", message, next_position+Len(next_error)-1), next_position-1)), "<P>", "&nbsp;", "All")#">
-	<tr bordercolor="##78A0EB" class="SelectText#session.workstream_text_size#">
-		<td width="10%" class="SelectText#session.workstream_text_size#">&nbsp;</td>
-		<td bordercolor="##000000" bgcolor="##ffffff" align="left" colspan="2" width="80%" class="RegText#session.workstream_text_size#">
+	<tr bordercolor="##78A0EB" class="SelectText">
+		<td width="10%" class="SelectText">&nbsp;</td>
+		<td bordercolor="##000000" bgcolor="##ffffff" align="left" colspan="2" width="80%" class="RegText">
 		<table border="0" cellpadding="0" cellspacing="3">
 		<tr>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			<!--- Display text with error in red --->
 			<cfset word_to_correct=mid(message,next_position,next_length)>
 			<cfif len(message) LT variables.too_big><cfset display_text=replacenocase(paragraphformat(Insert("#open_font#--> ", Insert(" <--#close_font#", message, next_position+Len(next_error)-1), next_position-1)), "<P>", "&nbsp;", "All")>
@@ -54,47 +54,47 @@
 		</tr>
 		</table>
 		</td>
-		<td width="10%" class="SelectText#session.workstream_text_size#">&nbsp;</td>
+		<td width="10%" class="SelectText">&nbsp;</td>
 	</tr>
-	<tr bordercolor="##78A0EB" class="SelectText#session.workstream_text_size#">
-		<td align="center" colspan="4" class="SelectText#session.workstream_text_size#">
-			<hr class="RegText#session.workstream_text_size#">&nbsp;Checked #numberformat(percent_checked)#%&nbsp;<hr class="RegText#session.workstream_text_size#">
+	<tr bordercolor="##78A0EB" class="SelectText">
+		<td align="center" colspan="4" class="SelectText">
+			<hr class="RegText">&nbsp;Checked #numberformat(percent_checked)#%&nbsp;<hr class="RegText">
 		</td>
 	</tr>
-	<tr bordercolor="##78A0EB" class="SelectText#session.workstream_text_size#">
-		<td width="10%" class="SelectText#session.workstream_text_size#">&nbsp;</td>
-		<td class="SelectText#session.workstream_text_size#">
+	<tr bordercolor="##78A0EB" class="SelectText">
+		<td width="10%" class="SelectText">&nbsp;</td>
+		<td class="SelectText">
 			Change to
 		</td>
-		<td class="SelectText#session.workstream_text_size#">
+		<td class="SelectText">
 			Suggestions
 		</td>
-		<td width="10%" class="SelectText#session.workstream_text_size#">&nbsp;</td>
+		<td width="10%" class="SelectText">&nbsp;</td>
 	</tr>
-	<tr bordercolor="##78A0EB" class="SelectText#session.workstream_text_size#">
-		<td width="10%" class="SelectText#session.workstream_text_size#">&nbsp;</td>
-		<td class="SelectText#session.workstream_text_size#">
-			<input type="text"  name="correctionm" size="10" class="RegText#session.workstream_text_size#">
+	<tr bordercolor="##78A0EB" class="SelectText">
+		<td width="10%" class="SelectText">&nbsp;</td>
+		<td class="SelectText">
+			<input type="text"  name="correctionm" size="10" class="RegText">
 		</td>
-		<td class="SelectText#session.workstream_text_size#">
-			<select name="correction" class="RegText#session.workstream_text_size#">
+		<td class="SelectText">
+			<select name="correction" class="RegText">
 			<cfloop index="suggest" list="#next_suggest#">
 				<option value="#suggest#">#suggest#</option>
 			</cfloop>
 			<option value="">&nbsp;-------DELETE-------&nbsp;</option>
 			</select>
 		</td>
-		<td width="10%" class="SelectText#session.workstream_text_size#">&nbsp;</td>
+		<td width="10%" class="SelectText">&nbsp;</td>
 	</tr>
-	<tr bordercolor="##78A0EB" class="SelectText#session.workstream_text_size#">
-		<td align="center" colspan="4" class="SelectText#session.workstream_text_size#">
+	<tr bordercolor="##78A0EB" class="SelectText">
+		<td align="center" colspan="4" class="SelectText">
 			&nbsp;
 		</td>
 	</tr>
-	<tr bordercolor="##78A0EB" class="SelectText#session.workstream_text_size#">
-		<td align="center" width="50%" colspan="4" class="SelectText#session.workstream_text_size#">
-			<input type="submit" name="option" value="Correct" class="RegText#session.workstream_text_size#">
-			<input type="submit" name="option" value="Ignore" class="RegText#session.workstream_text_size#">
+	<tr bordercolor="##78A0EB" class="SelectText">
+		<td align="center" width="50%" colspan="4" class="SelectText">
+			<input type="submit" name="option" value="Correct" class="RegText">
+			<input type="submit" name="option" value="Ignore" class="RegText">
 		</td>
 	</tr>
 </cfif>

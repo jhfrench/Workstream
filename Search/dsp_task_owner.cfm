@@ -16,11 +16,11 @@
 </cfsilent>
 	<tr valign="top">
 		<td align="center">
-			<input type="checkbox" name="task_owner_box" value="1" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+			<input type="checkbox" name="task_owner_box" value="1" class="RegText">
 		</td>
-		<td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">Task Owner</td>
+		<td class="RegText">Task Owner</td>
 		<td>
-			<cfmodule template="../common_files/dsp_team_select.cfm" select_name="Task_Owner" multi="1" emp_id=0 onChange="checkbox_task_owner()" class="RegText#session.workstream_text_size#">
+			<cfmodule template="../common_files/dsp_team_select.cfm" select_name="Task_Owner" multi="1" emp_id=0 onChange="checkbox_task_owner()" class="RegText">
 		</td>
 	</tr>
 <cfmodule template="../common_files/act_autocheck_checkbox_js.cfm" checkbox_name="task_owner">

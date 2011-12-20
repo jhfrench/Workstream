@@ -15,7 +15,7 @@
  --->
 <cfoutput>
 	<tr valign="top">
-		<td align="center" colspan="2" valign="top" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" colspan="2" valign="top" class="SubHeadText">
 			<br>&nbsp;
 			<br>&nbsp;
 			Your profile has been <cfif comparenocase(listlast(attributes.fuseaction, '.'),"load_profile")>sav<cfelse>load</cfif>ed.

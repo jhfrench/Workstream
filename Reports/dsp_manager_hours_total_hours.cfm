@@ -16,14 +16,14 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-	<tr class="RegText#session.workstream_text_size#">
+	<tr class="RegText">
 	   <td align="right" colspan="4">#dateformat(variables.compare_date, "mm/dd/yy")# Hours:</td>
 	   <td>#decimalformat(variables.daily_total_hours)#</td>
 	</tr>
 	<cfset variables.compare_date=manager_hours_report_output.date>
 	<cfset variables.daily_total_hours=0>
 	<cfset variables.total_hours=variables.total_hours+1><!--- to account for the negative 1 --->
-	<tr class="SubHeadText#session.workstream_text_size#">
+	<tr class="SubHeadText">
 	    <td align="right" colspan="4">Total Hours: </td>
 	  	<td>#variables.total_hours#</td>
   	</tr> 

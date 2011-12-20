@@ -25,19 +25,19 @@
 </cfsilent>
 <cfform action="index.cfm?fuseaction=Tools.invoice_list" name="invoice_list" method="POST">
 <cfoutput>
-<tr align="center" bgcolor="##772862" class="SubHeadText#session.workstream_text_size#">
-	<td colspan="5" class="SubHeadText#session.workstream_text_size#White">
-		Month: <select name="month" class="RegText#session.workstream_text_size#">
+<tr align="center" bgcolor="##772862" class="SubHeadText">
+	<td colspan="5" class="SubHeadTextWhite">
+		Month: <select name="month" class="RegText">
 		<cfloop from="#first_month#" to="#last_month#" index="ii">
 			<option value="#ii#"<cfif attributes.month EQ ii> selected</cfif>>#ii#</option>
 		</cfloop>
 		</select>
-		Year: <select name="year" class="RegText#session.workstream_text_size#">
+		Year: <select name="year" class="RegText">
 		<cfloop from="#first_year#" to="#last_year#" index="ii">
 			<option value="#ii#"<cfif attributes.year EQ ii> selected</cfif>>#ii#</option>
 		</cfloop>
 		</select><br>
-		<input type="submit" value="Get Invoice List" class="RegText#session.workstream_text_size#">
+		<input type="submit" value="Get Invoice List" class="RegText">
 <cfif session.user_account_id EQ 1>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<font color=White>Post Invoices</font><input type="checkbox" value="1" name="run_post">
 </cfif>

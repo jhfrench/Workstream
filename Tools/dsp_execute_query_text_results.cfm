@@ -15,7 +15,7 @@
 <cfoutput>
 	<tr>
 	<cfloop list="#execute_query_text.columnlist#" index="ii">
-		<td align="center" class="RegText#session.workstream_text_size#Bd">
+		<td align="center" class="RegTextBd">
 			#ii#
 		</td>
 	</cfloop>
@@ -24,7 +24,7 @@
 <cfoutput query="execute_query_text">
 	<tr>
 	<cfloop list="#execute_query_text.columnlist#" index="ii">
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#evaluate(ii)#
 		</td>
 	</cfloop>
@@ -33,7 +33,7 @@
 <cfelse>
 <cfoutput>
 	<tr>
-		<td align="center" colspan="#listlen(execute_query_text.columnlist)#" class="RegText#session.workstream_text_size#Bd">
+		<td align="center" colspan="#listlen(execute_query_text.columnlist)#" class="RegTextBd">
 			No results returned.
 		</td>
 	</tr>

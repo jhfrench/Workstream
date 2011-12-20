@@ -15,15 +15,15 @@
  --->
 <cfoutput>
 	<tr align="center">
-		<td class="SelectText#session.workstream_text_size#">
+		<td class="SelectText">
 			<input type="hidden" name="language" value="AM">
 			<input type="hidden" name="formname" value="#formname#">
-			<textarea name="message" cols="90" rows="13" class="RegText#session.workstream_text_size#"></textarea>
+			<textarea name="message" cols="90" rows="13" class="RegText"></textarea>
 		</td>
 	</tr>
 	<tr align="center">
-		<td class="SelectText#session.workstream_text_size#">
-			<input type="submit" value="Check Spelling" class="RegText#session.workstream_text_size#"><input type="submit" onclick="javascript:window.close();" value="Cancel" class="RegText#session.workstream_text_size#">
+		<td class="SelectText">
+			<input type="submit" value="Check Spelling" class="RegText"><input type="submit" onclick="javascript:window.close();" value="Cancel" class="RegText">
 		</td>
 	</tr>
 </cfoutput>

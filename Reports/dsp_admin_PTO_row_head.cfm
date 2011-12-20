@@ -14,11 +14,11 @@
 	END FUSEDOC --->
 <cfoutput>
 	<tr bgcolor="##c0c0c0">
-		<td align=center class="SubHeadText#session.workstream_text_size#">Employee ID</td>
-		<td align=center class="SubHeadText#session.workstream_text_size#">Name</td>
-		<td align=center class="SubHeadText#session.workstream_text_size#">Hours Taken</td>
-		<td align=center class="SubHeadText#session.workstream_text_size#">Hours Earned</td>
-		<td align=center class="SubHeadText#session.workstream_text_size#">Hours Remaining</td>
+		<td align=center class="SubHeadText">Employee ID</td>
+		<td align=center class="SubHeadText">Name</td>
+		<td align=center class="SubHeadText">Hours Taken</td>
+		<td align=center class="SubHeadText">Hours Earned</td>
+		<td align=center class="SubHeadText">Hours Remaining</td>
 	</tr>
 </cfoutput>
 

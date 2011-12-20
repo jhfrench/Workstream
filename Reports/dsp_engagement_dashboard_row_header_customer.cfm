@@ -20,10 +20,10 @@
 		<td colspan="8">
 			<table cellpadding="0" cellspacing="0" width="100%">
 				<tr bgcolor="##008080">
-					<td class="HeadText#session.workstream_text_size#White">
+					<td class="HeadTextWhite">
 						Project Dashboard - #dateformat(today,'mm/dd/yy')#
 					</td>
-					<td align="right" class="HeadText#session.workstream_text_size#White" colspan="2">
+					<td align="right" class="HeadTextWhite" colspan="2">
 						Project view: <select name="inactive" onchange="javascript:document.forms.inactive.submit();">
 							<option value="1,2"<cfif NOT comparenocase(attributes.inactive,"1,2")> SELECTED</cfif>>All</option>
 							<option value="2"<cfif attributes.inactive EQ 2> SELECTED</cfif>>Active only</option>
@@ -36,28 +36,28 @@
 	</tr>
 </form>
 	<tr bgcolor="##c0c0c0" valign="bottom">
-		<td colspan="2" class="SubHeadText#session.workstream_text_size#">
+		<td colspan="2" class="SubHeadText">
 			Customer &amp;<br>Project Name
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			IE
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Due Date
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Progress
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Status
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Project Update
 		</td>	
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Next Step(s)
 		</td>			
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Date Last<br>Updated
 		</td>
 	</tr>

@@ -22,14 +22,14 @@
  --->
 </cfsilent>
 <cfoutput>
-	<tr class="SubHeadText#session.workstream_text_size#">
-		<cfif listlen(session.workstream_selected_company_id) GT 1><td class="SubHeadText#session.workstream_text_size#">Company</td></cfif>
-		<td class="SubHeadText#session.workstream_text_size#">Name</td>
-		<td class="SubHeadText#session.workstream_text_size#">Extension</td>
-		<td class="SubHeadText#session.workstream_text_size#">Work Phone</td>
-		<td class="SubHeadText#session.workstream_text_size#">HRID</td>	
-		<td class="SubHeadText#session.workstream_text_size#">Pos Num</td>	
-		<td class="SubHeadText#session.workstream_text_size#">Email</td>
+	<tr class="SubHeadText">
+		<cfif listlen(session.workstream_selected_company_id) GT 1><td class="SubHeadText">Company</td></cfif>
+		<td class="SubHeadText">Name</td>
+		<td class="SubHeadText">Extension</td>
+		<td class="SubHeadText">Work Phone</td>
+		<td class="SubHeadText">HRID</td>	
+		<td class="SubHeadText">Pos Num</td>	
+		<td class="SubHeadText">Email</td>
 	</tr>
 </cfoutput>
 

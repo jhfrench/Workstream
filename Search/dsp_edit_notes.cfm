@@ -17,13 +17,13 @@
 <cfoutput>
 	<tr>
 		<td align="center">
-			<input type="checkbox" name="notes_box" value="1" <cfif len(attributes.notes)>checked="checked"</cfif> class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+			<input type="checkbox" name="notes_box" value="1" <cfif len(attributes.notes)>checked="checked"</cfif> class="RegText">
 		</td>
-		<td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<td class="RegText">
 			Notes
 		</td>
-		<td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
-			<input type="Text" name="notes" size="30" onclick="checkbox_notes()" value="#attributes.notes#"  class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>"> Separate multiple phrases with commas.
+		<td class="RegText">
+			<input type="Text" name="notes" size="30" onclick="checkbox_notes()" value="#attributes.notes#"  class="RegText"> Separate multiple phrases with commas.
 		</td>
 	</tr>
 <cfmodule template="../common_files/act_autocheck_checkbox_js.cfm" checkbox_name="notes">

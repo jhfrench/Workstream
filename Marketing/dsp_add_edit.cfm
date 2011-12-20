@@ -15,15 +15,15 @@
 <form name="edit" action="index.cfm?fuseaction=Marketing.add_edit&cfgridkey=<cfoutput>#attributes.cfgridkey#</cfoutput>" method="post">
 
 	<tr>
-		<td  colspan="2"class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">Would you like to Edit or Delete this contact. <cfoutput query="get_contact"><span class="RegText#session.workstream_text_size#It">#name# #lname#</span></cfoutput></td>
+		<td  colspan="2"class="SubHeadText">Would you like to Edit or Delete this contact. <cfoutput query="get_contact"><span class="RegTextIt">#name# #lname#</span></cfoutput></td>
 	</tr>
 	<tr>
-		<td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>" align = "right">Edit</td>
+		<td class="RegText" align = "right">Edit</td>
 		
 		<td><input  type="Radio" name="select" value="e"> </td>
 	</tr>
 	<tr>	
-		<td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>" align = "right">Delete</td>
+		<td class="RegText" align = "right">Delete</td>
 		<td><input type="radio" name="select" value="d"> 
 		<input type="hidden" name="emp_id" value="<cfoutput>#attributes.cfgridkey#</cfoutput>">
 		<input type="hidden" name="flag" value="1">
@@ -31,7 +31,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="submit" value="Submit" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>"></td>
+		<td colspan="2" align="center"><input type="submit" value="Submit" class="RegText"></td>
 	</tr>
 
 </form>

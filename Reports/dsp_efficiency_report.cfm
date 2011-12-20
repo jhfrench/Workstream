@@ -18,7 +18,7 @@
 		<td valign="top">
 			<cfinclude template="dsp_efficiency_report_chart.cfm">
 		</td>
-		<td align="center" valign="top" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" valign="top" class="SubHeadText">
 			<br>
 			<cfinclude template="dsp_efficiency_report_graph.cfm">
 		</td>

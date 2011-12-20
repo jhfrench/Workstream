@@ -18,18 +18,18 @@ $Log:
 </cfsilent>
 <cfoutput>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td class="SelectText#session.workstream_text_size#">
+		<td class="SelectText">
 			Date Reviewed:			
 		</td>
-		<td class="SelectText#session.workstream_text_size#">
-			<cfinput type="text" name="date_reviewed" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this employee was reviewed.  (mm/dd/yy)" class="RegText#session.workstream_text_size#">
+		<td class="SelectText">
+			<cfinput type="text" name="date_reviewed" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this employee was reviewed.  (mm/dd/yy)" class="RegText">
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td class="SelectText#session.workstream_text_size#">
+		<td class="SelectText">
 			Review Type:			
 		</td>
-		<td class="SelectText#session.workstream_text_size#">
+		<td class="SelectText">
 </cfoutput>
 			<cfselect name="review_type"
           		size="1"
@@ -38,24 +38,24 @@ $Log:
           		value="review_type_id"
           		display="description"
           		required="Yes"
-				class="RegText#session.workstream_text_size#">
+				class="RegText">
 			</cfselect>
 <cfoutput>
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td class="SelectText#session.workstream_text_size#">
+		<td class="SelectText">
 			Rating:			
 		</td>
-		<td class="SelectText#session.workstream_text_size#">
-			<cfinput type="text" name="rating" validate="float" size="10" maxlength="10" required="Yes" message="Please enter the rating on this review." class="RegText#session.workstream_text_size#">
+		<td class="SelectText">
+			<cfinput type="text" name="rating" validate="float" size="10" maxlength="10" required="Yes" message="Please enter the rating on this review." class="RegText">
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td class="SelectText#session.workstream_text_size#">
+		<td class="SelectText">
 			Reviewer:			
 		</td>
-		<td class="SelectText#session.workstream_text_size#">
+		<td class="SelectText">
 			<!--- <cfset attributes.size = 2> --->
 			<cfset attributes.selected_flag = 0>
 			<cfset attributes.element_name = "reviewer_id">
@@ -67,9 +67,9 @@ $Log:
 	</tr>
 
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td class="SelectText#session.workstream_text_size#" colspan="2">
+		<td class="SelectText" colspan="2">
 			<input type="hidden" name="emp_id" value="#emp_id#">
-			<input type="submit" value="Submit Review" class="RegText#session.workstream_text_size#"><input type="button" onclick="javascript:window.close();" value="Cancel" class="RegText#session.workstream_text_size#">
+			<input type="submit" value="Submit Review" class="RegText"><input type="button" onclick="javascript:window.close();" value="Cancel" class="RegText">
 		</td>
 	</tr>
 </cfoutput>

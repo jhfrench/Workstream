@@ -16,7 +16,7 @@
 </cfsilent>
 <cfoutput>
 	<tr>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Choose A Customer and Project:
 		</td>
 	</tr>

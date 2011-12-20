@@ -15,7 +15,7 @@
  --->
 <cfoutput>
 	<tr>
-		<td colspan="4" align="center" class="SubHeadText#session.workstream_text_size#">
+		<td colspan="4" align="center" class="SubHeadText">
 			The word '#attributes.suggested_word#' has been recommended for inclusion in the workstream dictionary
 		</td>
 	</tr>

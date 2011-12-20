@@ -14,9 +14,9 @@
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
  --->
 <cfoutput>
-	<tr bordercolor="##78A0EB" class="SelectText#session.workstream_text_size#">
-		<td align="center" width="50%" colspan="4" class="SelectText#session.workstream_text_size#">
-			<a href="javascript:document.forms[1].submit();" class="SelectText#session.workstream_text_size#">ADD WORD TO DICTIONARY</a>
+	<tr bordercolor="##78A0EB" class="SelectText">
+		<td align="center" width="50%" colspan="4" class="SelectText">
+			<a href="javascript:document.forms[1].submit();" class="SelectText">ADD WORD TO DICTIONARY</a>
 		</td>
 	</tr>
 	

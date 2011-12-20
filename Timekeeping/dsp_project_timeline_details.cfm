@@ -25,27 +25,27 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td colspan="6" class="SubHeadText#session.workstream_text_size#">#selection_title#</td>
+		<td colspan="6" class="SubHeadText">#selection_title#</td>
 	</tr>
 	<tr>
-		<td class="RegText#session.workstream_text_size#Bd"></td>
-		<td class="RegText#session.workstream_text_size#Bd"></td>
-		<td class="RegText#session.workstream_text_size#Bd"><u>Task</u></td>
-		<td class="RegText#session.workstream_text_size#Bd"><u>Resources</u></td>
-		<td class="RegText#session.workstream_text_size#Bd"><u>Start Date</u></td>
-		<td class="RegText#session.workstream_text_size#Bd"><u>End Date</u></td>
-		<td class="RegText#session.workstream_text_size#Bd"><u>Status</u></td>
+		<td class="RegTextBd"></td>
+		<td class="RegTextBd"></td>
+		<td class="RegTextBd"><u>Task</u></td>
+		<td class="RegTextBd"><u>Resources</u></td>
+		<td class="RegTextBd"><u>Start Date</u></td>
+		<td class="RegTextBd"><u>End Date</u></td>
+		<td class="RegTextBd"><u>Status</u></td>
 	</tr>
 </cfif>
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td class="RegText#session.workstream_text_size#" bgcolor="##ffffff">&nbsp;</td>
-		<td class="RegText#session.workstream_text_size#" bgcolor="##ffffff">&nbsp;</td>
-		<td class="RegText#session.workstream_text_size#"><a href="javascript:list_to_details('#task_id#');" class="RegText#session.workstream_text_size#"><img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="#ReplaceList(task_description, variables.quote, variables.StatusMsg_replace_with)#" height="16" width="16" border="0">&nbsp;#task_name#</a></td>
+		<td class="RegText" bgcolor="##ffffff">&nbsp;</td>
+		<td class="RegText" bgcolor="##ffffff">&nbsp;</td>
+		<td class="RegText"><a href="javascript:list_to_details('#task_id#');" class="RegText"><img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="#ReplaceList(task_description, variables.quote, variables.StatusMsg_replace_with)#" height="16" width="16" border="0">&nbsp;#task_name#</a></td>
 	<cfinclude template="qry_get_team_members.cfm">
-		<td class="RegText#session.workstream_text_size#">#listchangedelims(valuelist(get_team_members.name),", ")#</td>
-		<td class="RegText#session.workstream_text_size#">#dateformat(assigned_date,"mm/dd/yy")#</td>
-		<td class="RegText#session.workstream_text_size#">#dateformat(due_date,"mm/dd/yy")#</td>
-		<td class="RegText#session.workstream_text_size#">#status#</td>
+		<td class="RegText">#listchangedelims(valuelist(get_team_members.name),", ")#</td>
+		<td class="RegText">#dateformat(assigned_date,"mm/dd/yy")#</td>
+		<td class="RegText">#dateformat(due_date,"mm/dd/yy")#</td>
+		<td class="RegText">#status#</td>
 	</tr>
 </cfoutput>
 

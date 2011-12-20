@@ -19,7 +19,7 @@
 <cfinclude template="qry_get_extreme_dates.cfm">
 <cfinclude template="qry_get_customer_invoice_list.cfm">
 <table align="center" cellpadding="1" cellspacing="0" border="1" bordercolor="#772862" width="70%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#White" section_color="772862" section_title="&nbsp;Invoice List for Work Completed in #MonthAsString(attributes.month)#, #attributes.year#" colspan="5" gutter=0>
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadTextWhite" section_color="772862" section_title="&nbsp;Invoice List for Work Completed in #MonthAsString(attributes.month)#, #attributes.year#" colspan="5" gutter=0>
 	<cfinclude template="dsp_customer_invoice_list.cfm">
 	<cfinclude template="dsp_invoice_list_form.cfm">
 </table>

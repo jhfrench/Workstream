@@ -16,9 +16,9 @@
 </cfsilent>
 <cfoutput>
 <tr>
-		<td align="center"><input type="checkbox" name="task_id_box" value="1" <cfif len(attributes.task_id)>checked="checked"</cfif> class="RegText#session.workstream_text_size#"></td>
-		<td class="RegText#session.workstream_text_size#">Task ID</td>
-		<td class="RegText#session.workstream_text_size#"><cfinput type="Text" name="task_id" size="50" value="#attributes.task_id#" onclick="checkbox_task_id()" class="RegText#session.workstream_text_size#"></td>
+		<td align="center"><input type="checkbox" name="task_id_box" value="1" <cfif len(attributes.task_id)>checked="checked"</cfif> class="RegText"></td>
+		<td class="RegText">Task ID</td>
+		<td class="RegText"><cfinput type="Text" name="task_id" size="50" value="#attributes.task_id#" onclick="checkbox_task_id()" class="RegText"></td>
 </tr>
 </cfoutput>
 <cfmodule template="../common_files/act_autocheck_checkbox_js.cfm" checkbox_name="task_id">

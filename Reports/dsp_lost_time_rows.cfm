@@ -29,7 +29,7 @@
 <cfset gross_grand_tot = 0>
 </cfsilent>
 <cfloop query="lost_time">	
-	<tr class="RegText#session.workstream_text_size#" <cfif (currentrow MOD 2)> bgcolor="#E1E1E1"</cfif>>
+	<tr class="RegText" <cfif (currentrow MOD 2)> bgcolor="#E1E1E1"</cfif>>
 		<cfoutput>
 			<!--- Calculate totals --->
 			<cfset gross_grand_tot = gross_grand_tot + total>
@@ -42,37 +42,37 @@
 			<cfset Unpaid_tot = Unpaid_tot + Unpaid>
 			<!--- <cfset Vacation_tot = Vacation_tot + Vacation> --->
 			<cfset  pto_tot =  pto_tot +  pto>
-		<td class="RegText#session.workstream_text_size#">	
+		<td class="RegText">	
 			#full_name# 
 		</td>
-		<!--- <td class="RegText#session.workstream_text_size#">
+		<!--- <td class="RegText">
 			#Authorized_Leave#
 		</td> --->
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#Bereavement# 
 		</td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#Holiday#
 		</td>	
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#Jury_Duty#
 		</td>
-		<!--- <td class="RegText#session.workstream_text_size#">
+		<!--- <td class="RegText">
 			#Sick#
 		</td>		 --->
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#STD_LTD#
 		</td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#Unpaid#
 		</td>
-		<!--- <td class="RegText#session.workstream_text_size#">
+		<!--- <td class="RegText">
 			#Vacation#
 		</td> --->
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#PTO#
 		</td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#total#
 		</td>
 		</cfoutput>
@@ -84,43 +84,43 @@
 
 
 	<cfoutput>
-	<tr class="SubHeadText#session.workstream_text_size#">
-		<td class="SubHeadText#session.workstream_text_size#">	
+	<tr class="SubHeadText">
+		<td class="SubHeadText">	
 			Totals
 		</td>
-		<!--- <td class="SubHeadText#session.workstream_text_size#">
+		<!--- <td class="SubHeadText">
 			#decimalformat(Authorized_Leave_tot)#
 		</td> --->
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			#decimalformat(bereavement_tot)#
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			#decimalformat(holiday_tot)#
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			#decimalformat(jury_duty_tot)#
 		</td>
-		<!--- <td class="SubHeadText#session.workstream_text_size#">
+		<!--- <td class="SubHeadText">
 			#decimalformat(sick_tot)#
 		</td> --->
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			#decimalformat(std_ltd_tot)#
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			#decimalformat(Unpaid_tot)#
 		</td>	
-		<!--- <td class="SubHeadText#session.workstream_text_size#">
+		<!--- <td class="SubHeadText">
 			#decimalformat(Vacation_tot)#
 		</td>	 --->
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			#decimalformat(pto_tot)#
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			#decimalformat(gross_grand_tot)#
 		</td>
 	</tr>
-	<tr class="SubHeadText#session.workstream_text_size#">
-	<td class="SubHeadText#session.workstream_text_size#" colspan="11">
+	<tr class="SubHeadText">
+	<td class="SubHeadText" colspan="11">
 			#lost_time.recordcount# Record<cfif lost_time.recordcount GT 1>s</cfif><!--- Add s to make plural if more than 1 record found --->
 		</td>	
 	</tr>

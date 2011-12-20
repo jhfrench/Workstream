@@ -16,7 +16,7 @@
 <cfinclude template="act_verify_dates.cfm">
 <cfinclude template="qry_individual_hours.cfm">
 <table border="0" cellpadding="4" cellspacing="0" align="center" width="95%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#White" section_color="008080" section_title="Individual Hours Report (from #attributes.from_date# to #attributes.through_date#)" gutter="false" align="center" colspan="5">
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadTextWhite" section_color="008080" section_title="Individual Hours Report (from #attributes.from_date# to #attributes.through_date#)" gutter="false" align="center" colspan="5">
 	<cfinclude template="dsp_indiv_row_header.cfm">
 	<cfinclude template="dsp_indiv_rows_output.cfm">
 </table>

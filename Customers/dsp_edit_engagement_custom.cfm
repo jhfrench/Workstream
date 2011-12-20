@@ -26,10 +26,10 @@
 <cfform name="edit_engagement_main" action="index.cfm?fuseaction=Customers.edit_engagement" method="post">
 <cfoutput>
 	<tr bgcolor="##c0c0c0">
-		<td align="center" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" class="SubHeadText">
 			Current Custom Fields
 		</td>
-		<td align="center" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" class="SubHeadText">
 			Instructions
 		</td>
 	</tr>
@@ -40,19 +40,19 @@
 <cfloop query="get_user_fields">
 <cfoutput>
 	<tr valign="top">
-		<td class="RegText#session.workstream_text_size#">
-			<label for="retire#user_field_id#">Retire<input type="checkbox"<cfif active_ind EQ 1> checked</cfif> name="retire" id="retire#user_field_id#" value="#user_field_id#" class="RegText#session.workstream_text_size#"></label>
+		<td class="RegText">
+			<label for="retire#user_field_id#">Retire<input type="checkbox"<cfif active_ind EQ 1> checked</cfif> name="retire" id="retire#user_field_id#" value="#user_field_id#" class="RegText"></label>
 		</td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#field_title#: <cfif field_type_id EQ 1>
 				<cfinclude template="../common_files/qry_get_drop_down_options.cfm">
-				<select name="#field_title#" class="RegText#session.workstream_text_size#">
+				<select name="#field_title#" class="RegText">
 					<cfloop query="get_drop_down_options">
 					<option value="#get_drop_down_options.user_field_items_id#">#get_drop_down_options.selection_title#</option>
 					</cfloop>
 				</select><i>&nbsp;(ID = #user_field_id#)</i>
 			<cfelseif field_type_id EQ 2>
-				<input type="text" name="display_#get_user_fields.currentrow#" size="8" value="" class="RegText#session.workstream_text_size#"><i>&nbsp;(ID = #user_field_id#)</i>
+				<input type="text" name="display_#get_user_fields.currentrow#" size="8" value="" class="RegText"><i>&nbsp;(ID = #user_field_id#)</i>
 			</cfif>
 		</td>
 	</tr>
@@ -61,27 +61,27 @@
 <cfoutput>
 		</table>
 			</td>
-			<td width="55%" class="Note#session.workstream_text_size#">
-				<ol type="1" start="#variables.start#" class="Note#session.workstream_text_size#">
+			<td width="55%" class="Note">
+				<ol type="1" start="#variables.start#" class="Note">
 					<li>Click 'retire' checkbox to remove this custom field from displaying on a task for this engagement (archived data will remain in the database). Use the given label fields to make any text changes to form field names and options, but remember that archived data will reflect your changes.</li><cfset variables.start=incrementvalue(variables.start)>
 				</ol>
 			</td>
 	</tr>
 	<tr bgcolor="##c0c0c0">
-		<td align="center" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" class="SubHeadText">
 			New Custom Fields
 		</td>
-		<td align="center" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" class="SubHeadText">
 			Instructions
 		</td>
 	</tr>
 <cfinclude template="dsp_user_field_labels.cfm">
 	<tr valign="top">
-		<td align="center" class="RegText#session.workstream_text_size#Bd">
-			<input type="submit" value="Proceed" class="RegText#session.workstream_text_size#">
+		<td align="center" class="RegTextBd">
+			<input type="submit" value="Proceed" class="RegText">
 		</td>
-		<td width="55%" class="Note#session.workstream_text_size#">
-			<ol type="1" start="#variables.start#" class="Note#session.workstream_text_size#">
+		<td width="55%" class="Note">
+			<ol type="1" start="#variables.start#" class="Note">
 				<li>Click this button when you are ready to submit any changes you have entered.</li>
 			</ol>
 		</td>

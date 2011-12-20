@@ -15,7 +15,7 @@
 	END FUSEDOC --->
 <cfparam name="attributes.colspan" default=2>
 <cfparam name="attributes.section_text" default="">
-<cfparam name="attributes.title_class" default="RegText#session.workstream_text_size#">
+<cfparam name="attributes.title_class" default="RegText">
 <cfparam name="attributes.section_color" default="ffffff">
 <cfparam name="attributes.section_align" default="left">
 <cfset variables.colspan=max(attributes.colspan-1,1)>

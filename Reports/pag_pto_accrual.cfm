@@ -24,7 +24,7 @@
 </cfsilent>
 <cfinclude template="qry_get_pto_summary.cfm">
 <table align="center" width="60%" cellpadding="2" cellspacing="0">
-	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="9" gutter="0" section_color="008080" section_title="&nbsp;#variables.report_title#Personal Time Off Report" title_class="HeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="9" gutter="0" section_color="008080" section_title="&nbsp;#variables.report_title#Personal Time Off Report" title_class="HeadTextWhite">
 	<cfinclude template="dsp_admin_pto_row_head.cfm">
 	<cfinclude template="dsp_admin_pto_rows.cfm">
 </table>

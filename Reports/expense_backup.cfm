@@ -21,13 +21,13 @@
 
 
 <table border="0" cellpadding="4" cellspacing="0"  align="center">
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#" section_color="ffffff" section_title="Expense Entry Form" colspan="3" gutter="false" align="center">
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText" section_color="ffffff" section_title="Expense Entry Form" colspan="3" gutter="false" align="center">
 </table>
 
 <cfform action="index.cfm?fuseaction=Reports.expense_insert" method="post"  name="f"> 
 	<table  cellspacing="2" cellpadding="0" border="0" width="95%" >
 		<div id="FormLayer" style="position:absolute; width:300px; height:245px; z-index:1"> 
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="SubHeadText#session.workstream_text_size#" section_color="ffffff" section_title="Name:  #session.first_name# #session.last_name#" colspan="1" gutter="True">
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="SubHeadText" section_color="ffffff" section_title="Name:  #session.first_name# #session.last_name#" colspan="1" gutter="True">
 </div>
 	</table>
 	<table cellspacing="0" cellpadding="4" border="0" align="center">

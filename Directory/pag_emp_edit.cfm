@@ -30,7 +30,7 @@
 </cfsilent>
 <cfform action="index.cfm?fuseaction=Directory.emp_update" name="emp_edit" method="POST">
 <table align="center" cellpadding="0" cellspacing="0" border="0" width="<cfoutput>#variables.table_width#</cfoutput>%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;User Edit" section_color="970000" colspan="8" gutter=0 title_class="HeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;User Edit" section_color="970000" colspan="8" gutter=0 title_class="HeadTextWhite">
 	<cfoutput query="populate_employee_form">
 	<cfinclude template="dsp_emp_details_form.cfm">
 	</cfoutput>

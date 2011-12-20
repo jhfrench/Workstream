@@ -15,11 +15,11 @@
 </cfsilent>
 <cfoutput>
 	<tr bgcolor="##c0c0c0">
-		<td class="RegText#session.workstream_text_size#Bd">Last Name</td>
-		<td class="RegText#session.workstream_text_size#Bd">First Name</td>
-		<td class="RegText#session.workstream_text_size#Bd">Date of Hire</td>
-		<td class="RegText#session.workstream_text_size#Bd">Tenure (years)</td>
-		<td class="RegText#session.workstream_text_size#Bd">Birthday</td>
+		<td class="RegTextBd">Last Name</td>
+		<td class="RegTextBd">First Name</td>
+		<td class="RegTextBd">Date of Hire</td>
+		<td class="RegTextBd">Tenure (years)</td>
+		<td class="RegTextBd">Birthday</td>
 	</tr>
 </cfoutput>
 

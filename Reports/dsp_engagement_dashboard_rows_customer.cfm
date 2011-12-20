@@ -29,24 +29,24 @@
 	</cfcase>
 </cfswitch>
 	<tr<cfif (currentrow MOD 2) EQ 0> bgcolor="##E1E1E1"</cfif>> 
-		<td valign="top" class="RegText#session.workstream_text_size#">
+		<td valign="top" class="RegText">
 			<img src="../images/Icons/#variables.image#" width="16" height="15" border="0">
 		</td>
-		<td width="15%" valign="top" class="RegText#session.workstream_text_size#">
+		<td width="15%" valign="top" class="RegText">
 			#customer_description#<br>#description#
 		</td>
-		<td valign="top" class="RegText#session.workstream_text_size#">
+		<td valign="top" class="RegText">
 			#lname#<cfif NOT len(lname)>&nbsp;</cfif>
 		</td>
-		<td align="right" valign="top" class="RegText#session.workstream_text_size#">
+		<td align="right" valign="top" class="RegText">
 		<cfif len(file_path)><a href="http://#REPLACE(file_path,"N:","10.1.1.176/Nuco1")#"></cfif>
 			<cfif len(date_go_live)><font color="red">Go-Live: </font>#dateformat(date_go_live,"mm/dd/yy")#</cfif>
 			<cfif len(file_path)></a></cfif>
 		</td>
-		<td align="center" valign="top" class="RegText#session.workstream_text_size#" bgcolor="#variables.symbollic_color#">
+		<td align="center" valign="top" class="RegText" bgcolor="#variables.symbollic_color#">
 			#variables.symbollic_color#
 		</td>
-		<td align="center" valign="top" class="RegText#session.workstream_text_size#">
+		<td align="center" valign="top" class="RegText">
 			<cfif eng_status EQ 0>Not Started</cfif>
 			<cfif eng_status EQ 1>Approved - In Progress</cfif>
 			<cfif eng_status EQ 11>Technical Review - Nucleus</cfif>
@@ -61,13 +61,13 @@
 			<cfif eng_status EQ 5>On Hold</cfif>
 			<cfif eng_status EQ 4>Completed</cfif>
 		</td>
-		<td valign="top" width="30%" class="RegText#session.workstream_text_size#">
+		<td valign="top" width="30%" class="RegText">
 			#vision#<cfif NOT len(vision)>&nbsp;</cfif>
 		</td>
-				<td valign="top" width="30%" class="RegText#session.workstream_text_size#">
+				<td valign="top" width="30%" class="RegText">
 			#mission#<cfif NOT len(mission)>&nbsp;</cfif>
 		</td>		
-		<td align="right" valign="top" class="RegText#session.workstream_text_size#">
+		<td align="right" valign="top" class="RegText">
 			#dateformat(date_updated,"mm/dd/yy")#
 		</td>
 	</tr>

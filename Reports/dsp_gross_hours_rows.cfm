@@ -14,14 +14,14 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput query="gross_hours">	
-	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif> class="RegText#session.workstream_text_size#">
-		<td class="RegText#session.workstream_text_size#">
+	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif> class="RegText">
+		<td class="RegText">
 			#name#
 		</td>
-		<cfloop from="1" to="#variables.daysinmonth#" index="ii"><td align="right" class="RegText#session.workstream_text_size#">
+		<cfloop from="1" to="#variables.daysinmonth#" index="ii"><td align="right" class="RegText">
 			#decimalformat(evaluate("Day#ii#"))#		
 		</td></cfloop>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#decimalformat(total)#
 		</td>
 	</tr>

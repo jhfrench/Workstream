@@ -21,7 +21,7 @@
 <cfinclude template="../common_files/qry_team_select.cfm">
 <cfset variables.daysinmonth=variables.daysinmonth+3>
 <table cellpadding="3" cellspacing="0" border="0"bordercolor="##000000">
-	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="Gross Hours Report for #MonthAsString(attributes.month)#, #attributes.year#" section_color="008080" align="left" colspan="#variables.daysinmonth#" gutter="0" title_class="HeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="Gross Hours Report for #MonthAsString(attributes.month)#, #attributes.year#" section_color="008080" align="left" colspan="#variables.daysinmonth#" gutter="0" title_class="HeadTextWhite">
 <cfset variables.daysinmonth=variables.daysinmonth-1>
 	<cfinclude template="dsp_form_name_office.cfm">
 <cfset variables.daysinmonth=DaysInMonth(variables.report_date)>

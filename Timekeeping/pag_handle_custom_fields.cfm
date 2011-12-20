@@ -17,19 +17,19 @@
 <cfloop query="get_user_fields">
 <cfoutput>
 	<tr valign="top">
-		<td class="RegText#session.workstream_text_size#">
-			<label for="retire#user_field_id#">Retire<input type="checkbox"<cfif active_ind EQ 1> checked</cfif> name="retire" id="retire#user_field_id#" value="#user_field_id#" class="RegText#session.workstream_text_size#"></label>
+		<td class="RegText">
+			<label for="retire#user_field_id#">Retire<input type="checkbox"<cfif active_ind EQ 1> checked</cfif> name="retire" id="retire#user_field_id#" value="#user_field_id#" class="RegText"></label>
 		</td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			#field_title#: <cfif field_type_id EQ 1>
 				<cfinclude template="../common_files/qry_get_drop_down_options.cfm">
-				<select name="#field_title#" class="RegText#session.workstream_text_size#">
+				<select name="#field_title#" class="RegText">
 					<cfloop query="get_drop_down_options">
 					<option value="#get_drop_down_options.user_field_items_id#">#get_drop_down_options.selection_title#</option>
 					</cfloop>
 				</select>
 			<cfelseif field_type_id EQ 2>
-				<input type="text" name="display_#get_user_fields.currentrow#" size="8" value="" class="RegText#session.workstream_text_size#">
+				<input type="text" name="display_#get_user_fields.currentrow#" size="8" value="" class="RegText">
 			</cfif>
 		</td>
 	</tr>

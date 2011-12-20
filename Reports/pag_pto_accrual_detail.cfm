@@ -36,7 +36,7 @@
 <cfinclude template="qry_get_footer_file.cfm">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="time_edit" field_name="time_entry_id" field_value="0"  fuseaction="Timekeeping.time_entry_edit" given_referer="Timekeeping.task_list">
 <table border="0" cellspacing="0" width="50%" bordercolorlight="gray" align="center">
-	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="6" gutter="0" section_color="008080" section_title="&nbsp;Personal Time Off used by #get_employee_name.first_name# #get_employee_name.last_name#" title_class="HeadText#session.workstream_text_size#White">
+	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="6" gutter="0" section_color="008080" section_title="&nbsp;Personal Time Off used by #get_employee_name.first_name# #get_employee_name.last_name#" title_class="HeadTextWhite">
 	<cfinclude template="dsp_pto_accrual_detail_header.cfm">
 	<cfinclude template="dsp_pto_rows.cfm">
 </table>

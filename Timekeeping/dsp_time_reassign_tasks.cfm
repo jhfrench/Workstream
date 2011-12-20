@@ -19,17 +19,17 @@
 		<td colspan="2">
 			&nbsp;&nbsp;
 		</td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			Project
 		</td>
 		<td>
 			&nbsp;&nbsp;
 		</td>
-		<td class="RegText#session.workstream_text_size#">
+		<td class="RegText">
 			Task
 		</td>
 	</tr>
-	<tr valign="middle" class="RegText#session.workstream_text_size#">
+	<tr valign="middle" class="RegText">
 		<td colspan="2">
 			&nbsp;&nbsp;
 		</td>
@@ -49,7 +49,7 @@
 				width2="600"
 				autoselectfirst="no"
 				formname="time_details"
-				HTMLBetween="</td><td align='center' class='RegText#session.workstream_text_size#'>&gt;&gt;&gt;</td><td>">
+				HTMLBetween="</td><td align='center' class='RegText'>&gt;&gt;&gt;</td><td>">
 			<input type="hidden" name="task_id" value="#attributes.task_id#">
 			<cfif isdefined("attributes.emp_id")><input type="hidden" name="emp_id" value="#attributes.emp_id#"></cfif>
 		</td>

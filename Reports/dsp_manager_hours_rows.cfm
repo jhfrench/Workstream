@@ -24,7 +24,7 @@
 	</cfif>
 	<cfif len(manager_hours_report_output.date)>
 		<cfif datecompare(manager_hours_report_output.date, variables.compare_date) NEQ 0>
-			<tr class="RegText#session.workstream_text_size#">
+			<tr class="RegText">
 			   <td align="right" colspan="4">#dateformat(variables.compare_date, "mm/dd/yy")# Hours:</td>
 			   <td>#decimalformat(variables.daily_total_hours)#</td>
 			</tr>
@@ -37,7 +37,7 @@
 	<cfelse>
 		<cfset variables.daily_total_hours=variables.daily_total_hours+hours>
 	</cfif>
-	<tr class="RegText#session.workstream_text_size#">
+	<tr class="RegText">
 	   <td bgcolor="##e1e1e1">#dateformat(date, "mm/dd/yy")#</td>
 	   <td bgcolor="##e1e1e1">#display#</td>
 	   <td bgcolor="##e1e1e1">#note#</td>
@@ -45,7 +45,7 @@
 	</tr>
   <cfelse>
 	<tr>
-		<td align="center" colspan="5" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" colspan="5" class="SubHeadText">
 	  		No timekeeping records match the criteria for this employee.
 		</td>
 	</tr>

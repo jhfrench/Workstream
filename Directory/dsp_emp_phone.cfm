@@ -15,7 +15,7 @@
 <cfset list1="(,), ,-,x,.">
 <cfset list2=",,,,,">
 </cfsilent>
-<span class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">Phone</span><br>
+<span class="SubHeadText">Phone</span><br>
 <cfoutput query="get_emp_phone">
 #phone_type#: 
 <cfset phone=ReplaceList(phone_number,list1,list2)>

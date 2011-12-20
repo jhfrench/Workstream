@@ -19,7 +19,7 @@
 	END FUSEDOC --->
 <cfoutput>
 <table cellspacing="0" cellpadding="2" border="0" align="center">
-	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;workstream Management" section_color="808080" colspan="2" gutter="0" title_class="HeadText#session.workstream_text_size#">
+	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;workstream Management" section_color="808080" colspan="2" gutter="0" title_class="HeadText">
 <cfif NOT isdefined("attributes.change_me") AND NOT isdefined("attributes.application_variables")>
 	<cfinclude template="dsp_manage_workstream_options.cfm">
 <cfelse>

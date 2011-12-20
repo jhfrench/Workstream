@@ -15,13 +15,13 @@
  --->
 <cfoutput>
 	<tr valign="top">
-		<td align="center" colspan="2" valign="top" class="RegText#session.workstream_text_size#">
-			<br>&nbsp;<br>&nbsp;Profile name: <cfinput type="Text" name="profile_name" required="Yes" message="Please enter a profile name." class="RegText#session.workstream_text_size#">
+		<td align="center" colspan="2" valign="top" class="RegText">
+			<br>&nbsp;<br>&nbsp;Profile name: <cfinput type="Text" name="profile_name" required="Yes" message="Please enter a profile name." class="RegText">
 		</td>
 	</tr>
 	<tr valign="top">
-		<td align="center" colspan="2" valign="top" class="RegText#session.workstream_text_size#">
-			<label for="primary_profile"><input type="checkbox" name="primary_profile" id="primary_profile" class="RegText#session.workstream_text_size#"> Make this my primary profile</label><br>&nbsp;<br>&nbsp;
+		<td align="center" colspan="2" valign="top" class="RegText">
+			<label for="primary_profile"><input type="checkbox" name="primary_profile" id="primary_profile" class="RegText"> Make this my primary profile</label><br>&nbsp;<br>&nbsp;
 		</td>
 	</tr>
 </cfoutput>

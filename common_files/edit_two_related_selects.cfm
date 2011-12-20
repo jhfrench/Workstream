@@ -165,7 +165,7 @@ for (i = 0; i < tot; i++) {
 
 
 <!--- OUTPUT FIRST SELECT BOX --->
-<cfoutput><select name="#attributes.name1#" onchange="#functionname#;#attributes.element1_onchangeevent#" size="#attributes.size1#" <cfif len(attributes.width1)>style="width:#attributes.width1#"</cfif> class="RegText#session.workstream_text_size#"<cfif attributes.multiple1> multiple</cfif><cfif len(attributes.Element1_OnchangeEvent)> onchange="javascript:#attributes.Element1_OnchangeEvent#"</cfif>></cfoutput>
+<cfoutput><select name="#attributes.name1#" onchange="#functionname#;#attributes.element1_onchangeevent#" size="#attributes.size1#" <cfif len(attributes.width1)>style="width:#attributes.width1#"</cfif> class="RegText"<cfif attributes.multiple1> multiple</cfif><cfif len(attributes.Element1_OnchangeEvent)> onchange="javascript:#attributes.Element1_OnchangeEvent#"</cfif>></cfoutput>
 	<!--- special first item, if requested --->
 	<cfif len(attributes.emptytext1)><cfoutput><option value="">#attributes.emptytext1#</option></cfoutput></cfif>
 	<!--- generate remaining items from query --->
@@ -180,7 +180,7 @@ for (i = 0; i < tot; i++) {
 <cfoutput>#attributes.HTMLBetween#</cfoutput>
 
 <!--- OUTPUT SECOND SELECT BOX --->
-<cfoutput><SELECT name="#attributes.Name2#" SIZE="#attributes.Size2#" <cfif len(attributes.onChange)>onChange="#attributes.OnChange#"</cfif> <cfif len(attributes.Width2)>STYLE="width:#attributes.Width2#"</cfif> class="RegText#session.workstream_text_size#"<cfif attributes.multiple2> multiple</cfif>></cfoutput>
+<cfoutput><SELECT name="#attributes.Name2#" SIZE="#attributes.Size2#" <cfif len(attributes.onChange)>onChange="#attributes.OnChange#"</cfif> <cfif len(attributes.Width2)>STYLE="width:#attributes.Width2#"</cfif> class="RegText"<cfif attributes.multiple2> multiple</cfif>></cfoutput>
 	<!--- SPECIAL FIRST ITEM, IF REQUESTED --->
 	<cfif len(attributes.EmptyText2)><cfoutput><OPTION value="">#attributes.EmptyText2#</option></cfoutput></cfif>
 	

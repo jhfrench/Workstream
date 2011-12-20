@@ -48,7 +48,7 @@
 <cfinclude template="../common_files/act_call_spell_check.cfm"> --->
 <cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="task_details" method="POST">
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="100%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;Create A New Task" section_color="78A0EB" colspan="5" gutter="0" title_class="HeadText#session.workstream_text_size#">
+	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;Create A New Task" section_color="78A0EB" colspan="5" gutter="0" title_class="HeadText">
 	<cfinclude template="dsp_task_new_table.cfm">
 </table>
 </cfform>

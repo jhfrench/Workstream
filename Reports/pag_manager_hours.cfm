@@ -21,7 +21,7 @@
 	<cfset variables.compare_date="">
 	<cfinclude template="qry_manager_hours_report_output.cfm">
 	<table border="0" cellpadding="2" cellspacing="0" align="center" width="95%">
-		<cfmodule template="../common_files/dsp_section_title.cfm" section_color="008080" section_title="Manager's Hours Report (from #attributes.from_date# to #attributes.through_date#)" gutter="false" align="center" colspan="6" title_class="HeadText#session.workstream_text_size#White">
+		<cfmodule template="../common_files/dsp_section_title.cfm" section_color="008080" section_title="Manager's Hours Report (from #attributes.from_date# to #attributes.through_date#)" gutter="false" align="center" colspan="6" title_class="HeadTextWhite">
 	<cfif manager_hours_report_output.recordcount>
 	<cfoutput query="manager_hours_report_output">
 		<cfinclude template="dsp_manager_hours_row_header.cfm">

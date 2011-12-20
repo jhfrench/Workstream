@@ -177,7 +177,7 @@
 		Notes:
 	</td>
        <td colspan="3"class="RegTextMd">
-		<textarea cols="60" rows="4" name="Notes" wrap="auto"class="RegText#session.workstream_text_size#">
+		<textarea cols="60" rows="4" name="Notes" wrap="auto"class="RegText">
 			Type your notes here.
 		</textarea>
 	</td>

@@ -23,15 +23,15 @@
 <cfmodule template="../common_files/act_calendar.cfm" form_name="#attributes.form_name#" field_name="from_date,through_date">
 <cfoutput>
 <table border="0" cellpadding="1" cellspacing="0" width="90%" align="center">
-	<tr bgcolor="##008080" class="HeadText#session.workstream_text_size#White">
+	<tr bgcolor="##008080" class="HeadTextWhite">
 		<td colspan="2">#attributes.report_name#</td>
 	</tr>
 	<tr bgcolor="##5F5F5F" class="HeadTextSmWhite">
 		<td colspan="2">Enter Dates (mm/dd/yyyy)</td>
 	</tr>
 	<tr>	
-		<td class="RegText#session.workstream_text_size#">From: <cfinput type="datefield" name="from_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid from date" class="RegText#session.workstream_text_size#"></td>
-		<td class="RegText#session.workstream_text_size#">To: <cfinput type="datefield" name="through_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid through date" class="RegText#session.workstream_text_size#"></td>
+		<td class="RegText">From: <cfinput type="datefield" name="from_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid from date" class="RegText"></td>
+		<td class="RegText">To: <cfinput type="datefield" name="through_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid through date" class="RegText"></td>
 	</tr>
 </table>
 </cfoutput>

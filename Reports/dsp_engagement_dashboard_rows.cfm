@@ -28,7 +28,7 @@
 	</cfif>
 	
 	<tr  bgcolor="#variables.tr_bgcolor#"> 
-		<td class="RegText#session.workstream_text_size#" valign="top">
+		<td class="RegText" valign="top">
 			<a name="#Project_ID#">
 					<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=3&engagement_dashboard_Return=1&customer_id_Filter=#customer_id_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">
 			<!--- Show Status Color Image and SET Status Color Variable baised on the status code--->
@@ -54,13 +54,13 @@
 			</a>
 			</a>
 		</td>
-		<td class="RegText#session.workstream_text_size#" valign="top">
+		<td class="RegText" valign="top">
 			<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=1&engagement_dashboard_Return=1&customer_id_Filter=#customer_id_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">#customer_description# - #description#(#project_code#)</a>
 		</td>
-		<td class="RegText#session.workstream_text_size#" valign="top">
+		<td class="RegText" valign="top">
 			#LName# <cfif NOT len(lname)>&nbsp;</cfif>
 		</td>
-		<td class="RegText#session.workstream_text_size#" valign="top">
+		<td class="RegText" valign="top">
 			<cfif len(file_path)>
 				<a href="http://#REPLACE(file_path,"N:","10.1.1.176/Nuco1")#">
 			</cfif>
@@ -72,11 +72,11 @@
 			</cfif>
 		</td>
 
-		<td align="center" class="RegText#session.workstream_text_size#" bgcolor="#variables.status_color#" valign="bottom">
+		<td align="center" class="RegText" bgcolor="#variables.status_color#" valign="bottom">
 			#variables.status_color#
 		</td>
 		
-				<td align="center" class="RegText#session.workstream_text_size#" valign="bottom">
+				<td align="center" class="RegText" valign="bottom">
 			<cfif eng_status EQ 0>Not Started</cfif>
 			<cfif eng_status EQ 1>Approved - In Progress</cfif>
 			<cfif eng_status EQ 11>Technical Review - Nucleus</cfif>
@@ -94,10 +94,10 @@
 		
 		
 		
-		<td class="RegText#session.workstream_text_size#" width="25%" valign="top">
+		<td class="RegText" width="25%" valign="top">
 			#Vision# <cfif NOT len(vision)>&nbsp;</cfif>
 		</td>
-		<td class="RegText#session.workstream_text_size#" align="right" valign="top">
+		<td class="RegText" align="right" valign="top">
 		<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=2&engagement_dashboard_Return=1&customer_id_Filter=#customer_id_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">
 			#numberformat(Budget,'$___,___,___,___')#
 			<cfif loe gt 0><br>h #LOE#</cfif></a>
@@ -105,11 +105,11 @@
 		<cfif total_bill_amount eq ''><br>Invoiced:<br><font color=red>$ 0</font></cfif>
 			
 		</td>
-		<td class="RegText#session.workstream_text_size#" width="17%" valign="top">
+		<td class="RegText" width="17%" valign="top">
 			#Mission# <cfif NOT len(mission)>&nbsp;</cfif>
 		</td>
 		
-		<td class="RegText#session.workstream_text_size#" valign="top">
+		<td class="RegText" valign="top">
 			#dateformat(Date_Updated,'mm/dd/yy')#
 		</td>
 	</tr>
@@ -125,7 +125,7 @@
 		<td>&nbsp;</td>
 		<td>
 			<!--- I display the list of customers Selecting previously selected items. --->
-			<select name="customer_id_Filter" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+			<select name="customer_id_Filter" class="RegText">
 				<option value="all" >All Customers</option>
 				<cfoutput query="Get_Engagement_Customers">
 					<option value="#customer_id#"<cfif customer_id_Filter EQ customer_id> Selected</cfif>>#Description#</option>
@@ -134,7 +134,7 @@
 		</td>
 		<td align="left" colspan="100%">
 			<!--- I display the list of IE's Selecting previously selected items. --->
-			<select name="IE_Emp_ID_Filter" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+			<select name="IE_Emp_ID_Filter" class="RegText">
 				<option value="all">All IEs</option>
 				<cfoutput query="Get_Engagement_IE">
 					<option value ="#Emp_ID#" <cfif IE_Emp_ID_Filter EQ Emp_ID>selected</cfif> >#LName#</option>
@@ -147,7 +147,7 @@
 		<td>&nbsp;</td>
 		<td>
 			<!--- I display the list of Sort Options. --->
-			<select name="sort" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+			<select name="sort" class="RegText">
 				<option value="Customers.Description,Project.Description">Select Sort Variable</option>
 				<option value="Customers.Description,Project.Description">Customer</option>
 				<option value="Customers.Description,Project.Description Desc">Customer - Desc</option>
@@ -164,13 +164,13 @@
 			</select>
 		</td>
 		<td align="left" colspan="100%">
-			<input type="submit" value="Go" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+			<input type="submit" value="Go" class="RegText">
 		</td>
 	</tr>
 </cfform>
 
 	<tr>
-		<td colspan="100%" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<td colspan="100%" class="RegText">
 			<br>
 			<a href="index.cfm?fuseaction=Customers.home&engagement_dashboard_Return=1">Add another engagement to this Dashboard.</a>
 		</td>

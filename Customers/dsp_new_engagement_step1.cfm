@@ -20,47 +20,47 @@
 <cfoutput>
 <input type="hidden" name="step" value="2">
 	<tr bgcolor="##c0c0c0">
-		<td align="center" colspan="3" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" colspan="3" class="SubHeadText">
 			Project Details
 		</td>
-		<td align="center" class="SubHeadText#session.workstream_text_size#">
+		<td align="center" class="SubHeadText">
 			Instructions
 		</td>
 	</tr>
 	<tr valign="top">
-		<td colspan="2" class="RegText#session.workstream_text_size#Bd">
+		<td colspan="2" class="RegTextBd">
 			Root Name<br>
-			<cfselect name="customer_id" size="1" query="get_root_codes" value="customer_id" required="Yes" display="display" class="RegText#session.workstream_text_size#"></cfselect><br>
+			<cfselect name="customer_id" size="1" query="get_root_codes" value="customer_id" required="Yes" display="display" class="RegText"></cfselect><br>
 			Project Name<br>
-			<cfinput type="Text" name="description" required="Yes" message="Please enter an Project Name" class="RegText#session.workstream_text_size#">
+			<cfinput type="Text" name="description" required="Yes" message="Please enter an Project Name" class="RegText">
 		</td>
-		<td class="RegText#session.workstream_text_size#Bd">
+		<td class="RegTextBd">
 			Visible To<br>
-			<cfselect name="company_id" query="get_companies" value="company_id" display="description" size="4" required="Yes" message="Please specify which companies should see this engagement." multiple="yes" class="RegText#session.workstream_text_size#"></cfselect>
+			<cfselect name="company_id" query="get_companies" value="company_id" display="description" size="4" required="Yes" message="Please specify which companies should see this engagement." multiple="yes" class="RegText"></cfselect>
 		</td>
-		<td width="55%" class="Note#session.workstream_text_size#">
-			<ol type="1" class="Note#session.workstream_text_size#">
+		<td width="55%" class="Note">
+			<ol type="1" class="Note">
 				<li>Choose a root code and engagement name. Be sure to use a unique name. Also specify which companies' employees should see this engagement.</li>
 			</ol>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td class="RegText#session.workstream_text_size#Bd">
+		<td class="RegTextBd">
 			Product<br>
-			<cfselect name="product_id" query="get_products" value="product_id" display="product_name" required="yes" message="Please choose which product this engagement applies to." size="4" class="RegText#session.workstream_text_size#"></cfselect><p class="RegText#session.workstream_text_size#">
+			<cfselect name="product_id" query="get_products" value="product_id" display="product_name" required="yes" message="Please choose which product this engagement applies to." size="4" class="RegText"></cfselect><p class="RegText">
 			<label for="strip_trailing"><input type="checkbox" name="strip_trailing" id="strip_trailing" value="1">Strip trailing digits.</label></p>
 		</td>
-		<td class="RegText#session.workstream_text_size#Bd">
+		<td class="RegTextBd">
 			Custom Fields<br>
-			<label for="req_custom1" class="RegText#session.workstream_text_size#"><cfinput type="radio" name="req_custom" value="1" id="req_custom1" class="RegText#session.workstream_text_size#">This engagement will use custom fields.</label><br>
-<label for="req_custom0" class="RegText#session.workstream_text_size#"><cfinput type="radio" name="req_custom" checked="Yes" value="0" id="req_custom0" class="RegText#session.workstream_text_size#">No custom fields necessary.</label>
+			<label for="req_custom1" class="RegText"><cfinput type="radio" name="req_custom" value="1" id="req_custom1" class="RegText">This engagement will use custom fields.</label><br>
+<label for="req_custom0" class="RegText"><cfinput type="radio" name="req_custom" checked="Yes" value="0" id="req_custom0" class="RegText">No custom fields necessary.</label>
 		</td>
-		<td class="RegText#session.workstream_text_size#Bd">
+		<td class="RegTextBd">
 			Billing Type<br>
-			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="billable_type" required="Yes" message="Please specify the billing type for this engagement." class="RegText#session.workstream_text_size#"></cfselect>
+			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="billable_type" required="Yes" message="Please specify the billing type for this engagement." class="RegText"></cfselect>
 		</td>
-		<td width="55%" class="Note#session.workstream_text_size#">
-			<ol type="1" start="2" class="Note#session.workstream_text_size#">
+		<td width="55%" class="Note">
+			<ol type="1" start="2" class="Note">
 				<li>
 					Specify which product this engagement will cover, and indicate if the engagement will require any custom data entry. Choose the billing structure for this engagement:
 					</cfoutput>
@@ -72,40 +72,40 @@
 		</td>
 	</tr>
 	<tr valign="top">
-		<td colspan="3" class="RegText#session.workstream_text_size#Bd">
+		<td colspan="3" class="RegTextBd">
 			Project Update<br>
-			<textarea cols="60" rows="3" name="vision" class="RegText#session.workstream_text_size#"></textarea>
+			<textarea cols="60" rows="3" name="vision" class="RegText"></textarea>
 		</td>
-		<td width="55%" class="Note#session.workstream_text_size#">
-			<ol type="1" start="3" class="Note#session.workstream_text_size#">
+		<td width="55%" class="Note">
+			<ol type="1" start="3" class="Note">
 				<li>Specify the Project Update, Upselling Opportunities and current status for this engagement. These fields are optional, but help clarify the use of the new engagment.</li>
 			</ol>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td colspan="3" class="RegText#session.workstream_text_size#Bd">
+		<td colspan="3" class="RegTextBd">
 			Upselling Opportunities<br>
-			<textarea cols="60" rows="3" name="mission" class="RegText#session.workstream_text_size#"></textarea>
+			<textarea cols="60" rows="3" name="mission" class="RegText"></textarea>
 		</td>
-		<td width="55%" class="Note#session.workstream_text_size#">
+		<td width="55%" class="Note">
 			&nbsp;
 		</td>
 	</tr>
 	<tr valign="top">
-		<td colspan="3" class="RegText#session.workstream_text_size#Bd">
+		<td colspan="3" class="RegTextBd">
 			Business Case<br>
-			<textarea cols="60" rows="3" name="business_case" class="RegText#session.workstream_text_size#"></textarea>
+			<textarea cols="60" rows="3" name="business_case" class="RegText"></textarea>
 		</td>
-		<td width="55%" class="Note#session.workstream_text_size#">
+		<td width="55%" class="Note">
 			&nbsp;
 		</td>
 	</tr>
 	<tr valign="top">
-		<td align="center" colspan="3" class="RegText#session.workstream_text_size#Bd">
-			<input type="submit" value="Proceed" class="RegText#session.workstream_text_size#">
+		<td align="center" colspan="3" class="RegTextBd">
+			<input type="submit" value="Proceed" class="RegText">
 		</td>
-		<td width="55%" class="Note#session.workstream_text_size#">
-			<ol type="1" start="4" class="Note#session.workstream_text_size#">
+		<td width="55%" class="Note">
+			<ol type="1" start="4" class="Note">
 				<li>Click this button when you are ready to proceed to the next step. The information for this new engagement will not be stored until the wizard is finished.</li>
 			</ol>
 		</td>

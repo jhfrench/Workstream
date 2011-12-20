@@ -16,19 +16,19 @@
  --->
 </cfsilent>
 <cfoutput>
-	<tr bgcolor="##c0c0c0" class="SubHeadText#session.workstream_text_size#">
-		<td valign="bottom" class="SubHeadText#session.workstream_text_size#">Project</td>
-		<td valign="bottom" class="SubHeadText#session.workstream_text_size#">Task Name</td>
-		<td valign="bottom" class="SubHeadText#session.workstream_text_size#">Task ID</td>
-		<td valign="bottom" class="SubHeadText#session.workstream_text_size#">Due Date</td>
-		<td align="center" valign="bottom" class="SubHeadText#session.workstream_text_size#">Assign<br>Task</td>
-		<td align="center" valign="bottom" class="SubHeadText#session.workstream_text_size#">Billable</td>
+	<tr bgcolor="##c0c0c0">
+		<td valign="bottom" class="SubHeadText">Project</td>
+		<td valign="bottom" class="SubHeadText">Task Name</td>
+		<td valign="bottom" class="SubHeadText">Task ID</td>
+		<td valign="bottom" class="SubHeadText">Due Date</td>
+		<td align="center" valign="bottom" class="SubHeadText">Assign<br>Task</td>
+		<td align="center" valign="bottom" class="SubHeadText">Billable</td>
 	<cfloop list="#variables.emp_init_loop#" index="ii">
-		<td align="center" valign="bottom" class="SubHeadText#session.workstream_text_size#">#ii#</td>
+		<td align="center" valign="bottom" class="SubHeadText">#ii#</td>
 	</cfloop>
-		<td align="center" bgcolor="##5F5F5F" valign="bottom" class="SubHeadText#session.workstream_text_size#White">Requested<br>Hours</td>
-		<td align="center" bgcolor="##5F5F5F" valign="bottom" class="SubHeadText#session.workstream_text_size#White">Assigned<br>Hours</td>
-		<td align="center" bgcolor="##5F5F5F" valign="bottom" class="SubHeadText#session.workstream_text_size#White">Remaining<br>Hours</td>
+		<td align="center" bgcolor="##5F5F5F" valign="bottom" class="SubHeadTextWhite">Requested<br>Hours</td>
+		<td align="center" bgcolor="##5F5F5F" valign="bottom" class="SubHeadTextWhite">Assigned<br>Hours</td>
+		<td align="center" bgcolor="##5F5F5F" valign="bottom" class="SubHeadTextWhite">Remaining<br>Hours</td>
 	</tr>
 </cfoutput>
 

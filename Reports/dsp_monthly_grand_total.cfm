@@ -20,7 +20,7 @@
 					&nbsp;&nbsp;
 				</td>
 			</tr>
-			<tr class="subheadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+			<tr class="subHeadText">
 				<td  colspan="2" align="right">
 					Grand Total Hours:
 				</td>

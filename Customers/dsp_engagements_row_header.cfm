@@ -15,35 +15,35 @@
 <cfoutput>
 <form name="inactive" action="index.cfm?fuseaction=Customers.engagements" method="post">
 	<tr bgcolor="##008000">
-		<td colspan="<cfif session.workstream_engagement_edit>3<cfelse>2</cfif>" class="HeadText#session.workstream_text_size#White">
+		<td colspan="<cfif session.workstream_engagement_edit>3<cfelse>2</cfif>" class="HeadTextWhite">
 			Projects for #get_engagements.Cust_Description#
 			<input type="hidden" name="client_code" value="#attributes.client_code#">
 		</td>
-		<td colspan="3" class="RegText#session.workstream_text_size#White">
+		<td colspan="3" class="RegTextWhite">
 			<label for="inactive"><input type="checkbox" name="inactive" id="inactive" onclick="submit();" value="<cfif compare(attributes.inactive, 0)>0<cfelse>1</cfif>"> View <cfif compare(attributes.inactive, 0)>Only Active<cfelse>Inactive</cfif> Projects</label>
 		</td>
 	</tr>
 </form>
 	<tr>
-		<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2><td bgcolor="##c0c0c0" class="SubHeadText#session.workstream_text_size#">
+		<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2><td bgcolor="##c0c0c0" class="SubHeadText">
 			Project Code
 		</td></cfif>
-		<td bgcolor="##c0c0c0" class="SubHeadText#session.workstream_text_size#">
+		<td bgcolor="##c0c0c0" class="SubHeadText">
 			Customer Name
 		</td>
-		<cfif NOT (isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2)><td bgcolor="##c0c0c0" class="SubHeadText#session.workstream_text_size#">
+		<cfif NOT (isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2)><td bgcolor="##c0c0c0" class="SubHeadText">
 			Project Code
 		</td></cfif>
-		<td bgcolor="##c0c0c0" class="SubHeadText#session.workstream_text_size#">
+		<td bgcolor="##c0c0c0" class="SubHeadText">
 			Billing Type
 		</td>
-		<td bgcolor="##c0c0c0" class="SubHeadText#session.workstream_text_size#">
+		<td bgcolor="##c0c0c0" class="SubHeadText">
 			Open Tasks
 		</td>
-		<td bgcolor="##c0c0c0" class="SubHeadText#session.workstream_text_size#">
+		<td bgcolor="##c0c0c0" class="SubHeadText">
 			Active
 		</td>			
-		<cfif session.workstream_engagement_edit><td bgcolor="##c0c0c0" class="SubHeadText#session.workstream_text_size#">
+		<cfif session.workstream_engagement_edit><td bgcolor="##c0c0c0" class="SubHeadText">
 			Edit
 		</td></cfif>
 	</tr>

@@ -35,46 +35,46 @@
 <cfoutput>
 <table border="1" cellpadding="0" cellspacing="0" bordercolor="##ffffff">
 	<tr bordercolor="##ffffff">
-		<td class="SubHeadText#session.workstream_text_size#" valign="top">
+		<td class="SubHeadText" valign="top">
 			Owner <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See more projects." border="0"  onclick="OpenTeamWindow('task_owner');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#incrementvalue(tabindex)#"><br>
-			<cfset tabindex=incrementvalue(tabindex)><cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_owner" emp_id="#task_owner#" tabindex="#tabindex#" class="RegText#session.workstream_text_size#"><br>
+			<cfset tabindex=incrementvalue(tabindex)><cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_owner" emp_id="#task_owner#" tabindex="#tabindex#" class="RegText"><br>
 			Team<br>
-			<cfset tabindex=incrementvalue(tabindex)><cfmodule template="../common_files/dsp_team_select.cfm" multi=1 size=8 select_name="task_team" emp_id="#task_team#" tabindex="#tabindex#" class="RegText#session.workstream_text_size#"><br>
+			<cfset tabindex=incrementvalue(tabindex)><cfmodule template="../common_files/dsp_team_select.cfm" multi=1 size=8 select_name="task_team" emp_id="#task_team#" tabindex="#tabindex#" class="RegText"><br>
 			QA <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See more projects." border="0"  onclick="OpenTeamWindow('task_qa');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#incrementvalue(tabindex)#"><br>
-			<cfset tabindex=incrementvalue(tabindex)><cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_qa" emp_id="#task_qa#" tabindex="#tabindex#" class="RegText#session.workstream_text_size#">
+			<cfset tabindex=incrementvalue(tabindex)><cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_qa" emp_id="#task_qa#" tabindex="#tabindex#" class="RegText">
 		</td>
-		<td class="SubHeadText#session.workstream_text_size#" valign="top">
+		<td class="SubHeadText" valign="top">
 			Source<br>
-			<span class="RegText#session.workstream_text_size#">#get_task_details.source_name#</span><br>
+			<span class="RegText">#get_task_details.source_name#</span><br>
 			Date Assigned<br>
-			<span class="RegText#session.workstream_text_size#">#dateformat(get_task_details.date_assigned,"mm/dd/yy")#</span><br>
+			<span class="RegText">#dateformat(get_task_details.date_assigned,"mm/dd/yy")#</span><br>
 			Date Due<br>
-			<cfset tabindex=incrementvalue(tabindex)><cfinput type="datefield" name="due_date" value="#dateformat(get_task_details.due_date,'mm/dd/yy')#" required="Yes" validate="date" message="Please enter a properly formatted date" size="11" tabindex="#tabindex#" class="RegText#session.workstream_text_size#"><br>
+			<cfset tabindex=incrementvalue(tabindex)><cfinput type="datefield" name="due_date" value="#dateformat(get_task_details.due_date,'mm/dd/yy')#" required="Yes" validate="date" message="Please enter a properly formatted date" size="11" tabindex="#tabindex#" class="RegText"><br>
 			Date Completed<br>
-			<span class="RegText#session.workstream_text_size#"><cfif len(get_task_details.complete_date) AND get_task_details.status_id EQ 11>#dateformat(get_task_details.complete_date,"mm/dd/yy")#<cfelse>Not yet completed</cfif></span><br>
+			<span class="RegText"><cfif len(get_task_details.complete_date) AND get_task_details.status_id EQ 11>#dateformat(get_task_details.complete_date,"mm/dd/yy")#<cfelse>Not yet completed</cfif></span><br>
 			</cfoutput>Priority<br>
 
-	<cfset tabindex=incrementvalue(tabindex)><cfselect name="priority_id" query="get_priorities" display="description" value="priority_id" selected="#get_task_details.priority#" tabindex="#tabindex#" class="RegText#session.workstream_text_size#"></cfselect>
+	<cfset tabindex=incrementvalue(tabindex)><cfselect name="priority_id" query="get_priorities" display="description" value="priority_id" selected="#get_task_details.priority#" tabindex="#tabindex#" class="RegText"></cfselect>
 <!---<cfelse>
-	<cfoutput query="get_priorities"><cfif priority_id EQ get_task_details.priority><span class="RegText#session.workstream_text_size#">#description#</span></cfif></cfoutput></cfif>---><br>
+	<cfoutput query="get_priorities"><cfif priority_id EQ get_task_details.priority><span class="RegText">#description#</span></cfif></cfoutput></cfif>---><br>
 			<cfoutput>
 			Icon<br>
-			<cfset tabindex=incrementvalue(tabindex)><cfselect query="get_ref_icon" name="icon_id" display="icon_name" value="icon_id" selected="#get_task_details.icon_id#" tabindex="#tabindex#" class="RegText#session.workstream_text_size#">
+			<cfset tabindex=incrementvalue(tabindex)><cfselect query="get_ref_icon" name="icon_id" display="icon_name" value="icon_id" selected="#get_task_details.icon_id#" tabindex="#tabindex#" class="RegText">
 			</cfselect>
 		</td>
 	</tr>
 	<tr bordercolor="##ffffff">
-		<td colspan="2" class="SubHeadText#session.workstream_text_size#">
+		<td colspan="2" class="SubHeadText">
 			Status<br>
-			<cfset tabindex=incrementvalue(tabindex)><cfselect query="get_task_stati" name="task_status" display="status" value="status_id" selected="#get_task_details.status_id#" tabindex="#tabindex#" class="RegText#session.workstream_text_size#">
+			<cfset tabindex=incrementvalue(tabindex)><cfselect query="get_task_stati" name="task_status" display="status" value="status_id" selected="#get_task_details.status_id#" tabindex="#tabindex#" class="RegText">
 			</cfselect>
 		</td>
 	</tr>
 	<cfinclude template="dsp_task_detail_notes_entry.cfm">
 	<cfif listfind("1,5", session.workstream_emp_contact_type) OR session.workstream_show_hours_data_ind EQ 1><!--- show time data to employees or customers if their company is set up to view hours---><tr bordercolor="##ffffff">
-		<td colspan="2" class="SubHeadText#session.workstream_text_size#">
+		<td colspan="2" class="SubHeadText">
 			Time Used&nbsp;<br>
-			<span class="RegText#session.workstream_text_size#">#variables.hours_used#<cfif get_task_details.budgeted_hours> out of #get_task_details.budgeted_hours# budgeted hours (#decimalformat(get_task_details.percent_used)#%)</cfif></span>
+			<span class="RegText">#variables.hours_used#<cfif get_task_details.budgeted_hours> out of #get_task_details.budgeted_hours# budgeted hours (#decimalformat(get_task_details.percent_used)#%)</cfif></span>
 
 		</td>
 	</tr>
@@ -90,8 +90,8 @@
 		</td>
 	</tr></cfif>
 	<cfelse><tr bordercolor="##ffffff">
-		<td colspan="2" class="SubHeadText#session.workstream_text_size#">
-			Hours Budgeted:&nbsp;<span class="RegText#session.workstream_text_size#">#get_task_details.budgeted_hours#</span>
+		<td colspan="2" class="SubHeadText">
+			Hours Budgeted:&nbsp;<span class="RegText">#get_task_details.budgeted_hours#</span>
 		</td>
 	</tr>
 	</cfif>

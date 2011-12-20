@@ -14,7 +14,7 @@
 </cfsilent>
 	<cfinclude template="qry_get_marketing_home_drill.cfm">
 <table border="0" cellpadding="1" cellspacing="0" align="center">
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#White" section_color="0000ff" section_title="Sales &amp; Marketing Home" colspan="3" gutter="0" align="center">
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadTextWhite" section_color="0000ff" section_title="Sales &amp; Marketing Home" colspan="3" gutter="0" align="center">
 	<cfinclude template="dsp_marketing_home_drill.cfm">
 </table>
 			

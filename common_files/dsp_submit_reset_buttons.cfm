@@ -21,18 +21,18 @@
 </cfsilent>
 <cfoutput>
 <cfif Not comparenocase(attributes.display_button1, "back")>
-	<td class="RegText#session.workstream_text_size#">
-		<input type="button" onclick="javascript:history.go(-1)" value="#attributes.back_text#" class="RegText#session.workstream_text_size#">
+	<td class="RegText">
+		<input type="button" onclick="javascript:history.go(-1)" value="#attributes.back_text#" class="RegText">
 	</td>
 </cfif>
 <cfif Not comparenocase(attributes.display_button2, "submit")>
-	<td class="RegText#session.workstream_text_size#">
-		<input type="submit" value="#attributes.submit_text#" class="RegText#session.workstream_text_size#">
+	<td class="RegText">
+		<input type="submit" value="#attributes.submit_text#" class="RegText">
 	</td>
 </cfif>
 <cfif Not comparenocase(attributes.display_button3, "reset")>
-	<td class="RegText#session.workstream_text_size#">
-		<input type="Reset" class="RegText#session.workstream_text_size#">
+	<td class="RegText">
+		<input type="Reset" class="RegText">
 	</td>
 </cfif>
 </cfoutput>

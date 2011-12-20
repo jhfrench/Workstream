@@ -18,12 +18,12 @@
 <cfif Emp_type_hours GT 0>
 <cfinclude template="dsp_employee_classification_hours.cfm">
 </cfif>
-	<tr class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<tr class="SubHeadText">
 			<td colspan="2" align="center">
 				<cfoutput>#employee_classification#</cfoutput>
 			</td>
 		</tr>
-	<tr class="HeadText<cfoutput>#session.workstream_text_size#</cfoutput>White" bgcolor="#0000ff">
+	<tr class="HeadTextWhite" bgcolor="#0000ff">
 			<td nowrap>
 				Customer:
 			</td>

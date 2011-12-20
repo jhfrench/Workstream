@@ -21,7 +21,7 @@
 <cfinclude template="act_forceplanner.cfm">
 <cfform name="forceplanner" action="index.cfm?fuseaction=Tools.forceplanner_save" method="POST">
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="100%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#White" section_color="772862" section_title="&nbsp;#session.workstream_company_name# ForcePlanner" colspan="#variables.colspan+1#" gutter=1>
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadTextWhite" section_color="772862" section_title="&nbsp;#session.workstream_company_name# ForcePlanner" colspan="#variables.colspan+1#" gutter=1>
 	<cfinclude template="dsp_forceplanner_main_head.cfm">
 	<cfinclude template="dsp_forceplanner_save_rows.cfm">
 	<cfinclude template="dsp_forceplanner_sub_head.cfm">

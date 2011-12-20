@@ -12,7 +12,7 @@
 	||
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
-<tr class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>" bgcolor="#c0c0c0">
+<tr class="SubHeadText" bgcolor="#c0c0c0">
 	<td>Last Name:</td>
 	<td>First Name:</td>
 	<td>Pin #:</td>

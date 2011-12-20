@@ -12,7 +12,7 @@
 	||
 	END FUSEDOC --->		
 </cfsilent>
-			<tr valign="top"  class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>It">
+			<tr valign="top"  class="RegTextIt">
 				<td colspan="2" align="right">
 					
 					Summary Hours: 

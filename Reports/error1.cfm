@@ -13,7 +13,7 @@
 	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creating class and refers to text size
 	END FUSEDOC --->
 </cfsilent>
-<div align="center" class="HeadText<cfoutput>#session.workstream_text_size#</cfoutput>">There has been a problem with the report you requested. <br>
+<div align="center" class="HeadText">There has been a problem with the report you requested. <br>
 Please verify the date range that you selected and try to rerun your report.<br>
 This Page will redirect you to the Report page. <br>
 If the problem persists please notify The workstream Administrator.<br>

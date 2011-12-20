@@ -15,8 +15,8 @@
 </cfsilent>
 <cfoutput>
 	<tr>
-		<td colspan="#variables.colspan#" class="HeadText#session.workstream_text_size#White" bgcolor="008000">
-			&nbsp;Edit Project for <a href="javascript:engagement_list('#get_customer_name_code.root_code#');" class="HeadText#session.workstream_text_size#White">#get_customer_name_code.project_name#- #get_customer_name_code.project_code#</a>
+		<td colspan="#variables.colspan#" class="HeadTextWhite" bgcolor="008000">
+			&nbsp;Edit Project for <a href="javascript:engagement_list('#get_customer_name_code.root_code#');" class="HeadTextWhite">#get_customer_name_code.project_name#- #get_customer_name_code.project_code#</a>
 		</td>
 	</tr>
 </cfoutput>

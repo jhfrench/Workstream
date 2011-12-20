@@ -13,7 +13,7 @@
  --->
 </cfsilent>
 <tr>
-	<td colspan="2" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<td colspan="2" class="RegText">
 		<cfsavecontent variable="variables.chart_under_menu">
 			<cfchart chartHeight="140" chartWidth="220" font="Trebuchet MS" fontsize="#variables.small#" fontBold="yes" show3D="yes" showLegend="no" seriesplacement="stacked">
 			    <cfchartseries type="line" query="get_revenue_goal" valueColumn="revenue_goal" itemColumn="fiscal_year" dataLabelStyle="none" seriescolor="##5A9A00" />

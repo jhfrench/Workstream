@@ -1,12 +1,10 @@
 
-<cfparam name="delete_user_field_list" default="None">
-<!--timekeeping_dev/dsp_Inactive_Tasks.cfm
+<!--Timekeeping/dsp_inactive_tasks.cfm
 	Author: Jeromy F -->
 
 	<!--- FUSEDOC
 	||
-	Responsibilities: I am the page that will dipslay all the tasks that are being completed 
-	by the inactivation of the parent client code.
+	Responsibilities: I am the page that will dipslay all the tasks that are being completed by the inactivation of the parent client code.
 
 	||
 	Edits:
@@ -16,31 +14,31 @@
 	<-- Outgoing Paramater
 	
 	END FUSEDOC --->
- <cfif attributes.active_ind eq 1>
- <div align="center" class="headtext<cfoutput>#session.workstream_text_size#</cfoutput>">Tasks to be closed</div>
-   
-    <table cellpadding="4" cellspacing="0" border="0" align="center" width="95%">
+<cfparam name="delete_user_field_list" default="None">
+<cfif attributes.active_ind eq 1>
+<div align="center" class="HeadText">Tasks to be closed</div>
+<table cellpadding="4" cellspacing="0" border="0" align="center" width="95%">
 <tr bgcolor="#0000ff">
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Project Code</td>
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Project Name</td>
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Task Name</td>
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Task Desctiption</td>
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Task Owner</td>
-	<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Task ID</td>
+	<td class="SubHeadTextWhite">Project Code</td>
+	<td class="SubHeadTextWhite">Project Name</td>
+	<td class="SubHeadTextWhite">Task Name</td>
+	<td class="SubHeadTextWhite">Task Desctiption</td>
+	<td class="SubHeadTextWhite">Task Owner</td>
+	<td class="SubHeadTextWhite">Task ID</td>
 </tr>
 <cfoutput query="tasks_to_inactive">
 <tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-	<td class="RegText#session.workstream_text_size#">#project_code#</td>
-	<td class="RegText#session.workstream_text_size#">#description#</td>
-	<td class="RegText#session.workstream_text_size#">#name#</td>
-	<td class="RegText#session.workstream_text_size#">#task_Description#</td>
-	<td class="RegText#session.workstream_text_size#">#task_owner#</td>
-	<td class="RegText#session.workstream_text_size#">#task_id#</td>
+	<td class="RegText">#project_code#</td>
+	<td class="RegText">#description#</td>
+	<td class="RegText">#name#</td>
+	<td class="RegText">#task_Description#</td>
+	<td class="RegText">#task_owner#</td>
+	<td class="RegText">#task_id#</td>
 </tr>
 </cfoutput>
 	<tr>
 		<td colspan="6" align="center"  class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
-		Are you sure that you want to inactivate all these tasks? <form action="index.cfm?fuseaction=Customers.update_engagement" method="post" name="change"> <input type="submit" value="Continue" name="Submit" tabindex="3"> <input type="button" value="Back" name="back" onclick="history.go(-1)">
+		Are you sure that you want to deactivate all these tasks? <form action="index.cfm?fuseaction=Customers.update_engagement" method="post" name="change"> <input type="submit" value="Continue" name="Submit" tabindex="3"> <input type="button" value="Back" name="back" onclick="history.go(-1)">
 		</td>
 	</tr>
 </table>
@@ -97,7 +95,4 @@ document.auto.submit()
 </form> 
 
 </cfif>
-  </body>  
-  
-
-
+</body>

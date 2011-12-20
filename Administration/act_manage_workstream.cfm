@@ -19,7 +19,7 @@
 	END FUSEDOC --->
 <cfoutput>
 <tr bgcolor="##e6e6e6">
-	<td class="RegText#session.workstream_text_size#">
+	<td class="RegText">
 		Theses variables were updated:<br>
 	<cfif isdefined("attributes.change_me") AND NOT isdefined("attributes.application_variables")>
 		<cfloop list="#attributes.change_me#" index="ii">

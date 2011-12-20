@@ -12,10 +12,10 @@
 	||
 	END FUSEDOC --->
 	<tr bgcolor="#0000ff">
-		<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Address</td>
-		<td  class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Address 2</td>
-		<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">City</td>
-		<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">State</td>
-		<td class="SubHeadText<cfoutput>#session.workstream_text_size#</cfoutput>White">Zip</td>
+		<td class="SubHeadTextWhite">Address</td>
+		<td  class="SubHeadTextWhite">Address 2</td>
+		<td class="SubHeadTextWhite">City</td>
+		<td class="SubHeadTextWhite">State</td>
+		<td class="SubHeadTextWhite">Zip</td>
 	</tr>
 	

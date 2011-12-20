@@ -37,13 +37,13 @@
 <cfoutput query="get_open_tasks">
 <cfset StatusMsg=ReplaceList(task_name, variables.StatusMsg_replace, variables.StatusMsg_replace_with)>
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td class="RegText#session.workstream_text_size#">#dateformat(date_due, "mm/dd/yyyy")#</td>
-		<td class="RegText#session.workstream_text_size#">#task_id#</td>
-		<td class="RegText#session.workstream_text_size#"><a href="javascript:list_to_time('#task_id#');" onmouseover="MM_displayStatusMsg('View time details for #StatusMsg#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#"><cfif listlen(time_used,".") GT 1>#decimalformat(time_used)#<cfelse>#numberformat(time_used)#</cfif><cfif time_budgeted>/#time_budgeted# #numberformat(percent_time_used)#%</cfif></a></td>
-		<td class="RegText#session.workstream_text_size#">#task_owner#</td>
-		<td class="RegText#session.workstream_text_size#"><a href="javascript:list_to_task('#task_id#');" onmouseover="MM_displayStatusMsg('View task details for #StatusMsg#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText#session.workstream_text_size#"><img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="#ReplaceList(task_description, variables.quote, variables.StatusMsg_replace_with)#" height="16" width="16" border="0">#task_name#</a></td>
-		<td class="RegText#session.workstream_text_size#">#project_name#</td>
-		<td class="RegText#session.workstream_text_size#"><cfif NOT dateformat(now(), "mm/dd/yyyy") LT dateformat(date_due, "mm/dd/yyyy")><img src="#request.dir_level##application.application_specific_settings.image_dir#<cfif dateformat(now(), "mm/dd/yyyy") EQ dateformat(date_due, "mm/dd/yyyy")>not_started<cfelse>overdue</cfif>.gif" width="17" height="17" alt="" border="0">&nbsp;</cfif>#task_status#</td>
+		<td class="RegText">#dateformat(date_due, "mm/dd/yyyy")#</td>
+		<td class="RegText">#task_id#</td>
+		<td class="RegText"><a href="javascript:list_to_time('#task_id#');" onmouseover="MM_displayStatusMsg('View time details for #StatusMsg#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText"><cfif listlen(time_used,".") GT 1>#decimalformat(time_used)#<cfelse>#numberformat(time_used)#</cfif><cfif time_budgeted>/#time_budgeted# #numberformat(percent_time_used)#%</cfif></a></td>
+		<td class="RegText">#task_owner#</td>
+		<td class="RegText"><a href="javascript:list_to_task('#task_id#');" onmouseover="MM_displayStatusMsg('View task details for #StatusMsg#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText"><img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="#ReplaceList(task_description, variables.quote, variables.StatusMsg_replace_with)#" height="16" width="16" border="0">#task_name#</a></td>
+		<td class="RegText">#project_name#</td>
+		<td class="RegText"><cfif NOT dateformat(now(), "mm/dd/yyyy") LT dateformat(date_due, "mm/dd/yyyy")><img src="#request.dir_level##application.application_specific_settings.image_dir#<cfif dateformat(now(), "mm/dd/yyyy") EQ dateformat(date_due, "mm/dd/yyyy")>not_started<cfelse>overdue</cfif>.gif" width="17" height="17" alt="" border="0">&nbsp;</cfif>#task_status#</td>
 	</tr>
 </cfoutput>
 <cfelse>

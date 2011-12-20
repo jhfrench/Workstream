@@ -13,6 +13,6 @@
 	END FUSEDOC --->
 </cfsilent>
 	<tr>
-		<td align="center" colspan="4" class="headtext<cfoutput>#session.workstream_text_size#</cfoutput>">PTO Report</td>
+		<td align="center" colspan="4" class="HeadText">PTO Report</td>
 	</tr>
 	

@@ -26,18 +26,18 @@
 <cfelse>
 <cfoutput>
 	<tr bgcolor="##c0c0c0">
-		<td class="SubHeadText#session.workstream_text_size#">Name</td>
-		<td align="right" class="SubHeadText#session.workstream_text_size#">Starting</td>
-		<td align="right" class="SubHeadText#session.workstream_text_size#">Used PTO</td>
-		<td align="right" class="SubHeadText#session.workstream_text_size#">Remaining Hours</td>
+		<td class="SubHeadText">Name</td>
+		<td align="right" class="SubHeadText">Starting</td>
+		<td align="right" class="SubHeadText">Used PTO</td>
+		<td align="right" class="SubHeadText">Remaining Hours</td>
 	</tr>
 </cfoutput>
 <cfoutput query="GetEmpDetails">
 	<tr<cfif (currentrow MOD 1)> bgcolor="##E1E1E1"</cfif>>
-		<td class="RegText#session.workstream_text_size#"><a href="javascript:drill_down('#pin#');">#name# #lname#</a></td>
-		<td align="right" class="RegText#session.workstream_text_size#"><a href="javascript:drill_down('#pin#');">#pto_type_indicator#</a></td>
-		<td align="right" class="RegText#session.workstream_text_size#"><a href="javascript:drill_down('#pin#');">#used_hours#</a></td>
-		<td align="right" class="RegText#session.workstream_text_size#"><cfset temp_var=Pto_Type_Indicator-Used_hours><a href="javascript:drill_down('#pin#');">#temp_var#</a></td>
+		<td class="RegText"><a href="javascript:drill_down('#pin#');">#name# #lname#</a></td>
+		<td align="right" class="RegText"><a href="javascript:drill_down('#pin#');">#pto_type_indicator#</a></td>
+		<td align="right" class="RegText"><a href="javascript:drill_down('#pin#');">#used_hours#</a></td>
+		<td align="right" class="RegText"><cfset temp_var=Pto_Type_Indicator-Used_hours><a href="javascript:drill_down('#pin#');">#temp_var#</a></td>
 	</tr>
 </cfoutput>
 </cfif>

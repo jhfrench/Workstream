@@ -19,10 +19,10 @@
 <cfset totals = StructNew()>
 <table border="0" width="100%" cellpadding="3" cellspacing="0">
 	<cfif get_expense_type.recordcount>
-	<tr><td  align="right"colspan="<cfoutput>#colspan#</cfoutput>" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+	<tr><td  align="right"colspan="<cfoutput>#colspan#</cfoutput>" class="RegText">
 	<cfinclude template="dsp_excel_auto.cfm">
 	</td></tr>
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText#session.workstream_text_size#" section_color="ffffff" section_title="Expense Report"  gutter="false" align="center" colspan="#colspan#">
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText" section_color="ffffff" section_title="Expense Report"  gutter="false" align="center" colspan="#colspan#">
 	
 	<cfinclude template="dsp_expense_report_rows.cfm">
 	

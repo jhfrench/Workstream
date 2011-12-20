@@ -22,16 +22,16 @@
 <cfset variables.daily_total_hours=0>
 <cfset variables.total_hours=-1>
 <tr bgcolor="##5F5F5F">
-	<td class="HeadText#session.workstream_text_size#White">Name: #lname#, #name#</td>
-	<td colspan="2" class="HeadText#session.workstream_text_size#White">Employee Type: #employee_classification#</td>
-	<td colspan="2" class="HeadText#session.workstream_text_size#White">Company: #company#</td>
+	<td class="HeadTextWhite">Name: #lname#, #name#</td>
+	<td colspan="2" class="HeadTextWhite">Employee Type: #employee_classification#</td>
+	<td colspan="2" class="HeadTextWhite">Company: #company#</td>
 </tr>
 <tr bgcolor="##c0c0c0">
-	<td class="SubHeadText#session.workstream_text_size#">Date:</td>
-	<td class="SubHeadText#session.workstream_text_size#">Customer Name:</td>
-	<td class="SubHeadText#session.workstream_text_size#">Notes:</td>
-	<td class="SubHeadText#session.workstream_text_size#">Hours:</td>
-	<td class="SubHeadText#session.workstream_text_size#">Daily Sub-Total:</td>
+	<td class="SubHeadText">Date:</td>
+	<td class="SubHeadText">Customer Name:</td>
+	<td class="SubHeadText">Notes:</td>
+	<td class="SubHeadText">Hours:</td>
+	<td class="SubHeadText">Daily Sub-Total:</td>
 </tr>
 </cfif>
 </cfoutput>

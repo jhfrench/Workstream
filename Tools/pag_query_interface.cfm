@@ -21,12 +21,12 @@
 <table border="0" cellpadding="0" cellspacing="0">
 	<tr>
 		<td align="center">
-			<textarea name="query_text" cols="180" rows="30" class="RegText#session.workstream_text_size#">#attributes.query_text#</textarea>
+			<textarea name="query_text" cols="180" rows="30" class="RegText">#attributes.query_text#</textarea>
 		</td>
 	</tr>
 	<tr>
 		<td align="center">
-			<input type="submit" class="RegText#session.workstream_text_size#">
+			<input type="submit" class="RegText">
 		</td>
 	</tr>
 </table>

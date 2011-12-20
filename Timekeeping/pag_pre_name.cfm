@@ -21,13 +21,13 @@
 <cfform name="pre_defined" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST">
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="100%" class="SelectText<cfoutput>#session.workstream_text_size#">
 	<tr>
-		<td class="SubHeadText#session.workstream_text_size#">
+		<td class="SubHeadText">
 			Choose A Name:
 		</td>
 	</tr>
 	<tr>
-		<td align="center" class="SubHeadText#session.workstream_text_size#"></cfoutput>
-			<cfselect query="get_predefined_names" name="task_name" display="pre_task_name" value="pre_task_name" size="#variables.select_size#" onChange="OKButton()" class="RegText#session.workstream_text_size#"></cfselect>
+		<td align="center" class="SubHeadText"></cfoutput>
+			<cfselect query="get_predefined_names" name="task_name" display="pre_task_name" value="pre_task_name" size="#variables.select_size#" onChange="OKButton()" class="RegText"></cfselect>
 		</td>
 	</tr>
 	<cfinclude template="../common_files/dsp_big_list_submit.cfm">

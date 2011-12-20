@@ -48,7 +48,7 @@
 <cfparam name="attributes.size" default=0>
 <cfparam name="attributes.onchange" default="">
 <cfparam name="attributes.show_team" default="0">
-<cfparam name="attributes.class" default="SelectText#session.workstream_text_size#">
+<cfparam name="attributes.class" default="SelectText">
 <cfparam name="attributes.selected_flag" default="1">
 <cfset variables.company_id=0>
 </cfsilent>

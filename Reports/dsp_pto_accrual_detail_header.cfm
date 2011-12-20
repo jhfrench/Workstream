@@ -14,11 +14,11 @@
 </cfsilent>
 <cfoutput>
 	<tr bgcolor="##c0c0c0">
-		<td class="SubHeadText#session.workstream_text_size#">&nbsp;</td>
-		<td class="SubHeadText#session.workstream_text_size#">&nbsp;</td>
-		<td align="right" class="SubHeadText#session.workstream_text_size#">Credit</td>
-		<td align="right" class="SubHeadText#session.workstream_text_size#">Debit</td>
-		<td align="right" class="SubHeadText#session.workstream_text_size#">Balance</td>
+		<td class="SubHeadText">&nbsp;</td>
+		<td class="SubHeadText">&nbsp;</td>
+		<td align="right" class="SubHeadText">Credit</td>
+		<td align="right" class="SubHeadText">Debit</td>
+		<td align="right" class="SubHeadText">Balance</td>
 	</tr>
 </cfoutput>
 

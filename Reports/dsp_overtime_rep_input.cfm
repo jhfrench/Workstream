@@ -22,17 +22,17 @@
 	</cfif>
 </cfloop>
 <table border="0" cellpadding="4" cellspacing="0" align="center" width="25%">
-	<tr bgcolor="##0000ff" class="headText<cfoutput>#session.workstream_text_size#</cfoutput>White">
+	<tr bgcolor="##0000ff" class="HeadTextWhite">
 		<td  align ="center" colspan="2"></td>
 			Overtime Report
 		</td>
 </tr>
 <tr>
-<td class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>" colspan ="2">
+<td class="RegText" colspan ="2">
 Select a Week:
 </td>
 </tr>
-<tr class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
+<tr class="RegText">
 <td>
 	Name:
 </td>
@@ -40,7 +40,7 @@ Select a Week:
 <tr>
 <td>
 			
-			<cfselect name="pin" size="5" message="Please don't leave blank" required="Yes" multiple="Yes" class="RegText#session.workstream_text_size#">
+			<cfselect name="pin" size="5" message="Please don't leave blank" required="Yes" multiple="Yes" class="RegText">
 				<OPTION value="ALL" selected>
 					ALL
 					<cfoutput query="get_overtime_employees">

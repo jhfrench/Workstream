@@ -20,7 +20,7 @@
 <cfinclude template="qry_get_user_details.cfm">
 <cfform action="index.cfm?fuseaction=Administration.edit_auxiliary" name="timekeeping_options" method="POST">
 <table align="center" bgcolor="#cccccc" border="0" cellpadding="0" cellspacing="0">
-	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;Account Edit (#get_user_details.lname#, #get_user_details.name#)" section_color="808080" colspan="5" gutter=0 title_class="HeadText#session.workstream_text_size#">
+	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;Account Edit (#get_user_details.lname#, #get_user_details.name#)" section_color="808080" colspan="5" gutter=0 title_class="HeadText">
 	<cfinclude template="dsp_edit_auxiliary.cfm">
 	<cfmodule template="../common_files/dsp_submit_options.cfm" include_reset="1" reset_value="Reset Options" submit_value="Save Settings">
 </table>

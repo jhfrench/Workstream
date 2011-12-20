@@ -18,24 +18,24 @@
     <input name="date_locked" type="hidden" value="#date_locked#">
 	<input name="last_loaded" type="hidden" value="#now()#">
 	</cfoutput>
-	<tr bgcolor="#78A0EB" align="center" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
-		<td bgcolor="#78A0EB" colspan="4" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>White">
+	<tr bgcolor="#78A0EB" align="center" class="RegText">
+		<td bgcolor="#78A0EB" colspan="4" class="RegTextWhite">
 			You are currently set to  
-			<cfinput type="text" name="express_input_rows" value="#session.workstream_express_input_rows#" size="1" maxlength="2" required="Yes" validate="integer" message="Please enter the number of lines you wish to input." class="SelectText#session.workstream_text_size#">
+			<cfinput type="text" name="express_input_rows" value="#session.workstream_express_input_rows#" size="1" maxlength="2" required="Yes" validate="integer" message="Please enter the number of lines you wish to input." class="SelectText">
 			lines of input (max = 30), a width of   
-			<cfinput type="text" name="express_notes_width" value="#session.workstream_express_notes_width#" size="2" required="Yes" validate="integer" message="Please enter a number for the notes box width." class="SelectText#session.workstream_text_size#"> columns for the notes box and   
-			<cfinput type="text" name="express_notes_height" value="#session.workstream_express_notes_height#" size="1" required="Yes" validate="integer" message="Please enter the number of rows for the notes box." class="SelectText#session.workstream_text_size#">
+			<cfinput type="text" name="express_notes_width" value="#session.workstream_express_notes_width#" size="2" required="Yes" validate="integer" message="Please enter a number for the notes box width." class="SelectText"> columns for the notes box and   
+			<cfinput type="text" name="express_notes_height" value="#session.workstream_express_notes_height#" size="1" required="Yes" validate="integer" message="Please enter the number of rows for the notes box." class="SelectText">
 			 row(s). Your folder box is set to a height of  
-			<cfinput type="text" name="express_tree_height" value="#session.workstream_express_tree_height#" size="3" required="Yes" validate="integer" message="Please enter a number for the height of the folder box." class="SelectText#session.workstream_text_size#">
-			. Expand express tree to this level:&nbsp;<cfoutput><label for="root"><input type="radio" name="expand_tree" id="root" value="yes,no,no"<cfif NOT compare(session.workstream_expand,"yes,no,no")> checked</cfif> class="SelectText#session.workstream_text_size#"> Root</label>&nbsp;<label for="week"><input type="radio" name="expand_tree" id="week" value="yes,yes,no"<cfif NOT compare(session.workstream_expand,"yes,yes,no")> checked</cfif> class="SelectText#session.workstream_text_size#"> Week</label>&nbsp;<label for="day"><input type="radio" name="expand_tree" id="day" value="yes,yes,yes"<cfif NOT compare(session.workstream_expand,"yes,yes,yes")> checked</cfif> class="SelectText#session.workstream_text_size#"> Day</label></cfoutput>
+			<cfinput type="text" name="express_tree_height" value="#session.workstream_express_tree_height#" size="3" required="Yes" validate="integer" message="Please enter a number for the height of the folder box." class="SelectText">
+			. Expand express tree to this level:&nbsp;<cfoutput><label for="root"><input type="radio" name="expand_tree" id="root" value="yes,no,no"<cfif NOT compare(session.workstream_expand,"yes,no,no")> checked</cfif> class="SelectText"> Root</label>&nbsp;<label for="week"><input type="radio" name="expand_tree" id="week" value="yes,yes,no"<cfif NOT compare(session.workstream_expand,"yes,yes,no")> checked</cfif> class="SelectText"> Week</label>&nbsp;<label for="day"><input type="radio" name="expand_tree" id="day" value="yes,yes,yes"<cfif NOT compare(session.workstream_expand,"yes,yes,yes")> checked</cfif> class="SelectText"> Day</label></cfoutput>
 		</td>
 	</tr>
-	<tr class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
-		<td colspan="5" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">&nbsp;</td>
+	<tr class="RegText">
+		<td colspan="5" class="RegText">&nbsp;</td>
 	</tr>
-	<tr align="center" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
-		<td align="center" colspan="4" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>">
-			<input type="button" value="Submit Time Entry(s)" name="Submit" tabindex="3" class="RegText<cfoutput>#session.workstream_text_size#</cfoutput>" onclick="check_form('hours')">
+	<tr align="center" class="RegText">
+		<td align="center" colspan="4" class="RegText">
+			<input type="button" value="Submit Time Entry(s)" name="Submit" tabindex="3" class="RegText" onclick="check_form('hours')">
 		</td>
     </tr>
 

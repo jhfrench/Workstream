@@ -15,7 +15,7 @@
  --->
 </cfsilent>
 	<tr>
-		<td colspan="2" class="HeadText<cfoutput>#session.workstream_text_size#</cfoutput>">
+		<td colspan="2" class="HeadText">
 			File attachment tool
 		</td>
 	</tr>
