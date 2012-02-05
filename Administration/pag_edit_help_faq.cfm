@@ -6,7 +6,7 @@
 		I display the form for editing help faq and act(send information to DB) when the form is submitted.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/18/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/19/10) Cleaning up verbiage and row coloring.
 		</history>

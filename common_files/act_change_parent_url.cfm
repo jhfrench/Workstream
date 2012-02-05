@@ -6,7 +6,7 @@
 		If the user's session timed out make them sign back in. Usually this is handled by the act_security.cfm template, but the loophole can happen in an iframe outside the normal scope of the application.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="11/30/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="11/30/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

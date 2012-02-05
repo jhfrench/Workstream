@@ -6,7 +6,7 @@
 		I help the user maintain the NSM structure.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="9/18/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="9/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

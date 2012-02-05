@@ -6,7 +6,7 @@
 		I help the user to show or hide general requirements.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="5/31/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="5/31/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

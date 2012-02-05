@@ -6,7 +6,7 @@
 		I get the number of invalid login attempts since last valid login for a given username.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/11/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/11/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

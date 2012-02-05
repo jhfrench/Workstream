@@ -6,7 +6,7 @@
 		Query to deactivate a record in REF_risk_rating table before a new insert.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

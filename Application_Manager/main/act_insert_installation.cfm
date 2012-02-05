@@ -6,7 +6,7 @@
 		I process the creation of a new installation in the Application_Manager DB using data passed in from the 'create installation' wizard.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
 			$Log$
 		</history>
 	</properties>

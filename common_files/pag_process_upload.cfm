@@ -6,7 +6,7 @@
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/2/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/2/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 9/11/9)
 			Making corrections depicted in error_gh_2009_09_11_1351.doc.

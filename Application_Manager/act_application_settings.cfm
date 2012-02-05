@@ -6,7 +6,7 @@
 		I compile a series of application-level variables such as datasource(s), support contacts, and other application-scoped variables. Most importantly, I specify the application attributes in the cfapplication tag.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
 			$Id$
 		</history>
 	</properties>

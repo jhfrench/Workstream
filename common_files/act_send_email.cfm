@@ -5,7 +5,7 @@
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/4/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/4/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 			(1/11/11 | JF)
 			Accomodating SQL limitation for more than 1000 recipients.

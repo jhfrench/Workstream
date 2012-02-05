@@ -6,7 +6,7 @@
 		I give an interface for a user to enter a screensaver message.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="10/24/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="10/24/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

@@ -6,7 +6,7 @@
 		I retrieve numeric multiplier from REF_Numeric_Multiplier table.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/21/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/21/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			modified 6/27/2007 by LK
 		</history>

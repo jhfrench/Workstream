@@ -6,7 +6,7 @@
 		Insert a new record into Login_Attempt table after unsuccessful login.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/11/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/11/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(12/3/2008 | JF)
 			Correcting production error 424.

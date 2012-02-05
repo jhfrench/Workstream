@@ -6,7 +6,7 @@
 		I show the contents of the application, session, fusebox, and variables scopes.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(5/26/11 | JF)
 			Enhancing the application scope viewing functionality so you can see only the things you want to.

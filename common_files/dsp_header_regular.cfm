@@ -6,7 +6,7 @@
 		I display a header for FAAD.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/17/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/17/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(10/15/07 | JF) Brought right-hand help column more to the left.
 		</history>

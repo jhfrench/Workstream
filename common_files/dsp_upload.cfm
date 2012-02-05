@@ -6,7 +6,7 @@
 		I give the user an interface for uploading data into the FAAD system.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/22/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/22/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

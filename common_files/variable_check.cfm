@@ -7,7 +7,7 @@
 		I evaluate to see if necessary variables exist. If it doesn't, tag displays a message that says "You have entered FAAD via an invalid url. This problem may be caused by using a history/favorite/bookmark link. Please update your bookmarks to point to "index.cfm?fuseaction=#relocate#". Tag then relocates the user to the page specified after an irritating delay.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

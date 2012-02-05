@@ -6,7 +6,7 @@
 		I'm just here to cause an error, which will help to see if the error-handling is configured correctly.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="10/1/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="10/1/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

@@ -6,7 +6,7 @@
 		I update Link_Screen_Help_Article.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="8/30/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="8/30/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

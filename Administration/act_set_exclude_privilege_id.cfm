@@ -6,7 +6,7 @@
 		I establish which priviliges do not apply at certain NSM heirarchy levels. Ideally this would be done through DB configuration, but it's too late in the game to do so now, so we're doing it through CF. Hopefully in the future it can be corrected.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/12/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/12/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

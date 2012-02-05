@@ -6,7 +6,7 @@
 		I get next hierarchy drilldown options from REF_Hierarchy_Level table.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="8/23/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="8/23/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

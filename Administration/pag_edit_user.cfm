@@ -6,7 +6,7 @@
 		I display the form for editing user and act(send information to DB) when the form is submitted.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/6/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/6/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/6/7) I moved this template from common_files because it's only being called from the Administration module.
 		</history>

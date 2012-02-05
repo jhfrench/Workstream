@@ -6,7 +6,7 @@
 		I show the report output selection criteria.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="1/10/2008" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="1/10/2008" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

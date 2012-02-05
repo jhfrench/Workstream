@@ -6,7 +6,7 @@
 		I retrieve completed FAAD records in the upload log, ordered by most recent first
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="12/3/2010" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="12/3/2010" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

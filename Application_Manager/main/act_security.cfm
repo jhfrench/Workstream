@@ -7,7 +7,7 @@
 		I secure the application against some of the more common "hacking" techniques.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="9/21/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="9/21/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

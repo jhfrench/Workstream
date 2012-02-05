@@ -6,7 +6,7 @@
 		I determine the appropriate default fuesaction and send the logged in user to that page.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="9/9/9" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="9/9/9" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

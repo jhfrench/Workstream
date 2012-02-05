@@ -6,7 +6,7 @@
 		I retrieve settings for a given installation from the Custom_Setting table. The settings are stored in a denormalized fashion in the DB so that the values can be converted to ColdFusion application-scoped variables more efficiently.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
 			$Id$
 		</history>
 	</properties>

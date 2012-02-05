@@ -6,7 +6,7 @@
 		I record emails to the database so that we can know who sent what, when, to whom, etc.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="3/1/11" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="3/1/11" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

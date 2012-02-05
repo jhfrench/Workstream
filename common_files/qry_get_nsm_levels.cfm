@@ -6,7 +6,7 @@
 		I get NSM level structure.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/2/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/2/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

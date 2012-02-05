@@ -6,7 +6,7 @@
 		I set application specific settings that can't be specified in Application Manager.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="3/12/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="3/12/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -25,7 +25,7 @@
 	
 	<cfscript>
 		application.active_ind=1;
-		application.application_full_name="skeleton:inst_459_date_2009-11-13 14:15:19_vers_587_env_21_host_83_email_21_lc_0_ldb_412_cust_1068";
+		application.application_full_name="workstream:inst_459_date_2009-11-13 14:15:19_vers_587_env_21_host_83_email_21_lc_0_ldb_412_cust_1068";
 		application.browser_navigation_enabled_ind=1;
 		application.datasources.main="workstream";
 		application.erroremailfrom="workstream@ait.com";
@@ -38,7 +38,7 @@
 		application.product_id=122;
 		application.product_name="Workstream";
 		application.product_release_version="4.0.0";
-		application.support_email_recipients="jeromy_french@hotmail.com;
+		application.support_email_recipients="jeromy_french@hotmail.com";
 		application.use_help_module_ind=1;
 		application.use_help_faq_ind=1;
 		application.use_help_search_ind=1;

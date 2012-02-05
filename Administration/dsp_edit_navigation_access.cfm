@@ -6,7 +6,7 @@
 		I help the administrator to administer user access.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="8/27/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="8/27/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/19/10) Adding ability to view user's activity.
 		</history>

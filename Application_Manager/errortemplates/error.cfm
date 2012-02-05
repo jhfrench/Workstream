@@ -6,7 +6,7 @@
 		I collect and store a wealth of information that can be used to understand that status of the application at the moment of error.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
 			$Id$
 			JF: 2/1/8
 			I'm replacing client variables with session variables because it's more important for FOCUS. To do this correctly, I'd need to create the Error_Log.session_variables column, wddx the session scope into its own variable and insert that variable into the new field. Then make client wddx store client information again.

@@ -6,7 +6,7 @@
 		I display the my ICET page to the user
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="3/15/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="3/15/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 			(jf | 1/12/10)
 			Display mod number on the non-.txt views also.

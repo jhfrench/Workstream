@@ -6,7 +6,7 @@
 		I show a list of reference tables that can be administered by developers.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/17/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/17/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 9/15/9)
 			Modifying query to be able to work in development, SEF and Production.
