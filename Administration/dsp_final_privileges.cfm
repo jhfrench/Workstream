@@ -6,7 +6,7 @@
 		I help the user assign NSM structure privileges.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -26,7 +26,7 @@
 <table  summary="Table displays access assignments for  user">
 	<tr>
 		<td colspan="2" title="table cell describes the data held in the table within this table">
-			You've assigned access for every <acronym title="NASA Structure Management">NSM</acronym> level that applies to program year #get_program_year.description#
+			You've assigned access for every <abbr title="NASA Structure Management">NSM</abbr> level that applies to program year #get_program_year.description#
 		</td>
 	</tr>
 	<tr>

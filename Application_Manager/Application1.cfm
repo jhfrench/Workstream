@@ -6,7 +6,7 @@
 		I run with every page load. I prevent users from accessing any template other than "index.cfm", coordinate the setting of application variables, handle the possibility of showing the user a friendly down message if application is inactive, and set up error handling.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
 			$Id$
 		</history>
 	</properties>

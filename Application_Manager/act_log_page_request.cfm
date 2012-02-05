@@ -6,7 +6,7 @@
 		I log the page request in the database. This data can then be compiled for reporting.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/25/2008" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/25/2008" role="FuseCoder" comments="Created File">
 			$Id$
 		</history>
 	</properties>

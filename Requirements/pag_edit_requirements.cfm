@@ -6,7 +6,7 @@
 		I present the user with a form to edit a specific requirement. I also show the history of that requirement.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

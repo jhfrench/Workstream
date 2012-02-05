@@ -6,7 +6,7 @@
 		I get all the values for a specified grouper, and the priveleges (relevant to the module we're working with) a user has for that value. If we're deeper than the top level of the NSM hiearchy, I limit the returned values to only the children of parents to which the user already has some sort of access.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/12/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/12/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

@@ -6,7 +6,7 @@
 		I log a data upload attempt by the user. I insert into the LOG_Upload table the date/time, session.user_account_id, cgi.REMOTE_ADDR, file being uploaded (original name and archived name), and the upload_source_id.
 	</responsibilities>
 	<properties>
-		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="8/17/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="8/17/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

@@ -6,7 +6,7 @@
 		I retrieve REF_State records.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/1/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/1/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

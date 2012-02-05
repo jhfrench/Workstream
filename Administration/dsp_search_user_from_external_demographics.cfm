@@ -6,7 +6,7 @@
 		I display the search form the administrator uses to get user information from external demographics warehouse.
 	</responsibilities>
 	<properties>
-		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

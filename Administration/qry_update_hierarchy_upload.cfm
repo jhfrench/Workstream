@@ -6,7 +6,7 @@
 		I upload Hierarchy_Upload.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/11/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/11/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(jf|11/19/07) Removed join restriction on organization name as per conversation with Brandy Henson
 		</history>

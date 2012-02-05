@@ -7,7 +7,7 @@
 		I evaluate to see if necessary variables exist. If it doesn't, tag displays a message that says "You have entered FAAD via an invalid url. This problem may be caused by using a history/favorite/bookmark link. Please update your bookmarks to point to "index.cfm?fuseaction=#relocate#". Tag then relocates the user to the page specified after an irritating delay.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -108,7 +108,7 @@
 <li class="">Momentarily you will be re-directed to the input page for the report you requested.</li>
 <li class="">Please update any favorites/bookmarks to point to <a href="#request.content#" class="">#request.content#</a></li>
 </ul>
-<p><div align="center" class=""><font color="##808080"><acronym title="Headquarters Information Technology Support Services">HITSS</acronym></p></span>
+<p><div align="center" class=""><font color="##808080"><abbr title="Applied Internet Technologies">AIT</abbr></p></span>
 		</font>
 		</cfoutput>
 		</td>

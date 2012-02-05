@@ -6,7 +6,7 @@
 		I get the query for the source of upload.
 	</responsibilities>
 	<properties>
-		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="6/22/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="6/22/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			modified by LK 6/27/2007
 		</history>

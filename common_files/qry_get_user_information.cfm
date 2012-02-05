@@ -6,7 +6,7 @@
 	I get active users in the system
 	</responsibilities>
 	<properties>
-		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 6/27/2006) Removing condition to user session.user_account_id if it exists; it always exists. If you want to get data for only one user, set attributes.user_account_id=session.user_account_id.
 		</history>

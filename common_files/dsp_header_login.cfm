@@ -6,7 +6,7 @@
 		I display a header for the login page.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/17/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/17/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -85,7 +85,7 @@
 						<td width="200">
 							<img src="images/spacer.gif" alt="" width="400" height="220" border="0"><br />
 							<div style="position:relative;top:-170px;left:722px;width:200px;">
-								<i>This <acronym title="Applied Internet Technologies">AIT</acronym> computer is for authorized users only.  By accessing this system you are consenting to complete monitoring with no expectation of privacy.  Unauthorized access or use may subject you to disciplinary action and criminal prosecution.</i>
+								<i>This <abbr title="Applied Internet Technologies">AIT</abbr> computer is for authorized users only.  By accessing this system you are consenting to complete monitoring with no expectation of privacy.  Unauthorized access or use may subject you to disciplinary action and criminal prosecution.</i>
 							</div>
 						</td>
 						<td width="550">

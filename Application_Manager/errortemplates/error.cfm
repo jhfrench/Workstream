@@ -6,7 +6,7 @@
 		I collect and store a wealth of information that can be used to understand that status of the application at the moment of error.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
 			$Id$
 			JF: 2/1/8
 			I'm replacing client variables with session variables because it's more important for FOCUS. To do this correctly, I'd need to create the Error_Log.session_variables column, wddx the session scope into its own variable and insert that variable into the new field. Then make client wddx store client information again.
@@ -320,8 +320,8 @@
 					<td class="content">
 						<p class="header">You have experienced an unexpected error. <br /></p>
 						<p>The Error Reference Number is<cfif isdefined("request.error_log_id") AND len(request.error_log_id)>: #request.error_log_id#<cfelse> unknown.</cfif></p>
-						<p>We apologize for the inconvenience this may cause. This page automatically sends an email to the <acronym title="Headquarters Information Technology Support Services">HITSS</acronym> Application Development department to ensure timely repair of the malfunction.</p>
-						<p>If you have any questions or concerns, please feel free to contact the <a href="mailto:service@hq.nasa.gov"><acronym title="Headquarters Information Technology Support Services">HITSS</acronym> Help Desk</a><cfif isdefined("request.error_log_id") AND len(request.error_log_id)> and reference Error Reference Number #request.error_log_id#</cfif>.
+						<p>We apologize for the inconvenience this may cause. This page automatically sends an email to the <abbr title="Applied Internet Technologies">AIT</abbr> Application Development department to ensure timely repair of the malfunction.</p>
+						<p>If you have any questions or concerns, please feel free to contact the <a href="mailto:service@hq.nasa.gov"><abbr title="Applied Internet Technologies">AIT</abbr> Help Desk</a><cfif isdefined("request.error_log_id") AND len(request.error_log_id)> and reference Error Reference Number #request.error_log_id#</cfif>.
 							<!--- the very same code as above --->
 							<cfif isdefined("application.application_support_contacts")>
 								<cfloop list="#structKeyList(application.application_support_contacts)#" index="contact_type_ii">

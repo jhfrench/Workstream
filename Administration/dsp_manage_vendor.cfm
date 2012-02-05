@@ -30,7 +30,7 @@
 			<th scope="col">Remove from Vendor List</th>
 			<th scope="col">Business</th>
 			<th scope="col">Division</th>
-			<th scope="col"><acronym title="Dunn and Bradstreet Universal Numbering System">DUNS</acronym></th>
+			<th scope="col"><abbr title="Dunn and Bradstreet Universal Numbering System">DUNS</abbr></th>
 		</tr>
 	</thead>
 	<tbody>

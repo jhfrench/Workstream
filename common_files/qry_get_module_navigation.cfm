@@ -6,7 +6,7 @@
 	</responsibilities>
 		I get module navigation for a specified user and a specified program year.
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/24/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/24/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

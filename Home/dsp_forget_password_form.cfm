@@ -6,7 +6,7 @@
 		I provide the form where a user enters username to get password reset.
 	</responsibilities>
 	<properties>
-		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

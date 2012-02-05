@@ -6,7 +6,7 @@
 		I show the report output selection criteria.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="1/10/2008" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="1/10/2008" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -33,5 +33,5 @@
 </a>
 <br />
 <a href="http://www.adobe.com/products/acrobat/readstep2.html" target="_blank">
-	<img src="images/pdf_logo.png" border="0" height="21" width="18" alt="P D F logo" /> <acronym title="Portable Document Format">PDF</acronym> output requires <acronym title="Portable Document Format">PDF</acronym> viewer.
+	<img src="images/pdf_logo.png" border="0" height="21" width="18" alt="P D F logo" /> <abbr title="Portable Document Format">PDF</abbr> output requires <abbr title="Portable Document Format">PDF</abbr> viewer.
 </a>

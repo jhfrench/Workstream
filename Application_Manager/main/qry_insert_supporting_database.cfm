@@ -6,7 +6,7 @@
 		I create a new record in the Supporting_Database table, then retrieve the primary key (supporting_database_id) for that new record.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
 			$Id$
 		</history>
 	</properties>

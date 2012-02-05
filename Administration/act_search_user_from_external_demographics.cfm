@@ -6,7 +6,7 @@
 		I display the result of the center and dlastname search of external demographics warehouse. I also allow a selection for further processing.
 	</responsibilities>
 	<properties>
-		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/19/10) Cleaning up verbiage and row coloring.
 		</history>

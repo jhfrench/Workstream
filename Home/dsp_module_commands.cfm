@@ -6,7 +6,7 @@
 		Page to display navigation links of Administration module.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/27/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="9/27/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 3/28/2008)
 			Converted REF_Business_Function.parent_ind to REF_Business_Function.navigation_type_id.

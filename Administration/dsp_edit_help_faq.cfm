@@ -6,7 +6,7 @@
 		I display the form for faq maintenance.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/18/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -116,13 +116,13 @@
 			<cfif attributes.email_requested_ind AND len(attributes.asker_email_address)>
 				A copy of this response will also be sent to <cfif len(attributes.asker_email_address)>#attributes.asker_email_address#<cfelse>#attributes.questioner#</cfif><br />
 			<cfelseif NOT len(attributes.asker_email_address)>
-				<acronym title="For Your Information">FYI</acronym>: The user asked to have the response emailed to them, but they did not provide an email address.
+				<abbr title="For Your Information">FYI</abbr>: The user asked to have the response emailed to them, but they did not provide an email address.
 			</cfif>
 			<cfif attributes.help_faq_id EQ 0>
 				<input type="submit" alt="Submit FAQ" name="send_help_faq" value="Submit FAQ"/>
 			<cfelse>
 				<cfif get_help_faq.active_ind EQ 0>
-					You cannot edit an inactive help <acronym title="Frequently Asked Question">FAQ</acronym><br />
+					You cannot edit an inactive help <abbr title="Frequently Asked Question">FAQ</abbr><br />
 				<cfelse>
 					<input type="submit" alt="Update FAQ" name="send_help_faq" value="Update FAQ"/>
 				</cfif>

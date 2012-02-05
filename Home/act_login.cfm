@@ -6,7 +6,7 @@
 		I authenticate users logging in.
 	</responsibilities>
 	<properties>
-		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -81,15 +81,15 @@ FROM User_Password
 		<!--- if user is not active --->
 		<cfelse>
 			<!--- Log the user as unsuccessful attempt --->
-			<cfset variables.display_message="<acronym title='#application.html_title#'>#application.product_name#</acronym> cannot authorize your access because your username/password combination is not correct.">
+			<cfset variables.display_message="<abbr title='#application.html_title#'>#application.product_name#</abbr> cannot authorize your access because your username/password combination is not correct.">
 		</cfif>
 	<!--- if user is not active --->
 	<cfelse>
-		<cfset variables.display_message="<acronym title='#application.html_title#'>#application.product_name#</acronym> cannot authorize your access because your username/password combination is not correct.">
+		<cfset variables.display_message="<abbr title='#application.html_title#'>#application.product_name#</abbr> cannot authorize your access because your username/password combination is not correct.">
 	</cfif>
 <!--- if account does not exist --->
 <cfelse>
-	<cfset variables.display_message="<acronym title='#application.html_title#'>#application.product_name#</acronym> cannot authorize your access because your username/password combination is not correct.">
+	<cfset variables.display_message="<abbr title='#application.html_title#'>#application.product_name#</abbr> cannot authorize your access because your username/password combination is not correct.">
 </cfif>
 
 <!--- keep track of login attempt --->

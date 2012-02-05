@@ -6,7 +6,7 @@
 		I show a list of emails that have been sent by the system.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="2/28/11" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="2/28/11" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 6/15/11)
 			Added ability to view emails sent through the application.

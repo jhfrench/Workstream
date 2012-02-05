@@ -6,7 +6,7 @@
 		I display the form for editing user.
 	</responsibilities>
 	<properties>
-		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="6/5/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="6/5/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/6/7) I moved this template from common_files because it's only being called from the Administration module.
 		</history>

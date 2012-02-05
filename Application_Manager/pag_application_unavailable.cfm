@@ -6,7 +6,7 @@
 		I am the page that the user sees when the active_ind for my installation is set to 0 and the Product.inactive_link field is set to 'pag_application_unavailable.cfm'.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
 			$Id$
 		</history>
 	</properties>

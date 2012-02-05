@@ -6,7 +6,7 @@
 		I help the user assign NSM structure privileges.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/31/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/31/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

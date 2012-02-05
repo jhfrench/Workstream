@@ -6,7 +6,7 @@
 		I retrieve a list of servers that have been identified as capable of hosting (or serving) applications. This concept is separate from servers that provide database support.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
 			$Id$
 		</history>
 	</properties>

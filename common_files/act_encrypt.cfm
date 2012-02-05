@@ -6,7 +6,7 @@
 		I do the encryption process.
 	</responsibilities>
 	<properties>
-		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="6/5/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="6/5/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

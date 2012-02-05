@@ -6,7 +6,7 @@
 		I help the user maintain the NSM structure.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/17/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="9/17/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -25,7 +25,7 @@
 
 <tr bgcolor="#808080">
 	<th>Edit</th>
-	<th><acronym title="NASA Structure Management">NSM</acronym> Organization</th>
+	<th><abbr title="NASA Structure Management">NSM</abbr> Organization</th>
 </tr>
 <cfif get_nsm_hierarchy_organizations.recordcount>
 	<cfoutput query="get_nsm_hierarchy_organizations">

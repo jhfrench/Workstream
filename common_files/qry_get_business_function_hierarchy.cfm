@@ -6,7 +6,7 @@
 		I get the meta-data that describes the different levels that make up the NSM structure for the specified program year. I can also accept and module or business function criteria.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/27/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/27/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

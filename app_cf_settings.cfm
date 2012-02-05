@@ -6,7 +6,7 @@
 		I set application specific settings that can't be specified in Application Manager.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="3/12/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="3/12/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -38,7 +38,7 @@
 		application.product_id=122;
 		application.product_name="Workstream";
 		application.product_release_version="4.0.0";
-		application.support_email_recipients="jeromy.h.french@nasa.gov";
+		application.support_email_recipients="jeromy_french@hotmail.com;
 		application.use_help_module_ind=1;
 		application.use_help_faq_ind=1;
 		application.use_help_search_ind=1;

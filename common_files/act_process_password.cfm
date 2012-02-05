@@ -6,7 +6,7 @@
 		I compare passwords to be sure old password is not same as new password when a user is changing password, then check if it meets 2810 requirements before allawing a change.
 	</responsibilities>
 	<properties>
-		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/6/7) Changed template name.
 		</history>

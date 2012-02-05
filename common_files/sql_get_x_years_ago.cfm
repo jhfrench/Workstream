@@ -7,7 +7,7 @@
 		Unfortunately the years in the REF_Program_Year table were not all populated sequentially. I return the program year ids that correspond to a range of years--you just need to provide the starting years, and how many years you want to go back (attributes.year_span as a negative number) or forward (positive number). This template is intended to be moduled from within a query block.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="1/9/2008" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="1/9/2008" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

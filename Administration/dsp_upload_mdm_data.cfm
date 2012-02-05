@@ -6,7 +6,7 @@
 		I help the user maintain the NSM structure.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/18/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="9/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -31,12 +31,12 @@ ORDER BY ISNULL(project_wbs,'!'), ISNULL(program,'!'), ISNULL(theme,'!'),
 </cfquery>
 
 <cfif get_bad_hierarchy_upload.recordcount EQ 0 AND variables.error_ind EQ 0>
-	All of the records from your file were successfully integrated into the FAAD <acronym title="NASA Structure Management">NSM</acronym> structure.
+	All of the records from your file were successfully integrated into the FAAD <abbr title="NASA Structure Management">NSM</abbr> structure.
 <cfelseif get_bad_hierarchy_upload.recordcount>
 	<table border="0" cellpadding="1" cellspacing="0" summary="Table lists all the records that could not be integrated into the FAAD NSM structure">
 		<tr>
 			<td colspan="7" title="table cell describes the data held in thecells below">
-				The following records could not be integrated into the FAAD <acronym title="NASA Structure Management">NSM</acronym> structure:
+				The following records could not be integrated into the FAAD <abbr title="NASA Structure Management">NSM</abbr> structure:
 			</td>
 		</tr>
 		<tr>

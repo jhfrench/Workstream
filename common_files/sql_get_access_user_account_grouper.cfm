@@ -6,7 +6,7 @@
 		I return a given user's access for a specific program year and module
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="3/15/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="3/15/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

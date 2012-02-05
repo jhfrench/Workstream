@@ -6,7 +6,7 @@
 		I am executed by a scheduled CF job. When I run, I log into the HQ FTP server and look for the existence of specified files (PRIM (2), FAAD (5) and SAP (4) are the default, but can be limited with the url parameter url.upload_source_type_id). If the specified file exists, I rename a copy of the file using mask [feed type]_[yyyy]_[mm]_01.[original_extension], I transfer a copy of that file to the /Uploaded_Files folder, I log the original and new file names to LOG_Upload, then I kick off the relevant data factory process to retreive/process/delete the file from the FTP server. To be clear--this CF process only handles archival of the file, and kicking off the SQL Server job that will do the rest.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="5/30/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="5/30/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

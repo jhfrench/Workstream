@@ -6,7 +6,7 @@
 		I get fund control for the selected year.
 	</responsibilities>
 	<properties>
-		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="8/9/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="8/9/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

@@ -43,7 +43,7 @@
 
 <div class="datachart" style="border:1px solid ##999999" title="table head describes the data held in the table within this table">
 <table cellspacing="1" cellpadding="4" width="100%" border="0" bgcolor="##cccccc" summary="Table displays user account information">
-	<tr bgcolor="##cccccc"><th><strong><cfif attributes.naics_id EQ 0>ADD NEW<cfelse>EDIT EXISTING</cfif> <acronym title="North American Industry Classification Service">NAICS</acronym></strong></th></tr>
+	<tr bgcolor="##cccccc"><th><strong><cfif attributes.naics_id EQ 0>ADD NEW<cfelse>EDIT EXISTING</cfif> <abbr title="North American Industry Classification Service">NAICS</abbr></strong></th></tr>
 	<tr bgcolor="##eeeeee">
 		<td>
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="table displays user account information">

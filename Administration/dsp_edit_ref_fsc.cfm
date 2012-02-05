@@ -45,7 +45,7 @@
 
 <div class="datachart" style="border:1px solid ##999999" title="table head describes the data held in the table within this table">
 <table cellspacing="1" cellpadding="4" width="100%" border="0" bgcolor="##cccccc" summary="Table displays FSC information">
-	<tr bgcolor="##cccccc"><th><strong><cfif attributes.fsc_id EQ 0>ADD NEW<cfelse>EDIT EXISTING</cfif> <acronym title="Federal Supply Classification">FSC</acronym></strong></th></tr>
+	<tr bgcolor="##cccccc"><th><strong><cfif attributes.fsc_id EQ 0>ADD NEW<cfelse>EDIT EXISTING</cfif> <abbr title="Federal Supply Classification">FSC</abbr></strong></th></tr>
 	<tr bgcolor="##eeeeee">
 		<td>
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="table displays FSC information">

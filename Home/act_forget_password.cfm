@@ -6,7 +6,7 @@
 		I provide the form where a user enters username to get password reset.
 	</responsibilities>
 	<properties>
-		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -30,7 +30,7 @@
 		<table cellspacing="1" cellpadding="4" width="100%" border="0" width="250" summary="Table displays invalid username">
 		<tr>
 			<td style="color:white;">
-			<cfoutput><acronym title="#application.html_title#">#application.product_name#</acronym></cfoutput> cannot authorize your access because your username is invalid. You may <a href="index.cfm?fuseaction=Home.login" title="go back" style="color:yellow;">try to log in again</a>.
+			<cfoutput><abbr title="#application.html_title#">#application.product_name#</abbr></cfoutput> cannot authorize your access because your username is invalid. You may <a href="index.cfm?fuseaction=Home.login" title="go back" style="color:yellow;">try to log in again</a>.
 			</td>
 		</tr>
 		</table>

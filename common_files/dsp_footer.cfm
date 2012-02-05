@@ -3,10 +3,10 @@
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_footer.cfm">
 	<responsibilities>
-		I display application footer, which include generic NASA links. Depending on page accessed and whether or not the application uses the help module I may also display the help content.
+		I display application footer, which include generic AIT links. Depending on page accessed and whether or not the application uses the help module I may also display the help content.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/12/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/12/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

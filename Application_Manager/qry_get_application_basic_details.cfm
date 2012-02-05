@@ -6,7 +6,7 @@
 		I am one of the most important queries used by the Application_Manager system. I retrieve a wealth of details about a given installation as identified by the URL used to access the product.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
 		$Id$
 		</history>
 	</properties>

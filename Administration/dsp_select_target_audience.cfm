@@ -5,7 +5,7 @@
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/23/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/23/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -33,7 +33,7 @@ Select the audience you wish to receive your emal:
 	<input type="checkbox" name="business_category_id" id="business_category_id_#business_category_id#" value="#business_category_id#" /><label for="business_category_id_#business_category_id#">#description#</label><br />
 	</cfloop>
 </cfoutput>
-	<label for="naics_id"><acronym title="North American Industry Classification Service">NAICS</acronym> Code</label>:<br />
+	<label for="naics_id"><abbr title="North American Industry Classification Service">NAICS</abbr> Code</label>:<br />
 	<cfselect name="naics_id" id="naics_id" query="get_ref_naics" value="naics_id" display="code_description" multiple="yes" size="5"></cfselect><br />
 	<label for="state_province_id">State/Foreign Province</label>:<br />
 	<cfselect name="state_province_id" id="state_province_id" query="get_ref_state_province" value="state_province_id" display="description" multiple="yes" size="5"></cfselect><br />

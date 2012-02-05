@@ -6,7 +6,7 @@
 		I show the Help_Article records associated with the fuseaction of the page the user is viewing.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/16/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/16/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -119,7 +119,7 @@ function open_help_detail(article_type_id, article_id) {
 			</tr><cfif application.use_help_faq_ind+application.use_help_search_ind>
 			<tr>
 				<th id="button_article" style="background-color:##fcf2f5; border:1px solid black; width:#variables.button_width#px;"><a href="##button_article_a" onclick="javascript:show_articles();hide_faqs();hide_search();" name="button_article_a" style="text-decoration:none; cursor: pointer;">Articles</a></th>
-				<cfif application.use_help_faq_ind><th id="button_faq" style="background-color:##bbbbbb; border:1px solid black; width:#variables.button_width#px;"><a href="##button_faq_a" onclick="javascript:hide_articles();show_faqs();<cfif application.use_help_search_ind>hide_search();</cfif>" name="button_faq_a" style="text-decoration:none; cursor: pointer;"><acronym title="Frequently Asked Questions">FAQ</acronym></a></th></cfif>
+				<cfif application.use_help_faq_ind><th id="button_faq" style="background-color:##bbbbbb; border:1px solid black; width:#variables.button_width#px;"><a href="##button_faq_a" onclick="javascript:hide_articles();show_faqs();<cfif application.use_help_search_ind>hide_search();</cfif>" name="button_faq_a" style="text-decoration:none; cursor: pointer;"><abbr title="Frequently Asked Questions">FAQ</abbr></a></th></cfif>
 				<cfif application.use_help_search_ind><th id="button_search" style="background-color:##bbbbbb; border:1px solid black; width:#variables.button_width#px;"><a href="##button_search_a" onclick="javascript:hide_articles();<cfif application.use_help_faq_ind>hide_faqs();</cfif>show_search();" name="button_search_a" style="text-decoration:none; cursor: pointer;">Search</a></th></cfif>
 			</tr></cfif>
 		</thead>

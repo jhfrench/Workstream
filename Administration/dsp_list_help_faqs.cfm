@@ -6,7 +6,7 @@
 		Page displays a list of help faqs.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/21/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="9/21/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/19/10) Cleaning up verbiage and row coloring.
 		</history>
@@ -35,7 +35,7 @@
 	</tr>
 	<tr>
 		<td align="left" class="menuItem" bgcolor="#eeeeee" onmouseover="new Effect.Highlight(this, {duration:0.1,startcolor:'#5394bd',endcolor:'#5394bd',restorecolor:'#5394bd'});this.style.cursor='pointer';" onmouseout="new Effect.Highlight(this, {duration:0.25,startcolor:'#999999',endcolor:'#bbbbbb',restorecolor:'#eeeeee'});">
-			<a href="javascript:edit_listed_help_faq(0);">Add a new <acronym title="Frequently Asked Question">FAQ</acronym></a>
+			<a href="javascript:edit_listed_help_faq(0);">Add a new <abbr title="Frequently Asked Question">FAQ</abbr></a>
 		</td>
 	</tr>
 </table>

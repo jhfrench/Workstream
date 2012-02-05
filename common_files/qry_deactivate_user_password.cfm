@@ -6,7 +6,7 @@
 		I deactivate the active User_Password record for a specific user account.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/12/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/12/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

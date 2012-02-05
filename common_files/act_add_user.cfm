@@ -6,7 +6,7 @@
 		I am responsible for processing the form that adds a user.
 	</responsibilities>
 	<properties>
-		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="5/31/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="5/31/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 6/29/9) Removed password logic, which is handled elsewhere.
 		</history>

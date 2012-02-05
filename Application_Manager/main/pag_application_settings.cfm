@@ -6,7 +6,7 @@
 		I dump the application structure so the user can see all the application variables and settings for Application_Manager.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="3/10/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="3/10/2009" role="FuseCoder" comments="Created File">
 			$Id$
 		</history>
 	</properties>

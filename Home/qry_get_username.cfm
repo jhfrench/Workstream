@@ -6,7 +6,7 @@
 		I get user information (id, status, etc.) from the system.
 	</responsibilities>
 	<properties>
-		<history email="omoniyi.fajemidupe-1@nasa.gov" author="Omoniyi Fajemidupe" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/12/10) Added abilitiy to look-up a username based on an incoming email address.
 		</history>

@@ -6,7 +6,7 @@
 		I insert new records into the L_Installation_Support_Contact table. This table is a crosswalk table that links Installation records with one or more Support_Contact records.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
 			$Id$
 		</history>
 	</properties>

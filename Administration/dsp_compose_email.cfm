@@ -5,7 +5,7 @@
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/23/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/23/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -48,7 +48,7 @@
 	Your criteria returned no potential recipients.<br />
 </cfif>
 
-<label for="carbon_copy_to" style="width:100px"><acronym title="Carbon Copy">CC</acronym>:</label> <cfinput type="text" name="carbon_copy_to" id="cc" value="" size="50" maxlength="4000" /><br />
+<label for="carbon_copy_to" style="width:100px"><abbr title="Carbon Copy">CC</abbr>:</label> <cfinput type="text" name="carbon_copy_to" id="cc" value="" size="50" maxlength="4000" /><br />
 
 <label for="subject" style="width:100px">Subject:</label> <cfinput type="text" name="subject" id="subject" value="" size="50" maxlength="200" required="yes" message="Please enter a subject." /><br />
 

@@ -6,7 +6,7 @@
 		Page displays a list of help articles.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/21/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="9/21/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/19/10) Cleaning up verbiage and row coloring.
 		</history>

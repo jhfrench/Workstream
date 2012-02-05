@@ -6,7 +6,7 @@
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/2/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="7/2/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 9/11/9)
 			Making corrections depicted in error_gh_2009_09_11_1351.doc.
@@ -90,7 +90,7 @@
 			</cfoutput>
 			</ul>
 		<cfelse>
-			This vendor has not uploaded any documents into <acronym title="Federal Assistance Award Data">FAAD</acronym>.
+			This vendor has not uploaded any documents into <abbr title="Federal Assistance Award Data">FAAD</abbr>.
 		</cfif>
 	</cfcase>
 	<cfcase value="2">

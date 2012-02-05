@@ -5,7 +5,7 @@
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/4/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/4/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 			(1/11/11 | JF)
 			Accomodating SQL limitation for more than 1000 recipients.
@@ -50,7 +50,7 @@
 <cfinclude template="qry_get_email_recipients.cfm">
 
 <cfif get_email_recipients.recordcount EQ 0>
-	<cfoutput>Your message has no valid recipients, so it cannot be sent<cfif len(attributes.carbon_copy_to)>;<br /> the following recipient(s) have opted out of receiving <acronym title="#application.html_title#">#application.product_name#</acronym> emails:<br /> #variables.carbon_copy_to#</cfif>.</cfoutput>
+	<cfoutput>Your message has no valid recipients, so it cannot be sent<cfif len(attributes.carbon_copy_to)>;<br /> the following recipient(s) have opted out of receiving <abbr title="#application.html_title#">#application.product_name#</abbr> emails:<br /> #variables.carbon_copy_to#</cfif>.</cfoutput>
 <cfelse>
 	<cfscript>
 		if (isdefined("session.user_account_id")) {

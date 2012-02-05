@@ -6,7 +6,7 @@
 		I create templates from ref_screen table.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -27,7 +27,7 @@
 <cfset variables.directory="Reports">
 <cfparam name="session.first_name" default="Jeromy">
 <cfparam name="session.last_name" default="French">
-<cfparam name="session.email_address" default="jeromy.h.french@nasa.gov">
+<cfparam name="session.email_address" default="jeromy_french@hotmail.com>
 <cfquery name="get_report_screens" datasource="#application.datasources.main#">
 SELECT 'pag_'+REPLACE(fuseaction,'#variables.directory#.','')+'.cfm' AS page_name, description AS business_function, REPLACE(fuseaction,'Reports.','') AS page_guts
 FROM REF_Screen

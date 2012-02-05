@@ -6,7 +6,7 @@
 		I display the user information in a form when existing users are being edited.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/19/10) Cleaning up verbiage and row coloring.
 		</history>
