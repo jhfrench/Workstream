@@ -48,10 +48,9 @@
 </cfsilent>
 <cfform name="input_form" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
 <cfoutput>
-	<input type="hidden" name="evaluate_task_options" value="1">
-	<cfif session.workstream_show_options><input type="hidden" name="show_options" value="#session.workstream_show_options#"></cfif>
-<tr>
-	<td colspan="#variables.total_columns#">
+<div id="dropdowns">
+<input type="hidden" name="evaluate_task_options" value="1">
+<cfif session.workstream_show_options><input type="hidden" name="show_options" value="#session.workstream_show_options#"></cfif>
 <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tr bgcolor="##78A0EB">
 		<td class="HeadText">
@@ -68,8 +67,7 @@
 		</td>
 	</tr>
 </table>
-	</td>
-</tr>
+</div>
 </cfoutput>
 </cfform>
 

@@ -16,10 +16,10 @@
 </cfsilent>
 	<cfinclude template="../common_files/act_client_vars.cfm">
 	<cfinclude template="../common_files/act_task_list_order.cfm">
+	<cfinclude template="qry_task_list.cfm">
+	<cfinclude template="../common_files/dsp_dropdowns.cfm">
 	<table align="center" border="0" cellpadding="1" cellspacing="0" width="100%">
-		<cfinclude template="qry_task_list.cfm">
 		<cfif NOT task_list.recordcount>
-			<cfinclude template="../common_files/dsp_dropdowns.cfm">
 			<cfinclude template="../common_files/dsp_task_list_header.cfm">
 		</cfif>
 		<cfinclude template="../common_files/dsp_task_list.cfm">

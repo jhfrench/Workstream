@@ -38,7 +38,7 @@
 						<!-- [[ RIGHT COLUMN END ]] -->
 					</cfif>
 					<img src="images/spacer.gif" alt="" height="10" width="252" border="0" /><br />
-					<img src="images/watermark_christmas.jpg" alt="column watermark" height="345" width="200" border="0" class="screen_only" />
+					<img src="images/watermark_birch.jpg" alt="column watermark" height="345" width="200" border="0" class="screen_only" />
 					</td>
 </cfif>
 				</tr>

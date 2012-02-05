@@ -11,7 +11,7 @@
 	Edits:
 	$Log$
 	||
-	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
+	--> application.datasources.main: string that contains the name of the datasource AS mapped in CF administrator
 	--> session.user_account_id: id that identifies user to workstream
 	--> session.workstream_show_closed: number that indicates the desire of the user to hide or show tasks which have already been completed; 1 means include the task, 0 means exclude the task
 	--> session.workstream_show_on_hold: number that indicates the desire of the user to hide or show tasks which have been put on hold; 1 means include the task, 0 means exclude the task
@@ -58,43 +58,48 @@ SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id AS task_id,
 	(CASE WHEN Task.status_id IN (4,10) THEN Task_Details.task_status+' by '+Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
 	(Customer.description + '-' + Project.description) AS project_name, priority
 FROM Task, Team, Emp_Contact,
-	Customer, Project, Link_Project_Company, 
-	(SELECT Path.task_id AS task_id, ISNULL(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
-		(ISNULL(CASE WHEN ISNULL(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
-		REF_Status.status as task_status, Emp_Contact.lname as task_owner, priority
-	FROM Task, REF_Status, Team, Emp_Contact,
-		(SELECT Valid_Tasks.task_id AS task_id, CASE WHEN REF_Icon.path='0' THEN 'document.gif' ELSE REF_Icon.path END as path, priority
-			FROM
-			(SELECT Task.task_id, REF_p.description as priority
-			FROM Task Inner join REF_priority REF_p on task.priority_id=REF_p.priority_id, Team
-			WHERE Task.task_id=Team.task_id <cfif NOT from_invoice>AND Team.emp_id IN (<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#session.user_account_id#</cfif>)
-				AND (
-					(
-						Team.roll_id IN (1,<cfif session.workstream_show_team>4,</cfif>0)
-						AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>13)
-					)
-					OR (
-						Team.roll_id=3 
-						AND Task.status_id IN (4,10)
-					)
-				)</cfif>
-			GROUP BY Task.task_id, REF_p.description) 
-		AS Valid_Tasks, Task, REF_Icon
-		WHERE Valid_Tasks.task_id=Task.task_id AND REF_Icon.icon_id=Task.icon_id)
-	AS Path
-	<cfif from_invoice>INNER<cfelse>LEFT OUTER</cfif> JOIN (
-		SELECT SUM(hours) as hours_used, task_id as task_id
-		FROM Time_Entry<cfif from_invoice>
-		WHERE DATEPART(m, Time_Entry.date)=#attributes.month#
-			AND DATEPART(yyyy, Time_Entry.date)=#attributes.year#</cfif>
-		GROUP BY task_id
-	) AS Recorded_Hours ON Path.task_id = Recorded_Hours.task_id
-	WHERE Task.task_id=Path.task_id
-		AND REF_Status.status_id=Task.status_id
-		AND Task.task_id=Team.task_id 
-		AND Team.roll_id=1
-		AND Emp_Contact.emp_id=Team.emp_id
-) AS Task_Details
+	Customer, Project, Link_Project_Company, (
+		SELECT Path.task_id AS task_id, ISNULL(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
+			(ISNULL(CASE WHEN ISNULL(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
+			REF_Status.status AS task_status, Emp_Contact.lname AS task_owner, priority
+		FROM Task, REF_Status, Team,
+			Emp_Contact, (
+				SELECT Valid_Tasks.task_id AS task_id, CASE WHEN REF_Icon.path='0' THEN 'document.gif' ELSE REF_Icon.path END AS path, priority
+				FROM (
+					SELECT Task.task_id, REF_Priority.description AS priority
+					FROM Task 
+						INNER JOIN REF_Priority on Task.priority_id=REF_Priority.priority_id
+						INNER JOIN Team ON Task.task_id=Team.task_id
+					WHERE 1=1<cfif NOT from_invoice>
+						AND Team.emp_id IN (<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#session.user_account_id#</cfif>)
+						AND (
+							(
+								Team.roll_id IN (1,<cfif session.workstream_show_team>4,</cfif>0)
+								AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>13)
+							)
+							OR (
+								Team.roll_id=3 
+								AND Task.status_id IN (4,10)
+							)
+						)</cfif>
+					GROUP BY Task.task_id, REF_Priority.description
+				) AS Valid_Tasks, Task, REF_Icon
+				WHERE Valid_Tasks.task_id=Task.task_id
+					AND REF_Icon.icon_id=Task.icon_id
+			) AS Path
+			<cfif from_invoice>INNER<cfelse>LEFT OUTER</cfif> JOIN (
+				SELECT SUM(hours) AS hours_used, task_id AS task_id
+				FROM Time_Entry<cfif from_invoice>
+				WHERE DATEPART(m, Time_Entry.date)=#attributes.month#
+					AND DATEPART(yyyy, Time_Entry.date)=#attributes.year#</cfif>
+				GROUP BY task_id
+			) AS Recorded_Hours ON Path.task_id = Recorded_Hours.task_id
+		WHERE Task.task_id=Path.task_id
+			AND REF_Status.status_id=Task.status_id
+			AND Task.task_id=Team.task_id 
+			AND Team.roll_id=1
+			AND Emp_Contact.emp_id=Team.emp_id
+	) AS Task_Details
 WHERE Customer.customer_id=Project.customer_id
 	AND Task_Details.task_id=Team.task_id
 	AND Task.project_id=Project.project_id 

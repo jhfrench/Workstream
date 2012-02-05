@@ -39,21 +39,17 @@
 </cfsilent>
 <cfif task_list.recordcount>
 <cfoutput query="task_list" group="#group#">
-<cfif comparenocase(listlast(attributes.fuseaction, '.'),"output")>
-	<cfinclude template="dsp_dropdowns.cfm">
-	<cfinclude template="dsp_task_list_header.cfm"> 
-</cfif>
 <cfoutput> 
 <cfset StatusMsg=ReplaceList(task_name, variables.StatusMsg_replace, variables.StatusMsg_replace_with)>
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td class="RegText">#dateformat(date_due, "mm/dd/yyyy")#</td>
-		<td class="RegText">#task_id#</td>
-		<td class="RegText"><a href="javascript:list_to_time('#task_id#');" title="View time details for #StatusMsg#." class="RegText"><cfif listlen(time_used) GT 1 AND listgetat(time_used,2,".") GT 0>#decimalformat(time_used)#<cfelse>#numberformat(time_used)#</cfif><cfif time_budgeted>/#time_budgeted# #numberformat(percent_time_used)#%</cfif></a></td>
+		<td class="RegText" scope="row">#task_id#</td>
 		<td class="RegText">#task_owner#</td>
 		<td class="RegText"><a href="javascript:list_to_task('#task_id#');" title="View time details for #StatusMsg#." class="RegText"><img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" title="#ReplaceList(task_description, variables.quote, variables.StatusMsg_replace_with)#" height="16" width="16" border="0">#task_name#</a></td>
 		<td class="RegText">#project_name#</td>
 		<td class="RegText">#priority#</td>
+		<td class="RegText"><a href="javascript:list_to_time('#task_id#');" title="View time details for #StatusMsg#." class="RegText"><cfif listlen(time_used) GT 1 AND listgetat(time_used,2,".") GT 0>#decimalformat(time_used)#<cfelse>#numberformat(time_used)#</cfif><cfif time_budgeted>/#time_budgeted# #numberformat(percent_time_used)#%</cfif></a></td>
 		<td class="RegText"><cfif status_id NEQ 7 AND now() GTE date_due><img src="#request.dir_level##application.application_specific_settings.image_dir#<cfif dateformat(now(), "mm/dd/yyyy") EQ dateformat(date_due, "mm/dd/yyyy")>not_started<cfelse>overdue</cfif>.gif" width="17" height="17" alt="" border="0">&nbsp;</cfif>#task_status#</td>
+		<td class="RegText">#dateformat(date_due, "mm/dd/yyyy")#</td>
 	</tr>
 </cfoutput>
 </cfoutput>

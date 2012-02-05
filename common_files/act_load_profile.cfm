@@ -19,7 +19,7 @@
 	session.workstream_company_id=profile_lookup.company_id;
 	session.workstream_company_name=profile_lookup.company_name;
 	session.workstream_selected_company_id=profile_lookup.company_select_list;
-	session.workstream_emp_contact_type=profile_lookup.1;
+	session.workstream_emp_contact_type=1;
 	session.workstream_express_input_rows=profile_lookup.express_input_rows;
 	session.workstream_express_notes_height=profile_lookup.express_notes_height;
 	session.workstream_express_notes_width=profile_lookup.express_notes_width;
@@ -36,4 +36,3 @@
 	session.workstream_text_size=profile_lookup.text_size;
 </cfscript>
 </cfsilent>
-
