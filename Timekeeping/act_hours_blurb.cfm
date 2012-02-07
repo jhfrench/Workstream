@@ -30,7 +30,7 @@
 	<cfset variables.last_month=0>
 	<cfset variables.difference=0>
 	<cfset variables.admin_time=0>
-	<cfset variables.should_have=datediff("d","#month(now())#/1/#year(now())#",now())*5.2>
+	<cfset variables.should_have=datediff("d","#month(now())#/1/#year(now())#",now())*1.3>
 </cfsilent>
 <cfinclude template="qry_hours_blurb.cfm">
 <cfinclude template="qry_time_allocation_blurb.cfm">
@@ -39,19 +39,20 @@
 	<cfset variables.total=month_hours+variables.total>
 	<cfif variables.transaction_date EQ month(dateadd("m",-1,now()))>
 		<cfset variables.last_month=month_hours>
+		<cfset variables.last_month_prorated=variables.last_month/30.4*datepart("d", now())><!--- 30.41 is avg number of days per month --->
 	<cfelse>
 		<cfset variables.this_month=max(month_hours,1)>
 	</cfif>
 	<cfif len(variables.last_month) AND variables.last_month NEQ 0>
-		<cfset variables.difference=numberformat((variables.this_month-variables.last_month)/variables.last_month*100)>
+		<cfset variables.difference=numberformat((variables.this_month-variables.last_month_prorated)/variables.last_month_prorated*100)>
 	</cfif>
 </cfoutput>
 <cfset variables.hours_blurb="According to your time entries, this month you worked #decimalformat(variables.this_month)# hours. Last month you worked #decimalformat(variables.last_month)# hours.">
 <cfif variables.difference GT 0>
-	<cfset variables.hours_blurb="#variables.hours_blurb# This is an increase of #variables.difference#% from last month.">
+	<cfset variables.hours_blurb="#variables.hours_blurb# This is a projected increase of #variables.difference#% from last month.">
 <cfelseif variables.difference LT 0>
 	<cfset variables.difference=variables.difference*-1>
-	<cfset variables.hours_blurb="#variables.hours_blurb# This is a decrease of #variables.difference#% from last month.">
+	<cfset variables.hours_blurb="#variables.hours_blurb# This is a projected decrease of #variables.difference#% from last month.">
 </cfif>
 <cfoutput query="time_allocation_blurb" maxrows="1">
 	<cfset variables.big_hours=decimalformat(project_hours)>

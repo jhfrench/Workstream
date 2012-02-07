@@ -112,7 +112,9 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 					AND Task.task_id IN(#attributes.task_id#)
 					</cfif>
 					<cfif isdefined("attributes.task_name_box") AND len(attributes.task_name)>
-					AND (<cfloop list="#attributes.task_name#" index="ii"><cfset counter=incrementvalue(counter)>Task.name LIKE '%#ii#%'<cfif counter NEQ listlen(attributes.task_name)> OR </cfif></cfloop>)</cfif><cfif isdefined("attributes.task_owner_box") AND isdefined("attributes.task_owner")>
+					AND (<cfloop list="#attributes.task_name#" index="ii"><cfset counter=incrementvalue(counter)>Task.name LIKE '%#ii#%'<cfif counter NEQ listlen(attributes.task_name)> OR </cfif></cfloop>)</cfif>
+					<cfif isdefined("attributes.description_box") AND len(attributes.description)>
+					AND (<cfloop list="#attributes.description#" index="ii"><cfset counter=incrementvalue(counter)>Task.description LIKE '%#ii#%'<cfif counter NEQ listlen(attributes.description)> OR </cfif></cfloop>)</cfif><cfif isdefined("attributes.task_owner_box") AND isdefined("attributes.task_owner")>
 					AND Team.roll_id=1
 					AND Team.emp_id IN (#attributes.task_owner#)</cfif><cfif isdefined("attributes.task_source_box") AND isdefined("attributes.task_source")>
 					AND Task.creator IN (#attributes.task_source#)</cfif><cfif attributes.used_by_search>

@@ -20,8 +20,10 @@
 <table align="center" cellpadding="0" cellspacing="0" border="0" width="80%">
  	<cfinclude template="dsp_search_header.cfm">
 	<cfinclude template="dsp_search_row_top.cfm">
-	<cfinclude template="dsp_task_name.cfm">
 	<cfinclude template="dsp_task_id.cfm">
+	<cfinclude template="dsp_task_name.cfm">
+	<cfinclude template="dsp_description.cfm">
+	<cfinclude template="dsp_notes.cfm">
 	<cfinclude template="dsp_date_entered.cfm">
 	<cfinclude template="dsp_due_date.cfm">
  	<cfinclude template="dsp_task_owner.cfm">
@@ -29,7 +31,6 @@
 	<cfinclude template="dsp_project_code.cfm">
 	<cfinclude template="dsp_priority.cfm">
 	<cfinclude template="dsp_task_stati.cfm">
-	<cfinclude template="dsp_notes.cfm">
 	<cfinclude template="../common_files/dsp_submit_button.cfm">
 	<input type="hidden" name="used_by_search" value="1">
 	<input type="hidden" name= "project_id_list" value= "<cfoutput>#valuelist(get_search_projects.project_id)#</cfoutput>">
