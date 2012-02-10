@@ -13,8 +13,8 @@
 	||
 	Variables:
 	END FUSEDOC --->
-<cfparam name="attributes.month" default="#DatePart("m",now())#">
-<cfparam name="attributes.year" default="#DatePart("yyyy",now())#">
+<cfparam name="attributes.month" default="#month(now())#">
+<cfparam name="attributes.year" default="#year(now())#">
 </cfsilent>
 <cfinclude template="qry_get_extreme_dates.cfm">
 <cfinclude template="qry_invoice_list.cfm">

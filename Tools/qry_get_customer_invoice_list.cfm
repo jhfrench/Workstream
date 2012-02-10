@@ -25,13 +25,15 @@ FROM Time_Entry
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	LEFT OUTER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
 WHERE Project.billable_type_id=1
-	AND Link_Company_Emp_Contact.company_id=1<cfif isdefined("attributes.invoice_id")>
+	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)<cfif isdefined("attributes.invoice_id")>
 	AND Time_Entry.time_entry_id IN (
 		SELECT time_entry_id
 		FROM Link_Invoice_Time_Entry
 		WHERE active_ind=1
 			AND invoice_id=#attributes.invoice_id#
-	)<cfelse>
+	)<cfelseif isdefined("attributes.month") AND isdefined("attributes.year")>
+	AND MONTH(Time_Entry.date)=#attributes.month#
+	AND YEAR(Time_Entry.date)=#attributes.year#<cfelse>
 	AND Time_Entry.time_entry_id NOT IN (
 		SELECT time_entry_id
 		FROM Link_Invoice_Time_Entry

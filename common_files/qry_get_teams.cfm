@@ -28,6 +28,6 @@ FROM (
 	WHERE Security_Company_Access.company_id = REF_Company.company_id
 		AND Security_Company_Access.emp_id=#session.user_account_id#
 	) AS Elligible_Companies
-GROUP BY description, company_id
-ORDER BY description
+GROUP BY company, company_id
+ORDER BY company
 </cfquery>

@@ -13,8 +13,8 @@
 	||
 	Variables:
 	END FUSEDOC --->
-<cfparam name="attributes.month" default="#DatePart("m",now())#">
-<cfparam name="attributes.year" default="#DatePart("yyyy",now())#">
+<cfparam name="attributes.month" default="#month(now())#">
+<cfparam name="attributes.year" default="#year(now())#">
 </cfsilent>
 <cfinclude template="qry_get_extreme_dates.cfm">
 <cfinclude template="qry_get_customer_invoice_list.cfm">
@@ -23,6 +23,6 @@
 	<cfinclude template="dsp_customer_invoice_list.cfm">
 	<cfinclude template="dsp_invoice_list_form.cfm">
 </table>
+
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="customer_to_project" field_name="customer_id" field2_name="drill_through" field2_value="#attributes.month#|#attributes.year#" fuseaction="Tools.invoice_list">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_tasks" field_name="project_id" field2_name="ignore_owner" field2_value="#attributes.month#|#attributes.year#" fuseaction="Timekeeping.task_list">
-

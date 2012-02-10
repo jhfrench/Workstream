@@ -22,7 +22,7 @@
 				<cfif listfindnocase(variables.valid_files,left(listlast(file_path,"."),3))>
 					<cfset variables.file_img=left(listlast(file_path,"."),3)>
 				</cfif>
-			<a href="file:///#replace(file_path,'\','/')#" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" target="_blank" class="RegText"><img src="#request.dir_level##application.application_specific_settings.image_dir#icon_#variables.file_img#.gif" valign="bottom" width="16" height="16" border="0"> #file_path#</a><cfif currentrow NEQ get_associated_files.recordcount><br></cfif></cfoutput>
+			<a href="#file_path#" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" target="_blank" class="RegText"><img src="#request.dir_level##application.application_specific_settings.image_dir#icon_#variables.file_img#.gif" valign="bottom" width="16" height="16" border="0" /> #file_path#</a><cfif currentrow NEQ get_associated_files.recordcount><br></cfif></cfoutput>
 			<cfelse>
 			<span class="Note">No files currently associated with this task.</span>
 			</cfif><br>
