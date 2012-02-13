@@ -38,7 +38,7 @@ else
 <cfmodule template="qry_get_system_note.cfm"> --->
 
 <cfoutput>
-<html xmlns='http://www.w3.org/1999/xhtml'>
+<html>
 	<head>
 		<title>#application.html_title#</title>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -52,18 +52,18 @@ else
 		<meta name="dc.publisher" content="Applied Internet Technologies: #application.application_specific_settings.nasa_official#" />
 		<!--Meta Data ends-->
 		<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
-		<link href="common_files/ngauge_#session.workstream_text_size#.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />
-		<link href="common_files/application.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />
-		<link href="common_files/common.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />
-		<link href="common_files/print.css?cache_escape=#variables.cache_escape#" rel="stylesheet" type="text/css" media="print" />
-		<link href="common_files/handheld.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" media="handheld" />
-		<link href="common_files/screen.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" media="screen" />
-		<script src="common_files/common.js?cache_escape=#variables.cache_escape#" type="text/javascript" language="javascript"></script>
-		<script src="common_files/prototype.js?cache_escape=#variables.cache_escape#" type="text/javascript"></script>
-		<script src="common_files/scriptaculous.js?cache_escape=#variables.cache_escape#" type="text/javascript"></script>
-		<script src="common_files/slider.js?cache_escape=#variables.cache_escape#" type="text/javascript"></script>
-		<script src="common_files/block.js?cache_escape=#variables.cache_escape#" type="text/javascript"></script>
-		<script src="common_files/SpryMenuBar.js?cache_escape=#variables.cache_escape#" type="text/javascript"></script>
+		<link href="common_files/ngauge_#session.workstream_text_size#.css?cache_escape=#variables.cache_escape#" rel="stylesheet" />
+		<link href="common_files/application.css?cache_escape=#variables.cache_escape#" rel="stylesheet" />
+		<link href="common_files/common.css?cache_escape=#variables.cache_escape#" rel="stylesheet" />
+		<link href="common_files/print.css?cache_escape=#variables.cache_escape#" rel="stylesheet" media="print" />
+		<link href="common_files/handheld.css?cache_escape=#variables.cache_escape#" rel="stylesheet" media="handheld" />
+		<link href="common_files/screen.css?cache_escape=#variables.cache_escape#" rel="stylesheet" media="screen" />
+		<script src="common_files/common.js?cache_escape=#variables.cache_escape#" language="javascript"></script>
+		<script src="common_files/prototype.js?cache_escape=#variables.cache_escape#"></script>
+		<script src="common_files/scriptaculous.js?cache_escape=#variables.cache_escape#"></script>
+		<script src="common_files/slider.js?cache_escape=#variables.cache_escape#"></script>
+		<script src="common_files/block.js?cache_escape=#variables.cache_escape#"></script>
+		<script src="common_files/SpryMenuBar.js?cache_escape=#variables.cache_escape#"></script>
 	</head>
 <body bgcolor="##000000" onLoad="<cfif application.use_help_module_ind>Element.hide('help_area');</cfif>#get_screen_details.body_onload#">
 <table align="center" bgcolor="##ffffff" width="1180" border="0" cellspacing="0" cellpadding="0">
@@ -73,6 +73,7 @@ else
 	<tr> 
 		<td bgcolor="##000000" rowspan="4" width="10"><img src="images/spacer.gif" alt="" height="1" width="10" border="0" /></td>
 		<td colspan="3" width="1160">
+<header>
 			<div style="position:absolute;top:-100em;left:-100em;">
 				<!-- Skip navigation link -->
 				<a href="##begin_page_content" title="hidden browser link to skip repetitive navigation" class="footerLnk">- Skip Nav</a>
@@ -80,36 +81,22 @@ else
 				<a href="index.cfm?fuseaction=#fuseaction###begin_page_content" title="hidden browser link to view #business_function_description#"></a></cfloop>
 			</div>
 		<!-- Top Nav Bar starts -->
-			<table width="1160" border="0" cellspacing="0" cellpadding="0" class="screen_only">
-				<tbody>
-				<tr>
-					<td height="1" colspan="6"><img src="images/spacer.gif" alt="" height="1" width="1" border="0" /></td>
-				</tr>
-				<tr>
-					<td colspan="6">
-					<cfif application.application_specific_settings.banner_only_ind>
-						<a href="#application.application_specific_settings.nasa_organization_url#"><img src="images/mast.jpg" alt="				#application.application_specific_settings.nasa_organization#" width="1160" height="120" border="0" /></a>
-					<cfelse>
-						<table height="150" width="1160" border="0" cellspacing="0" cellpadding="0" cols="2">
-							<tr>
-								<td bgcolor="##006699" height="148" style="color:##FFFFFF;font-size:24px;font-weight:bold;text-align:center;" class="forum">
-									#application.application_specific_settings.nasa_organization#
-								</td>
-								<td height="150"><a href="#application.application_specific_settings.nasa_organization_url#"><img src="images/#variables.mast_image_name#" alt="#application.application_specific_settings.nasa_organization#" align="right" width="548" height="150" border="0" /></a></td>
-							</tr>
-						</table>
-					</cfif>
-					</td>
-				</tr>
-				<tr> 
-					<td valign="top" colspan="6">
-					<cfinclude template="qry_get_module_sub_navigation.cfm" /><!--- 
-					<cfmodule template="qry_get_program_year.cfm" program_year_id="#session.program_year_id#"> --->
-					<cfinclude template="dsp_navigation_module.cfm" />
-					</td>
-				</tr>
-				</tbody>
-			</table>
+		<cfif application.application_specific_settings.banner_only_ind>
+			<div style="height:120px; width:1160px; background:url(images/full_#variables.mast_image_name#) no-repeat center; display:table-cell; vertical-align:middle;">
+				<a href="#application.application_specific_settings.nasa_organization_url#" style="padding:20px; color:##FFFFFF;font-size:24px;font-weight:bold; text-shadow:##333333 2px 2px 0px;">#application.application_specific_settings.nasa_organization#</a>
+			</div>
+		<cfelse>
+			<div style="height:150px; width:1160px; background-color:##006699; display:table-cell; vertical-align:middle;">
+				<img src="images/#variables.mast_image_name#" alt="#application.application_specific_settings.nasa_organization#" align="left" width="548" height="150" border="0" />
+				<a href="#application.application_specific_settings.nasa_organization_url#" style="padding:20px; color:##FFFFFF; font-size:24px; font-weight:bold; text-shadow:##333333 2px 2px 0px; vertical-align:middle;">#application.application_specific_settings.nasa_organization#</a>
+			</div>
+		</cfif>
+		<nav style="width:1160px;">
+			<cfinclude template="qry_get_module_sub_navigation.cfm" /><!--- 
+			<cfmodule template="qry_get_program_year.cfm" program_year_id="#session.program_year_id#"> --->
+			<cfinclude template="dsp_navigation_module.cfm" />
+		</nav>
+</header>
 		<!-- Top Nav Bar ends -->
 		</td>
 		<td bgcolor="##000000" rowspan="4" width="10"><img src="images/spacer.gif" alt="" height="1" width="10" border="0" /></td>

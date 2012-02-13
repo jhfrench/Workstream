@@ -59,7 +59,7 @@
 			</cfif>
 		</td>
 		<cfif variables.entry_type><td>
-			<a href="javascript:note_to_task('#task_id#');" onmouseover="MM_displayStatusMsg('View this task.');return document.MM_returnValue;" class="RegText">#task_name#</a>
+			<a href="javascript:note_to_task('#task_id#');"  title="View this task." class="RegText">#task_name#</a>
 		</td></cfif>
 	</tr>
 	<tr bgcolor="##808080" class="HeadTextWhite">

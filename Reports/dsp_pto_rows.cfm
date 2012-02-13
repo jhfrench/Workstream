@@ -22,7 +22,7 @@
 <cfoutput>
 	<tr>
 		<td colspan="2" align="left" valign="top" width="30%" class="RegText">
-			<a href="javascript:onClick=openMenu('#variables.menu_count#');" class="RegText" onMouseOut="MM_displayStatusMsg('')" onMouseOver="MM_displayStatusMsg('Click here for #transaction_year# PTO details');return document.MM_returnValue" onMouseDown="MM_displayStatusMsg('Click here for #transaction_year# PTO details');return document.MM_returnValue" onMouseUp="MM_displayStatusMsg('Click here for #transaction_year# PTO details');return document.MM_returnValue"><img src="../images/sign_plus.gif" width="9" height="9" alt="" border="0">&nbsp;#variables.transaction_year# PTO Summary</a>
+			<a href="javascript:openMenu('#variables.menu_count#');" class="RegText" title="Click here for #transaction_year# PTO details."><img src="../images/sign_plus.gif" width="9" height="9" alt="" border="0">&nbsp;#variables.transaction_year# PTO Summary</a>
 		</td>
 		<td align="right" class="RegText">#decimalformat(hours_in)#</td>
 		<td align="right" class="RegText">#decimalformat(hours_out)#</td>

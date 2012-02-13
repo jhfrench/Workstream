@@ -38,7 +38,7 @@
 						<!-- [[ RIGHT COLUMN END ]] -->
 					</cfif>
 					<img src="images/spacer.gif" alt="" height="10" width="252" border="0" /><br />
-					<img src="images/watermark_birch.jpg" alt="column watermark" height="345" width="200" border="0" class="screen_only" />
+					<img src="images/watermark_digital.jpg" alt="column watermark" height="345" width="200" border="0" class="screen_only" style="opacity:0.6;" />
 					</td>
 </cfif>
 				</tr>
@@ -46,6 +46,7 @@
 		</td>
 	</tr>
 	<!-- Footer starts -->
+	<footer>
 	<tr>
 		<td width="1160" style="background-color: #cccccc;">
 			<div style="float: left;">
@@ -56,6 +57,7 @@
 			</div>
 		</td>
 	</tr>
+	</footer>
 </table>
 <!--- I provide a hidden div within which you can have Ajax load (and process) a specified fuseaction. This is useful for things like ordering lots of data after an upload (without making the upload wait for the ordering), or setting session variables without reloading the controlling page (like hiding the navigation bar). --->
 <div id="hidden_process" style="display:none;">

@@ -19,13 +19,13 @@
 			&nbsp;
 		</td>
 		<td valign="top">
-			<a href="javascript:time_edit('#time_entry_id#');" onmouseover="MM_displayStatusMsg('Edit this time entry.');return document.MM_returnValue;" class="RegText">#dateformat(date,"mm/dd/yy")#</a>
+			<a href="javascript:time_edit('#time_entry_id#');"  title="Edit this time entry." class="RegText">#dateformat(date,"mm/dd/yy")#</a>
 		</td>
 		<td align="right" valign="top">
-			<a href="javascript:time_edit('#time_entry_id#');" onmouseover="MM_displayStatusMsg('Edit this time entry.');return document.MM_returnValue;" class="RegText">#decimalformat(hours)#</a>
+			<a href="javascript:time_edit('#time_entry_id#');"  title="Edit this time entry." class="RegText">#decimalformat(hours)#</a>
 		</td>
 		<td valign="top">
-			<a href="javascript:time_edit('#time_entry_id#');" onmouseover="MM_displayStatusMsg('Edit this time entry.');return document.MM_returnValue;" class="RegText">#Replace(ParagraphFormat(StripCR(note)),"<P>","","all")#</a>
+			<a href="javascript:time_edit('#time_entry_id#');"  title="Edit this time entry." class="RegText">#Replace(ParagraphFormat(StripCR(note)),"<P>","","all")#</a>
 		</td>
 		<td align="center" valign="top">
 			<cfif date LTE express_check_date.date_locked>Time previouly billed.<cfelse><cfinput type="Checkbox" name="notes_id" value="#notes_id#" required="Yes" message="Please mark which hours you wish to reassign." class="RegText"></cfif>
