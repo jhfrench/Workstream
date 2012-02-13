@@ -19,7 +19,7 @@
 			#engagement#
 		</td>
 		<td class="RegText">
-			<a href="javascript:list_to_task('#task_id#');" onmouseover="MM_displayStatusMsg('View task details for this task.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">#task#</a>
+			<a href="javascript:list_to_task('#task_id#');" class="RegText">#task#</a>
 		</td>
 		<td class="RegText">
 			#billable#

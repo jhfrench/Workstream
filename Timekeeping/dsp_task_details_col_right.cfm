@@ -30,20 +30,14 @@
 			<input type="text" name="task_name" value="#htmleditformat(get_task_details.task_name)#"  valign="top" size="#variables.cols#" maxlength="255" class="RegText"><br>
 			Customer: <span class="RegText">#get_task_details.customer_name#</span>&nbsp;Project: <span class="RegText">#replace(get_task_details.project_name,"#get_task_details.customer_name#-","")#</span>&nbsp;<img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See more projects." border="0"  onclick="OpenProjectWindow('project_id');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#incrementvalue(tabindex)#"><br>
 			Description<!--- <cfif variables.edit><cfset tabindex=incrementvalue(tabindex)> <img src="#request.dir_level##application.application_specific_settings.image_dir#check.gif" valign="bottom" width="15" height="15" alt="Check spelling for the task details." border="0" onclick="OpenWLWindow('task_details');" tabindex="#tabindex#"></cfif> ---><br>
-			<textarea name="task_details" cols="#variables.cols#" rows="#variables.descrip_rows#"  tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" wrap="soft" class="RegText">#ReplaceList(ParagraphFormat(get_task_details.description),'<P>,"',",")#</textarea><br><!---<cfif NOT listfind("#valuelist(get_editing_priveleges.editing_priveleges)#,0",session.user_account_id)> onfocus="blur()" readonly</cfif>---> 
-	</cfoutput>
-			Resolution Notes<br>
+			<textarea name="task_details" cols="#variables.cols-2#" rows="#variables.descrip_rows#"  tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" wrap="soft" class="RegText">#ReplaceList(ParagraphFormat(get_task_details.description),'<P>,"',",")#</textarea><br><!---<cfif NOT listfind("#valuelist(get_editing_priveleges.editing_priveleges)#,0",session.user_account_id)> onfocus="blur()" readonly</cfif>---> 
+			Progress Notes<br>
 			<cfif time_entry_details.recordcount>
-				<cfset tabindex=incrementvalue(tabindex)>
-<cfset prev_status_id = "">
-				<cfoutput><textarea name="time_entry_details" cols="#variables.cols#" rows="#variables.resolution_rows#" tabindex="#tabindex#" wrap="soft"<!---  onfocus="blur()" ---> readonly class="RegText"></cfoutput><cfoutput query="time_entry_details"><cfif notes_type_id EQ 1>(#initials# #dateformat(date,"m/d")#) - </cfif><cfif notes_type_id NEQ 2>#trim(note)#&nbsp;&nbsp;</cfif></cfoutput></textarea><cfelse><span class="Note">Resolution notes not yet entered for this task.</span>
-			</cfif><br>
-			QA Notes<br>
-			<cfif qa_entry_details.recordcount>
-<cfset prev_status_id = "">
-				<textarea name="qa_entry_details" <cfoutput>cols="#variables.cols#" rows="#qa_rows#"  tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" wrap="soft"<!---  onfocus="blur()" ---> readonly class="RegText</cfoutput>"><cfoutput query="qa_entry_details">(#initials# #dateformat(date,"m/d")#) - #note#&nbsp;&nbsp;</cfoutput></textarea>
+				<div style="width:600px; height:#variables.resolution_rows*28#px; overflow:auto; border:1px solid ##c0c0c0; padding:2px;">
+					<cfloop query="time_entry_details"><span class="RegText<cfif notes_type_id EQ 2>Red</cfif>">(#initials# #dateformat(date,"m/d/yy")#) - #trim(note)#&nbsp;&nbsp;</span><br /></cfloop>
+				</div>
 			<cfelse>
-				<span class="Note">QA notes not yet entered for this task.</span>
+				<span class="Note">Resolution notes not yet entered for this task.</span>
 			</cfif>
 			<br>
 			<cfinclude template="dsp_associated_files.cfm"><br>
@@ -54,4 +48,4 @@
 	<cfinclude template="dsp_custom_fields.cfm">
 </cfif>
 </table>
-
+</cfoutput>

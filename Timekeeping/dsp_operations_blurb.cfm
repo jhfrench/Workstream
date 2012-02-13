@@ -1,5 +1,5 @@
 
-<!--Timekeeping/act_pto_blurb.cfm
+<!--Timekeeping/dsp_operations_blurb.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -12,43 +12,18 @@
 	$Log$
 	||
  --->
-<cfswitch expression="#session.workstream_text_size#">
-	<cfcase value="Lg">
-		<cfset large="12">
-		<cfset small="11">
-		<cfset plotAreaLeft=63/100>
-		<cfset variables.graph_height=(operations_blurb.recordcount*16.5)+150>
-	</cfcase>
-	<cfcase value="Md">
-		<cfset large="12">
-		<cfset small="11">
-		<cfset plotAreaLeft=63/100>
-		<cfset variables.graph_height=(operations_blurb.recordcount*14.95)+150>
-	</cfcase>
-	<cfdefaultcase>
-		<cfset large="12">
-		<cfset small="9">
-		<cfset plotAreaLeft=63/100>
-		<cfset variables.graph_height=(operations_blurb.recordcount*14.1)+150>
-	</cfdefaultcase>
-</cfswitch>
 </cfsilent>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="2" section_color="008000" section_title="Account Mgmt Dashboard" title_class="HeadTextWhite">
 	<tr>
-		<td colspan="2">
-			<cfsavecontent variable="variables.chart_under_menu">
-				<cfchart font="Trebuchet MS" fontSize="#small#" gridLines="4" show3D="yes" foregroundcolor="##c0c0c0" databackgroundcolor="##ffffff" chartwidth="450" chartheight="#variables.graph_height#" seriesplacement="stacked">
-					<cfchartseries type="horizontalbar" query="operations_blurb" valueColumn="green_count" itemColumn="customer" seriescolor="##33CC99" paintstyle="shade" />
-					<cfchartseries type="horizontalbar" query="operations_blurb" valueColumn="yellow_count" itemColumn="customer" seriescolor="yellow" paintstyle="shade" />
-					<cfchartseries type="horizontalbar" query="operations_blurb" valueColumn="red_count" itemColumn="customer" seriescolor="red" paintstyle="shade" />
-				</cfchart>
-			</cfsavecontent>
-			<div id="operations_blurb" align="center">
-			     <cfoutput>#replacenocase(replacenocase(variables.chart_under_menu,'quality="high"', 'quality="high" wmode="transparent"', "ALL"),'<PARAM name="quality" value="high"/>', '<PARAM name="quality" value="high"/><PARAM name="wmode" value="transparent"/>', "ALL")#</cfoutput>
-				<a href="index.cfm?fuseaction=Reports.engagement_dashboard_staff" class="RegText">Click here for full project details and timelines.</a>
+		<td colspan="2" style="text-align:center;">
+			<div id="operations_blurb" style="text-align:right;">
+				<cfoutput query="operations_blurb">
+					<p style="right:0px; white-space:nowrap;" class="RegText">#customer#&nbsp;<span style="width: 300px;"><img src="images/bar_7.gif" height="10" width="#green_stretch#" alt="#customer# projects in green status." /><img src="images/bar_3.gif" height="10" width="#yellow_stretch#" alt="#customer# projects in yellow status." /><img src="images/bar_1.gif" height="10" width="#red_stretch#" alt="#customer# projects in trouble." /></span></p>
+				</cfoutput>
 			</div>
+			<a href="index.cfm?fuseaction=Reports.engagement_dashboard" class="RegText">Click here for full project details and timelines.</a>
 		</td>
 	</tr>
 </table>

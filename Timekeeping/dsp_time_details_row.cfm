@@ -23,10 +23,10 @@
 			&nbsp;
 		</td>
 		<td>
-			<a href="javascript:task_to_ind('#emp_id#|#task_id#');" onmouseover="MM_displayStatusMsg('View individual time entries for #last_name#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">#last_name#</a>
+			<a href="javascript:task_to_ind('#emp_id#|#task_id#');" onmouseover="MM_displayStatusMsg('View individual time entries for #last_name#.');return document.MM_returnValue;" class="RegText">#last_name#</a>
 		</td>
 		<td align="right">
-			<a href="javascript:task_to_ind('#emp_id#|#task_id#');" onmouseover="MM_displayStatusMsg('View individual time entries for #last_name#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">#decimalformat(hours)#</a>
+			<a href="javascript:task_to_ind('#emp_id#|#task_id#');" onmouseover="MM_displayStatusMsg('View individual time entries for #last_name#.');return document.MM_returnValue;" class="RegText">#decimalformat(hours)#</a>
 		</td>
 		<td align="center">
 			<cfinput type="checkbox" name="reassign_hours" value="#emp_id#" required="Yes" message="Please mark which hours you wish to reassign." class="RegText">

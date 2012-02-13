@@ -25,17 +25,16 @@
 		#project_code#
 	</td>
 	<td class="RegText">
-		<cfset variables.StatusMsg=JSStringFormat(name)>
-		<a href="javascript:list_to_emp('#emp_id#');" onmouseover="MM_displayStatusMsg('View details for #variables.StatusMsg#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">#name#</a>
+		<a href="javascript:list_to_emp('#emp_id#');" class="RegText">#name#</a>
 	</td>
 	<td align="right" class="RegText">
-		<a href="javascript:list_to_emp('#emp_id#');" onmouseover="MM_displayStatusMsg('View details for #variables.StatusMsg#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">#pin#</a>
+		<a href="javascript:list_to_emp('#emp_id#');" class="RegText">#pin#</a>
 	</td>
 	<td align="right" class="RegText">
 		#decimalformat(rate)#
 	</td>
 	<td align="right" class="RegText">
-		<a href="javascript:emp_to_notes('#emp_id#|#attributes.project_id#','#attributes.drill_through#');" onmouseover="MM_displayStatusMsg('View notes from #variables.StatusMsg#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">#decimalformat(hours)#</a><cfset variables.sum_hours=sum_hours+hours>
+		<a href="javascript:emp_to_notes('#emp_id#|#attributes.project_id#','#attributes.drill_through#');" class="RegText">#decimalformat(hours)#</a><cfset variables.sum_hours=sum_hours+hours>
 	</td>
 	<td align="right" class="RegText">
 		#dollarformat(bill)#<cfset variables.sum_bill=sum_bill+bill>

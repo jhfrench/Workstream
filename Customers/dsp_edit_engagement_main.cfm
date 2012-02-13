@@ -16,10 +16,9 @@
 <cfparam name="engagement_dashboard_Return" default="0">
 <cfparam name="IE_Emp_ID_Filter" default="All">
 <cfparam name="customer_id_Filter" default="All">
-<cfparam name="Sort" default="Customers.Description,Project.Description">
+<cfparam name="Sort" default="Customers.description, Project.description">
 </cfsilent>
 <cfinclude template="qry_get_engagement_main.cfm">
-<cfinclude template="qry_get_company_id.cfm">
 <cfinclude template="qry_get_root_codes.cfm">
 <cfinclude template="qry_get_companies.cfm">
 <cfinclude template="../common_files/qry_get_products.cfm">
@@ -44,7 +43,7 @@
 			Visible To<br>
 			<select name="company_id" multiple size="4" class="RegText"></cfoutput>
 				<cfoutput query="get_companies">
-					<option value="#company_id#"<cfif listcontains(valuelist(get_company_id.company_id),company_id)> selected</cfif>>#description#</option>
+					<option value="#company_id#"<cfif listcontains(session.workstream_selected_company_id,company_id)> selected</cfif>>#description#</option>
 				</cfoutput><cfoutput>
 			</select>
 		</td>

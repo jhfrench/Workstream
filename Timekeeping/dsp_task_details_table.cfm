@@ -15,23 +15,18 @@
 
 <cfswitch expression="#session.workstream_text_size#">
 	<cfcase value="Lg">
-		<cfset variables.cols=124>
+		<cfset variables.cols=114>
 	</cfcase>
 	<cfcase value="Md">
-		<cfset variables.cols=127>
+		<cfset variables.cols=117>
 	</cfcase>
 	<cfdefaultcase>
-		<cfset variables.cols=130>
+		<cfset variables.cols=120>
 	</cfdefaultcase>
 </cfswitch>
 <cfset variables.descrip_rows=min(3,(len(get_task_details.description)/variables.cols+1))>
 <cfset variables.resolution_rows=min(8,time_entry_details.recordcount)>
-<cfif qa_entry_details.recordcount GT 1>
-	<cfset qa_rows=min(5,qa_entry_details.recordcount)>
-<cfelse>
-	<cfset qa_rows=min(5,(len(qa_entry_details.note)/variables.cols+1))>
-</cfif>
-<cfset entry_rows=variables.descrip_rows+variables.resolution_rows+qa_rows-9>
+<cfset entry_rows=variables.descrip_rows+variables.resolution_rows-9>
 </cfsilent>
 	<tr valign="top">
 		<td width="15">

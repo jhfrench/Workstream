@@ -48,7 +48,7 @@
 						#dateformat(transaction_date,'mm/dd/yy')#
 					</td>
 					<td class="RegText">
-						<cfif hours_out EQ 0>#comments#<cfelse><a href="javascript:time_edit('#time_entry_id#');" onmouseover="MM_displayStatusMsg('Edit this time entry.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText"><cfif len(comments)>#comments#<cfelse>PTO Usage</cfif></a></cfif>
+						<cfif hours_out EQ 0>#comments#<cfelse><a href="javascript:time_edit('#time_entry_id#');" class="RegText"><cfif len(comments)>#comments#<cfelse>PTO Usage</cfif></a></cfif>
 					</td>
 					<td align="right" class="RegText">
 						<cfif hours_in>#decimalformat(hours_in)#<cfelse>&nbsp;</cfif>

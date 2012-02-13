@@ -31,7 +31,7 @@
 		<td class="RegText">#task_id#</td>
 		<td class="RegText">#budgeted_hours#</td>
 		<td class="RegText">#lname#</td>
-		<td class="RegText"><a href="javascript:list_to_task('#task_id#');" onmouseover="MM_displayStatusMsg('View task details for task #task_id#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">#name#</a></td>
+		<td class="RegText"><a href="javascript:list_to_task('#task_id#');" class="RegText">#name#</a></td>
 		<td class="RegText">#status#</td>
 		<td class="RegText">#priority#</td>
 	</tr>

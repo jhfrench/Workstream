@@ -12,8 +12,8 @@
 	$Log$
 	||
  --->
-<cfset var1=200>
-<cfset tabindex=0>
+<cfset variables.var1=200>
+<cfset variables.tabindex=0>
 <cfparam name="attributes.expand" default="0">
 </cfsilent>
 <cfif isdefined("attributes.last_loaded") AND session.workstream_last_loaded NEQ attributes.last_loaded>
@@ -51,7 +51,6 @@
 		<cfinclude template="../common_files/qry_get_associated_files.cfm">
 		<cfinclude template="../common_files/qry_get_associated_tasks.cfm">
 		<cfinclude template="qry_time_entry_details.cfm">
-		<cfinclude template="qry_qa_entry_details.cfm">
 		<cfinclude template="../common_files/qry_express_check_date.cfm">
 		<!---<cfinclude template="qry_get_editing_priveleges.cfm">--->
 		<cfset task_owner=get_task_details.owner_id>

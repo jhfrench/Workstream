@@ -32,7 +32,7 @@
 <cfoutput query="get_supervisor_history">
 	<tr>
 		<td class="RegText">
-			<a href="javascript:list_to_employee('#get_supervisor_history.supervisor_id#');" onmouseover="MM_displayStatusMsg('View details for #Replace(get_supervisor_history.sup_name,"'","")#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">#get_supervisor_history.sup_name#</a><br>
+			<a href="javascript:list_to_employee('#get_supervisor_history.supervisor_id#');" onmouseover="MM_displayStatusMsg('View details for #Replace(get_supervisor_history.sup_name,"'","")#.');return document.MM_returnValue;" class="RegText">#get_supervisor_history.sup_name#</a><br>
 		</td>
 		<td class="RegText">
 			#dateformat(get_supervisor_history.date_start,'mm/dd/yyyy')#

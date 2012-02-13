@@ -43,7 +43,7 @@
 <cfoutput query="efficiency_report_sub">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<td class="RegText">
-			<a href="javascript:list_to_employee('#emp_id#')" onmouseover="MM_displayStatusMsg('View details for #Replace(name,"'","")# #Replace(lname,"'","")#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">#lname#, #name#</a>
+			<a href="javascript:list_to_employee('#emp_id#')" class="RegText">#lname#, #name#</a>
 		</td>
 		<td align="right" class="RegText">
 			#decimalformat(efficiency_hours)#

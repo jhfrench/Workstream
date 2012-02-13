@@ -25,7 +25,7 @@
 <cfif NOT CompareNoCase(report_name, "edit employee") and object_security>
 	<tr>
 		<td align="left" class="RegText" colspan="2">
-		<a href="javascript:edit_employee('#emp_id#');" onmouseover="MM_displayStatusMsg('#JSStringFormat('Edit #get_user_details.lname# #get_user_details.name#.')#');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">Edit Employee Information</a>
+		<a href="javascript:edit_employee('#emp_id#');" class="RegText">Edit Employee Information</a>
 		</td>
 	</tr>
 	</cfif>

@@ -21,7 +21,7 @@
 			#task_id#
 		</td>
 		<td valign="top" class="RegText">
-			<a href="javascript:task_jump('#task_id#');" onmouseover="MM_displayStatusMsg('View task details.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">#task_name#</a>
+			<a href="javascript:task_jump('#task_id#');" class="RegText">#task_name#</a>
 		</td>
 		<td valign="top" class="RegText">
 			#status#

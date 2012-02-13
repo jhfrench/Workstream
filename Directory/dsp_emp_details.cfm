@@ -68,7 +68,7 @@
 </cfif>
 <cfif get_subordinates.recordcount>
 			<span class="SubHeadText">Direct Reports</span><br>
-			<cfoutput query="get_subordinates"><a href="javascript:list_to_employee('#emp_id#');" onmouseover="MM_displayStatusMsg('View details for #Replace(lname,"'","")# #Replace(fname,"'","")#.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText"><cfif currentrow NEQ 1>; </cfif>#lname#, #fname#</a></cfoutput>
+			<cfoutput query="get_subordinates"><a href="javascript:list_to_employee('#emp_id#');" onmouseover="MM_displayStatusMsg('View details for #Replace(lname,"'","")# #Replace(fname,"'","")#.');return document.MM_returnValue;" class="RegText"><cfif currentrow NEQ 1>; </cfif>#lname#, #fname#</a></cfoutput>
 </cfif>
 		</td>
 		<td width="20%"></td>
@@ -77,7 +77,7 @@
 	<tr>
 		<td align="left" width="148" class="RegText">
 		<cfoutput>
-		<a href="javascript:edit_employee('#emp_id#');" onmouseover="MM_displayStatusMsg('#JSStringFormat('Edit #get_emp_details.lname# #get_emp_details.fname#.')#');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">Edit Employee Information</a>
+		<a href="javascript:edit_employee('#emp_id#');" onmouseover="MM_displayStatusMsg('#JSStringFormat('Edit #get_emp_details.lname# #get_emp_details.fname#.')#');return document.MM_returnValue;" class="RegText">Edit Employee Information</a>
 		</cfoutput>
 		</td>
 		<td colspan="2">&nbsp;</td>

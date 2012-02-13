@@ -22,7 +22,7 @@
 			#lname#, #name#
 		</td>
 		<td align="center" class="RegText">
-			<a href="javascript:pto('#Emp_id#')"onmouseover="MM_displayStatusMsg('View a detailed report on #jsstringformat("#name# #lname#")#&rsquo;s PTO hours.');return document.MM_returnValue;" onmouseout="MM_displayStatusMsg('');" class="RegText">#decimalformat(pto_hours_used)#</a>
+			<a href="javascript:pto('#Emp_id#')" class="RegText">#decimalformat(pto_hours_used)#</a>
 			<cfset used=pto_hours_used>
 		</td>
 		<td align="center" class="RegText">
