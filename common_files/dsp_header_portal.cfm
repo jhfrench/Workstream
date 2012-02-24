@@ -52,13 +52,7 @@ else
 		<meta name="dc.publisher" content="Applied Internet Technologies: #application.application_specific_settings.nasa_official#" />
 		<!--Meta Data ends-->
 		<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
-		<link rel="stylesheet/less" type="text/css" href="main.less">
-		<link href="common_files/ngauge_#session.workstream_text_size#.css?cache_escape=#variables.cache_escape#" rel="stylesheet" />
-		<link href="common_files/application.css?cache_escape=#variables.cache_escape#" rel="stylesheet" />
-		<link href="common_files/common.css?cache_escape=#variables.cache_escape#" rel="stylesheet" />
-		<link href="common_files/print.css?cache_escape=#variables.cache_escape#" rel="stylesheet" media="print" />
-		<link href="common_files/handheld.css?cache_escape=#variables.cache_escape#" rel="stylesheet" media="handheld" />
-		<link href="common_files/screen.css?cache_escape=#variables.cache_escape#" rel="stylesheet" media="screen" />
+		<link href="common_files/Workstream_#session.workstream_text_size#.css?cache_escape=#variables.cache_escape#" rel="stylesheet" />
 		<script src="common_files/prototype.js?cache_escape=#variables.cache_escape#"></script>
 		<script src="common_files/scriptaculous.js?cache_escape=#variables.cache_escape#"></script>
 		<script src="common_files/slider.js?cache_escape=#variables.cache_escape#"></script>
@@ -123,7 +117,7 @@ else
 				<a href="#application.application_specific_settings.nasa_organization_url#" style="padding:20px; color:##FFFFFF; font-size:24px; font-weight:bold; text-shadow:##333333 2px 2px 0px; vertical-align:middle;">#application.application_specific_settings.nasa_organization#</a>
 			</div>
 		</cfif>
-		<nav id="menu" style="width:1160px;">
+		<nav id="menu">
 			<cfinclude template="qry_get_module_sub_navigation.cfm" /><!--- 
 			<cfmodule template="qry_get_program_year.cfm" program_year_id="#session.program_year_id#"> --->
 			<cfinclude template="dsp_navigation_module.cfm" />

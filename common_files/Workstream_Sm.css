@@ -1,0 +1,30 @@
+@import url("Workstream.css");
+
+/*<!--- Workstream Styles --->*/
+
+/*<!---SIZES--> */
+	/*<!---14px--> */
+	.HeadText,
+	.HeadTextWhite
+	{
+		font-size: 14px;
+	}
+	
+	/*<!---12px--> */
+	.Note,
+	.SubHeadText,
+	.SubHeadTextWhite
+	{
+		font-size: 12px;
+	}
+	
+	/*<!---10px--> */
+	.RegText,
+	.RegTextBd,
+	.RegTextWhite,
+	.SelectText,
+	.RegTextIt,
+	.RegTextRed
+	{
+		font-size: 10px;
+	}

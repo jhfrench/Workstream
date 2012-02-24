@@ -1,34 +1,10 @@
+@import url("application.css");
+@import url("common.css");
+@import url("print.css") print;
+@import url("handheld.css") handheld;
+@import url("screen.css") screen;
 
-/* trying to get rid of #session.workstream_text_size#*/
-
-/*<!--- Ngauge Styles --->*/
-
-/*<!---SIZES--> */
-	/*<!---15px--> */
-	.HeadText,
-	.HeadTextWhite
-	{
-		font-size: 15px;
-	}
-	
-	/*<!---13px--> */
-	.Note,
-	.SubHeadText,
-	.SubHeadTextWhite
-	{
-		font-size: 13px;
-	}
-	
-	/*<!---11px--> */
-	.RegText,
-	.RegTextBd,
-	.RegTextWhite,
-	.SelectText,
-	.RegTextIt,
-	.RegTextRed
-	{
-		font-size: 11px;
-	}
+/*<!--- Workstream Styles --->*/
 	
 /*<!---COLOR--> */
 	/*<!---Black/Regular--> */
@@ -149,4 +125,11 @@
 	A.RegTextWhite:hover
 	{
 		color: #970000;
+	}
+
+/* navigation bar */
+	#menu {
+		width:1160px;
+		position:relative;
+		z-index:2;
 	}

@@ -25,10 +25,7 @@
 		<cfoutput><title>#application.html_title#</title>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 		<meta http-equiv="expires" content="#now()#">
-		<link href="common_files/application.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" />
-		<link href="common_files/print.css?cache_escape=#variables.cache_escape#" rel="stylesheet" type="text/css" media="print" />
-		<link href="common_files/handheld.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" media="handheld" />
-		<link href="common_files/screen.css?cache_escape=#variables.cache_escape#" type="text/css" rel="stylesheet" media="screen" /></cfoutput>
+		<link href="common_files/Workstream_Md.css?cache_escape=#variables.cache_escape#" rel="stylesheet" /></cfoutput>
 		<script src="common_files/prototype.js" type="text/javascript"></script>
 		<script src="common_files/scriptaculous.js" type="text/javascript"></script>
 		<style type="text/css">

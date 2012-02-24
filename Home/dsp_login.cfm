@@ -26,7 +26,7 @@
 		<tr>
 			<td align="right" class="formtextlabel">
 				<img src="images/spacer.gif" width="100" height="1" alt="" border="0"><br />
-				<label for="user_name" accesskey="u" class="formtextlabel">Username</label>:
+				<label for="user_name" accesskey="u" class="formtextlabel" autofocus="autofocus">Username</label>:
 			</td>
 			<td>
 				<img src="images/spacer.gif" width="180" height="1" alt="" border="0"><br />
