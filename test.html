@@ -1,0 +1,727 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>LESS &laquo; The Dynamic Stylesheet language</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta http-equiv="expires" content="Sat, 11 Feb 2012 17:35:43 GMT" />
+    <link rel="stylesheet/less" type="text/css" href="main.less">
+    <script src="http://lesscss.org/js/less.js" type="text/javascript"></script>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/atom+xml" title="app - feed" href="http://lesscss.org/index.xml" />		<!--Meta Data starts-->
+
+		<!--SYSTEM DEFINED METADATA-->
+
+		<meta name="dc.title" content="Workstream" />
+
+		<meta name="dc.format" content="text/html" />
+
+		<meta name="dc.date.modified" content="{ts '2012-02-11 12:35:43'}" />
+
+		<meta name="dc.language" content="en" />
+
+		<meta name="dc.publisher" content="Applied Internet Technologies: Jeromy French" />
+
+		<!--Meta Data ends-->
+
+		<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
+
+		<link href="common_files/ngauge_Md.css?cache_escape=20120224032343" rel="stylesheet" />
+
+		<link href="common_files/application.css?cache_escape=20120224032343" rel="stylesheet" />
+
+		<link href="common_files/common.css?cache_escape=20120224032343" rel="stylesheet" />
+
+		<link href="common_files/print.css?cache_escape=20120224032343" rel="stylesheet" media="print" />
+
+		<link href="common_files/handheld.css?cache_escape=20120224032343" rel="stylesheet" media="handheld" />
+
+		<link href="common_files/screen.css?cache_escape=20120224032343" rel="stylesheet" media="screen" />
+
+		<script src="common_files/prototype.js?cache_escape=20120224032343"></script>
+
+		<script src="common_files/scriptaculous.js?cache_escape=20120224032343"></script>
+
+		<script src="common_files/slider.js?cache_escape=20120224032343"></script>
+
+		<script src="common_files/block.js?cache_escape=20120224032343"></script>
+
+		<script src="common_files/SpryMenuBar.js?cache_escape=20120224032343"></script>
+    
+    
+    <script type="text/javascript">
+      (function () {
+        if (/Microsoft/.test(navigator.appName)) { return }
+
+        window.onload = function () {
+          var menu = document.getElementById('menu');
+          var init = menu.offsetTop;
+          var docked;
+
+          window.onscroll = function () {
+            if (!docked && (menu.offsetTop - scrollTop() < 0)) {
+              menu.style.top = 0;
+              menu.style.position = 'fixed';
+              menu.className = 'docked';
+              docked = true;
+            } else if (docked && scrollTop() <= init) {
+              menu.style.position = 'absolute';
+              menu.style.top = init + 'px';
+              menu.className = menu.className.replace('docked', '');
+              docked = false;
+            }
+          };
+        };
+
+        function scrollTop() {
+          return document.body.scrollTop || document.documentElement.scrollTop;
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <section>
+
+<section id="menu">
+  <div class="content">
+    <nav>
+      <a href="#synopsis">overview</a>
+      <a href="#-client-side-usage">usage</a>
+      <a href="#docs" id="guide-link">language</a>
+      <a href="http://github.com/cloudhead/less.js">source</a>
+      <a href="#about">about</a>
+    </nav>
+    <a href="https://twitter.com/cloudhead" class="twitter-follow-button" data-show-screen-name="false" data-width="80px" data-show-count="false" data-lang="en">Follow on twitter</a>
+    <div id="dropdown">
+      <ul>
+        <li><a href="#-variables">Variables</a></li>
+        <li><a href="#-mixins">Mixins</a></li>
+        <li><a href="#-parametric-mixins">Parametric Mixins</a></li>
+        <li><a href="#-pattern-matching-and-guard-expressions">Pattern-matching</a></li>
+        <li><a href="#-nested-rules">Nested Rules</a></li>
+        <li><a href="#-operations">Operations</a></li>
+        <li><a href="#-color-functions">Color functions</a></li>
+        <li><a href="#-namespaces">Namespaces</a></li>
+        <li><a href="#-scope">Scope</a></li>
+        <li><a href="#-comments">Comments</a></li>
+        <li><a href="#-importing">Importing</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- START MAIN BODY -->
+
+		<a name="begin_page_content"></a>
+
+			<table bgcolor="#ffffff" border="0" cellspacing="0" cellpadding="0" cols="3" width="1076">
+
+				<tr>
+
+					<td><img src="images/spacer.gif" alt="" height="400" width="2" border="0" /></td>
+
+					<td valign="top" width="363"> 
+
+						<img src="images/spacer.gif" alt="" height="1" width="880" border="0" />
+
+
+
+
+
+
+
+<!--Timekeeping/pag_task_list.cfm
+
+	Author: Jeromy F -->
+
+
+
+<!--common_files/act_client_vars.cfm
+
+	Author: Jeromy F -->
+
+
+
+<!--common_files/act_task_list_order.cfm
+
+	Author: Jeromy F -->
+
+
+
+<!--Timekeeping/qry_task_list.cfm
+
+	Author: Jeromy F -->
+
+
+
+<!--common_files/dsp_dropdowns.cfm
+
+	Author: Jeromy F -->
+
+<form name="input_form" id="input_form" action="index.cfm?fuseaction=Timekeeping.task_list" method="post" onsubmit="return _CF_checkinput_form(this)">
+
+<div id="dropdowns">
+
+<input type="hidden" name="evaluate_task_options" value="1">
+
+<input type="hidden" name="show_options" value="1">
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+
+	<tr bgcolor="#78A0EB">
+
+		<td class="HeadText">
+
+			Task Inbox for 
+
+<!--common_files/dsp_team_select.cfm
+
+	Author: Jeromy F -->
+
+
+
+<!--common_files/qry_team_select.cfm
+
+	Author: Jeromy F -->
+
+
+
+	<select name="emp_id"  onchange="javascript:form.submit();" class="SelectText">
+
+			
+
+		<option value="1" title="French, Jeromy" selected>French, Je</option>
+
+			
+
+		<option value="16" title="French, Lisa">French, Li</option>
+
+			
+
+		<option value="8" title="Hoska, Richard">Hoska, Ri</option>
+
+	
+
+	</select>
+
+
+
+		</td>
+
+		<td align="right" class="RegTextWhite">
+
+			&nbsp;
+
+			
+
+				&nbsp;&nbsp;<label for="show_on_hold"><input type="checkbox" name="show_on_hold" id="show_on_hold" onclick="javascript:form.submit();" class="SelectText">Show Tasks On Hold</label>
+
+				&nbsp;&nbsp;<label for="show_closed"><input type="checkbox" name="show_closed" id="show_closed" onclick="javascript:form.submit();" class="SelectText">Show Completed Tasks</label>
+
+				&nbsp;&nbsp;<label for="show_team"><input type="checkbox" name="show_team" id="show_team" onclick="javascript:form.submit();" checked class="SelectText">Show Team's Tasks</label>&nbsp;&nbsp;
+
+			
+
+		</td>
+
+	</tr>
+
+</table>
+
+</div>
+
+</form>
+
+
+<table align="center" border="0" cellpadding="1" cellspacing="0" width="100%">
+
+	
+
+<!--common_files/dsp_task_list_header.cfm
+
+	Author: Jeromy F -->
+
+
+
+	<tr>
+
+		<th class="SubHeadText" nowrap>
+
+			<a href="javascript:order_by('task_id');" title="Order by the task ID." class="SubHeadText"><abbr title="task id">ID</abbr> </a>
+
+		</th>
+
+		<th class="SubHeadText" nowrap>
+
+			<a href="javascript:order_by('task_owner');" title="Order by the task owner." class="SubHeadText">Owner </a>
+
+		</th>
+
+		<th class="SubHeadText" nowrap>
+
+			<a href="javascript:order_by('task_name');" title="Order by the name of the task." class="SubHeadText">Name </a>
+
+		</th>
+
+		<th class="SubHeadText" nowrap>
+
+			<a href="javascript:order_by('project_name');" title="Order by the task engagement." class="SubHeadText">Project</a>
+
+		</th>
+
+		<th class="SubHeadText" width="7%" nowrap>
+
+			<a href="javascript:order_by('Priority');" title="Order by Priority." class="SubHeadText">Priority </a>
+
+		</th>
+
+	
+
+		<th class="SubHeadText" nowrap>
+
+			<a href="javascript:order_by('percent_time_used');" title="Order by the task time." class="SubHeadText">Time </a>
+
+		</th>
+
+	
+
+		<th class="SubHeadText" nowrap>
+
+			<a href="javascript:order_by('task_status');" title="Order by the task status." class="SubHeadText">Status </a>
+
+		</th>
+
+		<th class="SubHeadText" nowrap>
+
+			<a href="javascript:order_by('date_due');" title="Order by the date that the task is due." class="SubHeadText">Due <img src="images/order_up.gif" width="8" height="8" alt="Order by the date that the task is due." border="0"></a>
+
+		</th>
+
+	</tr>
+
+
+
+<!--common_files/dsp_task_list.cfm
+
+	Author: Jeromy F -->
+
+
+
+	<tr bgcolor="#E1E1E1">
+
+		<td class="RegText" scope="row">1</td>
+
+		<td class="RegText">French</td>
+
+		<td class="RegText"><a href="javascript:list_to_task('1');" title="View time details for Provide estimate of work to be done." class="RegText"><img src="images/icon_estimate.jpg" title="Go through Culinaerie.com and determine how many hours it would take to rewrite site in CF." height="16" width="16" border="0">Provide estimate of work to be done</a></td>
+
+		<td class="RegText">Culinaerie-Phase 1 Culinaerie.com</td>
+
+		<td class="RegText">Normal</td>
+
+		<td class="RegText"><a href="javascript:list_to_time('1');" title="View time details for Provide estimate of work to be done." class="RegText">3/4 69%</a></td>
+
+		<td class="RegText"><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;Needs QA</td>
+
+		<td class="RegText">08/15/2011</td>
+
+	</tr>
+
+
+
+	<tr>
+
+		<td class="RegText" scope="row">51</td>
+
+		<td class="RegText">French</td>
+
+		<td class="RegText"><a href="javascript:list_to_task('51');" title="View time details for Build report." class="RegText"><img src="images/icon_plug.gif" title="Build report that shows all ambassadors, status(accept – denied), and timestamp." height="16" width="16" border="0">Build report</a></td>
+
+		<td class="RegText"><abbr title='International Code Design'>ICD</abbr>-NSAVC Cohort IV Training Module and Bios</td>
+
+		<td class="RegText">Normal</td>
+
+		<td class="RegText"><a href="javascript:list_to_time('51');" title="View time details for Build report." class="RegText">0/6 0%</a></td>
+
+		<td class="RegText"><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;New</td>
+
+		<td class="RegText">02/04/2012</td>
+
+	</tr>
+
+
+
+	<tr bgcolor="#E1E1E1">
+
+		<td class="RegText" scope="row">72</td>
+
+		<td class="RegText">French</td>
+
+		<td class="RegText"><a href="javascript:list_to_task('72');" title="View time details for Add security." class="RegText"><img src="images/icon_forever.gif" title="Need to require username/password to add/edit ambassador records. Model after what we have for Service Request module just to be consistent." height="16" width="16" border="0">Add security</a></td>
+
+		<td class="RegText"><abbr title='International Code Design'>ICD</abbr>-NSAVC Cohort IV Training Module and Bios</td>
+
+		<td class="RegText">Normal</td>
+
+		<td class="RegText"><a href="javascript:list_to_time('72');" title="View time details for Add security." class="RegText">0/4 0%</a></td>
+
+		<td class="RegText"><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;New</td>
+
+		<td class="RegText">02/21/2012</td>
+
+	</tr>
+
+
+
+	<tr>
+
+		<td class="RegText" scope="row">75</td>
+
+		<td class="RegText">French</td>
+
+		<td class="RegText"><a href="javascript:list_to_task('75');" title="View time details for 2012_02_21 Call with Leo and James." class="RegText"><img src="images/icon_phone.png" title="Discuss new service request action items. Call scheduled for 8pm with James; Leo wants us to try to include him." height="16" width="16" border="0">2012_02_21 Call with Leo and James</a></td>
+
+		<td class="RegText"><abbr title='International Code Design'>ICD</abbr>-Service Request Module</td>
+
+		<td class="RegText">Normal</td>
+
+		<td class="RegText"><a href="javascript:list_to_time('75');" title="View time details for 2012_02_21 Call with Leo and James." class="RegText">1/1 75%</a></td>
+
+		<td class="RegText"><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;In Progress</td>
+
+		<td class="RegText">02/21/2012</td>
+
+	</tr>
+
+
+
+	<tr bgcolor="#E1E1E1">
+
+		<td class="RegText" scope="row">78</td>
+
+		<td class="RegText">French</td>
+
+		<td class="RegText"><a href="javascript:list_to_task('78');" title="View time details for Apply floating navigation concept to Workstream." class="RegText"><img src="images/icon_code.gif" title="As seen at http://lesscss.org/" height="16" width="16" border="0">Apply floating navigation concept to Workstream</a></td>
+
+		<td class="RegText">Internal Development-Workstream</td>
+
+		<td class="RegText">Normal</td>
+
+		<td class="RegText"><a href="javascript:list_to_time('78');" title="View time details for Apply floating navigation concept to Workstream." class="RegText">0/4 0%</a></td>
+
+		<td class="RegText">New</td>
+
+		<td class="RegText">02/29/2012/td>
+
+	</tr>
+
+
+
+	<tr>
+
+		<td class="RegText" scope="row">73</td>
+
+		<td class="RegText">French</td>
+
+		<td class="RegText"><a href="javascript:list_to_task('73');" title="View time details for Create database backup process." class="RegText"><img src="images/icon_clock.gif" title="Need to back-up database to network drive once a week." height="16" width="16" border="0">Create database backup process</a></td>
+
+		<td class="RegText">Internal Development-Workstream</td>
+
+		<td class="RegText">Normal</td>
+
+		<td class="RegText"><a href="javascript:list_to_time('73');" title="View time details for Create database backup process." class="RegText">0/4 6%</a></td>
+
+		<td class="RegText">In Progress</td>
+
+		<td class="RegText">03/16/2012</td>
+
+	</tr>
+
+
+
+	<tr bgcolor="#E1E1E1">
+
+		<td class="RegText" scope="row">77</td>
+
+		<td class="RegText">French</td>
+
+		<td class="RegText"><a href="javascript:list_to_task('77');" title="View time details for Apply HTML5 appcache." class="RegText"><img src="images/icon_code.gif" title="Apply HTML5 appcache to Workstream code." height="16" width="16" border="0">Apply HTML5 appcache</a></td>
+
+		<td class="RegText">Internal Development-Workstream</td>
+
+		<td class="RegText">Normal</td>
+
+		<td class="RegText"><a href="javascript:list_to_time('77');" title="View time details for Apply HTML5 appcache." class="RegText">0/4 0%</a></td>
+
+		<td class="RegText">New</td>
+
+		<td class="RegText">03/21/2012</td>
+
+	</tr>
+
+
+
+	<tr>
+
+		<td class="RegText" scope="row">25</td>
+
+		<td class="RegText">French</td>
+
+		<td class="RegText"><a href="javascript:list_to_task('25');" title="View time details for Choose a hosting solution." class="RegText"><img src="images/icon_plug.gif" title="Evaluate hosting solutions and choose one that can host brochure site, workstream and possibly Culinaerie." height="16" width="16" border="0">Choose a hosting solution</a></td>
+
+		<td class="RegText">Internal Development-Workstream</td>
+
+		<td class="RegText">Normal</td>
+
+		<td class="RegText"><a href="javascript:list_to_time('25');" title="View time details for Choose a hosting solution." class="RegText">0/16 0%</a></td>
+
+		<td class="RegText">New</td>
+
+		<td class="RegText">08/10/2012</td>
+
+	</tr>
+
+
+
+	<tr bgcolor="#E1E1E1">
+
+		<td class="RegText" scope="row">5</td>
+
+		<td class="RegText">French</td>
+
+		<td class="RegText"><a href="javascript:list_to_task('5');" title="View time details for add forums to Workstream." class="RegText"><img src="images/icon_code.gif" title="Consider adding forums to Workstream" height="16" width="16" border="0">add forums to Workstream</a></td>
+
+		<td class="RegText">Internal Development-Workstream</td>
+
+		<td class="RegText">Rainy Day</td>
+
+		<td class="RegText"><a href="javascript:list_to_time('5');" title="View time details for add forums to Workstream." class="RegText">0/40 0%</a></td>
+
+		<td class="RegText">New</td>
+
+		<td class="RegText">09/30/2012</td>
+
+	</tr>
+
+
+
+	<tr>
+
+		<td class="RegText" scope="row">10</td>
+
+		<td class="RegText">French</td>
+
+		<td class="RegText"><a href="javascript:list_to_task('10');" title="View time details for Dust off workstream archived code." class="RegText"><img src="images/icon_pie_chart.jpg" title="Update legacy workstream code for CF8 environment. Incorporate skeleton security/navigation model. Incorporate help features on each page." height="16" width="16" border="0">Dust off workstream archived code</a></td>
+
+		<td class="RegText">Internal Development-Workstream</td>
+
+		<td class="RegText">Normal</td>
+
+		<td class="RegText"><a href="javascript:list_to_time('10');" title="View time details for Dust off workstream archived code." class="RegText">40/40 99%</a></td>
+
+		<td class="RegText">In Progress</td>
+
+		<td class="RegText">10/15/2012</td>
+
+	</tr>
+
+
+
+	<tr bgcolor="#E1E1E1">
+
+		<td class="RegText" scope="row">12</td>
+
+		<td class="RegText">French</td>
+
+		<td class="RegText"><a href="javascript:list_to_task('12');" title="View time details for New workstream look/feel." class="RegText"><img src="images/icon_bar_chart.jpg" title="Use templatemonster.com or 1and1.com to find new look, then install." height="16" width="16" border="0">New workstream look/feel</a></td>
+
+		<td class="RegText">Internal Development-Workstream</td>
+
+		<td class="RegText">Rainy Day</td>
+
+		<td class="RegText"><a href="javascript:list_to_time('12');" title="View time details for New workstream look/feel." class="RegText">1/2 50%</a></td>
+
+		<td class="RegText">In Progress</td>
+
+		<td class="RegText">10/31/2012</td>
+
+	</tr>
+
+
+
+</table>
+
+<!-- common_files/act_drilldown_form.cfm
+
+	Author: Jeromy French -->
+
+
+
+
+
+<script language="JavaScript" type="text/javascript">
+
+<!--
+
+function order_by(fldValue) {
+
+	document.order_by.order_by.value=fldValue; 
+
+	document.order_by.submit();
+
+}
+
+//-->
+
+</script>
+
+
+
+<form name="order_by" action="index.cfm?fuseaction=Timekeeping.task_list" method="post">
+
+	<input type="hidden" name="order_by" value="field_value" />
+
+	
+
+		<input type="hidden" name="reorder" value="1" />
+
+	
+
+</form>
+
+<!-- common_files/act_drilldown_form.cfm
+
+	Author: Jeromy French -->
+
+
+
+
+
+<script language="JavaScript" type="text/javascript">
+
+<!--
+
+function list_to_task(fldValue) {
+
+	document.list_to_task.task_id.value=fldValue; 
+
+	document.list_to_task.submit();
+
+}
+
+//-->
+
+</script>
+
+
+
+<form name="list_to_task" action="index.cfm?fuseaction=Timekeeping.task_details" method="post">
+
+	<input type="hidden" name="task_id" value="field_value" />
+
+	
+
+</form>
+
+<!-- common_files/act_drilldown_form.cfm
+
+	Author: Jeromy French -->
+
+
+
+
+
+<script language="JavaScript" type="text/javascript">
+
+<!--
+
+function list_to_time(fldValue) {
+
+	document.list_to_time.task_id.value=fldValue; 
+
+	document.list_to_time.submit();
+
+}
+
+//-->
+
+</script>
+
+
+
+<form name="list_to_time" action="index.cfm?fuseaction=Timekeeping.time_details" method="post">
+
+	<input type="hidden" name="task_id" value="field_value" />
+
+	
+
+</form>
+
+<!-- common_files/dsp_footer.cfm
+
+	Author: Jeromy French-->
+
+
+
+
+
+<!-- END MAIN BODY -->
+
+
+<section id="translations" class="page">
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+<p>whatever</p>
+</section>
+
+    </section>
+  </body>
+</html>
+

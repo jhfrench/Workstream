@@ -52,20 +52,52 @@ else
 		<meta name="dc.publisher" content="Applied Internet Technologies: #application.application_specific_settings.nasa_official#" />
 		<!--Meta Data ends-->
 		<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
+		<link rel="stylesheet/less" type="text/css" href="main.less">
 		<link href="common_files/ngauge_#session.workstream_text_size#.css?cache_escape=#variables.cache_escape#" rel="stylesheet" />
 		<link href="common_files/application.css?cache_escape=#variables.cache_escape#" rel="stylesheet" />
 		<link href="common_files/common.css?cache_escape=#variables.cache_escape#" rel="stylesheet" />
 		<link href="common_files/print.css?cache_escape=#variables.cache_escape#" rel="stylesheet" media="print" />
 		<link href="common_files/handheld.css?cache_escape=#variables.cache_escape#" rel="stylesheet" media="handheld" />
 		<link href="common_files/screen.css?cache_escape=#variables.cache_escape#" rel="stylesheet" media="screen" />
-		<script src="common_files/common.js?cache_escape=#variables.cache_escape#" language="javascript"></script>
 		<script src="common_files/prototype.js?cache_escape=#variables.cache_escape#"></script>
 		<script src="common_files/scriptaculous.js?cache_escape=#variables.cache_escape#"></script>
 		<script src="common_files/slider.js?cache_escape=#variables.cache_escape#"></script>
 		<script src="common_files/block.js?cache_escape=#variables.cache_escape#"></script>
 		<script src="common_files/SpryMenuBar.js?cache_escape=#variables.cache_escape#"></script>
+
+    <script type="text/javascript">
+      (function () {
+        if (/Microsoft/.test(navigator.appName)) { return }
+
+        window.onload = function () { 
+          <cfif application.use_help_module_ind>Element.hide('help_area');</cfif>
+		  #get_screen_details.body_onload#
+          var menu = document.getElementById('menu');
+          var init = menu.offsetTop;
+          var docked;
+
+          window.onscroll = function () {
+            if (!docked && (menu.offsetTop - scrollTop() < 0)) {
+              menu.style.top = 0;
+              menu.style.position = 'fixed';
+              menu.className = 'docked';
+              docked = true;
+            } else if (docked && scrollTop() <= init) {
+              menu.style.position = 'absolute';
+              menu.style.top = init + 'px';
+              menu.className = menu.className.replace('docked', '');
+              docked = false;
+            }
+          };
+        };
+
+        function scrollTop() {
+          return document.body.scrollTop || document.documentElement.scrollTop;
+        }
+      })();
+    </script>
 	</head>
-<body bgcolor="##000000" onLoad="<cfif application.use_help_module_ind>Element.hide('help_area');</cfif>#get_screen_details.body_onload#">
+<body bgcolor="##000000">
 <table align="center" bgcolor="##ffffff" width="1180" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td bgcolor="##000000" colspan="5" height="10" width="1180"><img src="images/spacer.gif" alt="" height="10" width="1" border="0" /></td>
@@ -91,7 +123,7 @@ else
 				<a href="#application.application_specific_settings.nasa_organization_url#" style="padding:20px; color:##FFFFFF; font-size:24px; font-weight:bold; text-shadow:##333333 2px 2px 0px; vertical-align:middle;">#application.application_specific_settings.nasa_organization#</a>
 			</div>
 		</cfif>
-		<nav style="width:1160px;">
+		<nav id="menu" style="width:1160px;">
 			<cfinclude template="qry_get_module_sub_navigation.cfm" /><!--- 
 			<cfmodule template="qry_get_program_year.cfm" program_year_id="#session.program_year_id#"> --->
 			<cfinclude template="dsp_navigation_module.cfm" />

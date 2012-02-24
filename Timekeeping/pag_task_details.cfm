@@ -78,4 +78,3 @@
 		<cfinclude template="dsp_no_task_details.cfm">
 	</cfif>
 </cfif>
-<iframe src="../common_files/pop_cal/popcjs.htm" name="gToday:normal:agenda.js" id="gToday:normal:agenda.js" scrolling="no" frameborder="0" style="border:ridge;visibility:hidden;position:absolute;z-index:65535"></iframe>
