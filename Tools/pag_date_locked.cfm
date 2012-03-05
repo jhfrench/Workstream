@@ -11,11 +11,11 @@
 	$Log$
 	||
 	END FUSEDOC --->
-<cfoutput>
 </cfsilent>
+<cfoutput>
 <table align="center" cellpadding="3" cellspacing="0" border="0" width="50%">
 <cfif isdefined("attributes.company_id") AND len(attributes.company_id)>
-<!--- IF PAGE HAS BEEN SUBMITTED AND NECESARY VARIABLES ARE PRESENT --->
+<!--- if page has been submitted and necesary variables are present --->
 	<cfinclude template="act_update_date_locked.cfm">
 </cfif>
 	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="SubHeadTextWhite" section_color="772862" section_title="Change Date Locked" gutter="0" align="center" colspan="5">

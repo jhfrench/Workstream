@@ -15,7 +15,7 @@
  
 	<tr>
 		<td>
-<CFFORM name="myform" action="index.cfm?fuseaction=Marketing.Submit_Marketing" method="POST"> 
+<cfform name="myform" action="index.cfm?fuseaction=Marketing.Submit_Marketing" method="POST"> 
 
 <cfgrid name="marketing" width="900" query="marketing" insert="no" sort="Yes" bold="No" italic="No" appendkey="Yes" highlighthref="Yes"  griddataalign="LEFT" gridlines="Yes" rowheaders="No" rowheaderalign="LEFT" rowheaderitalic="No" rowheaderbold="No" colheaders="Yes" colheaderalign="LEFT" colheaderitalic="No" colheaderbold="Yes" selectmode="edit" picturebar="No">
 

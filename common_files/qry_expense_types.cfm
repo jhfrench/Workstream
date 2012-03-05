@@ -11,10 +11,9 @@
 	$Log$
 	||
 	END FUSEDOC --->
-
-
-<cfquery name="get_Expense_Category" datasource="#application.datasources.main#" >
+<cfquery name="get_expense_category" datasource="#application.datasources.main#" >
 SELECT  *
 FROM REF_Expense_Category
 ORDER BY order_by, expense_category_id
 </cfquery>
+</cfsilent>

@@ -57,6 +57,7 @@ else
 		<script src="common_files/scriptaculous.js?cache_escape=#variables.cache_escape#"></script>
 		<script src="common_files/slider.js?cache_escape=#variables.cache_escape#"></script>
 		<script src="common_files/block.js?cache_escape=#variables.cache_escape#"></script>
+		<script src="common_files/Workstream.js?cache_escape=#variables.cache_escape#"></script>
 		<script src="common_files/SpryMenuBar.js?cache_escape=#variables.cache_escape#"></script>
 
     <script type="text/javascript">
@@ -84,10 +85,6 @@ else
             }
           };
         };
-
-        function scrollTop() {
-          return document.body.scrollTop || document.documentElement.scrollTop;
-        }
       })();
     </script>
 	</head>
@@ -103,8 +100,6 @@ else
 			<div style="position:absolute;top:-100em;left:-100em;">
 				<!-- Skip navigation link -->
 				<a href="##begin_page_content" title="hidden browser link to skip repetitive navigation" class="footerLnk">- Skip Nav</a>
-				<cfloop query="get_hidden_navigation_links">
-				<a href="index.cfm?fuseaction=#fuseaction###begin_page_content" title="hidden browser link to view #business_function_description#"></a></cfloop>
 			</div>
 		<!-- Top Nav Bar starts -->
 		<cfif application.application_specific_settings.banner_only_ind>
@@ -117,11 +112,13 @@ else
 				<a href="#application.application_specific_settings.nasa_organization_url#" style="padding:20px; color:##FFFFFF; font-size:24px; font-weight:bold; text-shadow:##333333 2px 2px 0px; vertical-align:middle;">#application.application_specific_settings.nasa_organization#</a>
 			</div>
 		</cfif>
-		<nav id="menu">
-			<cfinclude template="qry_get_module_sub_navigation.cfm" /><!--- 
-			<cfmodule template="qry_get_program_year.cfm" program_year_id="#session.program_year_id#"> --->
-			<cfinclude template="dsp_navigation_module.cfm" />
-		</nav>
+			<div id="nav_placeholder" style="height:15px;">
+				<nav id="menu">
+					<cfinclude template="qry_get_module_sub_navigation.cfm" /><!--- 
+					<cfmodule template="qry_get_program_year.cfm" program_year_id="#session.program_year_id#"> --->
+					<cfinclude template="dsp_navigation_module.cfm" />
+				</nav>
+			</div>
 </header>
 		<!-- Top Nav Bar ends -->
 		</td>
