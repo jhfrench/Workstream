@@ -15,6 +15,7 @@
 <cfset variables.workstream_task_list_order=session.workstream_task_list_order>
 </cfsilent>
 <cfoutput>
+<thead>
 	<tr>
 		<th class="SubHeadText" nowrap>
 			<a href="javascript:order_by('task_id');" title="Order by the task ID." class="SubHeadText"><abbr title="task id">ID</abbr> <cfif NOT compare(ListFirst(ListFirst(variables.workstream_task_list_order), " "),"task_id")><img src="#request.dir_level##application.application_specific_settings.image_dir#order_<cfif ListLen(ListFirst(variables.workstream_task_list_order), " ") EQ 2>down<cfelse>up</cfif>.gif" width="8" height="8" alt="Order by the task ID." border="0"></cfif></a>
@@ -43,4 +44,5 @@
 			<a href="javascript:order_by('date_due');" title="Order by the date that the task is due." class="SubHeadText">Due <cfif NOT compare(ListFirst(ListFirst(variables.workstream_task_list_order), " "),"date_due")><img src="#request.dir_level##application.application_specific_settings.image_dir#order_<cfif ListLen(ListFirst(variables.workstream_task_list_order), " ") EQ 2>down<cfelse>up</cfif>.gif" width="8" height="8" alt="Order by the date that the task is due." border="0"></cfif></a>
 		</th>
 	</tr>
+</thead>
 </cfoutput>

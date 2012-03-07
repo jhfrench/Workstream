@@ -37,7 +37,7 @@
 		application.login_for_error="session.last_name";
 		application.product_id=122;
 		application.product_name="Workstream";
-		application.product_release_version="4.0.1";
+		application.product_release_version="4.1.0";
 		application.support_email_recipients="jeromy_french@hotmail.com";
 		application.use_help_module_ind=1;
 		application.use_help_faq_ind=1;

@@ -12,6 +12,7 @@
 	.SubHeadText,
 	.RegTextBd,
 	.RegText,
+	table.alternate_shade tbody tr td,
 	.RegTextBd,
 	.RegTextIt
 	{
@@ -51,6 +52,7 @@
 	/*<!---Normal--> */
 	.Note,
 	.RegText,
+	table.alternate_shade tbody tr td,
 	.RegTextWhite,
 	.RegTextIt,
 	.RegTextRed,
@@ -82,6 +84,7 @@
 	.SubHeadText,
 	.SubHeadTextWhite,
 	.RegText,
+	table.alternate_shade tbody tr td,
 	.RegTextBd,
 	.RegTextWhite,
 	.RegTextIt,
@@ -97,6 +100,7 @@
 	.SubHeadText,
 	.SubHeadTextWhite,
 	.RegText,
+	table.alternate_shade tbody tr td,
 	.RegTextBd,
 	.RegTextWhite,
 	.RegTextRed,
@@ -119,6 +123,8 @@
 	{
 		background: #78A0EB;
 	}
+
+	table.alternate_shade tbody tr:nth-child(odd) {background: #E1E1E1;}
 
 /*<!---HOVER--> */
 	A.RegText:hover,
