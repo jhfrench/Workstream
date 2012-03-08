@@ -1,5 +1,5 @@
 
-<!--Search/pag_search.cfm
+<!--Search/pag_view_results.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -31,11 +31,9 @@
 <cfinclude template="../common_files/act_client_vars.cfm">
 <cfinclude template="../common_files/act_task_list_order.cfm">
 <cfinclude template="qry_search.cfm">
-<table align="center" cellpadding="0" cellspacing="0" border="0" width="100%">
+<table align="center" cellpadding="0" cellspacing="0" border="0" width="100%" class="alternate_shade">
     <cfinclude template="../common_files/dsp_task_list_header.cfm"> 
 	<cfinclude template="../common_files/dsp_task_list.cfm">
- 
-
 </table>
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="order_by" field_name="order_by" fuseaction="output" processform="true" field2_name="reorder" field2_value="1">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
@@ -43,7 +41,7 @@
 
 
 <cfoutput>
-
+	<!--- $issue$: "edit search" does not work. --->
 <table align="center" cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
 <td align="center">&nbsp;</td>
