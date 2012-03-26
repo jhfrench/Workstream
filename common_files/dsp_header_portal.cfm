@@ -39,55 +39,54 @@ else
 
 <cfoutput>
 <html>
-	<head>
-		<title>#application.html_title#</title>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<meta http-equiv="expires" content="#gethttptimestring(application.last_updated)#" />
-		<!--Meta Data starts-->
-		<!--SYSTEM DEFINED METADATA-->
-		<meta name="dc.title" content="#application.html_title#" />
-		<meta name="dc.format" content="text/html" />
-		<meta name="dc.date.modified" content="#application.last_updated#" />
-		<meta name="dc.language" content="en" />
-		<meta name="dc.publisher" content="Applied Internet Technologies: #application.application_specific_settings.nasa_official#" />
-		<!--Meta Data ends-->
-		<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
-		<link href="common_files/Workstream_#session.workstream_text_size#.css?cache_escape=#variables.cache_escape#" rel="stylesheet" />
-		<script src="common_files/prototype.js?cache_escape=#variables.cache_escape#"></script>
-		<script src="common_files/scriptaculous.js?cache_escape=#variables.cache_escape#"></script>
-		<script src="common_files/slider.js?cache_escape=#variables.cache_escape#"></script>
-		<script src="common_files/block.js?cache_escape=#variables.cache_escape#"></script>
-		<script src="common_files/Workstream.js?cache_escape=#variables.cache_escape#"></script>
-		<script src="common_files/SpryMenuBar.js?cache_escape=#variables.cache_escape#"></script>
-
-    <script type="text/javascript">
-      (function () {
-        if (/Microsoft/.test(navigator.appName)) { return }
-
-        window.onload = function () { 
-          <cfif application.use_help_module_ind>Element.hide('help_area');</cfif>
-		  #get_screen_details.body_onload#
-          var menu = document.getElementById('menu');
-          var init = menu.offsetTop;
-          var docked;
-
-          window.onscroll = function () {
-            if (!docked && (menu.offsetTop - scrollTop() < 0)) {
-              menu.style.top = 0;
-              menu.style.position = 'fixed';
-              menu.className = 'docked';
-              docked = true;
-            } else if (docked && scrollTop() <= init) {
-              menu.style.position = 'absolute';
-              menu.style.top = init + 'px';
-              menu.className = menu.className.replace('docked', '');
-              docked = false;
-            }
-          };
-        };
-      })();
-    </script>
-	</head>
+<head>
+	<title>#application.html_title#</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="expires" content="#gethttptimestring(application.last_updated)#" />
+	<!--Meta Data starts-->
+	<!--SYSTEM DEFINED METADATA-->
+	<meta name="dc.title" content="#application.html_title#" />
+	<meta name="dc.format" content="text/html" />
+	<meta name="dc.date.modified" content="#application.last_updated#" />
+	<meta name="dc.language" content="en" />
+	<meta name="dc.publisher" content="Applied Internet Technologies: #application.application_specific_settings.nasa_official#" />
+	<!--Meta Data ends-->
+	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
+	<link href="common_files/Workstream_#session.workstream_text_size#.css?cache_escape=#variables.cache_escape#" rel="stylesheet" />
+	<script src="common_files/prototype.js?cache_escape=#variables.cache_escape#"></script>
+	<script src="common_files/scriptaculous.js?cache_escape=#variables.cache_escape#"></script>
+	<script src="common_files/slider.js?cache_escape=#variables.cache_escape#"></script>
+	<script src="common_files/block.js?cache_escape=#variables.cache_escape#"></script>
+	<script src="common_files/Workstream.js?cache_escape=#variables.cache_escape#"></script>
+	<script src="common_files/SpryMenuBar.js?cache_escape=#variables.cache_escape#"></script>
+	<script type="text/javascript">
+		(function () {
+			if (/Microsoft/.test(navigator.appName)) { return }
+			
+			window.onload = function () {
+				<cfif application.use_help_module_ind>Element.hide('help_area');</cfif>
+				#get_screen_details.body_onload#
+				var menu = document.getElementById('menu');
+				var init = menu.offsetTop;
+				var docked;
+				
+				window.onscroll = function () {
+					if (!docked && (menu.offsetTop - scrollTop() < 0)) {
+						menu.style.top = 0;
+						menu.style.position = 'fixed';
+						menu.className = 'docked';
+						docked = true;
+					} else if (docked && scrollTop() <= init) {
+						menu.style.position = 'absolute';
+						menu.style.top = init + 'px';
+						menu.className = menu.className.replace('docked', '');
+						docked = false;
+					}
+				};
+			};
+		})();
+	</script>
+</head>
 <body bgcolor="##000000">
 <table align="center" bgcolor="##ffffff" width="1180" border="0" cellspacing="0" cellpadding="0">
 	<tr>

@@ -9,8 +9,6 @@ fieldset legend {
 	font-variant:small-caps;}
 .mast {background-color:black;width:100%;}
 .toolbar {background-image:url("../images/middle.jpg");background-repeat:repeat-x;}
-.menubar {background-image:url("../images/menubar.jpg");background-repeat:no-repeat;}
-.menubar2 {background-image:url("../images/menubar2.jpg");background-repeat:repeat-x;}
 .formtextlabel {font-family:Trebuchet MS, Tahoma, sans-serif, Arial; font-size:8pt; color:white;}
 .iconbar {background-image:url("../images/iconbar.jpg");background-repeat:no-repeat;}
 .modulebar {background-image:url("../images/modulebar.jpg");background-repeat:no-repeat;}
@@ -93,63 +91,6 @@ fieldset legend {
 	}
 
 .legend {font-size:8pt;}
-
-.forum {
-	font-family:Trebuchet MS, Tahoma, sans-serif, Arial;
-	font-size:12px;
-	padding:1px;
-	}
-
-.caltexthighlight{
-	FONT-WEIGHT: bold;
-	FONT-SIZE: 8pt;
-	COLOR: #115E96;
-	FONT-STYLE: normal;
-	FONT-FAMILY: Trebuchet MS, Tahoma, sans-serif, Arial;
-	TEXT-DECORATION: none;
-	PADDING-BOTTOM: 5px
-	}
-.caltext{
-	FONT-WEIGHT: normal;
-	FONT-SIZE: 8pt;
-	COLOR: #666666;
-	FONT-STYLE: normal;
-	FONT-FAMILY: Trebuchet MS, Tahoma, sans-serif, Arial;
-	TEXT-DECORATION: none;
-	PADDING-BOTTOM: 5px
-	}
-.calendarheader{
-	FONT-WEIGHT: bold;
-	FONT-SIZE: 8pt;
-	COLOR: #666666;
-	FONT-STYLE: normal;
-	FONT-FAMILY: Trebuchet MS, Tahoma, sans-serif, Arial;
-	TEXT-DECORATION: none
-	}
-.calendar{
-	FONT-WEIGHT: normal;
-	FONT-SIZE: 8pt;
-	COLOR: #666666;
-	FONT-STYLE: normal;
-	FONT-FAMILY: Trebuchet MS, Tahoma, sans-serif, Arial;
-	TEXT-DECORATION: none
-	}
-A.calendar{
-	FONT-WEIGHT: normal;
-	FONT-SIZE: 8pt;
-	COLOR: #666666;
-	FONT-STYLE: normal;
-	FONT-FAMILY: Trebuchet MS, Tahoma, sans-serif, Arial;
-	TEXT-DECORATION: underline
-	}
-.calendartoday{
-	FONT-WEIGHT: bolder;
-	FONT-SIZE: 8pt;
-	COLOR: #9C0000;
-	FONT-STYLE: normal;
-	FONT-FAMILY: Trebuchet MS, Tahoma, sans-serif, Arial;
-	TEXT-DECORATION: underline
-	}
 
 /*
 	3 COLUMN LAYOUTS

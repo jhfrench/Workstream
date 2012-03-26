@@ -31,7 +31,7 @@
 <cfinclude template="../common_files/act_client_vars.cfm">
 <cfinclude template="../common_files/act_task_list_order.cfm">
 <cfinclude template="qry_search.cfm">
-<table align="center" cellpadding="0" cellspacing="0" border="0" width="100%" class="alternate_shade">
+<table align="center" cellpadding="0" cellspacing="0" border="0" width="100%" class="table_striped">
     <cfinclude template="../common_files/dsp_task_list_header.cfm"> 
 	<cfinclude template="../common_files/dsp_task_list.cfm">
 </table>

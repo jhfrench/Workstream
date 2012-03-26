@@ -18,4 +18,3 @@
 <cfinclude template="act_hours_blurb.cfm">
 <cfinclude template="qry_operations_blurb.cfm">
 <cfinclude template="dsp_timekeeping_columns.cfm">
-

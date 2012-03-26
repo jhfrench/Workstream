@@ -58,7 +58,7 @@
 	<cfelseif comparenocase(right(listfirst(cgi.http_referer,"?"),len(variables.current_location)), variables.current_location)>
 		<!--- if the page request is not originating from the application's host server --->
 		<!--- 2. Prevent unauthorized interface attempts from other applications --->
-		<cfset variables.error_message="This is a United States of America government site. Any unauthenticated access is prohibited.1">
+		<cfset variables.error_message="Unauthenticated access is prohibited.1">
 		<cfset variables.new_location="index.cfm?fuseaction=Home.logout&requested_page=#url.fuseaction#">
 	</cfif>
 <cfelse>
@@ -67,7 +67,7 @@
 	<cfif len(cgi.http_referer) AND NOT (findnocase("127.0.0.1", cgi.http_referer) OR findnocase("localhost", cgi.http_referer) OR findnocase("florence", cgi.http_referer) OR findnocase("192.168.1.3", cgi.http_referer))>
 		<!--- if we do know the refering page, and the refering page doesn't originate from nasa.gov or hitsshq.com --->
 		<!--- 2. Prevent unauthorized interface attempts from other applications --->
-		<cfset variables.error_message="This is a United States of America Government site. Any unauthenticated access is prohibited.2">
+		<cfset variables.error_message="Unauthenticated access is prohibited.2">
 		<cfset variables.new_location="index.cfm?fuseaction=#application.fusebox.defaultfuseaction#">
 	</cfif>
 </cfif>

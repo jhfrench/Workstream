@@ -60,12 +60,6 @@
 			<include template="pag_efficiency_report.cfm"/>
 		</fuseaction>
 		<!-- Begin Anniversary report -->
-		<fuseaction name="anniversary_input">
-			<!-- <set name="attributes.object_name" value="Anniversary"/>
-			<include template="../common_files/act_object_access.cfm"> -->
-			<set name="request.pagetitle" value="Anniversary Report"/>
-			<include template="pag_anniv_report_input.cfm"/>
-		</fuseaction>
 		<fuseaction name="anniversary">
 			<!-- <set name="attributes.object_name" value="Anniversary"/>
 			<include template="../common_files/act_object_access.cfm"> -->

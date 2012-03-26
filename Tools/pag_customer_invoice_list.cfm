@@ -18,9 +18,18 @@
 </cfsilent>
 <cfinclude template="qry_get_extreme_dates.cfm">
 <cfinclude template="qry_get_customer_invoice_list.cfm">
-<table align="center" cellpadding="1" cellspacing="0" border="1" bordercolor="#772862" width="70%">
+<table border="0" cellpadding="4" cellspacing="0" align="center" width="70%" class="table_striped">
+	<thead>
 	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadTextWhite" section_color="772862" section_title="&nbsp;Invoice List for Work Completed in #MonthAsString(attributes.month)#, #attributes.year#" colspan="5" gutter=0>
+	<tr class="SubHeadText">
+		<th class="SubHeadText">Customer</th>
+		<th class="SubHeadText">Total Monthly Bill</th>
+		<th class="SubHeadText">Generate Invoice</th>
+	</tr>
+	</thead>
+	<tbody>
 	<cfinclude template="dsp_customer_invoice_list.cfm">
+	</tbody>
 	<cfinclude template="dsp_invoice_list_form.cfm">
 </table>
 

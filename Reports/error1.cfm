@@ -14,7 +14,7 @@
 </cfsilent>
 <div align="center" class="HeadText">There has been a problem with the report you requested. <br>
 Please verify the date range that you selected and try to rerun your report.<br>
-This Page will redirect you to the Report page. <br>
+This page will redirect you to the Report page. <br>
 If the problem persists please notify The workstream Administrator.<br>
 <a href="mailto:jeromy_french@hotmail.com">jeromy_french@hotmail.com</a><br>
 Thank You</div>

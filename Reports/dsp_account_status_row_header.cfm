@@ -15,32 +15,32 @@
 </cfsilent>
 <cfoutput> 
 <tr bgcolor="##c0c0c0">
-	<td class="RegTextBd">
+	<th class="RegTextBd">
 		Project
-	</td>
-	<td class="RegTextBd">
+	</th>
+	<th class="RegTextBd">
 		ID
-	</td>
-	<td class="RegTextBd">
+	</th>
+	<th class="RegTextBd">
 		Name
-	</td>
-	<td align="center" class="RegTextBd">
+	</th>
+	<th align="center" class="RegTextBd">
 		Status
-	</td>
-	<td class="RegTextBd">
+	</th>
+	<th class="RegTextBd">
 		Priority
-	</td>
-	<td class="RegTextBd">
+	</th>
+	<th class="RegTextBd">
 		Assigned
-	</td>
-	<td class="RegTextBd">
+	</th>
+	<th class="RegTextBd">
 		Due
-	</td>
-	<td class="RegTextBd">
+	</th>
+	<th class="RegTextBd">
 		Completed
-	</td>
-	<td class="RegTextBd">
+	</th>
+	<th class="RegTextBd">
 		Owner
-	</td>
+	</th>
 </tr>
 </cfoutput> 

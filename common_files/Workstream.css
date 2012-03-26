@@ -12,7 +12,7 @@
 	.SubHeadText,
 	.RegTextBd,
 	.RegText,
-	table.alternate_shade tbody tr td,
+	table.table_striped tbody tr td,
 	.RegTextBd,
 	.RegTextIt
 	{
@@ -52,7 +52,7 @@
 	/*<!---Normal--> */
 	.Note,
 	.RegText,
-	table.alternate_shade tbody tr td,
+	table.table_striped tbody tr td,
 	.RegTextWhite,
 	.RegTextIt,
 	.RegTextRed,
@@ -72,8 +72,7 @@
 	}
 	
 	
-/*<!---MISCELLANEOUS--> */
-	/*<!---Font--> */
+/*<!---Font--> */
 	.Note
 	{
 		font-family: geneva, verdana, Tahoma, sans-serif, Arial;
@@ -84,7 +83,7 @@
 	.SubHeadText,
 	.SubHeadTextWhite,
 	.RegText,
-	table.alternate_shade tbody tr td,
+	table.table_striped tbody tr td,
 	.RegTextBd,
 	.RegTextWhite,
 	.RegTextIt,
@@ -100,7 +99,7 @@
 	.SubHeadText,
 	.SubHeadTextWhite,
 	.RegText,
-	table.alternate_shade tbody tr td,
+	table.table_striped tbody tr td,
 	.RegTextBd,
 	.RegTextWhite,
 	.RegTextRed,
@@ -119,12 +118,24 @@
 	
 /*<!---BACKGROUND--> */
 	/*<!---Light Blue--> */
-	.SelectText
-	{
+	.SelectText {
 		background: #78A0EB;
 	}
 
-	table.alternate_shade tbody tr:nth-child(odd) {background: #E1E1E1;}
+	table.table_striped tbody tr:nth-child(odd) {
+		background: #E1E1E1
+	}
+	
+/*<!---text alignment--> */
+	/*<!---Center--> */
+	TH {
+		text-align: center;
+	}
+
+	/*<!---Right--> */
+	.number, .date {
+		text-align: right;
+	}
 
 /*<!---HOVER--> */
 	A.RegText:hover,

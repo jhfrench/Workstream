@@ -13,14 +13,9 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<tr valign="bottom" bgcolor="##c0c0c0">
-	<td class="RegText">Employee</td>
-	<cfloop from="1" to="#variables.daysinmonth#" index="ii"><td align="center" class="RegText">
-		#dateformat(variables.report_date, "mmm")#<br>#ii#
-	</td></cfloop>
-	<td class="RegText">
-		Total
-	</td>
-</tr>
+	<tr valign="bottom" bgcolor="##c0c0c0">
+		<th>Employee</th><cfloop from="1" to="#variables.daysinmonth#" index="ii">
+		<th<cfif listfind("1,7", dayofweek(CreateODBCDate("#attributes.month#/#ii#/#attributes.year#")))> bgcolor="##00ffff"</cfif>>#ii#</th></cfloop>
+		<th>Total</th>
+	</tr>
 </cfoutput>
-

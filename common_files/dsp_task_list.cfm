@@ -43,14 +43,14 @@
 <cfoutput> 
 <cfset variables.StatusMsg=jsstringformat(task_name)>
 	<tr>
-		<td scope="row">#task_id#</td>
+		<td scope="row" class="number"">#task_id#</td>
 		<td>#task_owner#</td>
 		<td><a href="javascript:list_to_task('#task_id#');" title="View time details for #variables.StatusMsg#." class="RegText"><img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" title="#ReplaceList(task_description, variables.quote, variables.StatusMsg_replace_with)#" height="16" width="16" border="0">#task_name#</a></td>
 		<td>#project_name#</td>
 		<td>#priority#</td>
 		<td><a href="javascript:list_to_time('#task_id#');" title="View time details for #variables.StatusMsg#." class="RegText"><cfif listlen(time_used) GT 1 AND listgetat(time_used,2,".") GT 0>#decimalformat(time_used)#<cfelse>#numberformat(time_used)#</cfif><cfif time_budgeted>/#time_budgeted# #numberformat(percent_time_used)#%</cfif></a></td>
 		<td><cfif status_id NEQ 7 AND datecompare(now(), date_due, "d") GTE 0><img src="#request.dir_level##application.application_specific_settings.image_dir#<cfif datecompare(now(), date_due, "d") EQ 0>not_started<cfelse>overdue</cfif>.gif" width="17" height="17" alt="" border="0">&nbsp;</cfif>#task_status#</td>
-		<td>#dateformat(date_due, "mm/dd/yyyy")#</td>
+		<td class="date">#dateformat(date_due, "mm/dd/yyyy")#</td>
 	</tr>
 </cfoutput>
 </cfoutput>

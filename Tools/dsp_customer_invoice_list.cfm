@@ -14,29 +14,16 @@
 	Variables:
 	END FUSEDOC --->
 </cfsilent>
-<cfoutput>
-<tr class="SubHeadText">
-	<td class="SubHeadText">
-		Customer
-	</td>
-	<td class="SubHeadText">
-		Total Monthly Bill
-	</td>
-	<td class="SubHeadText">
-		Generate Invoice
-	</td>
-</tr>
-<cfloop query="get_customer_invoice_list">
-	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif> class="RegText">
-		<td class="RegText">
+<cfoutput query="get_customer_invoice_list">
+	<tr>
+		<td>
 			<a href="javascript:customer_to_project(#customer_id#);" class="RegText">#customer_name#</a>
 		</td>
-		<td align="right" class="RegText">
+		<td class="RegText number">
 			#revenue#
 		</td>
-		<td align="right" class="RegText">
+		<td>
 			<input type="checkbox" name="customer_id" value="#customer_id#">
 		</td>
 	</tr>
-</cfloop>
 </cfoutput>

@@ -30,7 +30,7 @@
 			</td>
 			<td>
 				<img src="images/spacer.gif" width="180" height="1" alt="" border="0"><br />
-				<input type="text" name="user_name" id="user_name" value="#xmlformat(attributes.user_name)#" size="20" maxlength="4000" tabindex="1">
+				<input type="text" name="user_name" id="user_name" value="#xmlformat(attributes.user_name)#" size="20" maxlength="4000" tabindex="1" autofocus>
 			</td>
 		</tr>
 		<tr>

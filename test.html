@@ -1,727 +1,519 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 
-<!doctype html>
-<html>
-  <head>
-    <title>LESS &laquo; The Dynamic Stylesheet language</title>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<meta http-equiv="expires" content="Sat, 11 Feb 2012 17:35:43 GMT" />
-    <link rel="stylesheet/less" type="text/css" href="main.less">
-    <script src="http://lesscss.org/js/less.js" type="text/javascript"></script>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
-    <link rel="alternate" type="application/atom+xml" title="app - feed" href="http://lesscss.org/index.xml" />		<!--Meta Data starts-->
+<title>Pie Chart</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 
-		<!--SYSTEM DEFINED METADATA-->
+<style>
 
-		<meta name="dc.title" content="Workstream" />
+body {
+  background: #fff;
+  color: #333;
+  font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+  padding: 40px;
+}
 
-		<meta name="dc.format" content="text/html" />
+.wideBox {
+  clear: both;
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 10px;
+  background: #ebedf2;
+  border: 1px solid #333;
+  line-height: 80%;
+}
 
-		<meta name="dc.date.modified" content="{ts '2012-02-11 12:35:43'}" />
+#container {
+  width: 900px;
+  margin: 0 auto;
+}
 
-		<meta name="dc.language" content="en" />
+#chart, #chartData {
+  border: 1px solid #333;
+  background: #ebedf2 url("images/gradient.png") repeat-x 0 0;
+}
 
-		<meta name="dc.publisher" content="Applied Internet Technologies: Jeromy French" />
+#chart {
+  display: block;
+  margin: 0 0 50px 0;
+  float: left;
+  cursor: pointer;
+}
 
-		<!--Meta Data ends-->
+#chartData {
+  width: 200px;
+  margin: 0 40px 0 0;
+  float: right;
+  border-collapse: collapse;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  background-position: 0 -100px;
+}
 
-		<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
+#chartData th, #chartData td {
+  padding: 0.5em;
+  border: 1px dotted #666;
+  text-align: left;
+}
 
-		<link href="common_files/ngauge_Md.css?cache_escape=20120224032343" rel="stylesheet" />
+#chartData th {
+  border-bottom: 2px solid #333;
+  text-transform: uppercase;
+}
 
-		<link href="common_files/application.css?cache_escape=20120224032343" rel="stylesheet" />
+#chartData td {
+  cursor: pointer;
+}
 
-		<link href="common_files/common.css?cache_escape=20120224032343" rel="stylesheet" />
+#chartData td.highlight {
+  background: #e8e8e8;
+}
 
-		<link href="common_files/print.css?cache_escape=20120224032343" rel="stylesheet" media="print" />
+#chartData tr:hover td {
+  background: #f0f0f0;
+}
 
-		<link href="common_files/handheld.css?cache_escape=20120224032343" rel="stylesheet" media="handheld" />
+</style>
 
-		<link href="common_files/screen.css?cache_escape=20120224032343" rel="stylesheet" media="screen" />
+	<script src="common_files/slider.js?cache_escape=#variables.cache_escape#"></script>
+	<script src="common_files/block.js?cache_escape=#variables.cache_escape#"></script>
+	<script src="common_files/Workstream.js?cache_escape=#variables.cache_escape#"></script>
+	<script src="common_files/SpryMenuBar.js?cache_escape=#variables.cache_escape#"></script>
+	<script src="common_files/jquery-1.7.1.min.js"></script>
+<!--[if IE]>
+<script src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
+<![endif]-->
+<script>
+jQuery.noConflict();	//see http://docs.jquery.com/Using_jQuery_with_Other_Libraries
 
-		<script src="common_files/prototype.js?cache_escape=20120224032343"></script>
+jQuery(document).ready(function($){
+// Run the code when the DOM is ready
+$( pieChart );
 
-		<script src="common_files/scriptaculous.js?cache_escape=20120224032343"></script>
+function pieChart() {
 
-		<script src="common_files/slider.js?cache_escape=20120224032343"></script>
+  // Config settings
+  var chartSizePercent = 55;                        // The chart radius relative to the canvas width/height (in percent)
+  var sliceBorderWidth = 1;                         // Width (in pixels) of the border around each slice
+  var sliceBorderStyle = "#fff";                    // Colour of the border around each slice
+  var sliceGradientColour = "#ddd";                 // Colour to use for one end of the chart gradient
+  var maxPullOutDistance = 25;                      // How far, in pixels, to pull slices out when clicked
+  var pullOutFrameStep = 4;                         // How many pixels to move a slice with each animation frame
+  var pullOutFrameInterval = 40;                    // How long (in ms) between each animation frame
+  var pullOutLabelPadding = 65;                     // Padding between pulled-out slice and its label  
+  var pullOutLabelFont = "bold 16px 'Trebuchet MS', Verdana, sans-serif";  // Pull-out slice label font
+  var pullOutValueFont = "bold 12px 'Trebuchet MS', Verdana, sans-serif";  // Pull-out slice value font
+  var pullOutValuePrefix = "$";                     // Pull-out slice value prefix
+  var pullOutShadowColour = "rgba( 0, 0, 0, .5 )";  // Colour to use for the pull-out slice shadow
+  var pullOutShadowOffsetX = 5;                     // X-offset (in pixels) of the pull-out slice shadow
+  var pullOutShadowOffsetY = 5;                     // Y-offset (in pixels) of the pull-out slice shadow
+  var pullOutShadowBlur = 5;                        // How much to blur the pull-out slice shadow
+  var pullOutBorderWidth = 2;                       // Width (in pixels) of the pull-out slice border
+  var pullOutBorderStyle = "#333";                  // Colour of the pull-out slice border
+  var chartStartAngle = -.5 * Math.PI;              // Start the chart at 12 o'clock instead of 3 o'clock
 
-		<script src="common_files/block.js?cache_escape=20120224032343"></script>
+  // Declare some variables for the chart
+  var canvas;                       // The canvas element in the page
+  var currentPullOutSlice = -1;     // The slice currently pulled out (-1 = no slice)
+  var currentPullOutDistance = 0;   // How many pixels the pulled-out slice is currently pulled out in the animation
+  var animationId = 0;              // Tracks the interval ID for the animation created by setInterval()
+  var chartData = [];               // Chart data (labels, values, and angles)
+  var chartColours = [];            // Chart colours (pulled from the HTML table)
+  var totalValue = 0;               // Total of all the values in the chart
+  var canvasWidth;                  // Width of the canvas, in pixels
+  var canvasHeight;                 // Height of the canvas, in pixels
+  var centreX;                      // X-coordinate of centre of the canvas/chart
+  var centreY;                      // Y-coordinate of centre of the canvas/chart
+  var chartRadius;                  // Radius of the pie chart, in pixels
 
-		<script src="common_files/SpryMenuBar.js?cache_escape=20120224032343"></script>
+  // Set things up and draw the chart
+  init();
+
+
+  /**
+   * Set up the chart data and colours, as well as the chart and table click handlers,
+   * and draw the initial pie chart
+   */
+
+  function init() {
+
+    // Get the canvas element in the page
+    canvas = document.getElementById('chart');
+
+    // Exit if the browser isn't canvas-capable
+    if ( typeof canvas.getContext === 'undefined' ) return;
+
+    // Initialise some properties of the canvas and chart
+    canvasWidth = canvas.width;
+    canvasHeight = canvas.height;
+    centreX = canvasWidth / 2;
+    centreY = canvasHeight / 2;
+    chartRadius = Math.min( canvasWidth, canvasHeight ) / 2 * ( chartSizePercent / 100 );
+
+    // Grab the data from the table,
+    // and assign click handlers to the table data cells
     
-    
-    <script type="text/javascript">
-      (function () {
-        if (/Microsoft/.test(navigator.appName)) { return }
+    var currentRow = -1;
+    var currentCell = 0;
 
-        window.onload = function () {
-          var menu = document.getElementById('menu');
-          var init = menu.offsetTop;
-          var docked;
+    $('#chartData td').each( function() {
+      currentCell++;
+      if ( currentCell % 2 != 0 ) {
+        currentRow++;
+        chartData[currentRow] = [];
+        chartData[currentRow]['label'] = $(this).text();
+      } else {
+       var value = parseFloat($(this).text());
+       totalValue += value;
+       value = value.toFixed(2);
+       chartData[currentRow]['value'] = value;
+      }
 
-          window.onscroll = function () {
-            if (!docked && (menu.offsetTop - scrollTop() < 0)) {
-              menu.style.top = 0;
-              menu.style.position = 'fixed';
-              menu.className = 'docked';
-              docked = true;
-            } else if (docked && scrollTop() <= init) {
-              menu.style.position = 'absolute';
-              menu.style.top = init + 'px';
-              menu.className = menu.className.replace('docked', '');
-              docked = false;
-            }
-          };
-        };
+      // Store the slice index in this cell, and attach a click handler to it
+      $(this).data( 'slice', currentRow );
+      $(this).click( handleTableClick );
 
-        function scrollTop() {
-          return document.body.scrollTop || document.documentElement.scrollTop;
+      // Extract and store the cell colour
+      if ( rgb = $(this).css('color').match( /rgb\((\d+), (\d+), (\d+)/) ) {
+        chartColours[currentRow] = [ rgb[1], rgb[2], rgb[3] ];
+      } else if ( hex = $(this).css('color').match(/#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/) ) {
+        chartColours[currentRow] = [ parseInt(hex[1],16) ,parseInt(hex[2],16), parseInt(hex[3], 16) ];
+      } else {
+        alert( "Error: Colour could not be determined! Please specify table colours using the format '#xxxxxx'" );
+        return;
+      }
+
+    } );
+
+    // Now compute and store the start and end angles of each slice in the chart data
+
+    var currentPos = 0; // The current position of the slice in the pie (from 0 to 1)
+
+    for ( var slice in chartData ) {
+      chartData[slice]['startAngle'] = 2 * Math.PI * currentPos;
+      chartData[slice]['endAngle'] = 2 * Math.PI * ( currentPos + ( chartData[slice]['value'] / totalValue ) );
+      currentPos += chartData[slice]['value'] / totalValue;
+    }
+
+    // All ready! Now draw the pie chart, and add the click handler to it
+    drawChart();
+    $('#chart').click ( handleChartClick );
+  }
+
+
+  /**
+   * Process mouse clicks in the chart area.
+   *
+   * If a slice was clicked, toggle it in or out.
+   * If the user clicked outside the pie, push any slices back in.
+   *
+   * @param Event The click event
+   */
+
+  function handleChartClick ( clickEvent ) {
+
+    // Get the mouse cursor position at the time of the click, relative to the canvas
+    var mouseX = clickEvent.pageX - this.offsetLeft;
+    var mouseY = clickEvent.pageY - this.offsetTop;
+
+    // Was the click inside the pie chart?
+    var xFromCentre = mouseX - centreX;
+    var yFromCentre = mouseY - centreY;
+    var distanceFromCentre = Math.sqrt( Math.pow( Math.abs( xFromCentre ), 2 ) + Math.pow( Math.abs( yFromCentre ), 2 ) );
+
+    if ( distanceFromCentre <= chartRadius ) {
+
+      // Yes, the click was inside the chart.
+      // Find the slice that was clicked by comparing angles relative to the chart centre.
+
+      var clickAngle = Math.atan2( yFromCentre, xFromCentre ) - chartStartAngle;
+      if ( clickAngle < 0 ) clickAngle = 2 * Math.PI + clickAngle;
+                  
+      for ( var slice in chartData ) {
+        if ( clickAngle >= chartData[slice]['startAngle'] && clickAngle <= chartData[slice]['endAngle'] ) {
+
+          // Slice found. Pull it out or push it in, as required.
+          toggleSlice ( slice );
+          return;
         }
-      })();
-    </script>
-  </head>
-  <body>
-    <section>
+      }
+    }
 
-<section id="menu">
-  <div class="content">
-    <nav>
-      <a href="#synopsis">overview</a>
-      <a href="#-client-side-usage">usage</a>
-      <a href="#docs" id="guide-link">language</a>
-      <a href="http://github.com/cloudhead/less.js">source</a>
-      <a href="#about">about</a>
-    </nav>
-    <a href="https://twitter.com/cloudhead" class="twitter-follow-button" data-show-screen-name="false" data-width="80px" data-show-count="false" data-lang="en">Follow on twitter</a>
-    <div id="dropdown">
-      <ul>
-        <li><a href="#-variables">Variables</a></li>
-        <li><a href="#-mixins">Mixins</a></li>
-        <li><a href="#-parametric-mixins">Parametric Mixins</a></li>
-        <li><a href="#-pattern-matching-and-guard-expressions">Pattern-matching</a></li>
-        <li><a href="#-nested-rules">Nested Rules</a></li>
-        <li><a href="#-operations">Operations</a></li>
-        <li><a href="#-color-functions">Color functions</a></li>
-        <li><a href="#-namespaces">Namespaces</a></li>
-        <li><a href="#-scope">Scope</a></li>
-        <li><a href="#-comments">Comments</a></li>
-        <li><a href="#-importing">Importing</a></li>
-      </ul>
-    </div>
+    // User must have clicked outside the pie. Push any pulled-out slice back in.
+    pushIn();
+  }
+
+
+  /**
+   * Process mouse clicks in the table area.
+   *
+   * Retrieve the slice number from the jQuery data stored in the
+   * clicked table cell, then toggle the slice
+   *
+   * @param Event The click event
+   */
+
+  function handleTableClick ( clickEvent ) {
+    var slice = $(this).data('slice');
+    toggleSlice ( slice );
+  }
+
+
+  /**
+   * Push a slice in or out.
+   *
+   * If it's already pulled out, push it in. Otherwise, pull it out.
+   *
+   * @param Number The slice index (between 0 and the number of slices - 1)
+   */
+
+  function toggleSlice ( slice ) {
+    if ( slice == currentPullOutSlice ) {
+      pushIn();
+    } else {
+      startPullOut ( slice );
+    }
+  }
+
+ 
+  /**
+   * Start pulling a slice out from the pie.
+   *
+   * @param Number The slice index (between 0 and the number of slices - 1)
+   */
+
+  function startPullOut ( slice ) {
+
+    // Exit if we're already pulling out this slice
+    if ( currentPullOutSlice == slice ) return;
+
+    // Record the slice that we're pulling out, clear any previous animation, then start the animation
+    currentPullOutSlice = slice;
+    currentPullOutDistance = 0;
+    clearInterval( animationId );
+    animationId = setInterval( function() { animatePullOut( slice ); }, pullOutFrameInterval );
+
+    // Highlight the corresponding row in the key table
+    $('#chartData td').removeClass('highlight');
+    var labelCell = $('#chartData td:eq(' + (slice*2) + ')');
+    var valueCell = $('#chartData td:eq(' + (slice*2+1) + ')');
+    labelCell.addClass('highlight');
+    valueCell.addClass('highlight');
+  }
+
+ 
+  /**
+   * Draw a frame of the pull-out animation.
+   *
+   * @param Number The index of the slice being pulled out
+   */
+
+  function animatePullOut ( slice ) {
+
+    // Pull the slice out some more
+    currentPullOutDistance += pullOutFrameStep;
+
+    // If we've pulled it right out, stop animating
+    if ( currentPullOutDistance >= maxPullOutDistance ) {
+      clearInterval( animationId );
+      return;
+    }
+
+    // Draw the frame
+    drawChart();
+  }
+
+ 
+  /**
+   * Push any pulled-out slice back in.
+   *
+   * Resets the animation variables and redraws the chart.
+   * Also un-highlights all rows in the table.
+   */
+
+  function pushIn() {
+    currentPullOutSlice = -1;
+    currentPullOutDistance = 0;
+    clearInterval( animationId );
+    drawChart();
+    $('#chartData td').removeClass('highlight');
+  }
+ 
+ 
+  /**
+   * Draw the chart.
+   *
+   * Loop through each slice of the pie, and draw it.
+   */
+
+  function drawChart() {
+
+    // Get a drawing context
+    var context = canvas.getContext('2d');
+        
+    // Clear the canvas, ready for the new frame
+    context.clearRect ( 0, 0, canvasWidth, canvasHeight );
+
+    // Draw each slice of the chart, skipping the pull-out slice (if any)
+    for ( var slice in chartData ) {
+      if ( slice != currentPullOutSlice ) drawSlice( context, slice );
+    }
+
+    // If there's a pull-out slice in effect, draw it.
+    // (We draw the pull-out slice last so its drop shadow doesn't get painted over.)
+    if ( currentPullOutSlice != -1 ) drawSlice( context, currentPullOutSlice );
+  }
+
+
+  /**
+   * Draw an individual slice in the chart.
+   *
+   * @param Context A canvas context to draw on  
+   * @param Number The index of the slice to draw
+   */
+
+  function drawSlice ( context, slice ) {
+
+    // Compute the adjusted start and end angles for the slice
+    var startAngle = chartData[slice]['startAngle']  + chartStartAngle;
+    var endAngle = chartData[slice]['endAngle']  + chartStartAngle;
+      
+    if ( slice == currentPullOutSlice ) {
+
+      // We're pulling (or have pulled) this slice out.
+      // Offset it from the pie centre, draw the text label,
+      // and add a drop shadow.
+
+      var midAngle = (startAngle + endAngle) / 2;
+      var actualPullOutDistance = currentPullOutDistance * easeOut( currentPullOutDistance/maxPullOutDistance, .8 );
+      startX = centreX + Math.cos(midAngle) * actualPullOutDistance;
+      startY = centreY + Math.sin(midAngle) * actualPullOutDistance;
+      context.fillStyle = 'rgb(' + chartColours[slice].join(',') + ')';
+      context.textAlign = "center";
+      context.font = pullOutLabelFont;
+      context.fillText( chartData[slice]['label'], centreX + Math.cos(midAngle) * ( chartRadius + maxPullOutDistance + pullOutLabelPadding ), centreY + Math.sin(midAngle) * ( chartRadius + maxPullOutDistance + pullOutLabelPadding ) );
+      context.font = pullOutValueFont;
+      context.fillText( pullOutValuePrefix + chartData[slice]['value'] + " (" + ( parseInt( chartData[slice]['value'] / totalValue * 100 + .5 ) ) +  "%)", centreX + Math.cos(midAngle) * ( chartRadius + maxPullOutDistance + pullOutLabelPadding ), centreY + Math.sin(midAngle) * ( chartRadius + maxPullOutDistance + pullOutLabelPadding ) + 20 );
+      context.shadowOffsetX = pullOutShadowOffsetX;
+      context.shadowOffsetY = pullOutShadowOffsetY;
+      context.shadowBlur = pullOutShadowBlur;
+
+    } else {
+
+      // This slice isn't pulled out, so draw it from the pie centre
+      startX = centreX;
+      startY = centreY;
+    }
+
+    // Set up the gradient fill for the slice
+    var sliceGradient = context.createLinearGradient( 0, 0, canvasWidth*.75, canvasHeight*.75 );
+    sliceGradient.addColorStop( 0, sliceGradientColour );
+    sliceGradient.addColorStop( 1, 'rgb(' + chartColours[slice].join(',') + ')' );
+
+    // Draw the slice
+    context.beginPath();
+    context.moveTo( startX, startY );
+    context.arc( startX, startY, chartRadius, startAngle, endAngle, false );
+    context.lineTo( startX, startY );
+    context.closePath();
+    context.fillStyle = sliceGradient;
+    context.shadowColor = ( slice == currentPullOutSlice ) ? pullOutShadowColour : "rgba( 0, 0, 0, 0 )";
+    context.fill();
+    context.shadowColor = "rgba( 0, 0, 0, 0 )";
+
+    // Style the slice border appropriately
+    if ( slice == currentPullOutSlice ) {
+      context.lineWidth = pullOutBorderWidth;
+      context.strokeStyle = pullOutBorderStyle;
+    } else {
+      context.lineWidth = sliceBorderWidth;
+      context.strokeStyle = sliceBorderStyle;
+    }
+
+    // Draw the slice border
+    context.stroke();
+  }
+
+
+  /**
+   * Easing function.
+   *
+   * A bit hacky but it seems to work! (Note to self: Re-read my school maths books sometime)
+   *
+   * @param Number The ratio of the current distance travelled to the maximum distance
+   * @param Number The power (higher numbers = more gradual easing)
+   * @return Number The new ratio
+   */
+
+  function easeOut( ratio, power ) {
+    return ( Math.pow ( 1 - ratio, power ) + 1 );
+  }
+
+};
+
+
+});
+</script>
+
+</head>
+<body>
+
+<div id="container">
+
+  <div class="wideBox">
+    <h1>Widgets Sold in 2010</h1>
+    <p>Click a colour in the chart, or an item in the table, to pull out a slice! <a href="http://www.elated.com/articles/snazzy-animated-pie-chart-html5-jquery/">Back to Tutorial</a></p>
   </div>
-</section>
 
-<!-- START MAIN BODY -->
+  <canvas id="chart" width="600" height="500"></canvas>
 
-		<a name="begin_page_content"></a>
+  <table id="chartData">
 
-			<table bgcolor="#ffffff" border="0" cellspacing="0" cellpadding="0" cols="3" width="1076">
+    <tr>
+      <th>Widget</th><th>Sales ($)</th>
+     </tr>
 
-				<tr>
+    <tr style="color: #0DA068">
+      <td>SuperWidget</td><td>1862.12</td>
+    </tr>
 
-					<td><img src="images/spacer.gif" alt="" height="400" width="2" border="0" /></td>
+    <tr style="color: #194E9C">
+      <td>MegaWidget</td><td>1316.00</td>
+    </tr>
 
-					<td valign="top" width="363"> 
+    <tr style="color: #ED9C13">
+      <td>HyperWidget</td><td>712.49</td>
+    </tr>
 
-						<img src="images/spacer.gif" alt="" height="1" width="880" border="0" />
+    <tr style="color: #ED5713">
+      <td>WonderWidget</td><td>3236.27</td>
+    </tr>
 
+    <tr style="color: #057249">
+      <td>MicroWidget</td><td>6122.06</td>
+    </tr>
 
+    <tr style="color: #5F91DC">
+      <td>NanoWidget</td><td>128.11</td>
+    </tr>
 
+    <tr style="color: #F88E5D">
+      <td>LovelyWidget</td><td>245.55</td>
+    </tr>
+  </table>
 
-
-
-
-<!--Timekeeping/pag_task_list.cfm
-
-	Author: Jeromy F -->
-
-
-
-<!--common_files/act_client_vars.cfm
-
-	Author: Jeromy F -->
-
-
-
-<!--common_files/act_task_list_order.cfm
-
-	Author: Jeromy F -->
-
-
-
-<!--Timekeeping/qry_task_list.cfm
-
-	Author: Jeromy F -->
-
-
-
-<!--common_files/dsp_dropdowns.cfm
-
-	Author: Jeromy F -->
-
-<form name="input_form" id="input_form" action="index.cfm?fuseaction=Timekeeping.task_list" method="post" onsubmit="return _CF_checkinput_form(this)">
-
-<div id="dropdowns">
-
-<input type="hidden" name="evaluate_task_options" value="1">
-
-<input type="hidden" name="show_options" value="1">
-
-<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-
-	<tr bgcolor="#78A0EB">
-
-		<td class="HeadText">
-
-			Task Inbox for 
-
-<!--common_files/dsp_team_select.cfm
-
-	Author: Jeromy F -->
-
-
-
-<!--common_files/qry_team_select.cfm
-
-	Author: Jeromy F -->
-
-
-
-	<select name="emp_id"  onchange="javascript:form.submit();" class="SelectText">
-
-			
-
-		<option value="1" title="French, Jeromy" selected>French, Je</option>
-
-			
-
-		<option value="16" title="French, Lisa">French, Li</option>
-
-			
-
-		<option value="8" title="Hoska, Richard">Hoska, Ri</option>
-
-	
-
-	</select>
-
-
-
-		</td>
-
-		<td align="right" class="RegTextWhite">
-
-			&nbsp;
-
-			
-
-				&nbsp;&nbsp;<label for="show_on_hold"><input type="checkbox" name="show_on_hold" id="show_on_hold" onclick="javascript:form.submit();" class="SelectText">Show Tasks On Hold</label>
-
-				&nbsp;&nbsp;<label for="show_closed"><input type="checkbox" name="show_closed" id="show_closed" onclick="javascript:form.submit();" class="SelectText">Show Completed Tasks</label>
-
-				&nbsp;&nbsp;<label for="show_team"><input type="checkbox" name="show_team" id="show_team" onclick="javascript:form.submit();" checked class="SelectText">Show Team's Tasks</label>&nbsp;&nbsp;
-
-			
-
-		</td>
-
-	</tr>
-
-</table>
+  <div class="wideBox">
+    <p>&copy; Elated.com | <a href="http://www.elated.com/articles/snazzy-animated-pie-chart-html5-jquery/">Back to Tutorial</a></p>
+    <p style="font-size: .8em"><a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />This <span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" rel="dc:type">work</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.elated.com/" property="cc:attributionName" rel="cc:attributionURL">http://www.elated.com/</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.</p>
+  </div>
 
 </div>
 
-</form>
-
-
-<table align="center" border="0" cellpadding="1" cellspacing="0" width="100%">
-
-	
-
-<!--common_files/dsp_task_list_header.cfm
-
-	Author: Jeromy F -->
-
-
-
-	<tr>
-
-		<th class="SubHeadText" nowrap>
-
-			<a href="javascript:order_by('task_id');" title="Order by the task ID." class="SubHeadText"><abbr title="task id">ID</abbr> </a>
-
-		</th>
-
-		<th class="SubHeadText" nowrap>
-
-			<a href="javascript:order_by('task_owner');" title="Order by the task owner." class="SubHeadText">Owner </a>
-
-		</th>
-
-		<th class="SubHeadText" nowrap>
-
-			<a href="javascript:order_by('task_name');" title="Order by the name of the task." class="SubHeadText">Name </a>
-
-		</th>
-
-		<th class="SubHeadText" nowrap>
-
-			<a href="javascript:order_by('project_name');" title="Order by the task engagement." class="SubHeadText">Project</a>
-
-		</th>
-
-		<th class="SubHeadText" width="7%" nowrap>
-
-			<a href="javascript:order_by('Priority');" title="Order by Priority." class="SubHeadText">Priority </a>
-
-		</th>
-
-	
-
-		<th class="SubHeadText" nowrap>
-
-			<a href="javascript:order_by('percent_time_used');" title="Order by the task time." class="SubHeadText">Time </a>
-
-		</th>
-
-	
-
-		<th class="SubHeadText" nowrap>
-
-			<a href="javascript:order_by('task_status');" title="Order by the task status." class="SubHeadText">Status </a>
-
-		</th>
-
-		<th class="SubHeadText" nowrap>
-
-			<a href="javascript:order_by('date_due');" title="Order by the date that the task is due." class="SubHeadText">Due <img src="images/order_up.gif" width="8" height="8" alt="Order by the date that the task is due." border="0"></a>
-
-		</th>
-
-	</tr>
-
-
-
-<!--common_files/dsp_task_list.cfm
-
-	Author: Jeromy F -->
-
-
-
-	<tr bgcolor="#E1E1E1">
-
-		<td class="RegText" scope="row">1</td>
-
-		<td class="RegText">French</td>
-
-		<td class="RegText"><a href="javascript:list_to_task('1');" title="View time details for Provide estimate of work to be done." class="RegText"><img src="images/icon_estimate.jpg" title="Go through Culinaerie.com and determine how many hours it would take to rewrite site in CF." height="16" width="16" border="0">Provide estimate of work to be done</a></td>
-
-		<td class="RegText">Culinaerie-Phase 1 Culinaerie.com</td>
-
-		<td class="RegText">Normal</td>
-
-		<td class="RegText"><a href="javascript:list_to_time('1');" title="View time details for Provide estimate of work to be done." class="RegText">3/4 69%</a></td>
-
-		<td class="RegText"><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;Needs QA</td>
-
-		<td class="RegText">08/15/2011</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td class="RegText" scope="row">51</td>
-
-		<td class="RegText">French</td>
-
-		<td class="RegText"><a href="javascript:list_to_task('51');" title="View time details for Build report." class="RegText"><img src="images/icon_plug.gif" title="Build report that shows all ambassadors, status(accept – denied), and timestamp." height="16" width="16" border="0">Build report</a></td>
-
-		<td class="RegText"><abbr title='International Code Design'>ICD</abbr>-NSAVC Cohort IV Training Module and Bios</td>
-
-		<td class="RegText">Normal</td>
-
-		<td class="RegText"><a href="javascript:list_to_time('51');" title="View time details for Build report." class="RegText">0/6 0%</a></td>
-
-		<td class="RegText"><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;New</td>
-
-		<td class="RegText">02/04/2012</td>
-
-	</tr>
-
-
-
-	<tr bgcolor="#E1E1E1">
-
-		<td class="RegText" scope="row">72</td>
-
-		<td class="RegText">French</td>
-
-		<td class="RegText"><a href="javascript:list_to_task('72');" title="View time details for Add security." class="RegText"><img src="images/icon_forever.gif" title="Need to require username/password to add/edit ambassador records. Model after what we have for Service Request module just to be consistent." height="16" width="16" border="0">Add security</a></td>
-
-		<td class="RegText"><abbr title='International Code Design'>ICD</abbr>-NSAVC Cohort IV Training Module and Bios</td>
-
-		<td class="RegText">Normal</td>
-
-		<td class="RegText"><a href="javascript:list_to_time('72');" title="View time details for Add security." class="RegText">0/4 0%</a></td>
-
-		<td class="RegText"><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;New</td>
-
-		<td class="RegText">02/21/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td class="RegText" scope="row">75</td>
-
-		<td class="RegText">French</td>
-
-		<td class="RegText"><a href="javascript:list_to_task('75');" title="View time details for 2012_02_21 Call with Leo and James." class="RegText"><img src="images/icon_phone.png" title="Discuss new service request action items. Call scheduled for 8pm with James; Leo wants us to try to include him." height="16" width="16" border="0">2012_02_21 Call with Leo and James</a></td>
-
-		<td class="RegText"><abbr title='International Code Design'>ICD</abbr>-Service Request Module</td>
-
-		<td class="RegText">Normal</td>
-
-		<td class="RegText"><a href="javascript:list_to_time('75');" title="View time details for 2012_02_21 Call with Leo and James." class="RegText">1/1 75%</a></td>
-
-		<td class="RegText"><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;In Progress</td>
-
-		<td class="RegText">02/21/2012</td>
-
-	</tr>
-
-
-
-	<tr bgcolor="#E1E1E1">
-
-		<td class="RegText" scope="row">78</td>
-
-		<td class="RegText">French</td>
-
-		<td class="RegText"><a href="javascript:list_to_task('78');" title="View time details for Apply floating navigation concept to Workstream." class="RegText"><img src="images/icon_code.gif" title="As seen at http://lesscss.org/" height="16" width="16" border="0">Apply floating navigation concept to Workstream</a></td>
-
-		<td class="RegText">Internal Development-Workstream</td>
-
-		<td class="RegText">Normal</td>
-
-		<td class="RegText"><a href="javascript:list_to_time('78');" title="View time details for Apply floating navigation concept to Workstream." class="RegText">0/4 0%</a></td>
-
-		<td class="RegText">New</td>
-
-		<td class="RegText">02/29/2012/td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td class="RegText" scope="row">73</td>
-
-		<td class="RegText">French</td>
-
-		<td class="RegText"><a href="javascript:list_to_task('73');" title="View time details for Create database backup process." class="RegText"><img src="images/icon_clock.gif" title="Need to back-up database to network drive once a week." height="16" width="16" border="0">Create database backup process</a></td>
-
-		<td class="RegText">Internal Development-Workstream</td>
-
-		<td class="RegText">Normal</td>
-
-		<td class="RegText"><a href="javascript:list_to_time('73');" title="View time details for Create database backup process." class="RegText">0/4 6%</a></td>
-
-		<td class="RegText">In Progress</td>
-
-		<td class="RegText">03/16/2012</td>
-
-	</tr>
-
-
-
-	<tr bgcolor="#E1E1E1">
-
-		<td class="RegText" scope="row">77</td>
-
-		<td class="RegText">French</td>
-
-		<td class="RegText"><a href="javascript:list_to_task('77');" title="View time details for Apply HTML5 appcache." class="RegText"><img src="images/icon_code.gif" title="Apply HTML5 appcache to Workstream code." height="16" width="16" border="0">Apply HTML5 appcache</a></td>
-
-		<td class="RegText">Internal Development-Workstream</td>
-
-		<td class="RegText">Normal</td>
-
-		<td class="RegText"><a href="javascript:list_to_time('77');" title="View time details for Apply HTML5 appcache." class="RegText">0/4 0%</a></td>
-
-		<td class="RegText">New</td>
-
-		<td class="RegText">03/21/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td class="RegText" scope="row">25</td>
-
-		<td class="RegText">French</td>
-
-		<td class="RegText"><a href="javascript:list_to_task('25');" title="View time details for Choose a hosting solution." class="RegText"><img src="images/icon_plug.gif" title="Evaluate hosting solutions and choose one that can host brochure site, workstream and possibly Culinaerie." height="16" width="16" border="0">Choose a hosting solution</a></td>
-
-		<td class="RegText">Internal Development-Workstream</td>
-
-		<td class="RegText">Normal</td>
-
-		<td class="RegText"><a href="javascript:list_to_time('25');" title="View time details for Choose a hosting solution." class="RegText">0/16 0%</a></td>
-
-		<td class="RegText">New</td>
-
-		<td class="RegText">08/10/2012</td>
-
-	</tr>
-
-
-
-	<tr bgcolor="#E1E1E1">
-
-		<td class="RegText" scope="row">5</td>
-
-		<td class="RegText">French</td>
-
-		<td class="RegText"><a href="javascript:list_to_task('5');" title="View time details for add forums to Workstream." class="RegText"><img src="images/icon_code.gif" title="Consider adding forums to Workstream" height="16" width="16" border="0">add forums to Workstream</a></td>
-
-		<td class="RegText">Internal Development-Workstream</td>
-
-		<td class="RegText">Rainy Day</td>
-
-		<td class="RegText"><a href="javascript:list_to_time('5');" title="View time details for add forums to Workstream." class="RegText">0/40 0%</a></td>
-
-		<td class="RegText">New</td>
-
-		<td class="RegText">09/30/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td class="RegText" scope="row">10</td>
-
-		<td class="RegText">French</td>
-
-		<td class="RegText"><a href="javascript:list_to_task('10');" title="View time details for Dust off workstream archived code." class="RegText"><img src="images/icon_pie_chart.jpg" title="Update legacy workstream code for CF8 environment. Incorporate skeleton security/navigation model. Incorporate help features on each page." height="16" width="16" border="0">Dust off workstream archived code</a></td>
-
-		<td class="RegText">Internal Development-Workstream</td>
-
-		<td class="RegText">Normal</td>
-
-		<td class="RegText"><a href="javascript:list_to_time('10');" title="View time details for Dust off workstream archived code." class="RegText">40/40 99%</a></td>
-
-		<td class="RegText">In Progress</td>
-
-		<td class="RegText">10/15/2012</td>
-
-	</tr>
-
-
-
-	<tr bgcolor="#E1E1E1">
-
-		<td class="RegText" scope="row">12</td>
-
-		<td class="RegText">French</td>
-
-		<td class="RegText"><a href="javascript:list_to_task('12');" title="View time details for New workstream look/feel." class="RegText"><img src="images/icon_bar_chart.jpg" title="Use templatemonster.com or 1and1.com to find new look, then install." height="16" width="16" border="0">New workstream look/feel</a></td>
-
-		<td class="RegText">Internal Development-Workstream</td>
-
-		<td class="RegText">Rainy Day</td>
-
-		<td class="RegText"><a href="javascript:list_to_time('12');" title="View time details for New workstream look/feel." class="RegText">1/2 50%</a></td>
-
-		<td class="RegText">In Progress</td>
-
-		<td class="RegText">10/31/2012</td>
-
-	</tr>
-
-
-
-</table>
-
-<!-- common_files/act_drilldown_form.cfm
-
-	Author: Jeromy French -->
-
-
-
-
-
-<script language="JavaScript" type="text/javascript">
-
-<!--
-
-function order_by(fldValue) {
-
-	document.order_by.order_by.value=fldValue; 
-
-	document.order_by.submit();
-
-}
-
-//-->
-
-</script>
-
-
-
-<form name="order_by" action="index.cfm?fuseaction=Timekeeping.task_list" method="post">
-
-	<input type="hidden" name="order_by" value="field_value" />
-
-	
-
-		<input type="hidden" name="reorder" value="1" />
-
-	
-
-</form>
-
-<!-- common_files/act_drilldown_form.cfm
-
-	Author: Jeromy French -->
-
-
-
-
-
-<script language="JavaScript" type="text/javascript">
-
-<!--
-
-function list_to_task(fldValue) {
-
-	document.list_to_task.task_id.value=fldValue; 
-
-	document.list_to_task.submit();
-
-}
-
-//-->
-
-</script>
-
-
-
-<form name="list_to_task" action="index.cfm?fuseaction=Timekeeping.task_details" method="post">
-
-	<input type="hidden" name="task_id" value="field_value" />
-
-	
-
-</form>
-
-<!-- common_files/act_drilldown_form.cfm
-
-	Author: Jeromy French -->
-
-
-
-
-
-<script language="JavaScript" type="text/javascript">
-
-<!--
-
-function list_to_time(fldValue) {
-
-	document.list_to_time.task_id.value=fldValue; 
-
-	document.list_to_time.submit();
-
-}
-
-//-->
-
-</script>
-
-
-
-<form name="list_to_time" action="index.cfm?fuseaction=Timekeeping.time_details" method="post">
-
-	<input type="hidden" name="task_id" value="field_value" />
-
-	
-
-</form>
-
-<!-- common_files/dsp_footer.cfm
-
-	Author: Jeromy French-->
-
-
-
-
-
-<!-- END MAIN BODY -->
-
-
-<section id="translations" class="page">
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-<p>whatever</p>
-</section>
-
-    </section>
-  </body>
+</body>
 </html>
+
+
 

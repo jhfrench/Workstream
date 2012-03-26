@@ -50,11 +50,11 @@
 <tr>
 	<cfif operations_blurb.recordcount>
 	<td valign="top">
-			<cfinclude template="dsp_operations_blurb.cfm">
+		<cfinclude template="dsp_operations_blurb.cfm">
 	</td>
 	</cfif>
 	<td valign="top" colspan="2">
-			<cfinclude template="dsp_time_allocation_chart.cfm">
+		<cfinclude template="dsp_time_allocation_chart.cfm">
 	</td>
 </tr>
 </table>

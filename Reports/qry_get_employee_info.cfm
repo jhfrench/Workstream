@@ -20,7 +20,7 @@
 <cfquery name="get_employee_info" datasource="#application.datasources.main#">
 SELECT REF_Merit_Pool.description AS merit_pool, REF_Department.department_name, REF_Employee_Classification.employee_classification, 
 	Demographics.Overtime, Emp_Contact.LName+', '+Emp_Contact.Name AS employee, Demographics.dob, 
-	Demographics.Hire_Date, Demographics.End_Date, Demographics.Reason_ID,
+	Demographics.hire_date, Demographics.End_Date, Demographics.Reason_ID,
 	Job_Title.title, Job_Title.date_start, Supervisor.LName+', '+Supervisor.Name AS supervisor,
 	Performance_Review.rating, Performance_Review.date_recorded, Salary1.salary, 
 	Salary1.date_implemented, Salary1.salary_change_type, Salary1.increase_amount,

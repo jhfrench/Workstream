@@ -36,8 +36,8 @@
 	<tr<cfif (currentrow MOD 1)> bgcolor="##E1E1E1"</cfif>>
 		<td class="RegText"><a href="javascript:drill_down('#pin#');">#name# #lname#</a></td>
 		<td align="right" class="RegText"><a href="javascript:drill_down('#pin#');">#pto_type_indicator#</a></td>
-		<td align="right" class="RegText"><a href="javascript:drill_down('#pin#');">#used_hours#</a></td>
-		<td align="right" class="RegText"><cfset temp_var=Pto_Type_Indicator-Used_hours><a href="javascript:drill_down('#pin#');">#temp_var#</a></td>
+		<td class="RegText number"><a href="javascript:drill_down('#pin#');">#used_hours#</a></td>
+		<td class="RegText number"><a href="javascript:drill_down('#pin#');">#Pto_Type_Indicator-Used_hours#</a></td>
 	</tr>
 </cfoutput>
 </cfif>

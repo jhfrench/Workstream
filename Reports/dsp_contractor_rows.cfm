@@ -11,8 +11,9 @@
 	$Log$
 	||
 	END FUSEDOC --->
+</cfsilent>
 <cfoutput query="get_employee_id">
-<tr<cfif currentrow MOD 2> bgcolor="##e1e1e1"</cfif> class="RegText">
+<tr class="RegText">
 	<td>#lname#</td>
 	<td>#name#</td>
 	<td>#pin#</td>
