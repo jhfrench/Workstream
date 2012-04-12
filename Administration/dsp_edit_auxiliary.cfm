@@ -16,7 +16,7 @@
 	<tr>
 		<td align="left" class="RegText" colspan="2">
 		<a href="javascript:edit_account('#attributes.emp_id#');" class="RegText">Edit Employee Account</a>
-		<br><a href="javascript:edit_employee('#attributes.emp_id#');" class="RegText">Edit Employee Demographic Information</a>
+		<br /><a href="javascript:edit_employee('#attributes.emp_id#');" class="RegText">Edit Employee Demographic Information</a>
 		</td>
 	</tr>
 	<tr valign="top" class="RegText">

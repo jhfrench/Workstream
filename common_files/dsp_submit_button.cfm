@@ -16,7 +16,7 @@
 <cfoutput>
 	<tr>
 		<td align="center" colspan="3" class="RegText">
-			<br><input type="submit" value="Search" class="RegText">
+			<br /><input type="submit" value="Search" class="RegText">
 		</td>
 	</tr>
 </cfoutput>

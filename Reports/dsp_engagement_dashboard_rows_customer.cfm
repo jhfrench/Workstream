@@ -33,7 +33,7 @@
 			<img src="../images/Icons/#variables.image#" width="16" height="15" border="0">
 		</td>
 		<td width="15%" valign="top" class="RegText">
-			#customer_description#<br>#description#
+			#customer_description#<br />#description#
 		</td>
 		<td valign="top" class="RegText">
 			#lname#<cfif NOT len(lname)>&nbsp;</cfif>

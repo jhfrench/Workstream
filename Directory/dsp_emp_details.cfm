@@ -16,10 +16,10 @@
 <cfoutput>
 	<tr valign="top">
 		<td align="left" width="148" class="RegText">
-			<img src="#request.dir_level##application.application_specific_settings.image_dir#photos/#get_emp_details.photo#" width="144" height="144" alt="" border="0"><br>
-			<span class="SubHeadText">Birthdate:</span> #dateformat(get_emp_details.dob,"mm/dd")#<br>
-			<span class="SubHeadText">Hire Date:</span> #dateformat(get_emp_details.hire_date,"mm/dd/yy")#<br>
-			<cfif compare(get_emp_details.end_date,"")><span class="SubHeadText">End Date:</span> #dateformat(get_emp_details.end_date,"mm/dd/yy")#<br></cfif>
+			<img src="#request.dir_level##application.application_specific_settings.image_dir#photos/#get_emp_details.photo#" width="144" height="144" alt="" border="0"><br />
+			<span class="SubHeadText">Birthdate:</span> #dateformat(get_emp_details.dob,"mm/dd")#<br />
+			<span class="SubHeadText">Hire Date:</span> #dateformat(get_emp_details.hire_date,"mm/dd/yy")#<br />
+			<cfif compare(get_emp_details.end_date,"")><span class="SubHeadText">End Date:</span> #dateformat(get_emp_details.end_date,"mm/dd/yy")#<br /></cfif>
 			
 </cfoutput>
 <cfif get_emp_phone.recordcount>
@@ -31,7 +31,7 @@
 		</td>
 <cfoutput>
 		<td class="RegText">
-			<cfif compare(get_emp_details.biography,"")><span class="SubHeadText">Biography</span><br>#get_emp_details.biography#<br></cfif>
+			<cfif compare(get_emp_details.biography,"")><span class="SubHeadText">Biography</span><br />#get_emp_details.biography#<br /></cfif>
 </cfoutput>
 <cfif get_emp_location.recordcount>
 	<cfinclude template="dsp_emp_location.cfm">
@@ -67,7 +67,7 @@
 	</cfif>
 </cfif>
 <cfif get_subordinates.recordcount>
-			<span class="SubHeadText">Direct Reports</span><br>
+			<span class="SubHeadText">Direct Reports</span><br />
 			<cfoutput query="get_subordinates"><a href="javascript:list_to_employee('#emp_id#');"  title="View details for #Replace(lname,"'","")# #Replace(fname,"'","")#." class="RegText"><cfif currentrow NEQ 1>; </cfif>#lname#, #fname#</a></cfoutput>
 </cfif>
 		</td>

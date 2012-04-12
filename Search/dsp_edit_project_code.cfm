@@ -48,7 +48,7 @@
 				<td align='center'>
 					<input type='checkbox' name='project_id_box' value='1' class='RegText'>
 				</td>
-				<td class='RegText'>Project<br>(may take a<br>moment to display)</td>
+				<td class='RegText'>Project<br />(may take a<br />moment to display)</td>
 				<td>">
 				<cfelse>
 					
@@ -78,7 +78,7 @@
 				<td align='center'>
 					<input type='checkbox' checked ='checked' name='project_id_box' value='1' class='RegText'>
 				</td>
-				<td class='RegText'>Project<br>(may take a<br>moment to display)</td>
+				<td class='RegText'>Project<br />(may take a<br />moment to display)</td>
 				<td>">
 				</cfif>
 				

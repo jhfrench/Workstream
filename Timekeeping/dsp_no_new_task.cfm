@@ -33,5 +33,5 @@ WHERE Task.task_id=Team.Task_ID
 	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="The new task was not created (#attributes.last_loaded# = #session.workstream_last_loaded#)." align="center" section_color="ffffff" colspan="2" gutter="0" title_class="Note">
 </cfif>
 </cfif>
-</table><br>
+</table><br />
 

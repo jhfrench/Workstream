@@ -134,7 +134,7 @@
 		
 		<tr>
 			<td colspan="3" bgcolor="##dadada" class="RegText" align="center">
-				<br><br>
+				<br /><br />
 				<input type="reset" class="RegText">
 				<input type="submit" value="Update Record" class="RegText">
 			</td>

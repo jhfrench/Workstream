@@ -29,7 +29,7 @@
 			&nbsp;
 		</td>
 		<td class="SelectText">
-			<cfloop list="attributes.tempfilename" index="ii">#ii#<br></cfloop>
+			<cfloop list="attributes.tempfilename" index="ii">#ii#<br /></cfloop>
 		</td>
 	</tr>
 	</cfif>

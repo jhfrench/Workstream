@@ -96,7 +96,7 @@
 	</tr>
 	<tr>
 		<td align="left" class="RegText"></cfoutput>
-			<cfoutput query="selected_companies">&nbsp;&nbsp; #customer_name#<br></cfoutput>
+			<cfoutput query="selected_companies">&nbsp;&nbsp; #customer_name#<br /></cfoutput>
 		</td>
 	</tr>
 </table>

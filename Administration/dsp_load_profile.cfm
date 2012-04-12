@@ -15,7 +15,7 @@
 <cfoutput>
 	<tr valign="top">
 		<td align="center" colspan="2" valign="top" class="RegText">
-			<br>&nbsp;<br>&nbsp;Select a profile: <cfselect name="profile_id" query="profile_lookup" value="profile_id" display="profile_name" size="2" required="Yes" message="Please choose a profile to load." class="RegText"></cfselect><br>&nbsp;<br>&nbsp;
+			<br />&nbsp;<br />&nbsp;Select a profile: <cfselect name="profile_id" query="profile_lookup" value="profile_id" display="profile_name" size="2" required="Yes" message="Please choose a profile to load." class="RegText"></cfselect><br />&nbsp;<br />&nbsp;
 		</td>
 	</tr>
 </cfoutput>

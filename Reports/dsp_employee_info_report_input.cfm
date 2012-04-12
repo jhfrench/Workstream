@@ -38,7 +38,7 @@
 				</cfloop>
 			</select>
 		</td>
-		<td align="center"><input type="button" value="Remove >>>" name="remove" style="width:120px;" onclick="javascript: RemoveListItem('report_columns','removed_elements');" class="RegText"><br>
+		<td align="center"><input type="button" value="Remove >>>" name="remove" style="width:120px;" onclick="javascript: RemoveListItem('report_columns','removed_elements');" class="RegText"><br />
 		<input type="button" value="<<< Add" name="add" style="width:120px;" onclick="javascript: RemoveListItem('removed_elements','report_columns');" class="RegText"></td>
 		<td>
 			<select name="removed_elements" class="RegText" multiple size="10" style="width:145px;">

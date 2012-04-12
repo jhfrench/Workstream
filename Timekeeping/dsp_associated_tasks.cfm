@@ -42,7 +42,7 @@
 			</cfoutput>
 		</table>
 		<cfelse>
-			<br><span class="Note">No tasks currently associated with this task.</span><br>
+			<br /><span class="Note">No tasks currently associated with this task.</span><br />
 		</cfif>
 			<cfoutput>
 			<input type="hidden" name="linked_task_id" value="0">

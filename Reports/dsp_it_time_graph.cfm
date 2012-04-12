@@ -48,7 +48,7 @@
 	<cfset dataset0yvalues=listprepend(dataset0yvalues,(ap_percent))>
 </cfoutput>
 </cfsilent>
-IT Time Percent<br>
+IT Time Percent<br />
 <cfoutput><applet code="javachart.applet.stackBarApp.class" codebase="#request.dir_level##application.graphbase#" width="600" height="#variables.graph_height#">
 	<param name="plotAreaColor" value="ffffff">
 	<param name="backgroundColor" value="ffffff">
@@ -103,5 +103,5 @@ IT Time Percent<br>
 	<param name="legendLabelColor" value="black">
 	<param name="iconWidth" value=".02">
 	<param name="iconHeight" value=".02">
-</applet><br>Percent of IT time</cfoutput>
+</applet><br />Percent of IT time</cfoutput>
 

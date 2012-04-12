@@ -25,7 +25,7 @@
 	<script language="JavaScript" type="text/javascript">
 		window.location.href="#attributes.directory_action#index.cfm?fuseaction=#attributes.fuseaction#";
 	</script>
-	<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;
+	<br />&nbsp;<br />&nbsp;<br />&nbsp;<br />&nbsp;
 	<div align="center" class="HeadText"><a href="#attributes.directory_action#index.cfm?fuseaction=#attributes.fuseaction#">#attributes.display#</a></div>
 </cfoutput>
 

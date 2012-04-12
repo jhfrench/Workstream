@@ -15,11 +15,11 @@
 <cfoutput>
 	<tr valign="top">
 		<td align="center" colspan="2" valign="top" class="SubHeadText">
-			<br>&nbsp;
-			<br>&nbsp;
+			<br />&nbsp;
+			<br />&nbsp;
 			Your profile has been <cfif comparenocase(listlast(attributes.fuseaction, '.'),"load_profile")>sav<cfelse>load</cfif>ed.
-			<br>&nbsp;
-			<br>&nbsp;
+			<br />&nbsp;
+			<br />&nbsp;
 		</td>
 	</tr>
 </cfoutput>

@@ -103,5 +103,5 @@
 	<param name="legendLabelColor" value="black">
 	<param name="iconWidth" value=".02">
 	<param name="iconHeight" value=".02">
-</applet><br>Percent of #variables.project_name# time</cfoutput>
+</applet><br />Percent of #variables.project_name# time</cfoutput>
 

@@ -19,7 +19,7 @@
 			<cfinclude template="dsp_efficiency_report_chart.cfm">
 		</td>
 		<td align="center" valign="top" class="SubHeadText">
-			<br>
+			<br />
 			<cfinclude template="dsp_efficiency_report_graph.cfm">
 		</td>
 	</tr>

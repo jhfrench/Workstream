@@ -37,7 +37,7 @@
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="task_details" field_name="task_id" fuseaction="Timekeeping.task_details">
 </table>
 <cfelse>
-<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;
+<br />&nbsp;<br />&nbsp;<br />&nbsp;<br />&nbsp;
 <cfoutput><div align="center" class="HeadText">There are no task details to show for task #attributes.task_id#</div></cfoutput>.
 </cfif>
 

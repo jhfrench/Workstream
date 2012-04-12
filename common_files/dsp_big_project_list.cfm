@@ -17,7 +17,7 @@
 </cfsilent>
 	<tr>
 		<td>
-		Customer<br>
+		Customer<br />
 		<cfmodule template="../common_files/two_related_selects.cfm"
 				query="get_valid_projects"
 				name1="customer_id"
@@ -36,7 +36,7 @@
 				autoselectfirst="no"
 				formname="big_list"
 				onchange="OKButton()"
-				HTMLBetween="<br>Project<br>">
+				HTMLBetween="<br />Project<br />">
 		<!--- 
 			<cfoutput><select name="#attributes.formname#" size="#min(get_valid_projects.recordcount,28)#" onChange="OKButton()" class="RegText"></cfoutput>
 				<cfoutput query="get_valid_projects"><option value="#project_id#"><cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>#project_code# - #customer# #replace(project_name,customer,"","ALL")#<cfelse>#customer# #replace(project_name,customer,"","ALL")# (#project_code#)</cfif></option>

@@ -167,7 +167,7 @@
 			</cfif>			
 				<input type="hidden" name="supervisor_settings" value="1">
 				Supervisor, please approve or reject this expense: Approve<cfinput type="Radio" name="supervisor_approval" value="2" checked="#supervisor_checked_ind_approved#" required="Yes" message="Please give this expense a supervisors approval."> Reject<cfinput type="Radio" name="supervisor_approval" value="3" checked="#supervisor_checked_ind_rejected#">&nbsp;&nbsp;&nbsp;Supervisor Approval Memo: <cfinput type="Text" name="supervisor_approval_memo" value="#attributes.supervisor_approval_memo#" message="Please enter an approval memo" required="Yes" size="30">
-		<br>
+		<br />
 		</cfif>
 		<cfif variables.all_option EQ 1 AND isdefined("attributes.supervisor_flag") AND NOT attributes.supervisor_flag>
 			<cfif attributes.expense_status_id EQ 4>

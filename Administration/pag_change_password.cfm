@@ -32,7 +32,7 @@
 		<tr valign="top">
 			<td align="right" width="50%" class="SubHeadText">This can be caused by:</td>
 			<td class="RegText">
-				-you did not enter your current password correctly<br>
+				-you did not enter your current password correctly<br />
 				-your new paasword does not match the confirmation password
 			</td>
 		</tr>

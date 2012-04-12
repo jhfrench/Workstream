@@ -31,9 +31,15 @@ SELECT IDENT_CURRENT('Project') AS project_id
 </cfquery>
 
 <cfswitch expression="#attributes.billable_type_id#">
-<!--- <cfcase value="1">
-hourly
-</cfcase> --->
+<cfcase value="1">
+	<!--- hourly --->
+	<cfquery name="flat_rate" datasource="#application.datasources.main#">
+	INSERT INTO Billing_Rate (project_id, rate, rate_start_date<cfif len(attributes.end_date)>, rate_end_date</cfif>, emp_id)
+	SELECT #get_project_id.project_id#, '#attributes.rate#', '#attributes.start_date#'<cfif len(attributes.end_date)>, '#attributes.end_date#'</cfif>, emp_id
+	FROM Link_Company_Emp_Contact
+	WHERE company_id IN (#attributes.company_id#)
+	</cfquery>
+</cfcase>
 <!--- <cfcase value="2">
 non-billable
 </cfcase> --->
@@ -49,7 +55,7 @@ non-billable
 <cfcase value="4">
 	<!--- per-incident --->
 	<cfquery name="incident_rate" datasource="#application.datasources.main#">
-	INSERT INTO Incident_Rate (project_id,charge)
+	INSERT INTO Incident_Rate (project_id, charge)
 	VALUES(#get_project_id.project_id#, #attributes.charge#)
 	</cfquery>
 </cfcase>

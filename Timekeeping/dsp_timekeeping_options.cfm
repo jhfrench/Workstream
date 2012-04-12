@@ -39,12 +39,12 @@
 	<tr valign="top">
 		<cfparam name="session.workstream_notes_display_sort" default="2">
 		<td class="RegText">
-			Inside task details, sort notes by:<br>
+			Inside task details, sort notes by:<br />
 			&nbsp;<label for="notes_display_sort_worked"><input type="radio" name="notes_display_sort" id="notes_display_sort_worked" value="1"<cfif session.workstream_notes_display_sort EQ 1> checked</cfif> class="RegText"> Work completed date</label>&nbsp;|&nbsp;<label for="notes_display_sort_entry"><input type="radio" name="notes_display_sort" id="notes_display_sort_entry" value="2"<cfif session.workstream_notes_display_sort EQ 2> checked</cfif> class="RegText"> Entry date</label>
 		</td>
 		<cfparam name="session.workstream_expand" default="yes,yes,no">
 		<td class="RegText">
-			Expand express tree to this level:<br>
+			Expand express tree to this level:<br />
 			&nbsp;<label for="root"><input type="radio" name="expand_tree" id="root" value="yes,no,no"<cfif NOT compare(session.workstream_expand,"yes,no,no")> checked</cfif> class="RegText"> Root</label>&nbsp;|&nbsp;<label for="week"><input type="radio" name="expand_tree" id="week" value="yes,yes,no"<cfif NOT compare(session.workstream_expand,"yes,yes,no")> checked</cfif> class="RegText"> Week</label>&nbsp;|&nbsp;<label for="day"><input type="radio" name="expand_tree" id="day" value="yes,yes,yes"<cfif NOT compare(session.workstream_expand,"yes,yes,yes")> checked</cfif> class="RegText"> Day</label>
 		</td>
 	</tr>

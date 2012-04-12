@@ -37,7 +37,7 @@
 </form>
 	<tr bgcolor="##c0c0c0" valign="bottom">
 		<td colspan="2" class="SubHeadText">
-			Customer &amp;<br>Project Name
+			Customer &amp;<br />Project Name
 		</td>
 		<td class="SubHeadText">
 			IE
@@ -58,7 +58,7 @@
 			Next Step(s)
 		</td>			
 		<td class="SubHeadText">
-			Date Last<br>Updated
+			Date Last<br />Updated
 		</td>
 	</tr>
 </cfoutput>

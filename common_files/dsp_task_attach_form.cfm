@@ -55,8 +55,8 @@ function add_to_linked_task_id_list() {
 				width2="550"
 				autoselectfirst="no"
 				formname="attach_task"
-				HTMLBetween="<br>">
-			<br>
+				HTMLBetween="<br />">
+			<br />
 	<tr>
 		<td> 
 			<input type="button"  value="Add to list below" onclick="add_to_linked_task_id_list()" class="RegText">

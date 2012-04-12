@@ -80,9 +80,9 @@
 	<tr>
 		
 		<td colspan="6" align="center">
-			Specify: <BR>Date Range: <cfinput type="datefield" name="begin_date" required="NO" validate="date"  size="11" class="RegText"> to <cfinput type="datefield" name="end_date" required="NO" validate="date"  size="11" class="RegText"><BR>
+			Specify: <br />Date Range: <cfinput type="datefield" name="begin_date" required="NO" validate="date"  size="11" class="RegText"> to <cfinput type="datefield" name="end_date" required="NO" validate="date"  size="11" class="RegText"><br />
 Status: <cfselect name="expense_status_id" size="1" query="get_expense_status" value="expense_status_id" display="description"></cfselect>
-<BR>
+<br />
 <input type="submit" name="submit" value="Submit">
 		</td>
 		

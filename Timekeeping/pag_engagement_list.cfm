@@ -22,6 +22,6 @@
 	<cfinclude template="dsp_engagement_list_header.cfm">
 	<cfinclude template="dsp_engagement_list.cfm">
 </table>
-<br>
+<br />
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="project_order" field_name="order_by" field2_name="reorder" field2_value="1" fuseaction="Timekeeping.engagement_list">
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="project_to_tasks" field_name="project_id" fuseaction="Timekeeping.task_list">

@@ -100,7 +100,7 @@
 </cfform>
 	<tr>
 		<td colspan="100%" <cfoutput>class="RegText"</cfoutput>>
-			<br><a href="index.cfm?fuseaction=Customers.home&engagement_dashboard_Return=1">Add another engagement to this Dashboard.</a>
+			<br /><a href="index.cfm?fuseaction=Customers.home&engagement_dashboard_Return=1">Add another engagement to this Dashboard.</a>
 		</td>
 	</tr>
 	

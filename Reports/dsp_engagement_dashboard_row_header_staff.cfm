@@ -45,7 +45,7 @@
 
 
 						<td bgcolor="##c0c0c0" class="SubHeadText">
-			Date Last<br>Updated
+			Date Last<br />Updated
 		</td>
 	</tr>
 </cfoutput>

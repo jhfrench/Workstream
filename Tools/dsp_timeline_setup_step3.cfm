@@ -18,7 +18,7 @@
 <cfoutput>
 <tr>
 	<td class="RegText" width="50%">
-	Allow these people<cfif listlen(session.workstream_selected_company_id) GT 1> or companies</cfif> to view the new timeline<br>
+	Allow these people<cfif listlen(session.workstream_selected_company_id) GT 1> or companies</cfif> to view the new timeline<br />
 	<cfmodule template="../common_files/dsp_team_select.cfm" multi="1" size="5" valuelist="1" class="RegText">
 	</td>
 	<td valign="top" class="Note" width="50%"><cfset variables.start=incrementvalue(variables.start)>
@@ -28,7 +28,7 @@
 <tr>
 	<td class="RegText">
 <cfloop query="get_user_fields">
-	Do not show tasks that are marked with this selection<br>
+	Do not show tasks that are marked with this selection<br />
 		<cfinclude template="../common_files/qry_get_drop_down_options.cfm">
 		<cfselect name="hide_user_field_item_id" required="Yes" class="RegText">
 			<option value="0">Use all the options</option>

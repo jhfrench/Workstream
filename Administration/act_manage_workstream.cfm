@@ -20,11 +20,11 @@
 <cfoutput>
 <tr bgcolor="##e6e6e6">
 	<td class="RegText">
-		Theses variables were updated:<br>
+		Theses variables were updated:<br />
 	<cfif isdefined("attributes.change_me") AND NOT isdefined("attributes.application_variables")>
 		<cfloop list="#attributes.change_me#" index="ii">
 			<cfset "application.#ii#"=now()>
-			application.#ii# now equals #now()#<br>
+			application.#ii# now equals #now()#<br />
 		</cfloop>
 	</cfif>
 	<cfif isdefined("attributes.application_variables")>

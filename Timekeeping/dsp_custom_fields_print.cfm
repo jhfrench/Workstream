@@ -32,7 +32,7 @@
 						<cfif listfind(variables.custom_answers,user_field_items_id)>
 							&nbsp;#get_drop_down_options.selection_title#</cfif>
 					</cfloop>
-				<br>
+				<br />
 				<cfset variables.custom_drops=listappend(variables.custom_drops,user_field_id)>
 			<cfelseif field_type_id EQ 2>
 					<cfset variables.text_answer="">
@@ -41,7 +41,7 @@
 						<cfset variables.text_answer=listgetat(variables.custom_answers_text,listfind(variables.custom_answers,user_field_items_id),"|")>
 					</cfif>
 					</cfloop>
-				#variables.text_answer#<br>
+				#variables.text_answer#<br />
 				<cfset variables.custom_text=listappend(variables.custom_text,user_field_id)>
 			</cfif>
 </cfloop>

@@ -29,7 +29,7 @@
 		</select>
 	<cfelseif field_type_id EQ 2>
 		<input type="text" name="display_#get_user_fields.currentrow#" size="8" value="" class="RegText">
-	</cfif><br>
+	</cfif><br />
 </cfloop>
 	</td>
 	<td><cfset variables.start=incrementvalue(variables.start)>

@@ -100,9 +100,9 @@
 		<td class="RegText" align="right" valign="top">
 		<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=2&engagement_dashboard_Return=1&customer_id_Filter=#customer_id_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">
 			#numberformat(Budget,'$___,___,___,___')#
-			<cfif loe gt 0><br>h #LOE#</cfif></a>
-			<cfif NOT total_bill_amount eq ''><br>Invoiced:<br><a href="index.cfm?fuseaction=Invoice_Posted_List&project_ID_filter=#Project_ID#"> <i>#numberformat(Total_Bill_Amount,'$___,___,___,___')#</i></a></cfif>
-		<cfif total_bill_amount eq ''><br>Invoiced:<br><font color=red>$ 0</font></cfif>
+			<cfif loe gt 0><br />h #LOE#</cfif></a>
+			<cfif NOT total_bill_amount eq ''><br />Invoiced:<br /><a href="index.cfm?fuseaction=Invoice_Posted_List&project_ID_filter=#Project_ID#"> <i>#numberformat(Total_Bill_Amount,'$___,___,___,___')#</i></a></cfif>
+		<cfif total_bill_amount eq ''><br />Invoiced:<br /><font color=red>$ 0</font></cfif>
 			
 		</td>
 		<td class="RegText" width="17%" valign="top">
@@ -171,7 +171,7 @@
 
 	<tr>
 		<td colspan="100%" class="RegText">
-			<br>
+			<br />
 			<a href="index.cfm?fuseaction=Customers.home&engagement_dashboard_Return=1">Add another engagement to this Dashboard.</a>
 		</td>
 	</tr>

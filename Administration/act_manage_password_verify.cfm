@@ -107,7 +107,7 @@ are storing more than required and, if so, delete the oldest one --->
 </cfif>
 
  <!--- <cfoutput>
-	#variables.new_pass#<br>
+	#variables.new_pass#<br />
 	#attributes.new_pass#
 </cfoutput>
 

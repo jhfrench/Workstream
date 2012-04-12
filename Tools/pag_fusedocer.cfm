@@ -71,7 +71,7 @@
 	</tr>
 	<tr class="RegText">
 		<td colspan="5" align="left" valign="top" class="SubHeadText">
-			Variables and includes: Use commas to separate variables.<br> Be sure to use proper identifiers (+++ for includes, &lt;-- for outgoing variables, --&gt; for incoming variables).
+			Variables and includes: Use commas to separate variables.<br /> Be sure to use proper identifiers (+++ for includes, &lt;-- for outgoing variables, --&gt; for incoming variables).
 		</td>
 	</tr>
 	<tr>

@@ -32,16 +32,16 @@
 	<tr bordercolor="##ffffff">
 		<td valign="top" class="SubHeadText">
 			Days:<cfset tabindex=incrementvalue(tabindex)>
-			<cfinput type="text" name="reminder_days" value="#variables.reminder_days#" required="No" validate="integer" message="Please specify your pre due date reminder as a number of whole days." size="4" tabindex="#tabindex#" class="RegText"><br><span class="RegText">(before due date)</span>
+			<cfinput type="text" name="reminder_days" value="#variables.reminder_days#" required="No" validate="integer" message="Please specify your pre due date reminder as a number of whole days." size="4" tabindex="#tabindex#" class="RegText"><br /><span class="RegText">(before due date)</span>
 		</td>
 		<td class="SubHeadText">
 			'CC' List<cfset tabindex=incrementvalue(tabindex)>
-			<cfset tabindex=incrementvalue(tabindex)><br><cfmodule template="../common_files/dsp_team_select.cfm" select_name="reminder_cc_id" emp_id="#variables.cc_list#" email_only=1 multi=1 size=6 tabindex="#tabindex#" class="RegText">
+			<cfset tabindex=incrementvalue(tabindex)><br /><cfmodule template="../common_files/dsp_team_select.cfm" select_name="reminder_cc_id" emp_id="#variables.cc_list#" email_only=1 multi=1 size=6 tabindex="#tabindex#" class="RegText">
 		</td>
 	</tr><!--- 
 	<tr bordercolor="##ffffff">
 		<td colspan="2" valign="top" class="HeadText">
-			Status Notification Frequency<br>
+			Status Notification Frequency<br />
 			<cfset tabindex=incrementvalue(tabindex)>
 			<cfselect name="notification_frequency_id" query="get_notification_frequency" display="description" value="notification_frequency_id" selected="#variables.notification_frequency_id#" size="1" required="Yes" tabindex="#tabindex#" class="RegText">
 		  </cfselect>

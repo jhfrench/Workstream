@@ -51,6 +51,11 @@
 <cfif isdefined("attributes.company_id")><input type="hidden" name="company_id" value="#attributes.company_id#"></cfif>
 <input type="hidden" name="vision" value="#attributes.vision#">
 <cfswitch expression="#attributes.billable_type_id#">
+<cfcase value="1">
+<input type="hidden" name="end_date" value="#attributes.end_date#">
+<input type="hidden" name="rate" value="#attributes.rate#">
+<input type="hidden" name="start_date" value="#attributes.start_date#">
+</cfcase>
 <cfcase value="3">
 <input type="hidden" name="end_date" value="#attributes.end_date#">
 <input type="hidden" name="start_date" value="#attributes.start_date#">

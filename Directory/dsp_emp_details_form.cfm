@@ -35,7 +35,7 @@
 		<tr>
 			<td></td>
 			<td colspan="2" class="RegText">
-				Biography<br>
+				Biography<br />
 				<textarea name="biography" maxlength="4000" wrap="soft" rows="7" cols="110" class="RegText">#StripCR(biography)#</textarea>
 			</td>
 		</tr>
@@ -88,11 +88,11 @@
 					</tr>
 					<tr>
 						<td class="SubHeadText">&nbsp;</td>
-						<td class="RegText" align="right">Manager/Non:<br>Employee Classification:</td>
+						<td class="RegText" align="right">Manager/Non:<br />Employee Classification:</td>
 						<td class="RegText" align="left"><select name="manager_non_id" class="RegText">
 							<option value="1"<cfif manager_non_id EQ "1">Selected</cfif>>Manager</option>
 							<option value="0"<cfif manager_non_id EQ "0">Selected</cfif>>Non-Manager</option>
-						</select><br><cfselect name="employee_classification" query="get_employee_classification" selected="#employee_classification_id#" value="employee_classification_id" display="employee_classification" class="RegText"></cfselect></td>
+						</select><br /><cfselect name="employee_classification" query="get_employee_classification" selected="#employee_classification_id#" value="employee_classification_id" display="employee_classification" class="RegText"></cfselect></td>
 						<td class="RegText" align="right" valign="top">Visible Companies:</td>
 						<td class="RegText">
 				<select name="visable_company" size="#min(get_teams.recordcount,3)#" multiple class="RegText">
@@ -106,8 +106,8 @@
 <cfoutput>
 					<tr>
 						<td class="SubHeadText">&nbsp;</td>
-						<td class="RegText" align="right">User Type:<br>Employee Type:</td>
-						<td class="RegText" align="left"><cfselect name="emp_contact_type"  selected="#emp_contact_type#" query="get_user_type" value="emp_contact_id" display="emp_contact_type" class="RegText"></cfselect><br><cfselect name="employee_type"  selected="#employee_type_id#" query="qry_get_employee_type" value="employee_type_id" display="employee_type" class="RegText"></cfselect></td>
+						<td class="RegText" align="right">User Type:<br />Employee Type:</td>
+						<td class="RegText" align="left"><cfselect name="emp_contact_type"  selected="#emp_contact_type#" query="get_user_type" value="emp_contact_id" display="emp_contact_type" class="RegText"></cfselect><br /><cfselect name="employee_type"  selected="#employee_type_id#" query="qry_get_employee_type" value="employee_type_id" display="employee_type" class="RegText"></cfselect></td>
 						<td class="RegText" align="right" valign="top"><font color=red>Supervisor</font>: </td>
 						<td class="RegText" align="left" valign="top">
 <cfif isdefined("attributes.emp_id")>

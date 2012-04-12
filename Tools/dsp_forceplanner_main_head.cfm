@@ -20,14 +20,14 @@
 		<td valign="bottom" class="SubHeadText">Task Name</td>
 		<td valign="bottom" class="SubHeadText">Task ID</td>
 		<td valign="bottom" class="SubHeadText">Due Date</td>
-		<td align="center" valign="bottom" class="SubHeadText">Assign<br>Task</td>
+		<td align="center" valign="bottom" class="SubHeadText">Assign<br />Task</td>
 		<td align="center" valign="bottom" class="SubHeadText">Billable</td>
 	<cfloop list="#variables.emp_init_loop#" index="ii">
 		<td align="center" valign="bottom" class="SubHeadText">#ii#</td>
 	</cfloop>
-		<td align="center" bgcolor="##5F5F5F" valign="bottom" class="SubHeadTextWhite">Requested<br>Hours</td>
-		<td align="center" bgcolor="##5F5F5F" valign="bottom" class="SubHeadTextWhite">Assigned<br>Hours</td>
-		<td align="center" bgcolor="##5F5F5F" valign="bottom" class="SubHeadTextWhite">Remaining<br>Hours</td>
+		<td align="center" bgcolor="##5F5F5F" valign="bottom" class="SubHeadTextWhite">Requested<br />Hours</td>
+		<td align="center" bgcolor="##5F5F5F" valign="bottom" class="SubHeadTextWhite">Assigned<br />Hours</td>
+		<td align="center" bgcolor="##5F5F5F" valign="bottom" class="SubHeadTextWhite">Remaining<br />Hours</td>
 	</tr>
 </cfoutput>
 

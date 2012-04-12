@@ -1,4 +1,3 @@
-
 <!--Customers/act_increment_project_code.cfm
 	Author: Jeromy F  -->
 <cfsilent>
@@ -19,17 +18,16 @@ WHERE customer_id=#attributes.customer_id#
 </cfquery>
 <cfset variables.root_base = get_root_base.root_code>
 <cfif existing_engagements.recordcount>
-<cfquery name="get_max_code" datasource="#application.datasources.main#">
-SELECT (CASE WHEN MAX(project_code)IS NULL THEN '#variables.root_base#' ELSE MAX(project_code)end) AS new_code
-FROM Project
-WHERE customer_id=#attributes.customer_id#
-	AND ISNUMERIC(project_code)=1
-</cfquery>
-	<cfset variables.new_code=get_max_code.new_code+0.001>
+	<cfquery name="get_max_code" datasource="#application.datasources.main#">
+	SELECT (CASE WHEN MAX(project_code)IS NULL THEN '#variables.root_base#' ELSE MAX(project_code) END) AS new_code
+	FROM Project
+	WHERE customer_id=#attributes.customer_id#
+		AND ISNUMERIC(project_code)=1
+	</cfquery>
+	<cfset variables.new_code=get_max_code.new_code+0.01>
 <cfelseif isdefined("attributes.strip_trailing")>
 	<cfset variables.new_code=get_root_code.root_code>
 <cfelse>
-	<cfset variables.new_code=get_root_code.root_code+0.001>
+	<cfset variables.new_code=get_root_code.root_code+0.01>
 </cfif>
 </cfsilent>
-

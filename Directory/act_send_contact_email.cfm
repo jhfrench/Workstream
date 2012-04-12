@@ -44,12 +44,12 @@
 			
 	<cfif get_emails.recordcount>
 		<cfloop query="get_emails" startrow="1" endrow="#endrow#">
-			<!--- @ debug: <cfoutput>#evaluate(variables.email_name)#</cfoutput><br> --->
+			<!--- @ debug: <cfoutput>#evaluate(variables.email_name)#</cfoutput><br /> --->
 			<cfmail to="#evaluate(variables.email_name)#" from="#application.erroremailfrom# " subject="Monthly Contacts Change Enquiry" server="#application.emailserver#" type="HTML">
 				<table width="80%">
 					<tr>
 						<td>
-							Dear #fname# #lname#,<br>
+							Dear #fname# #lname#,<br />
 							This is a monthly email sent to remind you to review your personal and employee data in workstream. Please <a href="#hyperlinkedTo#">use this link</a> to make any necessary modifications.
 
 							Thank you.

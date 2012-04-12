@@ -19,10 +19,10 @@ WHERE Emp_Contact.emp_id=#session.user_account_id#
 </cfquery>
 <cfmail subject="Please add new word to dictionary" to="jeromy_french@hotmail.com" from="#application.erroremailfrom#" server="#application.emailserver#" type="HTML">
 <font face="Arial,Helvetica,sans-serif" size="1">
-Word: '#attributes.suggested_word#'<br>
-Requestor: #get_requestor.lname#, #get_requestor.first_name#<br>
-Date: #dateformat(now(),"mm/dd/yy")#<br>
-Time: #TimeFormat(now(), "h:mm TT")#<br>
+Word: '#attributes.suggested_word#'<br />
+Requestor: #get_requestor.lname#, #get_requestor.first_name#<br />
+Date: #dateformat(now(),"mm/dd/yy")#<br />
+Time: #TimeFormat(now(), "h:mm TT")#<br />
 
 <form action="http://www.nucleusweb.com/cfx_spell/admin/dictadd.cfm">
 	<input type="hidden" name="language" value="am">

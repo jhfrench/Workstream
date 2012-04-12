@@ -35,7 +35,7 @@
 			&nbsp;&nbsp;&nbsp;&nbsp;
 			
 			To:
-			<cfinput type="datefield" name="to_date" value="" required="Yes" validate="date" message="Please enter a properly formatted to date." size="11" class="RegText"><br>
+			<cfinput type="datefield" name="to_date" value="" required="Yes" validate="date" message="Please enter a properly formatted to date." size="11" class="RegText"><br />
 			</td>
 	</tr>
 	

@@ -127,7 +127,7 @@
 			Associated Files:
 		</td>
 		<td colspan="5" class="RegText"></cfoutput>
-			<cfif get_associated_files.recordcount><cfoutput query="get_associated_files">#file_path#<br></cfoutput><cfelse>No files currently associated with this task.</cfif>
+			<cfif get_associated_files.recordcount><cfoutput query="get_associated_files">#file_path#<br /></cfoutput><cfelse>No files currently associated with this task.</cfif>
 		</td>
 	</tr>
 <cfoutput>
@@ -139,7 +139,7 @@
 			Associated Tasks:
 		</td>
 		<td colspan="5" class="RegText"></cfoutput>
-			<cfif get_associated_tasks.recordcount><cfoutput query="get_associated_tasks"><a href="index.cfm?fuseaction=Timekeeping.print_task&task_id=#task_id#&expand=1"><img src="#request.dir_level##application.application_specific_settings.image_dir#none.gif" width="16" height="16" alt="" border="0"></a><a href="index.cfm?fuseaction=Timekeeping.task_details&task_id=#task_id#">#task_id#</a> - #name#<br></cfoutput><cfelse>No tasks currently associated with this task.</cfif>
+			<cfif get_associated_tasks.recordcount><cfoutput query="get_associated_tasks"><a href="index.cfm?fuseaction=Timekeeping.print_task&task_id=#task_id#&expand=1"><img src="#request.dir_level##application.application_specific_settings.image_dir#none.gif" width="16" height="16" alt="" border="0"></a><a href="index.cfm?fuseaction=Timekeeping.task_details&task_id=#task_id#">#task_id#</a> - #name#<br /></cfoutput><cfelse>No tasks currently associated with this task.</cfif>
 		</td>
 	</tr>
 

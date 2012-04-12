@@ -51,7 +51,7 @@
 	<cfset dataset0yvalues=listprepend(dataset0yvalues,(on_time_percent))>
 </cfoutput>
 </cfsilent>
-Deadline Management Percent<br>
+Deadline Management Percent<br />
 <cfoutput><applet code="javachart.applet.stackBarApp.class" codebase="#request.dir_level##application.graphbase#" width="600" height="#graphheight#">
 	<param name="plotAreaColor" value="ffffff">
 	<param name="backgroundColor" value="ffffff">
@@ -106,5 +106,5 @@ Deadline Management Percent<br>
 	<param name="legendLabelColor" value="black">
 	<param name="iconWidth" value=".02">
 	<param name="iconHeight" value=".02">
-</applet><br>Percent of tasks completed on time or early</cfoutput>
+</applet><br />Percent of tasks completed on time or early</cfoutput>
 

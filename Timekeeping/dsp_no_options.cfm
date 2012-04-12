@@ -15,9 +15,9 @@
 <cfinclude template="../common_files/qry_get_teams.cfm">
 	<tr valign="top">
 		<td align="center" colspan="2" valign="top" class="SubHeadText">
-			<br>&nbsp;
+			<br />&nbsp;
 			No options available.
-			<br>&nbsp;
+			<br />&nbsp;
 		</td>
 	</tr>
 	

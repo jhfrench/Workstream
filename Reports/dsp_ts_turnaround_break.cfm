@@ -15,9 +15,9 @@
 </cfsilent>
 <tr>
 	<td>
-		<cfinclude template="dsp_ts_completion_by_customer.cfm"><br><br>&nbsp;
+		<cfinclude template="dsp_ts_completion_by_customer.cfm"><br /><br />&nbsp;
 	</td>
 	<td>
-		<cfinclude template="dsp_ts_completion_by_product.cfm"><BR><br>&nbsp;
+		<cfinclude template="dsp_ts_completion_by_product.cfm"><br /><br />&nbsp;
 	</td>
 </tr>

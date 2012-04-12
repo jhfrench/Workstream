@@ -34,13 +34,13 @@
 	</tr>
 	<tr valign="top">
 		<td colspan="1" class="RegTextBd">
-			Root Name<br>
-			<cfselect name="customer_id" size="1" query="get_root_codes" value="customer_id" selected="#get_engagement_main.customer_id#" required="Yes" display="display" class="RegText"></cfselect><br>
-			Project Name<br>
+			Root Name<br />
+			<cfselect name="customer_id" size="1" query="get_root_codes" value="customer_id" selected="#get_engagement_main.customer_id#" required="Yes" display="display" class="RegText"></cfselect><br />
+			Project Name<br />
 			<cfinput type="Text" name="description" value="#get_engagement_main.description#" required="Yes" message="Please enter an Project Name" class="RegText" size="45">
 		</td>
 		<td class="RegTextBd">
-			Visible To<br>
+			Visible To<br />
 			<select name="company_id" multiple size="4" class="RegText"></cfoutput>
 				<cfoutput query="get_companies">
 					<option value="#company_id#"<cfif listcontains(session.workstream_selected_company_id,company_id)> selected</cfif>>#description#</option>
@@ -55,13 +55,13 @@
 	</tr>
 	<tr valign="top">
 		<td class="RegTextBd">
-			IE / Acc Mgmt<br>
+			IE / Acc Mgmt<br />
 			<cfmodule template="../common_files/dsp_team_select.cfm" size="6" select_name="ie_emp_id" emp_id="#get_engagement_main.ie_emp_id#" class="RegText">
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../images/file_attach.gif" valign="bottom" width="60" height="20" alt="Associate a file path to this task." border="0"  onclick="window.open('index.cfm?fuseaction=common_files.file_attach', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=420,height=210');" tabindex=""> 
 <input type="hidden" name="file_path" value="">Timeline: #get_engagement_main.file_path#
 		</td>
 		<td rowspan="2" colspan="1" class="RegTextBd">
-			Product<br>
+			Product<br />
 			<cfselect name="product_id" query="get_products" value="product_id" display="product_name" selected="#get_engagement_main.product_id#" required="yes" message="Please choose which product this engagement applies to." size="4" class="RegText"></cfselect>
 		Status  <select name="active_ind" class="RegText">
 					<option value="1" <cfif get_engagement_main.active_ind EQ 1>selected</cfif>>Active</option>
@@ -78,7 +78,7 @@
 	</tr>
 	<tr valign="top">
 		<td colspan="2" class="RegText">
-			<span class="RegTextBd">Work Dates</span><br>
+			<span class="RegTextBd">Work Dates</span><br />
 			Start: <cfinput type="text" name="project_start" value="#dateformat(get_engagement_main.project_start,"mm/dd/yy")#" required="yes" validate="date" message="Please enter a proper date for which work is to begin on this engagement." size="8" class="RegText"> End: <cfinput type="text" name="project_end" value="#dateformat(get_engagement_main.project_end,"mm/dd/yy")#" required="yes" validate="date" message="Please enter a proper date for which work is to end on this engagement." size="8" class="RegText"> <p>
 Go Live: <cfinput type="text" name="date_go_live" value="#dateformat(get_engagement_main.date_go_live,"mm/dd/yy")#" required="no" validate="date" message=" " size="8" class="RegText"> Progress: <select name="status" class="RegText">
 	<option value="0" <cfif get_engagement_main.status EQ 0>selected</cfif>>None</option>
@@ -112,21 +112,21 @@ Status: <select name="eng_status" class="RegText">
 	</tr>
 	<tr valign="top">
 		<td colspan="2" class="RegTextBd">
-			Project Update<br>
+			Project Update<br />
 			<textarea cols="60" rows="3" name="vision" class="RegText">#
-get_engagement_main.vision#</textarea><br>
-			Upselling Opportunities<br>
+get_engagement_main.vision#</textarea><br />
+			Upselling Opportunities<br />
 			<textarea cols="60" rows="3" name="mission" class="RegText">#
-get_engagement_main.mission#</textarea><br>
-			Other Notes<br>
+get_engagement_main.mission#</textarea><br />
+			Other Notes<br />
 			<textarea cols="60" rows="3" name="business_case" class="RegText">#
 get_engagement_main.business_case#</textarea>
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">
 				<li>Specify the Project Update, Upselling Opportunities and current status for this engagement. These fields are optional, but help clarify the use of the new engagment.</li><cfset variables.start=incrementvalue(variables.start)>
-			</ol><br>
-			<center><input type="submit" value="Proceed" class="RegText"></center><br>
+			</ol><br />
+			<center><input type="submit" value="Proceed" class="RegText"></center><br />
 			<ol type="1" start="#variables.start#" class="Note">
 				<li>Click this button when you are ready to submit any changes you have entered.</li>
 			</ol>

@@ -20,7 +20,7 @@
 </cfif>
 </cfsilent>
 <cfoutput>
-	<span class="SubHeadText">Supervisor <a href="##" onclick="window.open('index.cfm?fuseaction=Directory.supervisor_entry&emp_id=#attributes.emp_id#', 'Supervisor', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=1,copyhistory=0,width=420,height=250');">ADD</a></span><br></span>
+	<span class="SubHeadText">Supervisor <a href="##" onclick="window.open('index.cfm?fuseaction=Directory.supervisor_entry&emp_id=#attributes.emp_id#', 'Supervisor', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=1,copyhistory=0,width=420,height=250');">ADD</a></span><br /></span>
 
 <table>
 	<tr>
@@ -32,7 +32,7 @@
 <cfoutput query="get_supervisor_history">
 	<tr>
 		<td class="RegText">
-			<a href="javascript:list_to_employee('#get_supervisor_history.supervisor_id#');"  title="View details for #Replace(get_supervisor_history.sup_name,"'","")#." class="RegText">#get_supervisor_history.sup_name#</a><br>
+			<a href="javascript:list_to_employee('#get_supervisor_history.supervisor_id#');"  title="View details for #Replace(get_supervisor_history.sup_name,"'","")#." class="RegText">#get_supervisor_history.sup_name#</a><br />
 		</td>
 		<td class="RegText">
 			#dateformat(get_supervisor_history.date_start,'mm/dd/yyyy')#

@@ -47,7 +47,7 @@
 	</cfif>
 </cfoutput>
 </cfsilent>
-Sales By Billing Type<br>
+Sales By Billing Type<br />
 <cfoutput><applet code="javachart.applet.stackBarApp.class" codebase="#request.dir_level##application.graphbase#" width="600" height="#variables.graph_height#">
 	<param name="plotAreaColor" value="ffffff">
 	<param name="backgroundColor" value="ffffff">
@@ -113,5 +113,5 @@ Sales By Billing Type<br>
 	<param name="iconWidth" value=".02">
 	<param name="iconHeight" value=".02">
 </applet></cfoutput>
-<br>Sales ($1,000's)
+<br />Sales ($1,000's)
 

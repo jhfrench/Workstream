@@ -53,7 +53,7 @@
 <cfelse>
 	<tr>
 		<td align="center" colspan="2" class="Note">
-			The report you requested has returned no results.<br>
+			The report you requested has returned no results.<br />
 			Please click the "Back" button to try to run your report again.
 		</td>
 	</tr>

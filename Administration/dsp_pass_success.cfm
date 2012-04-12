@@ -43,10 +43,10 @@
 		<td class="RegText" height="50%">
 			Your password has been successfully changed.
 			<cfif isdefined("session.workstream_last_password_date") and len(session.workstream_last_password_date)>
-			<br>
+			<br />
 				Your password will need to be changed again after: 
 				<cfoutput><strong>#dateformat(session.workstream_last_password_date, "mmmm d, yyyy")#</strong></cfoutput>
-			<br>
+			<br />
 			</cfif>
 		</td>
 	</tr>

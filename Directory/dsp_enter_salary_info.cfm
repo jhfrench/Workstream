@@ -15,7 +15,7 @@ $Log:
 	END FUSEDOC --->
 
 			<cfoutput>
-			<span class="SubHeadText">Enter Salary Info</span><br>
+			<span class="SubHeadText">Enter Salary Info</span><br />
 			<table>
 			<tr>
 				<td class="RegText" width="25%">Date</td>

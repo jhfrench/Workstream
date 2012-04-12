@@ -48,7 +48,7 @@
 		<cfloop from="#first_year#" to="#last_year#" index="ii">
 			<option value="#ii#"<cfif attributes.year EQ ii> selected</cfif>>#ii#</option>
 		</cfloop>
-		</select><br><cfif isdefined("attributes.customer_id")>
+		</select><br /><cfif isdefined("attributes.customer_id")>
 		<input type="hidden" name="customer_id" value="#attributes.customer_id#" />
 		</cfif>
 		<input type="submit" value="Get Invoice List" class="RegText">

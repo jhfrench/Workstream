@@ -15,7 +15,7 @@
 <cfset list1="(,), ,-,x,.">
 <cfset list2=",,,,,">
 </cfsilent>
-<span class="SubHeadText">Phone</span><br>
+<span class="SubHeadText">Phone</span><br />
 <cfoutput query="get_emp_phone">
 #phone_type#: 
 <cfset phone=ReplaceList(phone_number,list1,list2)>
@@ -26,6 +26,6 @@
 <cfelse>
 #phone#
 </cfif>
-<cfif compare(extension,"")> x#extension#</cfif><br>
+<cfif compare(extension,"")> x#extension#</cfif><br />
 </cfoutput>
 

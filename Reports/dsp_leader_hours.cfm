@@ -32,8 +32,8 @@
 	</tr>
 </cfoutput>
 </table>
-<br>&nbsp;
-<br>
+<br />&nbsp;
+<br />
 <table border="1" align="center" bordercolor="##000000" cellpadding="1" cellspacing="0">
 	<tr bgcolor="##0000ff">
 		<td align="center" height="27" colspan="3" class="HeadTextWhite">Summary of Hours by Week &amp; Employee</td>

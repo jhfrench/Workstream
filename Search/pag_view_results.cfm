@@ -98,7 +98,7 @@
 	</tr>
 		<tr>
 		<td align="center" colspan="3" class="RegText">
-			<br><input type="submit" value="Edit Search" class="RegText">
+			<br /><input type="submit" value="Edit Search" class="RegText">
 		</td>
 	</tr>
  </form>

@@ -16,7 +16,7 @@
 <tr>
 	<td class="SubHeadText" valign="top">
 		Customer &amp; Project
-		<cfoutput><img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="#alt#" border="0"  onclick="OpenProjectWindow('project_id');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#incrementvalue(tabindex)#"></cfoutput><br>
+		<cfoutput><img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="#alt#" border="0"  onclick="OpenProjectWindow('project_id');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#incrementvalue(tabindex)#"></cfoutput><br />
 		<cfset tabindex=incrementvalue(tabindex)>
 		<cfselect name="project_id" size="5" tabindex="#tabindex#" required="yes" message="#msg#" class="RegText">
 			<cfoutput query="get_valid_projects">

@@ -42,7 +42,7 @@
 <cfoutput>
 	<tr>
 		<td align="right" valign="bottom" class="RegText">
-			<br>
+			<br />
 			Look at time for
 			<select name="month" class="RegText">
 			<cfloop from="1" to="12" index="month_ii">

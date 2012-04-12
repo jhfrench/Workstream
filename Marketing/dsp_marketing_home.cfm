@@ -111,7 +111,7 @@
 							<param name="yAxisLineColor" value="708090">
 							<param name="yAxisLabelColor" value="708090">
 							<param name="dataset0Color" value="cc6633">
-						</applet><br>YTD Sales Meter
+						</applet><br />YTD Sales Meter
 					</td>
 				</tr>
 				</cfoutput>

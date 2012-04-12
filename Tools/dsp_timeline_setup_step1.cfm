@@ -17,7 +17,7 @@
 <cfoutput>
 <tr valign="top">
 	<td class="RegText" width="50%">
-		Timeline name<br>
+		Timeline name<br />
 		<cfinput type="Text" name="project_planning_name" required="Yes" message="Please name this new timeline." size="30" class="RegText">
 	</td>
 	<td><cfset variables.start=incrementvalue(variables.start)>
@@ -26,7 +26,7 @@
 </tr>
 <tr valign="top">
 	<td class="RegText" width="50%">
-		Project<br>
+		Project<br />
 </cfoutput>
 		<cfselect name="project_id" size="5" required="yes" message="Please specify the project for your new project timeline." class="RegText">
 		<cfoutput query="get_valid_projects">

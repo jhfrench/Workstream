@@ -16,7 +16,7 @@
 	<tr>
 		<td></td>
 		<td colspan="#colspan#" class="SubHeadText">
-			Turnover by Year, Quarter, and Category<br>
+			Turnover by Year, Quarter, and Category<br />
 			<applet code="javachart.applet.columnApp.class" archive="javachart/jars/bar.jar, javachart/jars/base.jar" codebase="
 #request.dir_level##application.graphbase#" width="850" height="300">
 				<param name="backgroundColor" value="#background_color#">

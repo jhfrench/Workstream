@@ -25,7 +25,7 @@
 <cfelse>
 	<tr>
 		<td align="center" colspan="4" class="HeadText">
-			<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;There was no text to spell-check.
+			<br />&nbsp;<br />&nbsp;<br />&nbsp;<br />&nbsp;There was no text to spell-check.
 		</td>
 	</tr>
 </cfif>

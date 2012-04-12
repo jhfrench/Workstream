@@ -21,10 +21,10 @@
 		<td class="RegText">
 </cfoutput>
 		<cfoutput query="get_user_field_types">
-			<span class="RegTextBd">#user_field_type# custom fields</span><br>
+			<span class="RegTextBd">#user_field_type# custom fields</span><br />
 			<cfloop from="1" to="#evaluate("attributes.field#type_id#")#" index="ii">
-				Label: <cfinput type="text" name="type_#type_id#_num_#ii#_name" size="15" class="RegText"><br>
-					<cfif type_id NEQ 2><cfloop from="1" to="8" index="opt_ii">Option value #opt_ii#: <cfinput type="text" name="type_#type_id#_num_#ii#_opt_#opt_ii#" size="15" class="RegText"><br>
+				Label: <cfinput type="text" name="type_#type_id#_num_#ii#_name" size="15" class="RegText"><br />
+					<cfif type_id NEQ 2><cfloop from="1" to="8" index="opt_ii">Option value #opt_ii#: <cfinput type="text" name="type_#type_id#_num_#ii#_opt_#opt_ii#" size="15" class="RegText"><br />
 					</cfloop><p></p></cfif>
 			</cfloop>
 		</cfoutput>

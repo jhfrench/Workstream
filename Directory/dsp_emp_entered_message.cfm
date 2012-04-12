@@ -33,7 +33,7 @@ ORDER BY Emp_Contact.lname, Emp_Contact.name, Emp_Contact.emp_id
 </cfoutput>
 <cfif ListFind(variables.administrators_list, session.user_account_id)>
 	<cfoutput><a href="javascript:edit_employee(#variables.emp_id#)" class="RegText">administer this account</a>.</cfoutput>
-<cfelse>contact the following workstream administrators to set up the appropriate access:<br>
+<cfelse>contact the following workstream administrators to set up the appropriate access:<br />
 <ul type="square" class="RegText">
 <cfoutput query="get_administrators">
 <li class="RegText"><a href="mailto:#email#" class="RegText">#lname#, #name#</a></li>

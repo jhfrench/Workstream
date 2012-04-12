@@ -34,7 +34,7 @@
 			<cfinclude template="dsp_deadline_management_chart.cfm">
 		</td>
 		<td align="center" valign="top" class="SubHeadText">
-			<br>
+			<br />
 			<cfinclude template="dsp_deadline_management_graph.cfm">
 		</td>
 	</tr>

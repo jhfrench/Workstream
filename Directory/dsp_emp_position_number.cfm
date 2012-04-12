@@ -14,7 +14,7 @@
 <cfinclude template="qry_get_position_number_history.cfm">
 </cfsilent>
 <cfoutput>
-	<span class="SubHeadText">Position Numbers <a href="javascript:position_number_change(#attributes.emp_id#);">ADD</a></span><br></span>
+	<span class="SubHeadText">Position Numbers <a href="javascript:position_number_change(#attributes.emp_id#);">ADD</a></span><br /></span>
 
 <table>
 	<tr>
@@ -26,7 +26,7 @@
 <cfoutput>
 	<tr>
 		<td class="RegText">
-			#get_emp_position_number_history.position_id#<br>
+			#get_emp_position_number_history.position_id#<br />
 		</td>
 		<td class="RegText">
 			#dateformat(get_emp_position_number_history.effective_start_date,'mm/dd/yyyy')#

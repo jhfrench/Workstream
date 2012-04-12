@@ -17,8 +17,8 @@
 <tr bgcolor="##c0c0c0" valign="bottom">
 	<td class="RegTextBd">Year</td>
 	<td class="RegTextBd">Week</td>
-	<td align="center" class="RegTextBd" width="40">IP<br>count</td>
-	<td align="center" class="RegTextBd" width="40">Avg&nbsp;days<br>to&nbsp;complete</td>
+	<td align="center" class="RegTextBd" width="40">IP<br />count</td>
+	<td align="center" class="RegTextBd" width="40">Avg&nbsp;days<br />to&nbsp;complete</td>
 </tr>
 </cfoutput>
 
