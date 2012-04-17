@@ -41,10 +41,6 @@
 	<cfif application.application_specific_settings.normal_navigation_ind NEQ 1>
 		<cfset attributes.module_description=listfirst(replace(url.fuseaction,"_", " "),".")>
 	</cfif>
-
-	<!--- variables.icon_number needs to be equal to the number of static icons in the navigation block --->
-	<cfset variables.icon_number=3>
-	<cfparam name="session.text_size" default="none">
 	
-	<cfinclude template="dsp_header_portal.cfm">
+	<cfinclude template="dsp_header_bootstrap.cfm">
 </cfif>

@@ -24,640 +24,511 @@
 
 	<script src="common_files/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
 </head>
-<body>
-<header class="container-fluid">
-			<div style="height:120px; width:1160px; background:url(images/full_mast.jpg) no-repeat center; display:table-cell; vertical-align:middle;">
-				<a href="www.ait.com" style="padding:20px; color:#FFFFFF;font-size:24px;font-weight:bold; text-shadow:#333333 2px 2px 0px;" class="brand">Applied Internet Technologies</a>
+<body class="container-fluid">
+	<header class="row-fluid">
+		<div class="span12">
+			<div class="row-fluid">
+				<div class="span1"></div>
+				<div class="span10">
+				<div style="height:120px; width:1160px; background:url(images/full_mast.jpg) no-repeat center; display:table-cell; vertical-align:middle;">
+					<a href="www.ait.com" style="padding:20px; color:#FFFFFF;font-size:24px;font-weight:bold; text-shadow:#333333 2px 2px 0px;" class="brand">Applied Internet Technologies</a>
+				</div></div>
+				<div class="span1"></div>
 			</div>
+			<nav class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
+						<div class="nav-collapse" id="menu">
+							<ul class="nav">
+								<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Timekeeping<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="index.cfm?fuseaction=Timekeeping.home" title="home">home</a></li>
+										<li><a href="index.cfm?fuseaction=Timekeeping.task_list" title="task list">task list</a></li>
+										<li><a href="index.cfm?fuseaction=Timekeeping.engagement_list" title="engagement list">engagement list</a></li>
+										<li><a href="index.cfm?fuseaction=Timekeeping.time_entry" title="time entry_edit">time entry_edit</a></li>
+										<li><a href="index.cfm?fuseaction=Timekeeping.express_entry" title="express entry">express entry</a></li>
+										<li><a href="index.cfm?fuseaction=Timekeeping.new_task" title="new task">new task</a></li>
+										<li><a href="index.cfm?fuseaction=Timekeeping.project_timeline" title="project timeline">project timeline</a></li>
+										<li><a href="index.cfm?fuseaction=Timekeeping.timekeeping_options" title="timekeeping options">timekeeping options</a></li>
+									</ul>
+								</li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Customers<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="index.cfm?fuseaction=Customers.customers" title="customers">customers</a></li>
+										<li><a href="index.cfm?fuseaction=Customers.new_customer" title="new customer">new customer</a></li>
+										<li><a href="index.cfm?fuseaction=Customers.new_engagement" title="new engagement">new engagement</a></li>
+										<li><a href="index.cfm?fuseaction=Customers.open_tasks" title="open tasks">open tasks</a></li>
+									</ul>
+								</li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Directory<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="index.cfm?fuseaction=Directory.employee_list" title="employee list">employee list</a></li>
+										<li><a href="index.cfm?fuseaction=Directory.employee_contact_view" title="employee contact_view">employee contact_view</a></li>
+										<li><a href="index.cfm?fuseaction=Directory.benefits_entry" title="benefits entry">benefits entry</a></li>
+										<li><a href="index.cfm?fuseaction=Directory.emp_entry" title="emp entry">emp entry</a></li>
+										<li><a href="index.cfm?fuseaction=Directory.supervisor_entry" title="supervisor entry">supervisor entry</a></li>
+										<li><a href="index.cfm?fuseaction=Directory.review_entry" title="review entry">review entry</a></li>
+										<li><a href="index.cfm?fuseaction=Directory.position_number_change" title="position number_change">position number_change</a></li>
+										<li><a href="index.cfm?fuseaction=Directory.employee_contact_email" title="employee contact_email">employee contact_email</a></li>
+										<li><a href="index.cfm?fuseaction=Directory.salary_entry" title="salary entry">salary entry</a></li>
+									</ul>
+								</li>
+								<li class="dropdown"><a href="javascript:void('Tools options');" title="Tools" class="dropdown-toggle" data-toggle="dropdown">Tools<b class="caret"></b></a>
 
-    <nav class="navbar">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Timekeeping<b class="caret"></b></a>
-			  <ul class="dropdown-menu">
-	<li><a href="index.cfm?fuseaction=Timekeeping.home" title="home">home</a></li>
-	<li><a href="index.cfm?fuseaction=Timekeeping.task_list" title="task list">task list</a></li>
-	<li><a href="index.cfm?fuseaction=Timekeeping.engagement_list" title="engagement list">engagement list</a></li>
-	<li><a href="index.cfm?fuseaction=Timekeeping.time_entry" title="time entry_edit">time entry_edit</a></li>
-	<li><a href="index.cfm?fuseaction=Timekeeping.express_entry" title="express entry">express entry</a></li>
-	<li><a href="index.cfm?fuseaction=Timekeeping.new_task" title="new task">new task</a></li>
-	<li><a href="index.cfm?fuseaction=Timekeeping.project_timeline" title="project timeline">project timeline</a></li>
-	<li><a href="index.cfm?fuseaction=Timekeeping.timekeeping_options" title="timekeeping options">timekeeping options</a></li>
-			  </ul>
-			  </li>
-              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Customers<b class="caret"></b></a>
-			  <ul class="dropdown-menu">
-	              <li><a href="index.cfm?fuseaction=Customers.customers" title="customers">customers</a></li>
-	<li><a href="index.cfm?fuseaction=Customers.new_customer" title="new customer">new customer</a></li>
-	<li><a href="index.cfm?fuseaction=Customers.new_engagement" title="new engagement">new engagement</a></li>
-	<li><a href="index.cfm?fuseaction=Customers.open_tasks" title="open tasks">open tasks</a></li>
-			  </ul>
-			  </li>
-              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Directory<b class="caret"></b></a>
-			  <ul class="dropdown-menu">
-	<li><a href="index.cfm?fuseaction=Directory.employee_list" title="employee list">employee list</a></li>
-	<li><a href="index.cfm?fuseaction=Directory.employee_contact_view" title="employee contact_view">employee contact_view</a></li>
-	<li><a href="index.cfm?fuseaction=Directory.benefits_entry" title="benefits entry">benefits entry</a></li>
-	<li><a href="index.cfm?fuseaction=Directory.emp_entry" title="emp entry">emp entry</a></li>
-	<li><a href="index.cfm?fuseaction=Directory.supervisor_entry" title="supervisor entry">supervisor entry</a></li>
-	<li><a href="index.cfm?fuseaction=Directory.review_entry" title="review entry">review entry</a></li>
-	<li><a href="index.cfm?fuseaction=Directory.position_number_change" title="position number_change">position number_change</a></li>
-	<li><a href="index.cfm?fuseaction=Directory.employee_contact_email" title="employee contact_email">employee contact_email</a></li>
-	<li><a href="index.cfm?fuseaction=Directory.salary_entry" title="salary entry">salary entry</a></li>
-			  </ul>
-			  </li>
-			<li class="dropdown"><a href="javascript:void('Access the Workstream help system');" onclick="javascript:Effect.toggle('help_area','appear');return false;" class="btn btn-info" title="Access the Workstream help system">Help</a></li>
-			<li class="dropdown pull-right"><a href="index.cfm?fuseaction=Home.logout">Logout Jeromy French</a></li>
-            </ul>
-
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </nav>
-</header>
-    <div class="container-fluid">
-
-	  <div class="row-fluid">
-	  	<section class="span10">
-		
-		<table class="table table-striped table-bordered table-condensed">
+			<ul class="dropdown-menu">
 
 	
 
-<!--common_files/dsp_task_list_header.cfm
+	<li><a href="index.cfm?fuseaction=Tools.date_locked" title="date locked">date locked</a></li>
 
-	Author: Jeromy F -->
 
 
+	<li><a href="index.cfm?fuseaction=Tools.query_interface" title="query interface">query interface</a></li>
 
-<thead>
 
-	<tr>
 
-		<th>
+	<li><a href="index.cfm?fuseaction=Tools.timeline_setup" title="timeline setup">timeline setup</a></li>
 
-			<a href="javascript:order_by('task_id');" title="Order by the task ID." class="SubHeadText"><abbr title="task id">ID</abbr></a>
 
-		</th>
 
-		<th>
+	<li><a href="index.cfm?fuseaction=Tools.forceplanner_entry" title="forceplanner entry">forceplanner entry</a></li>
 
-			<a href="javascript:order_by('task_owner');" title="Order by the task owner." class="SubHeadText">Owner</a>
 
-		</th>
 
-		<th>
+	<li><a href="index.cfm?fuseaction=Tools.expense_entry" title="expense entry">expense entry</a></li>
 
-			<a href="javascript:order_by('task_name');" title="Order by the name of the task." class="SubHeadText">Name</a>
 
-		</th>
 
-		<th>
+	<li><a href="index.cfm?fuseaction=Tools.customer_invoice_list" title="invoice list">invoice list</a></li>
 
-			<a href="javascript:order_by('project_name');" title="Order by the task engagement." class="SubHeadText">Project</a>
 
-		</th>
 
-		<th class="SubHeadText" width="7%" nowrap>
+	<li><a href="index.cfm?fuseaction=Tools.expense_update" title="expense update">expense update</a></li>
 
-			<a href="javascript:order_by('Priority');" title="Order by Priority." class="SubHeadText">Priority</a>
 
-		</th>
 
-		<th>
+	<li><a href="index.cfm?fuseaction=Tools.rate_change" title="rate change">rate change</a></li>
 
-			<a href="javascript:order_by('percent_time_used');" title="Order by the task time." class="SubHeadText">Time</a>
 
-		</th>
 
-		<th>
+	<li><a href="index.cfm?fuseaction=Tools.daily_process" title="daily process">daily process</a></li>
 
-			<a href="javascript:order_by('task_status');" title="Order by the task status." class="SubHeadText">Status</a>
 
-		</th>
 
-		<th>
+			
 
-			<a href="javascript:order_by('date_due');" title="Order by the date that the task is due." class="SubHeadText">Due <img src="images/order_up.gif" width="8" height="8" alt="Order by the date that the task is due." border="0"></a>
+			</ul>
 
-		</th>
-
-	</tr>
-
-</thead>
-
-
-
-<!--common_files/dsp_task_list.cfm
-
-	Author: Jeromy F -->
-
-
-
-<tbody>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">1</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('1');" title="View time details for Provide estimate of work to be done." class="RegText"><img src="images/icon_estimate.jpg" title="Go through Culinaerie.com and determine how many hours it would take to rewrite site in CF." height="16" width="16" border="0">Provide estimate of work to be done</a></td>
-
-		<td>Culinaerie-Phase 1 Culinaerie.com</td>
-
-		<td>Normal</td>
-
-		<td><a href="javascript:list_to_time('1');" title="View time details for Provide estimate of work to be done." class="RegText">3/4 69%</a></td>
-
-		<td><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;Needs QA</td>
-
-		<td class="date">08/15/2011</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">107</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('107');" title="View time details for Alter pagination." class="RegText"><img src="images/icon_pirate.jpg" title="Add view all option to list all results. Make the block size for pagination user-specified with application default." height="16" width="16" border="0">Alter pagination</a></td>
-
-		<td><abbr title='International Code Design'>ICD</abbr>-Service Request Module</td>
-
-		<td>Normal</td>
-
-		<td><a href="javascript:list_to_time('107');" title="View time details for Alter pagination." class="RegText">0/2 13%</a></td>
-
-		<td><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;New</td>
-
-		<td class="date">03/09/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">90</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('90');" title="View time details for Fix label CSS." class="RegText"><img src="images/icon_cool.gif" title="All labels seem to be shifted over to the right a number of pixels. Possibly add a class." height="16" width="16" border="0">Fix label CSS</a></td>
-
-		<td><abbr title='International Code Design'>ICD</abbr>-Service Request Module</td>
-
-		<td>Low</td>
-
-		<td><a href="javascript:list_to_time('90');" title="View time details for Fix label CSS." class="RegText">0/1 25%</a></td>
-
-		<td><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;New</td>
-
-		<td class="date">03/13/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">93</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('93');" title="View time details for Provide LOE for user account management." class="RegText"><img src="images/icon_estimate.jpg" title="Provide LOE for user management functions (create/delete users, password change). Provide list of current users." height="16" width="16" border="0">Provide LOE for user account management</a></td>
-
-		<td><abbr title='International Code Design'>ICD</abbr>-Service Request Module</td>
-
-		<td>Low</td>
-
-		<td><a href="javascript:list_to_time('93');" title="View time details for Provide LOE for user account management." class="RegText">0/1 25%</a></td>
-
-		<td><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;New</td>
-
-		<td class="date">03/16/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">110</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('110');" title="View time details for Establish service request development area." class="RegText"><img src="images/icon_wrench.gif" title="Create copy of code and database." height="16" width="16" border="0">Establish service request development area</a></td>
-
-		<td><abbr title='International Code Design'>ICD</abbr>-Service Request Module</td>
-
-		<td>Normal</td>
-
-		<td><a href="javascript:list_to_time('110');" title="View time details for Establish service request development area." class="RegText">2/4 44%</a></td>
-
-		<td><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;In Progress</td>
-
-		<td class="date">03/16/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">73</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('73');" title="View time details for Create database backup process." class="RegText"><img src="images/icon_clock.gif" title="Need to back-up database to network drive once a week." height="16" width="16" border="0">Create database backup process</a></td>
-
-		<td>Internal Development-Workstream</td>
-
-		<td>Normal</td>
-
-		<td><a href="javascript:list_to_time('73');" title="View time details for Create database backup process." class="RegText">0/4 6%</a></td>
-
-		<td><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;In Progress</td>
-
-		<td class="date">03/16/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">83</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('83');" title="View time details for Add assigned by drop-down." class="RegText"><img src="images/smile.gif" title="Need to allow multiple selections. Leo will provide selection options." height="16" width="16" border="0">Add assigned by drop-down</a></td>
-
-		<td><abbr title='International Code Design'>ICD</abbr>-Service Request Module</td>
-
-		<td>Normal</td>
-
-		<td><a href="javascript:list_to_time('83');" title="View time details for Add assigned by drop-down." class="RegText">1/2 50%</a></td>
-
-		<td><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;In Progress</td>
-
-		<td class="date">03/16/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">94</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('94');" title="View time details for Provide LOE for error-handling." class="RegText"><img src="images/icon_estimate.jpg" title="Provide LOE for implementing error-handling" height="16" width="16" border="0">Provide LOE for error-handling</a></td>
-
-		<td><abbr title='International Code Design'>ICD</abbr>-Service Request Module</td>
-
-		<td>Pressing</td>
-
-		<td><a href="javascript:list_to_time('94');" title="View time details for Provide LOE for error-handling." class="RegText">0/2 0%</a></td>
-
-		<td><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;New</td>
-
-		<td class="date">03/16/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">77</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('77');" title="View time details for Apply HTML5 appcache." class="RegText"><img src="images/icon_code.gif" title="Apply HTML5 appcache to Workstream code." height="16" width="16" border="0">Apply HTML5 appcache</a></td>
-
-		<td>Internal Development-Workstream</td>
-
-		<td>Normal</td>
-
-		<td><a href="javascript:list_to_time('77');" title="View time details for Apply HTML5 appcache." class="RegText">0/4 6%</a></td>
-
-		<td><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;New</td>
-
-		<td class="date">03/21/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">113</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('113');" title="View time details for Closing tasks affecting assignment?." class="RegText"><img src="images/icon_careful.gif" title="In reviewing the tasks in the online system today, I noticed some issues that continue to be a problem. Last week, I went into the system and reassigned the tasks that had been mistakenly unassigned by the system. Today, many of those tasks are now unassigned again. I did notice that the ones that are unassigned now are labeled as closed. Perhaps when a task is closed it is being unassigned for some reason? This did not occur with previous closed tasks, but seems to be occurring mostly for tasks for the Operations and Information Exchange team. Below is a list of the closed tasks that are now labeled (again) as unassigned:
-
-
-
-148 (reassigned this morning but had been assigned TWICE already - once to Evaluation and then to SWS Team last week, then again to SWS this morning)
-
-139
-
-138
-
-130
-
-127
-
-124
-
-117
-
-116
-
-53
-
-49
-
-
-
-Task #123 for the Evaluation team is now labeled as unassigned and is still opened, even though it was properly assigned twice in the past two weeks or less.
-
-
-
-I will not move forward with making any changes in the system until you advise. 
-
-
-
-Thanks for your help!
-
-" height="16" width="16" border="0">Closing tasks affecting assignment?</a></td>
-
-		<td><abbr title='International Code Design'>ICD</abbr>-Service Request Module</td>
-
-		<td>Urgent</td>
-
-		<td><a href="javascript:list_to_time('113');" title="View time details for Closing tasks affecting assignment?." class="RegText">1/4 31%</a></td>
-
-		<td><img src="images/overdue.gif" width="17" height="17" alt="" border="0">&nbsp;Needs QA</td>
-
-		<td class="date">03/21/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">104</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('104');" title="View time details for Apply jQuery date picker." class="RegText"><img src="images/icon_calendar.png" title="Apply jQuery date picker to all date fields within the Service Request project." height="16" width="16" border="0">Apply jQuery date picker</a></td>
-
-		<td><abbr title='International Code Design'>ICD</abbr>-Service Request Module</td>
-
-		<td>Low</td>
-
-		<td><a href="javascript:list_to_time('104');" title="View time details for Apply jQuery date picker." class="RegText">1/4 13%</a></td>
-
-		<td>In Progress</td>
-
-		<td class="date">03/30/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">72</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('72');" title="View time details for Add security." class="RegText"><img src="images/icon_forever.gif" title="Need to require username/password to add/edit ambassador records. Model after what we have for Service Request module just to be consistent." height="16" width="16" border="0">Add security</a></td>
-
-		<td><abbr title='International Code Design'>ICD</abbr>-NSAVC Cohort IV Training Module and Bios</td>
-
-		<td>Normal</td>
-
-		<td><a href="javascript:list_to_time('72');" title="View time details for Add security." class="RegText">0/4 0%</a></td>
-
-		<td>New</td>
-
-		<td class="date">03/30/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">88</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('88');" title="View time details for Replace cfchart on homepage." class="RegText"><img src="images/icon_pie_chart.jpg" title="Use HTML5/canvas to draw pie chart and accopanying data table:
-
-http://www.elated.com/articles/snazzy-animated-pie-chart-html5-jquery/" height="16" width="16" border="0">Replace cfchart on homepage</a></td>
-
-		<td>Internal Development-Workstream</td>
-
-		<td>Rainy Day</td>
-
-		<td><a href="javascript:list_to_time('88');" title="View time details for Replace cfchart on homepage." class="RegText">7/2 350%</a></td>
-
-		<td>Needs Work by French</td>
-
-		<td class="date">03/31/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">51</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('51');" title="View time details for Build report." class="RegText"><img src="images/icon_plug.gif" title="Build report that shows all ambassadors, status(accept – denied), and timestamp." height="16" width="16" border="0">Build report</a></td>
-
-		<td><abbr title='International Code Design'>ICD</abbr>-NSAVC Cohort IV Training Module and Bios</td>
-
-		<td>Low</td>
-
-		<td><a href="javascript:list_to_time('51');" title="View time details for Build report." class="RegText">0/6 0%</a></td>
-
-		<td>New</td>
-
-		<td class="date">04/27/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">117</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('117');" title="View time details for Apply responsive templating to Workstream." class="RegText"><img src="images/icon_code.gif" title="See http://www.initializr.com/." height="16" width="16" border="0">Apply responsive templating to Workstream</a></td>
-
-		<td>Internal Development-Workstream</td>
-
-		<td>Normal</td>
-
-		<td><a href="javascript:list_to_time('117');" title="View time details for Apply responsive templating to Workstream." class="RegText">0/16 0%</a></td>
-
-		<td>New</td>
-
-		<td class="date">04/30/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">25</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('25');" title="View time details for Choose a hosting solution." class="RegText"><img src="images/icon_plug.gif" title="Evaluate hosting solutions and choose one that can host brochure site, workstream and possibly Culinaerie." height="16" width="16" border="0">Choose a hosting solution</a></td>
-
-		<td>Internal Development-Workstream</td>
-
-		<td>Normal</td>
-
-		<td><a href="javascript:list_to_time('25');" title="View time details for Choose a hosting solution." class="RegText">0/16 0%</a></td>
-
-		<td>New</td>
-
-		<td class="date">08/10/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">5</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('5');" title="View time details for add forums to Workstream." class="RegText"><img src="images/icon_code.gif" title="Consider adding forums to Workstream" height="16" width="16" border="0">add forums to Workstream</a></td>
-
-		<td>Internal Development-Workstream</td>
-
-		<td>Rainy Day</td>
-
-		<td><a href="javascript:list_to_time('5');" title="View time details for add forums to Workstream." class="RegText">0/40 0%</a></td>
-
-		<td>New</td>
-
-		<td class="date">09/30/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">12</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('12');" title="View time details for New workstream look/feel." class="RegText"><img src="images/icon_bar_chart.jpg" title="Use templatemonster.com or 1and1.com to find new look, then install." height="16" width="16" border="0">New workstream look/feel</a></td>
-
-		<td>Internal Development-Workstream</td>
-
-		<td>Rainy Day</td>
-
-		<td><a href="javascript:list_to_time('12');" title="View time details for New workstream look/feel." class="RegText">1/2 63%</a></td>
-
-		<td>In Progress</td>
-
-		<td class="date">10/31/2012</td>
-
-	</tr>
-
-
-
-	<tr>
-
-		<td scope="row" class="number">101</td>
-
-		<td>French</td>
-
-		<td><a href="javascript:list_to_task('101');" title="View time details for Add ability to share purchase on Facebook." class="RegText"><img src="images/icon_cool.gif" title="Need to discuss with customer first.
-
-As seen on Amazon.com: when you purchase a class, have the confirmation page invite the user to share their purchase on their facebook page." height="16" width="16" border="0">Add ability to share purchase on Facebook</a></td>
-
-		<td>Culinaerie-Phase 1 Culinaerie.com</td>
-
-		<td>Low</td>
-
-		<td><a href="javascript:list_to_time('101');" title="View time details for Add ability to share purchase on Facebook." class="RegText">0/8 0%</a></td>
-
-		<td>New</td>
-
-		<td class="date">05/31/2013</td>
-
-	</tr>
-</tbody>
-</table>
+		</li>
 
 		
+
+		<li class="dropdown"><a href="javascript:void('Reports options');" title="Reports" class="dropdown-toggle" data-toggle="dropdown">Reports<b class="caret"></b></a>
+
+			<ul class="dropdown-menu">
+
+	
+
+	<li><a href="index.cfm?fuseaction=Reports.home" title="home">home</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.gross_hours_input" title="Gross Hours">Gross Hours</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.gross_hours_input_ytd" title="Gross Hours">Gross Hours</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.engagement_dashboard" title="Project Dashboard">Project Dashboard</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.pto_input" title="pto input">pto input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.it_time" title="it time">it time</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.pto_accrual_input" title="pto accrual_input">pto accrual_input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.turnover" title="turnover">turnover</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.contractors" title="Contractors">Contractors</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.manager_hours_input" title="manager hours_input">manager hours_input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.admin_planning" title="admin planning">admin planning</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.overtime" title="overtime">overtime</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.manager_individual_hours_input" title="manager individual_hours_input">manager individual_hours_input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.sales_report" title="sales report">sales report</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.new_engagement_input" title="new engagement_input">new engagement_input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.undertime" title="undertime input">undertime input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.undertime_input" title="undertime input">undertime input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.lost_time" title="lost time">lost time</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.sick_bank" title="sick bank">sick bank</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.ip_report" title="ip report">ip report</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.billable_hours_input" title="Billable Hours">Billable Hours</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.leadership_hours_input" title="leadership hours_input">leadership hours_input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.gross_hours_ytd" title="gross hours_ytd">gross hours_ytd</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.non_billable_hours_input" title="non billable_hours_input">non billable_hours_input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.hr_input" title="hr input">hr input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.code_report_input" title="code report_input">code report_input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.manager_cross_tab_input" title="manager cross_tab_input">manager cross_tab_input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.anniversary" title="Anniversary">Anniversary</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.employee_force" title="employee force">employee force</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.hours_by_code_input" title="hours by_code_input">hours by_code_input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.deadline_management" title="deadline management">deadline management</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.supervisor_force" title="supervisor force">supervisor force</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.nrt_contacts" title="nrt contacts">nrt contacts</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.expense_report_input" title="expense report_input">expense report_input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.lost_time_input" title="lost time_input">lost time_input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.pto_detail" title="pto detail">pto detail</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.personal_summary" title="personal summary">personal summary</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.overtime_input" title="overtime input">overtime input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.individual_hours_input" title="individual hours_input">individual hours_input</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.manager_cross_tab_mail" title="manager cross_tab_mail">manager cross_tab_mail</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.pto_drill_down" title="pto drill_down">pto drill_down</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.account_status" title="account status">account status</a></li>
+
+
+
+	<li><a href="index.cfm?fuseaction=Reports.tech_support" title="tech support">tech support</a></li>
+
+
+
+			
+
+			</ul>
+
+		</li>
+
+		
+
+		<li class="dropdown"><a href="javascript:void('Search options');" title="Search" class="dropdown-toggle" data-toggle="dropdown">Search<b class="caret"></b></a>
+
+			<ul class="dropdown-menu">
+
+	
+
+	<li><a href="index.cfm?fuseaction=Search.home" title="home">home</a></li>
+
+
+
+			
+
+			</ul>
+
+		</li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="index.cfm?fuseaction=Home.change_password" title="Change My Password">Change My Password</a></li>
+										<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Users</a>
+											<ul class="dropdown-menu">
+												<li><a href="index.cfm?fuseaction=Administration.manage_user_access" title="Administer User Access">Administer User Access</a></li>
+												<li><a href="index.cfm?fuseaction=Administration.manage_user_profiles" title="Administer User Profiles">Administer User Profiles</a></li>
+												<li><a href="index.cfm?fuseaction=Administration.copy_user_access" title="Copy User Access">Copy User Access</a></li>
+												<li><a href="index.cfm?fuseaction=Administration.add_user" title="Add User">Add User</a></li>
+											</ul>
+										</li>
+										<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">System Configuration</a>
+											<ul class="dropdown-menu">
+												<li><a href="index.cfm?fuseaction=Administration.list_help_articles" title="Manage Help Module">Manage Help Module</a></li>
+												<li><a href="index.cfm?fuseaction=Administration.list_ref_tables" title="Manage Drop-Down Lists">Manage Drop-Down Lists</a></li>
+												<li><a href="index.cfm?fuseaction=Administration.administer_sorter_table" title="Resort Drop-Down tables">Resort Drop-Down tables</a></li>
+												<li><a href="index.cfm?fuseaction=Administration.view_application_variables" title="View Application Variables">View Application Variables</a></li>
+											</ul>
+										</li>
+										<li><a href="index.cfm?fuseaction=Administration.view_log_upload" title="view log_upload">view log_upload</a></li>
+										<li><a href="index.cfm?fuseaction=Administration.data_factory_ping" title="data factory_ping">data factory_ping</a></li>
+										<li><a href="index.cfm?fuseaction=Administration.edit_link_program_year_hierarchy" title="edit link_program_year_hierarchy">edit link_program_year_hierarchy</a></li>
+									</ul>
+								</li>
+								<li><a href="javascript:void('Access the Workstream help system');" onclick="javascript:Effect.toggle('help_area','appear');return false;" class="btn btn-info" title="Access the Workstream help system">Help</a></li>
+								<li><a href="index.cfm?fuseaction=Home.logout">Logout Jeromy French</a></li>
+							</ul>
+				
+				       </div><!--/.nav-collapse -->
+					</div>
+		 		</div>
+			</nav>
+		</div>
+	</header>
+
+	  <div class="row-fluid">
+	  	<section class="span10">
+
+
+		<div class="row-fluid">
+		  	<section id="blurb_PTO" class="span3">
+				<h2><abbr title="Paid Time Off">PTO</abbr></h2>
+				<p>This month you have 0 hours of PTO remaining, you ended last month with 0 hours. You will earn up to 0.00 hours the rest of this year. Your available PTO for the rest of the year will be up to 0.00 hours.</p>
+				<p><a href="index.cfm?fuseaction=Reports.pto_accrual_input" class="btn">View details &raquo;</a></p>
+			</section>
+		  	<section id="blurb_life" class="span3">
+				<h2><abbr title="Applied Internet Technologies">AIT</abbr> Life</h2>
+				<p>This month <abbr title="Applied Internet Technologies">AIT</abbr> added no new employees; 0 people will mark their anniversary. <abbr title="Applied Internet Technologies">AIT</abbr> currently has 3 employees.</p>
+			</section>
+		  	<section id="blurb_hours" class="span3">
+		  		<h2>Hours Worked</h2>
+		  		<p>According to your time entries, this month you worked 26.00 hours. Last month you worked 35.75 hours. This is a projected increase of 84% from last month. So far this month you spent the most time (24.75 hours) on <abbr title='International Code Design'>ICD</abbr> - eAuth mura.</p>
+		  		<p><a href="index.cfm?fuseaction=Reports.personal_summary" class="btn">View details &raquo;</a></p>
+		  	</section>
+		  	<section id="blurb_revenue" class="span3">
+		  		<h2>Revenue Goal</h2>
+		  		
+				<div id="revenue_progress">
+		
+				     <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://active.macromedia.com/flash2/cabs/swflash.cab#version=4,0,2,0" ID="Images_9189229690100008_SWF" name="Images_9189229690100008_SWF" WIDTH="220" HEIGHT="140">
+		
+						<PARAM NAME="movie" VALUE="/CFIDE/GraphData.cfm?graphCache=wc50&graphID=Images/9189229690100008.SWF"/>
+					
+						<PARAM name="quality" value="high"/><PARAM name="wmode" value="transparent"/>
+					
+						<PARAM NAME="bgcolor" VALUE="#FFFFFF"/>
+					
+						<EMBED src="/CFIDE/GraphData.cfm?graphCache=wc50&graphID=Images/9189229690100008.SWF" quality="high" wmode="transparent" bgcolor="#FFFFFF" WIDTH="220" HEIGHT="140" TYPE="application/x-shockwave-flash"
+					
+					 PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+					
+					</EMBED>
+					
+					</OBJECT> 
+		
+				</div>
+		  	</section>
+		</div>
+		<div class="row-fluid">
+		  	<section id="blurb_dashboard" class="span5">
+				<h2>Account Management Dashboard</h2>
+				<div id="operations_blurb" style="text-align:right;">
+					<p style="right:0px; white-space:nowrap;">Business Development&nbsp;<span style="white-space:nowrap;"><span style="width: 300px;"><img src="images/bar_7.gif"  style="height:10px; width:240.0000000000000px" alt="Internal Development projects in green status." /><img src="images/bar_3.gif"  style="height:10px; width:0px" alt="Internal Development projects in yellow status." /><img src="images/bar_1.gif"  style="height:10px; width:0px" alt="Internal Development projects in trouble." /></span></p>
+					<p style="right:0px; white-space:nowrap;">Culinaerie&nbsp;<span style="width: 300px;"><img src="images/bar_7.gif" style="height:10px; width:0px;" alt="Culinaerie projects in green status." /><img src="images/bar_3.gif" style="height:10px; width:240px;" alt="Culinaerie projects in yellow status." /><img src="images/bar_1.gif" style="height:10px; width:0px;" alt="Culinaerie projects in trouble." /></span></p>
+					<p style="right:0px; white-space:nowrap;">Internal Development&nbsp;<span style="width: 300px;"><img src="images/bar_7.gif"  style="height:10px; width:240.0000000000000px" alt="Internal Development projects in green status." /><img src="images/bar_3.gif"  style="height:10px; width:0px" alt="Internal Development projects in yellow status." /><img src="images/bar_1.gif"  style="height:10px; width:0px" alt="Internal Development projects in trouble." /></span></p>
+					<p style="right:0px; white-space:nowrap;"><abbr title='International Code Design'>ICD</abbr>&nbsp;<span style="white-space:nowrap;"><span style="width: 300px;"><img src="images/bar_7.gif"  style="height:10px; width:240.0000000000000px" alt="Internal Development projects in green status." /><img src="images/bar_3.gif"  style="height:10px; width:0px" alt="Internal Development projects in yellow status." /><img src="images/bar_1.gif"  style="height:10px; width:0px" alt="Internal Development projects in trouble." /></span></p>
+				</div>
+				<p><a href="index.cfm?fuseaction=Reports.engagement_dashboard" class="btn">View details &raquo;</a></p>
+			</section>
+		  	<section id="blurb_project" class="span7">
+				<h2>Work Allocation</h2>
+				<p>So far this month you have worked on 2 different engagements. You have spent none of your time on ADMIN/PLANNING. This is under the ADMIN/PLANNING work allocation target of 10% or less. You allocated your time as follows:</p>
+				<div id="work_allocation" class="row-fluid">
+
+					<div class="span4">
+			<table id="chartData" class="table_striped" cellspacing="0">
+
+				<thead>
+
+					<tr bgcolor="#c0c0c0">
+
+						<th colspan="2" title="label">Project</th><th>Hours</th>
+
+					</tr>
+
+				</thead>
+
+				<tbody style="cursor: pointer;">
+
+				
+
+					<tr>
+
+						<td style="background-color:#FFC363;" class="graph_label_color">&nbsp;</td>
+
+						<td class="graph_label"><abbr title='International Code Design'>ICD</abbr> - eAuth mura</td>
+
+						<td style="text-align:right;" class="graph_data">24.75</td>
+
+					</tr>
+
+				
+
+					<tr>
+
+						<td style="background-color:#5A82B5;" class="graph_label_color">&nbsp;</td>
+
+						<td class="graph_label">Business Development - Business Development</td>
+
+						<td style="text-align:right;" class="graph_data">5.00</td>
+
+					</tr>
+
+				
+
+					<tr>
+
+						<td style="background-color:#A5597B;" class="graph_label_color">&nbsp;</td>
+
+						<td class="graph_label"><abbr title='International Code Design'>ICD</abbr> - NASA Educational Outreach</td>
+
+						<td style="text-align:right;" class="graph_data">1.25</td>
+
+					</tr>
+
+				
+
+				</tbody>
+
+			</table>
+					
+					</div>
+					<div class="span8">
+						<canvas id="chart" width="300" height="250" style="cursor:pointer;">
+							We regret to inform you that your browser does not support canvas, a basic <a href="http://www.html5rocks.com">HTML5</a> feature.
+						</canvas>
+					</div>
+				</div>
+			</section>
+		</div>
+	
 		</section>
 		
+		
+		
 	  	<div class="span2">
-					<img src="images/spacer.gif" alt="" height="10" width="252" border="0" /><br />
-					<img src="images/watermark_digital.jpg" alt="column watermark" height="345" width="200" border="0" class="screen_only" style="opacity:0.6;position:relative;z-index:1;" />
+			<img src="images/spacer.gif" alt="" height="10" width="252" border="0" /><br />
+			<img src="images/watermark_digital.jpg" alt="column watermark" height="345" width="200" border="0" class="screen_only" style="opacity:0.6;position:relative;z-index:1;" />
 		</div>
 	  </div>
 	  
       <hr>
 
-      <footer>
-			<div style="float: left;">
-
-				&nbsp;&copy; 2012 Applied Internet Technologies
-
-			</div>
-
-			<div style="float: right">
-
-				Version 4.1.0 (Last Updated: March 4, 2012)&nbsp;
-
-			</div>
-
-      </footer>
-
-    </div> <!-- /container -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
-<script>window.jQuery || document.write('<script src="common_files/js/libs/jquery-1.7.1.js"><\/script>')</script>
-
+	<footer>
+		<div style="float: left;">
+			&nbsp;&copy; 2012 Applied Internet Technologies
+		</div>
+		<div style="float: right">
+			Version 4.1.0 (Last Updated: March 4, 2012)&nbsp;
+		</div>
+	</footer>
 <script src="common_files/js/libs/bootstrap/transition.js"></script>
 <script src="common_files/js/libs/bootstrap/collapse.js"></script>
 <script src="common_files/js/libs/bootstrap/dropdown.js"></script>
 
 <script src="common_files/js/plugins.js"></script>
 <script src="common_files/js/script.js"></script>
+
+<!--[if IE]>
+
+<script src="common_files/excanvas.js?cache_escape=20120412113820"></script>
+
+<![endif]-->
+<script src="common_files/pie_graph.js?cache_escape=20120412113820"></script>
+
+						<script>
+						// Run the code when the DOM is ready
+						jQuery(document).ready(function($){
+							$j( pieChart() );
+						});
+						</script>
 </body>
 </html>

@@ -22,6 +22,9 @@
 </fusedoc>
 --->
 
+<!--- variables.icon_number needs to be equal to the number of static icons in the navigation block --->
+<cfset variables.icon_number=3>
+<cfparam name="session.text_size" default="none">
 <cfset variables.access_message="">
 <cfset variables.allowed_modules=valuelist(get_module_navigation.module_id)>
 <cfmodule template="qry_get_system_note.cfm">

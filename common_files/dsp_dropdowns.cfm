@@ -46,28 +46,16 @@
 	</cfif>
 </cfif>
 </cfsilent>
-<cfform name="input_form" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
+<cfform name="input_form" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">
 <cfoutput>
-<div id="dropdowns">
 <input type="hidden" name="evaluate_task_options" value="1">
 <cfif session.workstream_show_options><input type="hidden" name="show_options" value="#session.workstream_show_options#"></cfif>
-<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-	<tr bgcolor="##78A0EB">
-		<td class="HeadText">
-			<cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>Case<cfelse>Task</cfif> Inbox for <cfmodule template="../common_files/dsp_team_select.cfm" emp_id="#attributes.emp_id#" show_team="1" onchange="form.submit();" fuseaction="#attributes.fuseaction#">
-		</td>
-		<td align="right" class="RegTextWhite">
-			<!--- <a class="SubHeadText" href="index.cfm?fuseaction=<cfif comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>engagement_list">Project<cfelse>task_list">Task</cfif> View</a> --->&nbsp;
-			<cfif session.workstream_show_options>
-				<cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>&nbsp;&nbsp;<label for="show_closed_engagements"><input type="checkbox" name="show_closed_engagements" id="show_closed_engagements" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_closed_engagements") AND session.workstream_show_closed_engagements> checked</cfif> class="SelectText">Show Completed Projects</label></cfif>
-				&nbsp;&nbsp;<label for="show_on_hold"><input type="checkbox" name="show_on_hold" id="show_on_hold" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_on_hold") AND session.workstream_show_on_hold> checked</cfif> class="SelectText">Show Tasks On Hold</label>
-				&nbsp;&nbsp;<label for="show_closed"><input type="checkbox" name="show_closed" id="show_closed" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_closed") AND session.workstream_show_closed> checked</cfif> class="SelectText">Show Completed Tasks</label>
-				&nbsp;&nbsp;<label for="show_team"><input type="checkbox" name="show_team" id="show_team" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_team") AND session.workstream_show_team> checked</cfif> class="SelectText">Show Team's Tasks</label>&nbsp;&nbsp;
-			</cfif>
-		</td>
-	</tr>
-</table>
-</div>
+<cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>Case<cfelse>Task</cfif> Inbox for <cfmodule template="../common_files/dsp_team_select.cfm" emp_id="#attributes.emp_id#" show_team="1" onchange="form.submit();" fuseaction="#attributes.fuseaction#">
+<cfif session.workstream_show_options>
+	<cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>&nbsp;&nbsp;<label for="show_closed_engagements" class="checkbox"><input type="checkbox" name="show_closed_engagements" id="show_closed_engagements" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_closed_engagements") AND session.workstream_show_closed_engagements> checked</cfif>>Show Completed Projects</label></cfif>
+	<label for="show_on_hold" class="checkbox"><input type="checkbox" name="show_on_hold" id="show_on_hold" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_on_hold") AND session.workstream_show_on_hold> checked</cfif>>Show Tasks On Hold</label>
+	<label for="show_closed" class="checkbox"><input type="checkbox" name="show_closed" id="show_closed" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_closed") AND session.workstream_show_closed> checked</cfif>>Show Completed Tasks</label>
+	<label for="show_team" class="checkbox"><input type="checkbox" name="show_team" id="show_team" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_team") AND session.workstream_show_team> checked</cfif>>Show Team's Tasks</label>
+</cfif>
 </cfoutput>
 </cfform>
-

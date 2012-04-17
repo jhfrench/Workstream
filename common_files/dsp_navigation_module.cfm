@@ -23,11 +23,6 @@
 </fusedoc>
 --->
 <cfoutput>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-	<tr>
-		<td bgcolor="##333333">
-<div id="spryMenuBar">
-	<ul id="MenuBar1" class="MenuBarHorizontal">
 <cfif get_module_sub_navigation.recordcount>
 <cfscript>
 	variables.module_id=0;
@@ -42,25 +37,25 @@
 		<cfif currentrow NEQ 1>
 			<!--- we're dealing with a new module, so need to close the last one --->
 			</ul>
-			</li>
+		</li>
 		</cfif>
-		<li><a href="javascript:void('#module_description# options');" title="#module_description#" class="MenuBarItemSubmenu">#module_description#</a>
-		<ul>
+		<li class="dropdown"><a href="javascript:void('#module_description# options');" title="#module_description#" class="dropdown-toggle" data-toggle="dropdown">#module_description#<b class="caret"></b></a>
+			<ul class="dropdown-menu">
 	</cfif>
 	<cfif parent_business_function_id NEQ variables.parent_business_function_id>
 		<cfset variables.parent_business_function_id=parent_business_function_id>
 		<!--- since this is a new parent, check to see if we have to close the last parent --->
 		<cfif variables.flyout_opened_ind>
 			<cfset variables.flyout_opened_ind=0>
-			</ul>
+				</ul>
 			</li>
 		</cfif>
 		<!--- if the business function has a parent, show it first --->
 		<cfif parent_business_function_id NEQ business_function_id>
 			<cfset variables.hierachy_level=hierachy_level>
 			<cfset variables.flyout_opened_ind=1>
-			<li><a href="javascript:void('#parent_business_function# options');" title="#parent_business_function#">#parent_business_function#</a>
-			<ul>
+			<li class="dropdown"><a href="javascript:void('#parent_business_function# options');" title="#parent_business_function#" class="dropdown-toggle" data-toggle="dropdown">#parent_business_function#<b class="caret"></b></a>
+				<ul class="dropdown-menu">>
 		</cfif>
 	</cfif>
 	<li><a href="index.cfm?fuseaction=#fuseaction#" title="#business_function_description#">#business_function_description#</a></li>
@@ -68,23 +63,7 @@
 	            </ul></cfif>
 			</ul>
 		</li>
-</cfif>
-	</ul>
-</div>
-		</td><cfif application.use_help_module_ind>
-		<td align="center" bgcolor="##A80104" style="width: 6em;">
-		<a href="javascript:void('Access the #application.html_title# help system');" onclick="javascript:Effect.toggle('help_area','appear');return false;" style="text-decoration:none; cursor:help; color:##FFFFFF; font-weight:bold;" title="Access the #application.html_title# help system">Help</a>
-		</td></cfif>
-		<td align="right" bgcolor="##333333">
-			&nbsp;<cfif isdefined("session.user_account_id")><cfif session.password_created_by EQ session.user_account_id><a href="index.cfm?fuseaction=Home.logout" style="color:##FFFFFF;"><strong>Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></strong></a></cfif><cfelse><a href="index.cfm?fuseaction=Home.login" style="color:##FFFFFF;"><strong>Login for More Access</strong></a></cfif>
-		</td>
-		
-	</tr>
-</table>
+</cfif><cfif application.use_help_module_ind>
+	<li><a href="javascript:void('Access the Workstream help system');" onclick="javascript:Effect.toggle('help_area','appear');return false;" class="btn btn-info" title="Access the Workstream help system">Help</a></li></cfif>
+	<cfif isdefined("session.user_account_id")><cfif session.password_created_by EQ session.user_account_id><li><a href="index.cfm?fuseaction=Home.logout" style="color:##FFFFFF;"><strong>Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></strong></a></li></cfif><cfelse><li><a href="index.cfm?fuseaction=Home.login" style="color:##FFFFFF;"><strong>Login for More Access</strong></a></li></cfif>
 </cfoutput>
-
-<script type="text/javascript">
-<!--
-var MenuBar1=new Spry.Widget.MenuBar("MenuBar1", {imgDown:"images/SpryMenuBarDownHover.gif", imgRight:"images/SpryMenuBarRightHover.gif"});
-//-->
-</script>

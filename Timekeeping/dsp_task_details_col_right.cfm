@@ -18,30 +18,36 @@
 <cfset variables.valid_files="cfm,doc,gif,htm,jpg,msg,pdf,ppt,sql,vsd,xls,zip">
 </cfsilent>
 <cfoutput>
+<div class="row-fluid">
+	<div class="span6">
+		<label for="task_name">Task Name</label>
+		<input type="text" name="task_name" id="task_name" value="#htmleditformat(get_task_details.task_name)#"  valign="top" size="#variables.cols#" maxlength="255" class="span11">
+	</div>
+	<div classs="span6">
+		<a href="javascript:printable('#attributes.task_id#');" title="'View a printable version of this task." class="btn btn-inverse"><i class="icon-print"></i>Printable task sheet</a>
+	</div>
+</div>
+<div class="row-fluid">
+	<div classs="span12">
+		<p>Customer: #get_task_details.customer_name#&nbsp;Project: #replace(get_task_details.project_name,"#get_task_details.customer_name#-","")#&nbsp;<img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" width="14" height="12" alt="See more projects." border="0" onclick="OpenProjectWindow('project_id');"></p>
+		<label for="task_name">Description</label>
+		<textarea name="task_details" id="task_details" cols="#variables.cols-2#" rows="#variables.descrip_rows#" wrap="soft" class="span11">#replaceList(ParagraphFormat(get_task_details.description),'<P>,"',",")#</textarea><br />
+		<label for="notes">Progress Notes</label>
+		<cfif time_entry_details.recordcount>
+			<div id="notes" style="width:600px; height:#variables.resolution_rows*28#px; overflow:auto; border:1px solid ##c0c0c0; padding:2px;" class="span11">
+				<cfloop query="time_entry_details"><span class="RegText<cfif notes_type_id EQ 2>Red</cfif>">(#initials# #dateformat(date,"m/d/yy")#) - #trim(note)#&nbsp;&nbsp;</span><br /></cfloop>
+			</div>
+		<cfelse>
+			<span id="notes" class="Note">Resolution notes not yet entered for this task.</span>
+		</cfif>
+		<br />
+		<cfinclude template="dsp_associated_files.cfm"><br />
+		<cfinclude template="dsp_associated_tasks.cfm">
+	</div>
+</div>
 <table border="0" cellpadding="0" cellspacing="2">
 	<tr>
-		<td class="SubHeadText" valign="top">
-			Task Name<br />
-		</td>
-		<cfinclude template="dsp_print_task.cfm">
-	</tr>
-	<tr>
 		<td colspan="2" class="SubHeadText" valign="top">
-			<input type="text" name="task_name" value="#htmleditformat(get_task_details.task_name)#"  valign="top" size="#variables.cols#" maxlength="255" class="RegText"><br />
-			Customer: <span class="RegText">#get_task_details.customer_name#</span>&nbsp;Project: <span class="RegText">#replace(get_task_details.project_name,"#get_task_details.customer_name#-","")#</span>&nbsp;<img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See more projects." border="0"  onclick="OpenProjectWindow('project_id');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#incrementvalue(tabindex)#"><br />
-			Description<!--- <cfif variables.edit><cfset tabindex=incrementvalue(tabindex)> <img src="#request.dir_level##application.application_specific_settings.image_dir#check.gif" valign="bottom" width="15" height="15" alt="Check spelling for the task details." border="0" onclick="OpenWLWindow('task_details');" tabindex="#tabindex#"></cfif> ---><br />
-			<textarea name="task_details" cols="#variables.cols-2#" rows="#variables.descrip_rows#"  tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" wrap="soft" class="RegText">#ReplaceList(ParagraphFormat(get_task_details.description),'<P>,"',",")#</textarea><br /><!---<cfif NOT listfind("#valuelist(get_editing_priveleges.editing_priveleges)#,0",session.user_account_id)> onfocus="blur()" readonly</cfif>---> 
-			Progress Notes<br />
-			<cfif time_entry_details.recordcount>
-				<div style="width:600px; height:#variables.resolution_rows*28#px; overflow:auto; border:1px solid ##c0c0c0; padding:2px;">
-					<cfloop query="time_entry_details"><span class="RegText<cfif notes_type_id EQ 2>Red</cfif>">(#initials# #dateformat(date,"m/d/yy")#) - #trim(note)#&nbsp;&nbsp;</span><br /></cfloop>
-				</div>
-			<cfelse>
-				<span class="Note">Resolution notes not yet entered for this task.</span>
-			</cfif>
-			<br />
-			<cfinclude template="dsp_associated_files.cfm"><br />
-			<cfinclude template="dsp_associated_tasks.cfm">
 		</td>
 	</tr>
 <cfif get_user_fields.recordcount>

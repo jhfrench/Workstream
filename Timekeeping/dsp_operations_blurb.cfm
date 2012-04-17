@@ -14,16 +14,12 @@
  --->
 </cfsilent>
 
-<table cellpadding="0" cellspacing="0" border="0" width="100%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="2" section_color="008000" section_title="Account Mgmt Dashboard" title_class="HeadTextWhite">
-	<tr>
-		<td colspan="2" style="text-align:center;">
-			<div id="operations_blurb" style="text-align:right;">
-				<cfoutput query="operations_blurb">
-					<p style="right:0px; white-space:nowrap;" class="RegText">#customer#&nbsp;<span style="width: 300px;"><img src="images/bar_7.gif" height="10" width="#green_stretch#" alt="#customer# projects in green status." /><img src="images/bar_3.gif" height="10" width="#yellow_stretch#" alt="#customer# projects in yellow status." /><img src="images/bar_1.gif" height="10" width="#red_stretch#" alt="#customer# projects in trouble." /></span></p>
-				</cfoutput>
-			</div>
-			<a href="index.cfm?fuseaction=Reports.engagement_dashboard" class="RegText">Click here for full project details and timelines.</a>
-		</td>
-	</tr>
-</table>
+<section id="blurb_dashboard" class="span5">
+	<h2>Account Management Dashboard</h2>
+	<div id="operations_blurb" style="text-align:right; overflow:hidden;">
+		<cfoutput query="operations_blurb">
+			<p style="right:0px; white-space:nowrap;">#customer#&nbsp;<span style="white-space:nowrap; width: #variables.stretch_width#px;"><img src="images/bar_7.gif" style="height:10px; width:#round(green_stretch)#px;" alt="#customer# projects in green status." /><img src="images/bar_3.gif" style="height:10px; width:#round(yellow_stretch)#px;" alt="#customer# projects in yellow status." /><img src="images/bar_1.gif" style="height:10px; width:#round(red_stretch)#px;" alt="#customer# projects in trouble." /></span></p>
+		</cfoutput>
+	</div>
+	<p><a href="index.cfm?fuseaction=Reports.engagement_dashboard" class="btn">View details &raquo;</a></p>
+</section>

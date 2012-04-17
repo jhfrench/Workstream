@@ -19,40 +19,50 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<div class="HeadTextWhite" style="background-color:##78A0EB; width:100%;">Work Allocation</div>
-<cfif time_allocation_blurb.recordcount>
-<script src="common_files/jquery-1.7.1.min.js?cache_escape=#variables.cache_escape#"></script>
-<!--[if IE]>
-<script src="common_files/excanvas.js?cache_escape=#variables.cache_escape#"></script>
-<![endif]-->
-<script src="common_files/pie_graph.js?cache_escape=#variables.cache_escape#"></script>
-<div id="work_allocation">
-	<p class="RegText">#variables.work_allocation_text#</p>
-	<div style="float:left; width:64%;">
-		<canvas id="chart" width="300" height="250" style="cursor:pointer;">
-			We regret to inform you that your browser does not support canvas, a basic <a href="http://www.html5rocks.com">HTML5</a> feature.
-		</canvas>
+<section id="blurb_project" class="span7">
+	<h2>Work Allocation</h2>
+	<cfif time_allocation_blurb.recordcount>
+	<p>So far this month you have worked on 2 different engagements. You have spent none of your time on ADMIN/PLANNING. This is under the ADMIN/PLANNING work allocation target of 10% or less. You allocated your time as follows:</p>
+	<div id="work_allocation" class="row-fluid">
+
+		<div class="span4">
+			<table id="chartData" class="table_striped" cellspacing="0">
+				<thead>
+					<tr bgcolor="##c0c0c0">
+						<th colspan="2" title="label">Project</th><th>Hours</th>
+					</tr>
+				</thead>
+				<tbody style="cursor: pointer;">
+				<cfloop query="time_allocation_blurb">
+					<tr>
+						<td style="background-color:###listgetat(variables.color_list,time_allocation_blurb.currentrow)#;" class="graph_label_color">&nbsp;</td>
+						<td class="graph_label">#project_name#</td>
+						<td style="text-align:right;" class="graph_data">#decimalformat(project_hours)#</td>
+					</tr>
+				</cfloop>
+				</tbody>
+			</table>
+		</div>
+		<div class="span8">
+			<canvas id="chart" width="300" height="250" style="cursor:pointer;">
+				We regret to inform you that your browser does not support canvas, a basic <a href="http://www.html5rocks.com">HTML5</a> feature.
+			</canvas>
+			<script>
+			// Run the code when the DOM is ready
+			jQuery(document).ready(function($){
+				$j( pieChart() );
+			});
+			</script>
+		</div>
+		<!--[if IE]>
+		
+		<script src="common_files/excanvas.js?cache_escape=20120412113820"></script>
+		
+		<![endif]-->
+		<script src="common_files/pie_graph.js?cache_escape=20120412113820"></script>
 	</div>
-	<div style="float:right; width:35%;">
-		<table id="chartData" class="table_striped" cellspacing="0">
-			<thead>
-				<tr bgcolor="##c0c0c0">
-					<th colspan="2" title="label">Project</th><th>Hours</th>
-				</tr>
-			</thead>
-			<tbody style="cursor: pointer;">
-			<cfloop query="time_allocation_blurb">
-				<tr>
-					<td style="background-color:###listgetat(variables.color_list,time_allocation_blurb.currentrow)#;" class="label_color">&nbsp;</td>
-					<td class="label">#project_name#</td>
-					<td style="text-align:right;" class="data">#decimalformat(project_hours)#</td>
-				</tr>
-			</cfloop>
-			</tbody>
-		</table>
-	</div>
-<cfelse>
-	You have not yet entered any time for #monthasstring(month(now()))#.
-</cfif>
-</div>
+	<cfelse>
+		<p>You have not yet entered any time for #monthasstring(month(now()))#.</p>
+	</cfif>
+</section>
 </cfoutput>
