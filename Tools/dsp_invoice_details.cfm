@@ -17,34 +17,34 @@
 <cfset variables.sum_bill=0>
 </cfsilent>
 <cfoutput query="invoice_details">
-<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif> class="RegText">
-	<td align="center" class="RegText">
+<tr>
+	<td align="center" class="date">
 		#attributes.month#/#attributes.year#
 	</td>
-	<td class="RegText">
+	<td>
 		#project_code#
 	</td>
-	<td class="RegText">
+	<td>
 		<a href="javascript:list_to_emp('#emp_id#');" class="RegText">#name#</a>
 	</td>
-	<td align="right" class="RegText">
+	<td class="number">
 		<a href="javascript:list_to_emp('#emp_id#');" class="RegText">#pin#</a>
 	</td>
-	<td align="right" class="RegText">
+	<td class="number">
 		#decimalformat(rate)#
 	</td>
-	<td align="right" class="RegText">
+	<td class="number">
 		<a href="javascript:emp_to_notes('#emp_id#|#attributes.project_id#','#attributes.drill_through#');" class="RegText">#decimalformat(hours)#</a><cfset variables.sum_hours=sum_hours+hours>
 	</td>
-	<td align="right" class="RegText">
+	<td class="number">
 		#dollarformat(bill)#<cfset variables.sum_bill=sum_bill+bill>
 	</td>
 </tr>
 </cfoutput>
 <cfoutput>
 <tr>
-	<td align="right" colspan="5" class="SubHeadText">Totals:<span class="RegText"> #invoice_details.recordcount# Employee<cfif invoice_details.recordcount NEQ 1>s</cfif></span></td>
-	<td align="right" class="RegText">#decimalformat(variables.sum_hours)#</td>
-	<td align="right" class="RegText">#dollarformat(variables.sum_bill)#</td>
+	<td colspan="5" class="SubHeadText">Totals:<span class="RegText"> #invoice_details.recordcount# Employee<cfif invoice_details.recordcount NEQ 1>s</cfif></span></td>
+	<td class="number">#decimalformat(variables.sum_hours)#</td>
+	<td class="number">#dollarformat(variables.sum_bill)#</td>
 </tr>
 </cfoutput>

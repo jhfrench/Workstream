@@ -37,26 +37,25 @@
 </cfsilent>
 <cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="invoice_list" method="POST">
 <cfoutput>
-<tr align="center" bgcolor="##772862" class="SubHeadText">
-	<td colspan="5" class="SubHeadTextWhite">
-		Month: <select name="month" class="RegText">
+<div class="row-fluid">
+	<div class="span8 well form-inline">
+		<label for="year">Month</label>: <select name="month" id="month" class="span2">
 		<cfloop list="#variables.month_list#" index="variables.month_ii">
 			<option value="#variables.month_ii#"<cfif attributes.month EQ variables.month_ii> SELECTED</cfif>>#variables.month_ii#</option>
 		</cfloop>
 		</select>
-		Year: <select name="year" class="RegText">
+		<label for="year">Year</label>: <select name="year" id="year" class="span2">
 		<cfloop from="#first_year#" to="#last_year#" index="ii">
 			<option value="#ii#"<cfif attributes.year EQ ii> selected</cfif>>#ii#</option>
 		</cfloop>
-		</select><br /><cfif isdefined("attributes.customer_id")>
+		</select><cfif isdefined("attributes.customer_id")>
 		<input type="hidden" name="customer_id" value="#attributes.customer_id#" />
 		</cfif>
-		<input type="submit" value="Get Invoice List" class="RegText">
+		<input type="submit" value="Get Invoice List" class="btn btn-primary" />
 <cfif session.user_account_id EQ 1>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<font color=White>Post Invoices</font><input type="checkbox" value="1" name="run_post">
+&nbsp;&nbsp;<input type="checkbox" name="run_post" id="run_post" value="1" />&nbsp;<label for="run_post">Post Invoices</label>
 </cfif>
-	</td>
-</tr>
+</div>
 </cfoutput>
 </cfform>
 

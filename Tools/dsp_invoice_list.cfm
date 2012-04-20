@@ -15,18 +15,18 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput query="invoice_list">
-	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif> class="RegText">
-		<td class="RegText">
+	<tr>
+		<td>
 			<a href="javascript:list_to_details('#project_id#|#billable_type_id#');" class="RegText">#JSStringFormat("(#root_code##Replace(project_code,root_code,"")#) #trim(customer_name)# #trim(Replace(project_name,customer_name,""))#")#</a>
 		</td>
-		<td align="right" class="RegText">
+		<td>
 			#billable_type#
 		</td>
-		<td align="right" class="RegText">
+		<td class="number">
 			#dollarformat(revenue)#
 		</td>
-		<td align="right" class="RegText">
-			<a href="javascript:list_to_tasks('#project_id#');" class="RegText">#total_tasks#</a>
+		<td class="number">
+			<a href="javascript:list_to_tasks('#project_id#');" title="View list of tasks.">#total_tasks#</a>
 		</td>
 	</tr>
 </cfoutput>

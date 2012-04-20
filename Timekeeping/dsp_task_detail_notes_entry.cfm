@@ -44,10 +44,12 @@
 </div>
 <div class="row-fluid">
 	<div class="span12">
-		<textarea name="notes" id="notes" wrap="soft" cols="42" rows="#max(entry_rows,3)#" class="span12"></textarea>
+		<textarea name="notes" id="notes" wrap="soft" rows="#max(entry_rows,3)#" class="span12"></textarea>
 	</div>
-	<div>
-		<input type="submit" value="Update" height="8" class="btn btn-primary">
+</div>
+<div class="row-fluid">
+	<div class="btn-group" style="margin-left:auto; margin-right:auto;">
+		<input type="submit" value="Update" height="8" class="btn">
 		<input type="submit" name="to_inbox" value="Submit To Inbox" class="btn">
 	</div>
 </div>

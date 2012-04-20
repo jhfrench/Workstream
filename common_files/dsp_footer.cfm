@@ -25,6 +25,10 @@
 <cfif listfindnocase("Administration.clean_up_old_accounts,Home.login,Home.forget_password,Home.forget_username", url.fuseaction)>
 							</div>
 						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
 <cfelse>
 		</section>
 	  	<div class="span2">
@@ -39,7 +43,6 @@
 					<img src="images/spacer.gif" alt="" height="10" width="252" border="0" /><br />
 					<img src="images/watermark_digital.jpg" alt="column watermark" height="345" width="200" border="0" class="screen_only" style="opacity:0.6;position:relative;z-index:1;" />
 		</div>
-</cfif>
 	  </div>
 	  
       <hr>
@@ -59,6 +62,7 @@
 
 <script src="common_files/js/plugins.js"></script>
 <script src="common_files/js/script.js"></script>
+</cfif>
 <!--- I provide a hidden div within which you can have Ajax load (and process) a specified fuseaction. This is useful for things like ordering lots of data after an upload (without making the upload wait for the ordering), or setting session variables without reloading the controlling page (like hiding the navigation bar). --->
 <div id="hidden_process" style="display:none;"></div>
 	<cfif application.application_specific_settings.show_requirements_ind EQ 1>

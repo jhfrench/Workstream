@@ -43,16 +43,18 @@
 		<td colspan="2" class="SubHeadText">
 			Status<br /><cfset tabindex=incrementvalue(tabindex)>
 			<cfselect query="get_task_stati" name="task_status" display="status" value="status_id" selected="0" tabindex="#tabindex#" class="RegText"></cfselect><p>
-			<input type="button" value="Create New Task" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" class="RegText" onclick="checkTheDescription('');">
-			<input type="button" value="Submit To Inbox" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" class="RegText" onclick="checkTheDescription('to_inbox');">
-			<input type="hidden" name="last_loaded" value="#now()#">
-			<input type="hidden" name="to_inbox" value="">
+			<div class="btn-group">
+			<input type="button" value="Create New Task" class="btn" onclick="checkTheDescription('');">
+			<input type="button" value="Submit To Inbox" class="btn btn-primary" onclick="checkTheDescription('to_inbox');">
+			<input type="button" value="Create And Edit" class="btn" onclick="checkTheDescription('to_edit');">
+			</div>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2" class="SubHeadText">
+			<input type="hidden" name="last_loaded" value="#now()#">
+			<input type="hidden" name="to_inbox" value="">
 			<input type="hidden" name="to_edit" value="">
-			<input type="button" value="Create And Edit" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" class="RegText" onclick="checkTheDescription('to_edit');">
 		</td>
 	</tr>
 </table>

@@ -54,7 +54,7 @@
 	<div class="span9">
 		<cfinclude template="dsp_task_details_col_right.cfm">
 	</div>
-</div><!--- 
+</div>
 <div class="row-fluid">
 	<div class="span12">
 		<cfinclude template="dsp_task_reminder.cfm">
@@ -63,4 +63,4 @@
 </div>
 <cfif NOT time_entry_details.recordcount>
 	<cfinclude template="dsp_task_delete.cfm">
-</cfif> --->
+</cfif>

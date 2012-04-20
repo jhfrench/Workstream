@@ -15,33 +15,27 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<tr align="center" class="SubHeadTextWhite">
-	<td align="center" bgcolor="##9A588A" colspan="8" class="SubHeadTextWhite">
-		&nbsp;#invoice_details.project_name#
-	</td>
-</tr>
-<tr align="center" class="SubHeadText">
-	<td align="center" class="SubHeadText">
+<tr>
+	<th>
 		Month/Year
-	</td>
-	<td align="center" class="SubHeadText">
+	</th>
+	<td>
 		Project Code
-	</td>
-	<td align="center" class="SubHeadText">
+	</th>
+	<th>
 		Name
-	</td>
-	<td align="center" class="SubHeadText">
+	</th>
+	<th>
 		Pin
-	</td>
-	<td align="center" class="SubHeadText">
+	</th>
+	<th>
 		Rate<span class="RegText"> (per hour)</span>
-	</td>
-	<td align="center" class="SubHeadText">
+	</th>
+	<th>
 		Hours
-	</td>
-	<td align="center" class="SubHeadText">
+	</th>
+	<th>
 		Bill
-	</td>
+	</th>
 </tr>
 </cfoutput>
-
