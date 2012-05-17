@@ -56,8 +56,10 @@
 	</div>
 </div>
 <div class="row-fluid">
-	<div class="span12">
+	<div class="span6">
 		<cfinclude template="dsp_task_reminder.cfm">
+	</div>
+	<div class="span6">
 		<cfinclude template="dsp_task_notification.cfm">
 	</div>
 </div>

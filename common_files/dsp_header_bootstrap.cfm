@@ -65,13 +65,12 @@ else
 	 -->
 
 	<script src="common_files/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
-	<script type="text/javascript">
+	<script type="text/javascript">			
 		(function () {
 			if (/Microsoft/.test(navigator.appName)) { return }
 			
 			window.onload = function () {
-				<cfif application.use_help_module_ind>Element.hide('help_area');</cfif>
-				#get_screen_details.body_onload#
+				<cfoutput>#get_screen_details.body_onload#</cfoutput>
 				var menu = document.getElementById('menu');
 				var init = menu.offsetTop;
 				var docked;
@@ -92,10 +91,9 @@ else
 			};
 		})();
 	</script>
-	<script>window.jQuery || document.write('<script src="common_files/js/libs/jquery-1.7.1.js"><\/script>')</script>
 </head>
 <body class="container-fluid">
-	<header class="row-fluid">
+	<header role="banner" class="row-fluid">
 		<div style="position:absolute;top:-100em;left:-100em;">
 			<!-- Skip navigation link -->
 			<a href="##begin_page_content" title="hidden browser link to skip repetitive navigation" class="footerLnk">- Skip Nav</a>
@@ -117,7 +115,7 @@ else
 				</div>
 				<div class="span1"></div>
 			</div>
-			<nav class="navbar">
+			<nav role="navigation" class="navbar">
 				<div class="navbar-inner">
 					<div class="container">
 						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -125,8 +123,6 @@ else
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</a>
-						
-						
 						<div class="nav-collapse" id="menu">
 							<ul class="nav">
 								<cfinclude template="qry_get_module_sub_navigation.cfm" /><!--- 
@@ -141,7 +137,7 @@ else
 	</header>
 
 	<div class="row-fluid">
-		<section class="span10" id="begin_page_content">
+		<section id="begin_page_content" role="main" class="span9">
 	
 	
 	

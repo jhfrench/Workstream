@@ -49,14 +49,14 @@
 		<label for="date_assigned">Date Assigned</label>
 		<span id="date_assigned">#dateformat(get_task_details.date_assigned,"mm/dd/yy")#</span><br />
 		<label for="due_date">Date Due</label>
-		<cfinput type="datefield" name="due_date" value="#dateformat(get_task_details.due_date,'mm/dd/yy')#" required="Yes" validate="date" message="Please enter a properly formatted date" size="11" class="span11" />
+		<cfinput type="datefield" name="due_date" id="due_date" value="#dateformat(get_task_details.due_date,'mm/dd/yy')#" required="Yes" validate="date" message="Please enter a properly formatted date" size="11" class="span11" />
 		<label for="date_completed">Date&nbsp;Completed</label>
 		<span id="date_completed"><cfif len(get_task_details.complete_date) AND get_task_details.status_id EQ 11>#dateformat(get_task_details.complete_date,"mm/dd/yy")#<cfelse>Not yet completed</cfif></span><br />
 		</cfoutput>
 		<label for="priority_id">Priority</label>
-		<cfselect name="priority_id" query="get_priorities" display="description" value="priority_id" selected="#get_task_details.priority#" class="span11"></cfselect>
+		<cfselect name="priority_id" id="priority_id" query="get_priorities" display="description" value="priority_id" selected="#get_task_details.priority#" class="span11"></cfselect>
 		<label for="icon_id">Icon</label>
-		<cfselect query="get_ref_icon" name="icon_id" display="icon_name" value="icon_id" selected="#get_task_details.icon_id#" class="span11" />
+		<cfselect query="get_ref_icon" name="icon_id" id="icon_id" display="icon_name" value="icon_id" selected="#get_task_details.icon_id#" class="span11" />
 	</div>
 </div>
 <div class="row-fluid">
@@ -69,7 +69,7 @@
 	<!--- show time data to employees or customers if their company is set up to view hours--->
 	<div class="row-fluid">
 		<div class="span12">
-			Time Used&nbsp;<br />
+			<h4>Time Used</h4>
 			<span class="RegText">#variables.hours_used#<cfif get_task_details.budgeted_hours> out of #get_task_details.budgeted_hours# budgeted hours (#decimalformat(get_task_details.percent_used)#%)</cfif></span>
 		</div>
 	</div>
@@ -85,7 +85,8 @@
 <cfelse>
 	<div class="row-fluid">
 		<div class="span12">
-			Hours Budgeted:&nbsp;<span class="RegText">#get_task_details.budgeted_hours#</span>
+			<h4>Hours Budgeted</h4>
+			<p>#get_task_details.budgeted_hours#</p>
 		</div>
 	</div>
 </cfif>

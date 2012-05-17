@@ -20,23 +20,14 @@
 	<cfset variables.cc_list=0>
 </cfif>
 </cfsilent>
-<cfoutput>
-<table border="1" cellpadding="1" cellspacing="1" bordercolor="##ffffff">
-	<tr bordercolor="##ffffff">
-		<td class="HeadText" valign="top">
-			Completion Notification
-		</td>
-	</tr>
-	<tr bordercolor="##ffffff">
-		<td valign="top" class="SubHeadText">
-			Recipient List<cfset tabindex=incrementvalue(tabindex)>
-			<cfset tabindex=incrementvalue(tabindex)><br /><cfmodule template="../common_files/dsp_team_select.cfm" select_name="notification_to_id" emp_id="#variables.to_list#" email_only=1 multi=1 size=6 tabindex="#tabindex#" class="RegText">
-		</td>
-		<td class="SubHeadText">
-			'CC' List<cfset tabindex=incrementvalue(tabindex)>
-			<cfset tabindex=incrementvalue(tabindex)><br /><cfmodule template="../common_files/dsp_team_select.cfm" select_name="notification_cc_id" emp_id="#variables.cc_list#" email_only=1 multi=1 size=6 tabindex="#tabindex#" class="RegText">
-		</td>
-	</tr>
-</table>
-</cfoutput>
-
+<div class="form-horizontal">
+	<h4>Completion Notification</h4>
+	<div class="controls">
+	<label for="notification_to_id">Recipient List</label>
+	<cfmodule template="../common_files/dsp_team_select.cfm" select_name="notification_to_id" emp_id="#variables.to_list#" email_only="1" multi="1" size="4" class="span3">
+	</div>
+	<div class="controls">
+	<label for="notification_cc_id"><abbr title="Carbon-Copy">CC</abbr> List</label>
+	<cfmodule template="../common_files/dsp_team_select.cfm" select_name="notification_cc_id" emp_id="#variables.cc_list#" email_only="1" multi="1" size="4" class="span3">
+	</div>
+</div>

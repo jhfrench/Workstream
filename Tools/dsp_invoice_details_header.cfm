@@ -16,25 +16,16 @@
 </cfsilent>
 <cfoutput>
 <tr>
-	<th>
-		Month/Year
-	</th>
-	<td>
-		Project Code
-	</th>
-	<th>
+	<th scope="col">
 		Name
 	</th>
-	<th>
-		Pin
+	<th scope="col">
+		Rate (per hour)
 	</th>
-	<th>
-		Rate<span class="RegText"> (per hour)</span>
-	</th>
-	<th>
+	<th scope="col">
 		Hours
 	</th>
-	<th>
+	<th scope="col">
 		Bill
 	</th>
 </tr>

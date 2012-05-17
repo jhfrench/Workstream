@@ -17,36 +17,35 @@
 	--> task_name: string that gives the name of the task
  --->
 </cfsilent>
-			Linked tasks
-		<cfif comparenocase(listlast(attributes.fuseaction, '.'),"new_task") AND get_associated_tasks.recordcount>
-		<table border="0" cellpadding="1" cellspacing="1">
-			<cfoutput>
-			<tr>
-				<td class="RegTextBd">Due date</td>
-				<td class="RegTextBd"></td>
-				<td class="RegTextBd">Task name</td>
-				<td class="RegTextBd">Status</td>
-			</tr>
-			</cfoutput>
-			<cfoutput query="get_associated_tasks">
-			<tr>
-				<td class="RegText">#dateformat(due_date,"mm/dd/yy")#</td>
-				<td class="RegText">
-					<img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="<cfif description EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>" height="10" width="9" border="0">
-				</td>
-				<td class="RegText">
-					<a href="javascript:list_to_task('#task_id#');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" class="RegText">#name#</a>
-				</td>
-				<td class="RegText">#status#</td>
-			</tr>
-			</cfoutput>
-		</table>
-		<cfelse>
-			<br /><span class="Note">No tasks currently associated with this task.</span><br />
-		</cfif>
-			<cfoutput>
-			<input type="hidden" name="linked_task_id" value="0">
-			<img src="#request.dir_level##application.application_specific_settings.image_dir#file_attach.gif" valign="bottom" width="60" height="20" alt="Associate another task to this task." border="0"  onclick="window.open('index.cfm?fuseaction=common_files.task_attach&base_task_id=#attributes.task_id#', 'files', 'toolbar=1,location=1,directories=1,status=1,menubar=1,scrollbars=1,resizable=1,copyhistory=1,width=620,height=450');" tabindex="#incrementvalue(tabindex)#">
-			<img src="#request.dir_level##application.application_specific_settings.image_dir#file_detach.gif" valign="bottom" width="60" height="20" alt="Remove a task association from this task." border="0"  onclick="javascript:window.open('index.cfm?fuseaction=common_files.task_detach&task_id=#attributes.task_id#', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=1,copyhistory=0,width=420,height=210');" tabindex="#incrementvalue(tabindex)#">
-			</cfoutput>
-
+<h4>Linked tasks</h4>
+<cfif comparenocase(listlast(attributes.fuseaction, '.'),"new_task") AND get_associated_tasks.recordcount>
+<table class="table table-striped table-bordered table-condensed">
+<thead>
+<tr>
+	<th>Due date</th>
+	<th>Task name</th>
+	<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<cfoutput query="get_associated_tasks">
+<tr>
+	<td class="date">#dateformat(due_date,"mm/dd/yy")#</td>
+	<td>
+		<a href="javascript:list_to_task('#task_id#');" title="View task."><img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="<cfif description EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>" style="height:10px; width:9px;" height="10" width="9" border="0" />&nbsp;#name#</a>
+	</td>
+	<td>#status#</td>
+</tr>
+</cfoutput>
+</tbody>
+</table>
+<cfelse>
+<p class="alert span7">No tasks currently associated with this task.</p>
+</cfif>
+<cfoutput>
+<input type="hidden" name="linked_task_id" value="0">
+<div class="btn-group" style="margin-left:auto; margin-right:auto;">
+	<a href="javascript:window.open('index.cfm?fuseaction=common_files.task_attach&base_task_id=#attributes.task_id#', 'files', 'toolbar=1,location=1,directories=1,status=1,menubar=1,scrollbars=1,resizable=1,copyhistory=1,width=620,height=450');" title="Associate another task to this task." class="btn btn-mini"><i class="icon-magnet"></i>Attach</a>
+	<a href="javascript:window.open('index.cfm?fuseaction=common_files.task_detach&task_id=#attributes.task_id#', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=1,copyhistory=0,width=420,height=210');" title="Remove a task association from this task." class="btn btn-mini"><i class="icon-remove-sign"></i>Remove</a>
+</div>
+</cfoutput>

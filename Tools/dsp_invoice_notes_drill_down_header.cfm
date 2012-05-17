@@ -15,10 +15,10 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-	<tr bgcolor="##9A588A">
-		<td align="center" class="SubHeadTextWhite">Date</td>
-		<td align="center" class="SubHeadTextWhite">Hours</td>
-		<td align="center" class="SubHeadTextWhite">Notes</td>
+	<tr>
+		<th>Task</th>
+		<th>Date</th>
+		<th>Hours</th>
+		<th>Notes</th>
 	</tr>
 </cfoutput>
-

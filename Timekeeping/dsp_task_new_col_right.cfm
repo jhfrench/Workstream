@@ -14,8 +14,6 @@
 	--> customer_name: string that identifies the customer for whom the task is created
 	--> project_name: string that contains the name of the project or engagement the task is assigned to
  --->
-<cfset alt="See more projects.">
-<cfset msg="Please choose a project code.">
 </cfsilent>
 
 <script language="JavaScript" type="text/javascript">
@@ -87,25 +85,29 @@ return retValue;
 
 
 //-->
-</SCRIPT>
+</script>
 <cfoutput>
-<table border="0" cellpadding="0" cellspacing="2">
-	<tr bordercolor="##ffffff">
-		<td class="SubHeadText" valign="baseline">
-			Task Name <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See pre-defined task names." border="0"  onclick="OpenPreTaskWindow('task_name');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#incrementvalue(tabindex)#"><!--- <cfset tabindex=incrementvalue(tabindex)> <img src="#request.dir_level##application.application_specific_settings.image_dir#check.gif" valign="bottom" width="15" height="15" alt="Check spelling for the task name." border="0"  onclick="OpenWLWindow('task_name');" tabindex="#tabindex#"> ---><br />
-			<cfinput type="text" name="task_name" value="" required="Yes" message="Please enter a task name." size="70" tabindex="#tabindex#" maxlength="255" class="RegText">
-		</td>
-	</tr>
-	<cfinclude template="dsp_project_select_list.cfm">
-	<tr>
-		<td class="SubHeadText" valign="top">
-			Description<!--- <cfset tabindex=incrementvalue(tabindex)> <img src="#request.dir_level##application.application_specific_settings.image_dir#check.gif" valign="bottom" width="15" height="15" alt="Check spelling for the task details." border="0"  onclick="OpenWLWindow('task_details');" tabindex="#tabindex#"> ---><br />
-			
-			<textarea name="task_details" cols="#variables.cols#" rows="6" tabindex="<cfset tabindex=incrementvalue(tabindex)>#tabindex#" wrap="soft" class="RegText"></textarea><br />
-	</cfoutput>
-			<cfinclude template="dsp_associated_files.cfm"><br />
-			<cfinclude template="dsp_associated_tasks.cfm">
-		</td>
-	</tr>
-</table>
-
+<div class="row-fluid">
+	<div class="span12">
+		<label for="task_name">Task Name <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See pre-defined task names." border="0"  onclick="OpenPreTaskWindow('task_name');" /></label>
+		<cfinput type="text" name="task_name" id="task_name" value="" required="Yes" message="Please enter a task name." size="70" maxlength="255" class="span8">
+	</div>
+</div>
+<cfinclude template="dsp_project_select_list.cfm">
+<div class="row-fluid">
+	<div classs="span12">
+		<label for="task_details">Description</label>
+		<textarea name="task_details" id="task_details" cols="#variables.cols#" rows="6" wrap="soft" class="span8"></textarea>
+	</div>
+</div>
+<div class="row-fluid">
+	<div classs="span12">
+		<cfinclude template="dsp_associated_files.cfm">
+	</div>
+</div>
+<div class="row-fluid">
+	<div classs="span12">
+		<cfinclude template="dsp_associated_tasks.cfm">
+	</div>
+</div>
+</cfoutput>

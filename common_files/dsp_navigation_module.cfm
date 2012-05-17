@@ -64,6 +64,6 @@
 			</ul>
 		</li>
 </cfif><cfif application.use_help_module_ind>
-	<li><a href="javascript:void('Access the Workstream help system');" onclick="javascript:Effect.toggle('help_area','appear');return false;" class="btn btn-info" title="Access the Workstream help system">Help</a></li></cfif>
+	<li><a href="javascript:void('Access the Workstream help system');" class="btn btn-info" id="nav_help_button" title="Access the #application.product_name# help system">Help</a></li></cfif>
 	<cfif isdefined("session.user_account_id")><cfif session.password_created_by EQ session.user_account_id><li><a href="index.cfm?fuseaction=Home.logout" style="color:##FFFFFF;"><strong>Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></strong></a></li></cfif><cfelse><li><a href="index.cfm?fuseaction=Home.login" style="color:##FFFFFF;"><strong>Login for More Access</strong></a></li></cfif>
 </cfoutput>

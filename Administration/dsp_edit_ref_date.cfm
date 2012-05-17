@@ -50,11 +50,11 @@
 			</tr>
 			<tr>
 				<td scope="row" align="center">#attributes.odbc_date#</td>
-				<td align="right">#attributes.day_of_week_number#</td>
-				<td align="right">#attributes.weekend_ind#</td>
-				<td align="right">#attributes.date_year#</td>
-				<td align="right">#attributes.date_month#</td>
-				<td align="right">#attributes.date_day#</td>
+				<td class="number">#attributes.day_of_week_number#</td>
+				<td class="number">#attributes.weekend_ind#</td>
+				<td class="number">#attributes.date_year#</td>
+				<td class="number">#attributes.date_month#</td>
+				<td class="number">#attributes.date_day#</td>
 			</tr>
 		</table></cfif>
 		<table width="100%" cellspacing="0" cellpadding="0" border="0" summary="table displays CCR certification type information">

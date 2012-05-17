@@ -21,18 +21,37 @@
 </fusedoc>
 --->
 <cfsilent>
-<!---ignore list must be in all caps because the listcompare is case-sensitive--->
-<cfset variables.field2_error_message="<strong>Error:</strong> You must specify the value for field_2 in common_files/act_drilldown_form.cfm">
-<cfset variables.ignore_these="FIELDNAMES,FUSEACTION,PROCESSFORM,FIELD_NAME,FIELD_VALUE,FIELD2_NAME,FIELD2_VALUE,FIELD2_VARIABLE_IND,FUNCTION_NAME,NO_RESET,EVALUATE_FIRST,fusebox.password">
-<cfparam name="attributes.field_name" default="field_name">
-<cfparam name="attributes.field_value" default="field_value">
-<cfparam name="attributes.field2_name" default="">
-<cfparam name="attributes.field2_value" default="">
-<cfparam name="attributes.field2_variable_ind" default="0">
-<cfparam name="attributes.fuseaction" default="">
-<cfparam name="attributes.no_reset" default="">
-<cfparam name="attributes.processform" default="0">
-<cfset variables.javascript_ignore=listappend(lcase(variables.ignore_these),lcase(attributes.no_reset))>
+
+<cfscript>
+// ignore list must be in all caps because the listcompare is case-sensitive
+variables.field2_error_message="<strong>Error:</strong> You must specify the value for field_2 in common_files/act_drilldown_form.cfm";
+variables.ignore_these="FIELDNAMES,FUSEACTION,PROCESSFORM,FIELD_NAME,FIELD_VALUE,FIELD2_NAME,FIELD2_VALUE,FIELD2_VARIABLE_IND,FUNCTION_NAME,NO_RESET,EVALUATE_FIRST,fusebox.password";
+if (NOT isdefined("attributes.field_name")){
+	attributes.field_name="field_name";
+}
+if (NOT isdefined("attributes.field_value")){
+	attributes.field_value="field_value";
+}
+if (NOT isdefined("attributes.field2_name")){
+	attributes.field2_name="";
+}
+if (NOT isdefined("attributes.field2_value")){
+	attributes.field2_value="";
+}
+if (NOT isdefined("attributes.field2_variable_ind")){
+	attributes.field2_variable_ind=0;
+}
+if (NOT isdefined("attributes.fuseaction")){
+	attributes.fuseaction="";
+}
+if (NOT isdefined("attributes.no_reset")){
+	attributes.no_reset="";
+}
+if (NOT isdefined("attributes.processform")){
+	attributes.processform=0;
+}
+variables.javascript_ignore=listappend(lcase(variables.ignore_these),lcase(attributes.no_reset));
+</cfscript>
 </cfsilent>
 <cfoutput>
 <script language="JavaScript" type="text/javascript">

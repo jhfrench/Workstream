@@ -14,7 +14,8 @@
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	END FUSEDOC --->
 <cfquery name="invoice_notes_drill_down" datasource="#application.datasources.main#">
-SELECT Time_Entry.notes_id AS notes_id, Time_Entry.time_entry_id AS time_entry_id, Time_Entry.date AS date, Time_Entry.hours AS hours, Notes.note AS note
+SELECT Time_Entry.notes_id, Time_Entry.time_entry_id, Time_Entry.date,
+	Time_Entry.hours, Notes.note, Time_Entry.task_id
 FROM Time_Entry, Notes
 WHERE Time_Entry.notes_id=Notes.notes_id
 	AND Time_Entry.project_id=#attributes.project_id#
@@ -24,4 +25,3 @@ WHERE Time_Entry.notes_id=Notes.notes_id
 ORDER BY Time_Entry.date, Time_Entry.time_entry_id
 </cfquery>
 </cfsilent>
-

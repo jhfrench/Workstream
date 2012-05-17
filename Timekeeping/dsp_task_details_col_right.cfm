@@ -23,8 +23,9 @@
 		<label for="task_name">Task Name</label>
 		<input type="text" name="task_name" id="task_name" value="#htmleditformat(get_task_details.task_name)#"  valign="top" size="#variables.cols#" maxlength="255" class="span11">
 	</div>
-	<div classs="span6">
-		<a href="javascript:printable('#attributes.task_id#');" title="'View a printable version of this task." class="btn btn-inverse"><i class="icon-print"></i>Printable task sheet</a>
+	<div classs="offset3 span3">
+		<br />
+		<a href="javascript:printable('#attributes.task_id#');" title="'View a printable version of this task." class="btn btn-mini"><i class="icon-print"></i>Printable task sheet</a>
 	</div>
 </div>
 <div class="row-fluid">
@@ -34,24 +35,29 @@
 		<textarea name="task_details" id="task_details" cols="#variables.cols-2#" rows="#variables.descrip_rows#" wrap="soft" class="span11">#replaceList(ParagraphFormat(get_task_details.description),'<P>,"',",")#</textarea><br />
 		<label for="notes">Progress Notes</label>
 		<cfif time_entry_details.recordcount>
-			<div id="notes" style="width:600px; height:#variables.resolution_rows*28#px; overflow:auto; border:1px solid ##c0c0c0; padding:2px;" class="span11">
+			<div id="notes" style="height:#variables.resolution_rows*28#px;" class="faux-textarea span11">
 				<cfloop query="time_entry_details"><span class="RegText<cfif notes_type_id EQ 2>Red</cfif>">(#initials# #dateformat(date,"m/d/yy")#) - #trim(note)#&nbsp;&nbsp;</span><br /></cfloop>
 			</div>
 		<cfelse>
-			<span id="notes" class="Note">Resolution notes not yet entered for this task.</span>
+			<div id="notes" class="alert span11">Resolution notes not yet entered for this task.</div>
 		</cfif>
-		<br />
-		<cfinclude template="dsp_associated_files.cfm"><br />
+	</div>
+</div>
+<div class="row-fluid">
+	<div classs="span12">
+		<cfinclude template="dsp_associated_files.cfm">
+	</div>
+</div>
+<div class="row-fluid">
+	<div classs="span12">
 		<cfinclude template="dsp_associated_tasks.cfm">
 	</div>
 </div>
-<table border="0" cellpadding="0" cellspacing="2">
-	<tr>
-		<td colspan="2" class="SubHeadText" valign="top">
-		</td>
-	</tr>
 <cfif get_user_fields.recordcount>
-	<cfinclude template="dsp_custom_fields.cfm">
+<div class="row-fluid">
+	<div classs="span12">
+		<cfinclude template="dsp_custom_fields.cfm">
+	</div>
+</div>
 </cfif>
-</table>
 </cfoutput>

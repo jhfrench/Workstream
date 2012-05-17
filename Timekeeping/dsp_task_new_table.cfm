@@ -25,30 +25,19 @@
 </cfswitch>
 <cfset tabindex=0>
 </cfsilent>
-	<tr valign="top">
-		<td width="15">
-			<!--- GUTTER COLUMN --->
-		</td>
-		<td>
-			<!--- LEFT COLUMN --->
-			<cfinclude template="dsp_task_new_col_left.cfm">
-		</td>
-		<td>
-			<!--- RIGHT COLUMN --->
-			<cfinclude template="dsp_task_new_col_right.cfm">
-		</td>
-	</tr>
-	<tr valign="top">
-		<td width="15">
-		 <!--- GUTTER COLUMN --->
-		</td>
-		<td>
-			<!--- LEFT COLUMN --->
-			<cfinclude template="dsp_task_reminder.cfm">
-		</td>
-		<td>
-			<!--- RIGHT COLUMN --->
-			<cfinclude template="dsp_task_notification.cfm">
-		</td>
-	</tr>
-
+<div class="row-fluid">
+	<div class="span4">
+		<cfinclude template="dsp_task_new_col_left.cfm">
+	</div>
+	<div class="span8">
+		<cfinclude template="dsp_task_new_col_right.cfm">
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span6">
+		<cfinclude template="dsp_task_reminder.cfm">
+	</div>
+	<div class="span6">
+		<cfinclude template="dsp_task_notification.cfm">
+	</div>
+</div>

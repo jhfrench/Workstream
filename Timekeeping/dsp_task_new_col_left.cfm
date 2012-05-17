@@ -14,49 +14,42 @@
  --->
 </cfsilent>
 <cfoutput>
-<table border="0" cellpadding="0" cellspacing="0">
-	<tr bordercolor="##ffffff">
-		<td class="SubHeadText" valign="top">
-			Owner <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See more employees." border="0"  onclick="OpenTeamWindow('task_owner');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#incrementvalue(tabindex)#"><br /><cfset tabindex=incrementvalue(tabindex)>
-			
-			<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_owner" tabindex="#tabindex#" class="RegText"><br />
-			Team<br /><cfset tabindex=incrementvalue(tabindex)>
-			<cfmodule template="../common_files/dsp_team_select.cfm" multi=1 size=6 select_name="task_team" emp_id="0" tabindex="#tabindex#" class="RegText"><br />
-			QA <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See more employees." border="0"  onclick="OpenTeamWindow('task_qa');" tabindex="<cfset tabindex=incrementvalue(tabindex)>#incrementvalue(tabindex)#"><br /><cfset tabindex=incrementvalue(tabindex)>
-			<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_qa" tabindex="#tabindex#" class="RegText"><br />
-		</td>
-		<td class="SubHeadText" valign="top">
-			Start Date<br /><cfset tabindex=incrementvalue(tabindex)>
-			<cfinput type="datefield" name="date_start" value="" required="Yes" validate="date" message="Please enter a properly formatted start date." size="11" tabindex="#tabindex#" class="RegText">
-			<br />
-			Date Due<br /><cfset tabindex=incrementvalue(tabindex)>
-			<cfinput type="datefield" name="due_date" value="" required="Yes" validate="date" message="Please enter a properly formatted due date." size="11" tabindex="#tabindex#" class="RegText"><br />
-			Priority<br /><cfset tabindex=incrementvalue(tabindex)>
-			<cfselect name="priority_id" query="get_priorities" display="description" value="priority_id" selected="3" tabindex="#tabindex#" class="RegText"></cfselect><br />
-			Icon<br /><cfset tabindex=incrementvalue(tabindex)>
-			<cfselect query="get_ref_icon" name="icon_id" display="icon_name" value="icon_id" selected="1" tabindex="#tabindex#" class="RegText"></cfselect><br />
-			Hours Budgeted<br /><cfset tabindex=incrementvalue(tabindex)>
-			<cfinput name="budgeted_hours" required="Yes" validate="float" message="Please enter a number for hours budgeted." size="4" tabindex="#tabindex#" class="RegText"><br />
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2" class="SubHeadText">
-			Status<br /><cfset tabindex=incrementvalue(tabindex)>
-			<cfselect query="get_task_stati" name="task_status" display="status" value="status_id" selected="0" tabindex="#tabindex#" class="RegText"></cfselect><p>
+
+<div class="row-fluid">
+	<div class="span6">
+		<label for="task_owner">Owner <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See more employees." border="0"  onclick="OpenTeamWindow('task_owner');" /></label>
+		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_owner" class="span8">
+		<label for="task_team">Team</label>
+		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_team" multi="1" size="6" emp_id="0" class="span8">
+		<label for="task_qa"><abbr title="Quality Analyst">QA</abbr> <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See more employees." border="0"  onclick="OpenTeamWindow('task_qa');" /></label>
+		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_qa" class="span8">
+		<label for="task_status">Status</label>
+		<cfselect query="get_task_stati" name="task_status" id="task_status" display="status" value="status_id" selected="0" class="span8"></cfselect>
+	</div>
+	<div class="span6">
+			<label for="date_start">Start Date</label>
+			<cfinput type="datefield" name="date_start" value="" required="Yes" validate="date" message="Please enter a properly formatted start date." class="span6">
+			<label for="due_date">Date Due</label>
+			<cfinput type="datefield" name="due_date" value="" required="Yes" validate="date" message="Please enter a properly formatted due date." class="span6">
+			<label for="priority_id">Priority</label>
+			<cfselect name="priority_id" id="priority_id" query="get_priorities" display="description" value="priority_id" selected="3" class="span6"></cfselect>
+			<label for="icon_id">Icon</label>
+			<cfselect query="get_ref_icon" name="icon_id" id="icon_id" display="icon_name" value="icon_id" selected="1" class="span6"></cfselect>
+			<label for="budgeted_hours">Hours Budgeted</label>
+			<cfinput type="text" name="budgeted_hours" id="budgeted_hours" required="Yes" validate="float" message="Please enter a number for hours budgeted." class="span6">
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span12">
+			<input type="hidden" name="last_loaded" value="#now()#" />
+			<input type="hidden" name="to_inbox" value="" />
+			<input type="hidden" name="to_edit" value="" />
 			<div class="btn-group">
-			<input type="button" value="Create New Task" class="btn" onclick="checkTheDescription('');">
-			<input type="button" value="Submit To Inbox" class="btn btn-primary" onclick="checkTheDescription('to_inbox');">
-			<input type="button" value="Create And Edit" class="btn" onclick="checkTheDescription('to_edit');">
+			<input type="button" value="Create New Task" class="btn btn-mini" onclick="checkTheDescription('');" />
+			<input type="button" value="Submit To Inbox" class="btn btn-mini btn-primary" onclick="checkTheDescription('to_inbox');" />
+			<input type="button" value="Create And Edit" class="btn btn-mini" onclick="checkTheDescription('to_edit');" />
 			</div>
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2" class="SubHeadText">
-			<input type="hidden" name="last_loaded" value="#now()#">
-			<input type="hidden" name="to_inbox" value="">
-			<input type="hidden" name="to_edit" value="">
-		</td>
-	</tr>
-</table>
+	</div>
+</div>
 </cfoutput>
 
