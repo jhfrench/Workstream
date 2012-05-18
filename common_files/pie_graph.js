@@ -1,5 +1,3 @@
-var $j = jQuery.noConflict();	//see http://docs.jquery.com/Using_jQuery_with_Other_Libraries
-
 function pieChart() {
 
   // Config settings
@@ -69,17 +67,17 @@ function pieChart() {
     //background-color
     
     
-    $j('#chartData td').each( function() {
+    $('#chartData td').each( function() {
 		currentCell++;
 		// alert('cell is now:'+currentCell);
-		if ( $j(this).hasClass('graph_label') ) {
+		if ( $(this).hasClass('graph_label') ) {
 			//store label
 		   chartData[currentRow] = [];
-		   chartData[currentRow]['graph_label'] = $j(this).text();
-		   // alert('label:'+ $j(this).text());
-		} else if ( $j(this).hasClass('graph_data') ) {
+		   chartData[currentRow]['graph_label'] = $(this).text();
+		   // alert('label:'+ $(this).text());
+		} else if ( $(this).hasClass('graph_data') ) {
 			// store value
-			var value = parseFloat($j(this).text());
+			var value = parseFloat($(this).text());
 			totalValue += value;
 			value = value.toFixed(2);
 			chartData[currentRow]['value'] = value;
@@ -89,12 +87,12 @@ function pieChart() {
 			currentRow++;
 			// alert('row counter is now:'+currentRow);
 			// Extract and store the cell colour
-			if ( rgb = $j(this).css('background-color').match( /rgb\((\d+), (\d+), (\d+)/) ) {
+			if ( rgb = $(this).css('background-color').match( /rgb\((\d+), (\d+), (\d+)/) ) {
 				chartColours[currentRow] = [ rgb[1], rgb[2], rgb[3] ];
-				// alert('assigned rgb color:'+$j(this).css('background-color'));
-			} else if ( hex = $j(this).css('background-color').match(/#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/) ) {
+				// alert('assigned rgb color:'+$(this).css('background-color'));
+			} else if ( hex = $(this).css('background-color').match(/#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/) ) {
 				chartColours[currentRow] = [ parseInt(hex[1],16) ,parseInt(hex[2],16), parseInt(hex[3], 16) ];
-				// alert('assigned hex color:'+$j(this).css('background-color'));
+				// alert('assigned hex color:'+$(this).css('background-color'));
 			} else {
 				alert( "Error: Colour could not be determined! Please specify table colours using the format '#xxxxxx'" );
 				return;
@@ -102,8 +100,8 @@ function pieChart() {
 		}
 
       // Store the slice index in this cell, and attach a click handler to it
-      $j(this).data( 'slice', currentRow );
-      $j(this).click( handleTableClick );
+      $(this).data( 'slice', currentRow );
+      $(this).click( handleTableClick );
 
     } );
 
@@ -119,7 +117,7 @@ function pieChart() {
 
     // All ready! Now draw the pie chart, and add the click handler to it
     drawChart();
-    $j('#chart').click ( handleChartClick );
+    $('#chart').click ( handleChartClick );
   }
 
 
@@ -176,7 +174,7 @@ function pieChart() {
    */
 
   function handleTableClick ( clickEvent ) {
-    var slice = $j(this).data('slice');
+    var slice = $(this).data('slice');
     toggleSlice ( slice );
   }
 
@@ -216,9 +214,9 @@ function pieChart() {
     animationId = setInterval( function() { animatePullOut( slice ); }, pullOutFrameInterval );
 
     // Highlight the corresponding row in the key table
-    $j('#chartData td').removeClass('highlight');
-    var labelCell = $j('#chartData td:eq(' + (slice*3+1) + ')');
-    var valueCell = $j('#chartData td:eq(' + (slice*3+2) + ')');
+    $('#chartData td').removeClass('highlight');
+    var labelCell = $('#chartData td:eq(' + (slice*3+1) + ')');
+    var valueCell = $('#chartData td:eq(' + (slice*3+2) + ')');
     labelCell.addClass('highlight');
     valueCell.addClass('highlight');
   }
@@ -258,7 +256,7 @@ function pieChart() {
     currentPullOutDistance = 0;
     clearInterval( animationId );
     drawChart();
-    $j('#chartData td').removeClass('highlight');
+    $('#chartData td').removeClass('highlight');
   }
  
  
@@ -370,5 +368,7 @@ function pieChart() {
   function easeOut( ratio, power ) {
     return ( Math.pow ( 1 - ratio, power ) + 1 );
   }
+  
+  return false;
 
 };

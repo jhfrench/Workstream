@@ -47,19 +47,7 @@
 			<canvas id="chart" width="300" height="250" style="cursor:pointer;">
 				We regret to inform you that your browser does not support canvas, a basic <a href="http://www.html5rocks.com">HTML5</a> feature.
 			</canvas>
-			<script>
-			// Run the code when the DOM is ready
-			jQuery(document).ready(function($){
-				$j( pieChart() );
-			});
-			</script>
 		</div>
-		<!--[if IE]>
-		
-		<script src="common_files/excanvas.js?cache_escape=20120412113820"></script>
-		
-		<![endif]-->
-		<script src="common_files/pie_graph.js?cache_escape=20120412113820"></script>
 	</div>
 	<cfelse>
 		<p>You have not yet entered any time for #monthasstring(month(now()))#.</p>

@@ -31,23 +31,22 @@
 		</table>
 <cfelse>
 		</section>
-	  	<div class="span2">
+	  	<div class="span3">
 					<cfif application.use_help_module_ind>
 						<!-- [[ RIGHT COLUMN START ]] -->
-						<div style="visibility:hidden; height:1px; overflow:hidden">
+						<div style="height:1px; overflow:hidden">
 						Help
 						</div>
 						<cfinclude template="../Help/dsp_screen_help.cfm">
 						<!-- [[ RIGHT COLUMN END ]] -->
 					</cfif>
-					<img src="images/spacer.gif" alt="" height="10" width="252" border="0" /><br />
-					<img src="images/watermark_digital.jpg" alt="column watermark" height="345" width="200" border="0" class="screen_only" style="opacity:0.6;position:relative;z-index:1;" />
+					<div id="watermark"></div>
 		</div>
 	  </div>
 	  
       <hr>
 
-	<footer>
+	<footer role="contentinfo" class="row-fluid screen_only">
 			<div style="float: left;">
 				&nbsp;<cfoutput>&copy; #year(now())# Applied Internet Technologies</cfoutput>
 			</div>
@@ -55,13 +54,58 @@
 				<cfoutput>Version #application.product_release_version# (Last Updated: #dateformat(application.last_updated, "mmmm d, yyyy")#)</cfoutput>&nbsp;
 			</div>
 	</footer>
+<!-- load JavaScript here to speed page load time -->
+<script src="common_files/js/libs/less-1.2.1.min.js"></script>
+<script src="common_files/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
 <script>window.jQuery || document.write('<script src="common_files/js/libs/jquery-1.7.1.js"><\/script>')</script>
 <script src="common_files/js/libs/bootstrap/transition.js"></script>
 <script src="common_files/js/libs/bootstrap/collapse.js"></script>
 <script src="common_files/js/libs/bootstrap/dropdown.js"></script>
+<script src="common_files/js/libs/bootstrap/tab.js"></script>
 
 <script src="common_files/js/plugins.js"></script>
 <script src="common_files/js/script.js"></script>
+
+<!--[if IE]>
+<script src="common_files/excanvas.js?cache_escape=20120412113820"></script>
+<![endif]-->
+<script src="common_files/pie_graph.js?cache_escape=20120412113820"></script>
+	<script type="text/javascript">			
+		(function () {
+			if (/Microsoft/.test(navigator.appName)) { return }
+			
+			window.onload = function () {
+				<cfoutput>#get_screen_details.body_onload#</cfoutput>
+				var menu = document.getElementById('menu');
+				var init = menu.offsetTop;
+				var docked;
+				
+				window.onscroll = function () {
+					if (!docked && (menu.offsetTop - scrollTop() < 0)) {
+						menu.style.top = 0;
+						menu.style.position = 'fixed';
+						menu.className = 'docked';
+						docked = true;
+					} else if (docked && scrollTop() <= init) {
+						menu.style.position = 'absolute';
+						menu.style.top = init + 'px';
+						menu.className = menu.className.replace('docked', '');
+						docked = false;
+					}
+				};
+			};
+		})();
+	</script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		<cfif application.use_help_module_ind>
+		$('#nav_help_button, #help_close').on('click', function() {
+			$('#help_area').slideToggle('slow')
+		});
+		</cfif>
+	});
+</script>
 </cfif>
 <!--- I provide a hidden div within which you can have Ajax load (and process) a specified fuseaction. This is useful for things like ordering lots of data after an upload (without making the upload wait for the ordering), or setting session variables without reloading the controlling page (like hiding the navigation bar). --->
 <div id="hidden_process" style="display:none;"></div>

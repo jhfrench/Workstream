@@ -26,38 +26,33 @@
 
 <hr width="100%" />
 <cfinclude template="qry_get_screen_comments.cfm">
-<div class="datachart" style="border:1px solid #999999">
-<table bgcolor="#FFFFFF" border="1" cellpadding="3" cellspacing="0" cols="4" width="100%" summary="table displays comments">
-	<tr bgcolor="#999999">
-		<td align="left" colspan="4">
-			<h4>Comments</h4>
-		</td>
+<table class="table table-striped table-bordered table-condensed" width="100%" summary="Table displays comments">
+	<caption><h4>Comments</h4></caption>
+	<thead>
+	<tr>
+		<th scope="col">Number</th>
+		<th scope="col">Comment Type</th>
+		<th scope="col">Comment</th>
+		<th scope="col">Entered By</th>
 	</tr>
-	<tr bgcolor="#999999">
-		<th align="left"><label for="comments_number">Number</label></th>
-		<th align="left"><label for="comment_type">Comment Type</label></th>
-		<th align="left"><label for="comment_description">Comment</label></th>
-		<th align="left"><label for="created_by">Entered by</label></th>
-	</tr>
+	</thead>
+	<tbody>
 	<cfif get_screen_comments.recordcount EQ 0>
 	<tr>
 		<td colspan="4">No comments listed for this page</td>
 	</tr>
 	<cfelse>
 	<cfoutput query="get_screen_comments">
-	<cfif currentrow MOD 2>
-		<cfset variables.row_color="eeeeee">
-	<cfelse>
-		<cfset variables.row_color="dddddd">
-	</cfif>
-	<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cccccc';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';">
-		<td id="comments_number"><a href="index.cfm?fuseaction=Requirements.edit_comment&comments_id=#comments_id#">#comments_number#</a></td>
-		<td id="comment_type">#comment_type#</td>
-		<td id="comment_description">#comment_description#</td>
-		<td id="created_by">#created_by#</td>
+	<tr>
+		<td class="number"><a href="index.cfm?fuseaction=Requirements.edit_comment&comments_id=#comments_id#">#comments_number#</a></td>
+		<td>#comment_type#</td>
+		<td>#comment_description#</td>
+		<td>#created_by#</td>
 	</tr>
 	</cfoutput>
 	</cfif>
+	</tbody>
+	<tfoot>
 	<!--- add link 'Add New Comments' --->
 	<tr><td colspan="4">&nbsp;</td></tr>
 	<tr>
@@ -66,5 +61,5 @@
 		</td>
 	</tr>
 	<tr><td colspan="4">&nbsp;</td></tr>
+	</tfoot>
 </table>
-</div>

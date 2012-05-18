@@ -59,7 +59,7 @@
 		<cfselect query="get_ref_icon" name="icon_id" id="icon_id" display="icon_name" value="icon_id" selected="#get_task_details.icon_id#" class="span11" />
 	</div>
 </div>
-<div class="row-fluid">
+<div class="row-fluid border-radius(3px)">
 	<div class="span12">
 	<cfinclude template="dsp_task_detail_notes_entry.cfm">
 	</div>

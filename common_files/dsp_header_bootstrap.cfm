@@ -56,41 +56,11 @@ else
 	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
 	
 	<link rel="stylesheet/less" href="common_files/less/style.less">
-	<script src="common_files/js/libs/less-1.2.1.min.js"></script>
-	
 	<!-- Use SimpLESS (Win/Linux/Mac) or LESS.app (Mac) to compile your .less files
 	to style.css, and replace the 2 lines above by this one:
 
 	<link rel="stylesheet/less" href="common_files/less/style.css">
 	 -->
-
-	<script src="common_files/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
-	<script type="text/javascript">			
-		(function () {
-			if (/Microsoft/.test(navigator.appName)) { return }
-			
-			window.onload = function () {
-				<cfoutput>#get_screen_details.body_onload#</cfoutput>
-				var menu = document.getElementById('menu');
-				var init = menu.offsetTop;
-				var docked;
-				
-				window.onscroll = function () {
-					if (!docked && (menu.offsetTop - scrollTop() < 0)) {
-						menu.style.top = 0;
-						menu.style.position = 'fixed';
-						menu.className = 'docked';
-						docked = true;
-					} else if (docked && scrollTop() <= init) {
-						menu.style.position = 'absolute';
-						menu.style.top = init + 'px';
-						menu.className = menu.className.replace('docked', '');
-						docked = false;
-					}
-				};
-			};
-		})();
-	</script>
 </head>
 <body class="container-fluid">
 	<header role="banner" class="row-fluid">

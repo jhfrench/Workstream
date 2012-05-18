@@ -3,16 +3,16 @@
 
 footer {
   background-color: @black;
+  color: @white;
 }
 
 .nav li.dropdown ul.dropdown-menu li:HOVER ul {
 	display:block; 
 	position:absolute; 
 	left:100%;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
+	.border-radius(3px);
 }
+
 .nav li.dropdown ul.dropdown-menu ul {
 	display: none;
 	float:right;
@@ -29,14 +29,60 @@ footer {
 	overflow:auto;
 	border:1px solid #c0c0c0;
 	padding:2px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
+	.border-radius(3px);
 }
 
 .docked {
 	opacity:0.8;
 	.navbar;
+}
+
+.menubar {
+	background-image:url("../../images/menubar.jpg");
+	color:white;
+	font-weight:bold;
+	text-align:center;
+}
+
+#help_admin {
+	// background-color:#fcf2f5;
+}
+
+#help_area {
+	// display:none;
+	background-color:#d1dee5;
+	border:1px solid black;
+	margin-right:0px;
+	.border-radius(5px);
+}
+
+#help_top {
+	background-color:#ecf2f5;
+	float:left;
+	height:220px;
+	overflow-y:autol;
+}
+
+#help_main {
+	background-color:#fcf2f5;
+	float:left;
+	height:520px;
+	overflow-y:auto;
+}
+
+#help_admin {
+	float:left;
+}
+
+#watermark {
+	background-image:url("../../images/watermark_digital.jpg");
+	background-repeat:no-repeat;
+	height:335px;
+	opacity:0.6;
+	margin-top:10px;
+	position:relative;
+	z-index:1;
+	width:200px;
 }
 
 /*<!---text alignment--> */

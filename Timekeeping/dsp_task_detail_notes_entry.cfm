@@ -17,7 +17,7 @@
 </cfsilent>
 <cfoutput>
 <fieldset>
-<legend bgcolor="##94C9C9">Resolution Entry</legend>
+<legend style="background-color:##94C9C9" class="">Resolution Entry</legend>
 <div class="row-fluid">
 	<div class="span6">
 		<label for="hours">Hours</label>
@@ -49,8 +49,8 @@
 </div>
 <div class="row-fluid">
 	<div class="btn-group" style="margin-left:auto; margin-right:auto;">
-		<input type="submit" value="Update" height="8" class="btn">
-		<input type="submit" name="to_inbox" value="Submit To Inbox" class="btn">
+		<input type="submit" name="to_inbox" value="Submit To Inbox" title="submit changes to this task and redirect me to my inbox" class="btn btn-primary" />
+		<input type="submit" name="update" value="Update" title="submit changes to this task and reload this task" class="btn" />
 	</div>
 </div>
 </fieldset>
