@@ -18,6 +18,11 @@
 	--> project_name: name of the project
 	END FUSEDOC --->
 </cfsilent>
+
+<!--[if IE]>
+<script src="common_files/excanvas.js?cache_escape=20120412113820"></script>
+<![endif]-->
+<script src="common_files/pie_graph.js?cache_escape=20120412113820"></script>
 <cfoutput>
 <section id="blurb_project" class="span7">
 	<h2>Work Allocation</h2>

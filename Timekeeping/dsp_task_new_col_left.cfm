@@ -17,25 +17,25 @@
 
 <div class="row-fluid">
 	<div class="span6">
-		<label for="task_owner">Owner <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See more employees." border="0"  onclick="OpenTeamWindow('task_owner');" /></label>
+		<label for="task_owner" class="h5">Owner <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See more employees." border="0"  onclick="OpenTeamWindow('task_owner');" /></label>
 		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_owner" class="span8">
-		<label for="task_team">Team</label>
+		<label for="task_team" class="h5">Team</label>
 		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_team" multi="1" size="6" emp_id="0" class="span8">
-		<label for="task_qa"><abbr title="Quality Analyst">QA</abbr> <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See more employees." border="0"  onclick="OpenTeamWindow('task_qa');" /></label>
+		<label for="task_qa" class="h5"><abbr title="Quality Analyst">QA</abbr> <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See more employees." border="0"  onclick="OpenTeamWindow('task_qa');" /></label>
 		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_qa" class="span8">
-		<label for="task_status">Status</label>
+		<label for="task_status" class="h5">Status</label>
 		<cfselect query="get_task_stati" name="task_status" id="task_status" display="status" value="status_id" selected="0" class="span8"></cfselect>
 	</div>
 	<div class="span6">
-			<label for="date_start">Start Date</label>
+			<label for="date_start" class="h5">Start Date</label>
 			<cfinput type="datefield" name="date_start" value="" required="Yes" validate="date" message="Please enter a properly formatted start date." class="span6">
-			<label for="due_date">Date Due</label>
+			<label for="due_date" class="h5">Date Due</label>
 			<cfinput type="datefield" name="due_date" value="" required="Yes" validate="date" message="Please enter a properly formatted due date." class="span6">
-			<label for="priority_id">Priority</label>
+			<label for="priority_id" class="h5">Priority</label>
 			<cfselect name="priority_id" id="priority_id" query="get_priorities" display="description" value="priority_id" selected="3" class="span6"></cfselect>
-			<label for="icon_id">Icon</label>
+			<label for="icon_id" class="h5">Icon</label>
 			<cfselect query="get_ref_icon" name="icon_id" id="icon_id" display="icon_name" value="icon_id" selected="1" class="span6"></cfselect>
-			<label for="budgeted_hours">Hours Budgeted</label>
+			<label for="budgeted_hours" class="h5">Hours Budgeted</label>
 			<cfinput type="text" name="budgeted_hours" id="budgeted_hours" required="Yes" validate="float" message="Please enter a number for hours budgeted." class="span6">
 	</div>
 </div>

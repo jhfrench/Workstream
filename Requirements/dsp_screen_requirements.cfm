@@ -70,9 +70,26 @@
 	</cfif>
 </table>
 </form>
+
+
+<cfoutput>
 <form name="change_requirement_listing_options" action="index.cfm?fuseaction=Requirements.change_requirement_listing_options" target="change_requirement_listing_options" method="post">
-<table bgcolor="#FFFFFF" cellpadding="3" cellspacing="0" width="100%" border="1" summary="table gives criteria for requirements display in preceding table">
-	<cfoutput>
+<table class="table table-striped table-bordered table-condensed" width="100%" summary="table gives criteria for requirements display in preceding table">
+	<tfoot>
+	<tr>
+		<td align="center" colspan="3">
+			<input type="submit" name="submit" value=" Submit " alt="submit" class="btn btn-primary" />
+			<a href="javascript:window.history.go(-1)" class="btn">Cancel</a>
+		</td>
+	</tr>
+	<!--- add link 'Add New Requirement'  --->
+	<tr>
+		<td colspan="3" align="left" class="menuItem">
+			<a href="index.cfm?fuseaction=Requirements.edit_requirement&requirement_id=0">Add New Requirement</a> | <a href="index.cfm?fuseaction=Requirements.requirements_document" target="requirements">View all requirements</a>
+		</td>
+	</tr>
+	</tfoot>
+	<tbody>
 	<tr>
 		<td>
 			<input type="checkbox" name="hide_general_requirements" id="hide_general_requirements" value="1"<cfif session.hide_general_requirements> checked="checked"</cfif> /><label for="hide_general_requirements">Hide system-wide requirements</label>
@@ -84,19 +101,7 @@
 			<input type="checkbox" name="hide_coded_requirements" id="hide_coded_requirements" value="1"<cfif session.hide_coded_requirements> checked="checked"</cfif> /><label for="hide_coded_requirements">Hide completed requirements</label>
 		</td>
 	</tr>
-	<tr>
-		<td align="center" colspan="3">
-			<input type="submit" name="submit" value=" Submit " alt="submit" class="btn btn-primary" />
-			<a href="javascript:window.history.go(-1)" class="btn">Cancel</a>
-		</td>
-	</tr>
-	</cfoutput>
-	<!--- add link 'Add New Requirement'  --->
-	<tr>
-		<td colspan="3" align="left" class="menuItem" bgcolor="#eeeeee" onmouseover="new Effect.Highlight(this, {duration:0.1,startcolor:'#5394bd',endcolor:'#5394bd',restorecolor:'#5394bd'});this.style.cursor='pointer';" onmouseout="new Effect.Highlight(this, {duration:0.25,startcolor:'#999999',endcolor:'#bbbbbb',restorecolor:'#eeeeee'});">
-			<a href="index.cfm?fuseaction=Requirements.edit_requirement&requirement_id=0">Add New Requirement</a> | <a href="index.cfm?fuseaction=Requirements.requirements_document" target="requirements">View all requirements</a>
-		</td>
-	</tr>
+	</tbody>
 </table>
 </form>
-
+</cfoutput>

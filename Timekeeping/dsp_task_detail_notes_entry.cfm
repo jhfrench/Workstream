@@ -17,23 +17,19 @@
 </cfsilent>
 <cfoutput>
 <fieldset>
-<legend style="background-color:##94C9C9" class="">Resolution Entry</legend>
+<legend style="background-color:##94C9C9">Resolution Entry</legend>
 <div class="row-fluid">
-	<div class="span6">
+	<div class="span4">
 		<label for="hours">Hours</label>
-		<cfinput type="text" name="hours" id="hours" required="No" validate="float" message="You must enter hours as a number." size="4" class="span6" />
+		<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" class="span6" />
+		<!-- let CF create the JavaScript: <cfinput type="text" name="hours" id="hours" required="No" validate="float" message="You must enter hours as a number." /> -->
 	</div>
-	<div class="span6">
-		<label for="notes_type_id">Types</label>
+	<div class="span4">
+		<label for="notes_type_id">Type</label>
 		<cfselect name="notes_type_id" id="notes_type_id" query="get_note_types" display="notes_type" value="notes_type_id" selected="#notes_type_selected#" class="span8" />
 	</div>
-</div>
-<div class="row-fluid">
-	<div class="span6">
-		<label for="notes">Notes</label>
-	</div>
-	<div class="span6">
-		<label for="date">Dates</label>
+	<div class="span4">
+		<label for="date">Date</label>
 		<select name="date" id="date" class="span11">
 		<cfloop from="0" to="#variables.go_back_to#" index="variables.date_adjust_ii">
 			<cfset variables.temp_date=now()-variables.date_adjust_ii>
@@ -44,6 +40,7 @@
 </div>
 <div class="row-fluid">
 	<div class="span12">
+		<label for="notes">Notes</label>
 		<textarea name="notes" id="notes" wrap="soft" rows="#max(entry_rows,3)#" class="span12"></textarea>
 	</div>
 </div>

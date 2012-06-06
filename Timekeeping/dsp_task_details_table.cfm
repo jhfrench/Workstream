@@ -28,6 +28,24 @@
 <cfset variables.resolution_rows=min(8,time_entry_details.recordcount)>
 <cfset entry_rows=variables.descrip_rows+variables.resolution_rows-9>
 <cfset variables.string_to_replace='<P>,"'>
+<cfif listlen(get_task_details.hours_used,".") GT 1 AND listgetat(get_task_details.hours_used,2,".") GT 0>
+	<cfset variables.hours_used=decimalformat(get_task_details.hours_used)>
+<cfelse>
+	<cfset variables.hours_used=numberformat(get_task_details.hours_used)>
+</cfif>
+
+<cfset variables.width=min(numberformat(get_task_details.image_width,"______"),variables.var1)>
+<cfset variables.width2=variables.var1-variables.width>
+
+<cfif get_task_details.qa_id EQ session.user_account_id AND get_task_details.status_id EQ 4>
+	<cfset notes_type_selected=2>
+<cfelseif get_task_details.owner_id EQ session.user_account_id>
+	<cfset notes_type_selected=1>
+<cfelseif get_task_details.task_read>
+	<cfset notes_type_selected=3>
+<cfelse>
+	<cfset notes_type_selected=0>
+</cfif>
 </cfsilent>
 <cfoutput>
 	<input type="hidden" name="task_id" value="#task_id#">
@@ -46,13 +64,76 @@
 	<input type="hidden" name="orig_notification" value="#valuelist(get_completion_email.email_id)#">
 	<input type="hidden" name="orig_notification_cc" value="#valuelist(get_completion_cc_email.email_id)#">
 	<input type="hidden" name="orig_file" value="#get_task_details.status_id#">
-</cfoutput>
 <div class="row-fluid">
-	<div class="span3">
-		<cfinclude template="dsp_task_details_col_left.cfm">
+	<div class="span6">
+		<label for="task_name" class="h5">Task name</label>
+		<input type="text" name="task_name" id="task_name" value="#htmleditformat(get_task_details.task_name)#"  valign="top" size="#variables.cols#" maxlength="255" class="span11">
 	</div>
-	<div class="span9">
+	<div classs="offset3 span3">
+		<br />
+		<a href="javascript:printable('#attributes.task_id#');" title="'View a printable version of this task." class="btn btn-mini"><i class="icon-print"></i>Printable task sheet</a>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span2">
+		<label for="task_owner" class="h5">Owner</label>
+		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_owner" emp_id="#task_owner#" class="span11">
+		<label for="task_team" class="h5">Team</label>
+		<cfmodule template="../common_files/dsp_team_select.cfm" multi="1" size="4" select_name="task_team" emp_id="#task_team#" class="span11">
+		<label for="task_qa" class="h5"><abbr title="Quality Assurance Tester">QA</abbr></label>
+		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_qa" emp_id="#task_qa#" class="span11">
+		<label for="task_source" class="h5">Source</label>
+		<span id="task_source">#get_task_details.source_name#</span>
+	</div>
+	<div class="span2">
+		<label for="date_assigned" class="h5">Date assigned</label>
+		<span id="date_assigned">#dateformat(get_task_details.date_assigned,"mm/dd/yy")#</span>
+		<label for="due_date" class="h5">Date due</label>
+		<cfinput type="datefield" name="due_date" id="due_date" value="#dateformat(get_task_details.due_date,'mm/dd/yy')#" required="Yes" validate="date" message="Please enter a properly formatted date" size="11" class="span11" />
+		<div style="float:left;">
+		<label for="date_completed" class="h5">Date completed</label>
+		<span id="date_completed"><cfif len(get_task_details.complete_date) AND get_task_details.status_id EQ 11>#dateformat(get_task_details.complete_date,"mm/dd/yy")#<cfelse>Not yet completed</cfif></span>
+		</div>
+	</div>
+	<div class="span2">
+		<label for="priority_id" class="h5">Priority</label>
+		<cfselect name="priority_id" id="priority_id" query="get_priorities" display="description" value="priority_id" selected="#get_task_details.priority#" class="span11"></cfselect>
+		<label for="icon_id" class="h5">Icon</label>
+		<cfselect query="get_ref_icon" name="icon_id" id="icon_id" display="icon_name" value="icon_id" selected="#get_task_details.icon_id#" class="span11" />
+		<label for="task_status" class="h5">Status</label>
+		<cfselect query="get_task_stati" name="task_status" display="status" value="status_id" selected="#get_task_details.status_id#" class="span11">
+		</cfselect>
+	</div>
+	<div class="span6">
 		<cfinclude template="dsp_task_details_col_right.cfm">
+<cfif listfind("1,5", session.workstream_emp_contact_type) OR session.workstream_show_hours_data_ind EQ 1>
+	<!--- show time data to employees or customers if their company is set up to view hours--->
+	<div class="row-fluid">
+		<div class="span12">
+			<h5>Time Used</h5>
+			<p>#variables.hours_used#<cfif get_task_details.budgeted_hours> out of #get_task_details.budgeted_hours# budgeted hours (#decimalformat(get_task_details.percent_used)#%)</cfif></p>
+		</div>
+	</div>
+	<cfif get_task_details.budgeted_hours>
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="progresss">
+				<div class="bar" style="width: #lsnumberformat(get_task_details.percent_used)#%;"></div>
+			</div>
+			<div style="height:20px; width:198px; border:1px solid;" title="Time used for '#get_task_details.task_name#': #variables.hours_used# out of #get_task_details.budgeted_hours# hours (#decimalformat(get_task_details.percent_used)#%). Follow link to reassign hours.">
+			<cfif width><a href="javascript:list_to_time('#task_id#');"><img src="#request.dir_level##application.application_specific_settings.image_dir#bar_<cfif get_task_details.percent_used GT 75>1<cfelseif get_task_details.percent_used GT 50>3<cfelse>7</cfif>.gif" style="width:#variables.width#px; height:20px;" alt="Percent of time used." border="0" /></a></cfif><cfif width2><img src="#request.dir_level##application.application_specific_settings.image_dir#blank.gif" style="width:#variables.width2#px; height:20px;" alt="Percent of time left." border="0" /></cfif>
+			</div>
+		</div>
+	</div>
+	</cfif>
+<cfelse>
+	<div class="row-fluid">
+		<div class="span12">
+			<h5>Hours Budgeted</h5>
+			<p>#get_task_details.budgeted_hours#</p>
+		</div>
+	</div>
+</cfif>
 	</div>
 </div>
 <div class="row-fluid">
@@ -66,3 +147,4 @@
 <cfif NOT time_entry_details.recordcount>
 	<cfinclude template="dsp_task_delete.cfm">
 </cfif>
+</cfoutput>
