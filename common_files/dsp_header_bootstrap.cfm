@@ -55,16 +55,32 @@ else
 
 	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />	
 	
-	<script src="//enhancejs.googlecode.com/files/enhance.min.js" type="text/javascript"></script>
+	<script src="common_files/js/libs/modernizr-2.5.3-respond-1.1.0.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		//if enhance.js determines they can be supported, load the following CSS and JavaScript recourse
-		enhance({
-			loadScripts: [
-				'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
-				'common_files/js/libs/modernizr-2.5.3-respond-1.1.0.min.js'
-			],
-			queueLoading: true
-		});
+		//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
+		Modernizr.load([
+			{
+				load: '//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
+				complete: function () {
+					if ( !window.jQuery ) {
+						Modernizr.load('common_files/js/libs/jquery-1.7.1.min.js');
+					}
+				}
+			},
+			{
+				// This will wait for the fallback to load and execute if it needs to.
+				load: [
+					'//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js',
+					'common_files/js/libs/bootstrap/transition.js',
+					'common_files/js/libs/bootstrap/collapse.js',
+					'common_files/js/libs/bootstrap/dropdown.js',
+					'common_files/js/libs/bootstrap/tab.js',
+					'common_files/js/plugins.js',
+					'common_files/js/plugins.js',
+					'common_files/js/script.js'
+				]
+			}
+		]);
 	</script>
 	
 	<link rel="stylesheet/less" href="common_files/less/style.less">	

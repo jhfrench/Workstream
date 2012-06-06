@@ -9,3 +9,32 @@ window.log = function f(){ log.history = log.history || []; log.history.push(arg
 
 // place any jQuery/helper plugins in here, instead of separate, slower script files.
 
+	// bind help area reveal/conceal to relevant elements
+	$('#nav_help_button, #help_close').on('click', function() {
+		$('#help_area').slideToggle('slow')
+	});
+	
+	// load relevant help area with content from jQuery's AJAX call
+	var getHelp = function (helpType, helpID) {
+		// console.log('div #help_main_'+helpType);
+		// console.log('index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd');
+		$('div #help_main_'+helpType).load(
+			'index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd',
+			function(response, status, xhr) {
+				if (status == 'error') {
+					$('div #help_main_'+helpType).html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
+				}
+				return this;
+			}
+		);
+	}
+			
+	// if user requests an email response to their FAQ, require that they specify an email address
+	$('#email_requested_ind').live('change', function(){
+		if($(this).is(':checked')){
+			$('#asker_email_address').attr('required','required');
+		}
+		else {
+			$('#asker_email_address').removeAttr('required','required');
+		}
+	});

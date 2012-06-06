@@ -1,5 +1,5 @@
 <!-- Help/dsp_view_help_search.cfm
-	Author: Jeromy French-->
+	Author: Jeromy French -->
 <!--- 
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_view_help_search.cfm">
 	<responsibilities>
@@ -29,26 +29,21 @@
 <cfset attributes.show_page_specific_help_searchs_ind=0>
 <cfparam name="attributes.case_sensitive_ind" default="0">
 <cfinclude template="qry_get_screen_help_search.cfm">
+<div id="search_result">
 <cfif get_screen_help_search.recordcount>
 	<!--- these hidden forms allow us to retrieve an individual help or faq entry ---><!--- 
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="view_help_article" fuseaction="Help.view_help_article" field_name="help_article_id"> --->
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="view_help_faq" fuseaction="Help.view_help_faq" field_name="help_faq_id">
-	
-	<table cols="1" summary="Table displays the help articles and frequently asked questions that contain the text the user search on.">
-		<tr>
-			<td scope="column">
-				<strong><cfoutput>Help articles or frequently-asked questions containing your search string "#attributes.search_string#" (<cfif NOT attributes.case_sensitive_ind>not </cfif>case sensitive):</cfoutput></strong>
-				<ul>
+	<span class="label label-success">We found something</span>
+	<p>Help articles or frequently-asked questions containing your search string "<cfoutput>#attributes.search_string#</cfoutput>" (<cfif NOT attributes.case_sensitive_ind>not </cfif>case sensitive):</p>
+	<dl>
 	<cfoutput query="get_screen_help_search">
-		<li>
-				<strong><a href="javascript:open_help_detail(#main_sort_order#, #help_id#);">#help_title#</a></strong><br />
-				#left(rereplacenocase(help_article_text,"<[^>]*>","","ALL"),200)#
-		</li>
+		<dt><a href="javascript:open_help_detail(#main_sort_order#, #help_id#);">#help_title#</a></strong></dt>
+		<dd>#left(rereplacenocase(help_article_text,"<[^>]*>","","ALL"),200)#</dd>
+	</dl>
 	</cfoutput>
-				</ul>
-			</td>
-		</tr>
-	</table>
 <cfelse>
-	<strong>No help articles or frequently-asked questions contained your search string "<cfoutput>#attributes.search_string#</cfoutput>" (<cfif NOT attributes.case_sensitive_ind>not </cfif>case sensitive).</strong>
+	<span class="label label-important">That didn't work</span>
+	<p>No help articles or frequently-asked questions contained your search string "<cfoutput>#attributes.search_string#</cfoutput>" (<cfif NOT attributes.case_sensitive_ind>not </cfif>case sensitive).</p>
 </cfif>
+</div>

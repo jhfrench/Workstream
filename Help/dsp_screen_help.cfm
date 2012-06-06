@@ -37,77 +37,58 @@ if (NOT isdefined("application.use_help_search_ind")) {
 variables.button_width=220/(1+application.use_help_faq_ind+application.use_help_search_ind);
 </cfscript>
 
-<cfoutput><!---$issue$: jQuery conversion
 <script type="text/javascript" language="javascript">
-// <![CDATA[
-
-function show_articles() {
-	new Effect.Morph('button_article', {
-	  style: 'background-color:##ecf2f5; border-bottom-width:0px;', // CSS Properties
-	  duration: 0.1 // Core Effect properties
-	});
-	Element.show('help_top_articles');
-	Element.show('help_main_articles');<cfif listfind(variables.allowed_business_function_id, 246)>
-	Element.show('help_foot_articles');</cfif>
-	return false;
-	}
-	
-function hide_articles() {
-	new Effect.Morph('button_article', {
-	  style: 'border-bottom-width:1px; background-color:##bbbbbb;', // CSS Properties
-	  duration: 0.1 // Core Effect properties
-	});
-	Element.hide('help_top_articles');
-	Element.hide('help_main_articles');<cfif listfind(variables.allowed_business_function_id, 246)>
-	Element.hide('help_foot_articles');</cfif>
-	return false;
-	}
-
-function show_faqs() {
-	new Effect.Morph('button_faq', {
-	  style: 'background-color:##ecf2f5; border-bottom-width: 0px;', // CSS Properties
-	  duration: 0.1 // Core Effect properties
-	});
-	Element.show('help_top_faqs');
-	Element.show('help_main_faqs');
-	return false;
-	}
-
-function hide_faqs() {
-	new Effect.Morph('button_faq', {
-	  style: 'border-bottom-width: 1px; background-color:##bbbbbb;', // CSS Properties
-	  duration: 0.1 // Core Effect properties
-	});
-	Element.hide('help_top_faqs');
-	Element.hide('help_main_faqs');
-	return false;
-	}
-	
-function show_search() {
-	new Effect.Morph('button_search', {
-	  style: 'background-color:##ecf2f5; border-bottom-width: 0px;', // CSS Properties
-	  duration: 0.1 // Core Effect properties
-	});
-	Element.show('help_top_search');
-	Element.show('help_main_search_results');
-	return false;
-	}
-	
-function hide_search() {
-	new Effect.Morph('button_search', {
-	  style: 'border-bottom-width: 1px; background-color:##bbbbbb;', // CSS Properties
-	  duration: 0.1 // Core Effect properties
-	});
-	Element.hide('help_top_search');
-	Element.hide('help_main_search_results');
-	return false;
-	}
-	
-//submit the user's question
 function submit_faq() {
-	new Ajax.Updater('help_main_faqs', 'index.cfm?fuseaction=Help.submit_faq&screen_id=#get_screen_details.screen_id#&cache_escape=#variables.cache_escape#', {method: 'post', parameters: $('faq_form').serialize()});
+	var errorMessage='';
+	var fieldFocus='';
+	
+	//if user requests an email response to their FAQ, require that they specify an email address
+	console.log($('#faq_form #asker_email_address').val());
+	if($('#faq_form #asker_email_address').attr('required') === 'required' && $('#faq_form #asker_email_address').val() === '') {
+		errorMessage+='Please enter your email address so we can send the response to you as (you requested).';
+		fieldFocus='#asker_email_address';
+	};
+	
+	//require a question
+	console.log($('#faq_form #question').val());
+	if($('#faq_form #question').val() === '') {
+		errorMessage='Please enter your question.\n'+errorMessage;
+		fieldFocus='#question';
+	};
+	
+	if( errorMessage !== '') {
+		alert(errorMessage);
+		$(fieldFocus).focus();
 	}
+	else {
+		$('div #help_main_faq').load(
+			'index.cfm?fuseaction=Help.submit_faq #faq_result',
+			$('#faq_form').serialize(),
+			function(response, status, xhr) {
+				if (status == 'error') {
+					$('div #help_main_faq').html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
+				}
+				return this;
+			}
+		);
+	}
+};
 
+function submit_search() {	
+	$('div #help_main_search').load(
+		'index.cfm?fuseaction=Help.view_help_search #search_result',
+		$('#help_search_form').serialize(),
+		function(response, status, xhr) {
+			if (status == 'error') {
+				$('div #help_main_faq').html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
+			}
+			return this;
+		}
+	);
+};
+
+// <![CDATA[
+<!---$issue$: jQuery conversion
 //from the search results, open the full selected article
 function open_help_detail(article_type_id, article_id) {
 	if (article_type_id==1) {
@@ -116,92 +97,120 @@ function open_help_detail(article_type_id, article_id) {
 	else {
 		var poststr="index.cfm?fuseaction=Help.view_help_faq&cache_escape=#variables.cache_escape#&help_faq_id=" + encodeURI( article_id );
 	}
-	new Ajax.Updater('help_main_search_results', poststr, {method:'get',evalScripts:true});
+	new Ajax.Updater('help_main_search', poststr, {method:'get',evalScripts:true});
 	}
 // ]]>
-</script>
+			//refresh the div with result from form submission
+			function submit_search() {
+				new Ajax.Updater('help_main_search', 'index.cfm?fuseaction=Help.view_help_search&cache_escape=#variables.cache_escape#', {method: 'post', parameters: $('help_search_form').serialize()});
+				}
 --->
+</script>
+<cfoutput>
 <div id="help_area" role="complementary">
 	<div class="menubar"><a href="javascript:void('Close the Workstream help system');" id="help_close" title="close the help section"><img src="images/close.png" align="right" class="closeBox" border="0" alt="close the help section" /></a>Help</div>
 	<ul id="help_tabs" class="nav nav-tabs">
-		<li class="active"><a href="##help_top_articles" data-toggle="tab" id="button_article">Articles</a></li><cfif application.use_help_faq_ind>
-		<li class=""><a href="##help_top_faqs" data-toggle="tab" id="button_faq"><acronym title="Frequently Asked Questions">FAQ</acronym></a></li></cfif><cfif application.use_help_search_ind>
+		<li class="active"><a href="##help_top_article" data-toggle="tab" id="button_article">Articles</a></li><cfif application.use_help_faq_ind>
+		<li class=""><a href="##help_top_faq" data-toggle="tab" id="button_faq"><acronym title="Frequently Asked Questions">FAQ</acronym></a></li></cfif><cfif application.use_help_search_ind>
 		<li class=""><a href="##help_top_search" data-toggle="tab" id="button_search">Search</a></li></cfif>
 	</ul>
 	<div id="help_top" class="tab-content">
-		<div id="help_top_articles" class="tab-pane fade active in">
-			<strong><cfif get_screen_help_articles.recordcount EQ 0>There are no a<cfelse>A</cfif>rticles related to this screen...</strong>
+		<div id="help_top_article" class="tab-pane fade active in">
+			<h3><cfif get_screen_help_articles.recordcount EQ 0>There are no a<cfelse>A</cfif>rticles related to this screen...</h3>
 			<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_help_article" fuseaction="Administration.edit_help_article" field_name="help_article_id">
 			<ul>
 				<!--- display records from query --->
 				<cfloop query="get_screen_help_articles">
-					<li><a href="javascript:void(0);" onclick="new Ajax.Updater('help_main_articles','index.cfm?fuseaction=Help.view_help_article&help_article_id=#help_article_id#',{method:'get',evalScripts:true});">#help_article_title#</a><cfif listfind(variables.allowed_business_function_id, 246)>&nbsp;(<a href="javascript:edit_help_article(#help_article_id#);">edit</a>)</cfif></li>
+					<li><a href="##help_area" onclick="javascript: getHelp('article', #help_article_id#);" title="Load this help article">#help_article_title#</a><cfif listfind(variables.allowed_business_function_id, 246)>&nbsp;(<a href="javascript:edit_help_article(#help_article_id#);">edit</a>)</cfif></li>
 				</cfloop>
 			</ul>
+			<div id="help_main_article" class="help_main">
+				<cfif get_screen_help_articles.recordcount>
+					<cfset variables.help_article_id=get_screen_help_articles.help_article_id>
+				<cfelse>
+					<cfset variables.help_article_id=0>
+				</cfif>
+				<script type="text/javascript" language="javascript">
+				var default_help=#variables.help_article_id#;
+				</script>
+			</div>
 		</div><cfif application.use_help_faq_ind>
-		<div id="help_top_faqs" class="tab-pane fade">
-			<strong><cfif get_screen_help_faqs.recordcount EQ 0>There are no f<cfelse>F</cfif>requently asked questions related to this screen...</strong>
+		<div id="help_top_faq" class="tab-pane fade">
+			<h3><cfif get_screen_help_faqs.recordcount EQ 0>There are no f<cfelse>F</cfif>requently asked questions related to this screen...</h3>
 			<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_help_faq" fuseaction="Administration.edit_help_faq" field_name="help_faq_id">
 			<ul>
 				<!--- display records from query --->
 				<cfloop query="get_screen_help_faqs">
-					<li><a href="javascript:void(0);" onclick="new Ajax.Updater('help_main_faqs','index.cfm?fuseaction=Help.view_help_faq&help_faq_id=#help_faq_id#',{method:'get',evalScripts:true});">#question#</a><cfif listfind(variables.allowed_business_function_id, 246)>&nbsp;(<a href="javascript:edit_help_faq(#help_faq_id#);">edit</a>)</cfif></li>
+					<li><a href="##help_area" onclick="getHelp('faq', #help_faq_id#);">#question#</a><cfif listfind(variables.allowed_business_function_id, 246)>&nbsp;(<a href="javascript:edit_help_faq(#help_faq_id#);">edit</a>)</cfif></li>
 				</cfloop>
 			</ul>
+			<div class="help_main">
+				<div id="help_main_faq">
+					<cfif get_screen_help_faqs.recordcount>
+						<cfset variables.help_faq_id=get_screen_help_faqs.help_faq_id>
+					<cfelse>
+						<cfset variables.help_faq_id=0>
+					</cfif>
+					<script type="text/javascript" language="javascript">
+					var default_faq=#variables.help_faq_id#;
+					</script>
+				</div>
+				<div>
+					<hr />
+					<form name="faq_form" id="faq_form" action="javascript:submit_faq();">
+						<fieldset>
+							<legend>Don't see what you're looking for?</legend>
+							<div class="control-group">
+								<label class="control-label" for="question">Ask your own question</label>
+								<div class="controls">
+									<textarea name="question" id="question" cols="25" rows="3" wrap="virtual" required="required"></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="email_requested_ind">Email the response to me</label>
+								<div class="controls">
+									<label class="checkbox"><input type="checkbox" name="email_requested_ind" id="email_requested_ind" value="1" /> Yes</label>
+								</div>
+							</div>
+							<cfif NOT(isdefined("session.user_account_id") AND len(session.email_address))>
+							<div class="control-group">
+								<label class="control-label" for="asker_email_address">Your email address</label>
+								<div class="controls">
+									<input type="email" name="asker_email_address" id="asker_email_address" value="" placeholder="username@something.com" />
+									<p class="help-block">If you want us to email the response to you</p>
+								</div>
+							</div>
+							</cfif>
+							<div class="form-actions">
+								<input type="hidden" name="screen_id" value="#get_screen_details.screen_id#" />
+								<input type="submit" value="Send" class="btn btn-primary" />
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
 		</div></cfif><cfif application.use_help_search_ind>
 		<div id="help_top_search" class="tab-pane fade">
-			<!---$issue$: jQuery conversion
-			<script type="text/javascript" language="javascript">
-			// <![CDATA[					
-	
-			//refresh the div with result from form submission
-			function submit_search() {
-				new Ajax.Updater('help_main_search_results', 'index.cfm?fuseaction=Help.view_help_search&cache_escape=#variables.cache_escape#', {method: 'post', parameters: $('help_search_form').serialize()});
-				}
-		
-			// ]]>
-			</script>--->
 			<form name="help_search_form" id="help_search_form" action="javascript:submit_search();">
-				<label for="search_string">Type the words for which you want to search</label><input type="text" name="search_string" id="search_string" value="" /><br />
-				<label for="case_sensitive_ind">Case-sensitive</label> <input type="checkbox" name="case_sensitive_ind" id="case_sensitive_ind" value="1" /><br />
-				<input type="hidden" name="from_search_ind" id="from_search_ind" value="1" /><!--- $issue$: some day, use this "from_search_ind" field to show question if user clicks on a FAQ entry from search results --->
-				<input type="submit" value="Search" />
+				<div class="control-group">
+					<label class="control-label" for="search_string">Enter the words for which you want to search</label>
+					<div class="controls">
+						<input type="text" name="search_string" id="search_string" placeholder="your search string" value="" />
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						<label class="checkbox" for="case_sensitive_ind"><input type="checkbox" name="case_sensitive_ind" id="case_sensitive_ind" value="1" />Case-sensitive</label>
+					</div>
+				</div>
+				<div class="form-actions">
+					<input type="hidden" name="from_search_ind" id="from_search_ind" value="1" /><!--- $issue$: some day, use this "from_search_ind" field to show question if user clicks on a FAQ entry from search results --->
+					<input type="submit" value="Search" class="btn btn-primary" />
+				</div>
 			</form>
-		</div></cfif>
-	</div>
-	<div id="help_main">
-		<div id="help_main_articles">
-			<cfif get_screen_help_articles.recordcount>
-				<cfset variables.help_article_id=get_screen_help_articles.help_article_id>
-				<!---$issue$: jQuery conversion
-				<script type="text/javascript" language="javascript">
-				// <![CDATA[
-		
-					new Ajax.Updater('help_main_articles','index.cfm?fuseaction=Help.view_help_article&help_article_id=#variables.help_article_id#',{method:'get',evalScripts:true});
-			
-				// ]]>
-				</script>--->
-			<cfelse>
-				<cfset variables.help_article_id=0>
-			</cfif>
-		</div><cfif application.use_help_faq_ind>
-		<div id="help_main_faqs" style="display:none;">
-			<cfif get_screen_help_faqs.recordcount>
-				<cfset variables.help_faq_id=get_screen_help_faqs.help_faq_id>
-			<cfelse>
-				<cfset variables.help_faq_id=0>
-			</cfif>
-			<!---$issue$: jQuery conversion
-			<script type="text/javascript" language="javascript">
-			// <![CDATA[
-	
-				new Ajax.Updater('help_main_faqs','index.cfm?fuseaction=Help.view_help_faq&help_faq_id=#variables.help_faq_id#',{method:'get',evalScripts:true});
-		
-			// ]]>
-			</script>--->
-		</div></cfif><cfif application.use_help_search_ind>
-		<div id="help_main_search_results" style="display:none;">
-			Enter your search criteria above then press "Search".
+			<div id="help_main_search" class="help_main">
+				Enter your search criteria above then press "Search".
+			</div>
 		</div></cfif>
 	</div>
 	<!--- if the user have access to administer help --->
@@ -210,33 +219,6 @@ function open_help_detail(article_type_id, article_id) {
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="add_help_faq" fuseaction="Administration.edit_help_faq" field_name="screen_id">
 		<div id="help_admin"><a href="javascript:add_help_article(#get_screen_details.screen_id#);">Add help article to this screen</a></div>
 	</cfif>
-	<!---$issue$: jQuery conversion
-	<script type="text/javascript" language="javascript">
-	// <![CDATA[
-		$('button_article').morph('background-color:#ecf2f5; border-bottom-width:0px;');
-	// ]]>
-	</script>--->
 	<p>&nbsp;</p>
-	
-	<table class="formname" border="0" cellpadding="0" cellspacing="0" cols="3" width="100%" summary="Table to display help articles, frequently asked questions, and a capability to search either category.">
-		<tbody>
-			<!--- top part shows the selections available --->
-			<tr valign="top" align="left">
-				<td bgcolor="##" colspan="3">
-				</td>
-			</tr>
-			<!--- bottom part shows the contents of one help article --->
-			<tr valign="top" align="left">
-				<td colspan="3">
-				</td>
-			</tr>
-		</tbody>
-		<tfoot>
-			<tr valign="top" align="left">
-				<td bgcolor="##" colspan="3">
-				</td>
-			</tr>
-		</tfoot>
-	</table>
 </div>
 </cfoutput>

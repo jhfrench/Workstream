@@ -52,16 +52,8 @@
 			</div>
 	</footer>
 <!-- load JavaScript here to speed page load time -->
-<script src="common_files/js/libs/less-1.2.1.min.js"></script>
-<script src="common_files/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
-<script>window.jQuery || document.write('<script src="common_files/js/libs/jquery-1.7.1.js"><\/script>')</script>
-<script src="common_files/js/libs/bootstrap/transition.js"></script>
-<script src="common_files/js/libs/bootstrap/collapse.js"></script>
-<script src="common_files/js/libs/bootstrap/dropdown.js"></script>
-<script src="common_files/js/libs/bootstrap/tab.js"></script>
+	<script src="common_files/js/libs/less-1.2.1.min.js"></script>
 
-<script src="common_files/js/plugins.js"></script>
-<script src="common_files/js/script.js"></script>
 	<script type="text/javascript">			
 		(function () {
 			if (/Microsoft/.test(navigator.appName)) { return }
@@ -89,15 +81,14 @@
 		})();
 	</script>
 
-<script type="text/javascript">
-	$(document).ready(function () {
-		<cfif application.use_help_module_ind>
-		$('#nav_help_button, #help_close').on('click', function() {
-			$('#help_area').slideToggle('slow')
+	<script type="text/javascript">
+		$(document).ready(function () {
+			<cfif application.use_help_module_ind>
+			getHelp('article', default_help);
+			getHelp('faq', default_faq);
+			</cfif>
 		});
-		</cfif>
-	});
-</script>
+	</script>
 </cfif>
 <!--- I provide a hidden div within which you can have Ajax load (and process) a specified fuseaction. This is useful for things like ordering lots of data after an upload (without making the upload wait for the ordering), or setting session variables without reloading the controlling page (like hiding the navigation bar). --->
 <div id="hidden_process" style="display:none;"></div>
