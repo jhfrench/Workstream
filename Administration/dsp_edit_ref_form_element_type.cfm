@@ -48,7 +48,7 @@
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table displays user account information">
 			<tr>
 				<td><label for="description">description</label>: 
-					<br /><cfinput type="text" name="description" id="description" size="50" value="#attributes.description#" required="yes" tabindex="1"
+					<br /><cfinput type="text" name="description" id="description" size="50" value="#attributes.description#" required="yes"
 							message="Please enter description." maxlength="200">
 				</td>
 				<cfif attributes.form_element_type_id EQ 0>

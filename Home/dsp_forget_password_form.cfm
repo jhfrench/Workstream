@@ -47,7 +47,7 @@
 		<tr>
 			<td>&nbsp;</td>
 			<td>
-				<a href="index.cfm?fuseaction=Home.forget_username" tabindex="4" style="color:yellow;">Forgotten Your Username?</a>
+				<a href="index.cfm?fuseaction=Home.forget_username" style="color:yellow;">Forgotten Your Username?</a>
 			</td>
 		</tr>
 	</table>

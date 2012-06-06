@@ -60,7 +60,7 @@
 			<tr>
 				<td colspan="2">
 					<label for="question">Question</label>:<br />
-					<cfinput type="text" name="question" id="question" value="#attributes.question#" size="60" maxlength="60" required="yes" tabindex="1" message="Please include text for the question.">
+					<cfinput type="text" name="question" id="question" value="#attributes.question#" size="60" maxlength="60" required="yes" message="Please include text for the question.">
 				</td>
 			<tr>
 			<tr>
@@ -96,9 +96,9 @@
 				</td>
 				<td><label for="sort_order">Sort Order</label>:
 					<br /><cfif attributes.help_faq_id NEQ 0>
-						<cfinput type="text" name="sort_order" id="sort_order" value="#get_help_faq.sort_order#" size="3" maxlength="3" required="yes" validate="integer" tabindex="2" message="Please enter a sort order.">
+						<cfinput type="text" name="sort_order" id="sort_order" value="#get_help_faq.sort_order#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter a sort order.">
 					<cfelse>
-						<cfinput type="text" name="sort_order" id="sort_order" value="" size="3" maxlength="3" required="yes" validate="integer" tabindex="2" message="Please enter a sort order.">
+						<cfinput type="text" name="sort_order" id="sort_order" value="" size="3" maxlength="3" required="yes" validate="integer" message="Please enter a sort order.">
 					</cfif>
 				</td>
 			</tr>

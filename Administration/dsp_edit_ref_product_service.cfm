@@ -54,15 +54,15 @@
 		<table width="100%" cellspacing="0" cellpadding="0" border="0" summary="table displays product service information">
 			<tr>
 				<td><label for="code">Code</label>: </td>
-				<td><cfinput type="text" name="code" id="code" size="6"  maxlength="6" value="#attributes.code#" required="yes" tabindex="1" message="Please enter type code."></td>
+				<td><cfinput type="text" name="code" id="code" size="6"  maxlength="6" value="#attributes.code#" required="yes" message="Please enter type code."></td>
 			</tr>
 			<tr>
 				<td><label for="description">Description</label>: </td>
-				<td><cfinput type="text" name="description" id="description" size="40" value="#attributes.description#" required="yes" tabindex="1" message="Please enter description." maxlength="400"></td>
+				<td><cfinput type="text" name="description" id="description" size="40" value="#attributes.description#" required="yes" message="Please enter description." maxlength="400"></td>
 			</tr>
 			<tr>
 				<td><label for="sort_order">Sort Order</label>: </td>
-				<td><cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="3" maxlength="3" required="yes" tabindex="2" validate="integer" message="Please enter sort order."></td>
+				<td><cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter sort order."></td>
 			</tr>
 			<tr>
 				<cfif attributes.active_IND EQ 1>

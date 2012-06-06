@@ -25,7 +25,7 @@
 	--> lname: string containing the last name of an employee
 	<-- #attributes.select_name#: (variable name based on what is passed in through the module select_name attribute) number of the employee(s) selected
  --->
-
+<!--- $issue$: is this template used? --->
 <cfif isdefined("attributes.email_only")>
 	<cfset variables.email_only=1>
 </cfif>
@@ -42,7 +42,6 @@
 <cfparam name="attributes.task_source" default="">
 <cfparam name="attributes.valuelist" default="true">
 <cfparam name="attributes.select_name" default="emp_id">
-<cfparam name="attributes.tabindex" default=0>
 <cfparam name="attributes.multi" default=0>
 <cfparam name="attributes.size" default=0>
 <cfparam name="attributes.onchange" default="">
@@ -53,7 +52,7 @@
 </cfsilent>
 <cfif NOT isdefined("team_select.recordcount")><cfinclude template="qry_team_select.cfm"></cfif>
 <cfif attributes.selected_flag>
-	<select name="<cfoutput>#attributes.select_name#"<cfif attributes.size> size="#attributes.size#"</cfif> <cfif attributes.multi> multiple</cfif><cfif len(attributes.onchange)> onchange="javascript:#attributes.onchange#"</cfif><cfif attributes.tabindex> tabindex="#attributes.tabindex#"</cfif><cfif len(attributes.class)> class="#attributes.class#"</cfif>></cfoutput>
+	<select name="<cfoutput>#attributes.select_name#"<cfif attributes.size> size="#attributes.size#"</cfif> <cfif attributes.multi> multiple</cfif><cfif len(attributes.onchange)> onchange="javascript:#attributes.onchange#"</cfif><cfif len(attributes.class)> class="#attributes.class#"</cfif>></cfoutput>
 	<cfoutput query="team_select">
 		<cfif attributes.select_name eq "task_source">
 		<option value="#team_select.emp_id#"<cfif ListFind(attributes.select_name_value, team_select.emp_id,",")>selected</cfif>>#team_select.lname#, #team_select.f_init#

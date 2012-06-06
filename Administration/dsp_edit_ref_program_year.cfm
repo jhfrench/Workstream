@@ -50,10 +50,10 @@
 		<table width="100%" cellspacing="0" cellpadding="8" border="0"  summary="Table used to add new program year">
 			<tr>
 				<td><label for="description">description</label>: 
-					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" required="yes" tabindex="1" message="Please enter description." maxlength="4000">
+					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" required="yes" message="Please enter description." maxlength="4000">
 				</td>
 				<td><label for="sort_order">Sort Order</label>: 
-					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="6" maxlength="12" required="yes" tabindex="2" validate="integer" message="Please enter sort order.">
+					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="6" maxlength="12" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.program_year_id EQ 0>
 					<input type="hidden" name="active_ind" value="1"/>

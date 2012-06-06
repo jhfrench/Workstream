@@ -57,7 +57,7 @@
 
 <tr align="center">
 <td colspan="2">
-<input type="submit" value="Apply Filter" name="Submit2" tabindex="3" class="RegText">
+<input type="submit" value="Apply Filter" name="Submit2" class="RegText">
 </td>
 </cfform>
 </tr>

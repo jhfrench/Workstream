@@ -30,23 +30,23 @@
 			</td>
 			<td>
 				<img src="images/spacer.gif" width="180" height="1" alt="" border="0"><br />
-				<input type="text" name="user_name" id="user_name" value="#xmlformat(attributes.user_name)#" size="20" maxlength="4000" tabindex="1" autofocus>
+				<input type="text" name="user_name" id="user_name" value="#xmlformat(attributes.user_name)#" size="20" maxlength="4000" autofocus />
 			</td>
 		</tr>
 		<tr>
 			<td align="right" class="formtextlabel">
-				<img src="images/spacer.gif" width="100" height="1" alt=""><br />
+				<img src="images/spacer.gif" width="100" height="1" alt="" /><br />
 				<label for="password" accesskey="p" class="formtextlabel">Password</label>:
 			</td>
-			<td><input type="password" name="password" id="password" value="" size="20" tabindex="2"></td>
+			<td><input type="password" name="password" id="password" value="" size="20" /></td>
 		</tr>
 		<tr>
 			<td>
-				<img src="images/spacer.gif" width="100" height="29" alt="">
+				<img src="images/spacer.gif" width="100" height="29" alt="" />
 			</td>
 			<td>
-				<input type="hidden" name="requested_page" value="#xmlformat(attributes.requested_page)#">
-				<input type="submit" name="method" value="Login" alt="Login" size="20" tabindex="3">
+				<input type="hidden" name="requested_page" value="#xmlformat(attributes.requested_page)#" />
+				<input type="submit" name="method" value="Login" alt="Login" size="20" />
 			</td>
 		</tr>
 		<tr>
@@ -57,8 +57,8 @@
 		<tr>
 			<td></td>
 			<td>
-				<a href="index.cfm?fuseaction=Home.forget_username" tabindex="4" style="color:yellow;">Forgotten Your Username?</a><br />
-				<a href="index.cfm?fuseaction=Home.forget_password" tabindex="4" style="color:yellow;">Forgotten Your Password?</a>
+				<a href="index.cfm?fuseaction=Home.forget_username" style="color:yellow;">Forgotten Your Username?</a><br />
+				<a href="index.cfm?fuseaction=Home.forget_password" style="color:yellow;">Forgotten Your Password?</a>
 			</td>
 		</tr>
 	</table>

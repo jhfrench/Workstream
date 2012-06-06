@@ -48,12 +48,10 @@
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table displays user account information">
 			<tr>
 				<td><label for="description">description</label>: 
-					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" required="yes" tabindex="1" message="Please enter description." maxlength="400">
+					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" required="yes" message="Please enter description." maxlength="400">
 				</td>
 				<td><label for="sort_order">Sort Order</label>: 
-					<br /><cfinput type="text" name="sort_order" id="sort_order" value=
-                    #IIf(attributes.hierarchy_level_id EQ 0, ("get_ref_hierarchy_level.recordcount+1"), ("get_ref_hierarchy_level.sort_order"))# size="6" maxlength="6" required="yes"
-				 			tabindex="2" validate="integer" message="Please enter sort order.">
+					<br /><cfinput type="text" name="sort_order" id="sort_order" value=" #IIf(attributes.hierarchy_level_id EQ 0, ("get_ref_hierarchy_level.recordcount+1"), ("get_ref_hierarchy_level.sort_order"))#" size="6" maxlength="6" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<td><label for="form_element_type_id">Form Element Type</label>: 
 					<br /><cfselect name="form_element_type_id" id="form_element_type_id" query="get_ref_form_element_type" value="form_element_type_id"

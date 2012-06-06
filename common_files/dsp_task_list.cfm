@@ -39,8 +39,7 @@
 </cfsilent>
 <tbody>
 <cfif task_list.recordcount>
-<cfoutput query="task_list" group="#variables.group#">
-<cfoutput> 
+<cfoutput query="task_list"> 
 <cfset variables.StatusMsg=jsstringformat(task_name)>
 	<tr>
 		<td scope="row" class="number"">#task_id#</td>
@@ -52,7 +51,6 @@
 		<td><cfif status_id NEQ 7 AND datecompare(now(), date_due, "d") GTE 0><img src="#request.dir_level##application.application_specific_settings.image_dir#<cfif datecompare(now(), date_due, "d") EQ 0>not_started<cfelse>overdue</cfif>.gif" width="17" height="17" alt="" border="0">&nbsp;</cfif>#task_status#</td>
 		<td class="date">#dateformat(date_due, "mm/dd/yyyy")#</td>
 	</tr>
-</cfoutput>
 </cfoutput>
 <cfelse>
 	<cfif comparenocase(listlast(attributes.fuseaction, '.'), "task_list") AND comparenocase(listlast(attributes.fuseaction, '.'),"output")>

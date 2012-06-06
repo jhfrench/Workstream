@@ -52,7 +52,7 @@
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table displays user account information">
 			<tr>
 				<td><label for="description">Fund</label>: 
-					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="50" required="yes" tabindex="1" message="Please enter fund description." maxlength="128">
+					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="50" required="yes" message="Please enter fund description." maxlength="128">
 				</td>
 				<td><label for="program_year_id">Program Year</label>: 
 					<br /><cfselect name="program_year_id" id="program_year_id" query="get_program_year" multiple="yes" value="program_year_id" display="description" selected="#attributes.program_year_id#" required="yes" message="Please specify the program year(s).">

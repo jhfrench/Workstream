@@ -22,12 +22,16 @@
 </cfsilent>
 <div class="form-horizontal">
 	<h4>Completion Notification</h4>
-	<div class="controls">
-	<label for="notification_to_id">Recipient List</label>
-	<cfmodule template="../common_files/dsp_team_select.cfm" select_name="notification_to_id" emp_id="#variables.to_list#" email_only="1" multi="1" size="4" class="span3">
+	<div class="control-group">
+		<label for="notification_to_id" class="control-label">Recipient List</label>
+		<div class="controls">
+		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="notification_to_id" emp_id="#variables.to_list#" email_only="1" multi="1" size="4" class="span6">
+		</div>
 	</div>
-	<div class="controls">
-	<label for="notification_cc_id"><abbr title="Carbon-Copy">CC</abbr> List</label>
-	<cfmodule template="../common_files/dsp_team_select.cfm" select_name="notification_cc_id" emp_id="#variables.cc_list#" email_only="1" multi="1" size="4" class="span3">
+	<div class="control-group">
+		<label for="notification_cc_id" class="control-label"><abbr title="Carbon-Copy">CC</abbr> List</label>
+		<div class="controls">
+		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="notification_cc_id" emp_id="#variables.cc_list#" email_only="1" multi="1" size="4" class="span6">
+		</div>
 	</div>
 </div>

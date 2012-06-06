@@ -49,7 +49,7 @@
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table display user accoutn inforamtion">
 			<tr>
 				<td><label for="description">description</label>: 
-					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" tabindex="1" message="Please enter description." maxlength="4000">
+					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" message="Please enter description." maxlength="4000">
 				</td>
 				<td><label for="sort_order">Sort Order</label>: 
 					<br /><cfinput type="text" name="sort_order" id="sort_order" 

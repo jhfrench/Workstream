@@ -48,10 +48,10 @@
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="table displays user account information">
 			<tr>
 				<td><label for="description">description</label>: 
-					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" tabindex="1" message="Please enter description." maxlength="400">
+					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" message="Please enter description." maxlength="400">
 				</td>
 				<td><label for="sort_order">Sort Order</label>: 
-					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#iif(attributes.business_category_id EQ 0, ('get_ref_business_category.recordcount+1'), ('get_ref_business_category.sort_order'))#" size="3" maxlength="3" required="yes" tabindex="2" validate="integer" message="Please enter sort order.">
+					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#iif(attributes.business_category_id EQ 0, ('get_ref_business_category.recordcount+1'), ('get_ref_business_category.sort_order'))#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.business_category_id EQ 0>
 					<input type="hidden" name="active_ind" value="1"/>

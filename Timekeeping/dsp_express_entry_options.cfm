@@ -34,7 +34,7 @@
 	</tr>
 	<tr align="center" class="RegText">
 		<td align="center" colspan="4" class="RegText">
-			<input type="button" value="Submit Time Entry(s)" name="Submit" tabindex="3" class="RegText" onclick="check_form('hours')">
+			<input type="button" value="Submit Time Entry(s)" name="Submit" class="RegText" onclick="check_form('hours')">
 		</td>
     </tr>
 

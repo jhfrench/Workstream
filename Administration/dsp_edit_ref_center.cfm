@@ -53,22 +53,22 @@
 			<tr>
 				<td>
 					<label for="description">description</label>: 
-					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" required="yes" tabindex="1"
+					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" required="yes"
 							message="Please enter description." maxlength="4000">
 				</td>
 				<td>
 					<label for="abbreviation">Abbreviation</label>: 
-					<br /><cfinput type="text" name="abbreviation" id="abbreviation" value="#attributes.abbreviation#" size="15" maxlength="4000" required="yes" tabindex="2" message="Please enter abbreviation.">
+					<br /><cfinput type="text" name="abbreviation" id="abbreviation" value="#attributes.abbreviation#" size="15" maxlength="4000" required="yes" message="Please enter abbreviation.">
 				</td>
 				<td>
 					<label for="center_code">Center Code</label>: 
-					<br /><cfinput type="text" name="center_code" id="center_code" value="#attributes.center_code#" size="15" maxlength="4000" required="yes" tabindex="3" message="Please enter center code.">
+					<br /><cfinput type="text" name="center_code" id="center_code" value="#attributes.center_code#" size="15" maxlength="4000" required="yes" message="Please enter center code.">
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<label for="sort_order">Sort Order</label>: 
-					<br /><cfinput type="text" name="sort_order" id="sort_order" value= #IIf(attributes.center_id EQ 0, (""), ("get_ref_center.sort_order"))# size="6" maxlength="12" required="yes" tabindex="4" message="Please enter sort order.">
+					<br /><cfinput type="text" name="sort_order" id="sort_order" value= #IIf(attributes.center_id EQ 0, (""), ("get_ref_center.sort_order"))# size="6" maxlength="12" required="yes" message="Please enter sort order.">
 				</td>
 				<cfif attributes.center_id EQ 0>
 					<input type="hidden" name="active_ind" value="1"/>

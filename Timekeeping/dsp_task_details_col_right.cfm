@@ -19,21 +19,11 @@
 </cfsilent>
 <cfoutput>
 <div class="row-fluid">
-	<div class="span6">
-		<label for="task_name">Task Name</label>
-		<input type="text" name="task_name" id="task_name" value="#htmleditformat(get_task_details.task_name)#"  valign="top" size="#variables.cols#" maxlength="255" class="span11">
-	</div>
-	<div classs="offset3 span3">
-		<br />
-		<a href="javascript:printable('#attributes.task_id#');" title="'View a printable version of this task." class="btn btn-mini"><i class="icon-print"></i>Printable task sheet</a>
-	</div>
-</div>
-<div class="row-fluid">
 	<div classs="span12">
-		<p>Customer: #get_task_details.customer_name#&nbsp;Project: #replace(get_task_details.project_name,"#get_task_details.customer_name#-","")#&nbsp;<img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" width="14" height="12" alt="See more projects." border="0" onclick="OpenProjectWindow('project_id');"></p>
-		<label for="task_name">Description</label>
+		<p><span class="h5">Customer</span>: #get_task_details.customer_name# <span class="h5">Project</span>: #replace(get_task_details.project_name,"#get_task_details.customer_name#-","")#&nbsp;<img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" width="14" height="12" alt="See more projects." border="0" onclick="OpenProjectWindow('project_id');"></p>
+		<label for="task_name" class="h5">Description</label>
 		<textarea name="task_details" id="task_details" cols="#variables.cols-2#" rows="#variables.descrip_rows#" wrap="soft" class="span11">#replaceList(ParagraphFormat(get_task_details.description),'<P>,"',",")#</textarea><br />
-		<label for="notes">Progress Notes</label>
+		<label for="notes" class="h5">Progress notes</label>
 		<cfif time_entry_details.recordcount>
 			<div id="notes" style="height:#variables.resolution_rows*28#px;" class="faux-textarea span11">
 				<cfloop query="time_entry_details"><span class="RegText<cfif notes_type_id EQ 2>Red</cfif>">(#initials# #dateformat(date,"m/d/yy")#) - #trim(note)#&nbsp;&nbsp;</span><br /></cfloop>
@@ -41,6 +31,11 @@
 		<cfelse>
 			<div id="notes" class="alert span11">Resolution notes not yet entered for this task.</div>
 		</cfif>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span12">
+	<cfinclude template="dsp_task_detail_notes_entry.cfm">
 	</div>
 </div>
 <div class="row-fluid">

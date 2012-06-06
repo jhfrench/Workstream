@@ -13,7 +13,6 @@
 	||
  --->
 <cfset variables.var1=200>
-<cfset variables.tabindex=0>
 <cfparam name="attributes.expand" default="0">
 </cfsilent>
 <cfif isdefined("attributes.last_loaded") AND session.workstream_last_loaded NEQ attributes.last_loaded>

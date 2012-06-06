@@ -33,14 +33,14 @@
 			<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table displays sorting options for administrator">
 				<tr>
 					<td><label for="table_to_sort">Table to sort</label>: </td>
-					<td><cfinput type="text" name="table_to_sort" id="table_to_sort" value="" size="50" maxlength="50" required="yes" tabindex="1" message="Please enter name of the table to sort."></td>
+					<td><cfinput type="text" name="table_to_sort" id="table_to_sort" value="" size="50" maxlength="50" required="yes" message="Please enter name of the table to sort."></td>
 				</tr>
 				<tr>
 					<td><label for="id_of_sorted_column">Primary key of table to sort</label>: </td>
-					<td><cfinput type="text" name="id_of_sorted_column" id="id_of_sorted_column" value="" size="50" maxlength="50" required="yes" tabindex="2" message="Please enter name of the id of sorted column"></td>
+					<td><cfinput type="text" name="id_of_sorted_column" id="id_of_sorted_column" value="" size="50" maxlength="50" required="yes" message="Please enter name of the id of sorted column"></td>
 				<tr>
 					<td><label for="text_of_sorted_column">Text of sorted column</label>: </td>
-					<td><cfinput type="text" name="text_of_sorted_column" id="text_of_sorted_column" value="" size="50" maxlength="50" required="yes" tabindex="3" message="Please enter name of the text of sorted column"></td>
+					<td><cfinput type="text" name="text_of_sorted_column" id="text_of_sorted_column" value="" size="50" maxlength="50" required="yes" message="Please enter name of the text of sorted column"></td>
 				</tr>
 			</table>
 		</td>

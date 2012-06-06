@@ -49,7 +49,7 @@
 		<tr>
 			<td>&nbsp;</td>
 			<td>
-				<a href="index.cfm?fuseaction=Home.forget_password" tabindex="4" style="color:yellow;">Forgotten Your Password?</a>
+				<a href="index.cfm?fuseaction=Home.forget_password" style="color:yellow;">Forgotten Your Password?</a>
 			</td>
 		</tr>
 	</table>

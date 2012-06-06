@@ -36,16 +36,16 @@
 			<tr>
 				<td><label for="display_start_date">Display Start Date (mm/dd/yyyy)</label>: <br />
 					<cfif attributes.system_note_id NEQ 0>
-						<cfinput type="text" name="display_start_date" id="display_start_date" value="#dateformat(get_system_note.display_start_date, 'mm/dd/yyyy')#" size="10" maxlength="10" required="yes" tabindex="1" message="Please enter start date" validate="date">
+						<cfinput type="text" name="display_start_date" id="display_start_date" value="#dateformat(get_system_note.display_start_date, 'mm/dd/yyyy')#" size="10" maxlength="10" required="yes" message="Please enter start date" validate="date">
 					<cfelse>
-						<cfinput type="text" name="display_start_date" id="display_start_date" value="#attributes.display_start_date#" size="10" maxlength="10" required="yes" tabindex="1" message="Please enter start date" validate="date">
+						<cfinput type="text" name="display_start_date" id="display_start_date" value="#attributes.display_start_date#" size="10" maxlength="10" required="yes" message="Please enter start date" validate="date">
 					</cfif>
 				</td>
 				<td><label for="display_end_date">Display End Date (mm/dd/yyyy)</label>: <br />
 					<cfif attributes.system_note_id NEQ 0>
-						<cfinput type="text" name="display_end_date" id="display_end_date" value="#dateformat(get_system_note.display_end_date, 'mm/dd/yyyy')#" size="10" maxlength="10" required="no" tabindex="2" message="Please enter end date" validate="date">
+						<cfinput type="text" name="display_end_date" id="display_end_date" value="#dateformat(get_system_note.display_end_date, 'mm/dd/yyyy')#" size="10" maxlength="10" required="no" message="Please enter end date" validate="date">
 					<cfelse>
-						<cfinput type="text" name="display_end_date" id="display_end_date" value="#attributes.display_end_date#" size="10" maxlength="10" required="no" tabindex="2" message="Please enter end date" validate="date">
+						<cfinput type="text" name="display_end_date" id="display_end_date" value="#attributes.display_end_date#" size="10" maxlength="10" required="no" message="Please enter end date" validate="date">
 					</cfif>
 				</td>
 			</tr>

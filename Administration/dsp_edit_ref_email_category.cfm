@@ -47,23 +47,17 @@
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="table displays user account information">
 			<tr>
 				<td><label for="description">Description</label>: 
-					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" tabindex="1" message="Please enter description." maxlength="2000">
+					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" message="Please enter description." maxlength="2000">
 				</td>
                 
                 <td><label for="notes">Notes</label>: 
 					<br /><cfinput type="text" name="notes" id="notes" size="30" value=
                     #IIf(attributes.email_category_id EQ 0, (""), ("get_ref_email_category.notes"))#
-                  required="yes" tabindex="1" message="Please enter notes." maxlength="400">
+                  required="yes" message="Please enter notes." maxlength="400">
 				</td>
-				<td><label for="sort_order">Sort Order</label>: 
-					<br />
-                   
-                          <cfinput type="text" name="sort_order" id="sort_order" 
-                  			value=#IIf(attributes.email_category_id EQ 0, ("get_ref_email_category.recordcount+1"), 
-                            ("get_ref_email_category.sort_order"))#
-                             size="10" maxlength="3" required="yes"
-							tabindex="2" validate="integer" message="Please enter sort order.">
-                    
+				<td>
+					<label for="sort_order">Sort Order</label>:<br />
+                   <cfinput type="text" name="sort_order" id="sort_order" value="#IIf(attributes.email_category_id EQ 0, ("get_ref_email_category.recordcount+1"), ("get_ref_email_category.sort_order"))#" size="10" maxlength="3" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.email_category_id EQ 0>
 					<input type="hidden" name="active_ind" value="1"/>

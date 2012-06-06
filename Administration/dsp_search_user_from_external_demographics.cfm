@@ -54,7 +54,7 @@
 	<tr>
 		<td width="79"><label for="center_description">Center</label></td>
 		<td width="307">
-			<select name="center_description" tabindex="1">
+			<select name="center_description">
 				<option value="">Select a center</option>
 				<cfloop query="get_ref_center">
 				<option value="#description#">#abbreviation#</option>
@@ -64,12 +64,12 @@
 	</tr>
 	<tr>
 		<td><label for="last_name">Last Name</label></td>
-		<td><input name="last_name" type="text" value="#attributes.last_name#" size="20"  maxlength="4000" tabindex="2"/></td>
+		<td><input name="last_name" type="text" value="#attributes.last_name#" size="20"  maxlength="4000"/></td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
 		<td>
-			<input name="method" type="submit" alt="Search" value="Search" tabindex="3"/>
+			<input name="method" type="submit" alt="Search" value="Search"/>
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

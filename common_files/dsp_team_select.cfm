@@ -45,9 +45,6 @@
 	if (NOT isdefined("attributes.select_name")) {
 		attributes.select_name="emp_id";
 	}
-	if (NOT isdefined("attributes.tabindex")) {
-		attributes.tabindex=0;
-	}
 	if (NOT isdefined("attributes.multi")) {
 		attributes.multi=0;
 	}
@@ -72,7 +69,7 @@
 <cfif NOT isdefined("team_select.recordcount")><cfinclude template="qry_team_select.cfm"></cfif>
 <cfoutput>
 <cfif attributes.selected_flag>
-	<select name="#attributes.select_name#" id="#attributes.select_name#"<cfif attributes.size> size="#attributes.size#"</cfif> <cfif attributes.multi> multiple</cfif><cfif len(attributes.onchange)> onchange="javascript:#attributes.onchange#"</cfif><cfif attributes.tabindex> tabindex="#attributes.tabindex#"</cfif><cfif len(attributes.class)> class="#attributes.class#"</cfif>>
+	<select name="#attributes.select_name#" id="#attributes.select_name#"<cfif attributes.size> size="#attributes.size#"</cfif> <cfif attributes.multi> multiple</cfif><cfif len(attributes.onchange)> onchange="javascript:#attributes.onchange#"</cfif><cfif len(attributes.class)> class="#attributes.class#"</cfif>>
 	<cfloop query="team_select">		
 		<option value="#emp_id#" title="#lname#, #name#"<cfif listfind(variables.emp_id_match, team_select.emp_id, ",")> selected</cfif>>#display#</option>
 	</cfloop>

@@ -39,9 +39,9 @@ else
 
 <cfoutput>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]> <html class="no-js" lang="en"> <![endif]-->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -53,14 +53,21 @@ else
 
 	<meta name="viewport" content="width=device-width">
 
-	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
+	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />	
 	
-	<link rel="stylesheet/less" href="common_files/less/style.less">
-	<!-- Use SimpLESS (Win/Linux/Mac) or LESS.app (Mac) to compile your .less files
-	to style.css, and replace the 2 lines above by this one:
-
-	<link rel="stylesheet/less" href="common_files/less/style.css">
-	 -->
+	<script src="//enhancejs.googlecode.com/files/enhance.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		//if enhance.js determines they can be supported, load the following CSS and JavaScript recourse
+		enhance({
+			loadScripts: [
+				'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
+				'common_files/js/libs/modernizr-2.5.3-respond-1.1.0.min.js'
+			],
+			queueLoading: true
+		});
+	</script>
+	
+	<link rel="stylesheet/less" href="common_files/less/style.less">	
 </head>
 <body class="container-fluid">
 	<header role="banner" class="row-fluid">
@@ -107,7 +114,7 @@ else
 	</header>
 
 	<div class="row-fluid">
-		<section id="begin_page_content" role="main" class="span9">
+		<section id="begin_page_content" role="main" class="span10">
 	
 	
 	

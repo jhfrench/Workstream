@@ -51,19 +51,19 @@
 		<td>
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="table displays user account information">
 			<tr>
-				<td><label for="description">Description</label>:<cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" tabindex="1" message="Please enter description." maxlength="4000">
+				<td><label for="description">Description</label>:<cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" message="Please enter description." maxlength="4000">
 				</td>
 			</tr>
 			<tr>
-				<td><label for="organization_code">Organization Code</label>:<cfinput type="text" name="organization_code" id="organization_code" size="30" value="#attributes.abbreviation#" required="no" tabindex="2" maxlength="30">
+				<td><label for="organization_code">Organization Code</label>:<cfinput type="text" name="organization_code" id="organization_code" size="30" value="#attributes.abbreviation#" required="no" maxlength="30">
 				</td>
 			</tr>
 			<tr>
-				<td><label for="description">Abbreviation</label>:<cfinput type="text" name="abbreviation" id="abbreviation" size="30" value="#attributes.abbreviation#" required="no" tabindex="3" maxlength="30">
+				<td><label for="description">Abbreviation</label>:<cfinput type="text" name="abbreviation" id="abbreviation" size="30" value="#attributes.abbreviation#" required="no" maxlength="30">
 				</td>
 			</tr>
 			<tr>
-				<td><label for="sort_order">Sort Order</label>:<cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="3" maxlength="3" required="yes" tabindex="4" validate="integer" message="Please enter sort order.">
+				<td><label for="sort_order">Sort Order</label>:<cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 			</tr>
 			<tr>

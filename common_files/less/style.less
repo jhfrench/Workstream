@@ -2,7 +2,7 @@
 @import "bootstrap/responsive.less";
 
 footer {
-  background-color: @black;
+  background-color: @gray;
   color: @white;
 }
 
@@ -26,10 +26,10 @@ footer {
    ========================================================================== */
 
 .faux-textarea {
-	overflow:auto;
-	border:1px solid #c0c0c0;
-	padding:2px;
 	.border-radius(3px);
+	border:1px solid #c0c0c0;
+	overflow-y:auto;
+	padding:2px;
 }
 
 .docked {
@@ -44,15 +44,10 @@ footer {
 	text-align:center;
 }
 
-#help_admin {
-	// background-color:#fcf2f5;
-}
-
 #help_area {
-	// display:none;
+	display:none;
 	background-color:#d1dee5;
 	border:1px solid black;
-	margin-right:0px;
 	.border-radius(5px);
 }
 
@@ -61,17 +56,20 @@ footer {
 	float:left;
 	height:220px;
 	overflow-y:autol;
+	width:100%;
 }
 
 #help_main {
-	background-color:#fcf2f5;
 	float:left;
 	height:520px;
 	overflow-y:auto;
+	width:100%;
 }
 
 #help_admin {
+	background-color:#fcf2f5;
 	float:left;
+	width:100%;
 }
 
 #watermark {
@@ -85,6 +83,7 @@ footer {
 	width:200px;
 }
 
+
 /*<!---text alignment--> */
 
 	.date, td.date {
@@ -94,3 +93,56 @@ footer {
 	.number, td.number {
 		text-align: right;
 	}
+	
+	
+// HEADINGS
+// --------
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin: 0;
+  font-weight: bold;
+  color: @grayDark;
+  text-rendering: optimizelegibility; // Fix the character spacing for headings
+  small {
+    font-weight: normal;
+    color: @grayLight;
+  }
+}
+.h1 {
+  font-size: 30px;
+  line-height: @baseLineHeight * 2;
+  small {
+    font-size: 18px;
+  }
+}
+.h2 {
+  font-size: 24px;
+  line-height: @baseLineHeight * 2;
+  small {
+    font-size: 18px;
+  }
+}
+.h3 {
+  line-height: @baseLineHeight * 1.5;
+  font-size: 18px;
+  small {
+    font-size: 14px;
+  }
+}
+.h4, .h5, .h6 {
+  line-height: @baseLineHeight;
+}
+.h4 {
+  font-size: 14px;
+  small {
+    font-size: 12px;
+  }
+}
+.h5 {
+  font-size: 12px;
+}
+.h6 {
+  font-size: 11px;
+  color: @grayLight;
+  text-transform: uppercase;
+}

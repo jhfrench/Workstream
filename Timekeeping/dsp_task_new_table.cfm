@@ -23,7 +23,6 @@
 		<cfset variables.cols=130>
 	</cfdefaultcase>
 </cfswitch>
-<cfset tabindex=0>
 </cfsilent>
 <div class="row-fluid">
 	<div class="span4">

@@ -47,9 +47,9 @@
 				<td colspan="2">
 					<label for="help_article_title">Help Article Title</label>:
 					<br /><cfif attributes.help_article_id NEQ 0>
-						<cfinput type="text" name="help_article_title" id="help_article_title" value="#get_help_article.help_article_title#" size="60" maxlength="60" required="yes" tabindex="1" message="Please enter a help article title." />
+						<cfinput type="text" name="help_article_title" id="help_article_title" value="#get_help_article.help_article_title#" size="60" maxlength="60" required="yes" message="Please enter a help article title." />
 					<cfelse>
-						<cfinput type="text" name="help_article_title" id="help_article_title" value="" size="60" maxlength="60" required="yes" tabindex="1" message="Please enter a help article title." />
+						<cfinput type="text" name="help_article_title" id="help_article_title" value="" size="60" maxlength="60" required="yes" message="Please enter a help article title." />
 					</cfif>
 				</td>
 			<tr>
@@ -86,9 +86,9 @@
 				</td>
 				<td><label for="sort_order">Sort Order</label>:
 					<br /><cfif attributes.help_article_id NEQ 0>
-						<cfinput type="text" name="sort_order" id="sort_order" value="#get_help_article.sort_order#" size="3" maxlength="3" required="yes" validate="integer" tabindex="2" message="Please enter a sort order.">
+						<cfinput type="text" name="sort_order" id="sort_order" value="#get_help_article.sort_order#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter a sort order.">
 					<cfelse>
-						<cfinput type="text" name="sort_order" id="sort_order" value="" size="3" maxlength="3" required="yes" validate="integer" tabindex="2" message="Please enter a sort order.">
+						<cfinput type="text" name="sort_order" id="sort_order" value="" size="3" maxlength="3" required="yes" validate="integer" message="Please enter a sort order.">
 					</cfif>
 				</td>
 			</tr>

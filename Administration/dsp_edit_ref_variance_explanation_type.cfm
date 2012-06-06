@@ -49,10 +49,10 @@
 		<table width="100%" cellspacing="0" cellpadding="8" border="0"  summary="Table displays new user information">
 			<tr>
 				<td><label for="description">description</label>: 
-					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" required="yes" tabindex="1" message="Please enter description." maxlength="30">
+					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" required="yes" message="Please enter description." maxlength="30">
 				</td>
 				<td><label for="sort_order">Sort Order</label>: 
-					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#get_ref_variance_explanation_type.recordcount+1#" size="6" maxlength="12" required="yes" tabindex="2" validate="integer" message="Please enter sort order.">
+					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#get_ref_variance_explanation_type.recordcount+1#" size="6" maxlength="12" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.variance_explanation_type_id EQ 0>
 					<input type="hidden" name="active_ind" value="1"/>

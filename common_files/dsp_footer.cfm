@@ -31,16 +31,13 @@
 		</table>
 <cfelse>
 		</section>
-	  	<div class="span3">
-					<cfif application.use_help_module_ind>
-						<!-- [[ RIGHT COLUMN START ]] -->
-						<div style="height:1px; overflow:hidden">
-						Help
-						</div>
-						<cfinclude template="../Help/dsp_screen_help.cfm">
-						<!-- [[ RIGHT COLUMN END ]] -->
-					</cfif>
-					<div id="watermark"></div>
+	  	<div class="span2">
+			<!-- [[ RIGHT COLUMN START ]] -->
+			<cfif application.use_help_module_ind>
+				<cfinclude template="../Help/dsp_screen_help.cfm">
+			</cfif>
+			<div id="watermark"></div>
+			<!-- [[ RIGHT COLUMN END ]] -->
 		</div>
 	  </div>
 	  
@@ -65,11 +62,6 @@
 
 <script src="common_files/js/plugins.js"></script>
 <script src="common_files/js/script.js"></script>
-
-<!--[if IE]>
-<script src="common_files/excanvas.js?cache_escape=20120412113820"></script>
-<![endif]-->
-<script src="common_files/pie_graph.js?cache_escape=20120412113820"></script>
 	<script type="text/javascript">			
 		(function () {
 			if (/Microsoft/.test(navigator.appName)) { return }

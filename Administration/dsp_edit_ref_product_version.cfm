@@ -50,14 +50,14 @@
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table displays new user information">
 			<tr>
 				<td><label for="description">description</label>: 
-					<br /><cfinput type="text" name="description" id="description" size="50" value="#attributes.description#" required="yes" tabindex="1" message="Please enter description" maxlength="50">
+					<br /><cfinput type="text" name="description" id="description" size="50" value="#attributes.description#" required="yes" message="Please enter description" maxlength="50">
 				</td>
 				<td><label for="scheduled_release_date">Scheduled Release Date (mm/dd/yyyy)</label>: 
-					<br /><cfinput type="text" name="scheduled_release_date" id="scheduled_release_date" size="38" value="#attributes.scheduled_release_date#" required="yes" tabindex="2" message="Please enter scheduled release date" maxlength="38">
+					<br /><cfinput type="text" name="scheduled_release_date" id="scheduled_release_date" size="38" value="#attributes.scheduled_release_date#" required="yes" message="Please enter scheduled release date" maxlength="38">
 				</td>
 				<td><label for="sort_order">Sort Order</label>: 
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value=#IIf(attributes.product_version_id EQ 0, ("get_ref_product_version_count.count1+1"), ("get_ref_product_version.sort_order"))#
-                     size="9" maxlength="12" required="yes" tabindex="2" validate="integer" message="Please enter sort order">
+                     size="9" maxlength="12" required="yes" validate="integer" message="Please enter sort order">
 				</td>
 			<tr>
 				<td><span title="describes the purpose of the radio buttons that follow">Selectable indicatior?</span>
