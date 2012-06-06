@@ -17,47 +17,47 @@
 <tr>
 <cfform name="Filter" action="index.cfm?fuseaction=Marketing.Marketing">
 
-<td class="RegText">
-<select name="SortBy1"  class="RegText">
+<td>
+<select name="SortBy1" >
 <option value = "None" selected>No Filter</option>
 <option value="project.project_code">Project Code</option>
 <option value="project.description">CustomerName</option>
 <option value="task.Name">Task Name</option>
 </select>
-<input type="text" name="SortBy1stuff" size="25" class="RegText"></td>
-</tr>
-<tr>
-<td class="RegText">
-<select name="SortBy2andor" class="RegText">
-<option value = "and" selected>and</option>
-<option value = "or" >or</option>
-</select>
-<select name="SortBy2" class="RegText">
-<option value = "None" selected>No Filter</option>
-<option value="project.project_code">Project Code</option>
-<option value="project.description">CustomerName</option>
-<option value="task.Name">Task Name</option>
-</select>
-<input type="text" name="SortBy2stuff" size="25" class="RegText"></td>
+<input type="text" name="SortBy1stuff" size="25"></td>
 </tr>
 <tr>
 <td>
-<select name="SortBy3andor" class="RegText">
+<select name="SortBy2andor">
 <option value = "and" selected>and</option>
 <option value = "or" >or</option>
 </select>
-<select name="SortBy3" class="RegText">
+<select name="SortBy2">
+<option value = "None" selected>No Filter</option>
+<option value="project.project_code">Project Code</option>
+<option value="project.description">CustomerName</option>
+<option value="task.Name">Task Name</option>
+</select>
+<input type="text" name="SortBy2stuff" size="25"></td>
+</tr>
+<tr>
+<td>
+<select name="SortBy3andor">
+<option value = "and" selected>and</option>
+<option value = "or" >or</option>
+</select>
+<select name="SortBy3">
 <option value = "None" selected>No Filter</option>
 <option value="project.project_code">Project Code</option>
 <option value="project.name">CustomerName</option>
 <option value="task.Name">Task Name</option>
 </select>
-<input type="text" name="SortBy3stuff" size="25" class="RegText"></td>
+<input type="text" name="SortBy3stuff" size="25"></td>
 </tr>
 
 <tr align="center">
 <td colspan="2">
-<input type="submit" value="Apply Filter" name="Submit2" class="RegText">
+<input type="submit" value="Apply Filter" name="Submit2">
 </td>
 </cfform>
 </tr>

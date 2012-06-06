@@ -59,19 +59,19 @@ function add_to_linked_task_id_list() {
 			<br />
 	<tr>
 		<td> 
-			<input type="button"  value="Add to list below" onclick="add_to_linked_task_id_list()" class="RegText">
+			<input type="button"  value="Add to list below" onclick="add_to_linked_task_id_list()">
 		</td>
 	</tr>
 	<tr>
 		<td> 
-			<input type="text" name="linked_task_id" size="30" class="RegText">
+			<input type="text" name="linked_task_id" size="30">
 			<input type="hidden" name="base_task_id" value="#attributes.base_task_id#">
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<input type="reset" class="RegText">
-			<input type="submit" value="Submit" class="RegText">
+			<input type="reset">
+			<input type="submit" value="Submit">
 		</td>
 	</tr>
 </cfform>

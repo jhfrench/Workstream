@@ -20,7 +20,7 @@
 			Date Implemented:			
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="date" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this employee's supervisor was instated.  (mm/dd/yy)" class="RegText">
+			<cfinput type="text" name="date" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this employee's supervisor was instated.  (mm/dd/yy)">
 		</td>
 	</tr>
 	<tr bgcolor="##78A0EB">
@@ -29,7 +29,7 @@
 		</td>
 		<td class="SelectText">
 </cfoutput>
-			<cfmodule template="../common_files/dsp_team_select.cfm" element_name="SUPERVISOR_ID" selected_flag="0" message="Please select a supervisor." class="RegText">
+			<cfmodule template="../common_files/dsp_team_select.cfm" element_name="SUPERVISOR_ID" selected_flag="0" message="Please select a supervisor.">
 		</td>
 	</tr>
 <cfif get_present_supervisor.recordcount>
@@ -54,7 +54,7 @@
 			<label for="#get_present_supervisor.emp_id#"><cfinput type="Checkbox" name="supervisor_id_list" value="#get_present_supervisor.emp_id#" id="#get_present_supervisor.emp_id#" checked="No">#get_present_supervisor.sup_name#</label>
 		</td>
 		<td class="SelectText">			
-			<cfinput type="text" name="end_date_#get_present_supervisor.emp_id#" size="10" maxlength="10" required="No" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" class="RegText" value="#dateformat(Now(),'mm/dd/yy')#">
+			<cfinput type="text" name="end_date_#get_present_supervisor.emp_id#" size="10" maxlength="10" required="No" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" value="#dateformat(Now(),'mm/dd/yy')#">
 		</td>
 		<!--- <td>&nbsp;</td> --->
 	</tr>
@@ -67,7 +67,7 @@
 				Last Date Under Most Recent Supervisor:			
 			</td>
 			<td class="SelectText">
-				<cfinput type="text" name="end_date" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" class="RegText" value="#dateformat(Now(),'mm/dd/yy')#">
+				<cfinput type="text" name="end_date" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" value="#dateformat(Now(),'mm/dd/yy')#">
 			</td>
 		</tr>
 	</cfif> --->
@@ -75,7 +75,7 @@
 		<td colspan="2" class="SelectText">
 			<input type="hidden" name="num_present_supervisors" value="#get_present_supervisor.recordcount#">
 			<input type="hidden" name="emp_id" value="#emp_id#">
-			<input type="submit" value="Submit Supervisor" class="RegText"><input type="button" onclick="javascript:window.close();" value="Cancel" class="RegText">
+			<input type="submit" value="Submit Supervisor"><input type="button" onclick="javascript:window.close();" value="Cancel">
 		</td>
 	</tr>
 </cfoutput>

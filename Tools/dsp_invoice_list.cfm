@@ -17,7 +17,7 @@
 <cfoutput query="invoice_list">
 	<tr>
 		<td>
-			<a href="javascript:list_to_details('#project_id#|#billable_type_id#');" class="RegText">#JSStringFormat("(#root_code##Replace(project_code,root_code,"")#) #trim(customer_name)# #trim(Replace(project_name,customer_name,""))#")#</a>
+			<a href="javascript:list_to_details('#project_id#|#billable_type_id#');">#JSStringFormat("(#root_code##Replace(project_code,root_code,"")#) #trim(customer_name)# #trim(Replace(project_name,customer_name,""))#")#</a>
 		</td>
 		<td>
 			#billable_type#

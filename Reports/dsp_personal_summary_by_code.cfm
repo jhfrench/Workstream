@@ -27,8 +27,8 @@
 </cfoutput>
 <cfoutput query="Agg_hours_by_month">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td align="left" class="RegText">#clientname#</td>
-		<td align="right" class="RegText">#decimalformat(sumofhours)#</td>
+		<td align="left">#clientname#</td>
+		<td align="right">#decimalformat(sumofhours)#</td>
 	</tr>
 </cfoutput>
 </table>

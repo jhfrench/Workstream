@@ -16,7 +16,7 @@
 		<cfset temp_cn=ClientName>
 	</cfif> 
 	<cfoutput>
-		<tr class="RegText">
+		<tr>
 			<td>#clientName# #ClientCode#</td>
 			<td> #lname#, #name# </td>
 			<td align="right"> #decimalformat(hours)# <cfset total_hours=total_hours+hours> </td>

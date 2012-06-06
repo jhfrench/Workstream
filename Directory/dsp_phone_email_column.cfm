@@ -21,8 +21,8 @@
 					</tr>
 				<cfoutput query="get_phone_types">
 					<tr>
-						<td align="right" class="RegText">#phone_type#:</td>
-						<td class="RegText"><cfinput name="phone_#phone_type_id#"  value="#evaluate("phone_#phone_type_id#")#" message="Please enter a properly formatted #phone_type# phone number." validate="telephone" size="11" class="RegText">&nbsp;ext.<cfinput name="phone_#phone_type_id#_ext" required="no" value="#evaluate("phone_#phone_type_id#_ext")#" message="Please enter the #phone_type# extension as a number." validate="integer" size="5" class="RegText"></td>
+						<td align="right">#phone_type#:</td>
+						<td><cfinput name="phone_#phone_type_id#"  value="#evaluate("phone_#phone_type_id#")#" message="Please enter a properly formatted #phone_type# phone number." validate="telephone" size="11">&nbsp;ext.<cfinput name="phone_#phone_type_id#_ext" required="no" value="#evaluate("phone_#phone_type_id#_ext")#" message="Please enter the #phone_type# extension as a number." validate="integer" size="5"></td>
 					</tr>
 				</cfoutput>
 			</cfif>
@@ -33,8 +33,8 @@
 					</tr>
 				<cfoutput query="get_email_types">
 					<tr>
-						<td align="right" class="RegText">#email_type#</td>
-						<td><cfinput type="text" name="email_#email_type_id#"  class="RegText" value="#evaluate("email_#email_type_id#")#"></td>					</tr>
+						<td align="right">#email_type#</td>
+						<td><cfinput type="text" name="email_#email_type_id#"  value="#evaluate("email_#email_type_id#")#"></td>					</tr>
 				</cfoutput>
 			</cfif>
 				</table>

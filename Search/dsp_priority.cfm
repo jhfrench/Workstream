@@ -17,11 +17,11 @@
 <cfoutput>
 	<tr valign="top">
 		<td align="center">
-			<input type="checkbox" name="priority_id_box" value="1" class="RegText">
+			<input type="checkbox" name="priority_id_box" value="1">
 		</td>
-		<td class="RegText">Priority</td>
+		<td>Priority</td>
 		<td>
-			<select name="priority_id" multiple size="3" onclick="checkbox_priority_id()" class="RegText"></cfoutput>
+			<select name="priority_id" multiple size="3" onclick="checkbox_priority_id()"></cfoutput>
 			<cfoutput query="get_priorities">
 				<option value="#priority_id#">#description#</option>
 			</cfoutput>

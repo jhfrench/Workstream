@@ -25,35 +25,35 @@
 <cfset variables.task_processed=listappend(variables.task_processed,task_id)>
 <cfset variables.trigger=1>
 <cfset variables.processed_counter=incrementvalue(variables.processed_counter)>
-	<tr<cfif NOT (variables.processed_counter MOD 2)> bgcolor="##E1E1E1"</cfif> class="RegText">
-		<td class="RegText">
-			<a href="javascript:list_to_project('#project_id#');" class="RegText">#project#</a>
+	<tr<cfif NOT (variables.processed_counter MOD 2)> bgcolor="##E1E1E1"</cfif>>
+		<td>
+			<a href="javascript:list_to_project('#project_id#');">#project#</a>
 		</td>
-		<td class="RegText">
-			<a href="javascript:list_to_task('#task_id#');" class="RegText">#task_name#</a>
+		<td>
+			<a href="javascript:list_to_task('#task_id#');">#task_name#</a>
 		</td>
-		<td class="RegText">
-			<a href="javascript:list_to_task('#task_id#');" class="RegText">#task_id#</a>
+		<td>
+			<a href="javascript:list_to_task('#task_id#');">#task_id#</a>
 		</td>
-		<td align="center" class="RegText">
-			<a href="javascript:list_to_task('#task_id#');" class="RegText">#dateformat(due_date,"mm/dd/yyyy")#</a>
+		<td align="center">
+			<a href="javascript:list_to_task('#task_id#');">#dateformat(due_date,"mm/dd/yyyy")#</a>
 		</td>
-		<td align="center" class="RegText">
-			<input type="checkbox" name="accept_#task_id#" checked="yes" value="#task_id#" class="RegText" disabled>
+		<td align="center">
+			<input type="checkbox" name="accept_#task_id#" checked="yes" value="#task_id#" disabled>
 		</td>
-		<td align="center" class="RegText">
+		<td align="center">
 			#billable#
 		</td>
 	<cfloop list="#emp_id_loop#" index="ii">
-		<td align="right" class="RegText">
+		<td align="right">
 			<cfif evaluate("attributes.t#task_id#_#ii#") NEQ 0>#numberformat(evaluate("attributes.t#task_id#_#ii#"),"___._")#</cfif>
 			<cfset variables.task_assigned=variables.task_assigned+evaluate("attributes.t#task_id#_#ii#")>
 		</td>
 	</cfloop>
-		<td align="center" class="RegText">
+		<td align="center">
 			#budget#
 		</td>
-		<td align="center" class="RegText">
+		<td align="center">
 			#variables.task_assigned#
 			<cfset variables.task_remainder=budget-variables.task_assigned>
 		</td>
@@ -66,7 +66,7 @@
 <cfset variables.task_remainder=0>
 </cfoutput>
 <cfif variables.trigger EQ 0>
-	<tr class="RegText">
+	<tr>
 		<cfoutput><td align="center" bgcolor="##E1E1E1" colspan="#variables.colspan#" class="Note">
 			There are no prospective tasks to assign.
 		</td></cfoutput>

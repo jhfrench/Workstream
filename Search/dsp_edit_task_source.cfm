@@ -17,9 +17,9 @@
 	<td align="center">
 		<input type="checkbox" name="task_source_box" value="1" <cfif len(attributes.Task_Source)>checked="checked"</cfif>>
 	</td>
-	<td class="RegText">Task Source</td>
+	<td>Task Source</td>
 	<td>
-		<cfmodule template="../common_files/dsp_edit_team_select.cfm" colspan="1" select_name="Task_Source" select_name_value="#attributes.task_source#" multi="1" emp_id="0" onChange="checkbox_task_source()" class="RegText">
+		<cfmodule template="../common_files/dsp_edit_team_select.cfm" colspan="1" select_name="Task_Source" select_name_value="#attributes.task_source#" multi="1" emp_id="0" onChange="checkbox_task_source()">
 	</td>
 </tr>
 <cfmodule template="../common_files/act_autocheck_checkbox_js.cfm" checkbox_name="task_source">

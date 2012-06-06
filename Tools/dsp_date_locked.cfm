@@ -20,7 +20,7 @@
 	</tr>
 	<tr>
 		<td align="center" class="SubHeadText">
-			<select name="company_id" size="#min(get_date_locked.recordcount, 10)#" multiple  class="RegText"></cfoutput>
+			<select name="company_id" size="#min(get_date_locked.recordcount, 10)#" multiple ></cfoutput>
 				<cfoutput query="get_date_locked">
 				<cfif len(date_locked)>
 					<option value="#company_id#"<cfif listlast(session.workstream_company_id) EQ company_id> selected</cfif>>#company#, #dateformat(date_locked, "mm/dd/yy")#</option>
@@ -30,13 +30,13 @@
 				</cfoutput><cfoutput>
 			</select>
 		</td>
-		<td valign="top" class="RegText">
-			Date Locked: <cfinput type="Text" name="date_locked"  message="Please specify a valid date to apply." validate="date" required="Yes" size="8" class="RegText">		
+		<td valign="top">
+			Date Locked: <cfinput type="Text" name="date_locked"  message="Please specify a valid date to apply." validate="date" required="Yes" size="8">		
 		</td>	
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<input type="submit" name="submit" value="Update Date Locked" class="RegText">
+			<input type="submit" name="submit" value="Update Date Locked">
 		</td>
 	</tr>
 </cfoutput>

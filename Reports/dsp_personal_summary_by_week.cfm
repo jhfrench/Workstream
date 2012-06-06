@@ -27,8 +27,8 @@
 </cfoutput>
 <cfoutput query="Agg_hours_by_week">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td class="RegText"><cfif variables.show_details_ind>#month#/#year# </cfif>Week #week#</td>
-		<td align="right" class="RegText">#decimalformat(sumofhours)#</td>
+		<td><cfif variables.show_details_ind>#month#/#year# </cfif>Week #week#</td>
+		<td align="right">#decimalformat(sumofhours)#</td>
 	</tr>
 </cfoutput>
 <cfif NOT variables.show_details_ind>
@@ -41,21 +41,21 @@
 <cfform name="personal_summary" action="" method="POST">
 <cfoutput>
 	<tr>
-		<td align="right" valign="bottom" class="RegText">
+		<td align="right" valign="bottom">
 			<br />
 			Look at time for
-			<select name="month" class="RegText">
+			<select name="month">
 			<cfloop from="1" to="12" index="month_ii">
 				<option value="#month_ii#"<cfif attributes.month EQ month_ii> SELECTED</cfif>>#monthasstring(month_ii)#</option>
 			</cfloop>
 			</select>
-			<select name="year" class="RegText">
+			<select name="year">
 				<cfloop from="1999" to="#year(now())#" index="ii">
 				<option value="#ii#"<cfif attributes.year EQ ii> SELECTED</cfif>>#ii#</option>
 				</cfloop>
 			</select>
 			<input type="hidden" name="emp_id" value="#attributes.emp_id#">
-			<input type="submit" value="change date" class="RegText">
+			<input type="submit" value="change date">
 		</td>
 	</tr>
 </cfoutput>

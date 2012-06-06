@@ -27,13 +27,13 @@
 </cfoutput>
 <cfoutput query="open_ts_tasks">
 	<tr<cfif open_ts_tasks.currentrow MOD 2> bgcolor="##e1e1e1"</cfif>>
-		<td class="RegText">#dateformat(due_date,"mm/dd/yy")#</td>
-		<td class="RegText">#task_id#</td>
-		<td class="RegText">#budgeted_hours#</td>
-		<td class="RegText">#lname#</td>
-		<td class="RegText"><a href="javascript:list_to_task('#task_id#');" class="RegText">#name#</a></td>
-		<td class="RegText">#status#</td>
-		<td class="RegText">#priority#</td>
+		<td>#dateformat(due_date,"mm/dd/yy")#</td>
+		<td>#task_id#</td>
+		<td>#budgeted_hours#</td>
+		<td>#lname#</td>
+		<td><a href="javascript:list_to_task('#task_id#');">#name#</a></td>
+		<td>#status#</td>
+		<td>#priority#</td>
 	</tr>
 </cfoutput>
 

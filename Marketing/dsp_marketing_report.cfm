@@ -15,7 +15,7 @@
 	</cfsilent>
 
 	<table align="center" border="1" width="95%" cellpadding="3" cellspacing="0">
-		<tr class="RegText">
+		<tr>
 			<td>	Project code</td>
 			<td>	Project Name</td>
 			<td>	Last Task	</td>
@@ -43,7 +43,7 @@
 			<td>	Probability</td>
 		</tr>
 		<cfoutput query="marketing" group="project_id">
-			<tr class="RegText">
+			<tr>
 				<td>	<a href="javascript:drill_down('#project_id#');">#project_code#</a>&nbsp;</td>
 				<td><a href="javascript:drill_down('#project_id#');">#Description#</a>&nbsp;</td>
 				<td>	<a href="javascript:drill_down('#project_id#');">#last_task#</a>&nbsp;</td>

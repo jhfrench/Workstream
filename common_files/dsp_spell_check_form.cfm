@@ -39,10 +39,10 @@
 	<input type="hidden" name="notes" value="#replacenocase(paragraphformat(Insert("--> ", Insert(" <--", message, next_position+Len(next_error)-1), next_position-1)), "<P>", "&nbsp;", "All")#">
 	<tr bordercolor="##78A0EB" class="SelectText">
 		<td width="10%" class="SelectText">&nbsp;</td>
-		<td bordercolor="##000000" bgcolor="##ffffff" align="left" colspan="2" width="80%" class="RegText">
+		<td bordercolor="##000000" bgcolor="##ffffff" align="left" colspan="2" width="80%">
 		<table border="0" cellpadding="0" cellspacing="3">
 		<tr>
-		<td class="RegText">
+		<td>
 			<!--- Display text with error in red --->
 			<cfset word_to_correct=mid(message,next_position,next_length)>
 			<cfif len(message) LT variables.too_big><cfset display_text=replacenocase(paragraphformat(Insert("#open_font#--> ", Insert(" <--#close_font#", message, next_position+Len(next_error)-1), next_position-1)), "<P>", "&nbsp;", "All")>
@@ -61,7 +61,7 @@
 	</tr>
 	<tr bordercolor="##78A0EB" class="SelectText">
 		<td align="center" colspan="4" class="SelectText">
-			<hr class="RegText">&nbsp;Checked #numberformat(percent_checked)#%&nbsp;<hr class="RegText">
+			<hr>&nbsp;Checked #numberformat(percent_checked)#%&nbsp;<hr>
 		</td>
 	</tr>
 	<tr bordercolor="##78A0EB" class="SelectText">
@@ -77,10 +77,10 @@
 	<tr bordercolor="##78A0EB" class="SelectText">
 		<td width="10%" class="SelectText">&nbsp;</td>
 		<td class="SelectText">
-			<input type="text"  name="correctionm" size="10" class="RegText">
+			<input type="text"  name="correctionm" size="10">
 		</td>
 		<td class="SelectText">
-			<select name="correction" class="RegText">
+			<select name="correction">
 			<cfloop index="suggest" list="#next_suggest#">
 				<option value="#suggest#">#suggest#</option>
 			</cfloop>
@@ -96,8 +96,8 @@
 	</tr>
 	<tr bordercolor="##78A0EB" class="SelectText">
 		<td align="center" width="50%" colspan="4" class="SelectText">
-			<input type="submit" name="option" value="Correct" class="RegText">
-			<input type="submit" name="option" value="Ignore" class="RegText">
+			<input type="submit" name="option" value="Correct">
+			<input type="submit" name="option" value="Ignore">
 		</td>
 	</tr>
 </cfif>

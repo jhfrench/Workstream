@@ -22,7 +22,7 @@ $Log:
 			Date Implemented:			
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="date" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this employee's salary was instated.  (mm/dd/yy)" class="RegText">
+			<cfinput type="text" name="date" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this employee's salary was instated.  (mm/dd/yy)">
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
@@ -30,7 +30,7 @@ $Log:
 			Salary:			
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="salary" size="10" maxlength="10" required="Yes" validate="integer" message="Please enter this employee's salary amount." class="RegText">
+			<cfinput type="text" name="salary" size="10" maxlength="10" required="Yes" validate="integer" message="Please enter this employee's salary amount.">
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
@@ -56,7 +56,7 @@ $Log:
 			Amount Increase:			
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="salary_increase_amount" size="10" maxlength="10" required="Yes" validate="integer" message="Please enter this employee's salary increase amount." class="RegText">
+			<cfinput type="text" name="salary_increase_amount" size="10" maxlength="10" required="Yes" validate="integer" message="Please enter this employee's salary increase amount.">
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
@@ -64,13 +64,13 @@ $Log:
 			% Increase:			
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="salary_percent_increase" size="10" maxlength="10" required="Yes" validate="integer" message="Please enter this employee's percent salary increase." class="RegText">
+			<cfinput type="text" name="salary_percent_increase" size="10" maxlength="10" required="Yes" validate="integer" message="Please enter this employee's percent salary increase.">
 		</td>
 	</tr> --->
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td class="SelectText" colspan="2">
 			<input type="hidden" name="emp_id" value="#emp_id#">
-			<input type="submit" value="Submit Salary" class="RegText"><input type="button" onclick="javascript:window.close();" value="Cancel" class="RegText">
+			<input type="submit" value="Submit Salary"><input type="button" onclick="javascript:window.close();" value="Cancel">
 		</td>
 	</tr>
 </cfoutput>

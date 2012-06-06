@@ -15,6 +15,6 @@
 </cfsilent>
 <span class="SubHeadText">Email</span><br />
 <cfoutput query="get_emp_email">
-#email_type#: <a href="mailto:#email#"  class="RegText">#email#</a><br />
+#email_type#: <a href="mailto:#email#" >#email#</a><br />
 </cfoutput>
 

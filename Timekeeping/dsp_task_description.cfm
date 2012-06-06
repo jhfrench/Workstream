@@ -13,7 +13,7 @@
 	||
  --->
 </cfsilent>
-	<tr class="RegText">
+	<tr>
 		<td colspan="2">
 			&nbsp;&nbsp;
 		</td>

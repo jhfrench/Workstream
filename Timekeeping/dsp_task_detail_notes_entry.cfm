@@ -22,7 +22,7 @@
 	<div class="span4">
 		<label for="hours">Hours</label>
 		<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" class="span6" />
-		<!-- let CF create the JavaScript: <cfinput type="text" name="hours" id="hours" required="No" validate="float" message="You must enter hours as a number." /> -->
+		<!-- let CF create the JavaScript: <cfinput type="text" name="hours" id="hours" required="No" validate="float" message="You must enter hours, as a number, for a time keeping entry." /> -->
 	</div>
 	<div class="span4">
 		<label for="notes_type_id">Type</label>

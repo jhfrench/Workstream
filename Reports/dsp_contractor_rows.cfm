@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput query="get_employee_id">
-<tr class="RegText">
+<tr>
 	<td>#lname#</td>
 	<td>#name#</td>
 	<td>#pin#</td>

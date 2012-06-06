@@ -28,7 +28,7 @@
 	</tr>
 	<tr>
 		<td align="center">
-			<input type="submit" name="Enter_Date" value="Enter Criteria" size="10" class="RegText">
+			<input type="submit" name="Enter_Date" value="Enter Criteria" size="10">
 		</td>
 	</tr>
 </table>

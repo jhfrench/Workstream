@@ -14,7 +14,7 @@
 </cfsilent>
 <cfform action="" method="POST">
 <cfoutput>
-<hr width="80%" class="RegText">
+<hr width="80%">
 <table align="center" border="0" cellspacing="0">
 	<tr>
 		<td class="RegTextBd">
@@ -29,13 +29,13 @@
 	</tr>
 	<tr>
 		<td>
-			<cfinput type="Text" name="date_granted" size="10" required="Yes" validate="date" message="Enter a date." class="RegText">
+			<cfinput type="Text" name="date_granted" size="10" required="Yes" validate="date" message="Enter a date.">
 		</td>
 		<td>
-			<cfinput type="Text" name="granted_hours" size="5" required="Yes" validate="float" message="Enter hours." class="RegText">
+			<cfinput type="Text" name="granted_hours" size="5" required="Yes" validate="float" message="Enter hours.">
 		</td>
 		<td>
-			<cfinput type="Text" name="comments" size="50" maxlength="50" required="Yes" message="Enter comment." class="RegText">
+			<cfinput type="Text" name="comments" size="50" maxlength="50" required="Yes" message="Enter comment.">
 		</td>
 	</tr>
 	<tr>
@@ -43,10 +43,10 @@
 			<input type="hidden" name="adjustment_flag" value="#now()#">
 			<input type="hidden" name="emp_id" value="#attributes.pin#">
 			<input type="hidden" name="pin" value="#attributes.pin#">
-			<input type="submit" value="Create Adjustment" class="RegText">
+			<input type="submit" value="Create Adjustment">
 		</td>
 	</tr>
 </table>
-<hr width="80%" class="RegText">
+<hr width="80%">
 </cfoutput>
 </cfform>

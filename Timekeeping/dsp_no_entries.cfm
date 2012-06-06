@@ -14,13 +14,13 @@
  --->
 </cfsilent>
 	<tr>
-		<td colspan="2" class="RegText">
+		<td colspan="2">
 			&nbsp;&nbsp;
 		</td>
 		<td class="Note">
 			No time entered for this task yet.
 		</td>
-		<td colspan="2" class="RegText">
+		<td colspan="2">
 			&nbsp;&nbsp;
 		</td>
 	</tr>

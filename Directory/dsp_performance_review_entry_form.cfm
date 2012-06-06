@@ -22,7 +22,7 @@ $Log:
 			Date Reviewed:			
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="date_reviewed" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this employee was reviewed.  (mm/dd/yy)" class="RegText">
+			<cfinput type="text" name="date_reviewed" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this employee was reviewed.  (mm/dd/yy)">
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
@@ -48,7 +48,7 @@ $Log:
 			Rating:			
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="rating" validate="float" size="10" maxlength="10" required="Yes" message="Please enter the rating on this review." class="RegText">
+			<cfinput type="text" name="rating" validate="float" size="10" maxlength="10" required="Yes" message="Please enter the rating on this review.">
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
@@ -68,7 +68,7 @@ $Log:
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td class="SelectText" colspan="2">
 			<input type="hidden" name="emp_id" value="#emp_id#">
-			<input type="submit" value="Submit Review" class="RegText"><input type="button" onclick="javascript:window.close();" value="Cancel" class="RegText">
+			<input type="submit" value="Submit Review"><input type="button" onclick="javascript:window.close();" value="Cancel">
 		</td>
 	</tr>
 </cfoutput>

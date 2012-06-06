@@ -28,15 +28,15 @@
 </tr>
 <tr>
 	<td>
-		<cfinput type="Text" required="no" name="name" class="RegText">
+		<cfinput type="Text" required="no" name="name">
 	</td>
 	<td>
-		<cfinput type="Text" required="no" name="lname" class="RegText">
+		<cfinput type="Text" required="no" name="lname">
 	</td>
 	<td>
-		<cfinput type="Text" required="no" name="phone" validate="telephone" class="RegText">
+		<cfinput type="Text" required="no" name="phone" validate="telephone">
 	</td>
 	<td colspan="2">
-		<cfinput type="Text" required="no" name="email" class="RegText">
+		<cfinput type="Text" required="no" name="email">
 	</td>		
 </tr>

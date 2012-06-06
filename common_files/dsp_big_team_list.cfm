@@ -14,7 +14,7 @@
  --->
 	<tr align="center">
 		<td>
-			<cfoutput><select name="#attributes.formname#" size="#min(team_select.recordcount,28)#" onChange="OKButton()" class="RegText"></cfoutput><cfoutput query="team_select">
+			<cfoutput><select name="#attributes.formname#" size="#min(team_select.recordcount,28)#" onChange="OKButton()"></cfoutput><cfoutput query="team_select">
 				<option value="#emp_id#">#lname#, #f_init#</option></cfoutput>
 			</select>
 		</td>

@@ -16,19 +16,19 @@
 <cfinclude template="qry_get_valid_projects.cfm">
 <cfoutput>
 <tr valign="top">
-	<td class="RegText" width="50%">
+	<td width="50%">
 		Timeline name<br />
-		<cfinput type="Text" name="project_planning_name" required="Yes" message="Please name this new timeline." size="30" class="RegText">
+		<cfinput type="Text" name="project_planning_name" required="Yes" message="Please name this new timeline." size="30">
 	</td>
 	<td><cfset variables.start=incrementvalue(variables.start)>
 		<ol type="1" class="Note"><li>Designate a name for this new timeline.</li></ol>
 	</td>
 </tr>
 <tr valign="top">
-	<td class="RegText" width="50%">
+	<td width="50%">
 		Project<br />
 </cfoutput>
-		<cfselect name="project_id" size="5" required="yes" message="Please specify the project for your new project timeline." class="RegText">
+		<cfselect name="project_id" size="5" required="yes" message="Please specify the project for your new project timeline.">
 		<cfoutput query="get_valid_projects">
 			<option value="#project_id#"><cfif session.workstream_project_list_order EQ 1>#customer# #replace(project_name,customer,"","ALL")# (#project_code#)<cfelse>#project_code# - #customer# #replace(project_name,customer,"","ALL")#</cfif></option>
 		</cfoutput>

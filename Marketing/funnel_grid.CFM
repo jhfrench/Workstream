@@ -163,31 +163,31 @@ CSAct[/*CMP*/ 'GoLiveAction6'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_15
 		<td><img SRC="#request.dir_level##application.application_specific_settings.image_dir#spacer.gif" width="89" height="1"></td>
 		<td><img SRC="#request.dir_level##application.application_specific_settings.image_dir#spacer.gif" width="83" height="1"></td>
 	</TR>
-	<tr class="RegText">Total suspects currently not in any phase: #marketing_home.Not_Active#
+	<tr>Total suspects currently not in any phase: #marketing_home.Not_Active#
 		<td COLSPAN="9"><img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_01.gif" WIDTH=305 HEIGHT=48></td>
 	</tr>
 	<tr>
 		<td ROWSPAN="5"><img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_02.gif" WIDTH=7 HEIGHT=171></td>
-		<td align="right" class="RegText">
-			<img SRC="#request.dir_level##application.application_specific_settings.image_dir#zzz_funnel_grid_03.gif" WIDTH=10 HEIGHT=32><a href="index.cfm?fuseaction=home_Drill&variable=Prospecting" class="RegText">#marketing_home.Prospecting#</a>&nbsp;&nbsp;</td>
+		<td align="right">
+			<img SRC="#request.dir_level##application.application_specific_settings.image_dir#zzz_funnel_grid_03.gif" WIDTH=10 HEIGHT=32><a href="index.cfm?fuseaction=home_Drill&variable=Prospecting">#marketing_home.Prospecting#</a>&nbsp;&nbsp;</td>
 		<td COLSPAN=7>
 		<a href="index.cfm?fuseaction=home_Drill&variable=Prospecting">	<img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_04.gif" WIDTH=223 HEIGHT=40 border="0"></a></td>
 	</tr>
 	<tr>
-		<td COLSPAN=2 align="right" valign="middle" class="RegText">
-			<a href="index.cfm?fuseaction=Marketing.home_Drill&variable=Qualifying" class="RegText">#marketing_home.Qualifying#</a>&nbsp;&nbsp;</td>
+		<td COLSPAN=2 align="right" valign="middle">
+			<a href="index.cfm?fuseaction=Marketing.home_Drill&variable=Qualifying">#marketing_home.Qualifying#</a>&nbsp;&nbsp;</td>
 		<td COLSPAN=6>
 			<a href="index.cfm?fuseaction=Marketing.home_Drill&variable=Qualifying"><img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_06.gif" WIDTH="214" HEIGHT="41" border="0"></a></td>
 	</tr>
 	<tr>
 		<td COLSPAN=3 align="right">
-			<img SRC="#request.dir_level##application.application_specific_settings.image_dir#zzz_funnel_grid_07.gif" align="absmiddle" WIDTH=10 HEIGHT=38><font size="2" face="arial"><a href="index.cfm?fuseaction=Marketing.home_Drill&variable=Proposing" class="RegText">#marketing_home.Proposing#</a>&nbsp;&nbsp;</td>
+			<img SRC="#request.dir_level##application.application_specific_settings.image_dir#zzz_funnel_grid_07.gif" align="absmiddle" WIDTH=10 HEIGHT=38><font size="2" face="arial"><a href="index.cfm?fuseaction=Marketing.home_Drill&variable=Proposing">#marketing_home.Proposing#</a>&nbsp;&nbsp;</td>
 		<td COLSPAN=5>
 			<a href="index.cfm?fuseaction=home_Drill&variable=Proposing"><img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_08.gif" WIDTH="208" HEIGHT="41" border="0"></a></td>
 	</tr>
 	<tr>
-		<td COLSPAN=5 align="right" class="RegText">
-			<img SRC="#request.dir_level##application.application_specific_settings.image_dir#zzz_funnel_grid_09.gif" align="absmiddle" WIDTH="10" HEIGHT="40" border="0" alt=""><a href="index.cfm?fuseaction=home_Drill&variable=Closing" class="RegText">#marketing_home.Closing#</a>&nbsp;&nbsp;</td>
+		<td COLSPAN=5 align="right">
+			<img SRC="#request.dir_level##application.application_specific_settings.image_dir#zzz_funnel_grid_09.gif" align="absmiddle" WIDTH="10" HEIGHT="40" border="0" alt=""><a href="index.cfm?fuseaction=home_Drill&variable=Closing">#marketing_home.Closing#</a>&nbsp;&nbsp;</td>
 		<td COLSPAN=3 ROWSPAN=2>
 			<a href="index.cfm?fuseaction=home_Drill&variable=Closing"><img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_10.gif" WIDTH=197 HEIGHT=49 border="0"></a></td>
 	</tr>

@@ -29,8 +29,8 @@
 		<td colspan="2">Enter Dates (mm/dd/yyyy)</td>
 	</tr>
 	<tr>	
-		<td class="RegText">From: <cfinput type="datefield" name="from_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid from date" class="RegText"></td>
-		<td class="RegText">To: <cfinput type="datefield" name="through_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid through date" class="RegText"></td>
+		<td>From: <cfinput type="datefield" name="from_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid from date"></td>
+		<td>To: <cfinput type="datefield" name="through_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid through date"></td>
 	</tr>
 </table>
 </cfoutput>

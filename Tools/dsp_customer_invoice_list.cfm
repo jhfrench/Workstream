@@ -17,7 +17,7 @@
 <cfoutput query="get_customer_invoice_list">
 	<tr>
 		<td>
-			<a href="javascript:customer_to_project(#customer_id#);" class="RegText">#customer_name#</a>
+			<a href="javascript:customer_to_project(#customer_id#);">#customer_name#</a>
 		</td>
 		<td class="RegText number">
 			#revenue#

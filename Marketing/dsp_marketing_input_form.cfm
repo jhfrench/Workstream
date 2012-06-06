@@ -14,17 +14,17 @@
 
 	<table align="center" border="1" cellpadding="3" cellspacing="0">
 		<tr>
-			<td class="RegText">	Project code</td>
-			<td class="RegText">	Project Name</td>
-			<td class="RegText">	Last Task	</td>
-			<td class="RegText">	Date of Last Task</td>
-			<td class="RegText">	Above Date</td>
-			<td class="RegText">	In Date</td>
-			<td class="RegText">	Best Few Date</td>
-			<td class="RegText">	Contract Date</td>
-			<td class="RegText">	Overview</td>
-			<td class="RegText">	Active</td>
-			<td class="RegText">	Company Size</td>
+			<td>	Project code</td>
+			<td>	Project Name</td>
+			<td>	Last Task	</td>
+			<td>	Date of Last Task</td>
+			<td>	Above Date</td>
+			<td>	In Date</td>
+			<td>	Best Few Date</td>
+			<td>	Contract Date</td>
+			<td>	Overview</td>
+			<td>	Active</td>
+			<td>	Company Size</td>
 			<cfloop from="1" to="3" index="ii">
 				<cfoutput>
 				<td>	Name	#ii#</td>

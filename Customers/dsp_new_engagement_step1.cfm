@@ -30,13 +30,13 @@
 	<tr valign="top">
 		<td colspan="2" class="RegTextBd">
 			Root Name<br />
-			<cfselect name="customer_id" size="1" query="get_root_codes" value="customer_id" required="Yes" display="display" class="RegText"></cfselect><br />
+			<cfselect name="customer_id" size="1" query="get_root_codes" value="customer_id" required="Yes" display="display"></cfselect><br />
 			Project Name<br />
-			<cfinput type="Text" name="description" required="Yes" message="Please enter an Project Name" class="RegText">
+			<cfinput type="Text" name="description" required="Yes" message="Please enter an Project Name">
 		</td>
 		<td class="RegTextBd">
 			Visible To<br />
-			<cfselect name="company_id" query="get_companies" value="company_id" display="description" size="4" required="Yes" message="Please specify which companies should see this engagement." multiple="yes" class="RegText"></cfselect>
+			<cfselect name="company_id" query="get_companies" value="company_id" display="description" size="4" required="Yes" message="Please specify which companies should see this engagement." multiple="yes"></cfselect>
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" class="Note">
@@ -47,17 +47,17 @@
 	<tr valign="top">
 		<td class="RegTextBd">
 			Product<br />
-			<cfselect name="product_id" query="get_products" value="product_id" display="product_name" required="yes" message="Please choose which product this engagement applies to." size="4" class="RegText"></cfselect><p class="RegText">
+			<cfselect name="product_id" query="get_products" value="product_id" display="product_name" required="yes" message="Please choose which product this engagement applies to." size="4"></cfselect><p>
 			<label for="strip_trailing"><input type="checkbox" name="strip_trailing" id="strip_trailing" value="1">Strip trailing digits.</label></p>
 		</td>
 		<td class="RegTextBd">
 			Custom Fields<br />
-			<label for="req_custom1" class="RegText"><cfinput type="radio" name="req_custom" value="1" id="req_custom1" class="RegText">This engagement will use custom fields.</label><br />
-<label for="req_custom0" class="RegText"><cfinput type="radio" name="req_custom" checked="Yes" value="0" id="req_custom0" class="RegText">No custom fields necessary.</label>
+			<label for="req_custom1"><cfinput type="radio" name="req_custom" value="1" id="req_custom1">This engagement will use custom fields.</label><br />
+<label for="req_custom0"><cfinput type="radio" name="req_custom" checked="Yes" value="0" id="req_custom0">No custom fields necessary.</label>
 		</td>
 		<td class="RegTextBd">
 			Billing Type<br />
-			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="billable_type" required="Yes" message="Please specify the billing type for this engagement." class="RegText"></cfselect>
+			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="billable_type" required="Yes" message="Please specify the billing type for this engagement."></cfselect>
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="2" class="Note">
@@ -74,7 +74,7 @@
 	<tr valign="top">
 		<td colspan="3" class="RegTextBd">
 			Project Update<br />
-			<textarea cols="60" rows="3" name="vision" class="RegText"></textarea>
+			<textarea cols="60" rows="3" name="vision"></textarea>
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="3" class="Note">
@@ -85,7 +85,7 @@
 	<tr valign="top">
 		<td colspan="3" class="RegTextBd">
 			Upselling Opportunities<br />
-			<textarea cols="60" rows="3" name="mission" class="RegText"></textarea>
+			<textarea cols="60" rows="3" name="mission"></textarea>
 		</td>
 		<td width="55%" class="Note">
 			&nbsp;
@@ -94,7 +94,7 @@
 	<tr valign="top">
 		<td colspan="3" class="RegTextBd">
 			Business Case<br />
-			<textarea cols="60" rows="3" name="business_case" class="RegText"></textarea>
+			<textarea cols="60" rows="3" name="business_case"></textarea>
 		</td>
 		<td width="55%" class="Note">
 			&nbsp;
@@ -102,7 +102,7 @@
 	</tr>
 	<tr valign="top">
 		<td align="center" colspan="3" class="RegTextBd">
-			<input type="submit" value="Proceed" class="RegText">
+			<input type="submit" value="Proceed">
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="4" class="Note">

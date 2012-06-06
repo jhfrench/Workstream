@@ -16,17 +16,17 @@
 <cfoutput>
 	<tr>
 		<td align="center">
-			<input type="checkbox" name="due_date_box" value="1" class="RegText">
+			<input type="checkbox" name="due_date_box" value="1">
 		</td>
-		<td class="RegText">
+		<td>
 			Due date
 		</td>
-		<td class="RegText">
-			<select name="date_entered_operator" class="RegText">
+		<td>
+			<select name="date_entered_operator">
 				<option value="1">Less Than</option>
 				<option value="2">Between</option>
 				<option value="3">Greater Than</option>
-			</select>&nbsp;<input type="Text" name="due_date" size="12" onclick="gfPop.fPopCalendar(this.form.due_date);checkbox_due_date()" class="RegText" maxlength="10">
+			</select>&nbsp;<input type="Text" name="due_date" size="12" onclick="gfPop.fPopCalendar(this.form.due_date);checkbox_due_date()" maxlength="10">
 		</td>
 	</tr>
 </cfoutput>

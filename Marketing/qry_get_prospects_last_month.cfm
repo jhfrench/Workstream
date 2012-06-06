@@ -29,7 +29,7 @@ WHERE MONTH(date_entered) = MONTH(DATEADD(m,-1,GETDATE()))
 	AND root_code = 6005
 <!--- Select Count(Project_ID) as Prospects,(cast(datepart(month,Prospecting_Begin) as varchar(2))) as Nice_Month
 From Marketing_For_Web_Query
-Where DatePart(Month,Prospecting_Begin) = (DateDiff(month,{fn now()},-1))
+Where DatePart(Month,Prospecting_Begin) = (DATEDIFF(month,{fn now()},-1))
 Group by (cast(datepart(mm,Prospecting_Begin) as varchar(2))) --->
 </cfquery>
 <cfquery name="prospects_this_month" datasource="#application.datasources.main#">
@@ -40,7 +40,7 @@ WHERE MONTH(date_entered) = MONTH(DATEADD(m,0,GETDATE()))
 	AND root_code = 6005
 <!--- Select Count(Project_ID) as Prospects,(cast(datepart(month,Prospecting_Begin) as varchar(2))) as Nice_Month
 From Marketing_For_Web_Query
-Where DatePart(Month,Prospecting_Begin) = (DateDiff(month,{fn now()},-1))
+Where DatePart(Month,Prospecting_Begin) = (DATEDIFF(month,{fn now()},-1))
 Group by (cast(datepart(mm,Prospecting_Begin) as varchar(2))) --->
 </cfquery>
 </cfsilent>

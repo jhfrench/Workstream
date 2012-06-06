@@ -20,17 +20,17 @@
 			Available&nbsp;hours
 		</td>
 	<cfloop list="#emp_id_loop#" index="ii">
-		<td align="center" valign="bottom" class="RegText">
+		<td align="center" valign="bottom">
 			#get_week_days.hours_in_month#
 		</td>
 	</cfloop>
-		<td align="center" valign="bottom" class="RegText">
+		<td align="center" valign="bottom">
 			#variables.total_requested#
 		</td>
-		<td align="center" valign="bottom" class="RegText">
+		<td align="center" valign="bottom">
 			#variables.total_requested#
 		</td>
-		<td align="center" valign="bottom" class="RegText">
+		<td align="center" valign="bottom">
 			#variables.total_requested#
 		</td>
 	</tr>

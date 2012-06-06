@@ -13,11 +13,11 @@
 	||
  --->
 </cfsilent>
-	<tr class="RegText">
+	<tr>
 		<td colspan="2">
 			&nbsp;&nbsp;
 		</td>
 		<td align="center" colspan="3">
-			<input type="Reset" class="RegText"> | <input type="submit" value="Reassign" class="RegText">
+			<input type="Reset"> | <input type="submit" value="Reassign">
 		</td>
 	</tr>

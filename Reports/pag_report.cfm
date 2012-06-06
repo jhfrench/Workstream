@@ -21,7 +21,7 @@
 	<cfoutput query="get_objects">
 		<tr>
 		<td class="SubHeadText" align="right" bgcolor="##008080"><a href="<cfif custom_ind>#custom_url#<cfelse>index.cfm?fuseaction=#action#</cfif>" class="RegTextWhite">#report_name#</a></td>
-		<td class="RegText">#description#</td>
+		<td>#description#</td>
 		</tr>
 	</cfoutput>
 </table>

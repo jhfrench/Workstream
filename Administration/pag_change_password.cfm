@@ -31,7 +31,7 @@
 		</tr>
 		<tr valign="top">
 			<td align="right" width="50%" class="SubHeadText">This can be caused by:</td>
-			<td class="RegText">
+			<td>
 				-you did not enter your current password correctly<br />
 				-your new paasword does not match the confirmation password
 			</td>
@@ -48,31 +48,31 @@
 <cfoutput>
 <table align="center" bgcolor="##cccccc" border="0" cellpadding="0" cellspacing="0">
 	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="&nbsp;Password Change (#get_user_details.lname#, #get_user_details.name#)" section_color="808080" colspan="5" gutter=0 title_class="HeadText">
-	<tr valign="top" class="RegText">
+	<tr valign="top">
 		<td class="SubHeadText">&nbsp;Please choose a new password:</td>
 	</tr>
 	<tr>
-		<td class="RegText">
+		<td>
 			&nbsp;Current Password:
 		</td>
 		<td>
-			<cfinput type="Password" name="current_pass" maxlength="50" size="11" required="Yes" message="Please enter a password." class="RegText">
+			<cfinput type="Password" name="current_pass" maxlength="50" size="11" required="Yes" message="Please enter a password.">
 		</td>
 	</tr>
 	<tr>
-		<td class="RegText">
+		<td>
 			&nbsp;New Password: 
 		</td>
 		<td>
-			<cfinput type="Password" name="new_pass" maxlength="50" size="11" required="Yes" message="Please enter a password." class="RegText">
+			<cfinput type="Password" name="new_pass" maxlength="50" size="11" required="Yes" message="Please enter a password.">
 		</td>
 	</tr>
 	<tr>
-		<td class="RegText">
+		<td>
 			&nbsp;Confirm Password: 
 		</td>
 		<td>
-			<cfinput type="Password" name="confirm_pass" maxlength="50" size="11" required="Yes" message="Please enter a password." class="RegText">
+			<cfinput type="Password" name="confirm_pass" maxlength="50" size="11" required="Yes" message="Please enter a password.">
 		</td>
 	</tr>
 	<tr>

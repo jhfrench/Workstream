@@ -15,13 +15,13 @@
 </cfsilent>
 	<tr>
 		<td align="center">
-			<input type="checkbox" name="task_name_box" value="1" class="RegText">
+			<input type="checkbox" name="task_name_box" value="1">
 		</td>
-		<td class="RegText">
+		<td>
 			Task Name
 		</td>
-		<td class="RegText">
-			<input type="Text" name="Task_Name" size="30" onclick="checkbox_task_name()" class="RegText"> Separate multiple phrases with commas.
+		<td>
+			<input type="Text" name="Task_Name" size="30" onclick="checkbox_task_name()"> Separate multiple phrases with commas.
 		</td>
 	</tr>
 <cfmodule template="../common_files/act_autocheck_checkbox_js.cfm" checkbox_name="task_name">

@@ -60,7 +60,7 @@ display="no" headerbold="No" headeritalic="No">
 </tr>
 <tr>
 	<td align="center"><input type="hidden" name="project_id" value="<cfoutput>#attributes.cfgridkey#</cfoutput>">
-<input type="submit" value="Submit"  class="RegText"></td>
+<input type="submit" value="Submit" ></td>
 </tr>
 
 </cfform>

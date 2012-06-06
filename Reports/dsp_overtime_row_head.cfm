@@ -35,10 +35,10 @@
 	</tr>
 </cfif>
 	<tr<cfif variables.compare_row MOD 2> bgcolor="##e1e1e1"</cfif>>
-		<td class="RegText">
+		<td>
 			#description#
 		</td>
-		<td align="right" class="RegText">
+		<td align="right">
 			#decimalformat(hours)#<cfset variables.total_hours=variables.total_hours+hours>
 		</td>
 	</tr>

@@ -12,16 +12,16 @@
 	$Log$
 	||
  --->
-<cfset variables.go_back_to=DateDiff("d",express_check_date.date_locked,dateadd("m",1,now()))-1>
+<cfset variables.go_back_to=datediff("d",express_check_date.date_locked,dateadd("m",1,now()))-1>
 <cfif NOT len(session.workstream_express_input_rows)>
 	<cfset session.workstream_express_input_rows=1>
 </cfif>
 </cfsilent>
 <cfloop index="dex" from="1" to="#min(session.workstream_express_input_rows,30)#">
-	<tr align="center" class="RegText">
-		<td align="center" class="RegText">
+	<tr align="center">
+		<td align="center">
 		<cfoutput query="express_check_date">
-			<select name="date" class="RegText">
+			<select name="date">
 			<cfloop from="0" to="#variables.go_back_to#" index="variables.date_adjust_ii">
 				<cfset variables.temp_date=dateadd("m",1,now())-variables.date_adjust_ii>
 				<option value="#dateformat(variables.temp_date,'mm/dd/yy')#"<cfif NOT datediff("d",now(),variables.temp_date)> SELECTED</cfif>>#dateformat(variables.temp_date,"mm/dd/yy (ddd)")#</option></cfloop>
@@ -29,18 +29,18 @@
 		</cfoutput>
 		</td>
 
-		<cfoutput><td align="center" class="RegText">
-			<input type="text" name="hours" size="4" class="RegText" onchange="validate_number(this.value)">
+		<cfoutput><td align="center">
+			<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" class="span6">
 		</td>
 
-		<td align="center" class="RegText">
-			<select name="project_id" size="1" class="RegText"></cfoutput><cfoutput query="get_valid_projects">
+		<td align="center">
+			<select name="project_id" size="1"></cfoutput><cfoutput query="get_valid_projects">
 				<option value="#project_id#">#display#</option></cfoutput>
 			</select>
 		</td>
 <cfoutput>
-		<td align="center" class="RegText">
-			<textarea rows="#session.workstream_express_notes_height#" cols="#session.workstream_express_notes_width#" name="notes_#DEX#" wrap="soft" class="RegText" /></cfoutput>
+		<td align="center">
+			<textarea rows="#session.workstream_express_notes_height#" cols="#session.workstream_express_notes_width#" name="notes_#DEX#" wrap="soft" /></cfoutput>
 		</td>
 	</tr>
 </cfloop>

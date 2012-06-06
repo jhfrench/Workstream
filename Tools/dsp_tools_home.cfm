@@ -15,7 +15,7 @@
 <cfset max_rows=int(get_tools.recordcount/3)>
 </cfsilent>
 <tr valign="top">
-	<td width="10%" class="RegText">
+	<td width="10%">
 		These tools were designed to help you do your work and improve your productivity.
 	</td>
 	<cfoutput query="get_tools">

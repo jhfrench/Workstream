@@ -15,15 +15,15 @@
  --->
 </cfsilent>
 <cfif time_entry_edit.date GTE dateformat(now()-variables.go_back_to,"mm/dd/yy")>
-	<tr align="center" class="RegText">
+	<tr align="center">
 		<td colspan="6">
-			<input type="submit" name="save" value="Save Changes" class="RegText">
+			<input type="submit" name="save" value="Save Changes">
 		</td>
 	</tr>
 </cfif>
-	<tr align="center" class="RegText">
+	<tr align="center">
 		<td colspan="6">
-			<a href="index.cfm?fuseaction=<cfoutput>#attributes.referer#</cfoutput>" class="RegText">Return to the previous page without saving.</a>
+			<a href="index.cfm?fuseaction=<cfoutput>#attributes.referer#</cfoutput>">Return to the previous page without saving.</a>
 		</td>
 	</tr>
 

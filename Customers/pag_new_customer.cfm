@@ -25,7 +25,7 @@
     <cfinclude template="dsp_new_cust_bill.cfm">
 	<tr>
 		<td colspan="5">
-		   <input type="submit" name="submit" value="Enter New Customer" class="RegText">&nbsp;&nbsp;<input type="Reset" value="Reset" class="RegText">
+		   <input type="submit" name="submit" value="Enter New Customer">&nbsp;&nbsp;<input type="Reset" value="Reset">
 		</td>
 	</tr>
 </table>

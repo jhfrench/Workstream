@@ -16,7 +16,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-	<tr class="RegText">
+	<tr>
 	   <td align="right" colspan="4">#dateformat(variables.compare_date, "mm/dd/yy")# Hours:</td>
 	   <td>#decimalformat(variables.daily_total_hours)#</td>
 	</tr>

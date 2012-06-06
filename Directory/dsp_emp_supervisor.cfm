@@ -24,20 +24,20 @@
 
 <table>
 	<tr>
-		<td class="RegText" width="25%">Name</td>
-		<td class="RegText" width="25%">Date Started</td>
-		<td class="RegText" width="25%">Date Ended</td>
+		<td width="25%">Name</td>
+		<td width="25%">Date Started</td>
+		<td width="25%">Date Ended</td>
 	</tr>
 </cfoutput>
 <cfoutput query="get_supervisor_history">
 	<tr>
-		<td class="RegText">
-			<a href="javascript:list_to_employee('#get_supervisor_history.supervisor_id#');"  title="View details for #Replace(get_supervisor_history.sup_name,"'","")#." class="RegText">#get_supervisor_history.sup_name#</a><br />
+		<td>
+			<a href="javascript:list_to_employee('#get_supervisor_history.supervisor_id#');"  title="View details for #Replace(get_supervisor_history.sup_name,"'","")#.">#get_supervisor_history.sup_name#</a><br />
 		</td>
-		<td class="RegText">
+		<td>
 			#dateformat(get_supervisor_history.date_start,'mm/dd/yyyy')#
 		</td>
-		<td class="RegText">
+		<td>
 			#dateformat(get_supervisor_history.date_end,'mm/dd/yyyy')#
 		</td>
 </cfoutput>

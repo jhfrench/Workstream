@@ -29,7 +29,7 @@
 <cfset gross_grand_tot = 0>
 </cfsilent>
 <cfloop query="lost_time">	
-	<tr class="RegText" <cfif (currentrow MOD 2)> bgcolor="#E1E1E1"</cfif>>
+	<tr <cfif (currentrow MOD 2)> bgcolor="#E1E1E1"</cfif>>
 		<cfoutput>
 			<!--- Calculate totals --->
 			<cfset gross_grand_tot = gross_grand_tot + total>
@@ -42,37 +42,37 @@
 			<cfset Unpaid_tot = Unpaid_tot + Unpaid>
 			<!--- <cfset Vacation_tot = Vacation_tot + Vacation> --->
 			<cfset  pto_tot =  pto_tot +  pto>
-		<td class="RegText">	
+		<td>	
 			#full_name# 
 		</td>
-		<!--- <td class="RegText">
+		<!--- <td>
 			#Authorized_Leave#
 		</td> --->
-		<td class="RegText">
+		<td>
 			#Bereavement# 
 		</td>
-		<td class="RegText">
+		<td>
 			#Holiday#
 		</td>	
-		<td class="RegText">
+		<td>
 			#Jury_Duty#
 		</td>
-		<!--- <td class="RegText">
+		<!--- <td>
 			#Sick#
 		</td>		 --->
-		<td class="RegText">
+		<td>
 			#STD_LTD#
 		</td>
-		<td class="RegText">
+		<td>
 			#Unpaid#
 		</td>
-		<!--- <td class="RegText">
+		<!--- <td>
 			#Vacation#
 		</td> --->
-		<td class="RegText">
+		<td>
 			#PTO#
 		</td>
-		<td class="RegText">
+		<td>
 			#total#
 		</td>
 		</cfoutput>

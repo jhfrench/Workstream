@@ -28,7 +28,7 @@
 <cfinclude template="dsp_user_field_labels.cfm">
 	<tr valign="top">
 		<td align="center" class="RegTextBd">
-			<input type="submit" value="Proceed" class="RegText">
+			<input type="submit" value="Proceed">
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">

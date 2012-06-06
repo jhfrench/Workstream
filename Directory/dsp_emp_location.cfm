@@ -21,8 +21,8 @@
 	</tr>
 	<tr>
 <cfoutput query="get_emp_location">
-		<td valign="top" width="40" class="RegText">#location_type#:</td>
-		<td valign="top" class="RegText">#address1#<br /><cfif compare(address2,"")>#address2#<br /></cfif>#city#, #state# #zip#<br /></td>
+		<td valign="top" width="40">#location_type#:</td>
+		<td valign="top">#address1#<br /><cfif compare(address2,"")>#address2#<br /></cfif>#city#, #state# #zip#<br /></td>
 </cfoutput>
 	</tr>
 </table>

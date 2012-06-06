@@ -15,22 +15,22 @@
 </cfsilent>
 <cfoutput query="employee_force">
 	<tr<cfif (currentrow MOD 2) EQ 0> bgcolor="##E1E1E1"</cfif> class="SubHeadText">
-		<td class="RegText">
+		<td>
 			#engagement#
 		</td>
-		<td class="RegText">
-			<a href="javascript:list_to_task('#task_id#');" class="RegText">#task#</a>
+		<td>
+			<a href="javascript:list_to_task('#task_id#');">#task#</a>
 		</td>
-		<td class="RegText">
+		<td>
 			#billable#
 		</td>
-		<td class="RegText">
+		<td>
 			#priority#
 		</td>
-		<td class="RegText">
+		<td>
 			#status#
 		</td>
-		<td class="RegText">
+		<td>
 			#dateformat(date_due,"mm/dd/yy")#
 		</td>
 		<td class="RegText<cfif on_time EQ 0>Red</cfif>">

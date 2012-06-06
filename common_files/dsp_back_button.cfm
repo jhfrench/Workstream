@@ -14,7 +14,7 @@
 	
 	END FUSEDOC --->
 <cfoutput>
-<td class="RegText">
-	<input type="button" value="Back" class="RegText" onclick="history.go(-1)">
+<td>
+	<input type="button" value="Back" onclick="history.go(-1)">
 </td>
 </cfoutput>

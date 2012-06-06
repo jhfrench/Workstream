@@ -20,18 +20,18 @@
 		</td>
 	<cfloop list="#emp_id_loop#" index="ii">
 	<cfparam name="sum_#ii#" default="0">
-		<td align="center" valign="bottom" class="RegText">
-			<input type="Text" name="sum_#ii#" value="#evaluate("sum_#ii#")#" size="3" onfocus="blur();" class="RegText">
+		<td align="center" valign="bottom">
+			<input type="Text" name="sum_#ii#" value="#evaluate("sum_#ii#")#" size="3" onfocus="blur();">
 		</td>
 	</cfloop>
-		<td align="center" valign="bottom" class="RegText">
+		<td align="center" valign="bottom">
 			#variables.requested_sum#
 		</td>
-		<td align="center" valign="bottom" class="RegText">
-			<input type="Text" name="sum_assigned" value="0" size="3" onfocus="blur();" class="RegText">
+		<td align="center" valign="bottom">
+			<input type="Text" name="sum_assigned" value="0" size="3" onfocus="blur();">
 		</td>
-		<td align="center" valign="bottom" class="RegText">
-			<input type="Text" name="sum_remaining" value="0" size="3" onfocus="blur();" class="RegText"><input type="hidden" name="force_year" value="#attributes.force_year#"><input type="hidden" name="force_month" value="#attributes.force_month#">
+		<td align="center" valign="bottom">
+			<input type="Text" name="sum_remaining" value="0" size="3" onfocus="blur();"><input type="hidden" name="force_year" value="#attributes.force_year#"><input type="hidden" name="force_month" value="#attributes.force_month#">
 		</td>
 	</tr>
 </cfoutput>

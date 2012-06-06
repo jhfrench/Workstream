@@ -20,32 +20,32 @@
 <cfset gross_grand_tot = 0>
 			
 <cfloop query="qry_get_ytd_gross_hours">	
-	<tr class="RegText" <cfif (currentrow MOD 2)> bgcolor="#E1E1E1"</cfif>>
+	<tr <cfif (currentrow MOD 2)> bgcolor="#E1E1E1"</cfif>>
 		<cfoutput>
 			<!--- Calculate totals and billable amount --->
 			<!--- <cfset billable = Gross_Hours - non_billable> --->
 			<cfset billable_grand_tot = billable_grand_tot + billable>
 			<cfset nonbillable_grand_tot = nonbillable_grand_tot + non_billable>
 			<cfset gross_grand_tot = Gross_Hours + gross_grand_tot>
-		<td class="RegText">	
+		<td>	
 			#LName#, #Name# 
 		</td>
-		<td class="RegText">
+		<td>
 			#employee_classification# 
 		</td>
-		<td class="RegText">
+		<td>
 			#City#
 		</td>	
 
-		<td class="RegText">
+		<td>
 			#decimalformat(non_billable)#
 		</td>
 
-		<td class="RegText">
+		<td>
 			#decimalformat(billable)#
 		</td>		
 
-		<td class="RegText">
+		<td>
 			#decimalformat(Gross_Hours)#
 		</td>
 		</cfoutput>

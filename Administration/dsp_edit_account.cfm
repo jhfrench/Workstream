@@ -24,23 +24,23 @@
 <cfoutput query="get_all_modules_and_reports">
 <cfif NOT CompareNoCase(report_name, "edit employee") and object_security>
 	<tr>
-		<td align="left" class="RegText" colspan="2">
-		<a href="javascript:edit_employee('#emp_id#');" class="RegText">Edit Employee Information</a>
+		<td align="left" colspan="2">
+		<a href="javascript:edit_employee('#emp_id#');">Edit Employee Information</a>
 		</td>
 	</tr>
 	</cfif>
 </cfoutput>	
 <cfoutput query="get_user_details" maxrows="1">
-	<tr valign="top" class="RegText">
-		<td colspan="2">&nbsp;Username: <cfinput type="Text" name="username" value="#username#" required="Yes" message="Please enter a username." class="RegText">
+	<tr valign="top">
+		<td colspan="2">&nbsp;Username: <cfinput type="Text" name="username" value="#username#" required="Yes" message="Please enter a username.">
 		</td>
 	</tr>
-	<tr valign="top" class="RegText">
-		<td colspan="2">&nbsp;Password: <cfinput type="#variables.type#" name="password" value="#password#" required="Yes" message="Please enter a password." class="RegText">
+	<tr valign="top">
+		<td colspan="2">&nbsp;Password: <cfinput type="#variables.type#" name="password" value="#password#" required="Yes" message="Please enter a password.">
 		</td>
 	</tr>
-	<tr valign="top" class="RegText">
-		<td colspan="2">&nbsp;Disable User: <input type="checkbox" name="disable"<cfif disable> checked</cfif>  class="RegText">
+	<tr valign="top">
+		<td colspan="2">&nbsp;Disable User: <input type="checkbox" name="disable"<cfif disable> checked</cfif> >
 		</td>
 	</tr>
 	<cfmodule template="../common_files/dsp_submit_options.cfm" include_reset="1" reset_value="Reset Options" submit_value="Save Settings">
@@ -53,18 +53,18 @@
 <cfoutput query="get_all_modules_and_reports">
 <cfif compare(variables.module_name, module_name)>
 <cfset index=ListFind(module_num,module_id)>
-	<tr bgcolor="#listgetat(module_color,index)#" valign="top" class="RegText">
+	<tr bgcolor="#listgetat(module_color,index)#" valign="top">
 		<td class="SubHeadText<cfif module_id NEQ 4>White</cfif>">
-			<input type="checkbox" name="M#module_id#"<cfif module_security> checked</cfif>  class="RegText"> #module_name#
+			<input type="checkbox" name="M#module_id#"<cfif module_security> checked</cfif> > #module_name#
 		</td>
 		<td class="SubHeadText<cfif module_id NEQ 4>White</cfif>">All Option</td>
 	</tr>
 </cfif>
-	<tr bgcolor="##e6e6e6" valign="top" class="RegText">
-		<td class="RegText">
-			&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="R#object_id#"<cfif object_security> checked</cfif>  class="RegText"> #report_name#
+	<tr bgcolor="##e6e6e6" valign="top">
+		<td>
+			&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="R#object_id#"<cfif object_security> checked</cfif> > #report_name#
 		</td>
-		<td class="RegText"><input type="checkbox" name="A_O#object_id#"<cfif object_all_option_editable> checked</cfif> <cfif not object_all_option> disabled</cfif> class="RegText"></td>
+		<td><input type="checkbox" name="A_O#object_id#"<cfif object_all_option_editable> checked</cfif> <cfif not object_all_option> disabled</cfif>></td>
 	</tr>
 	<cfset variables.module_name=module_name>
 </cfoutput>

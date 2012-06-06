@@ -15,7 +15,7 @@
 </cfsilent>
 <cfoutput>
 <tr>
-	<td align="center" colspan="2" class="RegText">Your new timeline has been set up.</td>
+	<td align="center" colspan="2">Your new timeline has been set up.</td>
 </tr>
 </cfoutput>
 

@@ -20,18 +20,18 @@
 			Capacity&nbsp;Used
 		</td>
 	<cfloop list="#emp_id_loop#" index="ii">
-		<td align="center" valign="bottom" class="RegText">
+		<td align="center" valign="bottom">
 			#evaluate("attributes.capacity_#ii#")#
 		</td>
 	</cfloop>
-		<td align="center" valign="bottom" class="RegText">
+		<td align="center" valign="bottom">
 			<cfif variables.total_requested><cfset variables.total_capacity=requested_sum/variables.total_requested*100><cfelse><cfset variables.total_capacity=0></cfif>
 			#decimalformat(variables.total_capacity)#%
 		</td>
-		<td align="center" valign="bottom" class="RegText">
+		<td align="center" valign="bottom">
 			#attributes.capacity_assigned#
 		</td>
-		<td align="center" valign="bottom" class="RegText">
+		<td align="center" valign="bottom">
 			#attributes.capacity_remaining#
 		</td>
 	</tr>

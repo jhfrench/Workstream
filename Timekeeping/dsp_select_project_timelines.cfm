@@ -21,9 +21,9 @@
 	</cfif>
 	<tr>
 		<td align="right">
-			<cfinput type="Radio" name="project_planning_id" value="#project_planning_id#" id="p#project_planning_id#" checked="#variables.checked#" required="yes" message="Please choose a project timeline to view." onclick="document.project_timeline.submit();" class="RegText">
+			<cfinput type="Radio" name="project_planning_id" value="#project_planning_id#" id="p#project_planning_id#" checked="#variables.checked#" required="yes" message="Please choose a project timeline to view." onclick="document.project_timeline.submit();">
 		</td>
-		<td align="left" class="RegText">
+		<td align="left">
 			<label for="p#project_planning_id#">#project_planning_name#</label>
 		</td>
 	</tr>

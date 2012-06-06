@@ -17,12 +17,12 @@
 		<td class="SelectText">
 			<input type="hidden" name="language" value="AM">
 			<input type="hidden" name="formname" value="#formname#">
-			<textarea name="message" cols="90" rows="13" class="RegText"></textarea>
+			<textarea name="message" cols="90" rows="13"></textarea>
 		</td>
 	</tr>
 	<tr align="center">
 		<td class="SelectText">
-			<input type="submit" value="Check Spelling" class="RegText"><input type="submit" onclick="javascript:window.close();" value="Cancel" class="RegText">
+			<input type="submit" value="Check Spelling"><input type="submit" onclick="javascript:window.close();" value="Cancel">
 		</td>
 	</tr>
 </cfoutput>

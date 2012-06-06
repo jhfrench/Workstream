@@ -38,7 +38,7 @@
 				onchange="OKButton()"
 				HTMLBetween="<br />Project<br />">
 		<!--- 
-			<cfoutput><select name="#attributes.formname#" size="#min(get_valid_projects.recordcount,28)#" onChange="OKButton()" class="RegText"></cfoutput>
+			<cfoutput><select name="#attributes.formname#" size="#min(get_valid_projects.recordcount,28)#" onChange="OKButton()"></cfoutput>
 				<cfoutput query="get_valid_projects"><option value="#project_id#"><cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>#project_code# - #customer# #replace(project_name,customer,"","ALL")#<cfelse>#customer# #replace(project_name,customer,"","ALL")# (#project_code#)</cfif></option>
 			</cfoutput>
 			</select> --->

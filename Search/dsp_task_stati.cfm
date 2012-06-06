@@ -16,11 +16,11 @@
 <cfinclude template="../common_files/qry_get_task_stati.cfm">
 	<tr valign="top">
 		<td align="center">
-			<input type="checkbox" name="task_stati_box" value="1" class="RegText">
+			<input type="checkbox" name="task_stati_box" value="1">
 		</td>
-		<td class="RegText">Task Status</td>
+		<td>Task Status</td>
 		<td>
-			<select name="task_stati" multiple size="4" onclick="checkbox_task_stati()" class="RegText">
+			<select name="task_stati" multiple size="4" onclick="checkbox_task_stati()">
 			<cfoutput query="get_task_stati">
 				<option value="#status_id#">#status#</option>
 			</cfoutput>

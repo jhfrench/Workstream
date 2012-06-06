@@ -32,9 +32,9 @@
 <cfoutput query="deadline_management_main">
 <cfif due_year LT lowest_year><cfset lowest_year=due_year></cfif>
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td align="center" class="RegText"><cfif due_year NEQ temp_year>#due_year#<cfset temp_year=due_year><cfelse>&nbsp;</cfif></td>
-		<td align="left" class="RegText"><a href="javascript:change_month('#due_month#','#due_year#');" class="RegText">#MonthAsString(due_month)#</a></td>
-		<td align="right" class="RegText">#decimalformat(on_time_percent)#</td>
+		<td align="center"><cfif due_year NEQ temp_year>#due_year#<cfset temp_year=due_year><cfelse>&nbsp;</cfif></td>
+		<td align="left"><a href="javascript:change_month('#due_month#','#due_year#');">#MonthAsString(due_month)#</a></td>
+		<td align="right">#decimalformat(on_time_percent)#</td>
 	</tr>
 </cfoutput>
 </table>

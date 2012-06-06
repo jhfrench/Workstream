@@ -23,7 +23,7 @@
 	<cfinclude template="../common_files/qry_get_drop_down_options.cfm">
 	<cfif field_type_id EQ 1>
 		<label for="custom_drops#user_field_id#">#field_title#</label>: 
-		<select name="custom_drops#user_field_id#" id="custom_drops#user_field_id#" size="1" class="RegText">
+		<select name="custom_drops#user_field_id#" id="custom_drops#user_field_id#" size="1">
 			<cfloop query="get_drop_down_options">
 			<option value="#get_drop_down_options.user_field_items_id#"<cfif listfind(variables.custom_answers,user_field_items_id)> selected</cfif>>#get_drop_down_options.selection_title#</option>
 			</cfloop>
@@ -37,7 +37,7 @@
 				<cfset variables.text_answer=listgetat(variables.custom_answers_text,listfind(variables.custom_answers,user_field_items_id),"|")>
 			</cfif>
 			</cfloop>
-		<input type="text" name="custom_text#user_field_id#" id="custom_text#user_field_id#" size="12" value="#variables.text_answer#" maxlength="50" class="RegText"><br />
+		<input type="text" name="custom_text#user_field_id#" id="custom_text#user_field_id#" size="12" value="#variables.text_answer#" maxlength="50"><br />
 		<cfset variables.custom_text=listappend(variables.custom_text,user_field_id)>
 	</cfif>
 </cfloop>

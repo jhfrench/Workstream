@@ -17,11 +17,11 @@
 </cfif>
 </cfsilent>
 <tr align="center">
-	<td valign="top" class="RegText">
+	<td valign="top">
 		Name:
 	</td>
-	<td valign="top" class="RegText">
-		<cfselect name="form_pin" message="Please select an employee for your PTO report." required="Yes" multiple="Yes" size="#min(get_pto_names.recordcount,15)#" class="RegText">
+	<td valign="top">
+		<cfselect name="form_pin" message="Please select an employee for your PTO report." required="Yes" multiple="Yes" size="#min(get_pto_names.recordcount,15)#">
 			<cfif variables.all_option><option value="all" SELECTED>ALL</cfif>
 			<cfoutput query="get_pto_names">
 			<option value="#emp_id#"<cfif variables.only_one> SELECTED</cfif>>#lname#, #name#</option>
@@ -32,7 +32,7 @@
 </tr>
 <tr align="center">
 	<td colspan="2">
-		<input type="submit" value="Submit" class="RegText">
+		<input type="submit" value="Submit">
 	</td>
 </tr>
 <cfif variables.only_one>

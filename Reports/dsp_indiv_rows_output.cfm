@@ -16,7 +16,7 @@
 <cfif day NEQ date> 
 <tr>
 	<td colspan="4">
-		  <hr color="##000000" size="1" class="RegText">
+		  <hr color="##000000" size="1">
 	</td>
 </tr>
 </cfif>
@@ -24,16 +24,16 @@
 <cfset total_hours=total_hours+hours>
 	<!-- see this all the time--->
 	<tr valign="top">
-		<td class="RegText">
+		<td>
 			#dateformat(date, "mm/dd/yy")#
 		</td>
-		<td class="RegText">
+		<td>
 			#project_display#
 		</td>
-		<td class="RegText">
+		<td>
 			#decimalformat(hours)#
 		</td>
-		<td class="RegText">
+		<td>
 			#notes#
 		</td>
 	</tr>
@@ -41,7 +41,7 @@
 <!-- only see this after the date changes
 <tr>
 	<td colspan="4">
-		  <hr color="##000000" class="RegText">
+		  <hr color="##000000">
 	</td>
 </tr>--->
 <tr bgcolor="##c0c0c0">

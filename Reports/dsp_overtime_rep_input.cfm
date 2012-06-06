@@ -27,11 +27,11 @@
 		</td>
 </tr>
 <tr>
-<td class="RegText" colspan ="2">
+<td colspan ="2">
 Select a Week:
 </td>
 </tr>
-<tr class="RegText">
+<tr>
 <td>
 	Name:
 </td>
@@ -39,7 +39,7 @@ Select a Week:
 <tr>
 <td>
 			
-			<cfselect name="pin" size="5" message="Please don't leave blank" required="Yes" multiple="Yes" class="RegText">
+			<cfselect name="pin" size="5" message="Please don't leave blank" required="Yes" multiple="Yes">
 				<OPTION value="ALL" selected>
 					ALL
 					<cfoutput query="get_overtime_employees">

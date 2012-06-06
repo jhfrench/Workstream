@@ -28,15 +28,15 @@
 		<td colspan="2" class="RegTextWhite">Enter Dates (mm/dd/yyyy)</td>
 	</tr>
 	<tr>	
-		<td class="RegText">
-			<label for="from_date">From</label>: <cfinput type="datefield" name="from_date" id="from_date" required="#attributes.required#" size="9" validate="date" message="You must enter a valid from date" class="RegText">
+		<td>
+			<label for="from_date">From</label>: <cfinput type="datefield" name="from_date" id="from_date" required="#attributes.required#" size="9" validate="date" message="You must enter a valid from date">
 		</td>
-		<td class="RegText">
-			<label for="through_date">To</label>: <cfinput type="datefield" name="through_date" id="through_date" required="#attributes.required#" size="9" validate="date" message="You must enter a valid through date" class="RegText">
+		<td>
+			<label for="through_date">To</label>: <cfinput type="datefield" name="through_date" id="through_date" required="#attributes.required#" size="9" validate="date" message="You must enter a valid through date">
 		</td>
 	</tr>
 	<tr>
-		<td align="center" colspan="2"><input type="submit" value="Enter Dates" class="RegText"></td>
+		<td align="center" colspan="2"><input type="submit" value="Enter Dates"></td>
 	</tr>	
 </table>
 </cfform>

@@ -18,11 +18,11 @@
 		<td class="RegText number">
 			#Emp_ID# 
 		</td>
-		<td class="RegText">
+		<td>
 			#lname#, #name#
 		</td>
 		<td class="RegText number">
-			<a href="javascript:pto('#emp_id#')" class="RegText">#decimalformat(pto_hours_used)#</a>
+			<a href="javascript:pto('#emp_id#')">#decimalformat(pto_hours_used)#</a>
 			<cfset used=pto_hours_used>
 		</td>
 		<td class="RegText number">

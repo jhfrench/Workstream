@@ -20,19 +20,19 @@
 		<td colspan="2" class="RegTextWhite">Enter Dates (mm/dd/yyyy)</td>
 	</tr>
 	<tr>	
-		<td class="RegText">From: <cfinput type="Text" name="From_date" required="yes" size="9" validate="date" message="You must enter a valid from date" class="RegText"></td>
-		<td class="RegText">To: <cfinput type="Text" name="through_date" required="yes" size="9" validate="date" message="You must enter a valid through date" class="RegText"></td>
+		<td>From: <cfinput type="Text" name="From_date" required="yes" size="9" validate="date" message="You must enter a valid from date"></td>
+		<td>To: <cfinput type="Text" name="through_date" required="yes" size="9" validate="date" message="You must enter a valid through date"></td>
 	</tr>
 	<tr>
-		<td colspan="2" valign="top" class="RegText">
+		<td colspan="2" valign="top">
 			<label for="all_employees"><input type="checkbox" name="all_employees" id="all_employees" onclick="document.forms.all_employees.submit();" value="#all_employees_change#"> View <cfif compare(attributes.all_employees, 0)>Only Active<cfelse>Inactive</cfif> Employees</label>
 		</td>
 	</tr>
 	<tr>
-		<td valign="top" class="RegText">Included Employees:</td>
-		<td class="RegText">
+		<td valign="top">Included Employees:</td>
+		<td>
 </cfoutput>
-				<cfselect name="included_emp_id" multiple="Yes" size="#min(variables.recordcount,25)#" class="RegText">
+				<cfselect name="included_emp_id" multiple="Yes" size="#min(variables.recordcount,25)#">
 				<cfif variables.all_option>
 					<cfoutput query="team_select">
 					<option value="#emp_id#" SELECTED>#display#</option>
@@ -47,6 +47,6 @@
 	</tr>
 <cfoutput>
 	<tr>
-		<td align="center" colspan="2"><input type="submit" value="Generate Report" class="RegText"></td>
+		<td align="center" colspan="2"><input type="submit" value="Generate Report"></td>
 	</tr>
 </cfoutput>

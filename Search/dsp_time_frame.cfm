@@ -25,11 +25,11 @@ document.input_attributes.task_name_box.checked=true
 		<td align="center">
 			<input type="checkbox" name="time_frame_box" value="1">
 		</td>
-		<td class="RegText">
+		<td>
 			Time Frame
 		</td>
-		<td class="RegText">
-			<input type="Text" name="Task_Name" size="20" onclick="checkbox_task_name()" class="RegText"> Single Word Only
+		<td>
+			<input type="Text" name="Task_Name" size="20" onclick="checkbox_task_name()"> Single Word Only
 		</td>
 </tr>
 

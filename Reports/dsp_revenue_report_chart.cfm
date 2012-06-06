@@ -66,12 +66,12 @@
 	<cfset ytd_incident=ytd_incident+incident_revenue>
 	<cfset ytd_revenue=ytd_revenue+month_revenue>
 	<tr>
-		<td align="center" class="RegText"><cfif year NEQ temp_year>#year#<cfelse>&nbsp;</cfif></td>
-		<td align="left" class="RegText">#MonthAsString(month)#</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText">#decimalformat(flat_revenue)#</td>
-		<td align="right" class="RegText">#decimalformat(hour_revenue)#</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText">#decimalformat(incident_revenue)#</td>
-		<td align="right" class="RegText">#dollarformat(month_revenue)#</td>
+		<td align="center"><cfif year NEQ temp_year>#year#<cfelse>&nbsp;</cfif></td>
+		<td align="left">#MonthAsString(month)#</td>
+		<td align="right" bgcolor="##BAEE9B">#decimalformat(flat_revenue)#</td>
+		<td align="right">#decimalformat(hour_revenue)#</td>
+		<td align="right" bgcolor="##BAEE9B">#decimalformat(incident_revenue)#</td>
+		<td align="right">#dollarformat(month_revenue)#</td>
 	</tr>
 </cfif>
 <cfif month EQ 1>
@@ -83,19 +83,19 @@
 		<td colspan="6" height="1"></td>
 	</tr>
 	<tr bgcolor="##E1E1E1">
-		<td align="right" colspan="2" class="RegText">
+		<td align="right" colspan="2">
 			#year# YTD
 		</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText">
+		<td align="right" bgcolor="##BAEE9B">
 			#dollarformat(ytd_flat)#<cfset ytd_flat=0>
 		</td>
-		<td align="right" class="RegText">
+		<td align="right">
 			#dollarformat(ytd_hour)#<cfset ytd_hour=0>
 		</td>
-		<td align="right" bgcolor="##BAEE9B" align="right" class="RegText">
+		<td align="right" bgcolor="##BAEE9B" align="right">
 			#dollarformat(ytd_incident)#<cfset ytd_incident=0>
 		</td>
-		<td align="right" class="RegText">
+		<td align="right">
 			#dollarformat(ytd_revenue)#<cfset ytd_revenue=0>
 		</td>
 	</tr>
@@ -111,33 +111,33 @@
 		<td align="center" class="SubHeadText">Total Sales</td>
 	</tr>
 	<tr bgcolor="##c0c0c0">
-		<td align="center" class="RegText">Totals:</td>
-		<td align="center" class="RegText">#revisedrecordcount# months</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText">&nbsp;#decimalformat(total_flat)#</td>
-		<td align="right" class="RegText">&nbsp;#decimalformat(total_hour)#</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText">&nbsp;#decimalformat(total_incident)#</td>
-		<td align="right" class="RegText">&nbsp;#dollarformat(total_revenue)#</td>
+		<td align="center">Totals:</td>
+		<td align="center">#revisedrecordcount# months</td>
+		<td align="right" bgcolor="##BAEE9B">&nbsp;#decimalformat(total_flat)#</td>
+		<td align="right">&nbsp;#decimalformat(total_hour)#</td>
+		<td align="right" bgcolor="##BAEE9B">&nbsp;#decimalformat(total_incident)#</td>
+		<td align="right">&nbsp;#dollarformat(total_revenue)#</td>
 	</tr>
 	<tr bgcolor="##c0c0c0">
-		<td align="left" colspan="2" class="RegText">Monthly Average</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText">&nbsp;<cfif revisedrecordcount>#decimalformat(total_flat/revisedrecordcount)#<cfelse>0</cfif></td>
-		<td align="right" class="RegText">&nbsp;<cfif revisedrecordcount>#decimalformat(total_hour/revisedrecordcount)#<cfelse>0</cfif></td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText">&nbsp;<cfif revisedrecordcount>#decimalformat(total_incident/revisedrecordcount)#<cfelse>0</cfif></td>
-		<td align="right" class="RegText">&nbsp;<cfif revisedrecordcount>#dollarformat(total_revenue/revisedrecordcount)#<cfelse>0</cfif></td>
+		<td align="left" colspan="2">Monthly Average</td>
+		<td align="right" bgcolor="##BAEE9B">&nbsp;<cfif revisedrecordcount>#decimalformat(total_flat/revisedrecordcount)#<cfelse>0</cfif></td>
+		<td align="right">&nbsp;<cfif revisedrecordcount>#decimalformat(total_hour/revisedrecordcount)#<cfelse>0</cfif></td>
+		<td align="right" bgcolor="##BAEE9B">&nbsp;<cfif revisedrecordcount>#decimalformat(total_incident/revisedrecordcount)#<cfelse>0</cfif></td>
+		<td align="right">&nbsp;<cfif revisedrecordcount>#dollarformat(total_revenue/revisedrecordcount)#<cfelse>0</cfif></td>
 	</tr>
 	<tr bgcolor="##c0c0c0">
-		<td align="left" colspan="2" class="RegText">3 Month Average</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText">&nbsp;#decimalformat(tri_month_flat/3)#</td>
-		<td align="right" class="RegText">&nbsp;#decimalformat(tri_month_hour/3)#</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText">&nbsp;#decimalformat(tri_month_incident/3)#</td>
-		<td align="right" class="RegText">&nbsp;#dollarformat(tri_month_revenue/3)#</td>
+		<td align="left" colspan="2">3 Month Average</td>
+		<td align="right" bgcolor="##BAEE9B">&nbsp;#decimalformat(tri_month_flat/3)#</td>
+		<td align="right">&nbsp;#decimalformat(tri_month_hour/3)#</td>
+		<td align="right" bgcolor="##BAEE9B">&nbsp;#decimalformat(tri_month_incident/3)#</td>
+		<td align="right">&nbsp;#dollarformat(tri_month_revenue/3)#</td>
 	</tr>
 	<tr bgcolor="##c0c0c0">
-		<td align="left" colspan="2" class="RegText">12 Month Average</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText">&nbsp;#decimalformat(twelve_month_flat/12)#</td>
-		<td align="right" class="RegText">&nbsp;#decimalformat(twelve_month_hour/12)#</td>
-		<td align="right" bgcolor="##BAEE9B" class="RegText">&nbsp;#decimalformat(twelve_month_incident/12)#</td>
-		<td align="right" class="RegText">&nbsp;#dollarformat(twelve_month_revenue/12)#</td>
+		<td align="left" colspan="2">12 Month Average</td>
+		<td align="right" bgcolor="##BAEE9B">&nbsp;#decimalformat(twelve_month_flat/12)#</td>
+		<td align="right">&nbsp;#decimalformat(twelve_month_hour/12)#</td>
+		<td align="right" bgcolor="##BAEE9B">&nbsp;#decimalformat(twelve_month_incident/12)#</td>
+		<td align="right">&nbsp;#dollarformat(twelve_month_revenue/12)#</td>
 	</tr>
 </cfoutput>
 </table>

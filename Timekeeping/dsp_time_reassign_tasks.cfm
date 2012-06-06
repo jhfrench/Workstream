@@ -18,17 +18,17 @@
 		<td colspan="2">
 			&nbsp;&nbsp;
 		</td>
-		<td class="RegText">
+		<td>
 			Project
 		</td>
 		<td>
 			&nbsp;&nbsp;
 		</td>
-		<td class="RegText">
+		<td>
 			Task
 		</td>
 	</tr>
-	<tr valign="middle" class="RegText">
+	<tr valign="middle">
 		<td colspan="2">
 			&nbsp;&nbsp;
 		</td>

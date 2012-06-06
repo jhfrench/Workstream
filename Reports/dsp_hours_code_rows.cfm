@@ -12,7 +12,7 @@
 	||
 	END FUSEDOC --->
 </cfsilent>
-	<tr class="RegText">
+	<tr>
 		<td width="25">&nbsp;&nbsp;</td>
 		<td><cfoutput>#employee_classification#</cfoutput></td>
 		<td width="25">&nbsp;&nbsp;</td>

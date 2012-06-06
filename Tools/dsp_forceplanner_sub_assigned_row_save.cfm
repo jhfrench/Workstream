@@ -20,14 +20,14 @@
 			Assigned&nbsp;hours
 		</td>
 	<cfloop list="#emp_id_loop#" index="ii">
-		<td align="center" valign="bottom" class="RegText">
+		<td align="center" valign="bottom">
 			#evaluate("attributes.sum_#ii#")#
 		</td>
 	</cfloop>
-		<td align="center" class="RegText">
+		<td align="center">
 			#requested_sum#
 		</td>
-		<td align="center" class="RegText">
+		<td align="center">
 			#attributes.sum_assigned#
 		</td>
 		<td align="center" class="RegText<cfif attributes.sum_remaining LT 0>Red</cfif>">

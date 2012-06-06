@@ -31,10 +31,10 @@
 <cfoutput query="efficiency_report_main">
 <cfif time_year LT lowest_year><cfset lowest_year=time_year></cfif>
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td align="center" class="RegText"><cfif time_year NEQ temp_year>#time_year#<cfset temp_year=time_year><cfelse>&nbsp;</cfif></td>
-		<td align="left" class="RegText"><a href="javascript:change_month('#time_month#','#time_year#');" class="RegText">#MonthAsString(time_month)#</a></td>
-		<td align="right" class="RegText">#decimalformat(efficiency_time)#</td>
-		<td align="right" class="RegText">#decimalformat(efficiency_percent)#</td>
+		<td align="center"><cfif time_year NEQ temp_year>#time_year#<cfset temp_year=time_year><cfelse>&nbsp;</cfif></td>
+		<td align="left"><a href="javascript:change_month('#time_month#','#time_year#');">#MonthAsString(time_month)#</a></td>
+		<td align="right">#decimalformat(efficiency_time)#</td>
+		<td align="right">#decimalformat(efficiency_percent)#</td>
 	</tr>
 </cfoutput>
 </table>

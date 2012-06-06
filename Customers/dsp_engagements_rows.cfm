@@ -14,26 +14,26 @@
 </cfsilent>
 <cfoutput query="get_engagements">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2><td class="RegText">
+		<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2><td>
 			#project_code#
 		</td></cfif>
-		<td class="RegText">
+		<td>
 			#description#
 		</td>
-		<cfif NOT (isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2)><td class="RegText">
+		<cfif NOT (isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2)><td>
 			#project_code#
 		</td></cfif>
-		<td class="RegText">
+		<td>
 			#billable#
 		</td>
-		<td class="RegText">
-			<a href="javascript:open_tasks('#project_id#');" class="RegText">#open_tasks#</a>
+		<td>
+			<a href="javascript:open_tasks('#project_id#');">#open_tasks#</a>
 		</td>
-		<td class="RegText">
+		<td>
 			#active_ind_type#
 		</td>
-		<cfif session.workstream_engagement_edit><td class="RegText">
-			<a href="javascript:engagement('#project_id#');" class="RegText">Edit</a>
+		<cfif session.workstream_engagement_edit><td>
+			<a href="javascript:engagement('#project_id#');">Edit</a>
 		</td></cfif>
 	</tr>
 </cfoutput>

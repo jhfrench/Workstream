@@ -39,7 +39,7 @@
 	<tr bgcolor="##5F5F5F" class="SubHeadTextWhite">
 		<td colspan="2" align="center" valign="bottom" class="SubHeadTextWhite">
 			For
-	<select name="Date" onchange="document.forms[0].submit();" class="RegText">
+	<select name="Date" onchange="document.forms[0].submit();">
 		<cfloop from="0" to="#variables.go_back_to#" step="7" index="ii">
 		<cfset variables.value_date=dateadd("d", -ii, variables.select_start_date)>
 		<option value="#variables.value_date#"<cfif NOT comparenocase(dateformat(variables.start_date,"mm/dd/yyyy"), dateformat(variables.value_date,"mm/dd/yyyy"))> SELECTED</cfif>>#dateformat(variables.value_date, "mmmm dd, yyyy")#-#dateformat(dateadd("d", 6, variables.value_date), "mmmm dd, yyyy")#</option>

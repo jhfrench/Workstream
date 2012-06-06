@@ -25,16 +25,16 @@
 </cfoutput>
 <cfoutput query="new_engage_output">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"<cfelseif (year_entered MOD 2)> bgcolor="##BAEE9B"</cfif>>
-		<td align="right" class="RegText">
+		<td align="right">
 			<cfif year_entered NEQ temp_year>#year_entered#<cfelse>&nbsp;</cfif>
 		</td>
-		<td align="left" class="RegText">
+		<td align="left">
 			#MonthAsString(month_entered)#
 		</td>
-		<td align="left" class="RegText">
+		<td align="left">
 			#customer_name#
 		</td>
-		<td align="right" class="RegText">
+		<td align="right">
 			#numberformat(engagement_count)#
 		</td>
 		<cfset temp_year=year_entered>

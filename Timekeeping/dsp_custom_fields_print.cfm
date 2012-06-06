@@ -19,10 +19,10 @@
 <cfinclude template="act_set_custom_responses.cfm">
 <cfoutput>
 	<tr align="right">
-		<td valign="top" class="RegText">
+		<td valign="top">
 			<span class="SubHeadText">Custom Fields:</span></td>
 			
-		<td align="left" colspan="100%" class="RegText">	
+		<td align="left" colspan="100%">	
 			
 			
 <cfloop query="get_user_fields">

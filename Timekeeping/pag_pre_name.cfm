@@ -26,7 +26,7 @@
 	</tr>
 	<tr>
 		<td align="center" class="SubHeadText">
-			<cfselect query="get_predefined_names" name="task_name" display="pre_task_name" value="pre_task_name" size="#variables.select_size#" onChange="OKButton()" class="RegText"></cfselect>
+			<cfselect query="get_predefined_names" name="task_name" display="pre_task_name" value="pre_task_name" size="#variables.select_size#" onChange="OKButton()"></cfselect>
 		</td>
 	</tr>
 	<cfinclude template="../common_files/dsp_big_list_submit.cfm">

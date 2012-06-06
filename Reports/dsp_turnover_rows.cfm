@@ -17,13 +17,13 @@
 <cfoutput query="Get_Numbers">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<td></td>
-		<td align="center" class="RegText">#theyear#</td>
-		<td align="center" class="RegText">#thequarter#</td>
-		<td align="center" class="RegText">#pop#</td>
+		<td align="center">#theyear#</td>
+		<td align="center">#thequarter#</td>
+		<td align="center">#pop#</td>
 		<cfloop list="#reasons#" index="ii">
 		<cfparam name="dataset#ii#" default="0">
-		<td align="center" class="RegText">#evaluate("#ii#")#</td>
-		<td align="center" class="RegText">#decimalformat(evaluate("#ii#")/pop*100)#%</td><cfset "dataset#ii#"=#evaluate("dataset#ii#")#+#evaluate("#ii#")#>
+		<td align="center">#evaluate("#ii#")#</td>
+		<td align="center">#decimalformat(evaluate("#ii#")/pop*100)#%</td><cfset "dataset#ii#"=#evaluate("dataset#ii#")#+#evaluate("#ii#")#>
 		</cfloop>
 	</tr>
 </cfoutput>

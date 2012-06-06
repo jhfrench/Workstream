@@ -17,11 +17,11 @@
 	<tr bgcolor="##5F5F5F">
 		<td colspan="3" class="SubHeadTextWhite">
 			Admin/Planning for 
-			<select name="admin_month" onchange="javascript:document.admin_planning.submit();" class="RegText">
+			<select name="admin_month" onchange="javascript:document.admin_planning.submit();">
 				<cfloop from="1" to="12" index="ii">
 				<option value="#ii#"<cfif attributes.admin_month EQ ii> selected</cfif>>#monthAsString(ii)#</option></cfloop>
 			</select>
-			<select name="admin_year" onchange="javascript:document.admin_planning.submit();" class="RegText">
+			<select name="admin_year" onchange="javascript:document.admin_planning.submit();">
 				<cfloop from="#lowest_year#" to="#year(now())#" index="ii">
 				<option value="#ii#"<cfif attributes.admin_year EQ ii> selected</cfif>>#ii#</option></cfloop>
 			</select>
@@ -41,13 +41,13 @@
 </cfoutput>
 <cfoutput query="admin_planning_sub">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td class="RegText">
-			<a href="javascript:list_to_employee('#emp_id#')" class="RegText">#lname#, #name#</a>
+		<td>
+			<a href="javascript:list_to_employee('#emp_id#')">#lname#, #name#</a>
 		</td>
-		<td align="right" class="RegText">
+		<td align="right">
 			#decimalformat(admin_hours)#
 		</td>
-		<td align="right" class="RegText">
+		<td align="right">
 			#decimalformat(admin_planning_percent)#
 		</td>
 	</tr>

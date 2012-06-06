@@ -39,12 +39,12 @@
 <form name="task_details" action="index.cfm?fuseaction=Timekeeping.act_upload_file" method="post" enctype="multipart/form-data">
 <cfoutput>
 <table>
-<Tr><Td class="RegText">
+<Tr><Td>
 Add File:<br />
-<input class="RegText" type="file" name="file_path" value="" size="40" >
+<input type="file" name="file_path" value="" size="40" >
 <br />
-<input class="RegText" type="submit" value="Upload file to server now">
-<input class="RegText" type="hidden" name="pass_project_planning_id" value="#project_planning_id#">
+<input type="submit" value="Upload file to server now">
+<input type="hidden" name="pass_project_planning_id" value="#project_planning_id#">
 </td></tr>
 </table>
 </cfoutput>

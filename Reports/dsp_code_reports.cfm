@@ -58,30 +58,30 @@
 	</tr>
 <cfoutput group="clientcode">
 <cfoutput>
-	<tr<cfif currentrow MOD 2> bgcolor="##e1e1e1"</cfif> class="RegText">
-		<td nowrap class="RegText">#clientName#&nbsp;</td>
-		<td nowrap class="RegText">#lname#, #name#&nbsp;</td>
+	<tr<cfif currentrow MOD 2> bgcolor="##e1e1e1"</cfif>>
+		<td nowrap>#clientName#&nbsp;</td>
+		<td nowrap>#lname#, #name#&nbsp;</td>
 <cfif variables.month_loop GT 1>
 <cfloop from="1" to="#variables.month_loop#" index="ii">
 		<cfset "variables.sum_period_#ii#"=evaluate("period_#ii#")+evaluate("variables.sum_period_#ii#")>
-		<td align="right" class="RegText">#decimalformat(evaluate("period_#ii#"))#</td>
+		<td align="right">#decimalformat(evaluate("period_#ii#"))#</td>
 </cfloop>
 </cfif>
-		<td align="right" class="RegText">#decimalformat(hours)#</td>
+		<td align="right">#decimalformat(hours)#</td>
 		<cfset total_hours=total_hours+hours><cfset variables.emp_type_hours=hours+emp_type_hours>
 	</tr>
 </cfoutput>
-	<tr valign="top" class="RegText">
+	<tr valign="top">
 		<td colspan="<cfif variables.month_loop GT 1>2<cfelse>3</cfif>" align="right"  class="RegTextIt">
 			<cfif variables.month_loop GT 1>#variables.employee_classification#<cfelse>#clientname#</cfif> Hour Totals: 
 		</td>
 <cfif variables.month_loop GT 1>
 <cfloop from="1" to="#variables.month_loop#" index="ii">
 	<cfset "variables.period_total_#ii#"=evaluate("variables.sum_period_#ii#")+evaluate("variables.period_total_#ii#")>
-		<td align="right" class="RegText">#decimalformat(evaluate("variables.sum_period_#ii#"))#</td>
+		<td align="right">#decimalformat(evaluate("variables.sum_period_#ii#"))#</td>
 </cfloop>
 </cfif>
-		<td align="right" class="RegText">
+		<td align="right">
 			#decimalformat(total_hours)#<cfset variables.total_hours=0>
 		</td>
 	</tr>

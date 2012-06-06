@@ -25,9 +25,9 @@
 		</td>
 	</tr>
 	<tr valign="top">
-		<td class="RegText">
+		<td>
 			<span class="RegTextBd">Billing Details</span><br />
-			Budget: $<cfinput type="text" name="budget" required="yes" validate="float" message="Please specify a budget (as a number)." size="10" class="RegText"><br />
+			Budget: $<cfinput type="text" name="budget" required="yes" validate="float" message="Please specify a budget (as a number)." size="10"><br />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" class="Note">
@@ -38,8 +38,8 @@
 <cfswitch expression="#attributes.billable_type_id#">
 <cfcase value="1">
 	<tr valign="top">
-		<td class="RegText">
-			<label for="rate">Hourly rate</label>: $<cfinput type="text" name="rate" required="yes" validate="float" message="Please enter an hourly rate." size="8" class="RegText">
+		<td>
+			<label for="rate">Hourly rate</label>: $<cfinput type="text" name="rate" required="yes" validate="float" message="Please enter an hourly rate." size="8">
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">
@@ -48,8 +48,8 @@
 		</td>
 	</tr>
 	<tr valign="top">
-		<td class="RegText">
-			Start: <cfinput type="text" name="start_date" required="yes" validate="date" message="Please enter a proper date for which billing is to begin on this engagement." size="8" class="RegText"> End: <cfinput type="text" name="end_date" required="no" validate="date" message="Please enter a proper date for which billing is to end on this engagement." size="8" class="RegText">
+		<td>
+			Start: <cfinput type="text" name="start_date" required="yes" validate="date" message="Please enter a proper date for which billing is to begin on this engagement." size="8"> End: <cfinput type="text" name="end_date" required="no" validate="date" message="Please enter a proper date for which billing is to end on this engagement." size="8">
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">
@@ -60,8 +60,8 @@
 </cfcase>
 <cfcase value="3">
 	<tr valign="top">
-		<td class="RegText">
-			Start: <cfinput type="text" name="start_date" required="yes" validate="date" message="Please enter a proper date for which billing is to begin on this engagement." size="8" class="RegText"> End: <cfinput type="text" name="end_date" required="no" validate="date" message="Please enter a proper date for which billing is to end on this engagement." size="8" class="RegText"> Months: <cfinput type="text" name="months" required="yes" validate="integer" message="Please enter the number of months over which this engagement will be billed to the customer." size="2" class="RegText"><br />
+		<td>
+			Start: <cfinput type="text" name="start_date" required="yes" validate="date" message="Please enter a proper date for which billing is to begin on this engagement." size="8"> End: <cfinput type="text" name="end_date" required="no" validate="date" message="Please enter a proper date for which billing is to end on this engagement." size="8"> Months: <cfinput type="text" name="months" required="yes" validate="integer" message="Please enter the number of months over which this engagement will be billed to the customer." size="2"><br />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">
@@ -72,8 +72,8 @@
 </cfcase>
 <cfcase value="4">
 	<tr valign="top">
-		<td class="RegText">
-			Incident Charge: $ <cfinput type="text" name="charge" required="yes" validate="integer" message="Please enter, per incident, the charge to the customer." size="4" class="RegText"><br />
+		<td>
+			Incident Charge: $ <cfinput type="text" name="charge" required="yes" validate="integer" message="Please enter, per incident, the charge to the customer." size="4"><br />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">
@@ -84,9 +84,9 @@
 </cfcase>
 </cfswitch>
 	<tr valign="top">
-		<td class="RegText">
+		<td>
 			<span class="RegTextBd">Work Dates</span><br />
-			Start: <cfinput type="text" name="project_start" required="yes" validate="date" message="Please enter a proper date for which work is to begin on this engagement." size="8" class="RegText"> End: <cfinput type="text" name="project_end" required="yes" validate="date" message="Please enter a proper date for which work is to end on this engagement." size="8" class="RegText"> <br />
+			Start: <cfinput type="text" name="project_start" required="yes" validate="date" message="Please enter a proper date for which work is to begin on this engagement." size="8"> End: <cfinput type="text" name="project_end" required="yes" validate="date" message="Please enter a proper date for which work is to end on this engagement." size="8"> <br />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">
@@ -99,7 +99,7 @@
 </cfif>
 	<tr valign="top">
 		<td align="center" class="RegTextBd">
-			<input type="submit" value="Proceed" class="RegText">
+			<input type="submit" value="Proceed">
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">

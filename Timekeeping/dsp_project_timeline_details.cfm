@@ -38,14 +38,14 @@
 	</tr>
 </cfif>
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td class="RegText" bgcolor="##ffffff">&nbsp;</td>
-		<td class="RegText" bgcolor="##ffffff">&nbsp;</td>
-		<td class="RegText"><a href="javascript:list_to_details('#task_id#');" class="RegText"><img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="#ReplaceList(task_description, variables.quote, variables.StatusMsg_replace_with)#" height="16" width="16" border="0">&nbsp;#task_name#</a></td>
+		<td bgcolor="##ffffff">&nbsp;</td>
+		<td bgcolor="##ffffff">&nbsp;</td>
+		<td><a href="javascript:list_to_details('#task_id#');"><img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="#ReplaceList(task_description, variables.quote, variables.StatusMsg_replace_with)#" height="16" width="16" border="0">&nbsp;#task_name#</a></td>
 	<cfinclude template="qry_get_team_members.cfm">
-		<td class="RegText">#listchangedelims(valuelist(get_team_members.name),", ")#</td>
-		<td class="RegText">#dateformat(assigned_date,"mm/dd/yy")#</td>
-		<td class="RegText">#dateformat(due_date,"mm/dd/yy")#</td>
-		<td class="RegText">#status#</td>
+		<td>#listchangedelims(valuelist(get_team_members.name),", ")#</td>
+		<td>#dateformat(assigned_date,"mm/dd/yy")#</td>
+		<td>#dateformat(due_date,"mm/dd/yy")#</td>
+		<td>#status#</td>
 	</tr>
 </cfoutput>
 

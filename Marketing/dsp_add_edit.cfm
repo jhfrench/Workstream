@@ -18,12 +18,12 @@
 		<td  colspan="2"class="SubHeadText">Would you like to Edit or Delete this contact. <cfoutput query="get_contact"><span class="RegTextIt">#name# #lname#</span></cfoutput></td>
 	</tr>
 	<tr>
-		<td class="RegText" align = "right">Edit</td>
+		<td align = "right">Edit</td>
 		
 		<td><input  type="Radio" name="select" value="e"> </td>
 	</tr>
 	<tr>	
-		<td class="RegText" align = "right">Delete</td>
+		<td align = "right">Delete</td>
 		<td><input type="radio" name="select" value="d"> 
 		<input type="hidden" name="emp_id" value="<cfoutput>#attributes.cfgridkey#</cfoutput>">
 		<input type="hidden" name="flag" value="1">
@@ -31,7 +31,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="submit" value="Submit" class="RegText"></td>
+		<td colspan="2" align="center"><input type="submit" value="Submit"></td>
 	</tr>
 
 </form>

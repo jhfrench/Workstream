@@ -15,13 +15,13 @@
 <cfoutput>
 <tr>
 	<td align="center" colspan="4" class="HeadText">
-		<cfmodule template="../common_files/dsp_team_select.cfm" onchange=""  class="RegText" emp_id="">
-		<select name="month" class="RegText">
+		<cfmodule template="../common_files/dsp_team_select.cfm" onchange=""  emp_id="">
+		<select name="month">
 			<cfloop from="1" to="12" index="ii">
 			<option value="#ii#"<cfif DatePart("m",(dateadd("m",-1,now()))) EQ ii> SELECTED</cfif>>#ii#</option>
 			</cfloop>
 		</select>
-		<select name="year" class="RegText">
+		<select name="year">
 			<cfloop from="1999" to="#year(now())#" index="ii">
 			<option value="#ii#"<cfif DatePart("yyyy",(dateadd("m",-1, now()))) EQ ii> selected</cfif>>#ii#</option>
 			</cfloop>
@@ -30,7 +30,7 @@
 </tr>
 <tr>
 	<td align="center">
-		<input type="submit" value="Review Employee's Hours" class="RegText">
+		<input type="submit" value="Review Employee's Hours">
 	</td>		
 </tr>
 </cfoutput>

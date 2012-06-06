@@ -18,18 +18,18 @@
  --->
 </cfsilent>
 <cfoutput query="get_time_details">
-	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif> class="RegText">
+	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<td colspan="2">
 			&nbsp;
 		</td>
 		<td>
-			<a href="javascript:task_to_ind('#emp_id#|#task_id#');"  title="View individual time entries for #last_name#." class="RegText">#last_name#</a>
+			<a href="javascript:task_to_ind('#emp_id#|#task_id#');"  title="View individual time entries for #last_name#.">#last_name#</a>
 		</td>
 		<td align="right">
-			<a href="javascript:task_to_ind('#emp_id#|#task_id#');"  title="View individual time entries for #last_name#." class="RegText">#decimalformat(hours)#</a>
+			<a href="javascript:task_to_ind('#emp_id#|#task_id#');"  title="View individual time entries for #last_name#.">#decimalformat(hours)#</a>
 		</td>
 		<td align="center">
-			<cfinput type="checkbox" name="reassign_hours" value="#emp_id#" required="Yes" message="Please mark which hours you wish to reassign." class="RegText">
+			<cfinput type="checkbox" name="reassign_hours" value="#emp_id#" required="Yes" message="Please mark which hours you wish to reassign.">
 		</td>
 	</tr>
 </cfoutput>

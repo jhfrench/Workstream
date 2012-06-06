@@ -57,13 +57,13 @@
 		Date
 	</td>
 	<td>
-		<cfinput type="datefield" name="date_incurred" value="#dateformat(attributes.date_incurred,'mm/dd/yyyy')#" required="Yes" validate="date" message="Please enter the date this expense was paid (mm/dd/yyyy format)." size="11" class="RegText">
+		<cfinput type="datefield" name="date_incurred" value="#dateformat(attributes.date_incurred,'mm/dd/yyyy')#" required="Yes" validate="date" message="Please enter the date this expense was paid (mm/dd/yyyy format)." size="11">
 	</td>
 </tr>
 <tr>
 	<td>Payee</td>
 	<td>
-		<cfinput type="text" name="payee_name" value="#attributes.payee_name#" required="Yes"  size="40" message="Please enter a payee name."  class="RegText">
+		<cfinput type="text" name="payee_name" value="#attributes.payee_name#" required="Yes"  size="40" message="Please enter a payee name." >
 	</td>
 	<td>
 		&nbsp;
@@ -72,7 +72,7 @@
 		Amount
 	</td>
 	<td>
-		$<cfinput type="text" name="amount" value="#right(dollarformat(attributes.amount),len(dollarformat(attributes.amount))-1)#" required="Yes" size="8" message="Please enter an expense amount." align="right" class="RegText">
+		$<cfinput type="text" name="amount" value="#right(dollarformat(attributes.amount),len(dollarformat(attributes.amount))-1)#" required="Yes" size="8" message="Please enter an expense amount." align="right">
 	</td>
 </tr>
 <tr>
@@ -84,13 +84,13 @@
 		<div id="category" style="visibility='hidden'">New Category</div>&nbsp;
 	</td>
 	<td colspan="2">
-		<div id="optional_new_category_div" style="visibility='hidden'"><cfinput type="text" name="optional_new_category" value="" required="No"  size="30" class="RegText"></div>&nbsp;
+		<div id="optional_new_category_div" style="visibility='hidden'"><cfinput type="text" name="optional_new_category" value="" required="No"  size="30"></div>&nbsp;
 	</td>
 </tr>
 <tr>
 	<td>Client Code</td>
 	<td class="SubHeadText" valign="top">
-		<cfselect name="project_id" size="2" required="yes" message="Please select a project" class="RegText">
+		<cfselect name="project_id" size="2" required="yes" message="Please select a project">
 					<cfoutput query="get_valid_projects">
 						<option value="#project_id#"<cfif attributes.project_id EQ get_valid_projects.project_id>selected</cfif>>
 						<cfif session.workstream_project_list_order EQ 1>
@@ -126,7 +126,7 @@
 <tr>
 	<td>Expense Note</td>
 	<td colspan="4">
-		<cfinput type="text" name="expense_note" value="#attributes.expense_note#" required="Yes" message="Please enter an expense note." size="100" class="RegText">
+		<cfinput type="text" name="expense_note" value="#attributes.expense_note#" required="Yes" message="Please enter an expense note." size="100">
 	</td>
 </tr>
 <tr>

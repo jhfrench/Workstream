@@ -17,10 +17,10 @@
       <td>
       Code:
       </td>
-      <td class="RegText">
+      <td>
       #description#
       </td>
-      <td class="RegText">
+      <td>
 		#decimalformat(hours)# <cfset Total_hours = total_hours+hours>  </cfoutput> 
       </td>
    </tr>

@@ -24,7 +24,7 @@
 <cfoutput query="execute_query_text">
 	<tr>
 	<cfloop list="#execute_query_text.columnlist#" index="ii">
-		<td class="RegText">
+		<td>
 			#evaluate(ii)#
 		</td>
 	</cfloop>

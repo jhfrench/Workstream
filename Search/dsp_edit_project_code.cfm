@@ -17,9 +17,9 @@
 
 	<tr valign="top">
 		<td align="center">
-			<input type="checkbox" name="customer_id_box" value="1" <cfif isdefined("attributes.project_id_box") AND len(attributes.project_id)>checked="checked"</cfif> class="RegText">
+			<input type="checkbox" name="customer_id_box" value="1" <cfif isdefined("attributes.project_id_box") AND len(attributes.project_id)>checked="checked"</cfif>>
 		</td>
-		<td class="RegText">Customer</td>
+		<td>Customer</td>
 		<td>
 		<cfif not len(attributes.project_id)>
 			<cfmodule template="../common_files/edit_two_related_selects.cfm"
@@ -82,7 +82,7 @@
 				<td>">
 				</cfif>
 				
-<!--- 			<select name="project_id2" multiple size="6" onclick="checkbox_project_id()" class="RegText">
+<!--- 			<select name="project_id2" multiple size="6" onclick="checkbox_project_id()">
 			<cfoutput query="project">
 				<option value="#project_id#">#display#</option>
 			</cfoutput>

@@ -32,13 +32,13 @@
 	<cfset ytd_revenue=ytd_revenue+month_revenue>
 </cfif>
 </cfoutput>
-<cfset variables.marketing_text='Last month (#MonthAsString(prospects.nice_month)#), <span class="RegTextBd">#prospects.prospects# new suspects</span> were brought into the funnel. This month (#MonthAsString(prospects_this_month.nice_month)#), <span class="RegTextBd">#prospects_this_month.prospects_this_month# new suspects</span> have been identified. The monthly goal for suspects is xx (Coming Soon). <a href="#request.dir_level#index.cfm?fuseaction=Reports.new_engagement_output&root_code=6005" class="RegText">Click here to view the engagement report for new suspects by month.</a>'>
+<cfset variables.marketing_text='Last month (#MonthAsString(prospects.nice_month)#), <span class="RegTextBd">#prospects.prospects# new suspects</span> were brought into the funnel. This month (#MonthAsString(prospects_this_month.nice_month)#), <span class="RegTextBd">#prospects_this_month.prospects_this_month# new suspects</span> have been identified. The monthly goal for suspects is xx (Coming Soon). <a href="#request.dir_level#index.cfm?fuseaction=Reports.new_engagement_output&root_code=6005">Click here to view the engagement report for new suspects by month.</a>'>
 
 <cfset ytd_revenue_millions=ytd_revenue/1000000>
-<cfset variables.sales_text='The current closure rate for qualified prospects is xx% (Coming Soon). The goal for 2001 is to close xx% (Coming Soon) of all Qualified Prospects that are brought into the funnel by Marketing. <a href="#request.dir_level#index.cfm?fuseaction=Reports.sales_report" class="RegText">Click here for sales details.</a>'>
+<cfset variables.sales_text='The current closure rate for qualified prospects is xx% (Coming Soon). The goal for 2001 is to close xx% (Coming Soon) of all Qualified Prospects that are brought into the funnel by Marketing. <a href="#request.dir_level#index.cfm?fuseaction=Reports.sales_report">Click here for sales details.</a>'>
 </cfsilent>
 	<tr valign="top">		
-		<td width="10%" class="RegText">&nbsp;</td>
+		<td width="10%">&nbsp;</td>
 		<td width="30%">
 			<table cellpadding="0" cellspacing="0" border="0" width="100%">
 				<cfmodule template="#request.dir_level#common_files/dsp_section_title.cfm" colspan="3" section_color="008080" section_title="Marketing" title_class="HeadTextWhite">
@@ -55,29 +55,29 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td bgcolor="##E1E1E1" class="RegText">&nbsp;Prospecting</td>
-					<td bgcolor="##E1E1E1" class="RegText">
+					<td bgcolor="##E1E1E1">&nbsp;Prospecting</td>
+					<td bgcolor="##E1E1E1">
 						#marketing_duration.prospecting_dur#
 					</td>
 				</tr>
 				<tr>
 					<td></td>
-					<td class="RegText">&nbsp;Qualifying</td>
-					<td class="RegText">
+					<td>&nbsp;Qualifying</td>
+					<td>
 						#marketing_duration.qualifying_dur#
 					</td>
 				</tr>
 				<tr>
 					<td></td>
-					<td bgcolor="##E1E1E1" class="RegText">&nbsp;Proposing</td>
-					<td bgcolor="##E1E1E1" class="RegText">
+					<td bgcolor="##E1E1E1">&nbsp;Proposing</td>
+					<td bgcolor="##E1E1E1">
 						#marketing_duration.proposing_dur#
 					</td>
 				</tr>
 				<tr>
 					<td></td>
-					<td class="RegText">&nbsp;Closing</td>
-					<td class="RegText">
+					<td>&nbsp;Closing</td>
+					<td>
 						#marketing_duration.closing_dur#
 					</td>
 				</tr>
@@ -90,10 +90,10 @@
 				<cfmodule template="#request.dir_level#common_files/dsp_section_text.cfm" colspan="3" section_color="ffffff" section_text="#variables.sales_text#" title_class="RegText">
 				<tr>
 					<td valign="top" width="1%">&nbsp;</td>
-					<cfoutput><td valign="top" width="39%" class="RegText">
+					<cfoutput><td valign="top" width="39%">
 						<span class="RegTextBd">Total sales for Nucleus YTD has been #dollarformat(ytd_revenue)#.</span> The goal for #Year(now())# is <cfif get_revenue_goal.revenue_goal>#dollarformat(get_revenue_goal.revenue_goal)#<cfelse>Unknown</cfif>.
 					</td>
-					<td valign="top" align="center" width="60%" class="RegText">
+					<td valign="top" align="center" width="60%">
 						<applet code="javachart.applet.speedoApp.class" codebase="#request.dir_level##application.graphbase#" width="200" height="100">
 						<param name="CopyrightNotification" value="JavaChart is a copyrighted work, and subject to full legal protection">
 						<param name="dataset0yValues" value="#numberformat(ytd_revenue_millions,'_____._')#,0,8">
@@ -122,7 +122,7 @@
 				<cfmodule template="#request.dir_level#common_files/dsp_section_title.cfm" colspan="3" section_color="800000" section_title="Current #listlast(session.workstream_company_name)# Funnel" title_class="HeadTextWhite">
 				<tr>
 					<td></td>
-					<td class="RegText">
+					<td>
 						<cfinclude template="funnel_grid.cfm">
 					</td>
 				</tr>

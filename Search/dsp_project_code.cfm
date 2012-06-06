@@ -17,9 +17,9 @@
 
 	<tr valign="top">
 		<td align="center">
-			<input type="checkbox" name="customer_id_box" value="1" class="RegText">
+			<input type="checkbox" name="customer_id_box" value="1">
 		</td>
-		<td class="RegText">Customer</td>
+		<td>Customer</td>
 		<td>
 			<cfmodule template="../common_files/two_related_selects.cfm" query="get_search_projects" name1="customer_id"
 				name2="project_id" display1="customer" display2="display"
@@ -36,7 +36,7 @@
 				<td class='RegText'>Project<br />(may take a<br />moment to display)</td>
 				<td>">
 
-<!--- 			<select name="project_id2" multiple size="6" onclick="checkbox_project_id()" class="RegText">
+<!--- 			<select name="project_id2" multiple size="6" onclick="checkbox_project_id()">
 			<cfoutput query="project">
 				<option value="#project_id#">#display#</option>
 			</cfoutput>

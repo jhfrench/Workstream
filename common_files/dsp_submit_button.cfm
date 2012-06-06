@@ -15,8 +15,8 @@
 </cfsilent>
 <cfoutput>
 	<tr>
-		<td align="center" colspan="3" class="RegText">
-			<br /><input type="submit" value="Search" class="RegText">
+		<td align="center" colspan="3">
+			<br /><input type="submit" value="Search">
 		</td>
 	</tr>
 </cfoutput>

@@ -47,8 +47,8 @@
 </cfif>
 <cfelse>
 <tr>
-	<td align="center" valign="top" class="RegText">
-		<input type="submit" value="Proceed to the next step" class="RegText">
+	<td align="center" valign="top">
+		<input type="submit" value="Proceed to the next step">
 	</td>
 	<td valign="top">
 		<cfset variables.start=incrementvalue(variables.start)><ol type="1" start="#variables.start#" class="Note"><li>Click this button when you are ready to proceed to the next step. The information for this new timeline will not be stored until the wizard is finished.</li></ol>

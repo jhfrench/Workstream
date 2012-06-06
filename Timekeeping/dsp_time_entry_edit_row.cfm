@@ -29,7 +29,7 @@
 <cfelse>
 	<cfset attributes.referer="Timekeeping.express_entry">
 </cfif>
-<cfset variables.go_back_to=DateDiff("d",express_check_date.date_locked,now())-1>
+<cfset variables.go_back_to=datediff("d",express_check_date.date_locked,now())-1>
 </cfsilent>
 <cfoutput query="time_entry_edit">	
 	<tr bgcolor="##808080" class="HeadTextWhite">
@@ -43,13 +43,13 @@
 			Task
 		</td></cfif>
 	</tr>
-	<tr class="RegText">
+	<tr>
 		<td valign="top">
 			#customer_description#
 		</td>
 		<td valign="top">
 			<cfif NOT variables.entry_type>
-				<select name="project_id"  size="1" class="RegText">
+				<select name="project_id"  size="1">
 					<cfloop query="get_valid_projects">
 						<option value="#project_id#" <cfif time_entry_edit.project_id eq get_valid_projects.project_id>selected</cfif>>#display#</option>
 					</cfloop>
@@ -59,7 +59,7 @@
 			</cfif>
 		</td>
 		<cfif variables.entry_type><td>
-			<a href="javascript:note_to_task('#task_id#');"  title="View this task." class="RegText">#task_name#</a>
+			<a href="javascript:note_to_task('#task_id#');"  title="View this task.">#task_name#</a>
 		</td></cfif>
 	</tr>
 	<tr bgcolor="##808080" class="HeadTextWhite">
@@ -73,9 +73,9 @@
 			&nbsp;
 		</td></cfif>
 	</tr>
-	<tr class="RegText">
+	<tr>
 		<td>
-			<cfselect name="date" required="Yes" message="Please enter a valid date for this task." class="RegText">
+			<cfselect name="date" required="Yes" message="Please enter a valid date for this task.">
 			<cfloop from="0" to="#variables.go_back_to#" index="variables.date_adjust_ii">
 				<cfset variables.temp_date=dateformat(now()-variables.date_adjust_ii,'mm/dd/yy')>
 				<option value="#variables.temp_date#"<cfif NOT datediff("d", variables.temp_date, date)> SELECTED</cfif>>#dateformat(now()-variables.date_adjust_ii,"mm/dd/yy (ddd)")#</option>
@@ -83,7 +83,8 @@
 			</cfselect>
 		</td>
 		<td>
-			<cfinput type="text" name="hours" value="#decimalformat(hours)#" required="Yes" validate="float" message="You must enter hours, as a number, for a time keeping entry. If you wish to delete a task, mark the delete checkbox." class="RegText">
+			<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" value="#decimalformat(hours)#" class="span6">
+			<!-- let CF create the JavaScript: <cfinput type="text" name="hours" id="hours" required="Yes" validate="float" message="You must enter hours, as a number, for a time keeping entry. If you wish to delete a task, mark the delete checkbox." /> -->
 		</td>
 		<cfif variables.entry_type><td>
 			&nbsp;
@@ -94,15 +95,15 @@
 			Notes
 		</td>
 	</tr>
-	<tr class="RegText">
+	<tr>
 		<td colspan="6">
-			<textarea name="note" cols="100" rows="4" wrap="soft" class="RegText">#stripCR(note)#</textarea>
+			<textarea name="note" cols="100" rows="4" wrap="soft">#stripCR(note)#</textarea>
 		</td>
 	</tr>
 <cfif time_entry_edit.date GT dateformat(now()-variables.go_back_to,'mm/dd/yy')>
 	<tr align="left" bgcolor="##990202" class="RegTextWhite">
 		<td colspan="6">
-		<label for="delete"><input type="checkbox" name="delete" id="delete" value="1" class="RegText">Delete This Record</label>&nbsp;</td>
+		<label for="delete"><input type="checkbox" name="delete" id="delete" value="1">Delete This Record</label>&nbsp;</td>
 	</tr>
 </cfif>
 	<input type="hidden" name="notes_id" value="#notes_id#">

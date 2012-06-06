@@ -24,7 +24,7 @@
 	<input type="hidden" name="report_elements" value="#attributes.report_elements#">
 	
 	<tr class="SubHeadText">
-		<td colspan="3">Report Date&nbsp;&nbsp;<cfinput type="Text" name="start_date" required="no" size="15" maxlength="10" validate="date" message="You must enter a valid from date" class="RegText"></td>
+		<td colspan="3">Report Date&nbsp;&nbsp;<cfinput type="Text" name="start_date" required="no" size="15" maxlength="10" validate="date" message="You must enter a valid from date"></td>
 	</tr>
 	<tr class="SubHeadText">
 		<td colspan="3">Columns Displayed in Report</td>
@@ -32,23 +32,23 @@
 	
 	<tr class="SubHeadText">	
 		<td>
-			<select name="report_columns" class="RegText" multiple size="10" style="width:145px;">
+			<select name="report_columns" multiple size="10" style="width:145px;">
 				<cfloop list="#attributes.report_elements#" index="dex">
 					<option value="#dex#">#dex#</option>
 				</cfloop>
 			</select>
 		</td>
-		<td align="center"><input type="button" value="Remove >>>" name="remove" style="width:120px;" onclick="javascript: RemoveListItem('report_columns','removed_elements');" class="RegText"><br />
-		<input type="button" value="<<< Add" name="add" style="width:120px;" onclick="javascript: RemoveListItem('removed_elements','report_columns');" class="RegText"></td>
+		<td align="center"><input type="button" value="Remove >>>" name="remove" style="width:120px;" onclick="javascript: RemoveListItem('report_columns','removed_elements');"><br />
+		<input type="button" value="<<< Add" name="add" style="width:120px;" onclick="javascript: RemoveListItem('removed_elements','report_columns');"></td>
 		<td>
-			<select name="removed_elements" class="RegText" multiple size="10" style="width:145px;">
+			<select name="removed_elements" multiple size="10" style="width:145px;">
 					<option></option>
 			</select>
 		</td>
 	</tr>	
 	<tr>
 		<td align="center" colspan="3">
-			<input type="button" name="Get_Report" value="Generate Report" class="RegText" onclick="submit_form();">
+			<input type="button" name="Get_Report" value="Generate Report" onclick="submit_form();">
 		</td>
 	</tr>	
 </cfform>

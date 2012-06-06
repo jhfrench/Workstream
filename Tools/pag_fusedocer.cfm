@@ -23,7 +23,7 @@
 <cfinclude template="../common_files/qry_team_select.cfm">
 <cfparam name="attributes.pin" default="  123  ">
 <cfoutput>
-<table class="RegText">
+<table>
 	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadTextWhite" section_color="636332" section_title="&nbsp;FuseDoc'er" colspan="6" gutter=0>
 	<tr class="SubHeadText">
 		<td></td>
@@ -34,53 +34,53 @@
 	</tr>
 	<tr class="SubHeadText">
 		<td align="right" valign="top" class="SubHeadText">&lt;--</td>
-		<td><select name="directory" class="RegText">
+		<td><select name="directory">
 				<cfloop list="directory1,directory2,sample_Directory/sub_directory,etc" index="ii">
 				<option value="#ii#" selected>#ii#/</option></cfloop>
 			</select>
 		</td>
-		<td><select name="prefix" class="RegText">
+		<td><select name="prefix">
 				<cfloop list="act,app,dsp,pag,qry,sql" index="ii">
 				<option value="#ii#" selected>#ii#_</option></cfloop>
 			</select>
 		</td>
 		<td align="left" valign="top" width="5%">
-			<cfinput name="name" type="Text" maxlength="25" value="" required="Yes" message="Please enter a template name" class="RegText">
+			<cfinput name="name" type="Text" maxlength="25" value="" required="Yes" message="Please enter a template name">
 		</td>
 		<td align="left">
-			<select name="suffix" class="RegText">
+			<select name="suffix">
 				<option value="cfm" selected>.cfm</option>
 				<option value="html">.html</option>
 			</select>
 		</td>
 	</tr>
-	<tr class="RegText">
+	<tr>
 		<td align="right" valign="top"></td>
 		<td align="right" valign="top" class="SubHeadText">Author: </td>
 		<td>
-				<select name="pin" class="RegText"></cfoutput><cfoutput query="team_select">
+				<select name="pin"></cfoutput><cfoutput query="team_select">
 					<option value="#name#_#lname#"<cfif NOT comparenocase(attributes.pin, "#name#_#lname#")> selected</cfif>>#name# #lname#</option></cfoutput>
 				</select>
 		</td>
 		<cfoutput><td align="left" valign="top" class="SubHeadText">--&gt;</td>
 	</tr>
-	<tr class="RegText">
+	<tr>
 		<td align="right" valign="top"></td>
 		<td colspan="2" align="right" valign="top" class="SubHeadText">Responsibilities (written in first person)</td>
-		<td colspan="2" align="left" valign="top"><textarea name="responsibilities" cols="60" class="RegText">I</textarea></td>
+		<td colspan="2" align="left" valign="top"><textarea name="responsibilities" cols="60">I</textarea></td>
 	</tr>
-	<tr class="RegText">
+	<tr>
 		<td colspan="5" align="left" valign="top" class="SubHeadText">
 			Variables and includes: Use commas to separate variables.<br /> Be sure to use proper identifiers (+++ for includes, &lt;-- for outgoing variables, --&gt; for incoming variables).
 		</td>
 	</tr>
 	<tr>
 		<td></td>
-		<td colspan="4" align="left" valign="top"><textarea name="variables" cols="90" class="RegText"></textarea></td>
+		<td colspan="4" align="left" valign="top"><textarea name="variables" cols="90"></textarea></td>
 	</tr>
-	<tr class="RegText">
+	<tr>
 		<td colspan="5" align="center" valign="top">
-			<input type="reset" class="RegText"> <input type="submit" value="Generate FuseDoc" class="RegText">
+			<input type="reset"> <input type="submit" value="Generate FuseDoc">
 		</td>
 	</tr>
 </cfoutput>

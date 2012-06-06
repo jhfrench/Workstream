@@ -55,8 +55,8 @@
 		<td class="SubHeadText">
 			&nbsp;
 		</td>
-		<td class="RegText">
-			<input type="file" name="tempfilename" size="40" value="" class="RegText">
+		<td>
+			<input type="file" name="tempfilename" size="40" value="">
 		</td>
 	</tr>
 </form>
@@ -65,13 +65,13 @@
 		<td class="SubHeadText">
 			&nbsp;
 		</td>
-		<td class="RegText">
+		<td>
 			<input type="hidden" name="filename" value="">
 			<input type="hidden" name="submit_flag" value="1">
 			<input type="hidden" name="additions" value="">
-			<input type="submit" value="Submit" onclick="sync_files()" class="RegText">
-			<input type="button" name="addfile" onclick="sync_files()" value="Attach another file " class="RegText">
-			<input type="button" name="test" onclick="checkfields()" value="Check Additions" class="RegText">
+			<input type="submit" value="Submit" onclick="sync_files()">
+			<input type="button" name="addfile" onclick="sync_files()" value="Attach another file ">
+			<input type="button" name="test" onclick="checkfields()" value="Check Additions">
 		</td>
 	</tr>
 </form>

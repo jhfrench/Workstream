@@ -28,16 +28,16 @@
 </tr>
 <cfoutput query="tasks_to_inactive">
 <tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-	<td class="RegText">#project_code#</td>
-	<td class="RegText">#description#</td>
-	<td class="RegText">#name#</td>
-	<td class="RegText">#task_Description#</td>
-	<td class="RegText">#task_owner#</td>
-	<td class="RegText">#task_id#</td>
+	<td>#project_code#</td>
+	<td>#description#</td>
+	<td>#name#</td>
+	<td>#task_Description#</td>
+	<td>#task_owner#</td>
+	<td>#task_id#</td>
 </tr>
 </cfoutput>
 	<tr>
-		<td colspan="6" align="center"  class="RegText">
+		<td colspan="6" align="center" >
 		Are you sure that you want to deactivate all these tasks? <form action="index.cfm?fuseaction=Customers.update_engagement" method="post" name="change"> <input type="submit" value="Continue" name="Submit"> <input type="button" value="Back" name="back" onclick="history.go(-1)">
 		</td>
 	</tr>

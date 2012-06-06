@@ -12,7 +12,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput query="annivarsary">
-<tr<cfif currentrow MOD 2> bgcolor="##e1e1e1"</cfif> class="RegText">
+<tr<cfif currentrow MOD 2> bgcolor="##e1e1e1"</cfif>>
 	<td>#lname#</td>
 	<td>#name#</td>
 	<td align="right">#dateformat(hire_date,"mm/dd/yyyy")#</td>

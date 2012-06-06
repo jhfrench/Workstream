@@ -13,7 +13,7 @@
 	||
 	END FUSEDOC --->
 	<tr valign="top">
-		<td width="10%" class="RegText">This could be report navigation with anchor links to the appropriate section</td>
+		<td width="10%">This could be report navigation with anchor links to the appropriate section</td>
 		<td width="30%">
 			<table cellpadding="0" cellspacing="0" border="0" width="100%">
 				<cfmodule template="../common_files/dsp_section_title.cfm" colspan="2" section_color="008080" section_title="PTO" title_class="HeadTextWhite">

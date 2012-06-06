@@ -18,20 +18,20 @@
 
 <table>
 	<tr>
-		<td class="RegText" width="25%">Position Number</td>
-		<td class="RegText" width="25%">Date Started</td>
-		<td class="RegText" width="25%">Date Ended</td>
+		<td width="25%">Position Number</td>
+		<td width="25%">Date Started</td>
+		<td width="25%">Date Ended</td>
 	</tr>
 </cfoutput>
 <cfoutput>
 	<tr>
-		<td class="RegText">
+		<td>
 			#get_emp_position_number_history.position_id#<br />
 		</td>
-		<td class="RegText">
+		<td>
 			#dateformat(get_emp_position_number_history.effective_start_date,'mm/dd/yyyy')#
 		</td>
-		<td class="RegText">
+		<td>
 			#dateformat(get_emp_position_number_history.effective_end_date,'mm/dd/yyyy')#
 		</td>
 </cfoutput>

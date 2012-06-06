@@ -25,10 +25,10 @@
 	</tr>
 <cfoutput query="Agg_hours_by_month">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<cfif variables.show_details_ind><td align="center" class="RegText">#name#</td>
-		<td align="center" class="RegText">#month#/#year#</td></cfif>
-		<td align="left" class="RegText">#clientname#</td>
-		<td align="right" class="RegText">#decimalformat(sumofhours)#</td>
+		<cfif variables.show_details_ind><td align="center">#name#</td>
+		<td align="center">#month#/#year#</td></cfif>
+		<td align="left">#clientname#</td>
+		<td align="right">#decimalformat(sumofhours)#</td>
 	</tr>
 </cfoutput>
 </table>
@@ -45,9 +45,9 @@
 	</tr>
 <cfoutput query="Agg_hours_by_week">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<cfif variables.show_details_ind><td align="center" class="RegText">#name#</td></cfif>
-		<td align="left" class="RegText"><cfif variables.show_details_ind>#month#/#year# </cfif>Week #week#</td>
-		<td align="right" class="RegText">#decimalformat(sumofhours)#</td>
+		<cfif variables.show_details_ind><td align="center">#name#</td></cfif>
+		<td align="left"><cfif variables.show_details_ind>#month#/#year# </cfif>Week #week#</td>
+		<td align="right">#decimalformat(sumofhours)#</td>
 	</tr>
 </cfoutput>
 </table>

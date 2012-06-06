@@ -14,9 +14,9 @@
 	Variables:
 	END FUSEDOC --->
 <cfoutput query="get_marketing_home_drill">
-	<tr <cfif currentrow MOD 2>bgcolor="##E1E1E1"<cfelse>bgcolor="##BAEE9B"</cfif> class="RegText">
-		<td class="RegText">#Description#</td>
-		<td class="RegText">#Status#</td>
+	<tr <cfif currentrow MOD 2>bgcolor="##E1E1E1"<cfelse>bgcolor="##BAEE9B"</cfif>>
+		<td>#Description#</td>
+		<td>#Status#</td>
 	</tr>
 </cfoutput>
 

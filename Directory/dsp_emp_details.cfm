@@ -15,7 +15,7 @@
 </cfsilent>
 <cfoutput>
 	<tr valign="top">
-		<td align="left" width="148" class="RegText">
+		<td align="left" width="148">
 			<img src="#request.dir_level##application.application_specific_settings.image_dir#photos/#get_emp_details.photo#" width="144" height="144" alt="" border="0"><br />
 			<span class="SubHeadText">Birthdate:</span> #dateformat(get_emp_details.dob,"mm/dd")#<br />
 			<span class="SubHeadText">Hire Date:</span> #dateformat(get_emp_details.hire_date,"mm/dd/yy")#<br />
@@ -30,7 +30,7 @@
 </cfif>
 		</td>
 <cfoutput>
-		<td class="RegText">
+		<td>
 			<cfif compare(get_emp_details.biography,"")><span class="SubHeadText">Biography</span><br />#get_emp_details.biography#<br /></cfif>
 </cfoutput>
 <cfif get_emp_location.recordcount>
@@ -68,16 +68,16 @@
 </cfif>
 <cfif get_subordinates.recordcount>
 			<span class="SubHeadText">Direct Reports</span><br />
-			<cfoutput query="get_subordinates"><a href="javascript:list_to_employee('#emp_id#');"  title="View details for #Replace(lname,"'","")# #Replace(fname,"'","")#." class="RegText"><cfif currentrow NEQ 1>; </cfif>#lname#, #fname#</a></cfoutput>
+			<cfoutput query="get_subordinates"><a href="javascript:list_to_employee('#emp_id#');"  title="View details for #Replace(lname,"'","")# #Replace(fname,"'","")#."><cfif currentrow NEQ 1>; </cfif>#lname#, #fname#</a></cfoutput>
 </cfif>
 		</td>
 		<td width="20%"></td>
 	</tr>
 <cfif session.user_account_id EQ 1>
 	<tr>
-		<td align="left" width="148" class="RegText">
+		<td align="left" width="148">
 		<cfoutput>
-		<a href="javascript:edit_employee('#emp_id#');"  title="#JSStringFormat('Edit #get_emp_details.lname# #get_emp_details.fname#.')#" class="RegText">Edit Employee Information</a>
+		<a href="javascript:edit_employee('#emp_id#');"  title="#JSStringFormat('Edit #get_emp_details.lname# #get_emp_details.fname#.')#">Edit Employee Information</a>
 		</cfoutput>
 		</td>
 		<td colspan="2">&nbsp;</td>

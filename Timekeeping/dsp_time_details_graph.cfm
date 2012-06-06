@@ -15,7 +15,7 @@
 <cfset variables.width=min(numberformat(get_task_accumulated.image_width,"______"),variables.var1)>
 <cfset variables.width2=variables.var1-variables.width>
 </cfsilent>
-	<tr class="RegText">
+	<tr>
 		<td colspan="2">
 			&nbsp;&nbsp;
 		</td>
@@ -23,7 +23,7 @@
 			Time Used&nbsp;
 		</td>
 	</tr>
-	<tr class="RegText">
+	<tr>
 		<td colspan="2">
 			&nbsp;&nbsp;
 		</td>

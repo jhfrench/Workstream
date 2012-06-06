@@ -23,14 +23,14 @@
 	</td>
 </tr>
 <tr>
-	<td align="center" valign="top" class="RegText">
+	<td align="center" valign="top">
 		Name:
-		<cfmodule template="../common_files/dsp_team_select.cfm" all_employees="#attributes.all_employees#" onchange="" class="RegText">
+		<cfmodule template="../common_files/dsp_team_select.cfm" all_employees="#attributes.all_employees#" onchange="">
 	</td>
 </tr>
 <tr>
-	<td align="center" valign="top" class="RegText">
-		<input type="submit" value="Enter Dates" class="RegText">
+	<td align="center" valign="top">
+		<input type="submit" value="Enter Dates">
 	</td>
 </tr>
 </table>

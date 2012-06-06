@@ -52,7 +52,7 @@
 <table align="center" border="0" cellpadding="1" cellspacing="0">
 <cfoutput>
 	<tr>
-		<td align="center" class="SubHeadText">New Projects Over Time<span class="RegText"> (see bottom for selected customers)</span></td>
+		<td align="center" class="SubHeadText">New Projects Over Time<span> (see bottom for selected customers)</span></td>
 	</tr>
 	<tr>
 		<td align="center" class="SubHeadText">
@@ -95,7 +95,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td align="left" class="RegText"></cfoutput>
+		<td align="left"></cfoutput>
 			<cfoutput query="selected_companies">&nbsp;&nbsp; #customer_name#<br /></cfoutput>
 		</td>
 	</tr>

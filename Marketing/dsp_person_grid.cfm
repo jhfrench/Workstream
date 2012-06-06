@@ -55,7 +55,7 @@ display="no" headerbold="No" headeritalic="No">
 </td>
 </tr>
 <tr>
-	<td align="center"><input type="submit" value="Submit"  class="RegText"></td>
+	<td align="center"><input type="submit" value="Submit" ></td>
 </tr>
 
 

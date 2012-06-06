@@ -21,19 +21,19 @@
 		<td align="right" width="3%" class="SubHeadText">
 			Owner:
 		</td>
-		<td class="RegText">
+		<td>
 			#convert_owner.name# #convert_owner.lname#
 		</td>
 		<td align="right" width="3%" class="SubHeadText">
 			Source:
 		</td>
-		<td class="RegText">
+		<td>
 			#convert_source.name# #convert_source.lname#
 		</td>
 		<td align="right" width="3%" class="SubHeadText">
 			QA:
 		</td>
-		<td class="RegText">
+		<td>
 			#convert_qa.name# #convert_qa.lname#
 		</td>
 	</tr>
@@ -41,7 +41,7 @@
 		<td align="right" valign="top" class="SubHeadText">
 			Team:
 		</td>
-		<td colspan="5" class="RegText"></cfoutput>
+		<td colspan="5"></cfoutput>
 			<cfset variables.task_team=""><cfoutput query="convert_team_members"><cfset variables.task_team=listappend(variables.task_team," #name# #lname#")></cfoutput><cfoutput>#trim(variables.task_team)#</cfoutput>
 		</td>
 	</tr>
@@ -50,19 +50,19 @@
 		<td align="right" class="SubHeadText">
 			Customer:
 		</td>
-		<td class="RegText">
+		<td>
 			#customer_name#
 		</td>
 		<td align="right" class="SubHeadText">
 			Project:
 		</td>
-		<td class="RegText">
+		<td>
 			#replace(project_name,"#customer_name#-","")#
 		</td>
 		<td align="right" class="SubHeadText">
 			Priority:
 		</td>
-		<td class="RegText">
+		<td>
 			#priority#
 		</td>
 	</tr>
@@ -70,19 +70,19 @@
 		<td align="right" class="SubHeadText">
 			Assigned:
 		</td>
-		<td class="RegText">
+		<td>
 			#dateformat(date_assigned,"mm/dd/yy")#
 		</td>
 		<td align="right" class="SubHeadText">
 			Due:
 		</td>
-		<td class="RegText">
+		<td>
 			#dateformat(due_date,"mm/dd/yy")#
 		</td>
 		<td align="right" class="SubHeadText">
 			Status:
 		</td>
-		<td class="RegText">
+		<td>
 			#status_id#
 		</td>
 	</tr>
@@ -90,7 +90,7 @@
 		<td align="right" valign="top" class="SubHeadText">
 			Description:
 		</td>
-		<td colspan="5" class="RegText">
+		<td colspan="5">
 			#description#
 		</td>
 	</tr>
@@ -101,7 +101,7 @@
 		<td align="right" valign="top" class="SubHeadText">
 			Resolution:
 		</td>
-		<td colspan="5" class="RegText"></cfoutput>
+		<td colspan="5"></cfoutput>
 		<cfset qa_note_type_id_list = "2,5">
 			<cfif time_entry_details.recordcount>
 			<cfoutput query="time_entry_details">
@@ -117,7 +117,7 @@
 		<td align="right" valign="top" class="SubHeadText">
 			QA Notes:
 		</td>
-		<td colspan="5" class="RegText"></cfoutput>
+		<td colspan="5"></cfoutput>
 			<cfif qa_entry_details.recordcount><cfloop query="qa_entry_details"><cfoutput><cfif qa_entry_details.currentrow gt 1 and attributes.expand eq 1><p></cfif>#notes_type_id#(#initials# #dateformat(date,"m/d")# #TimeFormat(date,"h:mm tt")#) -  #trim(note)#&nbsp;&nbsp;</cfoutput></cfloop><cfelse>QA notes not yet entered for this task.</cfif>
 		</td>
 	</tr>--->
@@ -126,7 +126,7 @@
 		<td align="right" valign="top" class="SubHeadText">
 			Associated Files:
 		</td>
-		<td colspan="5" class="RegText"></cfoutput>
+		<td colspan="5"></cfoutput>
 			<cfif get_associated_files.recordcount><cfoutput query="get_associated_files">#file_path#<br /></cfoutput><cfelse>No files currently associated with this task.</cfif>
 		</td>
 	</tr>
@@ -138,7 +138,7 @@
 		<td align="right" valign="top" class="SubHeadText">
 			Associated Tasks:
 		</td>
-		<td colspan="5" class="RegText"></cfoutput>
+		<td colspan="5"></cfoutput>
 			<cfif get_associated_tasks.recordcount><cfoutput query="get_associated_tasks"><a href="index.cfm?fuseaction=Timekeeping.print_task&task_id=#task_id#&expand=1"><img src="#request.dir_level##application.application_specific_settings.image_dir#none.gif" width="16" height="16" alt="" border="0"></a><a href="index.cfm?fuseaction=Timekeeping.task_details&task_id=#task_id#">#task_id#</a> - #name#<br /></cfoutput><cfelse>No tasks currently associated with this task.</cfif>
 		</td>
 	</tr>

@@ -20,8 +20,8 @@
 	<cfinclude template="dsp_new_engage_input.cfm">
 <cfoutput>
 	<tr>
-		<td align="center" colspan="1" class="RegText">
-			<input type="submit" value="Look Up Projects" class="RegText">
+		<td align="center" colspan="1">
+			<input type="submit" value="Look Up Projects">
 		</td>
 	</tr>
 </cfoutput>

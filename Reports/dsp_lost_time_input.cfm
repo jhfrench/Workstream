@@ -30,12 +30,12 @@
 			From:
 		</td>
 		<td>
-			<cfinput type="datefield" name="from_date" value="" required="Yes" validate="date" message="Please enter a properly formatted from date." size="11" class="RegText">
+			<cfinput type="datefield" name="from_date" value="" required="Yes" validate="date" message="Please enter a properly formatted from date." size="11">
 			
 			&nbsp;&nbsp;&nbsp;&nbsp;
 			
 			To:
-			<cfinput type="datefield" name="to_date" value="" required="Yes" validate="date" message="Please enter a properly formatted to date." size="11" class="RegText"><br />
+			<cfinput type="datefield" name="to_date" value="" required="Yes" validate="date" message="Please enter a properly formatted to date." size="11"><br />
 			</td>
 	</tr>
 	

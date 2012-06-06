@@ -24,7 +24,7 @@ ISNULL((CASE WHEN MONTH(tenure_date) < MONTH(GETDATE()) then
 
 	(select accrual_rate * 8
 	from REF_pto_hours
-	where (datediff(mm,demographics.tenure_date,
+	where (DATEDIFF(mm,demographics.tenure_date,
 	cast(cast(month(tenure_date) as varchar(2)) + '/01/' + cast(year(GETDATE()) as varchar(4)) as smalldatetime)) )  
 	between min_month and max_month )
 /*<!-- If you have had your anniversary this year already... -->*/
@@ -32,7 +32,7 @@ else
 	/*<!-- Get the rate that you accrued PTO hours for the part of the year before your anniversary and multiply them times 8(because there are 8 hours per work day and time is accrued in days off) -->*/
 	(select accrual_rate * 8
 	from REF_pto_hours
-	where   (datediff(mm,demographics.tenure_date,GETDATE()) ) between min_month and max_month 
+	where   (DATEDIFF(mm,demographics.tenure_date,GETDATE()) ) between min_month and max_month 
 	       )
 end),0) +
 /*<!-- the folling case statements is to calculate the PTO hours you accrued this year AFTER your anniversary. If your anniversary is this month, then you haven't accrued any hours yet at your new rate so add 0 extra hours otherwise take the current month and subtract the month that you began your tenure. Multiply the result by.... -->*/ 
@@ -44,7 +44,7 @@ end),0) +
 	(to account for the fact that the rate accrues in days and the timekeepiing system logs time in hours.) The difference between the month of your tenure date and this this month plus 1 (to account for not getting hours for this month) -->*/
 	  (select accrual_rate * 8
   	  from REF_pto_hours
-	  where (datediff(mm,demographics.tenure_date,GETDATE()) + 1) between min_month and max_month )
+	  where (DATEDIFF(mm,demographics.tenure_date,GETDATE()) + 1) between min_month and max_month )
 	else
 	0
 	/*<!-- otherwise you have accrued 0 hours at your new rate, then add the hours that you have rolled over from the previous year -->*/

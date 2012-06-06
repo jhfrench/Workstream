@@ -26,8 +26,8 @@
 </cfswitch>
 <cfset variables.tree_expand=listdeleteat(session.workstream_expand,1)>
 </cfsilent>
-	<tr align="center" class="RegText">
-		<td colspan="5" class="RegText">
+	<tr align="center">
+		<td colspan="5">
 		<div style="z-index: -100;">
 			<cfform enablecab="no" name="cftree_form" action="submit" method="post">
 				<cftree name="express_tree" width="750" height="#session.workstream_express_tree_height#" font="Tahoma" fontsize="#request.fontsize#">

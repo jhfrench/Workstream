@@ -33,7 +33,7 @@
 	<cfloop query="get_associated_files">
 	<tr>
 		<td align="center">
-			<input type="checkbox" name="associated_file_id" value="#associated_file_id#" id="associated_file_id_#associated_file_id#" class="RegText">	
+			<input type="checkbox" name="associated_file_id" value="#associated_file_id#" id="associated_file_id_#associated_file_id#">	
 		</td>
 		<td>
 			<label for="associated_file_id_#associated_file_id#"><a href="#file_path#" target="_blank" class="SelectText">#file_path#</a></label>
@@ -42,7 +42,7 @@
 	</cfloop>
 	<tr>
 		<td align="center" colspan="2">
- 			<input type="submit" value="Delete" class="RegText">
+ 			<input type="submit" value="Delete">
 		</td>
 	</tr>
 </cfoutput>

@@ -24,7 +24,7 @@
 
 
 <cfinclude template="qry_get_user_details.cfm">
-<table width="50%"  align="center" bgcolor="#cccccc" border="0" cellpadding="0" cellspacing="0" class="RegText">
+<table width="50%"  align="center" bgcolor="#cccccc" border="0" cellpadding="0" cellspacing="0">
 	<cfmodule template="../common_files/dsp_section_title.cfm" 
 					section_title="&nbsp;Password Change (#get_user_details.lname#, #get_user_details.name#)" 
 					section_color="808080" colspan="5" 
@@ -40,7 +40,7 @@
 
 	
 	<tr>
-		<td class="RegText" height="50%">
+		<td height="50%">
 			Your password has been successfully changed.
 			<cfif isdefined("session.workstream_last_password_date") and len(session.workstream_last_password_date)>
 			<br />
