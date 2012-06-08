@@ -1,12 +1,12 @@
 <!-- Administration/dsp_edit_ref_priority.cfm
-	Author: Lyudmila Klimenko-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_ref_business_category.cfm">
 	<responsibilities>
 		I display the form for priority maintenance.
 	</responsibilities>
 	<properties>
-		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="6/17/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/17/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

@@ -1,12 +1,12 @@
 <!-- Administration/qry_get_help_article.cfm
-	Author: Lyudmila Klimenko-->
+	Author: Jeromy French-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_help_article.cfm">
 	<responsibilities>
 		Query to get system help article.
 	</responsibilities>
 	<properties>
-		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="7/17/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/17/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -31,8 +31,7 @@ SELECT Help_Article.help_article_id, Help_Article.help_article_text, SUBSTRING(H
 	Link_Screen_Help_Article.screen_id
 FROM Link_Screen_Help_Article
 	INNER JOIN Help_Article ON Link_Screen_Help_Article.help_article_id=Help_Article.help_article_id
-WHERE <cfif attributes.help_article_id NEQ 0>Link_Screen_Help_Article.help_article_id=#attributes.help_article_id#<cfelse>Help_Article.active_ind=1
-	AND Link_Screen_Help_Article.active_ind=1</cfif>
+WHERE Help_Article.help_article_id=#attributes.help_article_id#
 ORDER BY Help_Article.sort_order
 </cfquery>
-<cfset attributes.screen_id=valuelist(get_help_article.screen_id)>
+<cfset attributes.screen_id_selected=valuelist(get_help_article.screen_id)>

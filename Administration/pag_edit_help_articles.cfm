@@ -24,7 +24,6 @@
 	</IO>
 </fusedoc>
 --->
-
 <h2>System Configuration &gt; <a href="index.cfm?fuseaction=Administration.list_help_articles">Administer Help Module</a> &gt; Manage Help Articles</h2>
 <cfif isdefined("attributes.help_article_title")>
 	<!--- if we're submitting help article details, commit the new info to the DB --->

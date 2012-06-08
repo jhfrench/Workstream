@@ -24,42 +24,23 @@
 	</IO>
 </fusedoc>
 --->
-
-<cfparam name="attributes.help_article_id" default="0">
-<cfparam name="attributes.fuseaction" default="">
-<cfparam name="attributes.sort_order" default="0">
-
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the data held in the table below">
-	<tr>
-		<th align="left"><h2 style="margin:0px" id="top-side">Administer Help Articles</h2></th>
-	</tr>
-	<tr>
-		<td align="left" class="menuItem" bgcolor="#eeeeee" onmouseover="new Effect.Highlight(this, {duration:0.1,startcolor:'#5394bd',endcolor:'#5394bd',restorecolor:'#5394bd'});this.style.cursor='pointer';" onmouseout="new Effect.Highlight(this, {duration:0.25,startcolor:'#999999',endcolor:'#bbbbbb',restorecolor:'#eeeeee'});">
-			<a href="javascript:edit_listed_help_article(0);">Add new help article</a>
-		</td>
-	</tr>
+<h2>Administer Help Articles</h2>
+<p><a href="javascript:edit_listed_help_article(0);">Add new help article</a></p>
+<table cols="3" summary="Table displays help articles that can be edited" class="table table-striped table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Sort Order</th>
+		</tr>
+	<thead>
+	<tbody>
+		<cfoutput query="get_all_help_articles">
+		<tr>
+			<th scope="row"><a href="javascript:edit_listed_help_article(#help_article_id#);" title="Edit this aticle">#help_article_title#</a></th>
+			<td>#first_name# #last_name#</td>
+			<td class="number">#sort_order#</td>
+		</tr>
+		</cfoutput>
+	</tbody>
 </table>
-
-<img src="images/spacer.gif" alt="" width="560" height="1"><br />
-
-<div class="datachart" style="border:1px solid #999999">
-<table cols="3" cellpadding="3" cellspacing="0" width="100%" border="0"  summary="Table displays help articles">
-	<tr align="left" bgcolor="#999999">
-		<th>Title</th>
-		<th>Author</th>
-		<th>Sort Order</th>
-	</tr>
-	<cfoutput query="get_all_help_articles">
-	<cfif currentrow MOD 2>
-		<cfset variables.row_color="eeeeee">
-	<cfelse>
-		<cfset variables.row_color="dddddd">
-	</cfif>
-	<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';" onclick="javascript:Element.toggle('var_id_#currentrow#'); return false;">
-		<td><a href="javascript:edit_listed_help_article(#help_article_id#);">#help_article_title#</a></td>
-		<td>#first_name# #last_name#</td>
-		<td>#sort_order#</td>
-	</tr>
-	</cfoutput>
-</table>
-</div>

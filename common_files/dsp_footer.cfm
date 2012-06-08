@@ -31,7 +31,7 @@
 		</table>
 <cfelse>
 		</section>
-	  	<div class="span2">
+	  	<div class="span3">
 			<!-- [[ RIGHT COLUMN START ]] -->
 			<cfif application.use_help_module_ind>
 				<cfinclude template="../Help/dsp_screen_help.cfm">
@@ -51,44 +51,6 @@
 				<cfoutput>Version #application.product_release_version# (Last Updated: #dateformat(application.last_updated, "mmmm d, yyyy")#)</cfoutput>&nbsp;
 			</div>
 	</footer>
-<!-- load JavaScript here to speed page load time -->
-	<script src="common_files/js/libs/less-1.2.1.min.js"></script>
-
-	<script type="text/javascript">			
-		(function () {
-			if (/Microsoft/.test(navigator.appName)) { return }
-			
-			window.onload = function () {
-				<cfoutput>#get_screen_details.body_onload#</cfoutput>
-				var menu = document.getElementById('menu');
-				var init = menu.offsetTop;
-				var docked;
-				
-				window.onscroll = function () {
-					if (!docked && (menu.offsetTop - scrollTop() < 0)) {
-						menu.style.top = 0;
-						menu.style.position = 'fixed';
-						menu.className = 'docked';
-						docked = true;
-					} else if (docked && scrollTop() <= init) {
-						menu.style.position = 'absolute';
-						menu.style.top = init + 'px';
-						menu.className = menu.className.replace('docked', '');
-						docked = false;
-					}
-				};
-			};
-		})();
-	</script>
-
-	<script type="text/javascript">
-		$(document).ready(function () {
-			<cfif application.use_help_module_ind>
-			getHelp('article', default_help);
-			getHelp('faq', default_faq);
-			</cfif>
-		});
-	</script>
 </cfif>
 <!--- I provide a hidden div within which you can have Ajax load (and process) a specified fuseaction. This is useful for things like ordering lots of data after an upload (without making the upload wait for the ordering), or setting session variables without reloading the controlling page (like hiding the navigation bar). --->
 <div id="hidden_process" style="display:none;"></div>

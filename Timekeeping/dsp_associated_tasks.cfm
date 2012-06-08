@@ -19,32 +19,32 @@
 </cfsilent>
 <h5>Linked tasks</h5>
 <cfif comparenocase(listlast(attributes.fuseaction, '.'),"new_task") AND get_associated_tasks.recordcount>
-<table class="table table-striped table-bordered span7">
-<thead>
-	<tr>
-		<th>Due date</th>
-		<th>Task name</th>
-		<th>Status</th>
-	</tr>
-</thead>
-<tbody>
-<cfoutput query="get_associated_tasks">
-	<tr>
-		<td class="date">#dateformat(due_date,"mm/dd/yy")#</td>
-		<td>
-			<a href="javascript:list_to_task('#task_id#');" title="View task."><img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="<cfif description EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>" style="height:10px; width:9px;" height="10" width="9" border="0" />&nbsp;#name#</a>
-		</td>
-		<td>#status#</td>
-	</tr>
-</cfoutput>
-</tbody>
+<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>Due date</th>
+			<th>Task name</th>
+			<th>Status</th>
+		</tr>
+	</thead>
+	<tbody>
+	<cfoutput query="get_associated_tasks">
+		<tr>
+			<td class="date">#dateformat(due_date,"mm/dd/yy")#</td>
+			<th scope="row">
+				<a href="javascript:list_to_task('#task_id#');" title="View task."><img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="<cfif description EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>" style="height:10px; width:9px;" height="10" width="9" border="0" />&nbsp;#name#</a>
+			</td>
+			<td>#status#</td>
+		</tr>
+	</cfoutput>
+	</tbody>
 </table>
 <cfelse>
-	<p class="alert span7">No tasks currently associated with this task.</p>
+	<p class="alert">No tasks currently associated with this task.</p>
 </cfif>
 <cfoutput>
 <input type="hidden" name="linked_task_id" value="0">
-<div class="btn-group span7" style="margin-left:auto; margin-right:auto;">
+<div class="btn-group">
 	<a href="javascript:window.open('index.cfm?fuseaction=common_files.task_attach&base_task_id=#attributes.task_id#', 'files', 'toolbar=1,location=1,directories=1,status=1,menubar=1,scrollbars=1,resizable=1,copyhistory=1,width=620,height=450');" title="Associate another task to this task." class="btn btn-mini"><i class="icon-magnet"></i>Attach</a>
 	<a href="javascript:window.open('index.cfm?fuseaction=common_files.task_detach&task_id=#attributes.task_id#', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=1,copyhistory=0,width=420,height=210');" title="Remove a task association from this task." class="btn btn-mini"><i class="icon-remove-sign"></i>Remove</a>
 </div>

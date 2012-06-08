@@ -1,13 +1,13 @@
 
 <!-- Administration/pag_list_link_tables.cfm
-	Author: Lyudmila Klimenko-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_list_link_tables.cfm">
 	<responsibilities>
 	</responsibilities>
 		I show a list of link tables that can be administered developers. 
 	<properties>
-		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="7/10/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/10/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

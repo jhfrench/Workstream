@@ -30,7 +30,7 @@
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-SELECT <cfif attributes.help_articles_lookup_type_id>TOP 1 </cfif>Help_Article.help_article_id, Help_Article.help_article_text, Help_Article.help_article_title,
+SELECT <cfif attributes.help_articles_lookup_type_id EQ 1>TOP 1 </cfif>Help_Article.help_article_id, Help_Article.help_article_text, Help_Article.help_article_title,
 	Help_Article.active_ind, Help_Article.sort_order, Help_Article.created_date,
 	REF_Module.description AS module, REF_Screen.fuseaction, REF_Business_Function.description AS business_function,
 	REF_Business_Function.acronym, Link_Screen_Help_Article.l_s_h_a_id, Demographics.last_name + ', ' + Demographics.first_name AS article_author,
@@ -45,13 +45,13 @@ FROM Link_Screen_Help_Article
 	INNER JOIN REF_Screen ON Link_Screen_Help_Article.screen_id=REF_Screen.screen_id
 	INNER JOIN REF_Module ON REF_Screen.module_id=REF_Module.module_id
 	INNER JOIN REF_Business_Function ON REF_Screen.business_function_id=REF_Business_Function.business_function_id
-	INNER JOIN Demographics ON Help_Article.created_by=Demographics.user_account_id
+	LEFT OUTER JOIN Demographics ON Help_Article.created_by=Demographics.user_account_id
+		AND Demographics.active_ind=1
 WHERE Link_Screen_Help_Article.active_ind=1
 	AND Help_Article.active_ind=1
 	AND REF_Screen.active_ind=1
 	AND REF_Module.active_ind=1
 	AND REF_Business_Function.active_ind=1
-	AND Demographics.active_ind=1
 	AND 
 	<cfswitch expression="#attributes.help_articles_lookup_type_id#">
 		<cfcase value="1">

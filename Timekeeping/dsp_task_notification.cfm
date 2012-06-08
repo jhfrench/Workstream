@@ -21,7 +21,7 @@
 </cfif>
 </cfsilent>
 <div class="form-horizontal">
-	<h4>Completion Notification</h4>
+	<h5>Completion Notification</h5>
 	<div class="control-group">
 		<label for="notification_to_id" class="control-label">Recipient List</label>
 		<div class="controls">

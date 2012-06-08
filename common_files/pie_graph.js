@@ -69,30 +69,30 @@ function pieChart() {
     
     $('#chartData td').each( function() {
 		currentCell++;
-		// alert('cell is now:'+currentCell);
+		// console.log('cell is now:'+currentCell);
 		if ( $(this).hasClass('graph_label') ) {
 			//store label
 		   chartData[currentRow] = [];
 		   chartData[currentRow]['graph_label'] = $(this).text();
-		   // alert('label:'+ $(this).text());
+		   // console.log('label:'+ $(this).text());
 		} else if ( $(this).hasClass('graph_data') ) {
 			// store value
 			var value = parseFloat($(this).text());
 			totalValue += value;
 			value = value.toFixed(2);
 			chartData[currentRow]['value'] = value;
-			// alert('value:'+value);
+			// console.log('value:'+value);
 		} else {
 			// Extract and store the cell colour
 			currentRow++;
-			// alert('row counter is now:'+currentRow);
+			// console.log('row counter is now:'+currentRow);
 			// Extract and store the cell colour
 			if ( rgb = $(this).css('background-color').match( /rgb\((\d+), (\d+), (\d+)/) ) {
 				chartColours[currentRow] = [ rgb[1], rgb[2], rgb[3] ];
-				// alert('assigned rgb color:'+$(this).css('background-color'));
+				// console.log('assigned rgb color:'+$(this).css('background-color'));
 			} else if ( hex = $(this).css('background-color').match(/#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/) ) {
 				chartColours[currentRow] = [ parseInt(hex[1],16) ,parseInt(hex[2],16), parseInt(hex[3], 16) ];
-				// alert('assigned hex color:'+$(this).css('background-color'));
+				// console.log('assigned hex color:'+$(this).css('background-color'));
 			} else {
 				alert( "Error: Colour could not be determined! Please specify table colours using the format '#xxxxxx'" );
 				return;

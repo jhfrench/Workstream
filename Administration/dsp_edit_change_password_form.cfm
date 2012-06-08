@@ -1,11 +1,11 @@
 <!-- Administration/dsp_edit_change_password_form.cfm
-	Author: Lyudmila Klimenko-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_change_password_form.cfm">
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Lyudmila Klimenko" type="create" date="6/6/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/6/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

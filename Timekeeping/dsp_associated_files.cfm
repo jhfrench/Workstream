@@ -17,7 +17,7 @@
 </cfsilent>
 <h5>Associated files</h5>
 <cfif comparenocase(listlast(attributes.fuseaction, '.'),"new_task") AND get_associated_files.recordcount>
-	<div class="span7">
+	<div>
 	<cfoutput query="get_associated_files">
 		<cfset variables.file_img="na">
 		<cfif listfindnocase(variables.valid_files,left(listlast(file_path,"."),3))>
@@ -27,11 +27,11 @@
 	</cfoutput>
 	</div>
 <cfelse>
-	<p class="alert span7">No files currently associated with this task.</p>
+	<p class="alert">No files currently associated with this task.</p>
 </cfif>
 <cfoutput>
 <input type="hidden" name="file_path" value="0">
-<div class="btn-group span7" style="margin-left:auto; margin-right:auto;">
+<div class="btn-group">
 	<a href="javascript:window.open('index.cfm?fuseaction=common_files.file_attach&task_id=#attributes.task_id#', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=420,height=210');" title="Associate a file path to this task." border="0" class="btn btn-mini"><i class="icon-folder-open"></i>Attach</a>
 	<a href="javascript:window.open('index.cfm?fuseaction=common_files.file_detach&task_id=#attributes.task_id#', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=1,copyhistory=0,width=350,height=350');" title="Remove a file path from this task." border="0" class="btn btn-mini"><i class="icon-remove-sign"></i>Remove</a>
 </div>

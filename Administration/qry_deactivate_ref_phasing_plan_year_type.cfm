@@ -1,12 +1,12 @@
 <!-- Administration/qry_deactivate_ref_phasing_plan_year_type.cfm
-	Author: Lyudmila Klimenko-->
+	Author: Jeromy French-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_deactivate_ref_phasing_plan_year_type.cfm">
 	<responsibilities>
 		Query to deactivate a record in FEF_Phasing_Plan_year_Type table before a new insert.
 	</responsibilities>
 	<properties>
-		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="7/11/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/11/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

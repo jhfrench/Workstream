@@ -29,9 +29,9 @@ SELECT Help_FAQ.help_faq_id, Help_FAQ.question, CASE Help_FAQ.public_ind WHEN 1 
 	Help_FAQ.answer, Help_FAQ.sort_order AS sort_order, Help_FAQ.active_ind,
 	Demographics.last_name, Demographics.first_name
 FROM Help_FAQ
-	INNER JOIN Demographics ON Help_FAQ.asked_by=Demographics.user_account_id
+	LEFT OUTER JOIN Demographics ON Help_FAQ.asked_by=Demographics.user_account_id
+		AND Demographics.active_ind=1
 WHERE Help_FAQ.active_ind=1
-	AND Demographics.active_ind=1
 ORDER BY Help_FAQ.sort_order, Help_FAQ.question
 </cfquery>
 <cfset caller.get_all_help_faqs=get_all_help_faqs>

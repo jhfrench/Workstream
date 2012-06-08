@@ -1,11 +1,11 @@
 <!-- common_files/qry_get_user_preferences.cfm
-	Author: Lyudmila Klimenko-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_user_preferences.cfm">
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

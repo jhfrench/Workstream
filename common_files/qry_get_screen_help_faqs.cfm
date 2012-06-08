@@ -29,7 +29,7 @@
 <cfparam name="attributes.public_ind" default="1">
 
 <cfquery name="get_screen_help_faqs" datasource="#application.datasources.main#">
-SELECT <cfif attributes.help_faqs_lookup_type_id>TOP 1 </cfif>Help_FAQ.help_faq_id, Help_FAQ.question, Help_FAQ.answer,
+SELECT <cfif attributes.help_faqs_lookup_type_id EQ 1>TOP 1 </cfif>Help_FAQ.help_faq_id, Help_FAQ.question, Help_FAQ.answer,
 	Help_FAQ.active_ind, Help_FAQ.sort_order, Help_FAQ.created_date,
 	REF_Module.description AS module, REF_Screen.fuseaction, REF_Business_Function.description AS business_function,
 	REF_Business_Function.acronym, Link_Screen_Help_FAQ.l_s_h_f_id, Demographics.last_name + ', ' + Demographics.first_name AS response_author,

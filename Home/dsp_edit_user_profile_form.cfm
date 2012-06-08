@@ -1,12 +1,12 @@
 <!-- Home/dsp_edit_user_profile_form.cfm
-	Author: Lyudmila Klimenko-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_user_profile_form.cfm">
 	<responsibilities>
 		I display the form for editing user profile.
 	</responsibilities>
 	<properties>
-		<history email="lyudmila.klimenko-1@nasa.gov" author="Lyudmila Klimenko" type="create" date="9/3/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="9/3/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

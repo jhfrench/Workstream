@@ -19,15 +19,11 @@
 	END FUSEDOC --->
 </cfsilent>
 
-<!--[if IE]>
-<script src="common_files/excanvas.js?cache_escape=20120412113820"></script>
-<![endif]-->
-<script src="common_files/pie_graph.js?cache_escape=20120412113820"></script>
 <cfoutput>
 <section id="blurb_project" class="span7">
 	<h2>Work Allocation</h2>
 	<cfif time_allocation_blurb.recordcount>
-	<p>So far this month you have worked on 2 different engagements. You have spent none of your time on ADMIN/PLANNING. This is under the ADMIN/PLANNING work allocation target of 10% or less. You allocated your time as follows:</p>
+	<p>So far this month you have worked on #time_allocation_blurb.recordcount# <cfif time_allocation_blurb.recordcount EQ 1>engagement<cfelse>different engagements</cfif>. You have spent none of your time on ADMIN/PLANNING. This is under the ADMIN/PLANNING work allocation target of 10% or less. You allocated your time as follows:</p>
 	<div id="work_allocation" class="row-fluid">
 
 		<div class="span4">

@@ -38,10 +38,7 @@ else
 <cfmodule template="qry_get_system_note.cfm"> --->
 
 <cfoutput>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]> <html class="no-js" lang="en"> <![endif]-->
+<html class="no-js">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -49,7 +46,7 @@ else
 	<title>#application.html_title# (Twitter Bootstrap demo)</title>
 	<meta name="description" content="">
 	<meta name="author" content="Applied Internet Technologies: #application.application_specific_settings.nasa_official#">
-	<meta http-equiv="expires" content="#gethttptimestring(application.last_updated)#" />
+	<meta http-equiv="expires" content="#gethttptimestring(now())#" />
 
 	<meta name="viewport" content="width=device-width">
 
@@ -60,7 +57,10 @@ else
 		//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
 		Modernizr.load([
 			{
-				load: '//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
+				load: [
+					'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
+					'common_files/less/Workstream.css'
+				],
 				complete: function () {
 					if ( !window.jQuery ) {
 						Modernizr.load('common_files/js/libs/jquery-1.7.1.min.js');
@@ -76,14 +76,23 @@ else
 					'common_files/js/libs/bootstrap/dropdown.js',
 					'common_files/js/libs/bootstrap/tab.js',
 					'common_files/js/plugins.js',
-					'common_files/js/plugins.js',
 					'common_files/js/script.js'
 				]
+			},
+			{
+				test: Modernizr.canvas,
+				nope: 'common_files/excanvas.js',
+				complete: function () {
+					Modernizr.load('common_files/pie_graph.js');
+				}
+			},
+			{
+				complete: function () {
+					<cfoutput>#get_screen_details.body_onload#</cfoutput>
+				}
 			}
 		]);
 	</script>
-	
-	<link rel="stylesheet/less" href="common_files/less/style.less">	
 </head>
 <body class="container-fluid">
 	<header role="banner" class="row-fluid">
@@ -130,7 +139,7 @@ else
 	</header>
 
 	<div class="row-fluid">
-		<section id="begin_page_content" role="main" class="span10">
+		<section id="begin_page_content" role="main" class="span9">
 	
 	
 	
