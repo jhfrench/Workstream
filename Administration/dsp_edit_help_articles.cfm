@@ -31,6 +31,12 @@
 	if (attributes.help_article_id EQ 0) {
 		attributes.screen_id_selected=attributes.screen_id;
 	}
+	if (len(get_help_article.sort_order)) {
+		attributes.sort_order=get_help_article.sort_order;
+	}
+	else {
+		attributes.sort_order=dateformat(now(), 'yyyymmdd');
+	}
 	
 	//handle active_ind radio default
 	variables.active_ind_on=0;
@@ -65,7 +71,7 @@
 	<div class="control-group">
 		<label class="control-label" for="sort_order">Sort Order</label>
 		<div class="controls">
-			<cfinput type="text" name="sort_order" id="sort_order" value="#get_help_article.sort_order#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter a sort order." class="span3">
+			<cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter a sort order." class="span3">
 		</div>
 	</div>
 <cfif attributes.help_article_id EQ 0>

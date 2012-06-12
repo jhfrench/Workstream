@@ -58,8 +58,7 @@ else
 		Modernizr.load([
 			{
 				load: [
-					'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
-					'common_files/less/Workstream.css'
+					'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'
 				],
 				complete: function () {
 					if ( !window.jQuery ) {
@@ -70,11 +69,12 @@ else
 			{
 				// This will wait for the fallback to load and execute if it needs to.
 				load: [
+					'common_files/less/Workstream.css',
 					'//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js',
-					'common_files/js/libs/bootstrap/transition.js',
-					'common_files/js/libs/bootstrap/collapse.js',
-					'common_files/js/libs/bootstrap/dropdown.js',
-					'common_files/js/libs/bootstrap/tab.js',
+					'//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-transition.js',
+					'//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-collapse.js',
+					'//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-dropdown.js',
+					'//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tab.js',
 					'common_files/js/plugins.js',
 					'common_files/js/script.js'
 				]

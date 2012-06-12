@@ -35,6 +35,12 @@ if (NOT isdefined("application.use_help_search_ind")) {
 	application.use_help_search_ind=0;
 }
 variables.button_width=220/(1+application.use_help_faq_ind+application.use_help_search_ind);
+if (listfind(variables.allowed_business_function_id, 246)) {
+	variables.help_admin_ind=1;
+}
+else {
+	variables.help_admin_ind=0;
+}
 </cfscript>
 
 <script type="text/javascript" language="javascript">
@@ -81,7 +87,7 @@ function submit_search() {
 		function(response, status, xhr) {
 			if (status == 'error') {
 				$('div #help_main_faq').html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
-			}
+			};
 			return this;
 		}
 	);
@@ -110,20 +116,26 @@ function open_help_detail(article_type_id, article_id) {
 <div id="help_area" role="complementary">
 	<div class="menubar"><a href="javascript:void('Close the Workstream help system');" id="help_close" title="close the help section"><img src="images/close.png" align="right" class="closeBox" border="0" alt="close the help section" /></a>Help</div>
 	<ul id="help_tabs" class="nav nav-tabs">
-		<li class="active"><a href="##help_top_article" data-toggle="tab" id="button_article">Articles</a></li><cfif application.use_help_faq_ind>
-		<li class=""><a href="##help_top_faq" data-toggle="tab" id="button_faq"><acronym title="Frequently Asked Questions">FAQ</acronym></a></li></cfif><cfif application.use_help_search_ind>
-		<li class=""><a href="##help_top_search" data-toggle="tab" id="button_search">Search</a></li></cfif>
+		<li class="active"><a href="##help_content_article" data-toggle="tab" id="button_article">Articles</a></li><cfif application.use_help_faq_ind>
+		<li class=""><a href="##help_content_faq" data-toggle="tab" id="button_faq"><acronym title="Frequently Asked Questions">FAQ</acronym></a></li></cfif><cfif application.use_help_search_ind>
+		<li class=""><a href="##help_content_search" data-toggle="tab" id="button_search">Search</a></li></cfif>
 	</ul>
-	<div id="help_top" class="tab-content">
-		<div id="help_top_article" class="tab-pane fade active in">
-			<h3><cfif get_screen_help_articles.recordcount EQ 0>There are no a<cfelse>A</cfif>rticles related to this screen...</h3>
-			<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_help_article" fuseaction="Administration.edit_help_article" field_name="help_article_id">
-			<ul>
-				<!--- display records from query --->
-				<cfloop query="get_screen_help_articles">
-					<li><a href="##help_area" onclick="javascript: getHelp('article', #help_article_id#);" title="Load this help article">#help_article_title#</a><cfif listfind(variables.allowed_business_function_id, 246)>&nbsp;(<a href="javascript:edit_help_article(#help_article_id#);">edit</a>)</cfif></li>
-				</cfloop>
-			</ul>
+	<div id="help_content" class="tab-content">
+		<div id="help_content_article" class="tab-pane fade active in">
+			<div id="help_top_article" class="help_top">
+			<cfif get_screen_help_articles.recordcount EQ 0>
+				<h4>There are no articles related to this screen.</h4>
+			<cfelse>
+				<h4>Articles related to this screen...</h4>
+				<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_help_article" fuseaction="Administration.edit_help_article" field_name="help_article_id">
+				<ul>
+					<!--- display records from query --->
+					<cfloop query="get_screen_help_articles">
+						<li><a href="##help_area" onclick="javascript: getHelp('article', #help_article_id#);" title="Load this help article">#help_article_title#</a><cfif variables.help_admin_ind>&nbsp;(<a href="javascript:edit_help_article(#help_article_id#);">edit</a>)</cfif></li>
+					</cfloop>
+				</ul>
+			</cfif>
+			</div>
 			<div id="help_main_article" class="help_main">
 				<cfif get_screen_help_articles.recordcount>
 					<cfset variables.help_article_id=get_screen_help_articles.help_article_id>
@@ -134,16 +146,28 @@ function open_help_detail(article_type_id, article_id) {
 				var default_help=#variables.help_article_id#;
 				</script>
 			</div>
+			<!--- if the user have access to administer help --->
+			<cfif variables.help_admin_ind>
+				<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="add_help_article" fuseaction="Administration.edit_help_article" field_name="screen_id">
+				<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="add_help_faq" fuseaction="Administration.edit_help_faq" field_name="screen_id">
+				<p id="help_admin"><a href="javascript:add_help_article(#get_screen_details.screen_id#);">Add help article to this screen</a></p>
+			</cfif>
 		</div><cfif application.use_help_faq_ind>
-		<div id="help_top_faq" class="tab-pane fade">
-			<h3><cfif get_screen_help_faqs.recordcount EQ 0>There are no f<cfelse>F</cfif>requently asked questions related to this screen...</h3>
-			<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_help_faq" fuseaction="Administration.edit_help_faq" field_name="help_faq_id">
-			<ul>
-				<!--- display records from query --->
-				<cfloop query="get_screen_help_faqs">
-					<li><a href="##help_area" onclick="getHelp('faq', #help_faq_id#);">#question#</a><cfif listfind(variables.allowed_business_function_id, 246)>&nbsp;(<a href="javascript:edit_help_faq(#help_faq_id#);">edit</a>)</cfif></li>
-				</cfloop>
-			</ul>
+		<div id="help_content_faq" class="tab-pane fade">
+			<div id="help_top_faq" class="help_top">
+			<cfif get_screen_help_faqs.recordcount EQ 0>
+				<h4>There are no frequently asked questions related to this screen...</h4>
+			<cfelse>
+				<h4>Frequently asked questions related to this screen...</h4>
+				<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_help_faq" fuseaction="Administration.edit_help_faq" field_name="help_faq_id">
+				<ul>
+					<!--- display records from query --->
+					<cfloop query="get_screen_help_faqs">
+						<li><a href="##help_area" onclick="getHelp('faq', #help_faq_id#);">#question#</a><cfif variables.help_admin_ind>&nbsp;(<a href="javascript:edit_help_faq(#help_faq_id#);">edit</a>)</cfif></li>
+					</cfloop>
+				</ul>
+			</cfif>
+			</div>
 			<div class="help_main">
 				<div id="help_main_faq">
 					<cfif get_screen_help_faqs.recordcount>
@@ -155,7 +179,7 @@ function open_help_detail(article_type_id, article_id) {
 					var default_faq=#variables.help_faq_id#;
 					</script>
 				</div>
-				<div>
+				<div id="faq_form_container">
 					<hr />
 					<form name="faq_form" id="faq_form" action="javascript:submit_faq();">
 						<fieldset>
@@ -190,35 +214,32 @@ function open_help_detail(article_type_id, article_id) {
 				</div>
 			</div>
 		</div></cfif><cfif application.use_help_search_ind>
-		<div id="help_top_search" class="tab-pane fade">
-			<form name="help_search_form" id="help_search_form" action="javascript:submit_search();">
-				<div class="control-group">
-					<label class="control-label" for="search_string">Enter the words for which you want to search</label>
-					<div class="controls">
-						<input type="text" name="search_string" id="search_string" placeholder="your search string" value="" />
+		<div id="help_content_search" class="tab-pane fade">
+			<div id="help_top_search" class="help_top">
+				<h4>Enter your search criteria then press "Search".</h4>
+				<form name="help_search_form" id="help_search_form" action="javascript:submit_search();">
+					<div class="control-group">
+						<label class="control-label" for="search_string">Enter the words for which you want to search</label>
+						<div class="controls">
+							<input type="text" name="search_string" id="search_string" placeholder="your search string" value="" />
+						</div>
 					</div>
-				</div>
-				<div class="control-group">
-					<div class="controls">
-						<label class="checkbox" for="case_sensitive_ind"><input type="checkbox" name="case_sensitive_ind" id="case_sensitive_ind" value="1" />Case-sensitive</label>
+					<div class="control-group">
+						<div class="controls">
+							<label class="checkbox" for="case_sensitive_ind"><input type="checkbox" name="case_sensitive_ind" id="case_sensitive_ind" value="1" />Case-sensitive</label>
+						</div>
 					</div>
+					<div class="form-actions">
+						<input type="hidden" name="from_search_ind" id="from_search_ind" value="1" /><!--- $issue$: some day, use this "from_search_ind" field to show question if user clicks on a FAQ entry from search results --->
+						<input type="submit" value="Search" class="btn btn-primary" />
+					</div>
+				</form>
+			</div>
+			<div class="help_main">
+				<div id="help_main_search">
 				</div>
-				<div class="form-actions">
-					<input type="hidden" name="from_search_ind" id="from_search_ind" value="1" /><!--- $issue$: some day, use this "from_search_ind" field to show question if user clicks on a FAQ entry from search results --->
-					<input type="submit" value="Search" class="btn btn-primary" />
-				</div>
-			</form>
-			<div id="help_main_search" class="help_main">
-				Enter your search criteria above then press "Search".
 			</div>
 		</div></cfif>
 	</div>
-	<!--- if the user have access to administer help --->
-	<cfif listfind(variables.allowed_business_function_id, 246)>
-		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="add_help_article" fuseaction="Administration.edit_help_article" field_name="screen_id">
-		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="add_help_faq" fuseaction="Administration.edit_help_faq" field_name="screen_id">
-		<div id="help_admin"><a href="javascript:add_help_article(#get_screen_details.screen_id#);">Add help article to this screen</a></div>
-	</cfif>
-	<p>&nbsp;</p>
 </div>
 </cfoutput>
