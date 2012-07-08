@@ -15,7 +15,7 @@
 <cfoutput>
 <form name="inactive" action="index.cfm?fuseaction=Customers.engagements" method="post">
 	<tr bgcolor="##008000">
-		<td colspan="<cfif session.workstream_engagement_edit>3<cfelse>2</cfif>" class="HeadTextWhite">
+		<td colspan="3" class="HeadTextWhite">
 			Projects for #get_engagements.Cust_Description#
 			<input type="hidden" name="client_code" value="#attributes.client_code#">
 		</td>
@@ -43,8 +43,8 @@
 		<td bgcolor="##c0c0c0" class="SubHeadText">
 			Active
 		</td>			
-		<cfif session.workstream_engagement_edit><td bgcolor="##c0c0c0" class="SubHeadText">
+		<td bgcolor="##c0c0c0" class="SubHeadText">
 			Edit
-		</td></cfif>
+		</td>
 	</tr>
 </cfoutput>

@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I am the query that gets the people for the undertime report.
+	Responsibilities: I determine if a user has enhanced access to a busines function
 	||
 	Name: Jeromy French
 	||
@@ -14,10 +14,13 @@
 	END FUSEDOC --->
 <cfset get_all_option.all_option=0>
 <cfquery name="get_all_option" datasource="#application.datasources.main#">
-SELECT ISNULL(all_option,0) AS all_option
-FROM Security_Object_Access
-WHERE emp_id=#session.user_account_id#
-	AND object_id=#attributes.object_id#
+<!--- $issue$: really need to think through if Access_User_Business_Function needs the ability to designate a user as having heightened privileges for a given business function --->
+SELECT 1 AS all_option
+FROM Access_User_Business_Function
+WHERE active_ind=1
+	AND program_year_id=#attributes.program_year_id#
+	AND user_account_id=#session.user_account_id#
+	AND business_function_id=#attributes.business_function_id#
 </cfquery>
 <cfif get_all_option.recordcount NEQ 0>
 	<cfset caller.variables.all_option=get_all_option.all_option>

@@ -28,11 +28,9 @@
 				#active#
 			<cfif get_customers.drill></a></cfif>
 		</td>
-		<cfif session.workstream_customer_edit>
 		<td align="center">
 				<a href="javascript:edit('#customer_id#')">Edit</a>
 		</td>
-		</cfif>
 	</tr>
 </cfoutput>
 

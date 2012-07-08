@@ -13,16 +13,14 @@
 	||
 	END FUSEDOC --->
 <cfquery name="get_administrators" datasource="#application.datasources.main#">
-SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.emp_id, Email.email
-FROM Link_Company_Emp_Contact, Security_Object_Access, Emp_Contact, Email
-WHERE Link_Company_Emp_Contact.emp_id=Security_Object_Access.emp_id
-	AND Link_Company_Emp_Contact.emp_id=Emp_Contact.emp_id
-	AND Emp_Contact.emp_id=Email.emp_id
-	AND Link_Company_Emp_Contact.company_id=#session.workstream_company_id#
-	AND Security_Object_Access.object_id=41<!--- $issue$: this needs to be altered to use new security/navigation model --->
-	AND Security_Object_Access.active_ind=1
-	AND Email.email_type_id=1
-ORDER BY Emp_Contact.lname, Emp_Contact.name, Emp_Contact.emp_id
+SELECT Demographics.first_name, Demographics.last_name, Demographics.email_address
+FROM Demographics
+	INNER JOIN Access_User_Business_Function ON Demographics.user_account_id=Access_User_Business_Function.user_account_id
+WHERE Demographics.active_ind=1
+	AND Access_User_Business_Function.active_ind=1
+	AND Access_User_Business_Function.business_function_id=250 /*Administer User Access*/
+/*	AND Link_Company_Emp_Contact.company_id=#session.workstream_company_id#*/<!--- $issue$: this needs to limit to only people who can edit for the company that just got the new employee --->
+ORDER BY Demographics.last_name, Demographics.first_name
 </cfquery>
 <cfset variables.administrators_list=valuelist(get_administrators.emp_id)>
 </cfsilent>
@@ -36,7 +34,7 @@ ORDER BY Emp_Contact.lname, Emp_Contact.name, Emp_Contact.emp_id
 <cfelse>contact the following workstream administrators to set up the appropriate access:<br />
 <ul type="square">
 <cfoutput query="get_administrators">
-<li><a href="mailto:#email#">#lname#, #name#</a></li>
+<li><a href="mailto:#email_address#">#last_name#, #first_name#</a></li>
 </cfoutput>
 </ul>
 </cfif>

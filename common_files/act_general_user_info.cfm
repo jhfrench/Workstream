@@ -29,23 +29,12 @@
 	<-- session.workstream_prefix: the code prefix that the user's company uses for creating customer codes
 	<-- session.workstream_display_chat:  this is a boolean value that determins if the chat tool is diaplayed
 	<-- 'session.workstream_#PN#_user': this is a boolean Value that is used to tell workstream what products the user has access to.
-	<-- session.workstream_engagement_edit: boolean that indicates if the user is allowed to edit engagements
-	<-- session.workstream_customer_edit: I tell if the user is allowed to edit customers
 	<-- session.workstream_user_level: this is used to tell us what level the user is, 1= Nucleus
 	<-- session.workstream_PTO_Accrual_Type_ID: this is the type of PTO accrual the user has.
 		END FUSEDOC --->
 
 <cfinclude template="qry_general_user_info.cfm">
-<!--- DON"T UNCOMMENT qry_get_product_access.cfm UNTIL PROCLAIM GOES LIVE!!! --->
-<cfinclude template="qry_get_product_access.cfm"> 
-
-<cfinclude template="qry_get_engagement_access.cfm">
-<cfinclude template="qry_get_customer_access.cfm">
 <!--These are the client variables that contain demographic details about the particular user-->
-	<!---DON'T UNCOMMENT loop query="get_product_access" UNTIL PROCLAIM GOES LIVE --->
-	<cfloop query="get_product_access">
-		<cfset "session.workstream_#pn#_user"=true>
-	</cfloop>
 	<cfset session.workstream_alternate_datasource=general_user_info.alternate_datasource>
 	<cfset session.workstream_authuser=session.user_name>
 	<cfset session.workstream_company_id=general_user_info.company_id>
@@ -80,41 +69,6 @@
 	   <!-- These two variables are added to allow qry_create_profile to work -->
 	<cfparam name="session.workstream_notes_display_sort" default=1>
 	<cfparam name="session.workstream_task_list_order" default="task_id">
-	<!-- These are security variables that tell us if the user is allowed to edit customers and engagements-->
-	<cfif get_engagement_access.recordcount AND NOT compare(get_engagement_access.active_ind, 1)>
-		<cfset session.workstream_engagement_edit=1>
-	<cfelse>
-		<cfset session.workstream_engagement_edit=0>	
-
-	</cfif>
-	<cfif get_customer_access.recordcount AND NOT compare(get_customer_access.active_ind, 1)>
-		<cfset session.workstream_customer_edit=1>
-	<cfelse>
-		<cfset session.workstream_customer_edit=0>
-	</cfif>
-	
-	<!--- (4/11/03 Victor Added) 
-	IF company uses password expiration, or their temp password expires as soon as they log in
-	then app variable will be defined AND GT 0;
-	if so we query the company security table to get this user's last_password_date, which
-	is the last date they are allowed to use their current password; beyond that date they
-	will be required to change it;
-	we grab the date and put it into a client VAR of the same name and if there was non, we use todays date. ---><!--- 
-<cfif application.password_expiration_in_days GT 0 OR application.temp_password_exps GT 0>
-	<cfquery name="get_last_password_date" datasource="#application.datasources.main#">
-		SELECT last_password_date
-		FROM Security
-		WHERE username='#auth_user#'
-	</cfquery>
-	<cfif get_last_password_date.recordcount GT 0>
-		<cfif len(get_last_password_date.last_password_date)>
-			<cfset session.workstream_last_password_date = get_last_password_date.last_password_date>
-		<cfelse>
-			<cfset session.workstream_last_password_date = dateformat(now(),'mm/dd/yyyy')>
-		</cfif>
-	</cfif>
-</cfif> --->
-	
 <cfinclude template="act_load_profile.cfm">
 </cfsilent>
 

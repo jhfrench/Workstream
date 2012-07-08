@@ -1,5 +1,5 @@
 
-<!--Reports/pag_Manager_hours_input.cfm
+<!--Reports/pag_manager_hours_input.cfm
 	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -11,7 +11,7 @@
 	$Log$
 	||
 	END FUSEDOC --->
-<cfmodule template="../common_files/act_set_all_option.cfm" object_id="4">
+<cfmodule template="../common_files/act_set_all_option.cfm" business_function_id="644">
 <cfparam name="attributes.all_employees" default="0">
 <cfif attributes.all_employees EQ 1>
 	<cfset variables.all_employees_change=0>

@@ -117,15 +117,6 @@ WHERE d.Effective_To IS NULL
 	<cfset phone_5_ext = phone_5_ext> 
 	<cfset email_3 = email_3> 
 </cfoutput>
- 	<cfquery name="get_product_access" datasource="#application.datasources.main#">
-    SELECT product_name
-    FROM security_product_access inner join  REF_product 
-	ON  REF_product.product_id = security_product_access.product_id
-    WHERE emp_id = #attributes.emp_id#
-    </cfquery>  
-	<cfif ListFindNoCase(valuelist(get_product_access.product_name), "workstream")>
-		<cfset workstream = "1">
-	</cfif>
 	<cfquery name="get_visible_companies" datasource="#application.datasources.main#">
     SELECT company_id
     FROM Security_Company_Access

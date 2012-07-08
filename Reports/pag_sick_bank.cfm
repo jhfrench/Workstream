@@ -19,7 +19,7 @@
 </cfsilent>
 
 <!--- Check to see if user has access to 'All' --->
-<cfmodule template="act_set_all_option.cfm" emp_id="#session.user_account_id#" object_id="84">
+<cfmodule template="../common_files/act_set_all_option.cfm" business_function_id="655">
 <cfinclude template="qry_get_subordinates.cfm">
 <cfinclude template="qry_get_pto_names.cfm">
 

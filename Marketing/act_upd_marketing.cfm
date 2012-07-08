@@ -124,7 +124,7 @@
 			<cfquery name="insert_project" datasource="#application.datasources.main#">
                    INSERT INTO project
 			    (description, active_ind, project_code, customer_id, company_id, billable_type_id) 
-			    VALUES('#MARKETING.DESCRIPTION[ii]#', 2, #variables.project_code#, #get_max_code.customer_id#, 9, 2)
+				VALUES ('#MARKETING.DESCRIPTION[ii]#', 2, #variables.project_code#, #get_max_code.customer_id#, 9, 2)
                </cfquery>
 			<cfquery name="get_max_id" datasource="#application.datasources.main#">
                    select max(project_id) as project_id
@@ -141,7 +141,7 @@
 			    <cfif IsDate(MARKETING.statuscontractdate[ii])> , statuscontractdate</cfif>
 			    <cfif IsNumeric(MARKETING.company_size[ii])>, company_size</cfif>
 			    <cfif compare(MARKETING.overview[ii], "")> , overview</cfif>)
-				 Values(#variables.project_code#, #get_max_id.project_id#
+				VALUES (#variables.project_code#, #get_max_id.project_id#
 				 <cfif IsNumeric(MARKETING.projected_revenue[ii])>,'#MARKETING.PROJECTED_REVENUE[ii]#'</cfif> 
 				 <cfif IsNumeric(MARKETING.probability[ii])>,'#MARKETING.PROBABILITY[ii]#'</cfif> 
 				 <cfif IsDate(MARKETING.statusabovedate[ii])>,'#MARKETING.STATUSABOVEDATE[ii]#' </cfif>
@@ -170,7 +170,7 @@
 				<cfquery name="insert_emp_contact" datasource="#application.datasources.main#">
 	                   INSERT INTO Emp_contact
 				    (name, lname, emp_contact_type)
-				    Values('#name#', '#lname#', 3)
+				VALUES ('#name#', '#lname#', 3)
 	               </cfquery>
 				
 				<cfquery name="get_emp_id" datasource="#application.datasources.main#">
@@ -185,34 +185,27 @@
 					<cfif compare(city, "")>, city</cfif>
 					<cfif compare(state, "")>, state</cfif>
 					<cfif compare(zip, "")>, zip</cfif>)
-					Values(#get_emp_id.emp_id#<cfif compare(paddress, "")> , '#paddress#'</cfif>
+				VALUES (#get_emp_id.emp_id#<cfif compare(paddress, "")> , '#paddress#'</cfif>
 					<cfif compare(saddress, "")>, '#saddress#'</cfif> 
 					<cfif compare(city, "")>, '#city#'</cfif><cfif compare(state, "")>, '#state#'</cfif>
 					<cfif compare(zip, "")>, '#zip#'</cfif>)
 				</cfquery>
 				<cfquery name="insert_phone" datasource="#application.datasources.main#">
-					INSERT INTO phone
-					(emp_id, 
+				INSERT INTO phone (emp_id, 
 					<cfif compare(phone, "")>phone_number,</cfif>
 					phone_type_id)
-					Values(#get_emp_id.emp_id#, 
+				VALUES (#get_emp_id.emp_id#, 
 					<cfif IsNumeric(phone)>#phone#</cfif> 
 					,1)
 				</cfquery>
 				<cfquery name="insert_email" datasource="#application.datasources.main#">
-					INSERT INTO email
-					(emp_id, 
-					<cfif compare(email, "")>email</cfif> 
-					,email_type_id)
-					Values(#get_emp_id.emp_id#,
-					<cfif compare(email, "")>'#email#'</cfif> 
-					,1)
+				INSERT INTO Email (emp_id, <cfif compare(email, "")>email</cfif>, email_type_id)
+				VALUES (#get_emp_id.emp_id#, <cfif compare(email, "")>'#email#'</cfif>,1)
 				</cfquery>
 				<cfquery name="insert_marketing_emp" datasource="#application.datasources.main#">
-	                   INSERT INTO marketing_emp
-				    (emp_id, project_id)
-				    Values(#get_emp_id.emp_id#, #get_max_id.project_id#)
-	               </cfquery>
+				INSERT INTO Marketing_Emp (emp_id, project_id)
+				VALUES (#get_emp_id.emp_id#, #get_max_id.project_id#)
+				</cfquery>
 			</cfif>
 			</cfloop>
 		</cfif>

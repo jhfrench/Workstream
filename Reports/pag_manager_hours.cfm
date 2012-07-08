@@ -14,9 +14,7 @@
 </cfsilent>
 <cfinclude template="act_verify_dates.cfm">
 <cfif attributes.from_date LTE now() AND attributes.from_date LTE attributes.through_date>
-	<cfset variables.object_id=4><!--- 
-	<cfinclude template="qry_get_supervisor_info.cfm">
-	<cfset variables.all_option=get_supervisor_info.all_option> --->
+	<cfset variables.object_id=4>
 	<cfset variables.emp_id=0>
 	<cfset variables.compare_date="">
 	<cfinclude template="qry_manager_hours_report_output.cfm">

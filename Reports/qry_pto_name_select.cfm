@@ -17,12 +17,7 @@ SELECT emp_id
 FROM Supervisor 
 WHERE sup_id=#emp_id#
 </cfquery>
-<cfquery name="get_all_option" datasource="#application.datasources.main#">
-SELECT ISNULL(all_option, 0) AS all_option
-FROM Security_Object_Access
-WHERE emp_id = #session.user_account_id# 
-	AND object_id = 16
-</cfquery>
+<cfmodule template="../common_files/act_set_all_option.cfm" business_function_id="635">
 <cfquery name="REFname" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.emp_id
 FROM Emp_Contact, Security, Link_Company_Emp_Contact

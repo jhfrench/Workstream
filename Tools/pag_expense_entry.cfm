@@ -12,7 +12,7 @@
 	||
 	END FUSEDOC --->
 </cfsilent>
-<cfmodule template="../common_files/act_set_all_option.cfm" object_id="24">
+<cfmodule template="../common_files/act_set_all_option.cfm" business_function_id="710">
 <cfmodule template="../common_files/act_calendar.cfm" form_name="expense_insert">
 <cfparam name="attributes.emp_id" default="#session.user_account_id#">
 <cfinclude template="qry_get_subordinates_expense_register.cfm">

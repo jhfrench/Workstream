@@ -11,11 +11,7 @@
 	$Log$
 	||
 	END FUSEDOC --->
-<cfif session.workstream_customer_edit>
-	<cfset variables.row_colspan=2>
-<cfelse>
-	<cfset variables.row_colspan=1>
-</cfif>
+<cfset variables.row_colspan=2>
 </cfsilent>
 <cfoutput>
 	<tr bgcolor="##008000">	      
@@ -35,11 +31,9 @@
 		<td align="center" class="SubHeadText">
 			Status
 		</td>			
-		<cfif session.workstream_customer_edit>
 		<td align="center" class="SubHeadText">
 			Edit
 		</td>
-		</cfif>
 	</tr>
 </cfoutput>
 

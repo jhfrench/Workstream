@@ -32,8 +32,8 @@
 		<td>
 			#active_ind_type#
 		</td>
-		<cfif session.workstream_engagement_edit><td>
+		<td>
 			<a href="javascript:engagement('#project_id#');">Edit</a>
-		</td></cfif>
+		</td>
 	</tr>
 </cfoutput>
