@@ -23,49 +23,25 @@
 	</IO>
 </fusedoc>
 --->
-
-<cfscript>
-	if (NOT isdefined("attributes.screen_id")) {
-		attributes.screen_id=0;
-	}
-	if (attributes.help_article_id EQ 0) {
-		attributes.screen_id_selected=attributes.screen_id;
-	}
-	if (len(get_help_article.sort_order)) {
-		attributes.sort_order=get_help_article.sort_order;
-	}
-	else {
-		attributes.sort_order=dateformat(now(), 'yyyymmdd');
-	}
-	
-	//handle active_ind radio default
-	variables.active_ind_on=0;
-	variables.active_ind_off=1;
-	if (attributes.help_article_id NEQ 0 AND get_help_article.active_ind) {
-		variables.active_ind_on=1;
-		variables.active_ind_off=0;
-	}
-</cfscript>
-
 <cfoutput>
 <cfform name="form_help_article_entry" action="index.cfm?fuseaction=Administration.edit_help_article" method="post" class="form-horizontal">
 	<legend><cfif attributes.help_article_id EQ 0>Add new<cfelse>Edit existing</cfif> help article</legend>
 	<div class="control-group">
 		<label class="control-label" for="help_article_title">Help Article Title</label>
 		<div class="controls">
-				<cfinput type="text" name="help_article_title" id="help_article_title" value="#get_help_article.help_article_title#" size="60" maxlength="60" required="yes" message="Please enter a help article title." class="span12" />
+				<cfinput type="text" name="help_article_title" id="help_article_title" value="#get_help_article.help_article_title#" size="60" maxlength="60" required="yes" message="Please enter a help article title." class="span6" />
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="help_article_text">Help Article Text</label>
 		<div class="controls">
-			<cftextarea name="help_article_text" id="help_article_text" title="Help Article Text" summary="This textarea includes buttons for formatting entered text. You may make text bold, italicized, bulleted. You may also insert or edit Hyper-Text Markup Language links." cols="90" rows="16" height="600" width="480" richtext="yes" toolbar="Basic" skin="silver" toolbaronfocus="yes" wrap="virtual" value="#get_help_article.help_article_text#" class="span12"></cftextarea>
+			<cftextarea name="help_article_text" id="help_article_text" title="Help Article Text" summary="This textarea includes buttons for formatting entered text. You may make text bold, italicized, bulleted. You may also insert or edit Hyper-Text Markup Language links." cols="90" rows="16" height="600" width="480" richtext="yes" toolbar="Basic" skin="silver" toolbaronfocus="yes" wrap="virtual" value="#get_help_article.help_article_text#" class="span6"></cftextarea>
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="screen_id">This help article applies to these screens</label>
 		<div class="controls">
-			<cfselect name="screen_id" id="screen_id" query="get_fuseactions" value="screen_id" display="fuseaction" multiple="yes" selected="#attributes.screen_id_selected#" size="5" required="yes" message="Please specify the fuseaction for this requirement." class="span12" />
+			<cfselect name="screen_id" id="screen_id" query="get_fuseactions" value="screen_id" display="fuseaction" multiple="yes" selected="#attributes.selected_screen_id#" size="5" required="yes" message="Please specify the fuseaction for this requirement." class="span6" />
 		</div>
 	</div>
 	<div class="control-group">

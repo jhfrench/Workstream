@@ -118,7 +118,7 @@
 		<label for="notes" class="h5">Progress notes</label>
 		<cfif time_entry_details.recordcount>
 			<div id="notes" style="height:#variables.resolution_rows*28#px;" class="faux-textarea span11">
-				<cfloop query="time_entry_details"><span class="RegText<cfif notes_type_id EQ 2>Red</cfif>">(#initials# #dateformat(date,"m/d/yy")#) - #trim(note)#&nbsp;&nbsp;</span><br /></cfloop>
+				<cfloop query="time_entry_details"><span<cfif notes_type_id EQ 2> class="alert-info"</cfif>>(#initials# #dateformat(date,"m/d/yy")#) - #trim(note)#&nbsp;&nbsp;</span><br /></cfloop>
 			</div>
 		<cfelse>
 			<div id="notes" class="alert">Resolution notes not yet entered for this task.</div>
@@ -138,8 +138,8 @@
 					<div class="progresss">
 						<div class="bar" style="width: #lsnumberformat(get_task_details.percent_used)#%;"></div>
 					</div>
-					<div style="height:20px; width:198px; border:1px solid;" title="Time used for '#get_task_details.task_name#': #variables.hours_used# out of #get_task_details.budgeted_hours# hours (#decimalformat(get_task_details.percent_used)#%). Follow link to reassign hours.">
-					<cfif width><a href="javascript:list_to_time('#task_id#');"><img src="#request.dir_level##application.application_specific_settings.image_dir#bar_<cfif get_task_details.percent_used GT 75>1<cfelseif get_task_details.percent_used GT 50>3<cfelse>7</cfif>.gif" style="width:#variables.width#px; height:20px;" alt="Percent of time used." border="0" /></a></cfif><cfif width2><img src="#request.dir_level##application.application_specific_settings.image_dir#blank.gif" style="width:#variables.width2#px; height:20px;" alt="Percent of time left." border="0" /></cfif>
+					<div style="height:20px; width:198px; border:1px solid;" title="Time used for '#get_task_details.task_name#': #variables.hours_used# out of #get_task_details.budgeted_hours# hours (#decimalformat(get_task_details.percent_used)#%).">
+					<cfif width><a href="javascript:list_to_time('#task_id#');" title="Reassign hours."><img src="#request.dir_level##application.application_specific_settings.image_dir#bar_<cfif get_task_details.percent_used GT 75>1<cfelseif get_task_details.percent_used GT 50>3<cfelse>7</cfif>.gif" style="width:#variables.width#px; height:20px;" alt="Percent of time used." border="0" /></a></cfif><cfif width2><img src="#request.dir_level##application.application_specific_settings.image_dir#blank.gif" style="width:#variables.width2#px; height:20px;" alt="Percent of time left." border="0" /></cfif>
 					</div>
 				</div>
 			</div>

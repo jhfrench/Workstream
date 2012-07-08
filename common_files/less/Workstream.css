@@ -6368,6 +6368,10 @@ a.thumbnail:hover {
     margin-left: 30px;
   }
 }
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
 footer {
   background-color: #555555;
   color: #ffffff;
@@ -6438,14 +6442,36 @@ footer {
 .docked .btn-group .btn {
   margin-top: 0;
 }
-footer {
-  background-color: #cccccc;
+.banner_organization_link {
+  color: FFFFFF;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
+  text-shadow: ##333333 2px 2px 0px;
 }
-table td.login,
-table td.number {
-  text-align: right;
+.mast {
+  display: block;
+  vertical-align: middle;
+  width: 100%;
 }
-#help_area {
+.mast .mast_only {
+  height: 120px;
+}
+.mast a {
+  color: #FFFFFF;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
+  text-shadow: #333333 2px 2px 0px;
+}
+.banner_image {
+  height: 150px;
+  background-color: #006699;
+}
+.banner_image a {
+  vertical-align: middle;
+}
+.no-js #help_area {
   border: 1px solid black;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -6462,20 +6488,24 @@ table td.number {
   font-weight: bold;
   text-align: center;
 }
-.help_top {
-  float: left;
-  height: 200px;
-  overflow-y: auto;
+.js #help_area {
+  border: 1px solid black;
+  display: none;
+  margin-right: 0px;
 }
-.help_main {
-  background-color: #fcf2f5;
+.js #help_top {
+  float: left;
+  height: 220px;
+  overflow-y: scroll;
+}
+.js .help_main {
   border-top: 1px solid #ddd;
   float: left;
-  height: 400px;
+  height: 520px;
   overflow-y: auto;
   width: 100%;
 }
-#watermark {
+.js #watermark {
   background-image: url("../../images/watermark_digital.jpg");
   background-repeat: no-repeat;
   height: 335px;
@@ -6491,7 +6521,8 @@ td.date {
   text-align: center;
 }
 .number,
-td.number {
+table td.login,
+table td.number {
   text-align: right;
 }
 .h1,

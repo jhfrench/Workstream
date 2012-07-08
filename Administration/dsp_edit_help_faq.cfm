@@ -24,52 +24,8 @@
 </fusedoc>
 --->
 
-<cfscript>
-	if (NOT isdefined("attributes.screen_id")) {
-		attributes.screen_id=0;
-	}
-	if (attributes.help_faq_id EQ 0) {
-		attributes.screen_id_selected=attributes.screen_id;
-	}
-	if (NOT isdefined("attributes.asked_by")) {
-		attributes.asked_by=session.user_account_id;
-	}
-	if (NOT isdefined("attributes.email_requested_ind")) {
-		attributes.email_requested_ind=0;
-	}
-	if (NOT isdefined("attributes.asker_email_address")) {
-		attributes.asker_email_address="";
-	}
-	if (len(get_help_faq.sort_order)) {
-		attributes.sort_order=get_help_faq.sort_order;
-	}
-	else {
-		attributes.sort_order=dateformat(now(), 'yyyymmdd');
-	}
-	
-	//handle active_ind radio default
-	variables.active_ind_on=0;
-	variables.active_ind_off=1;
-	variables.public_ind_on=0;
-	variables.public_ind_off=1;
-	if (attributes.help_faq_id NEQ 0) {
-		if(get_help_faq.active_ind) {
-			variables.active_ind_on=1;
-			variables.active_ind_off=0;
-		}
-		if(get_help_faq.public_ind) {
-			variables.public_ind_on=1;
-			variables.public_ind_off=0;
-		}
-	}
-</cfscript>
-
-<cfparam name="attributes.answer" default="">
-<cfparam name="attributes.sort_order" default="999">
-<cfparam name="attributes.questioner" default="">
-
 <cfoutput>
-<cfform name="form_faq_entry" action="index.cfm?fuseaction=Administration.edit_faq" method="post" class="form-horizontal">
+<cfform name="form_faq_entry" action="index.cfm?fuseaction=Administration.edit_help_faq" method="post" class="form-horizontal">
 	<legend><cfif attributes.help_faq_id EQ 0>Add new<cfelse>Edit existing</cfif> <abbr title="Frequently Asked Question">FAQ</abbr></legend>
 	<div class="control-group">
 		<label class="control-label" for="question">Question</label>
@@ -96,7 +52,7 @@
 	<div class="control-group">
 		<label class="control-label" for="screen_id">This <abbr title="Frequently Asked Question">FAQ</abbr> applies to these screens</label>
 		<div class="controls">
-			<cfselect name="screen_id" id="screen_id" query="get_fuseactions" value="screen_id" display="fuseaction" multiple="yes" selected="#attributes.screen_id_selected#" size="5" required="yes" message="Please specify the fuseaction for this requirement." class="span12" />
+			<cfselect name="screen_id" id="screen_id" query="get_fuseactions" value="screen_id" display="fuseaction" multiple="yes" selected="#attributes.selected_screen_id#" size="5" required="yes" message="Please specify the fuseaction for this requirement." class="span6" />
 		</div>
 	</div>
 	<div class="control-group">
@@ -119,18 +75,20 @@
 		</div>
 	</div>
 </cfif>
+<cfif attributes.email_requested_ind AND NOT attributes.answered_previously_ind>
 	<div class="alert">
-		<cfif attributes.email_requested_ind AND len(attributes.asker_email_address)>
-			A copy of this response will also be sent to <cfif len(attributes.asker_email_address)>#attributes.asker_email_address#<cfelse>#attributes.questioner#</cfif><br />
-		<cfelseif NOT len(attributes.asker_email_address)>
+		 <cfif len(get_help_faq.asker_email_address)>
+			A copy of this response will also be sent to #get_help_faq.asker_email_address#<br />
+		<cfelse>
 			<abbr title="For Your Information">FYI</abbr>: The user asked to have the response emailed to them, but they did not provide an email address.
 		</cfif>
 	</div>
+</cfif>
 	<div class="form-actions">
 		<input type="hidden" name="answered_by" value="#session.user_account_id#" />
-		<input type="hidden" name="answered_previously_ind" value="#len(attributes.answer)#" />
+		<input type="hidden" name="answered_previously_ind" value="#attributes.answered_previously_ind#" />
 		<input type="hidden" name="asked_by" value="#attributes.asked_by#" />
-		<input type="hidden" name="asker_email_address" value="#attributes.asker_email_address#" />
+		<input type="hidden" name="asker_email_address" value="#get_help_faq.asker_email_address#" />
 		<input type="hidden" name="email_requested_ind" value="#attributes.email_requested_ind#" />
 		<input type="hidden" name="help_faq_id" value="#attributes.help_faq_id#" />
 		<cfif attributes.help_faq_id EQ 0>

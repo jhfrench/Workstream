@@ -32,4 +32,26 @@
 
 <cfmodule template="../common_files/qry_get_fuseactions.cfm">
 <cfinclude template="qry_get_help_article.cfm">
+<cfscript>
+if (NOT isdefined("attributes.screen_id")) {
+	attributes.screen_id=0;
+}
+
+//handle active_ind radio default
+variables.active_ind_on=0;
+variables.active_ind_off=1;
+
+if (get_help_article.recordcount) {
+	attributes.selected_screen_id=valuelist(get_help_article.screen_id);
+	attributes.sort_order=get_help_article.sort_order;
+	if (get_help_article.active_ind) {
+		variables.active_ind_on=1;
+		variables.active_ind_off=0;
+	}
+}
+else {
+	attributes.selected_screen_id=attributes.screen_id;
+	attributes.sort_order=dateformat(now(), 'yyyymmdd');
+}
+</cfscript>
 <cfinclude template="dsp_edit_help_articles.cfm">

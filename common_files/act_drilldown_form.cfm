@@ -8,6 +8,8 @@
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
+			(5/26/11 | JF)
+			Added xmlformat() to filter out injection attacks.
 		</history>
 	</properties>
 	<IO>
@@ -21,36 +23,27 @@
 </fusedoc>
 --->
 <cfsilent>
-
 <cfscript>
-// ignore list must be in all caps because the listcompare is case-sensitive
-variables.field2_error_message="<strong>Error:</strong> You must specify the value for field_2 in common_files/act_drilldown_form.cfm";
-variables.ignore_these="FIELDNAMES,FUSEACTION,PROCESSFORM,FIELD_NAME,FIELD_VALUE,FIELD2_NAME,FIELD2_VALUE,FIELD2_VARIABLE_IND,FUNCTION_NAME,NO_RESET,EVALUATE_FIRST,fusebox.password";
-if (NOT isdefined("attributes.field_name")){
-	attributes.field_name="field_name";
-}
-if (NOT isdefined("attributes.field_value")){
-	attributes.field_value="field_value";
-}
-if (NOT isdefined("attributes.field2_name")){
-	attributes.field2_name="";
-}
-if (NOT isdefined("attributes.field2_value")){
-	attributes.field2_value="";
-}
-if (NOT isdefined("attributes.field2_variable_ind")){
-	attributes.field2_variable_ind=0;
-}
-if (NOT isdefined("attributes.fuseaction")){
-	attributes.fuseaction="";
-}
-if (NOT isdefined("attributes.no_reset")){
-	attributes.no_reset="";
-}
-if (NOT isdefined("attributes.processform")){
-	attributes.processform=0;
-}
-variables.javascript_ignore=listappend(lcase(variables.ignore_these),lcase(attributes.no_reset));
+	variables.field2_error_message="<strong>Error:</strong> You must specify the value for field_2 in common_files/act_drilldown_form.cfm";
+	//ignore list must be in all caps because the listcompare is case-sensitive
+	variables.ignore_these="FIELDNAMES,FUSEACTION,PROCESSFORM,FIELD_NAME,FIELD_VALUE,FIELD2_NAME,FIELD2_VALUE,FIELD2_VARIABLE_IND,FUNCTION_NAME,NO_RESET,EVALUATE_FIRST,fusebox.password";
+	if (NOT isdefined("attributes.field_name"))
+		attributes.field_name="field_name";
+	if (NOT isdefined("attributes.field_value"))
+		attributes.field_value="field_value";
+	if (NOT isdefined("attributes.field2_name"))
+		attributes.field2_name="";
+	if (NOT isdefined("attributes.field2_value"))
+		attributes.field2_value="";
+	if (NOT isdefined("attributes.field2_variable_ind"))
+		attributes.field2_variable_ind=0;
+	if (NOT isdefined("attributes.fuseaction"))
+		attributes.fuseaction="";
+	if (NOT isdefined("attributes.no_reset"))
+		attributes.no_reset="";
+	if (NOT isdefined("attributes.processform"))
+		attributes.processform=0;
+	variables.javascript_ignore=listappend(lcase(variables.ignore_these),lcase(attributes.no_reset));
 </cfscript>
 </cfsilent>
 <cfoutput>
@@ -62,7 +55,7 @@ function #attributes.function_name#(fldValue<cfif attributes.field2_variable_ind
 	<cfif attributes.processform>
 		<cfloop collection="#attributes#" item="field">
 			<cfif NOT listcontains(variables.javascript_ignore,lcase(field))>
-				document.#attributes.function_name#.#field#.value='#evaluate("attributes.#field#")#';
+				document.#attributes.function_name#.#field#.value='#xmlformat(evaluate("attributes.#field#"))#';
 			</cfif>
 		</cfloop>
 	</cfif>
@@ -71,7 +64,7 @@ function #attributes.function_name#(fldValue<cfif attributes.field2_variable_ind
 //-->
 </script>
 
-<form name="#attributes.function_name#" action="index.cfm?fuseaction=#attributes.fuseaction#"<cfif isdefined("attributes.target")> target="#attributes.target#"</cfif> method="post">
+<form name="#attributes.function_name#" id="form_#attributes.function_name#" action="index.cfm?fuseaction=#attributes.fuseaction#"<cfif isdefined("attributes.target")> target="#attributes.target#"</cfif> method="post">
 	<input type="hidden" name="#attributes.field_name#" value="#attributes.field_value#" />
 	<cfif len(attributes.field2_name)>
 		<input type="hidden" name="#attributes.field2_name#" value="#attributes.field2_value#" />
@@ -79,7 +72,7 @@ function #attributes.function_name#(fldValue<cfif attributes.field2_variable_ind
 	<cfif attributes.processform>
 		<cfloop collection="#attributes#" item="field">
 			<cfif NOT listcontains(variables.ignore_these,field)>
-				<input type="hidden" name="#field#" value="#evaluate("attributes.#field#")#" />
+				<input type="hidden" name="#field#" value="#xmlformat(evaluate("attributes.#field#"))#" />
 			</cfif>
 		</cfloop>
 	</cfif>

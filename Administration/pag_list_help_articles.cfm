@@ -1,5 +1,5 @@
 <!-- Administration/pag_list_help_articles.cfm
-	Author: Jeromy French-->
+	Author: Jeromy French -->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_list_help_articles.cfm">
 	<responsibilities>
@@ -24,7 +24,7 @@
 </fusedoc>
 --->
 <h2>Manage Help Module</h2>
-<cfif application.use_help_faq_ind>
+<cfif application.help.faq_active_ind>
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_listed_help_faq" fuseaction="Administration.edit_help_faq" field_name="help_faq_id">
 	<cfinclude template="qry_get_all_help_faqs.cfm">
 	<cfinclude template="dsp_list_help_faqs.cfm">

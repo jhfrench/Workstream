@@ -64,7 +64,7 @@ else
 			if (/Microsoft/.test(navigator.appName)) { return }
 			
 			window.onload = function () {
-				<cfif application.use_help_module_ind>Element.hide('help_area');</cfif>
+				<cfif application.help.active_ind>Element.hide('help_area');</cfif>
 				#get_screen_details.body_onload#
 				var menu = document.getElementById('menu');
 				var init = menu.offsetTop;

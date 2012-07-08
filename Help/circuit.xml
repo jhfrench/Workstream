@@ -26,6 +26,7 @@
 
 <circuit access="public">
 	<prefuseaction callsuper="true">
+		<include template="../common_files/act_header.cfm"/>
 	</prefuseaction>
 	<fuseaction name="submit_faq">
 		<include template="dsp_submit_faq.cfm"/>
@@ -40,5 +41,6 @@
 		<include template="dsp_view_help_search.cfm"/>
 	</fuseaction>
 	<postfuseaction>
+		<include template="../common_files/dsp_footer.cfm"/>
 	</postfuseaction>
 </circuit>

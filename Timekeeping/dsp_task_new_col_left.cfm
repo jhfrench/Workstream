@@ -36,7 +36,8 @@
 			<label for="icon_id" class="h5">Icon</label>
 			<cfselect query="get_ref_icon" name="icon_id" id="icon_id" display="icon_name" value="icon_id" selected="1" class="span6"></cfselect>
 			<label for="budgeted_hours" class="h5">Hours Budgeted</label>
-			<cfinput type="text" name="budgeted_hours" id="budgeted_hours" required="Yes" validate="float" message="Please enter a number for hours budgeted." class="span6">
+			<input type="number" name="budgeted_hours" id="budgeted_hours" step="0.25" min="0" max="999" class="span6" />
+			<!-- let CF create the JavaScript: <cfinput type="text" name="budgeted_hours" id="budgeted_hours" required="Yes" validate="float" message="Please enter a number for hours budgeted." class="span6"> -->
 	</div>
 </div>
 <div class="row-fluid">

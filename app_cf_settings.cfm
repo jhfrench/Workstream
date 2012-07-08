@@ -39,9 +39,12 @@
 		application.product_name="Workstream";
 		application.product_release_version="4.1.0";
 		application.support_email_recipients="jeromy_french@hotmail.com";
-		application.use_help_module_ind=1;
-		application.use_help_faq_ind=1;
-		application.use_help_search_ind=1;
+		application.help.admin_business_function_id=246;
+		application.help.active_ind=1;
+		application.help.article_active_ind=0;
+		application.help.faq_active_ind=1;
+			application.help.active_ind=application.help.article_active_ind+application.help.faq_active_ind; //short-circuit the help module if neither Articles nor FAQ are active
+		application.help.search_active_ind=1; //FYI: if articles and faq are inactivate there will be nothing to search
 		
 		application.team_changed=now();
 		

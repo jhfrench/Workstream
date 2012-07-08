@@ -22,52 +22,61 @@
 	</IO>
 </fusedoc>
 --->
-<cfset variables.set_upload_id_declared_ind=0>
-<cfparam name="attributes.upload_id" default="0">
-<cfparam name="attributes.delete_ind" default="0">
-<cfparam name="attributes.upload_source_type_id" default="1">
-<cfparam name="attributes.show_upload_form_ind" default="1">
+<cfscript>
+	variables.set_upload_id_declared_ind=0;
+	if (NOT isdefined("attributes.upload_id"))
+		attributes.upload_id=0;
+	if (NOT isdefined("attributes.delete_ind"))
+		attributes.delete_ind=0;
+	if (NOT isdefined("attributes.upload_source_type_id"))
+		attributes.upload_source_type_id=1;
+	if (NOT isdefined("attributes.show_upload_form_ind"))
+		attributes.show_upload_form_ind=1;
+</cfscript>
 <cfsetting showdebugoutput="no">
-	<head>
-		<title>Federal Assistance Award Data</title>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<meta http-equiv="expires" content="{ts '2009-07-20 15:16:03'}" />
-		<!--Meta Data starts-->
-		<!--SYSTEM DEFINED METADATA-->
-		<meta name="dc.title" content="Federal Assistance Award Data" />
-		<meta name="dc.format" content="text/html" />
-		<meta name="dc.date.modified" content="{ts '2009-07-20 15:14:14'}" />
-		<meta name="dc.language" content="en" />
-		<meta name="dc.publisher" content="David Grove" />
-		<!--Meta Data ends-->
-		<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
-		<style type="text/css">
-		body {background-color:#FFFFFF; margin:0px;}
-		body, table, td, form, input, select, h1, h2, h3, h4, h5, h6, pre {font-family:Arial; font-size:12px; color:#000000;}
-		/* Netscape 4 font-size fix */
-		html body, html table, html td, html input, html select, html h1, html h2, html h3, html h4, html h5, html h6 {font-size:11px;}
-		body, form {margin:0px; padding:0px;}
-		/* Modified to make default link behave like featureLnk */
-		a {color:#006699;text-decoration:none;}
-		</style>
+
+<head>
+	<title>NASA Vendor Database</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="expires" content="{ts '2009-07-20 15:16:03'}" />
+	<!--Meta Data starts-->
+	<!--SYSTEM DEFINED METADATA-->
+	<meta name="dc.title" content="NASA Vendor Database" />
+	<meta name="dc.format" content="text/html" />
+	<meta name="dc.date.modified" content="{ts '2009-07-20 15:14:14'}" />
+	<meta name="dc.language" content="en" />
+	<meta name="dc.publisher" content="David Grove" />
+	<!--Meta Data ends-->
+	<link href="http://www.nasa.gov/favicon.ico" rel="SHORTCUT ICON" />
+	<style type="text/css">
+	body {background-color:#FFFFFF; margin:0px;}
+	body, table, td, form, input, select, h1, h2, h3, h4, h5, h6, pre {font-family:Arial; font-size:12px; color:#000000;}
+	/* Netscape 4 font-size fix */
+	html body, html table, html td, html input, html select, html h1, html h2, html h3, html h4, html h5, html h6 {font-size:11px;}
+	body, form {margin:0px; padding:0px;}
+	/* Modified to make default link behave like featureLnk */
+	a {color:#006699;text-decoration:none;}
+	</style>
 </head>
 <body onLoad="set_upload_id();">
 <cfif attributes.delete_ind>
+	<cfinclude template="act_change_parent_url.cfm">
 	<cfquery name="deactivate_log_upload" datasource="#application.datasources.main#">
 	UPDATE LOG_Upload
 	SET active_ind=0
 	WHERE active_ind=1
-		AND upload_id IN (#attributes.delete_upload_id#)
+		AND upload_id IN (<cfqueryparam cfsqltype="cf_sql_integer" list="yes" value="#attributes.delete_upload_id#" />)
 	</cfquery>
 	<cfquery name="get_ref_upload_source" datasource="#application.datasources.main#">
 	INSERT INTO LOG_Upload (original_file_name, archived_file_name, upload_source_id,
 		created_by, active_ind)
 	SELECT original_file_name, archived_file_name, upload_source_id,
-		#session.user_account_id# AS created_by, 0 AS active_ind
+		<cfqueryparam cfsqltype="cf_sql_integer" value="#session.user_account_id#" /> AS created_by, 0 AS active_ind
 	FROM LOG_Upload
-	WHERE upload_id IN (#attributes.delete_upload_id#)
+	WHERE upload_id IN (<cfqueryparam cfsqltype="cf_sql_integer" list="yes" value="#attributes.delete_upload_id#" />)
 	</cfquery>
 <cfelseif isdefined("form.my_file")>
+	<cfinclude template="act_change_parent_url.cfm">
 	<cfset variables.upload_id=attributes.upload_id>
 	<cfinclude template="act_save_log_upload.cfm">
 	
@@ -90,7 +99,7 @@
 			</cfoutput>
 			</ul>
 		<cfelse>
-			This vendor has not uploaded any documents into <abbr title="Federal Assistance Award Data">FAAD</abbr>.
+			This vendor has not uploaded any documents into <abbr title="NASA Vendor Database">NVDB</abbr>.
 		</cfif>
 	</cfcase>
 	<cfcase value="2">
@@ -110,8 +119,8 @@
 		</cfif>
 	</cfcase>
 	<cfcase value="3">
-			<cfinclude template="../common_files/qry_get_upload_file.cfm">
-			<cfif get_upload_file.recordcount>
+		<cfinclude template="../common_files/qry_get_upload_file.cfm">
+		<cfif get_upload_file.recordcount>
 			<script type="text/javascript">
 			function set_upload_id(){
 				top.document.getElementById('upload_id').value=top.document.getElementById('upload_id').value+',<cfoutput>#attributes.upload_id#</cfoutput>';
@@ -126,7 +135,7 @@
 		</cfif>
 	</cfcase>
 	<cfdefaultcase>
-		DEFINE YOUR UPLOAD SOURCE TYPE
+		UNDEFINED UPLOAD SOURCE TYPE
 	</cfdefaultcase>
 </cfswitch>
 

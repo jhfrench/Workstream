@@ -38,8 +38,8 @@
 	<p>Help articles or frequently-asked questions containing your search string "<cfoutput>#attributes.search_string#</cfoutput>" (<cfif NOT attributes.case_sensitive_ind>not </cfif>case sensitive):</p>
 	<dl>
 	<cfoutput query="get_screen_help_search">
-		<dt><a href="javascript:open_help_detail(#main_sort_order#, #help_id#);">#help_title#</a></strong></dt>
-		<dd>#left(rereplacenocase(help_article_text,"<[^>]*>","","ALL"),200)#</dd>
+		<dt>#help_title#</dt>
+		<dd>#help_article_text#</dd>
 	</dl>
 	</cfoutput>
 <cfelse>

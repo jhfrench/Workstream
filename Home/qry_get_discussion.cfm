@@ -26,7 +26,7 @@
 <cfquery name="get_discussion" datasource="#application.datasources.main#">
 SELECT Discussion.discussion_id, Discussion.parent_discussion_id, Discussion.top_level_ind,
 	Discussion.discussion_category, Discussion.discussion_title, Discussion.discussion_text,
-	Discussion.created_date, Discussion.link, Demographics.last_name || ', ' || Demographics.first_name AS created_by
+	Discussion.created_date, Discussion.link, Demographics.last_name + ', ' + Demographics.first_name AS created_by
 FROM Discussion
 	INNER JOIN Demographics ON Discussion.created_by=Demographics.user_account_id
 WHERE Discussion.active_ind=1

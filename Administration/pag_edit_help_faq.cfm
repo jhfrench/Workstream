@@ -1,5 +1,5 @@
 <!-- Administration/pag_edit_help_faq.cfm
-	Author: Jeromy French-->
+	Author: Jeromy French -->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_edit_help_faq.cfm">
 	<responsibilities>
@@ -33,4 +33,38 @@
 
 <cfmodule template="../common_files/qry_get_fuseactions.cfm">
 <cfinclude template="qry_get_help_faq.cfm">
+<cfscript>
+//handle active_ind radio default
+variables.active_ind_on=0;
+variables.active_ind_off=1;
+variables.public_ind_on=0;
+variables.public_ind_off=1;
+
+if (get_help_faq.recordcount) {
+	attributes.active_ind=get_help_faq.active_ind;
+	attributes.asked_by=get_help_faq.asked_by;
+	attributes.answered_previously_ind=len(get_help_faq.answer);
+	attributes.email_requested_ind=get_help_faq.email_requested_ind;
+	attributes.public_ind=get_help_faq.public_ind;
+	attributes.selected_screen_id=valuelist(get_help_faq.screen_id);
+	attributes.sort_order=get_help_faq.sort_order;
+	
+	if(get_help_faq.active_ind) {
+		variables.active_ind_on=1;
+		variables.active_ind_off=0;
+	}
+	if(get_help_faq.public_ind) {
+		variables.public_ind_on=1;
+		variables.public_ind_off=0;
+	}
+}
+else {
+	attributes.asked_by=session.user_account_id;
+	attributes.answered_previously_ind=0;
+	attributes.email_requested_ind=0;
+	attributes.screen_id=0;
+	attributes.selected_screen_id=0;
+	attributes.sort_order=dateformat(now(), 'yyyymmdd');
+}
+</cfscript>
 <cfinclude template="dsp_edit_help_faq.cfm">

@@ -29,11 +29,11 @@
 <cfparam name="attributes.public_ind" default="1">
 
 <cfquery name="get_screen_help_faqs" datasource="#application.datasources.main#">
-SELECT <cfif attributes.help_faqs_lookup_type_id EQ 1>TOP 1 </cfif>Help_FAQ.help_faq_id, Help_FAQ.question, Help_FAQ.answer,
+SELECT Help_FAQ.help_faq_id, Help_FAQ.question, Help_FAQ.answer,
 	Help_FAQ.active_ind, Help_FAQ.sort_order, Help_FAQ.created_date,
 	REF_Module.description AS module, REF_Screen.fuseaction, REF_Business_Function.description AS business_function,
 	REF_Business_Function.acronym, Link_Screen_Help_FAQ.l_s_h_f_id, Demographics.last_name + ', ' + Demographics.first_name AS response_author,
-	LEFT(Help_FAQ.answer, 50)+'...' AS help_faq_text_short
+	SUBSTRING(Help_FAQ.answer, 1, 50)+'...' AS help_faq_text_short
 FROM Link_Screen_Help_FAQ
 	INNER JOIN Help_FAQ ON Link_Screen_Help_FAQ.help_faq_id=Help_FAQ.help_faq_id
 	INNER JOIN REF_Screen ON Link_Screen_Help_FAQ.screen_id=REF_Screen.screen_id
@@ -52,6 +52,7 @@ WHERE Link_Screen_Help_FAQ.active_ind=1
 		<cfcase value="1">
 		/*specific help_article_faq*/
 		Help_FAQ.help_faq_id=<cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#attributes.help_faq_id#">
+		<cfif attributes.help_faqs_lookup_type_id EQ 1>AND rownum=1</cfif>
 		</cfcase>
 		<cfcase value="2">
 		(1=0 /*this is here just for SQL syntax purposes*/<cfif NOT session.hide_general_help_faqs>

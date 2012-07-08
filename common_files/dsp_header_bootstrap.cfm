@@ -38,21 +38,24 @@ else
 <cfmodule template="qry_get_system_note.cfm"> --->
 
 <cfoutput>
-<html class="no-js">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>#application.html_title# (Twitter Bootstrap demo)</title>
-	<meta name="description" content="">
+	<meta name="description" content="Applied Internet Technologies timekeeping software">
 	<meta name="author" content="Applied Internet Technologies: #application.application_specific_settings.nasa_official#">
 	<meta http-equiv="expires" content="#gethttptimestring(now())#" />
 
 	<meta name="viewport" content="width=device-width">
 
-	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />	
-	
-	<script src="common_files/js/libs/modernizr-2.5.3-respond-1.1.0.min.js" type="text/javascript"></script>
+	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
+
+	<script src="common_files/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
 	<script type="text/javascript">
 		//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
 		Modernizr.load([
@@ -62,7 +65,7 @@ else
 				],
 				complete: function () {
 					if ( !window.jQuery ) {
-						Modernizr.load('common_files/js/libs/jquery-1.7.1.min.js');
+						Modernizr.load('common_files/js/libs/jquery-1.7.2.min.js');
 					}
 				}
 			},
@@ -87,7 +90,7 @@ else
 				}
 			},
 			{
-				complete: function () {
+				complete: function () {	
 					<cfoutput>#get_screen_details.body_onload#</cfoutput>
 				}
 			}
@@ -104,16 +107,10 @@ else
 			<div class="row-fluid">
 				<div class="span1"></div>
 				<div class="span10">
-				<cfif application.application_specific_settings.banner_only_ind>
-					<div style="height:120px; width:1160px; background:url(images/full_#variables.mast_image_name#) no-repeat center; display:table-cell; vertical-align:middle;">
-						<a href="#application.application_specific_settings.nasa_organization_url#" style="padding:20px; color:##FFFFFF;font-size:24px;font-weight:bold; text-shadow:##333333 2px 2px 0px;">#application.application_specific_settings.nasa_organization#</a>
+					<div class="mast <cfif application.application_specific_settings.banner_only_ind>mast_only" style="background:url(images/full_#variables.mast_image_name#) no-repeat center;"><cfelse>banner_image">
+						<img src="images/#variables.mast_image_name#" alt="#application.application_specific_settings.nasa_organization#" align="left" width="548" height="150" border="0" /></cfif>
+						<a href="#application.application_specific_settings.nasa_organization_url#">#application.application_specific_settings.nasa_organization#</a>
 					</div>
-				<cfelse>
-					<div style="height:150px; width:1160px; background-color:##006699; display:table-cell; vertical-align:middle;">
-						<img src="images/#variables.mast_image_name#" alt="#application.application_specific_settings.nasa_organization#" align="left" width="548" height="150" border="0" />
-						<a href="#application.application_specific_settings.nasa_organization_url#" style="padding:20px; color:##FFFFFF; font-size:24px; font-weight:bold; text-shadow:##333333 2px 2px 0px; vertical-align:middle;">#application.application_specific_settings.nasa_organization#</a>
-					</div>
-				</cfif>
 				</div>
 				<div class="span1"></div>
 			</div>

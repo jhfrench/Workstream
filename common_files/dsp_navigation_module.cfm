@@ -55,7 +55,7 @@
 			<cfset variables.hierachy_level=hierachy_level>
 			<cfset variables.flyout_opened_ind=1>
 			<li class="dropdown"><a href="javascript:void('#parent_business_function# options');" title="#parent_business_function#" class="dropdown-toggle" data-toggle="dropdown">#parent_business_function#<b class="caret"></b></a>
-				<ul class="dropdown-menu">>
+				<ul class="dropdown-menu">
 		</cfif>
 	</cfif>
 	<li><a href="index.cfm?fuseaction=#fuseaction#" title="#business_function_description#">#business_function_description#</a></li>
@@ -63,7 +63,7 @@
 	            </ul></cfif>
 			</ul>
 		</li>
-</cfif><cfif application.use_help_module_ind>
-	<li><a href="javascript:void('Access the Workstream help system');" class="btn btn-info" id="nav_help_button" title="Access the #application.product_name# help system">Help</a></li></cfif>
-	<cfif isdefined("session.user_account_id")><cfif session.password_created_by EQ session.user_account_id><li><a href="index.cfm?fuseaction=Home.logout" style="color:##FFFFFF;"><strong>Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></strong></a></li></cfif><cfelse><li><a href="index.cfm?fuseaction=Home.login" style="color:##FFFFFF;"><strong>Login for More Access</strong></a></li></cfif>
+</cfif><cfif application.help.active_ind>
+	<li class="btn btn-info"><a href="##help_area" id="nav_help_button" title="Access the #application.product_name# help system">Help</a></li></cfif>
+	<cfif isdefined("session.user_account_id")><cfif session.password_created_by EQ session.user_account_id><li><a href="index.cfm?fuseaction=Home.logout class="login_link"">Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></a></li></cfif><cfelse><li><a href="index.cfm?fuseaction=Home.login" class="login_link">Login for More Access</a></li></cfif>
 </cfoutput>

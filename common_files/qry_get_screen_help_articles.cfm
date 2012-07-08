@@ -30,11 +30,11 @@
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-SELECT <cfif attributes.help_articles_lookup_type_id EQ 1>TOP 1 </cfif>Help_Article.help_article_id, Help_Article.help_article_text, Help_Article.help_article_title,
+SELECT Help_Article.help_article_id, Help_Article.help_article_text, Help_Article.help_article_title,
 	Help_Article.active_ind, Help_Article.sort_order, Help_Article.created_date,
 	REF_Module.description AS module, REF_Screen.fuseaction, REF_Business_Function.description AS business_function,
 	REF_Business_Function.acronym, Link_Screen_Help_Article.l_s_h_a_id, Demographics.last_name + ', ' + Demographics.first_name AS article_author,
-	LEFT(Help_Article.help_article_text, 50)+'...' AS help_article_text_short,
+	SUBSTRING(Help_Article.help_article_text, 1, 50)+'...' AS help_article_text_short,
 	CASE
 		WHEN fuseaction='#attributes.fuseaction#' THEN 'screen-specific'
 		WHEN fuseaction LIKE '#listfirst(attributes.fuseaction,".")#.%' THEN 'general&nbsp;module'
@@ -57,6 +57,7 @@ WHERE Link_Screen_Help_Article.active_ind=1
 		<cfcase value="1">
 		/*specific help_article_article*/
 		Help_Article.help_article_id=<cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#attributes.help_article_id#">
+		<cfif attributes.help_articles_lookup_type_id EQ 1>AND rownum=1</cfif>
 		</cfcase>
 		<cfcase value="2">
 		(1=0 /*this is here just for SQL syntax purposes*/<cfif NOT session.hide_general_help_articles>

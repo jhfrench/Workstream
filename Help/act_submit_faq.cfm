@@ -23,16 +23,24 @@
 	</IO>
 </fusedoc>
 --->
-
-<cfset variables.question_processed_ind=0>
-<cfset attributes.active_ind=1>
-<cfparam name="attributes.email_requested_ind" default="0">
-<cfparam name="attributes.sort_order" default="#dateformat(now(), 'yyyymmdd')#">
-<cfif isdefined("session.user_account_id")>
-	<cfset variables.created_by=session.user_account_id>
-<cfelse>
-	<cfset variables.created_by="NULL">
-</cfif>
+<cfscript>
+variables.question_processed_ind=0;
+attributes.active_ind=1;
+if (NOT isdefined("attributes.email_requested_ind")) {
+	attributes.email_requested_ind=0;
+}
+if (NOT isdefined("attributes.sort_order")) {
+	attributes.sort_order=dateformat(now(), 'yyyymmdd');
+}
+if (isdefined("session.user_account_id")) {
+	variables.created_by=session.user_account_id;
+	variables.created_by_null="no";
+}
+else {
+	variables.created_by="NULL";
+	variables.created_by_null="yes";
+}
+</cfscript>
 
 <!--- reorder the OTHER help faqs associated with a specified screen --->
 <cfquery name="update_help_faq_sort_order" datasource="#application.datasources.main#">
@@ -64,9 +72,9 @@ FROM Dual
 <!--- figure out the people who can answer this question so we can send a notification to them --->
 <cfinclude template="../common_files/qry_get_help_email_recipients.cfm">
 
-<!--- This is the email that sends the question to the people identified to handle questions, if those people are known --->
+<!--- This is the email that sends the question to the people identified to handle questions (if those people are known) --->
 <cfif len(variables.help_email_recipients) AND len(application.email_server_name)>
-	<!-- email sent to <cfoutput>#variables.help_email_recipients#, from #application.application_specific_settings.system_email_sender# by server #application.email_server_name#</cfoutput> -->
+	<!-- email sent to <cfoutput>#variables.help_email_recipients#, from #application.application_specific_settings.system_email_sender# through #application.email_server_name#</cfoutput> -->
 	
 	<cfscript>
 		attributes.email_recipients_demographics_id=valuelist(get_help_email_recipients.demographics_id);

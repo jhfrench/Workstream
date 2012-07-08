@@ -33,7 +33,7 @@
 		</section>
 	  	<div class="span3">
 			<!-- [[ RIGHT COLUMN START ]] -->
-			<cfif application.use_help_module_ind>
+			<cfif application.help.active_ind>
 				<cfinclude template="../Help/dsp_screen_help.cfm">
 			</cfif>
 			<div id="watermark"></div>
