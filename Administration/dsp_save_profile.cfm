@@ -20,7 +20,7 @@
 	</tr>
 	<tr valign="top">
 		<td align="center" colspan="2" valign="top">
-			<label for="primary_profile"><input type="checkbox" name="primary_profile" id="primary_profile"> Make this my primary profile</label><br />&nbsp;<br />&nbsp;
+			<label for="primary_profile_ind"><input type="checkbox" name="primary_profile_ind" id="primary_profile_ind"> Make this my primary profile</label><br />&nbsp;<br />&nbsp;
 		</td>
 	</tr>
 </cfoutput>

@@ -20,7 +20,7 @@ WHERE emp_id=#session.user_account_id#
 		<cfif comparenocase(listlast(attributes.fuseaction, '.'),"load_profile") AND isdefined("attributes.profile_name")>AND profile_name='#attributes.profile_name#'<cfelse>
 ORDER BY profile_name</cfif>
 	<cfelse>
-	AND primary_profile=1
+	AND primary_profile_ind=1
 	</cfif>
 </cfquery>
 </cfsilent>
