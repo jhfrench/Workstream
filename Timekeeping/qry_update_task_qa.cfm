@@ -16,13 +16,13 @@
  --->
 <cfquery name="update_task_qa" datasource="#application.datasources.main#">
 <cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"new_task")>
-INSERT INTO Team(task_id, emp_id, roll_id)
+INSERT INTO Team(task_id, emp_id, role_id)
 VALUES (#attributes.task_id#, #attributes.task_qa#, 3)
 <cfelse>
 UPDATE Team
 SET emp_id=#attributes.task_qa#
 WHERE task_id=#attributes.task_id#
-	AND roll_id=3
+	AND role_id=3
 </cfif>
 </cfquery>
 </cfsilent>

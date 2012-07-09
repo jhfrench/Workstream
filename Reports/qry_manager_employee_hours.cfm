@@ -11,7 +11,7 @@
 	$Log$
 	||
 	END FUSEDOC --->
-<cfset sup_id=Get_Client_info.sup_id>
+<cfset supervisor_user_account_id=Get_Client_info.supervisor_user_account_id>
 <cfquery name="ind_emp" datasource="#application.datasources.main#">
 SELECT Project.project_code AS code, 
     Project.Description AS client, Demographics.emp_id, 
@@ -19,7 +19,7 @@ SELECT Project.project_code AS code,
 FROM Project, Demographics, Time_Entry
 WHERE Demographics.emp_id = Time_Entry.emp_id
 	AND Project.project_id = Time_Entry.project_id
-	AND demographics.emp_id = #sup_id#
+	AND Demographics.emp_id = #supervisor_user_account_id#
 	AND Time_Entry.date >= '#From_date#'
 	AND Time_Entry.date <= '#Through_Date#'
 	AND (Time_Entry.date between effective_from AND effective_to

@@ -4,7 +4,7 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I retrieve the notes_id of the latest (and greatest) entry into Notes.
+	Responsibilities: 
 	||
 	Name: Jeromy French
 	||
@@ -15,7 +15,7 @@
 	--> get_task_details.owner_id: number that uniquely identifies the owner of a task
  --->
 <cfquery name="convert_team_members" datasource="#application.datasources.main#">
-SELECT name, lname, 4 AS roll_id
+SELECT name, lname, 4 AS role_id
 FROM Emp_Contact
 WHERE emp_id IN (<cfif len(get_task_team.emp_id)>#valuelist(get_task_team.emp_id)#<cfelse>0</cfif>)
 </cfquery>

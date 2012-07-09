@@ -22,14 +22,14 @@ WHERE task_id=#attributes.task_id#
 UPDATE Time_Entry
 SET project_id=#attributes.project_id#
 WHERE task_id=#attributes.task_id#
-	AND Time_Entry.date > (SELECT MAX(Date_Locked.date_locked) AS date_locked
-							FROM Emp_Contact, Link_Company_Emp_Contact, Date_Locked, Demographics_Ngauge AS Demographics
-							WHERE Emp_Contact.emp_id=#session.user_account_id# 
-								AND (Demographics.effective_to IS NULL OR Demographics.effective_to > GETDATE())
-								AND (Demographics.effective_from IS NULL OR Demographics.effective_from < GETDATE())
-								AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
-								AND Link_Company_Emp_Contact.company_id=Date_Locked.company_id
-								AND Emp_Contact.emp_id=Demographics.emp_id)
+	AND time_entry_id NOT IN (
+		SELECT time_entry_id
+		FROM Link_Invoice_Time_Entry
+			INNER JOIN Invoice ON Link_Invoice_Time_Entry.invoice_id=Invoice.invoice_id
+		WHERE Link_Invoice_Time_Entry.active_ind=1
+			AND Invoice.active_ind=1
+		GROUP BY time_entry_id
+	)
 </cfquery>
 </cfsilent>
 

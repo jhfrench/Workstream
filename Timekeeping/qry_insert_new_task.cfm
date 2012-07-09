@@ -40,7 +40,7 @@ SELECT IDENT_CURRENT('Task') AS task_id
 </cfquery>
 <cfset attributes.task_id=insert_new_task.task_id>
 <cfquery name="insert_task_source" datasource="#application.datasources.main#">
-INSERT INTO Team(task_id,emp_id,roll_id)
+INSERT INTO Team(task_id,emp_id,role_id)
 VALUES (#attributes.task_id#,#session.user_account_id#,5)
 </cfquery>
 </cftransaction>

@@ -19,8 +19,8 @@
 <cffile action="DELETE" file="#variables.full_file_path#/#cffile.serverfile#">
 <cfset variables.file_path="#attributes.file_path#/#cffile.clientfile#">
 <cfquery name="update_task_files" datasource="#application.datasources.main#">
-INSERT INTO Associated_File (task_id,file_path, created_by)
-VALUES (#attributes.task_id#,'#variables.file_path#', #session.user_account_id#)
+INSERT INTO Link_Task_File (task_id, file_path, created_by)
+VALUES (#attributes.task_id#, '#variables.file_path#', #session.user_account_id#)
 </cfquery>
 
 <cfoutput>

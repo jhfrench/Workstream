@@ -41,7 +41,7 @@ WHERE Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	AND Phone.phone_type_id = 1
 	AND Security.disable=0
 	AND Position_History.effective_end_date IS NULL
-	AND Demographics.End_Date IS NULL
+	AND Demographics.end_date IS NULL
 	AND Demographics.Effective_To IS NULL
 	AND Link_Company_Emp_Contact.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
 	AND #application.team_changed#=#application.team_changed#

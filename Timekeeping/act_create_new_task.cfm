@@ -27,7 +27,7 @@
 <cfinclude template="qry_update_task_notification_cc.cfm">
 
 <cfquery name="update_associated_file" datasource="#application.datasources.main#">
-UPDATE Associated_File
+UPDATE Link_Task_File
 SET task_id=#attributes.task_id#
 WHERE task_id=0
 	AND created_by=#session.user_account_id#

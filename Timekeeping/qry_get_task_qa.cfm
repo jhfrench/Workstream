@@ -4,7 +4,7 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I retrieve the notes_id of the latest (and greatest) entry into Notes.
+	Responsibilities: 
 	||
 	Name: Jeromy French
 	||
@@ -19,7 +19,7 @@ SELECT Team.emp_id AS emp_id
 FROM Task, Team
 WHERE Task.task_id=Team.task_id
 	AND Task.task_id=#attributes.task_id#
-	AND Team.roll_id=3
+	AND Team.role_id=3
 </cfquery>
 </cfsilent>
 

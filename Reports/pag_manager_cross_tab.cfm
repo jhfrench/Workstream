@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I am a cross tab report that dynamically generates the codes that the subordinates have hours in then displays the hours that each employee has for that code.  It then totals the person's hours and totals the hours spent on each code and gives a grand total.  For a specific date range.  I also offer a form at the bottom of the page of a successfully run report that gives the manager a chance to "verify" his subordinates hours.  The verification signals an email to the CFO or accountant..
+	Responsibilities: I am a cross tab report that dynamically generates the codes that the subordinates have hours in then displays the hours that each employee has for that code.  It then totals the person's hours and totals the hours spent on each code and gives a grand total.  For a specific date range.  I also offer a form at the bottom of the page of a successfully run report that gives the manager a chance to "verify" his subordinates hours.
 
 	||
 	Edits:
@@ -15,7 +15,7 @@
 	- ->Through_date: this is the end of the date range of the report.
 	END FUSEDOC --->
 <cfset variables.all_option=0>
-<cfset request.sup_id=session.user_account_id>
+<cfset request.supervisor_user_account_id=session.user_account_id>
 </cfsilent>
 <cfinclude template="act_verify_dates.cfm">
 <cfset variables.object_id=19>
@@ -30,9 +30,6 @@
 	<cfinclude template="dsp_crosstab_col_headers.cfm">
 	<cfinclude template="dsp_crosstab_rows.cfm">
 	<cfinclude template="dsp_crosstab_total.cfm">
-</table>
-<table border="0" cellpadding="2" cellspacing="0" align="center" width="95%">
-	<cfinclude template="dsp_crosstab_mail_form.cfm">
 </table>
 <cfelse>
 	<cfinclude template="../common_files/dsp_no_records.cfm">

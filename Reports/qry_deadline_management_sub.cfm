@@ -26,7 +26,7 @@ FROM Emp_Contact,
 		AND Task.complete_date IS NOT NULL
 		AND Task.due_date IS NOT NULL
 		AND due_date <= GETDATE()
-		AND Team.roll_id=1
+		AND Team.role_id=1
 		AND Team.emp_id IN (#valuelist(get_subordinates.emp_id)#)
 		AND MONTH(Task.due_date)=#attributes.admin_month#
 		AND YEAR(Task.due_date)=#attributes.admin_year#)

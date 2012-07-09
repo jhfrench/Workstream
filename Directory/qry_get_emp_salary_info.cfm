@@ -17,12 +17,12 @@
 	
  --->
 <cfquery name="get_emp_salary_info" datasource="#application.datasources.main#">
-SELECT salary_id, salary, date_recorded,
+SELECT salary_id, salary, created_date,
 	date_implemented, salary_change_type_id,
 	increase_amount, increase_percent
 FROM Salary
 WHERE emp_id=#attributes.emp_id#<cfif session.workstream_company_id NEQ 1>
 	AND 1=0</cfif>
-ORDER BY date_recorded
+ORDER BY created_date
 </cfquery>
 </cfsilent>

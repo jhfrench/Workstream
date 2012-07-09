@@ -21,7 +21,7 @@ FROM Task
 	INNER JOIN Emp_Contact ON Team.emp_id = Emp_Contact.emp_id
 	INNER JOIN Security ON Emp_Contact.emp_id = Security.emp_id
 WHERE (Task.Complete_Date IS NULL)
-	AND Team.Roll_ID = 1
+	AND Team.role_id = 1
 	AND Project.project_id = #attributes.project_id#
 	AND Security.disable!=1
    </cfquery>

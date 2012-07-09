@@ -18,7 +18,7 @@ SELECT REF_Expense_Type.Expense_Type,
 FROM expense_amount
 	INNER JOIN expense ON expense_amount.expense_id = expense.expense_id
 	INNER JOIN REF_Expense_Type ON expense_amount.Expense_type_id = REF_Expense_Type.Expense_type_ID
-    WHERE (expense.Work_date >='#From_Date#' AND expense.Work_date <='#Through_Date#')
+    WHERE (expense.work_date >='#From_Date#' AND expense.work_date <='#Through_Date#')
      <cfif compare(project_id, 0) or  isdefined("attributes.emp_id")>
 	<cfif compare(project_id, 0) >and expense.project_id = #attributes.project_id#</cfif>
     <cfif isdefined("attributes.emp_id")>and expense.emp_id IN(#attributes.emp_id#)</cfif>

@@ -31,7 +31,7 @@
 				<tr>
 					<td><cfinput type="radio" name="product_id" value="#product_id#" required="yes" message="Please specify the product being installed."></td>
 					<td>#product_name#</td>
-					<td>#date_created#</td>
+					<td>#created_date#</td>
 				</tr>
 			</cfoutput>
 			</table>

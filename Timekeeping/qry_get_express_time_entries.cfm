@@ -42,7 +42,7 @@ WHERE DATEPART(DW, Time_Entry.date)=REF_Day_Of_Week.Day_Num
 	AND DATEPART(wk, Time_Entry.date)=Hours_Pin_Week.week
 	AND Time_Entry.emp_id=#session.user_account_id#
 	AND DATEDIFF(day, Time_Entry.date, GETDATE()) <= 60
-ORDER BY Time_Entry.date DESC, Notes.date DESC, Project.project_code
+ORDER BY Time_Entry.date DESC, Notes.created_date DESC, Project.project_code
 </cfquery>
 </cfsilent>
 

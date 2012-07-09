@@ -13,7 +13,7 @@
 	||
 	END FUSEDOC --->
 <cfquery name="get_user_field_types" datasource="#application.datasources.main#">
-SELECT type_id, name AS user_field_type
+SELECT user_field_type_id, name AS user_field_type
 FROM REF_User_Field_Type
 </cfquery>
 </cfsilent>

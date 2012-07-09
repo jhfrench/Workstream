@@ -4,7 +4,7 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I retrieve the notes_id of the latest (and greatest) entry into Notes.
+	Responsibilities: I determine how many PTO hours an employee has available
 	||
 	Name: Jeromy French
 	||

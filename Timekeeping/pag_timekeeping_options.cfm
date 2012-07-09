@@ -38,7 +38,7 @@
 			</cfif>
 		</cfcase>
 		<cfcase value="load_profile">
-			<cfif isdefined("attributes.profile_id")>
+			<cfif isdefined("attributes.user_profile_id")>
 				<cfinclude template="../common_files/act_load_profile.cfm">
 				<cfinclude template="dsp_profile_message.cfm">
 			<cfelse>

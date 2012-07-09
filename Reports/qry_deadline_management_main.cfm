@@ -25,7 +25,7 @@ FROM
 		AND complete_date IS NOT NULL
 		AND due_date IS NOT NULL
 		AND due_date <= GETDATE()
-		AND Team.roll_id=1
+		AND Team.role_id=1
 		AND Team.emp_id IN (#valuelist(get_subordinates.emp_id)#))
 AS On_Time
 GROUP BY YEAR(On_Time.due_date), MONTH(On_Time.due_date)

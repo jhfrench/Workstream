@@ -36,7 +36,7 @@
 			</ol>
 		</td>
 	</tr>
-<input type="hidden" name="billable_type_id" value="#attributes.billable_type_id#">
+<input type="hidden" name="billable_user_field_type_id" value="#attributes.billable_user_field_type_id#">
 <input type="hidden" name="budget" value="#attributes.budget#">
 <input type="hidden" name="business_case" value="#attributes.business_case#">
 <input type="hidden" name="customer_id" value="#attributes.customer_id#">
@@ -50,7 +50,7 @@
 <cfif isdefined("attributes.strip_trailing")><input type="hidden" name="strip_trailing" value="1"></cfif>
 <cfif isdefined("attributes.company_id")><input type="hidden" name="company_id" value="#attributes.company_id#"></cfif>
 <input type="hidden" name="vision" value="#attributes.vision#">
-<cfswitch expression="#attributes.billable_type_id#">
+<cfswitch expression="#attributes.billable_user_field_type_id#">
 <cfcase value="1">
 <input type="hidden" name="end_date" value="#attributes.end_date#">
 <input type="hidden" name="rate" value="#attributes.rate#">
@@ -67,6 +67,6 @@
 </cfswitch>
 </cfoutput>
 <cfif attributes.req_custom NEQ 0>
-<cfoutput query="get_user_field_types"><input type="hidden" name="field#type_id#" value="#evaluate("attributes.field#type_id#")#">
+<cfoutput query="get_user_field_types"><input type="hidden" name="field#user_field_type_id#" value="#evaluate("attributes.field#user_field_type_id#")#">
 </cfoutput>
 </cfif>

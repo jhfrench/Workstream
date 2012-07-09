@@ -14,29 +14,29 @@
 
 </cfsilent>
 	<tr>
-     	<td>
-		Code:
-	</td>
-	<td>
-	<select name="project_id" size="1"class="RegText">
-<cfoutput query="project">
-	<option  value="#project.project_id#"<cfif isdefined("get_expense_values.project_id") and not compare(get_expense_values.project_id, project.project_id) >Selected</cfif>>#display#</option>
-</cfoutput>
-</select>
-	</td>
-	  <td>Date: </td>
-       <td>
-	  <cfif isdefined("get_expense_values.work_date")>  <cfinput type="datefield" name="DateField1" message="Enter a date." validate="date" required="Yes" size="12" value="#dateformat(get_expense_values.work_date,'mm/dd/yyyy')#"><cfelse>
-	  <cfinput type="datefield" name="DateField1" message="Enter a date." validate="date" required="Yes" size="12">
-</cfif>
-		<cfinclude template="../common_files/dsp_pop_calendar.cfm">
-     	</td>
+		<td>Code:</td>
+		<td>
+			<select name="project_id" size="1"class="RegText">
+			<cfoutput query="project">
+			<option  value="#project.project_id#"<cfif isdefined("get_expense_values.project_id") and not compare(get_expense_values.project_id, project.project_id) >Selected</cfif>>#display#</option>
+			</cfoutput>
+			</select>
+		</td>
+		<td>Date: </td>
+		<td>
+			<cfset variables.datefield1="">
+			<cfif isdefined("get_expense_values.work_date")>
+			<cfset variables.datefield1=dateformat(get_expense_values.work_date,"mm/dd/yyyy")>
+			</cfif>
+			<cfinput type="datefield" name="DateField1" message="Enter a date." validate="date" required="Yes" size="12" value="#variables.datefield1#">
+			<cfinclude template="../common_files/dsp_pop_calendar.cfm">
+		</td>
 </tr>
 <tr>
    		<td colspan="2" valign="top">
 	
    	<table cellpadding="2" cellspacing="0" border="0">
-   			<cfloop from="#start#" to="#num_expense#" index="ii">
+   		<cfloop from="#start#" to="#num_expense#" index="ii">
    		<tr>
    			<td align="justify">
    				<cfoutput>#Get_Expense_Type.Expense_Type[ii]#</cfoutput>:

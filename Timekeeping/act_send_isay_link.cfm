@@ -17,7 +17,7 @@ SELECT Task.name AS task_name, Email.email AS email_to
 FROM Task, Team, Email
 WHERE Task.task_id=Team.task_id
 	AND Team.emp_id=Email.emp_id
-	AND Team.roll_id=1
+	AND Team.role_id=1
 	AND Email.email_type_id=1
 	AND Task.task_id=#attributes.task_id#
 </cfquery>

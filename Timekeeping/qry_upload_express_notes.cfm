@@ -19,8 +19,10 @@
  --->
 <cfparam name="attributes.notes_type_id" default=1>
 <cfquery name="upload_express_notes" datasource="#application.datasources.main#">
-INSERT INTO Notes(task_id, emp_id, notes_type_id, date, note)
-VALUES (#listgetat(attributes.task_id,ii)#, #session.user_account_id#, #attributes.notes_type_id#, GETDATE(), '#HTMLEditFormat(request.note)#')
+INSERT INTO Notes (task_id, emp_id, notes_type_id,
+	note)
+VALUES (#listgetat(attributes.task_id,ii)#, #session.user_account_id#, #attributes.notes_type_id#,
+	'#HTMLEditFormat(request.note)#')
 </cfquery>
 </cfsilent>
  --->

@@ -15,7 +15,8 @@
 <cfquery name="get_last_forecast" datasource="#application.datasources.main#">
 SELECT forecast_id
 FROM Forecast
-WHERE forecast_month=#attributes.force_month#
+WHERE active_ind=1
+	AND forecast_month=#attributes.force_month#
 	AND forecast_year=#attributes.force_year#
 	AND approved_by=#session.user_account_id#
 </cfquery>

@@ -23,7 +23,7 @@ FROM Task, Notification, Email, Emp_Contact,
 	(SELECT Email.email AS task_source, Email.emp_id AS source_id, Team.task_id AS task_id
 	FROM Team, Email
 	WHERE Team.emp_id=Email.emp_id
-		AND Team.roll_id=5
+		AND Team.role_id=5
 		AND Email.email_type_id=1)
 AS Task_Source
 WHERE Task.task_id=Task_Source.task_id
@@ -43,7 +43,7 @@ FROM Task, Notification, Email, Emp_Contact,
 	(SELECT Email.email AS task_source, Email.emp_id AS source_id, Team.task_id AS task_id
 	FROM Team, Email
 	WHERE Team.emp_id=Email.emp_id
-		AND Team.roll_id=5
+		AND Team.role_id=5
 		AND Email.email_type_id=1)
 AS Task_Source
 WHERE Task.task_id=Task_Source.task_id

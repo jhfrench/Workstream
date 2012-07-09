@@ -27,13 +27,13 @@ SELECT Team.emp_id
 FROM Task, Team
 WHERE Task.task_id=#attributes.task_id#
 	AND Task.task_id=Team.task_id
-	AND Team.roll_id IN (1,5)
+	AND Team.role_id IN (1,5)
 UNION ALL
 SELECT Link_Employee_Supervisor.supervisor_id
 FROM Link_Employee_Supervisor, Team
-WHERE Link_Employee_Supervisor.emp_id=Team.emp_id
+WHERE Link_Employee_Supervisor.user_account_id=Team.emp_id
 	AND Team.task_id=#attributes.task_id#
-	AND Team.roll_id=1
+	AND Team.role_id=1
 	AND Link_Employee_Supervisor.active_ind=1
 </cfquery>
 </cfsilent>

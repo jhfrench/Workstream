@@ -21,8 +21,8 @@ FROM Time_Entry, Project,
 	WHERE Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 		AND Demographics.emp_id=Emp_Contact.emp_id
 		AND Demographics.employee_classification_id*=REF_Employee_Classification.employee_classification_id<cfif NOT variables.all_option>
-		AND Supervisor.emp_id=Emp_Contact.emp_id 
-		AND Supervisor.sup_id = #session.user_account_id#</cfif>
+		AND Supervisor.user_account_id=Emp_Contact.emp_id 
+		AND Supervisor.supervisor_user_account_id = #session.user_account_id#</cfif>
 		AND Link_Company_Emp_Contact.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
 		AND Demographics.hire_date < #createodbcdatetime(variables.end_date)#
 		AND (Demographics.end_date IS NULL

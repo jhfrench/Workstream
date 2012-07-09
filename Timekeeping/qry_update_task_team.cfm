@@ -17,7 +17,7 @@
 <cfquery name="update_task_team" datasource="#application.datasources.main#">
 DELETE
 FROM Team
-WHERE task_id=#attributes.task_id# AND roll_id=4
+WHERE task_id=#attributes.task_id# AND role_id=4
 </cfquery>
 <cfif listlen(attributes.task_team)>
 <cfif listcontains(attributes.task_team, "|")>
@@ -25,7 +25,7 @@ WHERE task_id=#attributes.task_id# AND roll_id=4
 </cfif>
 <cfquery name="update_task_team" datasource="#application.datasources.main#">
 <cfloop list="#attributes.task_team#" index="ii">
-INSERT INTO Team(task_id,emp_id,roll_id)
+INSERT INTO Team(task_id,emp_id,role_id)
 VALUES (#attributes.task_id#,#ii#,4)
 </cfloop>
 </cfquery>

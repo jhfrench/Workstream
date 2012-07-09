@@ -43,7 +43,7 @@ FROM Task, Team, Emp_Contact,  Customer, Project, Link_Project_Company, REF_Prio
 	AS Recorded_Hours
 	ON Path.task_id = Recorded_Hours.task_id
 	WHERE Task.task_id=Path.task_id AND REF_Status.status_id=Task.status_id 
-		AND Team.roll_id=1 AND Task.task_id=Team.task_id 
+		AND Team.role_id=1 AND Task.task_id=Team.task_id 
 		AND Emp_Contact.emp_id=Team.emp_id)
 AS Task_Details
 WHERE Customer.customer_id=Project.customer_id
@@ -54,7 +54,7 @@ WHERE Customer.customer_id=Project.customer_id
 	AND Link_Project_Company.project_id=Project.project_id
 	AND Task.priority_id=REF_Priority.priority_id
 	AND Link_Project_Company.company_id IN (#session.workstream_company_id#)
-	AND Team.roll_id=3
+	AND Team.role_id=3
 	AND Project.project_id=#attributes.project_id#
 	AND project.project_type_id!=3<cfif isdefined("session.workstream_task_list_order")>
 ORDER BY #session.workstream_task_list_order#</cfif>

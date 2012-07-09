@@ -39,7 +39,7 @@ WHERE Customer.customer_id=Project.customer_id
 	AND Task.project_id=Project.project_id
 	AND Task.priority_id=REF_Priority.priority_id
 	<cfif isdefined("variables.emp_id")>AND Team.emp_id IN (#variables.emp_id#)</cfif>
-	AND Team.roll_id=1
+	AND Team.role_id=1
 	AND Task.status_id=REF_Status.status_id
 	AND Task.task_id=Team.task_id
 	AND Task.task_id*=Recorded_Hours.task_id
@@ -47,7 +47,7 @@ WHERE Customer.customer_id=Project.customer_id
 	AND Task.due_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.to_date)#
 	AND Task.status_id!=13
 	<cfif isdefined("attributes.show_completed")>AND Task.status_id=11</cfif>
-	<cfif isdefined("attributes.show_budgeted")>AND Forecast_Assignment.task_id=Task.task_id</cfif>
+	<cfif isdefined("attributes.show_budgeted")>AND Forecast_Assignment.active_ind=1 AND Forecast_Assignment.task_id=Task.task_id</cfif>
 </cfoutput>
 <!--- 
 
@@ -75,7 +75,7 @@ FROM Task, Project, REF_Priority, REF_Status,
 	(SELECT Team.task_id
 	FROM Team
 	WHERE Team.emp_id = #variables.emp_id#
-		AND Team.roll_id=1
+		AND Team.role_id=1
 	GROUP BY Team.task_id)
 AS Team,
 	(SELECT SUM(ISNULL(Time_Entry.hours,0)) AS hours_used, task_id

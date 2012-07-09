@@ -29,6 +29,4 @@
 	<cfinclude template="dsp_gross_hours_rows.cfm">
 	</tbody>
 </table>
-<cfelse>
-	<cfinclude template="error1.cfm">
 </cfif>

@@ -14,7 +14,7 @@
 --->
 
 <cfquery name="qry_insert_supporting_database" datasource="#application.datasources.main#">
-INSERT INTO Supporting_Database (database_name, datasource_description, date_created,
+INSERT INTO Supporting_Database (database_name, datasource_description, created_date,
 	active_ind)
 SELECT '#evaluate("attributes.database_name_#database_count_ii#")#', '#evaluate("attributes.datasource_description_#database_count_ii#")#', GETDATE(),
 	1

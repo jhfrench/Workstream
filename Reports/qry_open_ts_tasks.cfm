@@ -20,7 +20,7 @@ FROM Task, Team, Emp_Contact, REF_Status, REF_Priority
 WHERE Task.task_id=Team.task_id
 	AND Task.status_id=REF_Status.status_id
 	AND Task.priority_id=REF_Priority.priority_id
-	AND Team.roll_id=1
+	AND Team.role_id=1
 	AND Team.emp_id=Emp_Contact.emp_id
 	AND Task.name LIKE 'TS%'
 	AND Task.status_id Not in (11,7)

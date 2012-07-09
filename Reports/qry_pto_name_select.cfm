@@ -13,9 +13,9 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="subordinates" datasource="#application.datasources.main#">
-SELECT emp_id 
+SELECT user_account_id
 FROM Supervisor 
-WHERE sup_id=#emp_id#
+WHERE supervisor_user_account_id=#emp_id#
 </cfquery>
 <cfmodule template="../common_files/act_set_all_option.cfm" business_function_id="635">
 <cfquery name="REFname" datasource="#application.datasources.main#">

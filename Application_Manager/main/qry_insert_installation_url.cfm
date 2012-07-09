@@ -14,7 +14,7 @@
 --->
 
 <cfquery name="qry_insert_installation_url" datasource="#application.datasources.main#">
-INSERT INTO Installation_URL (installation_id, url_to_base, date_created,
+INSERT INTO Installation_URL (installation_id, url_to_base, created_date,
 	active_ind)
 SELECT #attributes.installation_id#, '#attributes.url_to_base#', GETDATE(),
 	1

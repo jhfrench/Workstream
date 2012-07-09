@@ -16,13 +16,13 @@
  --->
 <cfquery name="update_task_files" datasource="#application.datasources.main#">
 <cfloop list="#file_paths#" index="variables.ii">
-UPDATE Associated_File
+UPDATE Link_Task_File
 SET active_ind=0
 WHERE task_id=#attributes.task_id#
 	AND file_path='#variables.ii#'
 
-INSERT INTO Associated_File (task_id,file_path, created_by)
-VALUES (#attributes.task_id#,'#variables.ii#', #session.user_account_id#)
+INSERT INTO Link_Task_File (task_id, file_path, created_by)
+VALUES (#attributes.task_id#, '#variables.ii#', #session.user_account_id#)
 </cfloop>
 </cfquery>
 </cfsilent>

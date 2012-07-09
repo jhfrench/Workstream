@@ -115,7 +115,7 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 					AND (<cfloop list="#attributes.task_name#" index="ii"><cfset counter=incrementvalue(counter)>Task.name LIKE '%#ii#%'<cfif counter NEQ listlen(attributes.task_name)> OR </cfif></cfloop>)</cfif>
 					<cfif isdefined("attributes.description_box") AND len(attributes.description)>
 					AND (<cfloop list="#attributes.description#" index="ii"><cfset counter=incrementvalue(counter)>Task.description LIKE '%#ii#%'<cfif counter NEQ listlen(attributes.description)> OR </cfif></cfloop>)</cfif><cfif isdefined("attributes.task_owner_box") AND isdefined("attributes.task_owner")>
-					AND Team.roll_id=1
+					AND Team.role_id=1
 					AND Team.emp_id IN (#attributes.task_owner#)</cfif><cfif isdefined("attributes.task_source_box") AND isdefined("attributes.task_source")>
 					AND Task.creator IN (#attributes.task_source#)</cfif><cfif attributes.used_by_search>
 					AND Task.project_id IN (<cfif variables.use_project_criteria>#attributes.project_id#<cfelse>#attributes.project_id_list#</cfif>)</cfif> /*limit to either user's access or search crietria, whichever is less*/<cfif isdefined("attributes.task_stati_box") AND isdefined("attributes.task_stati")>
@@ -138,7 +138,7 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 	AS Recorded_Hours
 	ON Path.task_id=Recorded_Hours.task_id
 	WHERE Task.task_id=Path.task_id AND REF_Status.status_id=Task.status_id 
-		AND Team.roll_id=1 AND Task.task_id=Team.task_id 
+		AND Team.role_id=1 AND Task.task_id=Team.task_id 
 		AND Emp_Contact.emp_id=Team.emp_id)
 AS Task_Details
 WHERE Project.customer_id=Customer.customer_id
@@ -146,7 +146,7 @@ WHERE Project.customer_id=Customer.customer_id
 	AND Task.project_id=Project.project_id 
 	AND Task.task_id=Task_Details.task_id
 	AND Emp_Contact.emp_id=Team.emp_id
-	AND Team.roll_id=3<cfif variables.use_customer_criteria>
+	AND Team.role_id=3<cfif variables.use_customer_criteria>
 	AND Customer.customer_id IN (#attributes.customer_id#) /*if the user specifies customer criteria, limit the results to just those customers*/</cfif>
 <cfif isdefined("session.workstream_task_list_order")>ORDER BY #session.workstream_task_list_order#</cfif>
 </cfquery>

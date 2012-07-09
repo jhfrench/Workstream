@@ -15,7 +15,7 @@
 	||
 	END FUSEDOC --->
 <cfquery name="get_accounting_expense_register" datasource="#application.datasources.main#">
-SELECT Expense.expense_id, Expense.date_incurred, Expense.date_entered,Expense.expense_status_id,
+SELECT Expense.expense_id, Expense.date_incurred, Expense.created_date,Expense.expense_status_id,
 	ISNULL(Expense.date_accounting_approved, Expense.date_supervisor_approved) AS date_approved,
 	Expense.payee_name, REF_Expense_Status.description,
 	Expense.amount

@@ -126,14 +126,14 @@ FROM Task, Team, Email, Emp_Contact,
 	FROM Team, Email
 	WHERE Team.emp_id=Email.emp_id
 		AND Team.task_id=#attributes.task_id#
-		AND Team.roll_id IN (#variables.sender_type#)
+		AND Team.role_id IN (#variables.sender_type#)
 		AND Email.email_type_id=1) AS Email_Source
 WHERE Task.task_id=Team.task_id
 	AND Team.emp_id=Email.emp_id
 	AND Team.emp_id=Emp_Contact.emp_id
 	AND Task.task_id=Email_Source.task_id
 	AND Team.task_id=#attributes.task_id#
-	AND Team.roll_id IN (#variables.receiver_type#)
+	AND Team.role_id IN (#variables.receiver_type#)
 	AND Email.email_type_id=1
 	AND Email.emp_id!=#session.user_account_id#
 </cfquery>
@@ -156,9 +156,9 @@ Description: #prepare_email.description#
 		<cfif NOT comparenocase(attributes.note_type, "qa_ready")>
 			<cfquery name="update_task_notification_cc" datasource="#application.datasources.main#">
 			INSERT INTO Notification (task_id, email_id, notification_type,
-				date_sent, date_to_send, date_entered)
+				date_sent, date_to_send)
 			VALUES (#attributes.task_id#, #prepare_email.email_id#, 7,
-				GETDATE(), GETDATE(), GETDATE())
+				GETDATE(), GETDATE())
 			</cfquery>
 		</cfif>
 	</cfif>

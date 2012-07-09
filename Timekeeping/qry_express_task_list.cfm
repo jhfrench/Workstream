@@ -20,7 +20,7 @@ FROM
 	WHERE Team.task_id=Task.task_id 
 		AND Task.project_id=Project.project_id 
 		AND Task.status_id NOT IN (7,11,13)
-		AND Team.roll_id=1
+		AND Team.role_id=1
 		AND team.emp_id=#session.user_account_id#
 		AND Project.project_code NOT BETWEEN '6517' AND '6505'
 	UNION ALL
@@ -29,13 +29,13 @@ FROM
 	WHERE Team.emp_id=Emp_Contact.emp_id 
 		AND Task.task_id=Team.task_id 
 		AND Task.status_id NOT IN (7,11,13)
-		AND roll_id=1 
+		AND role_id=1 
 		AND team.emp_id != #session.user_account_id# 
 		AND EXISTS
 			(SELECT *
 			FROM Team
 			WHERE task_id=task.task_id
-				AND roll_id=4 
+				AND role_id=4 
 				AND team.emp_id=#session.user_account_id#)<cfif session.workstream_company_id EQ 1>
 	UNION ALL
 	/*generic codes like PTO*/

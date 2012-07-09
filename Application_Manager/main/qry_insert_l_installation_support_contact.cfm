@@ -15,7 +15,7 @@
 
 <cfquery name="qry_insert_l_installation_support_contact" datasource="#application.datasources.main#">
 INSERT INTO L_Installation_Support_Contact (installation_id, support_contact_info_id, send_email_ind,
-	notes, sort_order, date_created,
+	notes, sort_order, created_date,
 	active_ind)
 SELECT #attributes.installation_id#, #support_contact_info_id_ii#, 1,
 	'', 1, GETDATE(),

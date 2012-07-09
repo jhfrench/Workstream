@@ -69,13 +69,13 @@
 			
 		<!--- Hire Date --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Hire Date")>
-			data_array(#variables.rownum#,#variables.current_col_num#)="#dateformat(get_employee_info.Hire_Date,'mm/dd/yyyy')#"			
+			data_array(#variables.rownum#,#variables.current_col_num#)="#dateformat(get_employee_info.hire_date,'mm/dd/yyyy')#"			
 			<cfset variables.current_col_num = variables.current_col_num + 1>
 		</cfif>
 								
 		<!--- Term Date --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Term Date")>
-			data_array(#variables.rownum#,#variables.current_col_num#)="#dateformat(get_employee_info.End_Date,'mm/dd/yyyy')#"			
+			data_array(#variables.rownum#,#variables.current_col_num#)="#dateformat(get_employee_info.end_date,'mm/dd/yyyy')#"			
 			<cfset variables.current_col_num = variables.current_col_num + 1>
 		</cfif>
 			

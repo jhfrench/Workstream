@@ -174,11 +174,11 @@
 	               </cfquery>
 				
 				<cfquery name="get_emp_id" datasource="#application.datasources.main#">
-	                   select max(emp_id) as emp_id
-				    From emp_contact
+	            select max(emp_id) as emp_id<!--- $issue$: need to convert these type of PK lookups to IDENT_CURRENT('Emp_Contact') --->
+				From Emp_Contact
 				 </cfquery>
 				<cfquery name="insert_location" datasource="#application.datasources.main#">
-					INSERT INTO location
+					INSERT INTO Location
 					(emp_id
 					<cfif compare(paddress, "")>, address1</cfif>
 					<cfif compare(saddress, "")>, address2</cfif>

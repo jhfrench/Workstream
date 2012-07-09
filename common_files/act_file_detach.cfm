@@ -14,7 +14,7 @@
  --->
 </cfsilent>
 <cfquery name="del_file" datasource="#application.datasources.main#">
-UPDATE Associated_File
+UPDATE Link_Task_File
 SET active_ind=0
-WHERE associated_file_id IN (#attributes.associated_file_id#)
+WHERE l_t_f_id IN (#attributes.l_t_f_id#)
 </cfquery>	

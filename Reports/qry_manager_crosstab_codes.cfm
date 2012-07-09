@@ -23,7 +23,7 @@ FROM Time_Entry, Project,
 		AND Demographics.hire_date < #createodbcdatetime(attributes.through_date)#
 		AND (Demographics.end_date IS NULL
 			OR Demographics.end_date > #createodbcdatetime(attributes.from_date)#)<cfelse>
-		AND Link_Employee_Supervisor.emp_id=Emp_Contact.emp_id 
+		AND Link_Employee_Supervisor.user_account_id=Emp_Contact.emp_id 
 		AND Link_Employee_Supervisor.supervisor_id=#session.user_account_id#
 		AND Link_Employee_Supervisor.date_start < #createodbcdatetime(attributes.through_date)#
 		AND (Link_Employee_Supervisor.date_end IS NULL

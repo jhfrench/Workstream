@@ -18,8 +18,8 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="get_associated_files" datasource="#application.datasources.main#">
-SELECT associated_file_id, file_path
-FROM Associated_File
+SELECT l_t_f_id, file_path
+FROM Link_Task_File
 WHERE active_ind=1
 	AND task_id=#attributes.task_id#
 ORDER BY file_path

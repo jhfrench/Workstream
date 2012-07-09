@@ -74,12 +74,12 @@
 			
 		<!--- Hire Date --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Hire Date")>
-			<td valign="top" nowrap>#dateformat(get_employee_info.Hire_Date,'mm/dd/yyyy')#</td>			
+			<td valign="top" nowrap>#dateformat(get_employee_info.hire_date,'mm/dd/yyyy')#</td>			
 		</cfif>
 								
 		<!--- Term Date --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Term Date")>
-			<td valign="top" nowrap>#dateformat(get_employee_info.End_Date,'mm/dd/yyyy')#</td>			
+			<td valign="top" nowrap>#dateformat(get_employee_info.end_date,'mm/dd/yyyy')#</td>			
 		</cfif>
 			
 		<!--- Separation Code --->

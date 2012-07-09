@@ -45,10 +45,12 @@ FROM
 		AND Task.task_id*=Time_Entry.task_id
 		AND Task.task_id = Forecast_Assignment.task_id
 		AND Forecast.forecast_id=Forecast_Assignment.forecast_id
+		AND Forecast.active_ind=1
+		AND Forecast_Assignment.active_ind=1
 		AND Forecast.forecast_year=#attributes.force_year#
 		AND Forecast.forecast_month=#attributes.force_month#
 		AND Team.emp_id IN (#session.user_account_id#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)
-		AND Team.roll_id IN (1,4)
+		AND Team.role_id IN (1,4)
 	GROUP BY Forecast_Assignment.task_id, Forecast_Assignment.emp_id, Forecast_Assignment.hours_budgeted, 
 		Task.task_id, Customer.description+'-'+Project.description, Project.project_id, 
 		Project.billable_type_id, Task.due_date, Task.status_id, 
@@ -66,7 +68,7 @@ FROM
 		END AS previous_entry, 
 		Task.task_id AS task_id, Customer.description+'-'+Project.description AS project, Project.project_id, 
 		Task.due_date, Task.name AS task_name, ISNULL(Task.budgeted_hours,0) AS budget, 
-		<cfloop list="#emp_id_loop#" index="ii">SUM(CASE WHEN Team.roll_id = 1 AND Team.emp_id =#ii# AND Team.task_id=Task.task_id THEN ISNULL(Task.budgeted_hours,0) ELSE 0 END) AS budget#ii#,
+		<cfloop list="#emp_id_loop#" index="ii">SUM(CASE WHEN Team.role_id = 1 AND Team.emp_id =#ii# AND Team.task_id=Task.task_id THEN ISNULL(Task.budgeted_hours,0) ELSE 0 END) AS budget#ii#,
 		</cfloop>(CASE WHEN Project.billable_type_id = 2 THEN 'NB' ELSE 'B' END) AS billable
 	FROM Customer, Project, Task, Team, Time_Entry
 	WHERE Customer.customer_id=Project.customer_id
@@ -76,11 +78,13 @@ FROM
 		AND <cfif attributes.force_month GTE month(now()) AND attributes.force_year GTE year(now())>Task.status_id != 11 /*exclude closed tasks*/
 		AND Task.assigned_date < #createodbcdate(dateadd("m",1,"#attributes.force_month#/01/#attributes.force_year#"))# /*show tasks assigned (to be started) before the selected month*/<cfelse>MONTH(Task.assigned_date)=#attributes.force_month# AND YEAR(Task.assigned_date)=#attributes.force_year# /*show tasks assigned (to be started) during the selected month*/</cfif>
 		AND Team.emp_id IN (#session.user_account_id#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)
-		AND Team.roll_id IN (1,4)
+		AND Team.role_id IN (1,4)
 		AND Task.task_id NOT IN (
 			SELECT Forecast_Assignment.task_id
-			FROM Forecast, Forecast_Assignment
-			WHERE Forecast.forecast_id=Forecast_Assignment.forecast_id
+			FROM Forecast
+				INNER JOIN Forecast_Assignment ON Forecast.forecast_id=Forecast_Assignment.forecast_id
+			WHERE Forecast.active_ind=1
+				AND Forecast_Assignment.active_ind=1
 				AND Forecast.forecast_year=#attributes.force_year#
 				AND Forecast.forecast_month=#attributes.force_month#
 		)

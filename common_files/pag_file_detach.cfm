@@ -16,7 +16,7 @@
 <cfset bgcolor="##78A0EB">
 <cfparam name="attributes.submit_flag" default=0>
 </cfsilent>
-<cfif isdefined("attributes.associated_file_id")>
+<cfif isdefined("attributes.l_t_f_id")>
 	<cfinclude template="act_file_detach.cfm">
 </cfif>
 <cfinclude template="qry_get_associated_files.cfm">

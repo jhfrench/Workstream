@@ -14,7 +14,7 @@
 --->
 
 <cfquery name="qry_get_product" datasource="#application.datasources.main#">
-SELECT product_id, product_name, date_created
+SELECT product_id, product_name, created_date
 FROM Product
-ORDER BY product_name, date_created
+ORDER BY product_name, created_date
 </cfquery>

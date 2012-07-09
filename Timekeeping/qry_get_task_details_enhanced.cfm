@@ -45,17 +45,17 @@ FROM Task, REF_Status, Project, Customer,<cfif get_print_details> REF_Priority,<
 	WHERE Task.task_id=Team.task_id
 		AND Team.emp_id=Emp_Contact.emp_id
 		AND Task.task_id=#attributes.task_id#
-		AND Team.roll_id=5) AS Task_Source,
+		AND Team.role_id=5) AS Task_Source,
 	(SELECT Task.task_id, Team.emp_id AS emp_id
 	FROM Task, Team
 	WHERE Task.task_id=Team.task_id
 		AND Task.task_id=#attributes.task_id#
-		AND Team.roll_id=1) AS Task_Owner,
+		AND Team.role_id=1) AS Task_Owner,
 	(SELECT Task.task_id, Team.emp_id AS emp_id
 	FROM Task, Team
 	WHERE Task.task_id=Team.task_id
 		AND Task.task_id=#attributes.task_id#
-		AND Team.roll_id=3) AS Task_QA
+		AND Team.role_id=3) AS Task_QA
 WHERE Task.task_id=#attributes.task_id#
 	AND Task.status_id=REF_Status.status_id
 	AND Task.task_id*=Task_Accum.task_id

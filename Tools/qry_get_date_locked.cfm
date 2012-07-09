@@ -18,9 +18,10 @@
 	END FUSEDOC --->
 <cfquery name="get_date_locked" datasource="#application.datasources.main#">
 SELECT REF_Company.company_id, REF_Company.description AS company, Date_Locked.date_locked
-FROM REF_Company, Date_Locked
-WHERE REF_Company.company_id*=Date_Locked.company_id
-	AND REF_Company.company_id IN (#session.workstream_selected_company_id#)
+FROM REF_Company
+	LEFT OUTER JOIN Date_Locked ON REF_Company.company_id=Date_Locked.company_id
+		AND Date_Locked.active_ind=1
+WHERE REF_Company.company_id IN (#session.workstream_selected_company_id#)
 ORDER BY REF_Company.description
 </cfquery>
 </cfsilent>

@@ -17,13 +17,15 @@
 UPDATE User_Fields
 SET active_ind=1
 FROM User_Fields, User_Field_Project_Link
-WHERE User_Fields.user_field_id=User_Field_Project_Link.user_field_id
+WHERE User_Fields.active_ind=0
+	AND User_Fields.user_field_id=User_Field_Project_Link.user_field_id
 	AND User_Field_Project_Link.project_id=#attributes.project_id#
 <cfif isdefined("attributes.retire")>
 UPDATE User_Fields
 SET active_ind=0
 FROM User_Fields, User_Field_Project_Link
-WHERE User_Fields.user_field_id=User_Field_Project_Link.user_field_id
+WHERE User_Fields.active_ind=1
+	AND User_Fields.user_field_id=User_Field_Project_Link.user_field_id
 	AND User_Field_Project_Link.project_id=#attributes.project_id#
 	AND User_Fields.user_field_id IN (#attributes.retire#)
 </cfif>
@@ -31,12 +33,12 @@ WHERE User_Fields.user_field_id=User_Field_Project_Link.user_field_id
 <cfif len(attributes.type_1_num_1_name) NEQ 0 OR len(attributes.type_2_num_1_name) NEQ 0>
 <cfinclude template="qry_get_user_field_types.cfm">
 <cfloop query="get_user_field_types">
-	<cfif len(evaluate("attributes.type_#type_id#_num_1_name")) NEQ 0>
-		<cfset tmpVar=evaluate("attributes.type_#type_id#_num_1_name")>
+	<cfif len(evaluate("attributes.type_#user_field_type_id#_num_1_name")) NEQ 0>
+		<cfset tmpVar=evaluate("attributes.type_#user_field_type_id#_num_1_name")>
 		<cfset tmpVar=Replace(tmpVar, "', /,%", "''", "All")>
 			<cfquery name="add_custom_fields" datasource="#application.datasources.main#">
-			INSERT INTO User_Fields (field_type_id, field_title, active_ind)
-			VALUES (#type_id#, '#tmpVar#', 2)
+			INSERT INTO User_Fields (field_user_field_type_id, field_title, active_ind)
+			VALUES (#user_field_type_id#, '#tmpVar#', 2)
 			</cfquery>
 			<cfquery name="get_last_custom_field" datasource="#application.datasources.main#">
 			SELECT MAX(user_field_id) AS current_field
@@ -46,10 +48,10 @@ WHERE User_Fields.user_field_id=User_Field_Project_Link.user_field_id
 			INSERT INTO User_Field_Project_Link(user_field_id, project_id)
 			VALUES(#get_last_custom_field.current_field#, #attributes.project_id#)
 			</cfquery>
-			<cfif type_id EQ 1>
+			<cfif user_field_type_id EQ 1>
 			<cfloop from="1" to="8" index="opt_ii">
-				<cfif len(#evaluate("attributes.type_#type_id#_num_1_opt_#opt_ii#")#)>
-				<cfset tmpVar1=evaluate("attributes.type_#type_id#_num_1_opt_#opt_ii#")>
+				<cfif len(#evaluate("attributes.type_#user_field_type_id#_num_1_opt_#opt_ii#")#)>
+				<cfset tmpVar1=evaluate("attributes.type_#user_field_type_id#_num_1_opt_#opt_ii#")>
 				<cfset tmpVar1=Replace(tmpVar1, "', /,%", "''", "All")>
 				<cfquery name="add_custom_field_options" datasource="#application.datasources.main#">
 				INSERT INTO user_field_items(user_field_id, selection_title)

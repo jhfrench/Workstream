@@ -74,11 +74,11 @@ FROM Task, Team, Emp_Contact,
 						AND Team.emp_id IN (<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#session.user_account_id#</cfif>)
 						AND (
 							(
-								Team.roll_id IN (1,<cfif session.workstream_show_team>4,</cfif>0)
+								Team.role_id IN (1,<cfif session.workstream_show_team>4,</cfif>0)
 								AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>13)
 							)
 							OR (
-								Team.roll_id=3 
+								Team.role_id=3 
 								AND Task.status_id IN (4,10)
 							)
 						)</cfif>
@@ -97,7 +97,7 @@ FROM Task, Team, Emp_Contact,
 		WHERE Task.task_id=Path.task_id
 			AND REF_Status.status_id=Task.status_id
 			AND Task.task_id=Team.task_id 
-			AND Team.roll_id=1
+			AND Team.role_id=1
 			AND Emp_Contact.emp_id=Team.emp_id
 	) AS Task_Details
 WHERE Customer.customer_id=Project.customer_id
@@ -107,7 +107,7 @@ WHERE Customer.customer_id=Project.customer_id
 	AND Emp_Contact.emp_id=Team.emp_id 
 	AND Link_Project_Company.project_id=Project.project_id 
 	AND Link_Project_Company.company_id IN (#session.workstream_company_id#)
-	AND Team.roll_id=3<cfif isdefined("attributes.project_id")>
+	AND Team.role_id=3<cfif isdefined("attributes.project_id")>
 	AND Project.project_id=#attributes.project_id#</cfif>
 	AND project.project_type_id!=3<cfif isdefined("session.workstream_task_list_order")>
 ORDER BY <cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id) GT 1>task_owner, #variables.temp_task_list_order#<cfelse>#session.workstream_task_list_order#</cfif></cfif>

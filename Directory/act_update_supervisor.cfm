@@ -14,13 +14,15 @@
 	
 	END FUSEDOC --->
 <cfquery name="supervisor_delete" datasource="#application.datasources.main#">
-DELETE Supervisor
-WHERE emp_id=#attributes.emp_id#
+UPDATE Supervisor
+SET active_ind=0
+WHERE active_ind=1
+	AND user_account_id=#attributes.emp_id#
 </cfquery>
 <cfif isdefined("attributes.supervisor_id")>
 <cfloop list="#attributes.supervisor_id#" index="ii">
 	<cfquery name="supervisor_entry" datasource="#application.datasources.main#">
-	INSERT INTO Supervisor(emp_id,sup_id)
+	INSERT INTO Supervisor (user_account_id,supervisor_user_account_id)
 	VALUES(#attributes.emp_id#,#ii#)
 	</cfquery>
 </cfloop>	

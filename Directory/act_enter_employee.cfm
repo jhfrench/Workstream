@@ -28,8 +28,6 @@
 	<cfinclude template="qry_email_entry.cfm">
 	<cfinclude template="qry_phone_entry.cfm">
 	<cfinclude template="qry_emp_biography_entry.cfm">
-	<cfinclude template="qry_security_entry.cfm">
-	<cfinclude template="qry_product_access_entry.cfm">
 	<cfinclude template="qry_pto_rollover_entry.cfm">
 	<cfinclude template="qry_position_number_entry.cfm">	
 	

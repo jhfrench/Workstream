@@ -15,7 +15,7 @@
 
 <cfquery name="qry_insert_product" datasource="#application.datasources.main#">
 INSERT INTO Product (product_name, browser_navigation_enabled_ind, inactive_link,
-	date_created, active_ind)
+	created_date, active_ind)
 SELECT '#attributes.product_name#', #attributes.browser_navigation_enabled_ind#, '#attributes.inactive_link#',
 	GETDATE(), 1
 FROM Dual

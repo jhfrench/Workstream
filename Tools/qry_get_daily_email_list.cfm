@@ -36,12 +36,12 @@ FROM Task, Notification,
 	(SELECT email, email_id, task_id
 	FROM Email, Team
 	WHERE Email.emp_id=Team.emp_id
-		AND Team.roll_id=1
+		AND Team.role_id=1
 		AND Email.email_type_id=1) AS Owner,
 	(SELECT email, email_id, task_id
 	FROM Email, Team
 	WHERE Email.emp_id=Team.emp_id
-		AND Team.roll_id=3
+		AND Team.role_id=3
 		AND Email.email_type_id=1) AS QA
 WHERE Task.task_id*=Notification.task_id
 	AND Task.task_id=Owner.task_id

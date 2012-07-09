@@ -15,7 +15,7 @@
 
 <cfquery name="qry_insert_support_contact_info" datasource="#application.datasources.main#">
 INSERT INTO Support_Contact_Info (support_contact_type_id, last_name, first_name,
-	phone, email, date_created, 
+	phone, email, created_date, 
 	active_ind)
 SELECT #attributes.support_contact_type_id#, '#attributes.last_name#', '#attributes.first_name#',
 	'#attributes.phone#', '#attributes.email#', GETDATE(),

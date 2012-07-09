@@ -4,7 +4,7 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I retrieve the notes_id of the latest (and greatest) entry into Notes.
+	Responsibilities: 
 	||
 	Name: Jeromy French
 	||
