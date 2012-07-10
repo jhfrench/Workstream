@@ -25,15 +25,15 @@
 <cfquery name="team_select" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT Emp_Contact.emp_id AS emp_id, Emp_Contact.lname, LEFT(Emp_Contact.name,2) AS f_init, 
 	Emp_Contact.name, COALESCE(Emp_Contact.lname,'') || ', ' || LEFT(COALESCE(Emp_Contact.name,''),2) AS display<cfif isdefined("variables.email_only")>, email_type_id</cfif>
-FROM Emp_Contact, Security_Company_Access, Security<cfif isdefined("variables.email_only")>, Email</cfif>
-WHERE Emp_Contact.emp_id=Security_Company_Access.emp_id<cfif isdefined("variables.email_only")>
-	AND Emp_Contact.emp_id=Email.emp_id
-	AND Email.email_type_id=1</cfif>
-	AND Emp_Contact.emp_id=Security.emp_id
-	AND (Security_Company_Access.company_id IN (#session.workstream_selected_company_id#)<cfif NOT attributes.all_employees>
-		AND Security.disable=0</cfif><cfif len(variables.emp_id_match)>
-	OR Emp_Contact.emp_id IN (#variables.emp_id_match#)</cfif>)
-	AND #application.team_changed#=#application.team_changed#
+FROM Emp_Contact
+	INNER JOIN Security_Company_Access ON Emp_Contact.emp_id=Security_Company_Access.emp_id
+	<cfif isdefined("variables.email_only")>INNER JOIN Email ON Emp_Contact.emp_id=Email.emp_id
+		AND Email.email_type_id=1</cfif>
+WHERE #application.team_changed#=#application.team_changed#
+	AND (
+		Security_Company_Access.company_id IN (#session.workstream_selected_company_id#)<cfif len(variables.emp_id_match)>
+			OR Emp_Contact.emp_id IN (#variables.emp_id_match#)</cfif>
+	)
 GROUP BY Emp_Contact.emp_id, Emp_Contact.lname, 
 	LEFT(Emp_Contact.name,2), Emp_Contact.name<cfif isdefined("variables.email_only")>, email_type_id</cfif>
 ORDER BY lname, name<cfif isdefined("variables.email_only")>, email_type_id</cfif>

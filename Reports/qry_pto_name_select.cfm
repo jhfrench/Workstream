@@ -20,11 +20,8 @@ WHERE supervisor_user_account_id=#emp_id#
 <cfmodule template="../common_files/act_set_all_option.cfm" business_function_id="635">
 <cfquery name="REFname" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.emp_id
-FROM Emp_Contact, Security, Link_Company_Emp_Contact
-WHERE Emp_Contact.emp_id = Security.emp_id
-	AND Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
-	AND security.disable!=1 
-	AND security.Disable_PTO!=1
+FROM Emp_Contact, Link_Company_Emp_Contact
+WHERE Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
 	AND Emp_contact_type=1
 	AND <cfif get_all_option.all_option>
 		Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#) 

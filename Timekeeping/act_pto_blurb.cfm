@@ -15,7 +15,7 @@
 </cfsilent>
 
 <cfinclude template="qry_pto_blurb.cfm">
-<cfif pto_blurb.recordcount EQ 0 OR pto_blurb.disable_pto>
+<cfif pto_blurb.recordcount EQ 0>
 	<cfset variables.pto_blurb="You have no PTO available according to your workstream data.">
 <cfelse>
 	<cfset variables.remain=pto_blurb.remain>

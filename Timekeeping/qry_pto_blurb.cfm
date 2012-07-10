@@ -17,45 +17,53 @@
 
 <cfset company_list_use = listappend(session.workstream_selected_company_id, session.workstream_company_id)>
 <cfquery name="pto_blurb" cachedwithin="#createtimespan(0,0,10,0)#" datasource="#application.datasources.main#">
-SELECT COALESCE(Remainder.remain,0) AS remain, COALESCE(Remainder.remain,0)+COALESCE(Last_Month_Taken.hours_taken,0)-COALESCE(Last_Month_Earned.earned_hours,0) AS last_month, disable_pto
+SELECT COALESCE(Remainder.remain,0) AS remain, COALESCE(Remainder.remain,0)+COALESCE(Last_Month_Taken.hours_taken,0)-COALESCE(Last_Month_Earned.earned_hours,0) AS last_month
 FROM (
-	SELECT COALESCE(Hours_Taken_Table.hours_taken, 0) AS PTO_hours_used, 
-		COALESCE(Hours_Earned.earned_hours,0) AS pto_hours_earned, 
-		COALESCE(Hours_Earned.earned_hours,0)-COALESCE(Hours_Taken_Table.hours_taken,0) AS remain,
-		Security.disable_pto
-	FROM
-		(SELECT SUM(Time_Entry.hours) AS hours_taken, emp_id
+		SELECT User_Account.user_account_id, COALESCE(Hours_Taken_Table.hours_taken, 0) AS PTO_hours_used, COALESCE(Hours_Earned.earned_hours,0) AS pto_hours_earned, 
+			COALESCE(Hours_Earned.earned_hours,0)-COALESCE(Hours_Taken_Table.hours_taken,0) AS remain
+		FROM User_Account
+			INNER JOIN Link_Company_Emp_Contact ON User_Account.user_account_id=Link_Company_Emp_Contact.emp_id
+			LEFT OUTER JOIN (
+				SELECT SUM(Time_Entry.hours) AS hours_taken, emp_id
+				FROM Time_Entry
+				WHERE Time_Entry.date >= (
+						SELECT pto_start_date
+						FROM REF_Company
+						WHERE company_id = #session.workstream_company_id#
+					)
+					AND Time_Entry.emp_id=#session.user_account_id#
+					AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id = 1)
+				GROUP BY Emp_id
+			) AS Hours_Taken_Table ON User_Account.user_account_id=Hours_Earned.emp_id
+			LEFT OUTER JOIN (
+				SELECT SUM(PTO_Grant.granted_hours) AS earned_hours, emp_id
+				FROM PTO_Grant
+				WHERE PTO_Grant.emp_id=#session.user_account_id#
+				GROUP BY emp_id
+			) AS Hours_Earned ON User_Account.user_account_id=Hours_Taken_Table.emp_id
+		WHERE Link_Company_Emp_Contact.company_id IN (#company_list_use#)
+			AND User_Account.user_account_id=#session.user_account_id#
+	) AS Remainder
+	LEFT OUTER JOIN (
+		SELECT Time_Entry.emp_id, SUM(Time_Entry.hours) AS hours_taken
 		FROM Time_Entry
-		WHERE Time_Entry.date >= (
-				SELECT pto_start_date
-				FROM REF_Company
-				WHERE company_id = #session.workstream_company_id#
-			)
+		WHERE MONTH(Time_Entry.date)=MONTH(CURRENT_TIMESTAMP)
+			AND YEAR(Time_Entry.date)=YEAR(CURRENT_TIMESTAMP)
 			AND Time_Entry.emp_id=#session.user_account_id#
-			AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id = 1)
-		GROUP BY Emp_id) AS Hours_Taken_Table,
-		(SELECT SUM(PTO_Grant.granted_hours) AS earned_hours, emp_id
+			AND Time_Entry.project_id IN (
+				SELECT project_id
+				FROM Project
+				WHERE project_type_id = 1
+			)
+		GROUP BY Time_Entry.emp_id
+	) AS Last_Month_Taken ON Remainder.emp_id=Last_Month_Taken.emp_id
+	LEFT OUTER JOIN (
+		SELECT PTO_Grant.emp_id, SUM(PTO_Grant.granted_hours) AS earned_hours
 		FROM PTO_Grant
-		WHERE PTO_Grant.emp_id=#session.user_account_id#
-		GROUP BY emp_id) AS Hours_Earned, 
-		Security, Link_Company_Emp_Contact
-	WHERE Security.emp_id *= Hours_Taken_Table.emp_id 
-		AND Link_Company_Emp_Contact.emp_id = Security.emp_id
-		AND Hours_Earned.emp_id =* Security.emp_id
-		AND Link_Company_Emp_Contact.company_id IN (#company_list_use#)
-		AND Security.emp_id=#session.user_account_id#) Remainder,
-	(SELECT SUM(Time_Entry.hours) AS hours_taken
-	FROM Time_Entry
-	WHERE MONTH(Time_Entry.date)=MONTH(CURRENT_TIMESTAMP)
-		AND YEAR(Time_Entry.date)=YEAR(CURRENT_TIMESTAMP)
-		AND Time_Entry.emp_id=#session.user_account_id#
-		AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id = 1)
-	) AS Last_Month_Taken,
-	(SELECT SUM(PTO_Grant.granted_hours) AS earned_hours
-	FROM PTO_Grant
-	WHERE MONTH(PTO_Grant.date_granted)=MONTH(CURRENT_TIMESTAMP)
-		AND YEAR(PTO_Grant.date_granted)=YEAR(CURRENT_TIMESTAMP)
-		AND PTO_Grant.emp_id=#session.user_account_id#
-	) AS Last_Month_Earned
+		WHERE MONTH(PTO_Grant.date_granted)=MONTH(CURRENT_TIMESTAMP)
+			AND YEAR(PTO_Grant.date_granted)=YEAR(CURRENT_TIMESTAMP)
+			AND PTO_Grant.emp_id=#session.user_account_id#
+		GROUP BY PTO_Grant.emp_id
+	) AS Last_Month_Earned ON Remainder.emp_id=Last_Month_Earned.emp_id
 </cfquery>
 </cfsilent>

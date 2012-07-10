@@ -33,13 +33,10 @@ FROM (
 		WHERE PTO_Grant.emp_id IN (#preservesinglequotes(attributes.form_pin)#)</cfif>
 		GROUP BY emp_id
 	) AS Hours_Earned, 
-	Emp_Contact, Security, Link_Company_Emp_Contact
+	Emp_Contact, Link_Company_Emp_Contact
 WHERE Emp_Contact.emp_id *= Hours_Taken_Table.emp_id 
-	AND Security.emp_id = Emp_Contact.emp_id
 	AND Link_Company_Emp_Contact.emp_id = Emp_Contact.emp_id
 	AND Hours_Earned.emp_id =* Emp_Contact.emp_id
-	AND Security.disable != 1
-	AND Security.disable_pto != 1
 	AND Link_Company_Emp_Contact.company_id IN (#company_list_use#)<cfif NOT listcontainsnoCase(attributes.form_pin,"ALL" )>
 	AND Emp_Contact.emp_id IN (#preservesinglequotes(attributes.form_pin)#)</cfif>
 ORDER BY Emp_Contact.lname, Emp_Contact.name
