@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfset variables.show_details_ind=1>
 </cfsilent>

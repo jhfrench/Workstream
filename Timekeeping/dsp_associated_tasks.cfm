@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> due_date: date that the task is due
 	--> status: string indicating the progress of the task
 	--> task_id: number that uniquely identifies a task

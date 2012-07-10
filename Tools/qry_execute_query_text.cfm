@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="execute_query_text" datasource="#application.datasources.main#">
 #replace(attributes.query_text,"''","'","ALL")#

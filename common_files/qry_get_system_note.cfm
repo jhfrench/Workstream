@@ -25,7 +25,7 @@
 <cfparam name="attributes.system_note_id" default="0">
 <cfquery name="get_system_note" datasource="#application.datasources.main#">
 SELECT System_Note.system_note_id, System_Note.note_text, System_Note.created_date,
-	System_Note.display_start_date, System_Note.display_end_date, Demographics.last_name + ', ' + Demographics.first_name AS created_by
+	System_Note.display_start_date, System_Note.display_end_date, Demographics.last_name || ', ' || Demographics.first_name AS created_by
 FROM System_Note
 	INNER JOIN Demographics ON System_Note.created_by=Demographics.user_account_id
 WHERE System_Note.<cfif attributes.system_note_id NEQ 0>system_note_id=#attributes.system_note_id#<cfelse>active_ind=1</cfif>

@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfif NOT isdefined("attributes.used_by_search")>
 	<cfset attributes.used_by_search=0>

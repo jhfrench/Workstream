@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset variables.update_count=0>
 <cftransaction isolation="read_committed">

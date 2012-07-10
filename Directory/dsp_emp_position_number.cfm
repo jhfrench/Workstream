@@ -9,7 +9,7 @@
 	Name: Jeromy French
 	||
 	Edits:
-	||
+	 || 
 	END FUSEDOC --->
 <cfinclude template="qry_get_position_number_history.cfm">
 </cfsilent>

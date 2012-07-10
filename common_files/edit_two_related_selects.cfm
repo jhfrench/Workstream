@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfsetTING ENABLEcfoutputONLY="YES">
+<cfsetting enablecfoutputonly="yes">
 
 <!--- TAG PARAMETERS --->
 <cfparam name="attributes.Query"> 

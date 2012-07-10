@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfif session.user_account_id EQ 1>
 	<cfset variables.type="text">

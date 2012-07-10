@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfparam name="attributes.expense_id" default="null">
 <cfquery name="expense_cross_tab" datasource="#application.datasources.main#">

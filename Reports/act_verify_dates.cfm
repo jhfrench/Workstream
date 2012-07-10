@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> attributes.from_date: date when report should start
 	--> attributes.through_date: date when report should end
 	END FUSEDOC --->

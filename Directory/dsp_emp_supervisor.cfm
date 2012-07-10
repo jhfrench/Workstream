@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfinclude template="qry_get_supervisor_history.cfm">
 <cfif NOT LEN(get_supervisor_history.supervisor_id)>

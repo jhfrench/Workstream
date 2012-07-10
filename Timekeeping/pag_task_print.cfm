@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset var1=200>
 <cfset no_banner=1>

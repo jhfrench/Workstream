@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset variables.var1=450>
 </cfsilent>

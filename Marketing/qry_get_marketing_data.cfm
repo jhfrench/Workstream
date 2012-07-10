@@ -18,10 +18,10 @@
 <!---     <cfquery name="marketing" datasource="#application.datasources.main#">
 SELECT marketing.marketing_id, Marketing.Projected_Revenue, Marketing.Probability, 
     Marketing.project_code, Marketing.project_id, 
-    (cast(datepart(mm,Marketing.StatusAboveDate) as varchar(2)) +'/'+ cast(datepart(dd, Marketing.StatusAboveDate) as varchar(2)) +'/'+ cast(datepart(yyyy, Marketing.StatusAboveDate) as varchar(4))) as StatusAboveDate, 
-    (cast(datepart(mm,Marketing.StatusInDate) as varchar(2)) +'/'+ cast(datepart(dd, Marketing.StatusInDate) as varchar(2)) +'/'+ cast(datepart(yyyy, Marketing.StatusInDate) as varchar(4))) as StatusInDate, 
-    (cast(datepart(mm,Marketing.StatusBestFewDate) as varchar(2)) +'/'+ cast(datepart(dd, Marketing.StatusBestFewDate) as varchar(2)) +'/'+ cast(datepart(yyyy, Marketing.StatusBestFewDate) as varchar(4))) as StatusBestFewDate,
-(cast(datepart(mm,Marketing.StatusContractDate) as varchar(2)) +'/'+ cast(datepart(dd, Marketing.StatusContractDate) as varchar(2)) +'/'+ cast(datepart(yyyy, Marketing.StatusContractDate) as varchar(4))) as StatusContractDate, 
+    (cast(datepart(mm,Marketing.StatusAboveDate) AS varchar(2)) || '/' || cast(datepart(dd, Marketing.StatusAboveDate) AS varchar(2)) || '/' || cast(datepart(yyyy, Marketing.StatusAboveDate) AS varchar(4))) as StatusAboveDate, 
+    (cast(datepart(mm,Marketing.StatusInDate) AS varchar(2)) || '/' || cast(datepart(dd, Marketing.StatusInDate) AS varchar(2)) || '/' || cast(datepart(yyyy, Marketing.StatusInDate) AS varchar(4))) as StatusInDate, 
+    (cast(datepart(mm,Marketing.StatusBestFewDate) AS varchar(2)) || '/' || cast(datepart(dd, Marketing.StatusBestFewDate) AS varchar(2)) || '/' || cast(datepart(yyyy, Marketing.StatusBestFewDate) AS varchar(4))) as StatusBestFewDate,
+(cast(datepart(mm,Marketing.StatusContractDate) AS varchar(2)) || '/' || cast(datepart(dd, Marketing.StatusContractDate) AS varchar(2)) || '/' || cast(datepart(yyyy, Marketing.StatusContractDate) AS varchar(4))) as StatusContractDate, 
     Marketing.Converted_To_CustomerCode, 
     Marketing.Company_Size, Marketing.Overview,
     Project.Active_ID, Emp_Contact.emp_id,
@@ -29,12 +29,12 @@ SELECT marketing.marketing_id, Marketing.Projected_Revenue, Marketing.Probabilit
     Location.Address2 as saddress, Location.City, Location.State, Location.Zip, 
     Phone.Phone_Number AS phone, Phone.Extension, 
     Email.Email, 
-    Emp_Contact1.Name + ' ' + Emp_Contact1.LName AS source, 
+    Emp_Contact1.Name || '  ' || Emp_Contact1.LName AS source, 
     Emp_Contact1.emp_id AS source_id, Project.Description, 
 
 task_info.task_id, 
 task_info.last_task,
-(cast(datepart(mm,task_info.Date) as varchar(2)) +'/'+ cast(datepart(dd, task_info.Date) as varchar(2)) +'/'+ cast(datepart(yyyy, task_info.Date) as varchar(4))) as [Date]
+(cast(datepart(mm,task_info.Date) AS varchar(2)) || '/' || cast(datepart(dd, task_info.Date) AS varchar(2)) || '/' || cast(datepart(yyyy, task_info.Date) AS varchar(4))) as [Date]
 
 FROM (select top 1 project_id, task_id, task.name as last_task, (select max(time_entry.date) from time_entry where task.task_id = time_entry.task_id) as [date]
 	from Task 
@@ -67,7 +67,7 @@ GROUP BY task_info.last_task,task_info.task_id, Marketing.Projected_Revenue,
     Location.Address2, Location.City, Location.State, Location.Zip, 
     Phone.Phone_Number, Phone.Extension, Email.Email, 
     Marketing.project_code, Emp_Contact1.Name, 
-    Emp_Contact1.Name + ' ' + Emp_Contact1.LName, 
+    Emp_Contact1.Name || '  ' || Emp_Contact1.LName, 
     Project.Description, task_info.Date, Project.Active_ID, 
     Emp_Contact1.emp_id, marketing.marketing_id, Emp_Contact.emp_id
 </cfquery> --->

@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_overtime_employees" datasource="#application.datasources.main#">          
 SELECT Emp_Contact.name, Emp_Contact.lname, 

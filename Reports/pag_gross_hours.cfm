@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfparam name="statement" default="0">
 <cfset variables.report_date=CreateODBCDate("#attributes.month#/1/#attributes.year#")>

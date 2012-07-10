@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="get_reimbursement_types" datasource="#application.datasources.main#">

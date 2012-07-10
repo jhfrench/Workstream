@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC ---></cfsilent>
 <!--- <cftransaction isolation="READ_COMMITTED"></cftransaction> --->
 <cfquery name="get_user_fields" datasource="#application.datasources.main#">

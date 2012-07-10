@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfinclude template="qry_new_rates.cfm">
 </cfsilent>

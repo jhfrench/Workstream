@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset variables.workstream_task_list_order=session.workstream_task_list_order>
 </cfsilent>

@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 </cfsilent>
 <cfif evaluate("#query#.CurrentRow") EQ evaluate("#query#.recordcount")><!-- I only want this after  the client code changes -->

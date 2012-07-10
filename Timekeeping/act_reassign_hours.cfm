@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> attributes.reassign_hours: list, delimited by |, that contains the emp_id of an employee and the task_id of a task
  --->
 <cfloop list="#attributes.reassign_hours#" index="ii">

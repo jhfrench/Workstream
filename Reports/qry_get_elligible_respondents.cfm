@@ -9,7 +9,7 @@
 	Name: Jeromy French
 	||
 	Edits:
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_elligible_respondents" datasource="iSay">
 SELECT TOP #variables.records_allowed# Response.respondent_id

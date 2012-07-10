@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfparam name="variables.show_details_ind" default="1">
 </cfsilent>

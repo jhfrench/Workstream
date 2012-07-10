@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfparam name="sort" default="Customer.description, Project.description">
 <cfparam name="IE_Emp_ID_Filter" default="All">

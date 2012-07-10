@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> company: id that identifies the user's company
 	--> email: string containing the email address of an employee
 	--> emp_id: id that identifies user to workstream

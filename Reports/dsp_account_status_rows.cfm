@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput query="account_status_report"> 

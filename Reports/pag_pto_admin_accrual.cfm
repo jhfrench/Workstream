@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfparam name="earned" default="0">
 <cfparam name="used" default="0">

@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="qry_contractor_rep.cfm"> 

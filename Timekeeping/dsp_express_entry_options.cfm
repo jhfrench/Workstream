@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 </cfsilent>
 	<cfoutput query="express_check_date">

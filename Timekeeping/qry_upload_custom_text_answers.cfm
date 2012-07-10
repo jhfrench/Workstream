@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
  --->
 <cfloop list="#attributes.custom_text_collection#" index="ii">

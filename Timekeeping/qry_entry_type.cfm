@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> request.time_entry_id: number that uniquely identifies a time entry
 	<-- entry_type: boolean indicating whether or not a time entry has a task_id

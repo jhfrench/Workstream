@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="edit_engagement_billing" datasource="#application.datasources.main#">
 <!--- all types --->

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfquery name="send_isay_link" datasource="#application.datasources.main#">
 SELECT Task.name AS task_name, Email.email AS email_to

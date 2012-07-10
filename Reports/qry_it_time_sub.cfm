@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="it_time_sub" datasource="#application.datasources.main#">
 SELECT Emp_Contact.emp_id, Emp_Contact.lname, Emp_Contact.name, IT_Percent.it_hours, IT_Percent.it_time_percent

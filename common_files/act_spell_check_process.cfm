@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset onload="ReturnForm();">
 <!--- Initialize ignore list if not present --->

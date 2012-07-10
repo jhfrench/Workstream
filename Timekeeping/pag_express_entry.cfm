@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 </cfsilent>
 <cfinclude template="act_validate_hours_js.cfm">

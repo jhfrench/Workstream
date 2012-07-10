@@ -7,10 +7,10 @@
 	Responsibilities: I ask the user how many user fields of each available type that they want for an engagement.
 	||
 	Name: Jeromy French
-	|| 
+	 || 
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfinclude template="qry_get_user_field_types.cfm">
 	<cfoutput><tr valign="top">

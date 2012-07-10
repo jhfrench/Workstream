@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_user_fields" datasource="#application.datasources.main#">
 SELECT User_Fields.user_field_id, User_Fields.field_type_id,  User_Fields.field_title,

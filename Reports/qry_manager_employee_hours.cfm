@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfset supervisor_user_account_id=Get_Client_info.supervisor_user_account_id>
 <cfquery name="ind_emp" datasource="#application.datasources.main#">

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> application.team_changed: date of the last time emp_contact, security or demographics tables were changed
 	--> attributes.emp_id: id that identifies user to workstream

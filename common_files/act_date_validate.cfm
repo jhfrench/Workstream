@@ -69,7 +69,7 @@
 					} else {
 					
 						//Test the day, make sure its a 2-digit number and between 1 and 31. We do more in depth testing below
-						if ((isNaN(dd)==true) ||dd < 1 || dd > 31 || dd.length!=2){
+						if ((isNaN(dd)==true) || dd < 1 || dd > 31 || dd.length!=2){
 							alert(dd + " is not a valid day. Please re-enter the 2-digit day or leave blank if not required.");
 							thisObj.focus();
 							thisObj.value='';

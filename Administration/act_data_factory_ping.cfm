@@ -36,7 +36,7 @@ ORDER BY upload_id
 
 <cfquery name="get_ftp_credentials" datasource="#application.datasources.main#">
 SELECT REF_Upload_Source.upload_source_id, REF_Upload_Source.upload_template, REF_Upload_Source.abbreviation,
-	'faad_'+LOWER(REF_Upload_Source.abbreviation) AS ftp_username, FTP_Passwords.ftp_password
+	'faad_' || LOWER(REF_Upload_Source.abbreviation) AS ftp_username, FTP_Passwords.ftp_password
 FROM REF_Upload_Source
 	INNER JOIN (
 		SELECT RIGHT(setting_name, 1) AS upload_source_id, setting_value AS ftp_password

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_administrators" datasource="#application.datasources.main#">
 SELECT Demographics.first_name, Demographics.last_name, Demographics.email_address

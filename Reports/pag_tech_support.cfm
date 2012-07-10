@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfset variables.link='<a href="javascript:document.reset_cache.submit();" class="RegTextWhite">Update Graphs</a>'>
 <cfparam name="session.workstream_cache_query" default="#now()#">

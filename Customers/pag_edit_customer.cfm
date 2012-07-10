@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="../common_files/qry_get_states.cfm">

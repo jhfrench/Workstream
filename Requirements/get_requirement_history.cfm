@@ -25,7 +25,7 @@
 --->
 <cfquery name="get_requirement_history" datasource="#application.datasources.main#">
 SELECT Requirement.requirement_id, Requirement.requirement_number, Requirement.description,
-	Requirement.created_date, Demographics.last_name + ', '+ Demographics.first_name AS requirement_author
+	Requirement.created_date, Demographics.last_name || ', ' || Demographics.first_name AS requirement_author
 FROM Requirement_History
 	INNER JOIN Requirement ON Requirement_History.original_requirement_id=Requirement.requirement_id
 	INNER JOIN User_Account ON Requirement.created_by=User_Account.user_account_id

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset variables.width=min(numberformat(get_task_accumulated.image_width,"______"),variables.var1)>
 <cfset variables.width2=variables.var1-variables.width>

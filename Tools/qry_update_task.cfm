@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfquery name="update_task" datasource="#application.datasources.main#">
 /*EXECUTE LOOP*/
@@ -20,7 +20,12 @@
 	UPDATE Task
 	SET status_id=#evaluate("attributes.task_status#task_id#")#,
 		due_date=#createodbcdatetime(evaluate("attributes.task_due_date#task_id#"))#<cfif IsNumeric(evaluate("attributes.task_assigned#task_id#"))>,
-		budgeted_hours=(SELECT COALESCE(SUM(Time_Entry.hours),0) FROM Time_Entry WHERE task_id=#task_id# AND date < '#month(now())#/1/#year(now())#')+#evaluate("attributes.task_assigned#task_id#")#</cfif>
+		budgeted_hours=(
+			SELECT COALESCE(SUM(Time_Entry.hours),0)
+			FROM Time_Entry
+			WHERE task_id=#task_id#
+				AND date < '#month(now())#/1/#year(now())#')+#evaluate("attributes.task_assigned#task_id#"
+			)#</cfif>
 	WHERE task_id=#task_id# AND #variables.update_count#=#variables.update_count#<cfset variables.update_count=incrementvalue(variables.update_count)>
 <cfelse>
 	UPDATE Forecast_Assignment

@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	<-- request.headerfile: 
 	<-- request.navigation: 
 	<-- request.subnav: 

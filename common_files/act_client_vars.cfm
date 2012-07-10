@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> [attributes.order_by]: string that contains the column to give ordering preference to
 	--> [attributes.project_list_order]: number that corresponds to how the user wishes to order and display the project list pulldown
 	--> [attributes.show_closed]: boolean that indicates the desire of the user to show tasks which have already been completed

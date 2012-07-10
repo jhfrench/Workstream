@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfquery name="get_custom_responses" datasource="#application.datasources.main#">
 SELECT User_Field_Values.user_field_items_id, User_Field_Items.selection_title

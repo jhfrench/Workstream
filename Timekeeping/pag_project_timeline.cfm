@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 </cfsilent>
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_details" field_name="task_id" fuseaction="task_details">

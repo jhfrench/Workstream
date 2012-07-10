@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfquery name="delete_profile" datasource="#application.datasources.main#">
 	DELETE User_Profile

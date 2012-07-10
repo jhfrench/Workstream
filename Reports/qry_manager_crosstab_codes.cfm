@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="manager_crosstab_codes" datasource="#application.datasources.main#">
 SELECT Project.project_code AS code, Project.project_id AS id,

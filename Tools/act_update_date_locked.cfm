@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="update_date_locked" datasource="#application.datasources.main#">
 UPDATE Date_Locked

@@ -23,7 +23,7 @@
 
 <cfquery name="get_all_system_notes" datasource="#application.datasources.main#">
 SELECT system_note_id, note_text, display_start_date,
-	display_end_date, Demographics.last_name + ', ' + Demographics.first_name AS created_by
+	display_end_date, Demographics.last_name || ', ' || Demographics.first_name AS created_by
 FROM System_Note
 	INNER JOIN Demographics ON System_Note.created_by=Demographics.user_account_id
 WHERE System_Note.active_ind=1

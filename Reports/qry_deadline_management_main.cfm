@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> get_subordinates.emp_id: query results from common_files/qry_get_subordinates.cfm
 	<-- due_year: number containing a year
 	<-- due_month: number containing a month

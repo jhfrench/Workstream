@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted from the express timekeeping page
  --->
@@ -23,7 +23,7 @@
 	<cfset variables.date_sort_field="COALESCE(Notes.created_date, Time_Entry.date)">
 </cfif>
 <cfquery name="qa_entry_details" datasource="#application.datasources.main#">
-SELECT Notes.notes_type_id, (Emp_Contact.lname+', '+LEFT(Emp_Contact.name,2)) AS initials, #variables.date_sort_field# AS date, Notes.note AS note
+SELECT Notes.notes_type_id, (Emp_Contact.lname || ', ' || LEFT(Emp_Contact.name,2)) AS initials, #variables.date_sort_field# AS date, Notes.note AS note
 FROM Notes, Time_Entry, Emp_Contact
 WHERE Notes.task_id=#attributes.task_id#
 	AND Notes.notes_id*=Time_Entry.notes_id

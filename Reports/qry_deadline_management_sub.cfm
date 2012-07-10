@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> get_subordinates.emp_id: query results from common_files/qry_get_subordinates.cfm
 	<-- emp_id: number that uniquely identifies an employee
 	<-- lname: string containing the last name of an employee

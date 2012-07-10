@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	<-- first_name: string that contains first name of the user
 	<-- last_name: string that contains last name of the user

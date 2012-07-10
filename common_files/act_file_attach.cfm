@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 </cfsilent>
 <cfset variables.full_file_path="#GetDirectoryfromPath(GettemplatePath())#Uploaded_Files">

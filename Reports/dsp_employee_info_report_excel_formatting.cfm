@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 </cfsilent>
 assign_sheet.Columns("A:AZ").EntireColumn.AutoFit

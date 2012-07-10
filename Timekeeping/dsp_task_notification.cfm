@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfif comparenocase(listlast(attributes.fuseaction, '.'),"new_task")>
 	<cfset variables.to_list=valuelist(get_completion_email.email_id)>

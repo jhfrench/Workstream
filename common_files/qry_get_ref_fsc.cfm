@@ -27,7 +27,7 @@
 <cfparam name="attributes.fsc_id" default="0">
 <cfquery name="get_ref_fsc" datasource="#application.datasources.main#">
 SELECT fsc_id, description, code,
-	sort_order, rpad(code, 6, chr(32)) + ' - ' + SUBSTRING(description, 1, 60) as code_description
+	sort_order, rpad(code, 6, chr(32)) || '-' || SUBSTRING(description, 1, 60) as code_description
 FROM REF_FSC
 WHERE <cfif attributes.fsc_id NEQ 0>fsc_id=#attributes.fsc_id#<cfelseif len(attributes.code)>code IN (#preservesinglequotes(attributes.code)#)<cfelse>active_ind=1</cfif>
 ORDER BY sort_order

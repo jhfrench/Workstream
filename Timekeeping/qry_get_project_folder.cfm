@@ -9,7 +9,7 @@
 	Name: Jeromy French
 	||
 	Edits:
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_project_folder" datasource="#application.datasources.main#">
 SELECT Customer.description AS company

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfquery name="update_security_company_access" datasource="#application.datasources.main#">
 /*wipe out old access*/

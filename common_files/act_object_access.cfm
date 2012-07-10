@@ -12,7 +12,7 @@
 	$Log$
 	||
 	Variables:
-	||
+	 || 
 	END FUSEDOC --->
 <cfparam name="session.workstream_object_text" default="default value">
 <cfif listcontainsnocase(session.workstream_object_access, attributes.object_name) EQ 0>

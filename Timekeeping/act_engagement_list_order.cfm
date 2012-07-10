@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> attributes.order_by: string containing column header selected as the priority column for ordering the task_list query results
 	--> attributes.reorder: boolean that allows the list to be ordered by new submission
 	<-> session.workstream_engagement_list_order: list of query columns to ORDER BY which is minipulated based on the contents of attributes.order_by

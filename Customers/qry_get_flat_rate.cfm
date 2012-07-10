@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_flat_rate" datasource="#application.datasources.main#">
 SELECT COALESCE(rate_start_date,'') AS rate_start_date, COALESCE(rate_end_date,'') AS rate_end_date, COALESCE(months,0) AS months

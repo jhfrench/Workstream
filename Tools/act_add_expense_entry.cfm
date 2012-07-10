@@ -11,7 +11,7 @@
 	Edits:
 $
 
-	||
+	 || 
 	END FUSEDOC --->
 </cfsilent>
 <cfif len(attributes.optional_new_category)>

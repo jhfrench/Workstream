@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfinclude template="../common_files/qry_get_revenue_goal.cfm">
 <cfinclude template="qry_get_marketing_duration.cfm">

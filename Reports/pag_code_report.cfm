@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfset variables.month_loop=1>
 <cfset variables.total_hours=0>

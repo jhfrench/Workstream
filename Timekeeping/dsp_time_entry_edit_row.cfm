@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	<-> attributes.referer: string that incidicates which fuseaction to pursue.
 	<-- attributes.notes_id: number that corresponds to the identity column of the Notes table
 	<-- attributes.time_entry_id: number that corresponds to the identity column of the Time_Entry table, set at pag_time_entry_edit.cfm.

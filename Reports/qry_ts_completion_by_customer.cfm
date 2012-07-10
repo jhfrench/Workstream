@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="ts_completion_by_customer" datasource="#application.datasources.main#" cachedafter="02/02/1978">
 SELECT LEFT(Customer.description,8) AS description, AVG(Customer_Completion.completion_turnaround_hours) AS avg_hours

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset variables.colspan=decrementvalue(variables.colspan)>
 </cfsilent>

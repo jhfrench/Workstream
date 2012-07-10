@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfquery name="get_last_weekday" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT MAX(odbc_date) AS last_weekday

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfinclude template="../common_files/qry_profile_lookup.cfm">
 <cfif profile_lookup.recordcount>

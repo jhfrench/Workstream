@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfquery name="insert_forecast" datasource="#application.datasources.main#">
 INSERT INTO Forecast (forecast_month, forecast_year, approved_by)

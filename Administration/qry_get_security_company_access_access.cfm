@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfquery name="get_security_company_access_access" datasource="#application.datasources.main#">
 SELECT REF_Company.company_id, REF_Company.description AS company, 

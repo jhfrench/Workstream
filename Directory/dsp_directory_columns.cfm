@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 	<tr valign="top">
 		<td width="10%">This could be report navigation with anchor links to the appropriate section</td>

@@ -28,7 +28,7 @@
 <cfquery name="get_link_program_year_hierarchy" datasource="#application.datasources.main#">
 SELECT Link_Program_Year_Hierarchy.l_p_y_h_id, Link_Program_Year_Hierarchy.hierarchy_level_id, Link_Program_Year_Hierarchy.program_year_id,
 	Link_Program_Year_Hierarchy.sort_order, REF_Program_Year.description as program_year, REF_Hierarchy_Level.description as hierarchy_level,
-	REF_Program_Year.description+' / '+REF_Hierarchy_Level.description AS program_year_hierarchy_level
+	REF_Program_Year.description || ' / ' || REF_Hierarchy_Level.description AS program_year_hierarchy_level
 FROM Link_Program_Year_Hierarchy
 	INNER JOIN REF_Program_Year ON Link_Program_Year_Hierarchy.program_year_id=REF_Program_Year.program_year_id
 	INNER JOIN REF_Hierarchy_Level ON Link_Program_Year_Hierarchy.hierarchy_level_id=REF_Hierarchy_Level.hierarchy_level_id

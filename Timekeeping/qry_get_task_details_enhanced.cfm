@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
@@ -40,7 +40,7 @@ FROM Task, REF_Status, Project, Customer,<cfif get_print_details> REF_Priority,<
 	WHERE Task.task_id*=Time_Entry.task_id
 		AND Task.task_id=#attributes.task_id#
 	GROUP BY Task.task_id, Task.budgeted_hours) AS Task_Accum,
-	(SELECT Task.task_id, Team.emp_id AS emp_id, Emp_Contact.lname+', '+Emp_Contact.name AS source_name
+	(SELECT Task.task_id, Team.emp_id AS emp_id, Emp_Contact.lname || ', ' || Emp_Contact.name AS source_name
 	FROM Task, Team, Emp_Contact
 	WHERE Task.task_id=Team.task_id
 		AND Team.emp_id=Emp_Contact.emp_id

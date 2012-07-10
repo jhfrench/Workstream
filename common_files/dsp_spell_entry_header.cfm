@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfoutput>
 	<tr bordercolor="##78A0EB" bgcolor="##78A0EB">

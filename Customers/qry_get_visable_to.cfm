@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	-->#code#:this is the variable that is passed into the query so that there can be a join on the company_id table
 	END FUSEDOC --->
 <cfquery name="get_visable_to" datasource="#application.datasources.main#">

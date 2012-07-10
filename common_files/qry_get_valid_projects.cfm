@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
  --->
 <cfif session.workstream_emp_contact_type EQ 2>
@@ -19,18 +19,18 @@
 	<cfset variables.valid_codes=session.workstream_selected_company_id>
 </cfif>
 <cfquery name="get_valid_projects" datasource="#application.datasources.main#">
-SELECT Customer.customer_id, Customer.description + ' (' + Customer.root_code + ')' AS customer,
+SELECT Customer.customer_id, Customer.description || ' (' ||  Customer.root_code || ')' AS customer,
 	Project.description AS project_name,
 	Project.project_id,
 	Project.project_code AS project_code, 
 	CASE WHEN
 	Customer.description != Project.description
 	<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
-		THEN (Project.project_code + ' - ' + Customer.description + ' - ' + Project.description) 
-		ELSE (Project.project_code + ' - ' + Project.description)
+		THEN (Project.project_code || '-' || Customer.description || '-' || Project.description) 
+		ELSE (Project.project_code || '-' || Project.description)
 	<cfelse>
-		THEN (Customer.description + ' - ' + Project.description + ' (' + Project.project_code + ')') 
-		ELSE (Project.description + ' (' + Project.project_code + ')') 
+		THEN (Customer.description || '-' || Project.description || ' (' ||  Project.project_code || ')') 
+		ELSE (Project.description || ' (' ||  Project.project_code || ')') 
 	</cfif>END AS display
 FROM Customer, Project, Link_Project_Company, Link_Customer_Company
 WHERE Customer.customer_id = Project.customer_id
@@ -48,10 +48,10 @@ GROUP BY Customer.customer_id, Customer.description, Customer.root_code,
 	Project.description, Project.project_id, Project.project_code,
 	Project.billable_type_id, Project.company_id, 
 	CASE
-		WHEN Customer.description != Project.description<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2> THEN (Project.project_code + ' - ' + Customer.description + ' - ' + Project.description) 
-		ELSE (Project.project_code + ' - ' + Project.description)
-	<cfelse> THEN (Customer.description + ' - ' + Project.description + ' (' + Project.project_code + ')') 
-		ELSE (Project.description + ' (' + Project.project_code + ')') 
+		WHEN Customer.description != Project.description<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2> THEN (Project.project_code || '-' || Customer.description || '-' || Project.description) 
+		ELSE (Project.project_code || '-' || Project.description)
+	<cfelse> THEN (Customer.description || '-' || Project.description || ' (' ||  Project.project_code || ')') 
+		ELSE (Project.description || ' (' ||  Project.project_code || ')') 
 	</cfif>END</cfif>
 ORDER BY display
 </cfquery>

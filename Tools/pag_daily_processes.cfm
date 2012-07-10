@@ -7,7 +7,7 @@
 	Responsibilities: I run all of the automatic daily processes for NGuage.
 	||
 	Name: Damon Scott
-	||
+	 || 
 	--->
 </cfsilent>
 <cftransaction>

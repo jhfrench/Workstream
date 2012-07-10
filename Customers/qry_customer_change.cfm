@@ -8,7 +8,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="customer_change" datasource="#application.datasources.main#">

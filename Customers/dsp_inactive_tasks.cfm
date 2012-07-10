@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> client_code: this the client code that is being inactivated
 	<-- Outgoing Paramater
 	

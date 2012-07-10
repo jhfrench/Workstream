@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 </cfsilent>
 <cfquery name="del_file" datasource="#application.datasources.main#">

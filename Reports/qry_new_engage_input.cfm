@@ -10,10 +10,10 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="new_engage_input" datasource="#application.datasources.main#">
-SELECT Customer.root_code AS root_code, (<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>Customer.root_code + ' - ' + Customer.description<cfelse>Customer.description + ' (' + Customer.root_code + ')'</cfif>) AS customer_name
+SELECT Customer.root_code AS root_code, (<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>Customer.root_code || '-' || Customer.description<cfelse>Customer.description || ' (' ||  Customer.root_code || ')'</cfif>) AS customer_name
 FROM Customer, Link_Customer_Company
 WHERE Customer.customer_id=Link_Customer_Company.customer_id
 	AND Link_Customer_Company.company_id IN (#session.workstream_selected_company_id#)

@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 </cfsilent>
 <cfif comparenocase(temp_cc, ClientCode)><!-- I only want this after  the client code changes -->

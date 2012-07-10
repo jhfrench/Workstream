@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$ 
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="GetEmpDetails" datasource="#application.datasources.main#">
 <cfif isdefined("attributes.drill_down")>          

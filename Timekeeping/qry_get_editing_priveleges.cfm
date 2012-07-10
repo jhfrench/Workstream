@@ -13,7 +13,7 @@
 	Revision 1.2  2006/03/31 07:47:14  french
 	Modified query to use Link_Employee_Supervisor table instead of Demographics table.
 
-	||
+	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->

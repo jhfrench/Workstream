@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 </cfsilent>
 <cfform action="index.cfm?fuseaction=Reports.gross_hours" method="POST">

@@ -10,7 +10,7 @@
 	||
 	Edits:
 I get the names of IE's on current engagements.
-	||
+	 || 
 	END FUSEDOC --->
 
 <cfquery name="get_engagement_ie" datasource="#application.datasources.main#">

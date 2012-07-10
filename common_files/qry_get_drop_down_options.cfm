@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_drop_down_options" datasource="#application.datasources.main#">
 SELECT User_Field_Items.selection_title, User_Field_Items.user_field_items_id

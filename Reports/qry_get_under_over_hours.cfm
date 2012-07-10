@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_under_over_hours" datasource="#application.datasources.main#">
 SELECT Elligible_Employees.name, Elligible_Employees.lname, Elligible_Employees.employee_classification, 

@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfif evaluate("#query_name#.recordcount")>
 <cfoutput>

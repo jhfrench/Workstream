@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfset temp_year=0>
 <cfset reasons=valuelist(Get_Reasons.separation_reason)>

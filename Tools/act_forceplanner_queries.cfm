@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset variables.temp_date="#attributes.force_month#/01/attributes.force_year">
 <cfset variables.eval_date="08/01/2001">
@@ -34,7 +34,7 @@ FROM
 				END
 			ELSE Task.status_id 
 		END AS previous_entry, 
-		Task.task_id AS task_id, Customer.description+'-'+Project.description AS project, Project.project_id,
+		Task.task_id AS task_id, Customer.description || '-' || Project.description AS project, Project.project_id,
 		Task.due_date, Task.name AS task_name, COALESCE(Task.budgeted_hours,0) AS budget, 
 		<cfloop list="#emp_id_loop#" index="ii"> (CASE WHEN Forecast_Assignment.emp_id=#ii# THEN COALESCE(Forecast_Assignment.hours_budgeted,0) ELSE 0 END) AS budget#ii#,
 		</cfloop>(CASE WHEN Project.billable_type_id = 2 THEN 'NB' ELSE 'B' END) AS billable
@@ -52,7 +52,7 @@ FROM
 		AND Team.emp_id IN (#session.user_account_id#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)
 		AND Team.role_id IN (1,4)
 	GROUP BY Forecast_Assignment.task_id, Forecast_Assignment.emp_id, Forecast_Assignment.hours_budgeted, 
-		Task.task_id, Customer.description+'-'+Project.description, Project.project_id, 
+		Task.task_id, Customer.description || '-' || Project.description, Project.project_id, 
 		Project.billable_type_id, Task.due_date, Task.status_id, 
 		Task.name, Task.budgeted_hours
 	UNION ALL
@@ -66,7 +66,7 @@ FROM
 				END
 			ELSE Task.status_id
 		END AS previous_entry, 
-		Task.task_id AS task_id, Customer.description+'-'+Project.description AS project, Project.project_id, 
+		Task.task_id AS task_id, Customer.description || '-' || Project.description AS project, Project.project_id, 
 		Task.due_date, Task.name AS task_name, COALESCE(Task.budgeted_hours,0) AS budget, 
 		<cfloop list="#emp_id_loop#" index="ii">SUM(CASE WHEN Team.role_id = 1 AND Team.emp_id =#ii# AND Team.task_id=Task.task_id THEN COALESCE(Task.budgeted_hours,0) ELSE 0 END) AS budget#ii#,
 		</cfloop>(CASE WHEN Project.billable_type_id = 2 THEN 'NB' ELSE 'B' END) AS billable
@@ -88,7 +88,7 @@ FROM
 				AND Forecast.forecast_year=#attributes.force_year#
 				AND Forecast.forecast_month=#attributes.force_month#
 		)
-	GROUP BY Task.task_id, Customer.description+'-'+Project.description, Project.project_id, 
+	GROUP BY Task.task_id, Customer.description || '-' || Project.description, Project.project_id, 
 		Project.billable_type_id, Task.status_id, Task.due_date, 
 		Task.name, Task.budgeted_hours)
 AS Cross_Tab

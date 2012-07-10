@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfif listlen(session.workstream_selected_company_id) GT 1>
 	<cfset variables.title_column_span=8>

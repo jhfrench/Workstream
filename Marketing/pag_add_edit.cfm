@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfif NOT compare(fuseaction, "add")>
 	<table width="100%" border="0" align="center">

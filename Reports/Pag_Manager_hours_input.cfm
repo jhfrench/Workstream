@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfmodule template="../common_files/act_set_all_option.cfm" business_function_id="644">
 <cfparam name="attributes.all_employees" default="0">

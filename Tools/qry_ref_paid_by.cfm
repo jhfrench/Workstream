@@ -9,7 +9,7 @@
 	Name: Damon Scott
 	||
 	Edits:
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="REF_paid_by" datasource="#application.datasources.main#">
 SELECT *

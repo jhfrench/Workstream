@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 	<tr bgcolor="#c0c0c0">
 		<td class="SubHeadText">Code:</td>

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 </cfsilent>
 	<tr bgcolor="#0000FF" class="HeadTextWhite">

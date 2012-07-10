@@ -31,7 +31,7 @@ SELECT All_Tab_Columns.table_name, COALESCE(REF_Screen.fuseaction,'Not_Defined')
 LOWER(All_Tab_Columns.table_name) AS lower_table_name, 
 	COUNT(*) AS column_count
 FROM information_schema.columns AS All_Tab_Columns 
-	LEFT OUTER JOIN REF_Screen ON 'Administration.edit_'+LOWER(All_Tab_Columns.table_name)=REF_Screen.fuseaction 
+	LEFT OUTER JOIN REF_Screen ON 'Administration.edit_' || LOWER(All_Tab_Columns.table_name)=REF_Screen.fuseaction 
 WHERE All_Tab_Columns.table_name NOT LIKE 'BIN$%' 
 	AND All_Tab_Columns.table_name LIKE 'REF_%'
 GROUP BY All_Tab_Columns.table_name, REF_Screen.fuseaction 

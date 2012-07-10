@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_team_members" datasource="#application.datasources.main#">
 SELECT Emp_Contact.lname AS name, Emp_Contact.emp_id

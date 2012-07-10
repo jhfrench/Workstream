@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 	<cfquery name="get_notes_id" datasource="#application.datasources.main#">
 	    select notes_id 

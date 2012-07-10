@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfinclude template="qry_profile_lookup.cfm">
 <cfscript>

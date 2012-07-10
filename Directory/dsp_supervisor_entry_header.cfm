@@ -12,7 +12,7 @@
 $Log: 
 
  
-	||
+	 || 
  --->
 <cfoutput>
 	<tr bgcolor="##78A0EB">

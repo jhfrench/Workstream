@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 
 <cfselect  required="Yes" message="You must select a company to be visible to."name="company_id" size="3" multiple >

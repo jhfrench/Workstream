@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 </cfsilent>
 <cfform action="index.cfm?fuseaction=Administration.edit_account" name="timekeeping_options" method="POST">

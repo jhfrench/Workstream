@@ -9,7 +9,7 @@
 	Name: Damon Scott
 	||
 	Edits:
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_expense_status" datasource="#application.datasources.main#">
 SELECT *

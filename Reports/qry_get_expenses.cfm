@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_expenses" datasource="#application.datasources.main#">
 SELECT junk2.*, note, expense_id

@@ -9,13 +9,14 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="PTO_hours" datasource="#application.datasources.main#">
-select demographics.emp_id, emp_contact.name, emp_contact.lname,sum(COALESCE(time_entry.hours,0)) as 'PTO_Hours_Used',
+SELECT demographics.emp_id, emp_contact.name, emp_contact.lname,
+	SUM(COALESCE(time_entry.hours,0)) AS 'PTO_Hours_Used',
 /*<!-- this is when the person doesn't fall into the regular accrual structure, if they don't fit in, the field pto_type_indicator is filled wth the number of pto HOURS that they will accrue through the whole year. so take the hours in the pto_type_indicator field and divide by 12 to get the monthly accrual, and then multiply the monthly accrual by the number of months passed so far for the number of months tht the employee has ben accruing time this year, - 1 (because you don't get your hours for this month until the month is over. -->*/
-COALESCE(case when pto_type_indicator > 0 then (CASE WHEN YEAR(HIRE_DATE) <> YEAR(CURRENT_TIMESTAMP)  THEN pto_type_indicator /12 * (month(CURRENT_TIMESTAMP) - 1)ELSE pto_type_indicator /12 * (MONTH(CURRENT_TIMESTAMP) - month(tenure_date ))END)  else 
+	COALESCE(CASE WHEN pto_type_indicator > 0 THEN (CASE WHEN YEAR(HIRE_DATE) <> YEAR(CURRENT_TIMESTAMP)  THEN pto_type_indicator /12 * (month(CURRENT_TIMESTAMP) - 1)ELSE pto_type_indicator /12 * (MONTH(CURRENT_TIMESTAMP) - month(tenure_date ))END)  else 
 /*<!-- If you haven't had your anniversary this year yet or your anniversary is this month, take the number of months this year minus 1 as the multiplier, else take the month of your anniversary minus 1 as the multiplier --> */
 (CASE WHEN MONTH(tenure_date) >= MONTH(CURRENT_TIMESTAMP) THEN month(CURRENT_TIMESTAMP) -1 else month(tenure_date) -1 end) *  
 /*<!--- When you have had your anniversary this year already, then --->*/
@@ -25,7 +26,7 @@ COALESCE((CASE WHEN MONTH(tenure_date) < MONTH(CURRENT_TIMESTAMP) then
 	(select accrual_rate * 8
 	from REF_pto_hours
 	where (DATEDIFF(mm,demographics.tenure_date,
-	cast(cast(month(tenure_date) as varchar(2)) + '/01/' + cast(year(CURRENT_TIMESTAMP) as varchar(4)) as smalldatetime)) )  
+	cast(cast(month(tenure_date) AS varchar(2)) || '/01/' || CAST(year(CURRENT_TIMESTAMP) AS varchar(4)) as smalldatetime)) )  
 	between min_month and max_month )
 /*<!-- If you have had your anniversary this year already... -->*/
 else
@@ -48,7 +49,7 @@ end),0) +
 	else
 	0
 	/*<!-- otherwise you have accrued 0 hours at your new rate, then add the hours that you have rolled over from the previous year -->*/
-	end) end + time_rollover_from_2000,0) as 'PTO_hours_earned' 
+	END) END + time_rollover_from_2000,0) as 'PTO_hours_earned' 
 
 /*<!-- If you started work before the 15 of the month, you get credit  for working that month, otherwise it is as if you began working on the 1st of the next month, this is represented by "tenure_date" and is used to calculate all the PTO hours -->*/
 FROM (select case when day(hire_date) > 15 then DATEADD(mm,1,hire_date) else hire_date end as tenure_date,*

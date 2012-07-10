@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> [attributes.delay]: number of seconds to delay before reloacting to the specified page
 	--> [attributes.directory_action]: string containing directory structure information and any relative linking
 	--> [attributes.display]: string containing message to display on the browser

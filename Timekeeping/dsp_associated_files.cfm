@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> customer_name: string that identifies the customer for whom the task is created
 	--> project_name: string that contains the name of the project or engagement the task is assigned to
  --->

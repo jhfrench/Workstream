@@ -8,7 +8,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfparam name="attributes.date_entered_operator" default="">
 <cfparam name="attributes.date_entered" default="">

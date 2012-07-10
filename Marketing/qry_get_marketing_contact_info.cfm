@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 
 <cfquery name="get_marketing_contact_info" datasource="#application.datasources.main#">

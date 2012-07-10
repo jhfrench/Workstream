@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery  datasource="#application.datasources.main#" >
 INSERT INTO Billing_Rate (project_id, emp_id, rate)

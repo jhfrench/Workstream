@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> attributes.base_task_id: number that uniquely defines the base task
 	--> attributes.linked_task_id: list of tasks to be attached to a particular task
  --->

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfparam name="attributes.email_subject" default="">
 <cfparam name="attributes.email_to" default="">

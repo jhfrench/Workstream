@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <!--- I get the root code and the billable id for the selected root --->
 <cfquery name="get_root_code" datasource="#application.datasources.main#">

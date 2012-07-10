@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="open_ts_tasks" datasource="#application.datasources.main#">
 SELECT Emp_contact.lname, Task.task_id, Task.name, Task.due_date, 

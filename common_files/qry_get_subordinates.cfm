@@ -10,16 +10,16 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
  <!--- $issue$: need to consolidate Link_Employee_Supervisor and Supervisor tables --->
 <cfparam name="attributes.date_linked" default="">
 <cfparam name="attributes.all_employees" default="0">
 <cfquery name="get_subordinates" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name, Emp_Contact.lname,
-	(LEFT(Emp_Contact.name,2) + LEFT(Emp_Contact.lname,2)) AS initials,
+	(LEFT(Emp_Contact.name,2) || LEFT(Emp_Contact.lname,2)) AS initials,
 	Emp_Contact.emp_id,
-	Emp_Contact.lname + ', '+ LEFT(Emp_Contact.name,2) AS display
+	Emp_Contact.lname || ', ' || LEFT(Emp_Contact.name,2) AS display
 FROM Emp_Contact, Link_Employee_Supervisor, Demographics_Ngauge AS Demographics,
 	Security
 WHERE Emp_Contact.emp_id=Link_Employee_Supervisor.user_account_id

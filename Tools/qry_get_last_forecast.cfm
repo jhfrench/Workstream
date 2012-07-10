@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfquery name="get_last_forecast" datasource="#application.datasources.main#">
 SELECT forecast_id

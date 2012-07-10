@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfset project_id = attributes.project_id>
 <cfset loopcount = arraylen(person_grid.lname)>

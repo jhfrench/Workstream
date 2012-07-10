@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> application.last_updated: date that marks the last time the get_task_stati query changed
 	<-- status_id: number that identifies a status to workstream

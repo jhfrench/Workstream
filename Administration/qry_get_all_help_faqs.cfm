@@ -33,9 +33,9 @@ SELECT Help_FAQ.help_faq_id, Help_FAQ.question, CASE Help_FAQ.public_ind WHEN 1 
 				WHEN Help_FAQ.asker_email_address IS NOT NULL THEN Help_FAQ.asker_email_address
 				ELSE ''
 			END
-		ELSE Demographics.last_name + ', ' + Demographics.first_name
+		ELSE Demographics.last_name || ', ' || Demographics.first_name
 	END AS asked_by,
-	CASE WHEN Responder.user_account_id IS NULL THEN '' ELSE Responder.last_name + ', ' + Responder.first_name END AS answered_by
+	CASE WHEN Responder.user_account_id IS NULL THEN '' ELSE Responder.last_name || ', ' || Responder.first_name END AS answered_by
 FROM Help_FAQ
 	LEFT OUTER JOIN Demographics ON Help_FAQ.asked_by=Demographics.user_account_id
 		AND Demographics.active_ind=1

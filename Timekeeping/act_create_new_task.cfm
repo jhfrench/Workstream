@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfparam name="attributes.task_team" default="">
 <cfparam name="attributes.reminder_cc_id" default="">

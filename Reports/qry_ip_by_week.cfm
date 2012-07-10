@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	<-- days_to_complete: number of days it takes to complete an average IP started in the given week
 	<-- task_count: number of IPs created in the given week
 	<-- week_entered: number that corresponds to the week the IP was created

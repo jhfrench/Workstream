@@ -7,7 +7,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cftransaction isolation="READ_COMMITTED">
 	<cfif len(attributes.lname)>

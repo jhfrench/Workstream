@@ -8,7 +8,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <!--I get the maximum client code in the root and add .001 to it-->
 <cfquery name="get_root_base" datasource="#application.datasources.main#">

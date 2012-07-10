@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset bgcolor="##78A0EB">
 <cfset colspan=3>

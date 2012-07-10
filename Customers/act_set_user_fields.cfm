@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfif isdefined("delete_user_field_list")>
 	<cfif comparenocase(delete_user_field_list,"None")>

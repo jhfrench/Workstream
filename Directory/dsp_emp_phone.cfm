@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfset list1="(,), ,-,x,.">
 <cfset list2=",,,,,">

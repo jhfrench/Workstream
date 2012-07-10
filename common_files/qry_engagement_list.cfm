@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> session.user_account_id: id that identifies user to workstream
 	--> session.workstream_show_closed: number that indicates the desire of the user to hide or show tasks which have already been completed; 1 means include the task, 0 means exclude the task
@@ -26,7 +26,7 @@
  --->
 <cfquery name="engagement_list" datasource="#application.datasources.main#">
 SELECT Project.project_code AS project_code, Project.project_id, Project.project_end AS project_end,
-	Customer.description + ' - ' + Project.description AS project_name, COALESCE(Project.mission,'No mission specified') AS project_mission,
+	Customer.description || '-' || Project.description AS project_name, COALESCE(Project.mission,'No mission specified') AS project_mission,
 	COUNT(Task.task_id) AS task_count
 FROM Customer, Project, Task, Team, Emp_Contact, Link_Project_Company
 WHERE (Project.active_ind=<cfif NOT session.workstream_show_closed_engagements>1<cfelse>0 OR project_end IS NOT NULL</cfif>) 

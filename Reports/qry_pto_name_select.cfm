@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$	 
-	||
+	 || 
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="subordinates" datasource="#application.datasources.main#">

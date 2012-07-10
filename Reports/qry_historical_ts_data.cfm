@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="historical_ts_data" datasource="#application.datasources.main#" cachedafter="02/02/1978">
 SELECT YEAR(Turnaround_Times.entry_date) AS task_year, MONTH(Turnaround_Times.entry_date) AS task_month, 

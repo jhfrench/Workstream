@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$	 
-	||
+	 || 
 	END FUSEDOC --->
 <!--- $issue$ I have a feeling this query can be simplified --->
 <cfquery name="get_customers" datasource="#application.datasources.main#">

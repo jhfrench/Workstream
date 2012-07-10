@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfparam name="variables.stretch_width" default="300">
 <cfquery name="operations_blurb" datasource="#application.datasources.main#">

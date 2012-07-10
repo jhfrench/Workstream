@@ -29,7 +29,7 @@
 <cfparam name="session.last_name" default="French">
 <cfparam name="session.email_address" default="jeromy_french@hotmail.com>
 <cfquery name="get_report_screens" datasource="#application.datasources.main#">
-SELECT 'pag_'+REPLACE(fuseaction,'#variables.directory#.','')+'.cfm' AS page_name, description AS business_function, REPLACE(fuseaction,'Reports.','') AS page_guts
+SELECT 'pag_' || REPLACE(fuseaction,'#variables.directory#.','') || '.cfm' AS page_name, description AS business_function, REPLACE(fuseaction,'Reports.','') AS page_guts
 FROM REF_Screen
 	INNER JOIN REF_Business_Function ON REF_Screen.business_function_id=REF_Business_Function.business_function_id
 WHERE fuseaction LIKE '#variables.directory#.%'

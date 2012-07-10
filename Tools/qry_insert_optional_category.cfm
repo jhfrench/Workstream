@@ -12,7 +12,7 @@
 
 
 	 
-	||
+	 || 
 	END FUSEDOC --->
 
 <cfquery name="get_max_order_by" datasource="#application.datasources.main#">

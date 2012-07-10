@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="revenue_report" datasource="#application.datasources.main#">
 SELECT COALESCE(Hour_Revenue.revenue,0) AS hour_revenue, 

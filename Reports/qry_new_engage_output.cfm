@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_first_elligible" datasource="#application.datasources.main#">
 SELECT MIN(Project.created_date) AS first_elligible

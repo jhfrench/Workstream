@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	<-- icon_id: number that identifies an icon image to workstream
 	<-- icon_name: string that contains the name (of the icon) to display to the user

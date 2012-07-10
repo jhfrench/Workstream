@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_project_timelines" datasource="#application.datasources.main#">
 SELECT Project_Planning.project_planning_name, Project_Planning.project_planning_id

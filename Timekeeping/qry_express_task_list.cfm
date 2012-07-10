@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfquery name="express_task_list" datasource="#application.datasources.main#">
 SELECT *
@@ -24,7 +24,7 @@ FROM
 		AND team.emp_id=#session.user_account_id#
 		AND Project.project_code NOT BETWEEN '6517' AND '6505'
 	UNION ALL
-	SELECT (Emp_Contact.lname + ' - ' + Task.name) AS task_name, Task.task_id AS workflow_id, 2 AS grouper
+	SELECT (Emp_Contact.lname || '-' || Task.name) AS task_name, Task.task_id AS workflow_id, 2 AS grouper
 	FROM Task, Team, Emp_Contact
 	WHERE Team.emp_id=Emp_Contact.emp_id 
 		AND Task.task_id=Team.task_id 

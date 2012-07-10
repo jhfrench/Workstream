@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfparam name="variables.individual" default="yes">
 <cfif NOT CompareNoCase(variables.individual, "No")>

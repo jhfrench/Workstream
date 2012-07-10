@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	<-- #reason_desc#: string that contains variable--name of variable is populated from REF_separation_reason table
 	<-- pop: total number of employees employed within a given quarter
 	<-- theyear: year data reflects

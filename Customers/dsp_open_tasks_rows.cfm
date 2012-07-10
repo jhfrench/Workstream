@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.application_specific_settings.image_dir: string that contains main path to the folder where all images are kept
 	--> date_due: date when task is due
 	--> task_id: unique number that identifies task entry

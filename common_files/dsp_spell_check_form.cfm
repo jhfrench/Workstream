@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset open_font='<font color="ff0000">'>
 <cfset close_font="</font>">

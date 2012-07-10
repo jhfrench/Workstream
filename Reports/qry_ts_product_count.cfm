@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="ts_product_count" datasource="#application.datasources.main#" cachedafter="02/02/1978">
 SELECT REF_Product.product_name, COUNT(Task.task_id) AS task_count

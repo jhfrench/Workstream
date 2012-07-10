@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_case_notes" datasource="#application.datasources.main#">
 	Select t.description, note,entry_date, p.description as claimant, n.date, p.project_code, t.name

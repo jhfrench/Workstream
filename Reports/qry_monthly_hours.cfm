@@ -8,7 +8,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfparam name="session.workstream_project_list_order" default="1">
 <cfparam name="Flag_Non_Billable" default="False">
@@ -17,11 +17,11 @@ SELECT Emp_Contact.name, Emp_Contact.lname, Project.project_code AS clientcode,
 	CASE
 		WHEN Customer.description != Project.description
 	<cfif session.workstream_project_list_order EQ 2>
-			THEN (Project.project_code + ' - ' + Customer.description + ' - ' + Project.description)
-		ELSE (Project.project_code + ' - ' + Project.description)
+			THEN (Project.project_code || '-' || Customer.description || '-' || Project.description)
+		ELSE (Project.project_code || '-' || Project.description)
 	<cfelse>
-			THEN (Customer.description + ' - ' + Project.description + ' (' + Project.project_code + ')')
-		ELSE (Project.description + ' (' + Project.project_code + ')')
+			THEN (Customer.description || '-' || Project.description || ' (' ||  Project.project_code || ')')
+		ELSE (Project.description || ' (' ||  Project.project_code || ')')
 	</cfif>END AS clientname, REF_Employee_Classification.employee_classification,
 	SUM(Time_Entry.hours) AS hours, Link_Company_Emp_Contact.company_id
 FROM Emp_Contact, Time_Entry, Project,
@@ -43,11 +43,11 @@ GROUP BY Emp_Contact.name, Emp_Contact.lname,
 	CASE
 		WHEN Customer.description != Project.description
 		<cfif session.workstream_project_list_order EQ 2>
-			THEN (Project.project_code + ' - ' + Customer.description + ' - ' + Project.description)
-		ELSE (Project.project_code + ' - ' + Project.description)
+			THEN (Project.project_code || '-' || Customer.description || '-' || Project.description)
+		ELSE (Project.project_code || '-' || Project.description)
 		<cfelse>
-			THEN (Customer.description + ' - ' + Project.description + ' (' + Project.project_code + ')')
-		ELSE (Project.description + ' (' + Project.project_code + ')')
+			THEN (Customer.description || '-' || Project.description || ' (' ||  Project.project_code || ')')
+		ELSE (Project.description || ' (' ||  Project.project_code || ')')
 	</cfif>END, Project.project_code,
 	REF_Employee_Classification.employee_classification, Link_Company_Emp_Contact.company_id
 ORDER BY employee_classification, clientname, lname

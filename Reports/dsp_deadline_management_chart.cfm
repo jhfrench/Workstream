@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> due_year: number containing a year
 	--> due_month: number containing a month
 	--> on_time_percent: decimal number that indicates the number of tasks in the given due_year and due_month that were completed on time or early.

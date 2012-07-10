@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 
 <cfquery name="get_Expense_Type" datasource="#application.datasources.main#">

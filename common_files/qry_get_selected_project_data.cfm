@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
  --->
 <cfquery name="get_selected_project_data" datasource="#application.datasources.main#">

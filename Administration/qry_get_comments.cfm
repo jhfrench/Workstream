@@ -31,7 +31,7 @@ WHERE active_ind=1
 </cfquery>--->
 <cfparam name="comments_id" default="0">
 <cfquery name="get_comments" datasource="#application.datasources.main#">
-SELECT comments_id, comments_id, SUBSTRING(description, 1, 100)+'...' as description
+SELECT comments_id, comments_id, SUBSTRING(description, 1, 100) || '...' as description
 FROM Comments
 WHERE <cfif attributes.comments_id NEQ 0>comments_id=#attributes.comments_id#<cfelse>active_ind=1</cfif>
 ORDER BY description

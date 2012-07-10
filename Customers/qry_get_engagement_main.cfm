@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_engagement_main" datasource="#application.datasources.main#">
 SELECT Project.customer_id, Project.description, Project.budget,

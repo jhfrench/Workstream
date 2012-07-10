@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> session.workstream_selected_company_id: this is the list of company id's that the user has selscted as their list of companies that they have access to view information for.
 <--company: this is the name company that is selected
 <--company_id: the ID number associated with the selected company.

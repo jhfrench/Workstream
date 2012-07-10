@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_client_variables" datasource="#application.datasources.main#">
 SELECT Demographics.pin, Emp_Contact.emp_id, REF_Company.description AS company, 

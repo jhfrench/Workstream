@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="Hours_Code" datasource="#application.datasources.main#">
 SELECT SUM(Time_Entry.hours) AS hours, Project.project_code AS clientcode, 

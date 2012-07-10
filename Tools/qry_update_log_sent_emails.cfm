@@ -7,7 +7,7 @@
 	Responsibilities: I log emails sent to notify about the status changes of tasks
 	||
 	Name: Damon S
-	||
+	 || 
 	
  --->
 <cfquery name="update_log_sent_emails" datasource="#application.datasources.main#">

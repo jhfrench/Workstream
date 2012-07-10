@@ -9,10 +9,10 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> attributes.report_name: this is the name of the report that the form is submitting to.
 	--> attributes.required:this is wether or not the form fields will be required. 
-	||
+	 || 
 	END FUSEDOC --->
 <cfparam name="attributes.form_name" default="form[0]">
 <cfparam name="attributes.action" default="index.cfm">

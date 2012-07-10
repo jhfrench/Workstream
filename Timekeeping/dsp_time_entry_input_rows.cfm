@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset variables.go_back_to=datediff("d",express_check_date.date_locked,dateadd("m",1,now()))-1>
 <cfif NOT len(session.workstream_express_input_rows)>

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	<-- bgcolor: string that sets the backgroud color of this pop-up window
  --->
 <cfset bgcolor="##78A0EB">

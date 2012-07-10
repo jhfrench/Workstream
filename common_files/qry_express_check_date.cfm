@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfquery name="express_check_date" datasource="#application.datasources.main#">
 SELECT COALESCE(MAX(Date_Locked.date_locked), CURRENT_TIMESTAMP) AS date_locked

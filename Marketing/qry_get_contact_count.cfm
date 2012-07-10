@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_contact_count" datasource="#application.datasources.main#">
     SELECT MAX(people) AS loop_count

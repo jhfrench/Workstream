@@ -10,10 +10,10 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="employee_name" datasource="#application.datasources.main#">
-SELECT Emp_Contact.name + ' ' + Emp_Contact.lname AS employee_name
+SELECT Emp_Contact.name || '  ' || Emp_Contact.lname AS employee_name
 FROM Emp_Contact
 WHERE Emp_Contact.emp_id=#attributes.emp_id#
 </cfquery>

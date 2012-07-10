@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="ts_task_count" datasource="#application.datasources.main#" cachedafter="02/02/1978">
 SELECT YEAR(Task.entry_date) AS task_year, MONTH(Task.entry_date) AS task_month, 

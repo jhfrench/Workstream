@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfif comparenocase(listlast(attributes.fuseaction, '.'),"new_task")>
 	<cfset variables.reminder_days=get_completion_days.reminder_days>

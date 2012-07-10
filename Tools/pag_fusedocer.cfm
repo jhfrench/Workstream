@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	<-> directory: string passed from entry form
 	<-> prefix: string passed from entry form
 	<-> name: string passed from entry form
@@ -118,7 +118,7 @@ Cut and Paste the following code:
 	||
 	Edits:
 	$Log$
-	||<cfif isdefined("form.variables") AND len(form.variables)><cfloop list="#form.variables#" index="ii">
+	 || <cfif isdefined("form.variables") AND len(form.variables)><cfloop list="#form.variables#" index="ii">
 	<cfoutput>#Trim(ii)#</cfoutput></cfloop><cfelse>
 	Variables:
 	/*ATTENTION <cfif form.pin IS "TBD"><cfoutput>#auth_name#</cfoutput><cfelse><cfoutput>#first_name#</cfoutput></cfif>: replace this line with names of templates and variables necesary for the page to function. Use FuseDoc conventions as defined in FuseDoc Primer/</cfif>

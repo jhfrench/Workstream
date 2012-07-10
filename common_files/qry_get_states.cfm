@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_states" cachedafter="08/21/1959" datasource="#application.datasources.main#">
 SELECT state, state_abbr, state_id 

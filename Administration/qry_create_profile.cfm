@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfif isdefined("attributes.primary_profile_ind")>
 	<cfset variables.primary_profile_ind=1>

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfif len(attributes.hours) EQ 0>
 	<cfset attributes.hours=0>

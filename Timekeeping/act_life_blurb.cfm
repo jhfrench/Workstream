@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset variables.new_hires=0>
 <cfset variables.anniversaries=0>

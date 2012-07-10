@@ -12,7 +12,7 @@
 
 
 	 
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_accounting_expense_register" datasource="#application.datasources.main#">
 SELECT Expense.expense_id, Expense.date_incurred, Expense.created_date,Expense.expense_status_id,

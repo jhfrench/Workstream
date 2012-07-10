@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfset attributes.one_field=attributes.user_field_id>
 </cfsilent>

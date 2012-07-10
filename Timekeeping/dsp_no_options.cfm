@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfinclude template="../common_files/qry_get_teams.cfm">
 	<tr valign="top">

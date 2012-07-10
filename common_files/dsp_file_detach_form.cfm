@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> file_id: number that uniquely identifies a file mapping
 	--> file_path: string that contains directions to open the specified file
  --->

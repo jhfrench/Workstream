@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfparam name="attributes.sort" default="Customers.description, Project.description">
 <cfparam name="customer_id_filter" default="all">

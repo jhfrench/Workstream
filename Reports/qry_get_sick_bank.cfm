@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_sick_bank" datasource="#application.datasources.main#">
 SELECT Emp_Contact.lname, Emp_Contact.name, COALESCE(Sick_Bank.granted_hours,0) AS granted_hours,

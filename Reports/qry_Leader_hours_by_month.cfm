@@ -9,12 +9,12 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="Agg_hours_by_month" datasource="#application.datasources.main#">
 SELECT SUM(Time_Entry.Hours) AS sumofhours, MONTH(Time_Entry.Date) AS month, 
-	YEAR(Time_Entry.Date) AS year, Emp_Contact.lname + ', ' + Emp_Contact.name AS name, 
-	(Customer.description + '-' + Project.description + '(' + Project.project_code + ')') AS clientname
+	YEAR(Time_Entry.Date) AS year, Emp_Contact.lname || ', ' || Emp_Contact.name AS name, 
+	(Customer.description || '-' || Project.description || ' (' || Project.project_code || ')') AS clientname
 FROM Time_Entry, Emp_Contact, Project, Customer
 WHERE Customer.customer_id=Project.customer_id
 	AND Time_Entry.project_id=Project.project_id
@@ -29,7 +29,7 @@ ORDER BY clientname
 </cfquery>
 
 <cfquery name="Agg_hours_by_week" datasource="#application.datasources.main#">
-SELECT Emp_Contact.lname + ', ' + Emp_Contact.name AS name, SUM(Time_Entry.Hours) AS Sumofhours, 
+SELECT Emp_Contact.lname || ', ' || Emp_Contact.name AS name, SUM(Time_Entry.Hours) AS Sumofhours, 
 	MONTH(Time_Entry.date) AS month, YEAR(Time_Entry.date) AS year, 
 	DATEPART(WEEK, Time_Entry.Date) AS week
 FROM Emp_Contact, Time_Entry, Project

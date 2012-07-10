@@ -10,13 +10,13 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	END FUSEDOC --->
 <cfquery name="invoice_details" datasource="#application.datasources.main#">
 SELECT Hours_ID.project_id, Hours_ID.hours, COALESCE(Billing_Rate.rate,0) AS rate,
 	(Hours_ID.hours*COALESCE(Billing_Rate.rate,0)) AS bill, 
-	Hours_ID.emp_id, (Emp_Contact.lname + ', ' + Emp_Contact.name) AS name, 
+	Hours_ID.emp_id, (Emp_Contact.lname || ', ' || Emp_Contact.name) AS name, 
 	Demographics.pin, Project.project_code, Project.description AS project_name
 FROM Project, Billing_Rate, Emp_Contact, Demographics_Ngauge Demographics,
 	(SELECT SUM(Hours) AS hours, project_id, Time_Entry.emp_id

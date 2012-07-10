@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="ts_client_count" datasource="#application.datasources.main#" cachedafter="02/02/1978">
 SELECT LEFT(Customer.description,8) AS customer, COUNT(Task.task_id) AS task_count

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfparam name="attributes.include_reset" default="1">
 <cfparam name="attributes.reset_value" default="Reset these options">

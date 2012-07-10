@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfif listcontainsnocase(attributes.display_person, "ALL")>
 	<!--- If the user has selected all, remove it from the list, the emp_id will still remain for query --->

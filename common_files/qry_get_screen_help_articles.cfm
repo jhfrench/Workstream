@@ -33,8 +33,8 @@
 SELECT Help_Article.help_article_id, Help_Article.help_article_text, Help_Article.help_article_title,
 	Help_Article.active_ind, Help_Article.sort_order, Help_Article.created_date,
 	REF_Module.description AS module, REF_Screen.fuseaction, REF_Business_Function.description AS business_function,
-	REF_Business_Function.acronym, Link_Screen_Help_Article.l_s_h_a_id, Demographics.last_name + ', ' + Demographics.first_name AS article_author,
-	SUBSTRING(Help_Article.help_article_text, 1, 50)+'...' AS help_article_text_short,
+	REF_Business_Function.acronym, Link_Screen_Help_Article.l_s_h_a_id, Demographics.last_name || ', ' || Demographics.first_name AS article_author,
+	SUBSTRING(Help_Article.help_article_text, 1, 50) || '...' AS help_article_text_short,
 	CASE
 		WHEN fuseaction='#attributes.fuseaction#' THEN 'screen-specific'
 		WHEN fuseaction LIKE '#listfirst(attributes.fuseaction,".")#.%' THEN 'general&nbsp;module'

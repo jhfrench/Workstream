@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfparam name="attributes.order_by" default="project_end">
 <cfinclude template="../common_files/act_client_vars.cfm">

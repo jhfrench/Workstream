@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> emp_id: number returned from query that identifies a user to workstream
 	--> hours: number containing how many hours the person spent on the specified task
 	--> last_name: string containing a person's last name

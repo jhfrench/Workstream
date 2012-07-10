@@ -17,7 +17,7 @@
 
 </cfsilent>
 <cfoutput>
-SELECT Task.task_id AS task_id, (Customer.description+'-'+Project.description) AS engagement, Task.name AS task, 
+SELECT Task.task_id AS task_id, (Customer.description || '-' || Project.description) AS engagement, Task.name AS task, 
 	(CASE WHEN Project.billable_type_id = 3 THEN 'B' ELSE 'NB' END) AS billable, REF_Priority.description AS priority, 
 	REF_Status.status AS status,
 	Task.due_date AS date_due,

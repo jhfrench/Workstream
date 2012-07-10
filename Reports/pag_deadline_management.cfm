@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfparam name="attributes.admin_month" default="#month(now())#">
 <cfparam name="attributes.admin_year" default="#year(now())#">

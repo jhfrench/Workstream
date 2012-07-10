@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_people_by_project_id" datasource="#application.datasources.main#">
 SELECT Email.Email, Phone.Phone_Number, Phone.Extension, 

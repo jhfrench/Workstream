@@ -26,7 +26,7 @@
 
 <cfparam name="attributes.help_article_id" default="0">
 <cfquery name="get_help_article" datasource="#application.datasources.main#">
-SELECT Help_Article.help_article_id, Help_Article.help_article_text, SUBSTR(Help_Article.help_article_text, 1, 50)||'...' AS help_article_text_short,
+SELECT Help_Article.help_article_id, Help_Article.help_article_text, SUBSTR(Help_Article.help_article_text, 1, 50) || '...' AS help_article_text_short,
 	Help_Article.help_article_title, Help_Article.active_ind, Help_Article.sort_order,
 	Link_Screen_Help_Article.screen_id
 FROM Help_Article

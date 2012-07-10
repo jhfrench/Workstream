@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfloop from="1" to="7" index="ii">
 	<cfset variables.temp_date=dateadd("d", -ii, now())>

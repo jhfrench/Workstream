@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="change_billable_type_id" datasource="#application.datasources.main#">
 UPDATE Project

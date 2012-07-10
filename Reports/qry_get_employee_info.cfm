@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 </cfsilent>
 <cfif NOT len(attributes.start_date)>
@@ -19,13 +19,13 @@
 
 <cfquery name="get_employee_info" datasource="#application.datasources.main#">
 SELECT REF_Merit_Pool.description AS merit_pool, REF_Department.department_name, REF_Employee_Classification.employee_classification, 
-	Demographics.Overtime, Emp_Contact.LName+', '+Emp_Contact.Name AS employee, Demographics.dob, 
+	Demographics.Overtime, Emp_Contact.LName || ', ' || Emp_Contact.Name AS employee, Demographics.dob, 
 	Demographics.hire_date, Demographics.end_date, Demographics.Reason_ID,
-	Job_Title.title, Job_Title.date_start, Supervisor.LName+', '+Supervisor.Name AS supervisor,
+	Job_Title.title, Job_Title.date_start, Supervisor.LName || ', ' || Supervisor.Name AS supervisor,
 	Performance_Review.rating, Performance_Review.created_date, Salary1.salary, 
 	Salary1.date_implemented, Salary1.salary_change_type, Salary1.increase_amount,
 	Salary1.increase_percent,
-	DATEADD(d, 30, CAST(MONTH(Demographics.hire_date)+1 AS VARCHAR(2))+'/1/'+CAST(YEAR(Demographics.hire_date) AS VARCHAR(4))) AS benefit_start_date,--the first of the month following hire date, plus thirty days
+	DATEADD(d, 30, CAST(MONTH(Demographics.hire_date)+1 AS varchar(2)) || '/1/' || CAST(YEAR(Demographics.hire_date) AS varchar(4))) AS benefit_start_date,--the first of the month following hire date, plus thirty days
 	REF_Company.description AS company, Office.city
 FROM Link_Company_Emp_Contact
 	INNER JOIN Demographics ON Demographics.emp_id=Emp_Contact.emp_id

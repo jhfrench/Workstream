@@ -9,7 +9,7 @@
 	Name: Damon Scott
 	||
 	Edits:
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_subordinates_expense_register" datasource="#application.datasources.main#">
 SELECT Expense.expense_id, Expense.date_incurred, Expense.created_date,Expense.expense_status_id,

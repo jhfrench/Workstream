@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfinclude template="../common_files/qry_get_teams.cfm">
 <input type="hidden" name="evaluate_app_options">

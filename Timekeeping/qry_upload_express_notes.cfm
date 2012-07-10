@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.notes_#ii#: string that contains the notes that correspond to a particular time entry
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> attributes.emp_id: list of ids that the user wishes to grant access to the new timeline; may contain an entire company which includes the company name
 	--> attributes.hide_user_field_item_id: id that identifies a field the user wants to use to flag tasks that should not be displayed in a timeline
 	--> attributes.project_id: id that uniquely identifies a project; in this case used to specify for which project a timeline is built 

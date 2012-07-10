@@ -9,7 +9,7 @@
 	Name: Damon Scott
 	||
 	Edits:
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_expense_details" datasource="#application.datasources.main#" >
 SELECT Expense.accounting_approval_memo, Expense.amount, Expense.client_billable_ind, 

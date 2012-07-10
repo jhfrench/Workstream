@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> emp_id: number that uniquely identifies an employee
 	--> lname: string containing the last name of an employee
 	--> name: string containing the first name of an employee

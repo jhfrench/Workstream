@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cftransaction isolation="READ_COMMITTED">
 <!--- I update the Customer table with the information that is only located on the Customer table --->
@@ -29,7 +29,7 @@ WHERE customer_id=#attributes.customer_id#
 <cfquery name="update_projects" datasource="#application.datasources.main#">
 UPDATE Project
 SET root_code='#attributes.root_code#',
-	project_code='#attributes.root_code#'+RIGHT(project_code,LEN(project_code)-4)
+	project_code='#attributes.root_code#' || RIGHT(project_code,LEN(project_code)-4)
 WHERE customer_id=#attributes.customer_id#
 </cfquery>
 <!--- See if the fields for name and Last Name are populate on the form. --->

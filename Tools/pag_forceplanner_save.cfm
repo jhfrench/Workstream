@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset variables.show_submit_button=0>
 <cfset variables.task_assigned=0>

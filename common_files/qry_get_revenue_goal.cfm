@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfquery name="get_revenue_goal" datasource="#application.datasources.main#">
 SELECT fiscal_year, SUM(Revenue_Goal.revenue_goal) AS revenue_goal, SUM(COALESCE(Hourly_Revenue.revenue,0)) AS hourly_revenue,
@@ -47,7 +47,7 @@ FROM (
 				DATEDIFF(M, Flat_Rate.rate_start_date, Flat_Rate.rate_end_date)+1 AS amotization_period,
 				DATEDIFF(M, 
 					CASE
-						WHEN Flat_Rate.rate_start_date < CAST('1/1/'+CAST(YEAR(CURRENT_TIMESTAMP) AS VARCHAR(4)) AS DATETIME) THEN CAST('1/1/'+CAST(YEAR(CURRENT_TIMESTAMP) AS VARCHAR(4)) AS DATETIME)
+						WHEN Flat_Rate.rate_start_date < CAST('1/1/' || CAST(YEAR(CURRENT_TIMESTAMP) AS varchar(4)) AS DATETIME) THEN CAST('1/1/' || CAST(YEAR(CURRENT_TIMESTAMP) AS varchar(4)) AS DATETIME)
 						ELSE Flat_Rate.rate_start_date
 					END, 
 					CASE 
@@ -59,7 +59,7 @@ FROM (
 				*
 				(DATEDIFF(M, 
 					CASE
-						WHEN Flat_Rate.rate_start_date < CAST('1/1/'+CAST(YEAR(CURRENT_TIMESTAMP) AS VARCHAR(4)) AS DATETIME) THEN CAST('1/1/'+CAST(YEAR(CURRENT_TIMESTAMP) AS VARCHAR(4)) AS DATETIME)
+						WHEN Flat_Rate.rate_start_date < CAST('1/1/' || CAST(YEAR(CURRENT_TIMESTAMP) AS varchar(4)) AS DATETIME) THEN CAST('1/1/' || CAST(YEAR(CURRENT_TIMESTAMP) AS varchar(4)) AS DATETIME)
 						ELSE Flat_Rate.rate_start_date
 					END, 
 					CASE 

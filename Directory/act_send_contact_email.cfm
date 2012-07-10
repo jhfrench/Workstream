@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> lname: string containing the last name of an employee
 	--> name: string containing the first name of an employee
 	--> email: string containing individual email addresses

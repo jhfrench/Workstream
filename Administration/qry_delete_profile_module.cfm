@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfquery name="delete_profile_module" datasource="#application.datasources.main#">
 DELETE module_access

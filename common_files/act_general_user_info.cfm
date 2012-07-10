@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||	 
+	 || 	 
 	<-- session.workstream_account_changed: date that controls query caching for object navigation
 	<-- session.workstream_company_id: id that identifies company of the user to workstream
 	<-- session.workstream_company_name: string that contains company name of the user

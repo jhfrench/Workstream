@@ -10,11 +10,11 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	END FUSEDOC --->
 <cfquery name="get_emp_name" datasource="#application.datasources.main#">
-SELECT lname + ', ' + name AS name
+SELECT lname || ', ' || name AS name
 FROM Emp_Contact
 WHERE emp_id=#attributes.emp_id#
 </cfquery>

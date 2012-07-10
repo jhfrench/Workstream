@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfparam name="session.workstream_expand" default="yes,yes,no">
 <cfswitch expression="#session.workstream_text_size#">

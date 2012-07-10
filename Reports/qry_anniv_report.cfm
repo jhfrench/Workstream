@@ -6,12 +6,12 @@
 	||
 	Responsibilities: I am the query for the anniversary report.
 
-	||
+	 || 
 	$Log$
 	Revision 1.2  2006/05/02 07:03:21  french
 	Added condition to limit results to only one record per employee.
 
-	||
+	 || 
 	END FUSEDOC --->
 
 <cfquery name="annivarsary" datasource="#application.datasources.main#">

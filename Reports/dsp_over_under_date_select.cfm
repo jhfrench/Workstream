@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfinclude template="../common_files/qry_express_check_date.cfm">
 <cfset variables.go_back_to=datediff("d",express_check_date.date_locked,now())-1>

@@ -22,7 +22,7 @@
 <cfparam name="attributes.lookup_email_address" default="">
 <cfquery name="get_email_blacklist" datasource="#application.datasources.main#">
 SELECT Email_Blacklist.email_blacklist_id, Email_Blacklist.email_address, Email_Blacklist.created_date,
-	Demographics.first_name+' '+Demographics.last_name AS created_by
+	Demographics.first_name||' '||Demographics.last_name AS created_by
 FROM Email_Blacklist
 	LEFT OUTER JOIN Demographics ON Email_Blacklist.created_by=Demographics.user_account_id
 		AND Demographics.active_ind=1

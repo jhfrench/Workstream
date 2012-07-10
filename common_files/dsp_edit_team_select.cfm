@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> [attributes.class]: string that contains the CSS class to apply to the select box
 	--> [attributes.emp_id]: identifies user to the workstream system
 	--> [attributes.multi]: boolean that indicates whether or not select box will allow multiple selections

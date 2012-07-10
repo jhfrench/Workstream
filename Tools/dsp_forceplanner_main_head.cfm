@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> variables.emp_init_loop: list of employee initials
  --->
 </cfsilent>

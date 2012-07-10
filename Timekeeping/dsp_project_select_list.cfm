@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset alt="See more projects.">
 <cfset msg="Please choose a project code.">

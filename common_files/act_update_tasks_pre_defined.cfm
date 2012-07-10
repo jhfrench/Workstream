@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_tasks_pre_defined" datasource="#application.datasources.main#">
 SELECT *

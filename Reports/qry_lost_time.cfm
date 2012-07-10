@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
     <cfquery name="Sick_Hours" datasource="#application.datasources.main#">  
     SELECT Emp_Contact.Name, Emp_Contact.LName, 

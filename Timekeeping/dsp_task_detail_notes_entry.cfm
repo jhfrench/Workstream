@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	||
+	 || 
 	END FUSEDOC --->
 <cfset variables.go_back_to=datediff("d", express_check_date.date_locked, now())-1>
 </cfsilent>

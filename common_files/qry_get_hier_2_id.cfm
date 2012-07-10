@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfquery name="get_hier_2_id" datasource="#application.datasources.main#">
 SELECT COALESCE(hier_2_id, 0) AS hier_2_id

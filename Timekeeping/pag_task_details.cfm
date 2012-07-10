@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset variables.var1=200>
 <cfparam name="attributes.expand" default="0">

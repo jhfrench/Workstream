@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfset variables.quote='"'>
 <cfset variables.StatusMsg_replace="',#variables.quote#">

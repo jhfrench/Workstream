@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="it_time_main" datasource="#application.datasources.main#">
 SELECT COALESCE(AP_Time.ap_time,0) AS ap_time, Ttl_Time.ttl_time, COALESCE((AP_Time.ap_time/Ttl_Time.ttl_time),0)*100.000 AS ap_percent, 

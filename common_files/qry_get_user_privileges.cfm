@@ -27,7 +27,7 @@
 <cfquery name="get_user_privileges" datasource="#application.datasources.main#">
 SELECT REF_Module.module_id, REF_Module.description AS module_description, NSM_Hierarchy.nsm_level,
 	CASE
-		WHEN REF_Center.center_id IS NOT NULL THEN NSM_Hierarchy.organization_description+' - '+REF_Center.description
+		WHEN REF_Center.center_id IS NOT NULL THEN NSM_Hierarchy.organization_description || ' - ' || REF_Center.description
 		ELSE NSM_Hierarchy.organization_description
 	END AS organization_description,
 	CASE

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfquery name="task_detach" datasource="#application.datasources.main#">
 DELETE 

@@ -9,11 +9,11 @@
 	Name: Damon Scott
 	||
 	Edits:
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_expense_category" datasource="#application.datasources.main#" >
-SELECT REF_Expense_Category.category +  (CASE 
-	WHEN REF_Expense_Category.sub_category IS NOT NULL THEN ' : ' + REF_Expense_Category.sub_category 
+SELECT REF_Expense_Category.category || (CASE 
+	WHEN REF_Expense_Category.sub_category IS NOT NULL THEN ' : ' || REF_Expense_Category.sub_category 
 	ELSE '' END) AS description,
 	REF_Expense_Category.expense_category_id
 FROM REF_Expense_Category

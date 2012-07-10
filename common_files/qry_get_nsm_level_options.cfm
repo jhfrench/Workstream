@@ -48,7 +48,7 @@ FROM<cfloop query="get_nsm_levels">
 </cfif>(<cfif variables.limit_options_ind EQ 0>
 		<cfif attributes.parent_privilege_inheritance_ind>
 		SELECT Elligible_Organizations.parent_organization_id, Elligible_Organizations.organization_id, Elligible_Organizations.l_p_y_h_id,
-			REF_Organization.description + ' (' + REF_Organization.organization_code + ')' AS level_#hierarchy_level_id#_display, REF_Organization.sort_order, #hierarchy_level_id# AS hierarchy_level_id
+			REF_Organization.description || ' (' ||  REF_Organization.organization_code || ')' AS level_#hierarchy_level_id#_display, REF_Organization.sort_order, #hierarchy_level_id# AS hierarchy_level_id
 		FROM REF_Organization 
 			INNER JOIN (
 				SELECT Hierarchy_Assignment.parent_organization_id, Hierarchy_Assignment.organization_id, Hierarchy_Assignment.l_p_y_h_id
@@ -74,7 +74,7 @@ FROM<cfloop query="get_nsm_levels">
 			REF_Organization.description, REF_Organization.organization_code, REF_Organization.sort_order
 	) NSM_Level_#hierarchy_level_id#
 		<cfelse>
-		SELECT REF_Organization.description + ' (' + REF_Organization.organization_code + ')'  AS level_#hierarchy_level_id#_display, REF_Organization.organization_id, REF_Organization.sort_order,
+		SELECT REF_Organization.description || ' (' ||  REF_Organization.organization_code || ')'  AS level_#hierarchy_level_id#_display, REF_Organization.organization_id, REF_Organization.sort_order,
 			Hierarchy_Assignment.parent_organization_id, #hierarchy_level_id# AS hierarchy_level_id
 		FROM Hierarchy_Assignment
 			INNER JOIN REF_Organization ON Hierarchy_Assignment.organization_id=REF_Organization.organization_id<cfif variables.limit_options_ind EQ 1>
@@ -97,7 +97,7 @@ FROM<cfloop query="get_nsm_levels">
 	INNER JOIN<cfelse>
 		<cfif attributes.parent_privilege_inheritance_ind>
 		SELECT Hierarchy_Assignment.parent_organization_id, Hierarchy_Assignment.organization_id, Hierarchy_Assignment.l_p_y_h_id,
-			REF_Organization.description + ' (' + REF_Organization.organization_code + ')'  AS level_#hierarchy_level_id#_display, REF_Organization.sort_order, #hierarchy_level_id# AS hierarchy_level_id
+			REF_Organization.description || ' (' ||  REF_Organization.organization_code || ')'  AS level_#hierarchy_level_id#_display, REF_Organization.sort_order, #hierarchy_level_id# AS hierarchy_level_id
 		FROM Hierarchy_Assignment
 			INNER JOIN Link_Program_Year_Hierarchy ON Hierarchy_Assignment.l_p_y_h_id=Link_Program_Year_Hierarchy.l_p_y_h_id
 			INNER JOIN REF_Organization ON Hierarchy_Assignment.organization_id=REF_Organization.organization_id
@@ -108,7 +108,7 @@ FROM<cfloop query="get_nsm_levels">
 		) NSM_Level_#hierarchy_level_id#<cfif currentrow NEQ 1> ON NSM_Level_#variables.previous_hierarchy_level_id#.parent_organization_id=NSM_Level_#hierarchy_level_id#.organization_id</cfif>
 		<cfelse>
 		/*Dig deeper to find descendant privilieges*/
-		SELECT REF_Organization.description + ' (' + REF_Organization.organization_code + ')'  AS level_#hierarchy_level_id#_display, REF_Organization.organization_id, REF_Organization.sort_order,
+		SELECT REF_Organization.description || ' (' ||  REF_Organization.organization_code || ')'  AS level_#hierarchy_level_id#_display, REF_Organization.organization_id, REF_Organization.sort_order,
 			Hierarchy_Assignment.parent_organization_id, #hierarchy_level_id# AS hierarchy_level_id
 		FROM Hierarchy_Assignment
 			INNER JOIN (

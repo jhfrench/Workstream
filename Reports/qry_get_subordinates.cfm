@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="get_subordinates" datasource="#application.datasources.main#">
 SELECT emp_id

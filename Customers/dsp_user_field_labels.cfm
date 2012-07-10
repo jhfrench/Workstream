@@ -7,10 +7,10 @@
 	Responsibilities: I display the second step of the 'create new engagement' wizard.
 	||
 	Name: Jeromy French
-	|| 
+	 || 
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfparam name="variables.start" default="1">
 </cfsilent>

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log: 
-	||
+	 || 
 	END FUSEDOC --->
 <cfset get_all_option.all_option=0>
 <cfquery name="get_all_option" datasource="#application.datasources.main#">

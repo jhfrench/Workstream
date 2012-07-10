@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	--> application.datasource.main: string that contains the name of the datasource as mapped in CF administrator
 	<-- company_id: id that identifies company of the user to workstream
 	<-- company_name: string that conatins company name of the user

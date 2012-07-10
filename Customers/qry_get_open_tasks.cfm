@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 </cfsilent>
 <cfparam name="attributes.project_id" default="0">
@@ -20,8 +20,8 @@ SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id AS task_id,
 	COALESCE(Task.budgeted_hours,0) AS time_budgeted, Task.status_id AS status_id, 
 	Task_Details.time_used AS time_used, Task_Details.task_icon AS task_icon, 
 	Task_Details.percent_time_used AS percent_time_used, Task_Details.task_owner AS task_owner,
-	(CASE WHEN Task.status_id=4 THEN Task_Details.task_status+' by '+Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
-	(Customer.description + '-' + Project.description) AS project_name, Project.project_code AS project_code
+	(CASE WHEN Task.status_id=4 THEN Task_Details.task_status || ' by ' || Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
+	(Customer.description || '-' || Project.description) AS project_name, Project.project_code AS project_code
 FROM Task, Team, Emp_Contact,  Customer, Project, Link_Project_Company, REF_Priority,
 	(SELECT Path.task_id AS task_id, COALESCE(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
 		(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,

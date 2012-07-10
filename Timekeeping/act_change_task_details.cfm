@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfparam name="attributes.task_qa" default="">
 <cfparam name="attributes.task_team" default="">

@@ -7,7 +7,7 @@
 	Responsibilities: I run all of the automatic daily processes for NGuage.
 	||
 	Name: Jeromy French
-	||
+	 || 
 	--->
 </cfsilent>
 <cfparam name="attributes.query_text" default="">

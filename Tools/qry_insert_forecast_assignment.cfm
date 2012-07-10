@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfif attributes.sum_assigned GT 0>
 <cfquery name="insert_forecast_assignment" datasource="#application.datasources.main#">

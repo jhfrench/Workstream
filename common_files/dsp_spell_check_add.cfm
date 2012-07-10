@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
  --->
 <cfoutput>
 	<tr bordercolor="##78A0EB" class="SelectText">

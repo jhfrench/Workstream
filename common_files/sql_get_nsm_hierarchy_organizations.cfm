@@ -62,7 +62,7 @@ FROM (
 		ORDER BY REF_Center.sort_order
 	<cfelse>
 		SELECT Hierarchy_Assignment.organization_id, Hierarchy_Assignment.parent_organization_id, Link_Program_Year_Hierarchy.hierarchy_level_id,
-			level AS hierarchy_level/*native Oracle hierarchy function*/, LPAD(' ',2*(level-1)) + REF_Organization.description AS spaced_view, SYS_CONNECT_BY_PATH(REF_Organization.description, '&raquo;') AS path,
+			level AS hierarchy_level/*native Oracle hierarchy function*/, LPAD(' ',2*(level-1)) || REF_Organization.description AS spaced_view, SYS_CONNECT_BY_PATH(REF_Organization.description, '&raquo;') AS path,
 			REF_Organization.description AS organization_description, REF_Organization.organization_code
 		FROM Hierarchy_Assignment
 			INNER JOIN Link_Program_Year_Hierarchy ON Hierarchy_Assignment.l_p_y_h_id=Link_Program_Year_Hierarchy.l_p_y_h_id

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="efficiency_report_main" datasource="#application.datasources.main#">
 SELECT COALESCE(Efficiency_Time.efficiency_time,0) AS efficiency_time, Ttl_Time.ttl_time, COALESCE((Efficiency_Time.efficiency_time/Ttl_Time.ttl_time),0)*100.000 AS efficiency_percent, 

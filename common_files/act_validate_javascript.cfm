@@ -11,7 +11,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cf_htmlhead>
 <!--common_files/act_validate_javascript.cfm (pt2)

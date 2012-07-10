@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	||
+	 || 
 	END FUSEDOC --->
 <cfquery name="qry_get_open_tech_supports" cachedwithin="#createtimespan(0,0,10,0)#" datasource="#application.datasources.main#">
 SELECT COUNT(Task.task_id) AS open_tasks
