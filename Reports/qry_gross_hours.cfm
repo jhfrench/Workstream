@@ -28,8 +28,8 @@ WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND Demographics.effective_from <= #variables.date_closed#
 	AND Time_Entry.date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, Time_Entry.date)
 	AND COALESCE(Demographics.effective_to,#variables.date_open#) >= #variables.date_open#
-	AND MONTH(Time_Entry.date)=#attributes.month#
-	AND YEAR(Time_Entry.date)=#attributes.year#
+	AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#
+	AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.year#
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 <cfif isdefined("attributes.emp_id") AND attributes.emp_id NEQ "ALL">
 	AND Emp_Contact.emp_id=#attributes.emp_id#
@@ -52,8 +52,8 @@ WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND Demographics.effective_from <= #variables.date_closed#
 	AND Time_Entry.date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, Time_Entry.date)
 	AND COALESCE(Demographics.effective_to,#variables.date_open#) >= #variables.date_open#
-	AND MONTH(Time_Entry.date)=#attributes.month#
-	AND YEAR(Time_Entry.date)=#attributes.year#
+	AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#
+	AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.year#
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 <cfif isdefined("attributes.emp_id") AND attributes.emp_id NEQ "ALL">
 	AND Emp_Contact.emp_id=#attributes.emp_id#

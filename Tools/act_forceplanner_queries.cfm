@@ -76,7 +76,7 @@ FROM
 		AND Task.task_id=Team.task_id
 		AND Task.task_id*=Time_Entry.task_id
 		AND <cfif attributes.force_month GTE month(now()) AND attributes.force_year GTE year(now())>Task.status_id != 11 /*exclude closed tasks*/
-		AND Task.assigned_date < #createodbcdate(dateadd("m",1,"#attributes.force_month#/01/#attributes.force_year#"))# /*show tasks assigned (to be started) before the selected month*/<cfelse>MONTH(Task.assigned_date)=#attributes.force_month# AND YEAR(Task.assigned_date)=#attributes.force_year# /*show tasks assigned (to be started) during the selected month*/</cfif>
+		AND Task.assigned_date < #createodbcdate(dateadd("m",1,"#attributes.force_month#/01/#attributes.force_year#"))# /*show tasks assigned (to be started) before the selected month*/<cfelse>EXTRACT(MONTH FROM Task.assigned_date)=#attributes.force_month# AND EXTRACT(YEAR FROM Task.assigned_date)=#attributes.force_year# /*show tasks assigned (to be started) during the selected month*/</cfif>
 		AND Team.emp_id IN (#session.user_account_id#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)
 		AND Team.role_id IN (1,4)
 		AND Task.task_id NOT IN (
@@ -108,7 +108,7 @@ WHERE date_month = #attributes.force_month#
 </cfquery>
 
 <cfquery name="get_years" datasource="#application.datasources.main#">
-SELECT MAX(YEAR(assigned_date)) AS max_year, MIN(YEAR(assigned_date)) AS min_year
+SELECT MAX(EXTRACT(YEAR FROM assigned_date)) AS max_year, MIN(EXTRACT(YEAR FROM assigned_date)) AS min_year
 FROM Task
 </cfquery>
 

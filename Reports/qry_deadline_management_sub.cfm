@@ -28,8 +28,8 @@ FROM Emp_Contact,
 		AND due_date <= CURRENT_TIMESTAMP
 		AND Team.role_id=1
 		AND Team.emp_id IN (#valuelist(get_subordinates.emp_id)#)
-		AND MONTH(Task.due_date)=#attributes.admin_month#
-		AND YEAR(Task.due_date)=#attributes.admin_year#)
+		AND EXTRACT(MONTH FROM Task.due_date)=#attributes.admin_month#
+		AND EXTRACT(YEAR FROM Task.due_date)=#attributes.admin_year#)
 AS On_Time
 WHERE Emp_Contact.emp_id=On_Time.emp_id
 GROUP BY Emp_Contact.lname, Emp_Contact.name, Emp_Contact.emp_id

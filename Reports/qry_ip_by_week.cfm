@@ -36,7 +36,7 @@ FROM Task,
 	GROUP BY DATEPART(wk,REF_Date.odbc_date), REF_Date.date_year)
 AS valid_weeks
 WHERE valid_weeks.week_in_year*=DATEPART(wk,entry_date)
-	AND valid_weeks.year_num*=YEAR(entry_date)
+	AND valid_weeks.year_num*=EXTRACT(YEAR FROM entry_date)
 	AND tasks_pre_defined_id=55
 	AND complete_date IS NOT NULL
 GROUP BY DATEPART(wk,entry_date), valid_weeks.year_num, valid_weeks.week_in_year

@@ -20,6 +20,6 @@
 	WHERE (emp_contact.emp_id = '#attributes.drill_down#') AND (Time_entry.project_id IN (SELECT project_id
 																							FROM Project
 																							WHERE project_type_id = 1)) 
-									and year(time_entry.date) = year(CURRENT_TIMESTAMP)
+									and EXTRACT(YEAR FROM time_entry.date) = EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
 	ORDER BY Time_entry.date
 	</cfquery>

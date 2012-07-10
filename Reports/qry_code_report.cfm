@@ -16,7 +16,7 @@ SELECT Emp_Contact.name, Emp_Contact.lname,
 	Project.project_code AS clientcode, 
 	Project.description AS clientname, 
 	REF_Employee_Classification.employee_classification,
-	<cfif isdefined("variables.month_loop")><cfloop from="1" to="#variables.month_loop#" index="ii"><cfset variables.current_month=dateformat(dateadd("m",ii-1,variables.from_date), "mm/yyyy")>SUM(CASE WHEN MONTH(Time_Entry.date)=#month(variables.current_month)# AND YEAR(Time_Entry.date)=#year(variables.current_month)# THEN Time_Entry.hours ELSE 0 END) AS 'period_#ii#',
+	<cfif isdefined("variables.month_loop")><cfloop from="1" to="#variables.month_loop#" index="ii"><cfset variables.current_month=dateformat(dateadd("m",ii-1,variables.from_date), "mm/yyyy")>SUM(CASE WHEN EXTRACT(MONTH FROM Time_Entry.date)=#month(variables.current_month)# AND EXTRACT(YEAR FROM Time_Entry.date)=#year(variables.current_month)# THEN Time_Entry.hours ELSE 0 END) AS 'period_#ii#',
 	</cfloop></cfif>SUM(Time_Entry.hours) AS hours, 
 	REF_Company.description AS company
 FROM Emp_Contact 

@@ -13,12 +13,12 @@
 	 || 
 	END FUSEDOC --->
 <cfquery name="ts_task_count" datasource="#application.datasources.main#" cachedafter="02/02/1978">
-SELECT YEAR(Task.entry_date) AS task_year, MONTH(Task.entry_date) AS task_month, 
+SELECT EXTRACT(YEAR FROM Task.entry_date) AS task_year, EXTRACT(MONTH FROM Task.entry_date) AS task_month, 
 	COUNT(Task.task_id) AS task_count
 FROM Task
 WHERE Task.name LIKE 'TS%'
 	AND #session.workstream_cache_query#=#session.workstream_cache_query#
-GROUP BY YEAR(Task.entry_date), MONTH(Task.entry_date)
+GROUP BY EXTRACT(YEAR FROM Task.entry_date), EXTRACT(MONTH FROM Task.entry_date)
 ORDER BY task_year, task_month
 </cfquery>
 </cfsilent>

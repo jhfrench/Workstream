@@ -13,7 +13,7 @@
 	 || 
 	END FUSEDOC --->
 <cfquery name="historical_ts_data" datasource="#application.datasources.main#" cachedafter="02/02/1978">
-SELECT YEAR(Turnaround_Times.entry_date) AS task_year, MONTH(Turnaround_Times.entry_date) AS task_month, 
+SELECT EXTRACT(YEAR FROM Turnaround_Times.entry_date) AS task_year, EXTRACT(MONTH FROM Turnaround_Times.entry_date) AS task_month, 
 	AVG(Turnaround_Times.assessment_turnaround_hours) AS average_assessment_hours, 
 	AVG(Turnaround_Times.completion_turnaround_hours) AS average_completion_hours
 FROM
@@ -29,7 +29,7 @@ FROM
 		AND #session.workstream_cache_query#=#session.workstream_cache_query#
 	GROUP BY Task.task_id, Task.entry_date, Task.complete_date)
 AS Turnaround_Times
-GROUP BY YEAR(Turnaround_Times.entry_date), MONTH(Turnaround_Times.entry_date)
+GROUP BY EXTRACT(YEAR FROM Turnaround_Times.entry_date), EXTRACT(MONTH FROM Turnaround_Times.entry_date)
 ORDER BY task_year, task_month
 </cfquery>
 </cfsilent>

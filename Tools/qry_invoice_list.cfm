@@ -36,8 +36,8 @@ WHERE Project.billable_type_id=1
 		WHERE active_ind=1
 			AND invoice_id=#attributes.invoice_id#
 	)<cfelseif isdefined("attributes.month") AND isdefined("attributes.year")>
-	AND MONTH(Time_Entry.date)=#attributes.month#
-	AND YEAR(Time_Entry.date)=#attributes.year#<cfelse>
+	AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#
+	AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.year#<cfelse>
 	AND Time_Entry.time_entry_id NOT IN (
 		SELECT time_entry_id
 		FROM Link_Invoice_Time_Entry

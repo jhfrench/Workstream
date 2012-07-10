@@ -27,12 +27,12 @@ SELECT COALESCE(Project_By_Month.root_code,0) AS root_code, COALESCE(Project_By_
 	ABCD.year AS year_entered, COALESCE(Project_By_Month.engagement_count,0) AS engagement_count
 FROM ABCD_Months ABCD,
 	(SELECT Customer.root_code AS root_code, Customer.description AS customer_name, COUNT(Project.project_id) AS engagement_count, 
-		MONTH(Project.created_date) AS month_entered, YEAR(Project.created_date) AS year_entered
+		EXTRACT(MONTH FROM Project.created_date) AS month_entered, EXTRACT(YEAR FROM Project.created_date) AS year_entered
 	FROM Customer, Project
 	WHERE Customer.customer_id=Project.customer_id
 		AND Project.customer_id IS NOT NULL
 		AND Customer.root_code IN (#attributes.root_code#)
-	GROUP BY YEAR(Project.created_date), MONTH(Project.created_date), Customer.description, Customer.root_code)
+	GROUP BY EXTRACT(YEAR FROM Project.created_date), EXTRACT(MONTH FROM Project.created_date), Customer.description, Customer.root_code)
 AS Project_By_Month
 WHERE ABCD.month*=Project_By_Month.month_entered
 	AND ABCD.year*=Project_By_Month.year_entered

@@ -24,8 +24,8 @@ FROM
 		AND (Demographics.end_date IS NULL OR Demographics.end_date > CURRENT_TIMESTAMP)
 		AND Demographics.employee_type_id!=8 /*exclude group lists from employee count*/
 		AND Link_Company_Emp_Contact.company_id=#listlast(session.workstream_company_id)#
-		AND MONTH(Demographics.hire_date)=MONTH(CURRENT_TIMESTAMP)
-		AND YEAR(Demographics.hire_date)=YEAR(CURRENT_TIMESTAMP))
+		AND EXTRACT(MONTH FROM Demographics.hire_date)=EXTRACT(MONTH FROM CURRENT_TIMESTAMP)
+		AND EXTRACT(YEAR FROM Demographics.hire_date)=EXTRACT(YEAR FROM CURRENT_TIMESTAMP))
 	AS New_Hires,
 	(SELECT COUNT(*) AS birthdays
 	FROM Demographics_Ngauge AS Demographics, Link_Company_Emp_Contact
@@ -34,7 +34,7 @@ FROM
 		AND (Demographics.end_date IS NULL OR Demographics.end_date > CURRENT_TIMESTAMP)
 		AND Demographics.employee_type_id!=8 /*exclude group lists from employee count*/
 		AND Link_Company_Emp_Contact.company_id=#listlast(session.workstream_company_id)#
-		AND MONTH(Demographics.dob)=MONTH(CURRENT_TIMESTAMP))
+		AND EXTRACT(MONTH FROM Demographics.dob)=EXTRACT(MONTH FROM CURRENT_TIMESTAMP))
 	AS Birthdays,
 	(SELECT COUNT(*) AS anniversaries
 	FROM Demographics_Ngauge AS Demographics, Link_Company_Emp_Contact, Emp_Contact
@@ -45,8 +45,8 @@ FROM
 			OR Demographics.end_date >= DATEADD(year,1,Demographics.hire_date))
 		AND Demographics.employee_type_id!=8 /*exclude group lists from employee count*/
 		AND Link_Company_Emp_Contact.company_id=#listlast(session.workstream_company_id)#
-		AND MONTH(Demographics.hire_date)=MONTH(CURRENT_TIMESTAMP)
-		AND YEAR(Demographics.hire_date) < YEAR(CURRENT_TIMESTAMP))
+		AND EXTRACT(MONTH FROM Demographics.hire_date)=EXTRACT(MONTH FROM CURRENT_TIMESTAMP)
+		AND EXTRACT(YEAR FROM Demographics.hire_date) < EXTRACT(YEAR FROM CURRENT_TIMESTAMP))
 	AS Anniversaries,
 	(SELECT COUNT(*) AS total_employees
 	FROM Demographics_Ngauge AS Demographics, Link_Company_Emp_Contact, Security

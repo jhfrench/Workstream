@@ -34,21 +34,21 @@ FROM (
 					AND Time_Entry.emp_id=#session.user_account_id#
 					AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id = 1)
 				GROUP BY Emp_id
-			) AS Hours_Taken_Table ON User_Account.user_account_id=Hours_Earned.emp_id
+			) AS Hours_Taken_Table ON User_Account.user_account_id=Hours_Taken_Table.emp_id
 			LEFT OUTER JOIN (
 				SELECT SUM(PTO_Grant.granted_hours) AS earned_hours, emp_id
 				FROM PTO_Grant
 				WHERE PTO_Grant.emp_id=#session.user_account_id#
 				GROUP BY emp_id
-			) AS Hours_Earned ON User_Account.user_account_id=Hours_Taken_Table.emp_id
+			) AS Hours_Earned ON User_Account.user_account_id=Hours_Earned.emp_id
 		WHERE Link_Company_Emp_Contact.company_id IN (#company_list_use#)
 			AND User_Account.user_account_id=#session.user_account_id#
 	) AS Remainder
 	LEFT OUTER JOIN (
 		SELECT Time_Entry.emp_id, SUM(Time_Entry.hours) AS hours_taken
 		FROM Time_Entry
-		WHERE MONTH(Time_Entry.date)=MONTH(CURRENT_TIMESTAMP)
-			AND YEAR(Time_Entry.date)=YEAR(CURRENT_TIMESTAMP)
+		WHERE EXTRACT(MONTH FROM Time_Entry.date)=EXTRACT(MONTH FROM CURRENT_TIMESTAMP)
+			AND EXTRACT(YEAR FROM Time_Entry.date)=EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
 			AND Time_Entry.emp_id=#session.user_account_id#
 			AND Time_Entry.project_id IN (
 				SELECT project_id
@@ -56,14 +56,14 @@ FROM (
 				WHERE project_type_id = 1
 			)
 		GROUP BY Time_Entry.emp_id
-	) AS Last_Month_Taken ON Remainder.emp_id=Last_Month_Taken.emp_id
+	) AS Last_Month_Taken ON Remainder.user_account_id=Last_Month_Taken.emp_id
 	LEFT OUTER JOIN (
 		SELECT PTO_Grant.emp_id, SUM(PTO_Grant.granted_hours) AS earned_hours
 		FROM PTO_Grant
-		WHERE MONTH(PTO_Grant.date_granted)=MONTH(CURRENT_TIMESTAMP)
-			AND YEAR(PTO_Grant.date_granted)=YEAR(CURRENT_TIMESTAMP)
+		WHERE EXTRACT(MONTH FROM PTO_Grant.date_granted)=EXTRACT(MONTH FROM CURRENT_TIMESTAMP)
+			AND EXTRACT(YEAR FROM PTO_Grant.date_granted)=EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
 			AND PTO_Grant.emp_id=#session.user_account_id#
 		GROUP BY PTO_Grant.emp_id
-	) AS Last_Month_Earned ON Remainder.emp_id=Last_Month_Earned.emp_id
+	) AS Last_Month_Earned ON Remainder.user_account_id=Last_Month_Earned.emp_id
 </cfquery>
 </cfsilent>

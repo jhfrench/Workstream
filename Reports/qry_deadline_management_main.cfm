@@ -17,7 +17,7 @@
 	<-- on_time_percent: decimal number that indicates the number of tasks in the given due_year and due_month that were completed on time or early.
 	END FUSEDOC --->
 <cfquery name="deadline_management_main" datasource="#application.datasources.main#">
-SELECT YEAR(On_Time.due_date) AS due_year, MONTH(On_Time.due_date) AS due_month, (AVG(on_time)*100) AS on_time_percent
+SELECT EXTRACT(YEAR FROM On_Time.due_date) AS due_year, EXTRACT(MONTH FROM On_Time.due_date) AS due_month, (AVG(on_time)*100) AS on_time_percent
 FROM
 	(SELECT due_date, (CASE WHEN DATEDIFF(hh,complete_date,due_date) > -24 THEN 1.00 ELSE 0.00 END) AS on_time
 	FROM Task, Team
@@ -28,7 +28,7 @@ FROM
 		AND Team.role_id=1
 		AND Team.emp_id IN (#valuelist(get_subordinates.emp_id)#))
 AS On_Time
-GROUP BY YEAR(On_Time.due_date), MONTH(On_Time.due_date)
+GROUP BY EXTRACT(YEAR FROM On_Time.due_date), EXTRACT(MONTH FROM On_Time.due_date)
 ORDER BY due_year DESC, due_month DESC
 </cfquery>
 </cfsilent>

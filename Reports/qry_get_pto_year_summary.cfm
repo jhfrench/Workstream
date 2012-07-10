@@ -15,7 +15,7 @@
 	END FUSEDOC --->
 <cfquery name="get_pto_year_summary" datasource="#application.datasources.main#">
 SELECT COALESCE(SUM(hours_out),0) AS hours_out, COALESCE(SUM(hours_in),0) AS hours_in, 
-	YEAR(transaction_date) AS transaction_year
+	EXTRACT(YEAR FROM transaction_date) AS transaction_year
 FROM
 	(SELECT COALESCE(Time_Entry.hours, 0) AS hours_out, 0 AS hours_in, 
 		[date] AS transaction_date, 'Rollup of past PTO Usage' AS comments
@@ -30,7 +30,7 @@ FROM
   		WHERE PTO_Grant.emp_id=#attributes.emp_id#
 		AND date_granted >= #createodbcdatetime(Get_PTO_Start.pto_start_date)#
 ) Previous_Years_PTO
-GROUP BY YEAR(transaction_date)
-ORDER BY YEAR(transaction_date)
+GROUP BY EXTRACT(YEAR FROM transaction_date)
+ORDER BY EXTRACT(YEAR FROM transaction_date)
 </cfquery>
 </cfsilent>

@@ -25,7 +25,7 @@ SELECT REF_Merit_Pool.description AS merit_pool, REF_Department.department_name,
 	Performance_Review.rating, Performance_Review.created_date, Salary1.salary, 
 	Salary1.date_implemented, Salary1.salary_change_type, Salary1.increase_amount,
 	Salary1.increase_percent,
-	DATEADD(d, 30, CAST(MONTH(Demographics.hire_date)+1 AS varchar(2)) || '/1/' || CAST(YEAR(Demographics.hire_date) AS varchar(4))) AS benefit_start_date,--the first of the month following hire date, plus thirty days
+	DATEADD(d, 30, CAST(EXTRACT(MONTH FROM Demographics.hire_date)+1 AS varchar(2)) || '/1/' || CAST(EXTRACT(YEAR FROM Demographics.hire_date) AS varchar(4))) AS benefit_start_date,--the first of the month following hire date, plus thirty days
 	REF_Company.description AS company, Office.city
 FROM Link_Company_Emp_Contact
 	INNER JOIN Demographics ON Demographics.emp_id=Emp_Contact.emp_id

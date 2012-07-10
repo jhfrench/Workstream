@@ -20,8 +20,8 @@ FROM Time_Entry, Notes
 WHERE Time_Entry.notes_id=Notes.notes_id
 	AND Time_Entry.project_id=#attributes.project_id#
 	AND Time_Entry.emp_id=#attributes.emp_id#
-	AND MONTH(Time_Entry.date)=#attributes.month#
-	AND YEAR(Time_Entry.date)=#attributes.year#
+	AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#
+	AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.year#
 ORDER BY Time_Entry.date, Time_Entry.time_entry_id
 </cfquery>
 </cfsilent>
