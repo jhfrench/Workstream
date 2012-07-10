@@ -24,7 +24,7 @@ WHERE Task.status_id=REF_Status.status_id
 	AND Team.role_id=1
 	AND Project.customer_id=Customer.customer_id
 	AND (Task.status_id!=11
-		OR Task.complete_date BETWEEN DATEADD(wk,-1,CURRENT_TIMESTAMP) AND CURRENT_TIMESTAMP
+		OR Task.complete_date BETWEEN CURRENT_TIMESTAMP-'1 week' AND CURRENT_TIMESTAMP
 	)
 ORDER BY Customer.description || '-' || Project.description, Task.due_date, Task.assigned_date
 </cfquery>

@@ -70,7 +70,7 @@ FROM
 			AND PTO_Rollover.rollover_year=EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
 	WHERE Link_Company_Emp_Contact.emp_id=Demographics.emp_id
 		AND REF_Company.company_id=Link_Company_Emp_Contact.company_id
-		AND DATEADD(D, 30, Demographics.hire_date) < CURRENT_TIMESTAMP
+		AND Demographics.hire_date+'30 day' < CURRENT_TIMESTAMP
 		AND ((CURRENT_TIMESTAMP BETWEEN Demographics.effective_from AND Demographics.effective_to) 
 			OR Demographics.effective_to IS NULL)
 		AND Demographics.emp_id=#session.user_account_id#

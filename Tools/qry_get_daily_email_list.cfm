@@ -27,10 +27,10 @@ SELECT Task.task_id, CAST(Task.description AS varchar(255)) AS description, Task
 		END AS email_id,
 	MAX(date_sent),
 	CASE Task.notification_frequency_id
-		WHEN 2 THEN DATEADD(d, 1, MAX(date_sent))
-		WHEN 3 THEN DATEADD(wk, 1, MAX(date_sent))
-		WHEN 4 THEN DATEADD(d, 14, MAX(date_sent))
-		WHEN 5 THEN DATEADD(m, 1, MAX(date_sent))
+		WHEN 2 THEN MAX(date_sent)+'1 day'
+		WHEN 3 THEN MAX(date_sent)+'7 day'
+		WHEN 4 THEN MAX(date_sent)+'14 day'
+		WHEN 5 THEN MAX(date_sent)+'1 month'
 		END AS next_notification
 FROM Task, Notification,
 	(SELECT email, email_id, task_id
@@ -54,10 +54,10 @@ GROUP BY Task.task_id, CAST(Task.description AS varchar(255)), Task.name,
 	Notification.notification_type, QA.email
 HAVING 
 	CASE Task.notification_frequency_id
-		WHEN 2 THEN DATEADD(d, 1, MAX(date_sent))
-		WHEN 3 THEN DATEADD(wk, 1, MAX(date_sent))
-		WHEN 4 THEN DATEADD(d, 14, MAX(date_sent))
-		WHEN 5 THEN DATEADD(m, 1, MAX(date_sent))
+		WHEN 2 THEN MAX(date_sent)+'1 day'
+		WHEN 3 THEN MAX(date_sent)+'7 day'
+		WHEN 4 THEN MAX(date_sent)+'14 day'
+		WHEN 5 THEN MAX(date_sent)+'1 month'
 		END < CURRENT_TIMESTAMP
 </cfquery>
 </cfsilent>

@@ -114,8 +114,8 @@ NOTE: These processes are still running from a previous call and will not be add
 						AND REF_Date.date_month=LOG_Upload.data_fiscal_month
 						AND LOG_Upload.active_ind=1
 						AND LOG_Upload.upload_source_id=#get_ftp_credentials.upload_source_id#
-				WHERE date_month=EXTRACT(MONTH FROM DATEADD(m, -1, CURRENT_TIMESTAMP))
-					AND date_year=EXTRACT(YEAR FROM DATEADD(m, -1, CURRENT_TIMESTAMP))
+				WHERE date_month=EXTRACT(MONTH FROM CURRENT_TIMESTAMP-'1 month')
+					AND date_year=EXTRACT(YEAR FROM CURRENT_TIMESTAMP+'1 month')
 				GROUP BY date_month
 				</cfquery>
 				
@@ -135,8 +135,8 @@ NOTE: These processes are still running from a previous call and will not be add
 					date_month, MAX(fiscal_year) AS fiscal_year, 1 AS created_by,
 					CURRENT_TIMESTAMP AS created_date
 				FROM REF_Date
-				WHERE date_month=EXTRACT(MONTH FROM DATEADD(m, -1, CURRENT_TIMESTAMP))
-					AND date_year=EXTRACT(YEAR FROM DATEADD(m, -1, CURRENT_TIMESTAMP))
+				WHERE date_month=EXTRACT(MONTH FROM CURRENT_TIMESTAMP+'1 month')
+					AND date_year=EXTRACT(YEAR FROM CURRENT_TIMESTAMP-'1 month')
 				GROUP BY date_month
 				</cfquery>
 				

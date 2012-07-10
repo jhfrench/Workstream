@@ -24,7 +24,7 @@ WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND (Demographics.end_date IS NULL
 		OR Demographics.end_date > CURRENT_TIMESTAMP)
 	AND Emp_Contact.name!=''
-	AND CURRENT_TIMESTAMP BETWEEN effective_from AND COALESCE(effective_to,DATEADD(D,1,CURRENT_TIMESTAMP)) /*use this condition to retrieve only one record per person*/
+	AND CURRENT_TIMESTAMP BETWEEN effective_from AND COALESCE(effective_to,CURRENT_TIMESTAMP+'1 day') /*use this condition to retrieve only one record per person*/
 GROUP BY Emp_Contact.name, Emp_Contact.lname, Demographics.hire_date, Demographics.dob
 ORDER BY Emp_Contact.lname, Emp_Contact.name
 </cfquery>
