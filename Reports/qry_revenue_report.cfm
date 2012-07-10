@@ -38,8 +38,8 @@ FROM ABCD_Months, (
 		FROM ABCD_Months, Flat_Rate, Project
 		WHERE Flat_Rate.project_id=Project.project_id
 			AND ABCD_Months.start BETWEEN Flat_Rate.rate_start_date AND Flat_Rate.rate_end_date
-			AND Flat_Rate.rate_start_date <= GETDATE()
-			AND ABCD_Months.start <= GETDATE()
+			AND Flat_Rate.rate_start_date <= CURRENT_TIMESTAMP
+			AND ABCD_Months.start <= CURRENT_TIMESTAMP
 			AND Project.billable_type_id=3
 			AND Project.company_id IN (#session.workstream_selected_company_id#)
 		GROUP BY ABCD_Months.month, ABCD_Months.year, Project.billable_type_id
@@ -68,7 +68,7 @@ WHERE ABCD_Months.month*=Hour_Revenue.revenue_month
 	AND ABCD_Months.year*=Flat_Revenue.revenue_year
 	AND ABCD_Months.month*=Incident_Revenue.revenue_month
 	AND ABCD_Months.year*=Incident_Revenue.revenue_year
-	AND ABCD_Months.start <= GETDATE()
+	AND ABCD_Months.start <= CURRENT_TIMESTAMP
 ORDER BY ABCD_Months.year desc, ABCD_Months.month desc
 </cfquery>
 </cfsilent>

@@ -18,7 +18,7 @@
 <cfif len(attributes.PTO_override)>	
 <cfquery name="pto_rollover_entry" datasource="#application.datasources.main#">
 INSERT INTO PTO_Rollover (emp_id, pto_override, carryover_limit, rollover_year)
-VALUES(#variables.emp_id#, '#attributes.pto_override#', '#attributes.carryover_limit#', YEAR(GETDATE()))
+VALUES(#variables.emp_id#, '#attributes.pto_override#', '#attributes.carryover_limit#', YEAR(CURRENT_TIMESTAMP))
 </cfquery>
 </cfif>
 	

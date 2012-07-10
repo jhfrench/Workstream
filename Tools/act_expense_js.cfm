@@ -60,7 +60,7 @@ function popUp(on)
 <script language="Javascript">
 function seeDate() 
    {
-	var i = document.tL1.GETDATE() ;
+	var i = document.tL1.CURRENT_TIMESTAMP ;
 	document.myform.Date_Due.value = i ;
     return ;
    }

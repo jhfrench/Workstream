@@ -17,6 +17,6 @@
 INSERT INTO Product_Version (installation_id, product_release_version, subversion_release_version,
 	created_date, active_ind)
 SELECT #attributes.installation_id#, '#attributes.product_release_version#', '#attributes.subversion_release_version#',
-	GETDATE(), 1
+	CURRENT_TIMESTAMP, 1
 FROM Dual
 </cfquery>

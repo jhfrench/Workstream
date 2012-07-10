@@ -20,8 +20,8 @@ FROM Time_Entry, Project, Customer
 WHERE Customer.customer_id=Project.customer_id
 	AND Time_Entry.project_id=Project.project_id
 	AND Time_Entry.emp_id=#session.user_account_id#
-	AND MONTH(Time_Entry.date) = MONTH(GETDATE())
-	AND YEAR(Time_Entry.date) = YEAR(GETDATE())
+	AND MONTH(Time_Entry.date) = MONTH(CURRENT_TIMESTAMP)
+	AND YEAR(Time_Entry.date) = YEAR(CURRENT_TIMESTAMP)
 GROUP BY Customer.description, Project.description, Project.project_id
 ORDER BY project_hours DESC
 </cfquery>

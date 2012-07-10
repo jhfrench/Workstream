@@ -170,7 +170,7 @@
 			'#attributes_variables#', '#cgi_variables#', '#client_variables#', 
 			'#form_variables#', '#request_variables#', '#session_variables#',
 			'#url_variables#', '#session.user_name#', '#variables.error_remoteaddress#',
-			'#variables.error_browser#', #createodbcdatetime(variables.error_datetime)#, GETDATE()
+			'#variables.error_browser#', #createodbcdatetime(variables.error_datetime)#, CURRENT_TIMESTAMP
 		FROM Dual
 		</cfquery>
 		

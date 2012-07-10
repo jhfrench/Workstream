@@ -39,7 +39,7 @@ WHERE requirement_coded_ind=1
 UPDATE Link_Screen_Requirement
 SET requirement_coded_ind=1,
 	requirement_coded_by=#session.user_account_id#,
-	date_requirement_coded=GETDATE()
+	date_requirement_coded=CURRENT_TIMESTAMP
 WHERE requirement_coded_ind=0
 	AND l_s_r_id IN (#attributes.requirement_coded_ind#)
 </cfquery>

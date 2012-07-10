@@ -71,7 +71,7 @@ VALUES (#attributes.project_id#, #ii#)
 		<cfquery name="complete_tasks" datasource="#application.datasources.main#">
 		UPDATE Task
 		SET status_id=11,
-			complete_date=GETDATE()
+			complete_date=CURRENT_TIMESTAMP
 		WHERE task_id=#ii#
 		</cfquery> 
 	</cfloop>

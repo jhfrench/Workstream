@@ -40,7 +40,7 @@ FROM User_Password
 </cfquery>
 <cfif get_password.recordcount EQ 0>
 	<cfquery name="get_username" datasource="#application.datasources.main#">
-	SELECT user_account_id, GETDATE() AS password_created_date
+	SELECT user_account_id, CURRENT_TIMESTAMP AS password_created_date
 	FROM User_Account
 	</cfquery>
 	<cfmodule template="../common_files/act_encrypt.cfm" encryption_type="password_encryption" string_to_encrypt="#attributes.password#" user_account_id="#get_username.user_account_id#" password_created_date="#get_username.password_created_date#">

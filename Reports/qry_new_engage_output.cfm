@@ -36,7 +36,7 @@ FROM ABCD_Months ABCD,
 AS Project_By_Month
 WHERE ABCD.month*=Project_By_Month.month_entered
 	AND ABCD.year*=Project_By_Month.year_entered
-	AND ABCD.start <= GETDATE()
+	AND ABCD.start <= CURRENT_TIMESTAMP
 	<cfif len(get_first_elligible.first_elligible)>AND ABCD.start >= #temp_date#</cfif>
 ORDER BY ABCD.year DESC, ABCD.month DESC, Project_By_Month.customer_name
 </cfquery>

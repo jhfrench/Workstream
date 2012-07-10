@@ -39,7 +39,7 @@ VALUES (#attributes.emp_id#, '#attributes.date_start#', 1,
 <cfif deactivate_record>
 	<cfquery name="emp_job_update" datasource="#application.datasources.main#">
 	UPDATE Job_Title
-	SET date_end = GETDATE(),
+	SET date_end = CURRENT_TIMESTAMP,
 		active_ind = 0
 	WHERE job_title_id = #get_old_job.job_title_id#
 	</cfquery>

@@ -19,7 +19,7 @@ INSERT INTO Installation (application_name, email_server_id, environment_id,
 	host_server_id, product_id, created_date,
 	active_ind)
 SELECT '#variables.application_name#', #attributes.email_server_id#, #attributes.environment_id#, 
-	#attributes.host_server_id#, #attributes.product_id#, GETDATE(),
+	#attributes.host_server_id#, #attributes.product_id#, CURRENT_TIMESTAMP,
 	1
 FROM Dual
 </cfquery>

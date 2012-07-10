@@ -21,7 +21,7 @@
 DELETE FROM Notes
 <cfelse>
 UPDATE Notes
-SET date=GETDATE(),
+SET date=CURRENT_TIMESTAMP,
 	note='#attributes.note#'
 </cfif>
 WHERE notes_id=#attributes.notes_id#

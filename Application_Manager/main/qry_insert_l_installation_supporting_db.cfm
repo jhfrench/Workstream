@@ -17,6 +17,6 @@
 INSERT INTO L_Installation_Supporting_DB (installation_id, supporting_database_id, database_server_id,
 	datasource_name, created_date, active_ind)
 SELECT #attributes.installation_id#, #attributes.supporting_database_id#, #evaluate("attributes.database_server_id_#database_count_ii#")#,
-	'#evaluate("attributes.datasource_name_#database_count_ii#")#', GETDATE(), 1
+	'#evaluate("attributes.datasource_name_#database_count_ii#")#', CURRENT_TIMESTAMP, 1
 FROM Dual
 </cfquery>

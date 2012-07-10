@@ -18,7 +18,7 @@ INSERT INTO Support_Contact_Info (support_contact_type_id, last_name, first_name
 	phone, email, created_date, 
 	active_ind)
 SELECT #attributes.support_contact_type_id#, '#attributes.last_name#', '#attributes.first_name#',
-	'#attributes.phone#', '#attributes.email#', GETDATE(),
+	'#attributes.phone#', '#attributes.email#', CURRENT_TIMESTAMP,
 	1
 FROM Dual
 </cfquery>

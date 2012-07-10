@@ -19,7 +19,7 @@ FROM (
 		SELECT fiscal_year, SUM(revenue_goal) AS revenue_goal
 		FROM Revenue_Goal
 		WHERE company_id=#session.workstream_company_id#
-			AND fiscal_year <= YEAR(GETDATE())
+			AND fiscal_year <= YEAR(CURRENT_TIMESTAMP)
 		GROUP BY fiscal_year
 	) AS Revenue_Goal
 	LEFT OUTER JOIN (
@@ -47,11 +47,11 @@ FROM (
 				DATEDIFF(M, Flat_Rate.rate_start_date, Flat_Rate.rate_end_date)+1 AS amotization_period,
 				DATEDIFF(M, 
 					CASE
-						WHEN Flat_Rate.rate_start_date < CAST('1/1/'+CAST(YEAR(GETDATE()) AS VARCHAR(4)) AS DATETIME) THEN CAST('1/1/'+CAST(YEAR(GETDATE()) AS VARCHAR(4)) AS DATETIME)
+						WHEN Flat_Rate.rate_start_date < CAST('1/1/'+CAST(YEAR(CURRENT_TIMESTAMP) AS VARCHAR(4)) AS DATETIME) THEN CAST('1/1/'+CAST(YEAR(CURRENT_TIMESTAMP) AS VARCHAR(4)) AS DATETIME)
 						ELSE Flat_Rate.rate_start_date
 					END, 
 					CASE 
-						WHEN Flat_Rate.rate_end_date > GETDATE() THEN GETDATE()
+						WHEN Flat_Rate.rate_end_date > CURRENT_TIMESTAMP THEN CURRENT_TIMESTAMP
 						ELSE Flat_Rate.rate_end_date 
 					END
 				)+1 AS applicable_months,
@@ -59,11 +59,11 @@ FROM (
 				*
 				(DATEDIFF(M, 
 					CASE
-						WHEN Flat_Rate.rate_start_date < CAST('1/1/'+CAST(YEAR(GETDATE()) AS VARCHAR(4)) AS DATETIME) THEN CAST('1/1/'+CAST(YEAR(GETDATE()) AS VARCHAR(4)) AS DATETIME)
+						WHEN Flat_Rate.rate_start_date < CAST('1/1/'+CAST(YEAR(CURRENT_TIMESTAMP) AS VARCHAR(4)) AS DATETIME) THEN CAST('1/1/'+CAST(YEAR(CURRENT_TIMESTAMP) AS VARCHAR(4)) AS DATETIME)
 						ELSE Flat_Rate.rate_start_date
 					END, 
 					CASE 
-						WHEN Flat_Rate.rate_end_date > GETDATE() THEN GETDATE()
+						WHEN Flat_Rate.rate_end_date > CURRENT_TIMESTAMP THEN CURRENT_TIMESTAMP
 						ELSE Flat_Rate.rate_end_date 
 					END
 				)+1) AS revenue

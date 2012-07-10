@@ -14,17 +14,17 @@
 	Variables:
 	END FUSEDOC --->
 <cfquery name="prospects" datasource="#application.datasources.main#">
-SELECT COUNT(Project_ID) AS prospects, MONTH(DATEADD(m,-1,GETDATE())) AS nice_month
+SELECT COUNT(Project_ID) AS prospects, MONTH(DATEADD(m,-1,CURRENT_TIMESTAMP)) AS nice_month
 FROM Project
-WHERE MONTH(created_date) = MONTH(DATEADD(m,-1,GETDATE()))
-	AND YEAR(created_date) = YEAR(DATEADD(m,-1,GETDATE()))
+WHERE MONTH(created_date) = MONTH(DATEADD(m,-1,CURRENT_TIMESTAMP))
+	AND YEAR(created_date) = YEAR(DATEADD(m,-1,CURRENT_TIMESTAMP))
 	AND root_code = 6005
 </cfquery>
 <cfquery name="prospects_this_month" datasource="#application.datasources.main#">
-SELECT COUNT(Project_ID) AS prospects_this_month, MONTH(DATEADD(m,0,GETDATE())) AS nice_month
+SELECT COUNT(Project_ID) AS prospects_this_month, MONTH(DATEADD(m,0,CURRENT_TIMESTAMP)) AS nice_month
 FROM Project
-WHERE MONTH(created_date) = MONTH(DATEADD(m,0,GETDATE()))
-	AND YEAR(created_date) = YEAR(DATEADD(m,0,GETDATE()))
+WHERE MONTH(created_date) = MONTH(DATEADD(m,0,CURRENT_TIMESTAMP))
+	AND YEAR(created_date) = YEAR(DATEADD(m,0,CURRENT_TIMESTAMP))
 	AND root_code = 6005
 </cfquery>
 </cfsilent>

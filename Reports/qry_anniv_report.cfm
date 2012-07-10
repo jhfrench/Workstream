@@ -16,15 +16,15 @@
 
 <cfquery name="annivarsary" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name, Emp_Contact.lname, Demographics.hire_date,
-	DATEDIFF(M, Demographics.hire_date, GETDATE())/12.0 AS years_employed, Demographics.dob
+	DATEDIFF(M, Demographics.hire_date, CURRENT_TIMESTAMP)/12.0 AS years_employed, Demographics.dob
 FROM Emp_Contact, Demographics_Ngauge Demographics, Link_Company_Emp_Contact
 WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 	AND (Demographics.end_date IS NULL
-		OR Demographics.end_date > GETDATE())
+		OR Demographics.end_date > CURRENT_TIMESTAMP)
 	AND Emp_Contact.name!=''
-	AND GETDATE() BETWEEN effective_from AND COALESCE(effective_to,DATEADD(D,1,GETDATE())) /*use this condition to retrieve only one record per person*/
+	AND CURRENT_TIMESTAMP BETWEEN effective_from AND COALESCE(effective_to,DATEADD(D,1,CURRENT_TIMESTAMP)) /*use this condition to retrieve only one record per person*/
 GROUP BY Emp_Contact.name, Emp_Contact.lname, Demographics.hire_date, Demographics.dob
 ORDER BY Emp_Contact.lname, Emp_Contact.name
 </cfquery>

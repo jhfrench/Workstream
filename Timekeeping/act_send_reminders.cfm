@@ -33,7 +33,7 @@ WHERE Task.task_id=Task_Source.task_id
 	AND Email.email_type_id=1
 	AND Task.status_id!=11
 	AND Notification.notification_type=1
-	AND Notification.date_to_send<=GETDATE()
+	AND Notification.date_to_send<=CURRENT_TIMESTAMP
 	AND Notification.date_sent IS NULL
 </cfquery>
 <cfloop query="pre_due_email">
@@ -69,7 +69,7 @@ Description
 </cfmail>
 <cfquery name="update_notification" datasource="#application.datasources.main#">
 UPDATE notification
-SET date_sent=GETDATE()
+SET date_sent=CURRENT_TIMESTAMP
 WHERE task_id=#task_id#
 </cfquery>
 </cfloop>

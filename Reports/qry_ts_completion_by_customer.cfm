@@ -17,7 +17,7 @@ SELECT LEFT(Customer.description,8) AS description, AVG(Customer_Completion.comp
 FROM Customer, Project,
 	(SELECT Project.customer_id, 
 		(DATEDIFF(hour, Task.entry_date, COALESCE(Task.complete_date, 
-           CASE WHEN status_id != 7 THEN GETDATE() 
+           CASE WHEN status_id != 7 THEN CURRENT_TIMESTAMP 
            ELSE NULL END))) 
            AS completion_turnaround_hours
 	FROM Project, Task

@@ -32,7 +32,7 @@
 				<cfif isdefined("attributes.supervisor_settings")>
 					,expense_status_id = #attributes.supervisor_approval#,
 					<cfif attributes.accounting_approval EQ 2>
-						date_supervisor_approved = GETDATE(),
+						date_supervisor_approved = CURRENT_TIMESTAMP,
 					</cfif>
 					supervisor_approval_emp_id = #session.user_account_id#,
 					supervisor_approval_memo = '#attributes.supervisor_approval_memo#',
@@ -42,7 +42,7 @@
 				<cfif isdefined("attributes.accounting_pro_settings")>
 					,expense_status_id = #attributes.accounting_approval#,
 					<cfif attributes.accounting_approval EQ 4>
-						date_accounting_approved = GETDATE(),
+						date_accounting_approved = CURRENT_TIMESTAMP,
 					</cfif>
 					accounting_approval_memo = '#attributes.accounting_approval_memo#',
 					
@@ -96,10 +96,10 @@
 					,#session.user_account_id#,
 					'#attributes.supervisor_approval_memo#',
 					#attributes.supervisor_approval#,
-					<cfif attributes.supervisor_approval>GETDATE()</cfif>			
+					<cfif attributes.supervisor_approval>CURRENT_TIMESTAMP</cfif>			
 				</cfif>
 				<cfif isdefined("attributes.accounting_pro_settings")>
-					,GETDATE(),
+					,CURRENT_TIMESTAMP,
 					'#attributes.accounting_approval_memo#',
 					#attributes.accounting_approval#,
 					#session.user_account_id#

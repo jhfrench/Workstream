@@ -46,15 +46,15 @@ FROM (
 		AND Security.emp_id=#session.user_account_id#) Remainder,
 	(SELECT SUM(Time_Entry.hours) AS hours_taken
 	FROM Time_Entry
-	WHERE MONTH(Time_Entry.date)=MONTH(GETDATE())
-		AND YEAR(Time_Entry.date)=YEAR(GETDATE())
+	WHERE MONTH(Time_Entry.date)=MONTH(CURRENT_TIMESTAMP)
+		AND YEAR(Time_Entry.date)=YEAR(CURRENT_TIMESTAMP)
 		AND Time_Entry.emp_id=#session.user_account_id#
 		AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id = 1)
 	) AS Last_Month_Taken,
 	(SELECT SUM(PTO_Grant.granted_hours) AS earned_hours
 	FROM PTO_Grant
-	WHERE MONTH(PTO_Grant.date_granted)=MONTH(GETDATE())
-		AND YEAR(PTO_Grant.date_granted)=YEAR(GETDATE())
+	WHERE MONTH(PTO_Grant.date_granted)=MONTH(CURRENT_TIMESTAMP)
+		AND YEAR(PTO_Grant.date_granted)=YEAR(CURRENT_TIMESTAMP)
 		AND PTO_Grant.emp_id=#session.user_account_id#
 	) AS Last_Month_Earned
 </cfquery>

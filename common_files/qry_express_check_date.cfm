@@ -13,15 +13,15 @@
 	||
  --->
 <cfquery name="express_check_date" datasource="#application.datasources.main#">
-SELECT COALESCE(MAX(Date_Locked.date_locked), GETDATE()) AS date_locked
+SELECT COALESCE(MAX(Date_Locked.date_locked), CURRENT_TIMESTAMP) AS date_locked
 FROM Emp_Contact
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	INNER JOIN Date_Locked ON Link_Company_Emp_Contact.company_id=Date_Locked.company_id
 		AND Date_Locked.active_ind=1
 	INNER JOIN Demographics_Ngauge AS Demographics ON Emp_Contact.emp_id=Demographics.emp_id
 WHERE Emp_Contact.emp_id=#session.user_account_id# 
-	AND (Demographics.effective_to IS NULL OR Demographics.effective_to > GETDATE())
-	AND (Demographics.effective_from IS NULL OR Demographics.effective_from < GETDATE())
+	AND (Demographics.effective_to IS NULL OR Demographics.effective_to > CURRENT_TIMESTAMP)
+	AND (Demographics.effective_from IS NULL OR Demographics.effective_from < CURRENT_TIMESTAMP)
 </cfquery>
 </cfsilent>
 

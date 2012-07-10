@@ -18,7 +18,7 @@ INSERT INTO L_Installation_Support_Contact (installation_id, support_contact_inf
 	notes, sort_order, created_date,
 	active_ind)
 SELECT #attributes.installation_id#, #support_contact_info_id_ii#, 1,
-	'', 1, GETDATE(),
+	'', 1, CURRENT_TIMESTAMP,
 	1
 FROM Dual
 </cfquery>

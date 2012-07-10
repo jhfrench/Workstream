@@ -39,7 +39,7 @@ ORDER BY created_date ASC
 INSERT INTO Salary (emp_id, salary, created_date,
 	 date_implemented, active_ind, entered_by,
 	 salary_change_type_id, increase_amount, increase_percent)
-VALUES (#attributes.emp_id#, '#variables.salary#', GETDATE(),
+VALUES (#attributes.emp_id#, '#variables.salary#', CURRENT_TIMESTAMP,
 	'#attributes.date#', 1, #session.user_account_id#,
 	#attributes.salary_change_type#, '#variables.increase_amount#', '#variables.increase_percent#')
 </cfquery>
@@ -47,7 +47,7 @@ VALUES (#attributes.emp_id#, '#variables.salary#', GETDATE(),
 <cfif deactivate_record>
 <cfquery name="emp_salary_update" datasource="#application.datasources.main#">
 UPDATE Salary
-SET date_deactivated=GETDATE(),
+SET date_deactivated=CURRENT_TIMESTAMP,
 	active_ind=0,
 	date_through=#createodbcdatetime(get_old_salary.created_date)#
 WHERE salary_id=#get_old_salary.salary_id#

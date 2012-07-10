@@ -28,7 +28,7 @@ WHERE Turnover.demographics_id =* Demographics.demographics_id
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 	AND Demographics.hire_date IS NOT NULL  
 	AND ABCD_Quarter.date_start >= '#date_start#' 
-	AND ABCD_Quarter.date_end <= DATEADD(qq,1,  GETDATE())
+	AND ABCD_Quarter.date_end <= DATEADD(qq,1,  CURRENT_TIMESTAMP)
 GROUP BY ABCD_Quarter.thequarter, ABCD_Quarter.theyear
 ORDER BY ABCD_Quarter.thequarter, ABCD_Quarter.theyear
 </cfquery>
@@ -39,7 +39,7 @@ WHERE Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	AND Emp_Contact.emp_id = Demographics.emp_id
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#) 
 	AND Demographics.hire_date IS NOT NULL
-	AND (Demographics.end_date <= DATEADD(qq, 1, GETDATE()) 
+	AND (Demographics.end_date <= DATEADD(qq, 1, CURRENT_TIMESTAMP) 
 		OR Demographics.end_date IS NULL)
 	AND Demographics.hire_date >= #createodbcdatetime(date_start)#
 </cfquery>

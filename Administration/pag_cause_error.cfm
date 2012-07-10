@@ -72,7 +72,7 @@
 	SELECT #application.installation_id#, '/jfrench/FAAD/trunk/sourcecode/index.cfm', 'fuseaction=Administration.cause_error',
 		'http://serpens.indyne.hq.nasa.gov/jfrench/FAAD/trunk/sourcecode/index.cfm?fuseaction=Administration.cause_error', 'Element SETTING_TO_A_VARIABLE_THAT_WILL_NEVER_EXIST is undefined in variables.  <br />The error occurred on line 31.', 'FAAD:inst_169_date_2008-01-16 18:12:24_vers_244_env_21_host_1_e',
 		'', '198.116.131.105', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.11) Gecko/20071127 Firefox/2.0.0.11',
-		to_date('2008-02-01 10:27:01','YYYY-MM-DD HH24:MI:SS'), GETDATE()
+		to_date('2008-02-01 10:27:01','YYYY-MM-DD HH24:MI:SS'), CURRENT_TIMESTAMP
 	FROM Dual
 	</cfquery>
 

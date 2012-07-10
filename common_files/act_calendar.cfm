@@ -65,7 +65,7 @@ function popUp(on)
 function seeDate() 
    {
 <cfloop list="#attributes.field_name#" index="ii">
-	var i = document.tL1.GETDATE();
+	var i = document.tL1.CURRENT_TIMESTAMP;
 	document.#attributes.form_name#.#ii#.value = i;
 </cfloop>
     return;

@@ -30,5 +30,5 @@ WHERE User_Password.active_ind=1
 	AND Demographics.active_ind=1
 	AND Link_User_Account_Status.active_ind=1
 	AND Link_User_Account_Status.account_status_id=2
-	AND 90-(DATEDIFF(D, User_Password.created_date, GETDATE())) < -180
+	AND 90-(DATEDIFF(D, User_Password.created_date, CURRENT_TIMESTAMP)) < -180
 </cfquery>

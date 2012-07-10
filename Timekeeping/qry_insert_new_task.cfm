@@ -31,7 +31,7 @@ INSERT INTO Task (name, project_id, entry_date,
 	budgeted_hours, status_id, description,
 	creator, task_read, priority_id<!--- ,
 	notification_frequency_id --->)
-VALUES ('#attributes.task_name#', #attributes.project_id#, GETDATE(),
+VALUES ('#attributes.task_name#', #attributes.project_id#, CURRENT_TIMESTAMP,
 	#CreateODBCDate(attributes.date_start)#, #CreateODBCDate(attributes.due_date)#, #attributes.icon_id#,
 	#ceiling(attributes.budgeted_hours)#, #attributes.task_status#, '#attributes.task_details#',
 	#session.user_account_id#, 0, #attributes.priority_id#<!--- ,

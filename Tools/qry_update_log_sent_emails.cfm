@@ -14,7 +14,7 @@
 INSERT INTO Notification (task_id, email_id, notification_type,
 	date_sent)
 VALUES (#get_daily_email_list.task_id#, #get_daily_email_list.email_id#, #get_daily_email_list.notification_type#,
-	GETDATE())
+	CURRENT_TIMESTAMP)
 </cfquery>
 </cfsilent>
 

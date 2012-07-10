@@ -21,7 +21,7 @@ WHERE Expense.expense_status_id=REF_Expense_Status.expense_status_id
 	AND Expense.date_deleted IS NULL
 	AND Expense.emp_id=Link_Employee_Supervisor.user_account_id
 	AND Link_Employee_Supervisor.supervisor_id=#attributes.emp_id#
-	AND Expense.date_incurred BETWEEN Link_Employee_Supervisor.date_start AND COALESCE(Link_Employee_Supervisor.date_end,GETDATE())
+	AND Expense.date_incurred BETWEEN Link_Employee_Supervisor.date_start AND COALESCE(Link_Employee_Supervisor.date_end,CURRENT_TIMESTAMP)
 	AND Expense.expense_status_id=1
 ORDER BY <cfif isdefined("attributes.order_by")>#attributes.order_by#<cfelse>Expense.date_incurred</cfif>
 </cfquery>

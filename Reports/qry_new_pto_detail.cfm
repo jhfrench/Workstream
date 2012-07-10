@@ -22,14 +22,14 @@ FROM
 		AND Time_Entry.emp_id=#attributes.emp_id#
 		AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id=1)
 		AND Time_Entry.date >= #createodbcdatetime(Get_PTO_Start.pto_start_date)#
-		AND YEAR(Time_Entry.date) >= YEAR(GETDATE())
+		AND YEAR(Time_Entry.date) >= YEAR(CURRENT_TIMESTAMP)
 	UNION ALL
 	SELECT 0 AS hours_out, COALESCE(PTO_Grant.granted_hours, 0) AS hours_in, 
 		date_granted AS transaction_date, comments
 	FROM PTO_Grant
    	WHERE PTO_Grant.emp_id=#attributes.emp_id#
 		AND date_granted >= #createodbcdatetime(Get_PTO_Start.pto_start_date)#
-		AND YEAR([date_granted]) >= YEAR(GETDATE())
+		AND YEAR([date_granted]) >= YEAR(CURRENT_TIMESTAMP)
 ) Current_Year_PTO
 WHERE transaction_date >= #createodbcdatetime(Get_PTO_Start.pto_start_date)#
 ORDER BY transaction_date

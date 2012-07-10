@@ -31,7 +31,7 @@
 INSERT INTO Performance_Review (emp_id, rating, created_date,
 	 review_type_id, active_ind, reviewer_id,
 	 date_reviewed)
-VALUES (#attributes.emp_id#, '#attributes.rating#', GETDATE(),
+VALUES (#attributes.emp_id#, '#attributes.rating#', CURRENT_TIMESTAMP,
 	#review_type#, 1, #attributes.reviewer_id#,
 	'#attributes.date_reviewed#')
 </cfquery>

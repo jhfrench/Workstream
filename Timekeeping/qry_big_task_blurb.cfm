@@ -18,8 +18,8 @@
 SELECT TOP 1 SUM(Time_Entry.hours) AS project_hours, Time_Entry.project_id, Project.description AS project_name
 FROM Time_Entry, Project
 WHERE Time_Entry.emp_id=#session.user_account_id#
-	AND MONTH(Time_Entry.date) = MONTH(GETDATE())
-	AND YEAR(Time_Entry.date) = YEAR(GETDATE())
+	AND MONTH(Time_Entry.date) = MONTH(CURRENT_TIMESTAMP)
+	AND YEAR(Time_Entry.date) = YEAR(CURRENT_TIMESTAMP)
 	AND Project.project_id=Time_Entry.project_id
 GROUP BY Time_Entry.project_id, Project.description
 ORDER BY project_hours DESC

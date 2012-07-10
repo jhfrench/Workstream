@@ -158,7 +158,7 @@ Description: #prepare_email.description#
 			INSERT INTO Notification (task_id, email_id, notification_type,
 				date_sent, date_to_send)
 			VALUES (#attributes.task_id#, #prepare_email.email_id#, 7,
-				GETDATE(), GETDATE())
+				CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
 			</cfquery>
 		</cfif>
 	</cfif>

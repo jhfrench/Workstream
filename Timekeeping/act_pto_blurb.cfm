@@ -57,7 +57,7 @@
 		SELECT COALESCE(carryover_limit, 40) AS carryover_limit
 		FROM PTO_Rollover
 		WHERE emp_id=#session.user_account_id#
-			AND rollover_year=YEAR(GETDATE())
+			AND rollover_year=YEAR(CURRENT_TIMESTAMP)
 			AND #year(now())#=#year(now())#
 		</cfquery>
 		<cfif NOT len(get_current_carryover.carryover_limit)>

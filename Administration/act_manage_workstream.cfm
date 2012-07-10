@@ -30,7 +30,7 @@
 	<cfif isdefined("attributes.application_variables")>
 		<cfquery name="reset_application_name" datasource="#application.datasource.application_manager#">
 		UPDATE Last_Updated
-		SET last_updated=GETDATE()
+		SET last_updated=CURRENT_TIMESTAMP
 		</cfquery>
 		all application variables.
 	</cfif>

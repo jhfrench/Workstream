@@ -58,7 +58,7 @@ HAVING
 		WHEN 3 THEN DATEADD(wk, 1, MAX(date_sent))
 		WHEN 4 THEN DATEADD(d, 14, MAX(date_sent))
 		WHEN 5 THEN DATEADD(m, 1, MAX(date_sent))
-		END < GETDATE()
+		END < CURRENT_TIMESTAMP
 </cfquery>
 </cfsilent>
 

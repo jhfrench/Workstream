@@ -24,7 +24,7 @@ FROM
 	WHERE Team.task_id=Task.task_id
 		AND complete_date IS NOT NULL
 		AND due_date IS NOT NULL
-		AND due_date <= GETDATE()
+		AND due_date <= CURRENT_TIMESTAMP
 		AND Team.role_id=1
 		AND Team.emp_id IN (#valuelist(get_subordinates.emp_id)#))
 AS On_Time

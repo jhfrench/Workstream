@@ -31,7 +31,7 @@ FROM
 		FROM ABCD_Months, demographics
 		WHERE (demographics.emp_id=#page_pin#) 
 		AND ABCD_Months.Start > demographics.hire_date
-		AND (ABCD_Months.Start < GETDATE()) 
+		AND (ABCD_Months.Start < CURRENT_TIMESTAMP) 
 		AND ABCD_Months.Start > '1/1/2001')
 	as Emp_Duration 
 	WHERE PTO_Hours.emp_id=#page_pin# AND Emp_Duration.duration BETWEEN REF_PTO_Hours.Min_Month AND REF_PTO_Hours.Max_month

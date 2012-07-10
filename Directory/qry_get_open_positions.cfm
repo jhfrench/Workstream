@@ -31,7 +31,7 @@ WHERE active_ind = 1
 	AND (
 		(
 			Inner_Query2.position_id IS NOT NULL
-				AND Inner_Query2.effective_end_date < GETDATE()
+				AND Inner_Query2.effective_end_date < CURRENT_TIMESTAMP
 		)
 	or 
 		(

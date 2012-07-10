@@ -114,8 +114,8 @@ NOTE: These processes are still running from a previous call and will not be add
 						AND REF_Date.date_month=LOG_Upload.data_fiscal_month
 						AND LOG_Upload.active_ind=1
 						AND LOG_Upload.upload_source_id=#get_ftp_credentials.upload_source_id#
-				WHERE date_month=MONTH(DATEADD(m, -1, GETDATE()))
-					AND date_year=YEAR(DATEADD(m, -1, GETDATE()))
+				WHERE date_month=MONTH(DATEADD(m, -1, CURRENT_TIMESTAMP))
+					AND date_year=YEAR(DATEADD(m, -1, CURRENT_TIMESTAMP))
 				GROUP BY date_month
 				</cfquery>
 				
@@ -133,10 +133,10 @@ NOTE: These processes are still running from a previous call and will not be add
 					created_date)
 				SELECT '#variables.original_file_name#' AS original_file_name, '#variables.archived_file_name#' AS archived_file_name, #get_ftp_credentials.upload_source_id# AS upload_source_id /*#get_ftp_credentials.abbreviation#*/,
 					date_month, MAX(fiscal_year) AS fiscal_year, 1 AS created_by,
-					GETDATE() AS created_date
+					CURRENT_TIMESTAMP AS created_date
 				FROM REF_Date
-				WHERE date_month=MONTH(DATEADD(m, -1, GETDATE()))
-					AND date_year=YEAR(DATEADD(m, -1, GETDATE()))
+				WHERE date_month=MONTH(DATEADD(m, -1, CURRENT_TIMESTAMP))
+					AND date_year=YEAR(DATEADD(m, -1, CURRENT_TIMESTAMP))
 				GROUP BY date_month
 				</cfquery>
 				

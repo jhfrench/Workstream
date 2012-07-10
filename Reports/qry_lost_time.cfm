@@ -101,7 +101,7 @@ FROM Emp_Contact
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
 	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id = REF_Company.company_id
 	INNER JOIN Project ON Time_Entry.project_id = Project.project_id
-WHERE REF_Company.company_id  IN (#session.workstream_selected_company_id#) and demographics.end_date IS NULL and datepart(yy,time_entry.date) = datepart(yy, GETDATE())
+WHERE REF_Company.company_id  IN (#session.workstream_selected_company_id#) and demographics.end_date IS NULL and datepart(yy,time_entry.date) = datepart(yy, CURRENT_TIMESTAMP)
 GROUP BY emp_contact.lname, emp_contact.name, 
     demographics.pin, emp_contact.emp_id
 ORDER BY emp_contact.lname
