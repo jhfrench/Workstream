@@ -18,12 +18,12 @@
 <cfset variables.previous_month=CreateODBCDate("#month(variables.temp_date)#/1/#year(variables.temp_date)#")>
 <cfset variables.current_month=CreateODBCDate("#month(now())#/#daysinmonth(now())#/#year(now())#")>
 <cfquery name="hours_blurb" datasource="#application.datasources.main#">
-SELECT SUM(hours) AS month_hours, DATEPART(YYYY,date) AS work_year, DATEPART(M,date) AS work_month
+SELECT SUM(hours) AS month_hours, EXTRACT(YEAR FROM date) AS work_year, EXTRACT(MONTH FROM ,date) AS work_month
 FROM Time_Entry
 WHERE Time_Entry.emp_id=#session.user_account_id#
 	AND Time_Entry.date BETWEEN #variables.previous_month# AND #variables.current_month#
-GROUP BY DATEPART(YYYY,date), DATEPART(M,date)
-ORDER BY DATEPART(YYYY,date), DATEPART(M,date)
+GROUP BY EXTRACT(YEAR FROM date), EXTRACT(MONTH FROM ,date)
+ORDER BY EXTRACT(YEAR FROM date), EXTRACT(MONTH FROM date)
 </cfquery>
 </cfsilent>
 

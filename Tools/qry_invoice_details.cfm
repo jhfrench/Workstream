@@ -23,8 +23,8 @@ FROM Project, Billing_Rate, Emp_Contact, Demographics_Ngauge Demographics,
 	FROM Time_Entry, Link_Company_Emp_Contact
 	WHERE Time_Entry.emp_id=Link_Company_Emp_Contact.emp_id
 		AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
-		AND DATEPART(m, Time_Entry.date)=#attributes.month#
-		AND DATEPART(yyyy, Time_Entry.date)=#attributes.year#
+		AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#
+		AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.year#
 	GROUP BY project_id, Time_Entry.emp_id)
 	AS Hours_ID
 WHERE Project.project_id=Hours_ID.project_id

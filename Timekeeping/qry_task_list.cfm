@@ -90,8 +90,8 @@ FROM Task, Team, Emp_Contact,
 			<cfif from_invoice>INNER<cfelse>LEFT OUTER</cfif> JOIN (
 				SELECT SUM(hours) AS hours_used, task_id AS task_id
 				FROM Time_Entry<cfif from_invoice>
-				WHERE DATEPART(m, Time_Entry.date)=#attributes.month#
-					AND DATEPART(yyyy, Time_Entry.date)=#attributes.year#</cfif>
+				WHERE EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#
+					AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.year#</cfif>
 				GROUP BY task_id
 			) AS Recorded_Hours ON Path.task_id = Recorded_Hours.task_id
 		WHERE Task.task_id=Path.task_id
