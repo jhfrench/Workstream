@@ -42,7 +42,7 @@ FROM
 		AND Demographics.emp_id=Link_Company_Emp_Contact.emp_id
 		AND (Demographics.effective_to IS NULL OR Demographics.effective_to > CURRENT_TIMESTAMP)
 		AND (Demographics.end_date IS NULL 
-			OR Demographics.end_date >= DATEADD(year,1,Demographics.hire_date))
+			OR Demographics.end_date >= Demographics.hire_date+'1 year')
 		AND Demographics.employee_type_id!=8 /*exclude group lists from employee count*/
 		AND Link_Company_Emp_Contact.company_id=#listlast(session.workstream_company_id)#
 		AND EXTRACT(MONTH FROM Demographics.hire_date)=EXTRACT(MONTH FROM CURRENT_TIMESTAMP)
