@@ -34,18 +34,14 @@
 
 <cfinclude template="qry_general_user_info.cfm">
 <!--These are the client variables that contain demographic details about the particular user-->
-	<cfset session.workstream_alternate_datasource=general_user_info.alternate_datasource>
-	<cfset session.workstream_authuser=session.user_name>
 	<cfset session.workstream_company_id=general_user_info.company_id>
 	<cfset session.workstream_company_name=valuelist(general_user_info.company_name)>
 	<cfset session.workstream_pto_accrual_type_id=general_user_info.pto_accrual_type_id>
-	<cfset session.workstream_display_chat=general_user_info.display_chat>
 	<cfset session.workstream_emp_id=general_user_info.emp_id>
 	<cfset session.workstream_show_hours_data_ind=general_user_info.show_hours_data_ind><!--- This option helps us to decide if we should show the user "used hours" information --->
 	<cfset session.workstream_emp_contact_type=general_user_info.emp_contact_type>
 	<cfset session.first_name=general_user_info.first_name>
 	<cfset session.last_name=general_user_info.last_name>
-	<cfset session.workstream_last_updated=createodbcdatetime(general_user_info.last_updated)>
 	<cfset session.workstream_account_changed="#now()#">
 <!--These are the client variables that contain numbers to customize the express time entry input screen-->
 	<cfparam name="session.workstream_express_tree_height" default=300>
