@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 <cfquery name="get_subordinates_expense_register" datasource="#application.datasources.main#">
 SELECT Expense.expense_id, Expense.date_incurred, Expense.created_date,Expense.expense_status_id,
-	ISNULL(Expense.date_accounting_approved, Expense.date_supervisor_approved) AS date_approved,
+	COALESCE(Expense.date_accounting_approved, Expense.date_supervisor_approved) AS date_approved,
 	Expense.payee_name, REF_Expense_Status.description,
 	Expense.amount
 FROM Expense, REF_Expense_Status, Link_Employee_Supervisor
@@ -21,7 +21,7 @@ WHERE Expense.expense_status_id=REF_Expense_Status.expense_status_id
 	AND Expense.date_deleted IS NULL
 	AND Expense.emp_id=Link_Employee_Supervisor.user_account_id
 	AND Link_Employee_Supervisor.supervisor_id=#attributes.emp_id#
-	AND Expense.date_incurred BETWEEN Link_Employee_Supervisor.date_start AND ISNULL(Link_Employee_Supervisor.date_end,GETDATE())
+	AND Expense.date_incurred BETWEEN Link_Employee_Supervisor.date_start AND COALESCE(Link_Employee_Supervisor.date_end,GETDATE())
 	AND Expense.expense_status_id=1
 ORDER BY <cfif isdefined("attributes.order_by")>#attributes.order_by#<cfelse>Expense.date_incurred</cfif>
 </cfquery>

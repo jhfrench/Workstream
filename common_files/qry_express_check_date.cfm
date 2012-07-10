@@ -13,7 +13,7 @@
 	||
  --->
 <cfquery name="express_check_date" datasource="#application.datasources.main#">
-SELECT ISNULL(MAX(Date_Locked.date_locked), GETDATE()) AS date_locked
+SELECT COALESCE(MAX(Date_Locked.date_locked), GETDATE()) AS date_locked
 FROM Emp_Contact
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	INNER JOIN Date_Locked ON Link_Company_Emp_Contact.company_id=Date_Locked.company_id

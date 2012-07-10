@@ -14,7 +14,7 @@
 	
 	END FUSEDOC --->
 <cfquery name="get_carryover" cachedafter="02/02/1978" datasource="#application.datasources.main#">
-SELECT ISNULL(carryover_limit, 40) AS carryover_limit
+SELECT COALESCE(carryover_limit, 40) AS carryover_limit
 FROM PTO_Rollover
 WHERE emp_id=#session.user_account_id#
 	AND rollover_year=YEAR(GETDATE())-1
@@ -26,9 +26,9 @@ WHERE emp_id=#session.user_account_id#
 	<cfset variables.carryover_limit=get_carryover.carryover_limit>
 </cfif>
 <cfquery name="get_pto_totals" cachedwithin="#createtimespan(0,0,10,0)#" datasource="#application.datasources.main#">
-SELECT ISNULL(Carryover.emp_id,Junk.emp_id) AS emp_id,
-	ISNULL(SUM(Junk.pto_hours_earned), 0) AS pto_hours_earned, 
-	ISNULL(
+SELECT COALESCE(Carryover.emp_id,Junk.emp_id) AS emp_id,
+	COALESCE(SUM(Junk.pto_hours_earned), 0) AS pto_hours_earned, 
+	COALESCE(
 		CASE
 			WHEN Carryover.rollover > #variables.carryover_limit# THEN #variables.carryover_limit# 
 			ELSE rollover 
@@ -38,7 +38,7 @@ FROM
 
 	(SELECT (MAX(hours_in) - MAX(hours_out)) AS rollover, emp_id 
 	FROM
-		(SELECT SUM(ISNULL(Time_Entry.hours, 0)) AS hours_out, 0 AS hours_in, Time_Entry.emp_id
+		(SELECT SUM(COALESCE(Time_Entry.hours, 0)) AS hours_out, 0 AS hours_in, Time_Entry.emp_id
 		FROM Time_Entry
 		WHERE Time_Entry.emp_id=#session.user_account_id#
 			AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id=1)
@@ -46,7 +46,7 @@ FROM
 			AND YEAR(Time_Entry.date) < YEAR(GETDATE())
 		GROUP BY Time_Entry.emp_id
 		UNION ALL
-		SELECT 0 AS hours_out, SUM(ISNULL(PTO_Grant.granted_hours, 0)) AS hours_in, PTO_Grant.emp_id
+		SELECT 0 AS hours_out, SUM(COALESCE(PTO_Grant.granted_hours, 0)) AS hours_in, PTO_Grant.emp_id
 		FROM PTO_Grant
 	 	WHERE PTO_Grant.emp_id=#session.user_account_id#
 			AND date_granted >= (SELECT pto_start_date FROM REF_Company WHERE company_id=#session.workstream_company_id#) 
@@ -61,7 +61,7 @@ FROM
 			WHEN PTO_Rollover.pto_override > 0 THEN pto_override/12 
 			ELSE (SELECT accrual_rate
 				FROM REF_PTO_Hours
-				WHERE ISNULL(YEAR(GETDATE())-YEAR(Demographics.hire_date),0) 
+				WHERE COALESCE(YEAR(GETDATE())-YEAR(Demographics.hire_date),0) 
 					BETWEEN REF_PTO_Hours.min_year AND REF_PTO_Hours.max_year) 
 			END 
 		AS pto_hours_earned 

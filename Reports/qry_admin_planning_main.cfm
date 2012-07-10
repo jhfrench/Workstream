@@ -13,7 +13,7 @@
 	||
 	END FUSEDOC --->
 <cfquery name="admin_planning_main" datasource="#application.datasources.main#">
-SELECT ISNULL(AP_Time.ap_time,0) AS ap_time, Ttl_Time.ttl_time, ISNULL((AP_Time.ap_time/Ttl_Time.ttl_time),0)*100.000 AS ap_percent, 
+SELECT COALESCE(AP_Time.ap_time,0) AS ap_time, Ttl_Time.ttl_time, COALESCE((AP_Time.ap_time/Ttl_Time.ttl_time),0)*100.000 AS ap_percent, 
 	Ttl_Time.time_year, Ttl_Time.time_month
 FROM
 	(SELECT SUM(hours) AS ap_time, MONTH(date) AS time_month, YEAR(date) AS time_year
@@ -30,7 +30,7 @@ AS Ttl_Time
 WHERE AP_Time.time_month=*Ttl_Time.time_month
 	AND AP_Time.time_year=*Ttl_Time.time_year
 ORDER BY Ttl_Time.time_year DESC, Ttl_Time.time_month DESC
-<!--- SELECT ISNULL(SUM(admin_planning_time),0) AS admin_planning_time, time_month, time_year
+<!--- SELECT COALESCE(SUM(admin_planning_time),0) AS admin_planning_time, time_month, time_year
 FROM
 (
 <cfinclude template="sql_admin_planning_core.cfm">

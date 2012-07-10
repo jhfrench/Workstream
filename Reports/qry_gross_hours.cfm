@@ -26,8 +26,8 @@ WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND Emp_Contact.emp_id=Time_Entry.emp_id
 	AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	AND Demographics.effective_from <= #variables.date_closed#
-	AND Time_Entry.date BETWEEN Demographics.effective_from AND ISNULL(Demographics.effective_to, Time_Entry.date)
-	AND ISNULL(Demographics.effective_to,#variables.date_open#) >= #variables.date_open#
+	AND Time_Entry.date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, Time_Entry.date)
+	AND COALESCE(Demographics.effective_to,#variables.date_open#) >= #variables.date_open#
 	AND MONTH(Time_Entry.date)=#attributes.month#
 	AND YEAR(Time_Entry.date)=#attributes.year#
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
@@ -50,8 +50,8 @@ WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND Emp_Contact.emp_id=Time_Entry.emp_id
 	AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	AND Demographics.effective_from <= #variables.date_closed#
-	AND Time_Entry.date BETWEEN Demographics.effective_from AND ISNULL(Demographics.effective_to, Time_Entry.date)
-	AND ISNULL(Demographics.effective_to,#variables.date_open#) >= #variables.date_open#
+	AND Time_Entry.date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, Time_Entry.date)
+	AND COALESCE(Demographics.effective_to,#variables.date_open#) >= #variables.date_open#
 	AND MONTH(Time_Entry.date)=#attributes.month#
 	AND YEAR(Time_Entry.date)=#attributes.year#
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)

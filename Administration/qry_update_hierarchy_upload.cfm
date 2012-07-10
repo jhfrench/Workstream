@@ -35,9 +35,9 @@ SET organization_id=(
 	WHERE REF_Organization.active_ind=1
 		AND UPPER(REF_Organization.organization_code)=
 			CASE
-				WHEN ISNULL(Hierarchy_Upload.theme,'.')='.' THEN UPPER(Hierarchy_Upload.mission)
-				WHEN ISNULL(Hierarchy_Upload.program,'.')='.' THEN UPPER(Hierarchy_Upload.theme)
-				WHEN ISNULL(Hierarchy_Upload.project_wbs,'.')='.' THEN UPPER(Hierarchy_Upload.program)
+				WHEN COALESCE(Hierarchy_Upload.theme,'.')='.' THEN UPPER(Hierarchy_Upload.mission)
+				WHEN COALESCE(Hierarchy_Upload.program,'.')='.' THEN UPPER(Hierarchy_Upload.theme)
+				WHEN COALESCE(Hierarchy_Upload.project_wbs,'.')='.' THEN UPPER(Hierarchy_Upload.program)
 				ELSE UPPER(Hierarchy_Upload.project_wbs)
 			END
 	)

@@ -14,7 +14,7 @@
  --->
 <cfquery name="get_user_details" datasource="#application.datasources.main#">
 SELECT Emp_Contact.lname AS lname, LEFT(Emp_Contact.name,2) AS f_init, Emp_Contact.name as name,
-	Emp_Contact.emp_id AS emp_id, Link_Company_Emp_Contact.company_id, ISNULL(REF_Company.description,'NA') AS company_name,
+	Emp_Contact.emp_id AS emp_id, Link_Company_Emp_Contact.company_id, COALESCE(REF_Company.description,'NA') AS company_name,
 	Security.username, Security.password, Security.groups,
 	Security.disable, Email.email
 FROM Emp_Contact, Link_Company_Emp_Contact, REF_Company,

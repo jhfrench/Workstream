@@ -22,9 +22,9 @@
 	<-- task_id: number that uniquely identifies a task
  --->
 <cfquery name="get_task_accumulated" datasource="#application.datasources.main#">
-SELECT Task.task_id, ISNULL(Task.budgeted_hours,0) AS budgeted_hours, ISNULL(SUM(Time_Entry.hours),0) AS hours_used, 
-(CASE WHEN ISNULL(Task.budgeted_hours,0)=0 THEN 0 ELSE SUM(Time_Entry.hours)/Task.budgeted_hours*#variables.var1# END) AS image_width, 
-(CASE WHEN ISNULL(Task.budgeted_hours,0)=0 THEN 0 ELSE SUM(Time_Entry.hours)/Task.budgeted_hours*100 END) AS percent_used
+SELECT Task.task_id, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, COALESCE(SUM(Time_Entry.hours),0) AS hours_used, 
+(CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE SUM(Time_Entry.hours)/Task.budgeted_hours*#variables.var1# END) AS image_width, 
+(CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE SUM(Time_Entry.hours)/Task.budgeted_hours*100 END) AS percent_used
 FROM Time_Entry, Task
 WHERE Task.task_id=Time_Entry.task_id
 	AND Task.task_id=#attributes.task_id#

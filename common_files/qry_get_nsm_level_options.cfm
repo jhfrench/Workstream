@@ -115,7 +115,7 @@ FROM<cfloop query="get_nsm_levels">
 				/*retrieve all the level #l_p_y_h_id# organizations (ancestors) if any of that ancestor's desendants have the relevant access*/
 				SELECT organization_id
 				FROM (
-					SELECT CONNECT_BY_ROOT(Hierarchy_Assignment.organization_id) AS organization_id, ISNULL(Access_User_Account_Grouper.active_ind,0) AS child_access_count
+					SELECT CONNECT_BY_ROOT(Hierarchy_Assignment.organization_id) AS organization_id, COALESCE(Access_User_Account_Grouper.active_ind,0) AS child_access_count
 					FROM Hierarchy_Assignment
 						INNER JOIN Link_Program_Year_Hierarchy ON Hierarchy_Assignment.l_p_y_h_id=Link_Program_Year_Hierarchy.l_p_y_h_id
 							AND Hierarchy_Assignment.active_ind=1

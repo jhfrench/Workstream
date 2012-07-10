@@ -1,7 +1,7 @@
 /* common_files/sql_get_organization_workflow_eligibility.cfm
 	Author: Jeromy French */
 <cfoutput>
-SELECT Hierarchy_Assignment.parent_organization_id, SUM(Hierarchy_Assignment.active_ind) AS child_count, SUM(ISNULL(Workflow_Progress.active_ind,0)) AS workflow_count,
+SELECT Hierarchy_Assignment.parent_organization_id, SUM(Hierarchy_Assignment.active_ind) AS child_count, SUM(COALESCE(Workflow_Progress.active_ind,0)) AS workflow_count,
 	MAX(Workflow_Progress.created_date) AS created_date
 FROM Hierarchy_Assignment
 	INNER JOIN Link_Program_Year_Hierarchy ON Hierarchy_Assignment.l_p_y_h_id=Link_Program_Year_Hierarchy.l_p_y_h_id

@@ -108,7 +108,7 @@ NOTE: These processes are still running from a previous call and will not be add
 			<cfif len(variables.original_file_name)>
 				<p>FILE FOUND</p>
 				<cfquery name="get_log_upload" datasource="#application.datasources.main#">
-				SELECT MAX(REF_Date.fiscal_year) AS fiscal_year, MAX(REF_Date.date_month) AS date_month, ISNULL(MAX(LEFT(RIGHT(LOG_Upload.archived_file_name,6),2)),0) AS file_count
+				SELECT MAX(REF_Date.fiscal_year) AS fiscal_year, MAX(REF_Date.date_month) AS date_month, COALESCE(MAX(LEFT(RIGHT(LOG_Upload.archived_file_name,6),2)),0) AS file_count
 				FROM REF_Date
 					LEFT OUTER JOIN LOG_Upload ON REF_Date.fiscal_year=LOG_Upload.data_fiscal_year
 						AND REF_Date.date_month=LOG_Upload.data_fiscal_month

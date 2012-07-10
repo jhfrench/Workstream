@@ -17,7 +17,7 @@
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="100%">
 <cfif isdefined("attributes.last_loaded")>
 <cfquery name="get_created_task" datasource="#application.datasources.main#">
-SELECT ISNULL(Task.task_id,0) AS task_id
+SELECT COALESCE(Task.task_id,0) AS task_id
 FROM Task, Team
 WHERE Task.task_id=Team.Task_ID
 	AND Team.role_id=1

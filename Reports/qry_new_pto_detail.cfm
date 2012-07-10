@@ -15,7 +15,7 @@
 <cfquery name="get_pto_detail" datasource="#application.datasources.main#">
 SELECT hours_out, hours_in,  transaction_date, comments
 FROM
-	(SELECT ISNULL(Time_Entry.hours, 0) AS hours_out, 0 AS hours_in, 
+	(SELECT COALESCE(Time_Entry.hours, 0) AS hours_out, 0 AS hours_in, 
 		Time_Entry.date as transaction_date, CAST(Notes.note AS varchar(50)) AS comments
 	FROM Time_Entry, Notes
   	WHERE Time_Entry.notes_id=Notes.notes_id
@@ -24,7 +24,7 @@ FROM
 		AND Time_Entry.date >= #createodbcdatetime(Get_PTO_Start.pto_start_date)#
 		AND YEAR(Time_Entry.date) >= YEAR(GETDATE())
 	UNION ALL
-	SELECT 0 AS hours_out, ISNULL(PTO_Grant.granted_hours, 0) AS hours_in, 
+	SELECT 0 AS hours_out, COALESCE(PTO_Grant.granted_hours, 0) AS hours_in, 
 		date_granted AS transaction_date, comments
 	FROM PTO_Grant
    	WHERE PTO_Grant.emp_id=#attributes.emp_id#

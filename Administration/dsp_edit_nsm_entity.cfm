@@ -24,11 +24,11 @@
 <cfinclude template="qry_get_nsm_entity.cfm">
 
 <cfquery name="get_entity_associated_data_counts" datasource="#application.datasources.main#">
-SELECT ISNULL(SUM(ISNULL(active_ind,0)),0) AS count1
+SELECT COALESCE(SUM(COALESCE(active_ind,0)),0) AS count1
 FROM Variance_Explanation
 WHERE organization_id=#attributes.organization_id#
 UNION ALL
-SELECT ISNULL(SUM(ISNULL(active_ind,0)),0) AS count1
+SELECT COALESCE(SUM(COALESCE(active_ind,0)),0) AS count1
 FROM Phasing_Plan
 WHERE organization_id=#attributes.organization_id#
 </cfquery>

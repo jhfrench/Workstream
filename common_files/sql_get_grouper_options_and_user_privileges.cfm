@@ -7,7 +7,7 @@
 <cfif attributes.center_ind>
 SELECT REF_Center.center_id, REF_Center.abbreviation AS description, REF_Center.center_code,
 	<cfloop query="get_module_privilege_details">
-	ISNULL(User_Module_Privilege.#get_module_privilege_details.privilege_label#_ind,0) AS #get_module_privilege_details.privilege_label#_ind,</cfloop>
+	COALESCE(User_Module_Privilege.#get_module_privilege_details.privilege_label#_ind,0) AS #get_module_privilege_details.privilege_label#_ind,</cfloop>
 	REF_Hierarchy_Level.description AS hierarchy_description
 FROM REF_Center
 	INNER JOIN (
@@ -63,7 +63,7 @@ GROUP BY REF_Center.center_id
 <cfelse>
 SELECT REF_Organization.organization_id, REF_Organization.description, REF_Organization.organization_code,
 	REF_Organization.abbreviation,<cfloop query="get_module_privilege_details">
-	ISNULL(User_Module_Privilege.#get_module_privilege_details.privilege_label#_ind,0) AS #get_module_privilege_details.privilege_label#_ind,</cfloop>
+	COALESCE(User_Module_Privilege.#get_module_privilege_details.privilege_label#_ind,0) AS #get_module_privilege_details.privilege_label#_ind,</cfloop>
 	REF_Hierarchy_Level.description AS hierarchy_description
 FROM REF_Organization
 	INNER JOIN Hierarchy_Assignment ON REF_Organization.organization_id=Hierarchy_Assignment.organization_id

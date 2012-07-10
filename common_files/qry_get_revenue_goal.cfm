@@ -13,8 +13,8 @@
 	||
  --->
 <cfquery name="get_revenue_goal" datasource="#application.datasources.main#">
-SELECT fiscal_year, SUM(Revenue_Goal.revenue_goal) AS revenue_goal, SUM(ISNULL(Hourly_Revenue.revenue,0)) AS hourly_revenue,
-	SUM(ISNULL(Flat_Revenue.revenue,0)) AS flat_revenue, SUM(ISNULL(Incident_Revenue.revenue,0)) AS incident_revenue
+SELECT fiscal_year, SUM(Revenue_Goal.revenue_goal) AS revenue_goal, SUM(COALESCE(Hourly_Revenue.revenue,0)) AS hourly_revenue,
+	SUM(COALESCE(Flat_Revenue.revenue,0)) AS flat_revenue, SUM(COALESCE(Incident_Revenue.revenue,0)) AS incident_revenue
 FROM (
 		SELECT fiscal_year, SUM(revenue_goal) AS revenue_goal
 		FROM Revenue_Goal
@@ -25,7 +25,7 @@ FROM (
 	LEFT OUTER JOIN (
 		SELECT revenue_year, SUM(revenue) AS revenue
 		FROM (
-			SELECT SUM(Time_Entry.hours * ISNULL(Billing_Rate.rate,0)) AS revenue,
+			SELECT SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS revenue,
 				MONTH(Time_Entry.date) AS revenue_month, YEAR(Time_Entry.date) AS revenue_year
 			FROM Time_Entry
 				INNER JOIN Link_Company_Emp_Contact ON Time_Entry.emp_id=Link_Company_Emp_Contact.emp_id
@@ -73,7 +73,7 @@ FROM (
 		) AS Flat_Rate_Revenue
 	) AS Flat_Revenue ON Revenue_Goal.fiscal_year=Flat_Revenue.revenue_year
 	LEFT OUTER JOIN (
-		SELECT YEAR(Task.entry_date) AS revenue_year, COUNT(Task.task_id)*MIN(ISNULL(Incident_Rate.charge,0)) AS revenue
+		SELECT YEAR(Task.entry_date) AS revenue_year, COUNT(Task.task_id)*MIN(COALESCE(Incident_Rate.charge,0)) AS revenue
 		FROM Task
 			INNER JOIN Project ON Task.project_id=Project.project_id
 			INNER JOIN Incident_Rate ON Project.project_id=Incident_Rate.project_id

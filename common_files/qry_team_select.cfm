@@ -24,7 +24,7 @@
 <cfparam name="attributes.all_employees" default="0">
 <cfquery name="team_select" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT Emp_Contact.emp_id AS emp_id, Emp_Contact.lname, LEFT(Emp_Contact.name,2) AS f_init, 
-	Emp_Contact.name, ISNULL(Emp_Contact.lname,'')+', '+LEFT(ISNULL(Emp_Contact.name,''),2) AS display<cfif isdefined("variables.email_only")>, email_type_id</cfif>
+	Emp_Contact.name, COALESCE(Emp_Contact.lname,'')+', '+LEFT(COALESCE(Emp_Contact.name,''),2) AS display<cfif isdefined("variables.email_only")>, email_type_id</cfif>
 FROM Emp_Contact, Security_Company_Access, Security<cfif isdefined("variables.email_only")>, Email</cfif>
 WHERE Emp_Contact.emp_id=Security_Company_Access.emp_id<cfif isdefined("variables.email_only")>
 	AND Emp_Contact.emp_id=Email.emp_id

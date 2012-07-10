@@ -22,7 +22,7 @@
 --->
 
 <cfquery name="get_nsm_hierarchy_orgs_from_id" datasource="#application.datasources.main#">
-SELECT Hierarchy_Assignment.organization_id, ISNULL(Hierarchy_Assignment.parent_organization_id,0) AS parent_organization_id, REF_Organization.description + ' (' + REF_Organization.organization_code + ')' AS nsm_organization_description, 
+SELECT Hierarchy_Assignment.organization_id, COALESCE(Hierarchy_Assignment.parent_organization_id,0) AS parent_organization_id, REF_Organization.description + ' (' + REF_Organization.organization_code + ')' AS nsm_organization_description, 
 	REF_Hierarchy_Level.hierarchy_level_id, REF_Hierarchy_Level.description AS hierarchy_level_description, REF_Organization.description AS nsm_description
 FROM Hierarchy_Assignment 
 	INNER JOIN REF_Organization ON Hierarchy_Assignment.organization_id=REF_Organization.organization_id
@@ -35,7 +35,7 @@ WHERE Hierarchy_Assignment.active_ind=1
 	AND Link_Program_Year_Hierarchy.program_year_id=#attributes.program_year_id#
 	AND Link_Program_Year_Hierarchy.hierarchy_level_id=#attributes.hierarchy_level_id#
 	<cfif isdefined("attributes.organization_id")>
-		AND ISNULL(Hierarchy_Assignment.parent_organization_id,0)=#attributes.organization_id#
+		AND COALESCE(Hierarchy_Assignment.parent_organization_id,0)=#attributes.organization_id#
 	</cfif>
 	<cfif isdefined("variables.existing_organization_id") AND len(variables.existing_organization_id)>
 		AND Hierarchy_Assignment.organization_id NOT IN (#variables.existing_organization_id#)

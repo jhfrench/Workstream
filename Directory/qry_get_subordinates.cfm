@@ -26,7 +26,7 @@ FROM Emp_Contact, Link_Employee_Supervisor, Security
 WHERE Link_Employee_Supervisor.user_account_id=Emp_Contact.emp_id
 	AND Security.emp_id=Emp_Contact.emp_id
 	AND Link_Employee_Supervisor.supervisor_id = #attributes.emp_id#
-	AND GETDATE() BETWEEN Link_Employee_Supervisor.date_start AND ISNULL(Link_Employee_Supervisor.date_end, DATEADD(d,1,GETDATE()))
+	AND GETDATE() BETWEEN Link_Employee_Supervisor.date_start AND COALESCE(Link_Employee_Supervisor.date_end, DATEADD(d,1,GETDATE()))
 	AND Security.disable!=1
 ORDER BY lname, name
 </cfquery>

@@ -13,8 +13,8 @@
 	||
 	END FUSEDOC --->
 <cfquery name="get_sick_bank" datasource="#application.datasources.main#">
-SELECT Emp_Contact.lname, Emp_Contact.name, ISNULL(Sick_Bank.granted_hours,0) AS granted_hours,
-	ISNULL(Time_Taken.hours_used,0) AS hours_used, ISNULL(Sick_Bank.granted_hours,0)-ISNULL(Time_Taken.hours_used,0) AS hours_remaining
+SELECT Emp_Contact.lname, Emp_Contact.name, COALESCE(Sick_Bank.granted_hours,0) AS granted_hours,
+	COALESCE(Time_Taken.hours_used,0) AS hours_used, COALESCE(Sick_Bank.granted_hours,0)-COALESCE(Time_Taken.hours_used,0) AS hours_remaining
 FROM Emp_Contact, Sick_Bank,
 	(SELECT emp_id, SUM(hours) AS hours_used
 	FROM Time_Entry

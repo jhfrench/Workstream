@@ -13,7 +13,7 @@
 	||
 	END FUSEDOC --->
 <cfquery name="efficiency_report_main" datasource="#application.datasources.main#">
-SELECT ISNULL(Efficiency_Time.efficiency_time,0) AS efficiency_time, Ttl_Time.ttl_time, ISNULL((Efficiency_Time.efficiency_time/Ttl_Time.ttl_time),0)*100.000 AS efficiency_percent, 
+SELECT COALESCE(Efficiency_Time.efficiency_time,0) AS efficiency_time, Ttl_Time.ttl_time, COALESCE((Efficiency_Time.efficiency_time/Ttl_Time.ttl_time),0)*100.000 AS efficiency_percent, 
 	Ttl_Time.time_year, Ttl_Time.time_month
 FROM
 	(SELECT SUM(hours) AS efficiency_time, MONTH(date) AS time_month, YEAR(date) AS time_year

@@ -22,7 +22,7 @@ SELECT Emp_Contact.name, Emp_Contact.lname,
 FROM Emp_Contact 
 		INNER JOIN Time_Entry ON Emp_Contact.emp_id = Time_Entry.emp_id
 		INNER JOIN Demographics_Ngauge AS Demographics ON Emp_Contact.emp_id = Demographics.emp_id
-			AND Time_Entry.date BETWEEN Demographics.effective_from AND ISNULL(Demographics.effective_to, #createODBCDate(attributes.through_date)#)
+			AND Time_Entry.date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, #createODBCDate(attributes.through_date)#)
 		INNER JOIN Project ON Time_Entry.project_id = Project.project_id
 		INNER JOIN Customer ON Project.customer_id = Customer.customer_id
 		INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
@@ -33,7 +33,7 @@ WHERE Time_Entry.date BETWEEN #CreateODBCDate(attributes.from_date)# AND #Create
 	AND Project.project_id = #project_id#
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 	AND Demographics.effective_from <= #CreateODBCDate(attributes.through_date)#
-	AND ISNULL(Demographics.effective_to, #CreateODBCDate(attributes.from_date)#) >= #CreateODBCDate(attributes.from_date)#
+	AND COALESCE(Demographics.effective_to, #CreateODBCDate(attributes.from_date)#) >= #CreateODBCDate(attributes.from_date)#
 GROUP BY Emp_Contact.name, Emp_Contact.lname, 
 	Project.description, Project.project_code, 
 	REF_Employee_Classification.employee_classification, 

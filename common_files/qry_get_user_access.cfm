@@ -25,7 +25,7 @@
 SELECT REF_Module.module_id, REF_Module.description AS module_description, REF_Module.sort_order AS module_sort_order,
 	REF_Business_Function.parent_business_function_id, REF_Business_Function.parent_business_function, REF_Business_Function.business_function_id,
 	REF_Business_Function.description AS business_function_description, REF_Business_Function.leaf_ind, 
-	REF_Business_Function.hiearchy_level, REF_Business_Function.sort_order AS business_function_sort_order, ISNULL(Navigation_Child_Count.child_count,0) AS child_count,
+	REF_Business_Function.hiearchy_level, REF_Business_Function.sort_order AS business_function_sort_order, COALESCE(Navigation_Child_Count.child_count,0) AS child_count,
 	REF_Screen.screen_id, REF_Screen.fuseaction, REF_Screen.starting_point_ind,
 	CASE
 		WHEN Lock_Module.module_id IS NULL THEN 0
@@ -34,16 +34,16 @@ SELECT REF_Module.module_id, REF_Module.description AS module_description, REF_M
 FROM REF_Module
 	INNER JOIN REF_Screen ON REF_Module.module_id=REF_Screen.module_id
 	INNER JOIN (
-			SELECT ISNULL(Parent_Business_Function.business_function_id,Child_Business_Function.business_function_id) AS parent_business_function_id, ISNULL(Parent_Business_Function.description, Child_Business_Function.description) AS parent_business_function, Child_Business_Function.business_function_id,
+			SELECT COALESCE(Parent_Business_Function.business_function_id,Child_Business_Function.business_function_id) AS parent_business_function_id, COALESCE(Parent_Business_Function.description, Child_Business_Function.description) AS parent_business_function, Child_Business_Function.business_function_id,
 				Child_Business_Function.description, Child_Business_Function.viewable_ind, Child_Business_Function.require_login_ind,
-				/* ROW_NUMBER() OVER(ORDER BY ISNULL(Parent_Business_Function.sort_order,Child_Business_Function.sort_order), Parent_Business_Function.business_function_id, Child_Business_Function.sort_order) AS sort_order, */
-				ISNULL(Parent_Business_Function.sort_order,Child_Business_Function.sort_order) AS sort_order, 
+				/* ROW_NUMBER() OVER(ORDER BY COALESCE(Parent_Business_Function.sort_order,Child_Business_Function.sort_order), Parent_Business_Function.business_function_id, Child_Business_Function.sort_order) AS sort_order, */
+				COALESCE(Parent_Business_Function.sort_order,Child_Business_Function.sort_order) AS sort_order, 
 				CASE 
-					WHEN ISNULL(Child_Count.child_count,0)!=0 THEN 0
+					WHEN COALESCE(Child_Count.child_count,0)!=0 THEN 0
 					ELSE 1
 				END AS leaf_ind,
 				CASE
-					WHEN ISNULL(Parent_Business_Function.business_function_id,Child_Business_Function.business_function_id)!=Child_Business_Function.business_function_id THEN 2
+					WHEN COALESCE(Parent_Business_Function.business_function_id,Child_Business_Function.business_function_id)!=Child_Business_Function.business_function_id THEN 2
 					ELSE 1
 				END AS hiearchy_level
 			FROM REF_Business_Function AS Child_Business_Function

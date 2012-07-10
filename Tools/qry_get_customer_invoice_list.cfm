@@ -15,7 +15,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="get_customer_invoice_list" datasource="#application.datasources.main#">
-SELECT Customer.customer_id, Customer.description AS customer_name, SUM(Time_Entry.hours * ISNULL(Billing_Rate.rate,0)) AS revenue
+SELECT Customer.customer_id, Customer.description AS customer_name, SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS revenue
 FROM Time_Entry
 	INNER JOIN Link_Company_Emp_Contact ON Time_Entry.emp_id=Link_Company_Emp_Contact.emp_id
 	LEFT OUTER JOIN Billing_Rate ON Time_Entry.emp_id=Billing_Rate.emp_id

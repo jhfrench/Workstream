@@ -17,11 +17,11 @@
 
 <cfset company_list_use = listappend(session.workstream_selected_company_id, session.workstream_company_id)>
 <cfquery name="pto_blurb" cachedwithin="#createtimespan(0,0,10,0)#" datasource="#application.datasources.main#">
-SELECT ISNULL(Remainder.remain,0) AS remain, ISNULL(Remainder.remain,0)+ISNULL(Last_Month_Taken.hours_taken,0)-ISNULL(Last_Month_Earned.earned_hours,0) AS last_month, disable_pto
+SELECT COALESCE(Remainder.remain,0) AS remain, COALESCE(Remainder.remain,0)+COALESCE(Last_Month_Taken.hours_taken,0)-COALESCE(Last_Month_Earned.earned_hours,0) AS last_month, disable_pto
 FROM (
-	SELECT ISNULL(Hours_Taken_Table.hours_taken, 0) AS PTO_hours_used, 
-		ISNULL(Hours_Earned.earned_hours,0) AS pto_hours_earned, 
-		ISNULL(Hours_Earned.earned_hours,0)-ISNULL(Hours_Taken_Table.hours_taken,0) AS remain,
+	SELECT COALESCE(Hours_Taken_Table.hours_taken, 0) AS PTO_hours_used, 
+		COALESCE(Hours_Earned.earned_hours,0) AS pto_hours_earned, 
+		COALESCE(Hours_Earned.earned_hours,0)-COALESCE(Hours_Taken_Table.hours_taken,0) AS remain,
 		Security.disable_pto
 	FROM
 		(SELECT SUM(Time_Entry.hours) AS hours_taken, emp_id

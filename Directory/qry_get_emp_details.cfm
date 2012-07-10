@@ -21,11 +21,11 @@
 <cfquery name="get_emp_details" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name AS fname, Emp_Contact.lname AS lname, 
 	Demographics.ssn AS ssn, Demographics.dob, 
-	Demographics.hire_date, ISNULL(Demographics.photo,'nopic.jpg') AS photo, Demographics.end_date,
+	Demographics.hire_date, COALESCE(Demographics.photo,'nopic.jpg') AS photo, Demographics.end_date,
 	<!--- Demographics.supervisor AS supervisor_user_account_id, Supervisor.sup_name, --->
-	ISNULL(Emp_Contact.credentials,'') AS credentials, Emp_Biography.biography
+	COALESCE(Emp_Contact.credentials,'') AS credentials, Emp_Biography.biography
 FROM Emp_Contact, Demographics_Ngauge AS Demographics, Emp_Biography,
-	(SELECT ISNULL((lname + ', ' + name),'NA') AS sup_name, Demographics.emp_id AS emp_id
+	(SELECT COALESCE((lname + ', ' + name),'NA') AS sup_name, Demographics.emp_id AS emp_id
 	FROM Emp_Contact, Demographics_Ngauge AS Demographics
 	WHERE Emp_Contact.emp_id=*Demographics.supervisor
 		<cfif isdefined("attributes.emp_id") and len(attributes.emp_id)>

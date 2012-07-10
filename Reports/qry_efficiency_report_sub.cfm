@@ -15,9 +15,9 @@
 <cfquery name="efficiency_report_sub" datasource="#application.datasources.main#">
 SELECT Emp_Contact.emp_id, Emp_Contact.lname, Emp_Contact.name, Efficiency_Percent.efficiency_hours, Efficiency_Percent.efficiency_percent
 FROM Emp_Contact,
-	(SELECT Efficiency_Hours.emp_id, ISNULL(Efficiency_Hours.efficiency_hours,0) AS efficiency_hours, ISNULL(((Efficiency_Hours.efficiency_hours/Ttl_hours.ttl_hours)*100),0) AS efficiency_percent
+	(SELECT Efficiency_Hours.emp_id, COALESCE(Efficiency_Hours.efficiency_hours,0) AS efficiency_hours, COALESCE(((Efficiency_Hours.efficiency_hours/Ttl_hours.ttl_hours)*100),0) AS efficiency_percent
 	FROM
-		(SELECT Emp_Contact.emp_id, ISNULL(SUM(hours),0) AS efficiency_hours
+		(SELECT Emp_Contact.emp_id, COALESCE(SUM(hours),0) AS efficiency_hours
 		FROM Time_Entry, Emp_Contact
 		WHERE Time_Entry.emp_id=*Emp_Contact.emp_id
 			AND Emp_Contact.emp_id IN (#valuelist(get_subordinates.emp_id)#)

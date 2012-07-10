@@ -15,9 +15,9 @@
 <cfquery name="it_time_sub" datasource="#application.datasources.main#">
 SELECT Emp_Contact.emp_id, Emp_Contact.lname, Emp_Contact.name, IT_Percent.it_hours, IT_Percent.it_time_percent
 FROM Emp_Contact,
-	(SELECT IT_Hours.emp_id, ISNULL(IT_Hours.it_hours,0) AS it_hours, ISNULL(((IT_Hours.it_hours/Ttl_hours.ttl_hours)*100),0) AS it_time_percent
+	(SELECT IT_Hours.emp_id, COALESCE(IT_Hours.it_hours,0) AS it_hours, COALESCE(((IT_Hours.it_hours/Ttl_hours.ttl_hours)*100),0) AS it_time_percent
 	FROM
-		(SELECT Emp_Contact.emp_id, ISNULL(SUM(hours),0) AS it_hours
+		(SELECT Emp_Contact.emp_id, COALESCE(SUM(hours),0) AS it_hours
 		FROM Time_Entry, Emp_Contact
 		WHERE Time_Entry.emp_id=*Emp_Contact.emp_id
 			AND Emp_Contact.emp_id IN (#valuelist(get_subordinates.emp_id)#)

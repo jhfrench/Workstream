@@ -16,7 +16,7 @@
 SELECT REF_Product.product_name, AVG(Product_Completion.completion_turnaround_hours) AS avg_hours
 FROM REF_Product,
 	(SELECT Project.product_id, 
-		(DATEDIFF(hour, Task.entry_date, ISNULL(Task.complete_date, 
+		(DATEDIFF(hour, Task.entry_date, COALESCE(Task.complete_date, 
            CASE WHEN status_id != 7 THEN GETDATE() 
            ELSE NULL END))) 
            AS completion_turnaround_hours

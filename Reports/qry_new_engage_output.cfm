@@ -23,8 +23,8 @@ WHERE Customer.customer_id=Project.customer_id
 	<cfset temp_date=createodbcdatetime(CreateDate(Year(get_first_elligible.first_elligible),Month(get_first_elligible.first_elligible),1))>
 </cfif>
 <cfquery name="new_engage_output" datasource="#application.datasources.main#">
-SELECT ISNULL(Project_By_Month.root_code,0) AS root_code, ISNULL(Project_By_Month.customer_name,'NO NEW ENGAGEMENTS') AS customer_name, ABCD.Month AS month_entered,
-	ABCD.year AS year_entered, ISNULL(Project_By_Month.engagement_count,0) AS engagement_count
+SELECT COALESCE(Project_By_Month.root_code,0) AS root_code, COALESCE(Project_By_Month.customer_name,'NO NEW ENGAGEMENTS') AS customer_name, ABCD.Month AS month_entered,
+	ABCD.year AS year_entered, COALESCE(Project_By_Month.engagement_count,0) AS engagement_count
 FROM ABCD_Months ABCD,
 	(SELECT Customer.root_code AS root_code, Customer.description AS customer_name, COUNT(Project.project_id) AS engagement_count, 
 		MONTH(Project.created_date) AS month_entered, YEAR(Project.created_date) AS year_entered

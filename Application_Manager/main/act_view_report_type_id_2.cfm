@@ -16,11 +16,11 @@
 <cfquery name="qry_get_report_output" datasource="#application.datasources.main#">
 SELECT product_name, Data.page_count, Data.error_count, 
 	CASE
-		WHEN ISNULL(Data.page_count,0)=0 THEN Data.error_count
+		WHEN COALESCE(Data.page_count,0)=0 THEN Data.error_count
 		ELSE Data.error_count/Data.page_count
 	END*1000 AS error_rate
 FROM (
-	SELECT Product.product_name, SUM(ISNULL(LOG_Page_Request.page_count,0)) AS page_count, SUM(ISNULL(Error_LOG.error_count,0)) AS error_count
+	SELECT Product.product_name, SUM(COALESCE(LOG_Page_Request.page_count,0)) AS page_count, SUM(COALESCE(Error_LOG.error_count,0)) AS error_count
 	FROM Product
 		INNER JOIN Installation ON Installation.product_id=Product.product_id
 		LEFT OUTER JOIN (

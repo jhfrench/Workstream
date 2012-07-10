@@ -21,7 +21,7 @@ SELECT *
 FROM 
 	(SELECT Time_Rollover_From_2000 as hours_in, 0 as hours_out, '2001-01-01' as transaction_date
 	FROM PTO_Hours
-	WHERE (emp_id=#page_pin#) AND ISNULL(Time_Rollover_From_2000,0) > 0
+	WHERE (emp_id=#page_pin#) AND COALESCE(Time_Rollover_From_2000,0) > 0
 	UNION ALL
 	SELECT (CASE WHEN PTO_Hours.pto_type_indicator =0 THEN (REF_PTO_Hours.Accrual_Rate * 8) ELSE (PTO_Hours.pto_type_indicator/12) END) AS hours_in, 
 		0.0 AS hours_out, 

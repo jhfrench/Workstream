@@ -35,7 +35,7 @@ FROM Link_Company_Emp_Contact
 			SELECT Salary.*, REF_Salary_Change_Type.description AS salary_change_type
 			FROM Salary, REF_Salary_Change_Type
 			WHERE REF_Salary_Change_Type.salary_change_type_id=Salary.salary_change_type_id
-				AND #createodbcdate(attributes.start_date)# BETWEEN Salary.date_implemented AND ISNULL(Salary.date_through,GETDATE())/*Get salary as of specified date*/
+				AND #createodbcdate(attributes.start_date)# BETWEEN Salary.date_implemented AND COALESCE(Salary.date_through,GETDATE())/*Get salary as of specified date*/
 		) AS Salary1 ON Emp_Contact.emp_id=Salary1.emp_id 
 	LEFT OUTER JOIN Link_Employee_Supervisor
 		ON Emp_Contact.emp_id=Link_Employee_Supervisor.user_account_id
@@ -51,7 +51,7 @@ FROM Link_Company_Emp_Contact
 			AND Source_Data.created_date=Latest.created_date
 			) AS Performance_Review 
 		ON Emp_Contact.emp_id=Performance_Review.emp_id 
-	LEFT OUTER JOIN (SELECT emp_id, title, date_start FROM Job_Title WHERE #createodbcdate(attributes.start_date)# BETWEEN Job_Title.date_start AND ISNULL(Job_Title.date_end, GETDATE())) AS Job_Title
+	LEFT OUTER JOIN (SELECT emp_id, title, date_start FROM Job_Title WHERE #createodbcdate(attributes.start_date)# BETWEEN Job_Title.date_start AND COALESCE(Job_Title.date_end, GETDATE())) AS Job_Title
 		ON Emp_Contact.emp_id=Job_Title.emp_id 
 	LEFT OUTER JOIN REF_Employee_Classification 
 		ON Demographics.employee_classification_id=REF_Employee_Classification.employee_classification_id
@@ -61,8 +61,8 @@ FROM Link_Company_Emp_Contact
 		ON Demographics.merit_pool_id=REF_Merit_Pool.merit_pool_id
 	LEFT OUTER JOIN (SELECT emp_id, city FROM Location WHERE location_type_id=1) AS Office
 		ON Emp_Contact.emp_id=Office.emp_id
-WHERE #createodbcdate(attributes.start_date)# BETWEEN Demographics.hire_date AND ISNULL(Demographics.end_date,GETDATE())--Get only employees active as of specified date
-	AND #createodbcdate(attributes.start_date)# BETWEEN Link_Employee_Supervisor.date_start AND ISNULL(Link_Employee_Supervisor.date_end ,GETDATE())--Get supervisor as of specified date
+WHERE #createodbcdate(attributes.start_date)# BETWEEN Demographics.hire_date AND COALESCE(Demographics.end_date,GETDATE())--Get only employees active as of specified date
+	AND #createodbcdate(attributes.start_date)# BETWEEN Link_Employee_Supervisor.date_start AND COALESCE(Link_Employee_Supervisor.date_end ,GETDATE())--Get supervisor as of specified date
 	AND Link_Company_Emp_Contact.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
 ORDER BY Emp_Contact.LName, Emp_Contact.Name
 </cfquery>

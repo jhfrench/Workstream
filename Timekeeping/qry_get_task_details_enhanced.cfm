@@ -20,22 +20,22 @@
 	<cfset get_print_details=1>
 </cfif>
 <cfquery name="get_task_details" datasource="#application.datasources.main#">
-SELECT Task.task_type_id, Task.task_id AS task_id, Task.name AS task_name, ISNULL(Task.task_read,0) AS task_read, 
-	ISNULL(Task.description,'No description recorded for this task.') AS description, 
+SELECT Task.task_type_id, Task.task_id AS task_id, Task.name AS task_name, COALESCE(Task.task_read,0) AS task_read, 
+	COALESCE(Task.description,'No description recorded for this task.') AS description, 
 	Task.entry_date AS date_assigned, Task.due_date AS due_date, Task.complete_date,
 	<cfif get_print_details>REF_Status.status<cfelse>Task.status_id</cfif> AS status_id, Task.icon_id AS icon_id,
-	ISNULL(Task.creator,0) AS task_creator, ISNULL(Task_Source.emp_id,0) AS task_source,
+	COALESCE(Task.creator,0) AS task_creator, COALESCE(Task_Source.emp_id,0) AS task_source,
 	<cfif get_print_details>REF_Priority.description<cfelse>Task.priority_id</cfif> AS priority, REF_Status.status AS status,
-	ISNULL(Task_Accum.budgeted_hours,0) AS budgeted_hours, Task_Accum.hours_used AS hours_used, 
+	COALESCE(Task_Accum.budgeted_hours,0) AS budgeted_hours, Task_Accum.hours_used AS hours_used, 
 	Task_Accum.image_width AS image_width, Task_Accum.percent_used AS percent_used,
 	Task_Owner.emp_id AS owner_id, Task_QA.emp_id AS qa_id,
 	Customer.description AS customer_name, Project.description AS project_name, Project.project_id,
 	Task.notification_frequency_id, Task_Source.source_name
 FROM Task, REF_Status, Project, Customer,<cfif get_print_details> REF_Priority,</cfif>
 	(SELECT Task.task_id, Task.budgeted_hours AS budgeted_hours, 
-		ISNULL(SUM(Time_Entry.hours),0) AS hours_used, 
-		(CASE WHEN ISNULL(Task.budgeted_hours,0)=0 THEN 0 ELSE SUM(Time_Entry.hours)/Task.budgeted_hours*200 END) AS image_width, 
-		(CASE WHEN ISNULL(Task.budgeted_hours,0)=0 THEN 0 ELSE SUM(Time_Entry.hours)/Task.budgeted_hours*100 END) AS percent_used
+		COALESCE(SUM(Time_Entry.hours),0) AS hours_used, 
+		(CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE SUM(Time_Entry.hours)/Task.budgeted_hours*200 END) AS image_width, 
+		(CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE SUM(Time_Entry.hours)/Task.budgeted_hours*100 END) AS percent_used
 	FROM Time_Entry, Task
 	WHERE Task.task_id*=Time_Entry.task_id
 		AND Task.task_id=#attributes.task_id#

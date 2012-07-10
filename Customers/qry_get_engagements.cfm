@@ -14,7 +14,7 @@
 <cfquery name="get_engagements" datasource="#application.datasources.main#">
 SELECT Project.project_code, Project.description, Customer.description AS Cust_Description,
     Project.project_id, REF_Active_Indicator.active_ind_type, 
-    ISNULL(REF_Billable.billable_type, 'Unknown') AS billable, ISNULL(COUNT(Task.task_id),0) AS open_tasks
+    COALESCE(REF_Billable.billable_type, 'Unknown') AS billable, COALESCE(COUNT(Task.task_id),0) AS open_tasks
 FROM Project, Link_Project_Company, REF_Active_Indicator, REF_Billable, Task, Customer
 WHERE Project.project_id=Link_Project_Company.project_id
 	AND Project.active_ind=REF_Active_Indicator.active_ind

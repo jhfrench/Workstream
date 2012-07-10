@@ -54,7 +54,7 @@
 	<!--- Last three months of the year, remind employees about how much time they need to use --->
 	<cfif month(now()) GT 8>
 		<cfquery name="get_current_carryover" cachedafter="02/02/1978" datasource="#application.datasources.main#">
-		SELECT ISNULL(carryover_limit, 40) AS carryover_limit
+		SELECT COALESCE(carryover_limit, 40) AS carryover_limit
 		FROM PTO_Rollover
 		WHERE emp_id=#session.user_account_id#
 			AND rollover_year=YEAR(GETDATE())

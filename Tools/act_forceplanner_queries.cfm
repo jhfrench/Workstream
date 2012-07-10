@@ -29,14 +29,14 @@ FROM
 		CASE 
 			WHEN Task.status_id IN (7,13) THEN 
 				CASE 
-					WHEN SUM(ISNULL(Time_Entry.hours,0)) = 0 THEN 1 
+					WHEN SUM(COALESCE(Time_Entry.hours,0)) = 0 THEN 1 
 					ELSE 3
 				END
 			ELSE Task.status_id 
 		END AS previous_entry, 
 		Task.task_id AS task_id, Customer.description+'-'+Project.description AS project, Project.project_id,
-		Task.due_date, Task.name AS task_name, ISNULL(Task.budgeted_hours,0) AS budget, 
-		<cfloop list="#emp_id_loop#" index="ii"> (CASE WHEN Forecast_Assignment.emp_id=#ii# THEN ISNULL(Forecast_Assignment.hours_budgeted,0) ELSE 0 END) AS budget#ii#,
+		Task.due_date, Task.name AS task_name, COALESCE(Task.budgeted_hours,0) AS budget, 
+		<cfloop list="#emp_id_loop#" index="ii"> (CASE WHEN Forecast_Assignment.emp_id=#ii# THEN COALESCE(Forecast_Assignment.hours_budgeted,0) ELSE 0 END) AS budget#ii#,
 		</cfloop>(CASE WHEN Project.billable_type_id = 2 THEN 'NB' ELSE 'B' END) AS billable
 	FROM Customer, Project, Task, Team, Time_Entry, Forecast, Forecast_Assignment
 	WHERE Customer.customer_id=Project.customer_id
@@ -61,14 +61,14 @@ FROM
 		CASE
 			WHEN Task.status_id IN (7,13) THEN 
 				CASE 
-					WHEN SUM(ISNULL(Time_Entry.hours,0)) = 0 THEN 1 
+					WHEN SUM(COALESCE(Time_Entry.hours,0)) = 0 THEN 1 
 					ELSE 3 
 				END
 			ELSE Task.status_id
 		END AS previous_entry, 
 		Task.task_id AS task_id, Customer.description+'-'+Project.description AS project, Project.project_id, 
-		Task.due_date, Task.name AS task_name, ISNULL(Task.budgeted_hours,0) AS budget, 
-		<cfloop list="#emp_id_loop#" index="ii">SUM(CASE WHEN Team.role_id = 1 AND Team.emp_id =#ii# AND Team.task_id=Task.task_id THEN ISNULL(Task.budgeted_hours,0) ELSE 0 END) AS budget#ii#,
+		Task.due_date, Task.name AS task_name, COALESCE(Task.budgeted_hours,0) AS budget, 
+		<cfloop list="#emp_id_loop#" index="ii">SUM(CASE WHEN Team.role_id = 1 AND Team.emp_id =#ii# AND Team.task_id=Task.task_id THEN COALESCE(Task.budgeted_hours,0) ELSE 0 END) AS budget#ii#,
 		</cfloop>(CASE WHEN Project.billable_type_id = 2 THEN 'NB' ELSE 'B' END) AS billable
 	FROM Customer, Project, Task, Team, Time_Entry
 	WHERE Customer.customer_id=Project.customer_id

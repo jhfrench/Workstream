@@ -27,7 +27,7 @@
 --->
 
 <cfquery name="get_ref_tables" datasource="#application.datasources.main#">
-SELECT All_Tab_Columns.table_name, ISNULL(REF_Screen.fuseaction,'Not_Defined') AS fuseaction, 
+SELECT All_Tab_Columns.table_name, COALESCE(REF_Screen.fuseaction,'Not_Defined') AS fuseaction, 
 LOWER(All_Tab_Columns.table_name) AS lower_table_name, 
 	COUNT(*) AS column_count
 FROM information_schema.columns AS All_Tab_Columns 

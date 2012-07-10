@@ -21,7 +21,7 @@ WHERE task_id=#attributes.task_id# AND notification_type=6
 </cfquery>
 <cfloop list="#attributes.notification_cc_id#" index="ii">
 <cfquery name="get_email_id" datasource="#application.datasources.main#">
-SELECT ISNULL(email_id,0) AS email_id
+SELECT COALESCE(email_id,0) AS email_id
 FROM Email
 WHERE emp_id=#ii#
 </cfquery>

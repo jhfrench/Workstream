@@ -25,9 +25,9 @@
 SELECT *
 FROM Hierarchy_Upload
 WHERE parent_organization_id IS NULL
-	AND ISNULL(theme,'.')!='.'
-ORDER BY ISNULL(project_wbs,'!'), ISNULL(program,'!'), ISNULL(theme,'!'),
-	ISNULL(mission,'!')
+	AND COALESCE(theme,'.')!='.'
+ORDER BY COALESCE(project_wbs,'!'), COALESCE(program,'!'), COALESCE(theme,'!'),
+	COALESCE(mission,'!')
 </cfquery>
 
 <cfif get_bad_hierarchy_upload.recordcount EQ 0 AND variables.error_ind EQ 0>

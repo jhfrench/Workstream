@@ -16,9 +16,9 @@
 <cfset company_list_use = listappend(session.workstream_selected_company_id, session.workstream_company_id)>
 <cfquery name="pto_hours" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.emp_id, 
-	ISNULL(Hours_Taken_Table.hours_taken, 0) AS PTO_hours_used, 
-	ISNULL(Hours_Earned.earned_hours,0) AS pto_hours_earned, 
-	ISNULL(Hours_Earned.earned_hours,0)-ISNULL(Hours_Taken_Table.hours_taken,0) AS remain
+	COALESCE(Hours_Taken_Table.hours_taken, 0) AS PTO_hours_used, 
+	COALESCE(Hours_Earned.earned_hours,0) AS pto_hours_earned, 
+	COALESCE(Hours_Earned.earned_hours,0)-COALESCE(Hours_Taken_Table.hours_taken,0) AS remain
 FROM (
 		SELECT SUM(Time_Entry.hours) AS hours_taken, emp_id
 		FROM Time_Entry

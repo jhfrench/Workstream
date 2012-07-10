@@ -32,7 +32,7 @@ FROM Link_Screen_Comments
 	INNER JOIN Comments ON Link_Screen_Comments.comments_id=Comments.comments_id
 	INNER JOIN REF_Comments_Type ON Comments.comments_type_id=REF_Comments_Type.comments_type_id
 	LEFT OUTER JOIN (
-		SELECT User_Account.user_account_id, last_name+', '+first_name AS created_by
+		SELECT User_Account.user_account_id, last_name||', '||first_name AS created_by
 		FROM User_Account
 			INNER JOIN Demographics ON User_Account.user_account_id=Demographics.user_account_id
 		WHERE Demographics.active_ind=1

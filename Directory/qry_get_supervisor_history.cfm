@@ -18,7 +18,7 @@
 <cfparam default="0" name="need_all_supervisors">
 <cfquery name="get_supervisor_history" datasource="#application.datasources.main#">
 SELECT Link_Employee_Supervisor.supervisor_id, Link_Employee_Supervisor.date_start,
-		Link_Employee_Supervisor.date_end, ISNULL(Emp_Contact.LName + ', ' + Emp_Contact.Name, 'NA') AS sup_name
+		Link_Employee_Supervisor.date_end, COALESCE(Emp_Contact.LName + ', ' + Emp_Contact.Name, 'NA') AS sup_name
 FROM Link_Employee_Supervisor, Emp_Contact 
 WHERE Link_Employee_Supervisor.supervisor_id=Emp_Contact.emp_id<cfif isdefined("attributes.emp_id") and len(attributes.emp_id) AND need_all_supervisors NEQ 1>
 	AND (Link_Employee_Supervisor.user_account_id=#attributes.emp_id#)</cfif>

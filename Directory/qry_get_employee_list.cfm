@@ -25,8 +25,8 @@
 <cfquery name="get_employee_list" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT (Emp_Contact.lname + ', ' + Emp_Contact.name) AS name,
 	Emp_Contact.emp_id AS emp_id, REF_Company.description AS company,
-	ISNULL(Email.email,'NA') AS email, ISNULL(Phone.phone_number,'NA') AS phone_number,
-	ISNULL(Phone.extension,'NA') AS extension, Position_History.Position_ID
+	COALESCE(Email.email,'NA') AS email, COALESCE(Phone.phone_number,'NA') AS phone_number,
+	COALESCE(Phone.extension,'NA') AS extension, Position_History.Position_ID
 FROM Emp_Contact, Link_Company_Emp_Contact, REF_Company,
 	Security, Email, Phone,
 	Position_History, Demographics_Ngauge AS Demographics

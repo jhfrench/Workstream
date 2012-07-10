@@ -52,7 +52,7 @@ ORDER BY Login_Attempt.login_attempt_id DESC
 
 <!---retrieve specified user's activity from the LOG_Page_Request table--->
 <cfquery name="get_view_user_activity" datasource="#application.datasources.main#">
-SELECT LOG_Page_Request.page_request_id, ISNULL(REPLACE(dbo.LISTFIRST(dbo.LISTLAST(LOG_Page_Request.url_requested, '?'),'&'), 'fuseaction=', ''), LOG_Page_Request.url_requested) AS url_requested, LOG_Page_Request.page_load_time,
+SELECT LOG_Page_Request.page_request_id, COALESCE(REPLACE(dbo.LISTFIRST(dbo.LISTLAST(LOG_Page_Request.url_requested, '?'),'&'), 'fuseaction=', ''), LOG_Page_Request.url_requested) AS url_requested, LOG_Page_Request.page_load_time,
 	LOG_Page_Request.created_date AS request_date, CAST(LOG_Page_Request.created_date AS time(7)) AS request_time, DATEPART("Hh", LOG_Page_Request.created_date) AS request_hour, 
 	REF_Date.day_of_week_number, REF_Date.date_year, REF_Date.date_month,
 	DATEPART("wk",REF_Date.odbc_date) AS date_week, REF_Date.date_day

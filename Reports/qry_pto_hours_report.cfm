@@ -33,9 +33,9 @@ ORDER BY lname
 <cfelse>
 SELECT DISTINCT Emp_Contact.Name AS name, Emp_Contact.LName AS lname, 
 	Emp_Contact.emp_id AS pin, Used_Hours.used_hours AS used_hours,
-		ISNULL(REF_Day_Length.Day_Length, 8) AS day_length, PTO_Hours.pto_type_indicator AS pto_type_indicator
+		COALESCE(REF_Day_Length.Day_Length, 8) AS day_length, PTO_Hours.pto_type_indicator AS pto_type_indicator
 FROM Security_Company_Access, Emp_Contact, PTO_Hours, Demographics, REF_Day_Length, security,
-	(SELECT ISNULL(SUM(Time_Entry.hours),0) AS used_hours, Link_Company_Emp_Contact.emp_id AS emp_id
+	(SELECT COALESCE(SUM(Time_Entry.hours),0) AS used_hours, Link_Company_Emp_Contact.emp_id AS emp_id
 	FROM Time_entry, Link_Company_Emp_Contact
 	WHERE time_entry.project_id IN (SELECT project_id
 									FROM Project

@@ -19,7 +19,7 @@ SELECT YEAR(Turnaround_Times.entry_date) AS task_year, MONTH(Turnaround_Times.en
 FROM
 	(SELECT Task.entry_date, 
 		(DATEDIFF(n, Task.entry_date, MIN(Notes.created_date))/60.0) AS assessment_turnaround_hours,
-		(DATEDIFF(n, Task.entry_date, ISNULL(Task.complete_date,GETDATE()))/60.0) AS completion_turnaround_hours
+		(DATEDIFF(n, Task.entry_date, COALESCE(Task.complete_date,GETDATE()))/60.0) AS completion_turnaround_hours
 	FROM Task, Time_Entry, Notes, Project, REF_Product
 	WHERE Task.task_id=Time_Entry.task_id
 		AND Time_Entry.notes_id=Notes.notes_id

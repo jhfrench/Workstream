@@ -13,13 +13,13 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="PTO_hours" datasource="#application.datasources.main#">
-select demographics.emp_id, emp_contact.name, emp_contact.lname,sum(ISNULL(time_entry.hours,0)) as 'PTO_Hours_Used',
+select demographics.emp_id, emp_contact.name, emp_contact.lname,sum(COALESCE(time_entry.hours,0)) as 'PTO_Hours_Used',
 /*<!-- this is when the person doesn't fall into the regular accrual structure, if they don't fit in, the field pto_type_indicator is filled wth the number of pto HOURS that they will accrue through the whole year. so take the hours in the pto_type_indicator field and divide by 12 to get the monthly accrual, and then multiply the monthly accrual by the number of months passed so far for the number of months tht the employee has ben accruing time this year, - 1 (because you don't get your hours for this month until the month is over. -->*/
-ISNULL(case when pto_type_indicator > 0 then (CASE WHEN YEAR(HIRE_DATE) <> YEAR(GETDATE())  THEN pto_type_indicator /12 * (month(GETDATE()) - 1)ELSE pto_type_indicator /12 * (MONTH(GETDATE()) - month(tenure_date ))END)  else 
+COALESCE(case when pto_type_indicator > 0 then (CASE WHEN YEAR(HIRE_DATE) <> YEAR(GETDATE())  THEN pto_type_indicator /12 * (month(GETDATE()) - 1)ELSE pto_type_indicator /12 * (MONTH(GETDATE()) - month(tenure_date ))END)  else 
 /*<!-- If you haven't had your anniversary this year yet or your anniversary is this month, take the number of months this year minus 1 as the multiplier, else take the month of your anniversary minus 1 as the multiplier --> */
 (CASE WHEN MONTH(tenure_date) >= MONTH(GETDATE()) THEN month(GETDATE()) -1 else month(tenure_date) -1 end) *  
 /*<!--- When you have had your anniversary this year already, then --->*/
-ISNULL((CASE WHEN MONTH(tenure_date) < MONTH(GETDATE()) then
+COALESCE((CASE WHEN MONTH(tenure_date) < MONTH(GETDATE()) then
 	/*<!--Get the rate that you accrue PTO hours and multiply them times 8(because there are 8 hours per work day and time is accrued in days off) The where statement gets the proper accrual rate for how long you have worked at the company. -->*/
 
 	(select accrual_rate * 8

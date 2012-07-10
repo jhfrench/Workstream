@@ -15,10 +15,10 @@
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
 <cfquery name="get_task_details" datasource="#application.datasources.main#">
-SELECT Task.name AS task_name, ISNULL(Task.description,'No description recorded for this task.') AS description, 
+SELECT Task.name AS task_name, COALESCE(Task.description,'No description recorded for this task.') AS description, 
 	Task.project_id, Task.entry_date AS date_assigned, 
 	Task.due_date AS due_date, Task.status_id AS status_id, 
-	ISNULL(Task.budgeted_hours,0) AS budgeted_hours, Task.icon_id AS icon_id,
+	COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Task.icon_id AS icon_id,
 	Task.priority_id AS priority, REF_Status.status AS status
 FROM Task, REF_Status
 WHERE Task.task_id=#attributes.task_id#

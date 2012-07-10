@@ -37,7 +37,7 @@
 	</cfif>
 	
 	<cfquery name="get_most_recent" datasource="#application.datasources.main#">
-	SELECT organization_id<cfif attributes.center_ind>, ISNULL(center_id,0) AS center_id</cfif>, MAX(created_date) AS deactivated_date
+	SELECT organization_id<cfif attributes.center_ind>, COALESCE(center_id,0) AS center_id</cfif>, MAX(created_date) AS deactivated_date
 	FROM #attributes.table_name#
 	GROUP BY organization_id<cfif attributes.center_ind>, center_id</cfif>
 	</cfquery>
@@ -50,13 +50,13 @@
 				SET active_ind=0,
 					deactivated_date=#createodbcdate(deactivated_date)#
 				WHERE organization_id=#organization_id#<cfif attributes.center_ind>
-					AND ISNULL(center_id,0)=#center_id#</cfif>
+					AND COALESCE(center_id,0)=#center_id#</cfif>
 					AND #attributes.primary_key#=(
 						SELECT MAX(#attributes.primary_key#)
 						FROM #attributes.table_name#
 						WHERE active_ind=0
 							AND organization_id=#organization_id#<cfif attributes.center_ind>
-							AND ISNULL(center_id,0)=#center_id#</cfif>
+							AND COALESCE(center_id,0)=#center_id#</cfif>
 							AND deactivated_date IS NULL
 						)
 				</cfquery>
@@ -72,7 +72,7 @@
 		</cfquery>
 	
 		<cfquery name="get_most_recent" datasource="#application.datasources.main#">
-		SELECT organization_id<cfif attributes.center_ind>, ISNULL(center_id,0) AS center_id</cfif>, MIN(created_date) AS deactivated_date
+		SELECT organization_id<cfif attributes.center_ind>, COALESCE(center_id,0) AS center_id</cfif>, MIN(created_date) AS deactivated_date
 		FROM #attributes.table_name#
 		WHERE active_ind=0
 			AND deactivated_date IS NOT NULL

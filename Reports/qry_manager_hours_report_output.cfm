@@ -16,19 +16,19 @@
 <cfquery name="manager_hours_report_output" datasource="#application.datasources.main#">
 SELECT Employee_Data.employee_classification, Employee_Data.emp_id, Employee_Data.name,
 	Employee_Data.lname, Time_Entry_Data.date, Time_Entry_Data.display,
-	ISNULL(Time_Entry_Data.hours,0) AS hours, Employee_Data.company, Employee_Data.emp_id AS pin,
-	ISNULL(Notes.note,'') AS note
+	COALESCE(Time_Entry_Data.hours,0) AS hours, Employee_Data.company, Employee_Data.emp_id AS pin,
+	COALESCE(Notes.note,'') AS note
 FROM (
 	SELECT Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname,
-		MAX(ISNULL(REF_Employee_Classification.employee_classification, 'None')) AS employee_classification, REF_Company.description AS company
+		MAX(COALESCE(REF_Employee_Classification.employee_classification, 'None')) AS employee_classification, REF_Company.description AS company
 	FROM Emp_contact, Demographics, REF_Employee_Classification,
 		Link_Company_Emp_Contact, REF_Company
 	WHERE Emp_Contact.emp_id=Demographics.emp_id
 		AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id 
 		AND Link_Company_Emp_Contact.company_id=REF_Company.company_id 
-		AND REF_Employee_Classification.employee_classification_id =ISNULL(Demographics.employee_classification_id,7) 
-		AND ISNULL(Demographics.effective_to,#variables.from_date#) >= #variables.from_date#
-		AND ISNULL(Demographics.effective_from,#variables.through_date#) <= #variables.through_date#
+		AND REF_Employee_Classification.employee_classification_id =COALESCE(Demographics.employee_classification_id,7) 
+		AND COALESCE(Demographics.effective_to,#variables.from_date#) >= #variables.from_date#
+		AND COALESCE(Demographics.effective_from,#variables.through_date#) <= #variables.through_date#
 		AND Emp_Contact.emp_id IN (#attributes.included_emp_id#)
 	GROUP BY Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname, REF_Company.description
 	) AS Employee_Data 

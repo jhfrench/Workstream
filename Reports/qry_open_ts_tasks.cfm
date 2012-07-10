@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 <cfquery name="open_ts_tasks" datasource="#application.datasources.main#">
 SELECT Emp_contact.lname, Task.task_id, Task.name, Task.due_date, 
-	ISNULL(Task.budgeted_hours,0) AS budgeted_hours, REF_Status.status, 
+	COALESCE(Task.budgeted_hours,0) AS budgeted_hours, REF_Status.status, 
 	REF_Priority.description AS priority
 FROM Task, Team, Emp_Contact, REF_Status, REF_Priority
 WHERE Task.task_id=Team.task_id

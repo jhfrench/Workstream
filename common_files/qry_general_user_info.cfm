@@ -27,15 +27,14 @@
 	<cfset variables.authorized_user="">
 </cfif>
 <cfquery name="general_user_info" datasource="#application.datasources.main#">
-SELECT ISNULL(REF_Company.show_hours_data_ind,0) AS show_hours_data_ind, REF_Company.pto_accrual_type_id AS pto_accrual_type_id, REF_Company.display_chat AS display_chat,
+SELECT COALESCE(REF_Company.show_hours_data_ind,0) AS show_hours_data_ind, REF_Company.pto_accrual_type_id AS pto_accrual_type_id, REF_Company.display_chat AS display_chat,
 	REF_Company.company_id AS company_id, REF_Company.description AS company_name, REF_Company.alternate_datasource,
 	Emp_Contact.emp_id AS emp_id, Emp_Contact.name AS first_name, Emp_Contact.lname AS last_name,
-	Emp_Contact.emp_contact_type, Security.last_updated AS last_updated, ISNULL(Security.user_level, 0) AS user_level
-FROM Link_Company_Emp_Contact, REF_Company, Emp_Contact, Security
+	Emp_Contact.emp_contact_type
+FROM Link_Company_Emp_Contact, REF_Company, Emp_Contact, User_Account
 WHERE Link_Company_Emp_Contact.emp_id=Emp_Contact.emp_id
-	AND Emp_Contact.emp_id=Security.emp_id 
+	AND Emp_Contact.emp_id=User_Account.user_account_id
 	AND Link_Company_Emp_Contact.company_id=REF_Company.company_id
-	AND Security.disable=0
-	AND Security.username='#variables.authorized_user#'
+	AND User_Account.user_name='#variables.authorized_user#'
 </cfquery>
 </cfsilent>

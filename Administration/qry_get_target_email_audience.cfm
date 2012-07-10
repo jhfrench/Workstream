@@ -20,7 +20,7 @@
 </fusedoc>
 --->
 <cfquery name="get_target_email_audience" datasource="#application.datasources.main#">
-SELECT Target_Email_Audience.demographics_id, Target_Email_Audience.email_address, ISNULL(Email_Blacklist.active_ind,0) AS blacklist_ind
+SELECT Target_Email_Audience.demographics_id, Target_Email_Audience.email_address, COALESCE(Email_Blacklist.active_ind,0) AS blacklist_ind
 FROM (
 <cfswitch expression="#attributes.user_type_id#">
 	<cfcase value="1">

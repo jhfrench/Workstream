@@ -13,13 +13,13 @@
 	||
 	END FUSEDOC --->
 <cfquery name="revenue_report" datasource="#application.datasources.main#">
-SELECT ISNULL(Hour_Revenue.revenue,0) AS hour_revenue, 
-	ISNULL(Flat_Revenue.revenue,0) AS flat_revenue,
-	ISNULL(Incident_Revenue.revenue,0) AS incident_revenue,
-	(ISNULL(Hour_Revenue.revenue,0) + ISNULL(Flat_Revenue.revenue,0) + ISNULL(Incident_Revenue.revenue,0)) AS month_revenue,
+SELECT COALESCE(Hour_Revenue.revenue,0) AS hour_revenue, 
+	COALESCE(Flat_Revenue.revenue,0) AS flat_revenue,
+	COALESCE(Incident_Revenue.revenue,0) AS incident_revenue,
+	(COALESCE(Hour_Revenue.revenue,0) + COALESCE(Flat_Revenue.revenue,0) + COALESCE(Incident_Revenue.revenue,0)) AS month_revenue,
 	ABCD_Months.month, ABCD_Months.year
 FROM ABCD_Months, (
-		SELECT SUM(Time_Entry.hours * ISNULL(Billing_Rate.rate,0)) AS revenue,
+		SELECT SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS revenue,
 			MONTH(Time_Entry.date) AS revenue_month, YEAR(Time_Entry.date) AS revenue_year,
 			Project.billable_type_id AS billable_type_id
 		FROM Time_Entry, Link_Company_Emp_Contact, Billing_Rate, Project
@@ -32,7 +32,7 @@ FROM ABCD_Months, (
 		GROUP BY MONTH(Time_Entry.date), YEAR(Time_Entry.date), Project.billable_type_id
 	) AS Hour_Revenue,
 	(
-		SELECT SUM((ISNULL(Flat_Rate.budget,0)/ISNULL(Months,1))) AS revenue, 
+		SELECT SUM((COALESCE(Flat_Rate.budget,0)/COALESCE(Months,1))) AS revenue, 
 			ABCD_Months.month AS revenue_month, ABCD_Months.year AS revenue_year,
 			Project.billable_type_id AS billable_type_id
 		FROM ABCD_Months, Flat_Rate, Project
@@ -48,7 +48,7 @@ FROM ABCD_Months, (
 		SELECT SUM(Temp_Incident.revenue) AS revenue,
 				Temp_Incident.revenue_month AS revenue_month, Temp_Incident.revenue_year AS revenue_year
 		FROM
-			(SELECT ISNULL((COUNT(Task.task_id)*Incident_Rate.charge),0) AS revenue,
+			(SELECT COALESCE((COUNT(Task.task_id)*Incident_Rate.charge),0) AS revenue,
 					ABCD_Months.month AS revenue_month, ABCD_Months.year AS revenue_year,
 					Project.billable_type_id AS billable_type_id
 				FROM Task, Project, Incident_Rate, ABCD_Months

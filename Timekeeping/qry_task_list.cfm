@@ -52,15 +52,15 @@
 
 <cfquery name="task_list" datasource="#application.datasources.main#">
 SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id AS task_id, 
-	Task.name AS task_name, ISNULL(Task.description, 'No description provided.') AS task_description, ISNULL(Task.budgeted_hours,0) AS time_budgeted,
+	Task.name AS task_name, COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS time_budgeted,
 	Task.status_id AS status_id, Task_Details.time_used AS time_used, Task_Details.task_icon AS task_icon, 
 	Task_Details.percent_time_used AS percent_time_used, Task_Details.task_owner AS task_owner,
 	(CASE WHEN Task.status_id IN (4,10) THEN Task_Details.task_status+' by '+Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
 	(Customer.description + '-' + Project.description) AS project_name, priority
 FROM Task, Team, Emp_Contact,
 	Customer, Project, Link_Project_Company, (
-		SELECT Path.task_id AS task_id, ISNULL(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
-			(ISNULL(CASE WHEN ISNULL(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
+		SELECT Path.task_id AS task_id, COALESCE(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
+			(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
 			REF_Status.status AS task_status, Emp_Contact.lname AS task_owner, priority
 		FROM Task, REF_Status, Team,
 			Emp_Contact, (

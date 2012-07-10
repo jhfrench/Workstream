@@ -19,7 +19,7 @@
 <cfquery name="ip_by_week" datasource="#application.datasources.main#">
 SELECT COUNT(Task.task_id) AS task_count,
 	valid_weeks.week_in_year AS week_entered, valid_weeks.year_num AS year_entered,
-	ISNULL((AVG(DATEDIFF(hh,entry_date,complete_date))/24.00),0.00) AS days_to_complete
+	COALESCE((AVG(DATEDIFF(hh,entry_date,complete_date))/24.00),0.00) AS days_to_complete
 FROM Task,
 	(SELECT DATEPART(wk,REF_Date.date) AS week_in_year, REF_Date.date_year AS year_num
 	FROM REF_Date

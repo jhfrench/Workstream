@@ -29,7 +29,6 @@
 	<-- session.workstream_prefix: the code prefix that the user's company uses for creating customer codes
 	<-- session.workstream_display_chat:  this is a boolean value that determins if the chat tool is diaplayed
 	<-- 'session.workstream_#PN#_user': this is a boolean Value that is used to tell workstream what products the user has access to.
-	<-- session.workstream_user_level: this is used to tell us what level the user is, 1= Nucleus
 	<-- session.workstream_PTO_Accrual_Type_ID: this is the type of PTO accrual the user has.
 		END FUSEDOC --->
 
@@ -47,7 +46,6 @@
 	<cfset session.first_name=general_user_info.first_name>
 	<cfset session.last_name=general_user_info.last_name>
 	<cfset session.workstream_last_updated=createodbcdatetime(general_user_info.last_updated)>
-	<cfset session.workstream_user_level=general_user_info.user_level>
 	<cfset session.workstream_account_changed="#now()#">
 <!--These are the client variables that contain numbers to customize the express time entry input screen-->
 	<cfparam name="session.workstream_express_tree_height" default=300>

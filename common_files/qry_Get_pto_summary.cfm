@@ -16,8 +16,8 @@
 	
 <cfquery name="pto_hours" datasource="#application.datasources.main#">
 SELECT [name], lname, ec.emp_id,
-	ISNULL(hours_taken_table.hours_taken, 0) as PTO_hours_used, ISNULL(earned_hours,0) as PTO_hours_earned, 
-	ISNULL(hours_earned.Earned_hours,0) - ISNULL(hours_taken_table.hours_taken,0)  as remain
+	COALESCE(hours_taken_table.hours_taken, 0) as PTO_hours_used, COALESCE(earned_hours,0) as PTO_hours_earned, 
+	COALESCE(hours_earned.Earned_hours,0) - COALESCE(hours_taken_table.hours_taken,0)  as remain
 FROM (
 		SELECT SUM(te.hours) AS hours_taken, emp_id
 		FROM time_entry te

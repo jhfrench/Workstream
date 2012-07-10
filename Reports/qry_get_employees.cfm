@@ -14,7 +14,7 @@
 
 
 <cfquery name="manager" datasource="#application.datasources.main#">
-SELECT ISNULL(REF_Employee_Classification.employee_classification, 'None') AS employee_classification, Emp_Contact.Name, Emp_Contact.LName, 
+SELECT COALESCE(REF_Employee_Classification.employee_classification, 'None') AS employee_classification, Emp_Contact.Name, Emp_Contact.LName, 
     Demographics.pin, Demographics.emp_id, 
     REF_Company.description AS company, 0 AS disable
 FROM Emp_Contact

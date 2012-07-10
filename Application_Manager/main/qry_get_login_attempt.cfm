@@ -28,7 +28,7 @@ FROM Login_Attempt
 WHERE success_ind=0 /*only count invalid attempts since last valid login*/
 	AND login_attempt_id > (
 		/*get primary key of last time user was able to get in the system*/
-		SELECT ISNULL(MAX(login_attempt_id),1) AS last_successful_login_id
+		SELECT COALESCE(MAX(login_attempt_id),1) AS last_successful_login_id
 		FROM Login_Attempt
 		WHERE success_ind=1
 			AND user_name='#attributes.user_name#')

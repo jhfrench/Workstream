@@ -17,7 +17,7 @@
 <cfquery name="invoice_list" datasource="#application.datasources.main#">
 SELECT Customer.customer_id, Customer.root_code, Customer.description AS customer_name,
 	Project.project_id, Project.project_code, Project.description AS project_name, 
-	REF_Billable.billable_type_id, REF_Billable.billable_type, SUM(Time_Entry.hours * ISNULL(Billing_Rate.rate,0)) AS revenue, COUNT(DISTINCT Time_Entry.task_id) AS total_tasks
+	REF_Billable.billable_type_id, REF_Billable.billable_type, SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS revenue, COUNT(DISTINCT Time_Entry.task_id) AS total_tasks
 FROM Time_Entry
 	INNER JOIN Link_Company_Emp_Contact ON Time_Entry.emp_id=Link_Company_Emp_Contact.emp_id
 	LEFT OUTER JOIN Billing_Rate ON Time_Entry.emp_id=Billing_Rate.emp_id

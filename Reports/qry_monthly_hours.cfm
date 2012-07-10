@@ -33,9 +33,9 @@ WHERE Emp_Contact.emp_id=Time_Entry.emp_id
 	AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	AND Project.customer_id=Customer.customer_id
 	AND Demographics.employee_classification_id*=REF_Employee_Classification.employee_classification_id
-	AND Time_Entry.date BETWEEN Demographics.effective_from AND ISNULL(Demographics.effective_to, Time_Entry.date)
+	AND Time_Entry.date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, Time_Entry.date)
 	AND Demographics.effective_from <= #variables.through_date#
-	AND ISNULL(Demographics.effective_to,#variables.from_date#) >= #variables.from_date#
+	AND COALESCE(Demographics.effective_to,#variables.from_date#) >= #variables.from_date#
 	AND Time_Entry.date BETWEEN #variables.from_date# AND #variables.through_date#
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 	AND Project.billable_type_id IN (<cfif flag_non_billable>2<cfelse>1, 3, 4</cfif>)

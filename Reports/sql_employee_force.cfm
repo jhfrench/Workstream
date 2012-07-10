@@ -22,15 +22,15 @@ SELECT Task.task_id AS task_id, (Customer.description+'-'+Project.description) A
 	REF_Status.status AS status,
 	Task.due_date AS date_due,
 	Task.complete_date AS date_completed,
-	ISNULL(Recorded_Hours.hours_used,0) AS hours_used,  
+	COALESCE(Recorded_Hours.hours_used,0) AS hours_used,  
 	Task.budgeted_hours AS budgeted_hours,
-	(ISNULL(CASE WHEN ISNULL(Task.budgeted_hours,0) = 0 THEN 0 ELSE (ISNULL(Recorded_Hours.hours_used,0)/Task.budgeted_hours) END,0)*100) AS budget_used,
+	(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (COALESCE(Recorded_Hours.hours_used,0)/Task.budgeted_hours) END,0)*100) AS budget_used,
 	DATEDIFF(D,Task.assigned_date,Task.due_date)*1.0 AS given_days,
 	DATEDIFF(D,Task.assigned_date,Task.complete_date)*1.0 AS duration_days,
 	(CASE WHEN Task.complete_date <= DATEADD(S,86399,Task.due_date) THEN 1.0 ELSE 0.0 END) AS on_time,
-	(CASE WHEN (ISNULL(CASE WHEN ISNULL(Task.budgeted_hours,0) = 0 THEN 0.0 ELSE (ISNULL(Recorded_Hours.hours_used,0)/Task.budgeted_hours) END,0)*100) <= 100 THEN 1.0 ELSE 0.0 END) AS on_budget
+	(CASE WHEN (COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0.0 ELSE (COALESCE(Recorded_Hours.hours_used,0)/Task.budgeted_hours) END,0)*100) <= 100 THEN 1.0 ELSE 0.0 END) AS on_budget
 FROM Customer, Task, Project, REF_Priority, REF_Status, Team,<cfif isdefined("attributes.show_budgeted")> Forecast_Assignment,</cfif>
-	(SELECT SUM(ISNULL(Time_Entry.hours,0)) AS hours_used, task_id
+	(SELECT SUM(COALESCE(Time_Entry.hours,0)) AS hours_used, task_id
 	FROM Time_Entry
 	<cfif isdefined("variables.emp_id")>WHERE Time_Entry.emp_id IN (#variables.emp_id#)</cfif>
 	GROUP BY Time_Entry.task_id)
@@ -59,7 +59,7 @@ SELECT Task.task_id AS task_id, Project.description AS engagement, Task.name AS 
 	REF_Status.status AS status,
 	Task.priority_id AS priority_id,
 	Recorded_Hours.hours_used AS hours_used,  Task.budgeted_hours AS budgeted_hours, 
-	(ISNULL(CASE WHEN ISNULL(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS budget_used, 
+	(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS budget_used, 
 	DATEDIFF(D, Task.complete_date, Task.due_date) AS days_before_deadline,
 	DATEDIFF(D, Task.assigned_date, Task.due_date) AS days_to_do,
 	DATEDIFF(D, Task.assigned_date, Task.complete_date) AS days_taken,
@@ -67,9 +67,9 @@ SELECT Task.task_id AS task_id, Project.description AS engagement, Task.name AS 
 	(CASE WHEN Task.status_id != 11 THEN NULL ELSE ((
 		(CASE WHEN Project.billable_type_id = 3 THEN 10 ELSE 5 END*#variables.billable_weight#)+
 		((6-Task.priority_id)*2*#priority_weight#)+
-		(ISNULL(CASE WHEN ISNULL(Task.budgeted_hours,0) = 0 THEN 10 ELSE ((1-(ISNULL(Recorded_Hours.hours_used,0)/Task.budgeted_hours))*10) END,10)*#variables.time_percent_weight#)+
+		(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 10 ELSE ((1-(COALESCE(Recorded_Hours.hours_used,0)/Task.budgeted_hours))*10) END,10)*#variables.time_percent_weight#)+
 		((CASE WHEN DATEDIFF(D, Task.complete_date, Task.due_date) >= 0 THEN 10 ELSE 0 END) *#variables.on_time_weight#)<!--- +
-		((CASE WHEN DATEDIFF(HH, Task.assigned_date, Task.due_date) != 0 THEN ISNULL((DATEDIFF(HH, Task.assigned_date, Task.complete_date)/DATEDIFF(HH, Task.assigned_date, Task.due_date)),1) ELSE 1 END )*10*#variables.days_before_weight#) --->
+		((CASE WHEN DATEDIFF(HH, Task.assigned_date, Task.due_date) != 0 THEN COALESCE((DATEDIFF(HH, Task.assigned_date, Task.complete_date)/DATEDIFF(HH, Task.assigned_date, Task.due_date)),1) ELSE 1 END )*10*#variables.days_before_weight#) --->
 		)*10) END) AS efficiency_score
 FROM Task, Project, REF_Priority, REF_Status,
 	(SELECT Team.task_id
@@ -78,7 +78,7 @@ FROM Task, Project, REF_Priority, REF_Status,
 		AND Team.role_id=1
 	GROUP BY Team.task_id)
 AS Team,
-	(SELECT SUM(ISNULL(Time_Entry.hours,0)) AS hours_used, task_id
+	(SELECT SUM(COALESCE(Time_Entry.hours,0)) AS hours_used, task_id
 	FROM Time_Entry
 	WHERE Time_Entry.emp_id = #variables.emp_id#
 	GROUP BY Time_Entry.task_id)

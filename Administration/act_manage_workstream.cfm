@@ -28,7 +28,7 @@
 		</cfloop>
 	</cfif>
 	<cfif isdefined("attributes.application_variables")>
-		<cfquery name="Reset_Application_Name" datasource="#application.datasource.application_manager#">
+		<cfquery name="reset_application_name" datasource="#application.datasource.application_manager#">
 		UPDATE Last_Updated
 		SET last_updated=GETDATE()
 		</cfquery>

@@ -84,13 +84,13 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 		</cfquery>
 		
 		<cfquery name="get_previous_error_log" datasource="#application.datasources.main#">
-		SELECT ISNULL(MAX(error_log_id),0) AS error_log_id
+		SELECT COALESCE(MAX(error_log_id),0) AS error_log_id
 		FROM Error_Log
 		WHERE error_log_id < <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.error_log_id#">
 		</cfquery>
 		
 		<cfquery name="get_next_error_log" datasource="#application.datasources.main#">
-		SELECT ISNULL(MIN(error_log_id),0) AS error_log_id
+		SELECT COALESCE(MIN(error_log_id),0) AS error_log_id
 		FROM Error_Log
 		WHERE error_log_id > <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.error_log_id#">
 		</cfquery>
