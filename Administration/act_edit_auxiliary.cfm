@@ -16,7 +16,6 @@
 </cfsilent>
 <cftransaction isolation="READ_COMMITTED">
 	<cfinclude template="qry_update_security_company_access.cfm">
-	<cfinclude template="qry_update_last_changed.cfm">
 	<cfset application.team_changed=now()>
 </cftransaction>
 

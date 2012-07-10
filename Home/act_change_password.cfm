@@ -36,15 +36,15 @@
 <cfset variables.password_accepted_ind=0>
 <!--- check old password --->
 <cfif NOT len(attributes.old_password)>
-	<cfset variables.display_message="<li>Please enter current password">
+	<cfset variables.display_message="<li>Please enter current password</li>">
 </cfif>
 <!--- check new password --->
 <cfif NOT len(attributes.password)>
-	<cfset variables.display_message=variables.display_message & "<li>Please enter password">
+	<cfset variables.display_message=variables.display_message & "<li>Please enter password</li>">
 </cfif>
 <!--- check confirm password --->
 <cfif NOT len(attributes.confirm_password)>
-	<cfset variables.display_message=variables.display_message & "<li>Please enter confirm password">
+	<cfset variables.display_message=variables.display_message & "<li>Please enter confirm password</li>">
 </cfif>
 <!--- end comment 1 --->
 
