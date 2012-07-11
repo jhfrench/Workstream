@@ -13,7 +13,7 @@
 	||
 	Variables:
 	END FUSEDOC --->
-<cfif get_extreme_dates.difference GT 11>
+<cfif datediff("m", get_extreme_dates.min_date, get_extreme_dates.max_date) GT 11>
 	<cfset variables.month_list="1,2,3,4,5,6,7,8,9,10,11,12">
 <cfelse>
 	<cfset variables.month_list="">
@@ -33,7 +33,7 @@
 	</cfif>
 </cfif>
 <cfset variables.first_year=year(get_extreme_dates.min_date)>
-<cfset variables.last_year=year(now())>
+<cfset variables.last_year=year(get_extreme_dates.max_date)>
 </cfsilent>
 <cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="invoice_list" method="POST">
 <cfoutput>
