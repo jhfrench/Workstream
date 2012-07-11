@@ -13,9 +13,10 @@
 	 || 
 	END FUSEDOC --->
 <cfquery name="get_flat_rate" datasource="#application.datasources.main#">
-SELECT COALESCE(rate_start_date,'') AS rate_start_date, COALESCE(rate_end_date,'') AS rate_end_date, COALESCE(months,0) AS months
+SELECT COALESCE(rate_start_date,'') AS rate_start_date, COALESCE(rate_end_date,'') AS rate_end_date
 FROM Flat_Rate
-WHERE Flat_Rate.project_id=#attributes.project_id#
+WHERE WHERE active_ind=1
+	AND project_id=#attributes.project_id#
 </cfquery>
 </cfsilent>
 

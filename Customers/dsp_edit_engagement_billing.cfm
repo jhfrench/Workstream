@@ -52,11 +52,11 @@
 <cfinclude template="qry_get_flat_rate.cfm">
 	<tr valign="top">
 		<td colspan="2">
-			Start: <cfinput type="text" name="start_date" value="#dateformat(get_flat_rate.rate_start_date,"mm/dd/yy")#" required="yes" validate="date" message="Please enter a proper date for which billing is to begin on this engagement." size="8"> End: <cfinput type="text" name="end_date" value="#dateformat(get_flat_rate.rate_end_date,"mm/dd/yy")#" required="yes" validate="date" message="Please enter a proper date for which billing is to end on this engagement." size="8"> Months: <cfinput type="text" name="months" value="#get_flat_rate.months#" required="yes" validate="integer" message="Please enter the number of months over which this engagement will be billed to the customer." size="2"><br />
+			Start: <cfinput type="text" name="start_date" value="#dateformat(get_flat_rate.rate_start_date,"mm/dd/yy")#" required="yes" validate="date" message="Please enter a proper date for which billing is to begin on this engagement." size="8"> End: <cfinput type="text" name="end_date" value="#dateformat(get_flat_rate.rate_end_date,"mm/dd/yy")#" required="yes" validate="date" message="Please enter a proper date for which billing is to end on this engagement." size="8"><br />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">
-				<li>Provide the dates, and the number of months, for which this engagement will be billed to the customer.</li><cfset variables.start=incrementvalue(variables.start)>
+				<li>Provide the dates for which this engagement will be billed to the customer.</li><cfset variables.start=incrementvalue(variables.start)>
 			</ol>
 		</td>
 	</tr>

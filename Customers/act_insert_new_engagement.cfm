@@ -33,7 +33,7 @@ SELECT IDENT_CURRENT('Project') AS project_id
 <cfswitch expression="#attributes.billable_type_id#">
 <cfcase value="1">
 	<!--- hourly --->
-	<cfquery name="flat_rate" datasource="#application.datasources.main#">
+	<cfquery name="insert_billing_rate" datasource="#application.datasources.main#">
 	INSERT INTO Billing_Rate (project_id, rate, rate_start_date<cfif len(attributes.end_date)>, rate_end_date</cfif>, emp_id)
 	SELECT #get_project_id.project_id#, '#attributes.rate#', '#attributes.start_date#'<cfif len(attributes.end_date)>, '#attributes.end_date#'</cfif>, emp_id
 	FROM Link_Company_Emp_Contact
@@ -45,11 +45,9 @@ non-billable
 </cfcase> --->
 <cfcase value="3">
 	<!--- flat rate --->
-	<cfquery name="flat_rate" datasource="#application.datasources.main#">
-	INSERT INTO Flat_Rate (months, rate_start_date<cfif len(attributes.end_date)>, rate_end_date</cfif>,
-		project_id, budget)
-	VALUES(#attributes.months#, '#attributes.start_date#'<cfif len(attributes.end_date)>, '#attributes.end_date#'</cfif>
-		#get_project_id.project_id#, #attributes.budget#)
+	<cfquery name="insert_flat_rate" datasource="#application.datasources.main#">
+	INSERT INTO Flat_Rate (rate_start_date<cfif len(attributes.end_date)>, rate_end_date</cfif>, project_id, budget)
+	VALUES('#attributes.start_date#'<cfif len(attributes.end_date)>, '#attributes.end_date#'</cfif>, #get_project_id.project_id#, #attributes.budget#)
 	</cfquery>
 </cfcase>
 <cfcase value="4">

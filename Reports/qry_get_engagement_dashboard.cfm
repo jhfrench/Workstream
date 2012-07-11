@@ -23,7 +23,7 @@ SELECT Project.Status, Inner_Query.Total_Bill_Amount, Customer.Description AS cu
 	Project.Description, Project.project_code, Project.Vision,
 	Project.budget, Project.Mission, REF_Billable.Billable_Type,
 	Project.billable_type_id, Project.Active_InD, REF_Active_Indicator.Active_Ind_Type,
-	Flat_Rate.Months, Project.company_id, Flat_Rate.rate_end_date,
+	Project.company_id, Flat_Rate.rate_end_date,
 	Flat_Rate.rate_start_date, Project.IE_Emp_ID, Emp_Contact.LName,
 	Emp_Contact.Name, Project.project_id, Project.created_date,
 	Project.Date_Updated, Project.Project_End, Project.file_path,
@@ -34,6 +34,7 @@ FROM Project
 	INNER JOIN Customer ON Project.customer_id = Customer.customer_id
 	LEFT OUTER JOIN Emp_Contact ON Project.IE_Emp_ID = Emp_Contact.emp_id
 	LEFT OUTER JOIN Flat_Rate ON Project.project_id = Flat_Rate.project_id
+		AND Flat_Rate.active_ind=1
     LEFT OUTER JOIN (
 		SELECT project_id,SUM(Total_Bill_Amount) AS Total_Bill_Amount
 		FROM Billing_History

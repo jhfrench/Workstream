@@ -25,37 +25,18 @@ SET description='#attributes.description#',
 WHERE Project_id=#project_id#
 </cfquery>
 
-<cfif billable_type_id eq 3>
-
-	<cfquery name="get_flat_rate" datasource="#application.datasources.main#">
-        SELECT project_id
-		FROM Flat_Rate
-		WHERE project_id=#attributes.project_id#
-     </cfquery>
-	<cfif get_flat_rate.recordcount>
-		<cfquery name="update_flat_rate" datasource="#application.datasources.main#">
-		UPDATE Flat_Rate
-		SET months=#attributes.months#,
-			rate_start_date=#createodbcdate(attributes.start_date)#,
-			rate_end_date=#createodbcdate(attributes.end_date)#,
-			budget=#attributes.budget#
-		WHERE project_id=#attributes.project_id#
-		</cfquery>
-	<cfelse>
-		<cfquery name="insert_flat_rate" datasource="#application.datasources.main#">
-		INSERT INTO Flat_Rate (months, rate_start_date,
-			rate_end_date, project_id, budget)
-		VALUES (#attributes.months#, '#attributes.start_date#',
-			'#attributes.end_date#', #attributes.project_id#, #attributes.budget#)
-		</cfquery>
-	</cfif>
-	
-<cfelse>
 	<cfquery name="delete_flat_rate" datasource="#application.datasources.main#">
-        DELETE flat_rate
-		WHERE project_id=#attributes.project_id#
-     </cfquery>		
-</cfif>
+	UPDATE Flat_Rate
+	SET active_ind=0
+	WHERE active_ind=1
+		AND project_id=#attributes.project_id#
+	</cfquery>
+	<cfif billable_type_id EQ 3>
+		<cfquery name="insert_flat_rate" datasource="#application.datasources.main#">
+		INSERT INTO Flat_Rate (rate_start_date, rate_end_date, project_id, budget)
+		VALUES ('#attributes.start_date#', '#attributes.end_date#', #attributes.project_id#, #attributes.budget#)
+		</cfquery>	
+	</cfif>
 
 <cfquery name="delete_old" datasource="#application.datasources.main#">
 DELETE Link_Project_Company

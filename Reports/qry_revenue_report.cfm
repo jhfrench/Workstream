@@ -32,12 +32,13 @@ FROM ABCD_Months, (
 		GROUP BY EXTRACT(MONTH FROM Time_Entry.date), EXTRACT(YEAR FROM Time_Entry.date), Project.billable_type_id
 	) AS Hour_Revenue,
 	(
-		SELECT SUM((COALESCE(Flat_Rate.budget,0)/COALESCE(Months,1))) AS revenue, 
+		SELECT SUM((COALESCE(Flat_Rate.budget,0)/COALESCE(Flate_Rate.months,1))) AS revenue, 
 			ABCD_Months.month AS revenue_month, ABCD_Months.year AS revenue_year,
 			Project.billable_type_id AS billable_type_id
-		FROM ABCD_Months, Flat_Rate, Project
-		WHERE Flat_Rate.project_id=Project.project_id
-			AND ABCD_Months.start BETWEEN Flat_Rate.rate_start_date AND Flat_Rate.rate_end_date
+		FROM Flat_Rate
+			INNER JOIN Project ON Flat_Rate.project_id=Project.project_id
+			INNER JOIN ABCD_Months ON ABCD_Months.start BETWEEN Flat_Rate.rate_start_date AND Flat_Rate.rate_end_date
+		WHERE Flat_Rate.active_ind=1
 			AND Flat_Rate.rate_start_date <= CURRENT_TIMESTAMP
 			AND ABCD_Months.start <= CURRENT_TIMESTAMP
 			AND Project.billable_type_id=3

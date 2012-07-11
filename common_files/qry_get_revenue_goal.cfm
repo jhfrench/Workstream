@@ -13,8 +13,8 @@
 	 || 
  --->
 <cfquery name="get_revenue_goal" datasource="#application.datasources.main#">
-SELECT fiscal_year, SUM(Revenue_Goal.revenue_goal) AS revenue_goal, SUM(COALESCE(Hourly_Revenue.revenue,0)) AS hourly_revenue,
-	SUM(COALESCE(Flat_Revenue.revenue,0)) AS flat_revenue, SUM(COALESCE(Incident_Revenue.revenue,0)) AS incident_revenue
+SELECT fiscal_year, SUM(Revenue_Goal.revenue_goal) AS revenue_goal, ROUND(SUM(COALESCE(Hourly_Revenue.revenue,0))) AS hourly_revenue,
+	ROUND(SUM(COALESCE(Flat_Revenue.revenue,0))) AS flat_revenue, ROUND(SUM(COALESCE(Incident_Revenue.revenue,0))) AS incident_revenue
 FROM (
 		SELECT fiscal_year, SUM(revenue_goal) AS revenue_goal
 		FROM Revenue_Goal
@@ -39,38 +39,22 @@ FROM (
 			) AS Hour_Revenue
 		GROUP BY revenue_year
 	) AS Hourly_Revenue ON Revenue_Goal.fiscal_year=Hourly_Revenue.revenue_year
-	LEFT OUTER JOIN (
-		/*this flat-rate subquery is wrong--it needs to allocate revenue by month so it can be prorated correctly into the timeframe it was earned*/
-		SELECT 2011 AS revenue_year, SUM(revenue) AS revenue
+	LEFT OUTER JOIN 	(
+		SELECT date_year AS revenue_year, SUM(earned_days_count/amortization_period*budget) AS revenue
 		FROM (
-			SELECT Flat_Rate.budget, Flat_Rate.rate_start_date, Flat_Rate.rate_end_date,
-				DATEDIFF(M, Flat_Rate.rate_start_date, Flat_Rate.rate_end_date)+1 AS amotization_period,
-				DATEDIFF(M, 
-					CASE
-						WHEN Flat_Rate.rate_start_date < CAST('1/1/' || CAST(EXTRACT(YEAR FROM CURRENT_TIMESTAMP) AS varchar(4)) AS DATETIME) THEN CAST('1/1/' || CAST(EXTRACT(YEAR FROM CURRENT_TIMESTAMP) AS varchar(4)) AS DATETIME)
-						ELSE Flat_Rate.rate_start_date
-					END, 
-					CASE 
-						WHEN Flat_Rate.rate_end_date > CURRENT_TIMESTAMP THEN CURRENT_TIMESTAMP
-						ELSE Flat_Rate.rate_end_date 
-					END
-				)+1 AS applicable_months,
-				Flat_Rate.budget/(DATEDIFF(M, Flat_Rate.rate_start_date, Flat_Rate.rate_end_date)+1)
-				*
-				(DATEDIFF(M, 
-					CASE
-						WHEN Flat_Rate.rate_start_date < CAST('1/1/' || CAST(EXTRACT(YEAR FROM CURRENT_TIMESTAMP) AS varchar(4)) AS DATETIME) THEN CAST('1/1/' || CAST(EXTRACT(YEAR FROM CURRENT_TIMESTAMP) AS varchar(4)) AS DATETIME)
-						ELSE Flat_Rate.rate_start_date
-					END, 
-					CASE 
-						WHEN Flat_Rate.rate_end_date > CURRENT_TIMESTAMP THEN CURRENT_TIMESTAMP
-						ELSE Flat_Rate.rate_end_date 
-					END
-				)+1) AS revenue
+			SELECT REF_Date.date_year, Flat_Rate.flat_rate_id, (COUNT(REF_Date.date_id)-1)/30.4 AS earned_days_count,
+				DATE_PART('day', Flat_Rate.rate_end_date-Flat_Rate.rate_start_date)/30.4 AS amortization_period, Flat_Rate.budget
 			FROM Project
 				INNER JOIN Flat_Rate ON Project.project_id=Flat_Rate.project_id
-			WHERE Project.billable_type_id=3
-		) AS Flat_Rate_Revenue
+				INNER JOIN REF_Date ON REF_Date.odbc_date <= CURRENT_TIMESTAMP
+					AND REF_Date.odbc_date BETWEEN Flat_Rate.rate_start_date AND Flat_Rate.rate_end_date
+			WHERE Project.active_ind=1
+				AND Project.billable_type_id=3
+				AND Flat_Rate.active_ind=1
+			GROUP BY REF_Date.date_year, Flat_Rate.flat_rate_id, Flat_Rate.rate_end_date, Flat_Rate.rate_start_date,
+				Flat_Rate.budget
+			) AS Flat_Rate_Revenue
+		GROUP BY date_year
 	) AS Flat_Revenue ON Revenue_Goal.fiscal_year=Flat_Revenue.revenue_year
 	LEFT OUTER JOIN (
 		SELECT EXTRACT(YEAR FROM Task.entry_date) AS revenue_year, COUNT(Task.task_id)*MIN(COALESCE(Incident_Rate.charge,0)) AS revenue
