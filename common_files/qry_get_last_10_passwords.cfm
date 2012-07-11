@@ -24,10 +24,11 @@
 <cfquery name="get_last_10_passwords" datasource="#application.datasources.main#">
 SELECT *
 FROM (
-	SELECT TOP 10 password
+	SELECT password
 	FROM User_Password
 	WHERE user_account_id=#attributes.user_account_id#
 	ORDER BY user_password_id DESC
+	LIMIT 10
 	) Data
 WHERE password='#attributes.encrypted_password#'
 </cfquery>

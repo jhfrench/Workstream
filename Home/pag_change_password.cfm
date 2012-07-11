@@ -20,24 +20,37 @@
 	</IO>
 </fusedoc>
 --->
-
-<cfparam name="attributes.action" default="edit_user">
-<cfparam name="attributes.method" default="">
-<cfparam name="attributes.requested_page" default="#application.fusebox.defaultfuseaction#">
-<cfparam name="attributes.password" default="">
-<cfparam name="attributes.confirm_password" default="">
-<cfparam name="attributes.user_account_id" default="#session.user_account_id#">
-<cfparam name="variables.display_message" default="">
+<cfscript>
+	if (NOT isdefined("attributes.action")) {
+		attributes.action="edit_user";
+	}
+	if (NOT isdefined("attributes.confirm_password")) {
+		attributes.confirm_password="";
+	}
+	if (NOT isdefined("attributes.method")) {
+		attributes.method="";
+	}
+	if (NOT isdefined("attributes.old_password")) {
+		attributes.old_password="";
+	}
+	if (NOT isdefined("attributes.password")) {
+		attributes.password="";
+	}
+	if (NOT isdefined("attributes.requested_page")) {
+		attributes.requested_page=application.fusebox.defaultfuseaction;
+	}
+	if (NOT isdefined("attributes.user_account_id")) {
+		attributes.user_account_id=session.user_account_id;
+	}
+	variables.display_message="";
+</cfscript>
 
 <cfif NOT comparenocase(attributes.method, "Change Password")>
-	<!--- <cfif len(attributes.confirm_password)> --->
 		<cfinclude template="act_change_password.cfm">
 		<cfif variables.password_accepted_ind>
 			<cflocation url="index.cfm?fuseaction=#attributes.requested_page#" addtoken="no">
-		<!--- </cfif> --->
-	</cfif>
+		</cfif>
 </cfif>
-<!--- add the query needed --->
+
 <cfinclude template="../common_files/qry_get_user_information.cfm">
-<!--- display edit form --->
 <cfinclude template="dsp_change_password.cfm">

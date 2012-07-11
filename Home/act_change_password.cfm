@@ -20,16 +20,23 @@
 	</IO>
 </fusedoc>
 --->
-<cfparam name="attributes.user_name" default="">
-<cfparam name="attributes.password" default="">
-<cfparam name="attributes.demographics_id" default="0">
-<cfparam name="attributes.account_status_id" default="0">
-<cfparam name="variables.display_message" default="">
-<cfparam name="variables.check_form_field" default=0>
-<cfparam name="attributes.action" default="edit_user">
-<cfparam name="attributes.method" default="">
-<cfparam name="attributes.confirm_password" default="">
-<cfparam name="attributes.old_password" default="">
+<cfscript>
+	if (NOT isdefined("attributes.account_status_id")) {
+		attributes.account_status_id=0;
+	}
+	if (NOT isdefined("attributes.demographics_id")) {
+		attributes.demographics_id=0;
+	}
+	if (NOT isdefined("attributes.old_password")) {
+		attributes.old_password="";
+	}
+	if (NOT isdefined("attributes.user_name")) {
+		attributes.user_name="";
+	}
+	if (NOT isdefined("variables.check_form_field")) {
+		variables.check_form_field=0;
+	}
+</cfscript>
 
 <!--- if the update user button is pressed run the code below --->
 <!--- comment 1. this whole block has to do with checking if the string IS NOT NULL before proceeding --->
