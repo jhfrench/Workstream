@@ -168,18 +168,15 @@
 				<!--- only insert the contact informtion if a person is entered. --->
 				<cfif compare(name, "") or compare(lname, "")>
 				<cfquery name="insert_emp_contact" datasource="#application.datasources.main#">
-	                   INSERT INTO Emp_contact
-				    (name, lname, emp_contact_type)
+	            INSERT INTO Emp_Contact (name, lname, emp_contact_type)
 				VALUES ('#name#', '#lname#', 3)
 	               </cfquery>
 				
 				<cfquery name="get_emp_id" datasource="#application.datasources.main#">
-	            select max(emp_id) as emp_id<!--- $issue$: need to convert these type of PK lookups to IDENT_CURRENT('Emp_Contact') --->
-				From Emp_Contact
+				SELECT CURRVAL('Emp_Contact_emp_id_SEQ') AS emp_id
 				 </cfquery>
 				<cfquery name="insert_location" datasource="#application.datasources.main#">
-					INSERT INTO Location
-					(emp_id
+				INSERT INTO Location (emp_id
 					<cfif compare(paddress, "")>, address1</cfif>
 					<cfif compare(saddress, "")>, address2</cfif>
 					<cfif compare(city, "")>, city</cfif>

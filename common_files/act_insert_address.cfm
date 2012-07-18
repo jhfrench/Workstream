@@ -29,6 +29,6 @@ VALUES ('#attributes.mailing_name#', '#attributes.street_1#', '#attributes.stree
 	'#attributes.country_id#', #session.user_account_id#)
 </cfquery>
 <cfquery name="get_address_id" datasource="#application.datasources.main#">
-SELECT IDENT_CURRENT('ADDRESS') AS address_id
+SELECT CURRVAL('Address_adress_id_SEQ') AS address_id
 </cfquery>
 <cfset caller.attributes.address_id=get_address_id.address_id>

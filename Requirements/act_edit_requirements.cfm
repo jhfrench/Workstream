@@ -46,7 +46,7 @@
 			#attributes.product_version_id#, #attributes.priority_id#, #session.user_account_id#)
 		</cfquery>
 		<cfquery name="get_requirement_id" datasource="#application.datasources.main#">
-		SELECT IDENT_CURRENT('Requirement') AS requirement_id
+		SELECT CURRVAL('Requirement_requirement_id_SEQ') AS requirement_id
 		</cfquery>
 		<!--- insert into Link_Screen_Requirement (requirement_id, screen_id) --->
 		<cfquery name="insert_link_screen_requirement" datasource="#application.datasources.main#">

@@ -63,7 +63,7 @@
 
 		<!--- get the id of the inserted record because it will be needed to populate Demographics table --->
 		<cfquery name="get_user_account_id" datasource="#application.datasources.main#">
-		SELECT IDENT_CURRENT('User_Account') AS user_account_id
+		SELECT CURRVAL('User_Account_user_account_id_SEQ') AS user_account_id
 		</cfquery>
 		<cfset attributes.user_account_id=get_user_account_id.user_account_id>
 

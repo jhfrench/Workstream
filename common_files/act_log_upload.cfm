@@ -31,6 +31,6 @@ VALUES (CURRENT_TIMESTAMP, '#session.user_account_id#', '#cgi.remote_addr#',
 </cfquery>
 
 <cfquery name="get_upload_id" datasource="#application.datasources.main#">
-SELECT IDENT_CURRENT('LOG_UPLOAD') AS upload_id
+SELECT CURRVAL('Log_Upload_upload_id_SEQ') AS upload_id
 </cfquery>
 <cfset attributes.upload_id=get_upload_id.upload_id>

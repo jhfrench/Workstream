@@ -32,6 +32,6 @@ VALUES ('#attributes.description#', COALESCE('#attributes.organization_code#','#
 </cfquery>
 
 <cfquery name="get_ref_organization_id" datasource="#application.datasources.main#">
-SELECT IDENT_CURRENT('REF_Organization') AS ref_organization_id
+SELECT CURRVAL('REF_Organization_organization_id_SEQ') AS organization_id
 </cfquery>
-<cfset attributes.organization_id=get_ref_organization_id.ref_organization_id>
+<cfset attributes.organization_id=get_ref_organization_id.organization_id>

@@ -26,6 +26,6 @@ VALUES ('#attributes.reply_to#', '#variables.carbon_copy_to#', '#attributes.subj
 	'#attributes.email_body#', #variables.created_by#)
 </cfquery>
 <cfquery name="get_email_id" datasource="#application.datasources.main#">
-SELECT IDENT_CURRENT('LOG_Email') AS email_id
+SELECT CURRVAL('LOG_Email_email_id_SEQ') AS email_id
 </cfquery>
 <cfset attributes.email_id=get_email_id.email_id>

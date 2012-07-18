@@ -46,7 +46,7 @@
 			#session.user_account_id#)
 		</cfquery>
 		<cfquery name="get_comments_id" datasource="#application.datasources.main#">
-		SELECT IDENT_CURRENT('Comments') AS comments_id
+		SELECT CURRVAL('Comments_comment_id_SEQ') AS comments_id
 		</cfquery>
 		<cfset attributes.comments_id=get_comments_id.comments_id>
 		<!--- insert into Link_Screen_Comments (comments_id, screen_id) --->

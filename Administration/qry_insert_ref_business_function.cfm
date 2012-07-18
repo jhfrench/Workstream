@@ -33,6 +33,6 @@ VALUES (#attributes.parent_business_function_id#, '#attributes.description#', '#
 	#attributes.sort_order#, #session.user_account_id#, #attributes.active_ind#)
 </cfquery>
 <cfquery name="get_business_function_id" datasource="#application.datasources.main#">
-SELECT IDENT_CURRENT('REF_Business_Function') AS business_function_id
+SELECT CURRVAL('REF_Business_Function_business_function_id_SEQ') AS business_function_id
 </cfquery>
 <cfset caller.attributes.business_function_id=get_business_function_id.business_function_id>

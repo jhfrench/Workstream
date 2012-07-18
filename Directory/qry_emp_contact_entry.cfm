@@ -21,7 +21,7 @@ VALUES('#attributes.name#', '#attributes.mi#', '#attributes.lname#',
 	'#attributes.credentials#', #emp_contact_type#)
 </cfquery>
 <cfquery name="max_emp_id" datasource="#application.datasources.main#">
-SELECT IDENT_CURRENT('Emp_Contact') AS emp_id
+SELECT CURRVAL('Emp_Contact_emp_id_SEQ') AS emp_id
 </cfquery>
 <cfset variables.emp_id=max_emp_id.emp_id>
 <cfset attributes.emp_id=variables.emp_id><!--- 

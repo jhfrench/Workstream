@@ -37,6 +37,6 @@ WHERE module_id=#attributes.module_id#
 
 <!--- get the id of the inserted record because it will be needed to populate Demographics table --->
 <cfquery name="get_screen_id" datasource="#application.datasources.main#">
-SELECT IDENT_CURRENT('REF_Screen') AS screen_id
+SELECT CURRVAL('REF_Screen_screen_id_SEQ') AS screen_id
 </cfquery>
 <cfset attributes.screen_id=get_screen_id.screen_id>

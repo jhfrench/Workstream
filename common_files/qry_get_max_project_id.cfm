@@ -14,6 +14,6 @@
 	
 	END FUSEDOC --->
 <cfquery name="get_max_project_id" datasource="#application.datasources.main#">
-SELECT IDENT_CURRENT('Project') AS project_id
+SELECT CURRVAL('Project_project_id_SEQ') AS project_id
 </cfquery>
 </cfsilent>

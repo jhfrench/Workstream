@@ -65,7 +65,7 @@
 			<cfqueryparam value="#attributes.help_article_text#" cfsqltype="CF_SQL_LONGVARCHAR">, '#attributes.help_article_title#')
 		</cfquery>
 		<cfquery name="get_help_article_id" datasource="#application.datasources.main#">
-		SELECT IDENT_CURRENT('HELP_ARTICLE') AS help_article_id
+		SELECT CURRVAL('Help_Article_help_article_id_SEQ') AS help_article_id
 		</cfquery>
 		<cfset attributes.help_article_id=get_help_article_id.help_article_id>
 		<!--- insert into Link_Screen_Help_Article (help_article_id, screen_id) --->

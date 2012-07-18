@@ -27,7 +27,7 @@ VALUES ('#get_root_code.root_code#', #attributes.customer_id#, '#attributes.desc
 	1)
 </cfquery>
 <cfquery name="get_project_id" datasource="#application.datasources.main#">
-SELECT IDENT_CURRENT('Project') AS project_id
+SELECT CURRVAL('Project_project_id_SEQ') AS project_id
 </cfquery>
 
 <cfswitch expression="#attributes.billable_type_id#">

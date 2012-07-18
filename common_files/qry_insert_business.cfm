@@ -41,7 +41,7 @@ VALUES (<cfif attributes.parent_business_id NEQ 0>#attributes.parent_business_id
 
 <cfif attributes.parent_business_id EQ 0>
 	<cfquery name="get_parent_business_id" datasource="#application.datasources.main#">
-	SELECT IDENT_CURRENT('BUSINESS') AS parent_business_id
+	SELECT CURRVAL('Business_business_id_SEQ') AS parent_business_id
 	</cfquery>
 	<cfset attributes.parent_business_id=get_parent_business_id.parent_business_id>
 </cfif>

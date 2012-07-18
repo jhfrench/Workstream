@@ -77,7 +77,7 @@
 	</cfquery>
 
 	<cfquery name="get_next_error_log_id" datasource="#application.datasources.main#">
-	SELECT IDENT_CURRENT('error_log') AS error_log_id
+	SELECT CURRVAL('Error_Log_error_log_id_SEQ') AS error_log_id
 	</cfquery>
 
 	<cfoutput>

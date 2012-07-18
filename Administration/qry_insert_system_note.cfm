@@ -33,6 +33,6 @@ VALUES ('#left(attributes.note_text,3950)#', '#dateformat(attributes.display_sta
 
 <!--- get the id of the inserted record --->
 <cfquery name="get_system_note_id" datasource="#application.datasources.main#">
-SELECT IDENT_CURRENT('System_Note') AS system_note_id
+SELECT CURRVAL('System_Note_system_note_id_SEQ') AS system_note_id
 </cfquery>
 <cfset attributes.system_note_id=get_system_note_id.system_note_id>
