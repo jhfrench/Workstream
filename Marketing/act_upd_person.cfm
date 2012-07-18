@@ -142,26 +142,22 @@
 <cfif compare(name, "") and compare(lname, "")>
 	<cftransaction isolation="READ_COMMITTED">
 	<cfquery name="insert_emp_contact" datasource="#application.datasources.main#">
-	              INSERT INTO emp_contact
-			   (name, lname, emp_contact_type)
-			   Values ('#name#', '#lname#', 3) 
-	           </cfquery>
+	INSERT INTO Emp_Contact (name, lname, emp_contact_type)
+	VALUES ('#name#', '#lname#', 3) 
+	</cfquery>
 	<cfquery name="get_emp_id" datasource="#application.datasources.main#">
-	               select @@IDENTITY as emp_id
-	  			 from emp_contact
-	           </cfquery>
-			 <cfquery name="insert_marketing_emp" datasource="#application.datasources.main#">
-                    INSERT INTO marketing_emp
-				(emp_id, project_id)
-				values(#get_emp_id.emp_id#, #project_id#)
-                </cfquery>
+	 CURRVAL('Emp_Contact_emp_id_SEQ') AS emp_id
+	</cfquery>
+<cfquery name="insert_marketing_emp" datasource="#application.datasources.main#">
+INSERT INTO Marketing_Emp (emp_id, project_id)
+VALUES (#get_emp_id.emp_id#, #project_id#)
+</cfquery>
 <!--- Insert new email address --->			 
 	<cfif  compare(person_grid.email[ii], "")>
 		<cfquery name="insert_email" datasource="#application.datasources.main#">
-		      INSERT INTO email
-		  (email, emp_id, email_type_id)
-		  values('#email#',#get_emp_id.emp_id# , 1)
-		  </cfquery>
+		INSERT INTO email (email, emp_id, email_type_id)
+		VALUES ('#email#',#get_emp_id.emp_id# , 1)
+		</cfquery>
 	</cfif>
 	<!--- insert new location information --->
 	<cfif compare(person_grid.address1[ii], "") 

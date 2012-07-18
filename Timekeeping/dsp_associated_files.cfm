@@ -32,7 +32,7 @@
 <cfoutput>
 <input type="hidden" name="file_path" value="0">
 <div class="btn-group">
-	<a href="javascript:window.open('index.cfm?fuseaction=common_files.file_attach&task_id=#attributes.task_id#', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=420,height=210');" title="Associate a file path to this task." border="0" class="btn btn-mini"><i class="icon-folder-open"></i>Attach</a>
-	<a href="javascript:window.open('index.cfm?fuseaction=common_files.file_detach&task_id=#attributes.task_id#', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=1,copyhistory=0,width=350,height=350');" title="Remove a file path from this task." border="0" class="btn btn-mini"><i class="icon-remove-sign"></i>Remove</a>
+	<a href="javascript:window.open('index.cfm?fuseaction=common_files.file_attach&task_id=#attributes.task_id#', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=420,height=210');" title="Associate a file path to this task." border="0" class="btn btn-mini"><i class="icon-folder-open"></i> Attach</a>
+	<a href="javascript:window.open('index.cfm?fuseaction=common_files.file_detach&task_id=#attributes.task_id#', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=1,copyhistory=0,width=350,height=350');" title="Remove a file path from this task." border="0" class="btn btn-mini"><i class="icon-remove-sign"></i> Remove</a>
 </div>
 </cfoutput>

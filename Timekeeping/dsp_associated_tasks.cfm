@@ -45,7 +45,7 @@
 <cfoutput>
 <input type="hidden" name="linked_task_id" value="0">
 <div class="btn-group">
-	<a href="javascript:window.open('index.cfm?fuseaction=common_files.task_attach&base_task_id=#attributes.task_id#', 'files', 'toolbar=1,location=1,directories=1,status=1,menubar=1,scrollbars=1,resizable=1,copyhistory=1,width=620,height=450');" title="Associate another task to this task." class="btn btn-mini"><i class="icon-magnet"></i>Attach</a>
-	<a href="javascript:window.open('index.cfm?fuseaction=common_files.task_detach&task_id=#attributes.task_id#', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=1,copyhistory=0,width=420,height=210');" title="Remove a task association from this task." class="btn btn-mini"><i class="icon-remove-sign"></i>Remove</a>
+	<a href="javascript:window.open('index.cfm?fuseaction=common_files.task_attach&base_task_id=#attributes.task_id#', 'files', 'toolbar=1,location=1,directories=1,status=1,menubar=1,scrollbars=1,resizable=1,copyhistory=1,width=620,height=450');" title="Associate another task to this task." class="btn btn-mini"><i class="icon-magnet"></i> Attach</a>
+	<a href="javascript:window.open('index.cfm?fuseaction=common_files.task_detach&task_id=#attributes.task_id#', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=1,copyhistory=0,width=420,height=210');" title="Remove a task association from this task." class="btn btn-mini"><i class="icon-remove-sign"></i> Remove</a>
 </div>
 </cfoutput>

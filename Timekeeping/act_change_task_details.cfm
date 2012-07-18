@@ -31,7 +31,7 @@
 	<cfif compare(attributes.priority_id,attributes.orig_priority_id)>
 		<cfinclude template="qry_update_task_priority.cfm">
 	</cfif>
-	<cfif comparenocase(attributes.project_id,"undefined")>
+	<cfif comparenocase(attributes.project_id,"undefined") AND attributes.project_id NEQ attributes.orig_project_id>
 		<cfinclude template="qry_update_task_project_id.cfm">
 	</cfif><!--- 
 	<cfinclude template="qry_update_notification_frequency.cfm"> --->

@@ -28,12 +28,12 @@
 INSERT INTO Task (name, project_id, entry_date, 
 	assigned_date, due_date, icon_id,
 	budgeted_hours, status_id, description,
-	creator, task_read, priority_id<!--- ,
+	created_by, priority_id<!--- ,
 	notification_frequency_id --->)
 VALUES ('#attributes.task_name#', #attributes.project_id#, CURRENT_TIMESTAMP,
 	#CreateODBCDate(attributes.date_start)#, #CreateODBCDate(attributes.due_date)#, #attributes.icon_id#,
 	#ceiling(attributes.budgeted_hours)#, #attributes.task_status#, '#attributes.task_details#',
-	#session.user_account_id#, 0, #attributes.priority_id#<!--- ,
+	#session.user_account_id#, #attributes.priority_id#<!--- ,
 	#attributes.notification_frequency_id# --->);
 
 SELECT CURRVAL('Task_task_id_SEQ') AS task_id;

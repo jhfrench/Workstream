@@ -15,8 +15,9 @@
  --->
 <cfquery name="update_task_read" datasource="#application.datasources.main#">
 UPDATE Task
-SET task_read=1
-WHERE task_id=#attributes.task_id#
+SET task_read_ind=1
+WHERE task_read_ind=0
+	AND task_id=#attributes.task_id#
 </cfquery>
 </cfsilent>
 

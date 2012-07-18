@@ -117,7 +117,7 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 					AND (<cfloop list="#attributes.description#" index="ii"><cfset counter=incrementvalue(counter)>Task.description LIKE '%#ii#%'<cfif counter NEQ listlen(attributes.description)> OR </cfif></cfloop>)</cfif><cfif isdefined("attributes.task_owner_box") AND isdefined("attributes.task_owner")>
 					AND Team.role_id=1
 					AND Team.emp_id IN (#attributes.task_owner#)</cfif><cfif isdefined("attributes.task_source_box") AND isdefined("attributes.task_source")>
-					AND Task.creator IN (#attributes.task_source#)</cfif><cfif attributes.used_by_search>
+					AND Task.created_by IN (#attributes.task_source#)</cfif><cfif attributes.used_by_search>
 					AND Task.project_id IN (<cfif variables.use_project_criteria>#attributes.project_id#<cfelse>#attributes.project_id_list#</cfif>)</cfif> /*limit to either user's access or search crietria, whichever is less*/<cfif isdefined("attributes.task_stati_box") AND isdefined("attributes.task_stati")>
 					AND Task.status_id IN (#attributes.task_stati#)</cfif><cfif isdefined("attributes.priority_id_box") AND isdefined("attributes.priority_id")>
 					AND Task.priority_id IN (#attributes.priority_id#)</cfif><cfif isdefined("variables.date_entered")>

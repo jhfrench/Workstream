@@ -16,8 +16,8 @@
 <cfset variables.go_back_to=datediff("d", express_check_date.date_locked, now())-1>
 </cfsilent>
 <cfoutput>
-<fieldset>
-<legend style="background-color:##94C9C9">Resolution Entry</legend>
+<fieldset class="well">
+<legend class="h4">Resolution Entry</legend>
 <div class="row-fluid">
 	<div class="span4">
 		<label for="hours">Hours</label>
@@ -26,7 +26,7 @@
 	</div>
 	<div class="span4">
 		<label for="notes_type_id">Type</label>
-		<cfselect name="notes_type_id" id="notes_type_id" query="get_note_types" display="notes_type" value="notes_type_id" selected="#notes_type_selected#" class="span8" />
+		<cfselect name="notes_type_id" id="notes_type_id" query="get_note_types" display="notes_type" value="notes_type_id" selected="#variables.notes_type_selected#" class="span8" />
 	</div>
 	<div class="span4">
 		<label for="date">Date</label>

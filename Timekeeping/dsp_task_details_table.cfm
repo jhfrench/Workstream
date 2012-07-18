@@ -38,47 +38,40 @@
 <cfset variables.width2=variables.var1-variables.width>
 
 <cfif get_task_details.qa_id EQ session.user_account_id AND get_task_details.status_id EQ 4>
-	<cfset notes_type_selected=2>
+	<cfset variables.notes_type_selected=2>
 <cfelseif get_task_details.owner_id EQ session.user_account_id>
-	<cfset notes_type_selected=1>
-<cfelseif get_task_details.task_read>
-	<cfset notes_type_selected=3>
+	<cfset variables.notes_type_selected=1>
+<cfelseif get_task_details.task_read_ind>
+	<cfset variables.notes_type_selected=3>
 <cfelse>
-	<cfset notes_type_selected=0>
+	<cfset variables.notes_type_selected=0>
 </cfif>
 
-<!--- (JF | 11/12/1) THIS SHOULD GO INTO A REF TABLE SOME DAY --->
+<!--- $issue$ THIS SHOULD GO INTO A REF TABLE SOME DAY --->
 <cfset variables.valid_files="cfm,doc,gif,htm,jpg,msg,pdf,ppt,sql,vsd,xls,zip">
 </cfsilent>
 <cfoutput>
-	<input type="hidden" name="task_id" value="#task_id#">
-	<input type="hidden" name="project_id" value="#get_task_details.project_id#">
-	<input type="hidden" name="last_loaded" value="#now()#">
-	<input type="hidden" name="orig_owner" value="#task_owner#">
-	<input type="hidden" name="orig_team" value="#task_team#">
-	<input type="hidden" name="orig_qa" value="#task_qa#">
-	<input type="hidden" name="orig_due_date" value="#dateformat(get_task_details.due_date,"mm/dd/yy")#">
-	<input type="hidden" name="orig_priority_id" value="#get_task_details.priority#">
-	<input type="hidden" name="orig_task_status_id" value="#get_task_details.status_id#">
-	<input type="hidden" name="orig_icon_id" value="#get_task_details.icon_id#">
-	<input type="hidden" name="orig_task_description" value="#ReplaceList(ParagraphFormat(get_task_details.description),variables.string_to_replace,",")#">
-	<input type="hidden" name="orig_reminder_days" value="#get_completion_days.reminder_days#">
-	<input type="hidden" name="orig_reminder_cc" value="#valuelist(get_prep_email.email_id)#">
-	<input type="hidden" name="orig_notification" value="#valuelist(get_completion_email.email_id)#">
-	<input type="hidden" name="orig_notification_cc" value="#valuelist(get_completion_cc_email.email_id)#">
-	<input type="hidden" name="orig_file" value="#get_task_details.status_id#">
+	<input type="hidden" name="task_id" value="#task_id#" />
+	<input type="hidden" name="project_id" value="#get_task_details.project_id#" />
+	<input type="hidden" name="last_loaded" value="#now()#" />
+	<input type="hidden" name="orig_owner" value="#task_owner#" />
+	<input type="hidden" name="orig_team" value="#task_team#" />
+	<input type="hidden" name="orig_qa" value="#task_qa#" />
+	<input type="hidden" name="orig_due_date" value="#dateformat(get_task_details.due_date,"mm/dd/yy")#" />
+	<input type="hidden" name="orig_priority_id" value="#get_task_details.priority#" />
+	<input type="hidden" name="orig_project_id" value="#get_task_details.project_id#" />
+	<input type="hidden" name="orig_task_status_id" value="#get_task_details.status_id#" />
+	<input type="hidden" name="orig_icon_id" value="#get_task_details.icon_id#" />
+	<input type="hidden" name="orig_task_description" value="#ReplaceList(ParagraphFormat(get_task_details.description),variables.string_to_replace,",")#" />
+	<input type="hidden" name="orig_reminder_days" value="#get_completion_days.reminder_days#" />
+	<input type="hidden" name="orig_reminder_cc" value="#valuelist(get_prep_email.email_id)#" />
+	<input type="hidden" name="orig_notification" value="#valuelist(get_completion_email.email_id)#" />
+	<input type="hidden" name="orig_notification_cc" value="#valuelist(get_completion_cc_email.email_id)#" />
+	<input type="hidden" name="orig_file" value="#get_task_details.status_id#" />
 <div class="row-fluid">
 	<div class="span6">
 		<label for="task_name" class="h5">Task name</label>
-		<input type="text" name="task_name" id="task_name" value="#htmleditformat(get_task_details.task_name)#"  valign="top" size="#variables.cols#" maxlength="255" class="span11">
-	</div>
-	<div classs="offset3 span3">
-		<br />
-		<a href="javascript:printable('#attributes.task_id#');" title="'View a printable version of this task." class="btn btn-mini"><i class="icon-print"></i>Printable task sheet</a>
-	</div>
-</div>
-<div class="row-fluid">
-	<div class="span6">
+		<input type="text" name="task_name" id="task_name" value="#htmleditformat(get_task_details.task_name)#"  valign="top" size="#variables.cols#" maxlength="255" class="span11" />
 		<p><span class="h5">Customer</span>: #get_task_details.customer_name# <span class="h5">Project</span>: #replace(get_task_details.project_name,"#get_task_details.customer_name#-","")#&nbsp;<img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" width="14" height="12" alt="See more projects." border="0" onclick="OpenProjectWindow('project_id');"></p>
 		<label for="task_name" class="h5">Description</label>
 		<textarea name="task_details" id="task_details" cols="#variables.cols-2#" rows="#variables.descrip_rows#" wrap="soft" class="span11">#replaceList(ParagraphFormat(get_task_details.description),'<P>,"',",")#</textarea>
@@ -121,7 +114,10 @@
 				<cfloop query="time_entry_details"><span<cfif notes_type_id EQ 2> class="alert-info"</cfif>>(#initials# #dateformat(date,"m/d/yy")#) - #trim(note)#&nbsp;&nbsp;</span><br /></cfloop>
 			</div>
 		<cfelse>
-			<div id="notes" class="alert">Resolution notes not yet entered for this task.</div>
+			<div id="notes" class="alert">
+				Resolution notes not yet entered for this task.&nbsp;
+				<a href="javascript:delete_check('#attributes.task_id#');"  title="Delete this task from workstream." class="btn btn-danger"><i class="icon-trash icon-white"></i> Delete this task</a>
+			</div>
 		</cfif>
 		<cfinclude template="dsp_task_detail_notes_entry.cfm">
 		<cfif listfind("1,5", session.workstream_emp_contact_type) OR session.workstream_show_hours_data_ind EQ 1>
@@ -170,8 +166,5 @@
 		<cfinclude template="dsp_custom_fields.cfm">
 	</div>
 </div>
-</cfif>
-<cfif NOT time_entry_details.recordcount>
-	<cfinclude template="dsp_task_delete.cfm">
 </cfif>
 </cfoutput>

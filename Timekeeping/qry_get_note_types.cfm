@@ -17,7 +17,7 @@
 <cfquery name="get_note_types" datasource="#application.datasources.main#">
 SELECT notes_type_id, notes_type
 FROM REF_Notes_Type
-WHERE notes_type_id IN (1,2<cfif NOT get_task_details.task_read>,3</cfif>)
+WHERE notes_type_id IN (1,2<cfif NOT get_task_details.task_read_ind>,3</cfif>)
 ORDER BY sort_order
 </cfquery>
 </cfsilent>

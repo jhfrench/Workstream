@@ -21,7 +21,7 @@
 SELECT Emp_Contact.emp_id AS editing_priveleges
 FROM Task, Emp_Contact
 WHERE Task.task_id=#attributes.task_id#
-	AND Emp_Contact.emp_id=Task.Creator
+	AND Emp_Contact.emp_id=Task.created_by
 UNION ALL
 SELECT Team.emp_id
 FROM Task, Team

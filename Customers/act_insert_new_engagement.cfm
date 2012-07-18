@@ -14,7 +14,7 @@
 </cfsilent>
 <cfquery name="insert_project" datasource="#application.datasources.main#">
 INSERT INTO Project (root_code, customer_id, description,
-	creator<cfif len(attributes.vision)>, vision</cfif><cfif len(attributes.mission)>, mission</cfif>
+	created_by<cfif len(attributes.vision)>, vision</cfif><cfif len(attributes.mission)>, mission</cfif>
 	<cfif len(attributes.business_case)>, business_case</cfif><cfif len(attributes.project_end)>, project_end</cfif><cfif len(attributes.project_start)>, project_start</cfif>,
 	product_id, billable_type_id, project_code,
 	active_ind, company_id, budget,

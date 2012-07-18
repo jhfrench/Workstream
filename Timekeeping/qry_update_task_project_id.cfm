@@ -4,7 +4,7 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I update the task owner.
+	Responsibilities: I update the task's project, including any time entries that haven't already been billed.
 	||
 	Name: Jeromy French
 	||
@@ -17,7 +17,7 @@
 <cfquery name="update_task_project_id" datasource="#application.datasources.main#">
 UPDATE Task
 SET project_id=#attributes.project_id#
-WHERE task_id=#attributes.task_id#
+WHERE task_id=#attributes.task_id#;
 
 UPDATE Time_Entry
 SET project_id=#attributes.project_id#
@@ -29,7 +29,7 @@ WHERE task_id=#attributes.task_id#
 		WHERE Link_Invoice_Time_Entry.active_ind=1
 			AND Invoice.active_ind=1
 		GROUP BY time_entry_id
-	)
+	);
 </cfquery>
 </cfsilent>
 

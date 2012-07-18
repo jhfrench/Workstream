@@ -14,58 +14,57 @@
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
-<cfif comparenocase(listlast(attributes.fuseaction, '.'),"print_task")>
-	<cfset get_print_details=0>
-<cfelse>
-	<cfset get_print_details=1>
-</cfif>
 <cfquery name="get_task_details" datasource="#application.datasources.main#">
-SELECT Task.task_type_id, Task.task_id AS task_id, Task.name AS task_name, COALESCE(Task.task_read,0) AS task_read, 
-	COALESCE(Task.description,'No description recorded for this task.') AS description, 
-	Task.entry_date AS date_assigned, Task.due_date AS due_date, Task.complete_date,
-	<cfif get_print_details>REF_Status.status<cfelse>Task.status_id</cfif> AS status_id, Task.icon_id AS icon_id,
-	COALESCE(Task.creator,0) AS task_creator, COALESCE(Task_Source.emp_id,0) AS task_source,
-	<cfif get_print_details>REF_Priority.description<cfelse>Task.priority_id</cfif> AS priority, REF_Status.status AS status,
-	COALESCE(Task_Accum.budgeted_hours,0) AS budgeted_hours, Task_Accum.hours_used AS hours_used, 
-	Task_Accum.image_width AS image_width, Task_Accum.percent_used AS percent_used,
-	Task_Owner.emp_id AS owner_id, Task_QA.emp_id AS qa_id,
-	Customer.description AS customer_name, Project.description AS project_name, Project.project_id,
-	Task.notification_frequency_id, Task_Source.source_name
-FROM Task, REF_Status, Project, Customer,<cfif get_print_details> REF_Priority,</cfif>
-	(SELECT Task.task_id, Task.budgeted_hours AS budgeted_hours, 
-		COALESCE(SUM(Time_Entry.hours),0) AS hours_used, 
-		(CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE SUM(Time_Entry.hours)/Task.budgeted_hours*200 END) AS image_width, 
-		(CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE SUM(Time_Entry.hours)/Task.budgeted_hours*100 END) AS percent_used
-	FROM Time_Entry, Task
-	WHERE Task.task_id*=Time_Entry.task_id
-		AND Task.task_id=#attributes.task_id#
-	GROUP BY Task.task_id, Task.budgeted_hours) AS Task_Accum,
-	(SELECT Task.task_id, Team.emp_id AS emp_id, Emp_Contact.lname || ', ' || Emp_Contact.name AS source_name
-	FROM Task, Team, Emp_Contact
-	WHERE Task.task_id=Team.task_id
-		AND Team.emp_id=Emp_Contact.emp_id
-		AND Task.task_id=#attributes.task_id#
-		AND Team.role_id=5) AS Task_Source,
-	(SELECT Task.task_id, Team.emp_id AS emp_id
-	FROM Task, Team
-	WHERE Task.task_id=Team.task_id
-		AND Task.task_id=#attributes.task_id#
-		AND Team.role_id=1) AS Task_Owner,
-	(SELECT Task.task_id, Team.emp_id AS emp_id
-	FROM Task, Team
-	WHERE Task.task_id=Team.task_id
-		AND Task.task_id=#attributes.task_id#
-		AND Team.role_id=3) AS Task_QA
+SELECT /**/Task.task_id AS task_id, Task.task_type_id, Task.name AS task_name,
+	COALESCE(Task.task_read_ind,0) AS task_read_ind, COALESCE(Task.description,'No description recorded for this task.') AS description, Task.entry_date AS date_assigned,
+	Task.due_date AS due_date, Task.complete_date, Task.status_id AS status_id,
+	Task.icon_id AS icon_id, COALESCE(Task.created_by,0) AS created_by, COALESCE(Task_Source.emp_id,0) AS task_source,
+	Task.priority_id AS priority, REF_Status.status AS status, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, 
+	Time_Used.hours_used AS hours_used,
+	CASE
+		WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0
+		ELSE Time_Used.hours_used/Task.budgeted_hours*200
+	END AS image_width, 
+	CASE
+		WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0
+		ELSE Time_Used.hours_used/Task.budgeted_hours*100
+	END AS percent_used,
+	Task_Owner.emp_id AS owner_id, Task_QA.emp_id AS qa_id, Customer.description AS customer_name,
+	Project.description AS project_name, Project.project_id, Task.notification_frequency_id,
+	Task_Source.source_name
+FROM Task
+	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id
+	INNER JOIN Project ON Task.project_id=Project.project_id
+	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
+	LEFT OUTER JOIN (		
+		SELECT #attributes.task_id# AS task_id, SUM(Time_Entry.hours) AS hours_used
+		FROM Time_Entry
+		WHERE active_ind=1
+			AND Time_Entry.task_id=#attributes.task_id#
+	) AS Time_Used ON Task.task_id=Time_Used.task_id
+	INNER JOIN (
+		SELECT Task.task_id, Team.emp_id AS emp_id, Emp_Contact.lname || ', ' || Emp_Contact.name AS source_name
+		FROM Task
+			INNER JOIN Team ON Task.task_id=Team.task_id
+			INNER JOIN Emp_Contact ON Team.emp_id=Emp_Contact.emp_id
+		WHERE Team.role_id=5
+			AND Task.task_id=#attributes.task_id#
+	) AS Task_Source ON Task.task_id=Task_Source.task_id
+	INNER JOIN (
+		SELECT Task.task_id, Team.emp_id AS emp_id
+		FROM Task
+			INNER JOIN Team ON Task.task_id=Team.task_id
+		WHERE Team.role_id=1
+			AND Task.task_id=#attributes.task_id#
+	) AS Task_Owner ON Task.task_id=Task_Owner.task_id
+	INNER JOIN (
+		SELECT Task.task_id, Team.emp_id AS emp_id
+		FROM Task
+			INNER JOIN Team ON Task.task_id=Team.task_id
+		WHERE Team.role_id=3
+			AND Task.task_id=#attributes.task_id#
+	) AS Task_QA ON Task.task_id=Task_QA.task_id
 WHERE Task.task_id=#attributes.task_id#
-	AND Task.status_id=REF_Status.status_id
-	AND Task.task_id*=Task_Accum.task_id
-	AND Task.task_id=Task_Source.task_id
-	AND Task.task_id=Task_Owner.task_id
-	AND Task.task_id=Task_QA.task_id
-	AND Task.project_id=Project.project_id
-	AND Project.customer_id=Customer.customer_id
-	<cfif get_print_details>AND Task.priority_id=REF_Priority.priority_id
-	AND Task.status_id=REF_Status.status_id</cfif>
 </cfquery>
 </cfsilent>
 

@@ -24,7 +24,7 @@
 </cfsilent>
 <cfoutput>
 <div class="form-horizontal">
-<h4>Due Date Reminder</h4>
+<h5>Due Date Reminder</h5>
 <div class="control-group">
 	<label for="reminder_days" class="control-label">Days</label>
 	<div class="controls">
