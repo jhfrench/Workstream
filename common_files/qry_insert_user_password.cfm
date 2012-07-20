@@ -1,12 +1,12 @@
 <!-- common_files/qry_insert_user_password.cfm
-	Author: Omoniyi Fajemidupe-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_insert_user_password.cfm">
 	<responsibilities>
 		I insert user password into user password table
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="5/31/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="5/31/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

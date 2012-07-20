@@ -1,5 +1,5 @@
 <!-- Home/act_logout.cfm
-	Author: Omoniyi Fajemidupe-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_logout.cfm">
 	<responsibilities>

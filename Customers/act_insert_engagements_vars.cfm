@@ -35,7 +35,7 @@ WHERE customer_id=#attributes.customer_id#
 SELECT project_code
 FROM Project
 WHERE Project.root_code='#get_root_code.root_code#'
-	AND LEN(project_code) > 4 
+	AND LENGTH(project_code) > 4 
 	AND RIGHT(project_code, 3) != '000'
 </cfquery>
 

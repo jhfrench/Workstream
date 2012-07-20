@@ -32,30 +32,35 @@ function add_to_linked_task_id_list() {
 	}
 }
 </SCRIPT>
+<cfmodule template="qry_get_open_tasks.cfm" exclude_task_id="#attributes.base_task_id#">
 <cfoutput>
-<cfform name="attach_task" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
-	<cfmodule template="qry_get_open_tasks.cfm" exclude_task_id="#attributes.base_task_id#">
+<cfform name="attach_task" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
+<fieldset>
+	<legend class="h4">Link Tasks</legend>
+	<div class="control-group">
+		<label class="control-label" for="project_id">Project</label>
+		<cfmodule template="../common_files/two_related_selects.cfm"
+			query="get_open_tasks"
+			name1="project_id"
+			name2="task_id"
+			display1="project_display"
+			display2="task_display"
+			value1="project_id"
+			value2="task_id"
+			multiple1="0"
+			multiple2="0"
+			size1="6"
+			size2="6"
+			width2="550"
+			autoselectfirst="no"
+			formname="attach_task"
+			HTMLBetween="</div><div class='control-group'><label class='control-label' for='task_id'>Task</label>">
+	</div>
 	<tr>
 		<td class="SubHeadText">Specify one or more tasks to associate with this task:</td>
 	</tr>
 	<tr>
 		<td>
-			<cfmodule template="../common_files/two_related_selects.cfm"
-				query="get_open_tasks"
-				name1="project_id"
-				name2="task_id"
-				display1="project_display"
-				display2="task_display"
-				value1="project_id"
-				value2="task_id"
-				multiple1="0"
-				multiple2="0"
-				size1="6"
-				size2="6"
-				width2="550"
-				autoselectfirst="no"
-				formname="attach_task"
-				HTMLBetween="<br />">
 			<br />
 	<tr>
 		<td> 
@@ -70,8 +75,8 @@ function add_to_linked_task_id_list() {
 	</tr>
 	<tr>
 		<td>
-			<input type="reset">
-			<input type="submit" value="Submit">
+			<input type="reset" class="btn">
+			<input type="submit" value="Submit" class="btn">
 		</td>
 	</tr>
 </cfform>

@@ -1,12 +1,12 @@
 <!-- Administration/pag_user_list.cfm
-	Author: Omoniyi Fajemidupe-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_user_list.cfm">
 	<responsibilities>
 		I am a page that displays user list for password reset or editing.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/19/10) Cleaning up verbiage and row coloring.
 		</history>

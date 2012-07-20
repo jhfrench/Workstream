@@ -18,7 +18,7 @@
 	If the admin granted the new user  access to multiple companies then 
 	grant that access
 	--->
-<cfif LEN(attributes.visable_company)>
+<cfif len(attributes.visable_company)>
 <cfloop list="#attributes.visable_company#" index="ii">
 	<cfquery name="security_company_access_entry" datasource="#application.datasources.main#">
 		INSERT INTO Security_Company_Access (emp_id, company_id)

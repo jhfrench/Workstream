@@ -1,12 +1,12 @@
 <!-- Administration/dsp_add_user_form.cfm
-	Author: Omoniyi Fajemidupe-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_add_user_form.cfm">
 	<responsibilities>
 	I am the form used for adding and editing username and password for external demographics warehouse information
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="5/29/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

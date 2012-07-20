@@ -1,12 +1,12 @@
 <!-- common_files/act_edit_password.cfm
-	Author: Omoniyi Fajemidupe-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_edit_password.cfm">
 	<responsibilities>
 		I process password that has been changed by a user.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

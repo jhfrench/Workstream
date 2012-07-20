@@ -62,7 +62,7 @@
 			<cfset variables.edit=0>
 		</cfif>--->
 		<cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="task_details" method="POST">
-			<div style="background-color:#78A0EB; width:100%;"><h2><cfoutput>#get_task_details.task_name# <small>(task #attributes.task_id#)</small></cfoutput></h2></div>
+			<h2><cfoutput>#get_task_details.task_name# <small>(task #attributes.task_id#)</small></cfoutput></h2>
 			<cfinclude template="dsp_task_details_table.cfm">
 		</cfform>
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="printable" field_name="task_id" fuseaction="Timekeeping.print_task" expand="1">

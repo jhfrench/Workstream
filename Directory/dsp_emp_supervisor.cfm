@@ -13,7 +13,7 @@
 	 || 
 	END FUSEDOC --->
 <cfinclude template="qry_get_supervisor_history.cfm">
-<cfif NOT LEN(get_supervisor_history.supervisor_id)>
+<cfif NOT len(get_supervisor_history.supervisor_id)>
 	<cfset supervisor_user_account_id = attributes.emp_id>
 <cfelse>
 	<cfset supervisor_user_account_id = get_supervisor_history.supervisor_id>

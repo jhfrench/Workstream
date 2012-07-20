@@ -70,4 +70,4 @@ WHERE active_ind=1
 </cfif>
 
 <!--- reorder the REF_Fund table by customer supplied logic (first four, then year, then year multiplier)--->
-<cfmodule template="../common_files/act_administer_sorter_table.cfm" use_transaction_ind="0" table_to_sort="REF_Fund" id_of_sorted_column="fund_id" text_of_sorted_column="description" order_by="LPAD(description,4), SUBSTRING(description,LEN(description)-4,5) DESC, SUBSTRING(description,5,1) DESC">
+<cfmodule template="../common_files/act_administer_sorter_table.cfm" use_transaction_ind="0" table_to_sort="REF_Fund" id_of_sorted_column="fund_id" text_of_sorted_column="description" order_by="LPAD(description,4), SUBSTRING(description,LENGTH(description)-4,5) DESC, SUBSTRING(description,5,1) DESC">

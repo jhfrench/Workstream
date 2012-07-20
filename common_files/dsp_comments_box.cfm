@@ -26,18 +26,18 @@
 <cfparam name="attributes.box_name" default="comments">
 <cfparam name="attributes.col_span" default="1">
 <cfparam name="attributes.form" default="true">
-<cfparam name="attributes.Align" default="left">
+<cfparam name="attributes.align" default="left">
 <cfparam name="attributes.BGCOLOR1" default="">
 <cfparam name="attributes.BGCOLOR2" default="">
 
 <cfif isdefined("attributes.title_row")>
-<tr valign="top"<CFIF LEN(ATTRIBUTES.BGCOLOR1)> BGCOLOR="<cfoutput>#ATTRIBUTES.BGCOLOR1#</cfoutput>"</CFIF>>
+<tr valign="top"<cfif len(attributes.bgcolor1)> bgcolor="<cfoutput>#attributes.bgcolor1#</cfoutput>"</cfif>>
 	<td colspan="<cfoutput>#attributes.col_span#</cfoutput>">
 		<cfoutput>#attributes.title_row#</cfoutput>
 	</td>
 </tr>
 </cfif>
-<tr<CFIF LEN(ATTRIBUTES.BGCOLOR2)> BGCOLOR=<cfoutput>#ATTRIBUTES.BGCOLOR2#</cfoutput></CFIF>>
+<tr<cfif len(attributes.bgcolor2)> bgcolor=<cfoutput>#attributes.bgcolor2#</cfoutput></cfif>>
 	<td align="<cfoutput>#attributes.Align#</cfoutput>" colspan="<cfoutput>#attributes.col_span#</cfoutput>">
 <cfoutput>
 <textarea cols="#attributes.col_num#" rows="#attributes.row_num#" name="#attributes.box_name#" <cfif NOT attributes.form>onfocus="blur()" readonly</cfif>>#attributes.fill_value#</textarea>

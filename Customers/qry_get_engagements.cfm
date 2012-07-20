@@ -26,7 +26,7 @@ WHERE Project.project_id=Link_Project_Company.project_id
 	AND Project.active_ind IN (<cfif compare(attributes.inactive, 0)>0,</cfif>1)
 	AND Link_Project_Company.company_id IN (#session.workstream_selected_company_id#)
 	AND Project.project_code like '#attributes.client_code#%'
-	AND LEN(Project.project_code) > 4
+	AND LENGTH(Project.project_code) > 4
 	AND RIGHT(Project.project_code, 3)!='000'
 GROUP BY Project.project_code, Project.description, REF_Active_Indicator.active_ind_type,
 	Project.project_id, REF_Billable.billable_type, Customer.description

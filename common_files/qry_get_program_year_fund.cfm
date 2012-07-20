@@ -1,12 +1,12 @@
 <!-- common_files/qry_get_program_year_fund.cfm
-	Author: Omoniyi Fajemidupe-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_program_year_fund.cfm">
 	<responsibilities>
 		I get fund control for the selected year.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="8/9/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="8/9/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -43,7 +43,7 @@ WHERE REF_Program_Year.active_ind=1
 	AND Link_Program_Year_Fund.program_year_id=#attributes.program_year_id#<cfelseif NOT isdefined("attributes.data_table")>
 	AND REF_Program_Year.description <=(SELECT description FROM REF_Program_Year WHERE program_year_id=#session.program_year_id# AND active_ind=1)</cfif><cfif attributes.fund_id NEQ 0>
 	AND Link_Program_Year_Fund.fund_id=#attributes.fund_id#</cfif><cfif len(variables.called_from_fund_control)>
-	AND LPAD(SUBSTRING(REF_Fund.description,LEN(REF_Fund.description)-4),4)=REF_Program_Year.description</cfif>
+	AND LPAD(SUBSTRING(REF_Fund.description,LENGTH(REF_Fund.description)-4),4)=REF_Program_Year.description</cfif>
 ORDER BY REF_Program_Year.sort_order DESC, REF_Fund.sort_order
 </cfquery>
 <cfset caller.get_program_year_fund=get_program_year_fund>

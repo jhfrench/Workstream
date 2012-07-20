@@ -1,12 +1,12 @@
 <!-- Administration/dsp_screen_lock_message.cfm
-	Author: Omoniyi Fajemidupe-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_screen_lock_message.cfm">
 	<responsibilities>
 		I display message for locked screens.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="9/6/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="9/6/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

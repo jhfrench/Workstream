@@ -32,7 +32,7 @@
 		<tr>
 			<td class="date">#dateformat(due_date,"mm/dd/yy")#</td>
 			<th scope="row">
-				<a href="javascript:list_to_task('#task_id#');" title="View task."><img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="<cfif description EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>" style="height:10px; width:9px;" height="10" width="9" border="0" />&nbsp;#name#</a>
+				<a href="javascript:list_to_task('#task_id#');" title="View task."><img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="<cfif sort_order EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>" style="height:10px; width:9px;" height="10" width="9" border="0" />&nbsp;#name#</a>
 			</td>
 			<td>#status#</td>
 		</tr>

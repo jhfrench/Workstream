@@ -154,8 +154,6 @@
   <cfset attributes.Size2=attributes.Size1>
 </cfif>
 
-
-
 <!--- OUTPUT FIRST SELECT BOX --->
 <cfoutput><select name="#attributes.Name1#" id="#attributes.id1#" onchange="#function_name#;#attributes.Element1_OnchangeEvent#" size="#attributes.Size1#" <cfif len(attributes.width1)>STYLE="width:#attributes.Width1#"</cfif>></cfoutput>
 

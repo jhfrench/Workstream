@@ -1,12 +1,12 @@
 <!-- Administration/qry_get_external_demographics_data.cfm
-	Author: Omoniyi Fajemidupe-->
+	Author: Jeromy French-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_external_demographics_data.cfm">
 	<responsibilities>
 		I query the LDAP to get the information needed for populating form for new users.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

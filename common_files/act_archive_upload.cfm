@@ -1,12 +1,12 @@
 <!-- common_files/act_archive_upload.cfm
-	Author: Omoniyi Fajemidupe-->
+	Author: Jeromy French-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_archive_upload.cfm">
 	<responsibilities>
 		I create a copy of the file being uploaded in the system. The file should be stored under admin/upload/archive using this naming convention: archive_name=[upload_source_id]_[yyyy_mm_dd_hh_mm_ss]_replace([original file name], " ", "_").[extension] .
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="8/9/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="8/9/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

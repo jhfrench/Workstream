@@ -20,13 +20,13 @@
 SELECT Task.task_id AS task_id, Project.customer_id, Project.project_id, Task.name AS task_name, 
 	<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
 	CASE WHEN Customer.description != Project.description
-		THEN (Project.project_code || '-' || Customer.description || '-' || CASE WHEN LEN(Project.description) > 50 THEN LEFT(Project.description, 50) || '...' ELSE Project.description END) 
+		THEN (Project.project_code || '-' || Customer.description || '-' || CASE WHEN LENGTH(Project.description) > 50 THEN LEFT(Project.description, 50) || '...' ELSE Project.description END) 
 		ELSE (Project.project_code || '-' || Project.description)
 	END AS project_display,
 	CAST(Task.task_id AS varchar(128)) || '-' || Task.name AS task_display
 	<cfelse>
 	CASE WHEN Customer.description != Project.description
-		THEN (Customer.description || '-' || CASE WHEN LEN(Project.description) > 50 THEN LEFT(Project.description, 50) || '...' ELSE Project.description END || ' (' ||  Project.project_code || ')') 
+		THEN (Customer.description || '-' || CASE WHEN LENGTH(Project.description) > 50 THEN LEFT(Project.description, 50) || '...' ELSE Project.description END || ' (' ||  Project.project_code || ')') 
 		ELSE (Project.description || ' (' ||  Project.project_code || ')') 
 	END AS project_display,
 	Task.name || ' (' || CAST(Task.task_id AS varchar(128)) || ')' AS task_display

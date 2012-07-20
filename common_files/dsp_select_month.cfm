@@ -1,12 +1,12 @@
 <!--common_files/dsp_select_month.cfm
-	Author: Omoniyi Fajemidupe-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_select_month.cfm">
 	<responsibilities>
 		I provide list of months.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Omoniyi Fajemidupe" type="create" date="6/26/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/26/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
