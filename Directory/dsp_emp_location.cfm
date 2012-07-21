@@ -13,17 +13,12 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<table cellpadding="0" cellspacing="0" border="0" width="80%">
-	<tr>
-		<td<cfoutput> colspan"#get_emp_location.recordcount#" class="SubHeadText"</cfoutput>>
-			Address
-		</td>
-	</tr>
-	<tr>
+<h4>Address</h4>
 <cfoutput query="get_emp_location">
-		<td valign="top" width="40">#location_type#:</td>
-		<td valign="top">#address1#<br /><cfif compare(address2,"")>#address2#<br /></cfif>#city#, #state# #zip#<br /></td>
+<address>
+	<strong>#location_type#</strong><br />
+	#address1#<br />
+	<cfif compare(address2,"")>#address2#<br /></cfif>
+	#city#, #state# #zip#
+</address>
 </cfoutput>
-	</tr>
-</table>
-

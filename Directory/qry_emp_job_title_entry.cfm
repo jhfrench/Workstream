@@ -1,12 +1,12 @@
 
 <!--Directory/qry_emp_job_title_entry.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I insert a job title record.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits: 
 	

@@ -22,11 +22,12 @@
 
 <cfquery name="get_subordinates" datasource="#application.datasources.main#">
 SELECT Emp_Contact.lname AS lname, Emp_Contact.name AS fname, Emp_Contact.emp_id
-FROM Emp_Contact, Link_Employee_Supervisor, Security
-WHERE Link_Employee_Supervisor.user_account_id=Emp_Contact.emp_id
-	AND Security.emp_id=Emp_Contact.emp_id
-	AND Link_Employee_Supervisor.supervisor_id = #attributes.emp_id#
-	AND CURRENT_TIMESTAMP BETWEEN Link_Employee_Supervisor.date_start AND COALESCE(Link_Employee_Supervisor.date_end, CURRENT_TIMESTAMP+'1 day')
-	AND Security.disable!=1
+FROM Emp_Contact
+	INNER JOIN Link_Employee_Supervisor ON Emp_Contact.emp_id=Link_Employee_Supervisor.emp_id
+		AND Link_Employee_Supervisor.supervisor_id=#attributes.emp_id#
+		AND CURRENT_TIMESTAMP BETWEEN Link_Employee_Supervisor.date_start AND COALESCE(Link_Employee_Supervisor.date_end, CURRENT_TIMESTAMP+'1 day')
+	INNER JOIN Link_User_Account_Status ON Link_Employee_Supervisor.emp_id=Link_User_Account_Status.user_account_id
+		AND Link_User_Account_Status.active_ind=1
+		AND Link_User_Account_Status.account_status_id=1 /*active*/
 ORDER BY lname, name
 </cfquery>

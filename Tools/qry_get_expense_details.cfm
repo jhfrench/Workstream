@@ -1,12 +1,12 @@
 
 <!--Tools/qry_get_expense_details.cfm
-	Author: Damon S  -->
+	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I get the details for a specific expense.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 	 || 

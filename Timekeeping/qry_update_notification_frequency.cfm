@@ -1,12 +1,12 @@
 
 <!--Timekeeping/qry_update_notification_frequency.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I update the status notification frequency.
 	||
-	Name: Damon S
+	Name: Jeromy F
 	||
 	Edits:
 

@@ -1,12 +1,12 @@
 
 <!--Directory/qry_get_review_types.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I retrieve the different types of reviews.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits: 
 	$Log: 

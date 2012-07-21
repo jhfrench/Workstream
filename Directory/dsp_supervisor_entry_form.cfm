@@ -1,12 +1,12 @@
 
 <!--Directory/dsp_supervisor_entry_form.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I display the supervisor entry form.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 	$Log:

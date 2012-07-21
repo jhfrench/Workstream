@@ -1,12 +1,12 @@
 
 <!--Tools/qry_get_accounting_expense_register.cfm
-	Author: Damon S  -->
+	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I get the list of expenses to populate register at top of page.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 

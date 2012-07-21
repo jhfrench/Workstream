@@ -1,11 +1,11 @@
 <!--Tools/dsp_expense_entry_form.cfm
-	Author: Damon S  -->
+	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I am the expense detail display and entry form
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 

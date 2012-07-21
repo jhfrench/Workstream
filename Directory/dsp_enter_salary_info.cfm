@@ -1,12 +1,12 @@
 
 <!--Directory/dsp_enter_salary_info.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I allow a user to enter salary info for an employee.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 $Log:

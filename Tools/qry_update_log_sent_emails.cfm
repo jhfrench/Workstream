@@ -1,12 +1,12 @@
 
 <!--Tools/qry_update_log_sent_emails.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I log emails sent to notify about the status changes of tasks
 	||
-	Name: Damon S
+	Name: Jeromy F
 	 || 
 	
  --->

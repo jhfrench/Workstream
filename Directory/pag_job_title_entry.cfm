@@ -1,12 +1,12 @@
 
 <!--Directory/pag_job_title_entry.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I display the job title entry form.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits: 
 	

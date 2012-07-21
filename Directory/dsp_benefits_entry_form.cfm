@@ -1,12 +1,12 @@
 
 <!--Directory/dsp_benefits_entry_form.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I display the benefits entry form.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 $Log: 

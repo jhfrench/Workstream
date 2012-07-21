@@ -1,12 +1,12 @@
 
 <!--Tools/qry_get_daily_email_list.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I get a list of emails that need to be sent today to people for tasks that have changed status
 	||
-	Name: Damon S
+	Name: Jeromy F
 	 || 
 	
  --->

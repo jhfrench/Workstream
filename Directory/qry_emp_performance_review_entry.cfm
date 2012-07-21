@@ -1,12 +1,12 @@
 
 <!--Directory/qry_emp_performance_review_entry.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I insert a performnce review record.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits: 
 	

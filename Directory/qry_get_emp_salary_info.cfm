@@ -1,12 +1,12 @@
 
 <!--Directory/qry_get_emp_salary_info.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I  see if the current user is allowed to see (or enter) salary information.  Only Nucleus employees are restricted from this function.  If so, I retrieve employees salary info.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits: 
 	$Log: 

@@ -1,12 +1,12 @@
 
 <!--Directory/qry_get_emp_benefits_info.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I retrieve employees benefits info.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits: 
 	$Log: 

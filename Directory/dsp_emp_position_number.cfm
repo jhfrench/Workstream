@@ -14,25 +14,28 @@
 <cfinclude template="qry_get_position_number_history.cfm">
 </cfsilent>
 <cfoutput>
-	<span class="SubHeadText">Position Numbers <a href="javascript:position_number_change(#attributes.emp_id#);">ADD</a></span><br /></span>
-
-<table>
-	<tr>
-		<td width="25%">Position Number</td>
-		<td width="25%">Date Started</td>
-		<td width="25%">Date Ended</td>
-	</tr>
+<h4>Position Numbers <a href="javascript:position_number_change(#attributes.emp_id#);" class="btn btn-mini">ADD</a></h4>
 </cfoutput>
-<cfoutput>
-	<tr>
-		<td>
-			#get_emp_position_number_history.position_id#<br />
-		</td>
-		<td>
-			#dateformat(get_emp_position_number_history.effective_start_date,'mm/dd/yyyy')#
-		</td>
-		<td>
-			#dateformat(get_emp_position_number_history.effective_end_date,'mm/dd/yyyy')#
-		</td>
-</cfoutput>
+<table class="table table-striped table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th>Position Number</th>
+			<th>Date Started</th>
+			<th>Date Ended</th>
+		</tr>
+	</thead>
+	<tbody>
+	<cfoutput query="get_emp_position_number_history">
+		<tr>
+			<th scope="row" class="number">
+				#position_id#<br />
+			</th>
+			<td class="date">
+				#dateformat(effective_start_date,'mm/dd/yyyy')#
+			</td>
+			<td class="date">
+				#dateformat(effective_end_date,'mm/dd/yyyy')#
+			</td>
+	</cfoutput>
+	</tbody>
 </table>

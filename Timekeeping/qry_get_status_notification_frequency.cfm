@@ -1,12 +1,12 @@
 
 <!--Timekeeping/qry_get_status_notification_frequency.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I get the status notification frequency for a task.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 

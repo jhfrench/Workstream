@@ -1,12 +1,12 @@
 
 <!--Tools/qry_get_paid_by.cfm
-	Author: Damon S  -->
+	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I get the  different sources of expense payments for the expense form and the expense report.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 	 || 

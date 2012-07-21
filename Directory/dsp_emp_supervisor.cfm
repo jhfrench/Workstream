@@ -20,25 +20,29 @@
 </cfif>
 </cfsilent>
 <cfoutput>
-	<span class="SubHeadText">Supervisor <a href="##" onclick="window.open('index.cfm?fuseaction=Directory.supervisor_entry&user_account_id=#attributes.emp_id#', 'Supervisor', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=1,copyhistory=0,width=420,height=250');">ADD</a></span><br /></span>
+	<h4>Supervisor <a href="##" onclick="window.open('index.cfm?fuseaction=Directory.supervisor_entry&user_account_id=#attributes.emp_id#', 'Supervisor', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=1,copyhistory=0,width=420,height=250');" class="btn btn-mini">ADD</a></h4>
+</cfoutput>
 
-<table>
-	<tr>
-		<td width="25%">Name</td>
-		<td width="25%">Date Started</td>
-		<td width="25%">Date Ended</td>
-	</tr>
-</cfoutput>
-<cfoutput query="get_supervisor_history">
-	<tr>
-		<td>
-			<a href="javascript:list_to_employee('#get_supervisor_history.supervisor_id#');"  title="View details for #Replace(get_supervisor_history.sup_name,"'","")#.">#get_supervisor_history.sup_name#</a><br />
-		</td>
-		<td>
-			#dateformat(get_supervisor_history.date_start,'mm/dd/yyyy')#
-		</td>
-		<td>
-			#dateformat(get_supervisor_history.date_end,'mm/dd/yyyy')#
-		</td>
-</cfoutput>
+<table class="table table-striped table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Date Started</th>
+			<th>Date Ended</th>
+		</tr>
+	</thead>
+	<tbody>
+	<cfoutput query="get_supervisor_history">
+		<tr>
+			<th scope="row">
+				<a href="javascript:list_to_employee('#get_supervisor_history.supervisor_id#');"  title="View details for #Replace(get_supervisor_history.sup_name,"'","")#.">#get_supervisor_history.sup_name#</a><br />
+			</td>
+			<td class="date">
+				#dateformat(get_supervisor_history.date_start,'mm/dd/yyyy')#
+			</td>
+			<td class="date">
+				#dateformat(get_supervisor_history.date_end,'mm/dd/yyyy')#
+			</td>
+	</cfoutput>
+	</tbody>
 </table>

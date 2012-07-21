@@ -1,12 +1,12 @@
 
 <!--Tools/act_add_expense_entry.cfm
-	Author: Damon Scott  -->
+	Author: Jeromy French  -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I add new expense entries.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 $

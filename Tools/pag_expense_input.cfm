@@ -1,12 +1,12 @@
 
 <!--Tools/pag_expense_input.cfm
-	Author: Damon S  -->
+	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I am the page that holds the expense form insert page.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 

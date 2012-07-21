@@ -1,12 +1,12 @@
 
 <!--Directory/act_supervisor_submit.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I call the queries that are used to enter a new supervisor entry.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 	$Log: 

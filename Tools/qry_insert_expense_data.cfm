@@ -1,12 +1,12 @@
 
 <!--Tools/qry_insert_expense_data.cfm
-	Author: Damon S  -->
+	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I insert optional expense data into the database.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 

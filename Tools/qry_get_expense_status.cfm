@@ -1,12 +1,12 @@
 
 <!--Tools/qry_get_expense_status.cfm
-	Author: Damon S  -->
+	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I get different expense statuses for the expense form and the expense report.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 	 || 

@@ -1,12 +1,12 @@
 
 <!--Tools/pag_daily_processes.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I run all of the automatic daily processes for NGuage.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	 || 
 	--->
 </cfsilent>

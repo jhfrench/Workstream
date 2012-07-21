@@ -1,12 +1,12 @@
 
 <!--Tools/qry_REF_paid_by.cfm
-	Author: Damon S  -->
+	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: 
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 	 || 

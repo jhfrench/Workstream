@@ -1,12 +1,12 @@
 
 <!--Directory/dsp_salary_entry_form.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I display the salary entry form.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 $Log: 
@@ -14,64 +14,44 @@ $Log:
  
 	 || 
  --->
-
 </cfsilent>
 <cfoutput>
-	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td class="SelectText">
-			Date Implemented:			
-		</td>
-		<td class="SelectText">
-			<cfinput type="text" name="date" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this employee's salary was instated.  (mm/dd/yy)">
-		</td>
-	</tr>
-	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td class="SelectText">
-			Salary:			
-		</td>
-		<td class="SelectText">
-			<cfinput type="text" name="salary" size="10" maxlength="10" required="Yes" validate="integer" message="Please enter this employee's salary amount.">
-		</td>
-	</tr>
-	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td class="SelectText">
-			Salary Change Type:			
-		</td>
-		<td class="SelectText">
-</cfoutput>
-			<cfselect name="salary_change_type"
+<cfform name="form_salary_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="form form-horizontal">
+	<fieldset>
+		<legend>Salary Entry Form</legend>
+	</fieldset>
+	<div class="control-group">
+		<label class="control-label" for="date">Date Implemented:</label>
+		<div class="controls">
+			<cfinput type="text" name="date" id="date" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this employee's salary was instated.  (mm/dd/yy)" class="span3" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="salary">Salary</label>
+		<div class="controls">
+			<div class="input-prepend">
+				<span class="add-on">&##36;</span><cfinput type="text" name="salary" id="salary" size="10" maxlength="10" required="Yes" validate="integer" message="Please enter this employee's salary amount." class="span3" />
+			</div>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="salary_change_type">Salary Change Type</label>
+		<div class="controls">
+			<cfselect name="salary_change_type" id="salary_change_type"
           		size="1"
          		message="Please select the type of salary change."
           		query="get_salary_change_types"
           		value="salary_change_type_id"
           		display="description"
           		required="Yes"
-				class="RegText">
+				class="span3">
 			</cfselect>
-<cfoutput>
-		</td>
-	</tr>
-	<!--- <tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td class="SelectText">
-			Amount Increase:			
-		</td>
-		<td class="SelectText">
-			<cfinput type="text" name="salary_increase_amount" size="10" maxlength="10" required="Yes" validate="integer" message="Please enter this employee's salary increase amount.">
-		</td>
-	</tr>
-	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td class="SelectText">
-			% Increase:			
-		</td>
-		<td class="SelectText">
-			<cfinput type="text" name="salary_percent_increase" size="10" maxlength="10" required="Yes" validate="integer" message="Please enter this employee's percent salary increase.">
-		</td>
-	</tr> --->
-	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td class="SelectText" colspan="2">
-			<input type="hidden" name="emp_id" value="#emp_id#">
-			<input type="submit" value="Submit Salary"><input type="button" onclick="javascript:window.close();" value="Cancel">
-		</td>
-	</tr>
+		</div>
+	</div>
+	<div class="form-actions">
+		<input type="hidden" name="emp_id" value="#attributes.emp_id#">
+		<input type="submit" name="submit" value="Submit Salary" class="btn btn-primary" />
+		<input type="reset"  value="Reset" class="btn" />
+	</div>
+</cfform>
 </cfoutput>
-

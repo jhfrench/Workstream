@@ -1,11 +1,11 @@
 <!--Tools/dsp_expense_details.cfm
-	Author: Damon S  -->
+	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I am the list of expense details
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 

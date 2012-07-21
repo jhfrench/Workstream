@@ -1,12 +1,12 @@
 
 <!--Tools/qry_get_name.cfm
-	Author: Damon S  -->
+	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I get the name of the person whose expense report is being displayed.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 	 || 

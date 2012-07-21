@@ -1,12 +1,12 @@
 
 <!--Directory/dsp_supervisor_entry_header.cfm
-	Author: Damon S -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I display the header for the supervisor entry function.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 $Log: 

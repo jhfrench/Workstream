@@ -13,8 +13,7 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<span class="SubHeadText">Email</span><br />
+<h4>Email</h4>
 <cfoutput query="get_emp_email">
-#email_type#: <a href="mailto:#email#" >#email#</a><br />
+<b>#email_type#</b>: <a href="mailto:#email#">#email#</a><br />
 </cfoutput>
-

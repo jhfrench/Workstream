@@ -1,12 +1,12 @@
 
 <!--Tools/qry_insert_optional_category.cfm
-	Author: Damon S  -->
+	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I insert optional categories into the database.
 	||
-	Name: Damon Scott
+	Name: Jeromy French
 	||
 	Edits:
 
