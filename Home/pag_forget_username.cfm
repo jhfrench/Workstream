@@ -1,12 +1,12 @@
 <!-- Home/pag_forget_username.cfm
-	Author: Alicia McPherson-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_forget_username.cfm">
 	<responsibilities>
 		I get passwords for users who have forgotten their passwords.
 	</responsibilities>
 	<properties>
-		<history email="alicia.mcpherson@nasa.gov" author="Alicia McPherson" type="create" date="7/10/2010" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/10/2010" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

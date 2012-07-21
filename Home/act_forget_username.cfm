@@ -1,12 +1,12 @@
 <!-- Home/act_forget_username.cfm
-	Author: Alicia McPherson-->
+	Author: Jeromy French-->
 
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_forget_username.cfm">
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="alicia.mcpherson@nasa.gov" author="Alicia McPherson" type="create" date="7/10/2010" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/10/2010" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -29,7 +29,7 @@ You are receiving this email because you have requested your #application.produc
     
 Your username is #get_username.user_name#. 
     
-Please contact the Help Desk at 202-358-HELP(4357) if you did not request your username.
+Please contact the Help Desk at <!--- $issue$: contact info ---> 202-358-HELP(4357) if you did not request your username.
     </cfmail>
 	<cfset variables.username_found_ind=1>
 <cfelse>

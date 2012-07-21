@@ -20,15 +20,23 @@
 	</IO>
 </fusedoc>
 --->
-
-<cfparam name="attributes.user_name" default="">
-<cfparam name="attributes.method" default="">
-<cfparam name="attributes.requested_page" default="#application.fusebox.defaultfuseaction#">
-<cfparam name="variables.display_message" default="">
+<cfscript>
+	if (NOT isdefined("attributes.method")) {
+		attributes.method="";
+	};
+	if (NOT isdefined("attributes.requested_page")) {
+		attributes.requested_page=application.fusebox.defaultfuseaction;
+	};
+	if (NOT isdefined("attributes.user_name")) {
+		attributes.user_name="";
+	};
+	if (NOT isdefined("variables.display_message")) {
+		variables.display_message="";
+	};
+</cfscript>
 
 <!--- if the form is submitted --->
-<cfif NOT comparenocase(attributes.method,"Login")>
+<cfif NOT comparenocase(attributes.method,"login")>
 	<cfinclude template="act_login.cfm">
 </cfif>
-
 <cfinclude template="dsp_login.cfm">

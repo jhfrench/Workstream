@@ -36,6 +36,16 @@
 		<th scope="col">Entered By</th>
 	</tr>
 	</thead>
+	<tfoot>
+	<tr>
+		<td colspan="4">
+			<div class="btn-group">
+				<a href="index.cfm?fuseaction=Requirements.edit_comment&comments_id=0" class="btn">Add New Comment</a>
+				<a href="index.cfm?fuseaction=Requirements.view_all_comments" target="comments" class="btn">View All Comments</a>
+			</div>
+		</td>
+	</tr>
+	</tfoot>
 	<tbody>
 	<cfif get_screen_comments.recordcount EQ 0>
 	<tr>
@@ -52,14 +62,4 @@
 	</cfoutput>
 	</cfif>
 	</tbody>
-	<tfoot>
-	<!--- add link 'Add New Comments' --->
-	<tr><td colspan="4">&nbsp;</td></tr>
-	<tr>
-		<td colspan="4" align="left" class="menuItem" bgcolor="#eeeeee" onmouseover="new Effect.Highlight(this, {duration:0.1,startcolor:'#5394bd',endcolor:'#5394bd',restorecolor:'#5394bd'});this.style.cursor='pointer';" onmouseout="new Effect.Highlight(this, {duration:0.25,startcolor:'#999999',endcolor:'#bbbbbb',restorecolor:'#eeeeee'});">
-			<a href="index.cfm?fuseaction=Requirements.edit_comment&comments_id=0">Add New Comment</a> | <a href="index.cfm?fuseaction=Requirements.view_all_comments" target="comments">View All Comments</a>
-		</td>
-	</tr>
-	<tr><td colspan="4">&nbsp;</td></tr>
-	</tfoot>
 </table>

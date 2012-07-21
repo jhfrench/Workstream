@@ -28,7 +28,8 @@
 <div class="control-group">
 	<label for="reminder_days" class="control-label">Days</label>
 	<div class="controls">
-	<cfinput type="text" name="reminder_days" id="reminder_days" value="#variables.reminder_days#" required="No" validate="integer" message="Please specify your pre due date reminder as a number of whole days." class="span2"><span class="help-inline">(before due date)</span>
+	<input type="number" name="reminder_days" id="reminder_days" value="#variables.reminder_days#" step="1" min="0" max="90" class="span2" />
+	<span class="help-inline">Please specify your pre due date reminder as a number of whole days before the due date.</span>
 	</div>
 </div>
 <div class="control-group">

@@ -22,37 +22,23 @@
 --->
 
 <cfoutput>
-<cfform name="form_forget_username" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
-	<div style="position:relative;top:-30px;width:250px;color:white;">
-	<table cellspacing="1" cellpadding="4" border="0" width="250" summary="table displays forgotten password information">
-		<tr>
-			<th colspan="2" style="color:white;"><strong>FORGOTTEN USERNAME</strong><br />
-			Please enter your email address and click the submit button. The system will send your username to your email box.<br />
-			</th>
-		</tr>
-		<tr>
-			<td width="41%" align="right" style="color:white;">
-				<label for="email_address">Email Address</label>:
-			</td>
-			<td width="59%">
+<cfform name="form_forget_username" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
+	<fieldset>
+		<legend>Forgotten Username</legend>
+		<div class="alert alert-info">
+			Please enter your email address and click the submit button. The system will send your username to your email box.
+		</div>
+		<div class="control-group">
+			<label for="email_address">Email Address</label>
+			<div class="controls">
 				<cfinput type="text" name="email_address" id="email_address" size="20" maxlength="4000" required="yes" validate="email" validateat="onserver, onsubmit" message="You must enter a valid email address." value="#xmlformat(attributes.email_address)#" />
-			</td>
-		</tr>
-		<tr>
-			<td>&nbsp;
-				
-			</td>
-			<td>
-				<input name="method" type="submit" alt="submit" size="20" value="Submit">
-			</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>
-				<a href="index.cfm?fuseaction=Home.forget_password" style="color:yellow;">Forgotten Your Password?</a>
-			</td>
-		</tr>
-	</table>
-	</div>
+			</div>
+		</div>
+		<div class="form-actions">
+			<input type="submit" name="method" value="Submit" class="btn btn-primary" />
+			<input type="reset" value="Reset" class="btn" />
+			<p class="help-block"><a href="index.cfm?fuseaction=Home.forget_password">Forgotten Your Password?</a></p>
+		</div>
+	</fieldset>
 </cfform>
 </cfoutput>

@@ -110,7 +110,7 @@
 	<div class="span6">
 		<label for="notes" class="h5">Progress notes</label>
 		<cfif time_entry_details.recordcount>
-			<div id="notes" style="height:#variables.resolution_rows*28#px;" class="faux-textarea span11">
+			<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea span11">
 				<cfloop query="time_entry_details"><span<cfif notes_type_id EQ 2> class="alert-info"</cfif>>(#initials# #dateformat(date,"m/d/yy")#) - #trim(note)#&nbsp;&nbsp;</span><br /></cfloop>
 			</div>
 		<cfelse>

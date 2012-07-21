@@ -23,15 +23,11 @@
 
 <!-- END MAIN BODY -->
 <cfif listfindnocase("Administration.clean_up_old_accounts,Home.login,Home.forget_password,Home.forget_username", url.fuseaction)>
-							</div>
-						</div>
-					</div>
-				</td>
-			</tr>
-		</table>
+	</div>
+</div>
 <cfelse>
 		</section>
-	  	<div class="span3">
+		<div class="span3">
 			<!-- [[ RIGHT COLUMN START ]] -->
 			<cfif application.help.active_ind>
 				<cfinclude template="../Help/dsp_screen_help.cfm">
@@ -39,9 +35,9 @@
 			<div id="watermark"></div>
 			<!-- [[ RIGHT COLUMN END ]] -->
 		</div>
-	  </div>
+	</div>
 	  
-      <hr>
+	<hr>
 
 	<footer role="contentinfo" class="row-fluid screen_only">
 			<div style="float: left;">

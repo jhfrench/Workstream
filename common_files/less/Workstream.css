@@ -6515,6 +6515,26 @@ footer {
   z-index: 1;
   width: 200px;
 }
+.login_background {
+  background-image: url(../../images/login_splash.jpg);
+  background-repeat: no-repeat;
+}
+#login_box {
+  position: relative;
+  left: 540px;
+  width: 450px;
+}
+#login_form {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border-color: #eeeeee;
+  background-color: #000000;
+  opacity: .8;
+}
 /*<!---text alignment--> */
 .date,
 td.date {

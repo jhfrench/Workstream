@@ -21,52 +21,32 @@
 </fusedoc>
 --->
 <cfoutput>
-<form name="form_login" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
-	<table border="0" cellpadding="0" cellspacing="0" summary="Table displays login form">
-		<tr>
-			<td align="right" class="formtextlabel">
-				<img src="images/spacer.gif" width="100" height="1" alt="" border="0"><br />
-				<label for="user_name" accesskey="u" class="formtextlabel" autofocus="autofocus">Username</label>:
-			</td>
-			<td>
-				<img src="images/spacer.gif" width="180" height="1" alt="" border="0"><br />
-				<input type="text" name="user_name" id="user_name" value="#xmlformat(attributes.user_name)#" size="20" maxlength="4000" autofocus />
-			</td>
-		</tr>
-		<tr>
-			<td align="right" class="formtextlabel">
-				<img src="images/spacer.gif" width="100" height="1" alt="" /><br />
-				<label for="password" accesskey="p" class="formtextlabel">Password</label>:
-			</td>
-			<td><input type="password" name="password" id="password" value="" size="20" /></td>
-		</tr>
-		<tr>
-			<td>
-				<img src="images/spacer.gif" width="100" height="29" alt="" />
-			</td>
-			<td>
+<cfif len(variables.display_message)>
+	<div id="display_message" class="alert alert-error">
+		#variables.display_message#
+	</div>
+</cfif>
+<form name="login_form" id="login_form" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
+	<fieldset>
+		<legend>Please Log In</legend>
+		<div class="control-group">
+			<label class="control-label" accesskey="u" autofocus="autofocus" for="user_name">Username</label>
+			<div class="controls">
+				<input type="text" name="user_name" id="user_name" value="#xmlformat(attributes.user_name)#" size="20" maxlength="4000" required="required" class="span2" />
+				<p class="help-block"><a href="index.cfm?fuseaction=Home.forget_username">Forgotten Your Username?</a></p>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="password" accesskey="p">Password</label>
+			<div class="controls">
+				<input type="password" name="password" id="password" value="" size="20" required="required" class="span2" />
+				<p class="help-block"><a href="index.cfm?fuseaction=Home.forget_password">Forgotten Your Password?</a></p>
+			</div>
+		</div>
+		<div class="form-actions">
 				<input type="hidden" name="requested_page" value="#xmlformat(attributes.requested_page)#" />
-				<input type="submit" name="method" value="Login" alt="Login" size="20" />
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center">
-				<div id="response" style="color:yellow;">#variables.display_message#&nbsp;</div>
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>
-				<a href="index.cfm?fuseaction=Home.forget_username" style="color:yellow;">Forgotten Your Username?</a><br />
-				<a href="index.cfm?fuseaction=Home.forget_password" style="color:yellow;">Forgotten Your Password?</a>
-			</td>
-		</tr>
-	</table>
+				<input type="submit" name="method" value="login" class="btn btn-primary" />
+		</div>
+	</fieldset>
 </form>
 </cfoutput>
-
-<script language="javascript">
-<cfif len(variables.display_message)>
-	setTimeout("new Effect.Shake('loginB');",1250);
-</cfif>
-</script>

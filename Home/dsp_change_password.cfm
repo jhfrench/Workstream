@@ -68,7 +68,7 @@
 				<input type="hidden" name="requested_page" value="#attributes.requested_page#" />
 				<input type="hidden" name="user_account_id" value="#get_user_information.user_account_id#" />
 				<input type="submit" name="method" size="20" value="Change Password" class="btn btn-primary" />
-				<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
+				<input type="reset" value="Reset" class="btn" />
 			</div>
 	</fieldset>
 </form>
