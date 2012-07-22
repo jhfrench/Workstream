@@ -55,7 +55,7 @@
 					<option value="2">On</option>
 					<option value="3">After</option>
 				</select>
-				<input type="text" name="date_entered" id="date_entered" size="12" maxlength="10" class="span5" />
+				<input type="date" name="date_entered" id="date_entered" min="2011-09-01" max="<cfoutput>#dateformat(now(), 'yyyy-mm-dd')#</cfoutput>" maxlength="10" class="span5" />
 			</div>
 		</div>
 		<div class="control-group">
@@ -66,7 +66,7 @@
 					<option value="2">On</option>
 					<option value="3">After</option>
 				</select>
-				<input type="text" name="due_date" id="due_date" size="12" maxlength="10" class="span5" />
+				<input type="date" name="due_date" id="due_date" min="2011-09-01" max="<cfoutput>#dateformat(now(), 'yyyy-mm-dd')#</cfoutput>" maxlength="10" class="span5" />
 			</div>
 		</div>
 		<div class="control-group">

@@ -88,12 +88,12 @@
 			</div>
 			<div class="span4">
 				<label for="date_assigned" class="h5">Date assigned</label>
-				<span id="date_assigned">#dateformat(get_task_details.date_assigned,"mm/dd/yy")#</span>
+				<span id="date_assigned" class="span11 date">#dateformat(get_task_details.date_assigned,"mm/dd/yy")#</span>
 				<label for="due_date" class="h5">Date due</label>
-				<cfinput type="datefield" name="due_date" id="due_date" value="#dateformat(get_task_details.due_date,'mm/dd/yy')#" required="Yes" validate="date" message="Please enter a properly formatted date" size="11" class="span11" />
+				<input type="date" name="due_date" id="due_date" min="2011-09-01" value="#dateformat(get_task_details.due_date,'mm/dd/yy')#" maxlength="10" required="required" class="span11 date" />
 				<div style="float:left;">
 				<label for="date_completed" class="h5">Date completed</label>
-				<span id="date_completed"><cfif len(get_task_details.complete_date) AND get_task_details.status_id EQ 11>#dateformat(get_task_details.complete_date,"mm/dd/yy")#<cfelse>Not yet completed</cfif></span>
+				<span id="date_completed" class="span11 date"><cfif len(get_task_details.complete_date) AND get_task_details.status_id EQ 11>#dateformat(get_task_details.complete_date,"mm/dd/yy")#<cfelse>Not yet completed</cfif></span>
 				</div>
 			</div>
 			<div class="span4">

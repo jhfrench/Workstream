@@ -112,7 +112,7 @@ else
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</a>
-						<span class="brand"><img src="images/workstream_icon.png" height="16" width="16" alt="#application.application_specific_settings.nasa_organization# Workstream" />Workstream</span>
+						<span class="brand"><img src="images/workstream_icon.png" height="17" width="16" alt="#application.application_specific_settings.nasa_organization# Workstream" />Workstream</span>
 						<div class="nav-collapse" id="menu">
 							<ul class="nav">
 								<cfinclude template="qry_get_module_sub_navigation.cfm" /><!--- 

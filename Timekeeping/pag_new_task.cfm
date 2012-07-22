@@ -47,6 +47,6 @@
 <cfinclude template="../common_files/act_call_big_project_list.cfm"><!--- 
 <cfinclude template="../common_files/act_call_spell_check.cfm"> --->
 <cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="task_details" method="POST">
-	<div style="background-color:#78A0EB; width:100%;"><h2>Create A New Task</h2></div>
+	<h2>Create A New Task</h2>
 	<cfinclude template="dsp_task_new_table.cfm">
 </cfform>
