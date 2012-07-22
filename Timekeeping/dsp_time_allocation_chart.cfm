@@ -19,6 +19,18 @@
 	END FUSEDOC --->
 </cfsilent>
 
+<script type="text/javascript">
+	//if Modernizr determines they can be supported, load the following JavaScript resources
+	Modernizr.load([
+		{
+			test: Modernizr.canvas,
+			nope: 'common_files/excanvas.js',
+			complete: function () {
+				Modernizr.load('common_files/pie_graph.js');
+			}
+		}
+	]);
+</script>
 <cfoutput>
 <section id="blurb_project" class="span7">
 	<h2>Work Allocation</h2>
@@ -27,9 +39,9 @@
 	<div id="work_allocation" class="row-fluid">
 
 		<div class="span4">
-			<table id="chartData" class="table_striped" cellspacing="0">
+			<table id="chartData" class="table table-striped table-bordered table-condensed">
 				<thead>
-					<tr bgcolor="##c0c0c0">
+					<tr>
 						<th colspan="2" title="label">Project</th><th>Hours</th>
 					</tr>
 				</thead>

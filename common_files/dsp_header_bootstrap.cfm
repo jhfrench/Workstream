@@ -54,6 +54,7 @@ else
 	<meta name="viewport" content="width=device-width">
 
 	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
+	<link rel="stylesheet" href="common_files/less/Workstream.css">
 
 	<script src="common_files/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
 	<script type="text/javascript">
@@ -72,7 +73,6 @@ else
 			{
 				// This will wait for the fallback to load and execute if it needs to.
 				load: [
-					'common_files/less/Workstream.css',
 					'//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js',
 					'//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-transition.js',
 					'//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-collapse.js',
@@ -83,14 +83,7 @@ else
 				]
 			},
 			{
-				test: Modernizr.canvas,
-				nope: 'common_files/excanvas.js',
 				complete: function () {
-					Modernizr.load('common_files/pie_graph.js');
-				}
-			},
-			{
-				complete: function () {	
 					<cfoutput>#get_screen_details.body_onload#</cfoutput>
 				}
 			}

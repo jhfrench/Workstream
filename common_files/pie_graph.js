@@ -372,3 +372,5 @@ function pieChart() {
   return false;
 
 };
+
+pieChart();
