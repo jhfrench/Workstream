@@ -34,10 +34,10 @@
 					 overview =  '#overview#',
 				    <cfif IsNumeric(MARKETING.projected_revenue[ii])>projected_revenue=  #val(MARKETING.PROJECTED_REVENUE[ii])#,</cfif>
 					<cfif IsNumeric(MARKETING.probability[ii])> probability= '#MARKETING.PROBABILITY[ii]#',</cfif>
-					<cfif IsDate(MARKETING.statusabovedate[ii])>statusabovedate= '#MARKETING.STATUSABOVEDATE[ii]#', </cfif>
-					<cfif IsDate(MARKETING.statusindate[ii])>statusindate ='#MARKETING.STATUSINDATE[ii]#', </cfif>
-					<cfif IsDate(MARKETING.statusbestfewdate[ii])> statusbestfewdate ='#MARKETING.STATUSBESTFEWDATE[ii]#' , </cfif>
-					<cfif IsDate(MARKETING.statuscontractdate[ii])>statuscontractdate = '#MARKETING.STATUSCONTRACTDATE[ii]#',</cfif> source = #session.user_account_id#
+					<cfif isdate(MARKETING.statusabovedate[ii])>statusabovedate= '#MARKETING.STATUSABOVEDATE[ii]#', </cfif>
+					<cfif isdate(MARKETING.statusindate[ii])>statusindate ='#MARKETING.STATUSINDATE[ii]#', </cfif>
+					<cfif isdate(MARKETING.statusbestfewdate[ii])> statusbestfewdate ='#MARKETING.STATUSBESTFEWDATE[ii]#' , </cfif>
+					<cfif isdate(MARKETING.statuscontractdate[ii])>statuscontractdate = '#MARKETING.STATUSCONTRACTDATE[ii]#',</cfif> source = #session.user_account_id#
 					<cfif IsNumeric(MARKETING.company_size[ii])>,company_size ='#MARKETING.COMPANY_SIZE[ii]#'</cfif>
 					Where project_id = #MARKETING.project_id[ii]#
 		          </cfquery>
@@ -135,19 +135,19 @@
 			    (project_code, project_id
 			    <cfif IsNumeric(MARKETING.projected_revenue[ii])>,projected_revenue</cfif>
 			    <cfif IsNumeric(MARKETING.probability[ii])>, probability </cfif>
-			    <cfif IsDate(MARKETING.statusabovedate[ii])>,statusabovedate</cfif>
-			    <cfif IsDate(MARKETING.statusindate[ii])>, statusindate</cfif>
-			    <cfif IsDate(MARKETING.statusbestfewdate[ii])>, statusbestfewdate </cfif>
-			    <cfif IsDate(MARKETING.statuscontractdate[ii])> , statuscontractdate</cfif>
+			    <cfif isdate(MARKETING.statusabovedate[ii])>,statusabovedate</cfif>
+			    <cfif isdate(MARKETING.statusindate[ii])>, statusindate</cfif>
+			    <cfif isdate(MARKETING.statusbestfewdate[ii])>, statusbestfewdate </cfif>
+			    <cfif isdate(MARKETING.statuscontractdate[ii])> , statuscontractdate</cfif>
 			    <cfif IsNumeric(MARKETING.company_size[ii])>, company_size</cfif>
 			    <cfif compare(MARKETING.overview[ii], "")> , overview</cfif>)
 				VALUES (#variables.project_code#, #get_max_id.project_id#
 				 <cfif IsNumeric(MARKETING.projected_revenue[ii])>,'#MARKETING.PROJECTED_REVENUE[ii]#'</cfif> 
 				 <cfif IsNumeric(MARKETING.probability[ii])>,'#MARKETING.PROBABILITY[ii]#'</cfif> 
-				 <cfif IsDate(MARKETING.statusabovedate[ii])>,'#MARKETING.STATUSABOVEDATE[ii]#' </cfif>
-				 <cfif IsDate(MARKETING.statusindate[ii])>,'#MARKETING.STATUSINDATE[ii]#'</cfif>
-				 <cfif IsDate(MARKETING.statusbestfewdate[ii])>,  '#MARKETING.STATUSBESTFEWDATE[ii]#' </cfif> 
-				 <cfif IsDate(MARKETING.statuscontractdate[ii])> ,'#MARKETING.STATUSCONTRACTDATE[ii]#'</cfif> 
+				 <cfif isdate(MARKETING.statusabovedate[ii])>,'#MARKETING.STATUSABOVEDATE[ii]#' </cfif>
+				 <cfif isdate(MARKETING.statusindate[ii])>,'#MARKETING.STATUSINDATE[ii]#'</cfif>
+				 <cfif isdate(MARKETING.statusbestfewdate[ii])>,  '#MARKETING.STATUSBESTFEWDATE[ii]#' </cfif> 
+				 <cfif isdate(MARKETING.statuscontractdate[ii])> ,'#MARKETING.STATUSCONTRACTDATE[ii]#'</cfif> 
 				 <cfif IsNumeric(MARKETING.company_size[ii])>, '#MARKETING.COMPANY_SIZE[ii]#' </cfif>
 				 <cfif compare(MARKETING.overview[ii], "")> ,  '#OVERVIEW#'</cfif>)
 			</cfquery>

@@ -22,7 +22,7 @@
 			Notes
 		</td>
 		<td>
-			<input type="Text" name="notes" size="30" onclick="checkbox_notes()" value="#attributes.notes#" > Separate multiple phrases with commas.
+			<input type="text" name="notes" size="30" onclick="checkbox_notes()" value="#attributes.notes#" > Separate multiple phrases with commas.
 		</td>
 	</tr>
 <cfmodule template="../common_files/act_autocheck_checkbox_js.cfm" checkbox_name="notes">

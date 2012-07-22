@@ -15,7 +15,7 @@
 <cfoutput>
 	<tr valign="top">
 		<td align="center" colspan="2" valign="top">
-			<br />&nbsp;<br />&nbsp;Profile name: <cfinput type="Text" name="profile_name" required="Yes" message="Please enter a profile name.">
+			<br />&nbsp;<br />&nbsp;Profile name: <cfinput type="text" name="profile_name" required="Yes" message="Please enter a profile name.">
 		</td>
 	</tr>
 	<tr valign="top">

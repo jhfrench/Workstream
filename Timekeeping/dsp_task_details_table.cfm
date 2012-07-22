@@ -108,17 +108,21 @@
 		</div>
 	</div>
 	<div class="span6">
-		<label for="notes" class="h5">Progress notes</label>
-		<cfif time_entry_details.recordcount>
-			<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea span11">
-				<cfloop query="time_entry_details"><span<cfif notes_type_id EQ 2> class="alert-info"</cfif>>(#initials# #dateformat(date,"m/d/yy")#) - #trim(note)#&nbsp;&nbsp;</span><br /></cfloop>
+			<div class="row-fluid">
+				<div class="span12">
+				<label for="notes" class="h5">Progress notes</label>
+				<cfif time_entry_details.recordcount>
+					<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea">
+						<cfloop query="time_entry_details"><span<cfif notes_type_id EQ 2> class="alert-info"</cfif>><strong>(#initials# #dateformat(date,"m/d/yy")#)</strong> - #trim(note)#&nbsp;&nbsp;</span><br /></cfloop>
+					</div>
+				<cfelse>
+					<div id="notes" class="alert">
+						Resolution notes not yet entered for this task.&nbsp;
+						<a href="javascript:delete_check('#attributes.task_id#');"  title="Delete this task from workstream." class="btn btn-danger"><i class="icon-trash icon-white"></i> Delete this task</a>
+					</div>
+				</cfif>
+				</div>
 			</div>
-		<cfelse>
-			<div id="notes" class="alert">
-				Resolution notes not yet entered for this task.&nbsp;
-				<a href="javascript:delete_check('#attributes.task_id#');"  title="Delete this task from workstream." class="btn btn-danger"><i class="icon-trash icon-white"></i> Delete this task</a>
-			</div>
-		</cfif>
 		<cfinclude template="dsp_task_detail_notes_entry.cfm">
 		<cfif listfind("1,5", session.workstream_emp_contact_type) OR session.workstream_show_hours_data_ind EQ 1>
 			<!--- show time data to employees or customers if their company is set up to view hours--->

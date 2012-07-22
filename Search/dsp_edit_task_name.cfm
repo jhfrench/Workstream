@@ -22,7 +22,7 @@
 			Task Name
 		</td>
 		<td>
-			<input type="Text" name="Task_Name" size="30" onclick="checkbox_task_name()" value="#attributes.Task_Name#"> Separate multiple phrases with commas.
+			<input type="text" name="Task_Name" size="30" onclick="checkbox_task_name()" value="#attributes.Task_Name#"> Separate multiple phrases with commas.
 		</td>
 	</tr>
 <cfmodule template="../common_files/act_autocheck_checkbox_js.cfm" checkbox_name="task_name">

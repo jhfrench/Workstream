@@ -31,7 +31,7 @@
 			</select>
 		</td>
 		<td valign="top">
-			Date Locked: <cfinput type="Text" name="date_locked"  message="Please specify a valid date to apply." validate="date" required="Yes" size="8">		
+			Date Locked: <cfinput type="text" name="date_locked"  message="Please specify a valid date to apply." validate="date" required="Yes" size="8">		
 		</td>	
 	</tr>
 	<tr>

@@ -32,7 +32,7 @@
 			Root Name<br />
 			<cfselect name="customer_id" size="1" query="get_root_codes" value="customer_id" required="Yes" display="display"></cfselect><br />
 			Project Name<br />
-			<cfinput type="Text" name="description" required="Yes" message="Please enter an Project Name">
+			<cfinput type="text" name="description" required="Yes" message="Please enter an Project Name">
 		</td>
 		<td class="RegTextBd">
 			Visible To<br />

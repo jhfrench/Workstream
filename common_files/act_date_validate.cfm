@@ -26,7 +26,7 @@
 //function is 'thisObj', all of the other parameters that are passed are legacy parameters from the old
 //function; we did not remove them so that we were able to easily plug this function in and also just in 
 //case we may need them in the future. - Josh Peters 10-January-2002.
-	function VerifyThisDate(thisObj){	
+	function VerifyThisdate(thisObj){	
 		var today = new Date();						//Build valid year range based off of current year
 		var minYear = (today.getYear() - 100);		//The nums I'm adding are abritrary, I wanted to go pretty
 		var maxYear = (today.getYear() + 35);		//far back for the min because we do test birthdates.

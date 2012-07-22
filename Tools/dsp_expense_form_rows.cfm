@@ -42,7 +42,7 @@
    				<cfoutput>#Get_Expense_Type.Expense_Type[ii]#</cfoutput>:
    			</td>
    			<td>
-   				<cfinput type="Text" name="et_#ii#" validate="float" message="Please enter an amount in the #Get_Expense_Type.Expense_Type[ii]#  field." value="#evaluate('expense_cross_tab.et_#ii#')#">
+   				<cfinput type="text" name="et_#ii#" validate="float" message="Please enter an amount in the #Get_Expense_Type.Expense_Type[ii]#  field." value="#evaluate('expense_cross_tab.et_#ii#')#">
    			</td>
    		</tr>
    		<cfset start=IncrementValue(start)>
@@ -58,7 +58,7 @@
    				<cfoutput>#Get_Expense_Type.Expense_Type[ii]#</cfoutput>:
    			</td>
    			<td>
-   				<cfinput type="Text" name="et_#ii#" validate="float" message="Please enter an amount in the #Get_Expense_Type.Expense_Type[ii]# field." value="#evaluate('expense_cross_tab.et_#ii#')#">
+   				<cfinput type="text" name="et_#ii#" validate="float" message="Please enter an amount in the #Get_Expense_Type.Expense_Type[ii]# field." value="#evaluate('expense_cross_tab.et_#ii#')#">
    			</td>
    		</tr>
 			</cfloop>

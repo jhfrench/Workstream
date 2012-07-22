@@ -20,8 +20,8 @@
 		<td colspan="2" class="RegTextWhite">Enter Dates (mm/dd/yyyy)</td>
 	</tr>
 	<tr>	
-		<td>From: <cfinput type="Text" name="From_date" required="yes" size="9" validate="date" message="You must enter a valid from date"></td>
-		<td>To: <cfinput type="Text" name="through_date" required="yes" size="9" validate="date" message="You must enter a valid through date"></td>
+		<td>From: <cfinput type="text" name="From_date" required="yes" size="9" validate="date" message="You must enter a valid from date"></td>
+		<td>To: <cfinput type="text" name="through_date" required="yes" size="9" validate="date" message="You must enter a valid through date"></td>
 	</tr>
 	<tr>
 		<td colspan="2" valign="top">

@@ -114,7 +114,7 @@ else
 				</div>
 				<div class="span1"></div>
 			</div>
-			<nav role="navigation" class="navbar">
+			<nav role="navigation" class="navbar navbar-fixed-top">
 				<div class="navbar-inner">
 					<div class="container">
 						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -122,6 +122,7 @@ else
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</a>
+						<a class="brand" href="##">Workstream</a>
 						<div class="nav-collapse" id="menu">
 							<ul class="nav">
 								<cfinclude template="qry_get_module_sub_navigation.cfm" /><!--- 

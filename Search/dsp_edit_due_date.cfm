@@ -29,7 +29,7 @@
 				<option value="1"<cfif attributes.due_date_operator EQ 1> SELECTED="selected"</cfif>>Less Than</option>
 				<option value="2"<cfif attributes.due_date_operator EQ 2> SELECTED="selected"</cfif>>Between</option>
 				<option value="3"<cfif attributes.due_date_operator EQ 3> SELECTED="selected"</cfif>>Greater Than</option>
-			</select>&nbsp;<input type="Text" name="due_date" size="12" value="#attributes.due_date#" onclick="gfPop.fPopCalendar(this.form.due_date);checkbox_due_date()" maxlength="10"> 
+			</select>&nbsp;<input type="text" name="due_date" size="12" value="#attributes.due_date#" onclick="gfPop.fPopCalendar(this.form.due_date);checkbox_due_date()" maxlength="10"> 
 		</td>
 	</tr>
 </cfoutput>

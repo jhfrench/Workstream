@@ -12,7 +12,7 @@
 	 || 
 	END FUSEDOC --->
 <cfloop from="1" to="#ArrayLen(CUSTOMER_RATE.BILLING_RATE_ID)#" index="ii">
-	<cfif (isnumeric(CUSTOMER_RATE.RATE[ii])AND Compare(CUSTOMER_RATE.RATE[ii],CUSTOMER_RATE.ORIGINAL.RATE[ii]) )OR (IsDate(CUSTOMER_RATE.rate_end_date[ii]) AND  Compare(CUSTOMER_RATE.rate_end_date[ii], CUSTOMER_RATE.ORIGINAL.rate_end_date[ii]))OR (IsDate(CUSTOMER_RATE.rate_start_date[ii]) AND Compare(CUSTOMER_RATE.rate_start_date[ii],CUSTOMER_RATE.Original.rate_start_date[ii]))>
+	<cfif (isnumeric(CUSTOMER_RATE.RATE[ii])AND Compare(CUSTOMER_RATE.RATE[ii],CUSTOMER_RATE.ORIGINAL.RATE[ii]) )OR (isdate(CUSTOMER_RATE.rate_end_date[ii]) AND  Compare(CUSTOMER_RATE.rate_end_date[ii], CUSTOMER_RATE.ORIGINAL.rate_end_date[ii]))OR (isdate(CUSTOMER_RATE.rate_start_date[ii]) AND Compare(CUSTOMER_RATE.rate_start_date[ii],CUSTOMER_RATE.Original.rate_start_date[ii]))>
 		<cfquery name="update_billing_rate" datasource="#application.datasources.main#">
 			UPDATE billing_rate 
 			SET
@@ -20,10 +20,10 @@
 				<cfif isnumeric(CUSTOMER_RATE.RATE[ii])AND Compare(CUSTOMER_RATE.RATE[ii],CUSTOMER_RATE.ORIGINAL.RATE[ii])> 
 					 Rate = #CUSTOMER_RATE.RATE[ii]#,
 				</cfif>
-				<cfif IsDate(CUSTOMER_RATE.rate_start_date[ii])AND Compare(CUSTOMER_RATE.rate_start_date[ii],CUSTOMER_RATE.Original.rate_start_date[ii])>
+				<cfif isdate(CUSTOMER_RATE.rate_start_date[ii])AND Compare(CUSTOMER_RATE.rate_start_date[ii],CUSTOMER_RATE.Original.rate_start_date[ii])>
 					rate_start_date = #createodbcdatetime(CUSTOMER_RATE.rate_start_date[ii])#,
 				</cfif>
-				<cfif IsDate(CUSTOMER_RATE.rate_end_date[ii]) AND  Compare(CUSTOMER_RATE.rate_end_date[ii], CUSTOMER_RATE.ORIGINAL.rate_end_date[ii])>
+				<cfif isdate(CUSTOMER_RATE.rate_end_date[ii]) AND  Compare(CUSTOMER_RATE.rate_end_date[ii], CUSTOMER_RATE.ORIGINAL.rate_end_date[ii])>
 					 rate_end_date =  #createodbcdatetime(CUSTOMER_RATE.rate_end_date[ii])#
 				</cfif> 
 			</cf_removetrailingcomma>

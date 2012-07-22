@@ -21,18 +21,18 @@
 </tr>
 <tr>
 	<td>
-		<cfinput type="Text" required="no" name="Company_address1">
+		<cfinput type="text" required="no" name="Company_address1">
 	</td>
 	<td>
-		<cfinput type="Text" required="no" name="Company_address2">
+		<cfinput type="text" required="no" name="Company_address2">
 	</td>
 	<td>
-		<cfinput type="Text" required="no" name="company_City">
+		<cfinput type="text" required="no" name="company_City">
 	</td>
 	<td>
 		<cfselect name="company_State" query="get_states" display="state" value="state" size="1"></cfselect>
 	</td>
 	<td>
-		<cfinput type="Text" required="no" validate="zipcode" name="company_zip" size="5" message="Please enter a valid zip code">
+		<cfinput type="text" required="no" validate="zipcode" name="company_zip" size="5" message="Please enter a valid zip code">
 	</td>
 </tr>

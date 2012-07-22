@@ -17,7 +17,7 @@
 <tr>
 		<td align="center"><input type="checkbox" name="task_id_box" value="1" <cfif len(attributes.task_id)>checked="checked"</cfif>></td>
 		<td>Task ID</td>
-		<td><cfinput type="Text" name="task_id" size="50" value="#attributes.task_id#" onclick="checkbox_task_id()"></td>
+		<td><cfinput type="text" name="task_id" size="50" value="#attributes.task_id#" onclick="checkbox_task_id()"></td>
 </tr>
 </cfoutput>
 <cfmodule template="../common_files/act_autocheck_checkbox_js.cfm" checkbox_name="task_id">

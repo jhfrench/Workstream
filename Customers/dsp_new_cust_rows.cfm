@@ -22,7 +22,7 @@
 		<a href="javascript:void(0);" onclick="javascript:Element.toggle('root_code_entry');Element.toggle('code_options');">Specify A Root Code</a>
 		</div>
 		<div id="root_code_entry" style="display:none;">
-		<cfinput type="Text" required="No"  name="root_code" size="4">&nbsp;*<br />
+		<cfinput type="text" required="No"  name="root_code" size="4">&nbsp;*<br />
 		Note: If you select a root code yourself, make sure that it isn't used already.
 		</div>
 	</td>
@@ -39,7 +39,7 @@
 </tr>
 <tr>
 	<td>
-		<cfinput type="Text" required="Yes" message="Please enter a Root Name" name="description">
+		<cfinput type="text" required="Yes" message="Please enter a Root Name" name="description">
 	</td>
 	<td>
 		<cfselect name="billable_type_id" size="1">

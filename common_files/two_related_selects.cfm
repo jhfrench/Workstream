@@ -30,6 +30,8 @@
 <cfparam name="attributes.id2" default="#attributes.Name2#">
 <cfparam name="attributes.Size1" default="1">
 <cfparam name="attributes.Size2" default="1">
+<cfparam name="attributes.class1" default="">
+<cfparam name="attributes.class2" default="">
 <cfparam name="attributes.Width1" default="">
 <cfparam name="attributes.Width2" default="">
 <cfparam name="attributes.ForceWidth1" default="">
@@ -155,7 +157,7 @@
 </cfif>
 
 <!--- OUTPUT FIRST SELECT BOX --->
-<cfoutput><select name="#attributes.Name1#" id="#attributes.id1#" onchange="#function_name#;#attributes.Element1_OnchangeEvent#" size="#attributes.Size1#" <cfif len(attributes.width1)>STYLE="width:#attributes.Width1#"</cfif>></cfoutput>
+<cfoutput><select name="#attributes.Name1#" id="#attributes.id1#" onchange="#function_name#;#attributes.Element1_OnchangeEvent#" size="#attributes.Size1#" class="#attributes.class1#"<cfif len(attributes.width1)>STYLE="width:#attributes.Width1#"</cfif>></cfoutput>
 
 	<!--- SPECIAL FIRST ITEM, IF REQUESTED --->
 	<cfif len(attributes.EmptyText1)><cfoutput><option value="">#attributes.EmptyText1#</option></cfoutput></cfif>
@@ -171,7 +173,7 @@
 <cfoutput>#attributes.HTMLBetween#</cfoutput>
 
 <!--- OUTPUT SECOND SELECT BOX --->
-<cfoutput><select name="#attributes.Name2#" id="#attributes.id2#" size="#attributes.Size2#" <cfif len(attributes.onChange)>onChange="#attributes.OnChange#"</cfif> <cfif len(attributes.Width2)>STYLE="width:#attributes.Width2#"</cfif>></cfoutput>
+<cfoutput><select name="#attributes.Name2#" id="#attributes.id2#" size="#attributes.Size2#" <cfif len(attributes.onChange)>onChange="#attributes.OnChange#"</cfif> <cfif len(attributes.Width2)>STYLE="width:#attributes.Width2#"</cfif> class="#attributes.class2#"></cfoutput>
 	<!--- SPECIAL FIRST ITEM, IF REQUESTED --->
 	<cfif len(attributes.EmptyText2)><cfoutput><option value="">#attributes.EmptyText2#</option></cfoutput></cfif>
 

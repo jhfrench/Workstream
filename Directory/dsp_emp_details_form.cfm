@@ -121,7 +121,7 @@
 					<tr>
 						<td class="SubHeadText">&nbsp;</td>
 						<td align="right">Date Change Effective: </td>
-						<td align="left"><cfinput type="Text" name="effective_from" required="Yes" validate="date" message="You must provide a date that the change becomes effective." value="#dateformat(now(), 'mm/dd/yyyy')#" maxlength="10" size="11"></td>
+						<td align="left"><cfinput type="text" name="effective_from" required="Yes" validate="date" message="You must provide a date that the change becomes effective." value="#dateformat(now(), 'mm/dd/yyyy')#" maxlength="10" size="11"></td>
 						<td align="right">&nbsp;</td>
 						<td align="left">&nbsp;</td>
 					</tr>

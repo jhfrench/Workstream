@@ -37,9 +37,9 @@
 		</td>
 		<td class="RegTextBd">
 			Budget<br />
-			<span>$ </span><cfinput type="Text" name="budget" value="#get_engagement_main.budget#" required="Yes" validate="float" message="Please specify a budget." size="6"><br />
+			<span>$ </span><cfinput type="text" name="budget" value="#get_engagement_main.budget#" required="Yes" validate="float" message="Please specify a budget." size="6"><br />
 			LOE<br />
-			<span>h </span><cfinput type="Text" name="loe" value="#get_engagement_main.loe#" required="Yes"  size="6">
+			<span>h </span><cfinput type="text" name="loe" value="#get_engagement_main.loe#" required="Yes"  size="6">
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">
