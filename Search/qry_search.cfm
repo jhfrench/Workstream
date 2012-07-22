@@ -61,7 +61,7 @@
 	</cfswitch>
 </cfif>
 
-<cfif listlen(attributes.task_id)>
+<cfif listlen(attributes.task_id) GT 1>
 	<cfset variables.task_id="">
 	<cfloop list="#attributes.task_id#" index="ii">
 		<cfif IsNumeric(ii)>
@@ -71,10 +71,13 @@
 	<cfset attributes.task_id=variables.task_id>
 </cfif>
 
-<cfif listlen(attributes.project_id)>
-	<cfset variables.use_project_criteria=1>
-<cfelse>
-	<cfset variables.use_project_criteria=0>
+<cfif NOT listlen(attributes.project_id)>
+	<cfif isdefined("attributes.project_id_list")>
+		<cfset attributes.project_id=attributes.project_id_list>
+	<cfelse>
+		<cfinclude template="../common_files/qry_get_search_projects.cfm">
+		<cfset attributes.project_id=valuelist(get_search_projects.project_id)>
+	</cfif>
 </cfif>
 
 <cfif listlen(attributes.customer_id)>
@@ -108,12 +111,14 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 				WHERE Team.task_id=Task.task_id<cfif listlen(attributes.task_id)>
 					AND Task.task_id IN (#attributes.task_id#)</cfif><cfif listlen(attributes.task_name)>
 					AND (<cfloop list="#attributes.task_name#" index="ii">
-						<cfset counter=incrementvalue(counter)>Task.name LIKE '%#ii#%'<cfif counter NEQ listlen(attributes.task_name)> OR </cfif></cfloop>)</cfif><cfif listlen(attributes.description)>
-					AND (<cfloop list="#attributes.description#" index="ii"><cfset counter=incrementvalue(counter)>Task.description LIKE '%#ii#%'<cfif counter NEQ listlen(attributes.description)> OR </cfif></cfloop>)</cfif><cfif len(attributes.task_owner)>
+						<cfset counter=incrementvalue(counter)>LOWER(Task.name) LIKE '%#lcase(ii)#%'<cfif counter NEQ listlen(attributes.task_name)> OR </cfif>
+					</cfloop>
+					)</cfif><cfif listlen(attributes.description)>
+					AND (<cfloop list="#attributes.description#" index="ii"><cfset counter=incrementvalue(counter)>LOWER(Task.description) LIKE '%#lcase(ii)#%'<cfif counter NEQ listlen(attributes.description)> OR </cfif></cfloop>)</cfif><cfif len(attributes.task_owner)>
 					AND Team.role_id=1
 					AND Team.emp_id IN (#attributes.task_owner#)</cfif><cfif len(attributes.task_source)>
 					AND Task.created_by IN (#attributes.task_source#)</cfif><cfif attributes.used_by_search>
-					AND Task.project_id IN (<cfif variables.use_project_criteria>#attributes.project_id#<cfelse>#attributes.project_id_list#</cfif>)</cfif> /*limit to either user's access or search crietria, whichever is less*/<cfif len(attributes.task_stati)>
+					AND Task.project_id IN (#attributes.project_id#)</cfif> /*limit to either user's access or search crietria, whichever is less*/<cfif len(attributes.task_stati)>
 					AND Task.status_id IN (#attributes.task_stati#)</cfif><cfif len(attributes.priority_id)>
 					AND Task.priority_id IN (#attributes.priority_id#)</cfif><cfif isdate(attributes.date_entered)>
 					AND Task.entry_date #preservesinglequotes(variables.date_entered)#</cfif><cfif isdate(attributes.due_date)>
@@ -122,7 +127,7 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 			AS Temporary_Tab
 			WHERE Notes.task_id=Temporary_Tab.task_id
 				AND (
-					<cfloop list="#attributes.notes#" index="ii"><cfset counter=incrementvalue(counter)>Notes.note LIKE '%#ii#%'<cfif counter NEQ listlen(attributes.notes)> OR </cfif></cfloop>)
+					<cfloop list="#attributes.notes#" index="ii"><cfset counter=incrementvalue(counter)>LOWER(Notes.note) LIKE '%#lcase(ii)#%'<cfif counter NEQ listlen(attributes.notes)> OR </cfif></cfloop>)
 			GROUP BY Notes.task_id, priority)</cfif>
 		AS Valid_Tasks, Task, REF_Icon
 		WHERE Valid_Tasks.task_id=Task.task_id AND REF_Icon.icon_id=Task.icon_id)

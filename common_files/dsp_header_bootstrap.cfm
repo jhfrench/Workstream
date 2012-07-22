@@ -104,16 +104,6 @@ else
 			<a href="##begin_page_content" title="hidden browser link to skip repetitive navigation" class="footerLnk">- Skip Nav</a>
 		</div>
 		<div class="span12">
-			<div class="row-fluid">
-				<div class="span1"></div>
-				<div class="span10">
-					<div class="mast <cfif application.application_specific_settings.banner_only_ind>mast_only" style="background:url(images/full_#variables.mast_image_name#) no-repeat center;"><cfelse>banner_image">
-						<img src="images/#variables.mast_image_name#" alt="#application.application_specific_settings.nasa_organization#" align="left" width="548" height="150" border="0" /></cfif>
-						<a href="#application.application_specific_settings.nasa_organization_url#">#application.application_specific_settings.nasa_organization#</a>
-					</div>
-				</div>
-				<div class="span1"></div>
-			</div>
 			<nav role="navigation" class="navbar navbar-fixed-top">
 				<div class="navbar-inner">
 					<div class="container">
@@ -122,12 +112,19 @@ else
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</a>
-						<a class="brand" href="##">Workstream</a>
+						<span class="brand"><img src="images/workstream_icon.png" height="16" width="16" alt="#application.application_specific_settings.nasa_organization# Workstream" />Workstream</span>
 						<div class="nav-collapse" id="menu">
 							<ul class="nav">
 								<cfinclude template="qry_get_module_sub_navigation.cfm" /><!--- 
 								<cfmodule template="qry_get_program_year.cfm" program_year_id="#session.program_year_id#"> --->
 								<cfinclude template="dsp_navigation_module.cfm" />
+							</ul>
+							<form class="navbar-search pull-left" action="index.cfm?fuseaction=Search.output" method="post">
+								<input type="text" name="header_search_criteria" title="Search on task ID or task name" placeholder="search" class="search-query span5">
+							</form>
+							<ul class="nav pull-right"><cfif application.help.active_ind>
+								<li><a href="##help_area" id="nav_help_button" title="Access the #application.product_name# help system" class="btn btn-mini btn-info">Help</a></li></cfif>
+								<cfif isdefined("session.user_account_id")><cfif session.password_created_by EQ session.user_account_id><li><a href="index.cfm?fuseaction=Home.logout" class="login_link"">Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></a></li></cfif><cfelse><li><a href="index.cfm?fuseaction=Home.login" class="login_link">Login for More Access</a></li></cfif>
 							</ul>
 						</div><!--/.nav-collapse -->
 					</div>

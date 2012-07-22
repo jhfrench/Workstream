@@ -63,7 +63,5 @@
 	            </ul></cfif>
 			</ul>
 		</li>
-</cfif><cfif application.help.active_ind>
-	<li class="btn btn-info"><a href="##help_area" id="nav_help_button" title="Access the #application.product_name# help system">Help</a></li></cfif>
-	<cfif isdefined("session.user_account_id")><cfif session.password_created_by EQ session.user_account_id><li><a href="index.cfm?fuseaction=Home.logout" class="login_link"">Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></a></li></cfif><cfelse><li><a href="index.cfm?fuseaction=Home.login" class="login_link">Login for More Access</a></li></cfif>
+</cfif>
 </cfoutput>

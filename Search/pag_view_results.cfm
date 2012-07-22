@@ -13,12 +13,12 @@
 	 || 
 	END FUSEDOC --->
 <cfscript>
-	if (isdefined("attributes.header_search")) {
-		if (isnumeric(attributes.header_search)) {
-			attributes.task_id=attributes.header_search;
+	if (isdefined("attributes.header_search_criteria")) {
+		if (isnumeric(attributes.header_search_criteria)) {
+			attributes.task_id=attributes.header_search_criteria;
 		}
 		else {
-			attributes.task_name=attributes.header_search;
+			attributes.task_name=attributes.header_search_criteria;
 		};
 	};
 	if (NOT isdefined("attributes.customer_id")) {
@@ -29,6 +29,9 @@
 	};
 	if (NOT isdefined("attributes.date_entered_operator")) {
 		attributes.date_entered_operator="";
+	};
+	if (NOT isdefined("attributes.description")) {
+		attributes.description="";
 	};
 	if (NOT isdefined("attributes.due_date")) {
 		attributes.due_date="";
