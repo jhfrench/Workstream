@@ -19,16 +19,16 @@ $Log:
 	<thead>
 		<tr>
 			<th>Date</th>
-			<th>Reviewer</th>
 			<th>Rating</th>
+			<th>Reviewer</th>
 		</tr>
 	</thead>
 	<tbody>
 	<cfoutput query="get_emp_performance_review_info">
 		<tr>
 			<td class="date">#dateformat(date_reviewed,'mm/dd/yyyy')#</td>
-			<td>#lname#, #f_init#</td>
 			<td>#rating#</td>
+			<td>#lname#, #left(name, 3)#</td>
 		</tr>
 	</cfoutput>
 	</tbody>

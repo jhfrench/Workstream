@@ -40,5 +40,6 @@ I use emp_id and a REF_*_type_id as the key.
    
     Time_Entry,Task, Marketing,  Project, Marketing_Emp, Emp_Contact, Location, Phone, Email 
 
-WHERE (Marketing.project_code LIKE '6005.%')
+WHERE Time_Entry.active_ind=1
+	AND Marketing.project_code LIKE '6005.%'
 </cfsilent>

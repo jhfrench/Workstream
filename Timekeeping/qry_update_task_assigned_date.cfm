@@ -16,7 +16,7 @@
  --->
 <cfquery name="update_task_due_date" datasource="#application.datasources.main#">
 UPDATE Task
-SET assigned_date=#CreateODBCDate(attributes.assigned_date)#
+SET assigned_date=#createodbcdate(attributes.assigned_date)#
 WHERE task_id=#attributes.task_id#
 </cfquery>
 </cfsilent>

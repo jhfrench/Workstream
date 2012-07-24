@@ -33,7 +33,7 @@ WHERE task_id=#attributes.task_id# AND notification_type=1
 <cfquery name="update_task_reminder_days" datasource="#application.datasources.main#">
 INSERT INTO Notification (task_id, email_id, date_to_send,
 	date_sent, days_before_due, notification_type)
-VALUES (#attributes.task_id#, #email_id#, <cfif isdefined("attributes.due_date")>#CreateODBCDate(dateadd("d",-attributes.reminder_days,attributes.due_date))#<cfelse>#CreateODBCDate(dateadd("d",-attributes.reminder_days,attributes.orig_due_date))#</cfif>,
+VALUES (#attributes.task_id#, #email_id#, <cfif isdefined("attributes.due_date")>#createodbcdate(dateadd("d",-attributes.reminder_days,attributes.due_date))#<cfelse>#createodbcdate(dateadd("d",-attributes.reminder_days,attributes.orig_due_date))#</cfif>,
 	NULL, #attributes.reminder_days#, 1)
 </cfquery>
 </cfif>

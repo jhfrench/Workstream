@@ -18,7 +18,8 @@
 <cfquery name="entry_type" datasource="#application.datasources.main#">
 SELECT Time_Entry.task_id AS task_id
 FROM Time_Entry
-WHERE Time_Entry.time_entry_id=#request.time_entry_id#
+WHERE Time_Entry.active_ind=1
+	AND Time_Entry.time_entry_id=#request.time_entry_id#
 </cfquery>
 <cfif len(entry_type.task_id)>
 	<cfset variables.entry_type=entry_type.task_id>

@@ -13,12 +13,3 @@
 	 || 
  --->
 </cfsilent>
-	<tr>
-		<td colspan="2">
-			&nbsp;&nbsp;
-		</td>
-		<td colspan="3" class="SubHeadText">
-			Task details&nbsp;
-		</td>
-	</tr>
-

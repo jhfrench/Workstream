@@ -23,7 +23,7 @@
 <cfquery name="upload_express_time_entry" datasource="#application.datasources.main#">
 INSERT INTO Time_Entry (emp_id, date, hours,
 	project_id, task_id, notes_id)
-VALUES (#session.user_account_id#, #CreateODBCDate(listgetat(attributes.date,ii))#, #listgetat(attributes.hours,ii)#,
+VALUES (#session.user_account_id#, #createodbcdate(listgetat(attributes.date,ii))#, #listgetat(attributes.hours,ii)#,
 	<cfif isdefined("project_entry")>#listgetat(attributes.project_id,ii)#<cfelse>#get_project_details.project_id#</cfif>,<cfif isdefined("project_entry")>0<cfelse>#listgetat(attributes.task_id,ii)#</cfif>,#get_project_details.notes_id#)
 </cfquery>
 </cfsilent>

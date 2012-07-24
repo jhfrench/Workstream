@@ -21,11 +21,12 @@
  --->
 <cfquery name="get_ind_entry_details" datasource="#application.datasources.main#">
 SELECT Time_Entry.notes_id AS notes_id, Time_Entry.time_entry_id AS time_entry_id, Time_Entry.date AS date, Time_Entry.hours AS hours, Notes.note AS note
-FROM Time_Entry, Notes
-WHERE Time_Entry.notes_id=Notes.notes_id
+FROM Time_Entry
+	INNER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
+WHERE Time_Entry.active_ind=1
 	AND Time_Entry.task_id=#attributes.task_id#
 	AND Time_Entry.emp_id=#attributes.emp_id#
-ORDER BY Time_Entry.date desc
+ORDER BY Time_Entry.date DESC, Time_Entry.time_entry_id
 </cfquery>
 </cfsilent>
 

@@ -17,14 +17,30 @@
 	--> attributes.notes_id: number that corresponds to the identity column of the Notes table.
  --->
 <cfquery name="edit_notes" datasource="#application.datasources.main#">
-<cfif isdefined("attributes.delete")>
-DELETE FROM Notes
-<cfelse>
 UPDATE Notes
-SET date=CURRENT_TIMESTAMP,
-	note='#attributes.note#'
-</cfif>
+SET active_ind=0
 WHERE notes_id=#attributes.notes_id#
+	/*don't update or delete invoiced time*/
+	AND notes_id NOT IN (
+		SELECT Time_Entry.notes_id
+		FROM Link_Invoice_Time_Entry
+			INNER JOIN Time_Entry ON Link_Invoice_Time_Entry.time_entry_id=Time_Entry.time_entry_id
+		WHERE Link_Invoice_Time_Entry.active_ind=1
+	);
+<cfif isdefined("attributes.method") AND comparenocase(attributes.method,"delete this entry")>
+INSERT INTO Notes (emp_id, notes_type_id, note,
+	task_id)
+SELECT #session.user_account_id#, notes_type_id, '#attributes.note#',
+	task_id
+FROM Notes
+WHERE notes_id=#attributes.notes_id#
+	/*don't update or delete invoiced time*/
+	AND notes_id NOT IN (
+		SELECT Time_Entry.notes_id
+		FROM Link_Invoice_Time_Entry
+			INNER JOIN Time_Entry ON Link_Invoice_Time_Entry.time_entry_id=Time_Entry.time_entry_id
+		WHERE Link_Invoice_Time_Entry.active_ind=1
+	)
+</cfif>
 </cfquery>
 </cfsilent>
-

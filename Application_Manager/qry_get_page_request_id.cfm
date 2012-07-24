@@ -14,5 +14,5 @@
 --->
 
 <cfquery name="get_page_request_id" datasource="#application.datasources.main#">
-SELECT CURRVAL('LOG_Page_Request_page_request_id_seq') AS page_request_id
+SELECT CURRVAL('LOG_Page_Request_page_request_id_SEQ') AS page_request_id
 </cfquery>

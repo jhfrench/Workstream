@@ -16,9 +16,10 @@
  --->
 <cfquery name="time_allocation_blurb" datasource="#application.datasources.main#">
 SELECT SUM(hours) AS project_hours, (Customer.description || '-' || Project.description) AS project_name, Project.project_id
-FROM Time_Entry, Project, Customer
-WHERE Customer.customer_id=Project.customer_id
-	AND Time_Entry.project_id=Project.project_id
+FROM Time_Entry
+	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
+	INNER JOIN Customer ON Customer.customer_id=Project.customer_id
+WHERE Time_Entry.active_ind=1
 	AND Time_Entry.emp_id=#session.user_account_id#
 	AND EXTRACT(MONTH FROM Time_Entry.date) = EXTRACT(MONTH FROM CURRENT_TIMESTAMP)
 	AND EXTRACT(YEAR FROM Time_Entry.date) = EXTRACT(YEAR FROM CURRENT_TIMESTAMP)

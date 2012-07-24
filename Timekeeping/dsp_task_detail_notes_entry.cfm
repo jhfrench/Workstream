@@ -30,12 +30,13 @@
 	</div>
 	<div class="span4">
 		<label for="date">Date</label>
-		<select name="date" id="date" class="span11">
+		<input type="date" name="date" id="date" min="#dateformat(express_check_date.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" class="span11" />
+		<!--- <select name="date" id="date" class="span11">
 		<cfloop from="0" to="#variables.go_back_to#" index="variables.date_adjust_ii">
-			<cfset variables.temp_date=now()-variables.date_adjust_ii>
+			<cfset variables.temp_date=dateadd("d", -variables.date_adjust_ii, now())>
 			<option value="#dateformat(variables.temp_date, 'mm/dd/yy')#">#dateformat(variables.temp_date,"mm/dd/yy (ddd)")#</option>
 		</cfloop>
-		</select>
+		</select> --->
 	</div>
 </div>
 <div class="row-fluid">

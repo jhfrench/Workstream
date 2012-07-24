@@ -25,8 +25,8 @@ FROM Emp_Contact
 	LEFT OUTER JOIN  REF_Employee_Classification ON Demographics.employee_classification_id = REF_Employee_Classification.employee_classification_id
 WHERE supervisor_user_account_id = #session.user_account_id#
 	AND (
-		(Demographics.effective_from <= #CreateODBCDate(variables.through_date)# AND effective_to >= #CreateODBCDate(variables.from_date)#)      
-		OR (effective_to IS NULL AND effective_from  <= #CreateODBCDate(variables.through_date)#)
+		(Demographics.effective_from <= #createodbcdate(variables.through_date)# AND effective_to >= #createodbcdate(variables.from_date)#)      
+		OR (effective_to IS NULL AND effective_from  <= #createodbcdate(variables.through_date)#)
 	)
 	ORDER BY LName
 </cfquery>

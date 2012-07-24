@@ -30,13 +30,13 @@ FROM Time_Entry
 		<!--- Need to qualify the list of locations with single quotes since its a string value --->
 		AND Location.City IN (#ListQualify(display_office,"'",",","ALL")#) </cfif>
 	LEFT OUTER JOIN REF_Employee_Classification ON REF_Employee_Classification.employee_classification_id=Demographics.employee_classification_id
-WHERE Time_Entry.date BETWEEN #CreateODBCDate(attributes.from_date)# AND #CreateODBCDate(attributes.to_date)#
+WHERE Time_Entry.date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.to_date)#
 	AND (
-		Demographics.effective_from <= #CreateODBCDate(attributes.to_date)#
-		AND Demographics.effective_to >= #CreateODBCDate(attributes.from_date)#  
+		Demographics.effective_from <= #createodbcdate(attributes.to_date)#
+		AND Demographics.effective_to >= #createodbcdate(attributes.from_date)#  
 		OR (
 			Demographics.effective_to IS NULL
-			AND Demographics.effective_from  <= #CreateODBCDate(attributes.to_date)#)
+			AND Demographics.effective_from  <= #createodbcdate(attributes.to_date)#)
 		)
 --Something wrong?
 	AND Demographics.emp_id IN (#attributes.display_person#)

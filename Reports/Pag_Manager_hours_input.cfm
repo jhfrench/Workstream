@@ -19,8 +19,8 @@
 	<cfset variables.all_employees_change=1>
 </cfif>
 <cfif variables.all_option>
-	<cfinclude template="../common_files/qry_team_select.cfm">
-	<cfset variables.recordcount=team_select.recordcount>
+	<cfinclude template="../common_files/qry_get_team_select.cfm">
+	<cfset variables.recordcount=get_team_select.recordcount>
 <cfelse>
 	<cfinclude template="../common_files/qry_get_subordinates.cfm">
 	<cfset variables.recordcount=get_subordinates.recordcount>

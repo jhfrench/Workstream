@@ -48,9 +48,9 @@
 			<cfselect name="emp_id"  required="yes" message="you must select an employee"class="RegText" size="3" style="width:130px" multiple>
 		
 				<option value="ALL" selected>All Employees </option>
-				<cfoutput query="team_select">
+				<cfoutput query="get_team_select">
 					<cfif Emp_ID is not ""><!--- Don't display blanks --->
-						<option value="#Emp_ID#">#lname#, #f_init#</option>
+						<option value="#emp_id#">#lname#, #left(name, 3)#</option>
 					</cfif>
 				</cfoutput>
 		</cfselect>

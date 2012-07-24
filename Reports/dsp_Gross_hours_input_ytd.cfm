@@ -59,9 +59,9 @@
 			<select name="display_person" size="3" style="width:130px" multiple>
 		</cfoutput>
 				<option value="ALL" selected>All Employees
-				<cfoutput query="team_select">
-					<cfif Emp_ID is not ""><!--- Don't display blanks --->
-						<option value="#Emp_ID#">#lname#, #f_init#
+				<cfoutput query="get_team_select">
+					<cfif Emp_ID is not ""><!--- $issue$: get rid of is not "" --->
+						<option value="#emp_id#">#lname#, #left(name, 3)#
 					</cfif>
 				</cfoutput>
 		</select>

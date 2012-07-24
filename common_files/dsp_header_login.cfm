@@ -37,6 +37,7 @@
 	<meta name="viewport" content="width=device-width">
 
 	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
+	<link rel="stylesheet" href="common_files/less/Workstream.css">
 
 	<script src="common_files/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
 	<script type="text/javascript">
@@ -55,20 +56,10 @@
 			{
 				// This will wait for the fallback to load and execute if it needs to.
 				load: [
-					'common_files/less/Workstream.css',
 					'//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js',
-					'//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-transition.js'
+					'//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-transition.js',
+					'common_files/js/plugins.js'
 				]
-			},
-			{
-				complete: function () {	
-					//
-					$('#login_form').hide().show('slow');
-					<cfif isdefined("variables.display_message") AND len(variables.display_message)>
-						//shake the login box
-						$('#login_form').effect("shake");
-					</cfif>
-				}
 			}
 		]);
 	</script>

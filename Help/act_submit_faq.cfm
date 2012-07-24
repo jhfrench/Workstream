@@ -59,7 +59,7 @@ WHERE active_ind=1
 <!--- insert new text into Help_FAQ, get help_faq_id --->
 <cfinclude template="../common_files/qry_insert_help_faq.cfm">
 <cfquery name="get_help_faq_id" datasource="#application.datasources.main#">
-SELECT HELP_FAQ_SEQ.currval AS help_faq_id
+SELECT CURRVAL('Help_FAQ_help_faq_id_SEQ') AS help_faq_id
 FROM Dual
 </cfquery>
 <cfset attributes.help_faq_id=get_help_faq_id.help_faq_id>

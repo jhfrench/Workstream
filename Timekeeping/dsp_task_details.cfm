@@ -28,11 +28,6 @@
 <cfset variables.resolution_rows=min(8,time_entry_details.recordcount)>
 <cfset entry_rows=variables.descrip_rows+variables.resolution_rows-9>
 <cfset variables.string_to_replace='<P>,"'>
-<cfif listlen(get_task_details.hours_used,".") GT 1 AND listgetat(get_task_details.hours_used,2,".") GT 0>
-	<cfset variables.hours_used=decimalformat(get_task_details.hours_used)>
-<cfelse>
-	<cfset variables.hours_used=numberformat(get_task_details.hours_used)>
-</cfif>
 
 <cfset variables.width=min(numberformat(get_task_details.image_width,"______"),variables.var1)>
 <cfset variables.width2=variables.var1-variables.width>
@@ -112,8 +107,8 @@
 				<div class="span12">
 				<label for="notes" class="h5">Progress notes</label>
 				<cfif time_entry_details.recordcount>
-					<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea">
-						<cfloop query="time_entry_details"><span<cfif notes_type_id EQ 2> class="alert-info"</cfif>><strong>(#initials# #dateformat(date,"m/d/yy")#)</strong> - #trim(note)#&nbsp;&nbsp;</span><br /></cfloop>
+					<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea span12">
+						<cfloop query="time_entry_details"><p<cfif notes_type_id EQ 2> class="alert-info"</cfif>><strong>(#initials# #dateformat(date,"m/d/yy")#)</strong> - #trim(note)#&nbsp;&nbsp;</p></cfloop>
 					</div>
 				<cfelse>
 					<div id="notes" class="alert">
@@ -126,24 +121,7 @@
 		<cfinclude template="dsp_task_detail_notes_entry.cfm">
 		<cfif listfind("1,5", session.workstream_emp_contact_type) OR session.workstream_show_hours_data_ind EQ 1>
 			<!--- show time data to employees or customers if their company is set up to view hours--->
-			<div class="row-fluid">
-				<div class="span12">
-					<h5>Time Used</h5>
-					<p>#variables.hours_used#<cfif get_task_details.budgeted_hours> out of #get_task_details.budgeted_hours# budgeted hours (#decimalformat(get_task_details.percent_used)#%)</cfif></p>
-				</div>
-			</div>
-			<cfif get_task_details.budgeted_hours>
-			<div class="row-fluid">
-				<div class="span12">
-					<div class="progresss">
-						<div class="bar" style="width: #lsnumberformat(get_task_details.percent_used)#%;"></div>
-					</div>
-					<div style="height:20px; width:198px; border:1px solid;" title="Time used for '#get_task_details.task_name#': #variables.hours_used# out of #get_task_details.budgeted_hours# hours (#decimalformat(get_task_details.percent_used)#%).">
-					<cfif width><a href="javascript:list_to_time('#task_id#');" title="Reassign hours."><img src="#request.dir_level##application.application_specific_settings.image_dir#bar_<cfif get_task_details.percent_used GT 75>1<cfelseif get_task_details.percent_used GT 50>3<cfelse>7</cfif>.gif" style="width:#variables.width#px; height:20px;" alt="Percent of time used." border="0" /></a></cfif><cfif width2><img src="#request.dir_level##application.application_specific_settings.image_dir#blank.gif" style="width:#variables.width2#px; height:20px;" alt="Percent of time left." border="0" /></cfif>
-					</div>
-				</div>
-			</div>
-			</cfif>
+			<cfinclude template="dsp_time_details_graph.cfm">
 		<cfelse>
 			<div class="row-fluid">
 				<div class="span12">

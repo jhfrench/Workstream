@@ -113,8 +113,6 @@
 		<include template="pag_time_entry.cfm"/>
 	</fuseaction>
 	<fuseaction name="time_entry_edit">
-		<set name="request.pagetitle" value="Time Entry/Notes Edit"/>
-		<include template="../common_files/qry_get_valid_projects.cfm"/>
 		<include template="pag_time_entry_edit.cfm"/>
 	</fuseaction>
 	<fuseaction name="timekeeping_options">

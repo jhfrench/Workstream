@@ -16,7 +16,7 @@
 <cfset variables.company_id=0>
 </cfsilent>
 <cfinclude template="act_okbutton.cfm">
-<cfinclude template="qry_team_select.cfm">
+<cfinclude template="qry_get_team_select.cfm">
 <cfform action="index.cfm?fuseaction=common_files.spell_check&formname=#formname#" name="big_list" method="POST">
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="100%" class="SelectText">
 	<cfinclude template="dsp_big_team_list_header.cfm">

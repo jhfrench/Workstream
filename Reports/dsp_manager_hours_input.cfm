@@ -34,7 +34,7 @@
 </cfoutput>
 				<cfselect name="included_emp_id" multiple="Yes" size="#min(variables.recordcount,25)#">
 				<cfif variables.all_option>
-					<cfoutput query="team_select">
+					<cfoutput query="get_team_select">
 					<option value="#emp_id#" SELECTED>#display#</option>
 					</cfoutput>
 				<cfelse>

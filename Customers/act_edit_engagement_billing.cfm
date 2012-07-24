@@ -25,7 +25,7 @@ FROM Flat_Rate
 WHERE project_id=#attributes.project_id#
 INSERT INTO Flat_Rate(project_id, rate_start_date, rate_end_date,
 	months, budget)
-VALUES (#attributes.project_id#, #CreateODBCDate(attributes.start_date)#, #CreateODBCDate(attributes.end_date)#,
+VALUES (#attributes.project_id#, #createodbcdate(attributes.start_date)#, #createodbcdate(attributes.end_date)#,
 	#attributes.months#, #attributes.budget#)
 </cfcase>
 <cfcase value="4">

@@ -25,9 +25,10 @@
 SELECT Task.task_id, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, COALESCE(SUM(Time_Entry.hours),0) AS hours_used, 
 (CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE SUM(Time_Entry.hours)/Task.budgeted_hours*#variables.var1# END) AS image_width, 
 (CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE SUM(Time_Entry.hours)/Task.budgeted_hours*100 END) AS percent_used
-FROM Time_Entry, Task
-WHERE Task.task_id=Time_Entry.task_id
-	AND Task.task_id=#attributes.task_id#
+FROM Task
+	INNER JOIN Time_Entry ON Task.task_id=Time_Entry.task_id
+WHERE Task.task_id=#attributes.task_id#
+	AND Time_Entry.active_ind=1
 GROUP BY Task.task_id, Task.budgeted_hours
 </cfquery>
 </cfsilent>

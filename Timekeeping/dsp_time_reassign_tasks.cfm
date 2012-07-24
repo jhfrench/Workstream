@@ -14,25 +14,9 @@
  --->
 </cfsilent>
 <cfoutput>
-	<tr valign="middle">
-		<td colspan="2">
-			&nbsp;&nbsp;
-		</td>
-		<td>
-			Project
-		</td>
-		<td>
-			&nbsp;&nbsp;
-		</td>
-		<td>
-			Task
-		</td>
-	</tr>
-	<tr valign="middle">
-		<td colspan="2">
-			&nbsp;&nbsp;
-		</td>
-		<td>
+<div class="row-fluid">
+	<div class="span6">
+			<label class="h5" for="">Project</label>
 			<cfmodule template="../common_files/two_related_selects.cfm"
 				query="get_open_tasks"
 				name1="project_id"
@@ -48,10 +32,16 @@
 				width2="600"
 				autoselectfirst="no"
 				formname="time_details"
-				HTMLBetween="</td><td align='center' class='RegText'>&gt;&gt;&gt;</td><td>">
-			<input type="hidden" name="task_id" value="#attributes.task_id#">
-			<cfif isdefined("attributes.emp_id")><input type="hidden" name="emp_id" value="#attributes.emp_id#"></cfif>
-		</td>
-	</tr>
+				HTMLBetween="</div>
+	<div class='span6'>
+			<label class='h5' for=''>Task</label>">
+	
+	</div>
+</div>
+<div>
+	<input type="hidden" name="task_id" value="#attributes.task_id#">
+	<cfif isdefined("attributes.emp_id")><input type="hidden" name="emp_id" value="#attributes.emp_id#"></cfif>
+	<input type="submit" value="Reassign" class="btn btn-primary" />
+	<input type="Reset" class="btn" />
+</div>
 </cfoutput>
-

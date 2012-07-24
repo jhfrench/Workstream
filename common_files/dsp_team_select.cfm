@@ -21,7 +21,6 @@
 	--> variables.emp_id_match: item to default select if criteria matches
 	--> company: number that contains the REF_Company.company_id for an employee
 	--> emp_id: id that identifies user to workstream
-	--> f_init: string containing the first initial of an employee
 	--> lname: string containing the last name of an employee
 	<-- #attributes.select_name#: (variable name based on what is passed in through the module select_name attribute) number of the employee(s) selected
  --->
@@ -66,17 +65,17 @@
 	variables.company_id=0;
 </cfscript>
 </cfsilent>
-<cfif NOT isdefined("team_select.recordcount")><cfinclude template="qry_team_select.cfm"></cfif>
+<cfif NOT isdefined("get_team_select.recordcount")><cfinclude template="qry_get_team_select.cfm"></cfif>
 <cfoutput>
 <cfif attributes.selected_flag>
 	<select name="#attributes.select_name#" id="#attributes.select_name#"<cfif attributes.size> size="#attributes.size#"</cfif> <cfif attributes.multi> multiple="multiple"</cfif><cfif len(attributes.onchange)> onchange="javascript:#attributes.onchange#"</cfif><cfif len(attributes.class)> class="#attributes.class#"</cfif>>
-	<cfloop query="team_select">		
-		<option value="#emp_id#" title="#lname#, #name#"<cfif listfind(variables.emp_id_match, team_select.emp_id, ",")> selected</cfif>>#display#</option>
+	<cfloop query="get_team_select">		
+		<option value="#emp_id#" title="#lname#, #name#"<cfif listfind(variables.emp_id_match, get_team_select.emp_id, ",")> selected</cfif>>#display#</option>
 	</cfloop>
 	</select>
 <cfelse>
 	<cfselect name="#attributes.element_name#" id="#attributes.element_name#" size="2" message="#attributes.message#" required="Yes" class="#attributes.class#">
-		<cfloop query="team_select">
+		<cfloop query="get_team_select">
 			<option value="#emp_id#" title="#lname#, #name#">#display#</option>
 		</cfloop>
 	</cfselect>

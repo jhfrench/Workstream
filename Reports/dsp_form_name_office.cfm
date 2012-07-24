@@ -23,7 +23,7 @@
 			</cfselect>
 			Name:
 			<cfselect name="emp_id" size="1" message="Please don't leave blank" required="Yes"> 
-				<option value="ALL">ALL</option><cfloop query="team_select">
+				<option value="ALL">ALL</option><cfloop query="get_team_select">
 				<option value="#emp_id#">#lname#, #name#</option></cfloop>
 			</cfselect>
 			<input type="hidden" name="month" value="#month#">

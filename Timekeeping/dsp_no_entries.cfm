@@ -13,14 +13,4 @@
 	 || 
  --->
 </cfsilent>
-	<tr>
-		<td colspan="2">
-			&nbsp;&nbsp;
-		</td>
-		<td class="Note">
-			No time entered for this task yet.
-		</td>
-		<td colspan="2">
-			&nbsp;&nbsp;
-		</td>
-	</tr>
+<p class="alert alert-info">No time entered for this task yet.</p>

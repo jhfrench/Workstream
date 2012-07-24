@@ -38,3 +38,8 @@ window.log = function f(){ log.history = log.history || []; log.history.push(arg
 			$('#asker_email_address').removeAttr('required','required');
 		}
 	});
+	
+	$('#login_form').hide().show('slow');
+	if(shake_ind) {
+		$('#login_form').effect('shake');
+	}

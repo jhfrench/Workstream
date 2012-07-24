@@ -67,15 +67,14 @@ FROM User_Password
 			<cfinclude template="../common_files/act_general_user_info.cfm">
 			<cfinclude template="../common_files/qry_get_user_preferences.cfm">
 	
-			<!--- If known, send the user to the page they originally requested (unless the page they requested is "Home.login", it makes no sense to "send" them to the login page once they've logged in) --->
-			<cfif len(attributes.requested_page) AND NOT listfind("Home.login,Home.forum_commands,Help.view_help_article,Home.module_commands", attributes.requested_page)>
+			<cfif session.password_created_by NEQ session.user_account_id>
+				<!--- if the person that created the password is not the user, then let the user change his/her password --->
+				<cfset variables.redirect_destination="fuseaction=Home.change_password&user_account_id=#get_username.user_account_id#&requested_page=#variables.redirect_destination#">
+			<cfelseif len(attributes.requested_page) AND NOT listfind("Home.login,Home.forum_commands,Help.view_help_article,Home.module_commands", attributes.requested_page)>
+				<!--- otherwise, if known, send the user to the page they originally requested (unless the page they requested is "Home.login", it makes no sense to "send" them to the login page once they've logged in) --->
 				<cfset variables.redirect_destination="fuseaction=#attributes.requested_page#">
 			<cfelse>
 				<cfset variables.redirect_destination="fuseaction=#application.fusebox.defaultfuseaction#">
-			</cfif>
-			<!--- if the person that created the password is not the user, then let the user change his/her password --->
-			<cfif session.password_created_by NEQ session.user_account_id>
-				<cfset variables.redirect_destination="fuseaction=Home.change_password&user_account_id=#get_username.user_account_id#&requested_page=#variables.redirect_destination#">
 			</cfif>
 			<cfset variables.success_ind=1>
 		<!--- if user is not active --->

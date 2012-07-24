@@ -17,17 +17,20 @@
 	--> attributes.hours: number of hours that the user wishes to update the Time_Entry.hours field with.
 	--> attributes.time_entry_id: number that corresponds to the identity column of the Time_Entry table.
  --->
-<cfquery name="edit_time_entry" datasource="#application.datasources.main#">
-<cfif isdefined("attributes.delete")>
-DELETE FROM Time_Entry
-<cfelse>
-UPDATE Time_Entry
-SET Date=#CreateODBCDate(attributes.date)#, hours=#attributes.hours#
-<cfif isdefined("attributes.project_id")>
-, Project_id=#attributes.project_id#
-</cfif>
-</cfif>
-WHERE time_entry_id=#attributes.time_entry_id#
-</cfquery>
 </cfsilent>
+<cfquery name="edit_time_entry" datasource="#application.datasources.main#">
+UPDATE Time_Entry
+SET active_ind=0
+WHERE time_entry_id=#attributes.time_entry_id#
+	AND time_entry_id NOT IN (SELECT time_entry_id FROM Link_Invoice_Time_Entry WHERE active_ind=1) /*don't update or delete invoiced time*/;
+<cfif isdefined("attributes.method") AND comparenocase(attributes.method,"delete this entry")>
+INSERT INTO Time_Entry (emp_id, date, hours,
+	project_id, task_id, notes_id)
+SELECT #session.user_account_id#, '#dateformat(attributes.date,"yyyy-mm-dd")#', #attributes.hours#,
+	<cfif isdefined("attributes.project_id")>#attributes.project_id#<cfelse>project_id</cfif>, task_id, CURRVAL('Notes_notes_id_SEQ')
+FROM Time_Entry
+WHERE time_entry_id=#attributes.time_entry_id#
+	AND time_entry_id NOT IN (SELECT time_entry_id FROM Link_Invoice_Time_Entry WHERE active_ind=1) /*don't update or delete invoiced time*/
+</cfif>
+</cfquery>
 

@@ -15,8 +15,8 @@
 	--> session.user_account_id: number that uniquely identifies the user
  --->
 <cfset variables.temp_date=dateadd("m",-1,now())>
-<cfset variables.previous_month=CreateODBCDate("#month(variables.temp_date)#/1/#year(variables.temp_date)#")>
-<cfset variables.current_month=CreateODBCDate("#month(now())#/#daysinmonth(now())#/#year(now())#")>
+<cfset variables.previous_month=createodbcdate("#month(variables.temp_date)#/1/#year(variables.temp_date)#")>
+<cfset variables.current_month=createodbcdate("#month(now())#/#daysinmonth(now())#/#year(now())#")>
 <cfquery name="hours_blurb" datasource="#application.datasources.main#">
 SELECT SUM(hours) AS month_hours, EXTRACT(YEAR FROM date) AS work_year, EXTRACT(MONTH FROM date) AS work_month
 FROM Time_Entry

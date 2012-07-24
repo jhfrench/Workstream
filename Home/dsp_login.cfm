@@ -25,6 +25,9 @@
 	<div id="display_message" class="alert alert-error">
 		#variables.display_message#
 	</div>
+	<script type="text/javascript">
+	var shake_ind=1;
+	</script>
 </cfif>
 <form name="login_form" id="login_form" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
 	<fieldset>

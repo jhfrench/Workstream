@@ -12,27 +12,20 @@
 	$Log$
 	 || 
  --->
-<cfset variables.width=min(numberformat(get_task_accumulated.image_width,"______"),variables.var1)>
-<cfset variables.width2=variables.var1-variables.width>
+<cfif listlen(get_task_details.hours_used,".") GT 1 AND listgetat(get_task_details.hours_used,2,".") GT 0>
+	<cfset variables.hours_used=decimalformat(get_task_details.hours_used)>
+<cfelse>
+	<cfset variables.hours_used=numberformat(get_task_details.hours_used)>
+</cfif>
 </cfsilent>
-	<tr>
-		<td colspan="2">
-			&nbsp;&nbsp;
-		</td>
-		<td colspan="3" class="SubHeadText">
-			Time Used&nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			&nbsp;&nbsp;
-		</td>
-		<td colspan="3">
-			<cfoutput>
-			<div style="height:20px; width:450px; border:1px solid;" title="Time used for #get_task_details.task_name# (#get_task_accumulated.hours_used# out of #get_task_accumulated.budgeted_hours# hours--#decimalformat(get_task_accumulated.percent_used)#%)">
-			<cfif variables.width><img src="#request.dir_level##application.application_specific_settings.image_dir#bar_<cfif get_task_accumulated.percent_used GT 75>1<cfelseif get_task_accumulated.percent_used GT 50>3<cfelse>7</cfif>.gif" width="#variables.width#" height="20" alt="Percent of time used." border="0" /></cfif><cfif variables.width2><img src="#request.dir_level##application.application_specific_settings.image_dir#blank.gif" width="#variables.width2#" height="20" alt="Percent of time remaining." border="0" /></cfif>
+<cfoutput>
+	<div class="row-fluid">
+		<div class="span12">
+			<h5>Time Used</h5>
+			<p>#variables.hours_used#<cfif get_task_details.budgeted_hours> out of #get_task_details.budgeted_hours# budgeted hours (#decimalformat(get_task_details.percent_used)#%)<cfelse></cfif></p>
+			<div class="progress<cfif get_task_details.percent_used GT 75> progress-danger<cfelseif get_task_details.percent_used GT 50> progress-warning<cfelseif get_task_details.percent_used GT 25> progress-success</cfif>">
+				<a href="javascript:list_to_time('#attributes.task_id#');" title="Reassign hours."><div class="bar" style="width: #lsnumberformat(get_task_details.percent_used)#%;"></div></a>
 			</div>
-			</cfoutput>
-		</td>
-	</tr>
-
+		</div>
+	</div>
+</cfoutput>

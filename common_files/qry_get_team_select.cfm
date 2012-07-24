@@ -1,5 +1,5 @@
 
-<!--common_files/qry_team_select.cfm
+<!--common_files/qry_get_team_select.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -22,9 +22,9 @@
 <cfparam name="session.workstream_selected_company_id" default="#session.workstream_company_id#">
 <cfparam name="variables.emp_id_match" default="">
 <cfparam name="attributes.all_employees" default="0">
-<cfquery name="team_select" cachedafter="02/02/1978" datasource="#application.datasources.main#">
-SELECT Emp_Contact.emp_id AS emp_id, Emp_Contact.lname, LEFT(Emp_Contact.name,2) AS f_init, 
-	Emp_Contact.name, COALESCE(Emp_Contact.lname,'') || ', ' || LEFT(COALESCE(Emp_Contact.name,''),2) AS display<cfif isdefined("variables.email_only")>, email_type_id</cfif>
+<cfquery name="get_team_select" cachedafter="02/02/1978" datasource="#application.datasources.main#">
+SELECT Emp_Contact.emp_id AS emp_id, Emp_Contact.lname, Emp_Contact.name,
+	COALESCE(Emp_Contact.lname,'') || ', ' || LEFT(COALESCE(Emp_Contact.name,''),2) AS display<cfif isdefined("variables.email_only")>, email_type_id</cfif>
 FROM Emp_Contact
 	INNER JOIN Security_Company_Access ON Emp_Contact.emp_id=Security_Company_Access.emp_id
 	<cfif isdefined("variables.email_only")>INNER JOIN Email ON Emp_Contact.emp_id=Email.emp_id

@@ -31,10 +31,15 @@ footer {
    ========================================================================== */
 
 .faux-textarea {
-	.border-radius(3px);
-	border:1px solid #c0c0c0;
+	.uneditable-input;
+	cursor: auto;
 	overflow-y:auto;
-	padding:2px;
+}
+
+.faux-textarea p {
+	margin-left: 10px;
+	margin-bottom: 0px;
+	text-indent: -10px !important; //outdent first line of each note
 }
 
 .docked {
@@ -140,11 +145,17 @@ footer {
 	width:450px;
 }
 
-#login_form { 
+div#login_form { 
 	.border-radius(3px);
-	border-color: @grayLighter;
-	background-color:@black;
+	border:solid;
+	border-color: @grayDarker;
+	background-color:@white;
 	opacity:.8;
+	display:none;
+}
+
+div#login_form form, #login_form form div.form-actions { 
+	margin-bottom:0px;
 }
 
 /*<!---text alignment--> */

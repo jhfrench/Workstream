@@ -63,9 +63,8 @@
 		</cfif>--->
 		<cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="task_details" method="POST" class="form">
 			<h2><cfoutput>#get_task_details.task_name# <small>(task #attributes.task_id#)</small></cfoutput></h2>
-			<cfinclude template="dsp_task_details_table.cfm">
+			<cfinclude template="dsp_task_details.cfm">
 		</cfform>
-		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="printable" field_name="task_id" fuseaction="Timekeeping.print_task" expand="1">
 		<cfinclude template="act_delete_check.cfm">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="delete_task" field_name="task_id" fuseaction="Timekeeping.delete_task">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">

@@ -24,10 +24,12 @@
 </cfif>
 <cfquery name="qa_entry_details" datasource="#application.datasources.main#">
 SELECT Notes.notes_type_id, (Emp_Contact.lname || ', ' || LEFT(Emp_Contact.name,2)) AS initials, #variables.date_sort_field# AS date, Notes.note AS note
-FROM Notes, Time_Entry, Emp_Contact
-WHERE Notes.task_id=#attributes.task_id#
-	AND Notes.notes_id*=Time_Entry.notes_id
-	AND Notes.emp_id=Emp_Contact.emp_id
+FROM Notes
+	LEFT OUTER JOIN Time_Entry ON Notes.notes_id=Time_Entry.notes_id
+		AND Time_Entry.active_ind=1
+	INNER JOIN Emp_Contact ON Notes.emp_id=Emp_Contact.emp_id
+WHERE Notes.active_ind=1
+	AND Notes.task_id=#attributes.task_id#
 	AND Notes.notes_type_id IN (5,2)
 ORDER BY #variables.date_sort_field#, Time_Entry.time_entry_id
 </cfquery>

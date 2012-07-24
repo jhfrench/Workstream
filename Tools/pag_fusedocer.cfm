@@ -20,7 +20,7 @@
 	<-> variables: string passed from entry form
  --->
 <cfform name="submit_fusedoc" action="index.cfm?fuseaction=Tools.fusedocer" method="POST">
-<cfinclude template="../common_files/qry_team_select.cfm">
+<cfinclude template="../common_files/qry_get_team_select.cfm">
 <cfparam name="attributes.pin" default="  123  ">
 <cfoutput>
 <table>
@@ -58,7 +58,7 @@
 		<td align="right" valign="top"></td>
 		<td align="right" valign="top" class="SubHeadText">Author: </td>
 		<td>
-				<select name="pin"></cfoutput><cfoutput query="team_select">
+				<select name="pin"></cfoutput><cfoutput query="get_team_select">
 					<option value="#name#_#lname#"<cfif NOT comparenocase(attributes.pin, "#name#_#lname#")> selected</cfif>>#name# #lname#</option></cfoutput>
 				</select>
 		</td>

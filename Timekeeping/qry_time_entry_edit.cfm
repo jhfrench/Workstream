@@ -27,12 +27,13 @@ SELECT Time_Entry.date AS date, Time_Entry.hours AS hours,
 	<cfif entry_type>Task.name AS task_name, Task.task_id AS task_id,
 	</cfif>Project.description AS project_description, project.project_id,
 	Customer.description AS customer_description
-FROM Notes, Time_Entry, <cfif entry_type>Task, </cfif>Project, Customer
-WHERE Notes.notes_id=Time_Entry.notes_id
-	<cfif entry_type>AND Notes.task_id=Task.task_id</cfif>
-	AND Time_Entry.project_id=Project.project_id
-	AND Project.customer_id=Customer.customer_id
-	<cfif entry_type>AND Time_Entry.task_id=Task.task_id</cfif>
+FROM Time_Entry
+	LEFT OUTER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
+		AND Notes.active_ind=1
+	<cfif entry_type>INNER JOIN Task ON Time_Entry.task_id=Task.task_id</cfif>
+	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
+	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
+WHERE Time_Entry.active_ind=1
 	AND Time_Entry.time_entry_id=#request.time_entry_id#
 </cfquery>
 </cfsilent>
