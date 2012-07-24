@@ -40,7 +40,8 @@ FROM
 	FROM
 		(SELECT SUM(COALESCE(Time_Entry.hours, 0)) AS hours_out, 0 AS hours_in, Time_Entry.emp_id
 		FROM Time_Entry
-		WHERE Time_Entry.emp_id=#session.user_account_id#
+		WHERE Time_Entry.active_ind=1
+			AND Time_Entry.emp_id=#session.user_account_id#
 			AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id=1)
 			AND Time_Entry.date >= (SELECT pto_start_date FROM REF_Company WHERE company_id=#session.workstream_company_id#) 
 			AND EXTRACT(YEAR FROM Time_Entry.date) < EXTRACT(YEAR FROM CURRENT_TIMESTAMP)

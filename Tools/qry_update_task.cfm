@@ -23,7 +23,8 @@
 		budgeted_hours=(
 			SELECT COALESCE(SUM(Time_Entry.hours),0)
 			FROM Time_Entry
-			WHERE task_id=#task_id#
+			WHERE Time_Entry.active_ind=1
+				AND task_id=#task_id#
 				AND date < '#month(now())#/1/#year(now())#')+#evaluate("attributes.task_assigned#task_id#"
 			)#</cfif>
 	WHERE task_id=#task_id# AND #variables.update_count#=#variables.update_count#<cfset variables.update_count=incrementvalue(variables.update_count)>

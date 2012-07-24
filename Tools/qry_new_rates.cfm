@@ -17,7 +17,8 @@ SELECT Time_entry.project_id, Time_entry.emp_id, Billing_Rate.rate
 FROM Time_entry
 	LEFT OUTER JOIN  billing_rate ON Time_entry.emp_id = Billing_Rate.emp_id
 		AND Time_entry.project_id = Billing_Rate.project_id
-WHERE Billing_Rate.billing_rate_id IS NULL
+WHERE Time_Entry.active_ind=1
+	AND Billing_Rate.billing_rate_id IS NULL
 GROUP BY time_entry.emp_id, Time_entry.project_id,  Billing_Rate.rate
 HAVING (Billing_Rate.rate IS NULL )
 </cfquery>

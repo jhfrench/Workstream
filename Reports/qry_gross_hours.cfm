@@ -26,6 +26,7 @@ WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND Emp_Contact.emp_id=Time_Entry.emp_id
 	AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	AND Demographics.effective_from <= #variables.date_closed#
+	AND Time_Entry.active_ind=1
 	AND Time_Entry.date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, Time_Entry.date)
 	AND COALESCE(Demographics.effective_to,#variables.date_open#) >= #variables.date_open#
 	AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#
@@ -50,6 +51,7 @@ WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND Emp_Contact.emp_id=Time_Entry.emp_id
 	AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	AND Demographics.effective_from <= #variables.date_closed#
+	AND Time_Entry.active_ind=1
 	AND Time_Entry.date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, Time_Entry.date)
 	AND COALESCE(Demographics.effective_to,#variables.date_open#) >= #variables.date_open#
 	AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#

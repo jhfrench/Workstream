@@ -11,8 +11,8 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-    <cfquery name="Sick_Hours" datasource="#application.datasources.main#">  
-    SELECT Emp_Contact.Name, Emp_Contact.LName, 
+<cfquery name="Sick_Hours" datasource="#application.datasources.main#">  
+SELECT Emp_Contact.Name, Emp_Contact.LName, 
     Emp_Contact.emp_id, Demographics.pin, '24.00' AS allowed, 
     SUM(CASE WHEN project_code = 20 OR
     project_code = 1020 OR
@@ -103,6 +103,7 @@ FROM Emp_Contact
 	INNER JOIN Project ON Time_Entry.project_id = Project.project_id
 WHERE REF_Company.company_id IN (#session.workstream_selected_company_id#)
 	AND demographics.end_date IS NULL
+	AND Time_Entry.active_ind=1
 	AND EXTRACT(YEAR FROM time_entry.date) = EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
 GROUP BY emp_contact.lname, emp_contact.name, 
     demographics.pin, emp_contact.emp_id

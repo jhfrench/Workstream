@@ -23,12 +23,14 @@ WHERE task_id=#attributes.reassign_task_id#
 UPDATE Time_Entry
 SET task_id=#attributes.reassign_task_id#,
 	project_id=#get_project_id.project_id#
-WHERE emp_id IN (#attributes.reassign_hours#)
+WHERE Time_Entry.active_ind=1
+	AND emp_id IN (#attributes.reassign_hours#)
 	AND task_id=#attributes.task_id#
 	AND date > '#express_check_date.date_locked#'
 UPDATE Notes
 SET task_id=#attributes.reassign_task_id#
-WHERE emp_id IN (#attributes.reassign_hours#)
+WHERE Notes.active_ind=1
+	AND emp_id IN (#attributes.reassign_hours#)
 	AND task_id=#attributes.task_id#
 	AND date > '#express_check_date.date_locked#'
 </cfquery>

@@ -18,13 +18,15 @@ SELECT COALESCE(AP_Time.ap_time,0) AS ap_time, Ttl_Time.ttl_time, COALESCE((AP_T
 FROM
 	(SELECT SUM(hours) AS ap_time, EXTRACT(MONTH FROM date) AS time_month, EXTRACT(YEAR FROM date) AS time_year
 	FROM Time_Entry
-	WHERE Time_Entry.project_id=1112
+	WHERE Time_Entry.active_ind=1
+		AND Time_Entry.project_id=1112
 		AND emp_id IN (#valuelist(get_subordinates.emp_id)#)
 	GROUP BY EXTRACT(MONTH FROM date), EXTRACT(YEAR FROM date))
 AS AP_Time,
 	(SELECT SUM(hours) AS ttl_time, EXTRACT(MONTH FROM date) AS time_month, EXTRACT(YEAR FROM date) AS time_year
 	FROM Time_Entry
-	WHERE emp_id IN (#valuelist(get_subordinates.emp_id)#)
+	WHERE Time_Entry.active_ind=1
+		AND emp_id IN (#valuelist(get_subordinates.emp_id)#)
 	GROUP BY EXTRACT(MONTH FROM date), EXTRACT(YEAR FROM date))
 AS Ttl_Time
 WHERE AP_Time.time_month=*Ttl_Time.time_month

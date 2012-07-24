@@ -3,7 +3,7 @@
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_header_portal.cfm">
 	<responsibilities>
-		I display the main application header using the NASA portal format, including application-specific navigation options.
+		I display the main application header, including application-specific navigation options.
 	</responsibilities>
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/17/2007" role="FuseCoder" comments="Created File">

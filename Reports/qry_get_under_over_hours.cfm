@@ -30,6 +30,7 @@ FROM Time_Entry, Project,
 	AS Elligible_Employees
 WHERE Time_Entry.emp_id=Elligible_Employees.emp_id
 	AND Time_Entry.project_id=Project.project_id
+	AND Time_Entry.active_ind=1
 	AND Time_entry.date >= #createodbcdatetime(variables.start_date)#
 	AND Time_entry.date <= #createodbcdatetime(variables.end_date)#
 GROUP BY Elligible_Employees.name, Elligible_Employees.lname, Elligible_Employees.employee_classification, 

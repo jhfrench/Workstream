@@ -43,6 +43,7 @@ FROM
 		AND Project.project_id=Task.project_id
 		AND Task.task_id=Team.task_id
 		AND Task.task_id*=Time_Entry.task_id
+		AND Time_Entry.active_ind=1
 		AND Task.task_id = Forecast_Assignment.task_id
 		AND Forecast.forecast_id=Forecast_Assignment.forecast_id
 		AND Forecast.active_ind=1
@@ -75,6 +76,7 @@ FROM
 		AND Project.project_id=Task.project_id
 		AND Task.task_id=Team.task_id
 		AND Task.task_id*=Time_Entry.task_id
+		AND Time_Entry.active_ind=1
 		AND <cfif attributes.force_month GTE month(now()) AND attributes.force_year GTE year(now())>Task.status_id != 11 /*exclude closed tasks*/
 		AND Task.assigned_date < #createodbcdate(dateadd("m",1,"#attributes.force_month#/01/#attributes.force_year#"))# /*show tasks assigned (to be started) before the selected month*/<cfelse>EXTRACT(MONTH FROM Task.assigned_date)=#attributes.force_month# AND EXTRACT(YEAR FROM Task.assigned_date)=#attributes.force_year# /*show tasks assigned (to be started) during the selected month*/</cfif>
 		AND Team.emp_id IN (#session.user_account_id#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)

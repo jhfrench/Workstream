@@ -39,7 +39,8 @@ WHERE notes_id=#attributes.notes_id#
 		SELECT Time_Entry.notes_id
 		FROM Link_Invoice_Time_Entry
 			INNER JOIN Time_Entry ON Link_Invoice_Time_Entry.time_entry_id=Time_Entry.time_entry_id
-		WHERE Link_Invoice_Time_Entry.active_ind=1
+		WHERE Time_Entry.active_ind=1
+			AND Link_Invoice_Time_Entry.active_ind=1
 	)
 </cfif>
 </cfquery>

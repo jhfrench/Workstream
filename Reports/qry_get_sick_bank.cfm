@@ -18,7 +18,8 @@ SELECT Emp_Contact.lname, Emp_Contact.name, COALESCE(Sick_Bank.granted_hours,0) 
 FROM Emp_Contact, Sick_Bank,
 	(SELECT emp_id, SUM(hours) AS hours_used
 	FROM Time_Entry
-	WHERE project_id=1881
+	WHERE Time_Entry.active_ind=1
+		AND project_id=1881
 		AND emp_id IN (<cfif comparenocase(attributes.emp_id,"all")>#attributes.emp_id#<cfelse>#valuelist(get_pto_names.emp_id)#</cfif>)
 	GROUP BY emp_id) AS Time_Taken
 WHERE Emp_Contact.emp_id*=Sick_Bank.emp_id

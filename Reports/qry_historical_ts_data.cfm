@@ -25,6 +25,7 @@ FROM
 		AND Time_Entry.notes_id=Notes.notes_id
 		AND Task.project_id=Project.project_id
 		AND Project.product_id=REF_Product.product_id
+		AND Time_Entry.active_ind=1
 		AND Task.name LIKE 'TS%'
 		AND #session.workstream_cache_query#=#session.workstream_cache_query#
 	GROUP BY Task.task_id, Task.entry_date, Task.complete_date)

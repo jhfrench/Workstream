@@ -33,7 +33,8 @@ FROM (
 					AND Time_Entry.date BETWEEN Billing_Rate.rate_start_date AND Billing_Rate.rate_end_date
 				INNER JOIN Project ON Project.project_id=Time_Entry.project_id
 					AND Project.project_id=Billing_Rate.project_id
-			WHERE Project.billable_type_id=1
+			WHERE Time_Entry.active_ind=1
+				AND Project.billable_type_id=1
 				AND Link_Company_Emp_Contact.company_id=#session.workstream_company_id#
 			GROUP BY EXTRACT(MONTH FROM Time_Entry.date), EXTRACT(YEAR FROM Time_Entry.date), Project.billable_type_id
 			) AS Hour_Revenue

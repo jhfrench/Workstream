@@ -37,7 +37,8 @@ FROM (
 			<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>(Project.project_code || '-' || Project.description)<cfelse>(Project.description || ' (' ||  Project.project_code || ')')</cfif> AS display
 		FROM Time_Entry
 			INNER JOIN Project ON Time_Entry.project_id=Project.project_id
-		WHERE Time_Entry.date BETWEEN #variables.from_date# AND #variables.through_date# 
+		WHERE Time_Entry.active_ind=1
+			AND Time_Entry.date BETWEEN #variables.from_date# AND #variables.through_date# 
 			AND Time_Entry.emp_id IN (#attributes.included_emp_id#) 
 		) AS Time_Entry_Data ON Employee_Data.emp_id=Time_Entry_Data.emp_id
 	LEFT OUTER JOIN Notes ON Time_Entry_Data.notes_id=Notes.notes_id

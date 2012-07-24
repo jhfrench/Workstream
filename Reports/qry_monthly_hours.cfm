@@ -36,6 +36,7 @@ WHERE Emp_Contact.emp_id=Time_Entry.emp_id
 	AND Time_Entry.date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, Time_Entry.date)
 	AND Demographics.effective_from <= #variables.through_date#
 	AND COALESCE(Demographics.effective_to,#variables.from_date#) >= #variables.from_date#
+	AND Time_Entry.active_ind=1
 	AND Time_Entry.date BETWEEN #variables.from_date# AND #variables.through_date#
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 	AND Project.billable_type_id IN (<cfif flag_non_billable>2<cfelse>1, 3, 4</cfif>)

@@ -24,6 +24,7 @@ FROM Emp_Contact
 	INNER JOIN Security_Company_Access ON Emp_Contact.emp_id = Security_Company_Access.emp_id
 	LEFT OUTER JOIN REF_Employee_Classification ON Demographics.employee_classification_id = REF_Employee_Classification.employee_classification_id
 WHERE Security.disable <> 1
+	AND Time_Entry.active_ind=1
 	AND Time_entry.date>='#start_date#'<!--- $issue$: shouldn't this be BETWEEN? --->
 	AND Time_entry.date<='#end_Date#'
 	AND Demographics.overtime =1 <cfif compareNoCase(attributes.pin, "all")>

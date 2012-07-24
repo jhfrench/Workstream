@@ -23,7 +23,8 @@ FROM Emp_Contact
 	INNER JOIN REF_Employee_Classification ON Demographics.employee_classification_id = REF_Employee_Classification.employee_classification_id
     
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
-WHERE (Time_Entry.Date >= '#start_date#')
+WHERE Time_Entry.active_ind=1
+	AND (Time_Entry.Date >= '#start_date#')
 	AND (Time_Entry.Date <= '#end_date#')
 	AND (Demographics.Overtime = 1)
 	 		AND

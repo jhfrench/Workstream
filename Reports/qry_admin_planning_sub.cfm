@@ -19,7 +19,8 @@ FROM Emp_Contact,
 	FROM
 		(SELECT Emp_Contact.emp_id, COALESCE(SUM(hours),0) AS admin_hours
 		FROM Time_Entry, Emp_Contact
-		WHERE Time_Entry.emp_id=*Emp_Contact.emp_id
+		WHERE Time_Entry.active_ind=1
+			AND Time_Entry.emp_id=*Emp_Contact.emp_id
 			AND Emp_Contact.emp_id IN (#valuelist(get_subordinates.emp_id)#)
 			AND Time_Entry.project_id=1112
 			AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.admin_month#
@@ -28,7 +29,8 @@ FROM Emp_Contact,
 	AS Admin_Hours,
 		(SELECT Emp_Contact.emp_id, SUM(hours) AS ttl_hours
 		FROM Time_Entry, Emp_Contact
-		WHERE Time_Entry.emp_id=*Emp_Contact.emp_id
+		WHERE Time_Entry.active_ind=1
+			AND Time_Entry.emp_id=*Emp_Contact.emp_id
 			AND Emp_Contact.emp_id IN (#valuelist(get_subordinates.emp_id)#)
 			AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.admin_month#
 			AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.admin_year#

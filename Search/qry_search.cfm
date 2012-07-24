@@ -135,6 +135,7 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 	LEFT OUTER JOIN
 		(SELECT SUM(hours) AS hours_used, task_id AS task_id
 		FROM Time_Entry
+		WHERE Time_Entry.active_ind=1
 		GROUP BY task_id)
 	AS Recorded_Hours
 	ON Path.task_id=Recorded_Hours.task_id

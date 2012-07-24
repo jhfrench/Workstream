@@ -38,9 +38,14 @@ FROM
 	UNION ALL
 	SELECT 0.0 AS hours_in, Time_entry.hours AS hours_out, Time_entry.date AS transaction_date
 	FROM Time_entry
-	WHERE (emp_id=#variables.page_pin#) AND (project_id IN (SELECT Project_id
-															FROM Project
-															WHERE project_type_id = 1))) AS PTO_table
+	WHERE Time_Entry.active_ind=1
+		AND emp_id=#variables.page_pin#
+		AND project_id IN (
+			SELECT Project_id
+			FROM Project
+			WHERE project_type_id = 1
+		)
+	) AS PTO_table
 GROUP BY PTO_table.hours_in, PTO_table.hours_out, PTO_table.transaction_date
 ORDER BY transaction_date, hours_out
 </cfquery>

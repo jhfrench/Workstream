@@ -29,7 +29,8 @@ FROM Emp_Contact
 		INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id = REF_Company.company_id
 		LEFT OUTER JOIN REF_Employee_Classification
 			ON Demographics.employee_classification_id = REF_Employee_Classification.employee_classification_id
-WHERE Time_Entry.date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.through_date)#
+WHERE Time_Entry.active_ind=1
+	AND Time_Entry.date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.through_date)#
 	AND Project.project_id = #project_id#
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 	AND Demographics.effective_from <= #createodbcdate(attributes.through_date)#

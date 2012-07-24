@@ -22,7 +22,8 @@ FROM Time_Entry, REF_Day_of_Week, Project, Notes,
 	(
 		SELECT Time_Entry.date, SUM(Time_Entry.Hours) AS sumhours, Time_Entry.emp_id
 		FROM Time_Entry 
-		WHERE emp_id=#session.user_account_id#
+		WHERE Time_Entry.active_ind=1
+			AND emp_id=#session.user_account_id#
 			AND DATEDIFF(day, Time_Entry.date, CURRENT_TIMESTAMP) <= 60
 		GROUP BY  Time_Entry.date, Time_Entry.emp_id
 	) AS Hours_Pin_Date,
@@ -30,10 +31,12 @@ FROM Time_Entry, REF_Day_of_Week, Project, Notes,
 		SELECT EXTRACT(YEAR FROM Time_Entry.date) AS year, DATEPART(ww, Time_Entry.date) AS week, SUM(Time_Entry.hours) AS sumhoursweek, 
 			MIN(Time_Entry.date) AS mindate
 		FROM Time_Entry
-		WHERE Time_Entry.emp_id=#session.user_account_id#
+		WHERE Time_Entry.active_ind=1
+			AND Time_Entry.emp_id=#session.user_account_id#
 		GROUP BY EXTRACT(YEAR FROM Time_Entry.date), DATEPART(ww, Time_Entry.date)
 	) AS Hours_Pin_Week
-WHERE DATEPART(DW, Time_Entry.date)=REF_Day_Of_Week.Day_Num
+WHERE Time_Entry.active_ind=1
+	AND DATEPART(DW, Time_Entry.date)=REF_Day_Of_Week.Day_Num
 	AND Time_Entry.project_id=Project.project_id
 	AND Time_Entry.notes_id=Notes.notes_id
 	AND Time_Entry.emp_id=Hours_Pin_Date.emp_id

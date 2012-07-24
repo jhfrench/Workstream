@@ -37,8 +37,9 @@ FROM Task, Team, Emp_Contact,  Customer, Project, Link_Project_Company, REF_Prio
 		WHERE Valid_Tasks.task_id=Task.task_id AND REF_Icon.icon_id=Task.icon_id)
 	AS Path
 	LEFT OUTER JOIN
-		(SELECT SUM(hours) as hours_used, task_id as task_id
+		(SELECT SUM(hours) AS hours_used, task_id as task_id
 		FROM Time_Entry
+		WHERE active_ind=1
 		GROUP BY task_id)
 	AS Recorded_Hours
 	ON Path.task_id = Recorded_Hours.task_id

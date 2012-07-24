@@ -32,7 +32,8 @@ SELECT Task.task_id AS task_id, (Customer.description || '-' || Project.descript
 FROM Customer, Task, Project, REF_Priority, REF_Status, Team,<cfif isdefined("attributes.show_budgeted")> Forecast_Assignment,</cfif>
 	(SELECT SUM(COALESCE(Time_Entry.hours,0)) AS hours_used, task_id
 	FROM Time_Entry
-	<cfif isdefined("variables.emp_id")>WHERE Time_Entry.emp_id IN (#variables.emp_id#)</cfif>
+	WHERE Time_Entry.active_ind=1<cfif isdefined("variables.emp_id")>
+		AND Time_Entry.emp_id IN (#variables.emp_id#)</cfif>
 	GROUP BY Time_Entry.task_id)
 AS Recorded_Hours
 WHERE Customer.customer_id=Project.customer_id

@@ -30,7 +30,8 @@ FROM Time_Entry, Project,
 			OR Link_Employee_Supervisor.date_end > #createodbcdatetime(attributes.from_date)#)</cfif>
 		AND Link_Company_Emp_Contact.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
 	) AS Elligible_Employees	
-WHERE Time_Entry.project_id=Project.project_id
+WHERE Time_Entry.active_ind=1
+	AND Time_Entry.project_id=Project.project_id
 	AND Time_Entry.emp_id=Elligible_Employees.emp_id
 	AND Time_entry.date >= #createodbcdatetime(attributes.from_date)#
 	AND Time_entry.date <= #createodbcdatetime(attributes.through_date)#

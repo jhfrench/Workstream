@@ -24,6 +24,7 @@ FROM Emp_Contact
 	LEFT OUTER JOIN REF_Employee_Classification ON Demographics.employee_classification_id=REF_Employee_Classification.employee_classification_id
 WHERE Time_Entry.date BETWEEN #variables.from_date# AND #variables.through_date#
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
+	AND Time_Entry.active_ind=1
 	AND Time_Entry.date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, Time_Entry.date)
 GROUP BY Project.project_code, Project.description, REF_Employee_Classification.employee_classification
 ORDER BY clientcode

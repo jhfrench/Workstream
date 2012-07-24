@@ -25,8 +25,9 @@ FROM Demographics, Emp_Contact
 			COUNT(DISTINCT CASE WHEN task.status_id != 11 THEN Forecast_assignment.task_id ELSE NULL END) AS nbt, 
 			COALESCE(SUM(CASE WHEN task.status_id != 11 THEN Time_Entry.hours ELSE 0 END),0) AS nbh,
 			Forecast_assignment.emp_id
-		FROM Time_Entry 
-			RIGHT OUTER JOIN Forecast_assignment ON Time_Entry.task_id=Forecast_assignment.task_id
+		FROM Time_Entry <!--- $issue$: is this join right? --->
+			RIGHT OUTER JOIN Forecast_Assignment ON Time_Entry.task_id=Forecast_assignment.task_id
+				AND Time_Entry.active_ind=1
 				AND Forecast_Assignment.active_ind=1, 
 			Task, Team
 		WHERE Task.task_id=Forecast_Assignment.task_id
@@ -45,7 +46,8 @@ FROM Demographics, Emp_Contact
 		FROM Time_Entry 
 			LEFT OUTER JOIN Forecast_assignment ON Time_Entry.task_id=Forecast_assignment.task_id
 				AND Forecast_Assignment.active_ind=1, Task, Team
-		WHERE Task.task_id=Time_Entry.task_id
+		WHERE Time_Entry.active_ind=1
+			AND Task.task_id=Time_Entry.task_id
 			AND Task.due_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.to_date)#
 			AND Time_Entry.emp_id=Team.emp_id
 			AND Time_Entry.task_id=Team.task_id

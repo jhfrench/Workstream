@@ -20,11 +20,12 @@ WHERE task_id=#attributes.reassign_task_id#
 </cfquery>
 <cfquery name="qa_entry_details" datasource="#application.datasources.main#">
 UPDATE Time_Entry
-SET task_id=#attributes.reassign_task_id#, project_id=#get_project_id.project_id#
-WHERE notes_id IN (#attributes.notes_id#)
+SET task_id=#attributes.reassign_task_id#,
+	project_id=#get_project_id.project_id#
+WHERE notes_id IN (#attributes.notes_id#);
 UPDATE Notes
 SET task_id=#attributes.reassign_task_id#
-WHERE notes_id IN (#attributes.notes_id#)
+WHERE notes_id IN (#attributes.notes_id#);
 </cfquery>
 </cfsilent>
 

@@ -20,6 +20,7 @@ FROM Project, Demographics, Time_Entry
 WHERE Demographics.emp_id = Time_Entry.emp_id
 	AND Project.project_id = Time_Entry.project_id
 	AND Demographics.emp_id = #supervisor_user_account_id#
+	AND Time_Entry.active_ind=1
 	AND Time_Entry.date >= '#From_date#'
 	AND Time_Entry.date <= '#Through_Date#'
 	AND (Time_Entry.date between effective_from AND effective_to

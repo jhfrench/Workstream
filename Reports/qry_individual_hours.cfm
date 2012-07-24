@@ -24,6 +24,7 @@ FROM Time_Entry, Notes, Project, Customer
 WHERE Time_Entry.notes_id=Notes.notes_id
 	AND Time_Entry.project_id=Project.project_id
 	AND Project.customer_id=Customer.customer_id
+	AND Time_Entry.active_ind=1
 	AND Time_Entry.date BETWEEN #createodbcdate(from_date)# AND #createodbcdate(through_date)#
 	AND Time_Entry.emp_id=#emp_id#
 ORDER BY Time_Entry.date, project_display, Time_Entry.hours

@@ -37,7 +37,8 @@ SELECT DISTINCT Emp_Contact.Name AS name, Emp_Contact.LName AS lname,
 FROM Security_Company_Access, Emp_Contact, PTO_Hours, Demographics, REF_Day_Length, security,
 	(SELECT COALESCE(SUM(Time_Entry.hours),0) AS used_hours, Link_Company_Emp_Contact.emp_id AS emp_id
 	FROM Time_entry, Link_Company_Emp_Contact
-	WHERE time_entry.project_id IN (SELECT project_id
+	WHERE Time_Entry.active_ind=1
+		AND time_entry.project_id IN (SELECT project_id
 									FROM Project
 									WHERE project_type_id = 1)
 		AND Link_Company_Emp_Contact.company_id IN 

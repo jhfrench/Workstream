@@ -20,6 +20,7 @@ WHERE Customer.customer_id=Project.customer_id
 	AND Time_Entry.project_id=Project.project_id
 	AND Time_Entry.emp_id=Emp_Contact.emp_id
 	AND emp_contact.emp_id=#attributes.emp_id# 
+	AND Time_Entry.active_ind=1
 	AND EXTRACT(MONTH FROM time_entry.[date])=#attributes.month#
 	AND EXTRACT(YEAR FROM time_entry.[date])=#attributes.year#
 GROUP BY Customer.description, Project.project_code, 
@@ -36,6 +37,7 @@ FROM Emp_Contact, Time_Entry, Project
 WHERE Emp_Contact.emp_id=Time_Entry.emp_id
 	AND Time_Entry.project_id=Project.project_id
 	AND Emp_Contact.emp_id=#attributes.emp_id#
+	AND Time_Entry.active_ind=1
 	AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month# 
 	AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.year#
 GROUP BY EXTRACT(MONTH FROM Time_Entry.date), EXTRACT(YEAR FROM Time_Entry.date), DATEPART(WEEK, Time_Entry.Date), Emp_Contact.name, Emp_Contact.lname

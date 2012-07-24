@@ -20,7 +20,8 @@ FROM
 	(SELECT COALESCE(Time_Entry.hours, 0) AS hours_out, 0 AS hours_in, 
 		[date] AS transaction_date, 'Rollup of past PTO Usage' AS comments
 	FROM Time_Entry
-	WHERE Time_Entry.emp_id=#attributes.emp_id#
+	WHERE Time_Entry.active_ind=1
+		AND Time_Entry.emp_id=#attributes.emp_id#
 		AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id=1)
 		AND [date] >= #createodbcdatetime(Get_PTO_Start.pto_start_date)#
 	UNION ALL

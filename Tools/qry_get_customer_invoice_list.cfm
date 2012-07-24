@@ -24,8 +24,10 @@ FROM Time_Entry
 		AND Project.project_id=Billing_Rate.project_id
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	LEFT OUTER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
+		AND Notes.active_ind=1
 WHERE Project.billable_type_id=1
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)<cfif isdefined("attributes.invoice_id")>
+	AND Time_Entry.active_ind=1
 	AND Time_Entry.time_entry_id IN (
 		SELECT time_entry_id
 		FROM Link_Invoice_Time_Entry

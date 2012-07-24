@@ -18,7 +18,8 @@ FROM
 	(SELECT COALESCE(Time_Entry.hours, 0) AS hours_out, 0 AS hours_in, 
 		Time_Entry.date as transaction_date, CAST(Notes.note AS varchar(50)) AS comments, Time_Entry.time_entry_id AS time_entry_id
 	FROM Time_Entry, Notes
-  	WHERE Time_Entry.notes_id=Notes.notes_id
+  	WHERE Time_Entry.active_ind=1
+		AND Time_Entry.notes_id=Notes.notes_id
 		AND Time_Entry.emp_id=#attributes.emp_id#
 		AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id=1)
 		AND Time_Entry.date >= #createodbcdatetime(Get_PTO_Start.pto_start_date)#

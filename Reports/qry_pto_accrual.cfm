@@ -62,7 +62,8 @@ left Outer JOIN PTO_HOURS ON PTO_HOURS.emp_id = demographics.emp_id left outer J
 AND EXTRACT(YEAR FROM time_entry.date) like EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
 inner join Link_Company_Emp_Contact on demographics.emp_id = Link_Company_Emp_Contact.emp_id
 inner join emp_contact on demographics.emp_id = emp_contact.emp_id
-WHERE security.disable <> 1 
+WHERE Time_Entry.active_ind=1
+	AND security.disable <> 1 
 AND company_id IN (#session.workstream_selected_company_id#) <cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.emp_id IN (#preservesinglequotes(attributes.form_Pin)#))</cfif>
 <!--- <cfif individual>and demographics.emp_id=#emp_id#</cfif> --->
 

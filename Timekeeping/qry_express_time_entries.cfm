@@ -12,6 +12,7 @@
 	$Log$
 	 || 
  --->
+ <!--- $issue$: is this template still needed? --->
 <cfquery name="express_time_entries" datasource="#application.datasources.main#">
 SELECT Time_Entry.time_entry_id AS ID, Hours_Pin_Week.sumhoursweek,
 	Hours_Pin_Week.week, Hours_Pin_Week.year, 
@@ -23,17 +24,20 @@ FROM Time_Entry, REF_Day_of_Week, Project, Notes,
 		SUM(Time_Entry.Hours) AS sumhours, 
 		Time_Entry.emp_id
 	FROM Time_Entry 
-	where emp_id = #session.user_account_id# AND DATEDIFF(day, Time_Entry.date, CURRENT_TIMESTAMP) <= 60
+	WHERE Time_Entry.active_ind=1
+		AND emp_id = #session.user_account_id# AND DATEDIFF(day, Time_Entry.date, CURRENT_TIMESTAMP) <= 60
 	GROUP BY  Time_Entry.date, Time_Entry.emp_id)
 AS hours_pin_date,
 	(SELECT EXTRACT(YEAR FROM Time_Entry.date) AS year, 
 		DATEPART(ww, Time_Entry.date) AS week, 
 		SUM(Time_Entry.hours) AS sumhoursweek, MIN(Time_Entry.date) AS mindate
 	FROM Time_Entry
-	WHERE Time_Entry.emp_id = #session.user_account_id#
+	WHERE Time_Entry.active_ind=1
+		AND Time_Entry.emp_id = #session.user_account_id#
 	GROUP BY EXTRACT(YEAR FROM Time_Entry.date), DATEPART(ww, Time_Entry.date))
 AS hours_pin_week
-WHERE Time_Entry.emp_id = #session.user_account_id# AND DATEDIFF(day, Time_Entry.date, CURRENT_TIMESTAMP) <= 60
+WHERE Time_Entry.active_ind=1
+	AND Time_Entry.emp_id = #session.user_account_id# AND DATEDIFF(day, Time_Entry.date, CURRENT_TIMESTAMP) <= 60
 	AND Time_Entry.emp_id = hours_pin_date.emp_id
 	AND Time_Entry.date = hours_pin_date.date
 	AND DATEPART (DW, Time_Entry.date) = REF_Day_Of_Week.Day_Num
