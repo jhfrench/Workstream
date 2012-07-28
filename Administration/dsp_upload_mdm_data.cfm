@@ -6,7 +6,7 @@
 		I help the user maintain the NSM structure.
 	</responsibilities>
 	<properties>
-		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/18/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="9/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -25,9 +25,9 @@
 SELECT *
 FROM Hierarchy_Upload
 WHERE parent_organization_id IS NULL
-	AND NVL(theme,'.')!='.'
-ORDER BY NVL(project_wbs,'!'), NVL(program,'!'), NVL(theme,'!'),
-	NVL(mission,'!')
+	AND COALESCE(theme,'.')!='.'
+ORDER BY COALESCE(project_wbs,'!'), COALESCE(program,'!'), COALESCE(theme,'!'),
+	COALESCE(mission,'!')
 </cfquery>
 
 <cfif get_bad_hierarchy_upload.recordcount EQ 0 AND variables.error_ind EQ 0>
