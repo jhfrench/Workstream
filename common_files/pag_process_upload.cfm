@@ -79,7 +79,7 @@
 	<cfinclude template="act_change_parent_url.cfm">
 	<cfset variables.upload_id=attributes.upload_id>
 	<cfinclude template="act_save_log_upload.cfm">
-	
+
 	<cfif isdefined("attributes.parent_business_id")>
 		<cfinclude template="qry_insert_link_business_upload.cfm">
 	</cfif>
@@ -88,7 +88,7 @@
 <cfelse>
     <cfset attributes.upload_id=0>
 </cfif>
-	
+
 <cfswitch expression="#attributes.upload_source_type_id#">
 	<cfcase value="1">
 		<cfinclude template="../common_files/qry_get_business_upload.cfm">

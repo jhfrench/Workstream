@@ -38,7 +38,7 @@
 				null=QuerySetCell(marketing_grid, 'Add', 'Add' , #currow#);
 				counter = 1;
 			</cfscript>
-				
+
 				<cfoutput>
 					<cfscript>
 					null=QuerySetCell(marketing_grid, 'name#counter#', '#name#' , #currow#);

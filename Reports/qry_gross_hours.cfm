@@ -16,7 +16,7 @@
 	END FUSEDOC --->
 <cfset variables.date_open=createodbcdate("#attributes.month#/1/#attributes.year#")>
 <cfset variables.date_closed=createodbcdate("#attributes.month#/#daysinmonth(variables.date_open)#/#attributes.year#")>
-<cfquery name="gross_hours" datasource="#application.datasources.main#">	
+<cfquery name="gross_hours" datasource="#application.datasources.main#">
 SELECT 1 AS overall_order, (Emp_Contact.lname || ', ' || Emp_Contact.name) AS name,<cfloop from="1" to="#variables.daysinmonth#" index="ii">
 	SUM(CASE WHEN DAY(Time_Entry.date)=#ii# THEN Time_Entry.hours ELSE 0 END) AS [day#ii#],</cfloop>
 	SUM(CASE WHEN Time_Entry.date IS NOT NULL THEN Time_Entry.hours ELSE 0 END) AS total

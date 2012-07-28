@@ -31,14 +31,14 @@
 			<param name="xLoc" value=".5">
 			<param name="yLoc" value=".6">
 			<param name="startDegrees" value="90">
-			
+
 			<param name="dataset0yValues" value="#valuelist(ts_product_count.task_count)#">
 			<param name="dataset0Labels" value="#valuelist(ts_product_count.product_name)#">
-	
+
 			<param name="dataset0Colors" value="#variables.color_list#">
 			<param name="labelFont" value="Trebuchet MS,9,1">
 			<param name="labelPosition" value="2">
-			
+
 			<param name="dwellUseLabelString" value="true">
 			<param name="dwellUseXValue" value="false">
 			<param name="dwellUseYValue" value="true">

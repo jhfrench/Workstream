@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 <cfquery name="emp_biography_delete" datasource="#application.datasources.main#">
 DELETE Emp_Biography

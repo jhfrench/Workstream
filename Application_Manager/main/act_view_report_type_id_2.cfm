@@ -49,7 +49,7 @@ ORDER BY product_name
 	tipstyle="MouseOver" tipbgcolor="##ffff99"
 	showmarkers="yes" markersize="5"><!--- 
 	url="#variables.graph_url#" --->
-	
+
 	<cfif listfind(attributes.metric_id, 1)>
 		<cfchartseries type="bar" serieslabel="Page Count" paintstyle="plain" markerstyle="circle" query="qry_get_report_output" itemcolumn="product_name" valuecolumn="page_count">
 		</cfchartseries>

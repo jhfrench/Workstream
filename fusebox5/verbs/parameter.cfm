@@ -52,7 +52,7 @@ limitations under the License.
 									"Unexpected attributes were found in a 'parameter' verb in fuseaction #fb_.verbInfo.circuit#.#fb_.verbInfo.fuseaction#.");
 					}
 				}
-				
+
 				// append this parameter to the parent data:
 				arrayAppend(fb_.verbInfo.parent.parameters,fb_.name);
 				// output the push code:
@@ -62,7 +62,7 @@ limitations under the License.
 				if (structKeyExists(fb_.verbInfo.attributes,"value")) {
 					fb_appendLine('<' & 'cfset #fb_.name# = "#fb_.verbInfo.attributes.value#" />');
 				}
-				
+
 			} else if (fb_.verbInfo.parent.lexiconVerb is "xfa") {
 
 				// name - string - required

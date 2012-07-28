@@ -23,7 +23,7 @@ function checkTheDescription(arg){
 		document.task_details.to_inbox.value = 1
 	}else if (arg == "to_edit"){
 		document.task_details.to_edit.value = 1
-		}	
+		}
 	var theValue = document.task_details.task_details.value;
 	document.task_details.task_details.value = myTrim(theValue);
 	if(!document.task_details.task_details.value.length){
@@ -34,7 +34,7 @@ function checkTheDescription(arg){
 		if (_CF_checktask_details(document.task_details)){
 		document.task_details.submit();
 		}
-	}		
+	}
 }
 
 function myTrim(inputString) {
@@ -79,7 +79,7 @@ while (retValue.indexOf("  ") != -1) { // Note that there are two spaces in the 
    retValue = retValue.substring(0, retValue.indexOf("  ")) + retValue.substring(retValue.indexOf("  ")+1, retValue.length); // Again, there are two spaces in each of the strings
 	}
 
-}				
+}
 return retValue;
 }
 

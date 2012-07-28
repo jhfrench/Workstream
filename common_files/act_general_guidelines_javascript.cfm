@@ -57,12 +57,12 @@ function ModifyDiv(field_id,colID)
 	Element.toggle(field_id); //hide the text input
 
 	}
-	
+
 function AddNewRow()
 	{
 	var currCount=$('currRowCount');
 	var maxCount=10;
-	
+
 	if(parseInt(currCount.value) + 1 >=parseInt(maxCount))
 		{
 			alert('Sorry, but max number of rows has been reached');
@@ -75,13 +75,13 @@ function AddNewRow()
 			currCount.value=parseInt(currCount.value) + 1;	   
 			return true;
 		}
-	}		
+	}
 function AddColumn()
 	{
 	var rowCount=$('rowCount');
 	var currCount=$('curr_hidden_count');
 	var maxCount=$('max_hidden_count');
-	
+
 	if(parseInt(currCount.value) + 1 >=parseInt(maxCount.value))
 		{
 			alert('Sorry, but max number of columns has been reached');
@@ -89,11 +89,11 @@ function AddColumn()
 		}
 	else
 		{
-		
+
 			var th="hidden_th_" + parseInt(currCount.value);
-		
+
 			Element.toggle(th);
-		
+
 			for (var x=1; x <=rowCount.value; x++)
 				{
 			   		var td="hidden_td_" + x + "_" + parseInt(currCount.value);
@@ -121,6 +121,6 @@ function RemoveColumn(colID)
 	<!--- currCount.value=parseInt(currCount.value) - 1;	 --->   
 	return true;
 
-	}	
+	}
 
 </script>

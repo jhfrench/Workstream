@@ -31,7 +31,7 @@
 	<select name="hierarchy_level_id">
 	<cfloop query="get_ref_hierarchy_level"><option value="#hierarchy_level_id#" <cfif not comparenocase(get_ref_hierarchy_level.hierarchy_level_id, attributes.hierarchy_level_id)>selected</cfif>>#description#</option></cfloop>
 	</select>
-	<input name="method" type="submit" alt="Retrieve and edit heirarchy level" value="Retrieve and edit heirarchy level"/>
+	<input type="submit" name="method" alt="Retrieve and edit heirarchy level" value="Retrieve and edit heirarchy level"/>
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_hierarchy_level.cfm" hierarchy_level_id="#attributes.hierarchy_level_id#">
@@ -58,7 +58,7 @@
 							display="form_element_type_description" selected="#attributes.form_element_type_id#" required="yes" message="Please specify form element type.">
 						</cfselect>
 				</td>
-		
+
 			</tr>
 			<tr>
 				<cfif attributes.hierarchy_level_id EQ 0>
@@ -81,10 +81,10 @@
 		<td align="center">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="attributes.hierarchy_level_id" value="#attributes.hierarchy_level_id#" />
-			<input type="submit" alt="submit" value="Submit" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 	</tr>
 </table>
 </div>
 </cfform>
-</cfoutput>		
+</cfoutput>

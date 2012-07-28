@@ -44,7 +44,7 @@
 			<cfloop query="get_external_demographics_data">
 			<cfset variables.employeenumber=employeenumber>
 			<cfset variables.employeenumber_length=len(variables.employeenumber)>
-			
+
 			<cfif variables.employeenumber_length LT 9>
 				<cfloop from="1" to="#9-variables.employeenumber_length#" index="len_ii">
 					<cfset variables.employeenumber="0#variables.employeenumber#">
@@ -95,7 +95,7 @@
 		<td align="center">
 			<input type="hidden" name="method" value="select_user" />
 			<input name="submit" type="submit" alt="Next Step" value="Next Step" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 	</cfif>

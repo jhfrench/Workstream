@@ -25,7 +25,7 @@
 
 <cfparam name="attributes.state_province_id" default="0">
 <cfparam name="attributes.description" default="">
-<cfparam name="attributes.code" default="">	
+<cfparam name="attributes.code" default="">
 <cfparam name="attributes.sort_order" default="">
 
 <!--- if data has been submitted to this page, insert it into the DB --->

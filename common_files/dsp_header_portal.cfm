@@ -62,14 +62,14 @@ else
 	<script type="text/javascript">
 		(function () {
 			if (/Microsoft/.test(navigator.appName)) { return }
-			
+
 			window.onload = function () {
 				<cfif application.help.active_ind>Element.hide('help_area');</cfif>
 				#get_screen_details.body_onload#
 				var menu = document.getElementById('menu');
 				var init = menu.offsetTop;
 				var docked;
-				
+
 				window.onscroll = function () {
 					if (!docked && (menu.offsetTop - scrollTop() < 0)) {
 						menu.style.top = 0;

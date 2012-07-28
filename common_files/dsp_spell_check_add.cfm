@@ -18,7 +18,7 @@
 			<a href="javascript:document.forms[1].submit();" class="SelectText">ADD WORD TO DICTIONARY</a>
 		</td>
 	</tr>
-	
+
 <form action="index.cfm?fuseaction=common_files.spell_check" method="post">
 	<input type="hidden" name="message" value="#message#">
 	<input type="hidden" name="language" value="#language#">

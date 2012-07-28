@@ -52,7 +52,7 @@
 			</td>
 			<td>
 				<input name="requested_page" type="hidden" value="#attributes.requested_page#" />
-				<input name="method" type="submit" alt="Login" size="20" value="Login" />
+				<input type="submit" name="method" alt="Login" size="20" value="Login" />
 			</td>
 		</tr>
 		<tr>

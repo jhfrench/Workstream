@@ -17,7 +17,7 @@
 <cfoutput>
 	<tr bgcolor="##78A0EB">
 		<td class="SelectText">
-			Date Implemented:			
+			Date Implemented:
 		</td>
 		<td class="SelectText">
 			<cfinput type="text" name="date" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this employee's supervisor was instated.  (mm/dd/yy)">
@@ -25,7 +25,7 @@
 	</tr>
 	<tr bgcolor="##78A0EB">
 		<td class="SelectText">
-			Supervisor:			
+			Supervisor:
 		</td>
 		<td class="SelectText">
 </cfoutput>
@@ -41,19 +41,19 @@
 	</tr>
 	<tr bgcolor="##78A0EB">
 		<td class="SelectText">
-			Check box to remove		
+			Check box to remove
 		</td>
 		<td class="SelectText">
-			Last date as supervisor		
+			Last date as supervisor
 		</td>
 	</tr>
 </cfoutput>
 <cfoutput query="get_present_supervisor">
 	<tr bgcolor="##78A0EB">
-		<td class="SelectText">			
+		<td class="SelectText">
 			<label for="#get_present_Supervisor.user_account_id#"><cfinput type="Checkbox" name="supervisor_id_list" value="#get_present_Supervisor.user_account_id#" id="#get_present_Supervisor.user_account_id#" checked="No">#get_present_supervisor.sup_name#</label>
 		</td>
-		<td class="SelectText">			
+		<td class="SelectText">
 			<cfinput type="text" name="end_date_#get_present_Supervisor.user_account_id#" size="10" maxlength="10" required="No" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" value="#dateformat(Now(),'mm/dd/yy')#">
 		</td>
 		<!--- <td>&nbsp;</td> --->
@@ -64,7 +64,7 @@
 	<!--- <cfif get_present_supervisor.recordcount>
 		<tr bgcolor="##78A0EB">
 			<td class="SelectText">
-				Last Date Under Most Recent Supervisor:			
+				Last Date Under Most Recent Supervisor:
 			</td>
 			<td class="SelectText">
 				<cfinput type="text" name="end_date" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" value="#dateformat(Now(),'mm/dd/yy')#">

@@ -14,7 +14,7 @@
 
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 <cfquery name="end_demog_record" datasource="#application.datasources.main#">
 UPDATE Demographics

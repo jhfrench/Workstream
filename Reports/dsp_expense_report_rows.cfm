@@ -44,7 +44,7 @@
 		<td >Note:</td>
 		<td colspan="#colspan#">#note#</td>
 		</tr>
-		</cfoutput>	
+		</cfoutput>
 		<tr>
 			<td colspan="4">Totals</td>
 			<cfloop query="get_expense_type">
@@ -54,4 +54,4 @@
 			<td class="SubHeadText">#dollarformat(grandtotal)#</td>
 		</tr>
 	</cfoutput>
-	
+

@@ -41,6 +41,6 @@
 	<cfif application.application_specific_settings.normal_navigation_ind NEQ 1>
 		<cfset attributes.module_description=listfirst(replace(url.fuseaction,"_", " "),".")>
 	</cfif>
-	
+
 	<cfinclude template="dsp_header_bootstrap.cfm">
 </cfif>

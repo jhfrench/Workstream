@@ -104,7 +104,7 @@
 			<input type="hidden" name="user_account_id" value="#get_user_information.user_account_id#" />
 			<input type="hidden" name="uupic" value="#get_user_information.uupic#" />
 			<input type="submit" name="method" value="Update Information" alt="Update Information" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

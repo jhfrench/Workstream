@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log: 
-	
+
 	 || 
 	END FUSEDOC --->
 </cfsilent>
@@ -44,7 +44,7 @@ WHERE active_ind=1
 		#session.user_account_id#, #attributes.salary_change_type#, '#variables.increase_amount#',
 		'#variables.increase_percent#')
 	</cfquery>
-	
+
 	<cfif variables.deactivate_record_ind>
 		<cfquery name="emp_salary_update" datasource="#application.datasources.main#">
 		UPDATE Salary

@@ -51,7 +51,7 @@
 				<td class='RegText'>Project<br />(may take a<br />moment to display)</td>
 				<td>">
 				<cfelse>
-					
+
 			<cfmodule template="../common_files/edit_two_related_selects.cfm"
 			  
 				query="get_search_projects"
@@ -81,7 +81,7 @@
 				<td class='RegText'>Project<br />(may take a<br />moment to display)</td>
 				<td>">
 				</cfif>
-				
+
 <!--- 			<select name="project_id2" multiple size="6" onclick="checkbox_project_id()">
 			<cfoutput query="project">
 				<option value="#project_id#">#display#</option>

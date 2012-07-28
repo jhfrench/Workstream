@@ -33,16 +33,16 @@
 		<option value="#product_service_id#" <cfif not comparenocase(get_ref_product_service.product_service_id, attributes.product_service_id)>selected</cfif>>#description#</option>
 		</cfloop>
 	</select>
-	<input name="method" type="submit" alt="Retrieve and Edit Product Service" value="Retrieve and Edit Product Service"/>
+	<input type="submit" name="method" alt="Retrieve and Edit Product Service" value="Retrieve and Edit Product Service"/>
 </form>
 
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_product_service.cfm.cfm" product_service_id="#attributes.product_service_id#">
-	<cfset attributes.product_service_id  =get_ref_product_service.product_service_id>	
-    <cfset attributes.code           =get_ref_product_service.code>     		
+	<cfset attributes.product_service_id  =get_ref_product_service.product_service_id>
+    <cfset attributes.code           =get_ref_product_service.code>     
 	<cfset attributes.description    =get_ref_product_service.description>
-	<cfset attributes.sort_order     =get_ref_product_service.sort_order>	
-	<cfset attributes.active_IND     =get_ref_product_service.active_IND>	
+	<cfset attributes.sort_order     =get_ref_product_service.sort_order>
+	<cfset attributes.active_IND     =get_ref_product_service.active_IND>
 </cfif>
 
 <cfform name="REF_product_service_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
@@ -71,7 +71,7 @@
 				<cfelse>
 					<cfset check_active_ind_1="no">
 					<cfset check_active_ind_0="yes">
-				</cfif>				
+				</cfif>
 				<td><span title="describes the purpose of the radio buttons that follow">Active?</span></td>
 				<td><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="#check_active_ind_1#"><label for="active_ind_yes">Yes </label>
 				 	<cfinput type="radio" name="active_ind" id="active_ind_no"  value="0" checked="#check_active_ind_0#"><label for="active_ind_no">No </label>
@@ -85,8 +85,8 @@
 		<td align="center">
 			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
 			<input type="hidden" name="product_service_id" value="#attributes.product_service_id#"/>
-			<input type="submit" alt="submit" name="submit" value=" Submit " />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="submit" alt="submit" name="submit" value="Submit" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

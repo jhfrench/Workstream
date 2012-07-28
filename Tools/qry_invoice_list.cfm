@@ -26,6 +26,7 @@ FROM Time_Entry
 		AND Project.project_id=Billing_Rate.project_id
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	LEFT OUTER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
+		AND Notes.active_ind=1
 	LEFT OUTER JOIN REF_Billable ON Project.billable_type_id=REF_Billable.billable_type_id
 WHERE Time_Entry.active_ind=1
 	AND Project.billable_type_id=1

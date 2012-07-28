@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 <cfquery name="get_prefix" datasource="#application.datasources.main#">
 SELECT code_prefix AS prefix

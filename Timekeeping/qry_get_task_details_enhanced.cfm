@@ -36,7 +36,7 @@ FROM Task
 	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id
 	INNER JOIN Project ON Task.project_id=Project.project_id
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
-	LEFT OUTER JOIN (		
+	LEFT OUTER JOIN (
 		SELECT #attributes.task_id# AS task_id, SUM(Time_Entry.hours) AS hours_used
 		FROM Time_Entry
 		WHERE active_ind=1

@@ -35,7 +35,7 @@ WHERE Project_id=#project_id#
 		<cfquery name="insert_flat_rate" datasource="#application.datasources.main#">
 		INSERT INTO Flat_Rate (rate_start_date, rate_end_date, project_id, budget)
 		VALUES ('#attributes.start_date#', '#attributes.end_date#', #attributes.project_id#, #attributes.budget#)
-		</cfquery>	
+		</cfquery>
 	</cfif>
 
 <cfquery name="delete_old" datasource="#application.datasources.main#">

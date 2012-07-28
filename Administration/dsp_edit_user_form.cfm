@@ -64,8 +64,8 @@
 	<tr>
 		<td colspan="2">
 			<input name="user_account_id" type="hidden" value="#get_user_information.user_account_id#"/>
-			<input name="method" type="submit" alt="update user" size="20" value="<cfif NOT comparenocase(attributes.action, 'edit_user')>Update<cfelse>Add</cfif> User"/>
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="submit" name="method" alt="update user" size="20" value="<cfif NOT comparenocase(attributes.action, 'edit_user')>Update<cfelse>Add</cfif> User"/>
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

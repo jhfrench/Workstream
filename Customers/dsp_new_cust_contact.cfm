@@ -38,5 +38,5 @@
 	</td>
 	<td colspan="2">
 		<cfinput type="text" required="no" name="email">
-	</td>		
+	</td>
 </tr>

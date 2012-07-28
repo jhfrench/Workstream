@@ -15,7 +15,7 @@
 UPDATE Date_Locked
 SET active_ind=0
 WHERE active_ind=1
-	AND company_id IN (#attributes.company_id#)
+	AND company_id IN (#attributes.company_id#);
 
 INSERT INTO Date_Locked (company_id, date_locked, created_by)
 SELECT REF_Company.company_id AS company_id, #createodbcdatetime(attributes.date_locked)# AS date_locked, #session.user_account_id#
@@ -23,3 +23,4 @@ FROM REF_Company
 WHERE REF_Company.company_id IN (#attributes.company_id#)
 </cfquery>
 </cfsilent>
+<p class="alert alert-info">Date locked has been applied.</p>

@@ -23,5 +23,5 @@ WHERE Demographics.emp_id = Emp_Contact.emp_id
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 	AND demographics.overtime = 1
 ORDER BY Emp_Contact.lName, Emp_Contact.Name
-</cfquery>	
+</cfquery>
 </cfsilent>

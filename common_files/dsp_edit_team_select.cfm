@@ -67,12 +67,12 @@
 <cfelse>
 	<cfoutput>
 	<cfselect name="#attributes.element_name#" size="2" message="#attributes.message#" required="Yes" class="#attributes.class#">
-		
+
 		<cfloop query="get_team_select">
 			<option value="#emp_id#">#lname#, #left(name, 3)#</option>
 		</cfloop>
-		
+
 	</cfselect>
-	</cfoutput>	
+	</cfoutput>
 </cfif>
 

@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 <cfquery name="get_carryover" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT COALESCE(carryover_limit, 40) AS carryover_limit
@@ -54,7 +54,7 @@ FROM
 			AND EXTRACT(YEAR FROM date_granted) < EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
 		GROUP BY PTO_Grant.emp_id) AS Previous_Years_Hours
 	GROUP BY emp_id) AS Carryover 
-	
+
 	FULL OUTER JOIN
 
 	(SELECT Demographics.emp_id,

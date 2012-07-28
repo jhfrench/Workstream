@@ -28,10 +28,11 @@
 <cfmodule template="../common_files/qry_get_ref_naics.cfm" naics_id="0">
 <cfoutput>
 <form name="edit_ref_naics_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
-	<select name="naics_id">
+	Retrieve an existing <label for="naics_id"><abbr title="North American Industry Classification System">NAICS</abbr> code</label>:<br />
+	<select name="naics_id" id="naics_id">
 	<cfloop query="get_ref_naics"><option value="#naics_id#" <cfif not comparenocase(get_ref_naics.naics_id, attributes.naics_id)>selected</cfif>>#code# #description#</option></cfloop>
-	</select>
-	<input name="method" type="submit" alt="Retrieve and edit NAICS" value="Retrieve and edit NAICS" />
+	</select><br />
+	<input type="submit" name="method" value="Retrieve and edit NAICS" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_naics.cfm" naics_id="#attributes.naics_id#">
@@ -49,10 +50,10 @@
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="table displays user account information">
 			<tr>            	
 				<td><label for="description">description</label>: 
-					<br /><cfinput type="text" name="description" id="description" size="50" value="#attributes.description#" required="yes" message="Please enter description." maxlength="128">
+					<br /><cfinput type="text" name="description" id="description" size="50" value="#attributes.description#" required="yes" tabindex="1" message="Please enter description." maxlength="128">
 				</td>
-				<td><label for="sort_order">Sort Order</label>: 
-					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#get_ref_naics.recordcount+1#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter sort order.">
+				<td><label for="sort_order">sort order</label>: 
+					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#get_ref_naics.recordcount+1#" size="3" maxlength="3" required="yes" tabindex="2" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.naics_id EQ 0>
 					<input type="hidden" name="active_ind" value="1" />
@@ -70,7 +71,7 @@
 		<td align="center">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="naics_id" value="#attributes.naics_id#" />
-			<input type="submit" alt="submit" value="Submit" />
+			<input type="submit" name="submit" value=" Submit " alt="submit" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

@@ -14,7 +14,7 @@
 
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 <cfquery name="location_delete" datasource="#application.datasources.main#">
 DELETE Location

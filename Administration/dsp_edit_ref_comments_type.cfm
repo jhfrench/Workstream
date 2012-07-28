@@ -33,7 +33,7 @@
 	<select name="comments_type_id">
 	<cfloop query="get_comments_type"><option value="#comments_type_id#" <cfif not comparenocase(get_comments_type.comments_type_id, attributes.comments_type_id)>selected</cfif>>#description#</option></cfloop>
 	</select>
-	<input name="method" type="submit" alt="Retrieve and edit comments type" value="Retrieve and edit comments type"/>
+	<input type="submit" name="method" alt="Retrieve and edit comments type" value="Retrieve and edit comments type"/>
 </form>
 <cfif len(attributes.method)>
 	<!--- display selected one --->
@@ -76,8 +76,8 @@
 		<td align="center">
 			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
 			<input type="hidden" name="comments_type_id" value="#attributes.comments_type_id#"/>
-			<input type="submit" alt="submit" name="submit" value="Submit" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

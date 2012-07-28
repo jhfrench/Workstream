@@ -62,11 +62,11 @@ FROM User_Password
 				session.email_address=get_username.email_address;
 				session.password_created_by=get_username.password_created_by;
 			</cfscript>
-	
+
 			<!--- $issue$ next two files should be consolidated --->
 			<cfinclude template="../common_files/act_general_user_info.cfm">
 			<cfinclude template="../common_files/qry_get_user_preferences.cfm">
-	
+
 			<cfif session.password_created_by NEQ session.user_account_id>
 				<!--- if the person that created the password is not the user, then let the user change his/her password --->
 				<cfset variables.redirect_destination="fuseaction=Home.change_password&user_account_id=#get_username.user_account_id#&requested_page=#variables.redirect_destination#">

@@ -79,9 +79,9 @@ limitations under the License.
 							"Unexpected attributes were found in a 'instantiate' verb in fuseaction #fb_.verbInfo.circuit#.#fb_.verbInfo.fuseaction#.");
 			}
 		}
-	
+
 	} else {
-		
+
 		// update arguments if we had any child <argument> tags:
 		if (structKeyExists(fb_.verbInfo.attributes,"arguments")) {
 			fb_.args = fb_.verbInfo.attributes.arguments;

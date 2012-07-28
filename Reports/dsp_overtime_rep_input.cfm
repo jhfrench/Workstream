@@ -38,7 +38,7 @@ Select a Week:
 </tr>
 <tr>
 <td>
-			
+
 			<cfselect name="pin" size="5" message="Please don't leave blank" required="Yes" multiple="Yes">
 				<OPTION value="ALL" selected>
 					ALL
@@ -46,10 +46,10 @@ Select a Week:
 				<option value="#emp_id#">
 					#lname#, # name#
 				</cfoutput></cfselect>
-</td>	
+</td>
 </tr>
 <tr>
-<td align="center">			
+<td align="center">
 	<input type="submit" value="Submit" align="middle">
 	</td>
 	 <input type ="hidden" value ="true" name="flag">

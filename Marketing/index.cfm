@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 	<cfswitch expression="#attributes.fuseaction#">
  		<cfdefaultcase>
-			<set name="attributes.object_name" value="marketing">	
+			<set name="attributes.object_name" value="marketing">
 			<include template="../common_files/act_object_access.cfm">
 			<set name="request.pagetitle" value="Marketing">
 			<include template="pag_marketing_home.cfm">

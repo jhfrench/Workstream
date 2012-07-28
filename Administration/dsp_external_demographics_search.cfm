@@ -62,8 +62,8 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td align="center">
-			<input name="method" type="submit" alt="Search" value="Search" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="submit" name="method" alt="Search" value="Search" class="btn btn-primary" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

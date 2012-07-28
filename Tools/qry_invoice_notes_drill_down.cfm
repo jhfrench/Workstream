@@ -13,16 +13,21 @@
 	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	END FUSEDOC --->
+</cfsilent>
 <cfquery name="invoice_notes_drill_down" datasource="#application.datasources.main#">
 SELECT Time_Entry.notes_id, Time_Entry.time_entry_id, Time_Entry.date,
 	Time_Entry.hours, Notes.note, Time_Entry.task_id
-FROM Time_Entry, Notes
-WHERE Time_Entry.notes_id=Notes.notes_id
+FROM Time_Entry
+	INNER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
+WHERE Notes.active_ind=1
+	AND Time_Entry.active_ind=1
 	AND Time_Entry.project_id=#attributes.project_id#
 	AND Time_Entry.emp_id=#attributes.emp_id#
-	AND Time_Entry.active_ind=1
 	AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#
 	AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.year#
 ORDER BY Time_Entry.date, Time_Entry.time_entry_id
 </cfquery>
-</cfsilent>
+<cfquery dbtype="query" name="get_invoice_notes_drill_down_total">
+SELECT SUM(hours) AS hours
+FROM invoice_notes_drill_down
+</cfquery>

@@ -35,13 +35,13 @@
 		WHERE active_ind=0
 		</cfquery>
 	</cfif>
-	
+
 	<cfquery name="get_most_recent" datasource="#application.datasources.main#">
 	SELECT organization_id<cfif attributes.center_ind>, COALESCE(center_id,0) AS center_id</cfif>, MAX(created_date) AS deactivated_date
 	FROM #attributes.table_name#
 	GROUP BY organization_id<cfif attributes.center_ind>, center_id</cfif>
 	</cfquery>
-		
+
 	<cfloop condition="#get_most_recent.recordcount# NEQ 0">
 		<cftransaction>
 			<cfloop query="get_most_recent">
@@ -63,14 +63,14 @@
 			</cfloop>
 			<cftransaction action="commit">
 		</cftransaction>
-	
+
 		<cfquery name="get_remaining_updates" datasource="#application.datasources.main#">
 		SELECT COUNT(*) AS count1
 		FROM #attributes.table_name#
 		WHERE active_ind=0
 			AND deactivated_date IS NULL
 		</cfquery>
-	
+
 		<cfquery name="get_most_recent" datasource="#application.datasources.main#">
 		SELECT organization_id<cfif attributes.center_ind>, COALESCE(center_id,0) AS center_id</cfif>, MIN(created_date) AS deactivated_date
 		FROM #attributes.table_name#

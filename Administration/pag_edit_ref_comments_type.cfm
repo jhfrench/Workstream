@@ -33,7 +33,7 @@
 	<!--- deactivate old record --->
 	<cfinclude template="qry_deactivate_ref_comments_type.cfm">
 	<!--- insert new record --->
-	<cfinclude template="qry_insert_ref_comments_type.cfm">	
+	<cfinclude template="qry_insert_ref_comments_type.cfm">
 </cfif>
 
 <cfinclude template="../common_files/qry_get_comments_type.cfm">

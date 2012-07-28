@@ -52,7 +52,7 @@
 		<tr>
 			<td align="center" >
 				<!--- Display the current month/year as well as the back/next links. --->
-		
+
 			<!---	NEXT/prev MONTH ARROWS -- Commented out by Akhan on 11.28.2007 need to evaluate how to incorporate page submit with Fusebox
 					<cfoutput>
 					<nobr>
@@ -75,10 +75,10 @@
 							</cfoutput>
 						</cfloop>
 					</tr>
-				
+
 					<!---Set the ThisDay variable to 0. This value will remain 0 until the day of the week on which the first day of the month falls on is reached.--->
 					<cfset variables.this_day=0>
-				
+
 					<!--- Loop through until the number of days in the month is reached. --->
 					<cfloop condition="variables.this_day LTE variables.days_in_month">
 						<tr class="calendar">
@@ -95,7 +95,7 @@
 										<cfset variables.this_day=1>
 									</cfif>
 								</cfif>
-							
+		
 								<!---
 								If the ThisDay value is still 0, or it is greater than the number of days in the month,
 								display nothing in the column. Otherwise, display the day of the month and increment the value.
@@ -114,7 +114,7 @@
 						</tr>
 					</cfloop>
 				</table>
-			
+
 			</td>
 		</tr>
 	</table>

@@ -27,7 +27,7 @@ Time: #TimeFormat(now(), "h:mm TT")#<br />
 <form action="http://www.nucleusweb.com/cfx_spell/admin/dictadd.cfm">
 	<input type="hidden" name="language" value="am">
 	<input type="hidden" name="type" value="include">
-	
+
 	Add word:
 	<input type="text" name="word" size="20" value="#attributes.suggested_word#">
 	<input type="submit" value="add">

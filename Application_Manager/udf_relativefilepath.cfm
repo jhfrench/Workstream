@@ -60,7 +60,7 @@ function fb_relativeFilePath(startFile,endFile){
 		}
 		//Assemble the final path
 		retVal=dotDotSlash & mid(endPath,len(commonStr)+1,len(endPath));
-		
+
 		if (find("/", retVal) EQ 0)
 			retVal="./" & retVal;
 	}

@@ -60,11 +60,11 @@ limitations under the License.
 							"Unexpected attributes were found in a 'set' verb in fuseaction #fb_.verbInfo.circuit#.#fb_.verbInfo.fuseaction#.");
 			}
 		}
-	
+
 		// compile <set>
 		name = fb_.verbInfo.attributes.name;
 		value = '"' & fb_.verbInfo.attributes.value & '"';
-		
+
 		if (find("##",name) gt 0) {
 			name = '"' & name & '"';
 		}
@@ -73,7 +73,7 @@ limitations under the License.
 		}
 		if (name is not "") {
 			if (fb_.verbInfo.attributes.overwrite) {
-				fb_appendLine("<cfset #name# = #value# />");		
+				fb_appendLine("<cfset #name# = #value# />");
 			} else {
 				fb_appendLine("<cfif not isDefined(""#name#"")><cfset #name# = #value# /></cfif>");
 			}

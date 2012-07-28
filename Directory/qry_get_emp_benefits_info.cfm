@@ -14,7 +14,7 @@
 	||
 	Variables:
 	--> attributes.emp_id: number containing the unique identifier of the individual being requested
-	
+
  --->
 <cfquery name="get_emp_benefits_info" datasource="#application.datasources.main#">
 	SELECT 	benefit_id,

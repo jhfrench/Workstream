@@ -6,7 +6,7 @@
 		I help the user assign NSM structure privileges.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="8/31/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -58,7 +58,7 @@
 		<td colspan="2">
 			<input type="hidden" name="insert_ind" value="1" />
 			<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
-			<input type="submit" alt="submit" />
+			<input type="submit" name="submit" value=" Submit " alt="submit" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

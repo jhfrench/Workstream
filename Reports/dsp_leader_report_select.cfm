@@ -31,6 +31,6 @@
 <tr>
 	<td align="center">
 		<input type="submit" value="Review Employee's Hours">
-	</td>		
+	</td>
 </tr>
 </cfoutput>

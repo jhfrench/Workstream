@@ -47,7 +47,7 @@
 			AND active_ind=1
 		</cfquery>
 	</cfif>
-	
+
 	<!--- reorder the OTHER faqs associated with a specified screen --->
 	<cfquery name="update_help_faq_sort_order" datasource="#application.datasources.main#">
 	UPDATE Help_FAQ
@@ -61,7 +61,7 @@
 		)
 		AND sort_order >= <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.sort_order#">
 	</cfquery>
-	
+
 	<!--- insert new text into Help_FAQ, get help_faq_id --->
 	<cfscript>
 	if (len(attributes.asked_by)) {
@@ -79,7 +79,7 @@
 	FROM Dual
 	</cfquery>
 	<cfset attributes.help_faq_id=get_help_faq_id.help_faq_id>
-	
+
 	<cfif isdefined("attributes.screen_id") AND listlen(attributes.screen_id)>
 		<!--- insert into Link_Screen_Help_FAQ (help_faq_id, screen_id) --->
 		<cfquery name="insert_link_screen_help_faq" datasource="#application.datasources.main#">
@@ -89,7 +89,7 @@
 		WHERE REF_Screen.screen_id IN (<cfqueryparam cfsqltype="cf_sql_integer" list="yes" value="#attributes.screen_id#" />)
 		</cfquery>
 	</cfif>
-	
+
 	<!--- the first time the response is entered send copy of response to user's email and to users with ability to manage the help module--->
 	<cfif NOT attributes.answered_previously_ind AND len(application.email_server_name)>
 	<!--- only send if requested and if we know the asker's email address --->
@@ -97,13 +97,13 @@
 			<!-- email sent to <cfoutput>#attributes.asker_email_address#, from #application.application_specific_settings.system_email_sender# by server #application.email_server_name#</cfoutput> -->
 			<cfmail to="#attributes.asker_email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# FAQ Answer" server="#application.email_server_name#" type="html">
 			Your question to the #application.product_name# system has been answered.<p />
-			
+
 			Your question:<br />
 			#attributes.question#<p />
-			
+
 			Answer:<br />
 			#attributes.answer#<p />
-			
+
 			We hope this answers your question, thank you for your time.
 			<cfmailparam name="Reply-To" value="#session.email_address#">
 			</cfmail>
@@ -113,13 +113,13 @@
 		<cfif len(variables.help_email_recipients)>
 			<cfmail to="#variables.help_email_recipients#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# FAQ Answered" server="#application.email_server_name#" type="html">
 			FYI: the following question to the #application.product_name# system was answered by #session.first_name# #session.last_name#.<p />
-			
+
 			Question:<br />
 			#attributes.question#<p />
-			
+
 			Answer:<br />
 			#attributes.answer#<p />
-			
+
 			If you wish, you can update the answer <a href="#listfirst(cgi.http_referer,"?")#?fuseaction=Administration.list_help_articles">using the #application.product_name# interface</a>.
 			<cfmailparam name="Reply-To" value="#session.email_address#">
 			</cfmail>

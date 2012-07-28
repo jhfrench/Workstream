@@ -80,7 +80,7 @@
 					<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
 					<input type="hidden" name="program_year_id" value="#attributes.program_year_id#" />
 					<input type="button" name="administration_type" value="Edit Access" onclick="javascript:document.view_user_access.action='index.cfm?fuseaction=Administration.edit_navigation_access';document.view_user_access.submit();" />
-					<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+					<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 				</td>
 			</tr>
 		</cfif>

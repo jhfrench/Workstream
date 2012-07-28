@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 <cfquery name="update_emp_contact" datasource="#application.datasources.main#">
 UPDATE Emp_contact

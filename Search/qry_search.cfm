@@ -126,6 +126,7 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 				GROUP BY Task.task_id, REF_Priority.description)<cfif listlen(attributes.notes) NEQ 0><cfset counter=0>
 			AS Temporary_Tab
 			WHERE Notes.task_id=Temporary_Tab.task_id
+				AND Notes.active_ind=1
 				AND (
 					<cfloop list="#attributes.notes#" index="ii"><cfset counter=incrementvalue(counter)>LOWER(Notes.note) LIKE '%#lcase(ii)#%'<cfif counter NEQ listlen(attributes.notes)> OR </cfif></cfloop>)
 			GROUP BY Notes.task_id, priority)</cfif>

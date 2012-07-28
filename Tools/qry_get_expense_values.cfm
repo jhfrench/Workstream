@@ -13,9 +13,11 @@
 	END FUSEDOC --->
 
 <cfquery name="get_expense_values" datasource="#application.datasources.main#">
-    select  notes.note, expense.reimbursement_type_id, expense.work_date, expense.project_id 
-    from expense, notes
-    Where expense.notes_id = notes.notes_id 
-    and expense.expense_id = #attributes.expense_id# 
+SELECT Notes.note, Expense.reimbursement_type_id, Expense.work_date,
+	Expense.project_id 
+FROM Expense
+	INNER JOIN Notes ON Expense.notes_id=Notes.notes_id 
+WHERE Notes.active_ind=1
+	AND Expense.expense_id = #attributes.expense_id# 
 </cfquery>
 </cfsilent>

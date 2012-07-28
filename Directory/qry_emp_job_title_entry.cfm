@@ -9,12 +9,12 @@
 	Name: Jeromy French
 	||
 	Edits: 
-	
+
 	 || 
-	
+
  --->
 
-	
+
 <cfquery name="get_old_job" datasource="#application.datasources.main#">
 SELECT TOP 1 job_title_id
 FROM Job_Title
@@ -28,7 +28,7 @@ ORDER BY date_start DESC
 <cfelse>
 	<cfset variables.deactivate_record = 0>
 </cfif>
-	
+
 <cfquery name="emp_job_entry" datasource="#application.datasources.main#">
 INSERT INTO Job_Title (emp_id, date_start, active_ind,
 	 title)

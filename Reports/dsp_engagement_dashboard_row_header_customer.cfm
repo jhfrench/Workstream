@@ -53,10 +53,10 @@
 		</td>
 		<td class="SubHeadText">
 			Project Update
-		</td>	
+		</td>
 		<td class="SubHeadText">
 			Next Step(s)
-		</td>			
+		</td>
 		<td class="SubHeadText">
 			Date Last<br />Updated
 		</td>

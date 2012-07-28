@@ -9,7 +9,7 @@
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/19/2010" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/19/10) Adding ability to view user's activity.
-			
+
 			(JF | 9/29/10) Adding ability to see user's known login attempts.
 		</history>
 	</properties>

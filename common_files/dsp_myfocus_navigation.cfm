@@ -62,24 +62,24 @@ Navigation
 				</div>
 				<script type="text/javascript" language="javascript">
 				// <![CDATA[
-		
+
 				// vertical slider control
 				var slider_modulebar=new Control.Slider('handle_modulebar', 'track_modulebar', {
 					axis: 'vertical',
 					onSlide: function(v) { scrollVertical(v, $('modulebar_area'), slider_modulebar);  },
 					onChange: function(v) { scrollVertical(v, $('modulebar_area'), slider_modulebar); }
 				});
-		
+
 				// scroll the element vertically based on its width and the slider maximum value
 				function scrollVertical(value, element, slider) {
 					element.scrollTop=Math.round(value/slider.maximum*(element.scrollHeight-element.offsetHeight));
 				}
-		
+
 				// mouse wheel code from http://adomas.org/javascript-mouse-wheel/
 				function handle_modulebar(delta) {
 					slider_modulebar.setValueBy(-delta);
 				}
-		
+
 				/** Event handle_modulebarr for mouse wheel event. */
 				function wheel(event){
 					var delta=0;
@@ -96,34 +96,34 @@ Navigation
 					*/
 					delta=-event.detail/3;
 					}
-		
+
 					/** If delta is nonzero, handle_modulebar it.
 					* Basically, delta is now positive if wheel was scrolled up,
 					* and negative, if wheel was scrolled down.
 					*/
 					if (delta)
 					handle_modulebar(delta);
-			
+
 					/** Prevent default actions caused by mouse wheel.
 					* That might be ugly, but we handle_modulebar scrolls somehow
 					* anyway, so don't bother here..
 					*/
 					if (event.preventDefault)
 					event.preventDefault();
-			
+
 					event.returnValue=false;
 				}
-		
+
 				// mozilla
 				Event.observe('modulebar_area', 'DOMMouseScroll', wheel);
 				Event.observe('modulebar', 'DOMMouseScroll', wheel);
 				Event.observe('track_modulebar', 'DOMMouseScroll', wheel);
-		
+
 				// IE/Opera
 				Event.observe('modulebar_area', 'mousewheel', wheel);
 				Event.observe('modulebar', 'mousewheel', wheel);
 				Event.observe('track_modulebar', 'mousewheel', wheel);
-		
+
 				// ]]>
 				</script>
 			</td>

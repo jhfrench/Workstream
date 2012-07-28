@@ -30,7 +30,7 @@
 	<select name="account_status_id">
 	<cfloop query="get_ref_account_status"><option value="#account_status_id#">#description#</option></cfloop>
 	</select>
-	<input name="method" type="submit" alt="Retrieve and edit account status" value="Retrieve and edit ref account"/>
+	<input type="submit" name="method" alt="Retrieve and edit account status" value="Retrieve and edit ref account"/>
 </form>
 <cfif len(attributes.method)>
 <cfmodule template="../common_files/qry_get_ref_account_status.cfm" account_status_id="#attributes.account_status_id#">
@@ -67,8 +67,8 @@
 		<td align="center">
 			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
 			<input type="hidden" name="account_status_id" value="#attributes.account_status_id#"/>
-			<input type="submit" alt="submit" name="submit" value=" Submit " />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="submit" alt="submit" name="submit" value="Submit" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

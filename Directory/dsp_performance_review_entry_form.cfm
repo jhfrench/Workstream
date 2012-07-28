@@ -19,7 +19,7 @@ $Log:
 <cfoutput>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td class="SelectText">
-			Date Reviewed:			
+			Date Reviewed:
 		</td>
 		<td class="SelectText">
 			<cfinput type="text" name="date_reviewed" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this employee was reviewed.  (mm/dd/yy)">
@@ -27,7 +27,7 @@ $Log:
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td class="SelectText">
-			Review Type:			
+			Review Type:
 		</td>
 		<td class="SelectText">
 </cfoutput>
@@ -45,7 +45,7 @@ $Log:
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td class="SelectText">
-			Rating:			
+			Rating:
 		</td>
 		<td class="SelectText">
 			<cfinput type="text" name="rating" validate="float" size="10" maxlength="10" required="Yes" message="Please enter the rating on this review.">
@@ -53,7 +53,7 @@ $Log:
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td class="SelectText">
-			Reviewer:			
+			Reviewer:
 		</td>
 		<td class="SelectText">
 			<!--- <cfset attributes.size = 2> --->

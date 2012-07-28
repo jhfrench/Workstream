@@ -23,6 +23,7 @@ FROM
 	FROM Task, Time_Entry, Notes, Project, REF_Product
 	WHERE Task.task_id=Time_Entry.task_id
 		AND Time_Entry.notes_id=Notes.notes_id
+		AND Notes.active_ind=1
 		AND Task.project_id=Project.project_id
 		AND Project.product_id=REF_Product.product_id
 		AND Time_Entry.active_ind=1

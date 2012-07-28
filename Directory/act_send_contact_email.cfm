@@ -26,13 +26,13 @@
 		<cfset hyperlinkedTo="http://">
 	</cfif>
 	<cfset hyperlinkedTo="#hyperlinkedTo##server_name##PATH_INFO#?fuseaction=employee_contact_view">
-	
+
 	<!--- @ make sure if behind the dmz we are the only ones getting emails --->
 	<cfif left(cgi.http_host, 7) eq "10.1.1."> 
 		<cfset application.emailserver="mail.nucleussolutions.com">
 		<cfset variables.send_to="jeromy_french@hotmail.com">
 	</cfif>
-	
+
 	<cfif isdefined("variables.send_to")>
 		<cfset variables.email_name="variables.send_to">
 		<cfset endrow=1>
@@ -40,8 +40,8 @@
 		<cfset variables.email_name="get_emails.email">
 		<cfset endrow=get_emails.recordcount>
 	</cfif>
-			
-			
+
+
 	<cfif get_emails.recordcount>
 		<cfloop query="get_emails" startrow="1" endrow="#endrow#">
 			<!--- @ debug: <cfoutput>#evaluate(variables.email_name)#</cfoutput><br /> --->

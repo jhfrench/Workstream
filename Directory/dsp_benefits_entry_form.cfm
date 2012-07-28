@@ -19,7 +19,7 @@ $Log:
 <cfoutput>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td class="SelectText">
-			Benefit Type:			
+			Benefit Type:
 		</td>
 		<td class="SelectText">
 			<cfselect name="benefit_type"
@@ -35,7 +35,7 @@ $Log:
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td class="SelectText">
-			Date Begun:			
+			Date Begun:
 		</td>
 		<td class="SelectText">
 			<cfinput type="text" name="date_start" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this benefit coverage began.  (mm/dd/yy)">
@@ -43,7 +43,7 @@ $Log:
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td class="SelectText">
-			PP Deduction:			
+			PP Deduction:
 		</td>
 		<td class="SelectText">
 
@@ -53,12 +53,12 @@ $Log:
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td class="SelectText">
-			Notes:			
+			Notes:
 		</td>
 		<td class="SelectText">
 
 			<textarea cols="25" rows="7" name="note" ></textarea>
-			
+
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">

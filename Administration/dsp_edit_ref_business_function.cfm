@@ -34,7 +34,7 @@
 	<select name="business_function_id">
 	<cfloop query="get_business_function"><option value="#business_function_id#"<cfif not comparenocase(get_business_function.business_function_id, attributes.business_function_id)> selected</cfif>>#description#</option></cfloop>
 	</select>
-	<input name="method" type="submit" alt="Retrieve and edit business function" value="Retrieve and edit business function"/>
+	<input type="submit" name="method" alt="Retrieve and edit business function" value="Retrieve and edit business function"/>
 </form>
 <br/>
 <cfform name="REF_business_function_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
@@ -103,7 +103,7 @@
 			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
 			<input type="hidden" name="business_function_id" value="#attributes.business_function_id#"/>
 			<input name="submit" type="submit" alt="submit" value="Submit" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

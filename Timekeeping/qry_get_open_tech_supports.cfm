@@ -23,6 +23,6 @@ WHERE Task.project_id=Project.project_id
 	AND Task.entry_date >= '11/05/01' 
 	AND Project.project_code LIKE '6%' 
 	AND Task.status_id NOT IN (11,7) 
-	AND Team.role_id=1	
+	AND Team.role_id=1
 </cfquery>
 </cfsilent>

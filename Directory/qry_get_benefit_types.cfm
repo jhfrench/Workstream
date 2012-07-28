@@ -13,7 +13,7 @@
 
 	||
 	Variables:
-		
+
  --->
 <cfquery name="get_benefit_types" datasource="#application.datasources.main#">
 SELECT 	benefit_type_id, description

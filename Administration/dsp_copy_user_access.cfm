@@ -9,7 +9,7 @@
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="8/30/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 9/9/9) Making corrections depicted in 508_jm_2009_09_09_7.png.
-			
+
 			(JF | 7/19/10) Cleaning up verbiage and row coloring.
 		</history>
 	</properties>
@@ -23,7 +23,7 @@
 	</IO>
 </fusedoc>
 --->
-	
+
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="alphabet_navigation" fuseaction="Administration.copy_user_access" field_name="last_initial" field_value="" processform="1" source_user_account_id="#attributes.source_user_account_id#">
 <h2 style="margin:0px" id="top-side">Copy User Access</h2>
 

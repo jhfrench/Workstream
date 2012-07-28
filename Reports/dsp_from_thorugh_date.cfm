@@ -27,7 +27,7 @@
 	<tr bgcolor="##5F5F5F">
 		<td colspan="2" class="RegTextWhite">Enter Dates (mm/dd/yyyy)</td>
 	</tr>
-	<tr>	
+	<tr>
 		<td>
 			<label for="from_date">From</label>: <cfinput type="datefield" name="from_date" id="from_date" required="#attributes.required#" size="9" validate="date" message="You must enter a valid from date">
 		</td>
@@ -37,7 +37,7 @@
 	</tr>
 	<tr>
 		<td align="center" colspan="2"><input type="submit" value="Enter Dates"></td>
-	</tr>	
+	</tr>
 </table>
 </cfform>
 </cfoutput>

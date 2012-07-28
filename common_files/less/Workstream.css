@@ -6566,6 +6566,22 @@ div#login_form form,
 #login_form form div.form-actions {
   margin-bottom: 0px;
 }
+#operations_blurb {
+  overflow: hidden;
+  text-align: right;
+}
+#operations_blurb span {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+#operations_blurb img {
+  height: 18px;
+}
 /*<!---text alignment--> */
 .date,
 td.date {

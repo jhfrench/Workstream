@@ -22,7 +22,7 @@ SELECT Project.status, Customer.description AS customer_description, Project.des
 	Flat_Rate.rate_start_date, Project.IE_Emp_ID, Emp_Contact.LName,
 	Emp_Contact.Name, Project.project_id, Project.created_date
 	Project.Date_Updated, Project.Project_End, Project.File_Path,
-	Project.date_go_live, Project.eng_status	
+	Project.date_go_live, Project.eng_status
 FROM Project 
 	INNER JOIN REF_Billable ON  Project.billable_type_id=REF_Billable.billable_type_id
 	INNER JOIN REF_Active_Indicator ON Project.active_ind=REF_Active_Indicator.active_ind

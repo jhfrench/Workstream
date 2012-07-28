@@ -47,14 +47,14 @@
 		<cftransaction>
 			<!--- insert new records into Sorter table ---->
 			<cfinclude template="qry_insert_sorter.cfm">
-		
+
 			<!--- update table_to_sort --->
 			<cfinclude template="qry_update_table_to_sort.cfm">
 		</cftransaction>
 	<cfelse>
 		<!--- insert new records into Sorter table ---->
 		<cfinclude template="qry_insert_sorter.cfm">
-	
+
 		<!--- update table_to_sort --->
 		<cfinclude template="qry_update_table_to_sort.cfm">
 	</cfif>

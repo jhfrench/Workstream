@@ -21,10 +21,10 @@
 	<tr align="right">
 		<td valign="top">
 			<span class="SubHeadText">Custom Fields:</span></td>
-			
-		<td align="left" colspan="100%">	
-			
-			
+
+		<td align="left" colspan="100%">
+
+
 <cfloop query="get_user_fields">
 	<cfinclude template="../common_files/qry_get_drop_down_options.cfm">
 			#field_title#: <cfif field_type_id EQ 1>

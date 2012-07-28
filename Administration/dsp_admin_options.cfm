@@ -23,7 +23,7 @@
 				<option value="Md"<cfif NOT compare(session.workstream_text_size,"Md")> selected</cfif>>Medium</option>
 				<option value="Sm"<cfif NOT compare(session.workstream_text_size,"Sm")> selected</cfif>>Small</option>
 			</select>
-			
+
 			<p class="SubHeadText">
 			<cfinclude template="dsp_save_profile_instructions.cfm">
 			<a href="index.cfm?fuseaction=save_profile"><img src="#request.dir_level##application.application_specific_settings.image_dir#save_button.gif" width="15" height="15" alt="Save the current settings to a profile." border="0">&nbsp;Save the current settings to a profile</a><br />

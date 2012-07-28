@@ -35,7 +35,7 @@
 	   <cfhttpparam type="url" encoded="yes" name="searchParameters" value="(#variables.searchParameters#)" />          
 	   <cfhttpparam type="url" encoded="yes" name="returnAttributes" value="employeeNumber,givenname,initials,ou,sn" />
 	</cfhttp>
-	
+
 <!--- but, if we know the employee's unique number, get the one record--->
 <cfelse>
 	<cfset variables.searchParameters="&(employeeNumber=#attributes.uupic#)">
@@ -53,19 +53,19 @@
 <cfdump var="#variables.hqts_query#">--->
 
 <cfif hqts_query.recordcount GT 1>
-	
+
 	<cfset hqts_results_temp=hqts_query>
-	
+
 	<!--- duplicate the first record --->
 	<cfset variables.new_row=queryaddrow(hqts_results_temp)>
 	<cfset variables.row_count=hqts_results_temp.recordcount>
 	<cfloop list="#hqts_results_temp.columnlist#" index="column_ii">
 		<cfset variables.new_row=querysetcell(hqts_results_temp, column_ii, evaluate("hqts_results_temp.#column_ii#[1]"), variables.row_count)>
 	</cfloop>
-	
+
 	<!--- set the employeenumber of first record to have a letter, which will force q of q to know that field is varchar --->
 	<cfset variables.first_row=querysetcell(hqts_results_temp, "employeenumber", "force_varchar", 1)>
-	
+
 	<cftry>
 		<!--- alphabetize results, dropping the first record --->
 		<cfquery name="get_external_demographics_data" dbtype="query">
@@ -74,7 +74,7 @@
 		WHERE employeeNumber <> 'force_varchar' <!--- drops the first record --->
 		ORDER BY last_name, first_name, middle_initial
 		</cfquery>
-		
+
 		<cfcatch>
 			<!--- the employeeNumber is often not a number, which will break the above query. Handle with this instead: --->
 			<cfquery name="get_external_demographics_data" dbtype="query">
@@ -90,13 +90,13 @@
 		<!--- sometimes employeenumbers are missing their leading 0 --->
 		<cfset variables.employeenumber=hqts_query.employeenumber>
 		<cfset variables.employeenumber_length=len(variables.employeenumber)>
-		
+
 		<cfif variables.employeenumber_length LT 9>
 			<cfloop from="1" to="#9-variables.employeenumber_length#" index="len_ii">
 				<cfset variables.employeenumber="0#variables.employeenumber#">
 			</cfloop>
 		</cfif>
-		
+
 		<cfset variables.first_row=querysetcell(hqts_query, "employeenumber", variables.employeenumber, 1)>
 	</cfif>
 	<cfset get_external_demographics_data=hqts_query>

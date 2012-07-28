@@ -25,7 +25,7 @@
 		</cfloop>
 		<cfloop from="1" to="#variables.last_month#" index="variables.month_ii">
 			<cfset variables.month_list=listappend(variables.month_list, variables.month_ii)>
-		</cfloop>	
+		</cfloop>
 	<cfelse>
 		<cfloop from="#variables.first_month#" to="#variables.last_month#" index="variables.month_ii">
 			<cfset variables.month_list=listappend(variables.month_list, variables.month_ii)>

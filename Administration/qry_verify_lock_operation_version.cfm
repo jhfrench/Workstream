@@ -39,5 +39,5 @@
 				and b.l_p_y_f_id=c.l_p_y_f_id
 				and c.program_year_id=#attributes.program_year_id#
 				and c.fund_id=#attributes.fund_id#
-  		)		
+  		)
 </cfquery>

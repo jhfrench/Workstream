@@ -29,10 +29,11 @@
 <cfset attributes.code="">
 <cfoutput>
 <form name="edit_ref_fsc_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
-	<select name="fsc_id">
+	Retrieve an existing <label for="fsc_id"><abbr title="Federal Supply Classification">FSC</abbr></label>:<br />
+	<select name="fsc_id" id="fsc_id">
 	<cfloop query="get_ref_fsc"><option value="#fsc_id#" <cfif not comparenocase(get_ref_fsc.fsc_id, attributes.fsc_id)>selected</cfif>>#description#</option></cfloop>
-	</select>
-	<input name="method" type="submit" alt="Retrieve and edit FSC" value="Retrieve and edit FSC"/>
+	</select><br />
+	<input type="submit" name="method" value="Retrieve and edit FSC" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_fsc.cfm" fsc_id="#attributes.fsc_id#">
@@ -51,16 +52,16 @@
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="table displays FSC information">
 			<tr>
 				<td><label for="description">Description</label>: 
-					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" message="Please enter description." maxlength="128">
+					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" tabindex="1" message="Please enter description." maxlength="128">
 				</td>
                 <td><label for="code">Code</label>: 
-					<br /><cfinput type="text" name="code" id="code" value="#attributes.code#" size="20" required="yes" message="Please enter code." maxlength="20">
+					<br /><cfinput type="text" name="code" id="code" value="#attributes.code#" size="20" tabindex="2" required="yes" message="Please enter code." maxlength="20">
 				</td>
-				<td><label for="sort_order">Sort Order</label>: 
-					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="10" maxlength="3" required="yes" validate="integer" message="Please enter sort order.">
+				<td><label for="sort_order">sort order</label>: 
+					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="10" maxlength="3" tabindex="3" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.fsc_id EQ 0>
-					<input type="hidden" name="active_ind" value="1"/>
+					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>
 				<td colspan="2"><span title="describes the purpose of the radio buttons that follow">Active?</span>
 					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>
@@ -73,9 +74,9 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
-			<input type="hidden" name="fsc_id" value="#attributes.fsc_id#"/>
-			<input type="submit" alt="submit" value="Submit" />
+			<input type="hidden" name="created_by" value="#session.user_account_id#" />
+			<input type="hidden" name="fsc_id" value="#attributes.fsc_id#" />
+			<input type="submit" name="submit" value=" Submit " alt="submit" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

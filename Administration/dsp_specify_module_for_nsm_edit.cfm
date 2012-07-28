@@ -6,7 +6,7 @@
 		I help the user assign NSM structure privileges.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/31/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/31/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 7/19/10) Cleaning up verbiage and row coloring.
 		</history>
@@ -26,7 +26,7 @@
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the data held in the table below">
 	<tr>
 		<th align="left">
-			<h2 style="margin:0px" id="top-side">Manage Users &gt; <a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit <abbr title="NASA Structure Management">NSM</abbr> Access</h2>
+			<h2 style="margin:0px">Manage Users &gt; <a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit <abbr title="NASA Structure Management">NSM</abbr> Access</h2>
 		</th>
 	</tr>
 </table>
@@ -58,7 +58,7 @@
 		<td align="center" colspan="2">
 			<cfoutput>
 			<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
-			<input type="submit" alt="Edit NSM Access" value="Edit NSM Access" />
+			<input type="submit" name="submit" value="Edit NSM Access" alt="Edit NSM Access" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 			</cfoutput>
 		</td>

@@ -20,4 +20,4 @@
 					<cfoutput>#decimalformat(Emp_Type_Hours)#</cfoutput><cfset Emp_Type_Hours =0>
 				</td>
 			</tr>
-			
+

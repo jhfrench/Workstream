@@ -78,7 +78,7 @@
 		<td>
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="l_u_a_s_id" value="#attributes.l_u_a_s_id#" />
-			<input type="submit" alt="submit" name="submit" value=" Submit " />
+			<input type="submit" alt="submit" name="submit" value="Submit" />
 		</td>
 	</tr>
 </table>

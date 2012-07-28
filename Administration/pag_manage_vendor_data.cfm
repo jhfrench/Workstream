@@ -20,7 +20,7 @@
 </fusedoc>
 --->
 
-<cfif isdefined("attributes.parent_business_id")>	
+<cfif isdefined("attributes.parent_business_id")>
 	<cfmodule template="../common_files/qry_deactivate_business.cfm" parent_business_id="#attributes.parent_business_id#" preserve_latest_business_ind="0">
 </cfif>
 

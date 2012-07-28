@@ -30,7 +30,7 @@
 		</td>
 		<td align="center" class="SubHeadText">
 			Status
-		</td>			
+		</td>
 		<td align="center" class="SubHeadText">
 			Edit
 		</td>

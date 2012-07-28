@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 <cfquery name="supervisor_delete" datasource="#application.datasources.main#">
 UPDATE Supervisor
@@ -25,6 +25,6 @@ WHERE active_ind=1
 	INSERT INTO Supervisor (user_account_id,supervisor_user_account_id)
 	VALUES(#attributes.emp_id#,#ii#)
 	</cfquery>
-</cfloop>	
+</cfloop>
 </cfif>
 </cfsilent>

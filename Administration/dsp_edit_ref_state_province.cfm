@@ -32,7 +32,7 @@
 	<select name="state_province_id">
 	<cfloop query="get_ref_state_province"><option value="#state_province_id#" <cfif not comparenocase(get_ref_state_province.state_province_id, attributes.state_province_id)>selected</cfif>>#description#</option></cfloop>
 	</select>
-	<input name="method" type="submit" alt="Retrieve and edit state/province" value="Retrieve and edit state/province"/>
+	<input type="submit" name="method" alt="Retrieve and edit state/province" value="Retrieve and edit state/province"/>
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_state_province.cfm" state_province_id="#attributes.state_province_id#">
@@ -75,8 +75,8 @@
 		<td align="center">
 			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
 			<input type="hidden" name="state_province_id" value="#attributes.state_province_id#"/>
-			<input type="submit" alt="submit" value="Submit" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

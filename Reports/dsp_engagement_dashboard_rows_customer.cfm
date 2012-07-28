@@ -66,7 +66,7 @@
 		</td>
 				<td valign="top" width="30%">
 			#mission#<cfif NOT len(mission)>&nbsp;</cfif>
-		</td>		
+		</td>
 		<td align="right" valign="top">
 			#dateformat(date_updated,"mm/dd/yy")#
 		</td>

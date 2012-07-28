@@ -66,4 +66,4 @@ WHERE #createodbcdate(attributes.start_date)# BETWEEN Demographics.hire_date AND
 	AND Link_Company_Emp_Contact.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
 ORDER BY Emp_Contact.LName, Emp_Contact.Name
 </cfquery>
-	
+

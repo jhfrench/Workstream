@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 
 	<cfif isdefined("project_id")>
@@ -24,9 +24,9 @@
         </cfquery>
 		<cfset attributes.project_id = get_proj_from_task.project_id> 
 	<cfelse>
-		<cflocation url="#request.dir_level#/index.cfm?fuseaction=Timekeeping.engagement_list">	
+		<cflocation url="#request.dir_level#/index.cfm?fuseaction=Timekeeping.engagement_list">
 	</cfif>
-	
+
 </cfsilent>
 
 <form name="continue_on" method="post" action="<cfoutput>#request.dir_level#</cfoutput>claim/index.cfm?fuseaction=<cfoutput>#request.XFA.case_drill#</cfoutput>">

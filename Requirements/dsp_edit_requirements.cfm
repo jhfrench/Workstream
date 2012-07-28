@@ -106,7 +106,7 @@
 			<cfelse>
 			<input type="submit" alt="Update Requirement" name="send_req" value="Update Requirement" />
 			</cfif>
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

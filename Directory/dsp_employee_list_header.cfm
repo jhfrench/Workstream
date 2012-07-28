@@ -26,8 +26,8 @@
 		<td class="SubHeadText">Name</td>
 		<td class="SubHeadText">Extension</td>
 		<td class="SubHeadText">Work Phone</td>
-		<td class="SubHeadText">HRID</td>	
-		<td class="SubHeadText">Pos Num</td>	
+		<td class="SubHeadText">HRID</td>
+		<td class="SubHeadText">Pos Num</td>
 		<td class="SubHeadText">Email</td>
 	</tr>
 </cfoutput>

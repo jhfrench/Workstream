@@ -12,9 +12,9 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
-	
+
 </cfsilent>
 
 
@@ -22,7 +22,7 @@
 	<cfoutput>
 	<CFTRANSACTION>
 		<!--- //////////////////////////        Phone and extensions delete        \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
-		
+
 		 <cfloop index="ii" list="#attributes.phone_id#" delimiters=",">
 			<cfquery name="phone_delete" datasource="#application.datasources.main#">
 				DELETE PHONE
@@ -31,9 +31,9 @@
 				Phone_id=#ii#
 			</cfquery>
 		</cfloop> 
-		
+
 		<!--- //////////////////////////        Phone and extensions inserts         \\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
-						
+	
 		<cfloop index="ii" list="#attributes.phone_type_id#">
 			<cfif len(evaluate("attributes.phone_number_#ii#"))>
 				<cfquery name="Phone_insert" datasource="#application.datasources.main#">
@@ -48,9 +48,9 @@
 				</cfquery>
 			</cfif>
 		</cfloop>
-	
+
 		<!--- //////////////////////////////////        emails delete        \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
-		
+
 		 <cfloop index="ii" list="#attributes.email_id#" delimiters=",">
 			<cfquery name="delete_email" datasource="#application.datasources.main#">
 				DELETE EMAIL
@@ -59,9 +59,9 @@
 				email_id=#ii#
 			</cfquery>
 		</cfloop> 
-	
+
 		<!--- ///////////////////////////////////        Emails inserts       \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
-			
+
 		<cfloop index="ii" list="#attributes.email_type_id#">
 			<cfif len(evaluate("attributes.email_#ii#"))>
 				<cfquery name="email_insert" datasource="#application.datasources.main#">
@@ -70,10 +70,10 @@
 				</cfquery>
 			</cfif>
 		</cfloop>
-	
-	
+
+
 	<!--- //////////////////////////////////        Location delete        \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
-		
+
 		<cfloop index="ii" list="#attributes.location_id#" delimiters=",">
 			<cfquery name="location_delete" datasource="#application.datasources.main#">
 				DELETE LOCATION
@@ -82,38 +82,38 @@
 				location_id=#ii#
 			</cfquery>
 		</cfloop>
-	
+
 	<!--- /////////////////////////////////       Location insert       \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
-			
+
 		<cfloop index="ii" list="#attributes.location_type_id#">
 			<cfif len(evaluate("attributes.address1_#ii#"))>
-			
+
 				<cfif len(evaluate("attributes.address2_#ii#"))>
 					<cfset attributes.address2=evaluate("attributes.address2_#ii#")>
 				</cfif>
-				
+
 				<cfif len(evaluate("attributes.city_#ii#"))>
 					<cfset attributes.city=evaluate("attributes.city_#ii#")>
 				</cfif>
-				
+
 				<cfif len(evaluate("attributes.state_#ii#"))>
 					<cfset attributes.state=evaluate("attributes.state_#ii#")>
 				</cfif>
-				
+
 				<cfif len(evaluate("attributes.zip_#ii#"))>
 					<cfset attributes.zip=evaluate("attributes.zip_#ii#")>
 				</cfif>
-				
+
 				<cfquery name="location_insert" datasource="#application.datasources.main#">
 						INSERT INTO LOCATION(emp_id,address1,address2,city, state,zip, location_type_id)
 						VALUES(#attributes.emp_id#,'#evaluate("attributes.address1_#ii#")#','#evaluate("attributes.address2_#ii#")#', '#evaluate("attributes.city_#ii#")#', '#evaluate("attributes.state_#ii#")#', '#evaluate("attributes.zip_#ii#")#', #ii#)
 				</cfquery>
-				
+
 			</cfif>
 		</cfloop>
-		
+
 		<!--- /////////////////////////////       Biography delete &  insert       \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
-		
+
 
 			<cfif len(attributes.biography)>
 				<cfif len(emp_biography_id)>
@@ -129,9 +129,9 @@
 					VALUES(#attributes.emp_id#,'#attributes.biography#')
 				</cfquery>
 			</cfif>
-	
-			
-	
+
+
+
 	</CFTRANSACTION>
 		<form action="index.cfm?fuseaction=Directory.employee_details" method="post" name="forward_form">
 			<input type="hidden" name="emp_id" value="#attributes.emp_id#">
@@ -143,6 +143,6 @@
 			}
 		</script>
 	</cf_htmlhead>
-		<body onload="javascript:forward_form()">	
+		<body onload="javascript:forward_form()">
 	</cfoutput>
 </cfif>

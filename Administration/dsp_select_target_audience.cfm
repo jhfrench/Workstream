@@ -5,7 +5,7 @@
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/23/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="7/23/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -19,10 +19,10 @@
 	</IO>
 </fusedoc>
 --->
-Select the audience you wish to receive your emal:
+Select the audience you wish to receive your email:
 <p>
-<input type="radio" name="user_type_id" id="user_type_id_1" value="1" onclick="Element.hide('other_options');Element.hide('email_category');" /><label for="user_type_id_1">Core Administration Users</label><br />
-<input type="radio" name="user_type_id" id="user_type_id_2" value="2" onclick="Element.hide('other_options');Element.show('email_category');" /><label for="user_type_id_2">NASA Customer Users</label><br />
+<input type="radio" name="user_type_id" id="user_type_id_1" value="1" onclick="Element.hide('other_options');Element.hide('email_category');" /><label for="user_type_id_1">Small Business Specialists</label><br />
+<input type="radio" name="user_type_id" id="user_type_id_2" value="2" onclick="Element.hide('other_options');Element.show('email_category');" /><label for="user_type_id_2"><abbr title="National Aeronautics and Space Administration">NASA</abbr> Customer Users</label><br />
 <input type="radio" name="user_type_id" id="user_type_id_3" value="3" onclick="Element.show('other_options');Element.show('email_category');" /><label for="user_type_id_3">Public Vendor POC Users</label>
 </p>
 <div id="other_options" style="display:none">

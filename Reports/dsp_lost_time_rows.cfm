@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 
 
@@ -28,7 +28,7 @@
 <cfset bereavement_tot = 0>
 <cfset gross_grand_tot = 0>
 </cfsilent>
-<cfloop query="lost_time">	
+<cfloop query="lost_time">
 	<tr <cfif (currentrow MOD 2)> bgcolor="#E1E1E1"</cfif>>
 		<cfoutput>
 			<!--- Calculate totals --->
@@ -42,7 +42,7 @@
 			<cfset Unpaid_tot = Unpaid_tot + Unpaid>
 			<!--- <cfset Vacation_tot = Vacation_tot + Vacation> --->
 			<cfset  pto_tot =  pto_tot +  pto>
-		<td>	
+		<td>
 			#full_name# 
 		</td>
 		<!--- <td>
@@ -53,7 +53,7 @@
 		</td>
 		<td>
 			#Holiday#
-		</td>	
+		</td>
 		<td>
 			#Jury_Duty#
 		</td>
@@ -85,7 +85,7 @@
 
 	<cfoutput>
 	<tr class="SubHeadText">
-		<td class="SubHeadText">	
+		<td class="SubHeadText">
 			Totals
 		</td>
 		<!--- <td class="SubHeadText">
@@ -108,7 +108,7 @@
 		</td>
 		<td class="SubHeadText">
 			#decimalformat(Unpaid_tot)#
-		</td>	
+		</td>
 		<!--- <td class="SubHeadText">
 			#decimalformat(Vacation_tot)#
 		</td>	 --->
@@ -122,7 +122,7 @@
 	<tr class="SubHeadText">
 	<td class="SubHeadText" colspan="11">
 			#lost_time.recordcount# Record<cfif lost_time.recordcount GT 1>s</cfif><!--- Add s to make plural if more than 1 record found --->
-		</td>	
+		</td>
 	</tr>
 	</cfoutput>
 	</table>

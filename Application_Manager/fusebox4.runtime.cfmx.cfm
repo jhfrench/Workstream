@@ -125,11 +125,11 @@ This software consists of voluntary contributions made by many individuals on be
 	<cfif right(fb_.appPath, 1) NEQ fb_.osdelimiter>
 		<cfset fb_.appPath=fb_.appPath & fb_.osdelimiter />
 	</cfif>
-	
+
 	<!--- if necessary, call the fusebox loader --->
 	<cfif myFusebox.parameters.load>
 		<cfset fb_.loaderFile="fusebox4.loader.cfmx.cfm" />
-		<cfoutput>		
+		<cfoutput>
 		<cftry>
 			<cfinclude template="#fb_.loaderFile#">
 			<!--- if we loaded the XML, we definitely want to parse --->
@@ -151,7 +151,7 @@ This software consists of voluntary contributions made by many individuals on be
 		</cftry>
 		</cfoutput>
 	</cfif>
-	
+
 	<cfscript>
 	  // make sure the correct structures are set up for myFusebox.plugins.{plugin-name} and any potential parameters it might have
 	  for (fb_.aPlugin in application.fusebox.plugins) {
@@ -164,14 +164,14 @@ This software consists of voluntary contributions made by many individuals on be
 	  }
 	  
 	</cfscript>
-	
+
 	<!--- if it exists, load the fusebox.init file in the application root --->
 	<cftry>
 		<cfinclude template="#application.fusebox.CoreToAppRootPath#fusebox.init.cfm">
 		<!---<cftrace category="file" text="fusebox.init has executed" />--->
 		<cfcatch type="MissingInclude"><!--- do nothing ---></cfcatch>
 	</cftry>
-	
+
 	<cfscript>
 	  // how about a default fuseaction?
 	  if (NOT IsDefined('attributes.#application.fusebox.fuseactionVariable#') OR attributes[application.fusebox.fuseactionVariable] EQ "") {
@@ -181,7 +181,7 @@ This software consists of voluntary contributions made by many individuals on be
 	  // copy the value of the fuseactionVariable into the variable "attributes.fuseaction" for standardization
 	  attributes.fuseaction=attributes[application.fusebox.fuseactionVariable];
 	</cfscript>
-	
+
 	<!--- set the myFusebox.originalCircuit, myFusebox.originalFuseaction --->
 	<cfif ListLen(attributes.fuseaction, '.') EQ 2>
 	  <cfscript>
@@ -191,12 +191,12 @@ This software consists of voluntary contributions made by many individuals on be
 		 myFusebox.originalFuseaction=myFusebox.thisFuseaction;
 	  </cfscript>
 	<cfelse>
-		<cfthrow type="fusebox.malformedFuseaction" message="malformed Fuseaction" detail="You specified a malformed Fuseaction of #attributes.fuseaction#.  A fully qualified Fuseaction must be in the form [Circuit].[Fuseaction].">	
+		<cfthrow type="fusebox.malformedFuseaction" message="malformed Fuseaction" detail="You specified a malformed Fuseaction of #attributes.fuseaction#.  A fully qualified Fuseaction must be in the form [Circuit].[Fuseaction].">
 	</cfif>
-	
+
 	<!--- if the circuit specified by myFusebox.originalCircuit does not exist throw an error --->
 	<!--- if the fuseaction specified by myFusebox.originalFuseaction does not exist throw an error --->
-	
+
 	<cfif NOT IsDefined("application.fusebox.circuits.#myFusebox.originalCircuit#")>
 		<cfthrow type="fusebox.undefinedCircuit" message="undefined Circuit" detail="You specified a Circuit of #myFusebox.originalCircuit# which is not defined.">
 	<cfelse>
@@ -204,19 +204,19 @@ This software consists of voluntary contributions made by many individuals on be
 			<cfthrow type="fusebox.undefinedFuseaction" message="undefined Fuseaction" detail="You specified a Fuseaction of #myFusebox.originalFuseaction# which is not defined in Circuit #myFusebox.originalCircuit#.">
 		</cfif>
 	</cfif>
-	
+
 	<!--- ensure that the fuseaction has access="public" --->
 	<!---<cfset fb_.xnAccess=xmlSearch(CircuitXML, "//circuit/fuseaction[@name='#fuseaction#']")>--->
 	<!--- <cfset fb_.xnAccess=xmlSearch(fb_.CircuitXML, "//circuit/fuseaction[translate(@name,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='#lcase(myFusebox.thisFuseaction)#']")> --->
 	<cfif application.fusebox.circuits[myFusebox.originalCircuit].fuseactions[myFusebox.thisFuseaction].access NEQ "public">
 		<cfthrow type="fusebox.InvalidAccessModifier" message="Invalid Access Modifier" detail="You tried to access #myFusebox.originalCircuit#.#myFusebox.originalFuseaction# which does not have access modifier of public. A Fuseaction which is to be accessed from anywhere outside the application (such as called via an URL, or a FORM, or as a web service) must have an access modifier of public or if unspecified at least inherit such a modifier from its circuit.">
 	</cfif>
-	
+
 	<!--- here is the file to be parsed --->
 	<cfset fb_.file2Parse=trim("#application.fusebox.parsePath#" & lcase("#myFusebox.originalCircuit#.#myFusebox.originalFuseaction#.#application.fusebox.scriptFileDelimiter#"))>
 	<cfset fb_.assertedfile2Parse=trim("#application.fusebox.parsePath#" & "_" & lcase("#myFusebox.originalCircuit#.#myFusebox.originalFuseaction#.#application.fusebox.scriptFileDelimiter#"))>
 	<cfset fb_.file2ParsePath=application.fusebox.approotdirectory & fb_.file2Parse />
-	
+
 	<cfif NOT fileExists(fb_.file2ParsePath)>
 		<cfset myFusebox.parameters.parse=true />
 	</cfif>
@@ -229,19 +229,19 @@ This software consists of voluntary contributions made by many individuals on be
 				<cfthrow type="fusebox.forceParseException.production"
 					message="If we're in production mode, we must really want the parse to happen" />
 			</cfif>
-			
+
 			<!--- the XML was reloaded, so we need to parse --->
 			<cfif structKeyExists(fb_, "loaderForcedParse") AND fb_.loaderForcedParse>
 				<cfthrow type="fusebox.forceParseException.loaderForcedParse"
 					message="The loader ran, so we must reparse" />
 			</cfif>
-			
+
 			<!--- the user requested a parse --->
 			<cfif myFusebox.parameters.userProvidedParseParameter AND attributes["fusebox.parse"]>
 				<cfthrow type="fusebox.forceParseException.userRequestedParse"
 					message="The user requested a parse" />
 			</cfif>
-			
+
 			<!--- see if the parse file is older than the last full load --->
 			<cfdirectory action="list"
 				directory="#getDirectoryFromPath(fb_.file2ParsePath)#"
@@ -256,7 +256,7 @@ This software consists of voluntary contributions made by many individuals on be
 				<cfthrow type="fusebox.forceParseException.InMemoryIsNewer"
 					message="The in-memory structure is newer than the existing parse file" />
 			</cfif>
-			
+
 			<!--- see if the parse file is older than any plugin file --->
 			<cfset fb_.scannedDirectories="" />
 			<cfloop list="fuseactionException,processError" index="fb_.phase">
@@ -276,7 +276,7 @@ This software consists of voluntary contributions made by many individuals on be
 					</cfif>
 				</cfloop>
 			</cfloop>
-			
+
 			<!--- see if the parse file is older than any lexicon file --->
 			<cfset fb_.scannedDirectories="" />
 			<cfloop collection="#application.fusebox.lexicons#" item="fb_.lex">
@@ -294,7 +294,7 @@ This software consists of voluntary contributions made by many individuals on be
 					<cfset fb_.scannedDirectories=listAppend(fb_.scannedDirectories, fb_.path, chr(5)) />
 				</cfif>
 			</cfloop>
-		
+
 			<!--- check the core files and see if any are newer than the parse file --->
 			<!--- this is theoretically unneeded since it exists in the conditionalLoad as well,
 				and if a load is performed a parse will be forced, but it's here as well
@@ -309,12 +309,12 @@ This software consists of voluntary contributions made by many individuals on be
 						message="The #name# core is newer than the existing parse file." />
 				</cfif>
 			</cfloop>
-	
+
 			<!--- if we've gotten this far, the parse file is present and up to date, so skip the parse --->
 			<!---<cftrace category="core" text="parse file is up to date" />--->
 			<cfthrow type="fusebox.parseUnneededException"
 				message="Parse file regeneration is deemed unneeded because it appears to be up to date" />
-			
+
 			<cfcatch type="fusebox.forceParseException">
 				<cfset myFusebox.parameters.parse=true />
 			</cfcatch>
@@ -326,10 +326,10 @@ This software consists of voluntary contributions made by many individuals on be
 
 	<!--- if we need to re-parse, call the Transformer and Parser --->
 	<cfif myFusebox.parameters.parse>
-	
+
 		<!--- call the Transformer --->
 		<cfset fb_.transformerFile="fusebox4.transformer.#application.fusebox.scriptlanguage#.cfm" />
-		<cfoutput>		
+		<cfoutput>
 		<cftry>
 			<cfinclude template="#fb_.transformerFile#">
 			<!---<cftrace category="core" text="transformer has executed" />--->
@@ -342,10 +342,10 @@ This software consists of voluntary contributions made by many individuals on be
 			</cfcatch>
 		</cftry>
 		</cfoutput>
-	
+
 		<!--- call the Parser --->
 		<cfset fb_.parserFile="fusebox4.parser.#application.fusebox.scriptlanguage#.cfm" />
-		<cfoutput>		
+		<cfoutput>
 		<cftry>
 			<cfinclude template="#fb_.parserFile#">
 			<!---<cftrace category="core" text="parser has executed" />--->
@@ -358,7 +358,7 @@ This software consists of voluntary contributions made by many individuals on be
 			</cfcatch>
 		</cftry>
 		</cfoutput>
-		
+
 		<cfscript>
 			fb_.parsedfilecontents=fb_.parsedfile;
 			fb_.devparsedfilecontents=fb_.parsedfile;
@@ -373,7 +373,7 @@ This software consists of voluntary contributions made by many individuals on be
 			// for development mode file, strip out the <!- --<assertion> (and its closing tag) but leave the content in-between
 			fb_.devparsedfilecontents=REReplace(fb_.devparsedfilecontents,"(#fb_.COMMENT_CF_BEGIN#<assertion>)(.*?)(</assertion>#fb_.COMMENT_CF_END#)","\2","ALL");
 		</cfscript>
-		
+
 		<cflock name="#application.fusebox.approotdirectory##fb_.file2Parse#" timeout="30" type="Exclusive">
 			<!--- delete the old parsed file --->
 			<cfif FileExists(application.fusebox.approotdirectory & fb_.file2Parse)>
@@ -395,29 +395,29 @@ This software consists of voluntary contributions made by many individuals on be
 					</cftry>
 				</cfif>
 			</cfif>
-		
-			<!--- write out the parsed file --->	
+
+			<!--- write out the parsed file --->
 			<cftry>
-				<cffile action="WRITE" file="#application.fusebox.approotdirectory##fb_.file2Parse#" output="#fb_.parsedfilecontents#" charset="#application.fusebox.characterEncoding#" mode="660">	
+				<cffile action="WRITE" file="#application.fusebox.approotdirectory##fb_.file2Parse#" output="#fb_.parsedfilecontents#" charset="#application.fusebox.characterEncoding#" mode="660">
 				<cfcatch>
 					<cfthrow type="fusebox.errorWritingParsedFile" message="An Error during write of Parsed File or Parsing Directory not found." detail="Attempting to write the parsed file '#fb_.file2Parse#' threw an error. This can also occur if the parsed file directory cannot be found.">
 				</cfcatch>
 			</cftry>
-	
+
 			<cfparam name="fb_.hasAssertions" default="false" type="boolean"/>
 			<cfif application.fusebox.mode NEQ "production">
 			<!--- write out the devparsed file --->
 				<cfif fb_.hasAssertions>
 					<cftry>
-						<cffile action="WRITE" file="#application.fusebox.approotdirectory##fb_.assertedfile2Parse#" output="#fb_.devparsedfilecontents#" charset="#application.fusebox.characterEncoding#" mode="660">	
+						<cffile action="WRITE" file="#application.fusebox.approotdirectory##fb_.assertedfile2Parse#" output="#fb_.devparsedfilecontents#" charset="#application.fusebox.characterEncoding#" mode="660">
 						<cfcatch>
 							<cfthrow type="fusebox.errorWritingParsedFile" message="An Error during write of Parsed File or Parsing Directory not found." detail="Attempting to write the parsed file '#fb_.assertedfile2Parse#' threw an error. This can also occur if the parsed file directory cannot be found.">
 						</cfcatch>
 					</cftry>
-				</cfif>	
+				</cfif>
 			</cfif>
 		</cflock>
-		
+
 	</cfif>
 </cfsilent>
 
@@ -448,7 +448,7 @@ This software consists of voluntary contributions made by many individuals on be
 		</cftry>
 	</cfif>
 </cfprocessingdirective>
-	
+
 	<!--- here's where we catch fusebox core file errors --->
 	<cfcatch type="fusebox">
 		<cfif isDefined("application.fusebox.errortemplatesPath")>

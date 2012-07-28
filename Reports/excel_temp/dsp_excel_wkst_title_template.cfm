@@ -12,19 +12,19 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 </cfsilent><!--- dsp_excel_wkst_title_template.cfm --->
 
-<cfoutput>	
+<cfoutput>
 
 	title_ending_letter = (#cols_needed_count# + 64)
 	title_ending_letter = (chr(title_ending_letter))
 
 	set assign_sheet = MyExcelChart.Sheets(#curr_sheet#)
-	
+
 <!--- FILL THE TITLE CELLS AND FORMAT THEM BY USING CUSTOM WRITTEN FUNCTION:
-CELL = FillFormatCell(sheet,cRange,cText,cWidth,rHeight,fSize) --->	
+CELL = FillFormatCell(sheet,cRange,cText,cWidth,rHeight,fSize) --->
 	CELL = FillFormatCell(assign_sheet,"A1","#session.workstream_company_name#",31.57,23.25,18)
 	CELL = FillFormatCell(assign_sheet,"A2","Expense Report",0,18.75,14)
 	CELL = FillFormatCell(assign_sheet,"A3","   ",0,18.75,12)
@@ -46,14 +46,14 @@ With rng_sum_title
 	.Interior.ColorIndex = 0
     .Interior.Pattern = 17
     .Interior.PatternColorIndex = -4105
-end With	
+end With
 
 i = 7
 
-<!--- LOOP OVER BORDERS AND SET FOR TITLE --->	
+<!--- LOOP OVER BORDERS AND SET FOR TITLE --->
 Do While i < 11
 	assign_sheet.Range("A1:" & title_ending_letter & "6").Borders(i).Weight = 4
-	assign_sheet.Range("A1:" & title_ending_letter & "6").Borders(i).LineStyle = borderLine_dblLines	
+	assign_sheet.Range("A1:" & title_ending_letter & "6").Borders(i).LineStyle = borderLine_dblLines
 	i = i + 1
 Loop	 
 

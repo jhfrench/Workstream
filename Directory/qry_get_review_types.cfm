@@ -13,7 +13,7 @@
 
 	||
 	Variables:
-		
+
  --->
 <cfquery name="get_review_types" datasource="#application.datasources.main#">
 SELECT 	review_type_id, description

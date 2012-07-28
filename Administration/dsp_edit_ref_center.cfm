@@ -32,7 +32,7 @@
 	<select name="center_id">
 	<cfloop query="get_ref_center"><option value="#center_id#" <cfif not comparenocase(get_ref_center.center_id, attributes.center_id)>selected</cfif>>#description#</option></cfloop>
 	</select>
-	<input name="method" type="submit" alt="Retrieve and edit center" value="Retrieve and edit center"/>
+	<input type="submit" name="method" alt="Retrieve and edit center" value="Retrieve and edit center"/>
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_center.cfm" center_id="#attributes.center_id#">
@@ -87,7 +87,7 @@
 			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
 			<input type="hidden" name="center_id" value="#attributes.center_id#"/>
 			<input name="submit" type="submit" alt="submit" value="Submit" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

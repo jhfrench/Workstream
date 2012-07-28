@@ -24,6 +24,7 @@ SELECT Time_Entry.notes_id AS notes_id, Time_Entry.time_entry_id AS time_entry_i
 FROM Time_Entry
 	INNER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
 WHERE Time_Entry.active_ind=1
+	AND Notes.active_ind=1
 	AND Time_Entry.task_id=#attributes.task_id#
 	AND Time_Entry.emp_id=#attributes.emp_id#
 ORDER BY Time_Entry.date DESC, Time_Entry.time_entry_id

@@ -25,7 +25,7 @@ With wb.ActiveSheet.PageSetup
         .Orientation = 2
         .Zoom = 100
 		.PrintTitleRows = "$1:$1"
-		.CenterFooter = "&P"		
+		.CenterFooter = "&P"
 End With
 
 	

@@ -23,7 +23,7 @@
 	<cfif pto_blurb.last_month NEQ 0>
 		<cfset variables.difference=(variables.remain-pto_blurb.last_month)/pto_blurb.last_month*100>
 	</cfif>
-	
+
 	<cfinclude template="../common_files/qry_get_pto_totals.cfm">
 	<cfif NOT len(get_pto_totals.rollover)>
 		<cfset variables.rollover=0>
@@ -36,19 +36,19 @@
 		<cfset variables.hours_earned=0>
 	</cfif>
 	<cfset variables.actual_accrual=variables.hours_earned+variables.rollover>
-	
+
 	<cfset variables.pto_blurb="This month you have #variables.remain# hours of PTO remaining, you ended last month with #pto_blurb.last_month# hours.">
 	<cfif variables.difference GT 0>
 		<cfset variables.pto_blurb="#variables.pto_blurb# This is an increase of #numberformat(variables.difference)#% from last month. ">
 	<cfelseif variables.difference LT 0>
 		<cfset variables.pto_blurb="#variables.pto_blurb# This is a decrease of #numberformat(variables.difference*-1)#% from last month. ">
 	</cfif>
-	
+
 	<!--- For January only, point out to user how much time they carried over from last year. --->
 	<cfif month(now()) EQ 1>
 		<cfset variables.pto_blurb="#variables.pto_blurb# Your rollover from last year was #decimalformat(get_pto_totals.rollover)# hours.">
 	</cfif>
-	
+
 	<cfset variables.pto_blurb="#variables.pto_blurb# You will earn up to #decimalformat(variables.hours_earned)# hours the rest of this year.">
 
 	<!--- Last three months of the year, remind employees about how much time they need to use --->
@@ -72,7 +72,7 @@
 	<cfelse>
 		<cfset variables.pto_blurb="#variables.pto_blurb# Your available PTO for the rest of the year will be up to #decimalformat(variables.remain+variables.hours_earned)# hours.">
 	</cfif>
-	
+
 	<!--- Send user the the PTO report appropriate to their company --->
 	<cfif session.workstream_company_id EQ 1>
 		<cfset variables.pto_action="pto_accrual_input">

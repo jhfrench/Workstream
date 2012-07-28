@@ -36,9 +36,9 @@
 	<fieldset>
 		<legend><h2>#time_entry_edit.task_name#<a href="javascript:note_to_task('#time_entry_edit.task_id#');" class="btn">View this task</a></h2></legend>
 		<div class="control-group">
-			<label for="project_id">Customer</label>
+			<label for="customer_id">Customer</label>
 			<div class="controls">
-				<p>#time_entry_edit.customer_description#</p>
+				<p id="customer_id">#time_entry_edit.customer_description#</p>
 			</div>
 		</div>
 		<div class="control-group">
@@ -58,14 +58,14 @@
 		<div class="control-group">
 			<label for="date">Date</label>
 			<div class="controls">
-				<input type="date" name="date" id="date" min="#dateformat(express_check_date.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(time_entry_edit.date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span4" />
+				<input type="date" name="date" id="date" min="#dateformat(express_check_date.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(time_entry_edit.date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3" />
 				<!-- LET CF create the validation JS <cfinput type="DateField" name="date" required="yes" message="Please enter a valid date for this task"> -->
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="hours">Hours Worked</label>
 			<div class="controls">
-				<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" value="#decimalformat(time_entry_edit.hours)#" class="span6" />
+				<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" value="#decimalformat(time_entry_edit.hours)#" class="span3" />
 				<!-- let CF create the JavaScript: <cfinput type="text" name="hours" id="hours" required="Yes" validate="float" message="You must enter hours, as a number, for a time keeping entry. If you wish to delete a task, mark the delete checkbox." /> -->
 			</div>
 		</div>

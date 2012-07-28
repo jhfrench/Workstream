@@ -33,11 +33,11 @@
 	<cfloop query="get_associated_files">
 	<tr>
 		<td align="center">
-			<input type="checkbox" name="l_t_f_id" value="#l_t_f_id#" id="l_t_f_id_#l_t_f_id#">	
+			<input type="checkbox" name="l_t_f_id" value="#l_t_f_id#" id="l_t_f_id_#l_t_f_id#">
 		</td>
 		<td>
 			<label for="l_t_f_id_#l_t_f_id#"><a href="#file_path#" target="_blank" class="SelectText">#file_path#</a></label>
-		</td>	
+		</td>
 	</tr>
 	</cfloop>
 	<tr>

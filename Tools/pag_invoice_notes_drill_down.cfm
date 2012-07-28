@@ -25,6 +25,13 @@
 	<thead>
 	<cfinclude template="dsp_invoice_notes_drill_down_header.cfm">
 	</thead>
+	<tfoot>
+		<tr>
+			<td colspan="4">
+				Total Hours: <cfoutput>#get_invoice_notes_drill_down_total.hours#</cfoutput>
+			</td>
+		</tr>
+	</tfoot>
 	<tbody>
 	<cfinclude template="dsp_invoice_notes_drill_down.cfm">
 	</tbody>

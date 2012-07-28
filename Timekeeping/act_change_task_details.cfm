@@ -62,11 +62,11 @@
 		<cfcase value="8">
 			<cfmodule template="act_send_notification.cfm" note_type="qa_review_sandbox_ready" task_id="#attributes.task_id#">
 		</cfcase>
-		
+
 		<cfcase value="5">
 			<cfmodule template="act_send_notification.cfm" note_type="qa_review_test_failed" task_id="#attributes.task_id#">
 		</cfcase>
-		
+
 		<cfcase value="19">
 			<cfmodule template="act_send_notification.cfm" note_type="qa_review_test_passed" task_id="#attributes.task_id#">
 		</cfcase>

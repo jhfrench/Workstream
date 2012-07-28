@@ -48,7 +48,7 @@ if (get_help_faq.recordcount) {
 	attributes.public_ind=get_help_faq.public_ind;
 	attributes.selected_screen_id=valuelist(get_help_faq.screen_id);
 	attributes.sort_order=get_help_faq.sort_order;
-	
+
 	if(get_help_faq.active_ind) {
 		variables.active_ind_on=1;
 		variables.active_ind_off=0;

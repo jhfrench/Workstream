@@ -38,7 +38,7 @@
 
 
 
-	
+
 	<tr>
 		<td height="50%">
 			Your password has been successfully changed.

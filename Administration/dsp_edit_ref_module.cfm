@@ -31,7 +31,7 @@
 	<select name="module_id">
 	<cfloop query="get_ref_module"><option value="#module_id#" <cfif not comparenocase(get_ref_module.module_id, attributes.module_id)>selected</cfif>>#description#</option></cfloop>
 	</select>
-	<input name="method" type="submit" alt="Retrieve and edit module" value="Retrieve and edit module" />
+	<input type="submit" name="method" alt="Retrieve and edit module" value="Retrieve and edit module" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_module.cfm" module_id="#attributes.module_id#">
@@ -85,8 +85,8 @@
 		<td align="center">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="attributes.module_id" value="#attributes.module_id#"/>
-			<input type="submit" alt="submit" value=" Submit " />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

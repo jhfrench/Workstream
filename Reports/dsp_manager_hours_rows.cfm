@@ -19,7 +19,7 @@
 
 	<cfif NOT len(variables.compare_date)>
 		<cfset variables.compare_date=manager_hours_report_output.date>
-		
+
 	</cfif>
 	<cfif len(manager_hours_report_output.date)>
 		<cfif datecompare(manager_hours_report_output.date, variables.compare_date) NEQ 0>

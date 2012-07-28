@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 <cfquery name="insert_pto_grant" datasource="#application.datasources.main#">
 INSERT INTO PTO_Grant (emp_id, date_granted, granted_hours, comments)

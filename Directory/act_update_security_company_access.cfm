@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 <cfquery name="security_company_access_delete" datasource="#application.datasources.main#">
 DELETE Security_Company_Access

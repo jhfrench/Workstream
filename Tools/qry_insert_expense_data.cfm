@@ -16,7 +16,7 @@
 	END FUSEDOC --->
 
 <cfif isdefined("attributes.expense_id") AND len(attributes.expense_id)>
-	
+
 	<cfquery name="update_expense_data" datasource="#application.datasources.main#" >
 			UPDATE Expense
 			SET
@@ -36,8 +36,8 @@
 					</cfif>
 					supervisor_approval_emp_id = #session.user_account_id#,
 					supervisor_approval_memo = '#attributes.supervisor_approval_memo#',
+
 					
-										
 				</cfif>
 				<cfif isdefined("attributes.accounting_pro_settings")>
 					,expense_status_id = #attributes.accounting_approval#,
@@ -45,7 +45,7 @@
 						date_accounting_approved = CURRENT_TIMESTAMP,
 					</cfif>
 					accounting_approval_memo = '#attributes.accounting_approval_memo#',
-					
+
 					accounting_approval_emp_id = #session.user_account_id#
 				</cfif>
 			WHERE
@@ -68,7 +68,7 @@
 					,supervisor_approval_emp_id,
 					supervisor_approval_memo,
 					expense_status_id
-					<cfif attributes.supervisor_approval EQ 2>,date_supervisor_approved</cfif>				
+					<cfif attributes.supervisor_approval EQ 2>,date_supervisor_approved</cfif>
 				</cfif>
 				<cfif isdefined("attributes.accounting_pro_settings")>
 					,accounting_approval_memo,
@@ -96,7 +96,7 @@
 					,#session.user_account_id#,
 					'#attributes.supervisor_approval_memo#',
 					#attributes.supervisor_approval#,
-					<cfif attributes.supervisor_approval>CURRENT_TIMESTAMP</cfif>			
+					<cfif attributes.supervisor_approval>CURRENT_TIMESTAMP</cfif>
 				</cfif>
 				<cfif isdefined("attributes.accounting_pro_settings")>
 					,CURRENT_TIMESTAMP,

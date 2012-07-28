@@ -39,6 +39,7 @@ WHERE Time_Entry.active_ind=1
 	AND DATEPART(DW, Time_Entry.date)=REF_Day_Of_Week.Day_Num
 	AND Time_Entry.project_id=Project.project_id
 	AND Time_Entry.notes_id=Notes.notes_id
+	AND Notes.active_ind=1
 	AND Time_Entry.emp_id=Hours_Pin_Date.emp_id
 	AND Time_Entry.date=Hours_Pin_Date.date
 	AND EXTRACT(YEAR FROM Time_Entry.date)=Hours_Pin_Week.year

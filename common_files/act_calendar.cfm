@@ -40,7 +40,7 @@ function popUp(on)
    } else {
       lLay = document.layers['FormLayer'].document.layers['popCal'];
    }
-	
+
    if (gotlayers) {
 	if (on) {
 		moveLayers();

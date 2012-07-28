@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">	
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <head>
 	<cfoutput><title>workstream #request.pagetitle#</title>

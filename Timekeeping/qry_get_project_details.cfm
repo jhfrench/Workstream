@@ -20,7 +20,7 @@
 <cfparam name="ii" default=1>
 <cfquery name="get_project_details" datasource="#application.datasources.main#">
 SELECT CURRVAL('Notes_notes_id_SEQ') AS notes_id<cfif NOT isdefined("project_entry")>, Task.project_id
-FROM  Task
+FROM Task
 WHERE task.task_id=#listgetat(attributes.task_id,ii)# 
 GROUP BY task.project_id</cfif> 
 </cfquery>

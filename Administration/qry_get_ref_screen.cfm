@@ -33,7 +33,7 @@ FROM REF_Screen
 WHERE active_ind=1
 </cfquery>
 <cfset caller.get_ref_screen_count=get_ref_screen_count>
-	
+
 <cfquery name="get_ref_screen" datasource="#application.datasources.main#">
 SELECT screen_id, active_ind, body_onload,
 	business_function_id, check_variable, fuseaction,

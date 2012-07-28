@@ -10,7 +10,7 @@
 			$Id:$
 			(5/26/11 | JF)
 			Enhancing the application scope viewing functionality so you can see only the things you want to.
-			
+
 			(5/26/11 | JF)
 			Added exception handling; not all version use the same fusebox variables (for whatever reason).
 		</history>
@@ -32,7 +32,7 @@
 	if (NOT isdefined("attributes.show_application_ind"))
 		attributes.show_application_ind=0;
 	else {
-		
+
 		try {
 			request.small_application=duplicate(application);
 			structdelete(request.small_application,"fusebox",true);
@@ -41,11 +41,11 @@
 			request.small_application="";
 		}
 	}
-	
+
 	if (NOT isdefined("attributes.show_fusebox_ind"))
 		attributes.show_fusebox_ind=0;
 	else {
-		
+
 		try {
 			request.small_fusebox=duplicate(application.fusebox);
 		}
@@ -53,41 +53,41 @@
 			request.small_fusebox="";
 		}
 	}
-	
+
 	if (NOT isdefined("attributes.show_server_ind"))
 		attributes.show_server_ind=0;
 	else {
-		
+
 		try {
 			request.small_server=duplicate(server);
 		}
 		catch (any error_event) {
 			request.small_server="";
 		}
-		
+
 		try {
 			structdelete(request.small_server,"DMSEC",true);
 		}
 		catch (any error_event) {}
 	}
-	
+
 	if (NOT isdefined("attributes.show_session_ind"))
 		attributes.show_session_ind=0;
 	if (NOT isdefined("attributes.show_variables_ind"))
 		attributes.show_variables_ind=0;
 	else {
 		request.small_variables=duplicate(variables);
-		
+
 		try {
 			structdelete(request.small_variables,"__FUSEBOXAPPCFC",true);
 		}
 		catch (any error_event) {}
-		
+
 		try {
 			structdelete(request.small_variables,"_FBA",true);
 		}
 		catch (any error_event) {}
-		
+
 		try {
 			structdelete(request.small_variables,"_PARSEDFILEDATA",true);
 		}
@@ -96,37 +96,37 @@
 			structdelete(request.small_variables,"ATTRIBUTES",true);
 		}
 		catch (any error_event) {}
-		
+
 		try {
 			structdelete(request.small_variables,"CALLER",true);
 		}
 		catch (any error_event) {}
-		
+
 		try {
 			structdelete(request.small_variables,"EVENT",true);
 		}
 		catch (any error_event) {}
-		
+
 		try {
 			structdelete(request.small_variables,"EXPOSED",true);
 		}
 		catch (any error_event) {}
-		
+
 		try {
 			structdelete(request.small_variables,"LOADFUSEBOX",true);
 		}
 		catch (any error_event) {}
-		
+
 		try {
 			structdelete(request.small_variables,"MYFUSEBOX",true);
 		}
 		catch (any error_event) {}
-		
+
 		try {
 			structdelete(request.small_variables,"THIS",true);
 		}
 		catch (any error_event) {}
-		
+
 		try {
 			structdelete(request.small_variables,"XFA",true);
 		}

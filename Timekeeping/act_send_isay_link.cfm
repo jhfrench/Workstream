@@ -23,7 +23,7 @@ WHERE Task.task_id=Team.task_id
 </cfquery>
 <cfmail query="send_isay_link" to="#email_to#" from="#application.erroremailfrom#" subject="Your recent IT Experience" type="html" server="#application.emailserver#">
 <p>
-In an effort to provide you with world class IT support, we request that you fill out the hyper-linked survey below. Your feedback will facilitate our quest for continual improvement and is a requirement of ISO 9000.  Thank you in advance for your efforts.			
+In an effort to provide you with world class IT support, we request that you fill out the hyper-linked survey below. Your feedback will facilitate our quest for continual improvement and is a requirement of ISO 9000.  Thank you in advance for your efforts.
 <p>
 Task Name: #task_name#
 <p>

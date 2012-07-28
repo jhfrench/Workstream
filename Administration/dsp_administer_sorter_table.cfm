@@ -47,8 +47,8 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td align="center">
-			<input type="submit" alt="submit" name="method" value=" Submit "/>
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="submit" alt="submit" name="method" value="Submit"/>
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

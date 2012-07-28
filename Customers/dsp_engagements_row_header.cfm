@@ -42,7 +42,7 @@
 		</td>
 		<td bgcolor="##c0c0c0" class="SubHeadText">
 			Active
-		</td>			
+		</td>
 		<td bgcolor="##c0c0c0" class="SubHeadText">
 			Edit
 		</td>

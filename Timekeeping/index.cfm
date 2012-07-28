@@ -1,7 +1,7 @@
 
 <!--Timekeeping/index.cfm
 	Author: Jeromy F -->
-<cfsilent>	
+<cfsilent>
 	<!-- FUSEDOC
 	||
 	Responsibilities: This is the FUSE BOX. This is where everything is fused together for the timekeeping module.
@@ -17,10 +17,10 @@
 	END FUSEDOC --->
 
 	<cfswitch expression="#attributes.fuseaction#">
-	
+
 		<cfdefaultcase>
 			<cfif session.workstream_emp_contact_type EQ 1>
-				<set name="attributes.object_name" value="Home">	
+				<set name="attributes.object_name" value="Home">
 				<include template="../common_files/act_object_access.cfm">
 				<set name="request.pagetitle" value="Timekeeping">
 				<include template="pag_timekeeping.cfm">

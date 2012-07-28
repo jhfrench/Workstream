@@ -60,7 +60,7 @@
 			application.product_name=qry_get_application_basic_details.product_name;
 			application.product_release_version=qry_get_application_basic_details.product_release_version;
 		</cfscript>
-		
+
 		<!--- Set datasoures into application-scoped variables. --->
 		<cfinclude template="qry_get_application_datasource.cfm">
 
@@ -72,7 +72,7 @@
 				</cfloop>
 			</cflock>
 		</cfif>
-		
+
 		<!--- Set installation-specific variables into application-scoped variables. --->
 		<cfinclude template="qry_get_application_specific_settings.cfm">
 
@@ -84,21 +84,21 @@
 				</cfloop>
 			</cflock>
 		</cfif>
-		
+
 		<!--- Set installation-specific support contacts into application-scoped variables. --->
 		<cfinclude template="qry_get_application_support_contacts.cfm">
-			
+
 		<cfset application.application_support_contacts=structNew()>
 		<cfset application.support_email_recipients="">
 		<cflock type="EXCLUSIVE" scope="APPLICATION" timeout="#createtimespan(0,0,20,0)#" throwontimeout="No">
 			<cfloop query="qry_get_application_support_contacts">
-				
+
 				<cfscript>
 					if(qry_get_application_support_contacts.send_email_ind EQ 1)
 					{
 						application.support_email_recipients=listappend(application.support_email_recipients, qry_get_application_support_contacts.email);
 					}
-					
+
 					if(not isdefined("application.application_support_contacts.#structure_contact_label#"))
 					{
 						application.application_support_contacts[structure_contact_label]=structnew();
@@ -117,6 +117,6 @@
 				</cfscript>
 			</cfloop>
 		</cflock>
-		
+
 	</cfif>
 </cfsilent>

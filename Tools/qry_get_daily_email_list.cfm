@@ -8,7 +8,7 @@
 	||
 	Name: Jeromy F
 	 || 
-	
+
  --->
 <cfquery name="get_daily_email_list" datasource="#application.datasources.main#">
 SELECT Task.task_id, CAST(Task.description AS varchar(255)) AS description, Task.name AS task_name,

@@ -5,7 +5,7 @@
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/4/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/4/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -39,7 +39,7 @@
 <cfinclude template="qry_get_email_blacklist.cfm">
 
 <cfif get_email_blacklist.recordcount>
-	You will not recieve email from the Workstream system because your email address (<cfoutput>#session.email_address#</cfoutput>) has been opted-out of receiving future communications.
+	You will not recieve email from the <abbr title="NASA Vendor Database">NVDB</abbr> system because your email address (<cfoutput>#session.email_address#</cfoutput>) has been opted-out of receiving future communications.
 <cfelse>
 	<cfinclude template="qry_get_user_email_subscription.cfm">
 	<cfset attributes.subscribed_email_category_id=valuelist(get_user_email_subscription.email_category_id)>

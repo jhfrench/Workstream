@@ -19,7 +19,7 @@ $Log:
 <cfoutput>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td class="SelectText">
-			Date Begun:			
+			Date Begun:
 		</td>
 		<td class="SelectText">
 			<cfinput type="text" name="date_start" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this job title was granted.  (mm/dd/yy)">
@@ -27,7 +27,7 @@ $Log:
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td class="SelectText">
-			Title:			
+			Title:
 		</td>
 		<td class="SelectText">
 

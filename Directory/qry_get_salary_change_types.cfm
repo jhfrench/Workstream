@@ -13,7 +13,7 @@
 
 	||
 	Variables:
-		
+
  --->
 <cfquery name="get_salary_change_types" datasource="#application.datasources.main#">
 	SELECT 	salary_change_type_id,

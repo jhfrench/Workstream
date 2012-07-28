@@ -21,13 +21,13 @@
 		</td>
 		<td>
 			Location 
-		</td>	
+		</td>
 		<td>
 			Non-Billable Hours
 		</td>
 		<td>
 			Billable Hours 
-		</td>		
+		</td>
 
 		<td>
 			Total Hours

@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 </cfsilent>
 <cfif IsNumeric(get_phone_types.recordcount)>

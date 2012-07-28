@@ -28,12 +28,12 @@
 </table>
 <cfform action="index.cfm?fuseaction=Tools.expense_update" method="post" name="f"> 
 	<table  cellspacing="2" cellpadding="0" border="0" width="95%" >
-		
+
 	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="SubHeadText" section_color="ffffff" section_title="Name:  #session.first_name# #session.last_name#" colspan="1" gutter="True">
 
 	</table>
 	<table cellspacing="0" cellpadding="4" border="0" align="center">
-		
+
 		<cfinclude template="dsp_expense_type.cfm">
 		<div id="FormLayer" style="position:absolute; width:300px; height:245px; z-index:1">
 		<cfinclude template="dsp_expense_form_rows.cfm">

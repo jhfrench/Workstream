@@ -72,7 +72,7 @@ This software consists of voluntary contributions made by many individuals on be
 	<cfscript>
 	// this is needed for FB_APP_PATH values that contain '../' on BlueDragon
 	fb_.currTmplPath=fb_canonicalPath(getCurrentTemplatePath(), fb_.osdelimiter);
-	
+
 	fb_.application.fusebox.CoreToAppRootPath=GetDirectoryFromPath(fb_relativeFilePath(fb_.currTmplPath, fb_canonicalPath("#fb_.application.fusebox.approotdirectory#dummy.file", fb_.osdelimiter)));
 	fb_.application.fusebox.AppRootToCorePath=GetDirectoryFromPath(fb_relativeFilePath(fb_canonicalPath("#fb_.application.fusebox.approotdirectory#dummy.file", fb_.osdelimiter), fb_.currTmplPath));
 	fb_.application.fusebox.CoreToWebRootPath=GetDirectoryFromPath(fb_relativeFilePath(fb_.currTmplPath, fb_canonicalPath("#fb_.application.fusebox.webrootdirectory#dummy.file", fb_.osdelimiter)));

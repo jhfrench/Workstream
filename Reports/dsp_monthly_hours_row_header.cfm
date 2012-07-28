@@ -33,5 +33,5 @@
 				Hours:
 			</td>
 		</tr>
-</cfif>	
+</cfif>
 	

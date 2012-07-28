@@ -25,4 +25,3 @@ WHERE REF_Company.company_id IN (#session.workstream_selected_company_id#)
 ORDER BY REF_Company.description
 </cfquery>
 </cfsilent>
-

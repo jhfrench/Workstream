@@ -26,7 +26,7 @@
 			Hours
 		</td>
 		<td align="center" class="SubHeadText">
-			<cfif compare(fuseaction, "time_entry")>	
+			<cfif compare(fuseaction, "time_entry")>
 				Task
 			<cfelse>
 				Code

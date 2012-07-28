@@ -29,7 +29,7 @@
 <form name="edit_ref_date_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<label for="odbc_date">Date</label><br/>
 	<input type="text" name="odbc_date" id="odbc_date" value="" /><br />
-	<input name="method" type="submit" value="Retrieve and edit date record" />
+	<input type="submit" name="method" value="Retrieve and edit date record" />
 </form>
 <cfform name="ref_date_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
 
@@ -104,7 +104,7 @@
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="date_id" value="#attributes.date_id#" />
 			<input type="submit" name="method" value="Submit" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

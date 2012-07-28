@@ -60,7 +60,7 @@
 			</cfif>
 		</td>
 		<td>
-			<input name="method" type="submit" alt="#variables.button_label#" size="20" value="#variables.button_label#"/>
+			<input type="submit" name="method" alt="#variables.button_label#" size="20" value="#variables.button_label#"/>
 		</td>
 	</tr>
 </table>

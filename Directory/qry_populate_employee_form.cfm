@@ -12,7 +12,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 <cfquery name="populate_employee_form" datasource="#application.datasources.main#">
 SELECT ec.Name, ec.LName, ec.Credentials, ec.MI, 

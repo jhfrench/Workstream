@@ -30,7 +30,7 @@
 	<select name="email_category_id">
 	<cfloop query="get_ref_email_category"><option value="#email_category_id#" <cfif not comparenocase(get_ref_email_category.email_category_id, attributes.email_category_id)>selected</cfif>>#description#</option></cfloop>
 	</select>
-	<input name="method" type="submit" alt="Retrieve and edit email category" value="Retrieve and edit email category"/>
+	<input type="submit" name="method" alt="Retrieve and edit email category" value="Retrieve and edit email category"/>
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_email_category.cfm" email_category_id="#attributes.email_category_id#">
@@ -75,8 +75,8 @@
 		<td align="center">
 			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
 			<input type="hidden" name="email_category_id" value="#attributes.email_category_id#"/>
-			<input type="submit" alt="submit" value="Submit" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

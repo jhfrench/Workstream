@@ -61,7 +61,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_account_status">REF_ACCOUNT_STATUS</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_address_type">REF_ADDRESS_TYPE</a>
 			</td>
@@ -70,7 +70,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_business_category">REF_BUSINESS_CATEGORY</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_business_function">REF_BUSINESS_FUNCTION</a>
 			</td>
@@ -79,7 +79,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_ccr_business_type">REF_CCR_BUSINESS_TYPE</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_ccr_certification_type">REF_CCR_CERTIFICATION_TYPE</a>
 			</td>
@@ -88,7 +88,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_ccr_organization_type">REF_CCR_ORGANIZATION_TYPE</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_ccr_status">REF_CCR_STATUS</a>
 			</td>
@@ -97,7 +97,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_center">REF_CENTER</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_comments_type">REF_COMMENTS_TYPE</a>
 			</td>
@@ -106,7 +106,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_contact_type">REF_CONTACT_TYPE</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_country">REF_COUNTRY</a>
 			</td>
@@ -115,7 +115,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 				REF_DATE ("edit_ref_date" not an Administration circuit)
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_email_category">REF_EMAIL_CATEGORY</a>
 			</td>
@@ -124,7 +124,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_form_element_type">REF_FORM_ELEMENT_TYPE</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_fsc">REF_FSC</a>
 			</td>
@@ -133,7 +133,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_geographic_area">REF_GEOGRAPHIC_AREA</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_hierarchy_level">REF_HIERARCHY_LEVEL</a>
 			</td>
@@ -142,7 +142,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_module">REF_MODULE</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_m_p_approval_status">REF_M_P_APPROVAL_STATUS</a>
 			</td>
@@ -151,7 +151,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_m_p_status">REF_M_P_STATUS</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_naics">REF_NAICS</a>
 			</td>
@@ -160,7 +160,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_numeric_multiplier">REF_NUMERIC_MULTIPLIER</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_organization">REF_ORGANIZATION</a>
 			</td>
@@ -169,7 +169,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_priority">REF_PRIORITY</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_privilege">REF_PRIVILEGE</a>
 			</td>
@@ -178,7 +178,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_product_service">REF_PRODUCT_SERVICE</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_product_version">REF_PRODUCT_VERSION</a>
 			</td>
@@ -187,7 +187,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_program_year">REF_PROGRAM_YEAR</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_report_output_format">REF_REPORT_OUTPUT_FORMAT</a>
 			</td>
@@ -196,7 +196,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_requirement_type">REF_REQUIREMENT_TYPE</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_resource_link_type">REF_RESOURCE_LINK_TYPE</a>
 			</td>
@@ -205,7 +205,7 @@
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_screen">REF_SCREEN</a>
 			</td>
-		
+
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
 					<a href="index.cfm?fuseaction=Administration.edit_ref_state_province">REF_STATE_PROVINCE</a>
 			</td>

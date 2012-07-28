@@ -1,20 +1,20 @@
 <!--- 
 <fusedoc language="ColdFusion MX" specification="2.0" fuse="dsp_save_profile_instructions.cfm">
 	<responsibilities>
-		
+
 	</responsibilities>
 	<properties>
 		<history email="" author="Cecile Sy" type="create" date="08/08/2006" role="FuseCoder" comments="created file">
-			Edits: 	
+			Edits: 
 			$Log$
 		</history>
 	</properties>
 	<io>
 		<in>
-			
+
 		</in>
 		<out>
-			
+
 		</out>
 	</io>
 </fusedoc>

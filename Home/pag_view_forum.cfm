@@ -81,20 +81,20 @@
 				<cfinclude template="dsp_discussion_form.cfm">
 				<cfset variables.show_select_message_ind=0>
 			</cfif>
-	
+
 			<!--- displays discussion with all Children --->
 			<cfif isdefined("attributes.parent_discussion_id")>
-	
+
 				<cfmodule template="qry_get_discussion.cfm" discussion_id="#attributes.parent_discussion_id#">
-		
+
 				<cfmodule template="qry_get_discussion_attachment.cfm" discussion_id="#get_discussion.discussion_id#">
 				<table align="left" cellpadding="5" cellspacing="0" width="700" summary="Table displays discussion threads">
 				<cfoutput query="get_discussion">
-			
+
 						<tr bgcolor="D7D8DA">
-						<!--- for formatting purposes the colspan of the top level must be equivalent to the number of levels defined in the custom tag.  the first td should contain the collapse and expand functionality --->				
+						<!--- for formatting purposes the colspan of the top level must be equivalent to the number of levels defined in the custom tag.  the first td should contain the collapse and expand functionality --->
 							<td valign="top"><div class="forum" id="collapse#discussion_id#" title="icon will collapse or expand the entire discussion thread an all sub topics"><a href="##" onclick="javascript:blocking('#discussion_id#');"><img src="images/collapse.gif" alt="icon will collapse or expand discussion entry #discussion_id#" border="0" name="collapse-expand#discussion_id#"></a></div>
-					
+
 							<div class="forum" id="#discussion_id#" title="Top level discussion thread entry">
 							Posted By: #created_by# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #dateformat(created_date, "mm/dd/yyyy")# at #timeformat(created_date, 'h:mm tt')#
 							<br />
@@ -102,7 +102,7 @@
 							<cfif len(get_discussion.link)>
 								<br /><i>Supporting Link:</i> <a href="#link#" target="discussion_#discussion_id#">#link#</a>
 							</cfif>
-						
+	
 							<cfif get_discussion_attachment.recordcount NEQ 0>
 							<cfloop query="get_discussion_attachment">
 								<cfset variables.attachment_link=listlast(attachment_path, "\")>
@@ -124,7 +124,7 @@
 				</td></tr>
 				</table>
 			<cfelseif get_discussion.recordcount NEQ 0>
-	
+
 				<cfif isdefined("attributes.deactivated_entry")>
 				<i><strong>The discussion entry was successfully deactivated!</strong></i><br/><br/>
 				</cfif>

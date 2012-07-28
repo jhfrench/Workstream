@@ -65,8 +65,8 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td align="center">
-			<cfinput type="submit" alt="submit" name="submit" value=" Submit ">
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<cfinput type="submit" alt="submit" name="submit" value="Submit">
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

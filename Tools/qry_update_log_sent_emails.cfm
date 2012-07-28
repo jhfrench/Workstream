@@ -8,7 +8,7 @@
 	||
 	Name: Jeromy F
 	 || 
-	
+
  --->
 <cfquery name="update_log_sent_emails" datasource="#application.datasources.main#">
 INSERT INTO Notification (task_id, email_id, notification_type,

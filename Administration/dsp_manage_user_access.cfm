@@ -64,8 +64,8 @@ Filter: <cfloop query="get_ref_account_status"> <a href="javascript:status_filte
 	<cfmodule template="../common_files/dsp_program_year.cfm" colspan="4">
 	<tr bgcolor="##dddddd">
 		<td align="center" colspan="6">
-			<input type="submit" name="method" value="Select" alt="Select" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="submit" name="method" value="Select" class="btn btn-primary" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

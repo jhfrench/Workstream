@@ -51,21 +51,21 @@
 			<param name="backgroundColor" value="ffffff">
 			<param name="2D" value="yes">
 			<param name="CopyrightNotification" value="JavaChart is a copyrighted work, and subject to full legal protection">
-		
+
 			<param name="plotAreaColor" value="ffffff">
 			<param name="plotAreaTop" value=".95">
 			<param name="plotAreaBottom" value=".2">
 			<param name="plotAreaLeft" value=".1">
 			<param name="plotAreaRight" value=".92">
-			
+
 			<param name="legendOff" value="true">
-			
+
 			<param name="dwellUseLabelString" value="true">
 			<param name="dwellLabelsOn" value="true">
 			<param name="dwellYString" value="## tasks">
 			<param name="dwellUseYValue" value="true">
 			<param name="dwellUseXValue" value="false">
-			
+
 			<param name="yAxisColor" value="#Y_TickBar#">
 			<param name="yAxisGridColor" value="#Y_TickBar#">
 			<param name="yAxisLabelColor" value="#X_label#">
@@ -76,7 +76,7 @@
 			<param name="yAxisTitle" value="IPs">
 			<param name="yAxisTitleColor" value="#X_label#">
 			<param name="yAxisTitleFont" value="Trebuchet MS,#small#,1">
-			
+
 			<param name="xAxisColor" value="000000">
 			<param name="xAxisGridColor" value="#X_label#">
 			<param name="xAxisLabelColor" value="#X_label#">
@@ -85,11 +85,11 @@
 			<param name="xAxisTickColor" value="#X_label#">
 			<param name="xAxisTitle" value="Week">
 			<param name="xAxisTitleFont" value="Trebuchet MS,#small#,1">
-			
+
 			<param name="barLabelColor" value="#X_label#">
 			<param name="barLabelFormat" value="1">
 			<param name="barLabelPrecision" value="4">
-			
+
 			<param name="dataset0LineWidth" value="2">
 			<param name="dataset0color" value="5A82B5">
 			<param name="dataset0yvalues" value="#valuelist(ip_by_week.task_count)#">
@@ -104,14 +104,14 @@
 			<param name="xLoc" value=".5">
 			<param name="yLoc" value=".6">
 			<param name="startDegrees" value="90">
-			
+
 			<param name="dataset0yValues" value="#valuelist(ip_by_product.ip_count)#">
 			<param name="dataset0Labels" value="#valuelist(ip_by_product.product_name)#">
-	
+
 			<param name="dataset0Colors" value="#variables.color_list#">
 			<param name="labelFont" value="Trebuchet MS,9,1">
 			<param name="labelPosition" value="2">
-			
+
 			<param name="dwellUseLabelString" value="true">
 			<param name="dwellUseXValue" value="false">
 			<param name="dwellUseYValue" value="true">
@@ -131,21 +131,21 @@
 			<param name="backgroundColor" value="ffffff">
 			<param name="2D" value="yes">
 			<param name="CopyrightNotification" value="JavaChart is a copyrighted work, and subject to full legal protection">
-		
+
 			<param name="plotAreaColor" value="ffffff">
 			<param name="plotAreaTop" value=".95">
 			<param name="plotAreaBottom" value=".2">
 			<param name="plotAreaLeft" value=".1">
 			<param name="plotAreaRight" value=".92">
-			
+
 			<param name="legendOff" value="true">
-			
+
 			<param name="dwellUseLabelString" value="true">
 			<param name="dwellLabelsOn" value="true">
 			<param name="dwellYString" value="## tasks">
 			<param name="dwellUseYValue" value="true">
 			<param name="dwellUseXValue" value="false">
-			
+
 			<param name="yAxisColor" value="#Y_TickBar#">
 			<param name="yAxisGridColor" value="#Y_TickBar#">
 			<param name="yAxisLabelColor" value="#X_label#">
@@ -156,7 +156,7 @@
 			<param name="yAxisTitle" value="Days">
 			<param name="yAxisTitleColor" value="#X_label#">
 			<param name="yAxisTitleFont" value="Trebuchet MS,#small#,1">
-			
+
 			<param name="xAxisColor" value="000000">
 			<param name="xAxisGridColor" value="#X_label#">
 			<param name="xAxisLabelColor" value="#X_label#">
@@ -165,11 +165,11 @@
 			<param name="xAxisTickColor" value="#X_label#">
 			<param name="xAxisTitle" value="Week">
 			<param name="xAxisTitleFont" value="Trebuchet MS,#small#,1">
-			
+
 			<param name="barLabelColor" value="#X_label#">
 			<param name="barLabelFormat" value="1">
 			<param name="barLabelPrecision" value="4">
-			
+
 			<param name="dataset0LineWidth" value="2">
 			<param name="dataset0color" value="A5597B">
 			<param name="dataset0yvalues" value="#valuelist(ip_by_week.days_to_complete)#">

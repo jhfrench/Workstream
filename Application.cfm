@@ -42,7 +42,7 @@
 <cfscript>
 	variables.datasources.application_manager="Application_Manager";
 	variables.path_prefix="Application_Manager/";
-		
+
 	switch(cgi.http_host) {
 		case "127.0.0.1:8500":
 		case "192.168.1.6:8500":
@@ -52,14 +52,14 @@
 			variables.sessiontimeout="3";
 			break;
 		}
-		
+
 		case "procyon.sef.hq.nasa.gov":
 		case "faad.sef.hq.nasa.gov": {
 			variables.environment_name="SEF";
 			variables.sessiontimeout="0.04166666666665";
 			break;
 		}
-		
+
 		default: {
 			variables.environment_name="Production";
 			variables.sessiontimeout="0.04166666666665";

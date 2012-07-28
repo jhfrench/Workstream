@@ -82,9 +82,9 @@
 			<cfif get_comment.active_ind EQ 0>
 				You cannot edit an inactive comments
 			<cfelse>
-			<input type="submit" alt="Update Comments" name="send_req" value="Update Comments" />
+			<input type="submit" name="send_req" value="Update Comments" class="btn btn-primary" />
 			</cfif>
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

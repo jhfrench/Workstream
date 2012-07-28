@@ -27,7 +27,7 @@
 	<cfinclude template="qry_convert_qa.cfm">
 	<cfinclude template="qry_convert_team_members.cfm">
 	<cfinclude template="../common_files/qry_get_associated_files.cfm">
-	<cfinclude template="../common_files/qry_get_associated_tasks.cfm">	
+	<cfinclude template="../common_files/qry_get_associated_tasks.cfm">
 	<cfinclude template="qry_time_entry_details.cfm">
 	<cfinclude template="qry_qa_entry_details.cfm">
 	<cfinclude template="../common_files/qry_get_user_fields.cfm"> 

@@ -55,7 +55,7 @@ ORDER BY Date_Period.date_period
 	tipstyle="MouseOver" tipbgcolor="##ffff99"
 	showmarkers="yes" markersize="5"><!--- 
 	url="#variables.graph_url#" --->
-	
+
 	<cfif listfind(attributes.metric_id, 1)>
 		<cfchartseries type="line" serieslabel="Page Count" paintstyle="plain" markerstyle="circle" query="qry_get_report_output" itemcolumn="date_period" valuecolumn="page_count">
 		</cfchartseries>

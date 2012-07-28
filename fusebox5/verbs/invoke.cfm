@@ -116,7 +116,7 @@ limitations under the License.
 							"Unexpected attributes were found in a 'invoke' verb in fuseaction #fb_.verbInfo.circuit#.#fb_.verbInfo.fuseaction#.");
 			}
 		}
-		
+
 	} else {	// compile the code on the end tag:
 
 		// check whether we're using the old-style methodcall or the new-style method / argument form:

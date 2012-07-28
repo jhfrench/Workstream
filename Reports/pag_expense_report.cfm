@@ -23,9 +23,9 @@
 	<cfinclude template="dsp_excel_auto.cfm">
 	</td></tr>
 	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText" section_color="ffffff" section_title="Expense Report"  gutter="false" align="center" colspan="#colspan#">
-	
+
 	<cfinclude template="dsp_expense_report_rows.cfm">
-	
+
 </table> 
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="expense" fuseaction="Tools.expense_edit" field_name="expense_id">
 

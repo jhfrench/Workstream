@@ -6,7 +6,7 @@
 		I help the user assign NSM structure privileges.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/27/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="6/27/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -21,11 +21,11 @@
 </fusedoc>
 --->
 <cfsetting requesttimeout="3000">
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="view_user_access" fuseaction="Administration.view_user_access" field_name="user_account_id" field_value="">
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the data held in the table below">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="view_user_access" fuseaction="Administration.view_user_access" field_name="user_account_id" field_value="" field2_name="program_year_id" field2_value="#attributes.program_year_id#">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="navigation crumbs">
 	<tr>
 		<th align="left">
-			<h2 style="margin:0px" id="top-side"><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit <abbr title="NASA Structure Management">NSM</abbr> Access</h2>
+			<h2 style="margin:0px"><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit <abbr title="NASA Structure Management">NSM</abbr> Access</h2>
 		</th>
 	</tr>
 </table>
@@ -43,7 +43,7 @@
 <cfform name="form_edit_nsm_privileges" action="index.cfm?fuseaction=Administration.edit_nsm_privileges" method="post">
 <cfoutput>
 <div class="datachart" style="border:1px solid ##999999">
-<table cellspacing="1" cellpadding="4" width="100%" border="0" bgcolor="##cccccc" summary="Table allows user to edit FAAD access">
+<table cellspacing="1" cellpadding="4" width="100%" border="0" bgcolor="##cccccc" summary="Table allows user to edit application access">
 	<tr bgcolor="##cccccc"><th><strong>Edit <abbr title="NASA Structure Management">NSM</abbr> Access</strong></th></tr>
 	<tr bgcolor="##eeeeee">
 		<td>
@@ -169,7 +169,7 @@
 	<cfif get_grouper_options_and_user_privileges.recordcount NEQ 0>
 	<tr align="center" bgcolor="#dddddd">
 		<td>
-			<input type="submit" alt="Save" value=" Save " />
+			<input type="submit" name="save" value="Save" alt="Save" />
 			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

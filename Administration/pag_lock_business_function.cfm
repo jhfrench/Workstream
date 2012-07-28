@@ -71,7 +71,7 @@
 </cfoutput>
 	<tr>
 		<td colspan="2">
-			<input name="method" type="submit" alt="submit" value="Submit" />
+			<input type="submit" name="method" alt="submit" value="Submit" />
 		</td>
 	</tr>
 </table>

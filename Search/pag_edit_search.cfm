@@ -12,21 +12,21 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-	
+
 	<script language=javascript>
 function isEmpty()
-	{		
-		
+	{
+
 			 if(document.input_form.project_id.value == '')
 			    {
 					 alert("You must select an engagement");
 					 return false;
 				 }  
-			
+
 		  }  
 		  
 		  return true;
-	}	
+	}
 </script>
 </cfsilent>
 <!--- <cfinclude template="../common_files/dsp_pop_calendar.cfm"> --->
@@ -51,7 +51,7 @@ function isEmpty()
 	<cfoutput>
 	<input type="hidden" name="used_by_search" value="1">
 	<input type="hidden" name= "project_id_list" value= "#valuelist(get_search_projects.project_id)#">
-	
+
     </cfoutput>
 </table>
 </cfform>

@@ -9,9 +9,9 @@
 	Name: Jeromy French
 	||
 	Edits: 
-	
+
 	 || 
-	
+
  --->
 
 	<cfquery name="get_old_review" datasource="#application.datasources.main#">
@@ -20,13 +20,13 @@
 		WHERE emp_id = '#attributes.emp_id#'
 		ORDER BY created_date DESC
 	</cfquery>
-	
+
 	<cfif get_old_review.recordcount>
 		<cfset attributes.deactivate_record = 1>
 	<cfelse>
 		<cfset attributes.deactivate_record = 0>
 	</cfif>
-	
+
 <cfquery name="emp_performance_review_entry" datasource="#application.datasources.main#">
 INSERT INTO Performance_Review (emp_id, rating, created_date,
 	 review_type_id, active_ind, reviewer_id,

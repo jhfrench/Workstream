@@ -12,7 +12,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 
 <!--- act_set_excel_print_format.cfm --->

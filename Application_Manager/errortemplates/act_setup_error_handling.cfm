@@ -21,7 +21,7 @@
 		INNER JOIN REF_Email_Server ON Installation.email_server_id=REF_Email_Server.email_server_id
 	WHERE Installation.installation_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#application.installation_id#">
 	</cfquery>
-	
+
 	<cflock type="EXCLUSIVE" scope="APPLICATION" timeout="4">
 		<cfif qry_get_error_handling_enabled_ind.recordcount GT 0>
 			<cfset application.error_handling_enabled_ind=qry_get_error_handling_enabled_ind.error_handling_enabled_ind>

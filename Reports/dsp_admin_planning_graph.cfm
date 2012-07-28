@@ -59,7 +59,7 @@ Admin/Planning Efficiency Percent<br />
 	<param name="plotAreaBottom" value=".055">
 	<param name="plotAreaRight" value=".98">
 	<param name="plotAreaLeft" value="#plotAreaLeft#">
-	
+
 	<param name="yAxisOptions" value="gridOn,minTickOn">
 	<param name="yAxisGridColor" value="c0c0c0">
 	<param name="yAxisLabelColor" value="black">
@@ -70,7 +70,7 @@ Admin/Planning Efficiency Percent<br />
 	<param name="yAxisTitle" value="">
 	<param name="yAxisTitleColor" value="black">
 	<param name="yAxisTitleFont" value="Trebuchet MS,#large#,1">
-	
+
 	<param name="xAxisGridColor" value="black">
 	<param name="xAxisLabelColor" value="black">
 	<param name="xAxisLabelFont" value="Trebuchet MS,#small#,1">
@@ -80,20 +80,20 @@ Admin/Planning Efficiency Percent<br />
 	<param name="xAxisTitleColor" value="black">
 	<param name="xAxisTitleFont" value="Trebuchet MS,#large#,1">
 	<param name="yAxisOptions" value="gridOn, tickOff">
-	
+
 	<param name="barLabelsOn" value="false">
 	<param name="barLabelColor" value="black">
 	<param name="barLabelFormat" value="1">
 	<param name="barLabelPrecision" value="4">
-	
+
 	<param name="dwellUseXValue" value="false">
 	<param name="dwellYString" value="##%">
-	
+
 	<param name="dataset0yvalues" value="#dataset0yvalues#">
 	<param name="dataset0Color" value="4682b4">
 	<param name="dataset0LabelColor" value="black">
 	<param name="dataset0Name" value="Percent of Admin/Planning time">
-	
+
 	<param name="legendOff" value="true">
 	<param name="legendVertical" value="true">
 	<param name="legendColor" value="ffffff">

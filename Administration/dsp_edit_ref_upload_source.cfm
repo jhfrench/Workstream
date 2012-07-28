@@ -31,7 +31,7 @@
 	<select name="upload_source_id">
 	<cfloop query="get_ref_upload_source"><option value="#upload_source_id#" <cfif not comparenocase(get_ref_upload_source.upload_source_id, attributes.upload_source_id)>selected</cfif>>#upload_source#</option></cfloop>
 	</select>
-	<input name="method" type="submit" alt="Retrieve and edit upload source" value="Retrieve and edit upload source"/>
+	<input type="submit" name="method" alt="Retrieve and edit upload source" value="Retrieve and edit upload source"/>
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_upload_source.cfm"  upload_source_id="#attributes.upload_source_id#">
@@ -87,12 +87,12 @@
 		<td align="center">
 			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
 			<input type="hidden" name="upload_source_id" value="#attributes.upload_source_id#"/>
-			<input type="submit" alt="submit" value="Submit" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>
 </div>
 </cfform>
-</cfoutput>		
-	
+</cfoutput>
+

@@ -59,19 +59,19 @@
 	<param name="plotAreaBottom" value="0.05">
 	<param name="plotAreaRight" value="1">
 	<param name="plotAreaLeft" value="0.05">
-	
+
 	<param name="xAxisLabels" value="#xaxislabels#">
 	<param name="xAxisLabelFont" value="Trebuchet MS,#small#,1">
-	<param name="xAxisOptions" value="rotateTitle">				
+	<param name="xAxisOptions" value="rotateTitle">
 	<param name="yAxisOptions" value="rotateTitle, gridOn">
 	<param name="yAxisColor" value="708090">
 	<param name="yAxisLabelFont" value="Trebuchet MS,#small#,1">
-	
+
 	<param name="dataset0yValues" value="#dataset0yvalues#">
 	<param name="dataset1yValues" value="#dataset1yvalues#">
 	<param name="dataset2yValues" value="#dataset2yvalues#">
 	<param name="dataset3yValues" value="#dataset3yvalues#"> 
-	
+
 	<param name="dataset0name" value="Prospecting">
 	<param name="dataset1name" value="Qualifying">
 	<param name="dataset2name" value="Proposing">
@@ -79,8 +79,8 @@
 	<param name="dataset0Color" value="FFC363">
 	<param name="dataset1Color" value="5A82B5">
 	<param name="dataset2Color" value="A5597B">
-	<param name="dataset3Color" value="6B7D63">		
-	
+	<param name="dataset3Color" value="6B7D63">
+
 	<param name="legendllX" value=".7">
 	<param name="legendllY" value=".7"> 
 	<param name="legendOn" value="yes">

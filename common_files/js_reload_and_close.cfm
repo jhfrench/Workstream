@@ -2,7 +2,7 @@
 <fusedoc fuse="js_reload_and_close.cfm">
 	<responsibilities>
 		To update the Counselor Experience
-	</responsibilities>	
+	</responsibilities>
 	<io>
 		<in>
 			<string name="attributes.counselor_id" comments="counselor record ID" />
@@ -28,7 +28,7 @@
 			}
 		}
 	}
-	
+
 	//If we found our hidden field, then grab it's value and concatonate onto the URL
 	if (curr_layer!=""){
 		//Get the current value of the URL
@@ -40,14 +40,14 @@
 		//Set the paren't URL to the new concatonated version
 		opener.location.href=parent_url;
 		//Use go instead of reload to retain page properties
-		opener.history.go(1);		
+		opener.history.go(1);
 	}else{
 		opener.location.reload();
 	}
-	
 
-	
-	
+
+
+
 	//Close the child window
 	window.close();
 </script>

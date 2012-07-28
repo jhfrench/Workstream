@@ -30,7 +30,7 @@ limitations under the License.
 							"Unexpected attributes were found in a 'if' verb in fuseaction #fb_.verbInfo.circuit#.#fb_.verbInfo.fuseaction#.");
 			}
 		}
-		
+
 		// validation of children:
 		// at most one <true>, at most one <false>, nothing else:
 		fb_.hasTrue = false;
@@ -67,7 +67,7 @@ limitations under the License.
 				break;
 			}
 		}
-		
+
 		// compile <if>
 		// <true> and <false> can occur in either order so we defer the conditional
 		// to the child tags...

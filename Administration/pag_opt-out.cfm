@@ -37,7 +37,7 @@
 	<h2>Opt-Out from <abbr title="NASA Vendor Database">NVDB</abbr> Emails</h2>
 	<cfform name="form_remove_me" method="post">
 		Please enter your <label for="email_address">email address</label>: <cfinput type="text" name="email_address" id="email_address" size="50" maxlength="4000" required="yes" validate="email" validateat="onserver, onsubmit" message="You must enter a valid email address." value="#attributes.email_address#" />
-		<br />Your email will be removed from future <abbr title="Applied Internet Technologies">AIT</abbr> Vendor Database email correspondence. 
+		<br />Your email will be removed from future <abbr title="National Aeronautics and Space Administration">NASA</abbr> Vendor Database email correspondence. 
 		<p style="text-align:center"><input type="submit" name="submit_remove" value="Please remove me" /></p>
 	</cfform>
 </cfif>

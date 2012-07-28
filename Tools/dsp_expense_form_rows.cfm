@@ -34,7 +34,7 @@
 </tr>
 <tr>
    		<td colspan="2" valign="top">
-	
+
    	<table cellpadding="2" cellspacing="0" border="0">
    		<cfloop from="#start#" to="#num_expense#" index="ii">
    		<tr>
@@ -50,7 +50,7 @@
    	</table>
    </td>
    <td colspan="2" valign="top">
-	
+
    	<table cellpadding="2" cellspacing="2" border="0">
    			<cfloop from="#start#" to="#end_row#" index="ii">
    		<tr>

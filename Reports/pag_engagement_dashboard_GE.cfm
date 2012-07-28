@@ -19,7 +19,7 @@
 </cfsilent>
 <cfinclude template="qry_get_engagement_dashboard_GE.cfm">
 <table border="1" cellpadding="1" cellspacing="0" align="center" width="95%" bordercolordark="#e1e1e1">
-	<cfinclude template="dsp_engagement_dashboard_row_header_customer.cfm">	
+	<cfinclude template="dsp_engagement_dashboard_row_header_customer.cfm">
 	<cfinclude template="dsp_engagement_dashboard_rows_customer.cfm">
 </table>
 

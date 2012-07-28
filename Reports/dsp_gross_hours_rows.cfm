@@ -12,7 +12,7 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfoutput query="gross_hours">	
+<cfoutput query="gross_hours">
 	<tr>
 		<td>#name#</td><cfloop from="1" to="#variables.daysinmonth#" index="ii">
 		<td class="number">#decimalformat(evaluate("day#ii#"))#</td></cfloop>

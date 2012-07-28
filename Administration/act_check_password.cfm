@@ -30,105 +30,105 @@ REGULAR EXPRESSION CODE GOES HERE
 
 	<!--- set array of REs based on id --->
 	<cfswitch expression="#application.password_text_requirements_id#">
-	
+
 		<!--- needs one alpha --->
-		<cfcase value="1">				
+		<cfcase value="1">
 			<cfset totalREs[1] = "[A-Za-z]">
 		</cfcase>
-	
+
 		<!--- needs one alpha and one symbol--->
-		<cfcase value="2">				
+		<cfcase value="2">
 			<cfset totalREs[1] = "[A-Za-z]">
 			<cfset totalREs[2] = "[[:punct:]]">
 		</cfcase>
-	
+
 		<!--- needs one alpha and one number--->
-		<cfcase value="3">				
+		<cfcase value="3">
 			<cfset totalREs[1] = "[A-Za-z]">
 			<cfset totalREs[2] = "[0-9]">
 		</cfcase>
-	
+
 		<!--- needs one alpha, one number, one symbol --->
-		<cfcase value="4">				
+		<cfcase value="4">
 			<cfset totalREs[1] = "[A-Za-z]">
 			<cfset totalREs[2] = "[0-9]">
 			<cfset totalREs[3] = "[[:punct:]]">
 		</cfcase>
-		
+
 		<!--- needs one number--->
-		<cfcase value="5">				
+		<cfcase value="5">
 			<cfset totalREs[1] = "[0-9]">
 		</cfcase>
-	
+
 		<!--- needs one number and one symbol--->
-		<cfcase value="6">				
+		<cfcase value="6">
 			<cfset totalREs[1] = "[0-9]">
 			<cfset totalREs[2] = "[[:punct:]]">
 		</cfcase>
-	
+
 		<!--- needs one number AND (alpha or symbol) --->
-		<cfcase value="7">				
+		<cfcase value="7">
 			<cfset totalREs[1] = "[0-9]">
 			<cfset totalREs[2] = "[A-Za-z]">
 			<cfset totalREs[3] = "[[:punct:]]">
 			<cfset multipleREs = true>
 		</cfcase>
-	
+
 		<!--- needs one alpha AND (one number or one symbol) --->
-		<cfcase value="8">				
+		<cfcase value="8">
 			<cfset totalREs[1] = "[A-Za-z]">
 			<cfset totalREs[2] = "[0-9]">
 			<cfset totalREs[3] = "[[:punct:]]">
 			<cfset multipleREs = true>
 		</cfcase>
-		
+
 		<!--- needs one symbol AND (one number OR one alpha) --->
-		<cfcase value="9">		
-			<cfset totalREs[1] = "[[:punct:]]">		
+		<cfcase value="9">
+			<cfset totalREs[1] = "[[:punct:]]">
 			<cfset totalREs[2] = "[A-Za-z]">
 			<cfset totalREs[3] = "[0-9]">
 			<cfset multipleREs = true>
 		</cfcase>
-	
+
 		<!--- needs one symbol--->
-		<cfcase value="10">				
+		<cfcase value="10">
 			<cfset totalREs[1] = "[[:punct:]]">
-		</cfcase>	
-			
+		</cfcase>
+
 		<!--- default --->
-		<cfdefaultcase>		
-			
+		<cfdefaultcase>
+
 		</cfdefaultcase>
 	</cfswitch>
-		
+
 	<!--- loop thru array --->
 	<cfset len_REs = arraylen(totalREs)>
-	
+
 	<!--- flag for more complex cases --->
 	<cfif multipleREs>
-		
+
 			<!--- check for first RE (which is required) --->
 			<cfif refind(totalREs[1],attributes.new_pass) eq 0>
 				<cfset password_failed = false>
 			</cfif>
-				
+
 			<!--- check that either second RE or third RE are present  --->
 			<cfif (refind(totalREs[2], attributes.new_pass) eq 0) AND (refind(totalREs[3], attributes.new_pass) eq 0)>
 				<cfset password_failed = false>
 			</cfif>
 
 	<cfelse>
-	
+
 			<!--- loop through each RE checking for each --->
 			<cfloop from="1" to="#len_REs#" index="a">
 				<cfif refind(totalREs[a],attributes.new_pass) EQ 0>
 						<cfset password_failed = false>
 				</cfif>
-			</cfloop>	
-	
+			</cfloop>
+
 	</cfif>
 	<!--- close multipleREs if --->
-		
+
 	<!--- if anything failed then kick them to failure page --->
 	<cfif not password_failed>
 		<cflocation url="index.cfm?fuseaction=#variables.redirect_action#" addtoken="no">

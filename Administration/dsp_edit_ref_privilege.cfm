@@ -31,7 +31,7 @@
 	<select name="privilege_id">
 	<cfloop query="get_ref_privilege"><option value="#privilege_id#" <cfif not comparenocase(get_ref_privilege.privilege_id, attributes.privilege_id)>selected</cfif>>#description#</option></cfloop>
 	</select>
-	<input name="method" type="submit" alt="Retrieve and edit privilege" value="Retrieve and edit privilege"/>
+	<input type="submit" name="method" alt="Retrieve and edit privilege" value="Retrieve and edit privilege"/>
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_privilege.cfm" privilege_id="#attributes.privilege_id#">
@@ -53,9 +53,8 @@
 				</td>
 				<td><label for="sort_order">Sort Order</label>: 
 					<br /><cfinput type="text" name="sort_order" id="sort_order" 
-                    value= #IIf(attributes.privilege_id EQ 0, ("get_ref_privilege.recordcount+1"), 
-                    ("get_ref_privilege.sort_order"))# size="3" maxlength="3"
-					required="yes" validate="integer" message="Please enter sort order.">
+                    value="#iif(attributes.privilege_id EQ 0, ('get_ref_privilege.recordcount+1'), ('get_ref_privilege.sort_order'))#"
+					size="3" maxlength="3" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.privilege_id EQ 0>
 					<input type="hidden" name="active_ind" value="1"/>
@@ -71,10 +70,10 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
-			<input type="hidden" name="privilege_id" value="#attributes.privilege_id#"/>
-			<input type="submit" alt="submit"value=" Submit " />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="hidden" name="created_by" value="#session.user_account_id#" />
+			<input type="hidden" name="privilege_id" value="#attributes.privilege_id#" />
+			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

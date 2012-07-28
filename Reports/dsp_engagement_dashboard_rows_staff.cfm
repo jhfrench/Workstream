@@ -34,7 +34,7 @@
 <cfif status EQ 2><td align="center" bgcolor="yellow" valign="bottom">Yellow</cfif>
 <cfif status EQ 1><td align="center" bgcolor="green" valign="bottom">Green</cfif>
 		</td>
-		
+
 		<td align="center" valign="bottom">
 			<cfif eng_status EQ 0>Not Started</cfif>
 			<cfif eng_status EQ 1>In Progress</cfif>
@@ -44,13 +44,13 @@
 			<cfif eng_status EQ 5>On Hold</cfif>
 			<cfif eng_status EQ 6>Withdrawn</cfif>
 			<cfif eng_status EQ 11>Tecnical Review</cfif>
-			<cfif eng_status EQ 12>Being Developed</cfif>			
+			<cfif eng_status EQ 12>Being Developed</cfif>
 			<cfif eng_status EQ 9>Sent for Content Approval</cfif>
 			<cfif eng_status EQ 10>Approved - Not Scheduled</cfif>
 			<cfif eng_status EQ 8>Getting LOE</cfif>
 			<cfif eng_status EQ 7>Waiting for Financial Approval</cfif>
 		</td>
-		
+
 		<td width="25%" valign="top">
 			#Vision# <cfif NOT len(vision)>&nbsp;</cfif>
 		</td>

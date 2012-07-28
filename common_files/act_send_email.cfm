@@ -29,7 +29,7 @@
 	variables.carbon_copy_to=listchangedelims(attributes.carbon_copy_to,","," ;");
 	if (NOT isdefined("attributes.show_message_ind"))
 		attributes.show_message_ind=1;
-		
+
 	//accomodate SQL limitation for more than 1000 recipients
 	variables.loop_count=ceiling(listlen(attributes.email_recipients_demographics_id)/999);
 	variables.working_list=listsort(attributes.email_recipients_demographics_id,"numeric");
@@ -62,14 +62,14 @@
 	</cfscript>
 	<!--- LOG_Email --->
 	<cfinclude template="act_log_email.cfm">
-	
+
 	<cfif len(attributes.upload_id)>
 		<!--- Link_Email_Upload --->
 		<cfinclude template="qry_insert_link_email_upload.cfm">
 		<cfinclude template="qry_get_log_upload.cfm">
 		<cfset variables.upload_directory_path="#getdirectoryfrompath(gettemplatepath())#Uploaded_Files">
 	</cfif>
-	
+
 	<!--- SEND THE MESSAGE --->
 	<cfif get_email_recipients.recordcount GT 250>
 	<!---if our recipient list is over 250 people, let's chunk the message up--->

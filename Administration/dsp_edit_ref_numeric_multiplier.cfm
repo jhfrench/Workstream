@@ -31,7 +31,7 @@
 	<select name="numeric_multiplier_id">
 	<cfloop query="get_numeric_multiplier"><option value="#numeric_multiplier_id#" <cfif not comparenocase(get_numeric_multiplier.numeric_multiplier_id, attributes.numeric_multiplier_id)>selected</cfif>>#description#</option></cfloop>
 	</select>
-	<input name="method" type="submit" alt="Retrieve and edit numeric multiplier" value="Retrieve and edit numeric multiplier"/>
+	<input type="submit" name="method" alt="Retrieve and edit numeric multiplier" value="Retrieve and edit numeric multiplier"/>
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_numeric_multiplier.cfm" numeric_multiplier_id="#attributes.numeric_multiplier_id#">
@@ -88,8 +88,8 @@
 		<td align="center">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="numeric_multiplier_id" value="#attributes.numeric_multiplier_id#" />
-			<input type="submit" alt="submit" value=" Submit " />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

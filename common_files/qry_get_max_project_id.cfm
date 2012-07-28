@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 <cfquery name="get_max_project_id" datasource="#application.datasources.main#">
 SELECT CURRVAL('Project_project_id_SEQ') AS project_id

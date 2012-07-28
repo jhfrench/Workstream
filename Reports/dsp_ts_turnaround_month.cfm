@@ -42,25 +42,25 @@
 			<param name="backgroundColor" value="ffffff">
 			<param name="2D" value="yes">
 			<param name="CopyrightNotification" value="JavaChart is a copyrighted work, and subject to full legal protection">
-		
+
 			<param name="plotAreaColor" value="ffffff">
 			<param name="plotAreaTop" value=".95">
 			<param name="plotAreaBottom" value=".2">
 			<param name="plotAreaLeft" value=".1">
 			<param name="plotAreaRight" value=".99">
-			
+
 			<param name="legendOn" value="true">
 			<param name="legendLabelFont" value="Trebuchet MS,#small#,1">
 			<param name="iconWidth" value=".005">
 			<param name="legendllY" value="0">
 			<param name="legendllX" value="0">
-			
+
 			<param name="dwellUseLabelString" value="true">
 			<param name="dwellLabelsOn" value="true">
 			<param name="dwellYString" value="## hours">
 			<param name="dwellUseYValue" value="true">
 			<param name="dwellUseXValue" value="false">
-			
+
 			<param name="yAxisColor" value="#Y_TickBar#">
 			<param name="yAxisGridColor" value="#Y_TickBar#">
 			<param name="yAxisLabelColor" value="#X_label#">
@@ -71,7 +71,7 @@
 			<param name="yAxisTitle" value="Hours">
 			<param name="yAxisTitleColor" value="#X_label#">
 			<param name="yAxisTitleFont" value="Trebuchet MS,#small#,1">
-			
+
 			<param name="xAxisColor" value="000000">
 			<param name="xAxisGridColor" value="#X_label#">
 			<param name="xAxisLabelColor" value="#X_label#">
@@ -80,11 +80,11 @@
 			<param name="xAxisTickColor" value="#X_label#">
 			<param name="xAxisTitle" value="Month">
 			<param name="xAxisTitleFont" value="Trebuchet MS,#small#,1">
-			
+
 			<param name="barLabelColor" value="#X_label#">
 			<param name="barLabelFormat" value="1">
 			<param name="barLabelPrecision" value="4">
-			
+
 			<param name="dataset0name" value="Hours to Assess">
 			<param name="dataset0LineWidth" value="2">
 			<param name="dataset0color" value="6B7D63">

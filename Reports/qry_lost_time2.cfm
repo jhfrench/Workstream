@@ -11,9 +11,9 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
-	
+
 <cfquery name="lost_time" datasource="#application.datasources.main#">
 SELECT [name]||' '||lname as full_name, 
 	SUM(case when Project_id IN (709,724,879,910,941,972,1319,1352,1405,731,886,917,948,979,1326,1359,1412,706,723,878,909,940,971,1318,1351,1404,707,725,880,911,942,973,1320,1353,1406)then te.hours else 0 end) as PTO,

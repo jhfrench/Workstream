@@ -9,9 +9,9 @@
 	Name: Jeromy French
 	||
 	Edits: 
-	
+
 	 || 
-	
+
  --->
 
 <cfquery name="get_old_benefit" datasource="#application.datasources.main#">
@@ -27,7 +27,7 @@ ORDER BY date_start DESC
 <cfelse>
 	<cfset variables.deactivate_record = 0>
 </cfif>
-	
+
 <cfquery name="emp_benefits_entry" datasource="#application.datasources.main#">
 INSERT INTO Benefit (emp_id, benefit_type_id, date_start,
 	 active_ind, benefit_amount, note)

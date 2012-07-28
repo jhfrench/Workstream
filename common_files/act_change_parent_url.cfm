@@ -24,7 +24,7 @@
 <cfparam name="attributes.target_fuseaction" default="">
 <cfif NOT isdefined("session.user_account_id")>
 	<script type="text/javascript">
-		parent.change_parent_url('http<cfif comparenocase(cgi.HTTPS,"OFF")>s</cfif>://<cfoutput>#cgi.server_name##cgi.script_name#<cfif len(attributes.target_fuseaction)>?fuseaction=#attributes.target_fuseaction#</cfif></cfoutput>');	
+		parent.change_parent_url('http<cfif comparenocase(cgi.HTTPS,"OFF")>s</cfif>://<cfoutput>#cgi.server_name##cgi.script_name#<cfif len(attributes.target_fuseaction)>?fuseaction=#attributes.target_fuseaction#</cfif></cfoutput>');
 	</script>
 	<cfabort>
 </cfif>

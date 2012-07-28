@@ -12,7 +12,7 @@
 	 || 
 	--> client_code: this the client code that is being inactivated
 	<-- Outgoing Paramater
-	
+
 	END FUSEDOC --->
 <cfparam name="delete_user_field_list" default="None">
 <cfif attributes.active_ind eq 1>

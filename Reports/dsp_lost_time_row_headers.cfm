@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 </cfsilent>
 	<tr class="HeadTextWhite" bgcolor="#008080">
@@ -23,13 +23,13 @@
 		</td> --->
 		<td>
 			Bereavement
-		</td>	
+		</td>
 		<td>
 			Holiday
 		</td>
 		<td>
 			Jury Duty 
-		</td>		
+		</td>
 
 		<!--- <td>
 			Sick

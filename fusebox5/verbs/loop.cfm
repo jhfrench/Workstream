@@ -30,21 +30,21 @@ limitations under the License.
 		//    index - index - required
 		// the last two are new in Fusebox 5
 		if (structKeyExists(fb_.verbInfo.attributes,"condition")) {
-			
+
 			fb_.nAttrs = 1;
-			
+
 			fb_appendLine('<cfloop condition="#fb_.verbInfo.attributes.condition#">');
-			
+
 		} else if (structKeyExists(fb_.verbInfo.attributes,"query")) {
-			
+
 			fb_.nAttrs = 1;
-			
+
 			fb_appendLine('<cfloop query="#fb_.verbInfo.attributes.query#">');
-		
+
 		} else if (structKeyExists(fb_.verbInfo.attributes,"from") or structKeyExists(fb_.verbInfo.attributes,"to")) {
-		
+
 			fb_.nAttrs = 3;		// from/to/index required
-			
+
 			if (not structKeyExists(fb_.verbInfo.attributes,"from") or
 					not structKeyExists(fb_.verbInfo.attributes,"to") or 
 					not structKeyExists(fb_.verbInfo.attributes,"index")) {
@@ -56,18 +56,18 @@ limitations under the License.
 									' to="#fb_.verbInfo.attributes.to#"' &
 									' index="#fb_.verbInfo.attributes.index#"');
 				if (structKeyExists(fb_.verbInfo.attributes,"step")) {
-					
+
 					fb_.nAttrs = fb_.nAttrs + 1;	// step optional
 
 					fb_appendSegment(' step="#fb_.verbInfo.attributes.step#"');
 				}
 				fb_appendLine('>');
 			}
-		
+
 		} else if (structKeyExists(fb_.verbInfo.attributes,"collection")) {
-			
+
 			fb_.nAttrs = 2;		// collection/item required
-			
+
 			if (not structKeyExists(fb_.verbInfo.attributes,"item")) {
 				fb_throw("fusebox.badGrammar.requiredAttributeMissing",
 							"Required attribute is missing",
@@ -75,11 +75,11 @@ limitations under the License.
 			} else {
 				fb_appendLine('<cfloop collection="#fb_.verbInfo.attributes.collection#" item="#fb_.verbInfo.attributes.item#">');
 			}
-			
+
 		} else if (structKeyExists(fb_.verbInfo.attributes,"list")) {
-			
+
 			fb_.nAttrs = 2;		// list/index required
-			
+
 			if (not structKeyExists(fb_.verbInfo.attributes,"index")) {
 				fb_throw("fusebox.badGrammar.requiredAttributeMissing",
 							"Required attribute is missing",
@@ -87,7 +87,7 @@ limitations under the License.
 			} else {
 				fb_appendLine('<cfloop list="#fb_.verbInfo.attributes.list#" index="#fb_.verbInfo.attributes.index#">');
 			}
-			
+
 		} else {
 			// illegal attributes
 			fb_throw("fusebox.badGrammar.requiredAttributeMissing",

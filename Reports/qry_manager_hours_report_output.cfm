@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 <cfquery name="manager_hours_report_output" datasource="#application.datasources.main#">
 SELECT Employee_Data.employee_classification, Employee_Data.emp_id, Employee_Data.name,
@@ -42,6 +42,7 @@ FROM (
 			AND Time_Entry.emp_id IN (#attributes.included_emp_id#) 
 		) AS Time_Entry_Data ON Employee_Data.emp_id=Time_Entry_Data.emp_id
 	LEFT OUTER JOIN Notes ON Time_Entry_Data.notes_id=Notes.notes_id
+		AND Notes.active_ind=1
 ORDER BY Employee_Data.lname, Employee_Data.name, Employee_Data.employee_classification,
 	Time_Entry_Data.date
 </cfquery>

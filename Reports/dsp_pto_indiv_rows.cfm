@@ -33,7 +33,7 @@
 	<tr bgcolor="#F9E36A">
 		<td></td>
 		<td colspan="2">Remaining:</td>
-		
+
 		<cfif IsNumeric(GetEmpDetails.day_length)>
 			<cfset days_left=decimalformat(remaining/GetEmpDetails.day_length)>
 		<cfelse>

@@ -39,7 +39,7 @@
 	<cfif attributes.read_file_into_variable_ind>
 		<cffile action="read" file="#cffile.ServerDirectory#/#cffile.serverfile#" variable="uploaded_contents">
 	</cfif>
-	
+
 	<cfif application.application_specific_settings.archive_data_uploads_ind EQ 1>
 		<cfinclude template="act_archive_upload.cfm">
 	</cfif>
@@ -75,7 +75,7 @@
 					NoDates="#get_ref_upload_source.no_dates_present#"
 					r_qresults="get_excel_data">
 				<cfset variables.process_ind=get_excel_data.recordcount>
-	
+
 				<cfcatch type="Any">
 					<cfset variables.display_message="The file type is incorrect. Please check the worksheet name (should be '#get_ref_upload_source.worksheet_name#') and try again, or contact the ICET Administrator.">
 					<cfset variables.error_ind=1>

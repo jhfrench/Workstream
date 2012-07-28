@@ -41,21 +41,21 @@
 		</div>
 		</cfif>
 		<cfif listcontains(valuelist(get_user_access.fuseaction),"emp_entry")>
-		
+
 			<cfif listcontains("1" ,session.user_account_id)>
 			<!--- <cfif session.user_account_id EQ 126 OR session.user_account_id EQ 609> --->
 				<cfinclude template="dsp_emp_supervisor.cfm">
 			</cfif>
-		
+
 			<cfinclude template="dsp_emp_position_number.cfm">
-				
+
 			<!--- Only Jeromy can see this so hard code it--->
 			<cfif listcontains("1" ,session.user_account_id)>
 				<cfinclude template="dsp_emp_salary_info.cfm">
 				<cfinclude template="dsp_emp_benefits_info.cfm">
 				<cfinclude template="dsp_emp_performance_review.cfm">
 			</cfif>
-			
+
 			<cfinclude template="dsp_emp_job_titles.cfm">
 		</cfif>
 		<cfif get_subordinates.recordcount>

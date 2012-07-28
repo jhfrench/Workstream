@@ -78,14 +78,14 @@
 	</cfif>
 	<cfform action="index.cfm?fuseaction=Tools.expense_entry" method="post" name="date_range"> 
 	<tr>
-		
+
 		<td colspan="6" align="center">
 			Specify: <br />Date Range: <cfinput type="datefield" name="begin_date" required="NO" validate="date"  size="11"> to <cfinput type="datefield" name="end_date" required="NO" validate="date"  size="11"><br />
 Status: <cfselect name="expense_status_id" size="1" query="get_expense_status" value="expense_status_id" display="description"></cfselect>
 <br />
 <input type="submit" name="submit" value="Submit">
 		</td>
-		
+
 	</tr>
 	<tr>
 		<td colspan="6"><HR></td>
@@ -102,6 +102,6 @@ Status: <cfselect name="expense_status_id" size="1" query="get_expense_status" v
 </tr>
 	</cfform>
 	<cfform action="index.cfm?fuseaction=Tools.expense_insert" method="post" name="expense_insert"> 
-	<cfinclude template="dsp_expense_entry_form.cfm">	
+	<cfinclude template="dsp_expense_entry_form.cfm">
 	</cfform>
 </table>

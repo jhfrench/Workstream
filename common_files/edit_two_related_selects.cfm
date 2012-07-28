@@ -2,13 +2,13 @@
 <fusedoc fuse="common_files/two_related_selects.cfm">
 	<responsibilities>
 		I am a common file used for two related selects, included as a CFMODULE.
-	</responsibilities>	
+	</responsibilities>
 	<io>
 		<in>
 		</in>
 	</io>
-	
-	Edits: 	
+
+	Edits: 
 	$Log$
 </fusedoc>
 --->
@@ -91,12 +91,12 @@
 				return RetVal
 			}
 		}
-		
+
 		function require_#attributes.Name1#And#attributes.Name2#() {
 		  return ((require_#attributes.Name1#()) && (require_#attributes.Name2#()));
 		}
-		
-				
+
+
 	function #FunctionName# {
 		OneA.length = 0;
 		menuNum = document.#attributes.FormName#.#attributes.Name1#.selectedIndex;
@@ -114,7 +114,7 @@
 <!--- WITHIN THE "IF" STATMENT, PRE-POPULATE ARRAY WITH CORRESPONDING ITEMS FOR SECOND SELECT  --->
 <cfset variables.counter2=0>
 <cfoutput QUERY="MyQuery" GROUP="#attributes.Display1#">
-	
+
 	if (document.#attributes.FormName#.#attributes.Name1#[#counter#].selected == true) {
 	<cfoutput>
 		<cfif len(attributes.EmptyText2)>#attributes.Name1#NewOpt[0] = new Option("#attributes.EmptyText2#", "");</cfif>
@@ -170,7 +170,7 @@ for (i = 0; i < tot; i++) {
 	<cfif len(attributes.emptytext1)><cfoutput><option value="">#attributes.emptytext1#</option></cfoutput></cfif>
 	<!--- generate remaining items from query --->
 	<cfoutput query="myquery" group="#attributes.display1#"><option value="#myquery[attributes.value1][myquery.currentrow]#" <cfif ListFind(attributes.value1_list,myquery[attributes.value1][myquery.currentrow],",")>selected</cfif> >#myquery[attributes.display1][myquery.currentrow]#</option></cfoutput>
-	
+
   <!--- "FORCE WIDTH" OPTION AT BOTTOM, IF REQUESTED --->
 	<cfif len(attributes.ForceWidth1)><cfoutput><OPTION value="">#RepeatString(attributes.ForceWidthChar, attributes.ForceWidth1)#</option></cfoutput></cfif>
 <cfoutput></SELECT></cfoutput>
@@ -183,11 +183,11 @@ for (i = 0; i < tot; i++) {
 <cfoutput><SELECT name="#attributes.Name2#" SIZE="#attributes.Size2#" <cfif len(attributes.onChange)>onChange="#attributes.OnChange#"</cfif> <cfif len(attributes.Width2)>STYLE="width:#attributes.Width2#"</cfif><cfif attributes.multiple2> multiple</cfif>></cfoutput>
 	<!--- SPECIAL FIRST ITEM, IF REQUESTED --->
 	<cfif len(attributes.EmptyText2)><cfoutput><OPTION value="">#attributes.EmptyText2#</option></cfoutput></cfif>
-	
+
 	<!--- GENERATE REMAINING ITEMS FROM QUERY --->
 	<!--- WE ONLY NEED TO OUTPUT THE CHOICES FOR THE FIRST GROUP --->
-	
-	
+
+
 		   <cfif NOT len(attributes.EmptyText1)>
 		   <cfloop QUERY="MyQuery">
 			<cfif ListFind(attributes.value1_list,myquery[attributes.value1][myquery.currentrow],",")>
@@ -196,7 +196,7 @@ for (i = 0; i < tot; i++) {
 		    </cfif>
 			</cfloop>
 		</cfif>
-	
+
 
   <cfif Val(attributes.ExtraOptions2) GT 0>
     <cfloop FROM="1" TO="#Val(attributes.ExtraOptions2)#" INDEX="i">

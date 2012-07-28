@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfif len(attributes.root_code)>
-	<cfset variables.new_code=attributes.root_code>	
+	<cfset variables.new_code=attributes.root_code>
 <cfelse>
 	<cfinclude template="qry_get_prefix.cfm">
 	<cfset variables.code_prefix=get_prefix.prefix>

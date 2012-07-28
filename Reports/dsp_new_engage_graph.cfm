@@ -61,25 +61,25 @@
 				<param name="backgroundColor" value="ffffff">
 				<param name="2D" value="yes">
 				<param name="CopyrightNotification" value="JavaChart is a copyrighted work, and subject to full legal protection">
-			
+
 				<param name="plotAreaTop" value=".94">
 				<param name="plotAreaBottom" value=".1">
 				<param name="plotAreaRight" value="1">
 				<param name="plotAreaLeft" value=".05">
-				
+
 				<param name="xAxisLabels" value="#xAxisLabels#">
 				<param name="xAxisLabelFont" value="Trebuchet MS,#small#,1">
-				
+
 				<param name="yAxisOptions" value="gridOn">
 				<param name="yAxisColor" value="708090">
 				<param name="yAxisLabelFont" value="Trebuchet MS,#small#,1">
-				
+
 				<param name="dataset0yValues" value="#dataset0yvalue#">
 				<param name="dataset0name" value="Projects">
 				<param name="dataset0Color" value="006666">
 				<param name="dataset0LineWidth" value="2">
 				<param name="dataset0Links" value="#dataset0Links#">
-				
+
 				<param name="legendllX" value=".01">
 				<param name="legendllY" value=".95">
 				<param name="legendOn" value="yes">

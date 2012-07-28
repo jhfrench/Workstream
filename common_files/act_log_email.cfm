@@ -38,6 +38,6 @@ else
 <cfinclude template="qry_insert_log_email.cfm">
 
 <cfif isdefined("attributes.email_recipients_demographics_id")>
-	<!--- Link_Email_Demographics --->			
+	<!--- Link_Email_Demographics --->
 	<cfinclude template="qry_insert_link_email_demographics.cfm">
 </cfif>

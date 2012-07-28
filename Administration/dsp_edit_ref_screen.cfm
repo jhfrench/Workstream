@@ -114,8 +114,8 @@
 		<td align="center" colspan="3">
 			<cfoutput>
 			<input type="hidden" name="screen_id" value="#attributes.screen_id#" />
-			<input type="submit" alt="submit" value="Submit" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 			</cfoutput>
 		</td>
 	</tr>

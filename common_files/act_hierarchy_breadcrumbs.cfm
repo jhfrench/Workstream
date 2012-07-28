@@ -122,7 +122,7 @@ ORDER BY Breadcrumb_Hierarchy.sort_order DESC
 						<cfset variables.breadcrumb_startrow=(get_hierarchy_breadcrumbs.recordcount - 6 + 1)>
 					</cfcase>
 				</cfswitch>
-		
+
 				<cfoutput query="get_hierarchy_breadcrumbs" startrow="#variables.breadcrumb_startrow#" maxrows="#get_hierarchy_breadcrumbs.recordcount#">
 					<cfif recordcount NEQ currentrow>
 						<a href="javascript:breadcrumb_link(#organization_id#,#hierarchy_level_id + 1#);">#description#</a> &gt; 

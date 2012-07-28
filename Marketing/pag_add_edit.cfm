@@ -20,7 +20,7 @@
 	<cfparam name="flag" default="0">
 	<cfif compare(attributes.cfgridkey, "")>
 		<cfif compare(flag, 1)>
-					
+
 					<cfinclude template="qry_get_contact_name.cfm">
 					<table border="0" cellpadding="3" cellspacing="0" align="center">
 					<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText" section_color="ffffff" section_title="Marketing Grid" colspan="3" gutter="false" align="center">
@@ -39,7 +39,7 @@
 			</cfif>
 		</cfif>
 	<cfelse>
-	<div align="center" class="Note">To edit a contact select the contact's name, to add a contact, click "add"</div>		
+	<div align="center" class="Note">To edit a contact select the contact's name, to add a contact, click "add"</div>
 	</cfif>
 </cfif>
 			

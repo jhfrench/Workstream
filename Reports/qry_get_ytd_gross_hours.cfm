@@ -23,7 +23,7 @@ SELECT COALESCE(employee_classification, 'Unknown') AS employee_classification, 
 	Demographics.emp_id, COALESCE(SUM(Time_Entry.hours), 0) AS gross_hours
 FROM Time_Entry
 	RIGHT OUTER JOIN Demographics_Ngauge AS Demographics ON Time_Entry.emp_id=Demographics.emp_id
-	INNER JOIN Emp_Contact ON Demographics.emp_id= Emp_Contact.emp_id	
+	INNER JOIN Emp_Contact ON Demographics.emp_id= Emp_Contact.emp_id
 	LEFT OUTER JOIN Project	ON Time_Entry.project_id=Project.project_id
 	LEFT OUTER JOIN Location ON Emp_Contact.emp_id=Location.emp_id
 		AND Location.location_type_id=1<CFIF NOT listfind(display_office,"ALL")>

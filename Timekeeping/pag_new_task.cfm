@@ -24,7 +24,7 @@
 		<cfelseif isdefined("attributes.to_edit") AND len(attributes.to_edit)>
 			<form name="to_edit" action="index.cfm?fuseaction=Timekeeping.task_details" method = "post">
 				<input type="hidden" name="task_id" value="<cfoutput>#insert_new_task.task_id#</cfoutput>">
-			</form>	
+			</form>
 			<script language="JavaScript" type="text/javascript">
 		    <!--
 		    	document.to_edit.submit();

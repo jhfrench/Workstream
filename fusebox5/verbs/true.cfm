@@ -22,7 +22,7 @@ limitations under the License.
 			fb_throw("fusebox.badGrammar.trueNeedsIf",
 						"Verb 'true' has no parent 'if' verb",
 						"Found 'true' verb with no parent 'if' verb in fuseaction #fb_.verbInfo.circuit#.#fb_.verbInfo.fuseaction#.");
-		}	
+		}
 		// strict mode - check attribute count:
 		if (fb_.verbInfo.action.getCircuit().getApplication().strictMode) {
 			if (structCount(fb_.verbInfo.attributes) neq 0) {
@@ -31,7 +31,7 @@ limitations under the License.
 							"Unexpected attributes were found in a 'true' verb in fuseaction #fb_.verbInfo.circuit#.#fb_.verbInfo.fuseaction#.");
 			}
 		}
-		
+
 		// compile <true>
 		if (fb_.verbInfo.parent.ifUsed) {
 			fb_appendLine("<cfelse>");

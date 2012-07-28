@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 <cfset company_list_use = listappend(session.workstream_selected_company_id, session.workstream_company_id)>
 <cfquery name="pto_hours" datasource="#application.datasources.main#">

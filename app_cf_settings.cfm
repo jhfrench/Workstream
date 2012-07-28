@@ -22,7 +22,7 @@
 --->
 
 <cfif NOT isdefined("application.private_fuseactions")>
-	
+
 	<cfscript>
 		application.active_ind=1;
 		application.application_full_name="workstream:inst_459_date_2009-11-13 14:15:19_vers_587_env_21_host_83_email_21_lc_0_ldb_412_cust_1068";
@@ -45,9 +45,9 @@
 		application.help.faq_active_ind=1;
 			application.help.active_ind=application.help.article_active_ind+application.help.faq_active_ind; //short-circuit the help module if neither Articles nor FAQ are active
 		application.help.search_active_ind=1; //FYI: if articles and faq are inactivate there will be nothing to search
-		
+
 		application.team_changed=now();
-		
+
 		switch(variables.environment_name) {
 			case "Development": {
 				application.error_handling_enabled_ind=0;
@@ -56,7 +56,7 @@
 				application.host_server_name="Nash";
 				break;
 			}
-			
+
 			case "SEF": {
 				application.error_handling_enabled_ind=1;
 				application.email_server_name="smtp.hq.nasa.gov";
@@ -64,7 +64,7 @@
 				application.host_server_name="Procyon";
 				break;
 			}
-			
+
 			case "Production": {
 				application.error_handling_enabled_ind=1;
 				application.email_server_name="smtp.hq.nasa.gov";
@@ -74,7 +74,7 @@
 			}
 		}
 	</cfscript>
-	
+
 	<cfquery name="get_application_specific_settings" datasource="#application.datasources.main#">
 	SELECT setting_name, setting_value
 	FROM Custom_Setting
@@ -91,7 +91,7 @@
 			</cfloop>
 		</cflock>
 	</cfif>
-	
+
 	<cfquery name="get_secured_screens" datasource="#application.datasources.main#">
 	SELECT REF_Screen.fuseaction
 	FROM REF_Screen

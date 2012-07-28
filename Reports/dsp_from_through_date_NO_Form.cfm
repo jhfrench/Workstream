@@ -28,7 +28,7 @@
 	<tr bgcolor="##5F5F5F" class="HeadTextSmWhite">
 		<td colspan="2">Enter Dates (mm/dd/yyyy)</td>
 	</tr>
-	<tr>	
+	<tr>
 		<td>From: <cfinput type="datefield" name="from_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid from date"></td>
 		<td>To: <cfinput type="datefield" name="through_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid through date"></td>
 	</tr>

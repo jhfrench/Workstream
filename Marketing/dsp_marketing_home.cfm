@@ -25,7 +25,7 @@
 	</cfdefaultcase>
 </cfswitch>
 <cfset Last_Month = DatePart("m",(dateadd("m",-1, now())))>
-<cfset This_Year = DatePart("yyyy",(dateadd("m",0, now())))>	
+<cfset This_Year = DatePart("yyyy",(dateadd("m",0, now())))>
 <cfset ytd_revenue=0>
 <cfoutput query="revenue_report">
 <cfif year eq This_Year>
@@ -37,7 +37,7 @@
 <cfset ytd_revenue_millions=ytd_revenue/1000000>
 <cfset variables.sales_text='The current closure rate for qualified prospects is xx% (Coming Soon). The goal for 2001 is to close xx% (Coming Soon) of all Qualified Prospects that are brought into the funnel by Marketing. <a href="#request.dir_level#index.cfm?fuseaction=Reports.sales_report">Click here for sales details.</a>'>
 </cfsilent>
-	<tr valign="top">		
+	<tr valign="top">
 		<td width="10%">&nbsp;</td>
 		<td width="30%">
 			<table cellpadding="0" cellspacing="0" border="0" width="100%">
@@ -129,5 +129,5 @@
 			</table>
 		</td>
 	</tr>
-	
-	
+
+

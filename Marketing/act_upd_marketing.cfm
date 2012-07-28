@@ -16,9 +16,9 @@
     	<cfloop from="1" to="#loopcount#" index="ii">
 <cftransaction isolation="READ_COMMITTED">
 		<!--- If the action for that level of the array is UPDATE run update statements. --->
-	
+
 		<cfset overview = MARKETING.OVERVIEW[ii]>
-	
+
 	<cfif not compareNoCase(MARKETING.RowStatus.Action[ii],  "u")> 
 			<cfif compare(MARKETING.projected_revenue[ii], "") 
 			or compare(MARKETING.probability[ii], "") 
@@ -41,7 +41,7 @@
 					<cfif IsNumeric(MARKETING.company_size[ii])>,company_size ='#MARKETING.COMPANY_SIZE[ii]#'</cfif>
 					Where project_id = #MARKETING.project_id[ii]#
 		          </cfquery>
-			</cfif>		
+			</cfif>
 		<cfloop from="1" to="3" index="jj">
 		    <cfscript>
 				paddress = evaluate("MARKETING.PADDRESS#jj#[ii]");
@@ -67,7 +67,7 @@
 			</cfscript>
 		<!--- this is where edits are made to an existing code --->
 			<cfif compare(emp_id, "")>
-			
+
 			<cfif compare(paddress, "") 
 			or compare(saddress, "") 
 			or compare(city, "") 
@@ -100,7 +100,7 @@
 				</cfquery>
 			</cfif>
 		</cfif>
-		
+
 		</cfloop>
 		<cfquery name="update_project" datasource="#application.datasources.main#">
                    update project
@@ -119,7 +119,7 @@
 				WHERE project_code LIKE '6005.%'
 				GROUP BY customer_id
                </cfquery>
-<!--- <cfset overview = evaluate(#MARKETING.OVERVIEW[ii]#)>		 --->	
+<!--- <cfset overview = evaluate(#MARKETING.OVERVIEW[ii]#)>		 --->
 <cfset  project_code = get_max_code.project_code +0.001>
 			<cfquery name="insert_project" datasource="#application.datasources.main#">
                    INSERT INTO project
@@ -171,7 +171,7 @@
 	            INSERT INTO Emp_Contact (name, lname, emp_contact_type)
 				VALUES ('#name#', '#lname#', 3)
 	               </cfquery>
-				
+
 				<cfquery name="get_emp_id" datasource="#application.datasources.main#">
 				SELECT CURRVAL('Emp_Contact_emp_id_SEQ') AS emp_id
 				 </cfquery>

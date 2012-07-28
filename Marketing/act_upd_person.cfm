@@ -15,7 +15,7 @@
 <cfset loopcount = arraylen(person_grid.lname)>
 
     	<cfloop from="1" to="#loopcount#" index="ii">
-		
+
 		 <cfscript>
 			name = person_grid.name[ii];
 			lname = person_grid.lname[ii];
@@ -87,14 +87,14 @@
 			where emp_id = #PERSON_GRID.emp_id[ii]# and phone_type_id = 1
 	     </cfquery>
 	</cfif>
-	
+
 	<!--- if the address is new then insert --->
 	<cfif  NOT compare(person_grid.original.address1[ii], "") 
 	and NOT compare(person_grid.original.address2[ii], "") 
 	and NOT compare(person_grid.original.city[ii], "") 
 	and  NOT compare(person_grid.original.state[ii], "") 
 	and NOT compare(person_grid.original.zip[ii], "")> 
-	
+
 	<cfif compare(person_grid.address1[ii], "") 
 	or compare(person_grid.address2[ii], "") 
 	or compare(person_grid.city[ii], "") 
@@ -184,7 +184,7 @@ VALUES (#get_emp_id.emp_id#, #project_id#)
 	<cflocation addtoken="No" url="index.cfm?fuseaction=marketing">
 <cfelse>
 		<div align="center" class="Note">You must enter a name for the contact.</div>
-		<meta http-equiv="Refresh"  content="4; url=index.cfm">		
+		<meta http-equiv="Refresh"  content="4; url=index.cfm">
 </cfif>
 
 </cfif>

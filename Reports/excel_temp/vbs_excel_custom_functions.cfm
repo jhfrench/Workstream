@@ -12,27 +12,27 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 </cfsilent><!--- vbs_excel_custom_functions.cfm --->
 Function FillFormatCell(sheet,cRange,cText,cWidth,rHeight,fSize)
 	With sheet.Range(cRange)
-		
+
 		<!--- I'm checking the values to verify the user wants to change the value --->
 		If (cWidth <> 0) Then
-			.ColumnWidth = cWidth 							
+			.ColumnWidth = cWidth 		
 		End If
 
-		.Value = cText 			
-		
+		.Value = cText 
+
 		If (fSize <> 0) Then
-			.Font.Size = fSize 		
+			.Font.Size = fSize 
 		End If
-		
+
 		If (rHeight <> 0) Then
-			.RowHeight = rHeight 	
+			.RowHeight = rHeight 
 		End If
-		
+
 	End With
 End Function
 
@@ -44,5 +44,5 @@ Function format_cell_borders(sheet,cell_range,borderNum,color,weight,style,fSize
 	sheet.Range(cell_range).Interior.ColorIndex = bgColor
 	sheet.Range(cell_range).Font.Size = fSize
 	<!--- Bottom=9, L=7, R=10, top=8, Hor=12, Vert=11 --->
-	
+
 End Function

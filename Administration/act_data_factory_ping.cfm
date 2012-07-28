@@ -93,7 +93,7 @@ NOTE: These processes are still running from a previous call and will not be add
 	<cftransaction>
 		<p><hr />CONNECTING to #abbreviation# (#upload_source_id#)</p>
 		<cfftp connection="ftp_#abbreviation#" action="open" server="ftp.hq.nasa.gov" username="#get_ftp_credentials.ftp_username#" password="#get_ftp_credentials.ftp_password#" stoponerror="Yes">
-		
+
 			<p>CHECKING FOR FILES</p>
 			<cfftp connection="ftp_#abbreviation#" action="LISTDIR" stoponerror="Yes" name="list_files" directory="" asciiextensionlist="#upload_template#">
 			<cfset variables.original_file_name="">
@@ -103,7 +103,7 @@ NOTE: These processes are still running from a previous call and will not be add
 					<cfbreak>
 				</cfif>
 			</cfloop>
-					
+
 			<!---If the specified file exists, --->
 			<cfif len(variables.original_file_name)>
 				<p>FILE FOUND</p>
@@ -118,14 +118,14 @@ NOTE: These processes are still running from a previous call and will not be add
 					AND date_year=EXTRACT(YEAR FROM CURRENT_TIMESTAMP+'1 month')
 				GROUP BY date_month
 				</cfquery>
-				
+
 				<!---I rename a copy of the file using mask [feed type]_[yyyy]_[mm]_[file month count].[original_extension], --->
 				<cfset variables.archived_file_name="#get_ftp_credentials.abbreviation#_#get_log_upload.fiscal_year#_#right('0#get_log_upload.date_month#',2)#_#right('0#get_log_upload.file_count+1#',2)##lcase(get_ftp_credentials.upload_template)#">
-				
+
 				<!---I transfer a copy of that file to the /Uploaded_Files folder, --->
 				<cfftp connection="ftp_#abbreviation#" action="getfile" stoponerror="yes" localfile="#GetDirectoryfromPath(GettemplatePath())#Uploaded_Files/#variables.archived_file_name#" remotefile="#variables.original_file_name#" transfermode="AUTO" failifexists="no">
 				<p>Archiving '#variables.original_file_name#' to '#GetDirectoryfromPath(GettemplatePath())#Uploaded_Files/#variables.archived_file_name#'</p>
-				
+
 				<!---I log the original and new file names to LOG_Upload, --->
 				<cfquery name="insert_log_upload" datasource="#application.datasources.main#">
 				INSERT INTO LOG_Upload (original_file_name, archived_file_name, upload_source_id,
@@ -139,14 +139,14 @@ NOTE: These processes are still running from a previous call and will not be add
 					AND date_year=EXTRACT(YEAR FROM CURRENT_TIMESTAMP-'1 month')
 				GROUP BY date_month
 				</cfquery>
-				
+
 				<!---then I kick off the relevant data factory process to retreive/process/delete the file from the FTP server.--->
 				<cfquery name="execute_data_factory" datasource="#application.datasources.main#">
 				EXECUTE msdb.dbo.sp_start_job N'FAAD_Import_#abbreviation#';
 				</cfquery>
 				<p>Kicked off 'FAAD_Import_#abbreviation#'</p>
 				<cfset variables.datafactory_notification="#variables.datafactory_notification#FAAD started processing #abbreviation#. ">
-				
+
 			<cfelse>
 				FILE IS NOT PRESENT.
 			</cfif>

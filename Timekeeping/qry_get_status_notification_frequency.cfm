@@ -13,7 +13,7 @@
 
  
 	 || 
-	
+
  --->
 
 <cfquery name="get_status_notification_frequency" datasource="#application.datasources.main#">

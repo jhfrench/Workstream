@@ -22,15 +22,15 @@
 	<input type="hidden" name="columns_not_to_print" value="">
 	<input type="hidden" name="columns_to_print" value="">
 	<input type="hidden" name="report_elements" value="#attributes.report_elements#">
-	
+
 	<tr class="SubHeadText">
 		<td colspan="3">Report Date&nbsp;&nbsp;<cfinput type="text" name="start_date" required="no" size="15" maxlength="10" validate="date" message="You must enter a valid from date"></td>
 	</tr>
 	<tr class="SubHeadText">
 		<td colspan="3">Columns Displayed in Report</td>
 	</tr>
-	
-	<tr class="SubHeadText">	
+
+	<tr class="SubHeadText">
 		<td>
 			<select name="report_columns" multiple size="10" style="width:145px;">
 				<cfloop list="#attributes.report_elements#" index="dex">
@@ -45,12 +45,12 @@
 					<option></option>
 			</select>
 		</td>
-	</tr>	
+	</tr>
 	<tr>
 		<td align="center" colspan="3">
 			<input type="button" name="Get_Report" value="Generate Report" onclick="submit_form();">
 		</td>
-	</tr>	
+	</tr>
 </cfform>
 </cfoutput>
 
@@ -59,18 +59,18 @@
 function submit_form(){
 	var item_count = document.forms[0].removed_elements.length;
 	var list="";
-	
+
 	for (var xx=0; xx<item_count; xx++){
-	
+
 		if (list==""){
 			list=document.forms[0].removed_elements.options[xx].value;
 		}else{
 			list=list + "," + document.forms[0].removed_elements.options[xx].value;
 		}
-		
-		
+
+
 	}
-	document.forms[0].columns_not_to_print.value=list;	
+	document.forms[0].columns_not_to_print.value=list;
 	document.forms[0].submit();
 	return true;
 
@@ -88,11 +88,11 @@ function ResetColumnList(remove_from_list_name, add_back_to_list_name){
 	for (var xx=0; xx<item_count; xx++){
 		eval("document.forms[0]." + remove_from_list_name + ".options[xx].selected = true");
 	}
-	
+
 	RemoveListItem(remove_from_list_name,add_back_to_list_name);
 	return true;
 }
-			
+
 /*
 	---> RemoveListItem(Select list we're removing the items from,Select list we're adding the items to):
 	This function is called when the users selects to move an element.  I pass two values
@@ -110,56 +110,56 @@ function RemoveListItem(remove_from_select,add_to_select){
 	if (original_list_dex == -1){
 		alert("You must first select an item.");
 	}else{
-	
+
 		//Don't allow them to remove the last item in the list
 		if (total_included_items<2 && remove_from_select=="report_columns"){
-		
+
 			alert("You must leave at least one item to display in the report.");
-			
-		}else{	
-			
+
+		}else{
+
 			//Decrement Loop over since we allow multiple items to be selected at once
 			for (var xx=max_list_index; xx>=0; xx--){
-			 	
+			 
 				//Get the selected boolean for this item
 				//is_item_selected_ind = eval("document.forms[0]." + remove_from_select + ".options[xx].selected");
 
 				//If the current list item is selected, then perform the option move
 				if (eval("document.forms[0]." + remove_from_select + ".options[xx].selected")==true){
-				
+
 					//Get the selected tags value and display text so we can add them to the other select box
 					var option_text = eval("document.forms[0]." + remove_from_select + ".options[xx].text");
 					var option_value = eval("document.forms[0]." + remove_from_select + ".options[xx].value");
-					
+
 					//Get the number of items in the 'Removed Items' select list AND Add use for option tag index in new list
-					var removed_items_len = eval("document.forms[0]." + add_to_select + ".length");								
+					var removed_items_len = eval("document.forms[0]." + add_to_select + ".length");			
 					var max_add_list_index = (removed_items_len - 1);
-					
+
 					//Move all the items down one, start with the last option value
 					for (var tt=max_add_list_index; tt>=0; tt--){
 						var move_to_dex = (tt + 1);
 						var move_text = eval("document.forms[0]." + add_to_select + ".options[tt].text");
 						var move_value = eval("document.forms[0]." + add_to_select + ".options[tt].value");
-						
+	
 						eval("document.forms[0]." + add_to_select + ".options[move_to_dex] = new Option(move_text,move_value)");
 					}
-					
+
 					//Now, add the selected item to the 'Removed Items' select list.  The Option pair goes Option("Display Text", "Option Value")
 					eval("document.forms[0]." + add_to_select + ".options[0] = new Option(option_text,option_value)");
-					
+
 					//Select the new entry in the select box
 					eval("document.forms[0]." + add_to_select + ".selectedIndex = removed_items_len");
 					//Now, remove the selected item from the original select box
-					eval("document.forms[0]." + remove_from_select + ".options[xx] = null");					
+					eval("document.forms[0]." + remove_from_select + ".options[xx] = null");
 				}
-			}			
+			}
 			//Select the top item in the select box
-			eval("document.forms[0]." + remove_from_select + ".selectedIndex = 0");	
-			eval("document.forms[0]." + add_to_select + ".selectedIndex = 0");	
+			eval("document.forms[0]." + remove_from_select + ".selectedIndex = 0");
+			eval("document.forms[0]." + add_to_select + ".selectedIndex = 0");
 		}
-	}	
+	}
 	//Exit function
-	return true;				
+	return true;
 }
 
 </script>

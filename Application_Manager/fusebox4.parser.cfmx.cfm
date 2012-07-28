@@ -81,21 +81,21 @@ This software consists of voluntary contributions made by many individuals on be
 <cfscript>
 	// prepare to create the fuseaction file
 	fb_.parsedfile="";
-	fb_.CRLF=chr(10);	
-	
+	fb_.CRLF=chr(10);
+
 	// this variable tracks the current level of indentation
 	fb_.indentLevel=0;
 	fb_.indentBlock=chr(9);
 	// we'll just assume that no one is going to look at a parse file with
 	// more than 1000 levels of indentation.
 	fb_.maxIndentLevel=iif(application.fusebox.parseWithIndentation, 1000, 0);
-	
+
 	// cut down on white space a bit
 	fb_appendLine('<cfsetting enablecfoutputonly="Yes">');
-	
+
 	// set the character encoding for this file
 	fb_appendLine('<cfprocessingdirective pageencoding="' & application.fusebox.characterEncoding & '">');
-	
+
 	// if any plugins were defined for the processError phase then insert an opening tag for <cftry> here
 	if (arrayLen(application.fusebox.pluginphases['processError']) GT 0) {
 		fb_appendLine("<cftry>");
@@ -113,7 +113,7 @@ This software consists of voluntary contributions made by many individuals on be
 			fb_.lexiconVerb=fb_.fuseQ[fb_.i].xmlName;
 			fb_.lexicon='fusebox';
 		}
-		
+
 		if (application.fusebox.parseWithComments) {
 			fb_.parsedComment='';
 			fb_.parsedComment=fb_.parsedComment & '#fb_.fuseQ[fb_.i].circuit#.#fb_.fuseQ[fb_.i].fuseaction#: ';
@@ -126,7 +126,7 @@ This software consists of voluntary contributions made by many individuals on be
 			fb_appendLine(fb_.COMMENT_CF_BEGIN & ljustify(fb_.parsedComment, 75) & fb_.COMMENT_CF_END);
 		}
 	</cfscript>
-	
+
 	<cfswitch expression="#fb_.fuseQ[fb_.i].xmlName#">
 
 		<cfcase value="set,xfa">
@@ -206,7 +206,7 @@ This software consists of voluntary contributions made by many individuals on be
 				}
 				fb_appendSegment('=');
 			}    
-			
+
 			if (StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes, "object")) {
 				fb_appendSegment(fb_.fuseQ[fb_.i].xmlAttributes.object & '.' & fb_.fuseQ[fb_.i].xmlAttributes.methodcall & ' />');
 			}
@@ -230,8 +230,8 @@ This software consists of voluntary contributions made by many individuals on be
 				fb_appendLine('</cfif>');
 			}
 		</cfscript>
-		</cfcase>		
-		
+		</cfcase>
+
 		<cfcase value="instantiate">
 		<cfscript>
 			// give empty value for arguments if not specified
@@ -254,7 +254,7 @@ This software consists of voluntary contributions made by many individuals on be
 				fb_appendSegment('#fb_.fuseQ[fb_.i].xmlAttributes.object#');
 			}
 			fb_appendSegment('=');
-			
+
 			if ( StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes,"class") AND Len(fb_.fuseQ[fb_.i].xmlAttributes.class) ) {
 				//creating a reference to a class
 				fb_appendSegment("createObject('" & application.fusebox.classes[fb_.fuseQ[fb_.i].xmlAttributes.class].type & "', '" & application.fusebox.classes[fb_.fuseQ[fb_.i].xmlAttributes.class].classpath & "') />");
@@ -266,7 +266,7 @@ This software consists of voluntary contributions made by many individuals on be
 				// else creating a webservice
 				fb_appendSegment("createObject('webservice', '" & fb_.fuseQ[fb_.i].xmlAttributes.webservice & "')");
 			}
-			
+
 			fb_appendSegment(' />');
 			// if returning a value and the attribute 'overwrite' is FALSE then treat this like a cfparam
 			if (StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes, "overwrite") AND NOT fb_.fuseQ[fb_.i].xmlAttributes.overwrite) {
@@ -298,7 +298,7 @@ This software consists of voluntary contributions made by many individuals on be
 			if ( (NOT StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes, "prepend")) OR fb_.fuseQ[fb_.i].xmlAttributes.overwrite NEQ "true" ) {
 				fb_.fuseQ[fb_.i].xmlAttributes["prepend"]="false";
 			}
-						
+	
 			if ( len(fb_.fuseQ[fb_.i].xmlAttributes["contentvariable"]) AND fb_.fuseQ[fb_.i].xmlAttributes["overwrite"] IS FALSE ) {
 				fb_appendLine('<cfif NOT IsDefined("#fb_.fuseQ[fb_.i].xmlAttributes["contentvariable"]#")>');
 				fb_increaseIndent();
@@ -306,7 +306,7 @@ This software consists of voluntary contributions made by many individuals on be
 
 	  	fb_appendLine('<cftry>');
 			fb_increaseIndent();
-			
+
 				if ( len(fb_.fuseQ[fb_.i].xmlAttributes["contentvariable"]) ) {
 					if ( fb_.fuseQ[fb_.i].xmlAttributes["append"] IS TRUE OR fb_.fuseQ[fb_.i].xmlAttributes["prepend"] IS TRUE ) {
 						fb_appendLine('<cfparam name="#fb_.fuseQ[fb_.i].xmlAttributes["contentvariable"]#" default="">');
@@ -321,7 +321,7 @@ This software consists of voluntary contributions made by many individuals on be
 					fb_appendIndent();
 				}
 				fb_appendSegment('<cfoutput><cfinclude template="' & REreplace(application.fusebox.parseRootPath & application.fusebox.circuits[fb_.fuseQ[fb_.i].xmlAttributes.circuit].path & fb_.template, "\\/", application.fusebox.osdelimiter, "all") & '"></cfoutput>');
-				
+
 				if ( len(fb_.fuseQ[fb_.i].xmlAttributes["contentvariable"]) ) {
 					if ( fb_.fuseQ[fb_.i].xmlAttributes["prepend"] IS TRUE ) {
 						fb_appendSegment('<cfoutput>###fb_.fuseQ[fb_.i].xmlAttributes["contentvariable"]###</cfoutput>');
@@ -335,7 +335,7 @@ This software consists of voluntary contributions made by many individuals on be
 				}
 				fb_appendNewline();
 		  
-			
+
 				fb_appendLine('<cfcatch type="missingInclude">');
 				fb_increaseIndent();
 					fb_appendLine('<cfif Right(cfcatch.missingFilename, len("#application.fusebox.circuits[fb_.fuseQ[fb_.i].xmlAttributes.circuit].path##fb_.template#") ) EQ "#application.fusebox.circuits[fb_.fuseQ[fb_.i].xmlAttributes.circuit].path##fb_.template#">');
@@ -355,7 +355,7 @@ This software consists of voluntary contributions made by many individuals on be
 				fb_appendLine('</cfcatch>');
 			fb_decreaseIndent();
 			fb_appendLine('</cftry>');
-			
+
 			if ( len(fb_.fuseQ[fb_.i].xmlAttributes["contentvariable"]) AND fb_.fuseQ[fb_.i].xmlAttributes["overwrite"] IS FALSE ) {
 				fb_decreaseIndent();
 				fb_appendLine('</cfif>');
@@ -376,7 +376,7 @@ This software consists of voluntary contributions made by many individuals on be
 			fb_appendLine('<cfoutput><cfinclude template="' & application.fusebox.parseRootPath & REreplace(fb_.fuseQ[fb_.i].plugin.path, "\\/", application.fusebox.osdelimiter, "all") & REreplace(fb_.template, "\\/", application.fusebox.osdelimiter, "all") & '"></cfoutput>');
 		</cfscript>
 		</cfcase>
-		
+
 		<cfcase value="errorHandler,exceptionHandler">
 			<cfset fb_.handlerfile=application.fusebox.approotdirectory & REreplace(fb_.fuseQ[fb_.i].plugin.path, "\\/", application.fusebox.osdelimiter, "all") & REreplace(fb_.fuseQ[fb_.i].plugin.template, "\\/", application.fusebox.osdelimiter, "all")>
 			<cffile action="read" file="#fb_.handlerfile#" variable="fb_.handlerfile" charset="#application.fusebox.characterEncoding#">
@@ -445,7 +445,7 @@ This software consists of voluntary contributions made by many individuals on be
 			}
 		</cfscript>
 		</cfcase>
-		
+
 		<cfcase value="contentvariable">
 		<cfscript>
 			if (StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes, "mode")) {
@@ -466,7 +466,7 @@ This software consists of voluntary contributions made by many individuals on be
 						fb_appendLine('<cfparam name="'& fb_.fuseQ[fb_.i].xmlAttributes['contentvariable'] & '" default="">');
 						fb_appendLine('<cfoutput>##' & fb_.fuseQ[fb_.i].xmlAttributes['contentvariable'] & '##</cfoutput>');
 					}
-					fb_decreaseIndent();	
+					fb_decreaseIndent();
 					fb_appendLine('</cfsavecontent>');
 					if (NOT fb_.fuseQ[fb_.i].xmlAttributes.overwrite) {
 						fb_decreaseIndent();
@@ -503,7 +503,7 @@ This software consists of voluntary contributions made by many individuals on be
 			}
 			fb_appendLine(fb_.COMMENT_CF_BEGIN & '<assertion>');
 			fb_increaseIndent();
-			
+
 				fb_appendLine('<cfif NOT (' & fb_.fuseQ[fb_.i].xmlAttributes.expression & ')>'); 
 				/* John QvT's former code
 				fb_.indentLevel=fb_.indentLevel + 1;
@@ -517,7 +517,7 @@ This software consists of voluntary contributions made by many individuals on be
 				fb_.indentLevel=fb_.indentLevel - 1;
 				*/
 				fb_appendLine('</cfif>');
-				
+
 			fb_decreaseIndent();
 			fb_appendLine('</assertion>' & fb_.COMMENT_CF_END);
 			fb_.hasAssertions=TRUE;
@@ -529,7 +529,7 @@ This software consists of voluntary contributions made by many individuals on be
 				<cftry>
 					<cfset fb_.lexicon=listFirst(fb_.fuseQ[fb_.i].xmlName, '.')>
 					<cfset fb_.lexiconVerb=listRest(fb_.fuseQ[fb_.i].xmlName, '.')>
-					
+
 					<cfset fb_.verbInfo=structNew() />
 					<cfset fb_.verbInfo.lexicon=fb_.lexicon />
 					<cfset fb_.verbInfo.verb=fb_.lexiconVerb />
@@ -563,7 +563,7 @@ This software consists of voluntary contributions made by many individuals on be
 		</cfdefaultcase>
 
 	</cfswitch>
-	
+
 	<!--- the rest of the CFCONTINUE hack --->
 	<cfcatch type="fusebox.continueException">
 		<!--- just let 'er continue --->

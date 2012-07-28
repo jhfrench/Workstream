@@ -17,7 +17,7 @@
 	<tr>
 		<td>Report By Code</td>
 	</tr>
-	<tr>	
+	<tr>
 		<td><cfinclude template="dsp_code_report_input.cfm"></td>
 	</tr>
 	<tr>

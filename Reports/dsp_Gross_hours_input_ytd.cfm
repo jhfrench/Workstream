@@ -36,10 +36,10 @@
 			<cfinput type="datefield" name="to_date" value="" required="Yes" validate="date" message="Please enter a properly formatted to date." size="11"><br />
 			</td>
 	</tr>
-	
+
 	<tr class="subHeadText">
 		<td>
-			Sort By:	
+			Sort By:
 		</td>
 		<td>
 			<select name="sort_by" size="1" style="width:130px">
@@ -48,13 +48,13 @@
 				<option value="REF_Employee_Classification.employee_classification, Emp_Contact.lname">Employee Type
 			</select>
 		</td>
-	</tr>		
-	
+	</tr>
+
 	<tr class="subHeadText">
 		<td>
-			Name:	
+			Name:
 		</td>
-		<td>	
+		<td>
 		<cfoutput>
 			<select name="display_person" size="3" style="width:130px" multiple>
 		</cfoutput>
@@ -66,17 +66,17 @@
 				</cfoutput>
 		</select>
 		</td>
-	</tr>	
-			
+	</tr>
+
 	<tr class="subHeadText">
 		<td>
-			Office:	
+			Office:
 		</td>
 		<td>
 		<cfoutput>
 			<select name="display_office" size="3" style="width:130px" multiple>
 				<option value="ALL" selected>All Offices</option>
-		</cfoutput>			
+		</cfoutput>
 				<cfoutput query="office_loc">
 					<cfif Office_location is not ""><!--- Don't display blanks --->
 						<option value="#Office_location#">#Office_location#</option>
@@ -84,7 +84,7 @@
 				</cfoutput>
 			</select>
 		</td>
-	</tr>			
+	</tr>
 
 	<tr>
 		<td colspan="3">

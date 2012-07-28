@@ -17,4 +17,4 @@
 UPDATE Link_Task_File
 SET active_ind=0
 WHERE l_t_f_id IN (#attributes.l_t_f_id#)
-</cfquery>	
+</cfquery>

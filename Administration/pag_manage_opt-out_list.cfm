@@ -28,7 +28,7 @@
 --->
 <cfparam name="attributes.email_blacklist_id" default="0">
 <cfoutput>
-<cfif isdefined("attributes.created_by")>	
+<cfif isdefined("attributes.created_by")>
 	<cfinclude template="qry_update_email_blacklist.cfm">
 </cfif>
 </cfoutput>

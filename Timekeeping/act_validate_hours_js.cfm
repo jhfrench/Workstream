@@ -11,13 +11,13 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 </cfsilent>
 <script language="JavaScript" type="text/javascript">
 <!--
 function validate_number(arg1){
-	
+
 	if (arg1.length){
 		if(isNaN(arg1)){
 			return 0;
@@ -42,7 +42,7 @@ function check_form(arg1){
 		alert('Please make sure that all hours entries are numeric.')
 		return 0;
 	} else {
-		document.myform.submit();	
+		document.myform.submit();
 	}
 
 }

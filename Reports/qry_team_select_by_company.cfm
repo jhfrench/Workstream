@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 <cfquery name="get_team_select_by_company" datasource="#application.datasources.main#">
 SELECT Emp_Contact.emp_id, Emp_Contact.lname AS lname, Emp_Contact.name,

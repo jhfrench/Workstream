@@ -12,7 +12,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 </cfsilent>Const xlsLandscaped = 2
 Const xlsPortrait = 1

@@ -63,7 +63,7 @@ limitations under the License.
 							"The attribute 'value' contains URL parameters, which is not allowed in 'strict' mode, for a 'xfa' verb in fuseaction #fb_.verbInfo.circuit#.#fb_.verbInfo.fuseaction#.");
 			}
 		}
-		
+
 		// if there are children, set up a parameter block:
 		if (fb_.verbInfo.hasChildren) {
 			// do not allow URL parameters in the XFA value:
@@ -75,9 +75,9 @@ limitations under the License.
 			// this is where the child <parameter> verbs will store the parameter details:
 			fb_.verbInfo.parameters = arrayNew(1);
 		}
-		
+
 	} else {
-	
+
 		// compile <xfa>
 		name = "xfa." & fb_.verbInfo.attributes.name;
 		value = fb_.verbInfo.attributes.value;
@@ -99,12 +99,12 @@ limitations under the License.
 			}
 		}
 		value = '"' & value & '"';
-		
+
 		if (find("##",name) gt 0) {
 			name = '"' & name & '"';
 		}
 		if (fb_.verbInfo.attributes.overwrite) {
-			fb_appendLine("<cfset #name# = #value# />");		
+			fb_appendLine("<cfset #name# = #value# />");
 		} else {
 			fb_appendLine("<cfif not isDefined(""#name#"")><cfset #name# = #value# /></cfif>");
 		}

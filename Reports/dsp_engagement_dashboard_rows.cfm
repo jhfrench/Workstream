@@ -26,7 +26,7 @@
 	<cfelse>
 		<cfset variables.tr_bgcolor="##FFFFFF">
 	</cfif>
-	
+
 	<tr  bgcolor="#variables.tr_bgcolor#"> 
 		<td valign="top">
 			<a name="#Project_ID#">
@@ -75,7 +75,7 @@
 		<td align="center" bgcolor="#variables.status_color#" valign="bottom">
 			#variables.status_color#
 		</td>
-		
+
 				<td align="center" valign="bottom">
 			<cfif eng_status EQ 0>Not Started</cfif>
 			<cfif eng_status EQ 1>Approved - In Progress</cfif>
@@ -91,9 +91,9 @@
 			<cfif eng_status EQ 5>On Hold</cfif>
 			<cfif eng_status EQ 4>Completed</cfif>
 		</td>
-		
-		
-		
+
+
+
 		<td width="25%" valign="top">
 			#Vision# <cfif NOT len(vision)>&nbsp;</cfif>
 		</td>
@@ -103,18 +103,18 @@
 			<cfif loe gt 0><br />h #LOE#</cfif></a>
 			<cfif NOT total_bill_amount eq ''><br />Invoiced:<br /><a href="index.cfm?fuseaction=Invoice_Posted_List&project_ID_filter=#Project_ID#"> <i>#numberformat(Total_Bill_Amount,'$___,___,___,___')#</i></a></cfif>
 		<cfif total_bill_amount eq ''><br />Invoiced:<br /><font color=red>$ 0</font></cfif>
-			
+
 		</td>
 		<td width="17%" valign="top">
 			#Mission# <cfif NOT len(mission)>&nbsp;</cfif>
 		</td>
-		
+
 		<td valign="top">
 			#dateformat(Date_Updated,'mm/dd/yy')#
 		</td>
 	</tr>
 </cfoutput>
-<!---END: engagement record display. --->	
+<!---END: engagement record display. --->
 
 
 <!--- This form is used for restricting and sorting the records displayed above.
@@ -142,7 +142,7 @@
 			</select>
 		</td>
 	</tr>
-	
+
 	<tr>
 		<td>&nbsp;</td>
 		<td>

@@ -41,28 +41,28 @@ WHERE customer_id=#attributes.customer_id#
 	WHERE name='#attributes.name#'
 		AND lname='#attributes.lname#'
 		AND emp_contact_type=4    
-	</cfquery>	
-<!--- If the person is already in the system as a billing contact, update the Customer table to reference the existing contact --->	
+	</cfquery>
+<!--- If the person is already in the system as a billing contact, update the Customer table to reference the existing contact --->
 	<cfif len(get_contact_name.emp_id)>
 		<cfquery name="update_emp_contact" datasource="#application.datasources.main#">
 		UPDATE Customer
 	    SET emp_contact_id=#get_contact_name.emp_id#
 	    WHERE customer_id=#attributes.customer_id#
 		</cfquery>
-	<!--- If the person doesn't exist in the system, insert him into the system --->	
+	<!--- If the person doesn't exist in the system, insert him into the system --->
 	<cfelse>
 			<cfquery name="insert_new_contact" datasource="#application.datasources.main#">
 			INSERT INTO Emp_Contact (name, lname, emp_contact_type)
 			VALUES ('#attributes.name#', '#attributes.lname#', 4)
 			</cfquery>
-	<!--- and  update the Customer table with the new contact information --->		
+	<!--- and  update the Customer table with the new contact information --->
 			<cfquery name="update_customer" datasource="#application.datasources.main#">
 			UPDATE Customer
 			SET emp_contact_id=(SELECT MAX(emp_id) AS emp_contact_id FROM Emp_Contact)
 			WHERE customer_id=#attributes.customer_id#
 			</cfquery>
 	</cfif>
-<!---This is if the form is empty for contact information --->	
+<!---This is if the form is empty for contact information --->
 <cfelse>
 	<cfquery name="get_contact" datasource="#application.datasources.main#">
 	SELECT emp_contact_id

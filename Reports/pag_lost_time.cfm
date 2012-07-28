@@ -11,7 +11,7 @@
 	$Log$
 	||
 	Variables:
-	
+
 	END FUSEDOC --->
 </cfsilent>
 <table cellpadding="3" cellspacing="0" border="0"bordercolor="##000000" align="center" width="100%">

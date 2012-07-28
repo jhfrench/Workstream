@@ -10,11 +10,11 @@
 	Edits:
 	$Log$
 	 || 
-	END FUSEDOC --->		
+	END FUSEDOC --->
 </cfsilent>
 			<tr valign="top"  class="RegTextIt">
 				<td colspan="2" align="right">
-					
+
 					Summary Hours: 
 				</td>
 				<td align="left">

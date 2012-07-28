@@ -55,7 +55,7 @@
 		<tr>
 			<td colspan="3">
 				<table border="0">
-					
+
 					<tr valign="top">
 						<td class="SubHeadText" colspan="3">
 							&nbsp;General
@@ -67,18 +67,18 @@
 						<td align="left" colspan=100%>
 						<cfif isdefined("attributes.emp_id")>
 						Can't be changed from this screen.
-						<cfelse>			
+						<cfelse>
 						<cfselect name="Position_ID" query="get_position_numbers" value="position_ID" display="position_id" required="Yes" message="You must select a position number to enter this employee into workstream.">
 						<option value="-1">-1</option>
 </cfselect> **
 						</cfif>
-			
+
 </td>
-						
+	
 					</tr>
-					
-					
-					
+
+
+
 					<tr>
 						<td class="SubHeadText">&nbsp;</td>
 						<td align="right">Hire date: </td>
@@ -143,7 +143,7 @@
 				</table>
 			</td>
 		</tr>
-		
+
 		<tr>
 			<td colspan="3" align="center">
 				<hr color="##970000" size="1">

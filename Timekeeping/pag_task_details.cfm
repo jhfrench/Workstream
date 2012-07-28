@@ -37,7 +37,7 @@
 	<cfinclude template="qry_get_ref_icon.cfm"><!--- 
 	<cfinclude template="qry_get_notification_frequency.cfm"> --->
 	<cfinclude template="../common_files/qry_get_task_stati.cfm">
-	
+
 	<cfif get_task_details.recordcount>
 		<cfset attributes.active_only=1>
 		<cfinclude template="qry_get_task_team.cfm">

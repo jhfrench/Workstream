@@ -116,7 +116,7 @@
 		<cfset variables.checked_ind_yes="NO">
 		<cfset variables.checked_ind_no="NO">
 	</cfif>
-	
+
 		Billable to Client? <label for="client_billable_ind_yes"><cfinput type="radio" name="client_billable_ind" id="client_billable_ind_yes" value="1" required="Yes" checked="#variables.checked_ind_yes#" message="Please select whether or not the client is billable for this expense."> Yes</label>
 &nbsp;&nbsp;
 
@@ -144,7 +144,7 @@
 			<cfif variables.currentrow NEQ 1>
 				<cfset variables.required_ind="NO">
 			</cfif>
-		
+
 			<label for="#get_paid_by.description#">
 				<cfinput type="Radio" id="#get_paid_by.description#" name="paid_by_id" value="#get_paid_by.paid_by_id#" checked="#variables.selected_value#" required="#variables.required_ind#" message="Please specify who paid for this expense (paid by)."> #get_paid_by.description#
 			</label>
@@ -164,7 +164,7 @@
 			<cfelse>
 				<cfset variables.supervisor_checked_ind_approved="NO">
 				<cfset variables.supervisor_checked_ind_rejected="NO">
-			</cfif>			
+			</cfif>
 				<input type="hidden" name="supervisor_settings" value="1">
 				Supervisor, please approve or reject this expense: Approve<cfinput type="Radio" name="supervisor_approval" value="2" checked="#supervisor_checked_ind_approved#" required="Yes" message="Please give this expense a supervisors approval."> Reject<cfinput type="Radio" name="supervisor_approval" value="3" checked="#supervisor_checked_ind_rejected#">&nbsp;&nbsp;&nbsp;Supervisor Approval Memo: <cfinput type="text" name="supervisor_approval_memo" value="#attributes.supervisor_approval_memo#" message="Please enter an approval memo" required="Yes" size="30">
 		<br />
@@ -179,7 +179,7 @@
 			<cfelse>
 				<cfset variables.accounting_checked_ind_approved="NO">
 				<cfset variables.accounting_checked_ind_rejected="NO">
-			</cfif>			
+			</cfif>
 			<input type="hidden" name="accounting_pro_settings" value="1">
 			Accounting professional, please approve or reject this expense: Approve<cfinput type="Radio" name="accounting_approval" value="4" checked="#accounting_checked_ind_approved#" required="Yes" message="Please give this expense an accounting professionals approval."> Reject<cfinput type="Radio" name="accounting_approval" value="5" checked="#accounting_checked_ind_rejected#">&nbsp;&nbsp;&nbsp;Accounting Professional Approval Memo: <cfinput type="text" name="accounting_approval_memo" value="#attributes.accounting_approval_memo#" message="Please enter an approval memo" required="Yes" size="30">
 		</cfif>

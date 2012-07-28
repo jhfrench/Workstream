@@ -19,10 +19,10 @@
 	</tr>
 	<tr>
 		<td align = "right">Edit</td>
-		
+
 		<td><input  type="Radio" name="select" value="e"> </td>
 	</tr>
-	<tr>	
+	<tr>
 		<td align = "right">Delete</td>
 		<td><input type="radio" name="select" value="d"> 
 		<input type="hidden" name="emp_id" value="<cfoutput>#attributes.cfgridkey#</cfoutput>">

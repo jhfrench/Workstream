@@ -31,7 +31,7 @@ limitations under the License.
 							"Unexpected attributes were found in a 'false' verb in fuseaction #fb_.verbInfo.circuit#.#fb_.verbInfo.fuseaction#.");
 			}
 		}
-			
+
 		// compile <false>
 		if (fb_.verbInfo.parent.ifUsed) {
 			fb_appendLine("<cfelse>");

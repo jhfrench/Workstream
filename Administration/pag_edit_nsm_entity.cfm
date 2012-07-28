@@ -6,7 +6,7 @@
 		I help the user maintain the NSM structure.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="9/17/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/17/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -24,10 +24,10 @@
 
 <table cellpadding="0" cellspacing="0" border="0" summary="Breadcrumb navigation for managing the NSM structure">
 	<tr>
-		<th align="left"><h2 style="margin:0px" id="top-side"><a href="index.cfm?fuseaction=Administration.manage_nsm_structure">Manage <abbr title="NASA Structure Management">NSM</abbr> Structure</a> &gt; Edit <abbr title="NASA Structure Management">NSM</abbr> Entities</h2>
+		<th align="left"><h2 style="margin:0px"><a href="index.cfm?fuseaction=Administration.manage_nsm_structure">Manage <abbr title="NASA Structure Management">NSM</abbr> Structure</a> &gt; Edit <abbr title="NASA Structure Management">NSM</abbr> Entities</h2>
 		</th>
 	</tr>
-</table><img src="images/spacer.gif" alt="" width="560" height="1"><br />
+</table><img src="images/spacer.gif" alt="" width="560" height="1" /><br />
 
 <cfform name="form_edit_nsm_entity" action="index.cfm?fuseaction=Administration.edit_nsm_entity" method="post">
 <div class="datachart" style="border:1px solid ##999999">

@@ -37,5 +37,5 @@ WHERE Time_Entry.active_ind=1
 	GROUP BY Emp_Contact.Name, Emp_Contact.LName, 
     REF_Employee_Classification.employee_classification, Demographics.pin
     HAVING (SUM(Time_entry.hours) > '40') 
-</cfquery>	
+</cfquery>
 </cfsilent>

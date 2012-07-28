@@ -35,7 +35,7 @@
 		function display_all(){
 			document.whatever.submit();
 		}
-		
+
 		function submit_form(){
 			if(document.whatever.error_log_id.value){
 				document.whatever.display_all.value='#attributes.display_all#';
@@ -43,7 +43,7 @@
 			}else{
 				alert("Please enter error number to search for!");
 			}
-			
+
 		}
 	</script>
 	<style>
@@ -53,7 +53,7 @@
 	font-size: 16px;
 	font-weight: bold;
 	}
-		
+
 	a {
 	font-family: Tacoma, Arial;
 	font-size: 14px;
@@ -82,13 +82,13 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 		FROM Error_Log
 		WHERE error_log_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.error_log_id#">
 		</cfquery>
-		
+
 		<cfquery name="get_previous_error_log" datasource="#application.datasources.main#">
 		SELECT COALESCE(MAX(error_log_id),0) AS error_log_id
 		FROM Error_Log
 		WHERE error_log_id < <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.error_log_id#">
 		</cfquery>
-		
+
 		<cfquery name="get_next_error_log" datasource="#application.datasources.main#">
 		SELECT COALESCE(MIN(error_log_id),0) AS error_log_id
 		FROM Error_Log
@@ -112,9 +112,9 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 		&lt;<a href="index.cfm?fuseaction=main.view_error_diagnostics&display_all=0&error_log_id=#get_previous_error_log.error_log_id#">last</a>&nbsp;
 	</cfif>
 	<input type="text" name="error_log_id" id="error_log_id" value="#attributes.error_log_id#" size="6" class="wddx" />
-	
+
 		&nbsp;<a href="index.cfm?fuseaction=main.view_error_diagnostics&display_all=0&error_log_id=<cfif isdefined("get_next_error_log") AND get_next_error_log.error_log_id NEQ 0>#get_next_error_log.error_log_id#<cfelse>#attributes.error_log_id+1#</cfif>"><cfif NOT isdefined("get_next_error_log") OR get_next_error_log.error_log_id EQ 0>try </cfif>next</a>&gt;
-	
+
 	<br />
 	<label for="display_all">Display All WDDX</label>: 
 	Yes <input type="radio" value="1" id="display_all" name="display_all" onclick="javascript:document.whatever.submit();"<cfif attributes.display_all> checked</cfif> />
@@ -127,7 +127,7 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 <cfif isdefined("attributes.error_log_id") AND len(attributes.error_log_id)>
 	<cfset variables.always_show_these_columns="diagnostics,error_sql_datetime,erroring_querystring,http_referer,querystring,remote_address,username">
 	<cfset variables.expand_when_view_all="attributes_variables,error_variables">
-	
+
 	<cfif attributes.display_all EQ true>
 		<label><a name="links"></a>Quick Links</label>
 		<ul>

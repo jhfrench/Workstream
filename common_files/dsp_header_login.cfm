@@ -33,7 +33,7 @@
 	<meta name="description" content="Applied Internet Technologies timekeeping software">
 	<meta name="author" content="Applied Internet Technologies: #application.application_specific_settings.nasa_official#">
 	<meta http-equiv="expires" content="#gethttptimestring(now())#" /></cfoutput>
-	
+
 	<meta name="viewport" content="width=device-width">
 
 	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />

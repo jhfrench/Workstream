@@ -30,12 +30,12 @@
 <!--- INSERT MESSAGE DETAILS INTO DATABASE: --->
 	<!--- LOG_Email --->
 	<cfinclude template="qry_insert_log_email.cfm">
-	
+
 	<cfif isdefined("attributes.email_recipients_demographics_id")>
-		<!--- Link_Email_Demographics --->			
+		<!--- Link_Email_Demographics --->
 		<cfinclude template="qry_insert_link_email_demographics.cfm">
 	</cfif>
-	
+
 	<cfif len(attributes.upload_id)>
 		<!--- Link_Email_Upload --->
 		<cfinclude template="qry_insert_link_email_upload.cfm">
@@ -43,7 +43,7 @@
 		<cfset variables.upload_directory_path="#GetDirectoryfromPath(GettemplatePath())#Uploaded_Files">
 	</cfif>
 <!--- SEND THE MESSAGE --->
-	
+
 <cfset variables.email_recipients=valuelist(get_email_recipients.email_address)>
 <cfmail from="#application.application_specific_settings.system_email_sender#" replyto="#attributes.reply_to#" to="#attributes.reply_to#" bcc="#variables.email_recipients#" failto="#attributes.reply_to#" subject="#attributes.subject#" server="#application.email_server_name#" type="text">
 #attributes.email_body#

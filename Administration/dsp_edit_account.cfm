@@ -29,7 +29,7 @@
 		</td>
 	</tr>
 	</cfif>
-</cfoutput>	
+</cfoutput>
 <cfoutput query="get_user_details" maxrows="1">
 	<tr valign="top">
 		<td colspan="2">&nbsp;Username: <cfinput type="text" name="username" value="#username#" required="Yes" message="Please enter a username.">

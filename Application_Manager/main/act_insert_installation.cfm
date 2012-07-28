@@ -18,10 +18,10 @@
 	<cfinclude template="qry_insert_installation.cfm">
 	<cfset attributes.installation_id=qry_get_installation_id.installation_id>
 	<cfinclude template="qry_insert_installation_url.cfm">
-	
+
 	<!--- Insert product_version record --->
 	<cfinclude template="qry_insert_product_version.cfm">
-	
+
 	<!--- Insert supporting database record(s) if necessary --->
 	<cfif attributes.supporting_database_count NEQ 0>
 		<!--- For as many supporting DBs as the user specifies, insert a Supporting_Database record (if necessary, otherwise use existing) then link that record to the installation --->
@@ -33,7 +33,7 @@
 			<cfinclude template="qry_insert_l_installation_supporting_db.cfm">
 		</cfloop>
 	</cfif>
-	
+
 	<!--- Insert supporting contacts record(s) if necessary --->
 	<cfset variables.supporting_contacts_loop=listlen(attributes.support_contact_info_id)>
 	<cfif variables.supporting_contacts_loop NEQ 0>

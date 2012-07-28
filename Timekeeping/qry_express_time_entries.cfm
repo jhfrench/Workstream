@@ -44,7 +44,8 @@ WHERE Time_Entry.active_ind=1
 	AND Time_Entry.project_id = Project.project_id
 	AND DATEPART (yyyy, Time_Entry.date) = Hours_Pin_Week.year
 	AND DATEPART (wk, Time_Entry.date) = Hours_Pin_Week.week
-	AND Time_Entry.Notes_ID = Notes.Notes_ID
+	AND Time_Entry.notes_id = Notes.notes_id
+	AND Notes.active_ind=1
 ORDER BY Time_Entry.date desc, project.project_code
 </cfquery>
 </cfsilent>

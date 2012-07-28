@@ -100,7 +100,7 @@ limitations under the License.
 							"Unexpected attributes were found in a 'include' verb in fuseaction #fb_.verbInfo.circuit#.#fb_.verbInfo.fuseaction#.");
 			}
 		}
-				
+
 		// auto-append script extension:
 		fb_.standardExtension = fb_.app.scriptFileDelimiter;
 		fb_.extension = listlast(fb_.verbInfo.attributes.template,".");
@@ -115,23 +115,23 @@ limitations under the License.
 		} else {
 			fb_.templateLen = len(fb_.template);
 		}
-		
+
 		if (fb_.app.debug) {
 			// trace inclusion of this fuse:
 			fb_appendLine('<' & 'cfset myFusebox.trace("Runtime","&lt;include template=""#fb_.template#"" circuit=""#fb_.targetCircuit.getAlias()#""/&gt;") >');
 		}
-		
+
 		// if there are children, assume we need a stack frame:
 		if (fb_.verbInfo.hasChildren) {
 			fb_appendLine('<' & 'cfset myFusebox.enterStackFrame() >');
 			// this is where the child <parameter> verbs will store the variable names:
 			fb_.verbInfo.parameters = arrayNew(1);
 		}
-		
+
 	} else {
-		
+
 		// any child <parameter> verbs will have been compiled by now
-		
+
 		// compile <include>
 		if (fb_.verbInfo.attributes.contentvariable is not "" and not fb_.verbInfo.attributes.overwrite) {
 			fb_appendLine('<cfif not isDefined("#fb_.verbInfo.attributes.contentvariable#")>');
@@ -160,7 +160,7 @@ limitations under the License.
 		if (fb_.verbInfo.attributes.contentvariable is not "" and not fb_.verbInfo.attributes.overwrite) {
 			fb_appendLine('</cfif>');
 		}
-		
+
 		// clean up any stack frame:
 		if (fb_.verbInfo.hasChildren) {
 			// unwind the stack:

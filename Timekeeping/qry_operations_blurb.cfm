@@ -12,7 +12,7 @@
 	$Log$
 	 || 
  --->
-<cfparam name="variables.stretch_width" default="300">
+<cfparam name="variables.stretch_width" default="250">
 <cfquery name="operations_blurb" datasource="#application.datasources.main#">
 SELECT customer, #variables.stretch_width#*green_count/total_count AS green_stretch, #variables.stretch_width#*yellow_count/total_count AS yellow_stretch, #variables.stretch_width#*red_count/total_count AS red_stretch
 FROM (

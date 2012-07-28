@@ -36,11 +36,11 @@
 	<cfoutput query="get_associated_tasks">
 	<tr>
 		<td align="center">
-			<input type="checkbox" name="del_task" value="#l_t_t_id#">	
+			<input type="checkbox" name="del_task" value="#l_t_t_id#">
 		</td>
 		<td>
 			<img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="<cfif sort_order EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>" height="10" width="9" border="0">&nbsp;#name#
-		</td>	
+		</td>
 	</tr>
 	</cfoutput>
 <cfoutput>

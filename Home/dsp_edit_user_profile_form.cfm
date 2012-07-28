@@ -88,9 +88,9 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td align="center">
-			<input name="user_account_id" type="hidden" value="#get_user_information_profile.user_account_id#">
-			<input name="method" type="submit" alt="Update Information" value="Update Information">
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input name="user_account_id" type="hidden" value="#get_user_information_profile.user_account_id#" />
+			<input type="submit" name="method" value="Update Information" class="btn btn-primary" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

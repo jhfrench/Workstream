@@ -22,13 +22,13 @@
 				<param name="backgroundColor" value="#background_color#">
 				<param name="2D" value="yes">
 				<param name="CopyrightNotification" value="JavaChart is a copyrighted work, and subject to full legal protection">
-			
+
 				<param name="plotAreaColor" value="#graph_back#">
 				<param name="plotAreaTop" value=".97">
 				<param name="plotAreaBottom" value=".1">
 				<param name="plotAreaLeft" value=".052">
 				<param name="plotAreaRight" value=".97">
-				
+
 				<param name="legendOn" value="true">
 				<param name="legendColor" value="white">
 				<param name="legendLabelFont" value="Trebuchet MS,#small#,1">
@@ -38,13 +38,13 @@
 				<param name="legendVertical" value="true">
 				<param name="inconheight" value=".01">
 				<param name="iconwidth" value=".026">
-				
+
 				<param name="dwellUseLabelString" value="true">
 				<param name="dwellLabelsOn" value="true">
 				<param name="dwellYString" value="## Percent of Quarter Population">
 				<param name="dwellUseYValue" value="true">
 				<param name="dwellUseXValue" value="false">
-				
+
 				<param name="yAxisOptions" value="rotateTitle, gridOn">
 				<param name="yAxisColor" value="#Y_TickBar#">
 				<param name="yAxisGridColor" value="#Y_TickBar#">
@@ -55,13 +55,13 @@
 				<param name="yAxisLabelFont" value="Arial,12,1">
 				<param name="yAxisTitle" value="#yAxisTitle#">
 				<param name="yAxisTitleFont" value="Arial,10,1">
-				
+
 				<param name="xAxisGridColor" value="#X_label#">
 				<param name="xAxisTickColor" value="#X_label#">
 				<param name="xAxisLabelColor" value="#X_label#">
 				<param name="xAxisLabels" value="#xAxisLabels#">
 				<param name="xAxisLabelFont" value="Trebuchet MS,#small#,1">
-				
+
 				<param name="barLabelColor" value="#X_label#">
 				<param name="barLabelFormat" value="1">
 				<param name="barLabelPrecision" value="4">

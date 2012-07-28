@@ -95,7 +95,7 @@
 					$('icon'+(number+1)).height=25;
 				}
 			}
-		
+
 		}
 
 		function initIcon()
@@ -143,7 +143,7 @@
 		var global_ad_owner=$A([<cfloop query="get_system_note">'#created_by#'<cfif get_system_note.currentrow NEQ get_system_note.recordcount>,</cfif></cfloop>]);
 		var global_ad_date=$A([<cfloop query="get_system_note">'#dateformat(created_date,"mm/dd/yyyy")#'<cfif get_system_note.currentrow NEQ get_system_note.recordcount>,</cfif></cfloop>]);
 		var message_count=<cfoutput>#get_system_note.recordcount#</cfoutput>;
-	
+
 		function startup()
 		{
 			tempMessage=1;
@@ -189,7 +189,7 @@
 				</cfif>
 				</td>
 				<td valign="top" width="<cfif get_screen_details.business_function_id EQ 19>530<cfelse>98%</cfif>">
-	
+
 <!-- START MAIN BODY -->
 <a name="begin_page_content"></a>
 <div style="<cfif get_screen_details.business_function_id EQ 19>width:530px;height:100%;<cfelse>padding-left:0px;padding-right:16px;</cfif>" id="desktop">

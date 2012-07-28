@@ -39,16 +39,16 @@
 			</td>
 			<td scope="row"><label for="email_blacklist_id_#email_blacklist_id#">#email_address#</label></td>
 			<td>#created_by#&nbsp;</td>
-			<td align="right">#dateformat(created_date,"mm/dd/yyyy")#</td>		
+			<td align="right">#dateformat(created_date,"mm/dd/yyyy")#</td>
 		</tr>
 	</cfloop>
 	</tbody>
 	<tfoot>
 		<tr bgcolor="##dddddd">
 			<td  colspan="4" align="center">
-				<input type="hidden" name="created_by" value="#session.user_account_id#"/>			
-				<input type="submit" alt="submit" value="Submit" />               
-				<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+				<input type="hidden" name="created_by" value="#session.user_account_id#"/>
+				<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />               
+				<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 			</td>
 		</tr>
 	</tfoot>

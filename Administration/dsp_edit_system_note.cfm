@@ -52,7 +52,7 @@
 			<tr>
 				<td colspan="2"><label for="note_text">System Note Text</label>:
 					<br />
-					<textarea name="note_text" id="note_text" cols="50" rows="5"><cfif attributes.system_note_id NEQ 0>#trim(get_system_note.note_text)#<cfelse>#attributes.note_text#</cfif></textarea>				
+					<textarea name="note_text" id="note_text" cols="50" rows="5"><cfif attributes.system_note_id NEQ 0>#trim(get_system_note.note_text)#<cfelse>#attributes.note_text#</cfif></textarea>
 				</td>
 				<cfif attributes.system_note_id EQ 0>
 					<input type="hidden" name="active_ind" value="1"/>

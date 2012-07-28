@@ -92,7 +92,7 @@
 	<tr bgcolor="##999999">
 		<td align="center" colspan="4">
 			<input type="submit" alt="Select" name="method" value="Select" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </table>

@@ -34,7 +34,7 @@ if (arg == "accept_#task_id#")
 			CalculateRowFields(arg, arg1);}
 		else
 			{<cfloop list="#emp_id_loop#" index="ii">document.forceplanner.t#task_id#_#ii#.blur();
-			
+
 			<cfset "task_assign#task_id#"=0></cfloop>}
 		}
 	return;}
@@ -49,7 +49,7 @@ if (arg == "accept_#task_id#")
 	{var task_assigned#task_id#;
 	task_assigned#task_id#=<cfloop list="#emp_id_loop#" index="ii">parseInt(document.forceplanner.t#task_id#_#ii#.value,10) + </cfloop>0;
 	document.forceplanner.task_assigned#task_id#.value=task_assigned#task_id#;
-	
+
 	var task_remainder#task_id#;
 	task_remainder#task_id#=#budget#-task_assigned#task_id#;
 	document.forceplanner.task_remainder#task_id#.value=task_remainder#task_id#;}
@@ -61,23 +61,23 @@ if (arg == "accept_#task_id#")
 	sum_#ii#</cfoutput>=<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>parseInt(document.forceplanner.t#task_id#_#ii#.value,10) + </cfif></cfoutput>0;
 	<cfoutput>
 	document.forceplanner.sum_#ii#.value=sum_#ii#;
-	
+
 	var capacity_#ii#;
 	capacity_#ii#=Math.ceil(sum_#ii#/#get_week_days.hours_in_month#*100) + '%';
 	document.forceplanner.capacity_#ii#.value=capacity_#ii#;
-	
+
 	var sum_assigned;
 	sum_assigned=<cfloop list="#emp_id_loop#" index="ii">parseInt(document.forceplanner.sum_#ii#.value,10) + </cfloop>0;
 	document.forceplanner.sum_assigned.value=sum_assigned;
-	
+
 	var sum_remaining;
 	sum_remaining=#requested_sum#-sum_assigned;
 	document.forceplanner.sum_remaining.value=sum_remaining;
-	
+
 	var capacity_assigned;
 	capacity_assigned=Math.ceil(sum_assigned/#variables.total_requested#*100) + '%';
 	document.forceplanner.capacity_assigned.value=capacity_assigned;
-	
+
 	var capacity_remaining;
 	capacity_remaining=Math.ceil(sum_remaining/#variables.total_requested#*100) + '%';
 	document.forceplanner.capacity_remaining.value=capacity_remaining;

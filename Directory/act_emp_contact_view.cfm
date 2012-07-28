@@ -63,7 +63,7 @@
 				<input type="hidden" name="emp_id" value="#get_demographics.emp_id#">
 			</td>
 		</tr>
-		
+
 		<!--- Phone --->
 		<tr><td colspan="3" bgcolor="##dadada" class="SubHeadText">&nbsp;&nbsp;Phones</td></tr>
 		<cfloop query="get_contact_phones">
@@ -80,7 +80,7 @@
 				</td>
 			</tr>
 		</cfloop>
-		
+
 		<!--- Emails --->
 		<tr><td colspan="3" bgcolor="##dadada" class="SubHeadText">&nbsp;&nbsp;Emails</td></tr>
 		<cfloop query="get_contact_emails">
@@ -94,7 +94,7 @@
 				</td>
 			</tr>
 		</cfloop>
-		
+
 		<!--- Addresses --->
 		<tr><td colspan="3" bgcolor="##dadada" class="SubHeadText">&nbsp;&nbsp;Addresses</td></tr>
 		<cfloop query="get_contact_locations">
@@ -120,7 +120,7 @@
 			<input type="hidden" name="location_id" value="#location_id#">
 			<input type="hidden" name="location_type_id" value="#location_type_id#">
 		</cfloop>
-		
+
 		<!--- biography --->
 		<tr><td colspan="3" bgcolor="##dadada" class="SubHeadText">&nbsp;&nbsp;Biography</td></tr>
 		<tr>
@@ -131,7 +131,7 @@
 				<input type="hidden" name="emp_biography_id" value="#get_demographics.emp_biography_id#">
 			</td>
 		</tr>
-		
+
 		<tr>
 			<td colspan="3" bgcolor="##dadada" align="center">
 				<br /><br />

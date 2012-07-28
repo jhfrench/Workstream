@@ -6,7 +6,7 @@
 		I help the user maintain the NSM structure.
 	</responsibilities>
 	<properties>
-		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="9/18/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy.h.french@nasa.gov" author="Jeromy French" type="create" date="9/18/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -25,18 +25,18 @@
 SELECT *
 FROM Hierarchy_Upload
 WHERE parent_organization_id IS NULL
-	AND COALESCE(theme,'.')!='.'
-ORDER BY COALESCE(project_wbs,'!'), COALESCE(program,'!'), COALESCE(theme,'!'),
-	COALESCE(mission,'!')
+	AND NVL(theme,'.')!='.'
+ORDER BY NVL(project_wbs,'!'), NVL(program,'!'), NVL(theme,'!'),
+	NVL(mission,'!')
 </cfquery>
 
 <cfif get_bad_hierarchy_upload.recordcount EQ 0 AND variables.error_ind EQ 0>
-	All of the records from your file were successfully integrated into the FAAD <abbr title="NASA Structure Management">NSM</abbr> structure.
+	All of the records from your file were successfully integrated into the <cfoutput>#application.product_name#</cfoutput> <abbr title="NASA Structure Management">NSM</abbr> structure.
 <cfelseif get_bad_hierarchy_upload.recordcount>
-	<table border="0" cellpadding="1" cellspacing="0" summary="Table lists all the records that could not be integrated into the FAAD NSM structure">
+	<table border="0" cellpadding="1" cellspacing="0" summary="Table lists all the records that could not be integrated into the <cfoutput>#application.product_name#</cfoutput> NSM structure">
 		<tr>
 			<td colspan="7" title="table cell describes the data held in thecells below">
-				The following records could not be integrated into the FAAD <abbr title="NASA Structure Management">NSM</abbr> structure:
+				The following records could not be integrated into the <cfoutput>#application.product_name#</cfoutput> <abbr title="NASA Structure Management">NSM</abbr> structure:
 			</td>
 		</tr>
 		<tr>

@@ -29,8 +29,8 @@
 	<cfinclude template="qry_phone_entry.cfm">
 	<cfinclude template="qry_emp_biography_entry.cfm">
 	<cfinclude template="qry_pto_rollover_entry.cfm">
-	<cfinclude template="qry_position_number_entry.cfm">	
-	
+	<cfinclude template="qry_position_number_entry.cfm">
+
 	<cfset application.team_changed=now()>
 </cftransaction>
 

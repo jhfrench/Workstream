@@ -60,7 +60,7 @@
 		</td>
 		<td bgcolor="##c0c0c0" class="SubHeadText">
 			Project Update
-		</td>			
+		</td>
 		<td bgcolor="##c0c0c0" class="SubHeadText">
 			Revenue
 		</td>

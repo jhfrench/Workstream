@@ -10,10 +10,10 @@
 			$Id$
 			JF: 2/1/8
 			I'm replacing client variables with session variables because it's more important for FOCUS. To do this correctly, I'd need to create the Error_Log.session_variables column, wddx the session scope into its own variable and insert that variable into the new field. Then make client wddx store client information again.
-			
+
 			JF: 6/10/8
 			Reinstated client variable logging.
-			
+
 			JF: 7/30/10
 			Converted to faster cfscript; split cftry into multiple blocks so one failure wouldn't wipe out other data.
 		</history>
@@ -60,7 +60,7 @@
 	<cfset request.safe_application=structcopy(application)>
 	<cfset delete_junk=StructDelete(request.safe_application,"fusebox",true)>
 	<cfwddx action="cfml2wddx" input="#request.safe_application#" output="application_variables" usetimezoneinfo="no">
-	
+
 	<cfcatch type="Any">
 		<!--- This is  incase the WDDX Serialization Fails--->
 		<cfparam name="application_variables" default="WDDX FAILED">
@@ -69,7 +69,7 @@
 
 <cftry>
 	<cfwddx action="cfml2wddx" input="#attributes#" output="attributes_variables" usetimezoneinfo="no">
-	
+
 	<cfcatch type="Any">
 		<!--- This is  incase the WDDX Serialization Fails--->
 		<cfparam name="attributes_variables" default="WDDX FAILED">
@@ -77,11 +77,11 @@
 </cftry>
 
 <cftry>
-	
+
 	<!--- the next two lines are necessary to get the data stored properly so that it will display properly in the diagnostics viewer --->
 	<cfset request.safe_cgi=structcopy(cgi)>
 	<cfwddx action="cfml2wddx" input="#request.safe_cgi#" output="cgi_variables" usetimezoneinfo="no">
-	
+
 	<cfcatch type="Any">
 		<!--- This is  incase the WDDX Serialization Fails--->
 		<cfparam name="cgi_variables" default="WDDX FAILED">
@@ -90,7 +90,7 @@
 
 <cftry>
 	<cfwddx action="cfml2wddx" input="#client#" output="client_variables" usetimezoneinfo="no">
-	
+
 	<cfcatch type="Any">
 		<!--- This is  incase the WDDX Serialization Fails--->
 		<cfparam name="client_variables" default="WDDX FAILED">
@@ -105,7 +105,7 @@
 		StructDelete(request.safe_error,"RootCause",true);
 	</cfscript>
 	<cfwddx action="cfml2wddx" input="#request.safe_error#" output="error_variables" usetimezoneinfo="no">
-	
+
 	<cfcatch type="Any">
 		<!--- This is  incase the WDDX Serialization Fails--->
 		<cfparam name="error_variables" default="WDDX FAILED">
@@ -113,9 +113,9 @@
 </cftry>
 
 <cftry>
-	
+
 	<cfwddx action="cfml2wddx" input="#form#" output="form_variables" usetimezoneinfo="no">
-	
+
 	<cfcatch type="Any">
 		<!--- This is  incase the WDDX Serialization Fails--->
 		<cfparam name="form_variables" default="WDDX FAILED">
@@ -124,7 +124,7 @@
 
 <cftry>
 	<cfwddx action="cfml2wddx" input="#session#" output="session_variables" usetimezoneinfo="no">
-	
+
 	<cfcatch type="Any">
 		<!--- This is  incase the WDDX Serialization Fails--->
 		<cfparam name="session_variables" default="WDDX FAILED">
@@ -133,7 +133,7 @@
 
 <cftry>
 	<cfwddx action="cfml2wddx" input="#url#" output="url_variables" usetimezoneinfo="no">
-	
+
 	<cfcatch type="Any">
 		<!--- This is  incase the WDDX Serialization Fails--->
 		<cfparam name="url_variables" default="WDDX FAILED">
@@ -150,7 +150,7 @@
 		StructDelete(request,"safe_variables",true);
 	</cfscript>
 	<cfwddx action="cfml2wddx" input="#request#" output="request_variables" usetimezoneinfo="no">
-	
+
 	<cfcatch type="Any">
 		<!--- This is  incase the WDDX Serialization Fails--->
 		<cfparam name="request_variables" default="WDDX FAILED">
@@ -173,13 +173,13 @@
 			'#variables.error_browser#', #createodbcdatetime(variables.error_datetime)#, CURRENT_TIMESTAMP
 		FROM Dual
 		</cfquery>
-		
+
 <cftry>
 	<cfquery name="get_next_error_log_id" datasource="#application.datasources.main#">
 	SELECT CURRVAL('Error_Log_error_log_id_SEQ') AS error_log_id
 	</cfquery>
 	<cfset request.error_log_id=get_next_error_log_id.error_log_id>
-	
+
 	<cfquery name="insert_error_info" datasource="#application.datasources.main#">
 	UPDATE Error_Log
 	SET error_variables='#error_variables#'
@@ -216,18 +216,18 @@
 			StructDelete(request.safe_variables,"LOCALE",true); //size~8
 		</cfscript>
 		<cfwddx action="cfml2wddx" input="#request.safe_variables#" output="local_variables" usetimezoneinfo="no">
-		
+
 		<cfcatch type="Any">
 			<cfparam name="local_variables" default="WDDX FAILED">
 		</cfcatch>
 	</cftry>
-	
+
 	<cfquery name="insert_error_info" datasource="#application.datasources.main#">
 	UPDATE Error_Log
 	SET local_variables='#local_variables#'
 	WHERE error_log_id=#request.error_log_id#
 	</cfquery>
-	
+
 	<cfcatch><!--- 
 		<cfoutput>
 		<pre>
@@ -271,7 +271,7 @@
 					</ul>
 				</cfloop>
 			</cfif>
-								
+
 			<cfif isdefined("request.error_log_id") AND len(request.error_log_id)>
 			<p><b>Error ID:</b> #request.error_log_id#
 			</cfif>

@@ -64,7 +64,7 @@ limitations under the License.
 							"Unexpected attributes were found in a 'relocate' verb in fuseaction #fb_.verbInfo.circuit#.#fb_.verbInfo.fuseaction#.");
 			}
 		}
-		
+
 		// compile <relocate>
 		switch (fb_.verbInfo.attributes.type) {
 
