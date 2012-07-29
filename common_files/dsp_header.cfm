@@ -1,7 +1,7 @@
-<!-- common_files/dsp_header_portal.cfm
+<!-- common_files/dsp_header.cfm
 	Author: Jeromy French-->
 <!---
-<fusedoc language="ColdFusion MX" specification="2.0" template="dsp_header_portal.cfm">
+<fusedoc language="ColdFusion MX" specification="2.0" template="dsp_header.cfm">
 	<responsibilities>
 		I display the main application header, including application-specific navigation options.
 	</responsibilities>
@@ -118,6 +118,7 @@ else
 							<ul class="nav pull-right"><cfif application.help.active_ind>
 								<li><a href="##help_area" id="nav_help_button" title="Access the #application.product_name# help system" class="btn btn-mini btn-info" style="color:##ffffff;">Help</a></li></cfif>
 								<cfif isdefined("session.user_account_id")><cfif session.password_created_by EQ session.user_account_id><li><a href="index.cfm?fuseaction=Home.logout" class="login_link"">Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></a></li></cfif><cfelse><li><a href="index.cfm?fuseaction=Home.login" class="login_link">Login for More Access</a></li></cfif>
+								<li><a href="##blurb_dashboard">Dashboard</a></li>
 							</ul>
 						</div><!--/.nav-collapse -->
 					</div>

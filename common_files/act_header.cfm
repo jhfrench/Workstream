@@ -42,5 +42,5 @@
 		<cfset attributes.module_description=listfirst(replace(url.fuseaction,"_", " "),".")>
 	</cfif>
 
-	<cfinclude template="dsp_header_bootstrap.cfm">
+	<cfinclude template="dsp_header.cfm">
 </cfif>

@@ -57,7 +57,6 @@ WHERE Link_Screen_Help_Article.active_ind=1
 		<cfcase value="1">
 		/*specific help_article_article*/
 		Help_Article.help_article_id=<cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#attributes.help_article_id#">
-		<cfif attributes.help_articles_lookup_type_id EQ 1>AND rownum=1</cfif>
 		</cfcase>
 		<cfcase value="2">
 		(1=0 /*this is here just for SQL syntax purposes*/<cfif NOT session.hide_general_help_articles>
@@ -73,6 +72,7 @@ WHERE Link_Screen_Help_Article.active_ind=1
 		1=1</cfcase>
 		<cfdefaultcase>throw_error=1</cfdefaultcase>
 	</cfswitch>
-ORDER BY REF_Module.sort_order, REF_Business_Function.sort_order, Help_Article.sort_order
+ORDER BY REF_Module.sort_order, REF_Business_Function.sort_order, Help_Article.sort_order<cfif attributes.help_articles_lookup_type_id EQ 1>
+LIMIT 1</cfif>
 </cfquery>
 <cfset caller.get_screen_help_articles=get_screen_help_articles>

@@ -21,7 +21,7 @@
 --->
 <cfquery name="insert_link_email_upload" datasource="#application.datasources.main#">
 INSERT INTO Link_Email_Upload (email_id, upload_id, created_by)
-SELECT LOG_Email_SEQ.CURRVAL AS email_id, upload_id, #variables.created_by# AS created_by
+SELECT CURRVAL('LOG_Email_email_id_SEQ') AS email_id, upload_id, #variables.created_by# AS created_by
 FROM LOG_Upload
 WHERE upload_id IN (#attributes.upload_id#)
 </cfquery>

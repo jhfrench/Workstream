@@ -41,7 +41,7 @@ if (NOT isdefined("variables.loop_count")) {
 
 <cfquery name="insert_link_email_demographics" datasource="#application.datasources.main#">
 INSERT INTO Link_Email_Demographics (email_id, demographics_id, created_by)
-SELECT LOG_Email_SEQ.CURRVAL AS email_id, demographics_id, #variables.created_by# AS created_by
+SELECT CURRVAL('LOG_Email_email_id_SEQ') AS email_id, demographics_id, #variables.created_by# AS created_by
 FROM Demographics
 WHERE 1=0<cfloop from="1" to="#variables.loop_count#" index="variables.grouping_ii">
 	OR demographics_id IN (#evaluate("variables.email_recipients_demographics_id_#variables.grouping_ii#")#)</cfloop>
