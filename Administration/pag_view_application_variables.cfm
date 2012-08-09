@@ -136,11 +136,11 @@
 <h2>Administration &gt; System Configuration &gt; View Application Variables</h2>
 <a href="index.cfm?fuseaction=Administration.cause_error">Cause an error</a>
 <form name="" action="index.cfm?fuseaction=Administration.view_application_variables" method="post">
-	<input type="checkbox" name="show_application_ind" id="show_application_ind" value="1"<cfif attributes.show_application_ind> CHECKED</cfif> /><label for="show_application_ind">Show application scope</label><br />
-	<input type="checkbox" name="show_fusebox_ind" id="show_fusebox_ind" value="1"<cfif attributes.show_fusebox_ind> CHECKED</cfif> /><label for="show_fusebox_ind">Show fusebox variables</label><br />
-	<input type="checkbox" name="show_server_ind" id="show_server_ind" value="1"<cfif attributes.show_server_ind> CHECKED</cfif> /><label for="show_server_ind">Show server scope</label><br />
-	<input type="checkbox" name="show_session_ind" id="show_session_ind" value="1"<cfif attributes.show_session_ind> CHECKED</cfif> /><label for="show_session_ind">Show session scope</label><br />
-	<input type="checkbox" name="show_variables_ind" id="show_variables_ind" value="1"<cfif attributes.show_variables_ind> CHECKED</cfif> /><label for="show_variables_ind">Show variables scope</label><br />
+	<input type="checkbox" name="show_application_ind" id="show_application_ind" value="1"<cfif attributes.show_application_ind> checked="checked"</cfif> /><label for="show_application_ind">Show application scope</label><br />
+	<input type="checkbox" name="show_fusebox_ind" id="show_fusebox_ind" value="1"<cfif attributes.show_fusebox_ind> checked="checked"</cfif> /><label for="show_fusebox_ind">Show fusebox variables</label><br />
+	<input type="checkbox" name="show_server_ind" id="show_server_ind" value="1"<cfif attributes.show_server_ind> checked="checked"</cfif> /><label for="show_server_ind">Show server scope</label><br />
+	<input type="checkbox" name="show_session_ind" id="show_session_ind" value="1"<cfif attributes.show_session_ind> checked="checked"</cfif> /><label for="show_session_ind">Show session scope</label><br />
+	<input type="checkbox" name="show_variables_ind" id="show_variables_ind" value="1"<cfif attributes.show_variables_ind> checked="checked"</cfif> /><label for="show_variables_ind">Show variables scope</label><br />
 	<input type="submit" value="show selected scopes" />
 </form>
 <cfif attributes.show_application_ind>

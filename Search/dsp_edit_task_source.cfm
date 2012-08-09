@@ -15,7 +15,7 @@
 </cfsilent>
 <tr valign="top">
 	<td align="center">
-		<input type="checkbox" name="task_source_box" value="1" <cfif len(attributes.Task_Source)>checked="checked"</cfif>>
+		<input type="checkbox" name="task_source_box" value="1" <cfif len(attributes.Task_Source)> checked="checked"</cfif>>
 	</td>
 	<td>Task Source</td>
 	<td>

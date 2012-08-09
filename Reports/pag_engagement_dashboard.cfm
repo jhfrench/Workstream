@@ -36,7 +36,7 @@
 		<div class="control-group">
 			<label for="active_ind">Project view</label>
 			<div class="controls">
-				<select name="active_ind" onchange="javascript:document.forms.form_engagement_dashboard.submit();">
+				<select name="active_ind">
 					<option value="1"<cfif attributes.active_ind EQ 1> selected="selected"</cfif>>Active only</option>
 					<option value="0"<cfif attributes.active_ind EQ 0> selected="selected"</cfif>>Inactive only</option>
 				</select>

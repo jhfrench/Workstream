@@ -53,7 +53,7 @@
 		<td><input name="password" id="password" type="password" size="20" value="#attributes.password#"/>
 		<!--- $issue$ change this to a drop down of REF_Account_Status, with user's status pre-selected --->
 		<cfif NOT comparenocase(attributes.action, "edit_user") AND get_user_information.user_account_id NEQ session.user_account_id>
-			<input type="checkbox" name="account_status_id" value="1"<cfif account_status_id NEQ 1> checked</cfif>/> Lock
+			<input type="checkbox" name="account_status_id" value="1"<cfif account_status_id NEQ 1> checked="checked"</cfif>/> Lock
 		</cfif>
 		</td>
 	</tr>

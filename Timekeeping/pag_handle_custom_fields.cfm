@@ -18,7 +18,7 @@
 <cfoutput>
 	<tr valign="top">
 		<td>
-			<label for="retire#user_field_id#">Retire<input type="checkbox"<cfif active_ind EQ 1> checked</cfif> name="retire" id="retire#user_field_id#" value="#user_field_id#"></label>
+			<label for="retire#user_field_id#">Retire<input type="checkbox"<cfif active_ind EQ 1> checked="checked"</cfif> name="retire" id="retire#user_field_id#" value="#user_field_id#"></label>
 		</td>
 		<td>
 			#field_title#: <cfif field_type_id EQ 1>

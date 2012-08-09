@@ -27,7 +27,7 @@
 <cfquery name="get_user_navigation_access" datasource="#application.datasources.main#">
 SELECT REF_Module.module_id, REF_Module.description AS module_description, REF_Business_Function.business_function_id,
 	REF_Business_Function.description AS business_function_description, REF_Business_Function.default_access_ind,
-	CASE WHEN Access_User_Business_Function.business_function_id IS NOT NULL THEN ' CHECKED' ELSE '' END AS checked_ind,
+	CASE WHEN Access_User_Business_Function.business_function_id IS NOT NULL THEN ' checked="checked"' ELSE '' END AS checked_ind,
 	CASE WHEN Access_User_Business_Function.business_function_id IS NOT NULL THEN REF_Business_Function.business_function_id ELSE 0 END AS old_business_function_id
 FROM REF_Module
 	INNER JOIN REF_Screen ON REF_Module.module_id=REF_Screen.module_id

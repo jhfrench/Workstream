@@ -53,7 +53,7 @@
 		<td class="RegTextBd">
 			Custom Fields<br />
 			<label for="req_custom1"><cfinput type="radio" name="req_custom" value="1" id="req_custom1">This engagement will use custom fields.</label><br />
-<label for="req_custom0"><cfinput type="radio" name="req_custom" checked="Yes" value="0" id="req_custom0">No custom fields necessary.</label>
+<label for="req_custom0"><cfinput type="radio" name="req_custom" checked="yes" value="0" id="req_custom0">No custom fields necessary.</label>
 		</td>
 		<td class="RegTextBd">
 			Billing Type<br />

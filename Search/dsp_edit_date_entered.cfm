@@ -16,7 +16,7 @@
 <cfoutput>
 	<tr>
 		<td  class="btn-group">
-			<input type="checkbox" name="date_entered_box" value="1"<cfif isdefined("attributes.date_entered_box") AND isdate(attributes.date_entered)>checked="checked"</cfif>>
+			<input type="checkbox" name="date_entered_box" value="1"<cfif isdefined("attributes.date_entered_box") AND isdate(attributes.date_entered)> checked="checked"</cfif> />
 		</td>
 		<td>
 			Date entered

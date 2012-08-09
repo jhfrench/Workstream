@@ -18,39 +18,6 @@
 <cfparam name="attributes.active_ind" default="1">
 </cfsilent>
 
-<cfoutput>
-<pre>
-SELECT Project.Status, Billing_History.Total_Bill_Amount, Customer.description AS customer_description,
-	Project.description, Project.project_code, Project.Vision,
-	Project.budget, Project.Mission, REF_Billable.Billable_Type,
-	Project.billable_type_id, Project.active_ind, REF_Active_Indicator.active_ind_Type,
-	Project.company_id, Customer.customer_id, Flat_Rate.rate_end_date,
-	Flat_Rate.rate_start_date, Project.project_manager_emp_id, Emp_Contact.lname,
-	Emp_Contact.name, Project.project_id, Project.created_date,
-	Project.Date_Updated, Project.file_path,
-	COALESCE(Project.date_go_live, Project.project_end) AS deadline_date, Project.eng_status, Project.loe
-FROM Project
-	INNER JOIN REF_Billable ON Project.billable_type_id = REF_Billable.billable_type_id
-	INNER JOIN REF_Active_Indicator ON Project.active_ind = REF_Active_Indicator.active_ind
-	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
-	LEFT OUTER JOIN Emp_Contact ON Project.project_manager_emp_id = Emp_Contact.emp_id
-	LEFT OUTER JOIN Flat_Rate ON Project.project_id = Flat_Rate.project_id
-		AND Flat_Rate.active_ind=1
-    LEFT OUTER JOIN (
-		SELECT project_id,SUM(total_bill_amount) AS total_bill_amount
-		FROM Billing_History
-		WHERE item_deleted = 0
-		GROUP BY project_id
-	) AS Billing_History ON Project.project_id=Billing_History.project_id
-WHERE COALESCE(Project.status,0) > 0
-    AND Project.company_id=#session.workstream_company_id#<cfif attributes.project_manager_emp_id NEQ 0>
-	AND Project.project_manager_emp_id=#attributes.project_manager_emp_id#</cfif><cfif attributes.customer_id NEQ 0>
-	AND Project.customer_id=#attributes.customer_id#</cfif>
-    AND REF_Active_Indicator.active_ind=#attributes.active_ind#
-ORDER BY #attributes.sort#
-</pre>
-</cfoutput>
-
 <cfquery name="get_engagement_dashboard" datasource="#application.datasources.main#">
 SELECT Project.Status, Billing_History.Total_Bill_Amount, Customer.description AS customer_description,
 	Project.description, Project.project_code, Project.Vision,

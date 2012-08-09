@@ -40,7 +40,7 @@
 		</td>
 	</tr>
 	<tr valign="top">
-		<td colspan="2">&nbsp;Disable User: <input type="checkbox" name="disable"<cfif disable> checked</cfif> >
+		<td colspan="2">&nbsp;Disable User: <input type="checkbox" name="disable"<cfif disable> checked="checked"</cfif> >
 		</td>
 	</tr>
 	<cfmodule template="../common_files/dsp_submit_options.cfm" include_reset="1" reset_value="Reset Options" submit_value="Save Settings">
@@ -55,16 +55,16 @@
 <cfset index=ListFind(module_num,module_id)>
 	<tr bgcolor="#listgetat(module_color,index)#" valign="top">
 		<td class="SubHeadText<cfif module_id NEQ 4>White</cfif>">
-			<input type="checkbox" name="M#module_id#"<cfif module_security> checked</cfif> > #module_name#
+			<input type="checkbox" name="M#module_id#"<cfif module_security> checked="checked"</cfif> > #module_name#
 		</td>
 		<td class="SubHeadText<cfif module_id NEQ 4>White</cfif>">All Option</td>
 	</tr>
 </cfif>
 	<tr bgcolor="##e6e6e6" valign="top">
 		<td>
-			&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="R#object_id#"<cfif object_security> checked</cfif> > #report_name#
+			&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="R#object_id#"<cfif object_security> checked="checked"</cfif> > #report_name#
 		</td>
-		<td><input type="checkbox" name="A_O#object_id#"<cfif object_all_option_editable> checked</cfif> <cfif not object_all_option> disabled</cfif>></td>
+		<td><input type="checkbox" name="A_O#object_id#"<cfif object_all_option_editable> checked="checked"</cfif> <cfif not object_all_option> disabled</cfif>></td>
 	</tr>
 	<cfset variables.module_name=module_name>
 </cfoutput>

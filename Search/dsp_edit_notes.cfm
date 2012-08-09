@@ -16,7 +16,7 @@
 <cfoutput>
 	<tr>
 		<td  class="btn-group">
-			<input type="checkbox" name="notes_box" value="1" <cfif len(attributes.notes)>checked="checked"</cfif>>
+			<input type="checkbox" name="notes_box" value="1"<cfif len(attributes.notes)> checked="checked"</cfif>>
 		</td>
 		<td>
 			Notes
