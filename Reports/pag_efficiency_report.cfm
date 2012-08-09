@@ -30,11 +30,11 @@
 		#variables.project_name# Time for 
 		<select name="admin_month" onchange="javascript:document.drill_down.submit();">
 			<cfloop from="1" to="12" index="ii">
-			<option value="#ii#"<cfif attributes.admin_month EQ ii> selected</cfif>>#monthAsString(ii)#</option></cfloop>
+			<option value="#ii#"<cfif attributes.admin_month EQ ii> selected="selected"</cfif>>#monthAsString(ii)#</option></cfloop>
 		</select>
 		<select name="admin_year" onchange="javascript:document.drill_down.submit();">
 			<cfloop from="#lowest_year#" to="#year(now())#" index="ii">
-			<option value="#ii#"<cfif attributes.admin_year EQ ii> selected</cfif>>#ii#</option></cfloop>
+			<option value="#ii#"<cfif attributes.admin_year EQ ii> selected="selected"</cfif>>#ii#</option></cfloop>
 		</select>
 		<label for="hide_supervisor">
 			<input type="Checkbox"<cfif isdefined("attributes.hide_supervisor")> checked</cfif> name="hide_supervisor" value="1" onclick="javascript:document.drill_down.submit();" id="hide_supervisor" class="SubHeadTextWhite" /> Remove your data

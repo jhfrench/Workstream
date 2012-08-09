@@ -114,13 +114,13 @@
 	<option value="0">#evaluate("attributes.blank_option" & select_field_ii)#</option></cfoutput>
 	<cfif select_field_ii EQ 1>
 		<cfoutput query="variables.hierarchy_query" group="#evaluate("attributes.Value" & select_field_ii)#">
-		<option value="#evaluate(evaluate("attributes.value" & select_field_ii))#"<cfif isdefined("attributes.selected_value" & select_field_ii) AND evaluate("attributes.selected_value" & select_field_ii) EQ evaluate(evaluate("attributes.value" & select_field_ii))> SELECTED</cfif>><cfif isdefined("attributes.display#select_field_ii#")>#evaluate(evaluate("attributes.display" & select_field_ii))#<cfelse>#evaluate(evaluate("attributes.Value" & select_field_ii))#</cfif></option>
+		<option value="#evaluate(evaluate("attributes.value" & select_field_ii))#"<cfif isdefined("attributes.selected_value" & select_field_ii) AND evaluate("attributes.selected_value" & select_field_ii) EQ evaluate(evaluate("attributes.value" & select_field_ii))> selected="selected"</cfif>><cfif isdefined("attributes.display#select_field_ii#")>#evaluate(evaluate("attributes.display" & select_field_ii))#<cfelse>#evaluate(evaluate("attributes.Value" & select_field_ii))#</cfif></option>
 		</cfoutput>
 	<cfelseif isdefined("attributes.selected_value" & select_field_ii)>
 		<!---Get the values available for this set--->
 		<cfoutput query="variables.hierarchy_query" group="#evaluate("attributes.Value" & select_field_ii)#">
 		<cfif evaluate("attributes.selected_value" & (select_field_ii-1)) EQ evaluate(evaluate("attributes.value" & (select_field_ii-1)))>
-			<option value="#evaluate(evaluate("attributes.value" & select_field_ii))#"<cfif isdefined("attributes.selected_value" & select_field_ii) and evaluate("attributes.selected_value" & select_field_ii) EQ evaluate(evaluate("attributes.value" & select_field_ii))> SELECTED</cfif>><cfif isdefined("attributes.display#select_field_ii#")>#evaluate(evaluate("attributes.display" & select_field_ii))#<cfelse>#evaluate(evaluate("attributes.Value" & select_field_ii))#</cfif></option>
+			<option value="#evaluate(evaluate("attributes.value" & select_field_ii))#"<cfif isdefined("attributes.selected_value" & select_field_ii) and evaluate("attributes.selected_value" & select_field_ii) EQ evaluate(evaluate("attributes.value" & select_field_ii))> selected="selected"</cfif>><cfif isdefined("attributes.display#select_field_ii#")>#evaluate(evaluate("attributes.display" & select_field_ii))#<cfelse>#evaluate(evaluate("attributes.Value" & select_field_ii))#</cfif></option>
 		</cfif>
 		</cfoutput>
 	</cfif>

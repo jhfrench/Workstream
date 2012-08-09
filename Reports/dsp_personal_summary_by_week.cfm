@@ -46,12 +46,12 @@
 			Look at time for
 			<select name="month">
 			<cfloop from="1" to="12" index="month_ii">
-				<option value="#month_ii#"<cfif attributes.month EQ month_ii> SELECTED</cfif>>#monthasstring(month_ii)#</option>
+				<option value="#month_ii#"<cfif attributes.month EQ month_ii> selected="selected"</cfif>>#monthasstring(month_ii)#</option>
 			</cfloop>
 			</select>
 			<select name="year">
 				<cfloop from="1999" to="#year(now())#" index="ii">
-				<option value="#ii#"<cfif attributes.year EQ ii> SELECTED</cfif>>#ii#</option>
+				<option value="#ii#"<cfif attributes.year EQ ii> selected="selected"</cfif>>#ii#</option>
 				</cfloop>
 			</select>
 			<input type="hidden" name="emp_id" value="#attributes.emp_id#" />

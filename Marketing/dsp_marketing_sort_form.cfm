@@ -19,7 +19,7 @@
 
 <td>
 <select name="SortBy1" >
-<option value = "None" selected>No Filter</option>
+<option value = "None" selected="selected">No Filter</option>
 <option value="project.project_code">Project Code</option>
 <option value="project.description">CustomerName</option>
 <option value="task.Name">Task Name</option>
@@ -29,11 +29,11 @@
 <tr>
 <td>
 <select name="SortBy2andor">
-<option value = "and" selected>and</option>
+<option value = "and" selected="selected">and</option>
 <option value = "or" >or</option>
 </select>
 <select name="SortBy2">
-<option value = "None" selected>No Filter</option>
+<option value = "None" selected="selected">No Filter</option>
 <option value="project.project_code">Project Code</option>
 <option value="project.description">CustomerName</option>
 <option value="task.Name">Task Name</option>
@@ -43,11 +43,11 @@
 <tr>
 <td>
 <select name="SortBy3andor">
-<option value = "and" selected>and</option>
+<option value = "and" selected="selected">and</option>
 <option value = "or" >or</option>
 </select>
 <select name="SortBy3">
-<option value = "None" selected>No Filter</option>
+<option value = "None" selected="selected">No Filter</option>
 <option value="project.project_code">Project Code</option>
 <option value="project.name">CustomerName</option>
 <option value="task.Name">Task Name</option>

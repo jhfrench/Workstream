@@ -51,7 +51,7 @@
 					<label for="product_version_id">Requested Product Version</label>:
 					<br /><cfselect name="product_version_id" id="requirement_type_id" required="yes" message="Please specify the type of requirement you are entering.">
 							<cfloop query="get_ref_product_version">
-							<option value="#get_ref_product_version.product_version_id#"<cfif variables.product_version_id EQ get_ref_product_version.product_version_id> SELECTED</cfif>>#description# (anticipated release:<cfif len(scheduled_release_date)>#dateformat(scheduled_release_date, "mm/dd/yyyy")#<cfelse>unknown</cfif>)</option>
+							<option value="#get_ref_product_version.product_version_id#"<cfif variables.product_version_id EQ get_ref_product_version.product_version_id> selected="selected"</cfif>>#description# (anticipated release:<cfif len(scheduled_release_date)>#dateformat(scheduled_release_date, "mm/dd/yyyy")#<cfelse>unknown</cfif>)</option>
 							</cfloop>
 						</cfselect>
 				</td>

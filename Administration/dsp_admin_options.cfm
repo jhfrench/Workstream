@@ -19,9 +19,9 @@
 		<td class="SubHeadText">
 			Text Size<br />
 			<select name="text_size">
-				<option value="Lg"<cfif NOT compare(session.workstream_text_size,"Lg")> selected</cfif>>Large</option>
-				<option value="Md"<cfif NOT compare(session.workstream_text_size,"Md")> selected</cfif>>Medium</option>
-				<option value="Sm"<cfif NOT compare(session.workstream_text_size,"Sm")> selected</cfif>>Small</option>
+				<option value="Lg"<cfif NOT compare(session.workstream_text_size,"Lg")> selected="selected"</cfif>>Large</option>
+				<option value="Md"<cfif NOT compare(session.workstream_text_size,"Md")> selected="selected"</cfif>>Medium</option>
+				<option value="Sm"<cfif NOT compare(session.workstream_text_size,"Sm")> selected="selected"</cfif>>Small</option>
 			</select>
 
 			<p class="SubHeadText">
@@ -33,14 +33,14 @@
 			View These Companies<br />
 			<select name="company_select_list" size="#min(get_teams.recordcount,5)#" multiple></cfoutput>
 				<cfoutput query="get_teams">
-				<option value="#company_id#"<cfif listfind(session.workstream_selected_company_id,company_id)> selected</cfif>>#company#</option></cfoutput><cfoutput>
+				<option value="#company_id#"<cfif listfind(session.workstream_selected_company_id,company_id)> selected="selected"</cfif>>#company#</option></cfoutput><cfoutput>
 			</select>
 		</td>
 		<td class="SubHeadText">
 			Project list display order<br />
 			<cfselect name="project_list_order" required="yes" message="Please choose an order for your engagement list.">
-				<option value="1"<cfif session.workstream_project_list_order EQ 1> selected</cfif>>Project (Code)</option>
-				<option value="2"<cfif session.workstream_project_list_order EQ 2> selected</cfif>>Code - Project</option>
+				<option value="1"<cfif session.workstream_project_list_order EQ 1> selected="selected"</cfif>>Project (Code)</option>
+				<option value="2"<cfif session.workstream_project_list_order EQ 2> selected="selected"</cfif>>Code - Project</option>
 			</cfselect>
 		</td>
 	</tr>

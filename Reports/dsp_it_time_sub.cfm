@@ -20,11 +20,11 @@
 			IT Time for 
 			<select name="admin_month" onchange="javascript:document.it_time.submit();">
 				<cfloop from="1" to="12" index="ii">
-				<option value="#ii#"<cfif attributes.admin_month EQ ii> selected</cfif>>#monthAsString(ii)#</option></cfloop>
+				<option value="#ii#"<cfif attributes.admin_month EQ ii> selected="selected"</cfif>>#monthAsString(ii)#</option></cfloop>
 			</select>
 			<select name="admin_year" onchange="javascript:document.it_time.submit();">
 				<cfloop from="#lowest_year#" to="#year(now())#" index="ii">
-				<option value="#ii#"<cfif attributes.admin_year EQ ii> selected</cfif>>#ii#</option></cfloop>
+				<option value="#ii#"<cfif attributes.admin_year EQ ii> selected="selected"</cfif>>#ii#</option></cfloop>
 			</select>
 		</td>
 	</tr>

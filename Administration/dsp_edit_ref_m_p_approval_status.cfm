@@ -29,7 +29,7 @@
 <cfoutput>
 <form name="edit_ref_m_p_approval_status_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="m_p_approval_status_id">
-	<cfloop query="get_ref_m_p_approval_status"><option value="#m_p_approval_status_id#"<cfif not comparenocase(get_ref_m_p_approval_status.m_p_approval_status_id, attributes.m_p_approval_status_id)> SELECTED</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_m_p_approval_status"><option value="#m_p_approval_status_id#"<cfif not comparenocase(get_ref_m_p_approval_status.m_p_approval_status_id, attributes.m_p_approval_status_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit business category" value="Retrieve and edit Mentor/Prot&eacute;g&eacute; Approval Status" />
 </form>

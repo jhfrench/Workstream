@@ -40,7 +40,7 @@ Select a Week:
 <td>
 
 			<cfselect name="pin" size="5" message="Please don't leave blank" required="Yes" multiple="Yes">
-				<OPTION value="ALL" selected>
+				<OPTION value="ALL" selected="selected">
 					ALL
 					<cfoutput query="get_overtime_employees">
 				<option value="#emp_id#">

@@ -41,12 +41,12 @@
 	<div class="span8 well form-inline">
 		<label for="year">Month</label>: <select name="month" id="month" class="span2">
 		<cfloop list="#variables.month_list#" index="variables.month_ii">
-			<option value="#variables.month_ii#"<cfif attributes.month EQ variables.month_ii> SELECTED</cfif>>#variables.month_ii#</option>
+			<option value="#variables.month_ii#"<cfif attributes.month EQ variables.month_ii> selected="selected"</cfif>>#variables.month_ii#</option>
 		</cfloop>
 		</select>
 		<label for="year">Year</label>: <select name="year" id="year" class="span2">
 		<cfloop from="#first_year#" to="#last_year#" index="ii">
-			<option value="#ii#"<cfif attributes.year EQ ii> selected</cfif>>#ii#</option>
+			<option value="#ii#"<cfif attributes.year EQ ii> selected="selected"</cfif>>#ii#</option>
 		</cfloop>
 		</select><cfif isdefined("attributes.customer_id")>
 		<input type="hidden" name="customer_id" value="#attributes.customer_id#" />

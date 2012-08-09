@@ -20,8 +20,8 @@
 		<td><cfselect name="company_id" size="1" query="get_companies" value="company_id" display="description" selected="#company_id#"></cfselect></td>
 		<td>
 			<select name="active_ind" size="1">
-				<option value="1"<cfif active_ind EQ 1> SELECTED</cfif>>Active</option>
-				<option value="0"<cfif active_ind EQ 0> SELECTED</cfif>>Inactive</option>
+				<option value="1"<cfif active_ind EQ 1> selected="selected"</cfif>>Active</option>
+				<option value="0"<cfif active_ind EQ 0> selected="selected"</cfif>>Inactive</option>
 			</select>
 		</td>
 	</tr>

@@ -43,7 +43,7 @@
 		</td>
 		<td>
 			<select name="sort_by" size="1" style="width:130px">
-				<option value="Emp_Contact.lname" selected>Employees
+				<option value="Emp_Contact.lname" selected="selected">Employees
 				<option value="Loc1.city, Emp_Contact.lname">Location
 				<option value="REF_Employee_Classification.employee_classification, Emp_Contact.lname">Employee Type
 			</select>
@@ -58,7 +58,7 @@
 		<cfoutput>
 			<select name="display_person" size="3" style="width:130px" multiple>
 		</cfoutput>
-				<option value="ALL" selected>All Employees
+				<option value="ALL" selected="selected">All Employees
 				<cfoutput query="get_team_select">
 					<cfif Emp_ID is not ""><!--- $issue$: get rid of is not "" --->
 						<option value="#emp_id#">#lname#, #left(name, 3)#
@@ -75,7 +75,7 @@
 		<td>
 		<cfoutput>
 			<select name="display_office" size="3" style="width:130px" multiple>
-				<option value="ALL" selected>All Offices</option>
+				<option value="ALL" selected="selected">All Offices</option>
 		</cfoutput>
 				<cfoutput query="office_loc">
 					<cfif Office_location is not ""><!--- Don't display blanks --->

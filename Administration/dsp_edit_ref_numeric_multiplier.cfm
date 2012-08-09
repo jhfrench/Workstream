@@ -29,7 +29,7 @@
 <cfmodule template="../common_files/qry_get_numeric_multiplier.cfm" numeric_multiplier_id="0">
 <form name="ref_numeric_multiplier_edit_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="numeric_multiplier_id">
-	<cfloop query="get_numeric_multiplier"><option value="#numeric_multiplier_id#"<cfif not comparenocase(get_numeric_multiplier.numeric_multiplier_id, attributes.numeric_multiplier_id)> SELECTED</cfif>>#description#</option></cfloop>
+	<cfloop query="get_numeric_multiplier"><option value="#numeric_multiplier_id#"<cfif not comparenocase(get_numeric_multiplier.numeric_multiplier_id, attributes.numeric_multiplier_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit numeric multiplier" value="Retrieve and edit numeric multiplier"/>
 </form>

@@ -23,7 +23,7 @@
 		<td>
 			<select name="priority_id" multiple size="3" onclick="checkbox_priority_id()"></cfoutput>
 			<cfoutput query="get_priorities">
-				<option value="#priority_id#"<cfif ListFind(attributes.priority_id,get_priorities.priority_id,",")> SELECTED</cfif>>#description#</option>
+				<option value="#priority_id#"<cfif ListFind(attributes.priority_id,get_priorities.priority_id,",")> selected="selected"</cfif>>#description#</option>
 			</cfoutput>
 			</select>
 		</td>

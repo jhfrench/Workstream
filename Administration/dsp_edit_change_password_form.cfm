@@ -54,9 +54,9 @@ function confirmPassword(frm){
 	<tr>
 		<td><label for="demographics_id">Demographics</label>:</td>
 		<td><select name="demographics_id" id="demographics_id">
-				<cfif NOT comparenocase(attributes.action, "add_user")><option value="" selected>--Select a User--</option></cfif>
+				<cfif NOT comparenocase(attributes.action, "add_user")><option value="" selected="selected">--Select a User--</option></cfif>
 				<cfloop query="get_user_information">
-				<option value="#demographics_id#"<cfif isdefined("attributes.demographics_id") AND attributes.demographics_id EQ demographics_id> selected</cfif>>#last_name#, #first_name#</option>
+				<option value="#demographics_id#"<cfif isdefined("attributes.demographics_id") AND attributes.demographics_id EQ demographics_id> selected="selected"</cfif>>#last_name#, #first_name#</option>
 				</cfloop>
 			</select>
 		</td>

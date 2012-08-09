@@ -28,7 +28,7 @@
 <cfmodule template="../common_files/qry_get_ref_fund.cfm" fund_id="0">
 <form name="edit_REF_Fund_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="fund_id">
-	<cfloop query="get_ref_fund"><option value="#fund_id#"<cfif not comparenocase(get_ref_fund.fund_id, attributes.fund_id)> SELECTED</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_fund"><option value="#fund_id#"<cfif not comparenocase(get_ref_fund.fund_id, attributes.fund_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit fund" value="Retrieve and edit fund"/>
 </form>

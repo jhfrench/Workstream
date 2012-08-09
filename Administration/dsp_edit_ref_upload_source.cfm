@@ -29,7 +29,7 @@
 <cfmodule template="../common_files/qry_get_ref_upload_source.cfm"  upload_source_id="0">
 <form name="ref_upload_source_edit_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="upload_source_id">
-	<cfloop query="get_ref_upload_source"><option value="#upload_source_id#"<cfif not comparenocase(get_ref_upload_source.upload_source_id, attributes.upload_source_id)> SELECTED</cfif>>#upload_source#</option></cfloop>
+	<cfloop query="get_ref_upload_source"><option value="#upload_source_id#"<cfif not comparenocase(get_ref_upload_source.upload_source_id, attributes.upload_source_id)> selected="selected"</cfif>>#upload_source#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit upload source" value="Retrieve and edit upload source"/>
 </form>

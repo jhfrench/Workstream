@@ -23,7 +23,7 @@
 		<td align="center">
 			<select name="date">
 			<cfloop from="0" to="#variables.go_back_to#" index="ii">
-				<<option value="#dateformat(dateadd("m",1,now())-ii,'mm/dd/yy')#"<cfif NOT datediff("d",now(),dateadd("m",1,now())-ii)> SELECTED</cfif>>#dateformat(dateadd("m",1,now())-ii,"mm/dd/yy (ddd)")#</option></cfloop>
+				<<option value="#dateformat(dateadd("m",1,now())-ii,'mm/dd/yy')#"<cfif NOT datediff("d",now(),dateadd("m",1,now())-ii)> selected="selected"</cfif>>#dateformat(dateadd("m",1,now())-ii,"mm/dd/yy (ddd)")#</option></cfloop>
 			</select>
 		</td>
 </cfoutput>

@@ -43,7 +43,7 @@
 	</td>
 	<td>
 		<cfselect name="billable_type_id" size="1">
-			<option value="1" selected>Yes
+			<option value="1" selected="selected">Yes
 			<option value="2">No
 		</cfselect>
 	</td>

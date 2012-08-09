@@ -30,15 +30,15 @@
 <!--- This form is used for restricting and sorting the records displayed above.
 	  Restriction can be placed on Customer and IE.  Sorting can be done on any column
  --->
-<form name="form_engagement_dashboard" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
+<form name="form_engagement_dashboard" action="index.cfm?fuseaction=<cfoutput>#attributes.fuseaction#</cfoutput>" method="post" class="form-horizontal">
 	<fieldset>
 		<legend>Update Dashboard</legend>
 		<div class="control-group">
 			<label for="active_ind">Project view</label>
 			<div class="controls">
 				<select name="active_ind" onchange="javascript:document.forms.form_engagement_dashboard.submit();">
-					<option value="1"<cfif attributes.active_ind EQ 1> SELECTED</cfif>>Active only</option>
-					<option value="0"<cfif attributes.active_ind EQ 0> SELECTED</cfif>>Inactive only</option>
+					<option value="1"<cfif attributes.active_ind EQ 1> selected="selected"</cfif>>Active only</option>
+					<option value="0"<cfif attributes.active_ind EQ 0> selected="selected"</cfif>>Inactive only</option>
 				</select>
 			</div>
 		</div>
@@ -48,7 +48,7 @@
 				<select name="customer_id">
 					<option value="0" >All Customers</option>
 					<cfoutput query="get_engagement_customers">
-						<option value="#customer_id#"<cfif attributes.customer_id EQ customer_id> Selected</cfif>>#description#</option>
+						<option value="#customer_id#"<cfif attributes.customer_id EQ customer_id> selected="selected"</cfif>>#description#</option>
 					</cfoutput>
 				</select>
 			</div>

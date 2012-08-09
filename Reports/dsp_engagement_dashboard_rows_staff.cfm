@@ -64,13 +64,13 @@
 		<td>
 			<select name="customer_id" >
 				<option value="0" >All Customers</option><cfoutput query="Get_Engagement_Customers">
-				<option value="#customer_id#"<cfif attributes.customer_id EQ customer_id> selected</cfif>>#Description#</option></cfoutput>
+				<option value="#customer_id#"<cfif attributes.customer_id EQ customer_id> selected="selected"</cfif>>#Description#</option></cfoutput>
 			</select>
 		</td>
 		<td align="left" colspan="100%">
 			<select name="project_manager_emp_id" >
 				<option value="all">All IEs</option><cfoutput query="Get_Engagement_IE">
-				<option value="#Emp_ID#"<cfif attributes.project_manager_emp_id EQ Emp_ID> Selected</cfif>>#LName#</option></cfoutput>
+				<option value="#Emp_ID#"<cfif attributes.project_manager_emp_id EQ Emp_ID> selected="selected"</cfif>>#LName#</option></cfoutput>
 			</select>
 		</td>
 	</tr>

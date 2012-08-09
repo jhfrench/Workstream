@@ -26,7 +26,7 @@
 			Select Year:
 			<select name="year" size="1">
 				<cfloop from="2000" to="#year(now())#" index="year_num">
-					<option value="#year_num#"<cfif year_num EQ year(now())> selected</cfif>>#year_num#</option>
+					<option value="#year_num#"<cfif year_num EQ year(now())> selected="selected"</cfif>>#year_num#</option>
 				</cfloop>
 			</select>
 		</td>

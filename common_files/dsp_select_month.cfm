@@ -27,7 +27,7 @@
 <cfoutput>
 <select name="#attributes.select_name#" id="#attributes.select_name#">
 	<cfloop list="#attributes.selectable_months#" index="variables.month_num">
-		<option value="#variables.month_num#"<cfif attributes.selected_month EQ variables.month_num> SELECTED</cfif>>
+		<option value="#variables.month_num#"<cfif attributes.selected_month EQ variables.month_num> selected="selected"</cfif>>
 			#monthasstring(variables.month_num)#
 		</option>
 	</cfloop>

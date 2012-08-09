@@ -95,15 +95,15 @@
 						<td class="SubHeadText">&nbsp;</td>
 						<td align="right">Manager/Non:<br />Employee Classification:</td>
 						<td align="left"><select name="manager_non_id">
-							<option value="1"<cfif manager_non_id EQ "1"> SELECTED</cfif>>Manager</option>
-							<option value="0"<cfif manager_non_id EQ "0"> SELECTED</cfif>>Non-Manager</option>
+							<option value="1"<cfif manager_non_id EQ "1"> selected="selected"</cfif>>Manager</option>
+							<option value="0"<cfif manager_non_id EQ "0"> selected="selected"</cfif>>Non-Manager</option>
 						</select><br /><cfselect name="employee_classification" query="get_employee_classification" selected="#employee_classification_id#" value="employee_classification_id" display="employee_classification"></cfselect></td>
 						<td align="right" valign="top">Visible Companies:</td>
 						<td>
 				<select name="visable_company" size="#min(get_teams.recordcount,3)#" multiple>
 </cfoutput>
 							<cfoutput query="get_teams">
-								<option value="#company_id#"<cfif listcontains(visable_company,company_id)> selected</cfif>>#company#</option>
+								<option value="#company_id#"<cfif listcontains(visable_company,company_id)> selected="selected"</cfif>>#company#</option>
 							</cfoutput> 
 				        </select>
 						</td>

@@ -22,7 +22,7 @@
 --->
 <label for="report_output_format_id">Output</label>:<br />
 <select name="report_output_format_id" id="report_output_format_id">
-	<option value="1" selected>HTML</option>
+	<option value="1" selected="selected">HTML</option>
 	<option value="2">Excel</option>
 	<option value="3">PDF</option><cfif isdefined("variables.export_to_text_ind") AND variables.export_to_text_ind>
 	<option value="4">Text</option></cfif>

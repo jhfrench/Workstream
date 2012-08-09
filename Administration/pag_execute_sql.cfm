@@ -68,8 +68,8 @@
 	<!--- temporary, for faster committed SQL runs --->
 	<form action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
 		<select name="datasource">
-			<option value="#application.datasources.main#"<cfif NOT comparenocase(attributes.datasource,application.datasources.main)> SELECTED</cfif>>#application.datasources.main#</option>
-			<option value="Application_Manager"<cfif NOT comparenocase(attributes.datasource,"Application_Manager")> SELECTED</cfif>>Application_Manager</option>
+			<option value="#application.datasources.main#"<cfif NOT comparenocase(attributes.datasource,application.datasources.main)> selected="selected"</cfif>>#application.datasources.main#</option>
+			<option value="Application_Manager"<cfif NOT comparenocase(attributes.datasource,"Application_Manager")> selected="selected"</cfif>>Application_Manager</option>
 		</select>
 		<br />
 		<textarea cols="80" rows="20" name="sql_to_execute">#attributes.sql_to_execute#</textarea>

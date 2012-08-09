@@ -41,7 +41,7 @@ WHERE organization_id=#attributes.organization_id#
 		<td><label for="parent_organization_id">Parent</label></td>
 		<td>
 			<cfselect name="parent_organization_id" query="get_ref_organization" value="organization_id" display="drop_down_display" selected="#get_nsm_entity.parent_organization_id#" id="parent_organization_id" required="yes" message="Please specify the parent of this NSM organization.">
-				<option value="0"<cfif NOT len(get_nsm_entity.parent_organization_id)> selected</cfif>>This organization has no parent</option>
+				<option value="0"<cfif NOT len(get_nsm_entity.parent_organization_id)> selected="selected"</cfif>>This organization has no parent</option>
 			</cfselect>
 		</td>
 	</tr>

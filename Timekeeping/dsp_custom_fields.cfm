@@ -25,7 +25,7 @@
 		<label for="custom_drops#user_field_id#">#field_title#</label>: 
 		<select name="custom_drops#user_field_id#" id="custom_drops#user_field_id#" size="1">
 			<cfloop query="get_drop_down_options">
-			<option value="#get_drop_down_options.user_field_items_id#"<cfif listfind(variables.custom_answers,user_field_items_id)> selected</cfif>>#get_drop_down_options.selection_title#</option>
+			<option value="#get_drop_down_options.user_field_items_id#"<cfif listfind(variables.custom_answers,user_field_items_id)> selected="selected"</cfif>>#get_drop_down_options.selection_title#</option>
 			</cfloop>
 		</select>
 		<cfset variables.custom_drops=listappend(variables.custom_drops,user_field_id)>

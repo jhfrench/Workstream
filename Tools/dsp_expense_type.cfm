@@ -20,7 +20,7 @@
           message="Select a Type of Expense"
           required="Yes">
        <cfoutput query="Get_Reimbursement" >
-       <option value="#Get_Reimbursement.Reimbursement_ID#"<cfif isdefined("get_expense_values.Reimbursement_Type_id") and not compare(get_expense_values.Reimbursement_Type_id, Get_Reimbursement.Reimbursement_ID) > SELECTED</cfif>>
+       <option value="#Get_Reimbursement.Reimbursement_ID#"<cfif isdefined("get_expense_values.Reimbursement_Type_id") and not compare(get_expense_values.Reimbursement_Type_id, Get_Reimbursement.Reimbursement_ID) > selected="selected"</cfif>>
        #Get_Reimbursement.Reimbursement_Type#
        </option>
        </cfoutput>

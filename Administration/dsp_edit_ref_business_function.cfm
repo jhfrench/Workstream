@@ -32,7 +32,7 @@
 <form name="ref_business_function_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<label for="business_function_id">Retrieve an existing business function</label>:<br/>
 	<select name="business_function_id">
-	<cfloop query="get_business_function"><option value="#business_function_id#"<cfif not comparenocase(get_business_function.business_function_id, attributes.business_function_id)> selected</cfif>>#description#</option></cfloop>
+	<cfloop query="get_business_function"><option value="#business_function_id#"<cfif not comparenocase(get_business_function.business_function_id, attributes.business_function_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit business function" value="Retrieve and edit business function"/>
 </form>
@@ -59,7 +59,7 @@
 						<label for="parent_business_function_id" title="Not required, used to nest navigation.">Parent business function</label>:<br />
 						<select name="parent_business_function_id">
 						<option value="NULL">No Parent</option>
-						<cfloop query="get_business_function"><option value="#business_function_id#"<cfif not comparenocase(get_business_function.business_function_id, attributes.parent_business_function_id)> selected</cfif>>#description#</option></cfloop>
+						<cfloop query="get_business_function"><option value="#business_function_id#"<cfif not comparenocase(get_business_function.business_function_id, attributes.parent_business_function_id)> selected="selected"</cfif>>#description#</option></cfloop>
 						</select>
 					</td>
 					<td>

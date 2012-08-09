@@ -28,7 +28,7 @@
 <cfoutput>
 <form name="edit_ref_email_category_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="email_category_id">
-	<cfloop query="get_ref_email_category"><option value="#email_category_id#"<cfif not comparenocase(get_ref_email_category.email_category_id, attributes.email_category_id)> SELECTED</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_email_category"><option value="#email_category_id#"<cfif not comparenocase(get_ref_email_category.email_category_id, attributes.email_category_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit email category" value="Retrieve and edit email category"/>
 </form>

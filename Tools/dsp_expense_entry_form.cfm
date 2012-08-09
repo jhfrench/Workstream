@@ -93,7 +93,7 @@
 	<td class="SubHeadText" valign="top">
 		<cfselect name="project_id" size="2" required="yes" message="Please select a project">
 					<cfoutput query="get_valid_projects">
-						<option value="#project_id#"<cfif attributes.project_id EQ get_valid_projects.project_id> SELECTED</cfif>>
+						<option value="#project_id#"<cfif attributes.project_id EQ get_valid_projects.project_id> selected="selected"</cfif>>
 						<cfif session.workstream_project_list_order EQ 1>
 							#customer# #replace(project_name,customer,"","ALL")# (#project_code#)
 						<cfelse>

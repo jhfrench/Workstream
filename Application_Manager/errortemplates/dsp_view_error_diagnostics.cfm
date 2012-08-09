@@ -103,7 +103,7 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 <form name="whatever" action="index.cfm?fuseaction=main.view_error_diagnostics" method="post" class="struct">
 	<!--- <label>Select application installation</label>:
 	<select name="installation_id" size="1">
-		<cfloop query="qry_get_error_diagnostics_datasource"><option value="#installation_id#"<cfif comparenocase(attributes.installation_id,installation_id) EQ 0> SELECTED</cfif>>#product_name# #environment_name#, (#url_to_base#)</option>
+		<cfloop query="qry_get_error_diagnostics_datasource"><option value="#installation_id#"<cfif comparenocase(attributes.installation_id,installation_id) EQ 0> selected="selected"</cfif>>#product_name# #environment_name#, (#url_to_base#)</option>
 		</cfloop>
 	</select>
 	<br /> --->

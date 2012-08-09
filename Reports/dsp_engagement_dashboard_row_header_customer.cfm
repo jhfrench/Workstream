@@ -25,8 +25,8 @@
 					</td>
 					<td align="right" class="HeadTextWhite" colspan="2">
 						Project view: <select name="active_ind" onchange="javascript:document.forms.inactive.submit();">
-							<option value="1"<cfif attributes.active_ind EQ 2> SELECTED</cfif>>Active only</option>
-							<option value="0"<cfif attributes.active_ind EQ 1> SELECTED</cfif>>Inactive only</option>
+							<option value="1"<cfif attributes.active_ind EQ 2> selected="selected"</cfif>>Active only</option>
+							<option value="0"<cfif attributes.active_ind EQ 1> selected="selected"</cfif>>Inactive only</option>
 						</select>
 					</td>
 				</tr>

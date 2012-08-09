@@ -29,7 +29,7 @@
 <cfmodule template="qry_get_ref_product_version.cfm" product_version_id="0">
 <form name="edit_ref_product_version_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="product_version_id">
-	<cfloop query="get_ref_product_version"><option value="#product_version_id#"<cfif not comparenocase(get_ref_product_version.product_version_id, attributes.product_version_id)> SELECTED</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_product_version"><option value="#product_version_id#"<cfif not comparenocase(get_ref_product_version.product_version_id, attributes.product_version_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit product version" value="Retrieve and edit product version"/>
 </form>

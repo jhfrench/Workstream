@@ -29,7 +29,7 @@
 <cfoutput>
 <form name="edit_ref_address_type_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="address_type_id">
-	<cfloop query="get_ref_address_type"><option value="#address_type_id#" <cfif not comparenocase(get_ref_address_type.address_type_id, attributes.address_type_id)> SELECTED</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_address_type"><option value="#address_type_id#" <cfif not comparenocase(get_ref_address_type.address_type_id, attributes.address_type_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit Address Type" value="Retrieve and Edit Address Type"/>
 </form>

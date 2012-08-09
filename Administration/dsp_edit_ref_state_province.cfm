@@ -30,7 +30,7 @@
 <cfoutput>
 <form name="edit_ref_state_province_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="state_province_id">
-	<cfloop query="get_ref_state_province"><option value="#state_province_id#"<cfif not comparenocase(get_ref_state_province.state_province_id, attributes.state_province_id)> SELECTED</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_state_province"><option value="#state_province_id#"<cfif not comparenocase(get_ref_state_province.state_province_id, attributes.state_province_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit state/province" value="Retrieve and edit state/province"/>
 </form>

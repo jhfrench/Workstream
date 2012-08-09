@@ -169,7 +169,7 @@ for (i = 0; i < tot; i++) {
 	<!--- special first item, if requested --->
 	<cfif len(attributes.emptytext1)><cfoutput><option value="">#attributes.emptytext1#</option></cfoutput></cfif>
 	<!--- generate remaining items from query --->
-	<cfoutput query="myquery" group="#attributes.display1#"><option value="#myquery[attributes.value1][myquery.currentrow]#"<cfif ListFind(attributes.value1_list,myquery[attributes.value1][myquery.currentrow],",")> selected</cfif> >#myquery[attributes.display1][myquery.currentrow]#</option></cfoutput>
+	<cfoutput query="myquery" group="#attributes.display1#"><option value="#myquery[attributes.value1][myquery.currentrow]#"<cfif ListFind(attributes.value1_list,myquery[attributes.value1][myquery.currentrow],",")> selected="selected"</cfif> >#myquery[attributes.display1][myquery.currentrow]#</option></cfoutput>
 
   <!--- "FORCE WIDTH" OPTION AT BOTTOM, IF REQUESTED --->
 	<cfif len(attributes.ForceWidth1)><cfoutput><OPTION value="">#RepeatString(attributes.ForceWidthChar, attributes.ForceWidth1)#</option></cfoutput></cfif>
@@ -192,7 +192,7 @@ for (i = 0; i < tot; i++) {
 		   <cfloop QUERY="MyQuery">
 			<cfif ListFind(attributes.value1_list,myquery[attributes.value1][myquery.currentrow],",")>
 			  <cfoutput>
-			  <OPTION value="#MyQuery[attributes.Value2][MyQuery.CurrentRow]#"<cfif  ListFind(attributes.value2_list,myquery[attributes.value2][myquery.currentrow],",")> SELECTED</cfif>>#MyQuery[attributes.Display2][MyQuery.CurrentRow]#</option></cfoutput>
+			  <OPTION value="#MyQuery[attributes.Value2][MyQuery.CurrentRow]#"<cfif  ListFind(attributes.value2_list,myquery[attributes.value2][myquery.currentrow],",")> selected="selected"</cfif>>#MyQuery[attributes.Display2][MyQuery.CurrentRow]#</option></cfoutput>
 		    </cfif>
 			</cfloop>
 		</cfif>

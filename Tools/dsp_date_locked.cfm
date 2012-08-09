@@ -26,7 +26,7 @@ variables.min_date=listFirst(variables.date_list);
 			<div class="controls">
 				<select name="company_id" id="company_id" size="#min(get_date_locked.recordcount, 10)#" multiple="multiple" required="required"  class="span11">
 					<cfloop query="get_date_locked">
-						<option value="#company_id#"<cfif listlast(session.workstream_company_id) EQ company_id> selected</cfif>>#company#, <cfif len(date_locked)>#dateformat(date_locked, "mm/dd/yy")#<cfelse>NO DATE SPECIFIED</cfif></option>
+						<option value="#company_id#"<cfif listlast(session.workstream_company_id) EQ company_id> selected="selected"</cfif>>#company#, <cfif len(date_locked)>#dateformat(date_locked, "mm/dd/yy")#<cfelse>NO DATE SPECIFIED</cfif></option>
 					</cfloop>
 				</select>
 				<p class="help-block">With current date-locked.</p>

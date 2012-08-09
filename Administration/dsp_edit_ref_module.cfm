@@ -29,7 +29,7 @@
 <cfmodule template="../common_files/qry_get_ref_module.cfm" module_id="0">
 <form name="edit_ref_module_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="module_id">
-	<cfloop query="get_ref_module"><option value="#module_id#"<cfif not comparenocase(get_ref_module.module_id, attributes.module_id)> SELECTED</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_module"><option value="#module_id#"<cfif not comparenocase(get_ref_module.module_id, attributes.module_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit module" value="Retrieve and edit module" />
 </form>

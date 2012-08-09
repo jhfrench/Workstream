@@ -25,7 +25,7 @@
 	<td nowrap width="20%"<cfif len(attributes.colspan)> colspan="<cfoutput>#attributes.colspan#</cfoutput>"</cfif> valign="top"><label for="report_output_format_id">Output</label></td>
 	<td width="80%" valign="top">
 		<select name="report_output_format_id" id="report_output_format_id">
-			<option value="1" selected>HTML</option>
+			<option value="1" selected="selected">HTML</option>
 			<option value="2">Excel</option>
 			<option value="3">PDF</option>
 		</select>
