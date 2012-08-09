@@ -40,7 +40,7 @@
 <tr<cfif len(attributes.bgcolor2)> bgcolor=<cfoutput>#attributes.bgcolor2#</cfoutput></cfif>>
 	<td align="<cfoutput>#attributes.Align#</cfoutput>" colspan="<cfoutput>#attributes.col_span#</cfoutput>">
 <cfoutput>
-<textarea cols="#attributes.col_num#" rows="#attributes.row_num#" name="#attributes.box_name#"<cfif NOT attributes.form> onfocus="blur()" readonly</cfif>>#attributes.fill_value#</textarea>
+<textarea cols="#attributes.col_num#" rows="#attributes.row_num#" name="#attributes.box_name#"<cfif NOT attributes.form> readonly="readonly"</cfif>>#attributes.fill_value#</textarea>
 </cfoutput>
 	</td>
 </tr>

@@ -52,10 +52,10 @@
 			#budget#
 		</td>
 		<td  class="btn-group">
-			<input type="text" name="task_assigned#task_id#" value="#evaluate("task_assign#task_id#")#" size="3" onfocus="blur();" >
+			<input type="text" name="task_assigned#task_id#" value="#evaluate("task_assign#task_id#")#" size="3" readonly="readonly" />
 		</td>
 		<td align="center">
-			<cfset "task_remainder#task_id#"=budget-#evaluate("task_assign#task_id#")#><input type="text" name="task_remainder#task_id#" value="#evaluate("task_remainder#task_id#")#" size="3" onfocus="blur();"><input type="hidden" name="task_status#task_id#" value="#previous_entry#">
+			<cfset "task_remainder#task_id#"=budget-#evaluate("task_assign#task_id#")#><input type="text" name="task_remainder#task_id#" value="#evaluate('task_remainder#task_id#')#" size="3" readonly="readonly"><input type="hidden" name="task_status#task_id#" value="#previous_entry#">
 		</td>
 	</tr>
 </cfif>

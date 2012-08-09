@@ -63,7 +63,7 @@ function confirmPassword(frm){
 	</tr>
 	<tr>
 		<td><label for="user_name">Username</label>:</td>
-		<td><input name="user_name" id="user_name" type="text" maxlength="4000" size="20" <cfif NOT comparenocase(attributes.action, "edit_user")>value="#user_name#" readonly="yes"<cfelse>value="#attributes.user_name#"</cfif>/></td>
+		<td><input name="user_name" id="user_name" type="text" maxlength="4000" size="20" <cfif NOT comparenocase(attributes.action, "edit_user")>value="#user_name#" readonly="readonly"<cfelse>value="#attributes.user_name#"</cfif>/></td>
 	</tr>
 	<tr>
 		<td><label for="old_password">Current Password</label>:</td>

@@ -38,7 +38,7 @@
 	</tr>
 	<tr>
 		<td><label for="user_name">Username</label>:</td>
-		<td><input name="user_name" id="user_name" type="text" size="20"  maxlength="4000" <cfif NOT comparenocase(attributes.action, "edit_user")>value="#user_name#" readonly="yes"<cfelse>value="#attributes.user_name#"</cfif>/></td>
+		<td><input name="user_name" id="user_name" type="text" size="20"  maxlength="4000" <cfif NOT comparenocase(attributes.action, "edit_user")>value="#user_name#" readonly="readonly"<cfelse>value="#attributes.user_name#"</cfif>/></td>
 
 	</tr>
 	<!--- Regularly if you are an administrator that has access to the list of users, you do not need to put old password --->
