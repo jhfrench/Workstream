@@ -63,9 +63,9 @@
 		<tr>
 			<td colspan="5" align="center">
 			<cfif attributes.source_user_account_id NEQ 0>
-				<input type="hidden" name="source_user_account_id" value="#attributes.source_user_account_id#"/>
+				<input type="hidden" name="source_user_account_id" value="#attributes.source_user_account_id#" />
 			</cfif>
-				<input type="submit" name="submit" value="#variables.submit_label#" class="btn btn-primary"/>
+				<input type="submit" name="submit" value="#variables.submit_label#" class="btn btn-primary" />
 				<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 			</td>
 		</tr>

@@ -67,24 +67,24 @@ function confirmPassword(frm){
 	</tr>
 	<tr>
 		<td><label for="old_password">Current Password</label>:</td>
-		<td><input name="old_password" id="old_password" type="password" size="20" maxlength="20" value="#attributes.old_password#"/></td>
+		<td><input name="old_password" id="old_password" type="password" size="20" maxlength="20" value="#attributes.old_password#" /></td>
 	</tr>
 	<tr>
 		<td><label for="password">New Password</label>:</td>
-		<td><input name="password" id="password" type="password" size="20" maxlength="20" value="#attributes.password#" onblur="this.value=this.value.trim();"/></td>
+		<td><input name="password" id="password" type="password" size="20" maxlength="20" value="#attributes.password#" onblur="this.value=this.value.trim();" /></td>
 	</tr>
 	<tr>
 		<td><label for="confirm_password">Confirm Password</label>:</td>
-		<td><input name="confirm_password" id="confirm_password" type="password" size="20" maxlength="20" value="#attributes.confirm_password#" onblur="this.value=this.value.trim();"/></td>
+		<td><input name="confirm_password" id="confirm_password" type="password" size="20" maxlength="20" value="#attributes.confirm_password#" onblur="this.value=this.value.trim();" /></td>
 	</tr>
 	<tr>
 		<td>
 			<cfif NOT comparenocase(attributes.action, "edit_user")>
-				<input name="user_account_id" type="hidden" value="#user_account_id#"/>
+				<input name="user_account_id" type="hidden" value="#user_account_id#" />
 			</cfif>
 		</td>
 		<td>
-			<input name="method" type="button" size="20" value="<cfif NOT comparenocase(attributes.action, 'edit_user')>Update User<cfelse>Add User</cfif>" onclick="return confirmPassword(this.form);"/>
+			<input name="method" type="button" size="20" value="<cfif NOT comparenocase(attributes.action, 'edit_user')>Update User<cfelse>Add User</cfif>" onclick="return confirmPassword(this.form);" />
 		</td>
 	</tr>
 </table>

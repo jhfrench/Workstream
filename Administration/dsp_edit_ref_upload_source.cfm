@@ -31,7 +31,7 @@
 	<select name="upload_source_id">
 	<cfloop query="get_ref_upload_source"><option value="#upload_source_id#"<cfif not comparenocase(get_ref_upload_source.upload_source_id, attributes.upload_source_id)> selected="selected"</cfif>>#upload_source#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit upload source" value="Retrieve and edit upload source"/>
+	<input type="submit" name="method" alt="Retrieve and edit upload source" value="Retrieve and edit upload source" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_upload_source.cfm"  upload_source_id="#attributes.upload_source_id#">
@@ -72,7 +72,7 @@
 							required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.upload_source_id EQ 0>
-					<input type="hidden" name="active_ind" value="1"/>
+					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>
 				<td><span title="describes the purpose of the radio buttons that follow">Active?</span>
 					<br /><label for="active_ind_yes"><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes">Yes </label>

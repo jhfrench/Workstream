@@ -61,10 +61,10 @@ WHERE organization_id=#attributes.organization_id#
 	<tr bgcolor="##dcdcdc">
 		<td><label for="delete"></label>Delete</td>
 		<td>
-			<input type="checkbox" name="delete_hierarchy_assignment_ind" value="1" id="delete"/>
+			<input type="checkbox" name="delete_hierarchy_assignment_ind" value="1" id="delete" />
 		</td>
 	</tr>
 	</cfif>
-	<input type="hidden" name="organization_id" value="#get_nsm_entity.organization_id#"/>
-	<input type="hidden" name="hierarchy_assignment_id" value="#hierarchy_assignment_id#"/>
+	<input type="hidden" name="organization_id" value="#get_nsm_entity.organization_id#" />
+	<input type="hidden" name="hierarchy_assignment_id" value="#hierarchy_assignment_id#" />
 </cfoutput>

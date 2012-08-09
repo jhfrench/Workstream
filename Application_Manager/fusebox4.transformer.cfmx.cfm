@@ -79,7 +79,7 @@ This software consists of voluntary contributions made by many individuals on be
   fb_.xnPreprocessFA=application.fusebox.globalfuseactions.preprocess.xml.xmlChildren;
 
   for (fb_.i=1; fb_.i LTE arraylen(fb_.xnPreprocessFA); fb_.i=fb_.i + 1) {
-    // only calls to fuseactions via a <fuseaction action=""/>  (formerly only a <do> which has been deprecated!) are allowed here and it must have a fully qualified fuseaction
+    // only calls to fuseactions via a <fuseaction action="" />  (formerly only a <do> which has been deprecated!) are allowed here and it must have a fully qualified fuseaction
     if (fb_.xnPreprocessFA[fb_.i].xmlName EQ "fuseaction" OR fb_.xnPreprocessFA[fb_.i].xmlName EQ "do") {
       if (StructKeyExists(fb_.xnPreprocessFA[fb_.i].xmlAttributes, "action") AND
           ListLen(fb_.xnPreprocessFA[fb_.i].xmlAttributes['action'], '.') GTE 2) {

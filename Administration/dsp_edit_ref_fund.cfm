@@ -30,10 +30,10 @@
 	<select name="fund_id">
 	<cfloop query="get_ref_fund"><option value="#fund_id#"<cfif not comparenocase(get_ref_fund.fund_id, attributes.fund_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit fund" value="Retrieve and edit fund"/>
+	<input type="submit" name="method" alt="Retrieve and edit fund" value="Retrieve and edit fund" />
 </form>
 <cfif len(attributes.method)>
-	<cfmodule template="../common_files/qry_get_ref_fund.cfm" fund_id="#attributes.fund_id#"/>
+	<cfmodule template="../common_files/qry_get_ref_fund.cfm" fund_id="#attributes.fund_id#" />
 	<cfset attributes.description=get_ref_fund.description>
 	<cfset attributes.fund_id=get_ref_fund.fund_id>
 </cfif>
@@ -60,7 +60,7 @@
 				</td>
 			</tr>
 			<cfif attributes.fund_id EQ 0>
-				<input type="hidden" name="active_ind" value="1"/>
+				<input type="hidden" name="active_ind" value="1" />
 			<cfelse>
 			<tr>
 				<td>&nbsp;</td>

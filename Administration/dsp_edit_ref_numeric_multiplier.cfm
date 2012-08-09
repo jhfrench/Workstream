@@ -31,7 +31,7 @@
 	<select name="numeric_multiplier_id">
 	<cfloop query="get_numeric_multiplier"><option value="#numeric_multiplier_id#"<cfif not comparenocase(get_numeric_multiplier.numeric_multiplier_id, attributes.numeric_multiplier_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit numeric multiplier" value="Retrieve and edit numeric multiplier"/>
+	<input type="submit" name="method" alt="Retrieve and edit numeric multiplier" value="Retrieve and edit numeric multiplier" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_numeric_multiplier.cfm" numeric_multiplier_id="#attributes.numeric_multiplier_id#">
@@ -65,7 +65,7 @@
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#get_numeric_multiplier.recordcount+1#" size="6" maxlength="6" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.numeric_multiplier_id EQ 0>
-					<input type="hidden" name="active_ind" value="1"/>
+					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>
 				<td>
 				<cfif get_numeric_multiplier.active_ind>

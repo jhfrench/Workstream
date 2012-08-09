@@ -50,7 +50,7 @@
 	</cfif>
 	<tr>
 		<td><label for="password">New Password</label>:</td>
-		<td><input name="password" id="password" type="password" size="20" value="#attributes.password#"/>
+		<td><input name="password" id="password" type="password" size="20" value="#attributes.password#" />
 		<!--- $issue$ change this to a drop down of REF_Account_Status, with user's status pre-selected --->
 		<cfif NOT comparenocase(attributes.action, "edit_user") AND get_user_information.user_account_id NEQ session.user_account_id>
 			<input type="checkbox" name="account_status_id" value="1"<cfif account_status_id NEQ 1> checked="checked"</cfif>/> Lock
@@ -59,7 +59,7 @@
 	</tr>
 	<tr>
 		<td><label for="confirm_password">Confirm Password</label>:</td>
-		<td><input name="confirm_password" id="confirm_password" type="password" size="20" value="#attributes.confirm_password#"/></td>
+		<td><input name="confirm_password" id="confirm_password" type="password" size="20" value="#attributes.confirm_password#" /></td>
 	</tr>
 	<tr>
 		<td colspan="2">

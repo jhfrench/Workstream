@@ -21,7 +21,7 @@
 </fusedoc>
 --->
 <cfset attributes.module_description="">
-<cfinclude template="../common_files/qry_get_module_sub_navigation.cfm"/>
+<cfinclude template="../common_files/qry_get_module_sub_navigation.cfm" />
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="Table displays administration information">
 	<tr>
 		<th align="left"><h2 style="margin:0px" id="top-side">Administration</h2>

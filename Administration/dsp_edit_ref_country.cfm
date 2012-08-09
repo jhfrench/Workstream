@@ -32,7 +32,7 @@
 	<select name="country_id">
 	<cfloop query="get_ref_country"><option value="#country_id#"<cfif not comparenocase(get_ref_country.country_id, attributes.country_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit country" value="Retrieve and edit country"/>
+	<input type="submit" name="method" alt="Retrieve and edit country" value="Retrieve and edit country" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_country.cfm" country_id="#attributes.country_id#">
@@ -60,7 +60,7 @@
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="10" maxlength="3" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.country_id EQ 0>
-					<input type="hidden" name="active_ind" value="1"/>
+					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>
 				<td colspan="2"><span title="describes the purpose of the radio buttons that follow">Active?</span>
 					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>

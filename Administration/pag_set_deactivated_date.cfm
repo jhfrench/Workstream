@@ -85,7 +85,7 @@
 <form name="form_set_deactivated_date" action="index.cfm?fuseaction=<cfoutput>#attributes.fuseaction#</cfoutput>" method="post">
 <label for="table_name">Table name</label><br /><input type="text" name="table_name" id="table_name" size="40" maxlength="40" value="Internal_Execution_Plan" />
 <p></p>
-<label for="primary_key">Primary key</label><br /><input type="text" name="primary_key" id="primary_key" size="40" value="i_e_p_id"  maxlength="40"/>
+<label for="primary_key">Primary key</label><br /><input type="text" name="primary_key" id="primary_key" size="40" value="i_e_p_id"  maxlength="40" />
 <p></p>
 <label for="center_ind">Worry about center?</label><br /><input type="checkbox" name="center_ind" id="center_ind" value="1" checked="checked" />
 <p></p>

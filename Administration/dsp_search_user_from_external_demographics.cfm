@@ -64,7 +64,7 @@
 	</tr>
 	<tr>
 		<td><label for="last_name">Last Name</label></td>
-		<td><input name="last_name" type="text" value="#attributes.last_name#" size="20"  maxlength="4000"/></td>
+		<td><input name="last_name" type="text" value="#attributes.last_name#" size="20"  maxlength="4000" /></td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>

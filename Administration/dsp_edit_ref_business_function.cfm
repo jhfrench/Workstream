@@ -34,7 +34,7 @@
 	<select name="business_function_id">
 	<cfloop query="get_business_function"><option value="#business_function_id#"<cfif not comparenocase(get_business_function.business_function_id, attributes.business_function_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit business function" value="Retrieve and edit business function"/>
+	<input type="submit" name="method" alt="Retrieve and edit business function" value="Retrieve and edit business function" />
 </form>
 <br/>
 <cfform name="REF_business_function_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
@@ -87,7 +87,7 @@
 					</td>
 					<td>
 					<cfif attributes.business_function_id EQ 0>
-						<input type="hidden" name="active_ind" value="1"/>
+						<input type="hidden" name="active_ind" value="1" />
 					<cfelse>
 						<span title="describes the purpose of the radio buttons that follow">Active?</span><br />
 						<cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="#variables.active_ind_yes#"><label for="active_ind_yes">Yes</label>
@@ -101,7 +101,7 @@
 	<tr bgcolor="##dddddd">
 		<td  class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
-			<input type="hidden" name="business_function_id" value="#attributes.business_function_id#"/>
+			<input type="hidden" name="business_function_id" value="#attributes.business_function_id#" />
 			<input name="submit" type="submit" alt="submit" value="Submit" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>

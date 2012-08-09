@@ -31,7 +31,7 @@
 	<select name="business_category_id">
 	<cfloop query="get_ref_business_category"><option value="#business_category_id#"<cfif not comparenocase(get_ref_business_category.business_category_id, attributes.business_category_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit business category" value="Retrieve and edit business category"/>
+	<input type="submit" name="method" alt="Retrieve and edit business category" value="Retrieve and edit business category" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_business_category.cfm" business_category_id="#attributes.business_category_id#">
@@ -54,7 +54,7 @@
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#iif(attributes.business_category_id EQ 0, ('get_ref_business_category.recordcount+1'), ('get_ref_business_category.sort_order'))#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.business_category_id EQ 0>
-					<input type="hidden" name="active_ind" value="1"/>
+					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>
 				<td colspan="2"><span title="describes the purpose of the radio buttons that follow">Active?</span>
 					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>

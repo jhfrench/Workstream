@@ -49,18 +49,18 @@
 	</tr>
 	<tr>
 		<td><label for="password">Password</label>:</td>
-		<td><input type="password" name="password" id="password" size="20" maxlength="4000" value="#attributes.password#"/></td>
+		<td><input type="password" name="password" id="password" size="20" maxlength="4000" value="#attributes.password#" /></td>
 	</tr>
 	<tr>
 		<td>
 			<cfset variables.button_label="Add User">
 			<cfif NOT comparenocase(attributes.action, "edit_user")>
-				<input name="user_account_id" type="hidden" value="#user_account_id#"/>
+				<input name="user_account_id" type="hidden" value="#user_account_id#" />
 				<cfset variables.button_label="Update User">
 			</cfif>
 		</td>
 		<td>
-			<input type="submit" name="method" alt="#variables.button_label#" size="20" value="#variables.button_label#"/>
+			<input type="submit" name="method" alt="#variables.button_label#" size="20" value="#variables.button_label#" />
 		</td>
 	</tr>
 </table>

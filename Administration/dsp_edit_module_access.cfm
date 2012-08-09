@@ -62,7 +62,7 @@
 	<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';">
 		<td align="center">&nbsp;
 		<cfif required_ind>
-			(mandatory)<input type="hidden" name="module_id" value="#module_id#"/>
+			(mandatory)<input type="hidden" name="module_id" value="#module_id#" />
 		<cfelse>
 			<input type="checkbox" name="module_id" value="#module_id#"<cfif listfind(variables.assigned_module_id,module_id)> checked="checked"</cfif>/>
 		</cfif>

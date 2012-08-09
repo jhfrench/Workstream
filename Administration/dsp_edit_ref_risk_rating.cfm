@@ -31,7 +31,7 @@
 	<select name="risk_rating_id">
 	<cfloop query="get_ref_risk_rating"><option value="#risk_rating_id#"<cfif not comparenocase(get_ref_risk_rating.risk_rating_id, attributes.risk_rating_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit risk_rating" value="Retrieve and edit risk_rating"/>
+	<input type="submit" name="method" alt="Retrieve and edit risk_rating" value="Retrieve and edit risk_rating" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="qry_get_ref_risk_rating.cfm" risk_rating_id="#attributes.risk_rating_id#">
@@ -57,7 +57,7 @@
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.risk_rating_id EQ 0>
-					<input type="hidden" name="active_ind" value="1"/>
+					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>
 				<td colspan="2"><span title="describes the purpose of the radio buttons that follow">Active?</span>
 					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>

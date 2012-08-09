@@ -31,7 +31,7 @@
 	<select name="organization_id">
 	<cfloop query="get_ref_organization"><option value="#organization_id#"<cfif not comparenocase(get_ref_organization.organization_id, attributes.organization_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit organization" value="Retrieve and edit organization"/>
+	<input type="submit" name="method" alt="Retrieve and edit organization" value="Retrieve and edit organization" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_organization.cfm" organization_id="#attributes.organization_id#">
@@ -68,7 +68,7 @@
 			</tr>
 			<tr>
 				<cfif attributes.organization_id EQ 0>
-					<input type="hidden" name="active_ind" value="1"/>
+					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>
 				<td><span title="describes the purpose of the radio buttons that follow">Active?</span>
 					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>

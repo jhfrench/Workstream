@@ -31,7 +31,7 @@
 	<select name="hierarchy_level_id">
 	<cfloop query="get_ref_hierarchy_level"><option value="#hierarchy_level_id#"<cfif not comparenocase(get_ref_hierarchy_level.hierarchy_level_id, attributes.hierarchy_level_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit heirarchy level" value="Retrieve and edit heirarchy level"/>
+	<input type="submit" name="method" alt="Retrieve and edit heirarchy level" value="Retrieve and edit heirarchy level" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_hierarchy_level.cfm" hierarchy_level_id="#attributes.hierarchy_level_id#">

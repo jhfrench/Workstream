@@ -34,7 +34,7 @@
 	</tr>
 	<tr align="center">
 		<td align="center" colspan="4">
-			<input type="button" value="Submit Time Entry" name="Submit" onclick="check_form('hours')" class="btn btn-primary"/>
+			<input type="button" value="Submit Time Entry" name="Submit" onclick="check_form('hours')" class="btn btn-primary" />
 		</td>
     </tr>
 

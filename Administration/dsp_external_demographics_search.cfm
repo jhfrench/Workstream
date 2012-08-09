@@ -55,7 +55,7 @@
 			</tr>
 			<tr>
 				<td width="20%"><label for="last_name">Last Name</label>:</td>
-				<td width="80%"><input name="last_name" id="last_name" type="text" value="#attributes.last_name#" size="50" maxlength="50"/></td>
+				<td width="80%"><input name="last_name" id="last_name" type="text" value="#attributes.last_name#" size="50" maxlength="50" /></td>
 			</tr>
 		</table>
 		</td>

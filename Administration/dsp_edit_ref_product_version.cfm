@@ -31,7 +31,7 @@
 	<select name="product_version_id">
 	<cfloop query="get_ref_product_version"><option value="#product_version_id#"<cfif not comparenocase(get_ref_product_version.product_version_id, attributes.product_version_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit product version" value="Retrieve and edit product version"/>
+	<input type="submit" name="method" alt="Retrieve and edit product version" value="Retrieve and edit product version" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="qry_get_ref_product_version.cfm" product_version_id="#attributes.product_version_id#">
@@ -65,7 +65,7 @@
 				 		<cfinput type="radio" name="selectable_ind" id="selectable_ind_no" value="0" ><label for="selectable_ind_no">No </label>
 				</td>
 				<cfif attributes.product_version_id EQ 0>
-					<input type="hidden" name="active_ind" value="1"/>
+					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>
 				<td><span title="describes the purpose of the radio buttons that follow">Active?</span>
 					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>

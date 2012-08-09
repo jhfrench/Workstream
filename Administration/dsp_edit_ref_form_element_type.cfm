@@ -30,7 +30,7 @@
 	<select name="form_element_type_id">
 	<cfloop query="get_ref_form_element_type"><option value="#form_element_type_id#"<cfif not comparenocase(get_ref_form_element_type.form_element_type_id, attributes.form_element_type_id)> selected="selected"</cfif>>#form_element_type_description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit form element type" value="Retrieve and edit form element type"/>
+	<input type="submit" name="method" alt="Retrieve and edit form element type" value="Retrieve and edit form element type" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="qry_get_ref_form_element_type.cfm" form_element_type_id="#attributes.form_element_type_id#">
@@ -52,7 +52,7 @@
 							message="Please enter description." maxlength="200">
 				</td>
 				<cfif attributes.form_element_type_id EQ 0>
-					<input type="hidden" name="active_ind" value="1"/>
+					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>
 				<td><span title="describes the purpose of the radio buttons that follow">Active?</span>
 					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>

@@ -49,7 +49,7 @@
 				 		<cfinput type="radio" name="required_ind" id="required_ind_no" value="0" ><label for="required_ind_no">No </label>
 				</td>
 				<cfif attributes.l_b_f_h_id EQ 0>
-					<input type="hidden" name="active_ind" value="1"/>
+					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>
 				<td colspan="2"><span title="describes the purpose of the radio buttons that follow">Active?</span>
 					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>

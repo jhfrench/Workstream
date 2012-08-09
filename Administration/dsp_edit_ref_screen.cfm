@@ -66,7 +66,7 @@
 					<br />(If supplied, system will check for the existence of this variable. If the variable is not defined, system will redirect user to fuseaction selected as 'relocate')
 				</td>
 				<cfif attributes.screen_id EQ 0>
-					<input type="hidden" name="active_ind" value="1"/>
+					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>
 				<td align="left">
 					<cfif attributes.active_ind>

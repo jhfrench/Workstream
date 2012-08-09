@@ -30,7 +30,7 @@
 	<select name="account_status_id">
 	<cfloop query="get_ref_account_status"><option value="#account_status_id#">#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit account status" value="Retrieve and edit ref account"/>
+	<input type="submit" name="method" alt="Retrieve and edit account status" value="Retrieve and edit ref account" />
 </form>
 <cfif len(attributes.method)>
 <cfmodule template="../common_files/qry_get_ref_account_status.cfm" account_status_id="#attributes.account_status_id#">
@@ -52,7 +52,7 @@
 				<td><label for="sort_order">Sort Order</label>: 
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#iif(attributes.account_status_id EQ 0, ('get_ref_account_status.recordcount+1'), ('get_ref_account_status.sort_order'))#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter sort order."></td>
 				<cfif attributes.account_status_id EQ 0>
-					<input type="hidden" name="active_ind" value="1"/>
+					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>
 				<td colspan="2"><span title="describes the purpose of the radio buttons that follow">Active?</span>
 					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>

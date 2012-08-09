@@ -32,7 +32,7 @@
 	<select name="center_id">
 	<cfloop query="get_ref_center"><option value="#center_id#"<cfif not comparenocase(get_ref_center.center_id, attributes.center_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit center" value="Retrieve and edit center"/>
+	<input type="submit" name="method" alt="Retrieve and edit center" value="Retrieve and edit center" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_center.cfm" center_id="#attributes.center_id#">
@@ -71,7 +71,7 @@
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value= #IIf(attributes.center_id EQ 0, (""), ("get_ref_center.sort_order"))# size="6" maxlength="12" required="yes" message="Please enter sort order.">
 				</td>
 				<cfif attributes.center_id EQ 0>
-					<input type="hidden" name="active_ind" value="1"/>
+					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>
 				<td colspan="2"><span title="describes the purpose of the radio buttons that follow">Active?</span>
 					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>
@@ -85,7 +85,7 @@
 	<tr bgcolor="##dddddd">
 		<td  class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
-			<input type="hidden" name="center_id" value="#attributes.center_id#"/>
+			<input type="hidden" name="center_id" value="#attributes.center_id#" />
 			<input name="submit" type="submit" alt="submit" value="Submit" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>

@@ -21,5 +21,5 @@
 	</cfchart>
 </cfsavecontent>
 <div id="revenue_progress">
-     <cfoutput>#replacenocase(replacenocase(variables.chart_under_menu,'quality="high"', 'quality="high" wmode="transparent"', "ALL"),'<PARAM name="quality" value="high"/>', '<PARAM name="quality" value="high"/><PARAM name="wmode" value="transparent"/>', "ALL")#</cfoutput>
+     <cfoutput>#replacenocase(replacenocase(variables.chart_under_menu,'quality="high"', 'quality="high" wmode="transparent"', "ALL"),'<PARAM name="quality" value="high" />', '<PARAM name="quality" value="high" /><PARAM name="wmode" value="transparent" />', "ALL")#</cfoutput>
 </div>

@@ -31,7 +31,7 @@
 	<select name="m_p_status_id">
 	<cfloop query="get_ref_m_p_status"><option value="#m_p_status_id#"<cfif not comparenocase(get_ref_m_p_status.m_p_status_id, attributes.m_p_status_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit business category" value="Retrieve and edit Mentor/Prot&eacute;g&eacute; Status"/>
+	<input type="submit" name="method" alt="Retrieve and edit business category" value="Retrieve and edit Mentor/Prot&eacute;g&eacute; Status" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_m_p_status.cfm" m_p_status_id="#attributes.m_p_status_id#">

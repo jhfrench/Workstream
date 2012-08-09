@@ -31,7 +31,7 @@
 	<select name="program_year_id">
 	<cfloop query="get_program_year"><option value="#program_year_id#"<cfif not comparenocase(get_program_year.program_year_id, attributes.program_year_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit program year" value="Retrieve and edit program year"/>
+	<input type="submit" name="method" alt="Retrieve and edit program year" value="Retrieve and edit program year" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_program_year.cfm" program_year_id="#attributes.program_year_id#">
@@ -56,7 +56,7 @@
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="6" maxlength="12" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.program_year_id EQ 0>
-					<input type="hidden" name="active_ind" value="1"/>
+					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>
 				<td>
 					<span title="describes the purpose of the radio buttons that follow">Active?</span>

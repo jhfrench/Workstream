@@ -404,7 +404,7 @@ This software consists of voluntary contributions made by many individuals on be
 				</cfcatch>
 			</cftry>
 
-			<cfparam name="fb_.hasAssertions" default="false" type="boolean"/>
+			<cfparam name="fb_.hasAssertions" default="false" type="boolean" />
 			<cfif application.fusebox.mode NEQ "production">
 			<!--- write out the devparsed file --->
 				<cfif fb_.hasAssertions>
@@ -459,7 +459,7 @@ This software consists of voluntary contributions made by many individuals on be
 				<cfset fb_.errorFile=application.fusebox.errortemplatesPath & fb_.type & ".cfm" />
 			</cfloop>
 			<cfif FileExists(application.fusebox.approotdirectory & fb_.errorFile)>
-				<cfinclude template="#application.fusebox.CoreToAppRootPath##fb_.errorFile#"/>
+				<cfinclude template="#application.fusebox.CoreToAppRootPath##fb_.errorFile#" />
 			<cfelse>
 				<cfrethrow><!--- if no appropriate errorTemplate is specified, then rethrow the expected error --->
 			</cfif>

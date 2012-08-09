@@ -31,7 +31,7 @@
 	<select name="address_type_id">
 	<cfloop query="get_ref_address_type"><option value="#address_type_id#"<cfif not comparenocase(get_ref_address_type.address_type_id, attributes.address_type_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit Address Type" value="Retrieve and Edit Address Type"/>
+	<input type="submit" name="method" alt="Retrieve and edit Address Type" value="Retrieve and Edit Address Type" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="qry_get_ref_address_type.cfm" address_type_id="#attributes.address_type_id#">

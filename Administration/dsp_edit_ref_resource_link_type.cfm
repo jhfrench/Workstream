@@ -31,7 +31,7 @@
 	<select name="resource_link_type_id">
 	<cfloop query="get_ref_resource_link_type"><option value="#resource_link_type_id#"<cfif not comparenocase(get_ref_resource_link_type.resource_link_type_id, attributes.resource_link_type_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit resource link type" value="Retrieve and edit resource link type"/>
+	<input type="submit" name="method" alt="Retrieve and edit resource link type" value="Retrieve and edit resource link type" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_resource_link_type.cfm"  resource_link_type_id="#attributes.resource_link_type_id#">
@@ -54,7 +54,7 @@
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#get_ref_resource_link_type_count.count1+1#" size="6" maxlength="12" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.resource_link_type_id EQ 0>
-					<input type="hidden" name="active_ind" value="1"/>
+					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>
 				<td>
 					<span title="describes the purpose of the radio buttons that follow">Active?</span>
