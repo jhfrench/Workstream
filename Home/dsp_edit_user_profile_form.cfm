@@ -66,7 +66,7 @@
 			<tr>
 				<td><label for="work_phone">Phone</label>:</td>
 				<td>
-					<cfset attributes.work_phone=Replace(get_user_information_profile.work_phone, "+", "", "ALL")>
+					<cfset attributes.work_phone=replace(get_user_information_profile.work_phone, "+", "", "ALL")>
 					<cfinput type="text" name="work_phone" id="work_phone" size="50" required="no" validate="telephone"  validateat="onserver,onsubmit" value="#attributes.work_phone#" maxlength="4000">
 				</td>
 			</tr>

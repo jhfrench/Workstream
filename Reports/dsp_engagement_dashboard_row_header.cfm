@@ -23,7 +23,7 @@
 						Project Dashboard - #dateformat(today,'mm/dd/yy')#
 					</td>
 					<td class="HeadTextWhite">
-							<a href="index.cfm?fuseaction=Customers.new_engagement">Add New Project</a>
+							<a href="index.cfm?fuseaction=Customers.new_engagement" class="btn">Add New Project</a>
 					</td>
 					<td align="right" class="HeadTextWhite" >
 						Project view: <select name="inactive" onchange="javascript:document.forms.inactive.submit();">
@@ -42,33 +42,35 @@
 		</td>
 	</tr>
 </form>
+<thead>
 	<tr>
-		<td colspan="2" bgcolor="##c0c0c0" class="SubHeadText">
-			Customer & Project Name 
-		</td>
-<td bgcolor="##c0c0c0" class="SubHeadText">
+		<th>
+			Customer & Project Name
+		</th>
+		<th>
 			IE
-		</td>
-		<td bgcolor="##c0c0c0" class="SubHeadText">
+		</th>
+		<th>
 			Due Date
-		</td>
-		<td bgcolor="##c0c0c0" class="SubHeadText">
+		</th>
+		<th>
 			Progress
-		</td>
-		<td bgcolor="##c0c0c0" class="SubHeadText">
+		</th>
+		<th>
 			Status
-		</td>
-		<td bgcolor="##c0c0c0" class="SubHeadText">
+		</th>
+		<th>
 			Project Update
-		</td>
-		<td bgcolor="##c0c0c0" class="SubHeadText">
+		</th>
+		<th>
 			Revenue
-		</td>
-				<td bgcolor="##c0c0c0" class="SubHeadText">
+		</th>
+		<th>
 			Upselling<br />Opportunities
-		</td>
-						<td bgcolor="##c0c0c0" class="SubHeadText">
+		</th>
+		<th>
 			Date Last<br />Updated
-		</td>
+		</th>
 	</tr>
+</thead>
 </cfoutput>

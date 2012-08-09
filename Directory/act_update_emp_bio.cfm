@@ -20,7 +20,7 @@ WHERE emp_id=#attributes.emp_id#
 <cfif len(attributes.biography)>
 	<cfquery name="emp_biography_entry" datasource="#application.datasources.main#">
 		INSERT INTO Emp_Biography (emp_id,biography)
-		VALUES(#attributes.emp_id#,'#StripCR(attributes.biography)#')
+		VALUES(#attributes.emp_id#,'#stripcr(attributes.biography)#')
 	</cfquery>
 </cfif>
 </cfsilent>

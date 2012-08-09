@@ -4,7 +4,7 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I display the workstream project list.
+	Responsibilities: I display the task name and description.
 	||
 	Name: Jeromy French
 	||
@@ -18,7 +18,7 @@
 		<div class="span12">
 			<h2>#get_task_details.task_name# <a href="javascript:note_to_task('#attributes.task_id#');" class="btn">View this task</a></h2>
 			<h5>Task details</h5>
-			<p>#Replace(ParagraphFormat(StripCR(get_task_details.description)),"<P>","","all")#</p>
+			<p>#replace(paragraphformat(stripcr(get_task_details.description)),"<P>","","all")#</p>
 		</div>
 	</div>
 </cfoutput>

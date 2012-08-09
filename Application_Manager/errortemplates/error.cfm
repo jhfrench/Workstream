@@ -39,14 +39,14 @@
 			application.product_name="";
 		}
 		if(not isdefined("application.erroremailfrom")) {
-			application.erroremailfrom="FAAD@nasa.gov";
+			application.erroremailfrom="workstream@ait.com";
 		}
 		if(not isdefined("application.email_server_name")) {
 			application.email_server_name="";
 		}
 		variables.errordate=dateformat(now(), "mm/dd/yy");
 		variables.errortime=timeformat(now(), "hh:mm:ss TT");
-		variables.error_diagnostics=StripCR(ReplaceList(error.diagnostics, "<p>,<pre>,</pre>,</P>,<hr>,<b>,</b>,<ol>,<li>,</ol>,<p>,</p>,'", ",,,,,,,,,,,,"));
+		variables.error_diagnostics=stripcr(ReplaceList(error.diagnostics, "<p>,<pre>,</pre>,</P>,<hr>,<b>,</b>,<ol>,<li>,</ol>,<p>,</p>,'", ",,,,,,,,,,,,"));
 		variables.error_querystring=error.querystring;
 		variables.error_remoteaddress=error.remoteaddress;
 		variables.error_httpreferer=error.httpreferer;

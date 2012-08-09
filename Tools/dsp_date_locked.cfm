@@ -14,7 +14,7 @@
 </cfsilent>
 <cfscript>
 variables.date_list=valuelist(get_date_locked.date_locked);
-variables.date_list=listsort( reReplace( variables.date_list, '([0-9][0-9])-([0-9][0-9][0-9][0-9])', '\2-\1', 'all' ), 'numeric', 'asc' );
+variables.date_list=listsort( rereplace( variables.date_list, '([0-9][0-9])-([0-9][0-9][0-9][0-9])', '\2-\1', 'all' ), 'numeric', 'asc' );
 variables.min_date=listFirst(variables.date_list);
 </cfscript>
 <cfoutput>

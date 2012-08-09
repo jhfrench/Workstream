@@ -35,7 +35,7 @@ WHERE User_Fields.active_ind=1
 <cfloop query="get_user_field_types">
 	<cfif len(evaluate("attributes.type_#user_field_type_id#_num_1_name")) NEQ 0>
 		<cfset tmpVar=evaluate("attributes.type_#user_field_type_id#_num_1_name")>
-		<cfset tmpVar=Replace(tmpVar, "', /,%", "''", "All")>
+		<cfset tmpVar=replace(tmpVar, "', /,%", "''", "All")>
 			<cfquery name="add_custom_fields" datasource="#application.datasources.main#">
 			INSERT INTO User_Fields (field_user_field_type_id, field_title, active_ind)
 			VALUES (#user_field_type_id#, '#tmpVar#', 2)
@@ -52,7 +52,7 @@ WHERE User_Fields.active_ind=1
 			<cfloop from="1" to="8" index="opt_ii">
 				<cfif len(#evaluate("attributes.type_#user_field_type_id#_num_1_opt_#opt_ii#")#)>
 				<cfset tmpVar1=evaluate("attributes.type_#user_field_type_id#_num_1_opt_#opt_ii#")>
-				<cfset tmpVar1=Replace(tmpVar1, "', /,%", "''", "All")>
+				<cfset tmpVar1=replace(tmpVar1, "', /,%", "''", "All")>
 				<cfquery name="add_custom_field_options" datasource="#application.datasources.main#">
 				INSERT INTO user_field_items(user_field_id, selection_title)
 				VALUES(#get_last_custom_field.current_field#, '#tmpVar1#')

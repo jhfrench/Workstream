@@ -29,30 +29,30 @@
 
 	<tr  bgcolor="#variables.tr_bgcolor#"> 
 		<td valign="top">
-			<a name="#Project_ID#">
-					<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=3&engagement_dashboard_Return=1&customer_id_Filter=#customer_id_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">
-			<!--- Show Status Color Image and SET Status Color Variable baised on the status code--->
-			<cfswitch expression="#status#">
-				<cfcase value="3">
-					<img src="images/Icons/Red_Flag.gif" width="16" height="15" border="0">
-					<cfset variables.status_color="Red">
-				</cfcase>
-				<cfcase value="2">
-					<img src="images/Icons/Yellow_Warning.gif" width="16" height="15" border="0">
-					<cfset variables.status_color="Yellow">
-				</cfcase>
-				<cfcase value="1">
-					<img src="images/Icons/Green_Check.gif" width="16" height="15" border="0">
-					<cfset variables.status_color="Green">
-				</cfcase>
-				<cfdefaultcase>
-					<!--- No status so display a red so I get attention --->
-					<img src="../images/Icons/Red_Flag.gif" width="16" height="15" border="0">
-					<cfset variables.status_color="Red">
-				</cfdefaultcase>
-			</cfswitch>
-			</a>
-			</a>
+			<a name="#Project_ID#"></a>
+			<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=3&engagement_dashboard_Return=1&customer_id_Filter=#customer_id_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">
+	<!--- Show Status Color Image and SET Status Color Variable baised on the status code--->
+	<cfswitch expression="#status#">
+		<cfcase value="3">
+			<img src="images/Icons/Red_Flag.gif" width="16" height="15" border="0">
+			<cfset variables.status_color="Red">
+		</cfcase>
+		<cfcase value="2">
+			<img src="images/Icons/Yellow_Warning.gif" width="16" height="15" border="0">
+			<cfset variables.status_color="Yellow">
+		</cfcase>
+		<cfcase value="1">
+			<img src="images/Icons/Green_Check.gif" width="16" height="15" border="0">
+			<cfset variables.status_color="Green">
+		</cfcase>
+		<cfdefaultcase>
+			<!--- No status so display a red so I get attention --->
+			<img src="../images/Icons/Red_Flag.gif" width="16" height="15" border="0">
+			<cfset variables.status_color="Red">
+		</cfdefaultcase>
+	</cfswitch>
+	</a>
+			
 		</td>
 		<td valign="top">
 			<a href="index.cfm?fuseaction=Customers.edit_engagement&Project_ID=#Project_ID#&Option=1&engagement_dashboard_Return=1&customer_id_Filter=#customer_id_filter#&IE_Emp_ID_Filter=#IE_Emp_ID_Filter#&Sort=#Sort#">#customer_description# - #description#(#project_code#)</a>

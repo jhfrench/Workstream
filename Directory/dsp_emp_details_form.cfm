@@ -38,7 +38,7 @@
 			<td></td>
 			<td colspan="2">
 				Biography<br />
-				<textarea name="biography" maxlength="4000" wrap="soft" rows="7" cols="110">#StripCR(biography)#</textarea>
+				<textarea name="biography" maxlength="4000" wrap="soft" rows="7" cols="110">#stripcr(biography)#</textarea>
 			</td>
 		</tr>
 		<tr valign="top">

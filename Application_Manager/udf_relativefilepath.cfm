@@ -7,8 +7,8 @@
  */
 function fb_relativeFilePath(startFile,endFile){
 	//In case we have absolute local paths, turn backward to forward slashes
-	var startpath=Replace(startFile,"\","/","ALL"); 
-	var endPath=Replace(endFile,"\","/","ALL"); 
+	var startpath=replace(startFile,"\","/","ALL"); 
+	var endPath=replace(endFile,"\","/","ALL"); 
 	//Declare variables
 	var i=1;
 	var j=1;

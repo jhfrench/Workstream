@@ -95,7 +95,7 @@ Cut and Paste the following code:
 	<cfset auth_name="To Be Determined">
 	<cfset author=form.pin>
 <cfelse>
-	<cfset auth_name=Replace(form.pin, "_", " ")>
+	<cfset auth_name=replace(form.pin, "_", " ")>
 	<cfif NOT ListLen(form.pin, "_") GT 2>
 		<cfset first_name=ListFirst(form.pin, "_")>
 		<cfset last_init=Left(listgetat(form.pin, 2, "_"), 1)>
@@ -107,7 +107,7 @@ Cut and Paste the following code:
 	<cfset author="#first_name# #last_init#">
 </cfif>
 <pre>
-&lt;!-- <cfoutput>#form.directory#</cfoutput>/<cfoutput>#form.prefix#_#Replace(form.name, " ", "_", "ALL")#.#form.suffix#</cfoutput>
+&lt;!-- <cfoutput>#form.directory#</cfoutput>/<cfoutput>#form.prefix#_#replace(form.name, " ", "_", "ALL")#.#form.suffix#</cfoutput>
 	Author: <cfoutput>#trim(author)#</cfoutput> --&gt;
 <cfif left(Server.ColdFusion.ProductVersion, 1) GT 3>&lt;cfsilent&gt;</cfif>
 	&lt;!--- FUSEDOC

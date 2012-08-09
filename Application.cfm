@@ -73,7 +73,7 @@ SELECT last_updated
 FROM Last_Updated
 </cfquery>
 
-<cfapplication name="skeleton_#dateformat(get_last_updated.last_updated,'yyyy_mm_dd')#_#timeformat(get_last_updated.last_updated,'HH:MM')#_#left(cgi.script_name,38)#1"
+<cfapplication name="workstream_#dateformat(get_last_updated.last_updated,'yyyy_mm_dd')#_#timeformat(get_last_updated.last_updated,'HH:MM')#_#left(cgi.script_name,36)#1"
 	applicationtimeout="3"
 	clientmanagement="no"
 	clientstorage="registry"

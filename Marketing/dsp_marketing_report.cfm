@@ -47,11 +47,11 @@
 				<td>	<a href="javascript:drill_down('#project_id#');">#project_code#</a>&nbsp;</td>
 				<td><a href="javascript:drill_down('#project_id#');">#Description#</a>&nbsp;</td>
 				<td>	<a href="javascript:drill_down('#project_id#');">#last_task#</a>&nbsp;</td>
-				<td>	<a href="javascript:drill_down('#project_id#');">#dateFormat(date, 'mm/dd/yyyy')#</a>&nbsp;</td>
-				<td>	<a href="javascript:drill_down('#project_id#');">#dateFormat(statusabovedate, 'mm/dd/yyyy')#</a>&nbsp;</td>
-				<td>	<a href="javascript:drill_down('#project_id#');">#dateFormat(statusindate, 'mm/dd/yyyy')#</a>&nbsp;</td>
-				<td>	<a href="javascript:drill_down('#project_id#');">#dateFormat(statusbestfewdate, 'mm/dd/yyyy')#</a>&nbsp;</td>
-				<td><a href="javascript:drill_down('#project_id#');">	#dateFormat(statuscontractdate, 'mm/dd/yyyy')#</a>&nbsp;</td>
+				<td>	<a href="javascript:drill_down('#project_id#');">#dateformat(date, 'mm/dd/yyyy')#</a>&nbsp;</td>
+				<td>	<a href="javascript:drill_down('#project_id#');">#dateformat(statusabovedate, 'mm/dd/yyyy')#</a>&nbsp;</td>
+				<td>	<a href="javascript:drill_down('#project_id#');">#dateformat(statusindate, 'mm/dd/yyyy')#</a>&nbsp;</td>
+				<td>	<a href="javascript:drill_down('#project_id#');">#dateformat(statusbestfewdate, 'mm/dd/yyyy')#</a>&nbsp;</td>
+				<td><a href="javascript:drill_down('#project_id#');">	#dateformat(statuscontractdate, 'mm/dd/yyyy')#</a>&nbsp;</td>
 				<td><a href="javascript:drill_down('#project_id#');">	#overview#</a>&nbsp;</td>
 				<td><a href="javascript:drill_down('#project_id#');">	#active_ind#</td>
 				<td><a href="javascript:drill_down('#project_id#');">	#company_size#</a>&nbsp;</td>

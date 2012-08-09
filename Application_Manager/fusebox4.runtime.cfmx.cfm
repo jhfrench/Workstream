@@ -369,9 +369,9 @@ This software consists of voluntary contributions made by many individuals on be
 			  (/old version)
 			*/
 			// for production mode file, strip out the entire assertion
-			fb_.parsedfilecontents=REReplace(fb_.parsedfilecontents,"(#fb_.COMMENT_CF_BEGIN#<assertion>)(.*?)(</assertion>#fb_.COMMENT_CF_END#)","","ALL");
+			fb_.parsedfilecontents=REreplace(fb_.parsedfilecontents,"(#fb_.COMMENT_CF_BEGIN#<assertion>)(.*?)(</assertion>#fb_.COMMENT_CF_END#)","","ALL");
 			// for development mode file, strip out the <!- --<assertion> (and its closing tag) but leave the content in-between
-			fb_.devparsedfilecontents=REReplace(fb_.devparsedfilecontents,"(#fb_.COMMENT_CF_BEGIN#<assertion>)(.*?)(</assertion>#fb_.COMMENT_CF_END#)","\2","ALL");
+			fb_.devparsedfilecontents=REreplace(fb_.devparsedfilecontents,"(#fb_.COMMENT_CF_BEGIN#<assertion>)(.*?)(</assertion>#fb_.COMMENT_CF_END#)","\2","ALL");
 		</cfscript>
 
 		<cflock name="#application.fusebox.approotdirectory##fb_.file2Parse#" timeout="30" type="Exclusive">

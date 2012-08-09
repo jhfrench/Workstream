@@ -28,7 +28,7 @@
 
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<cfif listlen(session.workstream_selected_company_id) GT 1><td>#company#</td></cfif>
-		<td><a href="javascript:list_to_employee('#emp_id#');"  title="View details for #Replace(name,"'","")#.">#name#</a></td>
+		<td><a href="javascript:list_to_employee('#emp_id#');"  title="View details for #replace(name,"'","")#.">#name#</a></td>
 		<td>#extension#</td>
 		<td><cfif len(phone) EQ 10>
 (#left(phone,3)#) #mid(phone,4,3)#-#right(phone,4)#

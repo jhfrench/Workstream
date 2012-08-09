@@ -59,8 +59,8 @@
 			<cfinclude template="dsp_emp_job_titles.cfm">
 		</cfif>
 		<cfif get_subordinates.recordcount>
-			<h4>Direct Reports</h4><br />
-			<cfloop query="get_subordinates"><a href="javascript:list_to_employee('#emp_id#');"  title="View details for #Replace(lname,"'","")# #Replace(fname,"'","")#."><cfif currentrow NEQ 1>; </cfif>#lname#, #fname#</a></cfloop>
+			<h4>Direct Reports</h4>
+			<cfloop query="get_subordinates"><a href="javascript:list_to_employee('#emp_id#');"  title="View details for #replace(lname,"'","")# #replace(fname,"'","")#."><cfif currentrow NEQ 1>; </cfif>#lname#, #fname#</a></cfloop>
 		</cfif>
 	</div>
 </div>

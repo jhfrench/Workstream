@@ -502,7 +502,7 @@ This software consists of voluntary contributions made by many individuals on be
 
     /* determine application.fusebox.parseRootPath, the inverse path of application.fusebox.parsePath */
     fb_.application.fusebox.parseRootPath="";
-    fb_.rootdir=Replace(GetDirectoryFromPath(getCurrentTemplatePath()), '\', fb_.application.fusebox.osdelimiter, 'all');
+    fb_.rootdir=replace(GetDirectoryFromPath(getCurrentTemplatePath()), '\', fb_.application.fusebox.osdelimiter, 'all');
     fb_.aDirs=ListToArray(fb_.application.fusebox.parsePath,fb_.application.fusebox.osdelimiter);
     for (fb_.i=1; fb_.i LTE arrayLen(fb_.aDirs); fb_.i=fb_.i + 1) {
       if (fb_.aDirs[fb_.i] EQ "..") {
