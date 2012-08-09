@@ -26,7 +26,9 @@
 		<tr>
 			<td></td>
 			<td colspan="2">
-				<font color=red>Birthday</font>: <cfinput type="text" name="dob" value="#dateformat(dob, 'mm/dd/yyyy')#" required="Yes" validate="date" message="Please enter a properly formatted birthdate." size="11">&nbsp;
+				<font color=red>Birthday</font>: 
+				<input type="date" name="dob" id="dob" min="1911-02-02" max="#dateformat(dateadd('yyyy',now(),-14), 'yyyy-mm-dd')#" value="#dateformat(dob, 'yyyy-mm-dd')#"  maxlength="10" required="required" class="span6 date" />&nbsp;
+			<!-- USE CF to create client validation <cfinput type="text" name="dob"required="Yes" validate="date" message="Please enter a properly formatted birthdate." size="11"> -->
 				<font color=red>SSN</font>: <cfinput type="text" name="ssn" value="#ssn#" required="Yes" validate="social_security_number" message="Please enter a properly formatted SSN." size="11">&nbsp;
 				<font color=red>Pin:</font> <cfinput type="text" name="pin" value="#pin#" required="Yes" message="Please enter a pin." size="6">&nbsp;
 				Picture: <input type="text" name="photo" size="10" value="#photo#"><!--- <input type="file" name="photo" size="20" value=""> --->
@@ -82,7 +84,10 @@
 					<tr>
 						<td class="SubHeadText">&nbsp;</td>
 						<td align="right">Hire date: </td>
-						<td align="left"><cfinput type="text" name="hire_date" value="#dateformat(hire_date, 'mm/dd/yyyy')#" required="Yes" validate="date" message="Please enter a properly formatted hire date." size="11"></td>
+						<td align="left">
+							<input type="date" name="hire_date" id="hire_date" min="2011-09-01" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(hire_date, 'yyyy-mm-dd')#"  maxlength="10" required="required" class="span6 date" />
+							<!-- Use CF to create client validation <cfinput type="text" name="hire_date" value="#dateformat(hire_date, 'mm/dd/yyyy')#" required="Yes" validate="date" message="Please enter a properly formatted hire date." size="11"> -->
+						</td>
 						<td align="right"><font color=red>Company: </td>
 						<td align="left"><cfselect query="get_teams" name="company_id" value="company_id" display="company" selected="#company_id#"></cfselect></td>
 					</tr>

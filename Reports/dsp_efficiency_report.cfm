@@ -14,19 +14,18 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-	<tr>
-		<td valign="top">
-			<cfinclude template="dsp_efficiency_report_chart.cfm">
-		</td>
-		<td align="center" valign="top" class="SubHeadText">
-			<br />
-			<cfinclude template="dsp_efficiency_report_graph.cfm">
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<cfinclude template="dsp_efficiency_report_sub.cfm">
-		</td>
-	</tr>
+<div class="row">
+	<div class="span6">
+		<cfinclude template="dsp_efficiency_report_chart.cfm">
+	</div>
+	<div class="span6">
+		Graph goes here
+		<!--- <cfinclude template="dsp_efficiency_report_graph.cfm"> --->
+	</div>
+</div>
+<div class="row">
+	<div class="span9">
+		<cfinclude template="dsp_efficiency_report_sub.cfm">
+	</div>
+</div>
 </cfoutput>
-

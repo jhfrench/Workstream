@@ -29,7 +29,7 @@
 </cfif>
 <form name="form_change_password" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
 	<fieldset>
-		<legend>Change Password</legend>
+		<legend><h1>Change Password</h1></legend>
 			<div class="alert alert-info">
 				Password rules
 				<ul>

@@ -22,7 +22,7 @@
 <cfinclude template="qry_get_root_codes.cfm">
 <cfinclude template="qry_get_companies.cfm">
 <cfinclude template="../common_files/qry_get_products.cfm">
-<cfform name="task_details" action="index.cfm?fuseaction=Customers.edit_engagement" method="post">
+<cfform name="edit_engagement_main_form" action="index.cfm?fuseaction=Customers.edit_engagement" method="post">
 <cfoutput>
 	<tr bgcolor="##c0c0c0">
 		<td align="center" colspan="2" class="SubHeadText">

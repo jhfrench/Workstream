@@ -61,7 +61,7 @@
 		<cfelse>
 			<cfset variables.edit=0>
 		</cfif>--->
-		<cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="task_details" method="POST" class="form">
+		<cfform name="task_details_form" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="form">
 			<h2><cfoutput>#get_task_details.task_name# <small>(task #attributes.task_id#)</small></cfoutput></h2>
 			<cfinclude template="dsp_task_details.cfm">
 		</cfform>

@@ -19,7 +19,7 @@
 <table border="0" cellpadding="2" cellspacing="0" align="center" width="40%">
 <tr>
 	<td>
-		<cfmodule template="dsp_from_through_date_no_form.cfm" report_name="Manager Individual Hours Report" required="yes" form_name="ind_hours">
+		<cfmodule template="dsp_from_through_date_no_form.cfm" report_name="Manager Individual Hours Report" required_ind="1" form_name="ind_hours">
 	</td>
 </tr>
 <tr>

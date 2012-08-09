@@ -17,7 +17,7 @@
 <cfform name="date_range" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST">
 	<tr bgcolor="##5F5F5F" class="HeadTextWhite">
 		<td colspan="9" align="left" valign="bottom" class="SubHeadTextWhite">
-			&nbsp;Tasks due between <cfinput type="datefield" name="from_date" value="#attributes.from_date#" size="10" validate="date"> and <cfinput type="datefield" name="to_date" value="#attributes.to_date#" size="10" validate="date">&nbsp;<input type="submit" value="Retrieve Taskss">
+			&nbsp;Tasks due between <input type="date" name="from_date" id="from_date" min="2011-09-01" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span6 date" /> and <input type="date" name="to_date" id="to_date" min="2011-09-01" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span6 date" />&nbsp;<input type="submit" value="Retrieve Tasks">
 		</td>
 	</tr>
 </cfform>

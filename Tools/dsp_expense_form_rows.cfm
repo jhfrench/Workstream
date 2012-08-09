@@ -26,10 +26,10 @@
 		<td>
 			<cfset variables.datefield1="">
 			<cfif isdefined("get_expense_values.work_date")>
-			<cfset variables.datefield1=dateformat(get_expense_values.work_date,"mm/dd/yyyy")>
+				<cfset variables.datefield1=dateformat(get_expense_values.work_date,"mm/dd/yyyy")>
 			</cfif>
-			<cfinput type="datefield" name="DateField1" message="Enter a date." validate="date" required="Yes" size="12" value="#variables.datefield1#">
-			<cfinclude template="../common_files/dsp_pop_calendar.cfm">
+			<input type="date" name="DateField1" id="from_date" min="2011-09-01" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(variables.datefield1, 'yyyy-mm-dd')#"  maxlength="10" required="required" class="span6 date" />
+			<!-- Use CF to create validation <cfinput type="datefield" name="DateField1" message="Enter a date." validate="date" required="Yes" size="12"> -->
 		</td>
 </tr>
 <tr>
@@ -69,11 +69,14 @@
 		<td valign="top">Notes:</td>
 		<td colspan="3"><textarea cols="60" rows="4" name="Note" wrap="auto"><cfif isdefined("get_expense_values.note")><cfoutput>#get_expense_values.note#</cfoutput><cfelse>Type your notes here.</cfif></textarea></td>
 	</tr>
-	<input type="hidden" name="emp_id" value="<cfoutput>#session.user_account_id#</cfoutput>">
 	<tr>
 		<td align="right">
-			<input type="submit" value="Submit" name="Insert">
-			<input type="Reset">
+			<cfoutput>
+			<input type="hidden" name="expense_id" value="#attributes.expense_id#" />
+			<input type="hidden" name="emp_id" value="#session.user_account_id#" />
+			</cfoutput>
+			<input type="submit" name="Insert" value="Submit" class="btn btn-primary" />
+			<input type="reset" class="btn" />
 		</td>
 	</tr>
 </table>

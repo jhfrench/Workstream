@@ -28,9 +28,7 @@
 	<cfinclude template="qry_get_employee_classification.cfm">
 	<cfinclude template="qry_get_user_type.cfm">
 	<cfinclude template="../common_files/qry_get_states.cfm">
-	<cfinclude template="../common_files/qry_get_teams.cfm"><!--- 
-	<cfinclude template="../common_files/dsp_pop_calendar.cfm"> --->
-	<cfmodule template="../common_files/act_calendar.cfm" form_name="emp_entry" field_name="hire_date,dob">
+	<cfinclude template="../common_files/qry_get_teams.cfm">
 </cfif>
 <cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="emp_entry" method="POST">
 <table align="center" cellpadding="0" cellspacing="0" border="0" width="<cfoutput>#variables.table_width#</cfoutput>%">

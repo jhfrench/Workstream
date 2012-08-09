@@ -29,8 +29,6 @@ function isEmpty()
 	}
 </script>
 </cfsilent>
-<!--- <cfinclude template="../common_files/dsp_pop_calendar.cfm"> --->
-<cfmodule template="../common_files/act_calendar.cfm" form_name="input_form" field_name="date_entered,due_date">
 <cfinclude template="../common_files/qry_get_search_projects.cfm">
 <cfinclude template="../common_files/qry_get_date_operator.cfm">
 <cfform name="input_form" action="index.cfm?fuseaction=Search.output" method="POST">
@@ -56,5 +54,4 @@ function isEmpty()
 </table>
 </cfform>
 <br />
-<iframe src="../common_files/pop_cal/popcjs.htm" name="gToday:normal:agenda.js" id="gToday:normal:agenda.js" scrolling="no" frameborder="0" style="border:ridge;visibility:hidden;position:absolute;z-index:65535"></iframe>
 

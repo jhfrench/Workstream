@@ -12,30 +12,32 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfset lowest_year=year(now())>
-<cfset temp_year=0>
 </cfsilent>
-<table border="0" cellpadding="1" cellspacing="0">
 <cfoutput>
-	<tr bgcolor="##c0c0c0">
-		<td colspan="2" class="SubHeadText"></td>
-		<td align="center" colspan="2" class="SubHeadText">#variables.project_name# Time</td>
-	</tr>
-	<tr bgcolor="##c0c0c0">
-		<td class="SubHeadText">Year</td>
-		<td class="SubHeadText">Month</td>
-		<td align="center" class="SubHeadText">Hours</td>
-		<td align="center" class="SubHeadText">%</td>
-	</tr>
-</cfoutput>
-<cfoutput query="efficiency_report_main">
-<cfif time_year LT lowest_year><cfset lowest_year=time_year></cfif>
-	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td align="center"><cfif time_year NEQ temp_year>#time_year#<cfset temp_year=time_year><cfelse>&nbsp;</cfif></td>
-		<td align="left"><a href="javascript:change_month('#time_month#','#time_year#');">#MonthAsString(time_month)#</a></td>
-		<td align="right">#decimalformat(efficiency_time)#</td>
-		<td align="right">#decimalformat(efficiency_percent)#</td>
-	</tr>
-</cfoutput>
+<table class="table table-striped table-bordered table-condensed">
+	<caption><h3>Percent of #variables.project_name# Time</h3></caption>
+	<thead>
+		<tr>
+			<th colspan="2"></td>
+			<th colspan="2">#variables.project_name# Time</th>
+		</tr>
+		<tr>
+			<th>Year</th>
+			<th>Month</th>
+			<th>Hours</th>
+			<th>%</th>
+		</tr>
+	</thead>
+	<tbody>
+	<cfloop query="efficiency_report_main">
+	<cfif time_year LT lowest_year><cfset lowest_year=time_year></cfif>
+		<tr>
+			<td class="date"><cfif time_year NEQ temp_year>#time_year#<cfset temp_year=time_year><cfelse>&nbsp;</cfif></td>
+			<td class="date"><a href="javascript:change_month('#time_month#','#time_year#');">#monthasstring(time_month)#</a></td>
+			<td class="number">#decimalformat(efficiency_time)#</td>
+			<td class="number">#decimalformat(efficiency_percent)#</td>
+		</tr>
+	</cfloop>
+	</tbody>
 </table>
-
+</cfoutput>

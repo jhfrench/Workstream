@@ -12,7 +12,7 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfmodule template="dsp_from_through_date_NO_Form.cfm" report_name="Expense Report" form_name="expense">
+<cfmodule template="dsp_from_through_date_NO_Form.cfm" report_name="Expense Report" form_name="expense" required_ind="0">
 <table border="0" cellpadding="3" cellspacing="0" align="center" width="25%"> 
 	<tr>
 		<td>Report By Code</td>

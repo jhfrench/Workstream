@@ -17,7 +17,7 @@
 <SCRIPT LANGUAGE="JavaScript">
 	function ReturnForm() { 
 		var dispVal
-		document.spell.message.value = opener.document.task_details.#formname#.value;
+		document.spell.message.value = opener.document.task_details_form.#formname#.value;
 	}
 </SCRIPT>
 </cfoutput>

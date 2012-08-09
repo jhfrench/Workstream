@@ -57,7 +57,8 @@
 		Date
 	</td>
 	<td>
-		<cfinput type="datefield" name="date_incurred" value="#dateformat(attributes.date_incurred,'mm/dd/yyyy')#" required="Yes" validate="date" message="Please enter the date this expense was paid (mm/dd/yyyy format)." size="11">
+		<input type="date" name="date_incurred" id="date_incurred" min="2011-09-01" max="#dateformat(now()+30, 'yyyy-mm-dd')#"  value="#dateformat(attributes.date_incurred,'yyyy-mm-dd')#" required="required" maxlength="10" class="span6 date" />
+		<!-- Use CF to create validaton <cfinput type="datefield" name="date_incurred" required="Yes" validate="date" message="Please enter the date this expense was paid (mm/dd/yyyy format)." size="11"> --->
 	</td>
 </tr>
 <tr>
@@ -186,5 +187,5 @@
 	</td>
 </tr>
 <tr>
-	<td align="left" colspan="5"><cfif variables.all_option EQ 1><input type="submit" name="Submit" value="Submit">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" name="Reset" value="Reset"></cfif></td>
+	<td align="left" colspan="5"><cfif variables.all_option EQ 1><input type="submit" name="Submit" value="Submit" class="btn btn-primary" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" name="Reset" value="Reset" class="btn" /></cfif></td>
 </tr>

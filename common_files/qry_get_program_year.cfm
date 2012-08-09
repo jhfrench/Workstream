@@ -29,7 +29,7 @@ FROM REF_Program_Year
 WHERE active_ind=1<cfif attributes.program_year_id NEQ 0>
 	AND program_year_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.program_year_id#">
 	<cfelseif attributes.exclude_future_years_ind>
-	AND description <=(
+	AND CAST(description AS INTEGER) <=(
 		SELECT fiscal_year
 		FROM REF_Date
 		WHERE odbc_date=#createodbcdate(now())#

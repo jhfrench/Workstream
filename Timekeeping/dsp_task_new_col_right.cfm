@@ -4,7 +4,7 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I display the attributes of a task. If a task is not specified I display the form to set task details/create a new task.
+	Responsibilities:
 	||
 	Name: Jeromy French
 	||
@@ -19,20 +19,21 @@
 <script language="JavaScript" type="text/javascript">
 <!--
 function checkTheDescription(arg){
-	if (arg == "to_inbox"){
-		document.task_details.to_inbox.value = 1
-	}else if (arg == "to_edit"){
-		document.task_details.to_edit.value = 1
-		}
-	var theValue = document.task_details.task_details.value;
-	document.task_details.task_details.value = myTrim(theValue);
-	if(!document.task_details.task_details.value.length){
+	if (arg == "to_inbox") {
+		document.new_task_form.to_inbox.value = 1
+	}
+	else if (arg == "to_edit") {
+		document.new_task_form.to_edit.value = 1
+	}
+	var theValue = document.new_task_form.task_details.value;
+	document.new_task_form.task_details.value = myTrim(theValue);
+	if(!document.new_task_form.task_details.value.length){
 		alert("Please insert a task description");
 		return false;
 	}
 	else {
-		if (_CF_checktask_details(document.task_details)){
-		document.task_details.submit();
+		if (_CF_checknew_task_form(document.new_task_form)){
+		document.new_task_form.submit();
 		}
 	}
 }

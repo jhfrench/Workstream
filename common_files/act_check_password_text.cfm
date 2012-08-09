@@ -21,16 +21,31 @@
 </fusedoc>
 --->
 
+<cfscript>
+	if (NOT isdefined("variables.display_message")) {
+		variables.display_message="";
+	}
+	if (NOT isdefined("variables.password_verification_uppercase_pass")) {
+		variables.password_verification_uppercase_pass=0;
+	}
+	if (NOT isdefined("variables.password_verification_lowercase_pass")) {
+		variables.password_verification_lowercase_pass=0;
+	}
+	if (NOT isdefined("variables.password_verification_number_pass")) {
+		variables.password_verification_number_pass=0;
+	}
+	if (NOT isdefined("variables.password_verification_special_character_pass")) {
+		variables.password_verification_special_character_pass=0;
+	}
+	if (NOT isdefined("variables.password_verification_count")) {
+		variables.password_verification_count=0;
+	}
+	if (NOT isdefined("caller.get_verification_count")) {
+		caller.get_verification_count=0;
+	}
 
-<cfparam name="variables.display_message" default="">
-<cfparam name="variables.password_verification_uppercase_pass" default="0">
-<cfparam name="variables.password_verification_lowercase_pass" default="0">
-<cfparam name="variables.password_verification_number_pass" default="0">
-<cfparam name="variables.password_verification_special_character_pass" default="0">
-<cfparam name="variables.password_verification_count" default="0">
-<cfparam name="caller.get_verification_count" default="0">
-
-<cfset variables.good_password_length_ind=1>
+variables.good_password_length_ind=1;
+</cfscript>
 
 <!--- check for upper case --->
 <cfif refind("[[:upper:]]", attributes.password)>

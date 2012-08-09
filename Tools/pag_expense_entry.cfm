@@ -29,9 +29,6 @@
 </cfif>
 
 <cfset variables.supervisor_flag = 0>
-
-
-<iframe src="../common_files/pop_cal/popcjs.htm" name="gToday:normal:agenda.js" id="gToday:normal:agenda.js" scrolling="no" frameborder="0" style="border:ridge;visibility:hidden;position:absolute;z-index:65535"></iframe>
 <cfinclude template="../common_files/qry_project_code.cfm">
 
 <table border="0" cellpadding="4" cellspacing="0" width="100%">
@@ -80,10 +77,10 @@
 	<tr>
 
 		<td colspan="6" align="center">
-			Specify: <br />Date Range: <cfinput type="datefield" name="begin_date" required="NO" validate="date"  size="11"> to <cfinput type="datefield" name="end_date" required="NO" validate="date"  size="11"><br />
+			Specify: <br />Date Range: <input type="date" name="begin_date" id="begin_date" min="2011-09-01" max="#dateformat(now()+30, 'yyyy-mm-dd')#" maxlength="10" class="span6 date" /> to <input type="date" name="end_date" id="end_date" min="2011-09-01" max="#dateformat(now()+30, 'yyyy-mm-dd')#" maxlength="10" class="span6 date" /><br />
 Status: <cfselect name="expense_status_id" size="1" query="get_expense_status" value="expense_status_id" display="description"></cfselect>
 <br />
-<input type="submit" name="submit" value="Submit">
+<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
 		</td>
 
 	</tr>

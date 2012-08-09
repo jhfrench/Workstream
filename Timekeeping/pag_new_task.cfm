@@ -38,15 +38,12 @@
 <cfinclude template="qry_get_ref_icon.cfm"><!--- 
 <cfinclude template="qry_get_notification_frequency.cfm"> --->
 <cfinclude template="../common_files/qry_get_task_stati.cfm">
-<iframe src="../common_files/pop_cal/popcjs.htm" name="gToday:normal:agenda.js" id="gToday:normal:agenda.js" scrolling="no" frameborder="0" style="border:ridge;visibility:hidden;position:absolute;z-index:65535"></iframe>
-<!--- <cfinclude template="../common_files/dsp_pop_calendar.cfm">
-<cfmodule template="../common_files/act_calendar.cfm" form_name="task_details" field_name="date_start,due_date"> --->
 <cfinclude template="../common_files/qry_get_valid_projects.cfm">
 <cfinclude template="../common_files/act_call_big_team_list.cfm">
 <cfinclude template="act_call_pre_defined_names.cfm">
 <cfinclude template="../common_files/act_call_big_project_list.cfm"><!--- 
 <cfinclude template="../common_files/act_call_spell_check.cfm"> --->
-<cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="task_details" method="POST">
+<cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="new_task_form" method="POST">
 	<h2>Create A New Task</h2>
 	<cfinclude template="dsp_task_new_table.cfm">
 </cfform>

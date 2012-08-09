@@ -37,7 +37,7 @@
 
 		<!--- get the id of the inserted record --->
 		<cfquery name="get_discussion_id" datasource="#application.datasources.main#">
-		SELECT Discussion_SEQ.currval AS discussion_id
+		SELECT CURRVAL('Discussion_discuss_id_SEQ') AS discussion_id
 		FROM Dual
 		</cfquery>
 		<cfset attributes.discussion_id=get_discussion_id.discussion_id>

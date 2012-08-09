@@ -27,7 +27,7 @@
 <!--
 function movename()
 	{
-		opener.document.task_details.linked_task_id.value=document.tempform.linked_task_id.value;
+		opener.document.task_details_form.linked_task_id.value=document.tempform.linked_task_id.value;
 		window.close();
 	}
 //-->

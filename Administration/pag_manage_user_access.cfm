@@ -29,54 +29,31 @@
 
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="alphabet_navigation" fuseaction="Administration.manage_user_access" field_name="last_initial" field_value="">
 
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the tables below this table">
-	<tr>
-		<th align="left">
-			<h2 style="margin:0px" id="top-side">Manage User Access</h2>
-		</th>
-	</tr>
-</table>
-
-<img src="images/spacer.gif" alt="" width="560" height="1"><br />
+<h2>Manage User Access</h2>
 <cfoutput>
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="Table displays user search criteria">
-	<tr>
-		<th align="left">
-			<cfloop list="A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z" index="character_ii">
-				<a href="javascript:alphabet_navigation('#character_ii#');">#character_ii#</a> | 
-			</cfloop>
-			<a href="javascript:alphabet_navigation('');">All</a>
-		</th>
-	</tr>
-</table>
+<a href="##select_user_to_manage" title="hidden browser link to skip alphabetical navigation" style="position:absolute;top:-90em;left:-100em;"></a>
+<div class="btn-toolbar">
+	<div class="btn-group">
+	<cfloop list="A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z" index="variables.character_ii">
+		<a href="javascript:alphabet_navigation('#variables.character_ii#');" class="btn btn-mini">#variables.character_ii#</a>
+	</cfloop>
+	<a href="javascript:alphabet_navigation('');" class="btn btn-mini">All</a>
+	</div>
+</div>
 
-<cfform name="select_user_to_manage" action="index.cfm?fuseaction=Administration.view_user_access" method="post">
-<div class="datachart" style="border:1px solid ##999999">
-<table cellpadding="3" cellspacing="0" width="100%" border="0" summary="Table displays user search criteria">
-	<tr align="left" bgcolor="##999999">
-		<th>
-			Edit User
-		</th>
-		<th>
-			Last Name
-		</th>
-		<th>
-			First Name
-		</th>
-		<th>
-			Username
-		</th>
-	</tr>
+<cfform name="select_user_to_manage" id="select_user_to_manage" action="index.cfm?fuseaction=Administration.view_user_access" method="post">
+<table class="table table-striped table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th>Last Name</th>
+			<th>First Name</th>
+			<th>Username</th>
+			<th>Edit User</th>
+		</tr>
+	</thead>
+	<tbody>
 	<cfloop query="get_user_information">
-	<cfif currentrow MOD 2>
-		<cfset variables.row_color="eeeeee">
-	<cfelse>
-		<cfset variables.row_color="dddddd">
-	</cfif>
-	<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';">
-		<td>
-			<cfinput type="checkbox" name="user_account_id" id="user_account_id_#user_account_id#" value="#user_account_id#" required="yes" message="Please choose at least one user to administer." />
-		</td>
+	<tr>
 		<td>
 			<label for="user_account_id_#user_account_id#">#last_name#</label>
 		</td>
@@ -86,16 +63,21 @@
 		<td scope="row">
 			<label for="user_account_id_#user_account_id#">#user_name#</label>
 		</td>
-	</tr>
-	</cfloop>
-	<cfmodule template="../common_files/dsp_program_year.cfm" col_span="3">
-	<tr bgcolor="##999999">
-		<td align="center" colspan="4">
-			<input type="submit" alt="Select" name="method" value="Select" />
-			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
+		<td>
+			<cfinput type="checkbox" name="user_account_id" id="user_account_id_#user_account_id#" value="#user_account_id#" required="yes" message="Please choose at least one user to administer." />
 		</td>
 	</tr>
+	</cfloop>
+	</tbody>
+	<tfoot>
+		<cfmodule template="../common_files/dsp_program_year.cfm" col_span="3">
+		<tr>
+			<td align="center" colspan="4">
+				<input type="submit" name="method" value="Select" class="btn btn-primary" />
+				<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
+			</td>
+		</tr>
+	</tfoot>
 </table>
-</div>
 </cfform>
 </cfoutput> 

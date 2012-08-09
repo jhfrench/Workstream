@@ -17,9 +17,8 @@
 <cfparam name="attributes.form_name" default="form[0]">
 <cfparam name="attributes.action" default="index.cfm">
 <cfparam name="attributes.report_name" default="">
-<cfparam name="attributes.required" default="No">
+<cfparam name="attributes.required_ind" default="0">
 </cfsilent>
-<cfmodule template="../common_files/act_calendar.cfm" form_name="#attributes.form_name#" field_name="from_date,through_date">
 <cfoutput>
 <table border="0" cellpadding="1" cellspacing="0" width="90%" align="center">
 	<tr bgcolor="##008080" class="HeadTextWhite">
@@ -29,8 +28,16 @@
 		<td colspan="2">Enter Dates (mm/dd/yyyy)</td>
 	</tr>
 	<tr>
-		<td>From: <cfinput type="datefield" name="from_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid from date"></td>
-		<td>To: <cfinput type="datefield" name="through_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid through date"></td>
+		<td>
+			From: 
+			<input type="date" name="from_date" id="from_date" min="2011-09-01" max="#dateformat(now()+30, 'yyyy-mm-dd')#"  maxlength="10"<cfif attributes.required_ind> required="required"</cfif> class="span6 date" />
+			<!-- Use CF to create validation <cfinput type="datefield" name="from_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid from date"> --->
+		</td>
+		<td>
+			To: 
+			<input type="date" name="through_date" id="through_date" min="2011-09-01" max="#dateformat(now()+30, 'yyyy-mm-dd')#"  maxlength="10"<cfif attributes.required_ind> required="required"</cfif> class="span6 date" />
+			<!-- Use CF to create validation <cfinput type="datefield" name="through_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid through date"> --->
+		</td>
 	</tr>
 </table>
 </cfoutput>

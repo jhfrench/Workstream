@@ -27,7 +27,7 @@
 <cfparam name="attributes.help_faq_id" default="0">
 <cfquery name="get_help_faq" datasource="#application.datasources.main#">
 SELECT Help_FAQ.help_faq_id, Help_FAQ.question, Help_FAQ.asked_by,
-	Help_FAQ.email_requested_ind, NVL(Help_FAQ.asker_email_address, Demographics.email_address) AS asker_email_address, Help_FAQ.answer,
+	Help_FAQ.email_requested_ind, COALESCE(Help_FAQ.asker_email_address, Demographics.email_address) AS asker_email_address, Help_FAQ.answer,
 	Help_FAQ.public_ind, Help_FAQ.active_ind, Help_FAQ.sort_order,
 	Demographics.first_name || ' ' || Demographics.last_name AS questioner, Link_Screen_Help_FAQ.screen_id
 FROM Help_FAQ

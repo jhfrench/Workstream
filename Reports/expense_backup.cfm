@@ -12,7 +12,6 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfinclude template="../common_files/act_calendar.cfm">
 <cfinclude template="../common_files/qry_expense_types.cfm">
 	<cfset num_expense=Round(Get_Expense_Type.recordcount/2)>
 	<cfset End_Row=(Get_Expense_Type.recordcount)>

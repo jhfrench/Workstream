@@ -18,7 +18,7 @@
 <table align="center" border="0" cellpadding="4" cellspacing="0">
 	<tr class="subHeadText">
 		<td>
-			<cfmodule template="dsp_from_through_date_no_form.cfm" report_name="Code Report" form_name="code" required="yes">
+			<cfmodule template="dsp_from_through_date_no_form.cfm" report_name="Code Report" form_name="code" required_ind="1">
 		</td>
 	</tr>
 	<tr>
