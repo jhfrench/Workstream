@@ -58,7 +58,7 @@ FROM
 		Task.name, Task.budgeted_hours
 	UNION ALL
 	/*bottom query selects tasks that weren't forceplanned for the selected month*/
-	SELECT '<cfif variables.temp_date LT variables.eval_date> disabled</cfif>' AS previously_assigned,
+	SELECT '<cfif variables.temp_date LT variables.eval_date> disabled="disabled"</cfif>' AS previously_assigned,
 		CASE
 			WHEN Task.status_id IN (7,13) THEN 
 				CASE 

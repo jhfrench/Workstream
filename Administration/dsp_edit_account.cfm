@@ -64,7 +64,7 @@
 		<td>
 			&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="R#object_id#"<cfif object_security> checked="checked"</cfif> > #report_name#
 		</td>
-		<td><input type="checkbox" name="A_O#object_id#"<cfif object_all_option_editable> checked="checked"</cfif> <cfif not object_all_option> disabled</cfif>></td>
+		<td><input type="checkbox" name="A_O#object_id#"<cfif object_all_option_editable> checked="checked"</cfif><cfif not object_all_option> disabled="disabled"</cfif>></td>
 	</tr>
 	<cfset variables.module_name=module_name>
 </cfoutput>
