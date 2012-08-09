@@ -100,7 +100,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
+		<td  class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="date_id" value="#attributes.date_id#" />
 			<input type="submit" name="method" value="Submit" />

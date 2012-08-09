@@ -29,7 +29,7 @@
 <cfoutput>
 <form name="edit_ref_business_category_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="business_category_id">
-	<cfloop query="get_ref_business_category"><option value="#business_category_id#" <cfif not comparenocase(get_ref_business_category.business_category_id, attributes.business_category_id)>selected</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_business_category"><option value="#business_category_id#"<cfif not comparenocase(get_ref_business_category.business_category_id, attributes.business_category_id)> SELECTED</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit business category" value="Retrieve and edit business category"/>
 </form>
@@ -66,9 +66,9 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
-			<input type="hidden" name="business_category_id" value="#attributes.business_category_id#"/>
+		<td  class="btn-group">
+			<input type="hidden" name="created_by" value="#session.user_account_id#" />
+			<input type="hidden" name="business_category_id" value="#attributes.business_category_id#" />
 			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>

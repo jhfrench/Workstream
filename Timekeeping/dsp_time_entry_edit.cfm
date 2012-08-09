@@ -76,9 +76,9 @@
 			</div>
 		</div>
 		<div class="form-actions">
-			<input type="hidden" name="notes_id" value="#time_entry_edit.notes_id#">
-			<input type="hidden" name="referer" value="<cfif variables.entry_type>#attributes.referer#<cfelse>time_entry</cfif>">
-			<input type="hidden" name="time_entry_id" value="#request.time_entry_id#">
+			<input type="hidden" name="notes_id" value="#time_entry_edit.notes_id#" />
+			<input type="hidden" name="referer" value="<cfif variables.entry_type>#attributes.referer#<cfelse>time_entry</cfif>" />
+			<input type="hidden" name="time_entry_id" value="#request.time_entry_id#" />
 			<div class="btn-group">
 				<input type="submit" name="method" value="Save changes" class="btn btn-primary" />
 				<a href="index.cfm?fuseaction=#attributes.referer#" class="btn">Return without saving</a>

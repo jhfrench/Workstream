@@ -29,7 +29,7 @@
 <cfmodule template="../common_files/qry_get_ref_organization.cfm" organization_id="0">
 <form name="edit_ref_organization_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="organization_id">
-	<cfloop query="get_ref_organization"><option value="#organization_id#" <cfif not comparenocase(get_ref_organization.organization_id, attributes.organization_id)>selected</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_organization"><option value="#organization_id#"<cfif not comparenocase(get_ref_organization.organization_id, attributes.organization_id)> SELECTED</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit organization" value="Retrieve and edit organization"/>
 </form>
@@ -80,9 +80,9 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
-			<input type="hidden" name="organization_id" value="#attributes.organization_id#"/>
+		<td  class="btn-group">
+			<input type="hidden" name="created_by" value="#session.user_account_id#" />
+			<input type="hidden" name="organization_id" value="#attributes.organization_id#" />
 			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>

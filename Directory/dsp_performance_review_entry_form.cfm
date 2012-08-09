@@ -66,9 +66,10 @@ $Log:
 	</tr>
 
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
-		<td class="SelectText" colspan="2">
-			<input type="hidden" name="emp_id" value="#emp_id#">
-			<input type="submit" value="Submit Review"><input type="button" onclick="javascript:window.close();" value="Cancel">
+		<td colspan="2"class="btn-group">
+			<input type="hidden" name="emp_id" value="#emp_id#" />
+			<input type="submit" value="Submit Review" />
+			<input type="button" onclick="javascript:window.close();" value="Cancel" />
 		</td>
 	</tr>
 </cfoutput>

@@ -54,8 +54,8 @@
 				<option value="#ii#"<cfif attributes.year EQ ii> SELECTED</cfif>>#ii#</option>
 				</cfloop>
 			</select>
-			<input type="hidden" name="emp_id" value="#attributes.emp_id#">
-			<input type="submit" value="change date">
+			<input type="hidden" name="emp_id" value="#attributes.emp_id#" />
+			<input type="submit" value="change date" class="btn btn-primary" />
 		</td>
 	</tr>
 </cfoutput>

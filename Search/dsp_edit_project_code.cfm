@@ -16,7 +16,7 @@
 </cfsilent>
 
 	<tr valign="top">
-		<td align="center">
+		<td  class="btn-group">
 			<input type="checkbox" name="customer_id_box" value="1" <cfif isdefined("attributes.project_id_box") AND len(attributes.project_id)>checked="checked"</cfif>>
 		</td>
 		<td>Customer</td>

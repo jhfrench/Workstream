@@ -66,12 +66,12 @@
 			&nbsp;
 		</td>
 		<td>
-			<input type="hidden" name="filename" value="">
-			<input type="hidden" name="submit_flag" value="1">
-			<input type="hidden" name="additions" value="">
-			<input type="submit" value="Submit" onclick="sync_files()">
-			<input type="button" name="addfile" onclick="sync_files()" value="Attach another file ">
-			<input type="button" name="test" onclick="checkfields()" value="Check Additions">
+			<input type="hidden" name="filename" value="" />
+			<input type="hidden" name="submit_flag" value="1" />
+			<input type="hidden" name="additions" value="" />
+			<input type="submit" value="Submit" onclick="sync_files()" />
+			<input type="button" name="addfile" onclick="sync_files()" value="Attach another file " />
+			<input type="button" name="test" onclick="checkfields()" value="Check Additions" />
 		</td>
 	</tr>
 </form>

@@ -21,7 +21,7 @@
 <cfoutput>
 	<tr>
 		<td align="center" colspan="1">
-			<input type="submit" value="Look Up Projects">
+			<input type="submit" value="Look Up Projects" />
 		</td>
 	</tr>
 </cfoutput>

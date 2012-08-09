@@ -111,14 +111,14 @@
 			</tr>
 			<tr>
 				<td  align="right">State:</td> 
-				<td><input type="text" name="state_#location_type_id#" value="#state#" size="40"></td>
+				<td><input type="text" name="state_#location_type_id#" value="#state#" size="40" /></td>
 			</tr>
 			<tr>
 				<td   align="right">Zip:</td> 
-				<td><input type="text" name="zip_#location_type_id#" value="#zip#" size="5" maxlength="5"></td>
+				<td><input type="text" name="zip_#location_type_id#" value="#zip#" size="5" maxlength="5" /></td>
 			</tr>
-			<input type="hidden" name="location_id" value="#location_id#">
-			<input type="hidden" name="location_type_id" value="#location_type_id#">
+			<input type="hidden" name="location_id" value="#location_id#" />
+			<input type="hidden" name="location_type_id" value="#location_type_id#" />
 		</cfloop>
 
 		<!--- biography --->

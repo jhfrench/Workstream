@@ -67,8 +67,8 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
+		<td  class="btn-group">
+			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="system_note_id" value="#attributes.system_note_id#"/>
 			<cfif attributes.system_note_id EQ 0>
 				<input type="submit" alt="Submit System Note" name="send_system_note" value=" Submit System Note "/>

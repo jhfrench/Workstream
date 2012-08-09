@@ -32,8 +32,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td align="center" colspan="2">
-			<input type="submit" name="Enter_Date" value="Report on these dates">
+		<td colspan="2" class="btn-group">
+			<input type="submit" name="Enter_Date" value="Report on these dates" />
 		</td>
 	</tr>
 </cfoutput>

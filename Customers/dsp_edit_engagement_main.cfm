@@ -14,8 +14,8 @@
 	END FUSEDOC --->
 <cfset variables.start=1>
 <cfparam name="engagement_dashboard_Return" default="0">
-<cfparam name="IE_Emp_ID_Filter" default="All">
-<cfparam name="customer_id_Filter" default="All">
+<cfparam name="attributes.project_manager_emp_id" default="0">
+<cfparam name="attributes.customer_id" default="0">
 <cfparam name="Sort" default="Customers.description, Project.description">
 </cfsilent>
 <cfinclude template="qry_get_engagement_main.cfm">
@@ -56,7 +56,7 @@
 	<tr valign="top">
 		<td class="RegTextBd">
 			IE / Acc Mgmt<br />
-			<cfmodule template="../common_files/dsp_team_select.cfm" size="6" select_name="ie_emp_id" emp_id="#get_engagement_main.ie_emp_id#">
+			<cfmodule template="../common_files/dsp_team_select.cfm" size="6" select_name="project_manager_emp_id" emp_id="#get_engagement_main.project_manager_emp_id#">
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../images/file_attach.gif" valign="bottom" width="60" height="20" alt="Associate a file path to this task." border="0"  onclick="window.open('index.cfm?fuseaction=common_files.file_attach', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=420,height=210');" /> 
 <input type="hidden" name="file_path" value="">Timeline: #get_engagement_main.file_path#
 		</td>
@@ -64,8 +64,8 @@
 			Product<br />
 			<cfselect name="product_id" query="get_products" value="product_id" display="product_name" selected="#get_engagement_main.product_id#" required="yes" message="Please choose which product this engagement applies to." size="4"></cfselect>
 		Status  <select name="active_ind">
-					<option value="1" <cfif get_engagement_main.active_ind EQ 1>selected</cfif>>Active</option>
-					<option value="0" <cfif get_engagement_main.active_ind EQ 0>selected</cfif>>Inactive</option>
+					<option value="1" <cfif get_engagement_main.active_ind EQ 1> SELECTED</cfif>>Active</option>
+					<option value="0" <cfif get_engagement_main.active_ind EQ 0> SELECTED</cfif>>Inactive</option>
 				</select>
 		</td>
 		<td width="55%" class="Note">
@@ -81,26 +81,26 @@
 			<span class="RegTextBd">Work Dates</span><br />
 			Start: <cfinput type="text" name="project_start" value="#dateformat(get_engagement_main.project_start,"mm/dd/yy")#" required="yes" validate="date" message="Please enter a proper date for which work is to begin on this engagement." size="8"> End: <cfinput type="text" name="project_end" value="#dateformat(get_engagement_main.project_end,"mm/dd/yy")#" required="yes" validate="date" message="Please enter a proper date for which work is to end on this engagement." size="8"> <p>
 Go Live: <cfinput type="text" name="date_go_live" value="#dateformat(get_engagement_main.date_go_live,"mm/dd/yy")#" required="no" validate="date" message=" " size="8"> Progress: <select name="status">
-	<option value="0" <cfif get_engagement_main.status EQ 0>selected</cfif>>None</option>
-	<option value="1" <cfif get_engagement_main.status EQ 1>selected</cfif>>Green</option>
-	<option value="2" <cfif get_engagement_main.status EQ 2>selected</cfif>>Yellow</option>
-	<option value="3" <cfif get_engagement_main.status EQ 3>selected</cfif>>Red</option>
+	<option value="0" <cfif get_engagement_main.status EQ 0> SELECTED</cfif>>None</option>
+	<option value="1" <cfif get_engagement_main.status EQ 1> SELECTED</cfif>>Green</option>
+	<option value="2" <cfif get_engagement_main.status EQ 2> SELECTED</cfif>>Yellow</option>
+	<option value="3" <cfif get_engagement_main.status EQ 3> SELECTED</cfif>>Red</option>
 </select> 
 <p>
 Status: <select name="eng_status">
-	<option value="0" <cfif get_engagement_main.eng_status EQ 0>selected</cfif>>Not Started</option>
-	<option value="1" <cfif get_engagement_main.eng_status EQ 1>selected</cfif>>Approved - In Progress</option>
-	<option value="11" <cfif get_engagement_main.eng_status EQ 11>selected</cfif>>Technical Review - Nucleus</option>
-	<option value="12" <cfif get_engagement_main.eng_status EQ 12>selected</cfif>>Technical Review - Customer</option>
-	<option value="2" <cfif get_engagement_main.eng_status EQ 2>selected</cfif>>Needs Customers Review</option>
-	<option value="3" <cfif get_engagement_main.eng_status EQ 3>selected</cfif>>Reviewed - Needs Work</option>
-	<option value="9" <cfif get_engagement_main.eng_status EQ 9>selected</cfif>>Sent for Content Approval</option>
-	<option value="10" <cfif get_engagement_main.eng_status EQ 10>selected</cfif>>Approved - Not Scheduled</option>
-	<option value="8" <cfif get_engagement_main.eng_status EQ 8>selected</cfif>>Getting LOE</option>
-	<option value="7" <cfif get_engagement_main.eng_status EQ 7>selected</cfif>>Sent for Financial Approval</option>
-	<option value="6" <cfif get_engagement_main.eng_status EQ 6>selected</cfif>>Withdrawn</option>
-	<option value="5" <cfif get_engagement_main.eng_status EQ 5>selected</cfif>>On Hold</option>
-	<option value="4" <cfif get_engagement_main.eng_status EQ 4>selected</cfif>>Completed</option>
+	<option value="0" <cfif get_engagement_main.eng_status EQ 0> SELECTED</cfif>>Not Started</option>
+	<option value="1" <cfif get_engagement_main.eng_status EQ 1> SELECTED</cfif>>Approved - In Progress</option>
+	<option value="11" <cfif get_engagement_main.eng_status EQ 11> SELECTED</cfif>>Technical Review - Nucleus</option>
+	<option value="12" <cfif get_engagement_main.eng_status EQ 12> SELECTED</cfif>>Technical Review - Customer</option>
+	<option value="2" <cfif get_engagement_main.eng_status EQ 2> SELECTED</cfif>>Needs Customers Review</option>
+	<option value="3" <cfif get_engagement_main.eng_status EQ 3> SELECTED</cfif>>Reviewed - Needs Work</option>
+	<option value="9" <cfif get_engagement_main.eng_status EQ 9> SELECTED</cfif>>Sent for Content Approval</option>
+	<option value="10" <cfif get_engagement_main.eng_status EQ 10> SELECTED</cfif>>Approved - Not Scheduled</option>
+	<option value="8" <cfif get_engagement_main.eng_status EQ 8> SELECTED</cfif>>Getting LOE</option>
+	<option value="7" <cfif get_engagement_main.eng_status EQ 7> SELECTED</cfif>>Sent for Financial Approval</option>
+	<option value="6" <cfif get_engagement_main.eng_status EQ 6> SELECTED</cfif>>Withdrawn</option>
+	<option value="5" <cfif get_engagement_main.eng_status EQ 5> SELECTED</cfif>>On Hold</option>
+	<option value="4" <cfif get_engagement_main.eng_status EQ 4> SELECTED</cfif>>Completed</option>
 </select>
 
 		</td>
@@ -140,13 +140,13 @@ get_engagement_main.business_case#</textarea>
 
 		</td>
 	</tr>
-<input type="hidden" name="project_id" value="#attributes.project_id#">
-<input type="hidden" name="option" value="1">
-<input type="hidden" name="edit" value="1">
-<input type="hidden" name="engagement_dashboard_Return" value="#engagement_dashboard_Return#">
-<input type="hidden" name="customer_id_FIlter" value="#customer_id_Filter#">
-<input type="hidden" name="IE_Emp_ID_FIlter" value="#IE_Emp_ID_Filter#">
-<input type="hidden" name="Sort" value="#sort#">
+<input type="hidden" name="project_id" value="#attributes.project_id#" />
+<input type="hidden" name="option" value="1" />
+<input type="hidden" name="edit" value="1" />
+<input type="hidden" name="engagement_dashboard_Return" value="#engagement_dashboard_Return#" />
+<input type="hidden" name="customer_id" value="#attributes.customer_id#" />
+<input type="hidden" name="project_manager_emp_id" value="#attributes.project_manager_emp_id#" />
+<input type="hidden" name="sort" value="#sort#" />
 </cfoutput>
 </cfform>
 

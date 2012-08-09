@@ -11,7 +11,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfparam name="attributes.inactive" default="0">
+<cfparam name="attributes.active_ind" default="0">
 </cfsilent>
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="customer" fuseaction="Customers.engagements" otherfield="description" field_name="client_code">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit" fuseaction="Customers.edit_customer" field_name="customer_id">

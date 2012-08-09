@@ -27,7 +27,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td align="center">
+		<td  class="btn-group">
 			<input type="submit" name="Enter_Date" value="Enter Criteria" size="10">
 		</td>
 	</tr>

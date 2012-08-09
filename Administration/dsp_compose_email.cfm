@@ -37,7 +37,7 @@
 			</tr>
 			<cfloop query="get_target_email_audience">
 			<tr<cfif currentrow MOD 2> bgcolor="##cccccc"</cfif>>
-				<td align="center"><input type="checkbox" name="email_recipients_demographics_id" id="email_recipients_demographics_id#demographics_id#" value="#demographics_id#" <cfif blacklist_ind>disabled="disabled"<cfelse>checked="checked"</cfif> /></td>
+				<td align="center"><input type="checkbox" name="email_recipients_demographics_id" id="email_recipients_demographics_id#demographics_id#" value="#demographics_id#"<cfif blacklist_ind> disabled="disabled"<cfelse>checked="checked"</cfif> /></td>
 				<td align="left" scope="row"><label for="email_recipients_demographics_id#demographics_id#">#email_address#</label></td>
 				<td align="center"><cfif blacklist_ind>X<cfelse>&nbsp;</cfif></td>
 			</tr>

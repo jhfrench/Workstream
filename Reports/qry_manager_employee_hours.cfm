@@ -14,7 +14,7 @@
 <cfset supervisor_user_account_id=Get_Client_info.supervisor_user_account_id>
 <cfquery name="ind_emp" datasource="#application.datasources.main#">
 SELECT Project.project_code AS code, 
-    Project.Description AS client, Demographics.emp_id, 
+    Project.description AS client, Demographics.emp_id, 
     Time_Entry.Hours, Time_Entry.Date
 FROM Project, Demographics, Time_Entry
 WHERE Demographics.emp_id = Time_Entry.emp_id

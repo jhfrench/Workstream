@@ -35,7 +35,7 @@
 </cfoutput>
 	<cfoutput query="get_associated_tasks">
 	<tr>
-		<td align="center">
+		<td  class="btn-group">
 			<input type="checkbox" name="del_task" value="#l_t_t_id#">
 		</td>
 		<td>

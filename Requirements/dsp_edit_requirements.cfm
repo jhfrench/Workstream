@@ -99,12 +99,12 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
+		<td  class="btn-group">
 			<input type="hidden" name="requirement_id" value="#attributes.requirement_id#" />
 			<cfif get_requirement.active_ind EQ 0>
 				You cannot edit an inactive requirement
 			<cfelse>
-			<input type="submit" alt="Update Requirement" name="send_req" value="Update Requirement" />
+			<input type="submit" name="send_req" value="Update Requirement" class="btn btn-primary" />
 			</cfif>
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>

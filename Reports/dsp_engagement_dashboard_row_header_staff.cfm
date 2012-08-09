@@ -20,7 +20,6 @@
 			Project Dashboard - #dateformat(today,'mm/dd/yy')#</b>
 			<input type="hidden" name="client_code" value="NOTHING">
 		</td>
-
 	</tr>
 </form>
 	<tr>

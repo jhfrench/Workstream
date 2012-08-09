@@ -24,13 +24,13 @@ SELECT marketing.marketing_id, Marketing.Projected_Revenue, Marketing.Probabilit
 (cast(EXTRACT(MONTH FROM Marketing.StatusContractDate) AS varchar(2)) || '/' || cast(datepart(dd, Marketing.StatusContractDate) AS varchar(2)) || '/' || cast(EXTRACT(YEAR FROM Marketing.StatusContractDate) AS varchar(4))) as StatusContractDate, 
     Marketing.Converted_To_CustomerCode, 
     Marketing.Company_Size, Marketing.Overview,
-    Project.Active_ID, Emp_Contact.emp_id,
+    Project.active_ind, Emp_Contact.emp_id,
     Emp_Contact.Name, Emp_Contact.LName, Location.Address1 as paddress, 
     Location.Address2 as saddress, Location.City, Location.State, Location.Zip, 
     Phone.Phone_Number AS phone, Phone.Extension, 
     Email.Email, 
     Emp_Contact1.Name || '  ' || Emp_Contact1.LName AS source, 
-    Emp_Contact1.emp_id AS source_id, Project.Description, 
+    Emp_Contact1.emp_id AS source_id, Project.description, 
 
 task_info.task_id, 
 task_info.last_task,
@@ -68,7 +68,7 @@ GROUP BY task_info.last_task,task_info.task_id, Marketing.Projected_Revenue,
     Phone.Phone_Number, Phone.Extension, Email.Email, 
     Marketing.project_code, Emp_Contact1.Name, 
     Emp_Contact1.Name || '  ' || Emp_Contact1.LName, 
-    Project.Description, task_info.Date, Project.Active_ID, 
+    Project.description, task_info.Date, Project.active_ind, 
     Emp_Contact1.emp_id, marketing.marketing_id, Emp_Contact.emp_id
 </cfquery> --->
 

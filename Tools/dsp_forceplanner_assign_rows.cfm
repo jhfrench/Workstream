@@ -30,10 +30,10 @@
 		<td>
 			<a href="javascript:list_to_task('#task_id#');">#task_id#</a>
 		</td>
-		<td align="center">
+		<td  class="btn-group">
 			<input type="text" name="task_due_date#task_id#" value="#dateformat(due_date,"mm/dd/yyyy")#" size="11" maxlength="11" onfocus="ReleaseRowFields('accept_#task_id#');">
 		</td>
-		<td align="center">
+		<td  class="btn-group">
 			<input type="checkbox"#previously_assigned# name="accept_#task_id#" value="#task_id#" onclick="ReCalculate('accept_#task_id#');" onkeydown="ReCalculate('accept_#task_id#');">
 		</td>
 		<td align="center">
@@ -51,7 +51,7 @@
 		<td align="center">
 			#budget#
 		</td>
-		<td align="center">
+		<td  class="btn-group">
 			<input type="text" name="task_assigned#task_id#" value="#evaluate("task_assign#task_id#")#" size="3" onfocus="blur();" >
 		</td>
 		<td align="center">

@@ -69,14 +69,14 @@ function add_to_linked_task_id_list() {
 	</tr>
 	<tr>
 		<td> 
-			<input type="text" name="linked_task_id" size="30">
-			<input type="hidden" name="base_task_id" value="#attributes.base_task_id#">
+			<input type="text" name="linked_task_id" size="30" />
+			<input type="hidden" name="base_task_id" value="#attributes.base_task_id#" />
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<input type="reset" class="btn">
-			<input type="submit" value="Submit" class="btn">
+			<input type="submit" value="Submit" class="btn btn-primary" />
+			<input type="reset" class="btn" />
 		</td>
 	</tr>
 </cfform>

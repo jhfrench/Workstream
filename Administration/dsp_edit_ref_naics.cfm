@@ -30,7 +30,7 @@
 <form name="edit_ref_naics_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	Retrieve an existing <label for="naics_id"><abbr title="North American Industry Classification System">NAICS</abbr> code</label>:<br />
 	<select name="naics_id" id="naics_id">
-	<cfloop query="get_ref_naics"><option value="#naics_id#" <cfif not comparenocase(get_ref_naics.naics_id, attributes.naics_id)>selected</cfif>>#code# #description#</option></cfloop>
+	<cfloop query="get_ref_naics"><option value="#naics_id#"<cfif not comparenocase(get_ref_naics.naics_id, attributes.naics_id)> SELECTED</cfif>>#code# #description#</option></cfloop>
 	</select><br />
 	<input type="submit" name="method" value="Retrieve and edit NAICS" />
 </form>
@@ -68,7 +68,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="naics_id" value="#attributes.naics_id#" />
 			<input type="submit" name="submit" value=" Submit " alt="submit" />

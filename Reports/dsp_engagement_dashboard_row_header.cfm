@@ -1,5 +1,5 @@
 
-<!--Reports/dsp_engagements_row_header.cfm
+<!--Reports/dsp_engagement_dashboard_row_header.cfm
 	Author: Jeromy F  -->
 <cfsilent>
 <!--- FUSEDOC
@@ -11,50 +11,18 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfset today = now()>
 </cfsilent>
 <cfoutput>
-<form name="inactive" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
-	<tr>
-		<td colspan="8">
-			<table cellpadding="0" cellspacing="0" width="124%">
-				<tr bgcolor="##008080">
-					<td class="HeadTextWhite">
-						Project Dashboard - #dateformat(today,'mm/dd/yy')#
-					</td>
-					<td class="HeadTextWhite">
-							<a href="index.cfm?fuseaction=Customers.new_engagement" class="btn">Add New Project</a>
-					</td>
-					<td align="right" class="HeadTextWhite" >
-						Project view: <select name="inactive" onchange="javascript:document.forms.inactive.submit();">
-							<option value="1,2"<cfif NOT comparenocase(attributes.inactive,"1,2")> SELECTED</cfif>>All</option>
-							<option value="2"<cfif attributes.inactive EQ 2> SELECTED</cfif>>Active only</option>
-							<option value="1"<cfif attributes.inactive EQ 1> SELECTED</cfif>>Inactive only</option>
-						</select>
-						<cfif isdefined("IE_Emp_ID_Filter") and comparenocase(IE_Emp_ID_Filter, "ALl")>
-						<input type="hidden" name="IE_Emp_ID_Filter" value="#IE_Emp_ID_Filter#"></cfif>
-                      <cfif isdefined("customer_id_FIlter")and  comparenocase(customer_id_FIlter, "ALl")>
-						<input type="hidden" name="customer_id_FIlter" value="#customer_id_FIlter#">
-                   </cfif>
-					</td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-</form>
 <thead>
 	<tr>
 		<th>
-			Customer & Project Name
+			Customer &amp; Project Name
 		</th>
 		<th>
-			IE
+			<abbr title="Project Manager">PM</abbr>
 		</th>
-		<th>
-			Due Date
-		</th>
-		<th>
-			Progress
+		<th title="Date the project is to go live, or end (if known).">
+			Due
 		</th>
 		<th>
 			Status
@@ -63,13 +31,16 @@
 			Project Update
 		</th>
 		<th>
-			Revenue
+			Earned
 		</th>
 		<th>
-			Upselling<br />Opportunities
+			Invoiced
 		</th>
 		<th>
-			Date Last<br />Updated
+			Upselling Opportunities
+		</th>
+		<th>
+			Updated
 		</th>
 	</tr>
 </thead>

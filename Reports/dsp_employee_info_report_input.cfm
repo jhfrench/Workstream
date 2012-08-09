@@ -47,8 +47,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td align="center" colspan="3">
-			<input type="button" name="Get_Report" value="Generate Report" onclick="submit_form();">
+		<td align="center" colspan="3" class="btn-group">
+			<input type="button" name="Get_Report" value="Generate Report" onclick="submit_form();" />
 		</td>
 	</tr>
 </cfform>

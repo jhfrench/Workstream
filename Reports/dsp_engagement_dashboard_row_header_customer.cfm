@@ -24,10 +24,9 @@
 						Project Dashboard - #dateformat(today,'mm/dd/yy')#
 					</td>
 					<td align="right" class="HeadTextWhite" colspan="2">
-						Project view: <select name="inactive" onchange="javascript:document.forms.inactive.submit();">
-							<option value="1,2"<cfif NOT comparenocase(attributes.inactive,"1,2")> SELECTED</cfif>>All</option>
-							<option value="2"<cfif attributes.inactive EQ 2> SELECTED</cfif>>Active only</option>
-							<option value="1"<cfif attributes.inactive EQ 1> SELECTED</cfif>>Inactive only</option>
+						Project view: <select name="active_ind" onchange="javascript:document.forms.inactive.submit();">
+							<option value="1"<cfif attributes.active_ind EQ 2> SELECTED</cfif>>Active only</option>
+							<option value="0"<cfif attributes.active_ind EQ 1> SELECTED</cfif>>Inactive only</option>
 						</select>
 					</td>
 				</tr>

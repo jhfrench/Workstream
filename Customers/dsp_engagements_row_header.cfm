@@ -20,7 +20,7 @@
 			<input type="hidden" name="client_code" value="#attributes.client_code#">
 		</td>
 		<td colspan="3" class="RegTextWhite">
-			<label for="inactive"><input type="checkbox" name="inactive" id="inactive" onclick="submit();" value="<cfif compare(attributes.inactive, 0)>0<cfelse>1</cfif>"> View <cfif compare(attributes.inactive, 0)>Only Active<cfelse>Inactive</cfif> Projects</label>
+			<label for="active_ind"><input type="checkbox" name="active_ind" id="active_ind" onclick="submit();" value="<cfif compare(attributes.active_ind, 0)>0<cfelse>1</cfif>"> View <cfif compare(attributes.active_ind, 0)>Only Active<cfelse>Inactive</cfif> Projects</label>
 		</td>
 	</tr>
 </form>

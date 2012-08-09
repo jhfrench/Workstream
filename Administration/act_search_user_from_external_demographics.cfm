@@ -92,7 +92,7 @@
 	</tr>
 	<cfif application.application_specific_settings.allow_non_demographics_user_ind OR get_external_demographics_data.recordcount>
 	<tr bgcolor="##dddddd">
-		<td align="center">
+		<td  class="btn-group">
 			<input type="hidden" name="method" value="select_user" />
 			<input name="submit" type="submit" alt="Next Step" value="Next Step" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />

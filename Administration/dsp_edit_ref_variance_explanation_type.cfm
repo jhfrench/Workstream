@@ -29,7 +29,7 @@
 <cfmodule template="../common_files/qry_get_ref_variance_explanation_type.cfm"  variance_explanation_type_id="0">
 <form name="ref_variance_explanation_type_edit_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="variance_explanation_type_id">
-	<cfloop query="get_ref_variance_explanation_type"><option value="#variance_explanation_type_id#" <cfif not comparenocase(get_ref_variance_explanation_type.variance_explanation_type_id, attributes.variance_explanation_type_id)>selected</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_variance_explanation_type"><option value="#variance_explanation_type_id#"<cfif not comparenocase(get_ref_variance_explanation_type.variance_explanation_type_id, attributes.variance_explanation_type_id)> SELECTED</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit variance explanation type" value="Retrieve and edit variance explanation type"/>
 </form>
@@ -67,7 +67,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
+		<td  class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="variance_explanation_type_id" value="#attributes.variance_explanation_type_id#" />
 			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />

@@ -86,7 +86,7 @@
 			<input type="hidden" name="program_year_id" value="#attributes.program_year_id#" />
 			<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
 			</cfoutput>
-			<input type="submit" alt="Save" value="Save"/>
+			<input type="submit" alt="Save" value="Save" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>

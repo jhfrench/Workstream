@@ -30,7 +30,7 @@
 <cfoutput>
 <form name="edit_ref_country_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="country_id">
-	<cfloop query="get_ref_country"><option value="#country_id#" <cfif not comparenocase(get_ref_country.country_id, attributes.country_id)>selected</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_country"><option value="#country_id#"<cfif not comparenocase(get_ref_country.country_id, attributes.country_id)> SELECTED</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit country" value="Retrieve and edit country"/>
 </form>
@@ -72,9 +72,9 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
-			<input type="hidden" name="country_id" value="#attributes.country_id#"/>
+		<td  class="btn-group">
+			<input type="hidden" name="created_by" value="#session.user_account_id#" />
+			<input type="hidden" name="country_id" value="#attributes.country_id#" />
 			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>

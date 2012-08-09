@@ -16,7 +16,7 @@ SELECT Email.Email, Phone.Phone_Number, Phone.Extension,
 	project.project_id, Location.Address1, Location.Address2,
 	Location.City, Location.State, Location.Zip,
 	Emp_Contact.LName, Emp_Contact.Name, Emp_Contact.emp_id, 
-	Project.project_code, Project.Description
+	Project.project_code, Project.description
 FROM Emp_Contact
 	INNER JOIN Marketing_Emp ON Emp_Contact.emp_id = Marketing_Emp.emp_id
 	INNER JOIN Project ON Marketing_Emp.project_id = Project.project_id

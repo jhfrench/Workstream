@@ -29,7 +29,7 @@
 <cfmodule template="../common_files/qry_get_requirement_type.cfm" requirement_type_id="0">
 <form name="ref_requirement_type_edit_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="requirement_type_id">
-	<cfloop query="get_requirement_type"><option value="#requirement_type_id#" <cfif not comparenocase(get_requirement_type.requirement_type_id, attributes.requirement_type_id)>selected</cfif>>#description#</option></cfloop>
+	<cfloop query="get_requirement_type"><option value="#requirement_type_id#"<cfif not comparenocase(get_requirement_type.requirement_type_id, attributes.requirement_type_id)> SELECTED</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit requirement type" value="Retrieve and edit requirement type"/>
 </form>
@@ -66,9 +66,9 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
-			<input type="hidden" name="requirement_type_id" value="#attributes.requirement_type_id#"/>
+		<td  class="btn-group">
+			<input type="hidden" name="created_by" value="#session.user_account_id#" />
+			<input type="hidden" name="requirement_type_id" value="#attributes.requirement_type_id#" />
 			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>

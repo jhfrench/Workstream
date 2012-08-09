@@ -35,7 +35,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##e6e6e6">
-		<td align="center">
+		<td  class="btn-group">
 			<input type="Reset"> | <input type="submit" value="Update">
 		</td>
 	</tr>

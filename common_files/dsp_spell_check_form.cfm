@@ -77,7 +77,7 @@
 	<tr bordercolor="##78A0EB" class="SelectText">
 		<td width="10%" class="SelectText">&nbsp;</td>
 		<td class="SelectText">
-			<input type="text"  name="correctionm" size="10">
+			<input type="text"  name="correctionm" size="10" />
 		</td>
 		<td class="SelectText">
 			<select name="correction">
@@ -96,8 +96,8 @@
 	</tr>
 	<tr bordercolor="##78A0EB" class="SelectText">
 		<td align="center" width="50%" colspan="4" class="SelectText">
-			<input type="submit" name="option" value="Correct">
-			<input type="submit" name="option" value="Ignore">
+			<input type="submit" name="option" value="Correct" />
+			<input type="submit" name="option" value="Ignore" />
 		</td>
 	</tr>
 </cfif>

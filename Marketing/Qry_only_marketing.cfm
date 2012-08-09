@@ -13,9 +13,9 @@
 	END FUSEDOC --->
 
 <cfquery name="only_marketing" datasource="#application.datasources.main#">
-    	select *
-	from marketing
-	where company_id IN(#session.workstream_selected_company_id#)
+SELECT *
+FROM Marketing
+WHERE company_id IN (#session.workstream_selected_company_id#)
 </cfquery>
 I use emp_id and a REF_*_type_id as the key.
 {
@@ -32,8 +32,8 @@ I use emp_id and a REF_*_type_id as the key.
     }
     I use project_id as the key
     {
-    Project.Description, 
- Project.Active_ID 
+    Project.description, 
+ Project.active_ind 
     }
     
     

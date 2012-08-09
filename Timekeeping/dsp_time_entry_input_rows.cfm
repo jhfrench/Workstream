@@ -29,7 +29,7 @@
 		</cfoutput>
 		</td>
 
-		<cfoutput><td align="center">
+		<cfoutput><td  class="btn-group">
 			<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" class="span6">
 		</td>
 

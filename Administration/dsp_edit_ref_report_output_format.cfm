@@ -29,7 +29,7 @@
 <cfmodule template="../common_files/qry_get_ref_report_output_format.cfm" report_output_format_id="0">
 <form name="ref_report_output_format_edit_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="report_output_format_id">
-	<cfloop query="get_ref_report_output_format"><option value="#report_output_format_id#" <cfif not comparenocase(get_ref_report_output_format.report_output_format_id, attributes.report_output_format_id)>selected</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_report_output_format"><option value="#report_output_format_id#"<cfif not comparenocase(get_ref_report_output_format.report_output_format_id, attributes.report_output_format_id)> SELECTED</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit report output format" value="Retrieve and edit report output format"/>
 </form>
@@ -66,9 +66,9 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
-			<input type="hidden" name="report_output_format_id" value="#attributes.report_output_format_id#"/>
+		<td  class="btn-group">
+			<input type="hidden" name="created_by" value="#session.user_account_id#" />
+			<input type="hidden" name="report_output_format_id" value="#attributes.report_output_format_id#" />
 			<input type="submit" alt="submit"name="submit" value="Submit" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>

@@ -15,14 +15,14 @@
 </cfsilent>
 <cfinclude template="../common_files/qry_get_task_stati.cfm">
 	<tr valign="top">
-		<td align="center">
+		<td  class="btn-group">
 			<input type="checkbox" name="task_stati_box" value="1" <cfif len(attributes.task_stati)>checked="checked"</cfif>>
 		</td>
 		<td>Task Status</td>
 		<td>
 			<select name="task_stati" multiple size="4" onclick="checkbox_task_stati()">
 			<cfoutput query="get_task_stati">
-				<option value="#status_id#"<cfif ListFind(attributes.task_stati, get_task_stati.status_id,",")>selected</cfif>>#status#</option>
+				<option value="#status_id#"<cfif ListFind(attributes.task_stati, get_task_stati.status_id,",")> SELECTED</cfif>>#status#</option>
 			</cfoutput>
 			</select>
 		</td>

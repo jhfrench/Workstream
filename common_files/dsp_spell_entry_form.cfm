@@ -15,8 +15,8 @@
 <cfoutput>
 	<tr align="center">
 		<td class="SelectText">
-			<input type="hidden" name="language" value="AM">
-			<input type="hidden" name="formname" value="#formname#">
+			<input type="hidden" name="language" value="AM" />
+			<input type="hidden" name="formname" value="#formname#" />
 			<textarea name="message" cols="90" rows="13"></textarea>
 		</td>
 	</tr>

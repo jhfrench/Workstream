@@ -15,7 +15,7 @@
 
 	 || 
 	END FUSEDOC --->
-<cfparam name="attributes.inactive" default="2">
+<cfparam name="attributes.active_ind" default="2">
 </cfsilent>
 <cfinclude template="qry_get_engagement_dashboard_GE.cfm">
 <table border="1" cellpadding="1" cellspacing="0" align="center" width="95%" bordercolordark="#e1e1e1">

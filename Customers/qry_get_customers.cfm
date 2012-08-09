@@ -30,7 +30,7 @@ FROM Customer
 		GROUP BY Project.customer_id, Project.root_code
 	) AS Drill_Table ON Customer.customer_id=Drill_Table.customer_id
 WHERE Link_Customer_Company.company_id IN (#session.workstream_selected_company_id#)
-	AND Customer.active_ind<cfif compare(attributes.inactive, 0)> IN (0,1)<cfelse>=1</cfif>
+	AND Customer.active_ind=#attributes.active_ind#
 GROUP BY Customer.root_code, Customer.description, REF_Active_Indicator.active_ind_type,
 	Customer.customer_id, Drill_Table.root_code
 ORDER BY <cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>Customer.root_code<cfelse>Customer.description</cfif>

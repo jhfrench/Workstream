@@ -162,7 +162,7 @@
 	<!--- SPECIAL FIRST ITEM, IF REQUESTED --->
 	<cfif len(attributes.EmptyText1)><cfoutput><option value="">#attributes.EmptyText1#</option></cfoutput></cfif>
 	<!--- GENERATE REMAINING ITEMS FROM query --->
-	<cfoutput query="Myquery" group="#attributes.Display1#"><option value="#Myquery[attributes.Value1][Myquery.currentrow]#" <cfif NOT comparenocase(Myquery[attributes.Value1][Myquery.currentrow], attributes.Default1)>SELECTED</cfif>>#Myquery[attributes.Display1][Myquery.currentrow]#</option></cfoutput>
+	<cfoutput query="Myquery" group="#attributes.Display1#"><option value="#Myquery[attributes.Value1][Myquery.currentrow]#"<cfif NOT comparenocase(Myquery[attributes.Value1][Myquery.currentrow], attributes.Default1)> SELECTED</cfif>>#Myquery[attributes.Display1][Myquery.currentrow]#</option></cfoutput>
 
   <!--- "FORCE WIDTH" OPTION AT BOTTOM, IF REQUESTED --->
 	<cfif len(attributes.ForceWidth1)><cfoutput><option value="">#RepeatString(attributes.ForceWidthChar, attributes.ForceWidth1)#</option></cfoutput></cfif>
@@ -173,7 +173,7 @@
 <cfoutput>#attributes.HTMLBetween#</cfoutput>
 
 <!--- OUTPUT SECOND SELECT BOX --->
-<cfoutput><select name="#attributes.Name2#" id="#attributes.id2#" size="#attributes.Size2#" <cfif len(attributes.onChange)>onChange="#attributes.OnChange#"</cfif> <cfif len(attributes.Width2)>STYLE="width:#attributes.Width2#"</cfif> class="#attributes.class2#"></cfoutput>
+<cfoutput><select name="#attributes.Name2#" id="#attributes.id2#" size="#attributes.Size2#"<cfif len(attributes.onChange)> onChange="#attributes.OnChange#"</cfif> <cfif len(attributes.Width2)>STYLE="width:#attributes.Width2#"</cfif> class="#attributes.class2#"></cfoutput>
 	<!--- SPECIAL FIRST ITEM, IF REQUESTED --->
 	<cfif len(attributes.EmptyText2)><cfoutput><option value="">#attributes.EmptyText2#</option></cfoutput></cfif>
 
@@ -182,7 +182,7 @@
 	<cfif NOT len(attributes.EmptyText1)>
 		<cfloop query="Myquery">
 		  <cfif Myquery[attributes.Value1][Myquery.currentrow] is attributes.Default1>
-			  <cfoutput><option value="#Myquery[attributes.Value2][Myquery.currentrow]#" <cfif (Myquery[attributes.Value1][Myquery.currentrow] is attributes.Default1) AND (Myquery[attributes.Value2][Myquery.currentrow] is attributes.Default2)>SELECTED</cfif>>#Myquery[attributes.Display2][Myquery.currentrow]#</option></cfoutput>
+			  <cfoutput><option value="#Myquery[attributes.Value2][Myquery.currentrow]#"<cfif (Myquery[attributes.Value1][Myquery.currentrow] is attributes.Default1) AND (Myquery[attributes.Value2][Myquery.currentrow] is attributes.Default2)> SELECTED</cfif>>#Myquery[attributes.Display2][Myquery.currentrow]#</option></cfoutput>
 			</cfif>
 		</cfloop>
 	</cfif>

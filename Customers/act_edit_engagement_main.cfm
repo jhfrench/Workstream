@@ -1,67 +1,41 @@
 
-<!--Customers/act_edit_engagement_main.cfm
-	Author: Jeromy French  -->
+<!--Reports/qry_get_engagement_dashboard.cfm
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I display the list of details that a user can edit on an engagement.
+	Responsibilities: I am not properly docummented by the file's author.
 	||
-	Name: Jeromy F
+	Name: Jeromy French
 	||
 	Edits:
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfparam name="attributes.ie_emp_id" default="0">
-<cfset variables.file_path=URLDecode(File_Path)>
-<cfquery name="edit_engagement_main" datasource="#application.datasources.main#">
-UPDATE Project
-SET Project.customer_id=#attributes.customer_id#,
-	Project.description='#attributes.description#',
-	Project.product_id=#attributes.product_id#,
-	Project.project_end=#createodbcdatetime(attributes.project_end)#,
-	Project.project_start=#createodbcdatetime(attributes.project_start)#,
-	Project.mission='#attributes.mission#',
-	Project.vision='#attributes.vision#',
-	Project.business_case='#attributes.business_case#' ,
-	Project.status=#attributes.status#,
-	Project.ie_emp_id=#attributes.ie_emp_id#,
-	Project.date_updated=CURRENT_TIMESTAMP,
-	Project.active_ind=#attributes.active_ind#,
-	Project.eng_status=#attributes.eng_status#
-<cfif len(attributes.date_go_live)>,Project.date_go_live=#createodbcdatetime(attributes.date_go_live)#</cfif>
-<cfif len(variables.file_path)>,Project.file_path='#variables.file_path#'</cfif>
-WHERE Project.project_id=#attributes.project_id#
+<cfparam name="attributes.sort" default="Customers.description, Project.description">
+<cfparam name="customer_id_filter" default="0">
+<cfquery name="get_engagement_dashboard" datasource="#application.datasources.main#">
+SELECT Project.status, Customer.description AS customer_description, Project.description,
+	Project.project_code, Project.vision, Project.budget,
+	Project.Mission, REF_Billable.Billable_Type,
+	Project.billable_type_id, Project.active_ind, REF_Active_Indicator.active_ind_Type,
+	Project.company_id, Flat_Rate.rate_end_date,
+	Flat_Rate.rate_start_date, Project.project_manager_emp_id, Emp_Contact.LName,
+	Emp_Contact.Name, Project.project_id, Project.created_date,
+	Project.Date_Updated, Project.Project_End, Project.File_Path,
+	Project.date_go_live, Project.eng_status
+FROM Project 
+	INNER JOIN REF_Billable ON  Project.billable_type_id=REF_Billable.billable_type_id
+	INNER JOIN REF_Active_Indicator ON Project.active_ind=REF_Active_Indicator.active_ind
+	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
+	LEFT OUTER JOIN Emp_Contact ON Project.project_manager_emp_id=Emp_Contact.emp_id
+	LEFT OUTER JOIN Flat_Rate ON Project.project_id=Flat_Rate.project_id
+		AND Flat_Rate.active_ind=1
+WHERE Project.active_ind IN (#attributes.active_ind#)
+	AND Project.status IS NOT NULL<cfif attributes.customer_id NEQ 0>
+	AND Project.customer_id=#attributes.customer_id#</cfif>
+	AND Project.status > 0
+ORDER BY #attributes.sort#
 </cfquery>
-<cfif attributes.customer_id NEQ get_customer_name_code.customer_id>
-	<cfquery name="update_project_code" datasource="#application.datasources.main#">
-	/*re-initialize this project code so that it will not interfere with new project code assignment*/
-	UPDATE Project
-	SET Project.project_code=''
-	WHERE Project.project_id=#attributes.project_id#
-	</cfquery>
-	<cfquery name="get_max_code" datasource="#application.datasources.main#">
-	SELECT MAX(project_code) AS max_code
-	FROM Project
-	WHERE Project.customer_id=#attributes.customer_id#
-	</cfquery>
-	<cfset variables.max_code=get_max_code.max_code+(1/1000)>
-	<cfset variables.add_zeroes=8-len(variables.max_code)>
-	<cfquery name="update_project_code" datasource="#application.datasources.main#">
-	UPDATE Project
-	SET Project.project_code='#variables.max_code#<cfloop from="1" to="#variables.add_zeroes#" index="ii">0</cfloop>'
-	WHERE Project.project_id=#attributes.project_id#
-	</cfquery>
-</cfif>
-<cfquery name="update_company_id" datasource="#application.datasources.main#">
-DELETE Link_Project_Company
-WHERE project_id=#attributes.project_id#
-<cfloop list="#attributes.company_id#" index="ii">
-INSERT INTO Link_Project_Company (project_id, company_id)
-VALUES (#attributes.project_id#, #ii#)
-</cfloop>
-</cfquery>
-<cfif engagement_dashboard_return EQ 1>
-	<cflocation url="../index.cfm?fuseaction=Reports.engagement_dashboard&customer_id_filter=#customer_id_filter#&ie_emp_id_filter=#ie_emp_id_filter#&sort=#sort#&###Project_ID#" addtoken="no">
-</cfif>
 </cfsilent>
+

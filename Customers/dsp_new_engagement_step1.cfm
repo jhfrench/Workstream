@@ -102,7 +102,7 @@
 	</tr>
 	<tr valign="top">
 		<td align="center" colspan="3" class="RegTextBd">
-			<input type="submit" value="Proceed">
+			<input type="submit" value="Proceed" />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="4" class="Note">

@@ -72,10 +72,11 @@
 		</tr>
 	</cfif> --->
 	<tr align="center" bgcolor="##78A0EB">
-		<td colspan="2" class="SelectText">
-			<input type="hidden" name="num_present_supervisors" value="#get_present_supervisor.recordcount#">
-			<input type="hidden" name="emp_id" value="#emp_id#">
-			<input type="submit" value="Submit Supervisor"><input type="button" onclick="javascript:window.close();" value="Cancel">
+		<td colspan="2" class="btn-group">
+			<input type="hidden" name="num_present_supervisors" value="#get_present_supervisor.recordcount#" />
+			<input type="hidden" name="emp_id" value="#emp_id#" />
+			<input type="submit" value="Submit Supervisor" />
+			<input type="button" onclick="javascript:window.close();" value="Cancel" />
 		</td>
 	</tr>
 </cfoutput>

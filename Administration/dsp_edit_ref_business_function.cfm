@@ -99,8 +99,8 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
+		<td  class="btn-group">
+			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="business_function_id" value="#attributes.business_function_id#"/>
 			<input name="submit" type="submit" alt="submit" value="Submit" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />

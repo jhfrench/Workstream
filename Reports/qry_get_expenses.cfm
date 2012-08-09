@@ -22,7 +22,7 @@ FROM Notes
 			</cfloop>notes_id
 	FROM (
 		select REF_Reimbursement_Type.Reimbursement_Type, expense.work_date, 
-			Notes.Note, Project.Description, Project.project_code,NOTES.notes_id,
+			Notes.Note, Project.description, Project.project_code,NOTES.notes_id,
 			<cfloop query="Get_Expense_Type">
 			(CASE WHEN #Get_Expense_Type.Expense_Type_ID# = expense_amount.expense_type_id then expense_amount else 0.00 end) AS '#Get_Expense_Type.Expense_Type#',
 			</cfloop>

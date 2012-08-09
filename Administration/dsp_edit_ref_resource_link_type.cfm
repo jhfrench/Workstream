@@ -29,7 +29,7 @@
 <cfmodule template="../common_files/qry_get_ref_resource_link_type.cfm" resource_link_type_id="0">
 <form name="ref_resource_link_type_edit_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="resource_link_type_id">
-	<cfloop query="get_ref_resource_link_type"><option value="#resource_link_type_id#" <cfif not comparenocase(get_ref_resource_link_type.resource_link_type_id, attributes.resource_link_type_id)>selected</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_resource_link_type"><option value="#resource_link_type_id#"<cfif not comparenocase(get_ref_resource_link_type.resource_link_type_id, attributes.resource_link_type_id)> SELECTED</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit resource link type" value="Retrieve and edit resource link type"/>
 </form>
@@ -68,10 +68,10 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
+		<td  class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="resource_link_type_id" value="#attributes.resource_link_type_id#" />
-			<input type="submit" alt="submit" value="Submit"/>
+			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>

@@ -103,15 +103,16 @@
 
 		</cfloop>
 		<cfquery name="update_project" datasource="#application.datasources.main#">
-                   update project
-			    set description = '#MARKETING.DESCRIPTION[ii]#', active_ind = #MARKETING.ACTIVE_ID[ii]#
-			    where project_id = #MARKETING.project_id[ii]#
-               </cfquery>
+		UPDATE Project
+		SET description = '#MARKETING.description[ii]#',
+			active_ind = #MARKETING.active_ind[ii]#
+		WHERE project_id = #MARKETING.project_id[ii]#
+		</cfquery>
 
 			<!--- INSERT AN ENTIERLY NEW MARKETING CODE --->
 			<cfelseif NOT compareNoCase(MARKETING.RowStatus.Action[ii],  "i")>
 			<!--- for insert I require that there be a Description --->
-		<cfif compare(MARKETING.DESCRIPTION[ii], "")>
+		<cfif compare(MARKETING.description[ii], "")>
 
 			<cfquery name="get_max_code" datasource="#application.datasources.main#">
                    SELECT MAX(project_code) AS project_code, customer_id
@@ -124,7 +125,7 @@
 			<cfquery name="insert_project" datasource="#application.datasources.main#">
                    INSERT INTO project
 			    (description, active_ind, project_code, customer_id, company_id, billable_type_id) 
-				VALUES ('#MARKETING.DESCRIPTION[ii]#', 2, #variables.project_code#, #get_max_code.customer_id#, 9, 2)
+				VALUES ('#MARKETING.description[ii]#', 2, #variables.project_code#, #get_max_code.customer_id#, 9, 2)
                </cfquery>
 			<cfquery name="get_max_id" datasource="#application.datasources.main#">
                    select max(project_id) as project_id

@@ -89,9 +89,9 @@
 			<cfif isdefined("attributes.top_level")>
 				<input type="hidden" name="top_level" value="#attributes.top_level#">
 			</cfif>
-			<input type="hidden" name="parent_discussion_id" value="#reply_parent_discussion_id#">
-			<input type="hidden" name="post_reply" value="yes">
-			<input type="hidden" name="discussion_category" value="work">
+			<input type="hidden" name="parent_discussion_id" value="#reply_parent_discussion_id#" />
+			<input type="hidden" name="post_reply" value="yes" />
+			<input type="hidden" name="discussion_category" value="work" />
 			<tr>
 				<td align=right><strong><label for="discussion_text">Text</label>:</strong></td>
 				<td>
@@ -107,7 +107,7 @@
 			<tr>
 				<td align=right><label for="file_attachment"><strong>Attachment:</strong></label></td>
 				<td>
-					<input type="File" size="30" name="file_attachment" id="file_attachment">
+					<input type="File" size="30" name="file_attachment" id="file_attachment" />
 				</td>
 			</tr>
 			<tr>
@@ -125,9 +125,9 @@
 			</tr>
 			<tr>
 				<td colspan=2 align=center>
-					<input type="submit" alt="submit" value="Submit">
+					<input type="submit" alt="submit" value="Submit" />
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="reset" value="Reset">
+					<input type="reset" value="Reset" />
 				</td>
 			</tr>
 		</cfform>

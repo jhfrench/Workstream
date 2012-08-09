@@ -16,15 +16,15 @@ I get the names of IE's on current engagements.
 <cfquery name="get_engagement_ie" datasource="#application.datasources.main#">
 SELECT Emp_contact.Lname,Emp_Contact.emp_id 
 FROM Project, Emp_Contact
-Where Emp_Contact.emp_id = Project.IE_Emp_ID and Status <> 0
+Where Emp_Contact.emp_id = Project.project_manager_emp_id and Status <> 0
 Group by Lname, Emp_ID
 ORDER BY LName
 </cfquery>
 <cfquery name="get_engagement_customers" datasource="#application.datasources.main#">
-SELECT Customer.Description, Customer.customer_id
+SELECT Customer.description, Customer.customer_id
 FROM Project, Customer
 Where Customer.customer_id = Project.customer_id and Project.Status <> 0
-Group by Customer.Description, Customer.customer_id
-ORDER BY Customer.Description
+Group by Customer.description, Customer.customer_id
+ORDER BY Customer.description
 </cfquery>
 </cfsilent>

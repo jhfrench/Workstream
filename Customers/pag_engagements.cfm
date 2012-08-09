@@ -11,7 +11,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfparam name="attributes.inactive" default="0">
+<cfparam name="attributes.active_ind" default="0">
 </cfsilent>
 <cfmodule template="../common_files/variable_check.cfm" check_variable="attributes.client_code" relocate="Customers.home"/>
 <cfinclude template="qry_get_engagements.cfm">

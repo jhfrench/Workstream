@@ -14,10 +14,10 @@
 	END FUSEDOC --->
 <cfset variables.start=1>
 </cfsilent>
+<cfparam name="attributes.customer_id" default="0">
 <cfparam name="engagement_dashboard_Return" default="0">
-<cfparam name="IE_Emp_ID_Filter" default="All">
-<cfparam name="customer_id_Filter" default="All">
-<cfparam name="Sort" default="Customers.Description,Project.Description">
+<cfparam name="attributes.project_manager_emp_id" default="0">
+<cfparam name="sort" default="Customers.description,Project.description">
 <cfset attributes.req_custom=1>
 <cfset attributes.field1=1>
 <cfset attributes.field2=1>
@@ -86,12 +86,12 @@
 			</ol>
 		</td>
 	</tr>
-<input type="hidden" name="project_id" value="#attributes.project_id#">
-<input type="hidden" name="option" value="3">
-<input type="hidden" name="edit" value="1">
-<input type="hidden" name="engagement_dashboard_Return" value="#engagement_dashboard_Return#">
-<input type="hidden" name="customer_id_FIlter" value="#customer_id_Filter#">
-<input type="hidden" name="IE_Emp_ID_FIlter" value="#IE_Emp_ID_Filter#">
-<input type="hidden" name="Sort" value="#sort#">
+<input type="hidden" name="project_id" value="#attributes.project_id#" />
+<input type="hidden" name="option" value="3" />
+<input type="hidden" name="edit" value="1" />
+<input type="hidden" name="engagement_dashboard_Return" value="#engagement_dashboard_Return#" />
+<input type="hidden" name="customer_id" value="#attributes.customer_id#" />
+<input type="hidden" name="project_manager_emp_id" value="#attributes.project_manager_emp_id#" />
+<input type="hidden" name="Sort" value="#sort#" />
 </cfoutput>
 </cfform>

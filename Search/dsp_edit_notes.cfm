@@ -15,7 +15,7 @@
 </cfsilent>
 <cfoutput>
 	<tr>
-		<td align="center">
+		<td  class="btn-group">
 			<input type="checkbox" name="notes_box" value="1" <cfif len(attributes.notes)>checked="checked"</cfif>>
 		</td>
 		<td>

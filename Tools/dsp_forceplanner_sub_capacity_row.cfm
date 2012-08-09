@@ -22,7 +22,7 @@
 	<cfloop list="#emp_id_loop#" index="ii">
 		<cfset variables.capacity_ii=numberformat(evaluate("sum_#ii#")/get_week_days.hours_in_month*100,"___")>
 		<td align="center" valign="bottom">
-			<input type="text" name="capacity_#ii#" value="#variables.capacity_ii#%" size="3" onfocus="blur();">
+			<input type="text" name="capacity_#ii#" value="#variables.capacity_ii#%" size="3" onfocus="blur();" />
 		</td>
 	</cfloop>
 		<td align="center" valign="bottom">
@@ -30,10 +30,10 @@
 			#decimalformat(variables.total_capacity)#%
 		</td>
 		<td align="center" valign="bottom">
-			<input type="text" name="capacity_assigned" value="0%" size="3" onfocus="blur();">
+			<input type="text" name="capacity_assigned" value="0%" size="3" onfocus="blur();" />
 		</td>
 		<td align="center" valign="bottom">
-			<input type="text" name="capacity_remaining" value="0%" size="3" onfocus="blur();">
+			<input type="text" name="capacity_remaining" value="0%" size="3" onfocus="blur();" />
 		</td>
 	</tr>
 </cfoutput>

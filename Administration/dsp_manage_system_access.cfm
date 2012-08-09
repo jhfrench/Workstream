@@ -39,15 +39,15 @@
 	<cfloop query="get_ref_module">
 	<tr bgcolor="##eeeeee">
 		<td id="description" scope="row"><label for="module_id_#module_id#">#description#</label></td>
-		<td id="module_id"><input type="checkbox" name="module_id" id="module_id_#module_id#" value="#module_id#"<cfif get_ref_module.locked_ind EQ 1> checked="checked"</cfif>/></td>
+		<td id="module_id"><input type="checkbox" name="module_id" id="module_id_#module_id#" value="#module_id#"<cfif get_ref_module.locked_ind EQ 1> checked="checked"</cfif> /></td>
 		<td id="comments_#module_id#">
-        <input type="text" name="comments_#module_id#" id="comments" value="<cfif len(get_ref_module.comments)>#get_ref_module.comments#</cfif>" maxlength="4000" size="50" title="Enter comments for #description#"/></td>
+        <input type="text" name="comments_#module_id#" id="comments" value="<cfif len(get_ref_module.comments)>#get_ref_module.comments#</cfif>" maxlength="4000" size="50" title="Enter comments for #description#" /></td>
 	</tr>
 	</cfloop>
 	<tr bgcolor="##dddddd">
 		<td align="center" colspan="3">
-			<input type="hidden" name="module_id_list" value="#variables.all_module_id#"/>
-			<input type="submit" alt="submit" name="method" value="Submit"/>&nbsp;&nbsp;
+			<input type="hidden" name="module_id_list" value="#variables.all_module_id#" />
+			<input type="submit" alt="submit" name="method" value="Submit" />&nbsp;&nbsp;
 			<input type="button" name="cancel_button" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

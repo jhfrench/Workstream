@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 </cfsilent>
 	<tr valign="top">
-		<td align="center">
+		<td  class="btn-group">
 			<input type="checkbox" name="task_owner_box" value="1" <cfif len(attributes.Task_Owner)>checked="checked"</cfif>>
 		</td>
 		<td>Task Owner</td>

@@ -26,9 +26,9 @@
 				<option value="ALL">ALL</option><cfloop query="get_team_select">
 				<option value="#emp_id#">#lname#, #name#</option></cfloop>
 			</cfselect>
-			<input type="hidden" name="month" value="#month#">
-			<input type="hidden" name="year" value="#year#">
-			<input type="submit" value="Submit" align="middle">
+			<input type="hidden" name="month" value="#month#" />
+			<input type="hidden" name="year" value="#year#" />
+			<input type="submit" value="Submit" align="middle" />
 		</cfform>
 		</td>
 	</tr>

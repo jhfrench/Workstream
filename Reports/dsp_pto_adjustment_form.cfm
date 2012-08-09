@@ -39,11 +39,11 @@
 		</td>
 	</tr>
 	<tr>
-		<td align="center" colspan="3">
-			<input type="hidden" name="adjustment_flag" value="#now()#">
-			<input type="hidden" name="emp_id" value="#attributes.pin#">
-			<input type="hidden" name="pin" value="#attributes.pin#">
-			<input type="submit" value="Create Adjustment">
+		<td colspan="3" class="btn-group">
+			<input type="hidden" name="adjustment_flag" value="#now()#" />
+			<input type="hidden" name="emp_id" value="#attributes.pin#" />
+			<input type="hidden" name="pin" value="#attributes.pin#" />
+			<input type="submit" value="Create Adjustment" />
 		</td>
 	</tr>
 </table>

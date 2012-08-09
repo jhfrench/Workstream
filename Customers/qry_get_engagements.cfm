@@ -23,7 +23,7 @@ WHERE Project.project_id=Link_Project_Company.project_id
 	AND Task.project_id=*Project.project_id
 	AND Task.status_id!=11
 	AND Customer.active_ind!=0
-	AND Project.active_ind IN (<cfif compare(attributes.inactive, 0)>0,</cfif>1)
+	AND Project.active_ind=#attributes.active_ind#
 	AND Link_Project_Company.company_id IN (#session.workstream_selected_company_id#)
 	AND Project.project_code like '#attributes.client_code#%'
 	AND LENGTH(Project.project_code) > 4

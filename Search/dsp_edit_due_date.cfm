@@ -17,7 +17,7 @@
 </cfsilent>
 <cfoutput>
 	<tr>
-		<td align="center">
+		<td  class="btn-group">
 			<input type="checkbox" name="due_date_box" value="1" <cfif len(attributes.due_date)>checked="checked"</cfif>class="RegText">
 		</td>
 		<td>

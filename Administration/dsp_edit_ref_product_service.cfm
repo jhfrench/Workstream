@@ -30,7 +30,7 @@
 <form name="ref_product_service_edit_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="product_service_id">
 		<cfloop query="get_ref_product_service">
-		<option value="#product_service_id#" <cfif not comparenocase(get_ref_product_service.product_service_id, attributes.product_service_id)>selected</cfif>>#description#</option>
+		<option value="#product_service_id#"<cfif not comparenocase(get_ref_product_service.product_service_id, attributes.product_service_id)> SELECTED</cfif>>#description#</option>
 		</cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and Edit Product Service" value="Retrieve and Edit Product Service"/>
@@ -42,7 +42,7 @@
     <cfset attributes.code           =get_ref_product_service.code>     
 	<cfset attributes.description    =get_ref_product_service.description>
 	<cfset attributes.sort_order     =get_ref_product_service.sort_order>
-	<cfset attributes.active_IND     =get_ref_product_service.active_IND>
+	<cfset attributes.active_ind     =get_ref_product_service.active_ind>
 </cfif>
 
 <cfform name="REF_product_service_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
@@ -65,7 +65,7 @@
 				<td><cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter sort order."></td>
 			</tr>
 			<tr>
-				<cfif attributes.active_IND EQ 1>
+				<cfif attributes.active_ind EQ 1>
 					<cfset check_active_ind_1="yes">
 					<cfset check_active_ind_0="no">
 				<cfelse>
@@ -82,9 +82,9 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
-			<input type="hidden" name="product_service_id" value="#attributes.product_service_id#"/>
+		<td  class="btn-group">
+			<input type="hidden" name="created_by" value="#session.user_account_id#" />
+			<input type="hidden" name="product_service_id" value="#attributes.product_service_id#" />
 			<input type="submit" alt="submit" name="submit" value="Submit" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>

@@ -40,7 +40,7 @@ variables.min_date=listFirst(variables.date_list);
 			</div>
 		</div>
 		<div class="form-actions">
-			<input type="submit" name="submit" value="Update Date Locked" value="Submit" class="btn btn-primary" />
+			<input type="submit" name="submit" value="Update Date Locked" class="btn btn-primary" />
 			<input type="reset" value="Reset" class="btn" />
 		</div>
 	</fieldset>

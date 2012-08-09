@@ -77,10 +77,10 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
+		<td  class="btn-group">
 			<input type="hidden" name="comments_id" value="#attributes.comments_id#" />
 			<cfif get_comment.active_ind EQ 0>
-				You cannot edit an inactive comments
+				You cannot edit an inactive comment
 			<cfelse>
 			<input type="submit" name="send_req" value="Update Comments" class="btn btn-primary" />
 			</cfif>

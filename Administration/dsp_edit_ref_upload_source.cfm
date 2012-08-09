@@ -29,7 +29,7 @@
 <cfmodule template="../common_files/qry_get_ref_upload_source.cfm"  upload_source_id="0">
 <form name="ref_upload_source_edit_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="upload_source_id">
-	<cfloop query="get_ref_upload_source"><option value="#upload_source_id#" <cfif not comparenocase(get_ref_upload_source.upload_source_id, attributes.upload_source_id)>selected</cfif>>#upload_source#</option></cfloop>
+	<cfloop query="get_ref_upload_source"><option value="#upload_source_id#"<cfif not comparenocase(get_ref_upload_source.upload_source_id, attributes.upload_source_id)> SELECTED</cfif>>#upload_source#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit upload source" value="Retrieve and edit upload source"/>
 </form>
@@ -84,9 +84,9 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
-			<input type="hidden" name="created_by" value="#session.user_account_id#"/>
-			<input type="hidden" name="upload_source_id" value="#attributes.upload_source_id#"/>
+		<td  class="btn-group">
+			<input type="hidden" name="created_by" value="#session.user_account_id#" />
+			<input type="hidden" name="upload_source_id" value="#attributes.upload_source_id#" />
 			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>

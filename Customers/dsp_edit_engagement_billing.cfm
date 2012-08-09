@@ -15,9 +15,9 @@
 <cfset variables.start=1>
 </cfsilent>
 <cfparam name="engagement_dashboard_Return" default="0">
-<cfparam name="IE_Emp_ID_Filter" default="All">
-<cfparam name="customer_id_Filter" default="All">
-<cfparam name="Sort" default="Customers.Description,Project.Description">
+<cfparam name="project_manager_emp_id_Filter" default="All">
+<cfparam name="attributes.customer_id" default="0">
+<cfparam name="Sort" default="Customers.description,Project.description">
 <cfinclude template="qry_get_engagement_main.cfm">
 <cfinclude template="qry_get_billable_types.cfm">
 <cfoutput>
@@ -90,8 +90,8 @@
 <input type="hidden" name="edit" value="1">
 <input type="hidden" name="original_billable_type_id" value="#get_engagement_main.billable_type_id#">
 <input type="hidden" name="engagement_dashboard_Return" value="#engagement_dashboard_Return#">
-<input type="hidden" name="customer_id_FIlter" value="#customer_id_Filter#">
-<input type="hidden" name="IE_Emp_ID_FIlter" value="#IE_Emp_ID_Filter#">
+<input type="hidden" name="customer_id" value="#attributes.customer_id#">
+<input type="hidden" name="project_manager_emp_id_FIlter" value="#project_manager_emp_id_Filter#">
 <input type="hidden" name="Sort" value="#sort#">
 </cfform>
 </cfoutput>

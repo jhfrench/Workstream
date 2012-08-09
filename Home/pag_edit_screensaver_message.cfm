@@ -50,8 +50,8 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<input type="hidden" name="screen_user_id" value="<cfoutput>#attributes.screen_user_id#</cfoutput>">
-			<input type="submit" alt="submit" value="Submit">
+			<input type="hidden" name="screen_user_id" value="<cfoutput>#attributes.screen_user_id#</cfoutput>" />
+			<input type="submit" alt="submit" value="Submit" />
 		</td>
 	</tr>
 </table>

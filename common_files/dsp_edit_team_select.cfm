@@ -54,12 +54,12 @@
 	<select name="<cfoutput>#attributes.select_name#"<cfif attributes.size> size="#attributes.size#"</cfif> <cfif attributes.multi> multiple</cfif><cfif len(attributes.onchange)> onchange="javascript:#attributes.onchange#"</cfif><cfif len(attributes.class)> class="#attributes.class#"</cfif>></cfoutput>
 	<cfoutput query="get_team_select">
 		<cfif attributes.select_name EQ "task_source">
-		<option value="#get_team_select.emp_id#"<cfif ListFind(attributes.select_name_value, get_team_select.emp_id,",")>selected</cfif>>#lname#, #left(name, 3)#
+		<option value="#get_team_select.emp_id#"<cfif ListFind(attributes.select_name_value, get_team_select.emp_id,",")> SELECTED</cfif>>#lname#, #left(name, 3)#
 		</option><!--- 
 		<cfset variables.company_id=company> --->
 		</cfif>
 		<cfif attributes.select_name EQ "task_owner">
-				<option value="#get_team_select.emp_id#"<cfif ListFind(attributes.select_name_value, get_team_select.emp_id,",")>selected</cfif>>#lname#, #left(name, 3)#
+				<option value="#get_team_select.emp_id#"<cfif ListFind(attributes.select_name_value, get_team_select.emp_id,",")> SELECTED</cfif>>#lname#, #left(name, 3)#
 		</option>
 		</cfif>
 	</cfoutput>

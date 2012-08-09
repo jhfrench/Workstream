@@ -18,7 +18,7 @@
 		<td>
 			<select name="project_id" size="1"class="RegText">
 			<cfoutput query="project">
-			<option  value="#project.project_id#"<cfif isdefined("get_expense_values.project_id") and not compare(get_expense_values.project_id, project.project_id) >Selected</cfif>>#display#</option>
+			<option  value="#project.project_id#"<cfif isdefined("get_expense_values.project_id") and not compare(get_expense_values.project_id, project.project_id) > SELECTED</cfif>>#display#</option>
 			</cfoutput>
 			</select>
 		</td>

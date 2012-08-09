@@ -1,11 +1,12 @@
-<!-- common_files/three_related_selects.cfm
-	Author: Nate Weiss -->
+<!-- Administration/pag_edit_ref_priority.cfm
+	Author: Jeromy French-->
 <!---
-<fusedoc language="ColdFusion MX" specification="2.0" template="three_related_selects.cfm">
+<fusedoc language="ColdFusion MX" specification="2.0" template="pag_edit_ref_address_type.cfm">
 	<responsibilities>
+		I display the form for editing priority and act(send information to DB) when the form is submitted.
 	</responsibilities>
 	<properties>
-		<history email="nate@nateweiss.com" author="Nate Weiss" type="create" date="9/18/2002" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -22,403 +23,57 @@
 	</IO>
 </fusedoc>
 --->
-<!--- REMOVE THIS AND FIRST LINE IF NOT USING CF3.1 OR LATER --->
-<cfsetting enablecfoutputonly="YES">
 
-<!--- TAG PARAMETERS --->
-<cfparam name="attributes.query">
-<cfparam name="attributes.Type1" default="select">
-<cfparam name="attributes.HTMLAfterEachRadio1" default="">
-<cfparam name="attributes.Name1" default="TwoselectsRelated1">
-<cfparam name="attributes.Name2" default="TwoselectsRelated2">
-<cfparam name="attributes.Name3" default="TwoselectsRelated3">
-<cfparam name="attributes.Name4" default="TwoselectsRelated4">
-<cfparam name="attributes.Value1" default="">
-<cfparam name="attributes.Value2" default="">
-<cfparam name="attributes.Value3" default="">
-<cfparam name="attributes.Value4" default="">
-<cfparam name="attributes.Display1" default="#attributes.Value1#">
-<cfparam name="attributes.Display2" default="#attributes.Value2#">
-<cfparam name="attributes.Display3" default="#attributes.Value3#">
-<cfparam name="attributes.Display4" default="#attributes.Value4#">
-<cfparam name="attributes.Default1" default="xxxxxxxxxxxx">
-<cfparam name="attributes.Default2" default="xxxxxxxxxxxx">
-<cfparam name="attributes.Default3" default="xxxxxxxxxxxx">
-<cfparam name="attributes.Default4" default="xxxxxxxxxxxx">
-<cfparam name="attributes.Multiple3" default="No">
-<cfparam name="attributes.Multiple4" default="No">
-<cfparam name="attributes.Size1" default="1">
-<cfparam name="attributes.Size2" default="1">
-<cfparam name="attributes.Size3" default="1">
-<cfparam name="attributes.Size4" default="1">
-<cfparam name="attributes.ExtraOptions2" default="">
-<cfparam name="attributes.ExtraOptions3" default="">
-<cfparam name="attributes.ExtraOptions4" default="">
-<cfparam name="attributes.Width1" default="">
-<cfparam name="attributes.Width2" default="">
-<cfparam name="attributes.Width3" default="">
-<cfparam name="attributes.Width4" default="">
-<cfparam name="attributes.ForceWidth1" default="">
-<cfparam name="attributes.ForceWidth2" default="">
-<cfparam name="attributes.ForceWidth3" default="">
-<cfparam name="attributes.ForceWidth4" default="">
-<cfparam name="attributes.ForceWidthChar" default="&nbsp;">
-<cfparam name="attributes.EmptyText1" default="">
-<cfparam name="attributes.EmptyText2" default="">
-<cfparam name="attributes.EmptyText3" default="">
-<cfparam name="attributes.EmptyText4" default="">
-<cfparam name="attributes.Message1" default="You must choose an option for #attributes.Name1#.">
-<cfparam name="attributes.Message2" default="You must choose an option for #attributes.Name2#.">
-<cfparam name="attributes.Message3" default="You must choose an option for #attributes.Name3#.">
-<cfparam name="attributes.Message4" default="You must choose an option for #attributes.Name4#.">
-<cfparam name="attributes.FormName" default="forms[0]">
-<cfparam name="attributes.HTMLAfter1" default="">
-<cfparam name="attributes.HTMLAfter2" default="">
-<cfparam name="attributes.HTMLAfter3" default="">
-<cfparam name="attributes.OnChange" default="">
-<cfparam name="attributes.AutoselectFirst" default="Yes">
-
-<cfif NOT comparenocase(attributes.Type1, "Radio")>
-	<cfset attributes.EmptyText1="">
-	<cfset attributes.ForceWidth1="">
-</cfif>
-
-<cfset function_name=replacelist(attributes.FormName, "[,]", ",") & "ChangeMenu">
-<cfset function_name2=replacelist(attributes.FormName, "[,]", ",") & "ChangeMenu2">
-<cfset function_name3=replacelist(attributes.FormName, "[,]", ",") & "ChangeMenu3">
-
-
-<!--- "MAGIC" SHORTCUTS FOR THE ONCHANGE HANDLER --->
-<cfif NOT comparenocase(attributes.OnChange, "Jump!")>
-	<cfset attributes.OnChange="document.location=this.options[SELECTEDIndex].value;">
-<cfelseif NOT comparenocase(attributes.OnChange, "Submit!")>
-	<cfset attributes.OnChange="this.form.submit();">
-</cfif>
-
-
-
-<!--- USE PASSED QUERY WITHIN THIS CODE AS "MyQuery" --->
-<cfset MyQuery=evaluate("caller.#attributes.query#")>
-
-
-<!--- BEGIN JAVASCRIPTING --->
+<cfparam name="attributes.method" default="">
+<cfmodule template="qry_get_ref_address_type.cfm" address_type_id="0">
 <cfoutput>
-	<script language="JavaScript1.1">
-	// javascript code generated by the CF_TwoselectsRelated Cold Fusion tag (Nate Weiss, 4/98)
-		// portions adapted from Nick Heinle's code at http://webreference.com/javascript/960902/select_boxes.html
-	var maxlength=10;
-	OneA=new Array;
+<form name="edit_ref_address_type_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
+	<select name="address_type_id">
+	<cfloop query="get_ref_address_type"><option value="#address_type_id#"<cfif not comparenocase(get_ref_address_type.address_type_id, attributes.address_type_id)> SELECTED</cfif>>#description#</option></cfloop>
+	</select>
+	<input type="submit" name="method" alt="Retrieve and edit Address Type" value="Retrieve and Edit Address Type"/>
+</form>
+<cfif len(attributes.method)>
+	<cfmodule template="qry_get_ref_address_type.cfm" address_type_id="#attributes.address_type_id#">
+	<cfset attributes.description=get_ref_address_type.description>
+	<cfset attributes.address_type_id=get_ref_address_type.address_type_id>
+</cfif>
+<cfform name="REF_address_type_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
 
-		var trueLength=OneA.length;
-		var lst=OneA.length;
-	var Trak=0;
-
-	function require_#attributes.Name1#() {
-		with (document.#attributes.FormName#.#attributes.Name1#) {
-				RetVal=true;
-				if (Trak==-1) RetVal=false;
-				<cfif NOT comparenocase(attributes.Type1, "select")>
-				else RetVal=!(options[Trak].value=='');
-				<cfelseif NOT comparenocase(attributes.Type1, "Radio")>
-				else { if (document.#attributes.FormName#.#attributes.Name1#[Trak].value=='') RetVal=false; else RetVal=true;}
+<div class="datachart" style="border:1px solid ##999999" title="table head describes the data held in the table within this table">
+<table cellspacing="1" cellpadding="4" width="100%" border="0" bgcolor="##cccccc" summary="Table displays user account information">
+	<tr bgcolor="##cccccc"><th><strong><cfif attributes.address_type_id EQ 0>ADD NEW<cfelse>EDIT EXISTING</cfif> Address Type</strong></th></tr>
+	<tr bgcolor="##eeeeee">
+		<td>
+		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="table displays user account information">
+			<tr>
+				<td><label for="description">description</label>: 
+					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" message="Please enter description." maxlength="400">
+				</td>
+				<td><label for="sort_order">Sort Order</label>: 
+					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#iif(attributes.address_type_id EQ 0, ('get_ref_address_type.recordcount+1'), ('get_ref_address_type.sort_order'))#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter sort order." />
+				</td>
+				<cfif attributes.address_type_id EQ 0>
+					<input type="hidden" name="active_ind" value="1" />
+				<cfelse>
+				<td colspan="2"><span title="describes the purpose of the radio buttons that follow">Active?</span>
+					<br /><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes"><label for="active_ind_yes">Yes </label>
+				 		<cfinput type="radio" name="active_ind" id="active_ind_no" value="0" ><label for="active_ind_no">No </label>
+				</td>
 				</cfif>
-				if (!RetVal) alert('#attributes.Message1#');
-				return RetVal;
-			}
-	}
-
-	function require_#attributes.Name2#() {
-		with (document.#attributes.FormName#.#attributes.Name2#) {
-			RetVal=true;
-			if (SELECTEDIndex==-1) RetVal=false;
-				else RetVal=!(options[SELECTEDIndex].value=='');
-			if (!RetVal) alert('#attributes.Message2#');
-		return eval(RetVal);
-				return RetVal;
-			}
-		}
-
-	function require_#attributes.Name3#() {
-		with (document.#attributes.FormName#.#attributes.Name3#) {
-			RetVal=true;
-			if (SELECTEDIndex==-1) RetVal=false;
-				else RetVal=!(options[SELECTEDIndex].value=='');
-			if (!RetVal) alert('#attributes.Message3#');
-				return RetVal
-			}
-		}
-
-	function require_#attributes.Name4#() {
-		with (document.#attributes.FormName#.#attributes.Name4#) {
-			RetVal=true;
-			if (SELECTEDIndex==-1) RetVal=false;
-				else RetVal=!(options[SELECTEDIndex].value=='');
-			if (!RetVal) alert('#attributes.Message4#');
-				return RetVal
-			}
-		}
-
-		function require_#attributes.Name1#And#attributes.Name2#() {
-		return ((require_#attributes.Name1#()) && (require_#attributes.Name2#()));
-		}
-
-		function require_#attributes.Name2#And#attributes.Name3#() {
-		return ((require_#attributes.Name2#()) && (require_#attributes.Name3#()));
-		}
-
-		function require_#attributes.Name1#And#attributes.Name2#And#attributes.Name3#() {
-		return ((require_#attributes.Name1#And#attributes.Name2#()) && (require_#attributes.Name3#()));
-		}
-
-		function require_#attributes.Name1#And#attributes.Name2#And#attributes.Name3#And#attributes.Name4#() {
-		return ((require_#attributes.Name1#And#attributes.Name2#And#attributes.Name3#()) && (require_#attributes.Name4#()));
-		}
-
-		function #function_name#() {
-			OneA.length=0;
-			var menuNum=document.#attributes.FormName#.#attributes.Name1#.SELECTEDIndex;
-			if (menuNum==null) return;
-			Trak=menuNum;
-			<!--- ignore if a blank item gets clicked --->
-			 <cfif NOT comparenocase(attributes.Type1, "select")>
-			 if (document.#attributes.FormName#.#attributes.Name1#.options[menuNum].value=='') return;
-			 if (document.#attributes.FormName#.#attributes.Name1#.options[menuNum].value==null) return;
-			 </cfif>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr bgcolor="##dddddd">
+		<td  class="btn-group">
+			<input type="hidden" name="created_by" value="#session.user_account_id#" />
+			<input type="hidden" name="address_type_id" value="#attributes.address_type_id#" />
+			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
+		</td>
+	</tr>
+</table>
+</div>
+</cfform>
 </cfoutput>
-
-
-<!--- COUNTER VARIABLE WILL HOLD NUMBER OF GROUPS (OPTIONS IN FIRST select) --->
-<cfset variables.counter=IIF(len(attributes.EmptyText1), 1, 0)>
-
-<!--- CREATE AN "IF" STATEMENT THAT COVERS EACH ITEM IN THE FIRST select BOX --->
-<!--- WITHIN THE "IF" STATMENT, PRE-POPULATE ARRAY WITH CORRESPONDING ITEMS FOR SECOND select  --->
-<cfoutput query="MyQuery" group="#attributes.Display1#">
-	if (menuNum==#variables.counter#) {
-	NewOpt=new Array;
-		NewVal=new Array;
-	<cfif len(attributes.EmptyText2)>
-		NewOpt[0]=new Option("#JSStringFormat(attributes.EmptyText2)#", "");
-		<cfset variables.counter2=1>
-	<cfelse>
-		<cfset variables.counter2=0>
-	</cfif>
-		<cfoutput GROUP="#attributes.Display2#">NewOpt[#Counter2#]=new Option("#JSStringFormat(MyQuery[attributes.Display2][MyQuery.currentrow])#", "#JSStringFormat(MyQuery[attributes.Value2][MyQuery.currentrow])#"); <cfset variables.counter2=variables.counter2+1></cfoutput>
-	} <cfset variables.counter=variables.counter+1>
-</cfoutput>
-
-
-<!--- finish up the ChangeMenu() function --->
-<cfoutput>
-	tot=NewOpt.length;
-	lst=document.#attributes.FormName#.#attributes.Name2#.options.length;
-	for (i=lst; i > 0; i--) {
-	document.#attributes.FormName#.#attributes.Name2#.options[i]=null;
-	}
-	for (i=0; i < tot; i++) {
-	document.#attributes.FormName#.#attributes.Name2#.options[i]=NewOpt[i];
-	}
-	<!--- <cfif NOT comparenocase(attributes.AutoselectFirst, "Yes")> --->
-	document.#attributes.FormName#.#attributes.Name2#.options[0].SELECTED=true;
-	<!--- </cfif> --->
-	#function_name2#(0);
-}
-</cfoutput>
-
-
-
-
-<!--- ALLOW FOR AUTO-SIZING "SHORTCUT" OF select BOXES --->
-<cfif NOT comparenocase(attributes.Size1, "Auto")>
-	<!--- MAKE THE FIRST select BE BIG ENOUGH FOR ALL OF ITS OPTIONS --->
-	<cfset attributes.Size1=variables.counter>
-</cfif>
-<cfif NOT comparenocase(attributes.Size2, "Auto")>
-	<!--- MAKE THE SECOND select BE THE SAME SIZE AS THE FIRST --->
-	<cfset attributes.Size2=attributes.Size1>
-</cfif>
-<cfif NOT comparenocase(attributes.Size3, "Auto")>
-	<!--- MAKE THE SECOND select BE THE SAME SIZE AS THE FIRST --->
-	<cfset attributes.Size3=attributes.Size1>
-</cfif>
-<cfif NOT comparenocase(attributes.Size4, "Auto")>
-	<!--- MAKE THE SECOND select BE THE SAME SIZE AS THE FIRST --->
-	<cfset attributes.Size4=attributes.Size1>
-</cfif>
-
-
-
-<cfoutput>
-function #function_name2#() {
-	OneA.length=0;
-	menuNum=Trak;<cfif len(attributes.EmptyText1)>
-	menuNum=menuNum-1;</cfif>
-	//menuNum=document.#attributes.FormName#.#attributes.Name1#.SELECTEDIndex;
-	menuNum2=document.#attributes.FormName#.#attributes.Name2#.SELECTEDIndex;
-	if (menuNum==-1) return;
-	if (menuNum2==null) return;
-	<!--- ignore if a the blank item gets clicked --->
-	if (document.#attributes.FormName#.#attributes.Name2#.options[menuNum2].value=='') return;
-</cfoutput>
-
-
-<!--- COUNTER VARIABLE WILL HOLD NUMBER OF GROUPS (OPTIONS IN FIRST select) --->
-<cfset variables.counter1=0>
-
-<!--- CREATE AN "IF" STATEMENT THAT COVERS EACH ITEM IN THE FIRST select BOX --->
-<!--- WITHIN THE "IF" STATMENT, PRE-POPULATE ARRAY WITH CORRESPONDING ITEMS FOR SECOND select  --->
-<cfoutput QUERY="MyQuery" GROUP="#attributes.Display1#">
-if (menuNum==#variables.counter1#) {
-<cfset variables.counter=IIF(len(attributes.EmptyText2), 1, 0)>
-<cfoutput GROUP="#attributes.Display2#">
-	if (menuNum2==#variables.counter#) {
-	NewOpt=new Array;
-		NewVal=new Array;
-	<cfset variables.counter2=IIF(len(attributes.EmptyText3), 1, 0)>
-	<cfif len(attributes.EmptyText3)>NewOpt[0]=new Option("#JSStringFormat(attributes.EmptyText3)#", ""); </cfif>
-		<cfoutput>
-		NewOpt[#variables.counter2#]=new Option("#JSStringFormat(MyQuery[attributes.Display3][MyQuery.currentrow])#", "#JSStringFormat(MyQuery[attributes.Value3][MyQuery.currentrow])#");
-			<cfset variables.counter2=variables.counter2+1>
-		</cfoutput>
-	} <cfset variables.counter=variables.counter+1>
-</cfoutput>
-}	<cfset variables.counter1=variables.counter1+1>
-</cfoutput>
-
-
-<cfoutput>
-	tot=NewOpt.length;
-	lst=document.#attributes.FormName#.#attributes.Name3#.options.length;
-
-	for (i=lst; i > 0; i--) {
-	document.#attributes.FormName#.#attributes.Name3#.options[i]=null;
-	}
-	for (i=0; i < tot; i++) {
-	document.#attributes.FormName#.#attributes.Name3#.options[i]=NewOpt[i];
-	}
-	<cfif NOT comparenocase(attributes.AutoselectFirst, "Yes")>
-	document.#attributes.FormName#.#attributes.Name3#.options[0].SELECTED=true;
-	</cfif>
-}
-</script>
-</cfoutput>
-
-<!--- DONE WITH JAVASCRIPTING.  NOW WE JUST HAVE TO DISPLAY THE FORM ELEMENTS --->
-
-
-
-
-
-
-
-<!--- OUTPUT FIRST FORM ELEMENT --->
-<cfif NOT comparenocase(attributes.Type1, "select")>
-<cfoutput><select name="#attributes.Name1#" onchange="#function_name#(this.SELECTEDIndex)" size="#attributes.Size1#" <cfif len(attributes.Width1)>STYLE="width:#attributes.Width1#"</cfif> class="regular_text"></cfoutput>
-	<!--- SPECIAL FIRST ITEM, IF REQUESTED --->
-	<cfif len(attributes.EmptyText1)><cfoutput><option value="">#attributes.EmptyText1#</cfoutput></cfif>
-	<!--- GENERATE REMAINING ITEMS FROM QUERY --->
-	<cfoutput query="MyQuery" group="#attributes.Display1#"><option value="#MyQuery[attributes.Value1][MyQuery.currentrow]#"<cfif NOT comparenocase(MyQuery[attributes.Value1][MyQuery.currentrow], attributes.Default1)> SELECTED</cfif>>#MyQuery[attributes.Display1][MyQuery.currentrow]#</cfoutput>
-
-	<!--- "FORCE WIDTH" OPTION AT BOTTOM, IF REQUESTED --->
-	<cfif len(attributes.ForceWidth1)><cfoutput><option value="">#RepeatString(attributes.ForceWidthChar, attributes.ForceWidth1)#</cfoutput></cfif>
-<cfoutput></select></cfoutput>
-
-<cfelse>
-	<!--- RADIO BOXES --->
-	<cfset variables.counter=0>
-	<cfoutput query="MyQuery" group="#attributes.Display1#"><input type="Radio" name="#attributes.Name1#" value="#MyQuery[attributes.Value1][MyQuery.currentrow]#" <cfif NOT comparenocase(MyQuery[attributes.Value1][MyQuery.currentrow], attributes.Default1)> CHECKED </cfif> onclick="#function_name#(#variables.counter#)" />MyQuery[attributes.Display1][MyQuery.currentrow]#attributes.HTMLAfterEachRadio1#<cfset variables.counter=variables.counter+1></cfoutput>
-
-</cfif>
-
-
-
-<!--- INSERT ANY REQUESTED HTML BETWEEN 1ST AND SECOND ITEMS --->
-<cfoutput>#attributes.HTMLAfter1#</cfoutput>
-
-
-
-<!--- OUTPUT SECOND select BOX --->
-<cfoutput><select name="#attributes.Name2#" size="#attributes.Size2#" onchange="#function_name2#(this.SELECTEDIndex)" <cfif len(attributes.Width2)>STYLE="width:#attributes.Width2#"</cfif> class="regular_text"></cfoutput>
-	<!--- SPECIAL FIRST ITEM, IF REQUESTED --->
-	<cfif len(attributes.EmptyText2)><cfoutput><option value="">#attributes.EmptyText2#</cfoutput></cfif>
-
-	<!--- GENERATE REMAINING ITEMS FROM QUERY --->
-	<!--- WE ONLY NEED TO OUTPUT THE CHOICES FOR THE FIRST GROUP --->
-	<!--- <cfset variables.first_group=evaluate("MyQuery.#attributes.Value1#[1]")> --->
-	<cfset variables.first_group=attributes.Default1>
-	<cfset variables.CurrentGroup2="">
-	<cfif NOT len(attributes.EmptyText1)>
-		<cfloop query="MyQuery">
-		<cfif NOT comparenocase(MyQuery[attributes.Value1][MyQuery.currentrow], variables.first_group)>
-			<cfset variables.ThisValue=MyQuery[attributes.Value2][MyQuery.currentrow]>
-			<cfif comparenocase(variables.ThisValue, variables.CurrentGroup2)>
-				<cfoutput><option value="#variables.ThisValue#"<cfif NOT comparenocase(variables.ThisValue, attributes.Default2)> SELECTED</cfif>>#MyQuery[attributes.Display2][MyQuery.currentrow]#</cfoutput>
-				<cfset variables.CurrentGroup2=MyQuery[attributes.Value2][MyQuery.currentrow]>
-				</cfif>
-			<!--- <cfelse>
-			<CFBREAK> --->
-			</cfif>
-		</cfloop>
-	</cfif>
-
-	<!--- "FORCE WIDTH" OPTION AT BOTTOM, IF REQUESTED --->
-	<cfif len(attributes.ForceWidth2)><cfoutput><option value="">#RepeatString(attributes.ForceWidthChar, attributes.ForceWidth2)#</cfoutput></cfif>
-	<cfif len(attributes.ExtraOptions2)><cfloop index="This" from="1" to="#attributes.ExtraOptions2#"><cfoutput><option value=""></cfoutput></cfloop></cfif>
-<cfoutput></select></cfoutput>
-
-
-
-<!--- INSERT ANY REQUESTED HTML BETWEEN 2ND AND 3RD ITEMS --->
-<cfoutput>#attributes.HTMLAfter2#</cfoutput>
-
-
-
-<!--- OUTPUT THIRD select BOX --->
-<cfoutput><select name="#attributes.Name3#" size="#attributes.Size3#" <cfif NOT comparenocase(attributes.Multiple3, "Yes")>MULTIPLE </cfif><cfif len(attributes.Width3)>STYLE="width:#attributes.Width3#"</cfif><cfif len(attributes.OnChange)> OnChange="#attributes.OnChange#"</cfif> class="regular_text"></cfoutput>
-	<cfset variables.first_group=attributes.Default1>
-	<cfif NOT len(attributes.EmptyText3)>
-		<cfloop query="MyQuery">
-		<cfif NOT comparenocase(MyQuery[attributes.Value1][MyQuery.currentrow], variables.first_group)>
-			<cfset Hack=MyQuery[attributes.Value2][MyQuery.currentrow]>
-			<cfset variables.ThisValue=MyQuery[attributes.Value3][MyQuery.currentrow]>
-			<cfparam name="variables.first_group2" default="#variables.Hack#">
-			<cfif NOT comparenocase(MyQuery[attributes.Value2][MyQuery.currentrow], variables.first_group2)>
-				<cfoutput><option value="#variables.ThisValue#" <cfif NOT comparenocase(variables.ThisValue, attributes.Default3)>SELECTED</cfif>>#MyQuery[attributes.Display3][MyQuery.currentrow]#</cfoutput>
-				</cfif>
-			</cfif>
-		</cfloop>
-	</cfif>
-
-	<cfif len(attributes.ForceWidth3)><cfoutput><option value="">#RepeatString(attributes.ForceWidthChar, attributes.ForceWidth3)#</cfoutput></cfif>
-	<cfif len(attributes.ExtraOptions3)><cfloop index="This" from="1" to="#attributes.ExtraOptions3#"><cfoutput><option value=""></cfoutput></cfloop></cfif>
-<cfoutput></select><script language="JavaScript1.1">#function_name#()</script></cfoutput>
-
-
-
-<!--- INSERT ANY REQUESTED HTML BETWEEN 2ND AND 3RD ITEMS --->
-<cfoutput>#attributes.HTMLAfter3#</cfoutput>
-
-
-
-<!--- OUTPUT FOURTH select BOX --->
-<cfoutput><select name="#attributes.Name4#" size="#attributes.Size4#" <cfif NOT comparenocase(attributes.Multiple4, "Yes")>MULTIPLE </cfif><cfif len(attributes.Width4)>STYLE="width:#attributes.Width4#"</cfif><cfif len(attributes.OnChange)> OnChange="#attributes.OnChange#"</cfif> class="regular_text"></cfoutput>
-	<cfset variables.first_group=attributes.Default1>
-	<cfif NOT len(attributes.EmptyText4)>
-		<cfloop query="MyQuery">
-		<cfif NOT comparenocase(MyQuery[attributes.Value1][MyQuery.currentrow], variables.first_group)>
-			<cfset Hack=MyQuery[attributes.Value2][MyQuery.currentrow]>
-			<cfset variables.ThisValue=MyQuery[attributes.Value3][MyQuery.currentrow]>
-			<cfparam name="variables.first_group3" default="#variables.Hack#">
-			<cfif NOT comparenocase(MyQuery[attributes.Value3][MyQuery.currentrow], variables.first_group3)>
-				<cfoutput><option value="#variables.ThisValue#" <cfif NOT comparenocase(variables.ThisValue, attributes.Default4)>SELECTED</cfif>>#MyQuery[attributes.Display4][MyQuery.currentrow]#</cfoutput>
-				</cfif>
-			</cfif>
-		</cfloop>
-	</cfif>
-
-	<cfif len(attributes.ForceWidth4)><cfoutput><option value="">#RepeatString(attributes.ForceWidthChar, attributes.ForceWidth4)#</cfoutput></cfif>
-	<cfif len(attributes.ExtraOptions4)><cfloop index="This" from="1" to="#attributes.ExtraOptions4#"><cfoutput><option value=""></cfoutput></cfloop></cfif>
-<cfoutput></select><script language="JavaScript1.1">#function_name#()</script></cfoutput>
-
-
-<!--- REMOVE THIS AND FIRST LINE IF NOT USING CF3.1 OR LATER --->
-<cfsetting enablecfoutputonly="NO">

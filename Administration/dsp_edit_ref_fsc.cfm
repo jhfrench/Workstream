@@ -31,7 +31,7 @@
 <form name="edit_ref_fsc_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	Retrieve an existing <label for="fsc_id"><abbr title="Federal Supply Classification">FSC</abbr></label>:<br />
 	<select name="fsc_id" id="fsc_id">
-	<cfloop query="get_ref_fsc"><option value="#fsc_id#" <cfif not comparenocase(get_ref_fsc.fsc_id, attributes.fsc_id)>selected</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_fsc"><option value="#fsc_id#"<cfif not comparenocase(get_ref_fsc.fsc_id, attributes.fsc_id)> SELECTED</cfif>>#description#</option></cfloop>
 	</select><br />
 	<input type="submit" name="method" value="Retrieve and edit FSC" />
 </form>
@@ -73,7 +73,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td align="center">
+		<td  class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="fsc_id" value="#attributes.fsc_id#" />
 			<input type="submit" name="submit" value=" Submit " alt="submit" />
