@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfparam name="attributes.sort" default="Customers.description, Project.description">
+<cfparam name="attributes.sort" default="Customer.description, Project.description">
 <cfparam name="customer_id_filter" default="0">
 <cfquery name="get_engagement_dashboard" datasource="#application.datasources.main#">
 SELECT Project.status, Customer.description AS customer_description, Project.description,

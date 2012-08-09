@@ -17,7 +17,7 @@
 <cfparam name="engagement_dashboard_Return" default="0">
 <cfparam name="project_manager_emp_id_Filter" default="All">
 <cfparam name="attributes.customer_id" default="0">
-<cfparam name="Sort" default="Customers.description,Project.description">
+<cfparam name="Sort" default="Customer.description,Project.description">
 <cfinclude template="qry_get_engagement_main.cfm">
 <cfinclude template="qry_get_billable_types.cfm">
 <cfoutput>

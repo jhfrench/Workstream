@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 <cfparam name="attributes.active_ind" default="0">
 </cfsilent>
-<cfmodule template="../common_files/variable_check.cfm" check_variable="attributes.client_code" relocate="Customers.home"/>
+<cfmodule template="../common_files/variable_check.cfm" check_variable="attributes.client_code" relocate="Customer.home"/>
 <cfinclude template="qry_get_engagements.cfm">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="engagement" fuseaction="Customers.edit_engagement" field_name="project_id">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="open_tasks" fuseaction="Customers.open_tasks" field_name="project_id">

@@ -17,7 +17,7 @@
 <cfparam name="attributes.customer_id" default="0">
 <cfparam name="engagement_dashboard_Return" default="0">
 <cfparam name="attributes.project_manager_emp_id" default="0">
-<cfparam name="sort" default="Customers.description,Project.description">
+<cfparam name="sort" default="Customer.description,Project.description">
 <cfset attributes.req_custom=1>
 <cfset attributes.field1=1>
 <cfset attributes.field2=1>

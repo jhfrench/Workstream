@@ -68,9 +68,9 @@
 			<label for="sort">Sort option</label>
 			<div class="controls">
 				<select name="sort">
-					<option value="Customers.description,Project.description">Select Sort Variable</option>
-					<option value="Customers.description,Project.description">Customer</option>
-					<option value="Customers.description,Project.description DESC">Customer - Desc</option>
+					<option value="Customer.description,Project.description">Select Sort Variable</option>
+					<option value="Customer.description,Project.description">Customer</option>
+					<option value="Customer.description,Project.description DESC">Customer - Desc</option>
 					<option value="LName">IE</option>
 					<option value="LName DESC">IE - Desc</option>
 					<option value="Project_end">Due Date</option>

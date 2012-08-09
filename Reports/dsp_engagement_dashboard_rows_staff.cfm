@@ -78,9 +78,9 @@
 		<td>&nbsp;</td>
 		<td>
 		<select name="sort">
-			<option value="Customers.description,Project.description">Select Sort Variable</option>
-			<option value="Customers.description,Project.description">Customer</option>
-			<option value="Customers.description,Project.description DESC">Customer - Desc</option>
+			<option value="Customer.description,Project.description">Select Sort Variable</option>
+			<option value="Customer.description,Project.description">Customer</option>
+			<option value="Customer.description,Project.description DESC">Customer - Desc</option>
 			<option value="LName">IE</option>
 			<option value="LName Desc">IE - Desc</option>
 			<option value="Project_end">Due Date</option>
@@ -99,7 +99,7 @@
 	</tr>
 </cfform>
 	<tr>
-		<td colspan="100%" <cfoutput>class="RegText"</cfoutput>>
+		<td colspan="100%" class="RegText">
 			<br /><a href="index.cfm?fuseaction=Customers.home&engagement_dashboard_Return=1">Add another engagement to this Dashboard.</a>
 		</td>
 	</tr>
