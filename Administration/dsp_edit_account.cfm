@@ -32,11 +32,11 @@
 </cfoutput>
 <cfoutput query="get_user_details" maxrows="1">
 	<tr valign="top">
-		<td colspan="2">&nbsp;Username: <cfinput type="text" name="username" value="#username#" required="Yes" message="Please enter a username.">
+		<td colspan="2">&nbsp;Username: <cfinput type="text" name="username" value="#username#" required="yes" message="Please enter a username.">
 		</td>
 	</tr>
 	<tr valign="top">
-		<td colspan="2">&nbsp;Password: <cfinput type="#variables.type#" name="password" value="#password#" required="Yes" message="Please enter a password.">
+		<td colspan="2">&nbsp;Password: <cfinput type="#variables.type#" name="password" value="#password#" required="yes" message="Please enter a password.">
 		</td>
 	</tr>
 	<tr valign="top">

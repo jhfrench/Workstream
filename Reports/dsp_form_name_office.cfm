@@ -17,12 +17,12 @@
 		<td colspan="#variables.daysinmonth+3#" valign="middle" class="SubHeadTextWhite">
 		<cfform action="index.cfm?fuseaction=Reports.gross_hours" method="POST">
 			Office Location:
-			<cfselect name="Office_Location" size="1" message="Please don't leave blank" required="Yes">
+			<cfselect name="Office_Location" size="1" message="Please don't leave blank" required="yes">
 				<option value="ALL">ALL</option><cfloop query="office_loc">
 				<option value ="#Office_location#">#Office_location#</option></cfloop>
 			</cfselect>
 			Name:
-			<cfselect name="emp_id" size="1" message="Please don't leave blank" required="Yes"> 
+			<cfselect name="emp_id" size="1" message="Please don't leave blank" required="yes"> 
 				<option value="ALL">ALL</option><cfloop query="get_team_select">
 				<option value="#emp_id#">#lname#, #name#</option></cfloop>
 			</cfselect>

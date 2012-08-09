@@ -22,7 +22,7 @@ $Log:
 			Date Begun:
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="date_start" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this job title was granted.  (mm/dd/yy)">
+			<cfinput type="text" name="date_start" size="10" maxlength="10" required="yes" validate="date" message="Please enter the date this job title was granted.  (mm/dd/yy)">
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
@@ -31,7 +31,7 @@ $Log:
 		</td>
 		<td class="SelectText">
 
-			<cfinput type="text" name="title" size="50" maxlength="50" required="Yes" message="Please enter a job title.">
+			<cfinput type="text" name="title" size="50" maxlength="50" required="yes" message="Please enter a job title.">
 
 		</td>
 	</tr>

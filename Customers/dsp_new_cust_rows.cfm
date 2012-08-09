@@ -27,10 +27,10 @@
 		</div>
 	</td>
 	<td valign="top">
-		<cfselect name="company_id" message="Please Select a Company" query="get_companies" value="company_id" display="description" selected="#session.workstream_company_name#" required="Yes" size="1"></cfselect>
+		<cfselect name="company_id" message="Please Select a Company" query="get_companies" value="company_id" display="description" selected="#session.workstream_company_name#" required="yes" size="1"></cfselect>
 	</td>
 	<td valign="top" rowspan="3">
-		<cfselect name="Visible_to" message="Please Select a Company" query="get_companies" value="company_id" display="description" required="No" size="6" multiple="Yes"></cfselect>
+		<cfselect name="Visible_to" message="Please Select a Company" query="get_companies" value="company_id" display="description" required="No" size="6" multiple="yes"></cfselect>
 	</td>
 </tr>
 <tr>
@@ -39,7 +39,7 @@
 </tr>
 <tr>
 	<td>
-		<cfinput type="text" required="Yes" message="Please enter a Root Name" name="description">
+		<cfinput type="text" required="yes" message="Please enter a Root Name" name="description">
 	</td>
 	<td>
 		<cfselect name="billable_type_id" size="1">

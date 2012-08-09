@@ -31,7 +31,7 @@
 		</td>
 		<td class="SubHeadText">
 			View These Companies<br />
-			<select name="company_select_list" size="#min(get_teams.recordcount,5)#" multiple></cfoutput>
+			<select name="company_select_list" size="#min(get_teams.recordcount,5)#" multiple="multiple"></cfoutput>
 				<cfoutput query="get_teams">
 				<option value="#company_id#"<cfif listfind(session.workstream_selected_company_id,company_id)> selected="selected"</cfif>>#company#</option></cfoutput><cfoutput>
 			</select>

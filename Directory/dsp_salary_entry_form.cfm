@@ -23,14 +23,14 @@ $Log:
 	<div class="control-group">
 		<label class="control-label" for="date">Date Implemented:</label>
 		<div class="controls">
-			<cfinput type="text" name="date" id="date" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this employee's salary was instated.  (mm/dd/yy)" class="span3" />
+			<cfinput type="text" name="date" id="date" size="10" maxlength="10" required="yes" validate="date" message="Please enter the date this employee's salary was instated.  (mm/dd/yy)" class="span3" />
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="salary">Salary</label>
 		<div class="controls">
 			<div class="input-prepend">
-				<span class="add-on">&##36;</span><cfinput type="text" name="salary" id="salary" size="10" maxlength="10" required="Yes" validate="integer" message="Please enter this employee's salary amount." class="span3" />
+				<span class="add-on">&##36;</span><cfinput type="text" name="salary" id="salary" size="10" maxlength="10" required="yes" validate="integer" message="Please enter this employee's salary amount." class="span3" />
 			</div>
 		</div>
 	</div>
@@ -43,7 +43,7 @@ $Log:
           		query="get_salary_change_types"
           		value="salary_change_type_id"
           		display="description"
-          		required="Yes"
+          		required="yes"
 				class="span3">
 			</cfselect>
 		</div>

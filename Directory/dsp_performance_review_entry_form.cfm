@@ -22,7 +22,7 @@ $Log:
 			Date Reviewed:
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="date_reviewed" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this employee was reviewed.  (mm/dd/yy)">
+			<cfinput type="text" name="date_reviewed" size="10" maxlength="10" required="yes" validate="date" message="Please enter the date this employee was reviewed.  (mm/dd/yy)">
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
@@ -37,7 +37,7 @@ $Log:
           		query="get_review_types"
           		value="review_type_id"
           		display="description"
-          		required="Yes"
+          		required="yes"
 				class="RegText">
 			</cfselect>
 <cfoutput>
@@ -48,7 +48,7 @@ $Log:
 			Rating:
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="rating" validate="float" size="10" maxlength="10" required="Yes" message="Please enter the rating on this review.">
+			<cfinput type="text" name="rating" validate="float" size="10" maxlength="10" required="yes" message="Please enter the rating on this review.">
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">

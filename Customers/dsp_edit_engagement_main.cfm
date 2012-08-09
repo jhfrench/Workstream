@@ -35,13 +35,13 @@
 	<tr valign="top">
 		<td colspan="1" class="RegTextBd">
 			Root Name<br />
-			<cfselect name="customer_id" size="1" query="get_root_codes" value="customer_id" selected="#get_engagement_main.customer_id#" required="Yes" display="display"></cfselect><br />
+			<cfselect name="customer_id" size="1" query="get_root_codes" value="customer_id" selected="#get_engagement_main.customer_id#" required="yes" display="display"></cfselect><br />
 			Project Name<br />
-			<cfinput type="text" name="description" value="#get_engagement_main.description#" required="Yes" message="Please enter an Project Name" size="45">
+			<cfinput type="text" name="description" value="#get_engagement_main.description#" required="yes" message="Please enter an Project Name" size="45">
 		</td>
 		<td class="RegTextBd">
 			Visible To<br />
-			<select name="company_id" multiple size="4"></cfoutput>
+			<select name="company_id" multiple="multiple" size="4"></cfoutput>
 				<cfoutput query="get_companies">
 					<option value="#company_id#"<cfif listcontains(session.workstream_selected_company_id,company_id)> selected="selected"</cfif>>#description#</option>
 				</cfoutput><cfoutput>

@@ -18,7 +18,7 @@
 <tr valign="top">
 	<td width="50%">
 		Timeline name<br />
-		<cfinput type="text" name="project_planning_name" required="Yes" message="Please name this new timeline." size="30">
+		<cfinput type="text" name="project_planning_name" required="yes" message="Please name this new timeline." size="30">
 	</td>
 	<td><cfset variables.start=incrementvalue(variables.start)>
 		<ol type="1" class="Note"><li>Designate a name for this new timeline.</li></ol>

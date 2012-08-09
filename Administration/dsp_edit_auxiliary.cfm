@@ -23,7 +23,7 @@
 		<td valign="top">Companies this user can view:
 		</td>
 		<td valign="top">
-			<cfselect name="company_id" multiple="Yes" required="Yes" message="Please make sure this user has access to at least one company." size="10">
+			<cfselect name="company_id" multiple="yes" required="yes" message="Please make sure this user has access to at least one company." size="10">
 			<cfloop query="get_security_company_access_access">
 				<option value="#company_id#"#has_company_access#>#company#</option>
 			</cfloop>

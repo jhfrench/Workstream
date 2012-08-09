@@ -58,13 +58,13 @@
 	</td>
 	<td>
 		<input type="date" name="date_incurred" id="date_incurred" min="2011-09-01" max="#dateformat(now()+30, 'yyyy-mm-dd')#"  value="#dateformat(attributes.date_incurred,'yyyy-mm-dd')#" required="required" maxlength="10" class="span6 date" />
-		<!-- Use CF to create validaton <cfinput type="datefield" name="date_incurred" required="Yes" validate="date" message="Please enter the date this expense was paid (mm/dd/yyyy format)." size="11"> --->
+		<!-- Use CF to create validaton <cfinput type="datefield" name="date_incurred" required="yes" validate="date" message="Please enter the date this expense was paid (mm/dd/yyyy format)." size="11"> --->
 	</td>
 </tr>
 <tr>
 	<td>Payee</td>
 	<td>
-		<cfinput type="text" name="payee_name" value="#attributes.payee_name#" required="Yes"  size="40" message="Please enter a payee name." >
+		<cfinput type="text" name="payee_name" value="#attributes.payee_name#" required="yes"  size="40" message="Please enter a payee name." >
 	</td>
 	<td>
 		&nbsp;
@@ -73,13 +73,13 @@
 		Amount
 	</td>
 	<td>
-		$<cfinput type="text" name="amount" value="#right(dollarformat(attributes.amount),len(dollarformat(attributes.amount))-1)#" required="Yes" size="8" message="Please enter an expense amount." align="right">
+		$<cfinput type="text" name="amount" value="#right(dollarformat(attributes.amount),len(dollarformat(attributes.amount))-1)#" required="yes" size="8" message="Please enter an expense amount." align="right">
 	</td>
 </tr>
 <tr>
 	<td>Category</td>
 	<td>
-		<cfselect query="get_expense_category" message="Please select an expense catagory" name="expense_category_id" size="2" required="Yes" selected="#attributes.expense_category_id#" display="description" value="expense_category_id" onchange="javascript: (document.forms[1].expense_category_id.options[document.forms[1].expense_category_id.selectedIndex].text=='--OTHER'?document.all.category.style.visibility='visible':document.all.category.style.visibility='hidden'); (document.forms[1].expense_category_id.options[document.forms[1].expense_category_id.selectedIndex].text=='--OTHER'?document.all.optional_new_category_div.style.visibility='visible':document.all.optional_new_category_div.style.visibility='hidden');"></cfselect>
+		<cfselect query="get_expense_category" message="Please select an expense catagory" name="expense_category_id" size="2" required="yes" selected="#attributes.expense_category_id#" display="description" value="expense_category_id" onchange="javascript: (document.forms[1].expense_category_id.options[document.forms[1].expense_category_id.selectedIndex].text=='--OTHER'?document.all.category.style.visibility='visible':document.all.category.style.visibility='hidden'); (document.forms[1].expense_category_id.options[document.forms[1].expense_category_id.selectedIndex].text=='--OTHER'?document.all.optional_new_category_div.style.visibility='visible':document.all.optional_new_category_div.style.visibility='hidden');"></cfselect>
 	</td>
 	<td align="left">
 		<div id="category" style="visibility='hidden'">New Category</div>&nbsp;
@@ -118,7 +118,7 @@
 		<cfset variables.checked_ind_no="NO">
 	</cfif>
 
-		Billable to Client? <label for="client_billable_ind_yes"><cfinput type="radio" name="client_billable_ind" id="client_billable_ind_yes" value="1" required="Yes" checked="#variables.checked_ind_yes#" message="Please select whether or not the client is billable for this expense."> Yes</label>
+		Billable to Client? <label for="client_billable_ind_yes"><cfinput type="radio" name="client_billable_ind" id="client_billable_ind_yes" value="1" required="yes" checked="#variables.checked_ind_yes#" message="Please select whether or not the client is billable for this expense."> Yes</label>
 &nbsp;&nbsp;
 
 <label for="client_billable_ind_no"><cfinput type="radio" name="client_billable_ind" id="client_billable_ind_no" value="0" checked="#variables.checked_ind_no#"> No</label>
@@ -127,7 +127,7 @@
 <tr>
 	<td>Expense Note</td>
 	<td colspan="4">
-		<cfinput type="text" name="expense_note" value="#attributes.expense_note#" required="Yes" message="Please enter an expense note." size="100">
+		<cfinput type="text" name="expense_note" value="#attributes.expense_note#" required="yes" message="Please enter an expense note." size="100">
 	</td>
 </tr>
 <tr>
@@ -167,7 +167,7 @@
 				<cfset variables.supervisor_checked_ind_rejected="NO">
 			</cfif>
 				<input type="hidden" name="supervisor_settings" value="1">
-				Supervisor, please approve or reject this expense: Approve<cfinput type="Radio" name="supervisor_approval" value="2" checked="#supervisor_checked_ind_approved#" required="Yes" message="Please give this expense a supervisors approval."> Reject<cfinput type="Radio" name="supervisor_approval" value="3" checked="#supervisor_checked_ind_rejected#">&nbsp;&nbsp;&nbsp;Supervisor Approval Memo: <cfinput type="text" name="supervisor_approval_memo" value="#attributes.supervisor_approval_memo#" message="Please enter an approval memo" required="Yes" size="30">
+				Supervisor, please approve or reject this expense: Approve<cfinput type="Radio" name="supervisor_approval" value="2" checked="#supervisor_checked_ind_approved#" required="yes" message="Please give this expense a supervisors approval."> Reject<cfinput type="Radio" name="supervisor_approval" value="3" checked="#supervisor_checked_ind_rejected#">&nbsp;&nbsp;&nbsp;Supervisor Approval Memo: <cfinput type="text" name="supervisor_approval_memo" value="#attributes.supervisor_approval_memo#" message="Please enter an approval memo" required="yes" size="30">
 		<br />
 		</cfif>
 		<cfif variables.all_option EQ 1 AND isdefined("attributes.supervisor_flag") AND NOT attributes.supervisor_flag>
@@ -182,7 +182,7 @@
 				<cfset variables.accounting_checked_ind_rejected="NO">
 			</cfif>
 			<input type="hidden" name="accounting_pro_settings" value="1">
-			Accounting professional, please approve or reject this expense: Approve<cfinput type="Radio" name="accounting_approval" value="4" checked="#accounting_checked_ind_approved#" required="Yes" message="Please give this expense an accounting professionals approval."> Reject<cfinput type="Radio" name="accounting_approval" value="5" checked="#accounting_checked_ind_rejected#">&nbsp;&nbsp;&nbsp;Accounting Professional Approval Memo: <cfinput type="text" name="accounting_approval_memo" value="#attributes.accounting_approval_memo#" message="Please enter an approval memo" required="Yes" size="30">
+			Accounting professional, please approve or reject this expense: Approve<cfinput type="Radio" name="accounting_approval" value="4" checked="#accounting_checked_ind_approved#" required="yes" message="Please give this expense an accounting professionals approval."> Reject<cfinput type="Radio" name="accounting_approval" value="5" checked="#accounting_checked_ind_rejected#">&nbsp;&nbsp;&nbsp;Accounting Professional Approval Memo: <cfinput type="text" name="accounting_approval_memo" value="#attributes.accounting_approval_memo#" message="Please enter an approval memo" required="yes" size="30">
 		</cfif>
 	</td>
 </tr>

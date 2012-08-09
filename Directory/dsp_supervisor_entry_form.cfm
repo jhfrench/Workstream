@@ -20,7 +20,7 @@
 			Date Implemented:
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="date" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this employee's supervisor was instated.  (mm/dd/yy)">
+			<cfinput type="text" name="date" size="10" maxlength="10" required="yes" validate="date" message="Please enter the date this employee's supervisor was instated.  (mm/dd/yy)">
 		</td>
 	</tr>
 	<tr bgcolor="##78A0EB">
@@ -67,7 +67,7 @@
 				Last Date Under Most Recent Supervisor:
 			</td>
 			<td class="SelectText">
-				<cfinput type="text" name="end_date" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" value="#dateformat(Now(),'mm/dd/yy')#">
+				<cfinput type="text" name="end_date" size="10" maxlength="10" required="yes" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" value="#dateformat(Now(),'mm/dd/yy')#">
 			</td>
 		</tr>
 	</cfif> --->

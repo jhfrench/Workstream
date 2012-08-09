@@ -39,7 +39,7 @@
 				<a href="javascript:task_to_ind('#emp_id#|#task_id#');"  title="View individual time entries for #last_name#.">#decimalformat(hours)#</a>
 			</td>
 			<td>
-				<cfinput type="checkbox" name="reassign_hours" value="#emp_id#" required="Yes" message="Please mark which hours you wish to reassign.">
+				<cfinput type="checkbox" name="reassign_hours" value="#emp_id#" required="yes" message="Please mark which hours you wish to reassign.">
 			</td>
 		</tr>
 	</cfoutput>

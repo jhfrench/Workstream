@@ -28,7 +28,7 @@ $Log:
           		query="get_benefit_types"
           		value="benefit_type_id"
           		display="description"
-          		required="Yes"
+          		required="yes"
 				class="RegText">
 			</cfselect>
 		</td>
@@ -38,7 +38,7 @@ $Log:
 			Date Begun:
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="date_start" size="10" maxlength="10" required="Yes" validate="date" message="Please enter the date this benefit coverage began.  (mm/dd/yy)">
+			<cfinput type="text" name="date_start" size="10" maxlength="10" required="yes" validate="date" message="Please enter the date this benefit coverage began.  (mm/dd/yy)">
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
@@ -47,7 +47,7 @@ $Log:
 		</td>
 		<td class="SelectText">
 
-			<cfinput type="text" name="benefit_amount" size="10" maxlength="10" validate="integer" required="Yes" message="Please enter a valid benefit amount.">
+			<cfinput type="text" name="benefit_amount" size="10" maxlength="10" validate="integer" required="yes" message="Please enter a valid benefit amount.">
 
 		</td>
 	</tr>

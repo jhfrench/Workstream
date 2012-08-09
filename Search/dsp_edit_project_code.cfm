@@ -82,7 +82,7 @@
 				<td>">
 				</cfif>
 
-<!--- 			<select name="project_id2" multiple size="6" onclick="checkbox_project_id()">
+<!--- 			<select name="project_id2" multiple="multiple" size="6" onclick="checkbox_project_id()">
 			<cfoutput query="project">
 				<option value="#project_id#">#display#</option>
 			</cfoutput>

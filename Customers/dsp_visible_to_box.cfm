@@ -12,7 +12,7 @@
 	 || 
 	END FUSEDOC --->
 
-<cfselect  required="Yes" message="You must select a company to be visible to."name="company_id" size="3" multiple >
+<cfselect required="yes" message="You must select a company to be visible to." name="company_id" size="3" multiple="yes">
 						<cfoutput query="get_visable_to">
 							<option value="<cfif isdefined("company_id")>#company_id#<cfelse>#company_id#</cfif>" selected="selected">#company#</option>
 						</cfoutput>

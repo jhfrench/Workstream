@@ -74,7 +74,7 @@
 	</cfloop>
 	</select>
 <cfelse>
-	<cfselect name="#attributes.element_name#" id="#attributes.element_name#" size="2" message="#attributes.message#" required="Yes" class="#attributes.class#">
+	<cfselect name="#attributes.element_name#" id="#attributes.element_name#" size="2" message="#attributes.message#" required="yes" class="#attributes.class#">
 		<cfloop query="get_team_select">
 			<option value="#emp_id#" title="#lname#, #name#">#display#</option>
 		</cfloop>

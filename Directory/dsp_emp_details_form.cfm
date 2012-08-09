@@ -28,9 +28,9 @@
 			<td colspan="2">
 				<font color=red>Birthday</font>: 
 				<input type="date" name="dob" id="dob" min="1911-02-02" max="#dateformat(dateadd('yyyy',now(),-14), 'yyyy-mm-dd')#" value="#dateformat(dob, 'yyyy-mm-dd')#"  maxlength="10" required="required" class="span6 date" />&nbsp;
-			<!-- USE CF to create client validation <cfinput type="text" name="dob"required="Yes" validate="date" message="Please enter a properly formatted birthdate." size="11"> -->
-				<font color=red>SSN</font>: <cfinput type="text" name="ssn" value="#ssn#" required="Yes" validate="social_security_number" message="Please enter a properly formatted SSN." size="11">&nbsp;
-				<font color=red>Pin:</font> <cfinput type="text" name="pin" value="#pin#" required="Yes" message="Please enter a pin." size="6">&nbsp;
+			<!-- USE CF to create client validation <cfinput type="text" name="dob"required="yes" validate="date" message="Please enter a properly formatted birthdate." size="11"> -->
+				<font color=red>SSN</font>: <cfinput type="text" name="ssn" value="#ssn#" required="yes" validate="social_security_number" message="Please enter a properly formatted SSN." size="11">&nbsp;
+				<font color=red>Pin:</font> <cfinput type="text" name="pin" value="#pin#" required="yes" message="Please enter a pin." size="6">&nbsp;
 				Picture: <input type="text" name="photo" size="10" value="#photo#"><!--- <input type="file" name="photo" size="20" value=""> --->
 			</td>
 		</tr>
@@ -70,7 +70,7 @@
 						<cfif isdefined("attributes.emp_id")>
 						Can't be changed from this screen.
 						<cfelse>
-						<cfselect name="Position_ID" query="get_position_numbers" value="position_ID" display="position_id" required="Yes" message="You must select a position number to enter this employee into workstream.">
+						<cfselect name="position_id" query="get_position_numbers" value="position_ID" display="position_id" required="yes" message="You must select a position number to enter this employee into workstream.">
 						<option value="-1">-1</option>
 </cfselect> **
 						</cfif>
@@ -86,7 +86,7 @@
 						<td align="right">Hire date: </td>
 						<td align="left">
 							<input type="date" name="hire_date" id="hire_date" min="2011-09-01" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(hire_date, 'yyyy-mm-dd')#"  maxlength="10" required="required" class="span6 date" />
-							<!-- Use CF to create client validation <cfinput type="text" name="hire_date" value="#dateformat(hire_date, 'mm/dd/yyyy')#" required="Yes" validate="date" message="Please enter a properly formatted hire date." size="11"> -->
+							<!-- Use CF to create client validation <cfinput type="text" name="hire_date" value="#dateformat(hire_date, 'mm/dd/yyyy')#" required="yes" validate="date" message="Please enter a properly formatted hire date." size="11"> -->
 						</td>
 						<td align="right"><font color=red>Company: </td>
 						<td align="left"><cfselect query="get_teams" name="company_id" value="company_id" display="company" selected="#company_id#"></cfselect></td>
@@ -100,7 +100,7 @@
 						</select><br /><cfselect name="employee_classification" query="get_employee_classification" selected="#employee_classification_id#" value="employee_classification_id" display="employee_classification"></cfselect></td>
 						<td align="right" valign="top">Visible Companies:</td>
 						<td>
-				<select name="visable_company" size="#min(get_teams.recordcount,3)#" multiple>
+				<select name="visable_company" size="#min(get_teams.recordcount,3)#" multiple="multiple">
 </cfoutput>
 							<cfoutput query="get_teams">
 								<option value="#company_id#"<cfif listcontains(visable_company,company_id)> selected="selected"</cfif>>#company#</option>
@@ -126,7 +126,7 @@
 					<tr>
 						<td class="SubHeadText">&nbsp;</td>
 						<td align="right">Date Change Effective: </td>
-						<td align="left"><cfinput type="text" name="effective_from" required="Yes" validate="date" message="You must provide a date that the change becomes effective." value="#dateformat(now(), 'mm/dd/yyyy')#" maxlength="10" size="11"></td>
+						<td align="left"><cfinput type="text" name="effective_from" required="yes" validate="date" message="You must provide a date that the change becomes effective." value="#dateformat(now(), 'mm/dd/yyyy')#" maxlength="10" size="11"></td>
 						<td align="right">&nbsp;</td>
 						<td align="left">&nbsp;</td>
 					</tr>

@@ -29,13 +29,13 @@
 	</tr>
 	<tr>
 		<td>
-			<cfinput type="text" name="date_granted" size="10" required="Yes" validate="date" message="Enter a date.">
+			<cfinput type="text" name="date_granted" size="10" required="yes" validate="date" message="Enter a date.">
 		</td>
 		<td>
-			<cfinput type="text" name="granted_hours" size="5" required="Yes" validate="float" message="Enter hours.">
+			<cfinput type="text" name="granted_hours" size="5" required="yes" validate="float" message="Enter hours.">
 		</td>
 		<td>
-			<cfinput type="text" name="comments" size="50" maxlength="50" required="Yes" message="Enter comment.">
+			<cfinput type="text" name="comments" size="50" maxlength="50" required="yes" message="Enter comment.">
 		</td>
 	</tr>
 	<tr>

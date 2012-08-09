@@ -15,7 +15,7 @@
 </cfsilent>
 <tr align="center">
 	<td>
-		<cfselect name="root_code" query="new_engage_input" value="root_code" display="customer_name" size="#min(new_engage_input.recordcount,15)#" required="Yes" message="Please choose at least one customer." multiple="Yes"></cfselect>
+		<cfselect name="root_code" query="new_engage_input" value="root_code" display="customer_name" size="#min(new_engage_input.recordcount,15)#" required="yes" message="Please choose at least one customer." multiple="yes"></cfselect>
 	</td>
 </tr>
 

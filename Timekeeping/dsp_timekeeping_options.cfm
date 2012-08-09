@@ -50,18 +50,18 @@
 	</tr>
 	<tr>
 		<td>
-			<cfinput type="text" name="express_input_rows" value="#session.workstream_express_input_rows#" size="1" maxlength="2" required="Yes" validate="integer" message="Please enter the number of lines you wish to input."> lines per page load for express input
+			<cfinput type="text" name="express_input_rows" value="#session.workstream_express_input_rows#" size="1" maxlength="2" required="yes" validate="integer" message="Please enter the number of lines you wish to input."> lines per page load for express input
 		</td>
 		<td>
-			<cfinput type="text" name="express_notes_width" value="#session.workstream_express_notes_width#" size="2" required="Yes" validate="integer" message="Please enter a number for the notes box width."> width of the express input text box
+			<cfinput type="text" name="express_notes_width" value="#session.workstream_express_notes_width#" size="2" required="yes" validate="integer" message="Please enter a number for the notes box width."> width of the express input text box
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<cfinput type="text" name="express_notes_height" value="#session.workstream_express_notes_height#" size="1" required="Yes" validate="integer" message="Please enter the number of rows for the notes box."> height of the express input text box
+			<cfinput type="text" name="express_notes_height" value="#session.workstream_express_notes_height#" size="1" required="yes" validate="integer" message="Please enter the number of rows for the notes box."> height of the express input text box
 		</td>
 		<td>
-			<cfinput type="text" name="express_tree_height" value="#session.workstream_express_tree_height#" size="3" required="Yes" validate="integer" message="Please enter a number for the height of the folder box."> height of the express input folder box
+			<cfinput type="text" name="express_tree_height" value="#session.workstream_express_tree_height#" size="3" required="yes" validate="integer" message="Please enter a number for the height of the folder box."> height of the express input folder box
 		</td>
 	</tr>
 </cfoutput>

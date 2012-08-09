@@ -33,13 +33,13 @@
 	<tr valign="top">
 		<td class="RegTextBd">
 			Billing Type<br />
-			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="billable_type" selected="#get_engagement_main.billable_type_id#" onchange="javascript:submit();" required="Yes" message="Please specify the billing type for this engagement."></cfselect>
+			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="billable_type" selected="#get_engagement_main.billable_type_id#" onchange="javascript:submit();" required="yes" message="Please specify the billing type for this engagement."></cfselect>
 		</td>
 		<td class="RegTextBd">
 			Budget<br />
-			<span>$ </span><cfinput type="text" name="budget" value="#get_engagement_main.budget#" required="Yes" validate="float" message="Please specify a budget." size="6"><br />
+			<span>$ </span><cfinput type="text" name="budget" value="#get_engagement_main.budget#" required="yes" validate="float" message="Please specify a budget." size="6"><br />
 			LOE<br />
-			<span>h </span><cfinput type="text" name="loe" value="#get_engagement_main.loe#" required="Yes"  size="6">
+			<span>h </span><cfinput type="text" name="loe" value="#get_engagement_main.loe#" required="yes"  size="6">
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">

@@ -51,7 +51,7 @@
 </cfsilent>
 <cfif NOT isdefined("get_team_select.recordcount")><cfinclude template="qry_get_team_select.cfm"></cfif>
 <cfif attributes.selected_flag>
-	<select name="<cfoutput>#attributes.select_name#"<cfif attributes.size> size="#attributes.size#"</cfif> <cfif attributes.multi> multiple</cfif><cfif len(attributes.onchange)> onchange="javascript:#attributes.onchange#"</cfif><cfif len(attributes.class)> class="#attributes.class#"</cfif>></cfoutput>
+	<select name="<cfoutput>#attributes.select_name#"<cfif attributes.size> size="#attributes.size#"</cfif> <cfif attributes.multi> multiple="multiple"</cfif><cfif len(attributes.onchange)> onchange="javascript:#attributes.onchange#"</cfif><cfif len(attributes.class)> class="#attributes.class#"</cfif>></cfoutput>
 	<cfoutput query="get_team_select">
 		<cfif attributes.select_name EQ "task_source">
 		<option value="#get_team_select.emp_id#"<cfif ListFind(attributes.select_name_value, get_team_select.emp_id,",")> selected="selected"</cfif>>#lname#, #left(name, 3)#
@@ -66,7 +66,7 @@
 	</select>
 <cfelse>
 	<cfoutput>
-	<cfselect name="#attributes.element_name#" size="2" message="#attributes.message#" required="Yes" class="#attributes.class#">
+	<cfselect name="#attributes.element_name#" size="2" message="#attributes.message#" required="yes" class="#attributes.class#">
 
 		<cfloop query="get_team_select">
 			<option value="#emp_id#">#lname#, #left(name, 3)#</option>

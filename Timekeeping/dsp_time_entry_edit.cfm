@@ -66,7 +66,7 @@
 			<label for="hours">Hours Worked</label>
 			<div class="controls">
 				<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" value="#decimalformat(time_entry_edit.hours)#" class="span3" />
-				<!-- let CF create the JavaScript: <cfinput type="text" name="hours" id="hours" required="Yes" validate="float" message="You must enter hours, as a number, for a time keeping entry. If you wish to delete a task, mark the delete checkbox." /> -->
+				<!-- let CF create the JavaScript: <cfinput type="text" name="hours" id="hours" required="yes" validate="float" message="You must enter hours, as a number, for a time keeping entry. If you wish to delete a task, mark the delete checkbox." /> -->
 			</div>
 		</div>
 		<div class="control-group">

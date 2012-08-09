@@ -32,7 +32,7 @@
 
 	<tr class="SubHeadText">
 		<td>
-			<select name="report_columns" multiple size="10" style="width:145px;">
+			<select name="report_columns" multiple="multiple" size="10" style="width:145px;">
 				<cfloop list="#attributes.report_elements#" index="dex">
 					<option value="#dex#">#dex#</option>
 				</cfloop>
@@ -41,7 +41,7 @@
 		<td align="center"><input type="button" value="Remove >>>" name="remove" style="width:120px;" onclick="javascript: RemoveListItem('report_columns','removed_elements');"><br />
 		<input type="button" value="<<< Add" name="add" style="width:120px;" onclick="javascript: RemoveListItem('removed_elements','report_columns');"></td>
 		<td>
-			<select name="removed_elements" multiple size="10" style="width:145px;">
+			<select name="removed_elements" multiple="multiple" size="10" style="width:145px;">
 					<option></option>
 			</select>
 		</td>

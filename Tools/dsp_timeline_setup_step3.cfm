@@ -30,7 +30,7 @@
 <cfloop query="get_user_fields">
 	Do not show tasks that are marked with this selection<br />
 		<cfinclude template="../common_files/qry_get_drop_down_options.cfm">
-		<cfselect name="hide_user_field_item_id" required="Yes">
+		<cfselect name="hide_user_field_item_id" required="yes">
 			<option value="0">Use all the options</option>
 			<cfloop query="get_drop_down_options">
 			<option value="#get_drop_down_options.user_field_items_id#">#get_drop_down_options.selection_title#</option>

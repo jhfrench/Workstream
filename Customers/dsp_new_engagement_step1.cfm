@@ -30,13 +30,13 @@
 	<tr valign="top">
 		<td colspan="2" class="RegTextBd">
 			Root Name<br />
-			<cfselect name="customer_id" size="1" query="get_root_codes" value="customer_id" required="Yes" display="display"></cfselect><br />
+			<cfselect name="customer_id" size="1" query="get_root_codes" value="customer_id" required="yes" display="display"></cfselect><br />
 			Project Name<br />
-			<cfinput type="text" name="description" required="Yes" message="Please enter an Project Name">
+			<cfinput type="text" name="description" required="yes" message="Please enter an Project Name">
 		</td>
 		<td class="RegTextBd">
 			Visible To<br />
-			<cfselect name="company_id" query="get_companies" value="company_id" display="description" size="4" required="Yes" message="Please specify which companies should see this engagement." multiple="yes"></cfselect>
+			<cfselect name="company_id" query="get_companies" value="company_id" display="description" size="4" required="yes" message="Please specify which companies should see this engagement." multiple="yes"></cfselect>
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" class="Note">
@@ -57,7 +57,7 @@
 		</td>
 		<td class="RegTextBd">
 			Billing Type<br />
-			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="billable_type" required="Yes" message="Please specify the billing type for this engagement."></cfselect>
+			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="billable_type" required="yes" message="Please specify the billing type for this engagement."></cfselect>
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="2" class="Note">

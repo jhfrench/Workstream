@@ -32,7 +32,7 @@
 		<td valign="top">Included Employees:</td>
 		<td>
 </cfoutput>
-				<cfselect name="included_emp_id" multiple="Yes" size="#min(variables.recordcount,25)#">
+				<cfselect name="included_emp_id" multiple="yes" size="#min(variables.recordcount,25)#">
 				<cfif variables.all_option>
 					<cfoutput query="get_team_select">
 					<option value="#emp_id#" selected="selected">#display#</option>

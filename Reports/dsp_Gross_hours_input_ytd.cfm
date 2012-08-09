@@ -25,7 +25,7 @@
 			From:
 		</td>
 		<td>
-			<cfinput type="datefield" name="from_date" value="" required="Yes" validate="date" message="Please enter a properly formatted from date." size="11">
+			<cfinput type="datefield" name="from_date" value="" required="yes" validate="date" message="Please enter a properly formatted from date." size="11">
 			</td>
 	</tr>
 	<tr class="subHeadText">
@@ -33,7 +33,7 @@
 			To:
 		</td>
 		<td>
-			<cfinput type="datefield" name="to_date" value="" required="Yes" validate="date" message="Please enter a properly formatted to date." size="11"><br />
+			<cfinput type="datefield" name="to_date" value="" required="yes" validate="date" message="Please enter a properly formatted to date." size="11"><br />
 			</td>
 	</tr>
 
@@ -56,7 +56,7 @@
 		</td>
 		<td>
 		<cfoutput>
-			<select name="display_person" size="3" style="width:130px" multiple>
+			<select name="display_person" size="3" style="width:130px" multiple="multiple">
 		</cfoutput>
 				<option value="ALL" selected="selected">All Employees
 				<cfoutput query="get_team_select">
@@ -74,7 +74,7 @@
 		</td>
 		<td>
 		<cfoutput>
-			<select name="display_office" size="3" style="width:130px" multiple>
+			<select name="display_office" size="3" style="width:130px" multiple="multiple">
 				<option value="ALL" selected="selected">All Offices</option>
 		</cfoutput>
 				<cfoutput query="office_loc">
