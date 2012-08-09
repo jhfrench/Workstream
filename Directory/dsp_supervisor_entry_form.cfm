@@ -54,7 +54,7 @@
 			<label for="#get_present_Supervisor.user_account_id#"><cfinput type="Checkbox" name="supervisor_id_list" value="#get_present_Supervisor.user_account_id#" id="#get_present_Supervisor.user_account_id#">#get_present_supervisor.sup_name#</label>
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="end_date_#get_present_Supervisor.user_account_id#" size="10" maxlength="10" required="No" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" value="#dateformat(Now(),'mm/dd/yy')#">
+			<cfinput type="text" name="end_date_#get_present_Supervisor.user_account_id#" size="10" maxlength="10" required="no" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" value="#dateformat(Now(),'mm/dd/yy')#">
 		</td>
 		<!--- <td>&nbsp;</td> --->
 	</tr>

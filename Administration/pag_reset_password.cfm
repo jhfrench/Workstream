@@ -31,6 +31,9 @@
 
 <table summary="table displays password reset confirmation">
 	<tr>
-		<td<cfif len(variables.forget_password_page_ind)> style="color:white;"</cfif>>The password has been reset<cfif NOT comparenocase(attributes.fuseaction, "Home.forget_password")> and sent to your email.<br /> Please go to <a href="index.cfm?fuseaction=Home.login"><cfoutput>#application.product_name#</cfoutput> home page</a> and log in again</cfif>.</td>
+		<td<cfif len(variables.forget_password_page_ind)> style="color:white;"</cfif>>
+			The password has been reset<cfif NOT comparenocase(attributes.fuseaction, "Home.forget_password")> and sent to your email.<br />
+			Please go to <a href="index.cfm?fuseaction=Home.login"><cfoutput>#application.product_name#</cfoutput> home page</a> and log in again</cfif>.
+		</td>
 	</tr>
 </table>

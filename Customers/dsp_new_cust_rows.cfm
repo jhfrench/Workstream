@@ -22,7 +22,7 @@
 		<a href="javascript:void(0);" onclick="javascript:Element.toggle('root_code_entry');Element.toggle('code_options');">Specify A Root Code</a>
 		</div>
 		<div id="root_code_entry" style="display:none;">
-		<cfinput type="text" required="No"  name="root_code" size="4">&nbsp;*<br />
+		<cfinput type="text" required="no"  name="root_code" size="4">&nbsp;*<br />
 		Note: If you select a root code yourself, make sure that it isn't used already.
 		</div>
 	</td>
@@ -30,7 +30,7 @@
 		<cfselect name="company_id" message="Please Select a Company" query="get_companies" value="company_id" display="description" selected="#session.workstream_company_name#" required="yes" size="1"></cfselect>
 	</td>
 	<td valign="top" rowspan="3">
-		<cfselect name="Visible_to" message="Please Select a Company" query="get_companies" value="company_id" display="description" required="No" size="6" multiple="yes"></cfselect>
+		<cfselect name="Visible_to" message="Please Select a Company" query="get_companies" value="company_id" display="description" required="no" size="6" multiple="yes"></cfselect>
 	</td>
 </tr>
 <tr>

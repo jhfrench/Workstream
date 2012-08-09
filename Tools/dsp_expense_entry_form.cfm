@@ -85,7 +85,7 @@
 		<div id="category" style="visibility='hidden'">New Category</div>&nbsp;
 	</td>
 	<td colspan="2">
-		<div id="optional_new_category_div" style="visibility='hidden'"><cfinput type="text" name="optional_new_category" value="" required="No"  size="30"></div>&nbsp;
+		<div id="optional_new_category_div" style="visibility='hidden'"><cfinput type="text" name="optional_new_category" value="" required="no"  size="30"></div>&nbsp;
 	</td>
 </tr>
 <tr>

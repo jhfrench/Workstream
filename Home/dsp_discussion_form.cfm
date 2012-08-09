@@ -95,7 +95,7 @@
 			<tr>
 				<td align=right><strong><label for="discussion_text">Text</label>:</strong></td>
 				<td>
-					<textarea name="discussion_text" cols="35" rows="3" wrap="soft" _required></textarea>
+					<textarea name="discussion_text" cols="35" rows="3" wrap="soft" required="required"></textarea>
 				</td>
 			</tr>
 			<tr>
