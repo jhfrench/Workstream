@@ -26,8 +26,7 @@
 <cfif isdefined("attributes.to_inbox")>
 	<cfmodule template="../common_files/act_redirect_browser.cfm" fuseaction="Timekeeping.task_list" delay="0" display="You are being redirected to your task list">
 <cfelse>
-	<cfinclude template="../common_files/act_call_big_team_list.cfm"><!--- 
-	<cfinclude template="../common_files/act_call_spell_check.cfm"> --->
+	<cfinclude template="../common_files/act_call_big_team_list.cfm">
 	<cfinclude template="qry_get_task_details_enhanced.cfm">
 	<cfif get_task_details.recordcount>
 		<cfset attributes.project_id=get_task_details.project_id>

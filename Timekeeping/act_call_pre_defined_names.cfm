@@ -4,7 +4,7 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I use javascript to call a small child window that display the spell check entry form.
+	Responsibilities: I present a list of pre-defined task names.
 	||
 	Name: Jeromy French
 	||

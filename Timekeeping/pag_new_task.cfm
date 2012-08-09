@@ -41,8 +41,7 @@
 <cfinclude template="../common_files/qry_get_valid_projects.cfm">
 <cfinclude template="../common_files/act_call_big_team_list.cfm">
 <cfinclude template="act_call_pre_defined_names.cfm">
-<cfinclude template="../common_files/act_call_big_project_list.cfm"><!--- 
-<cfinclude template="../common_files/act_call_spell_check.cfm"> --->
+<cfinclude template="../common_files/act_call_big_project_list.cfm">
 <cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="new_task_form" method="POST">
 	<h2>Create A New Task</h2>
 	<cfinclude template="dsp_task_new_table.cfm">
