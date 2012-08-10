@@ -20,7 +20,7 @@
 			Date Implemented:
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="date" size="10" maxlength="10" required="yes" validate="date" message="Please enter the date this employee's supervisor was instated.  (mm/dd/yy)">
+			<cfinput type="text" name="date" size="10" maxlength="10" required="yes" validate="date" message="Please enter the date this employee's supervisor was instated.  (m/d/yyyy)">
 		</td>
 	</tr>
 	<tr bgcolor="##78A0EB">
@@ -54,7 +54,7 @@
 			<label for="#get_present_Supervisor.user_account_id#"><cfinput type="Checkbox" name="supervisor_id_list" value="#get_present_Supervisor.user_account_id#" id="#get_present_Supervisor.user_account_id#">#get_present_supervisor.sup_name#</label>
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="end_date_#get_present_Supervisor.user_account_id#" size="10" maxlength="10" required="no" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" value="#dateformat(Now(),'mm/dd/yy')#">
+			<cfinput type="text" name="end_date_#get_present_Supervisor.user_account_id#" size="10" maxlength="10" required="no" validate="date" message="Please enter the last date under most recent supervisor.  (m/d/yyyy)" value="#dateformat(Now(),'m/d/yyyy')#">
 		</td>
 		<!--- <td>&nbsp;</td> --->
 	</tr>
@@ -67,7 +67,7 @@
 				Last Date Under Most Recent Supervisor:
 			</td>
 			<td class="SelectText">
-				<cfinput type="text" name="end_date" size="10" maxlength="10" required="yes" validate="date" message="Please enter the last date under most recent supervisor.  (mm/dd/yy)" value="#dateformat(Now(),'mm/dd/yy')#">
+				<cfinput type="text" name="end_date" size="10" maxlength="10" required="yes" validate="date" message="Please enter the last date under most recent supervisor.  (m/d/yyyy)" value="#dateformat(Now(),'m/d/yyyy')#">
 			</td>
 		</tr>
 	</cfif> --->

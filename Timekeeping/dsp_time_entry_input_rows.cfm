@@ -24,7 +24,7 @@
 			<select name="date">
 			<cfloop from="0" to="#variables.go_back_to#" index="variables.date_adjust_ii">
 				<cfset variables.temp_date=dateadd("m",1,now())-variables.date_adjust_ii>
-				<option value="#dateformat(variables.temp_date,'mm/dd/yy')#"<cfif NOT datediff("d",now(),variables.temp_date)> selected="selected"</cfif>>#dateformat(variables.temp_date,"mm/dd/yy (ddd)")#</option></cfloop>
+				<option value="#dateformat(variables.temp_date,'m/d/yyyy')#"<cfif NOT datediff("d",now(),variables.temp_date)> selected="selected"</cfif>>#dateformat(variables.temp_date,"m/d/yyyy (ddd)")#</option></cfloop>
 			</select>
 		</cfoutput>
 		</td>

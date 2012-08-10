@@ -34,7 +34,7 @@
 		<!--- <select name="date" id="date" class="span11">
 		<cfloop from="0" to="#variables.go_back_to#" index="variables.date_adjust_ii">
 			<cfset variables.temp_date=dateadd("d", -variables.date_adjust_ii, now())>
-			<option value="#dateformat(variables.temp_date, 'mm/dd/yy')#">#dateformat(variables.temp_date,"mm/dd/yy (ddd)")#</option>
+			<option value="#dateformat(variables.temp_date, 'm/d/yyyy')#">#dateformat(variables.temp_date,"m/d/yyyy (ddd)")#</option>
 		</cfloop>
 		</select> --->
 	</div>

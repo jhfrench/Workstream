@@ -21,7 +21,7 @@
 			<table cellpadding="0" cellspacing="0" width="100%">
 				<tr bgcolor="##008080">
 					<td class="HeadTextWhite">
-						Project Dashboard - #dateformat(today,'mm/dd/yy')#
+						Project Dashboard - #dateformat(today,'m/d/yyyy')#
 					</td>
 					<td align="right" class="HeadTextWhite" colspan="2">
 						Project view: <select name="active_ind" onchange="javascript:document.forms.inactive.submit();">

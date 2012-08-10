@@ -28,7 +28,7 @@
 		</td>
 		<td class="date">
 			<cfif isdate(deadline_date)>
-				#dateformat(deadline_date,'mm/dd/yy')#
+				#dateformat(deadline_date,'m/d/yyyy')#
 			</cfif>
 		</td>
 		<td>

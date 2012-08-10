@@ -27,7 +27,7 @@
 		</td>
 		<td valign="top">
 		<cfif len(file_path)><a href="http://#REPLACE(file_path,"N:","10.1.1.176/Nuco1")#"></cfif>
-			<cfif len(date_go_live) AND date_go_live GT Today><font color="red">Go-Live: </font>#dateformat(Date_Go_Live,'mm/dd/yy')#</cfif><cfif NOT len(Date_Go_Live) OR Date_Go_Live LT Today>#dateformat(Project_End,'mm/dd/yy')#</cfif> 
+			<cfif len(date_go_live) AND date_go_live GT Today><font color="red">Go-Live: </font>#dateformat(Date_Go_Live,'m/d/yyyy')#</cfif><cfif NOT len(Date_Go_Live) OR Date_Go_Live LT Today>#dateformat(Project_End,'m/d/yyyy')#</cfif> 
 			<cfif len(file_path)></a></cfif>
 		</td>
 <cfif status EQ 3><td align="center" bgcolor="red" valign="bottom">Red</cfif>
@@ -55,7 +55,7 @@
 			#Vision# <cfif NOT len(vision)>&nbsp;</cfif>
 		</td>
 		<td valign="top">
-			#dateformat(Date_Updated,'mm/dd/yy')#
+			#dateformat(Date_Updated,'m/d/yyyy')#
 		</td>
 	</tr></cfoutput>
 <cfform action="index.cfm?fuseaction=engagement_dashboard">

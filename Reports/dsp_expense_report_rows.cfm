@@ -29,7 +29,7 @@
 		<cfset expense_id = get_expenses.expense_id> 
 		<tr>
 			<td>#name# #lname#</td>
-			<td><a href="javascript:expense('#expense_id#')">#dateformat(work_date, 'mm/dd/yy')#</a></td>
+			<td><a href="javascript:expense('#expense_id#')">#dateformat(work_date, 'm/d/yyyy')#</a></td>
 			<td>#project_code#</td>
 			<td>#trim(Description)#</td>
 			<cfset currow = get_expenses.CurrentRow>

@@ -45,7 +45,7 @@
 				<tr>
 					<td>&nbsp;</td>
 					<td>
-						#dateformat(transaction_date,'mm/dd/yy')#
+						#dateformat(transaction_date,'m/d/yyyy')#
 					</td>
 					<td>
 						<cfif hours_out EQ 0>#comments#<cfelse><a href="javascript:time_edit('#time_entry_id#');"><cfif len(comments)>#comments#<cfelse>PTO Usage</cfif></a></cfif>

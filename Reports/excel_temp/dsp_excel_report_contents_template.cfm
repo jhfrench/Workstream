@@ -52,7 +52,7 @@
 			arr_#wkst_id#(#rownum#,#curr_col#) = "#name# #lname#"
 			<cfset curr_col = curr_col + 1>
 
-			arr_#wkst_id#(#rownum#,#curr_col#) = "#dateformat(work_date, 'mm/dd/yy')#"
+			arr_#wkst_id#(#rownum#,#curr_col#) = "#dateformat(work_date, 'm/d/yyyy')#"
 			<cfset curr_col = curr_col + 1>
 
 			arr_#wkst_id#(#rownum#,#curr_col#) = "#project_code#"
