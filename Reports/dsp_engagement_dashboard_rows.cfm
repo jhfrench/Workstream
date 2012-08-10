@@ -21,7 +21,7 @@
 <cfoutput query="get_engagement_dashboard">
 	<tr> 
 		<td id="#project_id#">
-			<a href="javascript:edit_project(#project_id#);" title="Edit this project">#customer_description# - #description#(#project_code#)</a>
+			<a href="javascript:edit_project(#project_id#);" title="Edit this project">#customer_description#&ndash;#description# (#project_code#)</a>
 		</td>
 		<td>
 			#lname#&nbsp;
@@ -63,11 +63,11 @@
 			#vision#&nbsp;
 		</td>
 		<td class="number">
-			#numberformat(budget,'$___,___,___,___')#
+			&##36;#numberformat(budget,'___,___,___,___')#
 			<cfif loe GT 0><br />h #LOE#</cfif>
 		</td>
 		<td class="number">
-			<cfif len(total_bill_amount)><a href="index.cfm?fuseaction=Invoice_Posted_List&project_ID_filter=#Project_ID#"> <i>#numberformat(total_bill_amount,'$___,___,___,___')#</i></a><cfelse>$0</cfif>
+			&##36;<cfif len(total_bill_amount)>#numberformat(total_bill_amount,'___,___,___,___')#<cfelse>0</cfif>
 		</td>
 		<td>
 			#mission#&nbsp;

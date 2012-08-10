@@ -13,23 +13,27 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<table border="0" cellpadding="2" cellspacing="0">
-<cfoutput>
-	<tr bgcolor="##5F5F5F">
-		<td colspan="<cfif variables.show_details_ind>3<cfelse>2</cfif>" class="SubHeadTextWhite">
-			Summary of Hours by Client Code &amp; Employee
-		</td>
-	</tr>
-	<tr bgcolor="##c0c0c0">
-		<td class="RegTextBd">Client Name</td>
-		<td class="RegTextBd"><cfif variables.show_details_ind>Total </cfif>Hours</td>
-	</tr>
-</cfoutput>
-<cfoutput query="Agg_hours_by_month">
-	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td align="left">#clientname#</td>
-		<td align="right">#decimalformat(sumofhours)#</td>
-	</tr>
-</cfoutput>
+<div class="row-fluid">
+	<div class="span8">
+<table class="table table-striped table-bordered table-condensed">
+	<caption><h3>Summary of Hours by Client Code &amp; Employee</h3></caption>
+	<thead>
+		<tr>
+			<th>Client Name</th>
+			<th><cfif variables.show_details_ind>Total </cfif>Hours</th>
+		</tr>
+	</thead>
+	<tbody>
+	<cfoutput query="agg_hours_by_month">
+		<tr>
+			<td>#clientname#</td>
+			<td class="number">#decimalformat(sumofhours)#</td>
+		</tr>
+	</cfoutput>
+	</tbody>
 </table>
-
+	</div>
+	<div class="span4">
+		Placeholder for pie graph just like the one on front page<!--- $issue$: reuse pie graph, and queries, from front page --->
+	</div>
+</div>

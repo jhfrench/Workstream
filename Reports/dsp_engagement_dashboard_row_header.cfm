@@ -31,7 +31,7 @@
 			Project Update
 		</th>
 		<th>
-			Earned
+			Budgeted
 		</th>
 		<th>
 			Invoiced
