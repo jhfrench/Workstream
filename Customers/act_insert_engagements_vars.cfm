@@ -39,7 +39,7 @@ WHERE Project.root_code='#get_root_code.root_code#'
 	AND RIGHT(project_code, 3) != '000'
 </cfquery>
 
-<!--I set clientname so that it includes the Root name as a prefix to the project name-->
+<!--I set clientname so that it includes the root code as a prefix to the project name-->
 <cfset variables.engagement_name="#get_root_code.description#-#attributes.description#">
 </cfsilent>
 

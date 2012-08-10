@@ -13,38 +13,26 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<form name="inactive" action="index.cfm?fuseaction=Customers.engagements" method="post">
-	<tr bgcolor="##008000">
-		<td colspan="3" class="HeadTextWhite">
-			Projects for #get_engagements.Cust_Description#
-			<input type="hidden" name="client_code" value="#attributes.client_code#">
-		</td>
-		<td colspan="3" class="RegTextWhite">
-			<label for="active_ind"><input type="checkbox" name="active_ind" id="active_ind" onclick="submit();" value="<cfif compare(attributes.active_ind, 0)>0<cfelse>1</cfif>"> View <cfif compare(attributes.active_ind, 0)>Only Active<cfelse>Inactive</cfif> Projects</label>
-		</td>
-	</tr>
-</form>
+<thead>
 	<tr>
-		<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2><td bgcolor="##c0c0c0" class="SubHeadText">
+		<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2><th>
 			Project Code
-		</td></cfif>
-		<td bgcolor="##c0c0c0" class="SubHeadText">
+		</th></cfif>
+		<th>
 			Customer Name
-		</td>
-		<cfif NOT (isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2)><td bgcolor="##c0c0c0" class="SubHeadText">
+		</th>
+		<cfif NOT (isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2)><th>
 			Project Code
-		</td></cfif>
-		<td bgcolor="##c0c0c0" class="SubHeadText">
+		</th></cfif>
+		<th>
 			Billing Type
-		</td>
-		<td bgcolor="##c0c0c0" class="SubHeadText">
+		</th>
+		<th>
 			Open Tasks
-		</td>
-		<td bgcolor="##c0c0c0" class="SubHeadText">
+		</th>
+		<th>
 			Active
-		</td>
-		<td bgcolor="##c0c0c0" class="SubHeadText">
-			Edit
-		</td>
+		</th>
 	</tr>
+</thead>
 </cfoutput>

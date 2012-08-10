@@ -14,5 +14,4 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="qry_get_customer_name_code.cfm">
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="engagement_list" field_name="client_code" field_value="1" fuseaction="engagements">
-
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="engagement_list" field_name="client_code" field_value="1" fuseaction="Customers.engagements">

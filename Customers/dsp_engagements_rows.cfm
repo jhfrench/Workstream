@@ -12,13 +12,14 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
+<tbody>
 <cfoutput query="get_engagements">
-	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
+	<tr>
 		<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2><td>
 			#project_code#
 		</td></cfif>
 		<td>
-			#description#
+			#description# (<a href="javascript:engagement('#project_id#');">Edit</a>)
 		</td>
 		<cfif NOT (isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2)><td>
 			#project_code#
@@ -26,14 +27,12 @@
 		<td>
 			#billable#
 		</td>
-		<td>
+		<td class="number">
 			<a href="javascript:open_tasks('#project_id#');">#open_tasks#</a>
 		</td>
 		<td>
 			#active_ind_type#
 		</td>
-		<td>
-			<a href="javascript:engagement('#project_id#');">Edit</a>
-		</td>
 	</tr>
 </cfoutput>
+</tbody>

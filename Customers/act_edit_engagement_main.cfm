@@ -12,30 +12,32 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfparam name="attributes.sort" default="Customer.description, Project.description">
-<cfparam name="customer_id_filter" default="0">
-<cfquery name="get_engagement_dashboard" datasource="#application.datasources.main#">
-SELECT Project.status, Customer.description AS customer_description, Project.description,
-	Project.project_code, Project.vision, Project.budget,
-	Project.Mission, REF_Billable.Billable_Type,
-	Project.billable_type_id, Project.active_ind, REF_Active_Indicator.active_ind_Type,
-	Project.company_id, Flat_Rate.rate_end_date,
-	Flat_Rate.rate_start_date, Project.project_manager_emp_id, Emp_Contact.LName,
-	Emp_Contact.Name, Project.project_id, Project.created_date,
-	Project.Date_Updated, Project.Project_End, Project.File_Path,
-	Project.date_go_live, Project.eng_status
-FROM Project 
-	INNER JOIN REF_Billable ON  Project.billable_type_id=REF_Billable.billable_type_id
-	INNER JOIN REF_Active_Indicator ON Project.active_ind=REF_Active_Indicator.active_ind
-	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
-	LEFT OUTER JOIN Emp_Contact ON Project.project_manager_emp_id=Emp_Contact.emp_id
-	LEFT OUTER JOIN Flat_Rate ON Project.project_id=Flat_Rate.project_id
-		AND Flat_Rate.active_ind=1
-WHERE Project.active_ind IN (#attributes.active_ind#)
-	AND Project.status IS NOT NULL<cfif attributes.customer_id NEQ 0>
-	AND Project.customer_id=#attributes.customer_id#</cfif>
-	AND Project.status > 0
-ORDER BY #attributes.sort#
-</cfquery>
 </cfsilent>
 
+<cfquery name="get_engagement_dashboard" datasource="#application.datasources.main#">
+UPDATE Project
+SET active_ind=#attributes.active_ind#,
+	business_case='#attributes.business_case#',
+	customer_id=#attributes.customer_id#,
+	<cfif isdate("attributes.date_go_live")>date_go_live='#dateformat(attributes.date_go_live,'yyyy-mm-dd')#',</cfif>
+	description='#attributes.description#',
+	eng_status='#attributes.eng_status#',
+	file_path='#attributes.file_path#',
+	mission='#attributes.mission#',
+	product_id=#attributes.product_id#,
+	project_end='#dateformat(attributes.project_end,'yyyy-mm-dd')#',
+	project_manager_emp_id=#attributes.project_manager_emp_id#,
+	project_start='#dateformat(attributes.project_start,'yyyy-mm-dd')#',
+	status=#attributes.status#
+WHERE project_id=#attributes.project_id#
+</cfquery>
+
+<cfquery name="delete_old" datasource="#application.datasources.main#">
+DELETE FROM Link_Project_Company
+WHERE project_id=#attributes.project_id#;
+
+<cfloop list="#attributes.company_id#" index="ii">
+INSERT INTO Link_Project_Company (project_id, company_id)
+VALUES (#attributes.project_id#, #ii#);
+</cfloop>
+</cfquery>

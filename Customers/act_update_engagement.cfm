@@ -22,7 +22,7 @@ SET description='#attributes.description#',
 	billable_type_id=#attributes.billable_type_id#,
 	active_ind=#attributes.active_ind#,
 	company_id=#attributes.company_id#
-WHERE Project_id=#project_id#
+WHERE project_id=#project_id#
 </cfquery>
 
 	<cfquery name="delete_flat_rate" datasource="#application.datasources.main#">

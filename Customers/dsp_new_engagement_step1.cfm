@@ -29,7 +29,7 @@
 	</tr>
 	<tr valign="top">
 		<td colspan="2" class="RegTextBd">
-			Root Name<br />
+			Root Code<br />
 			<cfselect name="customer_id" size="1" query="get_root_codes" value="customer_id" required="yes" display="display"></cfselect><br />
 			Project Name<br />
 			<cfinput type="text" name="description" required="yes" message="Please enter an Project Name">

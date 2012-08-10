@@ -34,12 +34,12 @@
 	</td>
 </tr>
 <tr>
-	<td class="SubHeadText">Root Name</td>
+	<td class="SubHeadText">Root Code</td>
 	<td class="SubHeadText">Billable</td>
 </tr>
 <tr>
 	<td>
-		<cfinput type="text" required="yes" message="Please enter a Root Name" name="description">
+		<cfinput type="text" required="yes" message="Please enter a root code" name="description">
 	</td>
 	<td>
 		<cfselect name="billable_type_id" size="1">

@@ -19,13 +19,8 @@
 </cfif>
 </cfsilent>
 <cfinclude template="act_edit_engagement_header.cfm">
-<table align="center" border="0" cellpadding="1" cellspacing="0" width="70%">
-<cfif NOT isdefined("attributes.edit") OR (isdefined("attributes.original_billable_type_id") AND attributes.billable_type_id NEQ attributes.original_billable_type_id)>
-		<cfinclude template="dsp_edit_engagement_header.cfm">
-</cfif>
 <cfswitch expression="#attributes.option#">
 	<cfcase value="0">
-		<cfinclude template="act_edit_engagement_menu.cfm">
 		<cfinclude template="dsp_edit_engagement_menu.cfm">
 	</cfcase>
 	<cfcase value="1">
@@ -56,7 +51,5 @@
 	</cfcase>
 </cfswitch>
 <cfif isdefined("attributes.edit") AND (NOT isdefined("attributes.original_billable_type_id") OR attributes.billable_type_id EQ attributes.original_billable_type_id)>
-	<cfmodule template="../common_files/act_redirect_browser.cfm" display="Your changes have been applied to the engagement." fuseaction="edit_engagement&project_id=#attributes.project_id#">
+	<cfmodule template="../common_files/act_redirect_browser.cfm" display="Your changes have been applied to the engagement." fuseaction="Customers.edit_engagement&project_id=#attributes.project_id#">
 </cfif>
-</table>
-

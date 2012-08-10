@@ -20,26 +20,8 @@
 <tbody>
 <cfoutput query="get_engagement_dashboard">
 	<tr> 
-		<td>
-			<a name="#project_id#"></a>
-			<a href="javascript:edit_project(#project_id#);" title="Edit this project">
-				<!--- Show Status Color Image and SET Status Color Variable baised on the status code--->
-				<cfswitch expression="#status#">
-					<cfcase value="1">
-						<i class="icon-star"></i><img src="images/bar_7.gif" width="16" height="15" border="0" />
-					</cfcase>
-					<cfcase value="2">
-						<i class="icon-flag"></i>
-						<img src="images/bar_3.gif" width="16" height="15" border="0" />
-					</cfcase>
-					<cfdefaultcase>
-						<!--- No status so display a red so I get attention --->
-						<i class="icon-fire"></i>
-						<img src="images/bar_1.gif" width="16" height="15" border="0" />
-					</cfdefaultcase>
-				</cfswitch>
-				#customer_description# - #description#(#project_code#)
-			</a>
+		<td id="#project_id#">
+			<a href="javascript:edit_project(#project_id#);" title="Edit this project">#customer_description# - #description#(#project_code#)</a>
 		</td>
 		<td>
 			#lname#&nbsp;
@@ -50,6 +32,19 @@
 			</cfif>
 		</td>
 		<td>
+			<!--- Show status color image and set status color variable based on the status code--->
+			<cfswitch expression="#status#">
+				<cfcase value="1">
+					<span style="background-image:url('images/bar_7.gif');"><i class="icon-star icon-white"></i></span> Good
+				</cfcase>
+				<cfcase value="2">
+					<span style="background-image:url('images/bar_3.gif');"><i class="icon-flag icon-white"></i></span> Caution
+				</cfcase>
+				<cfdefaultcase>
+					<!--- No status so display a red so I get attention --->
+					<span style="background-image:url('images/bar_1.gif');"><i class="icon-fire icon-white"></i></span> Danger
+				</cfdefaultcase>
+			</cfswitch>
 			<cfif eng_status EQ 0>Not Started</cfif>
 			<cfif eng_status EQ 1>Approved&ndash;In Progress</cfif>
 			<cfif eng_status EQ 11>Technical Review&ndash;Nucleus</cfif>
