@@ -64,10 +64,10 @@ inner join Link_Company_Emp_Contact on demographics.emp_id = Link_Company_Emp_Co
 inner join emp_contact on demographics.emp_id = emp_contact.emp_id
 WHERE Time_Entry.active_ind=1
 	AND security.disable <> 1 
-AND company_id IN (#session.workstream_selected_company_id#) <cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.emp_id IN (#preservesinglequotes(attributes.form_Pin)#))</cfif>
+AND company_id IN (#session.workstream_selected_company_id#) <cfif NOT listcontainsnoCase(attributes.emp_id,"ALL" )> AND (Emp_Contact.emp_id IN (#preservesinglequotes(attributes.emp_id)#))</cfif>
 <!--- <cfif individual>and demographics.emp_id=#emp_id#</cfif> --->
 
 GROUP BY EXTRACT(YEAR FROM time_entry.date), project_id, name, lname, demographics.emp_id, demographics.tenure_date,demographics.hire_date,PTO_TYPE_INDICATOR, TIME_ROLLOVER_from_2000
 ORDER BY EXTRACT(YEAR FROM time_entry.date), lname, name
 </cfquery>
-<!--- 		<cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.emp_id IN (#preservesinglequotes(attributes.form_Pin)#))</cfif> --->
+<!--- 		<cfif NOT listcontainsnoCase(attributes.emp_id,"ALL" )> AND (Emp_Contact.emp_id IN (#preservesinglequotes(attributes.emp_id)#))</cfif> --->

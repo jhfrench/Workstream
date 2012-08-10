@@ -61,7 +61,7 @@ WHERE Security_Company_Access.emp_id = emp_contact.emp_id
 		AND Demographics.Day_Length_ID *= REF_Day_Length.Day_Length_ID
 		AND Demographics.Effective_To IS NULL 
 		And Security.Disable <> 1
-		<cfif NOT listcontainsnoCase(attributes.form_Pin,"ALL" )> AND (Emp_Contact.emp_id IN (#preservesinglequotes(attributes.form_Pin)#))</cfif>
+		<cfif NOT listcontainsnoCase(attributes.emp_id,"ALL" )> AND (Emp_Contact.emp_id IN (#preservesinglequotes(attributes.emp_id)#))</cfif>
 ORDER BY lname
 </cfif>
 </cfquery>

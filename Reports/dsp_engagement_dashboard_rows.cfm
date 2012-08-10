@@ -23,9 +23,6 @@
 		<td id="#project_id#">
 			<a href="javascript:edit_project(#project_id#);" title="Edit this project">#customer_description#&ndash;#description# (#project_code#)</a>
 		</td>
-		<td>
-			#lname#&nbsp;
-		</td>
 		<td class="date">
 			<cfif isdate(deadline_date)>
 				#dateformat(deadline_date,'m/d/yyyy')#
@@ -45,6 +42,8 @@
 					<span style="background-image:url('images/bar_1.gif');"><i class="icon-fire icon-white"></i></span> Danger
 				</cfdefaultcase>
 			</cfswitch>
+		</td>
+		<td>
 			<cfif eng_status EQ 0>Not Started</cfif>
 			<cfif eng_status EQ 1>Approved&ndash;In Progress</cfif>
 			<cfif eng_status EQ 11>Technical Review&ndash;Nucleus</cfif>
@@ -71,6 +70,9 @@
 		</td>
 		<td>
 			#mission#&nbsp;
+		</td>
+		<td>
+			#lname#&nbsp;
 		</td>
 		<td class="date">
 			#dateformat(date_updated, "m/d/yyyy")#

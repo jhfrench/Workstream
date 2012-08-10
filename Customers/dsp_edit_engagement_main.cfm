@@ -22,7 +22,7 @@
 <cfoutput>
 <cfform name="edit_engagement_main_form" action="index.cfm?fuseaction=Customers.edit_engagement" method="post" class="form-horizontal">
 	<fieldset>
-		<legend><h2>Edit Project for <a href="javascript:engagement_list('#get_customer_name_code.root_code#');">#get_customer_name_code.project_name#- #get_customer_name_code.project_code#</a></h2></legend>
+		<legend><h2>Edit Project for <a href="javascript:engagement_list('#get_customer_name_code.root_code#');" title="View other projects for this customer.">#get_customer_name_code.project_name#</a>&ndash; #get_customer_name_code.project_code#</h2></legend>
 		<div class="control-group">
 			<label for="customer_id">Root Code</label>
 			<div class="controls">
@@ -106,19 +106,19 @@
 		</div>
 		</fieldset>
 		<div class="control-group">
-			<label for="status">Progress</label>
+			<label for="status">Status</label>
 			<div class="controls">
 				<select name="status" id="status">
 					<option value="0"<cfif get_engagement_main.status EQ 0> selected="selected"</cfif>>None</option>
-					<option value="1"<cfif get_engagement_main.status EQ 1> selected="selected"</cfif>>Green</option>
-					<option value="2"<cfif get_engagement_main.status EQ 2> selected="selected"</cfif>>Yellow</option>
-					<option value="3"<cfif get_engagement_main.status EQ 3> selected="selected"</cfif>>Red</option>
+					<option value="1"<cfif get_engagement_main.status EQ 1> selected="selected"</cfif>>Good</option>
+					<option value="2"<cfif get_engagement_main.status EQ 2> selected="selected"</cfif>>Warning</option>
+					<option value="3"<cfif get_engagement_main.status EQ 3> selected="selected"</cfif>>Danger</option>
 				</select>
-				<p class="help-block"></p>
+				<p class="help-block">What is your impression of the health of the project?</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="eng_status">Status</label>
+			<label for="eng_status">Progress</label>
 			<div class="controls">
 				<select name="eng_status" id="eng_status">
 					<option value="0"<cfif get_engagement_main.eng_status EQ 0> selected="selected"</cfif>>Not Started</option>
@@ -135,7 +135,7 @@
 					<option value="5"<cfif get_engagement_main.eng_status EQ 5> selected="selected"</cfif>>On Hold</option>
 					<option value="4"<cfif get_engagement_main.eng_status EQ 4> selected="selected"</cfif>>Completed</option>
 				</select>
-				<p class="help-block"></p>
+				<p class="help-block">What is the project's current work status?</p>
 			</div>
 		</div>
 		<div class="control-group">

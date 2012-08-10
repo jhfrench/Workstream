@@ -21,7 +21,7 @@
 		Name:
 	</td>
 	<td valign="top">
-		<cfselect name="form_pin" message="Please select an employee for your PTO report." required="yes" multiple="yes" size="#min(get_pto_names.recordcount,15)#">
+		<cfselect name="emp_id" message="Please select an employee for your PTO report." required="yes" multiple="yes" size="#min(get_pto_names.recordcount,15)#">
 			<cfif variables.all_option><option value="all" selected="selected">ALL</cfif>
 			<cfoutput query="get_pto_names">
 			<option value="#emp_id#"<cfif variables.only_one> selected="selected"</cfif>>#lname#, #name#</option>

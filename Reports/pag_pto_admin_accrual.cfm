@@ -19,8 +19,4 @@
 <cfinclude template="qry_nucleus_pto.cfm">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="pto" fuseaction ="pto_detail" field_name="pin" >
 <cfinclude template="dsp_pto_header.cfm"> 
-<table border="1" cellspacing="0" cellpadding="4" width="95%"  align="center">
-	<cfinclude template="dsp_admin_pto_row_head.cfm">
-	<cfinclude template="dsp_admin_pto_rows.cfm">
-</table>
-	 
+<cfinclude template="dsp_pto_details_table.cfm">

@@ -18,14 +18,14 @@
 		<th>
 			Customer &amp; Project Name
 		</th>
-		<th>
-			<abbr title="Project Manager">PM</abbr>
-		</th>
 		<th title="Date the project is to go live, or end (if known).">
 			Due
 		</th>
 		<th>
 			Status
+		</th>
+		<th>
+			Progress
 		</th>
 		<th>
 			Project Update
@@ -38,6 +38,9 @@
 		</th>
 		<th>
 			Upselling Opportunities
+		</th>
+		<th>
+			<abbr title="Project Manager">PM</abbr>
 		</th>
 		<th>
 			Updated

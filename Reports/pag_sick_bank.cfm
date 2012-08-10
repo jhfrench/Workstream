@@ -13,9 +13,6 @@
 	 || 
 	END FUSEDOC --->
 <cfparam name="attributes.emp_id" default="">
-<cfif isdefined("attributes.form_pin")>
-	<cfset attributes.emp_id=attributes.form_pin>
-</cfif>
 </cfsilent>
 
 <!--- Check to see if user has access to 'All' --->

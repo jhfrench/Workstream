@@ -23,7 +23,7 @@
 	<cfinclude template="dsp_engagement_dashboard_rows.cfm">
 </table>
 
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_project" fuseaction="Customers.edit_engagement" field_name="project_id" processform="true" option="3" engagement_dashboard_return="1" customer_id="#attributes.customer_id#" project_manager_emp_id="#attributes.project_manager_emp_id#" sort="#attributes.sort#">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_project" fuseaction="Customers.edit_engagement" field_name="project_id" processform="true" option="1" engagement_dashboard_return="1" customer_id="#attributes.customer_id#" project_manager_emp_id="#attributes.project_manager_emp_id#" sort="#attributes.sort#">
 
  <a href="index.cfm?fuseaction=Customers.new_engagement" class="btn"><i class="icon-plus-sign"></i> Add New Project</a>
  
