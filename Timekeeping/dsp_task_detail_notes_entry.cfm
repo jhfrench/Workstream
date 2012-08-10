@@ -30,7 +30,7 @@
 	</div>
 	<div class="span4">
 		<label for="date">Date</label>
-		<input type="date" name="date" id="date" min="#dateformat(express_check_date.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" class="span11" />
+		<input type="date" name="date" id="date" min="#dateformat(express_check_date.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" class="span11 date" />
 		<!--- <select name="date" id="date" class="span11">
 		<cfloop from="0" to="#variables.go_back_to#" index="variables.date_adjust_ii">
 			<cfset variables.temp_date=dateadd("d", -variables.date_adjust_ii, now())>

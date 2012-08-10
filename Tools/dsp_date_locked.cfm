@@ -35,7 +35,7 @@ variables.min_date=listFirst(variables.date_list);
 		<div class="control-group">
 			<label for="date_locked">New Date Locked</label>
 			<div class="controls">
-				<input type="date" name="date_locked" id="date_locked" min="#dateformat(variables.min_date, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" required="required" maxlength="10" class="span11" />
+				<input type="date" name="date_locked" id="date_locked" min="#dateformat(variables.min_date, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" required="required" maxlength="10" class="span11 date" />
 				<!-- Use CF to require field <cfinput type="text" name="date_locked"  message="Please specify a valid date to apply." validate="date" required="yes" size="8" /> -->
 			</div>
 		</div>
