@@ -38,7 +38,7 @@ FROM Project
     LEFT OUTER JOIN (
 		SELECT project_id,SUM(total_bill_amount) AS total_bill_amount
 		FROM Billing_History
-		WHERE item_deleted = 0
+		WHERE active_ind=1
 		GROUP BY project_id
 	) AS Billing_History ON Project.project_id=Billing_History.project_id
 WHERE COALESCE(Project.status,0) > 0
