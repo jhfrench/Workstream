@@ -17,7 +17,7 @@
 		<td colspan="2" class="HeadTextWhite">Manager Hours Report</td>
 	</tr>
 	<tr bgcolor="##5F5F5F">
-		<td colspan="2" class="RegTextWhite">Enter Dates (mm/dd/yyyy)</td>
+		<td colspan="2" class="RegTextWhite">Enter Dates (m/d/yyyy)</td>
 	</tr>
 	<tr>
 		<td>From: <cfinput type="text" name="From_date" required="yes" size="9" validate="date" message="You must enter a valid from date"></td>

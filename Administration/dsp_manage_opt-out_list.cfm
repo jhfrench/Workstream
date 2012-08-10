@@ -39,7 +39,7 @@
 			</td>
 			<td scope="row"><label for="email_blacklist_id_#email_blacklist_id#">#email_address#</label></td>
 			<td>#created_by#&nbsp;</td>
-			<td align="right">#dateformat(created_date,"mm/dd/yyyy")#</td>
+			<td align="right">#dateformat(created_date,"m/d/yyyy")#</td>
 		</tr>
 	</cfloop>
 	</tbody>

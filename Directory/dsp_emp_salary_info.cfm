@@ -28,7 +28,7 @@ $Log:
 	<tbody>
 	<cfoutput query="get_emp_salary_info">
 		<tr>
-			<td class="date">#dateformat(date_implemented,'mm/dd/yyyy')#</td>
+			<td class="date">#dateformat(date_implemented,'m/d/yyyy')#</td>
 			<td class="number">#dollarformat(decrypt(salary,"sillyputty"))#</td>
 			<td class="number">#dollarformat(decrypt(increase_amount,"sillyputty"))#</td>
 			<td class="number">#decrypt(increase_percent,"sillyputty")#</td>

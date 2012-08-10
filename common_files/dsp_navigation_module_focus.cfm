@@ -35,7 +35,7 @@
 						</div>
 						<div style="width:260px;padding:2px;background-color:black;color:##c28400;font-size:8pt;text-align:right;font-style:italic;">
 							&raquo;<span id="ad_owner">#created_by#</span>
-							&ndash;<span id="ad_date">#dateformat(created_date,"mm/dd/yyyy")#</span>
+							&ndash;<span id="ad_date">#dateformat(created_date,"m/d/yyyy")#</span>
 						</div></cfloop></cfif>
 					</div>
 				</td>

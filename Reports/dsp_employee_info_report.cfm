@@ -64,7 +64,7 @@
 
 		<!--- Birth Date --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Birth Date")>
-			<td class="date">#dateformat(get_employee_info.dob,'mm/dd/yyyy')#</td>
+			<td class="date">#dateformat(get_employee_info.dob,'m/d/yyyy')#</td>
 		</cfif>
 
 		<!--- Gender --->
@@ -74,12 +74,12 @@
 
 		<!--- Hire Date --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Hire Date")>
-			<td class="date">#dateformat(get_employee_info.hire_date,'mm/dd/yyyy')#</td>
+			<td class="date">#dateformat(get_employee_info.hire_date,'m/d/yyyy')#</td>
 		</cfif>
 			
 		<!--- Term Date --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Term Date")>
-			<td class="date">#dateformat(get_employee_info.end_date,'mm/dd/yyyy')#</td>
+			<td class="date">#dateformat(get_employee_info.end_date,'m/d/yyyy')#</td>
 		</cfif>
 
 		<!--- Separation Code --->
@@ -94,7 +94,7 @@
 
 		<!--- Job Date--->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Job Date")>
-			<td class="date">#dateformat(get_employee_info.date_start,'mm/dd/yyyy')#</td>
+			<td class="date">#dateformat(get_employee_info.date_start,'m/d/yyyy')#</td>
 		</cfif>
 
 		<!--- Manager --->
@@ -114,7 +114,7 @@
 
 		<!--- Salary Change Date --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Salary Change Date")>
-			<td class="date">#dateformat(get_employee_info.date_implemented,'mm/dd/yyyy')#</td>
+			<td class="date">#dateformat(get_employee_info.date_implemented,'m/d/yyyy')#</td>
 		</cfif>
 
 		<!--- % Inc --->
@@ -134,7 +134,7 @@
 
 		<!--- Benefits Start Date --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Benefits Start Date")>
-			<td class="date">#dateformat(get_employee_info.benefit_start_date,'mm/dd/yyyy')#</td>
+			<td class="date">#dateformat(get_employee_info.benefit_start_date,'m/d/yyyy')#</td>
 		</cfif>
 
 		<!--- Med CVG --->

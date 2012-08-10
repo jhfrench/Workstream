@@ -82,7 +82,7 @@
 			<div class="btn-group">
 				<input type="submit" name="method" value="Save changes" class="btn btn-primary" />
 				<a href="index.cfm?fuseaction=#attributes.referer#" class="btn">Return without saving</a>
-				<cfif time_entry_edit.date GT dateformat(now()-variables.go_back_to,"mm/dd/yyyy")><input type="submit" name="method" value="Delete this entry" class="btn btn-danger" /></cfif>
+				<cfif time_entry_edit.date GT dateformat(now()-variables.go_back_to,"m/d/yyyy")><input type="submit" name="method" value="Delete this entry" class="btn btn-danger" /></cfif>
 			</div>
 		</div>
 	</fieldset>

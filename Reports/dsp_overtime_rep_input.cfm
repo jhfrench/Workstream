@@ -15,9 +15,9 @@
 <cfloop from="1" to="7" index="ii">
 	<cfset temp_date=dateadd("d", -ii, now())>
 	<cfif DayOfWeek(temp_date) EQ 1>
-		<cfset start_date=dateformat(temp_date, "mm/dd/yyyy")>
+		<cfset start_date=dateformat(temp_date, "m/d/yyyy")>
 	<cfelseif DayOfWeek(temp_date) EQ 7>
-		<cfset end_date=dateformat(dateadd("d", 7, temp_date), "mm/dd/yyyy")>
+		<cfset end_date=dateformat(dateadd("d", 7, temp_date), "m/d/yyyy")>
 	</cfif>
 </cfloop>
 <table border="0" cellpadding="4" cellspacing="0" align="center" width="25%">

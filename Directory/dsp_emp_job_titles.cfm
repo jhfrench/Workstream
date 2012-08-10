@@ -25,7 +25,7 @@ $Log:
 	<tbody>
 	<cfoutput query="get_emp_job_titles">
 		<tr>
-			<td class="date">#dateformat(date_start,'mm/dd/yyyy')#</td>
+			<td class="date">#dateformat(date_start,'m/d/yyyy')#</td>
 			<td>#title#</td>
 		</tr>
 	</cfoutput>

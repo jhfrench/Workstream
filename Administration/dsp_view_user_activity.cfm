@@ -44,7 +44,7 @@
 
 <!---display known login attempts--->
 <div class="datachart" style="border:1px solid ##999999">
-<h3 style="margin:0px" id="top-side">User's last 100 known login attempts<cfif isdate(attributes.start_date) AND isdate(attributes.end_date)> between #dateformat(attributes.start_date, "mm/dd/yyyy")# and #dateformat(attributes.end_date, "mm/dd/yyyy")#</cfif></h3>
+<h3 style="margin:0px" id="top-side">User's last 100 known login attempts<cfif isdate(attributes.start_date) AND isdate(attributes.end_date)> between #dateformat(attributes.start_date, "m/d/yyyy")# and #dateformat(attributes.end_date, "m/d/yyyy")#</cfif></h3>
 <table width="100%" cellpadding="0" cellspacing="0" border="0" cols="3" summary="I show the user's last 100 known login attempts." align="left">
 	<thead>
 		<tr>
@@ -165,7 +165,7 @@
 		<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';">
 			<td scope="row">#page_request_id#</td>
 			<td>#url_requested#</td>
-			<td>#dateformat(request_date, "mm/dd/yyyy")#&nbsp;#request_time#</td>
+			<td>#dateformat(request_date, "m/d/yyyy")#&nbsp;#request_time#</td>
 		</tr>
 	</cfloop>
 	</tbody>
@@ -194,7 +194,7 @@
 			<td scope="row">#page_request_id#</td>
 			<td>#url_requested#</td>
 			<td>#page_load_time#</td>
-			<td>#dateformat(request_date, "mm/dd/yyyy")#&nbsp;#request_time#</td>
+			<td>#dateformat(request_date, "m/d/yyyy")#&nbsp;#request_time#</td>
 		</tr>
 	</cfloop>
 	</tbody>

@@ -40,7 +40,7 @@
 		</td>
 		<td align="right" valign="top">
 		<cfif len(file_path)><a href="http://#REPLACE(file_path,"N:","10.1.1.176/Nuco1")#"></cfif>
-			<cfif len(date_go_live)><font color="red">Go-Live: </font>#dateformat(date_go_live,"mm/dd/yyyy")#</cfif>
+			<cfif len(date_go_live)><font color="red">Go-Live: </font>#dateformat(date_go_live,"m/d/yyyy")#</cfif>
 			<cfif len(file_path)></a></cfif>
 		</td>
 		<td align="center" valign="top" bgcolor="#variables.symbollic_color#">
@@ -68,7 +68,7 @@
 			#mission#<cfif NOT len(mission)>&nbsp;</cfif>
 		</td>
 		<td align="right" valign="top">
-			#dateformat(date_updated,"mm/dd/yyyy")#
+			#dateformat(date_updated,"m/d/yyyy")#
 		</td>
 	</tr>
 </cfoutput>

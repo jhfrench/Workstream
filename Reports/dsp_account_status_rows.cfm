@@ -30,13 +30,13 @@
 			#priority#
 		</td>
 		<td align="right" valign="top">
-			#dateformat(assigned_date,"mm/dd/yyyy")#
+			#dateformat(assigned_date,"m/d/yyyy")#
 		</td>
 		<td align="right" valign="top">
-			#dateformat(due_date,"mm/dd/yyyy")#
+			#dateformat(due_date,"m/d/yyyy")#
 		</td>
 		<td align="right" valign="top">
-			#dateformat(complete_date,"mm/dd/yyyy")#
+			#dateformat(complete_date,"m/d/yyyy")#
 		</td>
 		<td valign="top">
 			#owner#

@@ -44,7 +44,7 @@
 		if(not isdefined("application.email_server_name")) {
 			application.email_server_name="";
 		}
-		variables.errordate=dateformat(now(), "mm/dd/yyyy");
+		variables.errordate=dateformat(now(), "m/d/yyyy");
 		variables.errortime=timeformat(now(), "hh:mm:ss TT");
 		variables.error_diagnostics=stripcr(ReplaceList(error.diagnostics, "<p>,<pre>,</pre>,</P>,<hr>,<b>,</b>,<ol>,<li>,</ol>,<p>,</p>,'", ",,,,,,,,,,,,"));
 		variables.error_querystring=error.querystring;

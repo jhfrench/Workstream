@@ -16,7 +16,7 @@
 <cfoutput query="Showhours">
 <tr bgcolor="##FBEEA8">
 			<td></td>
-			<td>#dateformat(date, "mm/dd/yyyy")#</td>
+			<td>#dateformat(date, "m/d/yyyy")#</td>
 			<td>#hours#</td>
 			<cfset remaining=remaining-hours>
 			<td>#remaining#</td>

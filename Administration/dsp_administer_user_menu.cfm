@@ -96,7 +96,7 @@
 				<label for="password_reset">Password</label>
 				<div class="controls" id="password_reset">
 					<a href="javascript:reset_password(#attributes.user_account_id#);" onclick="hide();" title="Resetting the password will make the system send a new, random, password to the user's email address on file." class="btn btn-danger"><i class="icon-random icon-white"></i> Reset Password</a>
-					<p class="help-block">Password last updated #dateformat(get_user_password.created_date, "mm/dd/yyyy")# #timeformat(get_user_password.created_date)# by #get_user_password.first_name# #get_user_password.last_name#.</p>
+					<p class="help-block">Password last updated #dateformat(get_user_password.created_date, "m/d/yyyy")# #timeformat(get_user_password.created_date)# by #get_user_password.first_name# #get_user_password.last_name#.</p>
 				</div>
 			</div>
 			<div class="form-actions">

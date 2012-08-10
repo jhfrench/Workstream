@@ -36,13 +36,13 @@
 <cfoutput query="get_open_tasks">
 <cfset StatusMsg=ReplaceList(task_name, variables.StatusMsg_replace, variables.StatusMsg_replace_with)><!--- $issue$ is this variable still needed? --->
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td>#dateformat(date_due, "mm/dd/yyyy")#</td>
+		<td>#dateformat(date_due, "m/d/yyyy")#</td>
 		<td>#task_id#</td>
 		<td><a href="javascript:list_to_time('#task_id#');"><cfif listlen(time_used,".") GT 1>#decimalformat(time_used)#<cfelse>#numberformat(time_used)#</cfif><cfif time_budgeted>/#time_budgeted# #numberformat(percent_time_used)#%</cfif></a></td>
 		<td>#task_owner#</td>
 		<td><a href="javascript:list_to_task('#task_id#');"><img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="#ReplaceList(task_description, variables.quote, variables.StatusMsg_replace_with)#" height="16" width="16" border="0">#task_name#</a></td>
 		<td>#project_name#</td>
-		<td><cfif NOT dateformat(now(), "mm/dd/yyyy") LT dateformat(date_due, "mm/dd/yyyy")><img src="#request.dir_level##application.application_specific_settings.image_dir#<cfif dateformat(now(), "mm/dd/yyyy") EQ dateformat(date_due, "mm/dd/yyyy")>not_started<cfelse>overdue</cfif>.gif" width="17" height="17" alt="" border="0">&nbsp;</cfif>#task_status#</td>
+		<td><cfif NOT dateformat(now(), "m/d/yyyy") LT dateformat(date_due, "m/d/yyyy")><img src="#request.dir_level##application.application_specific_settings.image_dir#<cfif dateformat(now(), "m/d/yyyy") EQ dateformat(date_due, "m/d/yyyy")>not_started<cfelse>overdue</cfif>.gif" width="17" height="17" alt="" border="0">&nbsp;</cfif>#task_status#</td>
 	</tr>
 </cfoutput>
 <cfelse>

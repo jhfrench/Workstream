@@ -103,7 +103,7 @@
 								<cfif (variables.this_day NEQ 0) AND (variables.this_day LTE variables.days_in_month)>
 									<!--- I choose to highlight the current day of year using an IF-ELSE. ---->
 									<td align="center">
-										<cfset variables.dayview=dateformat(createdate(variables.year, variables.month, variables.this_day), "mm/dd/yyyy")>
+										<cfset variables.dayview=dateformat(createdate(variables.year, variables.month, variables.this_day), "m/d/yyyy")>
 										<font class="calendar<cfif (variables.this_day EQ variables.current_day) AND (variables.month EQ variables.start_month) AND (variables.year EQ variables.start_year)>today</cfif>"><cfoutput>#variables.this_day#</cfoutput></font>
 									</td>
 									<cfset variables.this_day=incrementvalue(variables.this_day)>

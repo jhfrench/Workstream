@@ -19,7 +19,7 @@
 <script language="javascript">
 <!--
 //This function is used througout the website for all date validation.  We want all our dates to
-//be in a uniform mm/dd/yyyy 10-digit format. Then the date will be tested to verify that the user
+//be in a uniform m/d/yyyy 10-digit format. Then the date will be tested to verify that the user
 //entered valid values for all 3 parts of date (month specific).  This function also verifies correct days 
 //values for any months that fall in Feb.  Anytime a problem is found with the date entered, the user will
 //receive a JS prompt telling them to change their entry.  The only parameter used specifically by this
@@ -41,7 +41,7 @@
 
 			//Test date entered to make sure it is 10 characters long and that, when split, the array has 3 elements
 			if (dtFieldDate.length!=10 || datePartArray.length!=3){
-				alert(dtFieldDate + " is an invalid date. Please re-enter the 10-digit date in mm/dd/yyyy format or leave blank if not required.");
+				alert(dtFieldDate + " is an invalid date. Please re-enter the 10-digit date in m/d/yyyy format or leave blank if not required.");
 				thisObj.focus();					//Don't let the user click back out until they've fixed the problem
 				thisObj.value='';
 				return false;

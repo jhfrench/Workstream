@@ -43,8 +43,8 @@
 </cfif>
 
 <!--- date range --->
-<cfparam name="attributes.date_start" default="#dateformat(dateadd('yyyy', -1, now()), 'mm/dd/yyyy')#">
-<cfparam name="attributes.date_end" default="#dateformat(now(), 'mm/dd/yyyy')#">
+<cfparam name="attributes.date_start" default="#dateformat(dateadd('yyyy', -1, now()), 'm/d/yyyy')#">
+<cfparam name="attributes.date_end" default="#dateformat(now(), 'm/d/yyyy')#">
 
 <!--- installation --->
 <cfparam name="attributes.installation_id" default="0">

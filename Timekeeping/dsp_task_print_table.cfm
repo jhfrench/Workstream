@@ -71,13 +71,13 @@
 			Assigned:
 		</td>
 		<td>
-			#dateformat(date_assigned,"mm/dd/yyyy")#
+			#dateformat(date_assigned,"m/d/yyyy")#
 		</td>
 		<td align="right" class="SubHeadText">
 			Due:
 		</td>
 		<td>
-			#dateformat(due_date,"mm/dd/yyyy")#
+			#dateformat(due_date,"m/d/yyyy")#
 		</td>
 		<td align="right" class="SubHeadText">
 			Status:

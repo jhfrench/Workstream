@@ -25,7 +25,7 @@
 		<td colspan="2">#attributes.report_name#</td>
 	</tr>
 	<tr bgcolor="##5F5F5F" class="HeadTextSmWhite">
-		<td colspan="2">Enter Dates (mm/dd/yyyy)</td>
+		<td colspan="2">Enter Dates (m/d/yyyy)</td>
 	</tr>
 	<tr>
 		<td>

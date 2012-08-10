@@ -37,7 +37,7 @@
 	<cfmodule template="qry_get_ref_product_version.cfm" product_version_id="#attributes.product_version_id#">
 	<cfset attributes.description=get_ref_product_version.description>
 	<cfset attributes.product_version_id=get_ref_product_version.product_version_id>
-	<cfset attributes.scheduled_release_date=dateformat(get_ref_product_version.scheduled_release_date,"mm/dd/yyyy")>
+	<cfset attributes.scheduled_release_date=dateformat(get_ref_product_version.scheduled_release_date,"m/d/yyyy")>
 	<cfset attributes.sort_order=get_ref_product_version.sort_order>
 </cfif>
 <cfform name="form_ref_product_version_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
@@ -52,7 +52,7 @@
 				<td><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" size="50" value="#attributes.description#" required="yes" message="Please enter description" maxlength="50">
 				</td>
-				<td><label for="scheduled_release_date">Scheduled Release Date (mm/dd/yyyy)</label>: 
+				<td><label for="scheduled_release_date">Scheduled Release Date (m/d/yyyy)</label>: 
 					<br /><cfinput type="text" name="scheduled_release_date" id="scheduled_release_date" size="38" value="#attributes.scheduled_release_date#" required="yes" message="Please enter scheduled release date" maxlength="38">
 				</td>
 				<td><label for="sort_order">Sort Order</label>: 

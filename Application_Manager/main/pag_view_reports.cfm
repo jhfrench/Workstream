@@ -38,8 +38,8 @@
 	<tr>
 		<td width="50">Date Range</td>
 		<td>
-			<label for="date_start">Start date</label>: <cfinput type="text" name="date_start" id="date_start" value="#attributes.date_start#" size="8" maxlength="10" required="yes" message="Please enter a start date in mm/dd/yyyy format">
-			<label for="date_end">End date</label>: <cfinput type="text" name="date_end" id="date_end" value="#attributes.date_end#" size="8" maxlength="10" required="yes" message="Please enter an end date in mm/dd/yyyy format">
+			<label for="date_start">Start date</label>: <cfinput type="text" name="date_start" id="date_start" value="#attributes.date_start#" size="8" maxlength="10" required="yes" message="Please enter a start date in m/d/yyyy format">
+			<label for="date_end">End date</label>: <cfinput type="text" name="date_end" id="date_end" value="#attributes.date_end#" size="8" maxlength="10" required="yes" message="Please enter an end date in m/d/yyyy format">
 		</td>
 	</tr>
 	<tr id="installation_id_row" style="display:none">

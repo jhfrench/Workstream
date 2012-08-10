@@ -81,7 +81,7 @@
 
 
 			<div class="forum#discussion_id#" id="#discussion_id#" title="#attributes.level# level discussion thread">
-			Posted By: #created_by# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #dateformat(created_date, "mm/dd/yyyy")# at #timeformat(created_date, 'h:mm tt')#<br />
+			Posted By: #created_by# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #dateformat(created_date, "m/d/yyyy")# at #timeformat(created_date, 'h:mm tt')#<br />
 			#get_discussion.discussion_text#<br />
 			<cfif len(get_discussion.link)>
 				<i>Supporting Link: </i><a href="#get_discussion.link#">#get_discussion.link#</a><br />

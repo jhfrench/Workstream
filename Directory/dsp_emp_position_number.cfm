@@ -31,10 +31,10 @@
 				#position_id#<br />
 			</th>
 			<td class="date">
-				#dateformat(effective_start_date,'mm/dd/yyyy')#
+				#dateformat(effective_start_date,'m/d/yyyy')#
 			</td>
 			<td class="date">
-				#dateformat(effective_end_date,'mm/dd/yyyy')#
+				#dateformat(effective_end_date,'m/d/yyyy')#
 			</td>
 	</cfoutput>
 	</tbody>

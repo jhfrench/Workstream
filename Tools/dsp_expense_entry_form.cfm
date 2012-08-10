@@ -58,7 +58,7 @@
 	</td>
 	<td>
 		<input type="date" name="date_incurred" id="date_incurred" min="2011-09-01" max="#dateformat(now()+30, 'yyyy-mm-dd')#"  value="#dateformat(attributes.date_incurred,'yyyy-mm-dd')#" required="required" maxlength="10" class="span6 date" />
-		<!-- Use CF to create validaton <cfinput type="datefield" name="date_incurred" required="yes" validate="date" message="Please enter the date this expense was paid (mm/dd/yyyy format)." size="11"> --->
+		<!-- Use CF to create validaton <cfinput type="datefield" name="date_incurred" required="yes" validate="date" message="Please enter the date this expense was paid (m/d/yyyy format)." size="11"> --->
 	</td>
 </tr>
 <tr>

@@ -384,7 +384,7 @@
 			</Borders>
 			<Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8" ss:Color="##4B7279" />
 			<Interior ss:Color="##EDF3F3" ss:Pattern="Solid" />
-			<NumberFormat ss:Format="m/d/yy;@" />
+			<NumberFormat ss:Format="m/d/yyyy;@" />
 		</Style>
 		<Style ss:ID="s106">
 			<Alignment ss:Vertical="Top" />
@@ -396,7 +396,7 @@
 			</Borders>
 			<Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8" ss:Color="##4B7279" />
 			<Interior/>
-			<NumberFormat ss:Format="m/d/yy;@" />
+			<NumberFormat ss:Format="m/d/yyyy;@" />
 		</Style>
 		<Style ss:ID="s107">
 			<Alignment ss:Vertical="Top" ss:WrapText="1" />

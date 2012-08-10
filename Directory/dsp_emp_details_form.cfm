@@ -86,7 +86,7 @@
 						<td align="right">Hire date: </td>
 						<td align="left">
 							<input type="date" name="hire_date" id="hire_date" min="2011-09-01" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(hire_date, 'yyyy-mm-dd')#"  maxlength="10" required="required" class="span6 date" />
-							<!-- Use CF to create client validation <cfinput type="text" name="hire_date" value="#dateformat(hire_date, 'mm/dd/yyyy')#" required="yes" validate="date" message="Please enter a properly formatted hire date." size="11"> -->
+							<!-- Use CF to create client validation <cfinput type="text" name="hire_date" value="#dateformat(hire_date, 'm/d/yyyy')#" required="yes" validate="date" message="Please enter a properly formatted hire date." size="11"> -->
 						</td>
 						<td align="right"><font color=red>Company: </td>
 						<td align="left"><cfselect query="get_teams" name="company_id" value="company_id" display="company" selected="#company_id#"></cfselect></td>
@@ -126,7 +126,7 @@
 					<tr>
 						<td class="SubHeadText">&nbsp;</td>
 						<td align="right">Date Change Effective: </td>
-						<td align="left"><cfinput type="text" name="effective_from" required="yes" validate="date" message="You must provide a date that the change becomes effective." value="#dateformat(now(), 'mm/dd/yyyy')#" maxlength="10" size="11"></td>
+						<td align="left"><cfinput type="text" name="effective_from" required="yes" validate="date" message="You must provide a date that the change becomes effective." value="#dateformat(now(), 'm/d/yyyy')#" maxlength="10" size="11"></td>
 						<td align="right">&nbsp;</td>
 						<td align="left">&nbsp;</td>
 					</tr>

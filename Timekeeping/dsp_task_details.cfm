@@ -52,7 +52,7 @@
 	<input type="hidden" name="orig_owner" value="#task_owner#" />
 	<input type="hidden" name="orig_team" value="#task_team#" />
 	<input type="hidden" name="orig_qa" value="#task_qa#" />
-	<input type="hidden" name="orig_due_date" value="#dateformat(get_task_details.due_date,"mm/dd/yyyy")#" />
+	<input type="hidden" name="orig_due_date" value="#dateformat(get_task_details.due_date,"m/d/yyyy")#" />
 	<input type="hidden" name="orig_priority_id" value="#get_task_details.priority#" />
 	<input type="hidden" name="orig_project_id" value="#get_task_details.project_id#" />
 	<input type="hidden" name="orig_task_status_id" value="#get_task_details.status_id#" />
@@ -83,12 +83,12 @@
 			</div>
 			<div class="span4">
 				<label for="date_assigned" class="h5">Date assigned</label>
-				<span id="date_assigned" class="span11 date">#dateformat(get_task_details.date_assigned,"mm/dd/yyyy")#</span>
+				<span id="date_assigned" class="span11 date">#dateformat(get_task_details.date_assigned,"m/d/yyyy")#</span>
 				<label for="due_date" class="h5">Date due</label>
 				<input type="date" name="due_date" id="due_date" min="2011-09-01" value="#dateformat(get_task_details.due_date,'yyyy-mm-dd')#" maxlength="10" required="required" class="span11 date" />
 				<div style="float:left;">
 				<label for="date_completed" class="h5">Date completed</label>
-				<span id="date_completed" class="span11 date"><cfif len(get_task_details.complete_date) AND get_task_details.status_id EQ 11>#dateformat(get_task_details.complete_date,"mm/dd/yyyy")#<cfelse>Not yet completed</cfif></span>
+				<span id="date_completed" class="span11 date"><cfif len(get_task_details.complete_date) AND get_task_details.status_id EQ 11>#dateformat(get_task_details.complete_date,"m/d/yyyy")#<cfelse>Not yet completed</cfif></span>
 				</div>
 			</div>
 			<div class="span4">
@@ -108,7 +108,7 @@
 				<label for="notes" class="h5">Progress notes</label>
 				<cfif time_entry_details.recordcount>
 					<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea span12">
-						<cfloop query="time_entry_details"><p<cfif notes_type_id EQ 2> class="alert-info"</cfif>><strong>(#initials# #dateformat(date,"m/d/yy")#)</strong> - #trim(note)#&nbsp;&nbsp;</p></cfloop>
+						<cfloop query="time_entry_details"><p<cfif notes_type_id EQ 2> class="alert-info"</cfif>><strong>(#initials# #dateformat(date,"m/d/yyyy")#)</strong> - #trim(note)#&nbsp;&nbsp;</p></cfloop>
 					</div>
 				<cfelse>
 					<div id="notes" class="alert">

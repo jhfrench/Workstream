@@ -17,7 +17,7 @@
 </cfsilent>
 <cfoutput>
 	<tr>
-	   <td align="right" colspan="4">#dateformat(variables.compare_date, "mm/dd/yyyy")# Hours:</td>
+	   <td align="right" colspan="4">#dateformat(variables.compare_date, "m/d/yyyy")# Hours:</td>
 	   <td>#decimalformat(variables.daily_total_hours)#</td>
 	</tr>
 	<cfset variables.compare_date=manager_hours_report_output.date>

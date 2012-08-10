@@ -43,7 +43,7 @@
 	<cfif engagement_list.recordcount>
 	<cfoutput query="engagement_list">
 		<tr>
-			<td class="date"><cfif isdate(project_end)>#dateformat(project_end, "mm/dd/yyyy")#<cfelse>None</cfif></td>
+			<td class="date"><cfif isdate(project_end)>#dateformat(project_end, "m/d/yyyy")#<cfelse>None</cfif></td>
 			<th scope="row">#project_code#</th>
 			<td class="number"><a href="javascript:project_to_tasks('#project_id#');"  title="View task details for #ReplaceList(project_name, variables.StatusMsg_replace, variables.StatusMsg_replace_with)#.">#task_count#</a></td>
 			<td><a href="javascript:project_to_tasks('#project_id#');"  title="View task details for #ReplaceList(project_name, variables.StatusMsg_replace, variables.StatusMsg_replace_with)#.">#project_name#</a></td>
