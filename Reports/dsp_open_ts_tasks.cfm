@@ -27,7 +27,7 @@
 </cfoutput>
 <cfoutput query="open_ts_tasks">
 	<tr<cfif open_ts_tasks.currentrow MOD 2> bgcolor="##e1e1e1"</cfif>>
-		<td>#dateformat(due_date,"mm/dd/yy")#</td>
+		<td>#dateformat(due_date,"mm/dd/yyyy")#</td>
 		<td>#task_id#</td>
 		<td>#budgeted_hours#</td>
 		<td>#lname#</td>

@@ -22,7 +22,7 @@
 	<cfloop list="project_id" index="ii">
 	if (arg == "#ii#")
 	{
-		document.forms[0].#ii#.value = window.showModalDialog('#attributes.dir_level#common_files/index.cfm?fuseaction=project_list&formname=#ii#&company_select_list=#session.workstream_selected_company_id#&date=#dateformat(now(),"mm/dd/yy")#&hour=#hour(now())#&minute=#minute(now())#',"#ii#","center=yes;dialogWidth=350pt;dialogHeight=400pt");
+		document.forms[0].#ii#.value = window.showModalDialog('#attributes.dir_level#common_files/index.cfm?fuseaction=project_list&formname=#ii#&company_select_list=#session.workstream_selected_company_id#&date=#dateformat(now(),"mm/dd/yyyy")#&hour=#hour(now())#&minute=#minute(now())#',"#ii#","center=yes;dialogWidth=350pt;dialogHeight=400pt");
 	}
 	</cfloop>
 	  }

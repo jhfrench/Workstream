@@ -21,8 +21,8 @@
 		<cfif session.user_account_id EQ 1><a href="javascript:edit_employee('#emp_id#');" class="btn">Edit Employee Information</a></cfif>
 		<br />
 		<b>Birthdate:</b> #dateformat(get_emp_details.dob,"mm/dd")#<br />
-		<b>Hire Date:</b> #dateformat(get_emp_details.hire_date,"mm/dd/yy")#<br />
-		<cfif compare(get_emp_details.end_date,"")><b>End Date:</b> #dateformat(get_emp_details.end_date,"mm/dd/yy")#</cfif>
+		<b>Hire Date:</b> #dateformat(get_emp_details.hire_date,"mm/dd/yyyy")#<br />
+		<cfif compare(get_emp_details.end_date,"")><b>End Date:</b> #dateformat(get_emp_details.end_date,"mm/dd/yyyy")#</cfif>
 		<cfif get_emp_phone.recordcount>
 			<cfinclude template="dsp_emp_phone.cfm">
 		</cfif>

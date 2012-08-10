@@ -17,7 +17,7 @@
 <cfoutput query="invoice_notes_drill_down">
 	<tr>
 		<td class="number"><a href="javascript:note_to_task(#task_id#);" title="View task #task_id#.">#task_id#</td>
-		<td class="date">#dateformat(date,"mm/dd/yy")#</td>
+		<td class="date">#dateformat(date,"mm/dd/yyyy")#</td>
 		<td class="number"><a href="javascript:time_entry_edit(#time_entry_id#);" title="Edit note details">#hours#</td>
 		<td>#note#</td>
 	</tr>

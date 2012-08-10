@@ -24,7 +24,7 @@
 	<cfif len(manager_hours_report_output.date)>
 		<cfif datecompare(manager_hours_report_output.date, variables.compare_date) NEQ 0>
 			<tr>
-			   <td align="right" colspan="4">#dateformat(variables.compare_date, "mm/dd/yy")# Hours:</td>
+			   <td align="right" colspan="4">#dateformat(variables.compare_date, "mm/dd/yyyy")# Hours:</td>
 			   <td>#decimalformat(variables.daily_total_hours)#</td>
 			</tr>
 			<cfset variables.compare_date=manager_hours_report_output.date>
@@ -37,7 +37,7 @@
 		<cfset variables.daily_total_hours=variables.daily_total_hours+hours>
 	</cfif>
 	<tr>
-	   <td bgcolor="##e1e1e1">#dateformat(date, "mm/dd/yy")#</td>
+	   <td bgcolor="##e1e1e1">#dateformat(date, "mm/dd/yyyy")#</td>
 	   <td bgcolor="##e1e1e1">#display#</td>
 	   <td bgcolor="##e1e1e1">#note#</td>
 	   <td bgcolor="##e1e1e1">#decimalformat(hours)#</td>

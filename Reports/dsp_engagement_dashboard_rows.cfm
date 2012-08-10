@@ -73,7 +73,7 @@
 			#mission#&nbsp;
 		</td>
 		<td class="date">
-			#dateformat(date_updated, "mm/dd/yy")#
+			#dateformat(date_updated, "mm/dd/yyyy")#
 		</td>
 	</tr>
 </cfoutput>

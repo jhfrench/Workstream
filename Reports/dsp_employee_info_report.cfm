@@ -64,7 +64,7 @@
 
 		<!--- Birth Date --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Birth Date")>
-			<td valign="top" nowrap>#dateformat(get_employee_info.dob,'mm/dd/yyyy')#</td>
+			<td class="date">#dateformat(get_employee_info.dob,'mm/dd/yyyy')#</td>
 		</cfif>
 
 		<!--- Gender --->
@@ -74,12 +74,12 @@
 
 		<!--- Hire Date --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Hire Date")>
-			<td valign="top" nowrap>#dateformat(get_employee_info.hire_date,'mm/dd/yyyy')#</td>
+			<td class="date">#dateformat(get_employee_info.hire_date,'mm/dd/yyyy')#</td>
 		</cfif>
 			
 		<!--- Term Date --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Term Date")>
-			<td valign="top" nowrap>#dateformat(get_employee_info.end_date,'mm/dd/yyyy')#</td>
+			<td class="date">#dateformat(get_employee_info.end_date,'mm/dd/yyyy')#</td>
 		</cfif>
 
 		<!--- Separation Code --->
@@ -94,7 +94,7 @@
 
 		<!--- Job Date--->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Job Date")>
-			<td valign="top" nowrap>#dateformat(get_employee_info.date_start,'mm/dd/yyyy')#</td>
+			<td class="date">#dateformat(get_employee_info.date_start,'mm/dd/yyyy')#</td>
 		</cfif>
 
 		<!--- Manager --->
@@ -109,17 +109,17 @@
 
 		<!--- Annual Salary --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Annual Salary")>
-			<td valign="top" nowrap><!--- #dollarformat(decrypt(get_employee_info.salary, "sillyputty"))# ---></td>
+			<td class="number"><!--- #dollarformat(decrypt(get_employee_info.salary, "sillyputty"))# ---></td>
 		</cfif>
 
 		<!--- Salary Change Date --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Salary Change Date")>
-			<td valign="top" nowrap>#dateformat(get_employee_info.date_implemented,'mm/dd/yyyy')#</td>
+			<td class="date">#dateformat(get_employee_info.date_implemented,'mm/dd/yyyy')#</td>
 		</cfif>
 
 		<!--- % Inc --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"% Inc")>
-			<td valign="top" nowrap>#decimalformat(decrypt(get_employee_info.increase_percent, "sillyputty"))#</td>
+			<td class="number">#decimalformat(decrypt(get_employee_info.increase_percent, "sillyputty"))#</td>
 		</cfif>
 
 		<!--- Inc Type --->
@@ -134,7 +134,7 @@
 
 		<!--- Benefits Start Date --->
 		<cfif NOT ListContainsNoCase(attributes.columns_not_to_print,"Benefits Start Date")>
-			<td valign="top" nowrap>#dateformat(get_employee_info.benefit_start_date,'mm/dd/yyyy')#</td>
+			<td class="date">#dateformat(get_employee_info.benefit_start_date,'mm/dd/yyyy')#</td>
 		</cfif>
 
 		<!--- Med CVG --->
