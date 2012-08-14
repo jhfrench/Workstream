@@ -93,12 +93,26 @@
 			</div>
 			<div class="span4">
 				<label for="priority_id" class="h5">Priority</label>
-				<cfselect name="priority_id" id="priority_id" query="get_priorities" display="description" value="priority_id" selected="#get_task_details.priority#" class="span11"></cfselect>
+				<select name="priority_id" id="priority_id" class="span11">
+				<cfloop query="get_priorities">
+					<option value="#priority_id#"<cfif priority_id EQ get_task_details.priority> selected="selected"</cfif>>#description#</option>
+				</cfloop>
+				</select><!--- 
+				<cfselect name="priority_id" id="priority_id" query="get_priorities" display="description" value="priority_id" selected="#get_task_details.priority#" class="span11" /> --->
 				<label for="icon_id" class="h5">Icon</label>
-				<cfselect query="get_ref_icon" name="icon_id" id="icon_id" display="icon_name" value="icon_id" selected="#get_task_details.icon_id#" class="span11" />
+				<select name="icon_id" id="icon_id" class="span11">
+				<cfloop query="get_ref_icon">
+					<option value="#icon_id#"<cfif icon_id EQ get_task_details.icon_id> selected="selected"</cfif>>#icon_name#</option>
+				</cfloop>
+				</select><!--- 
+				<cfselect name="icon_id" id="icon_id" query="get_ref_icon" display="icon_name" value="icon_id" selected="#get_task_details.icon_id#" class="span11" /> --->
 				<label for="task_status" class="h5">Status</label>
-				<cfselect query="get_task_stati" name="task_status" display="status" value="status_id" selected="#get_task_details.status_id#" class="span11">
-				</cfselect>
+				<select name="task_status" id="task_status" class="span11">
+				<cfloop query="get_task_stati">
+					<option value="#status_id#"<cfif status_id EQ get_task_details.status_id> selected="selected"</cfif>>#status#</option>
+				</cfloop>
+				</select><!--- 
+				<cfselect name="task_status" id="task_status" query="get_task_stati" display="status" value="status_id" selected="#get_task_details.status_id#" class="span11" /> --->
 			</div>
 		</div>
 	</div>

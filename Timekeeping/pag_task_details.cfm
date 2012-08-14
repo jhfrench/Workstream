@@ -60,10 +60,12 @@
 		<cfelse>
 			<cfset variables.edit=0>
 		</cfif>--->
-		<cfform name="task_details_form" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="form">
-			<h2><cfoutput>#get_task_details.task_name# <small>(task #attributes.task_id#)</small></cfoutput></h2>
+		<cfoutput>
+		<form name="task_details_form" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="form">
+			<h2>#get_task_details.task_name# <small>(task #attributes.task_id#)</small></h2>
 			<cfinclude template="dsp_task_details.cfm">
-		</cfform>
+		</form>
+		</cfoutput>
 		<cfinclude template="act_delete_check.cfm">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="delete_task" field_name="task_id" fuseaction="Timekeeping.delete_task">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">

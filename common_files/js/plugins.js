@@ -27,7 +27,7 @@ if (!('console' in this)) console={}; 'log info warn error dir clear'.replace(/\
 		
 		// when called, getHelp loads relevant help area with content from jQuery's AJAX call
 		var getHelp = function (helpType, helpID) {
-			console.log('$(\'div #help_main_'+helpType+'\').load(\'index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd\');');
+			//console.log('$(\'div #help_main_'+helpType+'\').load(\'index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd\');');
 			//console.log('index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd');
 			// console.log( $('div #help_main_'+helpType) );
 			$('div #help_main_'+helpType).load(
@@ -43,7 +43,7 @@ if (!('console' in this)) console={}; 'log info warn error dir clear'.replace(/\
 		};
 		
 		if ( $('#help_content_article').length ) {
-			console.log('help articles active2');
+			//console.log('help articles active2');
 			
 			//load article div with default content
 			//getHelp('article', default_help);
@@ -158,7 +158,65 @@ if (!('console' in this)) console={}; 'log info warn error dir clear'.replace(/\
 
 	}
 
-	$('#login_form').hide().show('slow');
-	if(shake_ind) {
-		$('#login_form').effect('shake');
+	if( $('#login_form').length ) {
+		$('#login_form').hide().show('slow');
+		if(typeof shake_ind !== 'undefined' && shake_ind) {
+			$('#login_form').effect('shake');
+		}
+	}
+
+	if( $('#task_details_resolution_entry_hours').length ) {
+		var elapsed_time_running;
+		var elapsed_time=0.25;
+
+		function update_elapsed_time() {
+			//add quarter hour
+			elapsed_time+=0.25;
+
+			//update HTML fields
+			$('#task_open_link').attr('title', 'Update hours field to '+elapsed_time+' hours');
+
+			if(elapsed_time==24) {
+				clearInterval(elapsed_time_running);
+			}
+		}
+
+		// inject clock span
+		 $('#task_details_resolution_entry_hours').append(' <!-- following clock image and related HTML are injected from plugins.js --><a href="#" onclick="$(\'#hours\').val( elapsed_time );" id="task_open_link" title="Update hours field to 0.25 hours."><i class="icon-time"></i> <span id="task_open_clock">0.25</span> hours</a>' );
+//
+
+		// add a quarter hour every 15 minutes
+		elapsed_time_running=setInterval(function() {update_elapsed_time()}, 900000);
+	}
+	
+	if (!(Modernizr.input.required)) {
+	}
+	else {
+		//everything in here actually goes above, and this else block gets deleted.
+		//bind client-side validation to required input elements
+		$('form input:required').parents('form').submit( function() {
+			alert('Handler for submit called');
+			$('form input:required').each( function () {
+				if (!$(this).val().length) {
+					alert('Please enter a value for '+$(this).prev('label').html());
+					return false;
+				}
+				switch($(this).attr('type'))
+				{
+					//deal with dates
+					case 'date':
+						console.log('date');
+						break;
+					//deal with numbers
+					case 'number':
+						console.log('number');
+						break;
+					//deal with text
+					case 'text':
+						console.log('text');
+						break;
+				}
+			})
+		})
+		alert('got here');
 	}

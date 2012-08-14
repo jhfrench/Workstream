@@ -17,19 +17,6 @@
 <cfinclude template="qry_get_engagement_dashboard.cfm">
 <cfinclude template="qry_get_engagement_ie.cfm">
 
-<table class="table table-striped table-bordered table-condensed">
-	<caption><h2>Project Dashboard</h2></caption>
-	<cfinclude template="dsp_engagement_dashboard_row_header.cfm">
-	<cfinclude template="dsp_engagement_dashboard_rows.cfm">
-</table>
-
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_project" fuseaction="Customers.edit_engagement" field_name="project_id" processform="true" option="1" engagement_dashboard_return="1" customer_id="#attributes.customer_id#" project_manager_emp_id="#attributes.project_manager_emp_id#" sort="#attributes.sort#">
-
- <a href="index.cfm?fuseaction=Customers.new_engagement" class="btn"><i class="icon-plus-sign"></i> Add New Project</a>
- 
-<!--- This form is used for restricting and sorting the records displayed above.
-	  Restriction can be placed on Customer and IE.  Sorting can be done on any column
- --->
 <form name="form_engagement_dashboard" action="index.cfm?fuseaction=<cfoutput>#attributes.fuseaction#</cfoutput>" method="post" class="well form-inline">
 			<label for="active_ind">Project view</label>
 			<select name="active_ind" class="span2">
@@ -68,3 +55,13 @@
 			</select>
 			<input type="submit" value="Go" class="btn btn-primary" />
 </form>
+
+<a href="index.cfm?fuseaction=Customers.new_engagement" class="btn"><i class="icon-plus-sign"></i> Add New Project</a>
+
+<table class="table table-striped table-bordered table-condensed">
+	<caption><h2>Project Dashboard</h2></caption>
+	<cfinclude template="dsp_engagement_dashboard_row_header.cfm">
+	<cfinclude template="dsp_engagement_dashboard_rows.cfm">
+</table>
+
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_project" fuseaction="Customers.edit_engagement" field_name="project_id" processform="true" option="1" engagement_dashboard_return="1" customer_id="#attributes.customer_id#" project_manager_emp_id="#attributes.project_manager_emp_id#" sort="#attributes.sort#">

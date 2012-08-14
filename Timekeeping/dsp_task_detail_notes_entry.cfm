@@ -19,24 +19,22 @@
 <fieldset class="well">
 <legend class="h4">Resolution Entry</legend>
 <div class="row-fluid">
-	<div class="span4">
+	<div id="task_details_resolution_entry_hours" class="span5">
 		<label for="hours">Hours</label>
-		<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" class="span6" />
-		<!-- let CF create the JavaScript: <cfinput type="text" name="hours" id="hours" required="no" validate="float" message="You must enter hours, as a number, for a time keeping entry." /> -->
+		<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" class="span5" />
 	</div>
-	<div class="span4">
+	<div class="span3">
 		<label for="notes_type_id">Type</label>
-		<cfselect name="notes_type_id" id="notes_type_id" query="get_note_types" display="notes_type" value="notes_type_id" selected="#variables.notes_type_selected#" class="span8" />
+			<select name="notes_type_id" id="notes_type_id" class="span11">
+			<cfloop query="get_note_types">
+				<option value="#notes_type_id#"<cfif notes_type_id EQ variables.notes_type_selected> selected="selected"</cfif>>#notes_type#</option>
+			</cfloop>
+			</select><!--- 
+		<cfselect name="notes_type_id" id="notes_type_id" query="get_note_types" display="notes_type" value="notes_type_id" selected="#variables.notes_type_selected#" class="span8" /> --->
 	</div>
 	<div class="span4">
 		<label for="date">Date</label>
-		<input type="date" name="date" id="date" min="#dateformat(express_check_date.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" class="span11 date" />
-		<!--- <select name="date" id="date" class="span11">
-		<cfloop from="0" to="#variables.go_back_to#" index="variables.date_adjust_ii">
-			<cfset variables.temp_date=dateadd("d", -variables.date_adjust_ii, now())>
-			<option value="#dateformat(variables.temp_date, 'm/d/yyyy')#">#dateformat(variables.temp_date,"m/d/yyyy (ddd)")#</option>
-		</cfloop>
-		</select> --->
+		<input type="date" name="date" id="date" min="#dateformat(express_check_date.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" class="span8 date" />
 	</div>
 </div>
 <div class="row-fluid">
