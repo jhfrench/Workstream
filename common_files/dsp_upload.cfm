@@ -68,8 +68,8 @@
 			<input type="hidden" name="upload_source_type_id" value="#attributes.upload_source_type_id#" />
 			</cfif>
              
-			<input type="submit" value="Upload File" alt="Upload File" />
-			<input type="reset" value="Cancel" alt="cancel" />
+			<input type="submit" name="upload_file" value="Upload File" class="btn btn-primary" />
+			<input type="reset" value="Cancel" class="btn" />
 		</cfoutput> 
 		</td>
 	</tr>

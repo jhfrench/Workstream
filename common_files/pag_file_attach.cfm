@@ -61,8 +61,8 @@ ORDER BY Link_Project_Attachment_Path.file_path
 		<td align="center">
 		<cfoutput>
 			<input type="hidden" name="task_id" value="#attributes.task_id#" />
-			<input type="submit" value="Upload File" alt="Upload File" />
-			<input type="reset" value="Cancel" alt="cancel" />
+			<input type="submit" name="upload_file" value="Upload File" class="btn btn-primary" />
+			<input type="reset" value="Cancel" class="btn" />
 		</cfoutput> 
 		</td>
 	</tr>
