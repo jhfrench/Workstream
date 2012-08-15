@@ -20,22 +20,22 @@ SELECT Emp_Contact.lname || ', ' || Emp_Contact.name AS employee_name,
 	COALESCE(nbdata.cnt,0) AS cnt, COALESCE(nbdata.cnh,0) AS cnh, COALESCE(nbdata.nnt,0) AS nnt, COALESCE(nbdata.nnh,0) AS nnh
 FROM Demographics, Emp_Contact
 	LEFT OUTER JOIN (
-		SELECT COUNT(DISTINCT CASE WHEN task.status_id = 11 THEN Forecast_assignment.task_id ELSE NULL END) AS cbt, 
+		SELECT COUNT(DISTINCT CASE WHEN task.status_id = 11 THEN Forecast_Assignment.task_id ELSE NULL END) AS cbt, 
 			COALESCE(SUM(CASE WHEN task.status_id = 11 THEN Time_Entry.hours ELSE 0 END),0) AS cbh,
-			COUNT(DISTINCT CASE WHEN task.status_id != 11 THEN Forecast_assignment.task_id ELSE NULL END) AS nbt, 
+			COUNT(DISTINCT CASE WHEN task.status_id != 11 THEN Forecast_Assignment.task_id ELSE NULL END) AS nbt, 
 			COALESCE(SUM(CASE WHEN task.status_id != 11 THEN Time_Entry.hours ELSE 0 END),0) AS nbh,
-			Forecast_assignment.emp_id
+			Forecast_Assignment.emp_id
 		FROM Time_Entry <!--- $issue$: is this join right? --->
-			RIGHT OUTER JOIN Forecast_Assignment ON Time_Entry.task_id=Forecast_assignment.task_id
+			RIGHT OUTER JOIN Forecast_Assignment ON Time_Entry.task_id=Forecast_Assignment.task_id
 				AND Time_Entry.active_ind=1
 				AND Forecast_Assignment.active_ind=1, 
 			Task, Team
 		WHERE Task.task_id=Forecast_Assignment.task_id
 			AND Task.due_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.to_date)#
-			AND Forecast_assignment.emp_id=Team.emp_id
-			AND Forecast_assignment.task_id=Team.task_id
+			AND Forecast_Assignment.emp_id=Team.emp_id
+			AND Forecast_Assignment.task_id=Team.task_id
 			AND Team.role_id=1
-		GROUP BY Forecast_assignment.emp_id
+		GROUP BY Forecast_Assignment.emp_id
 	) AS bdata ON bdata.emp_id=emp_contact.emp_id
 	LEFT OUTER JOIN (
 		SELECT COUNT(DISTINCT CASE WHEN task.status_id = 11 THEN Time_Entry.task_id ELSE NULL END) AS cnt, 
@@ -44,7 +44,7 @@ FROM Demographics, Emp_Contact
 			COALESCE(SUM(CASE WHEN task.status_id != 11 THEN Time_Entry.hours ELSE 0 END),0) AS nnh,
 			Time_Entry.emp_id
 		FROM Time_Entry 
-			LEFT OUTER JOIN Forecast_assignment ON Time_Entry.task_id=Forecast_assignment.task_id
+			LEFT OUTER JOIN Forecast_Assignment ON Time_Entry.task_id=Forecast_Assignment.task_id
 				AND Forecast_Assignment.active_ind=1, Task, Team
 		WHERE Time_Entry.active_ind=1
 			AND Task.task_id=Time_Entry.task_id

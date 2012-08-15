@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<div class="row">
+<div class="row-fluid">
 	<div class="span6">
 		<cfinclude template="dsp_efficiency_report_chart.cfm">
 	</div>
