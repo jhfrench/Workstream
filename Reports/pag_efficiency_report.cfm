@@ -23,10 +23,6 @@
 <cfoutput>
 <form name="drill_down" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">
 	<fieldset>
-		<div class="control-group">
-			<div class="controls">
-			</div>
-		</div>
 		#variables.project_name# Time for 
 		<select name="admin_month" onchange="javascript:document.drill_down.submit();">
 			<cfloop from="1" to="12" index="ii">
