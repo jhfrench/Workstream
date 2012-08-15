@@ -25,9 +25,9 @@ WHERE emp_id=#attributes.task_owner#
 	<cfset email_id=0>
 </cfif>
 <cfquery name="update_task_reminder_days" datasource="#application.datasources.main#">
-DELETE
-FROM Notification
-WHERE task_id=#attributes.task_id# AND notification_type=1
+DELETE FROM Notification
+WHERE task_id=#attributes.task_id#
+	AND notification_type=1
 </cfquery>
 <cfif len(attributes.reminder_days)>
 <cfquery name="update_task_reminder_days" datasource="#application.datasources.main#">

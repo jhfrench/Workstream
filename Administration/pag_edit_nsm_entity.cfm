@@ -57,8 +57,8 @@
 		<cfif isdefined("attributes.submit")>
 			<input type="hidden" name="program_year_id" value="<cfoutput>#attributes.program_year_id#</cfoutput>" />
 		</cfif>
-			<input type="submit" alt="submit" name="submit" value="Submit" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 </cfif>

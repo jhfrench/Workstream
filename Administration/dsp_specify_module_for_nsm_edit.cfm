@@ -59,7 +59,7 @@
 			<cfoutput>
 			<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
 			<input type="submit" name="submit" value="Edit NSM Access" alt="Edit NSM Access" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 			</cfoutput>
 		</td>
 	</tr>

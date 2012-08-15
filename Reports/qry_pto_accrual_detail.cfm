@@ -27,7 +27,7 @@ FROM
 		0.0 AS hours_out, 
 		Emp_Duration.start AS transaction_date
 	FROM REF_PTO_Hours, PTO_Hours,
-		(SELECT DATEDIFF(mm, (CASE WHEN DAY(demographics.hire_date) > 15 THEN DATEADD(mm,1,demographics.hire_date) ELSE demographics.hire_date END), ABCD_Months.Start) AS duration, ABCD_Months.Start
+		(SELECT DATEDIFF(mm, (CASE WHEN EXTRACT(DAY FROM demographics.hire_date) > 15 THEN DATEADD(mm,1,demographics.hire_date) ELSE demographics.hire_date END), ABCD_Months.Start) AS duration, ABCD_Months.Start
 		FROM ABCD_Months, demographics
 		WHERE (demographics.emp_id=#page_pin#) 
 		AND ABCD_Months.Start > demographics.hire_date

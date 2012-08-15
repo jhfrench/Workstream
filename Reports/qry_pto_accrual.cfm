@@ -52,7 +52,7 @@ end),0) +
 	END) END + time_rollover_from_2000,0) as 'PTO_hours_earned' 
 
 /*<!-- If you started work before the 15 of the month, you get credit  for working that month, otherwise it is as if you began working on the 1st of the next month, this is represented by "tenure_date" and is used to calculate all the PTO hours -->*/
-FROM (select case when day(hire_date) > 15 then DATEADD(mm,1,hire_date) else hire_date end as tenure_date,*
+FROM (select case when EXTRACT(DAY FROM hire_date) > 15 then DATEADD(mm,1,hire_date) else hire_date end as tenure_date,*
 from demographics where effective_to IS NULL) as demographics inner join security on demographics.emp_id = security.emp_id
  
 left Outer JOIN PTO_HOURS ON PTO_HOURS.emp_id = demographics.emp_id left outer JOIN time_entry ON demographics.emp_id = time_entry.emp_id 

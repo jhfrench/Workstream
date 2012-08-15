@@ -22,7 +22,7 @@ VALUES(#variables.emp_id#,'#evaluate("attributes.phone_#phone_type_id#")#'<cfif 
 </cfif>
 </cfloop><!--- 
 <cfquery name="phone_delete" datasource="#application.datasources.main#">
-DELETE Phone
+DELETE FROM Phone
 WHERE emp_id=#variables.emp_id#
 </cfquery> --->
 

@@ -13,6 +13,6 @@
 	END FUSEDOC --->
 
 <cfquery name="del_marketing_contact" datasource="#application.datasources.main#">
-    delete from marketing_emp
-    where emp_id = #attributes.emp_id#
+DELETE FROM marketing_emp
+WHERE emp_id = #attributes.emp_id#
 </cfquery>

@@ -24,21 +24,21 @@
 				WHERE active_ind=1
 					AND forecast_id=#variables.forecast_id#
 					AND task_id=#task_id#
-					AND emp_id=#ii#
+					AND emp_id=#ii#;
 
 				INSERT INTO Forecast_Assignment (forecast_id, task_id, emp_id,
 					hours_budgeted)
 				VALUES (#variables.forecast_id#, #task_id#, #ii#,
-					#evaluate("attributes.t#task_id#_#ii#")#)
+					#evaluate("attributes.t#task_id#_#ii#")#);
 
 				/*update team membership*/
-				DELETE Team
+				DELETE FROM Team
 				WHERE Team.role_id=4
 					AND Team.task_id=#task_id#
-					AND Team.emp_id=#ii#
+					AND Team.emp_id=#ii#;
 
 				INSERT INTO Team (task_id, emp_id, role_id)
-				VALUES(#task_id#, #ii#, 4)
+				VALUES(#task_id#, #ii#, 4);
 				</cfif>
 			</cfloop>
 		</cfif>

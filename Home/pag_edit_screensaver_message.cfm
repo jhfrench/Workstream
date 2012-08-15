@@ -51,7 +51,7 @@
 	<tr>
 		<td colspan="2">
 			<input type="hidden" name="screen_user_id" value="<cfoutput>#attributes.screen_user_id#</cfoutput>" />
-			<input type="submit" alt="submit" value="Submit" />
+			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
 		</td>
 	</tr>
 </table>

@@ -47,7 +47,7 @@
 	<tr bgcolor="##dddddd">
 		<td align="center" colspan="3">
 			<input type="hidden" name="module_id_list" value="#variables.all_module_id#" />
-			<input type="submit" alt="submit" name="method" value="Submit" />&nbsp;&nbsp;
+			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
 			<input type="button" name="cancel_button" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
 		</td>
 	</tr>

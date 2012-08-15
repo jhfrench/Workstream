@@ -170,7 +170,7 @@
 	<tr align="center" bgcolor="#dddddd">
 		<td>
 			<input type="submit" name="save" value="Save" alt="Save" />
-			<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>
 	</cfif>

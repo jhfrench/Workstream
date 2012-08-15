@@ -19,7 +19,7 @@ INSERT INTO Emp_Biography(emp_id,biography)
 VALUES(#variables.emp_id#,'#stripcr(paragraphformat(attributes.biography))#')
 </cfquery><!--- 
 <cfquery name="emp_biography_delete" datasource="#application.datasources.main#">
-DELETE Emp_Biography
+DELETE FROM Emp_Biography
 WHERE emp_id=#variables.emp_id#
 </cfquery> --->
 </cfif>

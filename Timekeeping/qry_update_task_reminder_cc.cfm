@@ -15,8 +15,7 @@
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
 <cfquery name="update_task_reminder_cc" datasource="#application.datasources.main#">
-DELETE
-FROM Notification
+DELETE FROM Notification
 WHERE task_id=#attributes.task_id#
 	AND notification_type=2
 </cfquery>

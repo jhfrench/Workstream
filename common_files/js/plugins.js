@@ -34,7 +34,7 @@ if (!('console' in this)) console={}; 'log info warn error dir clear'.replace(/\
 				'index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd',
 				function(response, status, xhr) {
 					if (status == 'error') {
-						console.log('got here');
+						console.log('help load errored');
 						$('div #help_main_'+helpType).html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
 					}
 					return this;
@@ -195,7 +195,7 @@ if (!('console' in this)) console={}; 'log info warn error dir clear'.replace(/\
 		//everything in here actually goes above, and this else block gets deleted.
 		//bind client-side validation to required input elements
 		$('form input:required').parents('form').submit( function() {
-			alert('Handler for submit called');
+			// console.log('Handler for submit called');
 			$('form input:required').each( function () {
 				if (!$(this).val().length) {
 					alert('Please enter a value for '+$(this).prev('label').html());
@@ -218,5 +218,4 @@ if (!('console' in this)) console={}; 'log info warn error dir clear'.replace(/\
 				}
 			})
 		})
-		alert('got here');
 	}

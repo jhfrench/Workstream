@@ -14,7 +14,7 @@
 
 	END FUSEDOC --->
 <cfquery name="security_company_access_delete" datasource="#application.datasources.main#">
-DELETE Security_Company_Access
+DELETE FROM Security_Company_Access
 WHERE emp_id=#attributes.emp_id#
 </cfquery>
 <cfset variables.visible_company_id=listappend(attributes.company_id,attributes.visable_company)>

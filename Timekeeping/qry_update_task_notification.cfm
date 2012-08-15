@@ -15,9 +15,9 @@
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
 <cfquery name="update_task_notification" datasource="#application.datasources.main#">
-DELETE
-FROM Notification
-WHERE task_id=#attributes.task_id# AND notification_type=5
+DELETE FROM Notification
+WHERE task_id=#attributes.task_id#
+	AND notification_type=5
 </cfquery>
 <cfloop list="#attributes.notification_to_id#" index="ii">
 <cfquery name="get_email_id" datasource="#application.datasources.main#">

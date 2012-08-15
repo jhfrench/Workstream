@@ -17,7 +17,7 @@
 
 	END FUSEDOC --->
 <cfquery name="location_delete" datasource="#application.datasources.main#">
-DELETE Location
+DELETE FROM Location
 WHERE emp_id=#attributes.emp_id#
 </cfquery> 
 <cfloop query="get_locations">

@@ -14,7 +14,7 @@
 
 	END FUSEDOC --->
 <cfquery name="emp_biography_delete" datasource="#application.datasources.main#">
-DELETE Emp_Biography
+DELETE FROM Emp_Biography
 WHERE emp_id=#attributes.emp_id#
 </cfquery>
 <cfif len(attributes.biography)>

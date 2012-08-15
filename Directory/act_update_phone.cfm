@@ -14,7 +14,7 @@
 
 	END FUSEDOC --->
 <cfquery name="phone_delete" datasource="#application.datasources.main#">
-DELETE Phone
+DELETE FROM Phone
 WHERE emp_id=#attributes.emp_id#
 </cfquery>
 <cfloop query="get_phone_types">

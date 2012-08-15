@@ -28,34 +28,27 @@
 
 <cfinclude template="qry_get_ref_tables.cfm">
 <cfset variables.administration_fuseactions=structkeylist(application.fusebox.circuits.administration.fuseactions)>
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="Table head decsribes the table below this table">
-	<tr>
-		<th align="left"><h2 style="margin:0px" id="top-side">Manage Drop-Down Lists</h2>
-		</th>
-	</tr>
-</table>
-<br /><img src="images/spacer.gif" alt="" width="560" height="1"><br />
-<div class="datachart">
-	<table cellspacing="1" cellpadding="2" border="0" bgcolor="#eeeeee" width="200" summary="table displays list of reference tables">
-		<tr bgcolor="999999">
-			<td class="menuHead" colspan="2">List of REF Tables:</td>
-		</tr>
+<h2 style="margin:0px" id="top-side">Manage Drop-Down Lists</h2>
+<table class="table table-striped table-bordered table-condensed">
+	<caption><h3>List of REF Tables</h3></caption>
+	<thead>
+		<th>Table</th>
+		<th>Notes</th>
+	</thead>
+	<tbody>
 	<cfif get_ref_tables.recordcount>
-		<tr>
 		<cfoutput query="get_ref_tables">
-		<cfif currentrow MOD 2></tr>
-		<tr></cfif>
-			<td class="menuItem" bgcolor="##eeeeee" width="50%">
+		<tr>
 				<cfif NOT comparenocase(fuseaction,"Not_Defined")>
-					#table_name# (no REF_Screen record)
+					<td>#table_name#</td><td>no REF_Screen record</td>
 				<cfelseif NOT listfind(variables.administration_fuseactions, "edit_#lower_table_name#")>
-					#table_name# ("edit_#lower_table_name#" not an Administration circuit)
+					<td>#table_name#</td><td>"edit_#lower_table_name#" not an Administration circuit</td>
 				<cfelse>
-					<a href="index.cfm?fuseaction=#fuseaction#">#table_name#</a>
+					<td><a href="index.cfm?fuseaction=#fuseaction#">#table_name#</a></td><td></td>
 				</cfif>
 			</td>
-		</cfoutput>
 		</tr>
+		</cfoutput>
 	<cfelse>
 		<tr>
 			<td class="menuItem" bgcolor="#eeeeee" width="50%">
@@ -216,5 +209,5 @@
 			</td>
 		</tr>
 	</cfif>
-	</table>
-</div>
+	</tbody>
+</table>

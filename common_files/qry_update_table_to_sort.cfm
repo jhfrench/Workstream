@@ -25,6 +25,6 @@
 <cfquery name="update_table_to_sort" datasource="#application.datasources.main#">
 UPDATE #attributes.table_to_sort#
 SET sort_order=Sorter.sorter_id
-FROM #attributes.table_to_sort#
-	INNER JOIN Sorter ON #attributes.table_to_sort#.#attributes.id_of_sorted_column#=Sorter.id_of_sorted_column
+FROM Sorter
+WHERE  #attributes.table_to_sort#.#attributes.id_of_sorted_column#=Sorter.id_of_sorted_column
 </cfquery>

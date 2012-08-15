@@ -74,7 +74,7 @@
 		<br />
 		<textarea cols="80" rows="20" name="sql_to_execute">#attributes.sql_to_execute#</textarea>
 		<br />
-		<input type="submit" alt="submit" />
+		<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
 	</form>
 	</cfoutput>
 </cfif>

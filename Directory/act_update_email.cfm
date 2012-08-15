@@ -14,7 +14,7 @@
 
 	END FUSEDOC --->
 <cfquery name="email_delete" datasource="#application.datasources.main#">
-DELETE Email
+DELETE FROM Email
 WHERE emp_id=#attributes.emp_id#
 </cfquery>
 

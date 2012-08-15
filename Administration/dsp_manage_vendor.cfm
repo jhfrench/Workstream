@@ -53,8 +53,8 @@
 	<tfoot>
 		<tr bgcolor="##dddddd">
 			<td colspan="6" align="center">
-				<input type="submit" name="submit" value=" Submit " alt="submit" />
-				<input type="button" name="cancel" value="Cancel" alt="cancel" onclick="window.history.go(-1)" />
+				<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
+				<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 			</td>
 		</tr>
 	</tfoot>

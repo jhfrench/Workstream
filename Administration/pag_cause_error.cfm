@@ -92,6 +92,6 @@ Error console
 	<br />Show error:<input type="radio" name="show_error_process_ind" id="show_error_process_ind_0" value="0" checked="checked" /><label for="show_error_process_ind_0">No</label>&nbsp;<input type="radio" name="show_error_process_ind" id="show_error_process_ind_1" value="1" /><label for="show_error_process_ind_">ColdFusion</label>&nbsp;<input type="radio" name="show_error_process_ind" id="show_error_process_ind_2" value="2" /><label for="2">Database</label>
 	<br />Manually process error:<input type="checkbox" name="manually_process_error_ind" value="1" />
 	<br />Super manually process error:<input type="checkbox" name="super_manually_process_error_ind" value="1" />
-	<br /><input type="submit" alt="submit" />
+	<br /><input type="submit" name="submit" value="Submit" class="btn btn-primary" />
 </form>
 </cfoutput>

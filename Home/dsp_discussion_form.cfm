@@ -125,7 +125,7 @@
 			</tr>
 			<tr>
 				<td colspan=2 align=center>
-					<input type="submit" alt="submit" value="Submit" />
+					<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
 					&nbsp;&nbsp;&nbsp;&nbsp;
 					<input type="reset" value="Reset" />
 				</td>

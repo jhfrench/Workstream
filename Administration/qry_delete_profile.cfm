@@ -13,9 +13,9 @@
 	 || 
  --->
 <cfquery name="delete_profile" datasource="#application.datasources.main#">
-	DELETE User_Profile
-	WHERE emp_id = #session.user_account_id# 
-		AND profile_name='#attributes.profile_name#'
+DELETE FROM User_Profile
+WHERE emp_id = #session.user_account_id# 
+	AND profile_name='#attributes.profile_name#'
 </cfquery>
 </cfsilent>
 

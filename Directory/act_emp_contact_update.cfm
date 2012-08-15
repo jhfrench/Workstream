@@ -25,7 +25,7 @@
 
 		 <cfloop index="ii" list="#attributes.phone_id#" delimiters=",">
 			<cfquery name="phone_delete" datasource="#application.datasources.main#">
-				DELETE PHONE
+				DELETE FROM PHONE
 				WHERE emp_id=#attributes.emp_id#
 					AND
 				Phone_id=#ii#
@@ -53,10 +53,9 @@
 
 		 <cfloop index="ii" list="#attributes.email_id#" delimiters=",">
 			<cfquery name="delete_email" datasource="#application.datasources.main#">
-				DELETE EMAIL
+				DELETE FROM EMAIL
 				WHERE emp_id=#attributes.emp_id#
-					AND
-				email_id=#ii#
+					AND email_id=#ii#
 			</cfquery>
 		</cfloop> 
 
@@ -76,7 +75,7 @@
 
 		<cfloop index="ii" list="#attributes.location_id#" delimiters=",">
 			<cfquery name="location_delete" datasource="#application.datasources.main#">
-				DELETE LOCATION
+				DELETE FROM LOCATION
 				WHERE emp_id=#attributes.emp_id#
 					AND
 				location_id=#ii#
@@ -118,7 +117,7 @@
 			<cfif len(attributes.biography)>
 				<cfif len(emp_biography_id)>
 					<cfquery name="biography_delete" datasource="#application.datasources.main#">
-						DELETE EMP_BIOGRAPHY
+						DELETE FROM EMP_BIOGRAPHY
 						WHERE emp_id=#attributes.emp_id#
 							AND
 						emp_biography_id=#attributes.emp_biography_id#

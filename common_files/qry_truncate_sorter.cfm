@@ -23,5 +23,5 @@
 </fusedoc>
 --->
 <cfquery name="truncate_sorter" datasource="#application.datasources.main#">
-DELETE Sorter
+TRUNCATE TABLE Sorter
 </cfquery>

@@ -18,17 +18,17 @@
 	</cfquery>
 
 	<cfquery name="delete_notes" datasource="#application.datasources.main#">
-         delete From notes
-	    where #get_notes_id.notes_id# = notes_id    
-     </cfquery>
+	DELETE FROM Notes
+	WHERE notes_id=#get_notes_id.notes_id#
+	</cfquery>
 
 	<cfquery name="delete_expense" datasource="#application.datasources.main#">
-         delete from expense
+    DELETE FROM expense
 	    where #attributes.expense_id#  = expense_id
      </cfquery>
 
 	<cfquery name="delete_expense_amount" datasource="#application.datasources.main#">
-         delete From expense_amount
+    DELETE FROM expense_amount
 	    where #attributes.expense_id#  = expense_id
      </cfquery>
 </cfsilent>

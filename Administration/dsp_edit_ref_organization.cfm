@@ -83,7 +83,7 @@
 		<td  class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="organization_id" value="#attributes.organization_id#" />
-			<input type="submit" alt="submit" value="Submit" class="btn btn-primary" />
+			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>

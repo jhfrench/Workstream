@@ -15,26 +15,27 @@
 <cfquery name="edit_engagement_billing" datasource="#application.datasources.main#">
 <!--- all types --->
 UPDATE Project
-SET Project.budget=#attributes.budget#, Project.LOE =#attributes.LOE#
+SET Project.budget=#attributes.budget#,
+	Project.loe=#attributes.loe#
 WHERE Project.project_id=#attributes.project_id#
 <cfswitch expression="#attributes.billable_type_id#">
 <cfcase value="3">
 <!--- flat-rate --->
-DELETE
-FROM Flat_Rate
-WHERE project_id=#attributes.project_id#
+DELETE FROM Flat_Rate
+WHERE project_id=#attributes.project_id#;
+
 INSERT INTO Flat_Rate(project_id, rate_start_date, rate_end_date,
 	months, budget)
 VALUES (#attributes.project_id#, #createodbcdate(attributes.start_date)#, #createodbcdate(attributes.end_date)#,
-	#attributes.months#, #attributes.budget#)
+	#attributes.months#, #attributes.budget#);
 </cfcase>
 <cfcase value="4">
 <!--- per-incident --->
-DELETE
-FROM Incident_Rate
-WHERE project_id=#attributes.project_id#
+DELETE FROM Incident_Rate
+WHERE project_id=#attributes.project_id#;
+
 INSERT INTO Incident_Rate(project_id,charge)
-VALUES (#attributes.project_id#,#attributes.charge#)
+VALUES (#attributes.project_id#,#attributes.charge#);
 </cfcase>
 </cfswitch>
 </cfquery>

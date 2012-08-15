@@ -11,19 +11,9 @@
 	Edits:
 
 	 || 
-	--> 
- --->
-
-
-
-
-
-
-
+	---> 
 <cfquery name="upload_custom_drops_answers" datasource="#application.datasources.main#">
-DELETE
-FROM User_Field_Values
+DELETE FROM User_Field_Values
 WHERE Task_id=#attributes.task_id#
 </cfquery>
-
 </cfsilent>

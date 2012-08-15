@@ -15,9 +15,9 @@
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
 <cfquery name="update_task_team" datasource="#application.datasources.main#">
-DELETE
-FROM Team
-WHERE task_id=#attributes.task_id# AND role_id=4
+DELETE FROM Team
+WHERE task_id=#attributes.task_id#
+	AND role_id=4
 </cfquery>
 <cfif listlen(attributes.task_team)>
 <cfif listcontains(attributes.task_team, "|")>

@@ -13,7 +13,7 @@
 	 || 
  --->
 <cfquery name="delete_profile_module" datasource="#application.datasources.main#">
-DELETE module_access
+DELETE FROM module_access
 FROM User_Profile
 WHERE emp_id=#attributes.emp_id#
 </cfquery>

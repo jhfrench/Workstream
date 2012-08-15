@@ -60,7 +60,7 @@ non-billable
 </cfswitch>
 
 <cfquery name="delete_old" datasource="#application.datasources.main#">
-DELETE Link_Project_Company
+DELETE FROM Link_Project_Company
 WHERE project_id=#get_project_id.project_id#
 	AND company_id IN (#variables.company_id#)
 </cfquery>

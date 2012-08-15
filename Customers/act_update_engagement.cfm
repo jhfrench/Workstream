@@ -39,7 +39,7 @@ WHERE project_id=#project_id#
 	</cfif>
 
 <cfquery name="delete_old" datasource="#application.datasources.main#">
-DELETE Link_Project_Company
+DELETE FROM Link_Project_Company
 WHERE project_id=#attributes.project_id#
 <cfloop list="#attributes.company_id#" index="ii">
 INSERT INTO Link_Project_Company (project_id, company_id)

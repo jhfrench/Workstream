@@ -70,4 +70,3 @@
 <cfmodule template="qry_get_ref_screen.cfm" show_all_ind="1">
 
 <cfinclude template="dsp_edit_ref_screen.cfm">
-			

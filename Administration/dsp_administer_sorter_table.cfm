@@ -47,7 +47,7 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td  class="btn-group">
-			<input type="submit" alt="submit" name="method" value="Submit" />
+			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>

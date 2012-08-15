@@ -13,8 +13,7 @@
 	 || 
  --->
 <cfquery name="task_detach" datasource="#application.datasources.main#">
-DELETE 
-FROM Link_Task_Task
+DELETE FROM Link_Task_Task
 WHERE l_t_t_id IN (#attributes.del_task#)
 </cfquery>
 </cfsilent>
