@@ -14,16 +14,13 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="qry_new_engage_output.cfm">
-<table align="center" border="0" cellpadding="1" cellspacing="0">
-	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="008080" section_title="New Project Report" title_class="HeadTextWhite">
-	<tr>
-		<td valign="top">
-			<cfinclude template="dsp_new_engage_chart.cfm">
-		</td>
-		<td valign="top">
-			<cfinclude template="dsp_new_engage_graph.cfm">
-		</td>
-	</tr>
-</table>
 
-
+<div class="row-fluid">
+	<div class="span6">
+		<cfinclude template="dsp_new_engage_chart.cfm">
+	</div>
+	<div class="span6">
+		<cfinclude template="dsp_new_engage_graph.cfm">
+	</div>
+</div>
+<cfinclude template="dsp_new_engage_input.cfm">

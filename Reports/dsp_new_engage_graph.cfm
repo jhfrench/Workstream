@@ -12,6 +12,8 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
+</cfsilent>
+		Graph goes here<!--- 
 <cfswitch expression="#session.workstream_text_size#">
 	<cfcase value="Lg">
 		<cfset large="16">
@@ -48,7 +50,6 @@
 		<cfset dataset0Links=listprepend(dataset0Links,"index.cfm?fuseaction=convert&root_code=#root_code#")>
 <cfset xAxisLabels=listprepend(xAxisLabels,Left(MonthAsString(temp_month),1))>
 <cfset xAxisLabels=listprepend(xAxisLabels,temp_year, " ")>
-</cfsilent>
 <table align="center" border="0" cellpadding="1" cellspacing="0">
 <cfoutput>
 	<tr>
@@ -101,3 +102,4 @@
 	</tr>
 </table>
 
+ --->

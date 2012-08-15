@@ -14,31 +14,39 @@
 	END FUSEDOC --->
 <cfset temp_year=0>
 </cfsilent>
-<table align="center" border="0" cellpadding="1" cellspacing="0">
-<cfoutput>
-	<tr>
-		<td align="center" class="SubHeadText">Year</td>
-		<td align="center" class="SubHeadText">Month</td>
-		<td align="center" class="SubHeadText">Customer</td>
-		<td align="center" class="SubHeadText">Projects</td>
-	</tr>
-</cfoutput>
-<cfoutput query="new_engage_output">
-	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"<cfelseif (year_entered MOD 2)> bgcolor="##BAEE9B"</cfif>>
-		<td align="right">
-			<cfif year_entered NEQ temp_year>#year_entered#<cfelse>&nbsp;</cfif>
-		</td>
-		<td align="left">
-			#MonthAsString(month_entered)#
-		</td>
-		<td align="left">
-			#customer_name#
-		</td>
-		<td align="right">
-			#numberformat(engagement_count)#
-		</td>
-		<cfset temp_year=year_entered>
-	</tr>
-</cfoutput>
+<table class="table table-striped table-bordered table-condensed">
+	<caption><h2>New Project Report</h2></caption>
+<cfif new_engage_output.recordcount>
+	<thead>
+		<tr>
+			<th>Year</th>
+			<th>Month</th>
+			<th>Customer</th>
+			<th>Projects</th>
+		</tr>
+	</thead>
+	<tbody>
+	<cfoutput query="new_engage_output">
+		<tr>
+			<td class="number">
+				<cfif year_entered NEQ temp_year>#year_entered#<cfelse>&nbsp;</cfif>
+			</td>
+			<td>
+				#MonthAsString(month_entered)#
+			</td>
+			<td>
+				#customer_name#
+			</td>
+			<td class="number">
+				#numberformat(engagement_count)#
+			</td>
+			<cfset temp_year=year_entered>
+		</tr>
+	</cfoutput>
+	</tbody>
+<cfelse>
+		<tr>
+			<td>No records match your criteria</td>
+		</tr>
+</cfif>
 </table>
-
