@@ -267,17 +267,11 @@
 			<set name="request.pagetitle" value="Manager's Individual Hours Report"/>
 			<include template="pag_Manager_Individual_Hours_input.cfm"/>
 		</fuseaction>
-		<fuseaction name="new_engagement_input">
+		<fuseaction name="new_engagement">
 			<!-- <set name="attributes.object_name" value="New engagements"/>
 			<include template="../common_files/act_object_access.cfm"> -->
 			<set name="request.pagetitle" value="New Engagement Report"/>
-			<include template="pag_new_engage_input.cfm"/>
-		</fuseaction>
-		<fuseaction name="new_engagement_output">
-			<!-- <set name="attributes.object_name" value="New engagements"/>
-			<include template="../common_files/act_object_access.cfm"> -->
-			<set name="request.pagetitle" value="New Engagement Report"/>
-			<include template="pag_new_engage_output.cfm"/>
+			<include template="pag_new_engagement"/>
 		</fuseaction>
 		<fuseaction name="non_billable_hours">
 			<!-- <set name="attributes.object_name" value="Non Billable Hours"/>
