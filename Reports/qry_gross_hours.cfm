@@ -5,67 +5,42 @@
 	<!--- FUSEDOC
 	||
 	Responsibilities: I am the query for the gross hours report.
-
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2005/11/21 19:25:55  french
-	Added ability to sort by last name, with TOTAL row coming last. Task 37703
-
 	 || 
 	END FUSEDOC --->
 <cfset variables.date_open=createodbcdate("#attributes.month#/1/#attributes.year#")>
 <cfset variables.date_closed=createodbcdate("#attributes.month#/#daysinmonth(variables.date_open)#/#attributes.year#")>
-<cfquery name="gross_hours" datasource="#application.datasources.main#">
-SELECT 1 AS overall_order, (Emp_Contact.lname || ', ' || Emp_Contact.name) AS name,<cfloop from="1" to="#variables.daysinmonth#" index="ii">
-	SUM(CASE WHEN DAY(Time_Entry.date)=#ii# THEN Time_Entry.hours ELSE 0 END) AS [day#ii#],</cfloop>
+<cfquery name="get_gross_hours" datasource="#application.datasources.main#">
+SELECT (Emp_Contact.lname || ', ' || Emp_Contact.name) AS name,<cfloop from="1" to="#variables.daysinmonth#" index="ii">
+	SUM(CASE WHEN EXTRACT(DAY FROM Time_Entry.date)=#ii# THEN Time_Entry.hours ELSE 0 END) AS day#ii#,</cfloop>
 	SUM(CASE WHEN Time_Entry.date IS NOT NULL THEN Time_Entry.hours ELSE 0 END) AS total
-FROM Emp_Contact, Time_Entry, Link_Company_Emp_Contact,
-	Demographics_Ngauge Demographics<cfif isdefined("attributes.office_location") AND attributes.office_location NEQ "ALL">, Location</cfif>
-WHERE Emp_Contact.emp_id=Demographics.emp_id
-	AND Emp_Contact.emp_id=Time_Entry.emp_id
-	AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
-	AND Demographics.effective_from <= #variables.date_closed#
-	AND Time_Entry.active_ind=1
-	AND Time_Entry.date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, Time_Entry.date)
-	AND COALESCE(Demographics.effective_to,#variables.date_open#) >= #variables.date_open#
-	AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#
-	AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.year#
-	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
+FROM Emp_Contact
+	LEFT OUTER JOIN Time_Entry ON Emp_Contact.emp_id=Time_Entry.emp_id
+		AND Time_Entry.active_ind=1
+		AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#
+		AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.year#
+	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
+		AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
+	INNER JOIN Demographics_Ngauge Demographics ON Emp_Contact.emp_id=Demographics.emp_id
+		AND Demographics.effective_from <= #variables.date_closed#
+		AND COALESCE(Demographics.effective_to,#variables.date_open#) >= #variables.date_open#<cfif isdefined("attributes.office_location") AND attributes.office_location NEQ "ALL">
+	INNER JOIN Location ON Emp_Contact.emp_id=Location.emp_id
+		AND Location.location_type_id=1
+		AND Location.city='#attributes.office_location#'</cfif>
+WHERE 1=1
 <cfif isdefined("attributes.emp_id") AND attributes.emp_id NEQ "ALL">
 	AND Emp_Contact.emp_id=#attributes.emp_id#
 </cfif>
-<cfif isdefined("attributes.office_location") AND attributes.office_location NEQ "ALL">
-	AND Emp_Contact.emp_id=Location.emp_id
-	AND Location.location_type_id=1
-	AND Location.city='#attributes.office_location#'
-</cfif>
-GROUP BY lname, name 
-UNION ALL
-SELECT 2 AS overall_order, 'Total' AS name,<cfloop from="1" to="#variables.daysinmonth#" index="ii">
-	SUM(CASE WHEN DAY(Time_Entry.date)=#ii# THEN Time_Entry.hours ELSE 0 END) AS [day#ii#],</cfloop>
-	SUM(CASE WHEN Time_Entry.date IS NOT NULL THEN Time_Entry.hours ELSE 0 END) AS total
-FROM Emp_Contact, Time_Entry, Link_Company_Emp_Contact,
-	Demographics_Ngauge Demographics<cfif isdefined("attributes.office_location") AND attributes.office_location NEQ "ALL">, Location</cfif>
-WHERE Emp_Contact.emp_id=Demographics.emp_id
-	AND Emp_Contact.emp_id=Time_Entry.emp_id
-	AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
-	AND Demographics.effective_from <= #variables.date_closed#
-	AND Time_Entry.active_ind=1
-	AND Time_Entry.date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, Time_Entry.date)
-	AND COALESCE(Demographics.effective_to,#variables.date_open#) >= #variables.date_open#
-	AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#
-	AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.year#
-	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
-<cfif isdefined("attributes.emp_id") AND attributes.emp_id NEQ "ALL">
-	AND Emp_Contact.emp_id=#attributes.emp_id#
-</cfif>
-<cfif isdefined("attributes.office_location") AND attributes.office_location NEQ "ALL">
-	AND Emp_Contact.emp_id=Location.emp_id
-	AND Location.location_type_id=1
-	AND Location.city='#attributes.office_location#'
-</cfif>
-ORDER BY overall_order, name
+GROUP BY lname, name
+ORDER BY name
 </cfquery>
 </cfsilent>
 
+<cfquery name="get_gross_hours_total" dbtype="query">
+SELECT <cfloop from="1" to="#variables.daysinmonth#" index="ii">
+	SUM(day#ii#) AS day#ii#,</cfloop>
+	SUM(total) AS total
+FROM get_gross_hours
+</cfquery>

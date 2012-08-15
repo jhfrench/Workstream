@@ -143,12 +143,6 @@
 			<set name="request.pagetitle" value="Expense Report"/>
 			<include template="pag_expense_report.cfm"/>
 		</fuseaction>
-		<fuseaction name="gross_hours_input">
-			<!-- <set name="attributes.object_name" value="Gross Hours"/>
-			<include template="../common_files/act_object_access.cfm"> -->
-			<set name="request.pagetitle" value="Gross Hours Report"/>
-			<include template="pag_gross_hours_input.cfm"/>
-		</fuseaction>
 		<fuseaction name="gross_hours_input_ytd">
 			<!-- <set name="attributes.object_name" value="Gross Hours - Breakdown"/>
 			<include template="../common_files/act_object_access.cfm"> -->
