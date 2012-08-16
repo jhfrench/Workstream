@@ -19,7 +19,7 @@
 <cfparam name="attributes.customer_id" default="0">
 <cfparam name="Sort" default="Customer.description,Project.description">
 <cfinclude template="qry_get_engagement_main.cfm">
-<cfinclude template="qry_get_billable_types.cfm">
+<cfinclude template="../common_files/qry_get_ref_billable_type.cfm">
 <cfoutput>
 <cfform name="edit_engagement_main" action="index.cfm?fuseaction=Customers.edit_engagement" method="post">
 	<tr bgcolor="##c0c0c0">
@@ -33,7 +33,7 @@
 	<tr valign="top">
 		<td class="RegTextBd">
 			Billing Type<br />
-			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="description" selected="#get_engagement_main.billable_type_id#" onchange="javascript:submit();" required="yes" message="Please specify the billing type for this engagement."></cfselect>
+			<cfselect name="billable_type_id" size="4" query="get_ref_billable_type" value="billable_type_id" display="description" selected="#get_engagement_main.billable_type_id#" onchange="javascript:submit();" required="yes" message="Please specify the billing type for this engagement."></cfselect>
 		</td>
 		<td class="RegTextBd">
 			Budget<br />

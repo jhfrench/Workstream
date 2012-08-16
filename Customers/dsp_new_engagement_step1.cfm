@@ -15,7 +15,7 @@
 </cfsilent>
 <cfinclude template="qry_get_root_codes.cfm">
 <cfinclude template="qry_get_companies.cfm">
-<cfinclude template="qry_get_billable_types.cfm">
+<cfinclude template="../common_filesqry_get_ref_billable_type.cfm">
 <cfinclude template="../common_files/qry_get_products.cfm">
 <cfoutput>
 <input type="hidden" name="step" value="2">
@@ -57,14 +57,14 @@
 		</td>
 		<td class="RegTextBd">
 			Billing Type<br />
-			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="description" required="yes" message="Please specify the billing type for this engagement."></cfselect>
+			<cfselect name="billable_type_id" size="4" query="get_ref_billable_type" value="billable_type_id" display="description" required="yes" message="Please specify the billing type for this engagement."></cfselect>
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="2" class="Note">
 				<li>
 					Specify which product this engagement will cover, and indicate if the engagement will require any custom data entry. Choose the billing structure for this engagement:
 					</cfoutput>
-					<cfoutput query="get_billable_types">
+					<cfoutput query="get_ref_billable_type">
 					<br />-#description#
 					</cfoutput><cfoutput>
 				</li>
