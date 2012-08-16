@@ -3,7 +3,7 @@
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_ref_center.cfm">
 	<responsibilities>
-		I get NASA centers from REF_Center table.
+		I get centers from REF_Center table.
 	</responsibilities>
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/13/2007" role="FuseCoder" comments="Created File">

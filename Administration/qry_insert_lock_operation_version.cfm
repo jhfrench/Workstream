@@ -1,12 +1,12 @@
 <!-- Administration/qry_insert_lock_operation_version.cfm
-	Author: Kelly Poon -->
+	Author: Jeromy French -->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_insert_lock_operation_version.cfm">
 	<responsibilities>
 
 	</responsibilities>
 	<properties>
-		<history email="kpoon@hq.nasa.gov" author="Kelly Poon" type="create" date="3/31/2008" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="3/31/2008" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

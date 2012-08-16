@@ -19,7 +19,7 @@
 		<td colspan="2" class="Forum_AltHeaderText">Installation</td>
 	</tr>
 	<tr>
-		<td width="50">URL to application base (no http prefix, ie: intranet.hq.nasa.gov/FHDS)</td>
+		<td width="50">URL to application base (no http prefix, ie: intranet.ait.com/FHDS)</td>
 		<td>
 			<cfinput type="text" name="url_to_base" size="40" maxlength="400" required="yes" message="Please specify the application's base URL.">
 		</td>

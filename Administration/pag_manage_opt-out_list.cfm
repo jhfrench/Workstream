@@ -12,7 +12,7 @@
 	When form is submitted, deactivate any checked fields
 	</responsibilities>
 	<properties>
-		<history email="csliu@nasa.gov" author="Steven Liu" type="create" date="8/3/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Steven Liu" type="create" date="8/3/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

@@ -1,11 +1,11 @@
 <!-- common_files/act_general_guidelines_javascript.cfm
-	Author: Atta Khan -->
+	Author: Jeromy French -->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_general_guidelines_javascript.cfm">
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="atta.khan@nasa.gov" author="Atta Khan" type="create" date="1/11/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="1/11/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
@@ -31,7 +31,7 @@ function checkNum(field_id)
 
 	var div_id=field_id;
 	div_id=div_id.replace(/Text/, "Div");
-	if ($F(field_id) !=parseFloat($F(field_id)))
+	if ($F(field_id) !=parsefloat($F(field_id)))
 		{
 			alert('You must enter a valid numerical expression with no letters or special characters (such as $, %, @, etc).');
 			$(field_id).value=$(div_id).innerHTML;

@@ -1,12 +1,12 @@
 <!-- Home/qry_insert_opt-out.cfm
-	Author: Ping Liang-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_insert_opt-out.cfm">
 	<responsibilities>
 		crete query to insert email adress into table email_blacklist.
 	</responsibilities>
 	<properties>
-		<history email="pliang@hq.nasa.gov" author="Ping Liang" type="create" date="7/27/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/27/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

@@ -62,7 +62,7 @@
 			<tr>
 				<td width="20%"><label for="email_address">Email</label>:</td>
 				<td width="80%">
-					<cfinput type="text" name="email_address" id="email_address" size="50" maxlength="4000" required="yes" validate="email" validateat="onserver, onsubmit" message="You must enter a valid email address." value="#nasaPrimaryEmail#" />
+					<cfinput type="text" name="email_address" id="email_address" size="50" maxlength="4000" required="yes" validate="email" validateat="onserver, onsubmit" message="You must enter a valid email address." value="#PrimaryEmail#" />
 				</td>
 			</tr>
 			<tr>

@@ -28,5 +28,5 @@
 	</cfloop>
 </cfif>
 
-You have received this message because you are subscribed to one or more mailing lists with the NASA Vendor Database. If you wish to no longer receive emails from this system, please use this link to opt-out: #replace(listfirst(cgi.http_referer,"?"), "/nvdb.", "/vendors.nvdb.")#?fuseaction=Administration.opt-out<cfif listlen(variables.email_recipients) EQ 1>&email_address=#variables.email_recipients#</cfif>
+You have received this message because you are subscribed to one or more mailing lists with the #application.product_name#. If you wish to no longer receive emails from this system, please use this link to opt-out: #replace(listfirst(cgi.http_referer,"?"), "/nvdb.", "/vendors.nvdb.")#?fuseaction=Administration.opt-out<cfif listlen(variables.email_recipients) EQ 1>&email_address=#variables.email_recipients#</cfif>
 </cfmail>

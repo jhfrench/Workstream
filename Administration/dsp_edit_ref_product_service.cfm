@@ -1,12 +1,12 @@
 <!-- Administration/dsp_edit_ref_product_service.cfm
-	Author: Ping Liang-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_edit_ref_product_service.cfm">
 	<responsibilities>
 		I display the form for ccr status maintenance.
 	</responsibilities>
 	<properties>
-		<history email="Pliang@hq.nasa.gov" author="Ping Liang" type="create" date="6/19/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/19/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

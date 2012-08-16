@@ -29,7 +29,7 @@
 	</cfif>
 
 	<cfhttp url="#application.application_specific_settings.hqts_template_url#" charset="utf-8" method="get" result="hqts_response">
-	   <cfhttpparam type="url" encoded="yes" name="method" value="getNasaDirInfo" />
+	   <cfhttpparam type="url" encoded="yes" name="method" value="getDirInfo" />
 	   <cfhttpparam type="url" encoded="yes" name="appname" value="#application.product_name#" /> 
 	   <cfhttpparam type="url" encoded="yes" name="referPage" value="https://#cgi.http_host##cgi.script_name#" />
 	   <cfhttpparam type="url" encoded="yes" name="searchParameters" value="(#variables.searchParameters#)" />          
@@ -41,11 +41,11 @@
 	<cfset variables.searchParameters="&(employeeNumber=#attributes.uupic#)">
 
 	<cfhttp url="#application.application_specific_settings.hqts_template_url#" charset="utf-8" method="get" result="hqts_response">
-	   <cfhttpparam type="url" encoded="yes" name="method" value="getNasaDirInfo" />
+	   <cfhttpparam type="url" encoded="yes" name="method" value="getDirInfo" />
 	   <cfhttpparam type="url" encoded="yes" name="appname" value="#application.product_name#" /> 
 	   <cfhttpparam type="url" encoded="yes" name="referPage" value="https://#cgi.http_host##cgi.script_name#" />
 	   <cfhttpparam type="url" encoded="yes" name="searchParameters" value="(&(employeeNumber=#attributes.uupic#))" />          
-	   <cfhttpparam type="url" encoded="yes" name="returnAttributes" value="agencyuid,employeeNumber,givenname,initials,nasaPrimaryEmail,ou,sn,telephonenumber" />
+	   <cfhttpparam type="url" encoded="yes" name="returnAttributes" value="agencyuid,employeeNumber,givenname,initials,PrimaryEmail,ou,sn,telephonenumber" />
 	</cfhttp>
 </cfif>
 

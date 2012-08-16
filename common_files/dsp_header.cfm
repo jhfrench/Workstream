@@ -48,7 +48,7 @@ else
 
 	<title>#application.html_title#</title>
 	<meta name="description" content="Applied Internet Technologies timekeeping software">
-	<meta name="author" content="Applied Internet Technologies: #application.application_specific_settings.nasa_official#">
+	<meta name="author" content="Applied Internet Technologies: #application.application_specific_settings.official#">
 	<meta http-equiv="expires" content="#gethttptimestring(now())#" />
 
 	<meta name="viewport" content="width=device-width">
@@ -105,7 +105,7 @@ else
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</a>
-						<span class="brand"><img src="images/workstream_icon.png" height="17" width="16" alt="#application.application_specific_settings.nasa_organization# Workstream" />Workstream</span>
+						<span class="brand"><img src="images/workstream_icon.png" height="17" width="16" alt="#application.application_specific_settings.organization# Workstream" />Workstream</span>
 						<div class="nav-collapse" id="menu">
 							<ul class="nav">
 								<cfinclude template="qry_get_module_sub_navigation.cfm" /><!--- 

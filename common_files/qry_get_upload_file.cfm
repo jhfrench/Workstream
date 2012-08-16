@@ -1,11 +1,11 @@
 <!-- common_files/qry_get_upload_file.cfm
-	Author: Stephen Liu -->
+	Author: Jeromy French -->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_upload_file.cfm">
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="csliu@nasa.gov" author="Stephen Liu" type="create" date="7/28/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/28/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

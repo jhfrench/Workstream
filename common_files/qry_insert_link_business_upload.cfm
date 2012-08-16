@@ -1,12 +1,12 @@
 <!-- common_files/qry_insert_link_business_upload.cfm
-	Author: Stephen Liu-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_insert_link_business_upload.cfm">
 	<responsibilities>
 		I INSERT INTO link_business _upload table
 	</responsibilities>
 	<properties>
-		<history email="csliu@nasa.gov" author="Stephen Liu" type="create" date="7/21/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/21/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

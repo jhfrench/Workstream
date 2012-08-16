@@ -25,7 +25,7 @@
 
 <tr bgcolor="#808080">
 	<th>Edit</th>
-	<th><abbr title="NASA Structure Management">NSM</abbr> Organization</th>
+	<th>hierarchy Organization</th>
 </tr>
 <cfif get_nsm_hierarchy_organizations.recordcount>
 	<cfoutput query="get_nsm_hierarchy_organizations">

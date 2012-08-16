@@ -1,12 +1,12 @@
 <!--- Administration/qry_insert_ref_product_service.cfm
-	Author: Ping Liang--->
+	Author: Jeromy French--->
 <!--- 
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_insert_ref_product_service.cfm">
 	<responsibilities>
 		Query to insert a new ccr status into REF_product_service table.
 	</responsibilities>
 	<properties>
-		<history email="pliang@nasa.gov" author="Ping Liang" type="create" date="6/19/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/19/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

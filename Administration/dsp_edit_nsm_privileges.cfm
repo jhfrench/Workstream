@@ -25,7 +25,7 @@
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="navigation crumbs">
 	<tr>
 		<th align="left">
-			<h2 style="margin:0px"><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit <abbr title="NASA Structure Management">NSM</abbr> Access</h2>
+			<h2 style="margin:0px"><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit hierarchy Access</h2>
 		</th>
 	</tr>
 </table>
@@ -44,13 +44,13 @@
 <cfoutput>
 <div class="datachart" style="border:1px solid ##999999">
 <table cellspacing="1" cellpadding="4" width="100%" border="0" bgcolor="##cccccc" summary="Table allows user to edit application access">
-	<tr bgcolor="##cccccc"><th><strong>Edit <abbr title="NASA Structure Management">NSM</abbr> Access</strong></th></tr>
+	<tr bgcolor="##cccccc"><th><strong>Edit hierarchy Access</strong></th></tr>
 	<tr bgcolor="##eeeeee">
 		<td>
 			<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table lists users whose NSM access can be updated">
 				<tr bgcolor="##eeeeee">
 					<td colspan="#get_module_privilege_details.recordcount+2#" class="alt_list1">
-						Editing program year #get_program_year.description# #get_ref_module.description# privileges for the '#get_grouper_options_and_user_privileges.hierarchy_description#' <abbr title="NASA Structure Management">NSM</abbr> level for: <cfloop query="get_user_information">#first_name# #last_name#<cfif currentrow NEQ recordcount>, </cfif></cfloop>
+						Editing program year #get_program_year.description# #get_ref_module.description# privileges for the '#get_grouper_options_and_user_privileges.hierarchy_description#' hierarchy level for: <cfloop query="get_user_information">#first_name# #last_name#<cfif currentrow NEQ recordcount>, </cfif></cfloop>
 					</td>
 				</tr>
 				<tr bgcolor="##bbbbbb">
@@ -145,7 +145,7 @@
 							<input type="hidden" name="nsm_drilldown_organizations" value="#attributes.nsm_drilldown_organizations#" />
 							<input type="hidden" name="program_year_id" value="#attributes.program_year_id#" />
 							<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
-							<cfif variables.show_apply_to_children_ind><label for="apply_to_children_ind"><input type="checkbox" name="apply_to_children_ind" id="apply_to_children_ind" value="1" />&nbsp;Apply these selections to children <abbr title="NASA Structure Management">NSM</abbr> entities</label></cfif>
+							<cfif variables.show_apply_to_children_ind><label for="apply_to_children_ind"><input type="checkbox" name="apply_to_children_ind" id="apply_to_children_ind" value="1" />&nbsp;Apply these selections to children hierarchy entities</label></cfif>
 						</td>
 					</tr>
 					</cfoutput>
@@ -155,9 +155,9 @@
 						<td colspan="8">
 							<!--- if the top hierarchy for the year doesn't have any options than we need to configure the system for the selected program year --->
 							<cfif compare(attributes.nsm_drilldown_organizations,0)>
-								There are no options at this level to which the user can be assigned privileges. Adding privileges at a higher <abbr title="NASA Structure Management">NSM</abbr> level may present more options at this level.
+								There are no options at this level to which the user can be assigned privileges. Adding privileges at a higher hierarchy level may present more options at this level.
 							<cfelse>
-								Please define the <abbr title="NASA Structure Management">NSM</abbr> structure for program year #get_program_year.description#.
+								Please define the hierarchy structure for program year #get_program_year.description#.
 							</cfif>
 						</td>
 					</tr>

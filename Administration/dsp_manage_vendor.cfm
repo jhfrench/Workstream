@@ -1,15 +1,13 @@
 <!---$issue$ Steven: correct this fusedoc--->
 <!-- Administration/dsp_compose_email.cfm
-	Author: Stephen Liu -->
+	Author: Jeromy French -->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_manage_vendor.cfm">
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="csliu@nasa.gov" author="Stephen Liu" type="create" date="8/4/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="8/4/2009" role="FuseCoder" comments="Created File">
 			$Id:$
-			(JF | 9/9/9)
-			Making corrections depicted in 508_jm_2009_09_09_4.png.
 		</history>
 	</properties>
 	<IO>

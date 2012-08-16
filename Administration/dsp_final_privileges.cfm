@@ -26,7 +26,7 @@
 <table  summary="Table displays access assignments for  user">
 	<tr>
 		<td colspan="2" title="table cell describes the data held in the table within this table">
-			You've assigned access for every <abbr title="NASA Structure Management">NSM</abbr> level that applies to program year #get_program_year.description#
+			You've assigned access for every hierarchy level that applies to program year #get_program_year.description#
 		</td>
 	</tr>
 	<tr>

@@ -32,7 +32,7 @@
 <cfset application.product_name="FAAD">
 <cfset application.html_title="Federal Assistance Award Data">
 <cfset application.active_ind="1">
-<cfset application.erroremailfrom="FAAD@nasa.gov">
+<cfset application.erroremailfrom="customer_service@ait.com">
 <cfset application.product_id="122">
 <cfset application.support_email_recipients="">
 <cfset application.installation_id="459">
@@ -60,15 +60,15 @@
 		<cfset application.environment_name="Development">
 		<cfset application.product_release_version="1.0">
 	</cfcase>
-	<cfcase value="procyon.sef.hq.nasa.gov">
+	<cfcase value="procyon.Test.ait.com">
 		<cfset application.error_handling_enabled_ind="1">
-		<cfset application.email_server_name="smtp.hq.nasa.gov">
-		<cfset application.environment_name="SEF">
+		<cfset application.email_server_name="smtp.ait.com">
+		<cfset application.environment_name="Test">
 		<cfset application.product_release_version="1.0">
 	</cfcase>
-	<cfcase value="smith.hq.nasa.gov">
+	<cfcase value="smith.ait.com">
 		<cfset application.error_handling_enabled_ind="1">
-		<cfset application.email_server_name="smtp.hq.nasa.gov">
+		<cfset application.email_server_name="smtp.ait.com">
 		<cfset application.environment_name="Production">
 		<cfset application.product_release_version="1.0">
 	</cfcase>

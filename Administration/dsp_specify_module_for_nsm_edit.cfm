@@ -26,7 +26,7 @@
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the data held in the table below">
 	<tr>
 		<th align="left">
-			<h2 style="margin:0px">Manage Users &gt; <a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit <abbr title="NASA Structure Management">NSM</abbr> Access</h2>
+			<h2 style="margin:0px">Manage Users &gt; <a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit hierarchy Access</h2>
 		</th>
 	</tr>
 </table>

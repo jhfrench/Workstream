@@ -1,12 +1,12 @@
 <!--- Administration/qry_deactivate_ref_ccr_status.cfm
-	Author: Ping Liang--->
+	Author: Jeromy French--->
 <!--- 
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_deactivate_ref_ccr_status.cfm">
 	<responsibilities>
 		Query to deactivate a record in REF_ccr_status table before a new insert.
 	</responsibilities>
 	<properties>
-		<history email="PLiang@nasa.gov" author="Ping Liang" type="create" date="6/19/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/19/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

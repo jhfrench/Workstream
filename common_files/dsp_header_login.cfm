@@ -31,7 +31,7 @@
 
 	<cfoutput><title>#application.html_title#</title>
 	<meta name="description" content="Applied Internet Technologies timekeeping software">
-	<meta name="author" content="Applied Internet Technologies: #application.application_specific_settings.nasa_official#">
+	<meta name="author" content="Applied Internet Technologies: #application.application_specific_settings.official#">
 	<meta http-equiv="expires" content="#gethttptimestring(now())#" /></cfoutput>
 
 	<meta name="viewport" content="width=device-width">

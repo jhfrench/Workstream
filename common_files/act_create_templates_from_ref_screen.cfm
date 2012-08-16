@@ -84,10 +84,10 @@ ORDER BY REF_Business_Function.description
 </cfswitch>
 	</cfsavecontent>
 	</cfoutput>
-	<cffile action="write" file="/nasahq/data/www/docs/jfrench/FAAD/trunk/sourcecode/#variables.directory#/#page_name#" output="#variables.output#" mode="777" addnewline="No" attributes="normal">
+	<cffile action="write" file="/path_to/Workstream/trunk/#variables.directory#/#page_name#" output="#variables.output#" mode="777" addnewline="No" attributes="normal">
 	<cfif listfindnocase("output,bw",listgetat(page_name, 2, '_'))>
 		<cfloop list="act_,qry_get_,dsp_" index="type_ii">
-			<cffile action="write" file="/nasahq/data/www/docs/jfrench/FAAD/trunk/sourcecode/#variables.directory#/#type_ii##page_guts#.cfm" output="act_#page_guts#.cfm" mode="777" addnewline="No" attributes="normal">
+			<cffile action="write" file="/path_to/Workstream/trunk/#variables.directory#/#type_ii##page_guts#.cfm" output="act_#page_guts#.cfm" mode="777" addnewline="No" attributes="normal">
 		</cfloop>
 	</cfif>
 </cfloop>

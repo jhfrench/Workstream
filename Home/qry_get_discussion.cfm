@@ -1,12 +1,12 @@
 <!-- Home/qry_get_discussion.cfm
-	Author: Lawrence Darrah-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_discussion.cfm">
 	<responsibilities>
 		I retrieve data from the Discussion table for a given user.
 	</responsibilities>
 	<properties>
-		<history email="lawrence.e.darrah@nasa.gov" author="Lawrence Darrah" type="create" date="7/24/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/24/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

@@ -248,11 +248,11 @@ This software consists of voluntary contributions made by many individuals on be
 				name="fb_.dirlist"
 				filter="#getFileFromPath(fb_.file2ParsePath)#" />
 			<cfif fb_.dirlist.recordcount NEQ 1>
-				<cfthrow type="fusebox.forceParseException.parseFileNotFound"
+				<cfthrow type="fusebox.forceParseException.parsefileNotFound"
 					message="The parse file does not exist" />
 			</cfif>
-			<cfset fb_.parseFileTimestamp=parseDateTime(fb_.dirlist.datelastmodified) />
-			<cfif parseDateTime(application.fusebox.dateLastLoaded) GT fb_.parseFileTimestamp>
+			<cfset fb_.parsefileTimestamp=parseDateTime(fb_.dirlist.datelastmodified) />
+			<cfif parseDateTime(application.fusebox.dateLastLoaded) GT fb_.parsefileTimestamp>
 				<cfthrow type="fusebox.forceParseException.InMemoryIsNewer"
 					message="The in-memory structure is newer than the existing parse file" />
 			</cfif>
@@ -267,7 +267,7 @@ This software consists of voluntary contributions made by many individuals on be
 							directory="#getDirectoryFromPath('#application.fusebox.approotdirectory##fb_.path#')#"
 							name="fb_.dirlist" />
 						<cfloop query="fb_.dirlist">
-							<cfif type EQ "file" AND parseDateTime(dateLastModified) GT fb_.parseFileTimestamp>
+							<cfif type EQ "file" AND parseDateTime(dateLastModified) GT fb_.parsefileTimestamp>
 								<cfthrow type="fusebox.forceParseException.pluginIsNewer"
 									message="A plugin file (#fb_.path#) is newer than the existing parse file" />
 							</cfif>
@@ -286,7 +286,7 @@ This software consists of voluntary contributions made by many individuals on be
 						directory="#application.fusebox.approotdirectory##fb_.path#"
 						name="fb_.dirlist" />
 					<cfloop query="fb_.dirlist">
-						<cfif type EQ "file" AND parseDateTime(dateLastModified) GT fb_.parseFileTimestamp>
+						<cfif type EQ "file" AND parseDateTime(dateLastModified) GT fb_.parsefileTimestamp>
 							<cfthrow type="fusebox.forceParseException.lexiconIsNewer"
 								message="A file (#name#) in the #fb_.lex# lexicon (#fb_.path#) is newer than the existing parse file" />
 						</cfif>
@@ -304,7 +304,7 @@ This software consists of voluntary contributions made by many individuals on be
 				directory="#getDirectoryFromPath(getCurrentTemplatePath())#"
 				name="fb_.dirlist" />
 			<cfloop query="fb_.dirlist">
-				<cfif type EQ "file" AND parseDateTime(datelastmodified) GT fb_.parseFileTimestamp>
+				<cfif type EQ "file" AND parseDateTime(datelastmodified) GT fb_.parsefileTimestamp>
 					<cfthrow type="fusebox.forceParseException.coreFileIsNewer"
 						message="The #name# core is newer than the existing parse file." />
 				</cfif>

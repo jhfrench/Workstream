@@ -1,12 +1,12 @@
 <!-- Home/pag_view_forum.cfm
-	Author: Lawrence Darrah-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_view_forum.cfm">
 	<responsibilities>
 		I display the form for editing forum discussions and act (send information to DB) when the form is submitted.
 	</responsibilities>
 	<properties>
-		<history email="lawrence.e.darrah@nasa.gov" author="Lawrence Darrah" type="create" date="7/24/2007" role="Cold Fusion Developer" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/24/2007" role="Cold Fusion Developer" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

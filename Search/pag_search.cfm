@@ -18,7 +18,7 @@
 <cfinclude template="../common_files/qry_get_task_stati.cfm">
 <cfform name="input_form" action="index.cfm?fuseaction=Search.output" method="post" class="form-horizontal">
 	<fieldset>
-		<legend><h2><cfoutput>#application.application_specific_settings.nasa_organization#</cfoutput> Knowledgebase Search</h2></legend>
+		<legend><h2><cfoutput>#application.application_specific_settings.organization#</cfoutput> Knowledgebase Search</h2></legend>
 		<div class="control-group">
 			<label for="task_id">Task ID</label>
 			<div class="controls">

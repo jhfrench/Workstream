@@ -51,25 +51,25 @@
 		switch(variables.environment_name) {
 			case "Development": {
 				application.error_handling_enabled_ind=0;
-				application.email_server_name="smtp.hq.nasa.gov";
+				application.email_server_name="smtp.ait.com";
 				application.environment_name="Development";
-				application.host_server_name="Nash";
+				application.host_server_name="Florence";
 				break;
 			}
 
-			case "SEF": {
+			case "Test": {
 				application.error_handling_enabled_ind=1;
-				application.email_server_name="smtp.hq.nasa.gov";
-				application.environment_name="SEF";
-				application.host_server_name="Procyon";
+				application.email_server_name="smtp.ait.com";
+				application.environment_name="Test";
+				application.host_server_name="TBD";
 				break;
 			}
 
 			case "Production": {
 				application.error_handling_enabled_ind=1;
-				application.email_server_name="smtp.hq.nasa.gov";
+				application.email_server_name="smtp.ait.com";
 				application.environment_name="Production";
-				application.host_server_name="Heckler";
+				application.host_server_name="TBD";
 				break;
 			}
 		}

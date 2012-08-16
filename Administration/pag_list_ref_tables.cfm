@@ -8,8 +8,6 @@
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/15/2007" role="FuseCoder" comments="Created File">
 			$Id:$
-			(JF | 9/15/2009)
-			Corrected issue in error_kj_2009_09_14_1848.msg. SEF and production use pointer schemas, so can't directly access meta data in those environments.
 		</history>
 	</properties>
 	<IO>

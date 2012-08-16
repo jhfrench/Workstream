@@ -309,19 +309,19 @@
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 			<title>HITSS Application Error</title>
-			<link href="https://pavo.hq.nasa.gov/Application_Manager/errortemplates/error_stlye.css" rel="stylesheet" type="text/css" />
+			<link href="https://pavo.ait.com/Application_Manager/errortemplates/error_stlye.css" rel="stylesheet" type="text/css" />
 		</head>
 		<body>
 			<table class="center" width="686" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td><img src="https://pavo.hq.nasa.gov/Application_Manager/errortemplates/top.jpg" width="686" height="140" /></td>
+					<td><img src="https://pavo.ait.com/Application_Manager/errortemplates/top.jpg" width="686" height="140" /></td>
 				</tr>
 				<tr>
 					<td class="content">
 						<p class="header">You have experienced an unexpected error. <br /></p>
 						<p>The Error Reference Number is<cfif isdefined("request.error_log_id") AND len(request.error_log_id)>: #request.error_log_id#<cfelse> unknown.</cfif></p>
 						<p>We apologize for the inconvenience this may cause. This page automatically sends an email to the <abbr title="Applied Internet Technologies">AIT</abbr> Application Development department to ensure timely repair of the malfunction.</p>
-						<p>If you have any questions or concerns, please feel free to contact the <a href="mailto:service@hq.nasa.gov"><abbr title="Applied Internet Technologies">AIT</abbr> Help Desk</a><cfif isdefined("request.error_log_id") AND len(request.error_log_id)> and reference Error Reference Number #request.error_log_id#</cfif>.
+						<p>If you have any questions or concerns, please feel free to contact the <a href="mailto:service@ait.com"><abbr title="Applied Internet Technologies">AIT</abbr> Help Desk</a><cfif isdefined("request.error_log_id") AND len(request.error_log_id)> and reference Error Reference Number #request.error_log_id#</cfif>.
 							<!--- the very same code as above --->
 							<cfif isdefined("application.application_support_contacts")>
 								<cfloop list="#structKeyList(application.application_support_contacts)#" index="contact_type_ii">
@@ -343,7 +343,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td><img src="https://pavo.hq.nasa.gov/Application_Manager/errortemplates/bottom.jpg" width="686" height="21" /></td>
+					<td><img src="https://pavo.ait.com/Application_Manager/errortemplates/bottom.jpg" width="686" height="21" /></td>
 				</tr>
 			</table>
 		</body>

@@ -8,8 +8,6 @@
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/2/2009" role="FuseCoder" comments="Created File">
 			$Id:$
-			(JF | 9/11/9)
-			Making corrections depicted in error_gh_2009_09_11_1351.doc.
 		</history>
 	</properties>
 	<IO>
@@ -36,18 +34,18 @@
 <cfsetting showdebugoutput="no">
 
 <head>
-	<title>NASA Vendor Database</title>
+	<title>#application.product_name#</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	<meta http-equiv="expires" content="{ts '2009-07-20 15:16:03'}" />
 	<!--Meta Data starts-->
 	<!--SYSTEM DEFINED METADATA-->
-	<meta name="dc.title" content="NASA Vendor Database" />
+	<meta name="dc.title" content="#application.product_name#" />
 	<meta name="dc.format" content="text/html" />
 	<meta name="dc.date.modified" content="{ts '2009-07-20 15:14:14'}" />
 	<meta name="dc.language" content="en" />
-	<meta name="dc.publisher" content="David Grove" />
+	<meta name="dc.publisher" content="#application.application_specific_settings.official#" />
 	<!--Meta Data ends-->
-	<link href="http://www.nasa.gov/favicon.ico" rel="SHORTCUT ICON" />
+	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
 	<style type="text/css">
 	body {background-color:#FFFFFF; margin:0px;}
 	body, table, td, form, input, select, h1, h2, h3, h4, h5, h6, pre {font-family:Arial; font-size:12px; color:#000000;}
@@ -97,9 +95,9 @@
 			<cfoutput query="get_business_upload">
 			<li><a href="Uploaded_Files/#archived_file_name#" target="document_#upload_id#">#original_file_name#</a>&nbsp;&nbsp;<cfif attributes.show_upload_form_ind><a href="javascript:delete_document(#upload_id#);">Delete</a></cfif></li>
 			</cfoutput>
-			</ul>
+			</ul></cfoutput>
 		<cfelse>
-			This vendor has not uploaded any documents into <abbr title="NASA Vendor Database">NVDB</abbr>.
+			This vendor has not uploaded any documents into <cfoutput>#application.product_name#.
 		</cfif>
 	</cfcase>
 	<cfcase value="2">

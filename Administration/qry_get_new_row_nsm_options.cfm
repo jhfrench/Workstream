@@ -5,7 +5,7 @@
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="atta.khan@nasa.gov" author="Jeromy French" type="create" date="4/7/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="4/7/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 			(JF | 4/3/2008)
 			Marlana says the mission/theme select boxes are to be populated from the regular NSM structure (see FAAD\trunk\documentation\Release_2.0\RE: question for Manage Apportionment piece.msg).

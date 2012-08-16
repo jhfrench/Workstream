@@ -29,7 +29,7 @@
 </cfsilent>
 
 <!--- code re-use disabled at direction of HITSS management
-<!--- development does not use https; SEF and production do --->
+<!--- development does not use https; Test and production do --->
 <cfif NOT len(cgi.https) OR NOT comparenocase(cgi.https,"off")>
 	<cfset variables.path_prefix="../../Application_Manager/trunk/">
 <cfelse>
@@ -53,9 +53,9 @@
 			break;
 		}
 
-		case "procyon.sef.hq.nasa.gov":
-		case "faad.sef.hq.nasa.gov": {
-			variables.environment_name="SEF";
+		case "test.workstream.ait.com":
+		case "test.workstream.com": {
+			variables.environment_name="Test";
 			variables.sessiontimeout="0.04166666666665";
 			break;
 		}

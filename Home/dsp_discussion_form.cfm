@@ -1,12 +1,12 @@
 <!-- Home/dsp_discussion_form.cfm
-	Author: Lawrence Darrah-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_discussion_form.cfm">
 	<responsibilities>
 		I display the form for the user to add a discussion and an attachment to discussion.
 	</responsibilities>
 	<properties>
-		<history email="lawrence.e.darrah@nasa.gov" author="Lawrence Darrah" type="create" date="7/24/2007" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/24/2007" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

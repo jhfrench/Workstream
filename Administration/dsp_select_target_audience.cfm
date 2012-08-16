@@ -22,13 +22,13 @@
 Select the audience you wish to receive your email:
 <p>
 <input type="radio" name="user_type_id" id="user_type_id_1" value="1" onclick="Element.hide('other_options');Element.hide('email_category');" /><label for="user_type_id_1">Small Business Specialists</label><br />
-<input type="radio" name="user_type_id" id="user_type_id_2" value="2" onclick="Element.hide('other_options');Element.show('email_category');" /><label for="user_type_id_2"><abbr title="National Aeronautics and Space Administration">NASA</abbr> Customer Users</label><br />
+<input type="radio" name="user_type_id" id="user_type_id_2" value="2" onclick="Element.hide('other_options');Element.show('email_category');" /><label for="user_type_id_2">#application.product_name# Customer Users</label><br />
 <input type="radio" name="user_type_id" id="user_type_id_3" value="3" onclick="Element.show('other_options');Element.show('email_category');" /><label for="user_type_id_3">Public Vendor POC Users</label>
 </p>
 <div id="other_options" style="display:none">
 <p>
 <cfoutput>
-	NASA Business Category:<br />
+	#application.product_name# Business Category:<br />
 	<cfloop query="get_ref_business_category">
 	<input type="checkbox" name="business_category_id" id="business_category_id_#business_category_id#" value="#business_category_id#" /><label for="business_category_id_#business_category_id#">#description#</label><br />
 	</cfloop>

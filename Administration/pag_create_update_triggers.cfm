@@ -6,7 +6,7 @@
 		I create an update trigger for each table that ensures tables won't be updated (except to set active_ind=0).
 	</responsibilities>
 	<properties>
-		<history email="min.a.lee@nasa.gov" author="Jeromy French" type="create" date="3/27/2008" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="3/27/2008" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

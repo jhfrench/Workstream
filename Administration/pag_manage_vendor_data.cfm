@@ -1,11 +1,11 @@
 <!-- Administration/pag_manage_vendor_data.cfm
-	Author: Stephen Liu -->
+	Author: Jeromy French -->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="pag_manage_vendor_data.cfm">
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="csliu@nasa.gov" author="Stephen Liu" type="create" date="08/4/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="08/4/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

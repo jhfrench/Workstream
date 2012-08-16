@@ -1,12 +1,12 @@
 <!-- common_files/qry_get_nsm_hierarchy_orgs_from_id.cfm
-	Author: Kelly Poon-->
+	Author: Jeromy French-->
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_nsm_hierarchy_orgs_from_id.cfm">
 	<responsibilities>
 		I return organizations based on a hierarchy level and organization id.
 	</responsibilities>
 	<properties>
-		<history email="kpoon@hq.nasa.gov" author="Kelly Poon" type="create" date="3/28/2008" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="3/28/2008" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

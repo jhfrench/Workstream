@@ -6,7 +6,7 @@
 	<responsibilities>
 	</responsibilities>
 	<properties>
-		<history email="Atta.Khan@nasa.gov" author="Jeromy French" type="create" date="2/29/2008" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="2/29/2008" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

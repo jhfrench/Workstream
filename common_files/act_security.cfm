@@ -65,7 +65,7 @@
 	<!--- if we have a fuseaction in the URL and the fuseaction is not for one of the protected pages --->
 	<cfset variables.page_is_secure_ind=0>
 	<cfif len(cgi.http_referer) AND NOT (findnocase("127.0.0.1", cgi.http_referer) OR findnocase("localhost", cgi.http_referer) OR findnocase("florence", cgi.http_referer) OR findnocase("192.168.1.3", cgi.http_referer))>
-		<!--- if we do know the refering page, and the refering page doesn't originate from nasa.gov or hitsshq.com --->
+		<!--- if we do know the refering page, and the refering page doesn't originate from ait.com --->
 		<!--- 2. Prevent unauthorized interface attempts from other applications --->
 		<cfset variables.error_message="Unauthenticated access is prohibited.2">
 		<cfset variables.new_location="index.cfm?fuseaction=#application.fusebox.defaultfuseaction#">

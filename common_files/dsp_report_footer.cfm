@@ -1,12 +1,12 @@
 <!-- common_files/dsp_report_footer.cfm
-	Author: Marithe Le-->
+	Author: Jeromy French-->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_report_footer.cfm">
 	<responsibilities>
 		I display footer for application reports.
 	</responsibilities>
 	<properties>
-		<history email="marithe.le@nasa.gov" author="Marithe Le" type="create" date="4/21/2008" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="4/21/2008" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>

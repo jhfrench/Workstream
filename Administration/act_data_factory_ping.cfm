@@ -92,7 +92,7 @@ NOTE: These processes are still running from a previous call and will not be add
 <cfoutput query="get_ftp_credentials">
 	<cftransaction>
 		<p><hr />CONNECTING to #abbreviation# (#upload_source_id#)</p>
-		<cfftp connection="ftp_#abbreviation#" action="open" server="ftp.hq.nasa.gov" username="#get_ftp_credentials.ftp_username#" password="#get_ftp_credentials.ftp_password#" stoponerror="Yes">
+		<cfftp connection="ftp_#abbreviation#" action="open" server="ftp.ait.com" username="#get_ftp_credentials.ftp_username#" password="#get_ftp_credentials.ftp_password#" stoponerror="Yes">
 
 			<p>CHECKING FOR FILES</p>
 			<cfftp connection="ftp_#abbreviation#" action="LISTDIR" stoponerror="Yes" name="list_files" directory="" asciiextensionlist="#upload_template#">

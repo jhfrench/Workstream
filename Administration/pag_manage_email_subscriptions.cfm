@@ -39,7 +39,7 @@
 <cfinclude template="qry_get_email_blacklist.cfm">
 
 <cfif get_email_blacklist.recordcount>
-	You will not recieve email from the <abbr title="NASA Vendor Database">NVDB</abbr> system because your email address (<cfoutput>#session.email_address#</cfoutput>) has been opted-out of receiving future communications.
+	<cfoutput>You will not recieve email from the #application.product_name# system because your email address (#session.email_address#) has been opted-out of receiving future communications.</cfoutput>
 <cfelse>
 	<cfinclude template="qry_get_user_email_subscription.cfm">
 	<cfset attributes.subscribed_email_category_id=valuelist(get_user_email_subscription.email_category_id)>

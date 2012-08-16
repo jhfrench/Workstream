@@ -1,12 +1,12 @@
 <!--- Administration/qry_insert_ref_naics.cfm
-	Author: Ping Liang--->
+	Author: Jeromy French--->
 <!--- 
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_insert_ref_naics.cfm">
 	<responsibilities>
 		Query to insert a new naics into REF_naics table.
 	</responsibilities>
 	<properties>
-		<history email="Ping Liang@nasa.gov" author="Ping Liang" type="create" date="6/19/2009" role="FuseCoder" comments="Created File">
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/19/2009" role="FuseCoder" comments="Created File">
 			$Id:$
 		</history>
 	</properties>
