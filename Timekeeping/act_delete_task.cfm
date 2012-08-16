@@ -16,9 +16,10 @@
  --->
 <cfquery name="delete_task" datasource="#application.datasources.main#">
 UPDATE Task
-SET active_ind=0
+SET active_ind=0,
+	deleted_date=CURRENT_TIMESTAMP,
+	deleted_by=#session.user_account_id#
 WHERE active_ind=1
 	AND task_id IN (#attributes.task_id#)
 </cfquery>
 </cfsilent>
-
