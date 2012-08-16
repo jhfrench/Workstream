@@ -27,7 +27,7 @@
 				<option value="2"<cfif attributes.due_date_operator EQ 2> SELECTED="selected"</cfif>>Between</option>
 				<option value="3"<cfif attributes.due_date_operator EQ 3> SELECTED="selected"</cfif>>Greater Than</option>
 			</select>&nbsp;
-			<input type="date" name="date_entered" id="date_entered" min="#application.application_specific_settings_workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.date_entered, 'yyyy-mm-dd')#" maxlength="10" class="span6 date" />
+			<input type="date" name="date_entered" id="date_entered" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.date_entered, 'yyyy-mm-dd')#" maxlength="10" class="span6 date" />
 		</td>
 	</tr>
 </cfoutput>

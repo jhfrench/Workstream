@@ -20,7 +20,7 @@
 			Date Implemented:
 		</td>
 		<td class="SelectText">
-			<input type="date" name="date" id="date" min="#application.application_specific_settings_workstream_start_date#" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="date" id="date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 		</td>
 	</tr>
 	<tr bgcolor="##78A0EB">
@@ -54,7 +54,7 @@
 			<label for="#get_present_supervisor.user_account_id#"><input type="checkbox" name="supervisor_id_list" id="#get_present_supervisor.user_account_id#" value="#get_present_supervisor.user_account_id#" />#get_present_supervisor.sup_name#</label>
 		</td>
 		<td class="SelectText">
-			<input type="date" name="end_date_#get_present_supervisor.user_account_id#" id="end_date_#get_present_supervisor.user_account_id#" value="#dateformat(now(),'yyyy-mm-dd')#" min="#application.application_specific_settings_workstream_start_date#" maxlength="10" class="span3 date" />
+			<input type="date" name="end_date_#get_present_supervisor.user_account_id#" id="end_date_#get_present_supervisor.user_account_id#" value="#dateformat(now(),'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" class="span3 date" />
 		</td>
 		<!--- <td>&nbsp;</td> --->
 	</tr>

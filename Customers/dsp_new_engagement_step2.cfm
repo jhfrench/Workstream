@@ -50,10 +50,10 @@
 	<tr valign="top">
 		<td>
 			Start:
-			<input type="date" name="start_date" id="start_date" min="#application.application_specific_settings_workstream_start_date#" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="start_date" id="start_date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 			<p>Please enter a proper date for which billing is to begin on this engagement.</p>
 			End:
-			<input type="date" name="end_date" id="end_date" min="#application.application_specific_settings_workstream_start_date#" maxlength="10" class="span3 date" />
+			<input type="date" name="end_date" id="end_date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" class="span3 date" />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">
@@ -66,10 +66,10 @@
 	<tr valign="top">
 		<td>
 			Start: 
-			<input type="date" name="start_date" id="start_date" min="#application.application_specific_settings_workstream_start_date#" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="start_date" id="start_date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 			<p>Please enter a proper date for which billing is to begin on this engagement.</p>
 			End:
-			<input type="date" name="end_date" id="end_date" min="#application.application_specific_settings_workstream_start_date#" maxlength="10" class="span3 date" />
+			<input type="date" name="end_date" id="end_date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" class="span3 date" />
 			Months: <cfinput type="text" name="months" required="yes" validate="integer" message="Please enter the number of months over which this engagement will be billed to the customer." size="2">
 		</td>
 		<td width="55%" class="Note">
@@ -96,9 +96,9 @@
 		<td>
 			<span class="RegTextBd">Work Dates</span><br />
 			Start:
-			<input type="date" name="project_start" id="project_start" min="#application.application_specific_settings_workstream_start_date#" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="project_start" id="project_start" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 			End: 
-			<input type="date" name="project_end" id="project_end" min="#application.application_specific_settings_workstream_start_date#" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="project_end" id="project_end" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">

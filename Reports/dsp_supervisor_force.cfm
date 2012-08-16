@@ -16,9 +16,9 @@
 <cfoutput>
 <form name="form_supervisor_force" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="well form-inline">
 	<label for="from_date">Start</label>
-	<input type="date" name="from_date" id="from_date" min="#application.application_specific_settings_workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
+	<input type="date" name="from_date" id="from_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
 	<label for="to_date">End</label>
-	<input type="date" name="to_date" id="to_date" min="#application.application_specific_settings_workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
+	<input type="date" name="to_date" id="to_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
 	<input type="submit" name="submit" value="Retrieve Tasks" class="btn btn-primary" />
 </form>
 </cfoutput>

@@ -31,11 +31,11 @@
 	<tr>
 		<td>
 			<label for="from_date">From</label>:
-			<input type="date" name="from_date" id="from_date" min="#application.application_specific_settings_workstream_start_date#" maxlength="10"<cfif attributes.required> required="required"</cfif> class="span3 date" />
+			<input type="date" name="from_date" id="from_date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10"<cfif attributes.required> required="required"</cfif> class="span3 date" />
 		</td>
 		<td>
 			<label for="through_date">To</label>: 
-			<input type="date" name="through_date" id="through_date" min="#application.application_specific_settings_workstream_start_date#" maxlength="10"<cfif attributes.required> required="required"</cfif> class="span3 date" />
+			<input type="date" name="through_date" id="through_date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10"<cfif attributes.required> required="required"</cfif> class="span3 date" />
 		</td>
 	</tr>
 	<tr>

@@ -55,7 +55,7 @@
 					<option value="2">On</option>
 					<option value="3">After</option>
 				</select>
-				<cfoutput><input type="date" name="date_entered" id="date_entered" min="#application.application_specific_settings_workstream_start_date#" max="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" class="span5 date" /></cfoutput>
+				<cfoutput><input type="date" name="date_entered" id="date_entered" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" class="span5 date" /></cfoutput>
 			</div>
 		</div>
 		<div class="control-group">
@@ -66,7 +66,7 @@
 					<option value="2">On</option>
 					<option value="3">After</option>
 				</select>
-				<cfoutput><input type="date" name="due_date" id="due_date" min="#application.application_specific_settings_workstream_start_date#" max="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" class="span5 date" /></cfoutput>
+				<cfoutput><input type="date" name="due_date" id="due_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" class="span5 date" /></cfoutput>
 			</div>
 		</div>
 		<div class="control-group">
