@@ -1,10 +1,10 @@
 
 <!--tools/pag_expense_update.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I contain the code that allows  updates to the expense reports.
+	Responsibilities: I contain the code that allows updates to the expense reports.
 
 	||
 	Edits:

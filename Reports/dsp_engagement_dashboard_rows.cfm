@@ -1,12 +1,12 @@
 
 <!--Reports/dsp_engagement_dashboard_rows.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I display the engagement list dashboard and a form for restricting and sorting the records. 
 	I am used to give a overview of all engagements or select engagments as selected on the form I display.
-	The form has the following option restriction can be placed on Customer and IE.  
+	The form has the following option restriction can be placed on Customer and IE.
 	Sorting can be done on any column.
 	||
 	Name: Jeromy French

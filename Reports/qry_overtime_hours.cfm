@@ -1,6 +1,6 @@
 
 <!--reports/qry_overtime_hours.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

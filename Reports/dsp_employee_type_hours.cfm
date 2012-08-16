@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_employee_classification_hours.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 </cfsilent>
 			<tr class="SubHeadText">
-				<td colspan="2" align="right"  >
+				<td colspan="2" align="right" >
 					Total Hours for Employee Type:
 				</td>
 				<td>

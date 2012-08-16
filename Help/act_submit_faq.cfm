@@ -75,7 +75,7 @@ FROM Dual
 <!--- This is the email that sends the question to the people identified to handle questions (if those people are known) --->
 <cfif len(variables.help_email_recipients) AND len(application.email_server_name)>
 	<!-- email sent to <cfoutput>#variables.help_email_recipients#, from #application.application_specific_settings.system_email_sender# through #application.email_server_name#</cfoutput> -->
-	
+
 	<cfscript>
 		attributes.email_recipients_demographics_id=valuelist(get_help_email_recipients.demographics_id);
 		attributes.reply_to=application.application_specific_settings.system_email_sender;

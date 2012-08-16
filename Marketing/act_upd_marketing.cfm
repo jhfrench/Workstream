@@ -1,6 +1,6 @@
 
 <!--Marketing/act_upd_marketing.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -11,7 +11,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-    <cfset loopcount = arraylen(marketing.city1)>
+	<cfset loopcount = arraylen(marketing.city1)>
 
     	<cfloop from="1" to="#loopcount#" index="ii">
 <cftransaction isolation="READ_COMMITTED">
@@ -32,7 +32,7 @@
 					<cfif isdate(MARKETING.statuscontractdate[ii])>statuscontractdate = '#MARKETING.STATUSCONTRACTDATE[ii]#',</cfif> source = #session.user_account_id#
 					<cfif isnumeric(MARKETING.company_size[ii])>,company_size ='#MARKETING.COMPANY_SIZE[ii]#'</cfif>
 					Where project_id = #MARKETING.project_id[ii]#
-		          </cfquery>
+			     </cfquery>
 			</cfif>
 		<cfloop from="1" to="3" index="jj">
 		    <cfscript>
@@ -102,11 +102,11 @@
 		<cfif len(MARKETING.description[ii])>
 
 			<cfquery name="get_max_code" datasource="#application.datasources.main#">
-                   SELECT MAX(project_code) AS project_code, customer_id
+				   SELECT MAX(project_code) AS project_code, customer_id
 				FROM project
 				WHERE project_code LIKE '6005.%'
 				GROUP BY customer_id
-               </cfquery>
+			   </cfquery>
 <!--- <cfset overview = evaluate(#MARKETING.OVERVIEW[ii]#)>		 --->
 <cfset  project_code = get_max_code.project_code +0.001>
 			<cfquery name="insert_project" datasource="#application.datasources.main#">
@@ -155,9 +155,9 @@
 				<!--- only insert the contact informtion if a person is entered. --->
 				<cfif len(name)+len(lname)>
 				<cfquery name="insert_emp_contact" datasource="#application.datasources.main#">
-	            INSERT INTO Emp_Contact (name, lname, emp_contact_type)
+		       INSERT INTO Emp_Contact (name, lname, emp_contact_type)
 				VALUES ('#name#', '#lname#', 3)
-	               </cfquery>
+		          </cfquery>
 
 				<cfquery name="get_emp_id" datasource="#application.datasources.main#">
 				SELECT CURRVAL('Emp_Contact_emp_id_SEQ') AS emp_id

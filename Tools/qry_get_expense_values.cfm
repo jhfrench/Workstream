@@ -1,6 +1,6 @@
 
 <!--tools/qry_get_expense_values.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

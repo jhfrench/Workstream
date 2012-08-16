@@ -69,7 +69,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="control_rating_id" value="#attributes.control_rating_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />

@@ -1,5 +1,5 @@
 <!--Tools/dsp_expense_entry_form.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -57,14 +57,14 @@
 		Date
 	</td>
 	<td>
-		<input type="date" name="date_incurred" id="date_incurred" min="#application.application_specific_settings_workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#"  value="#dateformat(attributes.date_incurred,'yyyy-mm-dd')#" required="required" maxlength="10" class="span6 date" />
+		<input type="date" name="date_incurred" id="date_incurred" min="#application.application_specific_settings_workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.date_incurred,'yyyy-mm-dd')#" required="required" maxlength="10" class="span6 date" />
 		<!-- Use CF to create validaton <cfinput type="datefield" name="date_incurred" required="yes" validate="date" message="Please enter the date this expense was paid (m/d/yyyy format)." size="11"> --->
 	</td>
 </tr>
 <tr>
 	<td>Payee</td>
 	<td>
-		<cfinput type="text" name="payee_name" value="#attributes.payee_name#" required="yes"  size="40" message="Please enter a payee name." >
+		<cfinput type="text" name="payee_name" value="#attributes.payee_name#" required="yes" size="40" message="Please enter a payee name." >
 	</td>
 	<td>
 		&nbsp;
@@ -85,7 +85,7 @@
 		<div id="category" style="visibility='hidden'">New Category</div>&nbsp;
 	</td>
 	<td colspan="2">
-		<div id="optional_new_category_div" style="visibility='hidden'"><cfinput type="text" name="optional_new_category" value="" required="no"  size="30"></div>&nbsp;
+		<div id="optional_new_category_div" style="visibility='hidden'"><cfinput type="text" name="optional_new_category" value="" required="no" size="30"></div>&nbsp;
 	</td>
 </tr>
 <tr>

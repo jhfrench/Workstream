@@ -34,7 +34,7 @@
 	<input type="submit" name="method" alt="Retrieve and edit resource link type" value="Retrieve and edit resource link type" />
 </form>
 <cfif len(attributes.method)>
-	<cfmodule template="../common_files/qry_get_ref_resource_link_type.cfm"  resource_link_type_id="#attributes.resource_link_type_id#">
+	<cfmodule template="../common_files/qry_get_ref_resource_link_type.cfm" resource_link_type_id="#attributes.resource_link_type_id#">
 	<cfset attributes.description=get_ref_resource_link_type.description>
 	<cfset attributes.resource_link_type_id=get_ref_resource_link_type.resource_link_type_id>
 </cfif>
@@ -45,7 +45,7 @@
 	<tr bgcolor="##cccccc"><th><strong><cfif attributes.resource_link_type_id EQ 0>ADD NEW<cfelse>EDIT EXISTING</cfif> RESOURCE LINK TYPE</strong></th></tr>
 	<tr bgcolor="##eeeeee">
 		<td>
-		<table width="100%" cellspacing="0" cellpadding="8" border="0"  summary="Table displays new user information">
+		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table displays new user information">
 			<tr>
 				<td><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" required="yes" message="Please enter description." maxlength="2000">
@@ -68,7 +68,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="resource_link_type_id" value="#attributes.resource_link_type_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />

@@ -1,6 +1,6 @@
 
 <!--Marketing/qry_del_marketing_contact.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

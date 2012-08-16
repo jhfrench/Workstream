@@ -223,10 +223,10 @@ This software consists of voluntary contributions made by many individuals on be
 <cfloop condition="fb_.doMore IS TRUE">
 	<cfset fb_.pointer=1>
 	<cfloop from="1" to="#arrayLen(fb_.fuseQ)#" index="fb_.pointer">
-    <cfscript>
+	<cfscript>
       fb_.doMore=FALSE;
       fb_.phase="requestedFuseaction";
-    </cfscript>
+	</cfscript>
 
 		<cfif fb_.fuseQ[fb_.pointer].xmlName EQ "do">
       <cfscript>
@@ -312,19 +312,19 @@ This software consists of voluntary contributions made by many individuals on be
 
           // pass in this Plugin's parameters
           for (fb_.j=1; fb_.j LTE arrayLen(application.fusebox.pluginphases[fb_.phase][fb_.i].parameters); fb_.j=fb_.j + 1) {
-            fb_.name=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.name;
-            fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
-            fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
-            fb_.temp=structNew();
-            fb_.temp.xmlname="set";
-            fb_.temp.circuit=myFusebox.thisCircuit;
-            fb_.temp.fuseaction=myFusebox.thisFuseaction;
-            fb_.temp.phase=fb_.phase;
-            fb_.temp.xmlAttributes=structNew();
-            fb_.temp.xmlAttributes['name']="myFusebox.plugins.#fb_.plugin#.parameters.#fb_.name#";
-            fb_.temp.xmlAttributes['value']=fb_.value;
-            arrayInsertAt( fb_.fuseQ, fb_.pointer, fb_.temp);
-            fb_.pointer=fb_.pointer + 1;
+			fb_.name=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.name;
+			fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
+			fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
+			fb_.temp=structNew();
+			fb_.temp.xmlname="set";
+			fb_.temp.circuit=myFusebox.thisCircuit;
+			fb_.temp.fuseaction=myFusebox.thisFuseaction;
+			fb_.temp.phase=fb_.phase;
+			fb_.temp.xmlAttributes=structNew();
+			fb_.temp.xmlAttributes['name']="myFusebox.plugins.#fb_.plugin#.parameters.#fb_.name#";
+			fb_.temp.xmlAttributes['value']=fb_.value;
+			arrayInsertAt( fb_.fuseQ, fb_.pointer, fb_.temp);
+			fb_.pointer=fb_.pointer + 1;
           }
           // and the Plugin itself
           fb_.temp=StructNew();
@@ -351,72 +351,72 @@ This software consists of voluntary contributions made by many individuals on be
 
         if (arrayLen(fb_.xnAnyPreFA) OR application.fusebox.circuits[myFusebox.thisCircuit].prefuseaction.callsuper) {
           if (application.fusebox.circuits[myFusebox.thisCircuit].prefuseaction.callsuper) {
-            // the circuit's super must be called first
-            fb_.xnPreFA=arrayNew(1);
-            // loop over the circuitTrace for this circuit
-            for (fb_.k=1; fb_.k LTE arrayLen(application.fusebox.circuits[myFusebox.thisCircuit].circuitTrace); fb_.k=fb_.k + 1) {
-              fb_.aCircuit=application.fusebox.circuits[myFusebox.thisCircuit].circuitTrace[fb_.k];
-              // grab aCircuit's common super code
-              fb_.xnSuperPreFA=application.fusebox.circuits[fb_.aCircuit].prefuseaction.xml;
-              // loop through any prefuseaction tags
-              // loop thru each entry from the super and prepend it
-              for (fb_.i=arraylen(fb_.xnSuperPreFA); fb_.i GTE 1 ; fb_.i=fb_.i - 1) {
-                for (fb_.j=arrayLen(fb_.xnSuperPreFA[fb_.i].xmlChildren); fb_.j GTE 1; fb_.j=fb_.j - 1) {
+			// the circuit's super must be called first
+			fb_.xnPreFA=arrayNew(1);
+			// loop over the circuitTrace for this circuit
+			for (fb_.k=1; fb_.k LTE arrayLen(application.fusebox.circuits[myFusebox.thisCircuit].circuitTrace); fb_.k=fb_.k + 1) {
+			  fb_.aCircuit=application.fusebox.circuits[myFusebox.thisCircuit].circuitTrace[fb_.k];
+			  // grab aCircuit's common super code
+			  fb_.xnSuperPreFA=application.fusebox.circuits[fb_.aCircuit].prefuseaction.xml;
+			  // loop through any prefuseaction tags
+			  // loop thru each entry from the super and prepend it
+			  for (fb_.i=arraylen(fb_.xnSuperPreFA); fb_.i GTE 1 ; fb_.i=fb_.i - 1) {
+				for (fb_.j=arrayLen(fb_.xnSuperPreFA[fb_.i].xmlChildren); fb_.j GTE 1; fb_.j=fb_.j - 1) {
 					// remember that any <include> needs to know its local circuit as an attribute
 				  if( fb_.xnSuperPreFA[ fb_.i ].xmlChildren[ fb_.j ].xmlName IS "include" ) {
 						fb_.xnSuperPreFA[ fb_.i ].xmlChildren[ fb_.j ].xmlAttributes[ 'circuit' ]=fb_.aCircuit;
 				  }
 
-                  // some special handling for do's
-                  if (fb_.xnSuperPreFA[fb_.i].xmlChildren[fb_.j].xmlName EQ "do") {
-                    if (ListLen(fb_.xnSuperPreFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action'], '.') EQ 1) {
-                      // remember that any <do> might have only a fuseaction specified and only imply its local circuit do clarify all <do>s with explicit circuits
-                      fb_.xnSuperPreFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action']=fb_.aCircuit & "." & fb_.xnSuperPreFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action'];
-                    }
-                  }
-                  // prepend it to what came from the child circuit
-                  arrayPrepend(fb_.xnPreFA, duplicate(fb_.xnSuperPreFA[fb_.i].xmlChildren[fb_.j]));
-                }
+				  // some special handling for do's
+				  if (fb_.xnSuperPreFA[fb_.i].xmlChildren[fb_.j].xmlName EQ "do") {
+				    if (ListLen(fb_.xnSuperPreFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action'], '.') EQ 1) {
+					 // remember that any <do> might have only a fuseaction specified and only imply its local circuit do clarify all <do>s with explicit circuits
+					 fb_.xnSuperPreFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action']=fb_.aCircuit & "." & fb_.xnSuperPreFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action'];
+				    }
+				  }
+				  // prepend it to what came from the child circuit
+				  arrayPrepend(fb_.xnPreFA, duplicate(fb_.xnSuperPreFA[fb_.i].xmlChildren[fb_.j]));
+				}
 
-                // see if it calls *its* super; if not, then break out of this loop
-                if (NOT application.fusebox.circuits[fb_.aCircuit].prefuseaction.callsuper) {
-                  break;
-                }
-              }
-              // make sure right value for myFusebox.thisCircuit is set
-              fb_.temp=structNew();
-              fb_.temp.xmlname="set";
-              fb_.temp.circuit=myFusebox.thisCircuit;
-              fb_.temp.fuseaction=myFusebox.thisFuseaction;
-              fb_.temp.phase=fb_.phase;
-              fb_.temp.xmlAttributes=structNew();
-              fb_.temp.xmlAttributes['name']="myFusebox.thisCircuit";
-              fb_.temp.xmlAttributes['value']=fb_.aCircuit;
-              arrayPrepend(fb_.xnPreFA, fb_.temp);
-            }
-            // since prefuseaction calls to super would have overwritten the myFusebox.thisCircuit we need to reset it again
-            fb_.temp=structNew();
-            fb_.temp.xmlname="set";
-            fb_.temp.circuit=myFusebox.thisCircuit;
-            fb_.temp.fuseaction=myFusebox.thisFuseaction;
-            fb_.temp.phase=fb_.phase;
-            fb_.temp.xmlAttributes=structNew();
-            fb_.temp.xmlAttributes['name']="myFusebox.thisCircuit";
-            fb_.temp.xmlAttributes['value']=myFusebox.thisCircuit;
-            arrayAppend(fb_.xnPreFA, fb_.temp);
-            // since prefuseaction calls to super would have overwritten the myFusebox.thisFuseaction we need to reset it again
-            fb_.temp=structNew();
-            fb_.temp.xmlname="set";
-            fb_.temp.circuit=myFusebox.thisCircuit;
-            fb_.temp.fuseaction=myFusebox.thisFuseaction;
-            fb_.temp.phase=fb_.phase;
-            fb_.temp.xmlAttributes=structNew();
-            fb_.temp.xmlAttributes['name']="myFusebox.thisFuseaction";
-            fb_.temp.xmlAttributes['value']=myFusebox.thisFuseaction;
-            arrayAppend(fb_.xnPreFA, fb_.temp);
+				// see if it calls *its* super; if not, then break out of this loop
+				if (NOT application.fusebox.circuits[fb_.aCircuit].prefuseaction.callsuper) {
+				  break;
+				}
+			  }
+			  // make sure right value for myFusebox.thisCircuit is set
+			  fb_.temp=structNew();
+			  fb_.temp.xmlname="set";
+			  fb_.temp.circuit=myFusebox.thisCircuit;
+			  fb_.temp.fuseaction=myFusebox.thisFuseaction;
+			  fb_.temp.phase=fb_.phase;
+			  fb_.temp.xmlAttributes=structNew();
+			  fb_.temp.xmlAttributes['name']="myFusebox.thisCircuit";
+			  fb_.temp.xmlAttributes['value']=fb_.aCircuit;
+			  arrayPrepend(fb_.xnPreFA, fb_.temp);
+			}
+			// since prefuseaction calls to super would have overwritten the myFusebox.thisCircuit we need to reset it again
+			fb_.temp=structNew();
+			fb_.temp.xmlname="set";
+			fb_.temp.circuit=myFusebox.thisCircuit;
+			fb_.temp.fuseaction=myFusebox.thisFuseaction;
+			fb_.temp.phase=fb_.phase;
+			fb_.temp.xmlAttributes=structNew();
+			fb_.temp.xmlAttributes['name']="myFusebox.thisCircuit";
+			fb_.temp.xmlAttributes['value']=myFusebox.thisCircuit;
+			arrayAppend(fb_.xnPreFA, fb_.temp);
+			// since prefuseaction calls to super would have overwritten the myFusebox.thisFuseaction we need to reset it again
+			fb_.temp=structNew();
+			fb_.temp.xmlname="set";
+			fb_.temp.circuit=myFusebox.thisCircuit;
+			fb_.temp.fuseaction=myFusebox.thisFuseaction;
+			fb_.temp.phase=fb_.phase;
+			fb_.temp.xmlAttributes=structNew();
+			fb_.temp.xmlAttributes['name']="myFusebox.thisFuseaction";
+			fb_.temp.xmlAttributes['value']=myFusebox.thisFuseaction;
+			arrayAppend(fb_.xnPreFA, fb_.temp);
           }
           else {
-            fb_.xnPreFA=application.fusebox.circuits[myFusebox.thisCircuit].prefuseaction.xml.xmlChildren;
+			fb_.xnPreFA=application.fusebox.circuits[myFusebox.thisCircuit].prefuseaction.xml.xmlChildren;
           }
         }
 
@@ -429,71 +429,71 @@ This software consists of voluntary contributions made by many individuals on be
 
         if (arrayLen(fb_.xnAnyPostFA) OR application.fusebox.circuits[myFusebox.thisCircuit].postfuseaction.callsuper) {
           if (application.fusebox.circuits[myFusebox.thisCircuit].postfuseaction.callsuper) {
-            // the circuit's super must be called *last*
-            fb_.xnPostFA=arrayNew(1);
-            // loop over the circuitTrace for this circuit
-            for (fb_.k=1; fb_.k LTE arrayLen(application.fusebox.circuits[myFusebox.thisCircuit].circuitTrace); fb_.k=fb_.k + 1) {
-              fb_.aCircuit=application.fusebox.circuits[myFusebox.thisCircuit].circuitTrace[fb_.k];
-              // grab aCircuit's common super code
-              fb_.xnSuperPostFA=application.fusebox.circuits[fb_.aCircuit].postfuseaction.xml;
-              // make sure right value for myFusebox.thisCircuit is set
-              fb_.temp=structNew();
-              fb_.temp.xmlname="set";
-              fb_.temp.circuit=myFusebox.thisCircuit;
-              fb_.temp.fuseaction=myFusebox.thisFuseaction;
-              fb_.temp.phase=fb_.phase;
-              fb_.temp.xmlAttributes=structNew();
-              fb_.temp.xmlAttributes['name']="myFusebox.thisCircuit";
-              fb_.temp.xmlAttributes['value']=fb_.aCircuit;
-              arrayAppend(fb_.xnPostFA, fb_.temp);
-              // loop thru each entry from the super and append it
-              for (fb_.i=1; fb_.i LTE arrayLen(fb_.xnSuperPostFA); fb_.i=fb_.i + 1) {
-                for (fb_.j=1; fb_.j LTE arrayLen(fb_.xnSuperPostFA[1].xmlChildren); fb_.j=fb_.j + 1) {
+			// the circuit's super must be called *last*
+			fb_.xnPostFA=arrayNew(1);
+			// loop over the circuitTrace for this circuit
+			for (fb_.k=1; fb_.k LTE arrayLen(application.fusebox.circuits[myFusebox.thisCircuit].circuitTrace); fb_.k=fb_.k + 1) {
+			  fb_.aCircuit=application.fusebox.circuits[myFusebox.thisCircuit].circuitTrace[fb_.k];
+			  // grab aCircuit's common super code
+			  fb_.xnSuperPostFA=application.fusebox.circuits[fb_.aCircuit].postfuseaction.xml;
+			  // make sure right value for myFusebox.thisCircuit is set
+			  fb_.temp=structNew();
+			  fb_.temp.xmlname="set";
+			  fb_.temp.circuit=myFusebox.thisCircuit;
+			  fb_.temp.fuseaction=myFusebox.thisFuseaction;
+			  fb_.temp.phase=fb_.phase;
+			  fb_.temp.xmlAttributes=structNew();
+			  fb_.temp.xmlAttributes['name']="myFusebox.thisCircuit";
+			  fb_.temp.xmlAttributes['value']=fb_.aCircuit;
+			  arrayAppend(fb_.xnPostFA, fb_.temp);
+			  // loop thru each entry from the super and append it
+			  for (fb_.i=1; fb_.i LTE arrayLen(fb_.xnSuperPostFA); fb_.i=fb_.i + 1) {
+				for (fb_.j=1; fb_.j LTE arrayLen(fb_.xnSuperPostFA[1].xmlChildren); fb_.j=fb_.j + 1) {
 					// remember that any <include> needs to know its local circuit as an attribute
 				 	 	if( fb_.xnSuperPostFA[ fb_.i ].xmlChildren[ fb_.j ].xmlName IS "include" ) {
 						fb_.xnSuperPostFA[ fb_.i ].xmlChildren[ fb_.j ].xmlAttributes[ 'circuit' ]=fb_.aCircuit;
-				  	 	}
-                  // remember that any <do> might have only a fuseaction specified and only imply its local circuit do clarify all <do>s with explicit circuits
-                  if ((fb_.xnSuperPostFA[fb_.i].xmlChildren[fb_.j].xmlName EQ "do") AND
-                      (ListLen(fb_.xnSuperPostFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action'], '.') EQ 1)) {
-                    fb_.xnSuperPostFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action']=fb_.aCircuit & "." & fb_.xnSuperPostFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action'];
-                  }
-                  // append it to what came from the child circuit
-                  arrayAppend(fb_.xnPostFA, duplicate(fb_.xnSuperPostFA[fb_.i].xmlChildren[fb_.j]));
-                }
-              }
+						 	}
+				  // remember that any <do> might have only a fuseaction specified and only imply its local circuit do clarify all <do>s with explicit circuits
+				  if ((fb_.xnSuperPostFA[fb_.i].xmlChildren[fb_.j].xmlName EQ "do") AND
+					 (ListLen(fb_.xnSuperPostFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action'], '.') EQ 1)) {
+				    fb_.xnSuperPostFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action']=fb_.aCircuit & "." & fb_.xnSuperPostFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action'];
+				  }
+				  // append it to what came from the child circuit
+				  arrayAppend(fb_.xnPostFA, duplicate(fb_.xnSuperPostFA[fb_.i].xmlChildren[fb_.j]));
+				}
+			  }
 
-			  		// see if it calls *its* super; if not, then break out of this loop
-			  		if (NOT application.fusebox.circuits[fb_.aCircuit].postfuseaction.callsuper) {
+						// see if it calls *its* super; if not, then break out of this loop
+						if (NOT application.fusebox.circuits[fb_.aCircuit].postfuseaction.callsuper) {
 						break;
-			  		}
+						}
 
-            }
+			}
 
-            // since postfuseaction calls to super would have overwritten the myFusebox.thisCircuit we need to reset it again
-            fb_.temp=structNew();
-            fb_.temp.xmlname="set";
-            fb_.temp.circuit=myFusebox.thisCircuit;
-            fb_.temp.fuseaction=myFusebox.thisFuseaction;
-            fb_.temp.phase=fb_.phase;
-            fb_.temp.xmlAttributes=structNew();
-            fb_.temp.xmlAttributes['name']="myFusebox.thisCircuit";
-            fb_.temp.xmlAttributes['value']=myFusebox.thisCircuit;
-            arrayAppend(fb_.xnPostFA, fb_.temp);
+			// since postfuseaction calls to super would have overwritten the myFusebox.thisCircuit we need to reset it again
+			fb_.temp=structNew();
+			fb_.temp.xmlname="set";
+			fb_.temp.circuit=myFusebox.thisCircuit;
+			fb_.temp.fuseaction=myFusebox.thisFuseaction;
+			fb_.temp.phase=fb_.phase;
+			fb_.temp.xmlAttributes=structNew();
+			fb_.temp.xmlAttributes['name']="myFusebox.thisCircuit";
+			fb_.temp.xmlAttributes['value']=myFusebox.thisCircuit;
+			arrayAppend(fb_.xnPostFA, fb_.temp);
 
-            // since postfuseaction calls to super would have overwritten the myFusebox.thisFuseaction we need to reset it again
-            fb_.temp=structNew();
-            fb_.temp.xmlname="set";
-            fb_.temp.circuit=myFusebox.thisCircuit;
-            fb_.temp.fuseaction=myFusebox.thisFuseaction;
-            fb_.temp.phase=fb_.phase;
-            fb_.temp.xmlAttributes=structNew();
-            fb_.temp.xmlAttributes['name']="myFusebox.thisFuseaction";
-            fb_.temp.xmlAttributes['value']=myFusebox.thisFuseaction;
-            arrayAppend(fb_.xnPostFA, fb_.temp);
+			// since postfuseaction calls to super would have overwritten the myFusebox.thisFuseaction we need to reset it again
+			fb_.temp=structNew();
+			fb_.temp.xmlname="set";
+			fb_.temp.circuit=myFusebox.thisCircuit;
+			fb_.temp.fuseaction=myFusebox.thisFuseaction;
+			fb_.temp.phase=fb_.phase;
+			fb_.temp.xmlAttributes=structNew();
+			fb_.temp.xmlAttributes['name']="myFusebox.thisFuseaction";
+			fb_.temp.xmlAttributes['value']=myFusebox.thisFuseaction;
+			arrayAppend(fb_.xnPostFA, fb_.temp);
           }
           else {
-            fb_.xnPostFA=application.fusebox.circuits[myFusebox.thisCircuit].postfuseaction.xml.xmlChildren;
+			fb_.xnPostFA=application.fusebox.circuits[myFusebox.thisCircuit].postfuseaction.xml.xmlChildren;
           }
         }
 
@@ -512,220 +512,220 @@ This software consists of voluntary contributions made by many individuals on be
 		 // if we don't have any verbs to execute for the fuseaction, we can skip this section
     	if (arrayLen(fb_.xnFA) GT 0) {
 
-	        fb_.position=fb_.pointer;
-	        fb_.conditionpointer=0;
-	        fb_.looppointer=0;
-	        fb_.contentpointer=0;
+		   fb_.position=fb_.pointer;
+		   fb_.conditionpointer=0;
+		   fb_.looppointer=0;
+		   fb_.contentpointer=0;
 
-	        for (fb_.j=1; fb_.j LTE arrayLen(fb_.xnFA); fb_.j=fb_.j + 1) {
-	          fb_.position=fb_.pointer-1 + fb_.j;
+		   for (fb_.j=1; fb_.j LTE arrayLen(fb_.xnFA); fb_.j=fb_.j + 1) {
+		     fb_.position=fb_.pointer-1 + fb_.j;
 
-	          // special handling for an <if> because its children have to be included
-	          if (fb_.xnFA[fb_.j].xmlName EQ "if") {
-	            // handle the opening of the conditional
-	            fb_.temp=StructNew();
-	            fb_.temp.circuit=myFusebox.thisCircuit;
-	            fb_.temp.fuseaction=myFusebox.thisFuseaction;
-	            fb_.temp.phase=fb_.phase;
-	            fb_.temp.xmlname="conditional";
-	            fb_.temp.xmlAttributes=StructNew();
-	            fb_.temp.xmlAttributes['mode']="begin";
-	            for (fb_.anItem in fb_.xnFA[fb_.j].xmlAttributes) {
-	              fb_.temp.xmlAttributes[fb_.anItem]=fb_.xnFA[fb_.j].xmlAttributes[fb_.anItem];
-	            }
+		     // special handling for an <if> because its children have to be included
+		     if (fb_.xnFA[fb_.j].xmlName EQ "if") {
+		       // handle the opening of the conditional
+		       fb_.temp=StructNew();
+		       fb_.temp.circuit=myFusebox.thisCircuit;
+		       fb_.temp.fuseaction=myFusebox.thisFuseaction;
+		       fb_.temp.phase=fb_.phase;
+		       fb_.temp.xmlname="conditional";
+		       fb_.temp.xmlAttributes=StructNew();
+		       fb_.temp.xmlAttributes['mode']="begin";
+		       for (fb_.anItem in fb_.xnFA[fb_.j].xmlAttributes) {
+		         fb_.temp.xmlAttributes[fb_.anItem]=fb_.xnFA[fb_.j].xmlAttributes[fb_.anItem];
+		       }
 							// fixed FB4.03 loop+if bug
-	            //arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer, fb_.temp);
-	            arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer + fb_.looppointer, fb_.temp);
+		       //arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer, fb_.temp);
+		       arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer + fb_.looppointer, fb_.temp);
 
-	            // insert all the statements when conditional is TRUE
-	            for (fb_.m=1; fb_.m LTE arraylen(fb_.xnFA[fb_.j].xmlChildren); fb_.m=fb_.m + 1) {
-	              if (fb_.xnFA[fb_.j].xmlChildren[fb_.m].xmlName EQ "true") {
-	                fb_.Conditional=fb_.xnFA[fb_.j].xmlChildren[fb_.m].xmlChildren;
-	                for (fb_.k=1; fb_.k LTE arrayLen(fb_.Conditional); fb_.k=fb_.k + 1) {
-	                  fb_.conditionpointer=fb_.conditionpointer + 1;
-	                  fb_.tempChild=StructNew();
-	                  fb_.tempChild.circuit=myFusebox.thisCircuit;
-	                  fb_.tempChild.fuseaction=myFusebox.thisFuseaction;
-	                  fb_.tempChild.phase=fb_.phase;
-	                  fb_.tempChild.xmlName=fb_.Conditional[fb_.k].xmlName;
-	                  fb_.tempChild.Attributes=StructNew();
-	                  for (fb_.anItem in fb_.Conditional[fb_.k].xmlAttributes) {
-	                    fb_.tempChild.xmlAttributes[fb_.anItem]=fb_.Conditional[fb_.k].xmlAttributes[fb_.anItem];
-	                  }
+		       // insert all the statements when conditional is TRUE
+		       for (fb_.m=1; fb_.m LTE arraylen(fb_.xnFA[fb_.j].xmlChildren); fb_.m=fb_.m + 1) {
+		         if (fb_.xnFA[fb_.j].xmlChildren[fb_.m].xmlName EQ "true") {
+					fb_.Conditional=fb_.xnFA[fb_.j].xmlChildren[fb_.m].xmlChildren;
+					for (fb_.k=1; fb_.k LTE arrayLen(fb_.Conditional); fb_.k=fb_.k + 1) {
+					  fb_.conditionpointer=fb_.conditionpointer + 1;
+					  fb_.tempChild=StructNew();
+					  fb_.tempChild.circuit=myFusebox.thisCircuit;
+					  fb_.tempChild.fuseaction=myFusebox.thisFuseaction;
+					  fb_.tempChild.phase=fb_.phase;
+					  fb_.tempChild.xmlName=fb_.Conditional[fb_.k].xmlName;
+					  fb_.tempChild.Attributes=StructNew();
+					  for (fb_.anItem in fb_.Conditional[fb_.k].xmlAttributes) {
+					    fb_.tempChild.xmlAttributes[fb_.anItem]=fb_.Conditional[fb_.k].xmlAttributes[fb_.anItem];
+					  }
 									  // the circuit name is required for all include verbs
 									  if (fb_.tempChild.xmlName EQ "include" AND NOT structKeyExists(fb_.tempChild.xmlAttributes, "circuit")) {
-									  	fb_.tempChild.xmlAttributes['circuit']=myFusebox.thisCircuit;
+											fb_.tempChild.xmlAttributes['circuit']=myFusebox.thisCircuit;
 									  }
 										// fixed FB4.03 loop+if bug
 										//arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer, fb_.tempChild);
-	                  arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer + fb_.looppointer, fb_.tempChild);
-	                }
-	              }
-	            }
+					  arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer + fb_.looppointer, fb_.tempChild);
+					}
+		         }
+		       }
 
-	            // handle the alternate of the conditional
-	            fb_.conditionpointer=fb_.conditionpointer + 1;
-	            fb_.temp=StructNew();
-	            fb_.temp.circuit=myFusebox.thisCircuit;
-	            fb_.temp.fuseaction=myFusebox.thisFuseaction;
-	            fb_.temp.phase=fb_.phase;
-	            fb_.temp.xmlname="conditional";
-	            fb_.temp.xmlAttributes=StructNew();
-	            fb_.temp.xmlAttributes['mode']="else";
+		       // handle the alternate of the conditional
+		       fb_.conditionpointer=fb_.conditionpointer + 1;
+		       fb_.temp=StructNew();
+		       fb_.temp.circuit=myFusebox.thisCircuit;
+		       fb_.temp.fuseaction=myFusebox.thisFuseaction;
+		       fb_.temp.phase=fb_.phase;
+		       fb_.temp.xmlname="conditional";
+		       fb_.temp.xmlAttributes=StructNew();
+		       fb_.temp.xmlAttributes['mode']="else";
 							// fixed FB4.03 loop+if bug
 							//arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer, duplicate(fb_.temp));
-	            arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer + fb_.looppointer, fb_.temp);
+		       arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer + fb_.looppointer, fb_.temp);
 
-	            // insert all the statements when conditional is FALSE
-	            for (fb_.m=1; fb_.m LTE arraylen(fb_.xnFA[fb_.j].xmlChildren); fb_.m=fb_.m + 1) {
-	              if (fb_.xnFA[fb_.j].xmlChildren[fb_.m].xmlName EQ "false") {
-	                fb_.Conditional=fb_.xnFA[fb_.j].xmlChildren[fb_.m].xmlChildren;
-	                for (fb_.k=1; fb_.k LTE arrayLen(fb_.Conditional); fb_.k=fb_.k + 1) {
-	                  fb_.conditionpointer=fb_.conditionpointer + 1;
-	                  fb_.tempChild=StructNew();
-	                  fb_.tempChild.circuit=myFusebox.thisCircuit;
-	                  fb_.tempChild.fuseaction=myFusebox.thisFuseaction;
-	                  fb_.tempChild.phase=fb_.phase;
-	                  fb_.tempChild.xmlName=fb_.Conditional[fb_.k].xmlName;
-	                  fb_.tempChild.Attributes=StructNew();
-	                  for (fb_.anItem in fb_.Conditional[fb_.k].xmlAttributes) {
-	                    fb_.tempChild.xmlAttributes[fb_.anItem]=fb_.Conditional[fb_.k].xmlAttributes[fb_.anItem];
-	                  }
+		       // insert all the statements when conditional is FALSE
+		       for (fb_.m=1; fb_.m LTE arraylen(fb_.xnFA[fb_.j].xmlChildren); fb_.m=fb_.m + 1) {
+		         if (fb_.xnFA[fb_.j].xmlChildren[fb_.m].xmlName EQ "false") {
+					fb_.Conditional=fb_.xnFA[fb_.j].xmlChildren[fb_.m].xmlChildren;
+					for (fb_.k=1; fb_.k LTE arrayLen(fb_.Conditional); fb_.k=fb_.k + 1) {
+					  fb_.conditionpointer=fb_.conditionpointer + 1;
+					  fb_.tempChild=StructNew();
+					  fb_.tempChild.circuit=myFusebox.thisCircuit;
+					  fb_.tempChild.fuseaction=myFusebox.thisFuseaction;
+					  fb_.tempChild.phase=fb_.phase;
+					  fb_.tempChild.xmlName=fb_.Conditional[fb_.k].xmlName;
+					  fb_.tempChild.Attributes=StructNew();
+					  for (fb_.anItem in fb_.Conditional[fb_.k].xmlAttributes) {
+					    fb_.tempChild.xmlAttributes[fb_.anItem]=fb_.Conditional[fb_.k].xmlAttributes[fb_.anItem];
+					  }
 									  // the circuit name is required for all include verbs
 									  if (fb_.tempChild.xmlName EQ "include" AND NOT structKeyExists(fb_.tempChild.xmlAttributes, "circuit")) {
-									  	fb_.tempChild.xmlAttributes['circuit']=myFusebox.thisCircuit;
+											fb_.tempChild.xmlAttributes['circuit']=myFusebox.thisCircuit;
 									  }
 										// fixed FB4.03 loop+if bug
 										//arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer, fb_.tempChild);
-	                  arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer + fb_.looppointer, fb_.tempChild);
-	                }
-	              }
-	            }
+					  arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer + fb_.looppointer, fb_.tempChild);
+					}
+		         }
+		       }
 
-	            // handle the closing of the conditional
-	            fb_.conditionpointer=fb_.conditionpointer + 1;
-	            fb_.temp=StructNew();
-	            fb_.temp.circuit=myFusebox.thisCircuit;
-	            fb_.temp.fuseaction=myFusebox.thisFuseaction;
-	            fb_.temp.phase=fb_.phase;
-	            fb_.temp.xmlname="conditional";
-	            fb_.temp.xmlAttributes=StructNew();
-	            fb_.temp.xmlAttributes['mode']="end";
+		       // handle the closing of the conditional
+		       fb_.conditionpointer=fb_.conditionpointer + 1;
+		       fb_.temp=StructNew();
+		       fb_.temp.circuit=myFusebox.thisCircuit;
+		       fb_.temp.fuseaction=myFusebox.thisFuseaction;
+		       fb_.temp.phase=fb_.phase;
+		       fb_.temp.xmlname="conditional";
+		       fb_.temp.xmlAttributes=StructNew();
+		       fb_.temp.xmlAttributes['mode']="end";
 							// fixed FB4.03 loop+if bug
 							//arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer, fb_.temp);
-	            arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer + fb_.looppointer, fb_.temp);
-	          }
-	          // special handling for a <loop> because its children have to be included
-	          else if (fb_.xnFA[fb_.j].xmlName EQ "loop") {
-	            // handle the opening of the loop
-	            fb_.temp=StructNew();
-	            fb_.temp.circuit=myFusebox.thisCircuit;
-	            fb_.temp.fuseaction=myFusebox.thisFuseaction;
-	            fb_.temp.phase=fb_.phase;
-	            fb_.temp.xmlname="loop";
-	            fb_.temp.xmlAttributes=StructNew();
-	            fb_.temp.xmlAttributes['mode']="begin";
-	            for (fb_.anItem in fb_.xnFA[fb_.j].xmlAttributes) {
-	              fb_.temp.xmlAttributes[fb_.anItem]=fb_.xnFA[fb_.j].xmlAttributes[fb_.anItem];
-	            }
+		       arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer + fb_.looppointer, fb_.temp);
+		     }
+		     // special handling for a <loop> because its children have to be included
+		     else if (fb_.xnFA[fb_.j].xmlName EQ "loop") {
+		       // handle the opening of the loop
+		       fb_.temp=StructNew();
+		       fb_.temp.circuit=myFusebox.thisCircuit;
+		       fb_.temp.fuseaction=myFusebox.thisFuseaction;
+		       fb_.temp.phase=fb_.phase;
+		       fb_.temp.xmlname="loop";
+		       fb_.temp.xmlAttributes=StructNew();
+		       fb_.temp.xmlAttributes['mode']="begin";
+		       for (fb_.anItem in fb_.xnFA[fb_.j].xmlAttributes) {
+		         fb_.temp.xmlAttributes[fb_.anItem]=fb_.xnFA[fb_.j].xmlAttributes[fb_.anItem];
+		       }
 							// fixed FB4.03 loop+if bug
-	            //arrayInsertAt(fb_.fuseQ, fb_.position + fb_.looppointer, fb_.temp);
-	            arrayInsertAt(fb_.fuseQ, fb_.position + fb_.looppointer + fb_.conditionpointer, fb_.temp);
+		       //arrayInsertAt(fb_.fuseQ, fb_.position + fb_.looppointer, fb_.temp);
+		       arrayInsertAt(fb_.fuseQ, fb_.position + fb_.looppointer + fb_.conditionpointer, fb_.temp);
 
-	            // insert all the statements within the loop
-	            fb_.Loop=fb_.xnFA[fb_.j].xmlChildren;
-	            for (fb_.k=1; fb_.k LTE arraylen(fb_.Loop); fb_.k=fb_.k + 1) {
-	              fb_.looppointer=fb_.looppointer + 1;
-	              fb_.tempChild=StructNew();
-	              fb_.tempChild.circuit=myFusebox.thisCircuit;
-	              fb_.tempChild.fuseaction=myFusebox.thisFuseaction;
-	              fb_.tempChild.phase=fb_.phase;
-	              fb_.tempChild.xmlName=fb_.Loop[fb_.k].xmlName;
-	              fb_.tempChild.Attributes=StructNew();
-	              for (fb_.anItem in fb_.Loop[fb_.k].xmlAttributes) {
-	                fb_.tempChild.xmlAttributes[fb_.anItem]=fb_.Loop[fb_.k].xmlAttributes[fb_.anItem];
-	              }
+		       // insert all the statements within the loop
+		       fb_.Loop=fb_.xnFA[fb_.j].xmlChildren;
+		       for (fb_.k=1; fb_.k LTE arraylen(fb_.Loop); fb_.k=fb_.k + 1) {
+		         fb_.looppointer=fb_.looppointer + 1;
+		         fb_.tempChild=StructNew();
+		         fb_.tempChild.circuit=myFusebox.thisCircuit;
+		         fb_.tempChild.fuseaction=myFusebox.thisFuseaction;
+		         fb_.tempChild.phase=fb_.phase;
+		         fb_.tempChild.xmlName=fb_.Loop[fb_.k].xmlName;
+		         fb_.tempChild.Attributes=StructNew();
+		         for (fb_.anItem in fb_.Loop[fb_.k].xmlAttributes) {
+					fb_.tempChild.xmlAttributes[fb_.anItem]=fb_.Loop[fb_.k].xmlAttributes[fb_.anItem];
+		         }
 							  // the circuit name is required for all include verbs
 							  if (fb_.tempChild.xmlName EQ "include" AND NOT structKeyExists(fb_.tempChild.xmlAttributes, "circuit")) {
 								fb_.tempChild.xmlAttributes['circuit']=myFusebox.thisCircuit;
 							  }
 								// fixed FB4.03 loop+if bug
 								//arrayInsertAt(fb_.fuseQ, fb_.position + fb_.looppointer, fb_.tempChild);
-	              arrayInsertAt(fb_.fuseQ, fb_.position + fb_.looppointer + fb_.conditionpointer, fb_.tempChild);
-	            }
+		         arrayInsertAt(fb_.fuseQ, fb_.position + fb_.looppointer + fb_.conditionpointer, fb_.tempChild);
+		       }
 
-	            // handle the closing of the loop
-	            fb_.looppointer=fb_.looppointer + 1;
-	            fb_.temp=StructNew();
-	            fb_.temp.circuit=myFusebox.thisCircuit;
-	            fb_.temp.fuseaction=myFusebox.thisFuseaction;
-	            fb_.temp.phase=fb_.phase;
-	            fb_.temp.xmlname="loop";
-	            fb_.temp.xmlAttributes=StructNew();
-	            fb_.temp.xmlAttributes['mode']="end";
+		       // handle the closing of the loop
+		       fb_.looppointer=fb_.looppointer + 1;
+		       fb_.temp=StructNew();
+		       fb_.temp.circuit=myFusebox.thisCircuit;
+		       fb_.temp.fuseaction=myFusebox.thisFuseaction;
+		       fb_.temp.phase=fb_.phase;
+		       fb_.temp.xmlname="loop";
+		       fb_.temp.xmlAttributes=StructNew();
+		       fb_.temp.xmlAttributes['mode']="end";
 							// fixed FB4.03 loop+if bug
 							//arrayInsertAt(fb_.fuseQ, fb_.position + fb_.looppointer, fb_.temp);
-	            arrayInsertAt(fb_.fuseQ, fb_.position + fb_.looppointer + fb_.conditionpointer, fb_.temp);
-	          }
-	          else {
-	            // anything other than a <if> or <loop>
-	            fb_.temp=StructNew();
-	            fb_.temp.circuit=myFusebox.thisCircuit;
-	            fb_.temp.fuseaction=myFusebox.thisFuseaction;
-	            fb_.temp.phase=fb_.phase;
-	            fb_.temp.xmlName=fb_.xnFA[fb_.j].xmlName;
-	            fb_.temp.xmlAttributes=StructNew();
-	            for (fb_.anItem in fb_.xnFA[fb_.j].xmlAttributes) {
-	              fb_.temp.xmlAttributes[fb_.anItem]=fb_.xnFA[fb_.j].xmlAttributes[fb_.anItem];
-	            }
+		       arrayInsertAt(fb_.fuseQ, fb_.position + fb_.looppointer + fb_.conditionpointer, fb_.temp);
+		     }
+		     else {
+		       // anything other than a <if> or <loop>
+		       fb_.temp=StructNew();
+		       fb_.temp.circuit=myFusebox.thisCircuit;
+		       fb_.temp.fuseaction=myFusebox.thisFuseaction;
+		       fb_.temp.phase=fb_.phase;
+		       fb_.temp.xmlName=fb_.xnFA[fb_.j].xmlName;
+		       fb_.temp.xmlAttributes=StructNew();
+		       for (fb_.anItem in fb_.xnFA[fb_.j].xmlAttributes) {
+		         fb_.temp.xmlAttributes[fb_.anItem]=fb_.xnFA[fb_.j].xmlAttributes[fb_.anItem];
+		       }
 				// if it's an include and doesn't already have a circuit attribute then make sure it has a "circuit" attribute
 				if (fb_.xnFA[fb_.j].xmlName EQ "include") {
 				  if (NOT StructKeyExists(fb_.temp.xmlAttributes, 'circuit')){
 					  fb_.temp.xmlAttributes['circuit']=myFusebox.thisCircuit;
 				  }
 				}
-	            arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer + fb_.looppointer , fb_.temp);
-	          }
-	        }
+		       arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer + fb_.looppointer , fb_.temp);
+		     }
+		   }
 
-	        fb_.position=fb_.position + fb_.conditionpointer + fb_.looppointer;
+		   fb_.position=fb_.position + fb_.conditionpointer + fb_.looppointer;
 
-	        // this is where a begin/end tag for contentvariables via a <do> would be put
-	        fb_.contentpointer=0;
+		   // this is where a begin/end tag for contentvariables via a <do> would be put
+		   fb_.contentpointer=0;
 
-	        if (structKeyExists(fb_.fuseQ[fb_.position+1].xmlAttributes, "contentvariable")) {
-	          fb_.temp=StructNew();
-	          fb_.temp.circuit=myFusebox.thisCircuit;
-	          fb_.temp.fuseaction=myFusebox.thisFuseaction;
-	          fb_.temp.phase=fb_.phase;
-	          fb_.temp.xmlname="contentvariable";
-	          fb_.temp.xmlAttributes=StructNew();
-	          fb_.temp.xmlAttributes['contentvariable']=fb_.fuseQ[fb_.position+1].xmlAttributes['contentvariable'];
-	          fb_.temp.xmlAttributes['mode']="begin";
-	          if (structKeyExists(fb_.fuseQ[fb_.position+1].xmlAttributes, 'append')) {
-	            fb_.temp.xmlAttributes['append']=fb_.fuseQ[fb_.position+1].xmlAttributes['append'];
-	          }
-	          else {
-	            fb_.temp.xmlAttributes['append']="false";
-	          }
-	          if (structKeyExists(fb_.fuseQ[fb_.position+1].xmlAttributes, 'prepend')) {
-	            fb_.temp.xmlAttributes['prepend']=fb_.fuseQ[fb_.position+1].xmlAttributes['prepend'];
-	          }
-	          else {
-	            fb_.temp.xmlAttributes['prepend']="false";
-	          }	
-	          if (structKeyExists(fb_.fuseQ[fb_.position+1].xmlAttributes, 'overwrite')) {
-	            fb_.temp.xmlAttributes['overwrite']=fb_.fuseQ[fb_.position+1].xmlAttributes['overwrite'];
-	          }
-	          else {
-	            fb_.temp.xmlAttributes['overwrite']="true";
-	          }
-	          arrayInsertAt(fb_.fuseQ, fb_.pointer, duplicate(fb_.temp));
+		   if (structKeyExists(fb_.fuseQ[fb_.position+1].xmlAttributes, "contentvariable")) {
+		     fb_.temp=StructNew();
+		     fb_.temp.circuit=myFusebox.thisCircuit;
+		     fb_.temp.fuseaction=myFusebox.thisFuseaction;
+		     fb_.temp.phase=fb_.phase;
+		     fb_.temp.xmlname="contentvariable";
+		     fb_.temp.xmlAttributes=StructNew();
+		     fb_.temp.xmlAttributes['contentvariable']=fb_.fuseQ[fb_.position+1].xmlAttributes['contentvariable'];
+		     fb_.temp.xmlAttributes['mode']="begin";
+		     if (structKeyExists(fb_.fuseQ[fb_.position+1].xmlAttributes, 'append')) {
+		       fb_.temp.xmlAttributes['append']=fb_.fuseQ[fb_.position+1].xmlAttributes['append'];
+		     }
+		     else {
+		       fb_.temp.xmlAttributes['append']="false";
+		     }
+		     if (structKeyExists(fb_.fuseQ[fb_.position+1].xmlAttributes, 'prepend')) {
+		       fb_.temp.xmlAttributes['prepend']=fb_.fuseQ[fb_.position+1].xmlAttributes['prepend'];
+		     }
+		     else {
+		       fb_.temp.xmlAttributes['prepend']="false";
+		     }
+		     if (structKeyExists(fb_.fuseQ[fb_.position+1].xmlAttributes, 'overwrite')) {
+		       fb_.temp.xmlAttributes['overwrite']=fb_.fuseQ[fb_.position+1].xmlAttributes['overwrite'];
+		     }
+		     else {
+		       fb_.temp.xmlAttributes['overwrite']="true";
+		     }
+		     arrayInsertAt(fb_.fuseQ, fb_.pointer, duplicate(fb_.temp));
 
-	          fb_.temp.xmlAttributes['mode']="end";
-	          arrayInsertAt(fb_.fuseQ, fb_.position+2, fb_.temp);
-	          fb_.contentpointer=2;
-	        }
+		     fb_.temp.xmlAttributes['mode']="end";
+		     arrayInsertAt(fb_.fuseQ, fb_.position+2, fb_.temp);
+		     fb_.contentpointer=2;
+		   }
 
 			fb_.pointer=fb_.position + 1 + fb_.contentpointer;
     	} // end of skip for verbless fuseaction
@@ -736,19 +736,19 @@ This software consists of voluntary contributions made by many individuals on be
 
           // pass in this Plugin's parameters
           for (fb_.j=1; fb_.j LTE arrayLen(application.fusebox.pluginphases[fb_.phase][fb_.i].parameters); fb_.j=fb_.j + 1) {
-            fb_.name=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.name;
-            fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
-            fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
-            fb_.temp=structNew();
-            fb_.temp.xmlname="set";
-            fb_.temp.circuit=myFusebox.thisCircuit;
-            fb_.temp.fuseaction=myFusebox.thisFuseaction;
-            fb_.temp.phase=fb_.phase;
-            fb_.temp.xmlAttributes=structNew();
-            fb_.temp.xmlAttributes['name']="myFusebox.plugins.#fb_.plugin#.parameters.#fb_.name#";
-            fb_.temp.xmlAttributes['value']=fb_.value;
-            arrayInsertAt( fb_.fuseQ, fb_.pointer, fb_.temp);
-            fb_.pointer=fb_.pointer + 1;
+			fb_.name=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.name;
+			fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
+			fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
+			fb_.temp=structNew();
+			fb_.temp.xmlname="set";
+			fb_.temp.circuit=myFusebox.thisCircuit;
+			fb_.temp.fuseaction=myFusebox.thisFuseaction;
+			fb_.temp.phase=fb_.phase;
+			fb_.temp.xmlAttributes=structNew();
+			fb_.temp.xmlAttributes['name']="myFusebox.plugins.#fb_.plugin#.parameters.#fb_.name#";
+			fb_.temp.xmlAttributes['value']=fb_.value;
+			arrayInsertAt( fb_.fuseQ, fb_.pointer, fb_.temp);
+			fb_.pointer=fb_.pointer + 1;
           }
           // and the Plugin itself
           fb_.temp=StructNew();
@@ -770,19 +770,19 @@ This software consists of voluntary contributions made by many individuals on be
 
           // pass in this Plugin's parameters
           for (fb_.j=1; fb_.j LTE arrayLen(application.fusebox.pluginphases[fb_.phase][fb_.i].parameters); fb_.j=fb_.j + 1) {
-            fb_.name=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.name;
-            fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
-            fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
-            fb_.temp=structNew();
-            fb_.temp.circuit=myFusebox.thisCircuit;
-            fb_.temp.fuseaction=myFusebox.thisFuseaction;
-            fb_.temp.phase=fb_.phase;
-            fb_.temp.xmlname="set";
-            fb_.temp.xmlAttributes=structNew();
-            fb_.temp.xmlAttributes['name']="myFusebox.plugins.#fb_.plugin#.parameters.#fb_.name#";
-            fb_.temp.xmlAttributes['value']=fb_.value;
-            arrayInsertAt( fb_.fuseQ, fb_.pointer, fb_.temp);
-            fb_.pointer=fb_.pointer + 1;
+			fb_.name=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.name;
+			fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
+			fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
+			fb_.temp=structNew();
+			fb_.temp.circuit=myFusebox.thisCircuit;
+			fb_.temp.fuseaction=myFusebox.thisFuseaction;
+			fb_.temp.phase=fb_.phase;
+			fb_.temp.xmlname="set";
+			fb_.temp.xmlAttributes=structNew();
+			fb_.temp.xmlAttributes['name']="myFusebox.plugins.#fb_.plugin#.parameters.#fb_.name#";
+			fb_.temp.xmlAttributes['value']=fb_.value;
+			arrayInsertAt( fb_.fuseQ, fb_.pointer, fb_.temp);
+			fb_.pointer=fb_.pointer + 1;
           }
           // and the Plugin itself
           fb_.temp=StructNew();

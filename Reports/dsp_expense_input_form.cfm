@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_expense_input_form.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -21,7 +21,7 @@
 		<td><cfinclude template="dsp_code_report_input.cfm"></td>
 	</tr>
 	<tr>
-		<td colspan="2"  align="center"class="SubHeadText">OR</td>
+		<td colspan="2" align="center"class="SubHeadText">OR</td>
 	</tr>
 	<tr>
 		<td >Report By Person</td>

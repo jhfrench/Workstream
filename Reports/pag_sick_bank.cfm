@@ -1,6 +1,6 @@
 
 <!--Reports/pag_sick_bank.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

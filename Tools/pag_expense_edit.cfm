@@ -1,6 +1,6 @@
 
 <!--reports/pag_expense_edit.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -21,12 +21,12 @@
 	<cfset start=1>
 <cfinclude template="../common_files/qry_project_code.cfm">
 
-<table border="0" cellpadding="4" cellspacing="0"  align="center">
+<table border="0" cellpadding="4" cellspacing="0" align="center">
 	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText" section_color="ffffff" section_title="Expense Edit Form" colspan="3" gutter="false" align="center">
 </table>
 <cfform action="index.cfm?fuseaction=Tools.expense_update" method="post" name="f"> 
-	<table  cellspacing="2" cellpadding="0" border="0" width="95%" >
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="SubHeadText" section_color="ffffff" section_title="Name:  #session.first_name# #session.last_name#" colspan="1" gutter="True">
+	<table cellspacing="2" cellpadding="0" border="0" width="95%" >
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="SubHeadText" section_color="ffffff" section_title="Name: #session.first_name# #session.last_name#" colspan="1" gutter="True">
 	</table>
 	<table cellspacing="0" cellpadding="4" border="0" align="center">
 		<cfinclude template="dsp_expense_type.cfm">

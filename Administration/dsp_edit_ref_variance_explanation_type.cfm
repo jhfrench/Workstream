@@ -26,7 +26,7 @@
 
 <cfoutput>
 <cfparam name="attributes.method" default="">
-<cfmodule template="../common_files/qry_get_ref_variance_explanation_type.cfm"  variance_explanation_type_id="0">
+<cfmodule template="../common_files/qry_get_ref_variance_explanation_type.cfm" variance_explanation_type_id="0">
 <form name="ref_variance_explanation_type_edit_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="variance_explanation_type_id">
 	<cfloop query="get_ref_variance_explanation_type"><option value="#variance_explanation_type_id#"<cfif NOT comparenocase(get_ref_variance_explanation_type.variance_explanation_type_id, attributes.variance_explanation_type_id)> selected="selected"</cfif>>#description#</option></cfloop>
@@ -34,7 +34,7 @@
 	<input type="submit" name="method" alt="Retrieve and edit variance explanation type" value="Retrieve and edit variance explanation type" />
 </form>
 <cfif len(attributes.method)>
-	<cfmodule template="../common_files/qry_get_ref_variance_explanation_type.cfm"  variance_explanation_type_id="#attributes.variance_explanation_type_id#">
+	<cfmodule template="../common_files/qry_get_ref_variance_explanation_type.cfm" variance_explanation_type_id="#attributes.variance_explanation_type_id#">
 	<cfset attributes.description=get_ref_variance_explanation_type.description>
 	<cfset attributes.variance_explanation_type_id=get_ref_variance_explanation_type.variance_explanation_type_id>
 </cfif>
@@ -46,7 +46,7 @@
 	<tr bgcolor="##cccccc"><th><strong><cfif attributes.variance_explanation_type_id EQ 0>ADD NEW<cfelse>EDIT EXISTING</cfif> VARIANCE EXPLANATION TYPE</strong></th></tr>
 	<tr bgcolor="##eeeeee">
 		<td>
-		<table width="100%" cellspacing="0" cellpadding="8" border="0"  summary="Table displays new user information">
+		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table displays new user information">
 			<tr>
 				<td><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" required="yes" message="Please enter description." maxlength="30">
@@ -67,7 +67,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="variance_explanation_type_id" value="#attributes.variance_explanation_type_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />

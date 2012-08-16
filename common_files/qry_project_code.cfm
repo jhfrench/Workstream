@@ -1,6 +1,6 @@
 
 <!--common_files/qry_project_code.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -37,7 +37,7 @@ SELECT Project.project_code, Project.description, Project.project_id,
 		THEN (Customer.description || '-' || Project.description || ' (' ||  Project.project_code || ')') 
 		ELSE (Project.description || ' (' ||  Project.project_code || ')') 
 	</cfif>END AS display
-FROM Project, Customer, Link_Project_Company    
+FROM Project, Customer, Link_Project_Company
 WHERE Project.customer_id=Customer.customer_id
 	AND Project.project_id=Link_Project_Company.project_id<cfif attributes.used_by_search EQ 0>
 	AND Project.billable_type_id IN (1,3,4)</cfif>

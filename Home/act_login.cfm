@@ -100,7 +100,7 @@ FROM User_Password
 <cfelse>
 	<!--- the user did not get in; get number of invalid login attempts since last valid login for given username --->
 	<cfinclude template="qry_get_login_attempt.cfm">
-    
+
 	<cfif get_login_attempt.recordcount GT 4 AND get_username.recordcount EQ 1>
 		<!--- <cfset variables.display_message="The system has locked the '#attributes.user_name#' account. #variables.display_message#"> --->
 		<cfif get_login_attempt.recordcount EQ 5>

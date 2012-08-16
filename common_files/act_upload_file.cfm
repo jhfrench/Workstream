@@ -8,7 +8,7 @@
 
 <cfif NOT file_path eq ''>
  <cffile action="upload" fileField="file_path"
-Destination="#dir_to_go_to#"  nameconflict="overwrite" >
+Destination="#dir_to_go_to#" nameconflict="overwrite" >
 </cfif>
 
 

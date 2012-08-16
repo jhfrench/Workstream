@@ -1,6 +1,6 @@
 
 <!--Tools/qry_REF_paid_by.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

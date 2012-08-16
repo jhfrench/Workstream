@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_indiv_rows_output.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -16,7 +16,7 @@
 <cfif day NEQ date> 
 <tr>
 	<td colspan="4">
-		  <hr color="##000000" size="1">
+			<hr color="##000000" size="1">
 	</td>
 </tr>
 </cfif>
@@ -41,7 +41,7 @@
 <!-- only see this after the date changes
 <tr>
 	<td colspan="4">
-		  <hr color="##000000">
+			<hr color="##000000">
 	</td>
 </tr>--->
 <tr bgcolor="##c0c0c0">

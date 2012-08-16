@@ -1,6 +1,6 @@
 
 <!--Reports/qry_efficiency_report_main.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

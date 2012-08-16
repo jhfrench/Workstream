@@ -17,7 +17,7 @@
 <cfquery name="get_position_numbers" datasource="#application.datasources.main#">
 SELECT * 
 FROM Positions
-	LEFT  OUTER JOIN (
+	LEFT OUTER JOIN (
 		SELECT position_id, effective_start_date, effective_end_date
 		FROM Position_History,
 			(

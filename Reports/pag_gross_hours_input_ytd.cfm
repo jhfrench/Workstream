@@ -1,6 +1,6 @@
 
 <!--Reports/pag_gross_hours_input_ytd.cfm
-	Author: Joshua Peters  -->
+	Author: Joshua Peters -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

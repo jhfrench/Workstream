@@ -25,9 +25,9 @@
 --->
 
 <cfparam name="attributes.ccr_status_id" default="0">
-<cfparam name="attributes.description"   default="">
-<cfparam name="attributes.sort_order"    default="">
-<cfparam name="attributes.active_ind"    default="0">
+<cfparam name="attributes.description" default="">
+<cfparam name="attributes.sort_order" default=>
+<cfparam name="attributes.active_ind" default="0">
 
 <!--- if data has been submitted to this page, insert it into the DB --->
 <cfif isdefined("attributes.created_by")>

@@ -32,7 +32,7 @@
 	<cfif len(variables.display_message)><tr bgcolor="##eeeeee"><td><ul><li>#variables.display_message#</li></ul></td></tr></cfif>
 	<tr bgcolor="##eeeeee">
 		<td>
-		<table width="100%" cellspacing="0" cellpadding="8" border="0"  summary="Table displays notes">
+		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table displays notes">
 			<tr>
 				<td><label for="display_start_date">Display Start Date (m/d/yyyy)</label>: <br />
 					<cfif attributes.system_note_id NEQ 0>
@@ -69,7 +69,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="system_note_id" value="#attributes.system_note_id#" />
 			<cfif attributes.system_note_id EQ 0>

@@ -1,6 +1,6 @@
 
 <!--Reports/pag_code_report.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -30,7 +30,7 @@
 <cfinclude template="qry_code_report.cfm">
 <table border="1" cellpadding="0" cellspacing="0" align="center" bordercolordark="#e1e1e1">
 	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadTextWhite" section_color="008080" section_title="Monthly Hours Report for #get_code.display#" colspan="#variables.column_count#" gutter="0" align="center">
-	<cfmodule template="../common_files/dsp_section_title.cfm"  title_class="SubHeadTextWhite" section_color="5F5F5F" section_title="From: #attributes.from_date# &nbsp;To: #attributes.through_date#" colspan="#variables.column_count#" gutter="0" align="center">
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="SubHeadTextWhite" section_color="5F5F5F" section_title="From: #attributes.from_date# &nbsp;To: #attributes.through_date#" colspan="#variables.column_count#" gutter="0" align="center">
 	<cfset variables.column_count=variables.column_count-1>
 	<cfinclude template="dsp_code_reports.cfm">
 </table>

@@ -57,7 +57,7 @@
 				</td>
 				<td><label for="sort_order">Sort Order</label>: 
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value=#IIf(attributes.product_version_id EQ 0, ("get_ref_product_version_count.count1+1"), ("get_ref_product_version.sort_order"))#
-                     size="9" maxlength="12" required="yes" validate="integer" message="Please enter sort order">
+					size="9" maxlength="12" required="yes" validate="integer" message="Please enter sort order">
 				</td>
 			<tr>
 				<td><span title="describes the purpose of the radio buttons that follow">Selectable indicatior?</span>
@@ -77,7 +77,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="product_version_id" value="#attributes.product_version_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />

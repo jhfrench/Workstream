@@ -1,6 +1,6 @@
 
 <!--Tools/pag_timeline_setup.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

@@ -1,6 +1,6 @@
 
 <!--Report/dsp_manager_hours_row_header.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

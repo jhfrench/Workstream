@@ -33,4 +33,4 @@ FROM REF_Business_Function
 WHERE <cfif attributes.business_function_id NEQ 0>business_function_id=#attributes.business_function_id#<cfelse>active_ind=1</cfif>
 ORDER BY description
 </cfquery>
-<cfset caller.get_business_function=get_business_function>  
+<cfset caller.get_business_function=get_business_function>

@@ -1,6 +1,6 @@
 
 <!--Tools/qry_invoice_details.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

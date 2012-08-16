@@ -1,6 +1,6 @@
 
 <!--Reports/qry_ts_completion_by_customer.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

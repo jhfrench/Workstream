@@ -1,6 +1,6 @@
 
 <!--Tools/dsp_date_locked.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -24,7 +24,7 @@ variables.min_date=listFirst(variables.date_list);
 		<div class="control-group">
 			<label for="company_id">Company</label>
 			<div class="controls">
-				<select name="company_id" id="company_id" size="#min(get_date_locked.recordcount, 10)#" multiple="multiple" required="required"  class="span11">
+				<select name="company_id" id="company_id" size="#min(get_date_locked.recordcount, 10)#" multiple="multiple" required="required" class="span11">
 					<cfloop query="get_date_locked">
 						<option value="#company_id#"<cfif listlast(session.workstream_company_id) EQ company_id> selected="selected"</cfif>>#company#, <cfif len(date_locked)>#dateformat(date_locked, "m/d/yyyy")#<cfelse>NO DATE SPECIFIED</cfif></option>
 					</cfloop>
@@ -36,7 +36,7 @@ variables.min_date=listFirst(variables.date_list);
 			<label for="date_locked">New Date Locked</label>
 			<div class="controls">
 				<input type="date" name="date_locked" id="date_locked" min="#dateformat(variables.min_date, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" required="required" maxlength="10" class="span11 date" />
-				<!-- Use CF to require field <cfinput type="text" name="date_locked"  message="Please specify a valid date to apply." validate="date" required="yes" size="8" /> -->
+				<!-- Use CF to require field <cfinput type="text" name="date_locked" message="Please specify a valid date to apply." validate="date" required="yes" size="8" /> -->
 			</div>
 		</div>
 		<div class="form-actions">

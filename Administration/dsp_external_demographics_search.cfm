@@ -38,7 +38,7 @@
 	<tr bgcolor="##cccccc"><th><strong>Add User</strong></th></tr>
 	<tr bgcolor="##eeeeee">
 		<td>
-		<table width="100%" cellspacing="0" cellpadding="8" border="0"  summary="Table displays user search">
+		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table displays user search">
 			<tr>
 				<th colspan="2">Search for a user from the demographics warehouse:</th>
 			</tr>
@@ -61,7 +61,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="submit" name="method" alt="Search" value="Search" class="btn btn-primary" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>

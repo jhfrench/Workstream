@@ -81,10 +81,10 @@
 	<cfif isdefined("attributes.parent_business_id")>
 		<cfinclude template="qry_insert_link_business_upload.cfm">
 	</cfif>
-    
-    <cfset attributes.upload_id=listappend(variables.upload_id, attributes.upload_id)>
+
+	<cfset attributes.upload_id=listappend(variables.upload_id, attributes.upload_id)>
 <cfelse>
-    <cfset attributes.upload_id=0>
+	<cfset attributes.upload_id=0>
 </cfif>
 
 <cfswitch expression="#attributes.upload_source_type_id#">

@@ -1,6 +1,6 @@
 
 <!--Marketing/qry_get_marketing_line.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

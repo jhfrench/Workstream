@@ -1,6 +1,6 @@
 
 <!--Customers/qry_get_flat_rate.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

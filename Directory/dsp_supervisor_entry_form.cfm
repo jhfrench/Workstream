@@ -67,7 +67,7 @@
 				Last Date Under Most Recent Supervisor:
 			</td>
 			<td class="SelectText">
-				<cfinput type="text" name="end_date" size="10" maxlength="10" required="yes" validate="date" message="Please enter the last date under most recent supervisor.  (m/d/yyyy)" value="#dateformat(Now(),'m/d/yyyy')#">
+				<cfinput type="text" name="end_date" size="10" maxlength="10" required="yes" validate="date" message="Please enter the last date under most recent supervisor. (m/d/yyyy)" value="#dateformat(Now(),'m/d/yyyy')#">
 			</td>
 		</tr>
 	</cfif> --->

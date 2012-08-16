@@ -26,7 +26,7 @@
 
 <cfoutput>
 <cfparam name="attributes.method" default="">
-<cfmodule template="../common_files/qry_get_ref_upload_source.cfm"  upload_source_id="0">
+<cfmodule template="../common_files/qry_get_ref_upload_source.cfm" upload_source_id="0">
 <form name="ref_upload_source_edit_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="upload_source_id">
 	<cfloop query="get_ref_upload_source"><option value="#upload_source_id#"<cfif NOT comparenocase(get_ref_upload_source.upload_source_id, attributes.upload_source_id)> selected="selected"</cfif>>#upload_source#</option></cfloop>
@@ -34,7 +34,7 @@
 	<input type="submit" name="method" alt="Retrieve and edit upload source" value="Retrieve and edit upload source" />
 </form>
 <cfif len(attributes.method)>
-	<cfmodule template="../common_files/qry_get_ref_upload_source.cfm"  upload_source_id="#attributes.upload_source_id#">
+	<cfmodule template="../common_files/qry_get_ref_upload_source.cfm" upload_source_id="#attributes.upload_source_id#">
 	<cfset attributes.description=get_ref_upload_source.upload_source>
 	<cfset attributes.upload_source_id=get_ref_upload_source.upload_source_id>
 	<cfset attributes.abbreviation=get_ref_upload_source.abbreviation>
@@ -50,7 +50,7 @@
 	<tr bgcolor="##cccccc"><th><strong><cfif attributes.upload_source_id EQ 0>ADD NEW<cfelse>EDIT EXISTING</cfif> UPLOAD SOURCE</strong></th></tr>
 	<tr bgcolor="##eeeeee">
 		<td>
-		<table width="100%" cellspacing="0" cellpadding="8" border="0"  summary="Table displays new user information">
+		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table displays new user information">
 			<tr>
 				<td><label for="description">Upload Source description</label>: 
 					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="40" required="yes" message="Please enter upload source description." maxlength="4000">
@@ -84,7 +84,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="upload_source_id" value="#attributes.upload_source_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />

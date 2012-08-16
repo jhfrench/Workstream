@@ -34,14 +34,15 @@
 	<tr align="left" bgcolor="##cccccc">
 		<th>Module</th>
 		<th><label for="module_id">Lock</label></th>
-		<th title="There may be multiple comments for each module in this data chart.  This label relates to the id of the input which is comments"><label for="comments">Comments</label></th>
+		<th title="There may be multiple comments for each module in this data chart. This label relates to the id of the input which is comments"><label for="comments">Comments</label></th>
 	</tr>
 	<cfloop query="get_ref_module">
 	<tr bgcolor="##eeeeee">
 		<td id="description" scope="row"><label for="module_id_#module_id#">#description#</label></td>
 		<td id="module_id"><input type="checkbox" name="module_id" id="module_id_#module_id#" value="#module_id#"<cfif get_ref_module.locked_ind EQ 1> checked="checked"</cfif> /></td>
 		<td id="comments_#module_id#">
-        <input type="text" name="comments_#module_id#" id="comments" value="<cfif len(get_ref_module.comments)>#get_ref_module.comments#</cfif>" maxlength="4000" size="50" title="Enter comments for #description#" /></td>
+			<input type="text" name="comments_#module_id#" id="comments" value="<cfif len(get_ref_module.comments)>#get_ref_module.comments#</cfif>" maxlength="4000" size="50" title="Enter comments for #description#" />
+		</td>
 	</tr>
 	</cfloop>
 	<tr bgcolor="##dddddd">

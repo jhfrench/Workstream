@@ -1,6 +1,6 @@
 
 <!--Reports/qry_overtime_employees.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -11,7 +11,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfquery name="get_overtime_employees" datasource="#application.datasources.main#">          
+<cfquery name="get_overtime_employees" datasource="#application.datasources.main#"> 
 SELECT Emp_Contact.name, Emp_Contact.lname, 
     Demographics.pin, Demographics.emp_id
 FROM Demographics, Emp_Contact, Security, Link_Company_Emp_Contact

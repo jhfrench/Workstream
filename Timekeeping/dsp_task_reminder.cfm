@@ -41,6 +41,6 @@
 	<!--- 
 				Status Notification Frequency<br />
 				<cfselect name="notification_frequency_id" query="get_notification_frequency" display="description" value="notification_frequency_id" selected="#variables.notification_frequency_id#" size="1" required="yes">
-			  </cfselect> --->
+				</cfselect> --->
 </cfoutput>
 </div>

@@ -1,12 +1,12 @@
 
 <!--Directory/act_send_contact_email.cfm
-	Author: Victor B.-->
+	Author: Jeromy French-->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I send email to employee to change there contact information if any has changed recently.
 	||
-	Name: Victor Blell
+	Name: Jeromy French
 	||
 	Edits:
 	$Log$

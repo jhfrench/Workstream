@@ -1,11 +1,11 @@
-<!--  admin/act_check_password.cfm
-	Author: Victor B.-->
+<!-- admin/act_check_password.cfm
+	Author: Jeromy French-->
 <cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I check the entered password for a match to application wide standard .
 	||
-	Name: Victor Blell
+	Name: Jeromy French
 	||
 	Edits: 
 	$Log$
@@ -112,7 +112,7 @@ REGULAR EXPRESSION CODE GOES HERE
 				<cfset password_failed = false>
 			</cfif>
 
-			<!--- check that either second RE or third RE are present  --->
+			<!--- check that either second RE or third RE are present --->
 			<cfif (refind(totalREs[2], attributes.new_pass) eq 0) AND (refind(totalREs[3], attributes.new_pass) eq 0)>
 				<cfset password_failed = false>
 			</cfif>

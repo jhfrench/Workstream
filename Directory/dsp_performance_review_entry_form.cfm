@@ -31,15 +31,7 @@ $Log:
 		</td>
 		<td class="SelectText">
 </cfoutput>
-			<cfselect name="review_type"
-          		size="1"
-         		message="Please select the type of review."
-          		query="get_review_types"
-          		value="review_type_id"
-          		display="description"
-          		required="yes"
-				class="RegText">
-			</cfselect>
+			<cfselect name="review_type" size="1" message="Please select the type of review." query="get_review_types" value="review_type_id" display="description" required="yes" class="RegText" />
 <cfoutput>
 		</td>
 	</tr>
@@ -73,4 +65,3 @@ $Log:
 		</td>
 	</tr>
 </cfoutput>
-

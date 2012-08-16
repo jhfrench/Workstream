@@ -16,16 +16,16 @@
 </cfsilent>
 
 	<tr valign="top">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="checkbox" name="customer_id_box" value="1" <cfif isdefined("attributes.project_id_box") AND len(attributes.project_id)> checked="checked"</cfif>>
 		</td>
 		<td>Customer</td>
 		<td>
 		<cfif NOT len(attributes.project_id)>
 			<cfmodule template="../common_files/edit_two_related_selects.cfm"
-			  
+			
 				query="get_search_projects"
-                name1="customer_id"
+				name1="customer_id"
 				name2="project_id"
 				display1="customer"
 				display2="display"
@@ -53,9 +53,9 @@
 				<cfelse>
 
 			<cfmodule template="../common_files/edit_two_related_selects.cfm"
-			  
+			
 				query="get_search_projects"
-                name1="customer_id"
+				name1="customer_id"
 				name2="project_id"
 				display1="customer"
 				display2="display"

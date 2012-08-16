@@ -292,20 +292,20 @@ This software consists of voluntary contributions made by many individuals on be
 
 			for (fb_.i=1; fb_.i LTE arrayLen(fb_.xnClasses); fb_.i=fb_.i + 1) {
 
-	      fb_.alias=fb_.xnClasses[fb_.i].xmlAttributes['alias'];
+		 fb_.alias=fb_.xnClasses[fb_.i].xmlAttributes['alias'];
 				fb_.type=fb_.xnClasses[fb_.i].xmlAttributes['type'];
-	     	fb_.classpath =fb_.xnClasses[fb_.i].xmlAttributes['classpath'];
+			fb_.classpath =fb_.xnClasses[fb_.i].xmlAttributes['classpath'];
 
 				if (StructKeyExists(fb_.xnClasses[fb_.i].xmlAttributes, 'constructor') AND Len(fb_.xnClasses[fb_.i].xmlAttributes.constructor)) {
-	      	fb_.constructor =fb_.xnClasses[fb_.i].xmlAttributes['constructor'];
+		 	fb_.constructor =fb_.xnClasses[fb_.i].xmlAttributes['constructor'];
 				} else {
 					fb_.constructor ='';
 				}
-	      fb_.application.fusebox.classes[fb_.alias]=structNew();
+		 fb_.application.fusebox.classes[fb_.alias]=structNew();
 
-	      fb_.application.fusebox.classes[fb_.alias]['classpath']=fb_.classpath;
-	      fb_.application.fusebox.classes[fb_.alias]['type']=fb_.type;
-	      fb_.application.fusebox.classes[fb_.alias]['constructor']=fb_.constructor;
+		 fb_.application.fusebox.classes[fb_.alias]['classpath']=fb_.classpath;
+		 fb_.application.fusebox.classes[fb_.alias]['type']=fb_.type;
+		 fb_.application.fusebox.classes[fb_.alias]['constructor']=fb_.constructor;
 			}
   </cfscript>
 	<cfscript>
@@ -314,11 +314,11 @@ This software consists of voluntary contributions made by many individuals on be
 			fb_.namespace=' xmlns="http://www.fusebox.org/"';
 			for (fb_.i=1; fb_.i LTE arrayLen(fb_.xnLexicons); fb_.i=fb_.i + 1) {
 
-	      fb_.xmlns=fb_.xnLexicons[fb_.i].xmlAttributes['namespace'];
-	     	fb_.path =fb_.xnLexicons[fb_.i].xmlAttributes['path'];
+		 fb_.xmlns=fb_.xnLexicons[fb_.i].xmlAttributes['namespace'];
+			fb_.path =fb_.xnLexicons[fb_.i].xmlAttributes['path'];
 
-	      fb_.application.fusebox.lexicons[fb_.xmlns]=structNew();
-	      fb_.application.fusebox.lexicons[fb_.xmlns]['path']=fb_.path;
+		 fb_.application.fusebox.lexicons[fb_.xmlns]=structNew();
+		 fb_.application.fusebox.lexicons[fb_.xmlns]['path']=fb_.path;
 				fb_.namespace=fb_.namespace & ' xmlns:#fb_.xmlns#="lexicon/#fb_.path#"';
 			}
   </cfscript>
@@ -331,7 +331,7 @@ This software consists of voluntary contributions made by many individuals on be
   <!--- parse the circuit definitions --->
   <cfset fb_.xnCircuits=XMLsearch(fb_.application.fusebox.xml, "//circuits/circuit") >
 	<cfloop from="1" to="#arrayLen(fb_.xnCircuits)#" index="fb_.i">
-    <cfscript>
+	<cfscript>
 			// if no attribute for path then insert it as empty string
 			if (NOT StructKeyExists(fb_.xnCircuits[fb_.i].xmlAttributes, 'path')) {
 				StructInsert(fb_.xnCircuits[fb_.i].xmlAttributes, 'path', '');
@@ -366,7 +366,7 @@ This software consists of voluntary contributions made by many individuals on be
         fb_.rootpath=fb_.rootpath & "/";
       }
       fb_.application.fusebox.circuits[fb_.alias]['rootpath']=fb_.rootpath;
-    </cfscript>
+	</cfscript>
 
 		<cfif FileExists("#fb_.application.fusebox.approotdirectory##REreplace(fb_.application.fusebox.circuits[fb_.alias]['path'], '\\/', fb_.application.fusebox.osdelimiter, 'all')#circuit.xml.cfm")>
 			<cfset fb_.circuitXMLfile="circuit.xml.cfm">
@@ -461,40 +461,40 @@ This software consists of voluntary contributions made by many individuals on be
 
           // determine the fuseaction's access modifier
           if (structKeyExists(fb_.xnCircuit[1].xmlChildren[fb_.i].xmlAttributes, 'access')) {
-            fb_.application.fusebox.circuits[fb_.aCircuit].fuseactions[fb_.name].access=fb_.xnCircuit[1].xmlChildren[fb_.i].xmlAttributes.access;
+			fb_.application.fusebox.circuits[fb_.aCircuit].fuseactions[fb_.name].access=fb_.xnCircuit[1].xmlChildren[fb_.i].xmlAttributes.access;
           }
           else {
-            // by default, a fuseaction has no access modifier then it inherits that of its parent
-            fb_.application.fusebox.circuits[fb_.aCircuit].fuseactions[fb_.name].access=fb_.application.fusebox.circuits[fb_.aCircuit].access;
+			// by default, a fuseaction has no access modifier then it inherits that of its parent
+			fb_.application.fusebox.circuits[fb_.aCircuit].fuseactions[fb_.name].access=fb_.application.fusebox.circuits[fb_.aCircuit].access;
           }
 
           // determine the fuseaction's permissions
           if (structKeyExists(fb_.xnCircuit[1].xmlChildren[fb_.i].xmlAttributes, 'permissions')) {
-            fb_.application.fusebox.circuits[fb_.aCircuit].fuseactions[fb_.name].permissions=fb_.xnCircuit[1].xmlChildren[fb_.i].xmlAttributes.permissions;
+			fb_.application.fusebox.circuits[fb_.aCircuit].fuseactions[fb_.name].permissions=fb_.xnCircuit[1].xmlChildren[fb_.i].xmlAttributes.permissions;
           }
           else {
-            // by default, a fuseaction's permissions is the empty string
-            fb_.application.fusebox.circuits[fb_.aCircuit].fuseactions[fb_.name].permissions="";
+			// by default, a fuseaction's permissions is the empty string
+			fb_.application.fusebox.circuits[fb_.aCircuit].fuseactions[fb_.name].permissions="";
           }
         }
         /* the prefuseactions */
         else if (fb_.xnCircuit[1].xmlChildren[fb_.i].xmlName EQ "prefuseaction") {
           if (arrayLen(fb_.xnCircuit[1].xmlChildren[fb_.i].xmlChildren)) {
-            fb_.application.fusebox.circuits[fb_.aCircuit].prefuseaction.xml=fb_.xnCircuit[1].xmlChildren[fb_.i];
+			fb_.application.fusebox.circuits[fb_.aCircuit].prefuseaction.xml=fb_.xnCircuit[1].xmlChildren[fb_.i];
           }
           if ((StructKeyExists(fb_.xnCircuit[1].xmlChildren[fb_.i].xmlAttributes, 'callsuper')) AND
-              (fb_.xnCircuit[1].xmlChildren[fb_.i].xmlAttributes.callsuper EQ "true")){
-            fb_.application.fusebox.circuits[fb_.aCircuit].prefuseaction.callsuper=true;
+			  (fb_.xnCircuit[1].xmlChildren[fb_.i].xmlAttributes.callsuper EQ "true")){
+			fb_.application.fusebox.circuits[fb_.aCircuit].prefuseaction.callsuper=true;
           }
         }
         /* the postfuseactions */
         else if (fb_.xnCircuit[1].xmlChildren[fb_.i].xmlName EQ "postfuseaction") {
           if (arrayLen(fb_.xnCircuit[1].xmlChildren[fb_.i].xmlChildren)) {
-            fb_.application.fusebox.circuits[fb_.aCircuit].postfuseaction.xml=fb_.xnCircuit[1].xmlChildren[fb_.i];
+			fb_.application.fusebox.circuits[fb_.aCircuit].postfuseaction.xml=fb_.xnCircuit[1].xmlChildren[fb_.i];
           }
           if ((StructKeyExists(fb_.xnCircuit[1].xmlChildren[fb_.i].xmlAttributes, 'callsuper')) AND
-              (fb_.xnCircuit[1].xmlChildren[fb_.i].xmlAttributes.callsuper EQ "true")) {
-            fb_.application.fusebox.circuits[fb_.aCircuit].postfuseaction.callsuper=true;
+			  (fb_.xnCircuit[1].xmlChildren[fb_.i].xmlAttributes.callsuper EQ "true")) {
+			fb_.application.fusebox.circuits[fb_.aCircuit].postfuseaction.callsuper=true;
           }
         }
       }
@@ -548,11 +548,11 @@ This software consists of voluntary contributions made by many individuals on be
         fb_.aDirs=ListToArray(fb_.path,"/");
         for (fb_.k=1; fb_.k LTE arrayLen(fb_.aDirs); fb_.k=fb_.k + 1) {
           if (fb_.aDirs[fb_.k] EQ "..") {
-            fb_.rootpath=listPrepend(fb_.rootpath, listlast(fb_.rootdir, "/"), "/");
-            fb_.rootdir=listdeleteat(fb_.rootdir, ListLen(fb_.rootdir), "/");
+			fb_.rootpath=listPrepend(fb_.rootpath, listlast(fb_.rootdir, "/"), "/");
+			fb_.rootdir=listdeleteat(fb_.rootdir, ListLen(fb_.rootdir), "/");
           }
           else {
-            fb_.rootpath=listPrepend(fb_.rootpath, "..", "/");
+			fb_.rootpath=listPrepend(fb_.rootpath, "..", "/");
           }
         }
 

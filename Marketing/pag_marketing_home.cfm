@@ -1,6 +1,6 @@
 
 <!--Marketing/pag_marketing_home.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

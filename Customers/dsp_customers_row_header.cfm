@@ -1,6 +1,6 @@
 
 <!--Customers/dsp_customers_row_header.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 <!--- FUSEDOC
 	||
@@ -14,15 +14,15 @@
 <cfset variables.row_colspan=2>
 </cfsilent>
 <cfoutput>
-	<tr bgcolor="##008000">	      
-	   <form name="inactive" action="index.cfm?fuseaction=Customers.customers" method="post">
+	<tr bgcolor="##008000">		 
+		<form name="inactive" action="index.cfm?fuseaction=Customers.customers" method="post">
 	   	<td colspan="1" class="HeadTextWhite">
 			Customer List
 	   	</td>
 		<td align="right" colspan="#variables.row_colspan#" class="RegTextWhite">
 			<label for="active_ind"><input type="checkbox" name="active_ind" id="active_ind" onclick="submit();" value="<cfif compare(attributes.active_ind, 0)>0<cfelse>1</cfif>" class="RegTextWhite"> View <cfif compare(attributes.active_ind, 0)>Only Active<cfelse>Inactive</cfif> Customers</label>
 		</td>
-	   </form>
+		</form>
 	</tr>
 	<tr bgcolor="##c0c0c0">
 		<td class="SubHeadText">

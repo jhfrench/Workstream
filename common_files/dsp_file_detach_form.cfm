@@ -32,7 +32,7 @@
 	</tr>
 	<cfloop query="get_associated_files">
 	<tr>
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="checkbox" name="l_t_f_id" value="#l_t_f_id#" id="l_t_f_id_#l_t_f_id#">
 		</td>
 		<td>

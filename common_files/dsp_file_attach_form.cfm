@@ -50,7 +50,7 @@
 			Please save the file in Spinnaker/timekeeping documents to attach it to a task.
 		</td>
 	</tr> --->
-<form action="" method="post" enctype="multipart/form-data" name="tempform" id="junk"  onsubmit="return false">
+<form action="" method="post" enctype="multipart/form-data" name="tempform" id="junk" onsubmit="return false">
 	<tr>
 		<td class="SubHeadText">
 			&nbsp;

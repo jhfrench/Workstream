@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_monthly_grand_total.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -12,7 +12,7 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfif evaluate("#query#.CurrentRow") EQ evaluate("#query#.recordcount")><!-- I only want this after  the client code changes -->
+<cfif evaluate("#query#.CurrentRow") EQ evaluate("#query#.recordcount")><!-- I only want this after the client code changes -->
 				<cfinclude template="dsp_summary_hours.cfm"> 
 				<cfinclude template="dsp_employee_classification_hours.cfm">
 				<tr>
@@ -21,7 +21,7 @@
 				</td>
 			</tr>
 			<tr class="subHeadText">
-				<td  colspan="2" align="right">
+				<td colspan="2" align="right">
 					Grand Total Hours:
 				</td>
 				<td align="left">

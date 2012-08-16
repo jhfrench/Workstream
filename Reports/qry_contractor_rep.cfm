@@ -1,6 +1,6 @@
 
 <!--Reports/qry_contractor_rep.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

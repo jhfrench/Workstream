@@ -205,7 +205,7 @@ This software consists of voluntary contributions made by many individuals on be
 					fb_appendSegment('#fb_.fuseQ[fb_.i].xmlAttributes.returnVariable#');
 				}
 				fb_appendSegment('=');
-			}    
+			}
 
 			if (StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes, "object")) {
 				fb_appendSegment(fb_.fuseQ[fb_.i].xmlAttributes.object & '.' & fb_.fuseQ[fb_.i].xmlAttributes.methodcall & ' />');
@@ -298,13 +298,13 @@ This software consists of voluntary contributions made by many individuals on be
 			if ( (NOT StructKeyExists(fb_.fuseQ[fb_.i].xmlAttributes, "prepend")) OR fb_.fuseQ[fb_.i].xmlAttributes.overwrite NEQ "true" ) {
 				fb_.fuseQ[fb_.i].xmlAttributes["prepend"]="false";
 			}
-	
+
 			if ( len(fb_.fuseQ[fb_.i].xmlAttributes["contentvariable"]) AND fb_.fuseQ[fb_.i].xmlAttributes["overwrite"] IS FALSE ) {
 				fb_appendLine('<cfif NOT IsDefined("#fb_.fuseQ[fb_.i].xmlAttributes["contentvariable"]#")>');
 				fb_increaseIndent();
 			}
 
-	  	fb_appendLine('<cftry>');
+			fb_appendLine('<cftry>');
 			fb_increaseIndent();
 
 				if ( len(fb_.fuseQ[fb_.i].xmlAttributes["contentvariable"]) ) {
@@ -334,7 +334,7 @@ This software consists of voluntary contributions made by many individuals on be
 
 				}
 				fb_appendNewline();
-		  
+		
 
 				fb_appendLine('<cfcatch type="missingInclude">');
 				fb_increaseIndent();

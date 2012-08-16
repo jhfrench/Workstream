@@ -1,6 +1,6 @@
 
 <!--Reports/pag_pto_admin_accrual.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

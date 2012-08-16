@@ -27,7 +27,7 @@
 <cfquery name="insert_ref_organization" datasource="#application.datasources.main#">
 INSERT INTO REF_Organization (description, organization_code, abbreviation,
 	created_by, sort_order, active_ind)
-VALUES ('#attributes.description#', COALESCE('#attributes.organization_code#','#attributes.description#'),  COALESCE('#attributes.abbreviation#','#attributes.description#'),
+VALUES ('#attributes.description#', COALESCE('#attributes.organization_code#','#attributes.description#'), COALESCE('#attributes.abbreviation#','#attributes.description#'),
 	#session.user_account_id#, #attributes.sort_order#, #attributes.active_ind#)
 </cfquery>
 

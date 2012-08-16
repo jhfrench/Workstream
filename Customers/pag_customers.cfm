@@ -1,6 +1,6 @@
 
 <!--Customers/pag_customers.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 <!--- FUSEDOC
 	||
@@ -17,6 +17,6 @@
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit" fuseaction="Customers.edit_customer" field_name="customer_id">
 <cfinclude template="qry_get_customers.cfm">
 <table align="center" cellpadding="2" cellspacing="0" border="0" width="50%">
-    <cfinclude template="dsp_customers_row_header.cfm">
-    <cfinclude template="dsp_customers_rows.cfm">
+	<cfinclude template="dsp_customers_row_header.cfm">
+	<cfinclude template="dsp_customers_rows.cfm">
 </table>	

@@ -1,6 +1,6 @@
 
 <!--Reports/pag_leader_hours_report_input.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

@@ -23,7 +23,7 @@
 
 <cfoutput>
 <cfform name="form_edit_nsm_privileges" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
-<table  summary="Table displays access assignments for  user">
+<table summary="Table displays access assignments for user">
 	<tr>
 		<td colspan="2" title="table cell describes the data held in the table within this table">
 			You've assigned access for every hierarchy level that applies to program year #get_program_year.description#

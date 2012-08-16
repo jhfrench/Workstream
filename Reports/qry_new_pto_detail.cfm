@@ -29,7 +29,7 @@ FROM
 	SELECT 0 AS hours_out, COALESCE(PTO_Grant.granted_hours, 0) AS hours_in, 
 		date_granted AS transaction_date, comments
 	FROM PTO_Grant
-   	WHERE PTO_Grant.emp_id=#attributes.emp_id#
+		WHERE PTO_Grant.emp_id=#attributes.emp_id#
 		AND date_granted >= #createodbcdatetime(Get_PTO_Start.pto_start_date)#
 		AND EXTRACT(YEAR FROM [date_granted]) >= EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
 ) Current_Year_PTO

@@ -1,12 +1,12 @@
 
 <!-- Directory/qry_get_email.cfm
-	Author: Victor B.-->
+	Author: Jeromy French-->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I query database for employees to send emails to.
 	||
-	Name: Victor Blell
+	Name: Jeromy French
 	||
 	Edits:
 	$Log$
@@ -21,7 +21,7 @@
 SELECT Ec.Name AS fname, Ec.LName, Em.Email
 FROM Email Em
 	INNER JOIN Emp_Contact Ec ON Em.emp_id = Ec.emp_id
-	LEFT OUTER JOIN  REF_Email_Type Ret ON Em.email_type_id = Ret.email_type_id
+	LEFT OUTER JOIN REF_Email_Type Ret ON Em.email_type_id = Ret.email_type_id
 	INNER JOIN Link_Company_Emp_Contact ON Link_Company_Emp_Contact.emp_id = Ec.emp_id
 	INNER JOIN REF_Company RCom ON Link_Company_Emp_Contact.company_id = RCom.company_id
 WHERE Ret.email_type_id = 1

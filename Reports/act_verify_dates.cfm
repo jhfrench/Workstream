@@ -1,6 +1,6 @@
 
 <!--Reports/act_verify_dates.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -34,7 +34,7 @@
 	Not a starting point
 	<cfabort>
 	<!--- $issue$: clear above out, should just be the redirect --->
-	<cflocation url="index.cfm?fuseaction=Reports.report">	  
+	<cflocation url="index.cfm?fuseaction=Reports.report">	
 </cfif>
 
 

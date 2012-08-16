@@ -21,10 +21,10 @@ function isEmpty()
 			    {
 					 alert("You must select an engagement");
 					 return false;
-				 }  
+				 }
 
-		  }  
-		  
+		  }
+		
 		  return true;
 	}
 </script>
@@ -50,7 +50,7 @@ function isEmpty()
 	<input type="hidden" name="used_by_search" value="1">
 	<input type="hidden" name= "project_id_list" value= "#valuelist(get_search_projects.project_id)#">
 
-    </cfoutput>
+	</cfoutput>
 </table>
 </cfform>
 <br />

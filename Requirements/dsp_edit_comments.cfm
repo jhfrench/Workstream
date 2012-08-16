@@ -77,7 +77,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="comments_id" value="#attributes.comments_id#" />
 			<cfif get_comment.active_ind EQ 0>
 				You cannot edit an inactive comment

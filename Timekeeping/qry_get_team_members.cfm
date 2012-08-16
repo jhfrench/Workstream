@@ -1,6 +1,6 @@
 
 <!--Timekeeping/qry_get_team_members.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

@@ -1,6 +1,6 @@
 
 <!--Customers/qry_change_billable_type_id.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

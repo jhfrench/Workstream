@@ -4,7 +4,7 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I  see if the current user is allowed to see (or enter) salary information.  Only Nucleus employees are restricted from this function.  If so, I retrieve employees salary info.
+	Responsibilities: I see if the current user is allowed to see (or enter) salary information. Only Nucleus employees are restricted from this function. If so, I retrieve employees salary info.
 	||
 	Name: Jeromy French
 	||

@@ -45,7 +45,7 @@
 	<tr bgcolor="##cccccc"><th><strong><cfif attributes.report_output_format_id EQ 0>ADD NEW<cfelse>EDIT EXISTING</cfif> REPORT OUTPUT FORMAT</strong></th></tr>
 	<tr bgcolor="##eeeeee">
 		<td>
-		<table width="100%" cellspacing="0" cellpadding="8" border="0"  summary="Table displays new user information">
+		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table displays new user information">
 			<tr>
 				<td><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" size="30" maxlength="400" value="#attributes.description#" required="yes" message="Please enter description.">
@@ -66,7 +66,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="report_output_format_id" value="#attributes.report_output_format_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />

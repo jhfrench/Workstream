@@ -6,7 +6,7 @@
 	||
 	Responsibilities: I run a JavaScript to auto check a checkbox
 	||
-	Name:  Jeromy French
+	Name: Jeromy French
 	||
 	Edits:
 	$Log$

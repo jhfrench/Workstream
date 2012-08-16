@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_summary_hours.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -12,7 +12,7 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-			<tr valign="top"  class="RegTextIt">
+			<tr valign="top" class="RegTextIt">
 				<td colspan="2" align="right">
 
 					Summary Hours: 

@@ -1,6 +1,6 @@
 
 <!--Marketing/dsp_person_grid.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -15,40 +15,40 @@
 
 <tr>
 <td align="center">
-<cfgrid query="get_marketing_contact_info" name="person_grid" width="800" insert="no" sort="no" bold="No" italic="No" appendkey="Yes" highlighthref="Yes"  griddataalign="LEFT" gridlines="Yes" rowheaders="No" rowheaderalign="LEFT" rowheaderitalic="No" rowheaderbold="No" colheaders="Yes" colheaderalign="LEFT" colheaderitalic="No" colheaderbold="Yes" selectmode="edit" picturebar="No">
+<cfgrid query="get_marketing_contact_info" name="person_grid" width="800" insert="no" sort="no" bold="No" italic="No" appendkey="Yes" highlighthref="Yes" griddataalign="LEFT" gridlines="Yes" rowheaders="No" rowheaderalign="LEFT" rowheaderitalic="No" rowheaderbold="No" colheaders="Yes" colheaderalign="LEFT" colheaderitalic="No" colheaderbold="Yes" selectmode="edit" picturebar="No">
 
-<cfgridcolumn name="name"  header ="Name" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
+<cfgridcolumn name="name" header ="Name" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
 display="Yes" headerbold="No" headeritalic="No">
  
-<cfgridcolumn name="lname"  header ="Last Name" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
+<cfgridcolumn name="lname" header ="Last Name" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
 display="Yes" headerbold="No" headeritalic="No">
  
-<cfgridcolumn name="email"  header ="Email" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
+<cfgridcolumn name="email" header ="Email" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
 display="Yes" headerbold="No" headeritalic="No">
  
-<cfgridcolumn name="phone_number"  header ="Phone Number" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" display="Yes" headerbold="No" headeritalic="No">
+<cfgridcolumn name="phone_number" header ="Phone Number" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" display="Yes" headerbold="No" headeritalic="No">
  
-<cfgridcolumn name="extension"  header ="Extention" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
+<cfgridcolumn name="extension" header ="Extention" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
 display="Yes" headerbold="No" headeritalic="No">
 
-<cfgridcolumn name="address1"  header ="Address 1" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
+<cfgridcolumn name="address1" header ="Address 1" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
 display="Yes" headerbold="No" headeritalic="No">
  
-<cfgridcolumn name="address2"  header ="Address 2" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
+<cfgridcolumn name="address2" header ="Address 2" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
 display="Yes" headerbold="No" headeritalic="No">
  
-<cfgridcolumn name="city"  header ="City" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
+<cfgridcolumn name="city" header ="City" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
 display="Yes" headerbold="No" headeritalic="No">
-  
-<cfgridcolumn name="state"  header ="State" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
+
+<cfgridcolumn name="state" header ="State" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
 display="Yes" headerbold="No" headeritalic="No">
  
-<cfgridcolumn name="zip"  header ="Zip" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
+<cfgridcolumn name="zip" header ="Zip" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="yes" 
 display="Yes" headerbold="No" headeritalic="No">
-  
-<cfgridcolumn name="emp_id"   headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="no" 
+
+<cfgridcolumn name="emp_id" headeralign="LEFT" dataalign="LEFT" bold="No" italic="No" select="no" 
 display="no" headerbold="No" headeritalic="No">
-  
+
  
  
 </cfgrid>

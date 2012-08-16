@@ -74,7 +74,7 @@
 		</form>
 	</div>
 	<div class="nav_control_d2">
-		<table width="100%" border="0" cellpadding="4" cellspacing="0"  summary="Table displays navigation controls">
+		<table width="100%" border="0" cellpadding="4" cellspacing="0" summary="Table displays navigation controls">
 			<tr>
 				<td><img src="images/spacer.gif" alt="" width="1" height="1" border="0" /></td>
 				<td class="number"><a href="javascript:void(Effect.toggle('nav_d2','appear');return false;)" onclick="Effect.toggle('nav_d2','appear'); return false;">x</a></td>

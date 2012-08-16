@@ -98,7 +98,7 @@ function CSAction2(fct, array) {
 					if (actArray[j][0] == "ACT") {
 						tempArray[j] = CSAction(new Array(new String(actArray[j][1])));
 					}
-					else              tempArray[j] = actArray[j];
+					else			  tempArray[j] = actArray[j];
 				}
 			}
 			else          tempArray[j] = actArray[j];

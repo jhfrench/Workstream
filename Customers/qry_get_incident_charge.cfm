@@ -1,6 +1,6 @@
 
 <!--Customers/qry_get_incident_charge.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

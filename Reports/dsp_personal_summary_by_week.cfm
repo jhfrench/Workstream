@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_personal_summary_by_week.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

@@ -82,7 +82,7 @@
 					<br /><label for="active_ind_yes"><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes">Yes</label>
 					<label for="active_ind_no"><cfinput type="radio" name="active_ind" id="active_ind_no" value="0">No</label>
 				</td>
-	  			</cfif>
+					</cfif>
 			</tr>
 			<tr>
 				<td colspan="3">
@@ -99,7 +99,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="requirement_id" value="#attributes.requirement_id#" />
 			<cfif get_requirement.active_ind EQ 0>
 				You cannot edit an inactive requirement

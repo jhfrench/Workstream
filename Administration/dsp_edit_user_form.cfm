@@ -25,7 +25,7 @@
 <cfoutput>
 #variables.display_message#
 <form name="form_edit_user" action="index.cfm?fuseaction=#attributes.fuesaction#" method="post">
-<table  summary="Table displays user information">
+<table summary="Table displays user information">
 	<tr>
 		<td><label for="demographics_id">Demographics</label>:</td>
 		<td><select name="demographics_id" id="demographics_id">
@@ -38,7 +38,7 @@
 	</tr>
 	<tr>
 		<td><label for="user_name">Username</label>:</td>
-		<td><input  type="text"name="user_name" id="user_name" size="20"  maxlength="4000" <cfif NOT comparenocase(attributes.action, "edit_user")>value="#user_name#" readonly="readonly"<cfelse>value="#attributes.user_name#"</cfif>/></td>
+		<td><input type="text"name="user_name" id="user_name" size="20" maxlength="4000" <cfif NOT comparenocase(attributes.action, "edit_user")>value="#user_name#" readonly="readonly"<cfelse>value="#attributes.user_name#"</cfif>/></td>
 
 	</tr>
 	<!--- Regularly if you are an administrator that has access to the list of users, you do not need to put old password --->

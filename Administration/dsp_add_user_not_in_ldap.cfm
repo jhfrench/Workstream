@@ -77,7 +77,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td colspan="2"  class="btn-group">
+		<td colspan="2" class="btn-group">
 			<input type="hidden" name="center_id" value="#get_ref_center.center_id#" />
 			<input name="method" type="submit" alt="Add User" value="Add User" class="btn btn-primary" />
 			<input name="cancel" type="button" value="Cancel" onclick="this.form.action='index.cfm?fuseaction=Administration.add_user'; this.form.reset(); this.form.submit();" class="btn" />

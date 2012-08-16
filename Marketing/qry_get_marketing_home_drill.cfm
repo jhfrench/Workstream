@@ -1,6 +1,6 @@
 
 <!--Marketing/qry_get_marketing_home_drill.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -12,9 +12,9 @@
 	 || 
 	END FUSEDOC --->
 <!---THIS IS THE MORE STRICT VERSION OF THE QUERY. HOLD ONTO THIS PENDING WHAT SCOFIELD WANST TO DO WITH THIS.
- CASE  When(Prospecting_Begin IS NOT NULL
+ CASE When(Prospecting_Begin IS NOT NULL
 	AND Prospecting_End IS NULL and Qualifying_Begin IS NULL and Proposing_Begin IS NULL and Closing_Begin IS NULL) THEN 'Prospecting' 
-    WHEN (Prospecting_End IS NOT NULL and Qualifying_Begin IS NOT NULL and Proposing_Begin IS NULL and Closing_Begin IS NULL)
+  WHEN (Prospecting_End IS NOT NULL and Qualifying_Begin IS NOT NULL and Proposing_Begin IS NULL and Closing_Begin IS NULL)
 THEN 'Qualifying' 
 WHEN (Prospecting_End IS NOT NULL
 	AND Qualifying_End IS NOT NULL and Proposing_Begin IS NOT NULL and Closing_Begin IS NULL)

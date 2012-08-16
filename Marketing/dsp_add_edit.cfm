@@ -1,6 +1,6 @@
 
 <!--Marketing/dsp_add_edit.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -15,12 +15,11 @@
 <form name="edit" action="index.cfm?fuseaction=Marketing.add_edit&cfgridkey=<cfoutput>#attributes.cfgridkey#</cfoutput>" method="post">
 
 	<tr>
-		<td  colspan="2"class="SubHeadText">Would you like to Edit or Delete this contact. <cfoutput query="get_contact"><span class="RegTextIt">#name# #lname#</span></cfoutput></td>
+		<td colspan="2"class="SubHeadText">Would you like to Edit or Delete this contact. <cfoutput query="get_contact"><span class="RegTextIt">#name# #lname#</span></cfoutput></td>
 	</tr>
 	<tr>
 		<td align = "right">Edit</td>
-
-		<td><input  type="radio" name="select" value="e"> </td>
+		<td><input type="radio" name="select" value="e" /> </td>
 	</tr>
 	<tr>
 		<td align = "right">Delete</td>

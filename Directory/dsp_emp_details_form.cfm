@@ -27,7 +27,7 @@
 			<td></td>
 			<td colspan="2">
 				<font color=red>Birthday</font>: 
-				<input type="date" name="dob" id="dob" min="1911-02-02" max="#dateformat(dateadd('yyyy',now(),-14), 'yyyy-mm-dd')#" value="#dateformat(dob, 'yyyy-mm-dd')#"  maxlength="10" required="required" class="span6 date" />&nbsp;
+				<input type="date" name="dob" id="dob" min="1911-02-02" max="#dateformat(dateadd('yyyy',now(),-14), 'yyyy-mm-dd')#" value="#dateformat(dob, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span6 date" />&nbsp;
 			<!-- USE CF to create client validation <cfinput type="text" name="dob"required="yes" validate="date" message="Please enter a properly formatted birthdate." size="11"> -->
 				<font color=red>SSN</font>: <cfinput type="text" name="ssn" value="#ssn#" required="yes" validate="social_security_number" message="Please enter a properly formatted SSN." size="11">&nbsp;
 				<font color=red>Pin:</font> <cfinput type="text" name="pin" value="#pin#" required="yes" message="Please enter a pin." size="6">&nbsp;
@@ -76,7 +76,7 @@
 						</cfif>
 
 </td>
-	
+
 					</tr>
 
 
@@ -85,7 +85,7 @@
 						<td class="SubHeadText">&nbsp;</td>
 						<td align="right">Hire date: </td>
 						<td align="left">
-							<input type="date" name="hire_date" id="hire_date" min="#application.application_specific_settings_workstream_start_date#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(hire_date, 'yyyy-mm-dd')#"  maxlength="10" required="required" class="span6 date" />
+							<input type="date" name="hire_date" id="hire_date" min="#application.application_specific_settings_workstream_start_date#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(hire_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span6 date" />
 							<!-- Use CF to create client validation <cfinput type="text" name="hire_date" value="#dateformat(hire_date, 'm/d/yyyy')#" required="yes" validate="date" message="Please enter a properly formatted hire date." size="11"> -->
 						</td>
 						<td align="right"><font color=red>Company: </td>
@@ -105,14 +105,14 @@
 							<cfoutput query="get_teams">
 								<option value="#company_id#"<cfif listcontains(visable_company,company_id)> selected="selected"</cfif>>#company#</option>
 							</cfoutput> 
-				        </select>
+						</select>
 						</td>
 					</tr>
 <cfoutput>
 					<tr>
 						<td class="SubHeadText">&nbsp;</td>
 						<td align="right">User Type:<br />Employee Type:</td>
-						<td align="left"><cfselect name="emp_contact_type"  selected="#emp_contact_type#" query="get_user_type" value="emp_contact_id" display="emp_contact_type"></cfselect><br /><cfselect name="employee_type"  selected="#employee_type_id#" query="qry_get_employee_type" value="employee_type_id" display="employee_type"></cfselect></td>
+						<td align="left"><cfselect name="emp_contact_type" selected="#emp_contact_type#" query="get_user_type" value="emp_contact_id" display="emp_contact_type"></cfselect><br /><cfselect name="employee_type" selected="#employee_type_id#" query="qry_get_employee_type" value="employee_type_id" display="employee_type"></cfselect></td>
 						<td align="right" valign="top"><font color=red>Supervisor</font>: </td>
 						<td align="left" valign="top">
 <cfif isdefined("attributes.emp_id")>
@@ -141,7 +141,7 @@
 							<option value="1">Yes</option>
 						</select></td>
 						<td align="right">PTO Annual Accrual (if not standard accrual): </td>
-						<td align="left"><cfinput type="text" name="PTO_override" value="" required="no"  size="3" validate="float" message="Please enter a valid number for PTO Annual Hours Accrued.">
+						<td align="left"><cfinput type="text" name="PTO_override" value="" required="no" size="3" validate="float" message="Please enter a valid number for PTO Annual Hours Accrued.">
 <input type="hidden" name="emp_id" value="<cfif isdefined("attributes.emp_id")>#attributes.emp_id#</cfif>"></td>
 					</tr>
 				<tr>

@@ -1,6 +1,6 @@
 
 <!--Tools/pag_rate_change.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

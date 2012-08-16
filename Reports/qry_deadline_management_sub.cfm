@@ -1,6 +1,6 @@
 
 <!--Reports/qry_deadline_management_sub.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

@@ -1,6 +1,6 @@
 
 <!--Customers/dsp_new_cust_contact.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -11,7 +11,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-    </cfsilent>
+	</cfsilent>
 <tr>
 	<td class="SubHeadText">
 		Name

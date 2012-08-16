@@ -36,9 +36,9 @@
 				</tr>
 				<cfoutput>
 				<cfloop from="1" to="#attributes.supporting_database_count#" index="database_count_ii">
-					<td><cfinput type="text" name="database_name_#database_count_ii#"  maxlength="400" required="yes" message=""></td>
-					<td><cfinput type="text" name="datasource_name_#database_count_ii#"  maxlength="400" required="yes" message=""></td>
-					<td><cfinput type="text" name="datasource_description_#database_count_ii#"  maxlength="400" required="yes" message=""></td>
+					<td><cfinput type="text" name="database_name_#database_count_ii#" maxlength="400" required="yes" message=""></td>
+					<td><cfinput type="text" name="datasource_name_#database_count_ii#" maxlength="400" required="yes" message=""></td>
+					<td><cfinput type="text" name="datasource_description_#database_count_ii#" maxlength="400" required="yes" message=""></td>
 					<td><cfselect name="database_server_id_#database_count_ii#" query="qry_get_ref_database_server" value="database_server_id" display="database_server_name"></cfselect></td>
 				</cfloop>
 				</cfoutput>

@@ -1,6 +1,6 @@
 
 <!--Reports/qry_get_expenses.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -37,10 +37,10 @@ FROM Notes
 		WHERE (expense.work_date >='#From_Date#'
 			AND expense.work_date <='#Through_Date#')<cfif compare(project_id, 0) or isdefined("attributes.emp_id")>
 	<cfif compare(project_id, 0) >AND expense.project_id = #attributes.project_id#</cfif>
-    <cfif isdefined("attributes.emp_id")>AND expense.emp_id IN (#attributes.emp_id#)</cfif>
-    <cfelse>
+	<cfif isdefined("attributes.emp_id")>AND expense.emp_id IN (#attributes.emp_id#)</cfif>
+	<cfelse>
 			AND expense.emp_id = #session.user_account_id#
-    </cfif>
+	</cfif>
 	) AS JUNK
 	GROUP BY Reimbursement_Type, work_date, Description,
 		project_code, expense_id, [Name],

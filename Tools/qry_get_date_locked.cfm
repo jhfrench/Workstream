@@ -1,6 +1,6 @@
 
 <!--Tools/qry_get_date_locked.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

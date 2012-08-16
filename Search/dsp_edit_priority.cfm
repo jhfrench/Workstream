@@ -16,7 +16,7 @@
 <cfinclude template="../common_files/qry_get_priorities.cfm">
 <cfoutput>
 	<tr valign="top">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="checkbox" name="priority_id_box" value="1"<cfif len(attributes.priority_id)> checked="checked"</cfif>class="RegText">
 		</td>
 		<td>Priority</td>

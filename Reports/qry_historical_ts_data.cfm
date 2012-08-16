@@ -1,6 +1,6 @@
 
 <!--Reports/qry_historical_ts_data.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

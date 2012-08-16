@@ -1,6 +1,6 @@
 
 <!--Marketing/qry_marketing_grid.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -24,9 +24,9 @@
 				null=QuerySetCell(marketing_grid, 'project_code', '#project_code#' , #currow#);
 				null=QuerySetCell(marketing_grid, 'Description', '#description#', #currow#);
 				null=QuerySetCell(marketing_grid, 'last_task', '#last_task#', #currow#);
-				null=QuerySetCell(marketing_grid, 'date',  '#date#', #currow#);
-				null=QuerySetCell(marketing_grid, 'statusabovedate',  '#statusabovedate#', #currow#);
-				null=QuerySetCell(marketing_grid, 'statusindate',  '#statusindate#', #currow#);
+				null=QuerySetCell(marketing_grid, 'date', '#date#', #currow#);
+				null=QuerySetCell(marketing_grid, 'statusabovedate', '#statusabovedate#', #currow#);
+				null=QuerySetCell(marketing_grid, 'statusindate', '#statusindate#', #currow#);
 				null=QuerySetCell(marketing_grid, 'statusbestfewdate', '#statusbestfewdate#' , #currow#);
 				null=QuerySetCell(marketing_grid, 'statuscontractdate', '#statuscontractdate#' , #currow#);
 				null=QuerySetCell(marketing_grid, 'overview', '#overview#' , #currow#);

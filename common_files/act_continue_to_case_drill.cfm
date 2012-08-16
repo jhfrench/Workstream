@@ -18,10 +18,10 @@
 		<cfset attributes.project_id = project_id>
 	<cfelseif NOT isdefined("project_id") and isdefined("attributes.task_id")>
 		<cfquery name="get_proj_from_task" datasource="#application.datasources.main#">
-        SELECT project_id 
-        FROM task
-        WHERE task_id = #attributes.task_id#
-        </cfquery>
+		SELECT project_id 
+		FROM task
+		WHERE task_id = #attributes.task_id#
+		</cfquery>
 		<cfset attributes.project_id = get_proj_from_task.project_id> 
 	<cfelse>
 		<cflocation url="#request.dir_level#/index.cfm?fuseaction=Timekeeping.engagement_list">

@@ -62,7 +62,7 @@
 	<cfwddx action="cfml2wddx" input="#request.safe_application#" output="application_variables" usetimezoneinfo="no">
 
 	<cfcatch type="Any">
-		<!--- This is  incase the WDDX Serialization Fails--->
+		<!--- This is incase the WDDX Serialization Fails--->
 		<cfparam name="application_variables" default="WDDX FAILED">
 	</cfcatch>
 </cftry>
@@ -71,7 +71,7 @@
 	<cfwddx action="cfml2wddx" input="#attributes#" output="attributes_variables" usetimezoneinfo="no">
 
 	<cfcatch type="Any">
-		<!--- This is  incase the WDDX Serialization Fails--->
+		<!--- This is incase the WDDX Serialization Fails--->
 		<cfparam name="attributes_variables" default="WDDX FAILED">
 	</cfcatch>
 </cftry>
@@ -83,7 +83,7 @@
 	<cfwddx action="cfml2wddx" input="#request.safe_cgi#" output="cgi_variables" usetimezoneinfo="no">
 
 	<cfcatch type="Any">
-		<!--- This is  incase the WDDX Serialization Fails--->
+		<!--- This is incase the WDDX Serialization Fails--->
 		<cfparam name="cgi_variables" default="WDDX FAILED">
 	</cfcatch>
 </cftry>
@@ -92,7 +92,7 @@
 	<cfwddx action="cfml2wddx" input="#client#" output="client_variables" usetimezoneinfo="no">
 
 	<cfcatch type="Any">
-		<!--- This is  incase the WDDX Serialization Fails--->
+		<!--- This is incase the WDDX Serialization Fails--->
 		<cfparam name="client_variables" default="WDDX FAILED">
 	</cfcatch>
 </cftry>
@@ -107,7 +107,7 @@
 	<cfwddx action="cfml2wddx" input="#request.safe_error#" output="error_variables" usetimezoneinfo="no">
 
 	<cfcatch type="Any">
-		<!--- This is  incase the WDDX Serialization Fails--->
+		<!--- This is incase the WDDX Serialization Fails--->
 		<cfparam name="error_variables" default="WDDX FAILED">
 	</cfcatch>
 </cftry>
@@ -117,7 +117,7 @@
 	<cfwddx action="cfml2wddx" input="#form#" output="form_variables" usetimezoneinfo="no">
 
 	<cfcatch type="Any">
-		<!--- This is  incase the WDDX Serialization Fails--->
+		<!--- This is incase the WDDX Serialization Fails--->
 		<cfparam name="form_variables" default="WDDX FAILED">
 	</cfcatch>
 </cftry>
@@ -126,7 +126,7 @@
 	<cfwddx action="cfml2wddx" input="#session#" output="session_variables" usetimezoneinfo="no">
 
 	<cfcatch type="Any">
-		<!--- This is  incase the WDDX Serialization Fails--->
+		<!--- This is incase the WDDX Serialization Fails--->
 		<cfparam name="session_variables" default="WDDX FAILED">
 	</cfcatch>
 </cftry>
@@ -135,7 +135,7 @@
 	<cfwddx action="cfml2wddx" input="#url#" output="url_variables" usetimezoneinfo="no">
 
 	<cfcatch type="Any">
-		<!--- This is  incase the WDDX Serialization Fails--->
+		<!--- This is incase the WDDX Serialization Fails--->
 		<cfparam name="url_variables" default="WDDX FAILED">
 	</cfcatch>
 </cftry>
@@ -152,7 +152,7 @@
 	<cfwddx action="cfml2wddx" input="#request#" output="request_variables" usetimezoneinfo="no">
 
 	<cfcatch type="Any">
-		<!--- This is  incase the WDDX Serialization Fails--->
+		<!--- This is incase the WDDX Serialization Fails--->
 		<cfparam name="request_variables" default="WDDX FAILED">
 	</cfcatch>
 </cftry>
@@ -160,7 +160,7 @@
 <!--- Insert error data into the Error_Log table --->
 		<cfquery name="insert_error_info" datasource="#application.datasources.main#">
 		INSERT INTO Error_Log (erroring_template, erroring_querystring, 
-			http_referer,  diagnostics, application_variables,
+			http_referer, diagnostics, application_variables,
 			attributes_variables, cgi_variables, client_variables,
 			form_variables, request_variables, session_variables,
 			url_variables, username, remote_address,

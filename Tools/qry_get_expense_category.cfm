@@ -1,10 +1,10 @@
 
 <!--Tools/qry_get_expense_category.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I get the  different expense types for the expense form and the expense report.
+	Responsibilities: I get the different expense types for the expense form and the expense report.
 	||
 	Name: Jeromy French
 	||

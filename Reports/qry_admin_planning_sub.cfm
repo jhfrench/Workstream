@@ -1,6 +1,6 @@
 
 <!--Reports/qry_admin_planning_sub.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

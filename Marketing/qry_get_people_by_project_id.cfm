@@ -1,6 +1,6 @@
 
 <!--Marketing/qry_get_people_by_project_id.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -22,9 +22,9 @@ FROM Emp_Contact
 	INNER JOIN Project ON Marketing_Emp.project_id = Project.project_id
 	LEFT OUTER JOIN Email ON Emp_Contact.emp_id = Email.emp_id
 		AND Email.email_type_id = 1
-	LEFT OUTER JOIN  Location ON Location.Location_Type_Id = 1
+	LEFT OUTER JOIN Location ON Location.Location_Type_Id = 1
 		AND Emp_Contact.emp_id = Location.emp_id
-	LEFT OUTER JOIN  Phone ON Phone.Phone_type_id = 1
+	LEFT OUTER JOIN Phone ON Phone.Phone_type_id = 1
 		AND Emp_Contact.emp_id = Phone.emp_id
 WHERE (Marketing_Emp.project_id = #cfgridkey#)
 </cfquery>

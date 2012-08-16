@@ -1,6 +1,6 @@
 
 <!--Customers/pag_edit_customer.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -19,7 +19,7 @@
 <cfinclude template="qry_get_visable_to.cfm">
 
 <table width="95%" border="0" cellpadding="2" cellspacing="0">
-	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="Edit Customer" colspan="1" title_class="HeadText"  section_color="ffffff" align="center" gutter="true">
+	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="Edit Customer" colspan="1" title_class="HeadText" section_color="ffffff" align="center" gutter="true">
 </table>
 <table align="center" border="1" cellpadding="2" cellspacing="0" width="95%" bordercolor="#000000">
 	<cfform name="cust_change" action="index.cfm?fuseaction=Customers.update_customers" method="POST">

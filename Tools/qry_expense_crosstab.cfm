@@ -1,6 +1,6 @@
 
 <!--tools/qry_expense_crosstab.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -14,8 +14,8 @@
 <cfparam name="attributes.expense_id" default="null">
 <cfquery name="expense_cross_tab" datasource="#application.datasources.main#">
 SELECT
-    <cf_removetrailingcomma>
-    <cfloop query="Get_Expense_Type">
+	<cf_removetrailingcomma>
+	<cfloop query="Get_Expense_Type">
 	SUM(et_#get_expense_type.expense_type_id#) as et_#get_expense_type.expense_type_id#,
 	</cfloop>
   </cf_removetrailingcomma>

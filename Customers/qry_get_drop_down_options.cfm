@@ -1,6 +1,6 @@
 
 <!--Customers/qry_get_drop_down_options.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

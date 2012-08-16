@@ -36,7 +36,7 @@
 			<!-- [[ RIGHT COLUMN END ]] -->
 		</div>
 	</div>
-	  
+	
 	<hr>
 
 	<footer role="contentinfo" class="row-fluid screen_only">

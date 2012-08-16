@@ -5,7 +5,7 @@
 	||
 	Responsibilities: I retrieve employee locations
 	||
-	Name: Victor Blell
+	Name: Jeromy French
 	||
 	Edits: 
 	$Log$
@@ -23,14 +23,11 @@
 	<-- Location_Type_ID: string containing Location Type ID for a person
  --->
 	<cfquery name="get_contact_locations" datasource="#application.datasources.main#">
-	SELECT Rlt.Location_Type, Lt.Address1, 
-	    Lt.Address2, Lt.City, Lt.State, Lt.Zip, 
-	    Lt.location_ID, 
-	    Rlt.Location_Type_ID
-	FROM Location lt RIGHT OUTER JOIN
-	    REF_Location_Type Rlt ON 
-	    Lt.Location_Type_Id = Rlt.Location_Type_ID
-			AND
-		Lt.emp_id =#variables.emp_id#
+	SELECT Rlt.Location_Type, Lt.Address1, Lt.Address2,
+		Lt.City, Lt.State, Lt.Zip, 
+		Lt.location_ID, Rlt.Location_Type_ID
+	FROM Location lt
+		RIGHT OUTER JOIN REF_Location_Type Rlt ON Lt.Location_Type_Id = Rlt.Location_Type_ID
+			AND Lt.emp_id =#variables.emp_id#
 	</cfquery>
 </cfsilent>

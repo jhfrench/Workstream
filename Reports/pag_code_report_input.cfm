@@ -1,6 +1,6 @@
 
 <!--Reports/pag_code_report_input.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -27,7 +27,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="submit" name="Enter_Date" value="Enter Criteria" size="10">
 		</td>
 	</tr>

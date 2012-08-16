@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_revenue_report_graph.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

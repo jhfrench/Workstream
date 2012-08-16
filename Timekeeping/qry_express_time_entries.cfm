@@ -18,7 +18,7 @@ SELECT Time_Entry.time_entry_id AS ID, Hours_Pin_Week.sumhoursweek,
 	Hours_Pin_Week.week, Hours_Pin_Week.year, 
 	(CAST(ROUND(Time_Entry.hours,2) AS varchar(25)) || '-' || LEFT(Project.project_code,22) || '(' || LEFT(Project.description,22) || ') ' || ' - ' || CAST(notes.note AS varchar(70))) AS clientname_data,
 	(CAST(REF_Day_Of_Week.day_name AS varchar(9)) || ', ' || CAST(EXTRACT(MONTH FROM Time_Entry.date) AS varchar(2)) || '/' || CAST(DatePart(day,Time_Entry.date) AS varchar(11)) || '/' || CAST (CAST(right(EXTRACT(YEAR FROM Time_Entry.date),2) AS varchar(11)) AS varchar(11)) || '- ' || CAST(hours_pin_date.sumhours AS varchar(11))) AS Workdays, 
-	('Week Beginning ' || CAST(DateName(month,Hours_Pin_Week.mindate) AS varchar(9)) || ' ' || CAST(DatePart(day,Hours_Pin_Week.mindate) AS varchar(2)) || ',  ' || CAST(EXTRACT(YEAR FROM Hours_Pin_Week.mindate) AS varchar(4)) || ' - ' || CAST(ROUND(Hours_Pin_Week.sumhoursweek,2) AS varchar(10)))AS Workweek
+	('Week Beginning ' || CAST(DateName(month,Hours_Pin_Week.mindate) AS varchar(9)) || ' ' || CAST(DatePart(day,Hours_Pin_Week.mindate) AS varchar(2)) || ', ' || CAST(EXTRACT(YEAR FROM Hours_Pin_Week.mindate) AS varchar(4)) || ' - ' || CAST(ROUND(Hours_Pin_Week.sumhoursweek,2) AS varchar(10)))AS Workweek
 FROM Time_Entry, REF_Day_of_Week, Project, Notes,
 	(SELECT  Time_Entry.date, 
 		SUM(Time_Entry.Hours) AS sumhours, 

@@ -1,6 +1,6 @@
 
 <!--common_files/qry_get_case_notes.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

@@ -45,7 +45,7 @@
 
 <div class="datachart" style="border:1px solid ##999999" title="table head describes the data held in the table within this table">
 <table cellspacing="1" cellpadding="4" width="100%" border="0" bgcolor="##cccccc" summary="Table displays country information">
-	<tr bgcolor="##cccccc"><th><strong><cfif attributes.country_id EQ 0>ADD NEW<cfelse>EDIT EXISTING</cfif> Country  </strong></th></tr>
+	<tr bgcolor="##cccccc"><th><h2><cfif attributes.country_id EQ 0>ADD NEW<cfelse>EDIT EXISTING</cfif> Country</h2></th></tr>
 	<tr bgcolor="##eeeeee">
 		<td>
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="table displays country information">
@@ -53,7 +53,7 @@
 				<td><label for="description">Description</label>: 
 					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" message="Please enter description." maxlength="128">
 				</td>
-                <td><label for="code">Code</label>: 
+				<td><label for="code">Code</label>: 
 					<br /><cfinput type="text" name="code" id="code" value="#attributes.code#" size="20" required="yes" message="Please enter code." maxlength="20">
 				</td>
 				<td><label for="sort_order">Sort Order</label>: 
@@ -72,7 +72,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="country_id" value="#attributes.country_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />

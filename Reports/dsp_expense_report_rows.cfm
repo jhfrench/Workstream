@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_expense_report_rows.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

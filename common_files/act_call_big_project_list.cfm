@@ -35,7 +35,7 @@
 
 	}
 	</cfloop>
-	  }
+	}
 //-->
 </script>
 </cfoutput>

@@ -1,6 +1,6 @@
 
 <!--Reports/pag_manager_hours.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -27,7 +27,7 @@
 	</cfoutput>
 		<cfif manager_hours_report_output.hours>
 			<cfinclude template="dsp_manager_hours_total_hours.cfm">
-	   </cfif>
+		</cfif>
 	<cfelse>
 		<tr>
 			<td colspan="6">You have no subordinates listed in the database.</td>

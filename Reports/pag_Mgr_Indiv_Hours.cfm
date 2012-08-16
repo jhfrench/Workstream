@@ -1,6 +1,6 @@
 
 <!--Reports/pag_Mgr_Indiv_Hours.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -17,7 +17,7 @@
 	<cfinclude template="qry_manager_individual_Hours.cfm">
 	<cfinclude template="qry_individual_hours.cfm">
 	<a href="index.cfm?fuseaction=Manager_individual_hours_input">Choose another employee to view.</a>
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText" section_color="ffffff" section_title="Individual Hours Report"  gutter="false" align="center" colspan="5">
+	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText" section_color="ffffff" section_title="Individual Hours Report" gutter="false" align="center" colspan="5">
 	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="SubHeadText" section_color="ffffff" section_title="From: #attributes.from_date# &nbsp;To: #attributes.through_date#" gutter="false" align="center" colspan="5">
 	<cfinclude template="dsp_Indiv_Row_Header.cfm">
 	<cfinclude template="dsp_indiv_rows_output.cfm">

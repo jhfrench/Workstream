@@ -26,7 +26,7 @@
 </fusedoc>
 --->
 
-<!---  set style levels equal to the attributes count so with each recursion a new style is drawn from sheet --->
+<!--- set style levels equal to the attributes count so with each recursion a new style is drawn from sheet --->
 <cfif isdefined("attributes.level_bgcolors")>
 	<cfset variables.bgcolor_list=listdeleteat(attributes.level_bgcolors, 1, ',')>
 </cfif>
@@ -97,7 +97,7 @@
 
 			<cfif attributes.level NEQ (variables.last_level-1)>
 				<a href="index.cfm?fuseaction=Home.view_forum&reply_parent_discussion_id=#get_discussion.discussion_id#&top_level=#top_level#">Reply</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</cfif><cfif listfind(attributes.allowed_business_function_id, 120)><a href="index.cfm?fuseaction=Home.view_forum&parent_discussion_id=#discussion_id#&top_level=#top_level#&delete_forum=#discussion_id#&sub_level=yes" onclick="return confirm('Are you sure you want to remove this entry and all of it's replies?');">Deactivate</a></cfif>
-<!---  for fusebox permissions logic the custom tag must pass the variable allowed_business_function_id as an attribute within the custom tag....the permissions before the custom tag has been called and recalled within itself are located in the variables scope --->
+<!--- for fusebox permissions logic the custom tag must pass the variable allowed_business_function_id as an attribute within the custom tag....the permissions before the custom tag has been called and recalled within itself are located in the variables scope --->
 	<cf_discussion
 		parent_discussion_id="#get_discussion.discussion_id#"
 		count="#incrementvalue(attributes.count)#"

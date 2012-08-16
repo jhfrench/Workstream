@@ -1,6 +1,6 @@
 
 <!--Customers/dsp_cust_edit_rows3.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

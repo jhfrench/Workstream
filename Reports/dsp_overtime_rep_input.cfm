@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_overtime_rep_input.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -22,7 +22,7 @@
 </cfloop>
 <table border="0" cellpadding="4" cellspacing="0" align="center" width="25%">
 	<tr bgcolor="##0000ff" class="HeadTextWhite">
-		<td  align ="center" colspan="2"></td>
+		<td align ="center" colspan="2"></td>
 			Overtime Report
 		</td>
 </tr>

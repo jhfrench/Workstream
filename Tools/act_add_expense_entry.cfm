@@ -1,6 +1,6 @@
 
 <!--Tools/act_add_expense_entry.cfm
-	Author: Jeromy French  -->
+	Author: Jeromy French -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

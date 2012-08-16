@@ -1,6 +1,6 @@
 
 <!--report/qry_undertime_report_name.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

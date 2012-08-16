@@ -1,5 +1,5 @@
 <!--reports/qry_get_ytd_gross_hours.cfm
-	Author: Joshua Peters  -->
+	Author: Joshua Peters -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -34,7 +34,7 @@ WHERE Time_Entry.active_ind=1
 	AND Time_Entry.date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.to_date)#
 	AND (
 		Demographics.effective_from <= #createodbcdate(attributes.to_date)#
-		AND Demographics.effective_to >= #createodbcdate(attributes.from_date)#  
+		AND Demographics.effective_to >= #createodbcdate(attributes.from_date)#
 		OR (
 			Demographics.effective_to IS NULL
 			AND Demographics.effective_from  <= #createodbcdate(attributes.to_date)#)

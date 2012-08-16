@@ -38,7 +38,7 @@
 		<td align="center">
 			<a href="javascript:list_to_task('#task_id#');">#dateformat(due_date,"m/d/yyyy")#</a>
 		</td>
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="checkbox" name="accept_#task_id#" checked="yes" value="#task_id#" disabled="disabled" />
 		</td>
 		<td align="center">

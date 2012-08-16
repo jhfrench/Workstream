@@ -1,6 +1,6 @@
 
 <!--reports/qry_get_expense_types.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -21,12 +21,12 @@ FROM expense_amount
     WHERE (expense.work_date >='#From_Date#' AND expense.work_date <='#Through_Date#')
      <cfif compare(project_id, 0) or  isdefined("attributes.emp_id")>
 	<cfif compare(project_id, 0) >and expense.project_id = #attributes.project_id#</cfif>
-    <cfif isdefined("attributes.emp_id")>and expense.emp_id IN(#attributes.emp_id#)</cfif>
-    <cfelse>
+	<cfif isdefined("attributes.emp_id")>and expense.emp_id IN(#attributes.emp_id#)</cfif>
+	<cfelse>
     and expense.emp_id = #session.user_account_id#
-    </cfif>
+	</cfif>
 GROUP BY expense_type, REF_expense_type.expense_type_id
-ORDER BY REF_expense_type.expense_type_id    
+ORDER BY REF_expense_type.expense_type_id
 </cfquery>
 
 </cfsilent>

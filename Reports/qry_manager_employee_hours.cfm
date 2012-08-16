@@ -1,6 +1,6 @@
 
 <!--Reports/qry_manager_employee_hours.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -26,7 +26,7 @@ WHERE Demographics.emp_id = Time_Entry.emp_id
 	AND (Time_Entry.date between effective_from AND effective_to
 		OR effective_to IS NULL AND Time_Entry.date >= effective_from)
 	AND ((Demographics.effective_from <= #createodbcdate(variables.through_date)#
-		AND effective_to >= #createodbcdate(variables.from_date)#)      
+		AND effective_to >= #createodbcdate(variables.from_date)#) 
 			OR (effective_to IS NULL AND effective_from  <= #createodbcdate(variables.through_date)#))
 ORDER BY date, client, hours
 </cfquery>

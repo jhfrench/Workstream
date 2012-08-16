@@ -14,7 +14,7 @@
 --->
 
 <cfsilent>
-<cfif comparenocase(right(cgi.script_name, len("index.cfm")), "index.cfm") AND comparenocase(right(cgi.script_name, 3),  "cfc")>
+<cfif comparenocase(right(cgi.script_name, len("index.cfm")), "index.cfm") AND comparenocase(right(cgi.script_name, 3), "cfc")>
 	<cflocation url="index.cfm" addtoken="no">
 </cfif>
 </cfsilent>

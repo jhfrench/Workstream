@@ -1,6 +1,6 @@
 
 <!--Customers/qry_get_customer_name_code.cfm
-	Author: Jeromy French  -->
+	Author: Jeromy French -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

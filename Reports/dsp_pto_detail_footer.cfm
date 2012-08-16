@@ -1,7 +1,7 @@
 
 
 <!--Reports/dsp_pto_detail_footer.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -19,7 +19,7 @@
 	</li> 
 	<li>PTO is administered on a CALENDAR year basis. Eligible employees begin to accrue PTO on the first of the month following thirty (30) days of service. Your monthly PTO credit is determined by dividing your annual amount by 12.
 	</li> 
-	<li>PTO does not accrue during LOA's of one full week (equivalent) in duration or more. The definition of Leave of Absence (LOA) is time off work without payment of REGULAR salary (i.e., STD, LTD, Authorized Leave - to include WC, and Unpaid Time Off). The monthly PTO Accrual amount will be decreased by 25% for each full week equivalent of LOA. The monthly accrual amount will not be decreased for partial weeks of LOA. The monthly PTO Accrual Amount is posted on the first of each month. Any applicable LOA adjustments will be posted on the last day of the appropriate month.   At no time does PTO accrue during an Extended Leave of Absence lasting 12 or more weeks in duration.
+	<li>PTO does not accrue during LOA's of one full week (equivalent) in duration or more. The definition of Leave of Absence (LOA) is time off work without payment of REGULAR salary (i.e., STD, LTD, Authorized Leave - to include WC, and Unpaid Time Off). The monthly PTO Accrual amount will be decreased by 25% for each full week equivalent of LOA. The monthly accrual amount will not be decreased for partial weeks of LOA. The monthly PTO Accrual Amount is posted on the first of each month. Any applicable LOA adjustments will be posted on the last day of the appropriate month.  At no time does PTO accrue during an Extended Leave of Absence lasting 12 or more weeks in duration.
 	</li> 
 	<li>PTO may be taken in half- or full-day increments ONLY, with the exception of supplementing STD.
 	</li> 
@@ -27,7 +27,7 @@
 	</li> 
 	<li>If available, your PTO bank must be charged for time off not covered by other policies (Holidays, STD, LTD, etc.), with the exception of the STD elimination period, during which an employee may request unpaid time off if necessary.
 	</li> 
-	<li>With manager's approval, employees may be allowed to "borrow" PTO from the current year's accrual in advance of earning it, should your vacation plans or personal emergency make it necessary.  PTO may not be borrowed from the upcoming calendar year.
+	<li>With manager's approval, employees may be allowed to "borrow" PTO from the current year's accrual in advance of earning it, should your vacation plans or personal emergency make it necessary. PTO may not be borrowed from the upcoming calendar year.
 	</li> 
 	<li>Part-time employees working thirty (30) or more hours per week are eligible for a prorated amount of PTO, based on scheduled hours. For example, an employee working 32 hours per week is eligible for 80% of the full-time PTO amount.
 	</li> 

@@ -106,7 +106,7 @@
 		   OneA.length=0;
 		   menuNum=document.#attributes.FormName#.#attributes.Name1#.selectedIndex;
 		   if (menuNum==null) return;
-	   <!--- this function gets continued in the next cfoutput section --->
+		<!--- this function gets continued in the next cfoutput section --->
 </cfoutput>
 
 
@@ -114,7 +114,7 @@
 <cfset Counter=IIF(attributes.EmptyText1 is not "", 1, 0)>
 
 <!--- CREATE AN "IF" STATEMENT THAT COVERS EACH ITEM IN THE FIRST SELECT BOX --->
-<!--- WITHIN THE "IF" STATMENT, PRE-POPULATE ARRAY WITH CORRESPONDING ITEMS FOR SECOND SELECT  --->
+<!--- WITHIN THE "IF" STATMENT, PRE-POPULATE ARRAY WITH CORRESPONDING ITEMS FOR SECOND SELECT --->
 <cfoutput query="Myquery" group="#attributes.Display1#">
 	if (menuNum==#Counter#) {
 	  NewOpt=new Array;
@@ -181,15 +181,15 @@
 	<!--- WE ONLY NEED TO OUTPUT THE CHOICES FOR THE FIRST group --->
 	<cfif NOT len(attributes.EmptyText1)>
 		<cfloop query="Myquery">
-		  <cfif Myquery[attributes.Value1][Myquery.currentrow] is attributes.Default1>
-			  <cfoutput><option value="#Myquery[attributes.Value2][Myquery.currentrow]#"<cfif (Myquery[attributes.Value1][Myquery.currentrow] is attributes.Default1) AND (Myquery[attributes.Value2][Myquery.currentrow] is attributes.Default2)> selected="selected"</cfif>>#Myquery[attributes.Display2][Myquery.currentrow]#</option></cfoutput>
+			<cfif Myquery[attributes.Value1][Myquery.currentrow] is attributes.Default1>
+				<cfoutput><option value="#Myquery[attributes.Value2][Myquery.currentrow]#"<cfif (Myquery[attributes.Value1][Myquery.currentrow] is attributes.Default1) AND (Myquery[attributes.Value2][Myquery.currentrow] is attributes.Default2)> selected="selected"</cfif>>#Myquery[attributes.Display2][Myquery.currentrow]#</option></cfoutput>
 			</cfif>
 		</cfloop>
 	</cfif>
 
   <cfif val(attributes.ExtraOptions2) GT 0>
 	<cfloop from="1" to="#val(attributes.ExtraOptions2)#" index="i">
-	  <cfoutput><option value=""></option></cfoutput>
+		<cfoutput><option value=""></option></cfoutput>
 	</cfloop>
   </cfif>
 

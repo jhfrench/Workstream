@@ -15,7 +15,7 @@
  --->
 <cfquery name="get_valid_projects" datasource="#application.datasources.main#">
 SELECT LTRIM(Customer.description) AS customer, Project.description AS project_name, Project.project_id,
-    Project.project_code AS project_code
+	Project.project_code
 FROM Customer, Project, Link_Project_Company, Link_Customer_Company
 WHERE Customer.customer_id = Project.customer_id
 	AND Project.project_id = Link_Project_Company.project_id

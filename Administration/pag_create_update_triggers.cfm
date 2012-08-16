@@ -26,7 +26,7 @@
 SELECT *
 FROM User_Tab_Columns
 WHERE LOWER(column_name)='active_ind'
-  AND table_name NOT LIKE 'BIN%'
+	AND table_name NOT LIKE 'BIN%'
 ORDER BY table_name
 </cfquery>
 

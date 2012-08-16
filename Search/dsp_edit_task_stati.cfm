@@ -15,7 +15,7 @@
 </cfsilent>
 <cfinclude template="../common_files/qry_get_task_stati.cfm">
 	<tr valign="top">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="checkbox" name="task_stati_box" value="1"<cfif len(attributes.task_stati)> checked="checked"</cfif> />
 		</td>
 		<td>Task Status</td>

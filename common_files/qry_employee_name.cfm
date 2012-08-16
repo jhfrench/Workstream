@@ -1,6 +1,6 @@
 
 <!--common_files/qry_employee_name.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

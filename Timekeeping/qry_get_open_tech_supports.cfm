@@ -1,5 +1,5 @@
 <!--Tools/qry_get_open_tech_supports.cfm
-	Author: Jeromy Ftetzer  -->
+	Author: Jeromy Ftetzer -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

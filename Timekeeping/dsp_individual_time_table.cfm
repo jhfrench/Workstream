@@ -27,13 +27,13 @@
 	<cfoutput query="get_ind_entry_details">
 		<tr>
 			<td class="date">
-				<a href="javascript:time_edit('#time_entry_id#');"  title="Edit this time entry.">#dateformat(date,"m/d/yyyy")#</a>
+				<a href="javascript:time_edit('#time_entry_id#');" title="Edit this time entry.">#dateformat(date,"m/d/yyyy")#</a>
 			</td>
 			<td class="number">
-				<a href="javascript:time_edit('#time_entry_id#');"  title="Edit this time entry.">#decimalformat(hours)#</a>
+				<a href="javascript:time_edit('#time_entry_id#');" title="Edit this time entry.">#decimalformat(hours)#</a>
 			</td>
 			<td>
-				<a href="javascript:time_edit('#time_entry_id#');"  title="Edit this time entry.">#replace(paragraphformat(stripcr(note)),"<P>","","all")#</a>
+				<a href="javascript:time_edit('#time_entry_id#');" title="Edit this time entry.">#replace(paragraphformat(stripcr(note)),"<P>","","all")#</a>
 			</td>
 			<td>
 				<cfif date LTE express_check_date.date_locked>Time previouly billed.<cfelse><cfinput type="checkbox" name="notes_id" value="#notes_id#" required="yes" message="Please mark which hours you wish to reassign."></cfif>

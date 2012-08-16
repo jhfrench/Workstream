@@ -6,7 +6,7 @@
 	||
 	Responsibilities: Error message that asks user to retry their password change request.
 	||
-	Name: Victor Blell
+	Name: Jeromy French
 	||
 	Edits:
 	$Log$
@@ -63,8 +63,8 @@
 			</cfswitch>
 			<!--- end display specific error message --->
 
-			<cfif  fuseaction neq "edit_account">
-				&nbsp;Please enter your correct <i>current password</i>, your <i>new password</i> , and identical password in the <i>confirm password</i> field.
+			<cfif comparenose(fuseaction, "edit_account")>
+				&nbsp;Please enter your correct <em>current password</em>, your <em>new password</em> , and identical password in the <em>confirm password</em> field.
 			</cfif>
 
 

@@ -6,7 +6,7 @@
 	||
 	Responsibilities: Page allows user to reset their password after verifying their current password.
 	||
-	Name: Victor Blell
+	Name: Jeromy French
 	||
 	Edits:
 	$Log$

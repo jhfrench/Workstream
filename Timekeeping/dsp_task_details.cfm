@@ -66,7 +66,7 @@
 <div class="row-fluid">
 	<div class="span6">
 		<label for="task_name" class="h5">Task name</label>
-		<input type="text" name="task_name" id="task_name" value="#htmleditformat(get_task_details.task_name)#"  valign="top" size="#variables.cols#" maxlength="255" class="span11" />
+		<input type="text" name="task_name" id="task_name" value="#htmleditformat(get_task_details.task_name)#" valign="top" size="#variables.cols#" maxlength="255" class="span11" />
 		<p><span class="h5">Customer</span>: #get_task_details.customer_name# <span class="h5">Project</span>: #replace(get_task_details.project_name,"#get_task_details.customer_name#-","")#&nbsp;<img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" width="14" height="12" alt="See more projects." border="0" onclick="OpenProjectWindow('project_id');"></p>
 		<label for="task_details" class="h5">Description <a href="javascript:$('##task_details').attr('rows', '#variables.descrip_rows+15#');" title="Expand description"><i class="icon-resize-vertical"></i></a></label>
 		<textarea name="task_details" id="task_details" cols="#variables.cols-2#" rows="#variables.descrip_rows#" wrap="soft" class="span11">#replaceList(paragraphformat(get_task_details.description),'<P>,"',",")#</textarea>
@@ -127,7 +127,7 @@
 				<cfelse>
 					<div id="notes" class="alert">
 						Resolution notes not yet entered for this task.&nbsp;
-						<a href="javascript:delete_check('#attributes.task_id#');"  title="Delete this task from workstream." class="btn btn-danger"><i class="icon-trash icon-white"></i> Delete this task</a>
+						<a href="javascript:delete_check('#attributes.task_id#');" title="Delete this task from workstream." class="btn btn-danger"><i class="icon-trash icon-white"></i> Delete this task</a>
 					</div>
 				</cfif>
 				</div>

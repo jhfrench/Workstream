@@ -1,6 +1,6 @@
 
 <!--Customers/qry_get_tasks_to_inactive.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

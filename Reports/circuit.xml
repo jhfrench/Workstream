@@ -1,4 +1,4 @@
-<!-- Customers/circuit.xml
+<!-- Reports/circuit.xml
 	Author: Jeromy French -->
 <!--
 <fusedoc language="ColdFusion MX" specification="2.0" template="circuit.xml"/>
@@ -167,21 +167,6 @@
 			<set name="request.pagetitle" value="Hours By Code Report"/>
 			<include template="pag_hours_by_code_input.cfm"/>
 		</fuseaction>
-		<fuseaction name="HR_Input">
-		<!-- Employee HR/Payroll report in excel. -->
-			<!-- <set name="attributes.object_name" value="Employee Information"/>
-			<include template="../common_files/act_object_access.cfm"> -->
-			<set name="request.pagetitle" value="Employee Information Report"/>
-			<include template="pag_employee_info_input.cfm"/>
-		</fuseaction>
-		
-		<fuseaction name="HR_Output">
-			<!-- <set name="attributes.object_name" value="Employee Information"/>
-			<include template="../common_files/act_object_access.cfm"> -->
-			<set name="request.pagetitle" value="HR Report Output"/>
-			<include template="pag_employee_info_output.cfm"/>
-		</fuseaction>
-				
 		<fuseaction name="Hours_By_Code">
 			<!-- <set name="attributes.object_name" value="Hours By Code"/>
 			<include template="../common_files/act_object_access.cfm"> -->

@@ -1,10 +1,10 @@
 
 <!--Marketing/pag_add_edit.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I contain the fuses for the marketing contact  add and edit.
+	Responsibilities: I contain the fuses for the marketing contact add and edit.
 
 	||
 	Edits:

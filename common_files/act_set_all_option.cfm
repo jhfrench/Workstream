@@ -1,6 +1,6 @@
 
 <!--common_files/act_set_all_option.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

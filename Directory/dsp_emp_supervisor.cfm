@@ -35,7 +35,7 @@
 	<cfoutput query="get_supervisor_history">
 		<tr>
 			<th scope="row">
-				<a href="javascript:list_to_employee('#get_supervisor_history.supervisor_id#');"  title="View details for #replace(get_supervisor_history.sup_name,"'","")#.">#get_supervisor_history.sup_name#</a><br />
+				<a href="javascript:list_to_employee('#get_supervisor_history.supervisor_id#');" title="View details for #replace(get_supervisor_history.sup_name,"'","")#.">#get_supervisor_history.sup_name#</a><br />
 			</td>
 			<td class="date">
 				#dateformat(get_supervisor_history.date_start,'m/d/yyyy')#

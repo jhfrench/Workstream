@@ -1,6 +1,6 @@
 
 <!--Reports/qry_manager_individual_Hours.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -12,7 +12,7 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfquery name="name" datasource="#application.datasources.main#">          
+<cfquery name="name" datasource="#application.datasources.main#"> 
 SELECT REF_Company.description AS company, Emp_Contact.name, 
     Emp_Contact.lname, Emp_Contact.emp_id
 FROM Link_Company_Emp_Contact

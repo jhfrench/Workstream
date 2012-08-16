@@ -1,6 +1,6 @@
 
 <!--Reports/act_gross_hours_ytd_js.cfm
-	Author: Joshua Peters  -->
+	Author: Joshua Peters -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

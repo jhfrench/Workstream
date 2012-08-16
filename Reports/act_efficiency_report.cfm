@@ -1,6 +1,6 @@
 
 <!--Reports/act_efficiency_report.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

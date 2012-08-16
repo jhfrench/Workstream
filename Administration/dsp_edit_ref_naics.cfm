@@ -37,7 +37,7 @@
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_naics.cfm" naics_id="#attributes.naics_id#">
 	<cfset attributes.description=get_ref_naics.description>
-    <cfset attributes.code=get_ref_naics.code>     
+	<cfset attributes.code=get_ref_naics.code>
 	<cfset attributes.naics_id=get_ref_naics.naics_id>
 </cfif>
 <cfform name="REF_naics_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
@@ -48,7 +48,7 @@
 	<tr bgcolor="##eeeeee">
 		<td>
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="table displays user account information">
-			<tr>            	
+			<tr>
 				<td><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" size="50" value="#attributes.description#" required="yes" tabindex="1" message="Please enter description." maxlength="128">
 				</td>

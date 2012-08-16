@@ -38,11 +38,11 @@
 
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_product_service.cfm.cfm" product_service_id="#attributes.product_service_id#">
-	<cfset attributes.product_service_id  =get_ref_product_service.product_service_id>
-    <cfset attributes.code           =get_ref_product_service.code>     
-	<cfset attributes.description    =get_ref_product_service.description>
-	<cfset attributes.sort_order     =get_ref_product_service.sort_order>
-	<cfset attributes.active_ind     =get_ref_product_service.active_ind>
+	<cfset attributes.product_service_id=get_ref_product_service.product_service_id>
+	<cfset attributes.code=get_ref_product_service.code>
+	<cfset attributes.description=get_ref_product_service.description>
+	<cfset attributes.sort_order=get_ref_product_service.sort_order>
+	<cfset attributes.active_ind=get_ref_product_service.active_ind>
 </cfif>
 
 <cfform name="REF_product_service_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
@@ -54,7 +54,7 @@
 		<table width="100%" cellspacing="0" cellpadding="0" border="0" summary="table displays product service information">
 			<tr>
 				<td><label for="code">Code</label>: </td>
-				<td><cfinput type="text" name="code" id="code" size="6"  maxlength="6" value="#attributes.code#" required="yes" message="Please enter type code."></td>
+				<td><cfinput type="text" name="code" id="code" size="6" maxlength="6" value="#attributes.code#" required="yes" message="Please enter type code."></td>
 			</tr>
 			<tr>
 				<td><label for="description">Description</label>: </td>
@@ -74,7 +74,7 @@
 				</cfif>
 				<td><span title="describes the purpose of the radio buttons that follow">Active?</span></td>
 				<td><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="#check_active_ind_1#"><label for="active_ind_yes">Yes </label>
-				 	<cfinput type="radio" name="active_ind" id="active_ind_no"  value="0" checked="#check_active_ind_0#"><label for="active_ind_no">No </label>
+				 	<cfinput type="radio" name="active_ind" id="active_ind_no" value="0" checked="#check_active_ind_0#"><label for="active_ind_no">No </label>
 				</td>
 
 			</tr>
@@ -82,7 +82,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="product_service_id" value="#attributes.product_service_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />

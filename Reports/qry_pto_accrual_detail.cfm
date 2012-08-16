@@ -1,6 +1,6 @@
 
 <!--Reports/qry_pto_accrual_detail.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

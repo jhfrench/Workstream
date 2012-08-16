@@ -1,6 +1,6 @@
 
 <!--Tools/qry_invoice_notes_drill_down.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

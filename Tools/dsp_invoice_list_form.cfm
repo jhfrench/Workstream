@@ -1,6 +1,6 @@
 
 <!--Tools/dsp_invoice_list_form.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

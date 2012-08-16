@@ -1,6 +1,6 @@
 
 <!--Tools/qry_insert_optional_category.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

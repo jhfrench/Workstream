@@ -64,7 +64,7 @@ function add_to_linked_task_id_list() {
 			<br />
 	<tr>
 		<td> 
-			<input type="button"  value="Add to list below" onclick="add_to_linked_task_id_list()">
+			<input type="button" value="Add to list below" onclick="add_to_linked_task_id_list()">
 		</td>
 	</tr>
 	<tr>

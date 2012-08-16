@@ -1,5 +1,5 @@
 <!--Marketing/pag_marketing.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

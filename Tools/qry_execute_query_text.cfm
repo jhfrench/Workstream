@@ -1,6 +1,6 @@
 
 <!--Tools/qry_execute_query_text.cfm
-	Author: Jeromy French  -->
+	Author: Jeromy French -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

@@ -1,5 +1,5 @@
 <!--reports/qry_monthly_hours.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

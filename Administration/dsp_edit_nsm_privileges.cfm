@@ -101,14 +101,14 @@
 						<cfelse>
 							<cfset variables.organization_code=organization_code>
 						</cfif>
-				
+
 						<!--- set alternating row colors --->
 						<cfif currentrow MOD 2>
 							<cfset variables.row_color="eeeeee">
 						<cfelse>
 							<cfset variables.row_color="dddddd">
 						</cfif>
-			
+
 						<cfif variables.next_l_p_y_h_id NEQ 0 AND attributes.center_ind NEQ 1>
 							<cfset variables.start_link_text='<a href="javascript:edit_nsm_privileges(#organization_id#)">'>
 							<cfset variables.end_link_text='</a>'>

@@ -25,8 +25,8 @@
 	<cfinclude template="dsp_module_options_nav.cfm">
 	<cfswitch expression="#listlast(attributes.fuseaction,'.')#">
 		<cfcase value="admin_options">
-			  <cfinclude template="dsp_admin_options.cfm">
-			  <cfinclude template="../common_files/dsp_submit_options.cfm">
+				<cfinclude template="dsp_admin_options.cfm">
+				<cfinclude template="../common_files/dsp_submit_options.cfm">
 		</cfcase>
 		<cfcase value="save_profile">
 			<cfif isdefined("attributes.profile_name")>

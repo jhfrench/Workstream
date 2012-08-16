@@ -1,6 +1,6 @@
 
 <!--Marketing/qry_get_marketing_data.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -15,7 +15,7 @@
 		- ->sortby3: a variable set so the grid can be filtered by the columns
 	END FUSEDOC --->
 
-<!---     <cfquery name="marketing" datasource="#application.datasources.main#">
+<!---    <cfquery name="marketing" datasource="#application.datasources.main#">
 SELECT marketing.marketing_id, Marketing.Projected_Revenue, Marketing.Probability, 
     Marketing.project_code, Marketing.project_id, 
     (cast(EXTRACT(MONTH FROM Marketing.StatusAboveDate) AS varchar(2)) || '/' || cast(datepart(dd, Marketing.StatusAboveDate) AS varchar(2)) || '/' || cast(EXTRACT(YEAR FROM Marketing.StatusAboveDate) AS varchar(4))) as StatusAboveDate, 

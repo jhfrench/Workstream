@@ -493,189 +493,189 @@
 			<NumberFormat ss:Format="_(* ##,####0.00_);_(* \(##,####0.00\);_(* &quot;-&quot;??_);_(@_)" />
 		</Style>
 	</Styles>
- <Worksheet ss:Name="Invoice Overview">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="26" x:FullColumns="1" x:FullRows="1">
-   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="125.25" />
-   <Column ss:Index="4" ss:Width="54.75" />
-   <Column ss:Width="70.5" />
-   <Row ss:Height="56.25">
-    <Cell ss:MergeAcross="4" ss:StyleID="s118"><Data ss:Type="String">Invoice</Data></Cell>
-   </Row>
-   <Row ss:Height="18">
-    <Cell ss:StyleID="s64" />
-    <Cell ss:StyleID="s64" />
-    <Cell ss:StyleID="s64" />
-    <Cell ss:StyleID="s65" />
-    <Cell ss:StyleID="s66" />
-   </Row>
-   <Row ss:Height="18">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">#session.first_name# #session.last_name#</Data></Cell>
-    <Cell ss:StyleID="s116" />
-    <Cell ss:StyleID="s116" />
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Date:</Data></Cell>
-    <Cell ss:StyleID="s80" ss:Formula="=TODAY()"><Data ss:Type="DateTime">#dateformat(now(), "yyyy-mm-dd")#T#timeformat(now(), "HH:mm:ss")#.000</Data></Cell>
-   </Row>
-   <Row ss:Height="15">
-    <Cell ss:StyleID="s135"><Data ss:Type="String">#session.workstream_company_name#</Data></Cell>
-    <Cell ss:StyleID="s135" />
-    <Cell ss:StyleID="s135" />
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Invoice ##:</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="Number">#get_invoice_header.invoice_number#</Data></Cell>
-   </Row>
-   <Row ss:Height="18">
-    <Cell ss:StyleID="s116" />
-    <Cell ss:StyleID="s116" />
-    <Cell ss:StyleID="s116" />
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Customer ID:</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="Number">#get_invoice_header.root_code#</Data></Cell>
-   </Row>
-   <Row ss:Height="14.25">
-    <Cell ss:StyleID="s81" />
-    <Cell ss:StyleID="s81" />
-    <Cell ss:StyleID="s81" />
-    <Cell ss:StyleID="s81" />
-    <Cell ss:StyleID="s82" />
-   </Row>
-   <Row ss:Height="14.25">
-    <Cell ss:StyleID="s81" />
-    <Cell ss:StyleID="s81" />
-    <Cell ss:StyleID="s81" />
-    <Cell ss:StyleID="s81" />
-    <Cell ss:StyleID="s83" />
-   </Row>
-   <Row ss:Height="14.25">
-    <Cell ss:StyleID="s79"><Data ss:Type="String">To:</Data></Cell>
-    <Cell ss:MergeAcross="1" ss:StyleID="s79"><Data ss:Type="String">#get_invoice_header.name# #get_invoice_header.name#</Data></Cell>
-    <Cell ss:StyleID="s83" />
-    <Cell ss:StyleID="s83" />
-   </Row>
-   <Row ss:Height="14.25">
-    <Cell ss:StyleID="s84" />
-    <Cell ss:MergeAcross="1" ss:StyleID="s79"><Data ss:Type="String">#get_invoice_header.customer_name#</Data></Cell>
-    <Cell ss:StyleID="s83" />
-    <Cell ss:StyleID="s83" />
-   </Row>
-   <Row ss:Height="14.25">
-    <Cell ss:StyleID="s82" />
-    <Cell ss:StyleID="s79"><Data ss:Type="String">#get_invoice_header.company_address1#<cfif len(get_invoice_header.company_address2)>, #get_invoice_header.company_address2#</cfif></Data></Cell>
-    <Cell ss:StyleID="s79" />
-    <Cell ss:StyleID="s83" />
-    <Cell ss:StyleID="s83" />
-   </Row>
-   <Row ss:Height="18">
-    <Cell ss:StyleID="s82" />
-    <Cell ss:StyleID="s79"><Data ss:Type="String">#get_invoice_header.company_city#, #get_invoice_header.company_state# #get_invoice_header.company_zip#</Data></Cell>
-    <Cell ss:StyleID="s79" />
-    <Cell ss:StyleID="s83" />
-    <Cell ss:MergeAcross="2" ss:StyleID="s116" />
-   </Row>
-   <Row ss:Height="14.25">
-    <Cell ss:StyleID="s82" />
-    <Cell ss:StyleID="s79"><Data ss:Type="String">#get_invoice_header.phone_number#</Data></Cell>
-    <Cell ss:StyleID="s79" />
-    <Cell ss:StyleID="s83" />
-    <Cell ss:StyleID="s83" />
-   </Row>
-   <Row ss:Index="14" ss:Height="13.5">
-    <Cell ss:Index="2" ss:StyleID="s88"><Data ss:Type="String">Project</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Line Total</Data></Cell>
-   </Row>
-  <cfloop query="get_invoice_projects">
-  <cfscript>
-  	if (currentrow MOD 2) {
-  	variables.code_style_id=131;
-  	variables.description_style_id=102;
-  	variables.subtotal_style_id=101;
-  	variables.formula_code=5;
+	<Worksheet ss:Name="Invoice Overview">
+		<Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="26" x:FullColumns="1" x:FullRows="1">
+			<Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="125.25" />
+			<Column ss:Index="4" ss:Width="54.75" />
+			<Column ss:Width="70.5" />
+			<Row ss:Height="56.25">
+				<Cell ss:MergeAcross="4" ss:StyleID="s118"><Data ss:Type="String">Invoice</Data></Cell>
+			</Row>
+			<Row ss:Height="18">
+				<Cell ss:StyleID="s64" />
+				<Cell ss:StyleID="s64" />
+				<Cell ss:StyleID="s64" />
+				<Cell ss:StyleID="s65" />
+				<Cell ss:StyleID="s66" />
+			</Row>
+			<Row ss:Height="18">
+				<Cell ss:StyleID="s116"><Data ss:Type="String">#session.first_name# #session.last_name#</Data></Cell>
+				<Cell ss:StyleID="s116" />
+				<Cell ss:StyleID="s116" />
+				<Cell ss:StyleID="s79"><Data ss:Type="String">Date:</Data></Cell>
+				<Cell ss:StyleID="s80" ss:Formula="=TODAY()"><Data ss:Type="DateTime">#dateformat(now(), "yyyy-mm-dd")#T#timeformat(now(), "HH:mm:ss")#.000</Data></Cell>
+			</Row>
+			<Row ss:Height="15">
+				<Cell ss:StyleID="s135"><Data ss:Type="String">#session.workstream_company_name#</Data></Cell>
+				<Cell ss:StyleID="s135" />
+				<Cell ss:StyleID="s135" />
+				<Cell ss:StyleID="s79"><Data ss:Type="String">Invoice ##:</Data></Cell>
+				<Cell ss:StyleID="s79"><Data ss:Type="Number">#get_invoice_header.invoice_number#</Data></Cell>
+			</Row>
+			<Row ss:Height="18">
+				<Cell ss:StyleID="s116" />
+				<Cell ss:StyleID="s116" />
+				<Cell ss:StyleID="s116" />
+				<Cell ss:StyleID="s79"><Data ss:Type="String">Customer ID:</Data></Cell>
+				<Cell ss:StyleID="s79"><Data ss:Type="Number">#get_invoice_header.root_code#</Data></Cell>
+			</Row>
+			<Row ss:Height="14.25">
+				<Cell ss:StyleID="s81" />
+				<Cell ss:StyleID="s81" />
+				<Cell ss:StyleID="s81" />
+				<Cell ss:StyleID="s81" />
+				<Cell ss:StyleID="s82" />
+			</Row>
+			<Row ss:Height="14.25">
+				<Cell ss:StyleID="s81" />
+				<Cell ss:StyleID="s81" />
+				<Cell ss:StyleID="s81" />
+				<Cell ss:StyleID="s81" />
+				<Cell ss:StyleID="s83" />
+			</Row>
+			<Row ss:Height="14.25">
+				<Cell ss:StyleID="s79"><Data ss:Type="String">To:</Data></Cell>
+				<Cell ss:MergeAcross="1" ss:StyleID="s79"><Data ss:Type="String">#get_invoice_header.name# #get_invoice_header.name#</Data></Cell>
+				<Cell ss:StyleID="s83" />
+				<Cell ss:StyleID="s83" />
+			</Row>
+			<Row ss:Height="14.25">
+				<Cell ss:StyleID="s84" />
+				<Cell ss:MergeAcross="1" ss:StyleID="s79"><Data ss:Type="String">#get_invoice_header.customer_name#</Data></Cell>
+				<Cell ss:StyleID="s83" />
+				<Cell ss:StyleID="s83" />
+			</Row>
+			<Row ss:Height="14.25">
+				<Cell ss:StyleID="s82" />
+				<Cell ss:StyleID="s79"><Data ss:Type="String">#get_invoice_header.company_address1#<cfif len(get_invoice_header.company_address2)>, #get_invoice_header.company_address2#</cfif></Data></Cell>
+				<Cell ss:StyleID="s79" />
+				<Cell ss:StyleID="s83" />
+				<Cell ss:StyleID="s83" />
+			</Row>
+			<Row ss:Height="18">
+				<Cell ss:StyleID="s82" />
+				<Cell ss:StyleID="s79"><Data ss:Type="String">#get_invoice_header.company_city#, #get_invoice_header.company_state# #get_invoice_header.company_zip#</Data></Cell>
+				<Cell ss:StyleID="s79" />
+				<Cell ss:StyleID="s83" />
+				<Cell ss:MergeAcross="2" ss:StyleID="s116" />
+			</Row>
+			<Row ss:Height="14.25">
+				<Cell ss:StyleID="s82" />
+				<Cell ss:StyleID="s79"><Data ss:Type="String">#get_invoice_header.phone_number#</Data></Cell>
+				<Cell ss:StyleID="s79" />
+				<Cell ss:StyleID="s83" />
+				<Cell ss:StyleID="s83" />
+			</Row>
+			<Row ss:Index="14" ss:Height="13.5">
+				<Cell ss:Index="2" ss:StyleID="s88"><Data ss:Type="String">Project</Data></Cell>
+				<Cell ss:StyleID="s89"><Data ss:Type="String">Description</Data></Cell>
+				<Cell ss:StyleID="s90"><Data ss:Type="String">Line Total</Data></Cell>
+			</Row>
+	 <cfloop query="get_invoice_projects">
+	 <cfscript>
+	 	if (currentrow MOD 2) {
+	 	variables.code_style_id=131;
+	 	variables.description_style_id=102;
+	 	variables.subtotal_style_id=101;
+	 	variables.formula_code=5;
 	}
 	else {
-  	variables.code_style_id=132;
-  	variables.description_style_id=107;
-  	variables.subtotal_style_id=139;
-  	variables.formula_code=4;
+	 	variables.code_style_id=132;
+	 	variables.description_style_id=107;
+	 	variables.subtotal_style_id=139;
+	 	variables.formula_code=4;
 	}
-  </cfscript>
-   <Row ss:Height="13.5">
-    <Cell ss:Index="2" ss:StyleID="s#variables.code_style_id#"><Data ss:Type="Number">#project_code#</Data></Cell>
-    <Cell ss:StyleID="s#variables.description_style_id#"><Data ss:Type="String">#project_description#</Data></Cell>
-    <Cell ss:StyleID="s#variables.subtotal_style_id#" ss:Formula="='Project #project_code#'!R[-6]C[1]"><Data ss:Type="Number">227.5</Data></Cell>
-   </Row>
-  </cfloop>
-   <Row ss:Height="13.5">
-    <Cell ss:Index="2" ss:StyleID="s132"><Data ss:Type="Number">1002</Data></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">remote</Data></Cell>
-    <Cell ss:StyleID="s139" ss:Formula="='##project_code##2'!R[4]C[1]"><Data ss:Type="Number">227.5</Data></Cell>
-   </Row>
-   <Row ss:Height="27">
-    <Cell ss:Index="2" ss:StyleID="s105"><Data ss:Type="String">##project_code##</Data></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">##description##</Data></Cell>
-    <Cell ss:StyleID="s101" ss:Formula="=##REF!"><Data ss:Type="Error">##REF!</Data></Cell>
-   </Row>
-   <Row ss:Height="13.5">
-    <Cell ss:Index="2" ss:StyleID="s106"><Data ss:Type="String">##date_performed##</Data></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">##rate##</Data></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">##revenue##</Data></Cell>
-   </Row>
-   <Row ss:Height="13.5">
-    <Cell ss:Index="2" ss:StyleID="s78" />
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Subtotal</Data></Cell>
-    <Cell ss:StyleID="s91"
-     ss:Formula="=IF(SUM(R[-4]C:R[-1]C)&gt;0,SUM(R[-4]C:R[-1]C),&quot;&quot;)"><Data
-      ss:Type="Error">##REF!</Data></Cell>
-   </Row>
-   <Row ss:Height="13.5">
-    <Cell ss:Index="2" ss:StyleID="s69" />
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Sales Tax</Data></Cell>
-    <Cell ss:StyleID="s94" />
-   </Row>
-   <Row ss:Height="13.5">
-    <Cell ss:Index="2" ss:StyleID="s69" />
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Total</Data></Cell>
-    <Cell ss:StyleID="s95"
-     ss:Formula="=IF(SUM(R[-2]C)&gt;0,SUM((R[-2]C*R[-1]C)+R[-2]C),&quot;&quot;)"><Data
-      ss:Type="Error">##REF!</Data></Cell>
-   </Row>
-   <Row ss:Height="15">
-    <Cell ss:MergeAcross="4" ss:StyleID="s125" />
-   </Row>
-   <Row>
-    <Cell ss:MergeAcross="4" ss:MergeDown="1" ss:StyleID="s126"><ss:Data
-      ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
-       html:Color="##9DBEC3">Payment due upon receipt, please make all checks payable to #session.workstream_company_name#</Font><Font
-       html:Size="10" html:Color="##9DBEC3">&##10;</Font><Font html:Size="10"
-       html:Color="##4B7279">Thank you for your business!</Font></ss:Data></Cell>
-   </Row>
-   <Row ss:Index="25" ss:Height="15">
-    <Cell ss:StyleID="s70" />
-    <Cell ss:StyleID="s70" />
-    <Cell ss:StyleID="s70" />
-    <Cell ss:StyleID="s70" />
-    <Cell ss:StyleID="s70" />
-   </Row>
-   <Row ss:Height="13.5">
-    <Cell ss:MergeAcross="4" ss:StyleID="s128"><Data ss:Type="String">7203 Stover Drive, Alexandria, VA 22306  703.850.6391 #session.first_name#_#session.last_name#@hotmail.com</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3" />
-    <Footer x:Margin="0.3" />
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75" />
-   </PageSetup>
-   <Selected/>
-   <TopRowVisible>4</TopRowVisible>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>10</ActiveCol>
-    </Pane>
-   </Panes>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
+	 </cfscript>
+	  <Row ss:Height="13.5">
+	<Cell ss:Index="2" ss:StyleID="s#variables.code_style_id#"><Data ss:Type="Number">#project_code#</Data></Cell>
+	<Cell ss:StyleID="s#variables.description_style_id#"><Data ss:Type="String">#project_description#</Data></Cell>
+	<Cell ss:StyleID="s#variables.subtotal_style_id#" ss:Formula="='Project #project_code#'!R[-6]C[1]"><Data ss:Type="Number">227.5</Data></Cell>
+	  </Row>
+	 </cfloop>
+	  <Row ss:Height="13.5">
+	<Cell ss:Index="2" ss:StyleID="s132"><Data ss:Type="Number">1002</Data></Cell>
+	<Cell ss:StyleID="s107"><Data ss:Type="String">remote</Data></Cell>
+	<Cell ss:StyleID="s139" ss:Formula="='##project_code##2'!R[4]C[1]"><Data ss:Type="Number">227.5</Data></Cell>
+	</Row>
+	<Row ss:Height="27">
+	<Cell ss:Index="2" ss:StyleID="s105"><Data ss:Type="String">##project_code##</Data></Cell>
+	<Cell ss:StyleID="s102"><Data ss:Type="String">##description##</Data></Cell>
+	<Cell ss:StyleID="s101" ss:Formula="=##REF!"><Data ss:Type="Error">##REF!</Data></Cell>
+	</Row>
+	<Row ss:Height="13.5">
+	<Cell ss:Index="2" ss:StyleID="s106"><Data ss:Type="String">##date_performed##</Data></Cell>
+	<Cell ss:StyleID="s107"><Data ss:Type="String">##rate##</Data></Cell>
+	<Cell ss:StyleID="s108"><Data ss:Type="String">##revenue##</Data></Cell>
+	</Row>
+	<Row ss:Height="13.5">
+	<Cell ss:Index="2" ss:StyleID="s78" />
+	<Cell ss:StyleID="s87"><Data ss:Type="String">Subtotal</Data></Cell>
+	<Cell ss:StyleID="s91"
+	    ss:Formula="=IF(SUM(R[-4]C:R[-1]C)&gt;0,SUM(R[-4]C:R[-1]C),&quot;&quot;)"><Data
+	     ss:Type="Error">##REF!</Data></Cell>
+	</Row>
+	<Row ss:Height="13.5">
+	<Cell ss:Index="2" ss:StyleID="s69" />
+	<Cell ss:StyleID="s87"><Data ss:Type="String">Sales Tax</Data></Cell>
+	<Cell ss:StyleID="s94" />
+	</Row>
+	<Row ss:Height="13.5">
+	<Cell ss:Index="2" ss:StyleID="s69" />
+	<Cell ss:StyleID="s87"><Data ss:Type="String">Total</Data></Cell>
+	<Cell ss:StyleID="s95"
+	    ss:Formula="=IF(SUM(R[-2]C)&gt;0,SUM((R[-2]C*R[-1]C)+R[-2]C),&quot;&quot;)"><Data
+	     ss:Type="Error">##REF!</Data></Cell>
+	</Row>
+	<Row ss:Height="15">
+	<Cell ss:MergeAcross="4" ss:StyleID="s125" />
+	</Row>
+	<Row>
+	<Cell ss:MergeAcross="4" ss:MergeDown="1" ss:StyleID="s126"><ss:Data
+	     ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+	      html:Color="##9DBEC3">Payment due upon receipt, please make all checks payable to #session.workstream_company_name#</Font><Font
+	      html:Size="10" html:Color="##9DBEC3">&##10;</Font><Font html:Size="10"
+	      html:Color="##4B7279">Thank you for your business!</Font></ss:Data></Cell>
+	</Row>
+	<Row ss:Index="25" ss:Height="15">
+	<Cell ss:StyleID="s70" />
+	<Cell ss:StyleID="s70" />
+	<Cell ss:StyleID="s70" />
+	<Cell ss:StyleID="s70" />
+	<Cell ss:StyleID="s70" />
+	</Row>
+	<Row ss:Height="13.5">
+	<Cell ss:MergeAcross="4" ss:StyleID="s128"><Data ss:Type="String">7203 Stover Drive, Alexandria, VA 22306  703.850.6391 #session.first_name#_#session.last_name#@hotmail.com</Data></Cell>
+	  </Row>
+	 </Table>
+	 <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+	  <PageSetup>
+	<Header x:Margin="0.3" />
+	<Footer x:Margin="0.3" />
+	<PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75" />
+	  </PageSetup>
+	  <Selected/>
+	  <TopRowVisible>4</TopRowVisible>
+	  <Panes>
+	<Pane>
+	    <Number>3</Number>
+	    <ActiveRow>4</ActiveRow>
+	    <ActiveCol>10</ActiveCol>
+	</Pane>
+	  </Panes>
+	  <ProtectObjects>False</ProtectObjects>
+	  <ProtectScenarios>False</ProtectScenarios>
+	 </WorksheetOptions>
+	</Worksheet>
  <Worksheet ss:Name="##project_code##">
   <Names>
    <NamedRange ss:Name="Print_Area" ss:RefersTo="='##project_code##'!R1C1:R25C5" />
@@ -688,220 +688,220 @@
    <Column ss:StyleID="s63" ss:Width="201" />
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="72" />
    <Row ss:Height="13.5" ss:StyleID="s67">
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Project:</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">#project_code#</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s83"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s83"><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row ss:Height="13.5" ss:StyleID="s67">
-    <Cell ss:MergeAcross="4" ss:StyleID="s122"><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Date</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Unit Price</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Hours</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Description</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Line Total</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">time_entry_id</Data></Cell>
-   </Row>
-   <Row ss:Height="40.5">
-    <Cell ss:StyleID="s105"><Data ss:Type="DateTime">2010-03-10T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="Number">0.5</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Researched list of files I modified since November 16, 2009. Suggested setting up test installation to test deployment.</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s101"
+	<Cell ss:StyleID="s79"><Data ss:Type="String">Project:</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s79"><Data ss:Type="String">#project_code#</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s83"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s83"><NamedCell ss:Name="Print_Area" /></Cell>
+</Row>
+<Row ss:Height="13.5" ss:StyleID="s67">
+	<Cell ss:MergeAcross="4" ss:StyleID="s122"><NamedCell ss:Name="Print_Area" /></Cell>
+</Row>
+<Row>
+	<Cell ss:StyleID="s88"><Data ss:Type="String">Date</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s89"><Data ss:Type="String">Unit Price</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s89"><Data ss:Type="String">Hours</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s89"><Data ss:Type="String">Description</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s90"><Data ss:Type="String">Line Total</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s129"><Data ss:Type="String">time_entry_id</Data></Cell>
+</Row>
+<Row ss:Height="40.5">
+	<Cell ss:StyleID="s105"><Data ss:Type="DateTime">2010-03-10T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s102"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s103"><Data ss:Type="Number">0.5</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s100"><Data ss:Type="String">Researched list of files I modified since November 16, 2009. Suggested setting up test installation to test deployment.</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s101"
      ss:Formula="=IF(RC[-3]=&quot;remote&quot;,35,IF(RC[-3]=&quot;on-site&quot;,45,50))*RC[-2]"><Data
       ss:Type="Number">17.5</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="Number">1</Data></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s106"><Data ss:Type="DateTime">2010-03-11T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">1.25</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Assisting with deployment.</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108"
+	<Cell ss:StyleID="s129"><Data ss:Type="Number">1</Data></Cell>
+</Row>
+<Row>
+	<Cell ss:StyleID="s106"><Data ss:Type="DateTime">2010-03-11T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s107"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s104"><Data ss:Type="Number">1.25</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108"><Data ss:Type="String">Assisting with deployment.</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108"
      ss:Formula="=IF(RC[-3]=&quot;remote&quot;,35,IF(RC[-3]=&quot;on-site&quot;,45,50))*RC[-2]"><Data
       ss:Type="Number">43.75</Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row ss:Height="67.5">
-    <Cell ss:StyleID="s105"><Data ss:Type="DateTime">2010-03-21T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="Number">1.5</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Improving add/edit individual javascript. Altered organization query to replace quote marks with tick marks so the quotes would no longer break the javascript for related-selects. Noted where to reinstate division requirement.</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s101"
+</Row>
+<Row ss:Height="67.5">
+	<Cell ss:StyleID="s105"><Data ss:Type="DateTime">2010-03-21T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s102"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s103"><Data ss:Type="Number">1.5</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s100"><Data ss:Type="String">Improving add/edit individual javascript. Altered organization query to replace quote marks with tick marks so the quotes would no longer break the javascript for related-selects. Noted where to reinstate division requirement.</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s101"
      ss:Formula="=IF(RC[-3]=&quot;remote&quot;,35,IF(RC[-3]=&quot;on-site&quot;,45,50))*RC[-2]"><Data
       ss:Type="Number">52.5</Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s106"><Data ss:Type="DateTime">2010-03-22T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">2</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Continuing corrections to JavaScript validation.</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108"
+</Row>
+<Row>
+	<Cell ss:StyleID="s106"><Data ss:Type="DateTime">2010-03-22T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s107"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s104"><Data ss:Type="Number">2</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108"><Data ss:Type="String">Continuing corrections to JavaScript validation.</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108"
      ss:Formula="=IF(RC[-3]=&quot;remote&quot;,35,IF(RC[-3]=&quot;on-site&quot;,45,50))*RC[-2]"><Data
       ss:Type="Number">70</Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row ss:Height="27">
-    <Cell ss:StyleID="s105"><Data ss:Type="DateTime">2010-03-23T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="Number">1.25</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Improving the front-end add individual javascript for display/validation logic.</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s101"
+</Row>
+<Row ss:Height="27">
+	<Cell ss:StyleID="s105"><Data ss:Type="DateTime">2010-03-23T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s102"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s103"><Data ss:Type="Number">1.25</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s100"><Data ss:Type="String">Improving the front-end add individual javascript for display/validation logic.</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s101"
      ss:Formula="=IF(RC[-3]=&quot;remote&quot;,35,IF(RC[-3]=&quot;on-site&quot;,45,50))*RC[-2]"><Data
       ss:Type="Number">43.75</Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row ss:Height="27">
-    <Cell ss:StyleID="s106"><Data ss:Type="String">##date_performed##</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">##rate##</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">##hours##</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">##note##</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">##revenue##</Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row ss:Height="27">
+	<Cell ss:StyleID="s106"><Data ss:Type="String">##date_performed##</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s107"><Data ss:Type="String">##rate##</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s104"><Data ss:Type="String">##hours##</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108"><Data ss:Type="String">##note##</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108"><Data ss:Type="String">##revenue##</Data><NamedCell ss:Name="Print_Area" /></Cell>
+</Row>
+<Row>
+	<Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s78"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Total</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s91"
+</Row>
+<Row>
+	<Cell ss:StyleID="s78"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s69"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s69"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s87"><Data ss:Type="String">Total</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s91"
      ss:Formula="=IF(SUM(R[-16]C:R[-1]C)&gt;0,SUM(R[-16]C:R[-1]C),&quot;&quot;)"><Data
       ss:Type="Number">227.5</Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:MergeAcross="4" ss:StyleID="s125"><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:MergeAcross="4" ss:MergeDown="1" ss:StyleID="s126"><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row ss:Index="24">
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row ss:Height="13.5" ss:StyleID="s71">
-    <Cell ss:MergeAcross="4" ss:StyleID="s128"><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s72" />
-    <Cell ss:StyleID="s73" />
-    <Cell ss:StyleID="s73" />
-    <Cell ss:StyleID="s68" />
-    <Cell ss:StyleID="s68" />
-   </Row>
-   <Row>
-    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="s74" />
-   </Row>
-   <Row>
-    <Cell ss:Index="2" ss:StyleID="s75" />
-    <Cell ss:StyleID="s76" />
-    <Cell ss:StyleID="s76" />
-   </Row>
-   <Row ss:Index="30">
-    <Cell ss:StyleID="s77" />
-    <Cell ss:StyleID="s74" />
-    <Cell ss:StyleID="s74" />
-    <Cell ss:StyleID="s74" />
-    <Cell ss:StyleID="s74" />
+</Row>
+<Row>
+	<Cell ss:MergeAcross="4" ss:StyleID="s125"><NamedCell ss:Name="Print_Area" /></Cell>
+</Row>
+<Row>
+	<Cell ss:MergeAcross="4" ss:MergeDown="1" ss:StyleID="s126"><NamedCell ss:Name="Print_Area" /></Cell>
+</Row>
+<Row ss:Index="24">
+	<Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
+</Row>
+<Row ss:Height="13.5" ss:StyleID="s71">
+	<Cell ss:MergeAcross="4" ss:StyleID="s128"><NamedCell ss:Name="Print_Area" /></Cell>
+</Row>
+<Row>
+	<Cell ss:StyleID="s72" />
+	<Cell ss:StyleID="s73" />
+	<Cell ss:StyleID="s73" />
+	<Cell ss:StyleID="s68" />
+	<Cell ss:StyleID="s68" />
+</Row>
+<Row>
+	<Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="s74" />
+</Row>
+<Row>
+	<Cell ss:Index="2" ss:StyleID="s75" />
+	<Cell ss:StyleID="s76" />
+	<Cell ss:StyleID="s76" />
+</Row>
+<Row ss:Index="30">
+	<Cell ss:StyleID="s77" />
+	<Cell ss:StyleID="s74" />
+	<Cell ss:StyleID="s74" />
+	<Cell ss:StyleID="s74" />
+	<Cell ss:StyleID="s74" />
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
-    <Layout x:CenterHorizontal="1" />
-    <PageMargins x:Bottom="0.5" x:Top="0.5" />
+	<Layout x:CenterHorizontal="1" />
+	<PageMargins x:Bottom="0.5" x:Top="0.5" />
    </PageSetup>
    <Print>
-    <ValidPrinterInfo/>
-    <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>600</VerticalResolution>
+	<ValidPrinterInfo/>
+	<HorizontalResolution>600</HorizontalResolution>
+	<VerticalResolution>600</VerticalResolution>
    </Print>
    <DoNotDisplayGridlines/>
    <Panes>
-    <Pane>
+	<Pane>
      <Number>3</Number>
      <ActiveRow>13</ActiveRow>
      <ActiveCol>7</ActiveCol>
-    </Pane>
+	</Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -919,220 +919,220 @@
    <Column ss:StyleID="s63" ss:Width="201" />
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="72" />
    <Row ss:Height="13.5" ss:StyleID="s67">
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Project:</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">##project_code##</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s83"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s83"><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row ss:Height="13.5" ss:StyleID="s67">
-    <Cell ss:MergeAcross="4" ss:StyleID="s122"><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Date</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Unit Price</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Hours</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Description</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Line Total</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">time_entry_id</Data></Cell>
-   </Row>
-   <Row ss:Height="40.5">
-    <Cell ss:StyleID="s105"><Data ss:Type="DateTime">2010-03-10T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="Number">0.5</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Researched list of files I modified since November 16, 2009. Suggested setting up test installation to test deployment.</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s101"
+	<Cell ss:StyleID="s79"><Data ss:Type="String">Project:</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s79"><Data ss:Type="String">##project_code##</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s83"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s83"><NamedCell ss:Name="Print_Area" /></Cell>
+</Row>
+<Row ss:Height="13.5" ss:StyleID="s67">
+	<Cell ss:MergeAcross="4" ss:StyleID="s122"><NamedCell ss:Name="Print_Area" /></Cell>
+</Row>
+<Row>
+	<Cell ss:StyleID="s88"><Data ss:Type="String">Date</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s89"><Data ss:Type="String">Unit Price</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s89"><Data ss:Type="String">Hours</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s89"><Data ss:Type="String">Description</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s90"><Data ss:Type="String">Line Total</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s129"><Data ss:Type="String">time_entry_id</Data></Cell>
+</Row>
+<Row ss:Height="40.5">
+	<Cell ss:StyleID="s105"><Data ss:Type="DateTime">2010-03-10T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s102"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s103"><Data ss:Type="Number">0.5</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s100"><Data ss:Type="String">Researched list of files I modified since November 16, 2009. Suggested setting up test installation to test deployment.</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s101"
      ss:Formula="=IF(RC[-3]=&quot;remote&quot;,35,IF(RC[-3]=&quot;on-site&quot;,45,50))*RC[-2]"><Data
       ss:Type="Number">17.5</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="Number">1</Data></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s106"><Data ss:Type="DateTime">2010-03-11T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">1.25</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Assisting with deployment.</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108"
+	<Cell ss:StyleID="s129"><Data ss:Type="Number">1</Data></Cell>
+</Row>
+<Row>
+	<Cell ss:StyleID="s106"><Data ss:Type="DateTime">2010-03-11T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s107"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s104"><Data ss:Type="Number">1.25</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108"><Data ss:Type="String">Assisting with deployment.</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108"
      ss:Formula="=IF(RC[-3]=&quot;remote&quot;,35,IF(RC[-3]=&quot;on-site&quot;,45,50))*RC[-2]"><Data
       ss:Type="Number">43.75</Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row ss:Height="67.5">
-    <Cell ss:StyleID="s105"><Data ss:Type="DateTime">2010-03-21T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="Number">1.5</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Improving add/edit individual javascript. Altered organization query to replace quote marks with tick marks so the quotes would no longer break the javascript for related-selects. Noted where to reinstate division requirement.</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s101"
+</Row>
+<Row ss:Height="67.5">
+	<Cell ss:StyleID="s105"><Data ss:Type="DateTime">2010-03-21T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s102"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s103"><Data ss:Type="Number">1.5</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s100"><Data ss:Type="String">Improving add/edit individual javascript. Altered organization query to replace quote marks with tick marks so the quotes would no longer break the javascript for related-selects. Noted where to reinstate division requirement.</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s101"
      ss:Formula="=IF(RC[-3]=&quot;remote&quot;,35,IF(RC[-3]=&quot;on-site&quot;,45,50))*RC[-2]"><Data
       ss:Type="Number">52.5</Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s106"><Data ss:Type="DateTime">2010-03-22T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">2</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Continuing corrections to JavaScript validation.</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108"
+</Row>
+<Row>
+	<Cell ss:StyleID="s106"><Data ss:Type="DateTime">2010-03-22T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s107"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s104"><Data ss:Type="Number">2</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108"><Data ss:Type="String">Continuing corrections to JavaScript validation.</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108"
      ss:Formula="=IF(RC[-3]=&quot;remote&quot;,35,IF(RC[-3]=&quot;on-site&quot;,45,50))*RC[-2]"><Data
       ss:Type="Number">70</Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row ss:Height="27">
-    <Cell ss:StyleID="s105"><Data ss:Type="DateTime">2010-03-23T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="Number">1.25</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Improving the front-end add individual javascript for display/validation logic.</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s101"
+</Row>
+<Row ss:Height="27">
+	<Cell ss:StyleID="s105"><Data ss:Type="DateTime">2010-03-23T00:00:00.000</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s102"><Data ss:Type="String">remote</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s103"><Data ss:Type="Number">1.25</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s100"><Data ss:Type="String">Improving the front-end add individual javascript for display/validation logic.</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s101"
      ss:Formula="=IF(RC[-3]=&quot;remote&quot;,35,IF(RC[-3]=&quot;on-site&quot;,45,50))*RC[-2]"><Data
       ss:Type="Number">43.75</Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row ss:Height="27">
-    <Cell ss:StyleID="s106"><Data ss:Type="String">##date_performed##</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">##rate##</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">##hours##</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">##note##</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">##revenue##</Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row ss:Height="27">
+	<Cell ss:StyleID="s106"><Data ss:Type="String">##date_performed##</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s107"><Data ss:Type="String">##rate##</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s104"><Data ss:Type="String">##hours##</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108"><Data ss:Type="String">##note##</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108"><Data ss:Type="String">##revenue##</Data><NamedCell ss:Name="Print_Area" /></Cell>
+</Row>
+<Row>
+	<Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s86"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s97"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s98"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s92"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s93" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
+</Row>
+<Row>
+	<Cell ss:StyleID="s85"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s99"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s94"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s108" ss:Formula="=IF(SUM(RC[-4])&gt;0,SUM(RC[-4]*RC[-1]),&quot;&quot;)"><Data
       ss:Type="String"></Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s78"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Total</Data><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s91"
+</Row>
+<Row>
+	<Cell ss:StyleID="s78"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s69"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s69"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s87"><Data ss:Type="String">Total</Data><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s91"
      ss:Formula="=IF(SUM(R[-16]C:R[-1]C)&gt;0,SUM(R[-16]C:R[-1]C),&quot;&quot;)"><Data
       ss:Type="Number">227.5</Data><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:MergeAcross="4" ss:StyleID="s125"><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:MergeAcross="4" ss:MergeDown="1" ss:StyleID="s126"><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row ss:Index="24">
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
-    <Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row ss:Height="13.5" ss:StyleID="s71">
-    <Cell ss:MergeAcross="4" ss:StyleID="s128"><NamedCell ss:Name="Print_Area" /></Cell>
-   </Row>
-   <Row>
-    <Cell ss:StyleID="s72" />
-    <Cell ss:StyleID="s73" />
-    <Cell ss:StyleID="s73" />
-    <Cell ss:StyleID="s68" />
-    <Cell ss:StyleID="s68" />
-   </Row>
-   <Row>
-    <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="s74" />
-   </Row>
-   <Row>
-    <Cell ss:Index="2" ss:StyleID="s75" />
-    <Cell ss:StyleID="s76" />
-    <Cell ss:StyleID="s76" />
-   </Row>
-   <Row ss:Index="30">
-    <Cell ss:StyleID="s77" />
-    <Cell ss:StyleID="s74" />
-    <Cell ss:StyleID="s74" />
-    <Cell ss:StyleID="s74" />
-    <Cell ss:StyleID="s74" />
+</Row>
+<Row>
+	<Cell ss:MergeAcross="4" ss:StyleID="s125"><NamedCell ss:Name="Print_Area" /></Cell>
+</Row>
+<Row>
+	<Cell ss:MergeAcross="4" ss:MergeDown="1" ss:StyleID="s126"><NamedCell ss:Name="Print_Area" /></Cell>
+</Row>
+<Row ss:Index="24">
+	<Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
+	<Cell ss:StyleID="s70"><NamedCell ss:Name="Print_Area" /></Cell>
+</Row>
+<Row ss:Height="13.5" ss:StyleID="s71">
+	<Cell ss:MergeAcross="4" ss:StyleID="s128"><NamedCell ss:Name="Print_Area" /></Cell>
+</Row>
+<Row>
+	<Cell ss:StyleID="s72" />
+	<Cell ss:StyleID="s73" />
+	<Cell ss:StyleID="s73" />
+	<Cell ss:StyleID="s68" />
+	<Cell ss:StyleID="s68" />
+</Row>
+<Row>
+	<Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="s74" />
+</Row>
+<Row>
+	<Cell ss:Index="2" ss:StyleID="s75" />
+	<Cell ss:StyleID="s76" />
+	<Cell ss:StyleID="s76" />
+</Row>
+<Row ss:Index="30">
+	<Cell ss:StyleID="s77" />
+	<Cell ss:StyleID="s74" />
+	<Cell ss:StyleID="s74" />
+	<Cell ss:StyleID="s74" />
+	<Cell ss:StyleID="s74" />
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
-    <Layout x:CenterHorizontal="1" />
-    <PageMargins x:Bottom="0.5" x:Top="0.5" />
+	<Layout x:CenterHorizontal="1" />
+	<PageMargins x:Bottom="0.5" x:Top="0.5" />
    </PageSetup>
    <Print>
-    <ValidPrinterInfo/>
-    <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>600</VerticalResolution>
+	<ValidPrinterInfo/>
+	<HorizontalResolution>600</HorizontalResolution>
+	<VerticalResolution>600</VerticalResolution>
    </Print>
    <DoNotDisplayGridlines/>
    <Panes>
-    <Pane>
+	<Pane>
      <Number>3</Number>
      <ActiveRow>14</ActiveRow>
      <ActiveCol>5</ActiveCol>
-    </Pane>
+	</Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>

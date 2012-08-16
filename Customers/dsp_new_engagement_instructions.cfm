@@ -61,5 +61,5 @@
 	<tr>
 
 		<td class="<cfoutput>RegText</cfoutput>White">10. Click Submit.</td>
-	</tr>	
+	</tr>
 </table>

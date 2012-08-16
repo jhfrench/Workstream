@@ -1,6 +1,6 @@
 
 <!--Tools/pag_expense_input.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

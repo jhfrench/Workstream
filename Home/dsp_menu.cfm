@@ -49,7 +49,7 @@
 <table cellspacing="1" cellpadding="3" border="0" bgcolor="#eeeeee" width="100%" summary="Table displays menu">
 	<tr valign="top">
 		<td>
-			<table cellspacing="1" cellpadding="3" border="0" bgcolor="#eeeeee" width="200"  summary="table displays menu">
+			<table cellspacing="1" cellpadding="3" border="0" bgcolor="#eeeeee" width="200" summary="table displays menu">
 				<tr><td class="menuHead">Home</td></tr>
 				<tr><td class="menuItem" bgcolor="#eeeeee" onmouseover="new Effect.Highlight(this, {duration:0.1,startcolor:'#5394bd',endcolor:'#5394bd',restorecolor:'#5394bd'});this.style.cursor='pointer';" onmouseout="new Effect.Highlight(this, {duration:0.25,startcolor:'#999999',endcolor:'#bbbbbb',restorecolor:'#eeeeee'});"><a href="index.cfm?fuseaction=Home.login">Log in </a></td></tr>
 				<tr><td class="menuItem" bgcolor="#eeeeee" onmouseover="new Effect.Highlight(this, {duration:0.1,startcolor:'#5394bd',endcolor:'#5394bd',restorecolor:'#5394bd'});this.style.cursor='pointer';" onmouseout="new Effect.Highlight(this, {duration:0.25,startcolor:'#999999',endcolor:'#bbbbbb',restorecolor:'#eeeeee'});"><a href="index.cfm?fuseaction=Home.main">My <cfoutput>#application.product_name#</cfoutput></a></td></tr>

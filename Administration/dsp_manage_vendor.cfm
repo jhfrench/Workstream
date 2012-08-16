@@ -40,9 +40,9 @@
 			<td align="center">
 				<input type="checkbox" name="parent_business_id" id="parent_business_id_#parent_business_id#" value="#parent_business_id#" />
 			</td>
-            <td scope="row"><label for="parent_business_id_#parent_business_id#">#parent_business_id#</label></td>
-            <td><a href="javascript:view_vendor_record(#parent_business_id#)">#legal_name#</a></td>
-            <td>#division_name#</td>
+			<td scope="row"><label for="parent_business_id_#parent_business_id#">#parent_business_id#</label></td>
+			<td><a href="javascript:view_vendor_record(#parent_business_id#)">#legal_name#</a></td>
+			<td>#division_name#</td>
 			<td>#duns#</td>
 			<td>#first_name# #last_name#<cfif len(email_address)> (#email_address#)</cfif></td>
 		</tr>

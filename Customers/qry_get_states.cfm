@@ -1,6 +1,6 @@
 
 <!--Customers/qry_get_states.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

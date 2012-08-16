@@ -1,6 +1,6 @@
 
 <!-- Directory/qry_get_demographics.cfm
-	Author: Victor B.-->
+	Author: Jeromy French-->
 <cfsilent>
 	<!---FUSEDOC
 	||
@@ -8,7 +8,7 @@
 	I display a form and ask them to change the information in the prepopulated form if it is not up to date.
 	If form is changed, emails is sent to judy/shiela, and database is updated.
 	||
-	Name: Victor Blell
+	Name: Jeromy French
 	||
 	Edits:
 	$Log: 

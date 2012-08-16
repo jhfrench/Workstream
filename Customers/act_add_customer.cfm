@@ -1,5 +1,5 @@
 <!--Customers/act_add_customer.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

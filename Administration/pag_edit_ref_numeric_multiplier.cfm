@@ -37,7 +37,7 @@
 	<cfinclude template="qry_deactivate_ref_numeric_multiplier.cfm">
 	<!--- insert new record --->
 	<cfinclude template="qry_insert_ref_numeric_multiplier.cfm">
-	<!--- <cfset attributes.numeric_multiplier_id=0>  --->
+	<!--- <cfset attributes.numeric_multiplier_id=0> --->
 	<cflocation url="index.cfm?fuseaction=#attributes.fuseaction#">
 </cfif>
 

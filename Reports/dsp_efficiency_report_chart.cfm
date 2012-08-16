@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_efficiency_report_chart.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

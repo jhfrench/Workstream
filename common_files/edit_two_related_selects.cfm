@@ -69,15 +69,14 @@
 	  var maxlength = 10;
 	  OneA = new Array;
 
-		var trueLength = OneA.length;  
-		var lst = OneA.length;              
-
-    function require_#attributes.Name1#() {
-		  with (document.#attributes.FormName#.#attributes.Name1#) {
-			  RetVal = true;
-			  if (options[selectedIndex] == null) RetVal = false;
-				  else RetVal = !(options[selectedIndex].value == '');
-			  if (!RetVal) alert('#attributes.Message1#');
+		var trueLength = OneA.length;
+		var lst = OneA.length;
+	function require_#attributes.Name1#() {
+			with (document.#attributes.FormName#.#attributes.Name1#) {
+				RetVal = true;
+				if (options[selectedIndex] == null) RetVal = false;
+					else RetVal = !(options[selectedIndex].value == '');
+				if (!RetVal) alert('#attributes.Message1#');
 				return RetVal
 			}
 		}
@@ -100,7 +99,7 @@
 	function #FunctionName# {
 		OneA.length = 0;
 		menuNum = document.#attributes.FormName#.#attributes.Name1#.selectedIndex;
-		if (menuNum == null) return;  
+		if (menuNum == null) return;
 		#attributes.Name1#NewOpt = new Array();
 		#attributes.Name1#NewVal = new Array();
        <!--- this function gets continued in the next cfoutput section --->
@@ -111,7 +110,7 @@
 <cfset Counter = IIF(attributes.EmptyText1 is not "", 1, 0)>
 
 <!--- CREATE AN "IF" STATEMENT THAT COVERS EACH ITEM IN THE FIRST SELECT BOX --->
-<!--- WITHIN THE "IF" STATMENT, PRE-POPULATE ARRAY WITH CORRESPONDING ITEMS FOR SECOND SELECT  --->
+<!--- WITHIN THE "IF" STATMENT, PRE-POPULATE ARRAY WITH CORRESPONDING ITEMS FOR SECOND SELECT --->
 <cfset variables.counter2=0>
 <cfoutput QUERY="MyQuery" GROUP="#attributes.Display1#">
 
@@ -188,22 +187,22 @@ for (i = 0; i < tot; i++) {
 	<!--- WE ONLY NEED TO OUTPUT THE CHOICES FOR THE FIRST GROUP --->
 
 
-		   <cfif NOT len(attributes.EmptyText1)>
-		   <cfloop QUERY="MyQuery">
+			<cfif NOT len(attributes.EmptyText1)>
+			<cfloop QUERY="MyQuery">
 			<cfif ListFind(attributes.value1_list,myquery[attributes.value1][myquery.currentrow],",")>
-			  <cfoutput>
-			  <OPTION value="#MyQuery[attributes.Value2][MyQuery.CurrentRow]#"<cfif  ListFind(attributes.value2_list,myquery[attributes.value2][myquery.currentrow],",")> selected="selected"</cfif>>#MyQuery[attributes.Display2][MyQuery.CurrentRow]#</option></cfoutput>
-		    </cfif>
+				<cfoutput>
+				<OPTION value="#MyQuery[attributes.Value2][MyQuery.CurrentRow]#"<cfif ListFind(attributes.value2_list,myquery[attributes.value2][myquery.currentrow],",")> selected="selected"</cfif>>#MyQuery[attributes.Display2][MyQuery.CurrentRow]#</option></cfoutput>
+			</cfif>
 			</cfloop>
 		</cfif>
 
 
   <cfif Val(attributes.ExtraOptions2) GT 0>
-    <cfloop FROM="1" TO="#Val(attributes.ExtraOptions2)#" INDEX="i">
+	<cfloop FROM="1" TO="#Val(attributes.ExtraOptions2)#" INDEX="i">
       <cfoutput><OPTION value=""></option></cfoutput>
-    </cfloop>
+	</cfloop>
   </cfif>
-  
+
   <!--- "FORCE WIDTH" OPTION AT BOTTOM, IF REQUESTED --->
 	<cfif len(attributes.ForceWidth2)><cfoutput><option value="">#RepeatString(attributes.ForceWidthChar, attributes.ForceWidth2)#</option></cfoutput></cfif>
 <cfoutput></SELECT></cfoutput>

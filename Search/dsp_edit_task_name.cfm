@@ -15,7 +15,7 @@
 </cfsilent>
 <cfoutput>
 	<tr>
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="checkbox" name="task_name_box" value="1"<cfif isdefined("attributes.Task_Name")AND len(attributes.Task_Name)> checked="checked"</cfif>>
 		</td>
 		<td>

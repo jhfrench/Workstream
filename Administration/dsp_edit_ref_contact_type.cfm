@@ -36,7 +36,7 @@
 <cfif len(attributes.method)>
 	<cfmodule template="qry_get_ref_contact_type.cfm" contact_type_id="#attributes.contact_type_id#">
 	<cfset attributes.description=get_ref_contact_type.description>
-    <cfset attributes.sort_order=get_ref_contact_type.sort_order>
+	<cfset attributes.sort_order=get_ref_contact_type.sort_order>
 	<cfset attributes.contact_type_id=get_ref_contact_type.contact_type_id>
 </cfif>
 <cfform name="REF_contact_type_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
@@ -67,7 +67,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="contact_type_id" value="#attributes.contact_type_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />

@@ -37,21 +37,13 @@ $Log:
 	<div class="control-group">
 		<label class="control-label" for="salary_change_type">Salary Change Type</label>
 		<div class="controls">
-			<cfselect name="salary_change_type" id="salary_change_type"
-          		size="1"
-         		message="Please select the type of salary change."
-          		query="get_salary_change_types"
-          		value="salary_change_type_id"
-          		display="description"
-          		required="yes"
-				class="span3">
-			</cfselect>
+			<cfselect name="salary_change_type" id="salary_change_type" size="1" message="Please select the type of salary change." query="get_salary_change_types" value="salary_change_type_id" display="description" required="yes" class="span3" />
 		</div>
 	</div>
 	<div class="form-actions">
 		<input type="hidden" name="emp_id" value="#attributes.emp_id#">
 		<input type="submit" name="submit" value="Submit Salary" class="btn btn-primary" />
-		<input type="reset"  value="Reset" class="btn" />
+		<input type="reset" value="Reset" class="btn" />
 	</div>
 </cfform>
 </cfoutput>

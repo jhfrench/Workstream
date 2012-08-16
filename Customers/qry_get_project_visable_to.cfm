@@ -1,6 +1,6 @@
 
 <!--Customers/qry_get_project_visable_to.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

@@ -1,6 +1,6 @@
 
 <!--Report/dsp_Gross_hours_Input_ytd.cfm
-	Author: Joshua Peters  -->
+	Author: Joshua Peters -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -15,7 +15,7 @@
 </cfsilent>
 <table border="0" cellpadding="4" cellspacing="0" align="center" width="35%">
 	<tr bgcolor="##0000ff" class="HeadTextWhite">
-		<td  align ="center">Gross Hours Report - Breakdown</td>
+		<td align ="center">Gross Hours Report - Breakdown</td>
 	</tr>
 </table>
 <cfform action="index.cfm?fuseaction=Reports.gross_hours_ytd" method="POST" name="gross_hours_ytd">

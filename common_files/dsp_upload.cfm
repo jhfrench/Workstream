@@ -59,7 +59,7 @@
 		<td align="center">
 		<cfoutput>
 			<cfif isdefined("attributes.parent_business_id")>
-            <input type="hidden" name="parent_business_id" value="#attributes.parent_business_id#" />
+			<input type="hidden" name="parent_business_id" value="#attributes.parent_business_id#" />
 			</cfif>
 			<cfif isdefined("attributes.upload_id")>
 			<input type="hidden" name="upload_id" value="#attributes.upload_id#" />
@@ -67,7 +67,6 @@
 			<cfif isdefined("attributes.upload_source_type_id")>
 			<input type="hidden" name="upload_source_type_id" value="#attributes.upload_source_type_id#" />
 			</cfif>
-             
 			<input type="submit" name="upload_file" value="Upload File" class="btn btn-primary" />
 			<input type="reset" value="Cancel" class="btn" />
 		</cfoutput> 

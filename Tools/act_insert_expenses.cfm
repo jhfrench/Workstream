@@ -1,6 +1,6 @@
 
 <!--Tools/act_insert_expenses.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

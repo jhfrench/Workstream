@@ -1,13 +1,13 @@
 
 <!--Directory/act_emp_contact_email.cfm
-	Author: Victor B.-->
+	Author: Jeromy French-->
 <cfsilent>
 	<!---FUSEDOC
 	||
 	Responsibilities: I loop over the query of employee demographic data returned from query and send an email to employee in the email list
 	I send a HTML email to employee with an embedded, prepopulated form,
 	||
-	Name: Victor Blell
+	Name: Jeromy French
 	||
 	Edits:
 	$Log$
@@ -24,13 +24,13 @@
 	--> Zip: string containing the Zip for a person
 	--> location_ID: string containing the Locatio ID for a person
 	--> Location_Type_ID: string containing Location Type ID for a person
-	-->  Phone_Type_ID: string containing Phone Type ID for a person
-    -->  Phone_Type: string containing Phone Type for a person 
-	-->  Phone_Number: string containing Phone Number for a person
-    -->  Extension: string containing Phone Extension for a person
-	-->  Phone_id: string containing Phone ID for a person
+	--> Phone_Type_ID: string containing Phone Type ID for a person
+	-->  Phone_Type: string containing Phone Type for a person 
+	--> Phone_Number: string containing Phone Number for a person
+	-->  Extension: string containing Phone Extension for a person
+	--> Phone_id: string containing Phone ID for a person
 	--> email_type_id: string containing email Type ID for a person
-    --> Email_Type: string containing email Type for a person 
+	--> Email_Type: string containing email Type for a person 
 	--> Email: string containing email for a person
 	--> Email_ID: string containing email ID for a person
  --->
@@ -106,15 +106,15 @@
 				Apt:<input type="text" name="address2_#location_type_id#" value="#address2#" size="10"></td>
 			</tr>
 			<tr>
-				<td  align="right">City:</td>
+				<td align="right">City:</td>
 				<td><input type="text" name="city_#location_type_id#" value="#city#" size="40"></td>
 			</tr>
 			<tr>
-				<td  align="right">State:</td> 
+				<td align="right">State:</td> 
 				<td><input type="text" name="state_#location_type_id#" value="#state#" size="40" /></td>
 			</tr>
 			<tr>
-				<td   align="right">Zip:</td> 
+				<td  align="right">Zip:</td> 
 				<td><input type="text" name="zip_#location_type_id#" value="#zip#" size="5" maxlength="5" /></td>
 			</tr>
 			<input type="hidden" name="location_id" value="#location_id#" />
@@ -124,7 +124,7 @@
 		<!--- biography --->
 		<tr><td colspan="3" bgcolor="##dadada" class="SubHeadText">&nbsp;&nbsp;Biography</td></tr>
 		<tr>
-			<td  class="SubHeadText" valign="top" align="right">&nbsp;</td>
+			<td class="SubHeadText" valign="top" align="right">&nbsp;</td>
 			<td>&nbsp;</td>
 			<td>
 				<textarea cols="100" rows="7" name="biography" >#get_demographics.biography#</textarea>

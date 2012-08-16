@@ -53,7 +53,7 @@
 				</td>
 				<td><label for="sort_order">Sort Order</label>: 
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value=
-                     #IIf(attributes.module_id EQ 0, ("get_ref_module.recordcount+1"), ("get_ref_module.sort_order"))# size="6" maxlength="6" required="yes" validate="integer" message="Please enter sort order.">
+					#IIf(attributes.module_id EQ 0, ("get_ref_module.recordcount+1"), ("get_ref_module.sort_order"))# size="6" maxlength="6" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<td><span title="describes the purpose of the radio buttons that follow">Viewable Indicator?</span>
 					<br /><cfinput type="radio" name="viewable_ind" id="viewable_ind_yes" value="1" checked="yes"><label for="viewable_ind_yes">Yes </label>
@@ -82,7 +82,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="attributes.module_id" value="#attributes.module_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />

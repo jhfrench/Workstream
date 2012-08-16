@@ -37,7 +37,7 @@
 			<tr>
 				<td><label for="first_name">First Name</label>:</td>
 				<td>
-					<cfinput type="text" name="first_name" id="first_name" size="50" required="yes"  message="You must enter your full name" value="#get_user_information_profile.first_name#" maxlength="4000">
+					<cfinput type="text" name="first_name" id="first_name" size="50" required="yes" message="You must enter your full name" value="#get_user_information_profile.first_name#" maxlength="4000">
 				</td>
 			</tr>
 			<!--- add middle_initial here --->
@@ -67,7 +67,7 @@
 				<td><label for="work_phone">Phone</label>:</td>
 				<td>
 					<cfset attributes.work_phone=replace(get_user_information_profile.work_phone, "+", "", "ALL")>
-					<cfinput type="text" name="work_phone" id="work_phone" size="50" required="no" validate="telephone"  validateat="onserver,onsubmit" value="#attributes.work_phone#" maxlength="4000">
+					<cfinput type="text" name="work_phone" id="work_phone" size="50" required="no" validate="telephone" validateat="onserver,onsubmit" value="#attributes.work_phone#" maxlength="4000">
 				</td>
 			</tr>
 			<tr>

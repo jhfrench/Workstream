@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_employee_force_totals.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

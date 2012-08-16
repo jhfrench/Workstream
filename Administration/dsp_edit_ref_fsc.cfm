@@ -54,7 +54,7 @@
 				<td><label for="description">Description</label>: 
 					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" tabindex="1" message="Please enter description." maxlength="128">
 				</td>
-                <td><label for="code">Code</label>: 
+				<td><label for="code">Code</label>: 
 					<br /><cfinput type="text" name="code" id="code" value="#attributes.code#" size="20" tabindex="2" required="yes" message="Please enter code." maxlength="20">
 				</td>
 				<td><label for="sort_order">sort order</label>: 
@@ -73,7 +73,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="fsc_id" value="#attributes.fsc_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />

@@ -46,10 +46,10 @@
 			<cfset variables.new_file_name="">
 			<!--- if NULL skips upload scripts --->
 		<cfelse>
-			<!---  Upload scripts --->
+			<!--- Upload scripts --->
 			<cffile action="UPLOAD" filefield="file_attachment" destination="#variables.full_file_path#" nameconflict="MAKEUNIQUE" mode="660" />
 
-			<!---  for MAC issues takes file saved, checks for extension if no extension in filesaved file, appends extension to file by renameing with cffile, then sets variable name to variables.new_file_name weather its uploaded by a mac or not --->
+			<!--- for MAC issues takes file saved, checks for extension if no extension in filesaved file, appends extension to file by renameing with cffile, then sets variable name to variables.new_file_name weather its uploaded by a mac or not --->
 			<cfset variables.file_list_length=listlen(file.serverfile,".")>
 			<cfif variables.file_list_length GT 1>
 				<cfset variables.new_file_name="#listdeleteat(file.serverfile, variables.file_list_length, '.')#.#file_type#">

@@ -1,6 +1,6 @@
 
 <!--Tools/Act_del_expenses.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

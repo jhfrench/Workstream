@@ -1,6 +1,6 @@
 
 <!--Reports/qry_leader_hours_by_month.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

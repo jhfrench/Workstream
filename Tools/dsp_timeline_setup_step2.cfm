@@ -1,6 +1,6 @@
 
 <!--Tools/dsp_timeline_setup_step2.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

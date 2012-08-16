@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_deadline_management_chart.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

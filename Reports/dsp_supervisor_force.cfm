@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_supervisor_force.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -83,31 +83,31 @@
 	<cfoutput query="supervisor_force">
 		<tr>
 			<td>
-				<a href="javascript:sup_to_emp(#emp_id#);"  title="View details for this employee.">#supervisor_force.employee_name#</a>
+				<a href="javascript:sup_to_emp(#emp_id#);" title="View details for this employee.">#supervisor_force.employee_name#</a>
 			</td>
 			<td class="number">
-				<a href="javascript:bc_tasks(#emp_id#);"  title="View completed budgeted tasks for this employee.">#cbt#</a>
+				<a href="javascript:bc_tasks(#emp_id#);" title="View completed budgeted tasks for this employee.">#cbt#</a>
 			</td>
 			<td class="number">
-				<a href="javascript:bc_tasks(#emp_id#);"  title="View completed budgeted hours for this employee.">#cbh#</a>
+				<a href="javascript:bc_tasks(#emp_id#);" title="View completed budgeted hours for this employee.">#cbh#</a>
 			</td>
 			<td class="number">
-				<a href="javascript:nc_tasks(#emp_id#);"  title="View completed (budgeted and non-budgeted) tasks for this employee.">#cnt#</a>
+				<a href="javascript:nc_tasks(#emp_id#);" title="View completed (budgeted and non-budgeted) tasks for this employee.">#cnt#</a>
 			</td>
 			<td class="number">
-				<a href="javascript:nc_tasks(#emp_id#);"  title="View completed (budgeted and non-budgeted) hours for this employee.">#cnh#</a>
+				<a href="javascript:nc_tasks(#emp_id#);" title="View completed (budgeted and non-budgeted) hours for this employee.">#cnh#</a>
 			</td>
 			<td class="number">
-				<a href="javascript:bn_tasks(#emp_id#);"  title="View budgeted (completed and incomplete) tasks for this employee.">#nbt#</a>
+				<a href="javascript:bn_tasks(#emp_id#);" title="View budgeted (completed and incomplete) tasks for this employee.">#nbt#</a>
 			</td>
 			<td class="number">
-				<a href="javascript:bn_tasks(#emp_id#);"  title="View budgeted (completed and incomplete) hours for this employee.">#nbh#</a>
+				<a href="javascript:bn_tasks(#emp_id#);" title="View budgeted (completed and incomplete) hours for this employee.">#nbh#</a>
 			</td>
 			<td class="number">
-				<a href="javascript:sup_to_emp(#emp_id#);"  title="View all tasks for this employee.">#nnt#</a>
+				<a href="javascript:sup_to_emp(#emp_id#);" title="View all tasks for this employee.">#nnt#</a>
 			</td>
 			<td class="number">
-				<a href="javascript:sup_to_emp(#emp_id#);"  title="View all hours for this employee.');return document.MM_returnValue;">#nnh#</a>
+				<a href="javascript:sup_to_emp(#emp_id#);" title="View all hours for this employee.');return document.MM_returnValue;">#nnh#</a>
 			</td>
 		</tr>
 	</cfoutput>

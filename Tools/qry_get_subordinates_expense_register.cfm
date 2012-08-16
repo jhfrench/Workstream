@@ -1,6 +1,6 @@
 
 <!--Tools/qry_get_subordinates_expense_register.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

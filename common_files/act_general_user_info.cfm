@@ -60,7 +60,7 @@
 	<cfset session.workstream_selected_company_id=valuelist(general_user_info.company_id)>
 	<cfset session.workstream_text_size="Md">
 	<cfset session.workstream_project_list_order=1>
-	   <!-- These two variables are added to allow qry_create_profile to work -->
+		<!-- These two variables are added to allow qry_create_profile to work -->
 	<cfparam name="session.workstream_notes_display_sort" default=1>
 	<cfparam name="session.workstream_task_list_order" default="task_id">
 <cfinclude template="act_load_profile.cfm">

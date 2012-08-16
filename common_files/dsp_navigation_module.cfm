@@ -60,7 +60,7 @@
 	</cfif>
 	<li><a href="index.cfm?fuseaction=#fuseaction#" title="#business_function_description#">#business_function_description#</a></li>
 </cfloop><cfif variables.flyout_opened_ind>
-	            </ul></cfif>
+		       </ul></cfif>
 			</ul>
 		</li>
 </cfif>

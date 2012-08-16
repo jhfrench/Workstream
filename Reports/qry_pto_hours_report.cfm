@@ -1,6 +1,6 @@
 
 <!--Reports/qry_pto_hours_report.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -12,7 +12,7 @@
 	 || 
 	END FUSEDOC --->
 <cfquery name="GetEmpDetails" datasource="#application.datasources.main#">
-<cfif isdefined("attributes.drill_down")>          
+<cfif isdefined("attributes.drill_down")> 
 SELECT Emp_Contact.Name AS name, 
     Emp_Contact.LName AS lname, Emp_Contact.emp_id AS pin, 
     PTO_Hours.Pto_Type_Indicator, REF_Day_Length.Day_Length, 
@@ -54,7 +54,7 @@ WHERE Security_Company_Access.emp_id = emp_contact.emp_id
 	(select company_id 
 	from Security_Company_Access 
 	where emp_id = #session.user_account_id#)
-		AND Emp_Contact.emp_id=Security.emp_id  
+		AND Emp_Contact.emp_id=Security.emp_id
 		AND Emp_Contact.emp_id=Used_Hours.emp_id
 		AND Emp_Contact.emp_id = PTO_Hours.emp_id
 		AND Emp_Contact.emp_id = Demographics.emp_id

@@ -44,7 +44,7 @@ FROM Emp_Contact ec
 		SELECT *
 		FROM phone
 		WHERE phone_type_id = 5
-	) AS pager_phone ON  ec.emp_id = pager_phone.emp_id
+	) AS pager_phone ON ec.emp_id = pager_phone.emp_id
 	LEFT OUTER JOIN (
 		SELECT *
 		FROM email
@@ -118,16 +118,16 @@ WHERE d.Effective_To IS NULL
 	<cfset email_3 = email_3> 
 </cfoutput>
 	<cfquery name="get_visible_companies" datasource="#application.datasources.main#">
-    SELECT company_id
-    FROM Security_Company_Access
-    WHERE emp_id = #attributes.emp_id#
-    </cfquery>
+	SELECT company_id
+	FROM Security_Company_Access
+	WHERE emp_id = #attributes.emp_id#
+	</cfquery>
 	<cfset visable_company = valuelist(get_visible_companies.company_id)>
 	<cfquery name="get_supervisors" datasource="#application.datasources.main#">
-    SELECT supervisor_id
-    FROM  Link_Employee_Supervisor
-    WHERE emp_id = #attributes.emp_id#
-	AND active_ind = 1
-    </cfquery>
+	SELECT supervisor_id
+	FROM  Link_Employee_Supervisor
+	WHERE emp_id = #attributes.emp_id#
+		AND active_ind = 1
+	</cfquery>
 	<cfset supervisor_id = valuelist(get_supervisors.supervisor_id)>
 </cfsilent>

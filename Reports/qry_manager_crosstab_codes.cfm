@@ -1,6 +1,6 @@
 
 <!--Reports/qry_manager_crosstab_codes.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

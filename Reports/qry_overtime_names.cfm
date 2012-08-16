@@ -1,6 +1,6 @@
 
 <!--workstream/qry_overtime_names.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -12,7 +12,7 @@
 	 || 
 	END FUSEDOC --->
 
-<cfquery name="get_name" datasource="#application.datasources.main#">          
+<cfquery name="get_name" datasource="#application.datasources.main#"> 
 SELECT Emp_Contact.Name, Emp_Contact.LName, 
     SUM(Time_Entry.Hours) AS hours, 
     REF_Employee_Classification.employee_classification, 
@@ -21,7 +21,7 @@ FROM Emp_Contact
 	INNER JOIN Time_Entry ON Emp_Contact.emp_id = Time_Entry.emp_id
 	INNER JOIN Demographics ON Emp_Contact.emp_id = Demographics.emp_id
 	INNER JOIN REF_Employee_Classification ON Demographics.employee_classification_id = REF_Employee_Classification.employee_classification_id
-    
+
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
 WHERE Time_Entry.active_ind=1
 	AND (Time_Entry.Date >= '#start_date#')

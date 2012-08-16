@@ -1,6 +1,6 @@
 
 <!--Customers/dsp_edit_engagement_billing.cfm
-	Author: Jeromy French  -->
+	Author: Jeromy French -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -39,7 +39,7 @@
 			Budget<br />
 			<span>$ </span><cfinput type="text" name="budget" value="#get_engagement_main.budget#" required="yes" validate="float" message="Please specify a budget." size="6"><br />
 			LOE<br />
-			<span>h </span><cfinput type="text" name="loe" value="#get_engagement_main.loe#" required="yes"  size="6">
+			<span>h </span><cfinput type="text" name="loe" value="#get_engagement_main.loe#" required="yes" size="6">
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">

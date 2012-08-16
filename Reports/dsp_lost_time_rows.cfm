@@ -24,7 +24,7 @@
 <cfset std_ltd_tot = 0>
 <cfset Unpaid_tot = 0>
 <!--- <cfset Vacation_tot = 0> --->
-<cfset pto_tot =  0>
+<cfset pto_tot = 0>
 <cfset bereavement_tot = 0>
 <cfset gross_grand_tot = 0>
 </cfsilent>
@@ -41,7 +41,7 @@
 			<cfset std_ltd_tot = std_ltd_tot + std_ltd>
 			<cfset Unpaid_tot = Unpaid_tot + Unpaid>
 			<!--- <cfset Vacation_tot = Vacation_tot + Vacation> --->
-			<cfset  pto_tot =  pto_tot +  pto>
+			<cfset  pto_tot =  pto_tot + pto>
 		<td>
 			#full_name# 
 		</td>

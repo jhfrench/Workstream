@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_gross_hours_rows_ytd.cfm
-	Author: Joshua Peters  -->
+	Author: Joshua Peters -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

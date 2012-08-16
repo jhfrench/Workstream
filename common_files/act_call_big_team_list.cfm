@@ -24,7 +24,7 @@ if (arg == "#ii#")
 	document.forms[0].#ii#.value = window.showModalDialog('#attributes.dir_level#common_files/index.cfm?fuseaction=team_list&formname=#ii#&company_select_list=#session.workstream_selected_company_id#',"#ii#","center=yes;dialogWidth=350pt;dialogHeight=400pt");
 }
 </cfloop>
-  }
+}
 //-->
 </script>
 </cfoutput>

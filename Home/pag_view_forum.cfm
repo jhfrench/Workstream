@@ -50,7 +50,7 @@
 
 <cfmodule template="qry_get_discussion.cfm" parent_discussion_id="0">
 
-<!---  The custom tag should be placed wherever the discussion and form should apear in the app itself...  ie if the navigation is accross the top , include template for nav here then tag below etc.--->
+<!--- The custom tag should be placed wherever the discussion and form should apear in the app itself...  ie if the navigation is accross the top , include template for nav here then tag below etc.--->
 <a name="begin_page_content"></a>
 <table align="center" width="100%" cellspacing=3 cellpadding=3 border=0 summary="Table displays discussion navigation">
 	<tr>
@@ -73,7 +73,7 @@
 			</div>
 		</td>
 		<td align="left" valign="top">
-			<!---  displays form for reply entry --->
+			<!--- displays form for reply entry --->
 			<cfif isdefined("attributes.reply_parent_discussion_id")>
 				<cfif NOT isdefined("reply_parent_discussion_id")>
 					<cfset attributes.parent_discussion_id=0>
@@ -102,7 +102,7 @@
 							<cfif len(get_discussion.link)>
 								<br /><i>Supporting Link:</i> <a href="#link#" target="discussion_#discussion_id#">#link#</a>
 							</cfif>
-	
+
 							<cfif get_discussion_attachment.recordcount NEQ 0>
 							<cfloop query="get_discussion_attachment">
 								<cfset variables.attachment_link=listlast(attachment_path, "\")>
@@ -111,7 +111,7 @@
 							</cfif>
 							<br /><a href="index.cfm?fuseaction=Home.view_forum&reply_parent_discussion_id=#discussion_id#&top_level=#discussion_id#">Reply</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<cfif listfind(variables.allowed_business_function_id, 120)><a href="index.cfm?fuseaction=Home.view_forum&parent_discussion_id=#discussion_id#&top_level=#discussion_id#&delete_forum=#discussion_id#" onclick="javascript: return confirm('Are you sure you want to remove this entry and all associated replies?');">Deactivate</a></cfif> <br />
 				</cfoutput>
-<!---  for fusebox permissions logic the custom tag must pass the variable allowed_business_function_id as an attribute within the custom tag....the permissions before the custom tag has been called and recalled within itself are located in the variables scope --->
+<!--- for fusebox permissions logic the custom tag must pass the variable allowed_business_function_id as an attribute within the custom tag....the permissions before the custom tag has been called and recalled within itself are located in the variables scope --->
 				<cf_discussion datasource="discussion"
 					parent_discussion_id="#attributes.parent_discussion_id#"
 					count="0"

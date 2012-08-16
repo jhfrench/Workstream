@@ -1,6 +1,6 @@
 
 <!--Reports/pag_manager_cross_tab.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

@@ -15,7 +15,7 @@
  --->
 </cfsilent>
 	<!--- 
-	If the admin granted the new user  access to multiple companies then 
+	If the admin granted the new user access to multiple companies then 
 	grant that access
 	--->
 <cfif len(attributes.visable_company)>

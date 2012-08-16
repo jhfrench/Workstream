@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_hours_code_totals.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

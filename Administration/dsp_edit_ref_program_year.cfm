@@ -47,7 +47,7 @@
 	<tr bgcolor="##cccccc"><th><strong>ADD NEW PROGRAM YEAR</strong></th></tr>
 	<tr bgcolor="##eeeeee">
 		<td>
-		<table width="100%" cellspacing="0" cellpadding="8" border="0"  summary="Table used to add new program year">
+		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table used to add new program year">
 			<tr>
 				<td><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" required="yes" message="Please enter description." maxlength="4000">
@@ -70,7 +70,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="program_year_id" value="#attributes.program_year_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />

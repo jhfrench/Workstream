@@ -1,6 +1,6 @@
 
 <!--Customers/act_update_customer.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -40,7 +40,7 @@ WHERE customer_id=#attributes.customer_id#
 	FROM Emp_Contact
 	WHERE name='#attributes.name#'
 		AND lname='#attributes.lname#'
-		AND emp_contact_type=4    
+		AND emp_contact_type=4
 	</cfquery>
 <!--- If the person is already in the system as a billing contact, update the Customer table to reference the existing contact --->
 	<cfif len(get_contact_name.emp_id)>
@@ -73,7 +73,7 @@ WHERE customer_id=#attributes.customer_id#
 		<cfquery name="remove_contact" datasource="#application.datasources.main#">
 		UPDATE Customer
 		SET emp_contact_id=NULL
-		WHERE customer_id=#attributes.customer_id#    
+		WHERE customer_id=#attributes.customer_id#
 		</cfquery>
 	</cfif>
 </cfif>

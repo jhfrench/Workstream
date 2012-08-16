@@ -72,7 +72,7 @@ function AddNewRow()
 		{
 			var tr="hidden_tr_" + parseInt(currCount.value);
 			Element.toggle(tr);
-			currCount.value=parseInt(currCount.value) + 1;	   
+			currCount.value=parseInt(currCount.value) + 1;	 
 			return true;
 		}
 	}
@@ -99,7 +99,7 @@ function AddColumn()
 			   		var td="hidden_td_" + x + "_" + parseInt(currCount.value);
 			   		Element.toggle(td); 
 			   	}
-			currCount.value=parseInt(currCount.value) + 1;	   
+			currCount.value=parseInt(currCount.value) + 1;	 
 			return true;
 		}
 	}
@@ -118,7 +118,7 @@ function RemoveColumn(colID)
 	   		var td="hidden_td_" + x + "_" + colID;
 	   		Element.toggle(td); 
 	   	}
-	<!--- currCount.value=parseInt(currCount.value) - 1;	 --->   
+	<!--- currCount.value=parseInt(currCount.value) - 1;	 ---> 
 	return true;
 
 	}

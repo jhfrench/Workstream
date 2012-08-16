@@ -73,11 +73,11 @@ while (carriageReturn.test(ch)) { // Check for carriage returns at the end of th
   // alert(carriageReturn.test(retValue) + " end");
 retValue = retValue.substring(0, retValue.length-2);
    ch = retValue.substring(retValue.length-3, retValue.length-1);
-	//alert("Point 2 -->" + ch + "  " + retValue);
+	//alert("Point 2 -->" + ch + " " + retValue);
 }
 
-while (retValue.indexOf("  ") != -1) { // Note that there are two spaces in the string - look for multiple spaces within the string
-   retValue = retValue.substring(0, retValue.indexOf("  ")) + retValue.substring(retValue.indexOf("  ")+1, retValue.length); // Again, there are two spaces in each of the strings
+while (retValue.indexOf(" ") != -1) { // Note that there are two spaces in the string - look for multiple spaces within the string
+   retValue = retValue.substring(0, retValue.indexOf(" ")) + retValue.substring(retValue.indexOf(" ")+1, retValue.length); // Again, there are two spaces in each of the strings
 	}
 
 }
@@ -90,7 +90,7 @@ return retValue;
 <cfoutput>
 <div class="row-fluid">
 	<div class="span12">
-		<label for="task_name">Task Name <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See pre-defined task names." border="0"  onclick="OpenPreTaskWindow('task_name');" /></label>
+		<label for="task_name">Task Name <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See pre-defined task names." border="0" onclick="OpenPreTaskWindow('task_name');" /></label>
 		<cfinput type="text" name="task_name" id="task_name" value="" required="yes" message="Please enter a task name." size="70" maxlength="255" class="span8">
 	</div>
 </div>

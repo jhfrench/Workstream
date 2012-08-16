@@ -1,6 +1,6 @@
 
 <!--Marketing/act_upd_person.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -27,7 +27,7 @@
 			city = person_grid.city[ii];
 			state =  person_grid.state[ii];
 			zip =  person_grid.zip[ii];
-		</cfscript>  
+		</cfscript>
 
 <!--- If the action for that level of the array is UPDATE run update statements. --->
 <cfif NOT comparenocase(person_grid.RowStatus.Action[ii],  "u")> 
@@ -39,56 +39,54 @@
 		<cfquery name="update_name" datasource="#application.datasources.main#">
 		update emp_contact
 		set name = '#name#'
-		where emp_id = #PERSON_GRID.emp_id[ii]#              
-          </cfquery>
+		where emp_id = #PERSON_GRID.emp_id[ii]#
+		</cfquery>
 	</cfif>
 	<!--- if the last name has changed update it --->
 	<cfif compare(PERSON_GRID.lname[ii], PERSON_GRID.original.lname[ii])>
 		<cfquery name="update_lname" datasource="#application.datasources.main#">
 			update emp_contact
 			set lname = '#lname#'
-			where emp_id = #PERSON_GRID.emp_id[ii]#       
+			where emp_id = #PERSON_GRID.emp_id[ii]#
           </cfquery>
 	</cfif>
 <!--- if the email is new then insert --->
 	<cfif NOT len(person_grid.original.email[ii]) and len(person_grid.email[ii])>
 		<cfquery name="insert_email" datasource="#application.datasources.main#">
-	         INSERT INTO email
+		    INSERT INTO email
 		    (email, emp_id, email_type_id)
 		    values('#email#', #PERSON_GRID.emp_id[ii]#, 1)
-	     </cfquery>
+		</cfquery>
 	<!--- Otherwise update the record --->
 	<cfelseif len(person_grid.email[ii])>
 		<cfquery name="update_email" datasource="#application.datasources.main#">
-	         update email
+		    update email
 		    set email = '#email#'
 		    where emp_id = #PERSON_GRID.emp_id[ii]# and email_type_id = 1
-	     </cfquery>
+		</cfquery>
 	</cfif>
 	<!--- if the phone number is new then insert. --->
-	<cfif  NOT len(person_grid.original.phone_number[ii]) 
-	and NOT len(person_grid.original.extension[ii]) 
-	and len(person_grid.phone_number[ii])>
+	<cfif NOT len(person_grid.original.phone_number[ii]) AND NOT len(person_grid.original.extension[ii]) AND len(person_grid.phone_number[ii])>
 		<cfquery name="insert_phone" datasource="#application.datasources.main#">
-	         INSERT INTO phone
+		    INSERT INTO phone
 		    (phone_number 
 		    <cfif isnumeric(person_grid.extension[ii])>,extension</cfif>
 		    , emp_id, phone_type_id)
 		    values('#phone_number#'
 		    <cfif isnumeric(person_grid.extension[ii])>,#extension#</cfif>
 		    , #PERSON_GRID.emp_id[ii]#, 1)
-	     </cfquery>
+		</cfquery>
 	<cfelseif  isnumeric(person_grid.extension[ii])>
 		<cfquery name="update_phone" datasource="#application.datasources.main#">
-	         	update phone
+		    	update phone
 			set phone_number = '#phone_number#'
 			<cfif isnumeric(person_grid.extension[ii])> ,extension = #extension#</cfif>
 			where emp_id = #PERSON_GRID.emp_id[ii]# and phone_type_id = 1
-	     </cfquery>
+		</cfquery>
 	</cfif>
 
 	<!--- if the address is new then insert --->
-	<cfif  NOT len(person_grid.original.address1[ii]) 
+	<cfif NOT len(person_grid.original.address1[ii]) 
 	and NOT len(person_grid.original.address2[ii]) 
 	and NOT len(person_grid.original.city[ii]) 
 	and  NOT len(person_grid.original.state[ii]) 
@@ -102,7 +100,7 @@
 			VALUES ('#address1#', '#address2#', '#city#',
 				'#state#','#zip#', #PERSON_GRID.emp_id[ii]#,
 				1)
-		     </cfquery>
+			</cfquery>
 		</cfif>
 	<cfelseif len(person_grid.address1[ii]) 
 	or len(person_grid.address2[ii]) 
@@ -110,14 +108,14 @@
 	or len(person_grid.state[ii]) 
 	or len(person_grid.zip[ii])>
 		<cfquery name="update_location" datasource="#application.datasources.main#">
-	         update location
+		    update location
 		    set address1 = '#address1#'
 		 	,address2 = '#address2#'
 		    , city = '#city#'
 		    ,state = '#state#'
 		    ,zip = '#zip#'
 		    where emp_id = #PERSON_GRID.emp_id[ii]# and location_type_id =1
-	     </cfquery>
+		</cfquery>
 	</cfif>
 	</cftransaction>
 </cfif>
@@ -150,7 +148,7 @@ VALUES (#get_emp_id.emp_id#, #project_id#)
 	<!--- insert new location information --->
 	<cfif len(person_grid.address1[ii])+len(person_grid.address2[ii])+len(person_grid.city[ii])+len(person_grid.state[ii])+len(person_grid.zip[ii])>
 			<cfquery name="insert_location" datasource="#application.datasources.main#">
-		         INSERT INTO location
+			    INSERT INTO location
 			    (address1
 			    , address2
 			    , city
@@ -163,12 +161,12 @@ VALUES (#get_emp_id.emp_id#, #project_id#)
 			   '#state#'
 			    ,'#zip#'
 			    , #get_emp_id.emp_id#, 1)
-		     </cfquery>
+			</cfquery>
 		</cfif>	</cftransaction>
 	<cflocation addtoken="No" url="index.cfm?fuseaction=marketing">
 <cfelse>
 		<div align="center" class="Note">You must enter a name for the contact.</div>
-		<meta http-equiv="Refresh"  content="4; url=index.cfm">
+		<meta http-equiv="Refresh" content="4; url=index.cfm">
 </cfif>
 
 </cfif>

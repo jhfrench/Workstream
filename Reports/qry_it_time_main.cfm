@@ -1,6 +1,6 @@
 
 <!--Reports/qry_it_time_main.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

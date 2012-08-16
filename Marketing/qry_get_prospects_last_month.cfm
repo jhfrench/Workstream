@@ -1,6 +1,6 @@
 
 <!--Marketing/qry_get_prospects_last_month.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

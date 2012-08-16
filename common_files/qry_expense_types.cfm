@@ -1,6 +1,6 @@
 
 <!--Reports/qry_expense_types.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

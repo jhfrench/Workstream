@@ -1,6 +1,6 @@
 
 <!--Reports/qry_revenue_report.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

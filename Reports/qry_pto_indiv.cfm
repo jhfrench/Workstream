@@ -1,6 +1,6 @@
 
 <!--Reports/qry_PTO_Indiv.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -12,7 +12,7 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfquery name="Showhours" datasource="#application.datasources.main#">          
+<cfquery name="Showhours" datasource="#application.datasources.main#"> 
 SELECT Time_entry.hours, Time_entry.date
 FROM PTO_Hours
 	INNER JOIN Emp_contact ON PTO_Hours.emp_id = Emp_contact.emp_id

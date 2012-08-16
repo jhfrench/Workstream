@@ -1,6 +1,6 @@
 
 <!--common_files/qry_get_company_list.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -17,7 +17,7 @@
 <cfquery name="get_company_list" datasource="#application.datasources.main#">
 SELECT * 
 FROM REF_Company
-WHERE company_id IN (#session.workstream_selected_company_id#)  
+WHERE company_id IN (#session.workstream_selected_company_id#)
 </cfquery>
 </cfsilent>
 

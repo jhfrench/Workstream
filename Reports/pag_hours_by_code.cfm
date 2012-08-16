@@ -1,6 +1,6 @@
 
 <!--Report/pag_hours_by_code.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -16,13 +16,13 @@
 <cfinclude template="qry_hours_code.cfm">
 <table border="0" cellpadding="4" cellspacing="0" align="center" width="95%">
 
-<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText" section_color="ffffff" section_title="Hours By Code Report"  gutter="false" align="center">
+<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText" section_color="ffffff" section_title="Hours By Code Report" gutter="false" align="center">
 	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="SubHeadText" section_color="ffffff" section_title="From: #attributes.from_date# &nbsp;To: #attributes.through_date#" gutter="false" align="center">
 	<cfoutput query="hours_code">
 		<cfif NOT temp_cc IS ClientCode>
 		   	<cfset count=0>
-		      <cfset temp_cc=ClientCode>
-		     	 <cfif hours_code.CurrentRow GT 1>
+			 <cfset temp_cc=ClientCode>
+				 <cfif hours_code.CurrentRow GT 1>
 				 	<cfinclude template="dsp_hours_code_totals.cfm">
 				</cfif>
 				<cfinclude template="dsp_hours_code_row_header.cfm">

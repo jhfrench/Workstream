@@ -1,6 +1,6 @@
 
 <!--Tools/qry_get_accounting_expense_register.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -24,7 +24,7 @@ WHERE Expense.expense_status_id=REF_Expense_Status.expense_status_id
 	AND Expense.date_deleted IS NULL
 	AND Expense.expense_status_id=2
 	AND Expense.date_incurred
-	<cfif isdefined("attributes.begin_date") AND isdefined("attributes.end_date") AND  len(attributes.begin_date) AND len(attributes.end_date)>
+	<cfif isdefined("attributes.begin_date") AND isdefined("attributes.end_date") AND len(attributes.begin_date) AND len(attributes.end_date)>
 		>= '#attributes.begin_date#' AND Expense.date_incurred <= '#attributes.end_date#'
 	<cfelse>
 		> CURRENT_TIMESTAMP-'90 day'

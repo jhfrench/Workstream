@@ -1,6 +1,6 @@
 
 <!--Tools/dsp_expense_form_rows.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -28,41 +28,41 @@
 			<cfif isdefined("get_expense_values.work_date")>
 				<cfset variables.datefield1=dateformat(get_expense_values.work_date,"m/d/yyyy")>
 			</cfif>
-			<input type="date" name="DateField1" id="from_date" min="#application.application_specific_settings_workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(variables.datefield1, 'yyyy-mm-dd')#"  maxlength="10" required="required" class="span6 date" />
+			<input type="date" name="DateField1" id="from_date" min="#application.application_specific_settings_workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(variables.datefield1, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span6 date" />
 			<!-- Use CF to create validation <cfinput type="datefield" name="DateField1" message="Enter a date." validate="date" required="yes" size="12"> -->
 		</td>
 </tr>
 <tr>
-   		<td colspan="2" valign="top">
+			<td colspan="2" valign="top">
 
-   	<table cellpadding="2" cellspacing="0" border="0">
-   		<cfloop from="#start#" to="#num_expense#" index="ii">
-   		<tr>
-   			<td align="justify">
-   				<cfoutput>#Get_Expense_Type.Expense_Type[ii]#</cfoutput>:
-   			</td>
-   			<td>
-   				<cfinput type="text" name="et_#ii#" validate="float" message="Please enter an amount in the #Get_Expense_Type.Expense_Type[ii]#  field." value="#evaluate('expense_cross_tab.et_#ii#')#">
-   			</td>
-   		</tr>
-   		<cfset start=IncrementValue(start)>
+		<table cellpadding="2" cellspacing="0" border="0">
+			<cfloop from="#start#" to="#num_expense#" index="ii">
+			<tr>
+				<td align="justify">
+					<cfoutput>#Get_Expense_Type.Expense_Type[ii]#</cfoutput>:
+				</td>
+				<td>
+					<cfinput type="text" name="et_#ii#" validate="float" message="Please enter an amount in the #Get_Expense_Type.Expense_Type[ii]#  field." value="#evaluate('expense_cross_tab.et_#ii#')#">
+				</td>
+			</tr>
+			<cfset start=IncrementValue(start)>
 		</cfloop>
-   	</table>
+		</table>
    </td>
    <td colspan="2" valign="top">
 
-   	<table cellpadding="2" cellspacing="2" border="0">
-   			<cfloop from="#start#" to="#end_row#" index="ii">
-   		<tr>
-   			<td align="justify">
-   				<cfoutput>#Get_Expense_Type.Expense_Type[ii]#</cfoutput>:
-   			</td>
-   			<td>
-   				<cfinput type="text" name="et_#ii#" validate="float" message="Please enter an amount in the #Get_Expense_Type.Expense_Type[ii]# field." value="#evaluate('expense_cross_tab.et_#ii#')#">
-   			</td>
-   		</tr>
+		<table cellpadding="2" cellspacing="2" border="0">
+				<cfloop from="#start#" to="#end_row#" index="ii">
+			<tr>
+				<td align="justify">
+					<cfoutput>#Get_Expense_Type.Expense_Type[ii]#</cfoutput>:
+				</td>
+				<td>
+					<cfinput type="text" name="et_#ii#" validate="float" message="Please enter an amount in the #Get_Expense_Type.Expense_Type[ii]# field." value="#evaluate('expense_cross_tab.et_#ii#')#">
+				</td>
+			</tr>
 			</cfloop>
-   	</table>
+		</table>
 		</td>
 	</tr>
 	<tr>
@@ -80,4 +80,3 @@
 		</td>
 	</tr>
 </table>
-   

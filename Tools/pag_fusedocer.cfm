@@ -21,7 +21,7 @@
  --->
 <cfform name="submit_fusedoc" action="index.cfm?fuseaction=Tools.fusedocer" method="POST">
 <cfinclude template="../common_files/qry_get_team_select.cfm">
-<cfparam name="attributes.pin" default="  123  ">
+<cfparam name="attributes.pin" default="this_will_never_match">
 <cfoutput>
 <table>
 	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadTextWhite" section_color="636332" section_title="&nbsp;FuseDoc'er" colspan="6" gutter=0>

@@ -6,7 +6,7 @@
 	||
 	Responsibilities: I update the employee contact information submitted from the form.
 	||
-	Name: Victor Blell
+	Name: Jeromy French
 	||
 	Edits: 
 	$Log$
@@ -33,7 +33,7 @@
 		</cfloop> 
 
 		<!--- //////////////////////////        Phone and extensions inserts         \\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
-	
+
 		<cfloop index="ii" list="#attributes.phone_type_id#">
 			<cfif len(evaluate("attributes.phone_number_#ii#"))>
 				<cfquery name="Phone_insert" datasource="#application.datasources.main#">

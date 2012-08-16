@@ -1,6 +1,6 @@
 
 <!--Timekeeping/qry_get_project_folder.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

@@ -1,6 +1,6 @@
 
 <!--Customers/dsp_new_cust_rows.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -10,7 +10,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-    </cfsilent>
+	</cfsilent>
 <tr>
 	<td class="SubHeadText">Root Code</td>
 	<td class="SubHeadText">Company</td>
@@ -22,7 +22,7 @@
 		<a href="javascript:void(0);" onclick="javascript:Element.toggle('root_code_entry');Element.toggle('code_options');">Specify A Root Code</a>
 		</div>
 		<div id="root_code_entry" style="display:none;">
-		<cfinput type="text" required="no"  name="root_code" size="4">&nbsp;*<br />
+		<cfinput type="text" required="no" name="root_code" size="4">&nbsp;*<br />
 		Note: If you select a root code yourself, make sure that it isn't used already.
 		</div>
 	</td>

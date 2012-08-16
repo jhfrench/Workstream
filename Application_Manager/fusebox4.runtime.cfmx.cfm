@@ -39,48 +39,48 @@ This software consists of voluntary contributions made by many individuals on be
 	    attributes=structNew();
 	  StructAppend(attributes, url, "yes");
 	  StructAppend(attributes, form, "yes");
-	  
+	
 	  // initialize the fusebox "working" structure (only for internal use of the core file(s) -- considered hands-off to developers
 	  fb_=structNew();
 	  fb_.fuseQ=ArrayNew(1);
 		fb_.COMMENT_CF_BEGIN="<" & "!--- ";
 		fb_.COMMENT_CF_END=" ---" & ">";
-	  
+	
 	  fb_.osdelimiter=left(REreplace(getCurrentTemplatePath(), "[^\\/]", "", "all"), 1); //createObject("java", "java.io.File").separator;
-	  
+	
 	  // initialize the myFusebox structure which is specific to a given request (can be read by the developer (and written to if creating plugins)
 	  myFusebox=structNew();
 	  myFusebox.version.runtime    ="unknown";
 	  myFusebox.version.loader     ="unknown";
 	  myFusebox.version.transformer="unknown";
 	  myFusebox.version.parser     ="unknown";
-	  
+	
 	  myFusebox.version.runtime    ="4.1.0";
-	  
+	
 	  myFusebox.thisCircuit="";
 	  myFusebox.thisFuseaction= "";
 	  myFusebox.thisPlugin="";
 	  myFusebox.thisPhase="";
 	  myFusebox.plugins=structNew();
 	  myFusebox.parameters=structNew();
-	  
+	
 	  myFusebox.parameters.load=true;
 	  myFusebox.parameters.parse=true;
 	  myFusebox.parameters.execute=true;
-	  
+	
 	  myFusebox.parameters.userProvidedLoadParameter=false;
 	  myFusebox.parameters.userProvidedParseParameter=false;
 	  myFusebox.parameters.userProvidedExecuteParameter=false;
-	  
+	
 	  // default myFusebox.parameters depending on "mode" of the application set in fusebox.xml
 	  if (IsDefined("application.fusebox") AND IsDefined("application.fusebox.mode")) {
 	    if (application.fusebox.mode EQ "development") {
-	      myFusebox.parameters.load=true;
-	  	   myFusebox.parameters.parse=true;
+		 myFusebox.parameters.load=true;
+			   myFusebox.parameters.parse=true;
 			myFusebox.parameters.execute=true;
 	    }
 	    if (application.fusebox.mode EQ "production") {
-	      myFusebox.parameters.load=false;
+		 myFusebox.parameters.load=false;
 			myFusebox.parameters.parse=false;
 			myFusebox.parameters.execute=true;
 	    }
@@ -94,25 +94,25 @@ This software consists of voluntary contributions made by many individuals on be
 	<cfscript>
 	  if (IsDefined("application.fusebox.password") AND application.fusebox.password EQ attributes['fusebox.password']) {
 	    if (StructKeyExists(attributes, 'fusebox.load') and IsBoolean(attributes['fusebox.load'])) {
-	      myFusebox.parameters.load=attributes['fusebox.load'];
+		 myFusebox.parameters.load=attributes['fusebox.load'];
 		  myFusebox.parameters.userProvidedLoadParameter=true;
 	    }
 	    if (StructKeyExists(attributes, 'fusebox.parse') and IsBoolean(attributes['fusebox.parse'])) {
-	      myFusebox.parameters.parse=attributes['fusebox.parse'];
+		 myFusebox.parameters.parse=attributes['fusebox.parse'];
 		  myFusebox.parameters.userProvidedParseParameter=true;
 	    }
 	    if (StructKeyExists(attributes, 'fusebox.execute') and IsBoolean(attributes['fusebox.execute'])) {
-	      myFusebox.parameters.execute=attributes['fusebox.execute'];
+		 myFusebox.parameters.execute=attributes['fusebox.execute'];
 		  myFusebox.parameters.userProvidedExecuteParameter=true;
 	    }
 	  }
-	  
+	
 	  // if application.fusebox doesn't already exist we definitely want to reload
 	  if (NOT IsDefined("application.fusebox.isFullyLoaded") OR NOT application.fusebox.isFullyLoaded) {
 	    myFusebox.parameters.load=true;
 	  }
 	</cfscript>
-	  
+	
 	<!--- set up the appPath variable, which is the relative path from the web root to the app root --->
 	<cfset fb_.appPathVarname="FUSEBOX_APPLICATION_PATH" />
 	<cfif NOT structKeyExists(variables, fb_.appPathVarName)>
@@ -157,12 +157,12 @@ This software consists of voluntary contributions made by many individuals on be
 	  for (fb_.aPlugin in application.fusebox.plugins) {
 	    myFusebox.plugins[fb_.aPlugin]=structNew();
 	  }
-	  
+	
 	  // does this app give higher precedence to URL scope over FORM scope? If so, adjust
 	  if (application.fusebox.precedenceFormOrURL EQ "URL") {
 	    StructAppend(attributes, url, "yes");
 	  }
-	  
+	
 	</cfscript>
 
 	<!--- if it exists, load the fusebox.init file in the application root --->
@@ -177,19 +177,19 @@ This software consists of voluntary contributions made by many individuals on be
 	  if (NOT IsDefined('attributes.#application.fusebox.fuseactionVariable#') OR attributes[application.fusebox.fuseactionVariable] EQ "") {
 	    attributes[application.fusebox.fuseactionVariable]=application.fusebox.defaultFuseaction;
 	  }
-	  
+	
 	  // copy the value of the fuseactionVariable into the variable "attributes.fuseaction" for standardization
 	  attributes.fuseaction=attributes[application.fusebox.fuseactionVariable];
 	</cfscript>
 
 	<!--- set the myFusebox.originalCircuit, myFusebox.originalFuseaction --->
 	<cfif ListLen(attributes.fuseaction, '.') EQ 2>
-	  <cfscript>
+		<cfscript>
 	    myFusebox.thisCircuit   =ListFirst(attributes.fuseaction, '.');
 	    myFusebox.thisFuseaction=listlast(attributes.fuseaction, '.');
 		 myFusebox.originalCircuit   =myFusebox.thisCircuit;
 		 myFusebox.originalFuseaction=myFusebox.thisFuseaction;
-	  </cfscript>
+		</cfscript>
 	<cfelse>
 		<cfthrow type="fusebox.malformedFuseaction" message="malformed Fuseaction" detail="You specified a malformed Fuseaction of #attributes.fuseaction#.  A fully qualified Fuseaction must be in the form [Circuit].[Fuseaction].">
 	</cfif>

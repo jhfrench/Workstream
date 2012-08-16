@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_code_reports.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -72,7 +72,7 @@
 	</tr>
 </cfoutput>
 	<tr valign="top">
-		<td colspan="<cfif variables.month_loop GT 1>2<cfelse>3</cfif>" align="right"  class="RegTextIt">
+		<td colspan="<cfif variables.month_loop GT 1>2<cfelse>3</cfif>" align="right" class="RegTextIt">
 			<cfif variables.month_loop GT 1>#variables.employee_classification#<cfelse>#clientname#</cfif> Hour Totals: 
 		</td>
 <cfif variables.month_loop GT 1>
@@ -88,7 +88,7 @@
 </cfoutput>
 <cfif variables.month_loop LT 2>
 	<tr class="SubHeadText">
-		<td colspan="4" align="right"  class="SubHeadText">
+		<td colspan="4" align="right" class="SubHeadText">
 			Total Hours for #variables.employee_classification#:
 		</td>
 		<td align="right" class="SubHeadText">

@@ -1,6 +1,6 @@
 
 <!--Tools/qry_new_rates.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -11,15 +11,15 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfquery  datasource="#application.datasources.main#" >
+<cfquery name="insert_billing_rate" datasource="#application.datasources.main#" >
 INSERT INTO Billing_Rate (project_id, emp_id, rate)
 SELECT Time_entry.project_id, Time_entry.emp_id, Billing_Rate.rate 
 FROM Time_entry
-	LEFT OUTER JOIN  billing_rate ON Time_entry.emp_id = Billing_Rate.emp_id
+	LEFT OUTER JOIN Billing_Rate ON Time_entry.emp_id = Billing_Rate.emp_id
 		AND Time_entry.project_id = Billing_Rate.project_id
 WHERE Time_Entry.active_ind=1
 	AND Billing_Rate.billing_rate_id IS NULL
-GROUP BY time_entry.emp_id, Time_entry.project_id,  Billing_Rate.rate
+GROUP BY time_entry.emp_id, Time_entry.project_id, Billing_Rate.rate
 HAVING (Billing_Rate.rate IS NULL )
 </cfquery>
 
@@ -33,7 +33,7 @@ FROM Billing_Rate
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
 WHERE Billing_Rate.Rate IS NULL
 	AND Project.billable_type_id = 1
-    AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
+	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 ORDER BY name
 </cfquery>
 </cfsilent>

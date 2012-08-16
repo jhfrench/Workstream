@@ -52,9 +52,7 @@
 					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" message="Please enter description." maxlength="4000">
 				</td>
 				<td><label for="sort_order">Sort Order</label>: 
-					<br /><cfinput type="text" name="sort_order" id="sort_order" 
-                    value="#iif(attributes.privilege_id EQ 0, ('get_ref_privilege.recordcount+1'), ('get_ref_privilege.sort_order'))#"
-					size="3" maxlength="3" required="yes" validate="integer" message="Please enter sort order.">
+					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#iif(attributes.privilege_id EQ 0, ('get_ref_privilege.recordcount+1'), ('get_ref_privilege.sort_order'))#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.privilege_id EQ 0>
 					<input type="hidden" name="active_ind" value="1" />
@@ -69,7 +67,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="privilege_id" value="#attributes.privilege_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />

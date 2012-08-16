@@ -1,6 +1,6 @@
 
 <!--Customers/act_set_user_fields.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

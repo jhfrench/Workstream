@@ -1,6 +1,6 @@
 
 <!--Customers/act_edit_engagement_billing.cfm
-	Author: Jeromy French  -->
+	Author: Jeromy French -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

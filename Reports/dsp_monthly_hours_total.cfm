@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_monthly_hours_Total.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -12,7 +12,7 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfif comparenocase(temp_cc, ClientCode)><!-- I only want this after  the client code changes -->
+<cfif comparenocase(temp_cc, ClientCode)><!-- I only want this after the client code changes -->
 		<cfset temp_cc=ClientCode>
 		<cfif total_hours>
 			<cfinclude template="dsp_summary_hours.cfm"> 

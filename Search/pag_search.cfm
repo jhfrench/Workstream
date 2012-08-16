@@ -22,7 +22,7 @@
 		<div class="control-group">
 			<label for="task_id">Task ID</label>
 			<div class="controls">
-				<cfinput type="text" name="task_id" id="task_id" size="50"  class="span8" />
+				<cfinput type="text" name="task_id" id="task_id" size="50" class="span8" />
 				<p class="help-block">Separate multiple IDs with commas.</p>
 			</div>
 		</div>

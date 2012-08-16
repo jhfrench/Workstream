@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities:  
+	Responsibilities:
 	||
 	Name: Mike Haggerty
 	||

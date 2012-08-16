@@ -1,6 +1,6 @@
 
 <!--Marketing/dsp_marketing_input_form.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

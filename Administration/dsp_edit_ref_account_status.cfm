@@ -35,7 +35,7 @@
 <cfif len(attributes.method)>
 <cfmodule template="../common_files/qry_get_ref_account_status.cfm" account_status_id="#attributes.account_status_id#">
 	<cfset attributes.description=get_ref_account_status.description>
-    <cfset attributes.sort_order=get_ref_account_status.sort_order> 
+	<cfset attributes.sort_order=get_ref_account_status.sort_order> 
 </cfif>
 
 <cfform name="REF_account_status_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
@@ -64,7 +64,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="account_status_id" value="#attributes.account_status_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />

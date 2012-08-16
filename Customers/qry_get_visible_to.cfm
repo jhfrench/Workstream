@@ -1,6 +1,6 @@
 
 <!--Customers/qry_get_company_id.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

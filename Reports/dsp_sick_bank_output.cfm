@@ -1,6 +1,6 @@
 
 <!--Reports/dsp_sick_bank_output.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

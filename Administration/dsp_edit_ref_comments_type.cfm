@@ -39,7 +39,7 @@
 	<!--- display selected one --->
 	<cfmodule template="../common_files/qry_get_comments_type.cfm" comments_type_id="#attributes.comments_type_id#">
 	<cfset attributes.description=get_comments_type.description>
-    <cfset attributes.sort_order=get_comments_type.sort_order>
+	<cfset attributes.sort_order=get_comments_type.sort_order>
 	<cfset attributes.comments_type_id=get_comments_type.comments_type_id>
 </cfif>
 
@@ -58,7 +58,7 @@
 				</td>
 				<td><label for="sort_order">Sort Order</label>: 
 					<br /><cfinput type="text" name="sort_order" id="sort_order" value=
-                     #IIf(attributes.comments_type_id EQ 0, ("get_comments_type.recordcount+1"), ("get_comments_type.sort_order"))# size="3" maxlength="3"required="yes" validate="integer" message="Please enter sort order.">
+					#IIf(attributes.comments_type_id EQ 0, ("get_comments_type.recordcount+1"), ("get_comments_type.sort_order"))# size="3" maxlength="3"required="yes" validate="integer" message="Please enter sort order.">
 				</td>
 				<cfif attributes.comments_type_id EQ 0>
 					<input type="hidden" name="active_ind" value="1" />
@@ -73,7 +73,7 @@
 		</td>
 	</tr>
 	<tr bgcolor="##dddddd">
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="hidden" name="created_by" value="#session.user_account_id#" />
 			<input type="hidden" name="comments_type_id" value="#attributes.comments_type_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />

@@ -1,6 +1,6 @@
 <!--- $issue$ is this template used? --->
 <!--Reports/act_efficiency_report2.cfm
-	Author: Jeromy F  -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
 	||

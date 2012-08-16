@@ -25,7 +25,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td  class="btn-group">
+		<td class="btn-group">
 			<input type="submit">
 		</td>
 	</tr>
