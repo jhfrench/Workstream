@@ -27,25 +27,20 @@ SELECT (Emp_Contact.lname || ', ' || Emp_Contact.name) AS name,
 	Emp_Contact.emp_id AS emp_id, REF_Company.description AS company,
 	COALESCE(Email.email,'NA') AS email, COALESCE(Phone.phone_number,'NA') AS phone_number,
 	COALESCE(Phone.extension,'NA') AS extension, Position_History.Position_ID
-FROM Emp_Contact, Link_Company_Emp_Contact, REF_Company,
-	Security, Email, Phone,
-	Position_History, Demographics_Ngauge AS Demographics
-WHERE Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
-	AND Emp_Contact.emp_id=Security.emp_id
-	AND Emp_Contact.emp_id*=Email.emp_id
-	AND Emp_Contact.emp_id*=Phone.emp_id
-	AND Link_Company_Emp_Contact.company_id=REF_Company.company_id
-	AND Emp_Contact.emp_id = Position_History.emp_id
-	AND Demographics.emp_id = Emp_Contact.emp_id
-	AND Email.email_type_id = 1
-	AND Phone.phone_type_id = 1
-	AND Security.disable=0
+FROM Emp_Contact
+	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
+	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id=REF_Company.company_id
+	INNER JOIN Position_History ON Emp_Contact.emp_id=Position_History.emp_id
+	INNER JOIN Demographics_Ngauge AS Demographics ON Emp_Contact.emp_id=Demographics.emp_id
+	LEFT OUTER JOIN Email ON Emp_Contact.emp_id=Email.emp_id
+		AND Email.email_type_id=1
+	LEFT OUTER JOIN Phone ON Emp_Contact.emp_id=Phone.emp_id
+		AND Phone.phone_type_id=1
+WHERE #application.team_changed#=#application.team_changed#
+	AND Link_Company_Emp_Contact.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
 	AND Position_History.effective_end_date IS NULL
 	AND Demographics.end_date IS NULL
-	AND Demographics.Effective_To IS NULL
-	AND Link_Company_Emp_Contact.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
-	AND #application.team_changed#=#application.team_changed#
-	AND 1=1
+	AND Demographics.effective_to IS NULL
 ORDER BY Link_Company_Emp_Contact.company_id, Emp_Contact.lname, Emp_Contact.name
 </cfquery>
 </cfsilent>

@@ -13,23 +13,41 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<table>
+<fieldset>
+	<legend><h3>Addresses</h3></legend>
 <cfoutput query="get_locations">
-	<tr>
-		<td colspan="2" class="RegTextBd">#location_type#</td>
-	</tr>
-	<tr>
-		<td align="right">Address 1:</td>
-		<td><cfinput type="text" name="address1_#location_type_id#" value="#evaluate("address1_#location_type_id#")#" size="27"></td>
-	</tr>
-	<tr>
-		<td align="right">Address 2:</td>
-		<td><cfinput type="text" name="address2_#location_type_id#" value="#evaluate("address2_#location_type_id#")#" size="27"></td>
-	</tr>
-	<tr>
-		<td align="right">City, State Zip</td>
-		<td><cfinput type="text" name="city_#location_type_id#" value="#evaluate("city_#location_type_id#")#" size="12">, <cfselect name="state_#location_type_id#" query="get_states" selected="#evaluate("state_#location_type_id#")#" value="state_abbr" display="state_abbr"></cfselect> <cfinput type="text" name="zip_#location_type_id#" value="#evaluate("zip_#location_type_id#")#" validate="zipcode" message="Please enter a valid #location_type# zip code." size="5"></td>
-	</tr>
+	<fieldset>
+		<legend><h4>#location_type#</h4></legend>
+		<div class="control-group">
+			<label for="address1_#location_type_id#">Address 1</label>
+			<div class="controls">
+				<cfinput type="text" name="address1_#location_type_id#" id="address1_#location_type_id#" value="#evaluate('address1_#location_type_id#')#" size="27">
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="address2_#location_type_id#">Address 2</label>
+			<div class="controls">
+				<cfinput type="text" name="address2_#location_type_id#" id="address2_#location_type_id#" value="#evaluate("address2_#location_type_id#")#" size="27">
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="city_#location_type_id#">City</label>
+			<div class="controls">
+				<cfinput type="text" name="city_#location_type_id#" id="city_#location_type_id#" value="#evaluate('city_#location_type_id#')#" size="12">
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="state_#location_type_id#">State</label>
+			<div class="controls">
+				<cfselect name="state_#location_type_id#" id="state_#location_type_id#" query="get_states" selected="#evaluate('state_#location_type_id#')#" value="state_abbr" display="state_abbr" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="zip_#location_type_id#">Zip</label>
+			<div class="controls">
+				<cfinput type="text" name="zip_#location_type_id#" id="zip_#location_type_id#" value="#evaluate('zip_#location_type_id#')#" validate="zipcode" message="Please enter a valid #location_type# zip code." size="5">
+			</div>
+		</div>
+	</fieldset>
 </cfoutput>
-</table>
-
+</fieldset>

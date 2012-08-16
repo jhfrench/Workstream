@@ -15,25 +15,25 @@
  --->
 </cfsilent>
 <cfparam default="0" name="attributes.supervisor_id_list">
-<cfparam default="" name="form.supervisor_id_list">
-<cfparam default="1" name="form.num_present_supervisors">
-<cfif isdefined("attributes.date")>
-	<cfset attributes.hire_date=attributes.date>
+<cfparam default="1" name="attributes.present_supervisor_id">
+<cfif isdefined("attributes.hire_date")>
+	<cfset attributes.date_start=attributes.hire_date>
 </cfif>
-<cfquery name="emp_supervisor_entry" datasource="#application.datasources.main#">
-INSERT INTO Link_Employee_Supervisor (emp_id, supervisor_id, date_start, active_ind)
-VALUES (#attributes.emp_id#, #attributes.supervisor_id#, #createodbcdate(attributes.hire_date)#, 1)
-</cfquery>
-<cfif len(form.supervisor_id_list)>
-<cfloop index="ii" list="#attributes.supervisor_id_list#" delimiters=",">
-<cfquery name="emp_supervisor_update" datasource="#application.datasources.main#">
-UPDATE Link_Employee_Supervisor
-SET date_end=#createodbcdate(evaluate("attributes.end_date_#ii#"))#,
-	active_ind=0
-WHERE supervisor_id=#ii#
-	AND emp_id=#attributes.emp_id#
-	AND date_end IS NULL
-</cfquery>
+<cfif isdefined("attributes.date_start")>
+	<cfquery name="emp_supervisor_entry" datasource="#application.datasources.main#">
+	INSERT INTO Link_Employee_Supervisor (emp_id, supervisor_id, date_start, active_ind)
+	VALUES (#attributes.emp_id#, #attributes.supervisor_id#, #createodbcdate(attributes.date_start)#, 1)
+	</cfquery>
+</cfif>
+<cfloop list="#attributes.present_supervisor_id#" index="ii">
+	<cfif isdefined("attributes.end_date_#ii#")>
+	<cfquery name="emp_supervisor_update" datasource="#application.datasources.main#">
+	UPDATE Link_Employee_Supervisor
+	SET date_end=#createodbcdate(evaluate("attributes.end_date_#ii#"))#,
+		active_ind=0
+	WHERE supervisor_id=#ii#
+		AND emp_id=#attributes.emp_id#
+		AND date_end IS NULL
+	</cfquery>
+	</cfif>
 </cfloop>
-</cfif>
-

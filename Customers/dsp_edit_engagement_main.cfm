@@ -51,7 +51,6 @@
 			<label for="project_manager_emp_id"><abbr title="Project Manager">PM</abbr>/Account Management</label>
 			<div class="controls">
 				<cfmodule template="../common_files/dsp_team_select.cfm" size="6" select_name="project_manager_emp_id" emp_id="#get_engagement_main.project_manager_emp_id#">
-				<p class="help-block"></p>
 			</div>
 		</div>
 		<div class="control-group">
@@ -61,7 +60,6 @@
 					<input type="text" name="file_path" id="file_path" value="#get_engagement_main.file_path#" class="span3">
 					<a href="javascript:window.open('index.cfm?fuseaction=common_files.file_attach', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=420,height=210');" title="Associate a file path to this task." class="btn"><i class="icon-folder-open"></i> Specify</a>
 				</div>
-				<p class="help-block"></p>
 			</div>
 		</div>
 		<div class="control-group">
@@ -78,7 +76,6 @@
 					<option value="1" <cfif get_engagement_main.active_ind EQ 1> selected="selected"</cfif>>Active</option>
 					<option value="0" <cfif get_engagement_main.active_ind EQ 0> selected="selected"</cfif>>Inactive</option>
 				</select>
-				<p class="help-block"></p>
 			</div>
 		</div>
 		<fieldset>

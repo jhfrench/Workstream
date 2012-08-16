@@ -55,7 +55,6 @@
 			<label for="acronym">Acronym</label>
 			<div class="controls">
 				<cfinput type="text" name="acronym" id="acronym" value="#attributes.acronym#" size="15" maxlength="15" required="yes" message="Please enter acronym.">
-				<p class="help-block"></p>
 			</div>
 		</div>
 		<div class="control-group">

@@ -9,11 +9,10 @@
 	Name: Jeromy French
 	||
 	Edits:
-$Log: 
-
- 
+	$Log: 
 	 || 
  --->
+</cfsilent>
 <cfoutput>
 	<tr bgcolor="##78A0EB">
 		<td colspan="2" class="SubHeadText">

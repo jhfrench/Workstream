@@ -12,72 +12,43 @@
 	$Log:
 	 || 
  --->
-
 </cfsilent>
 <cfoutput>
-	<tr bgcolor="##78A0EB">
-		<td class="SelectText">
-			Date Implemented:
-		</td>
-		<td class="SelectText">
-			<input type="date" name="date" id="date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
-		</td>
-	</tr>
-	<tr bgcolor="##78A0EB">
-		<td class="SelectText">
-			Supervisor:
-		</td>
-		<td class="SelectText">
-</cfoutput>
-			<cfmodule template="../common_files/dsp_team_select.cfm" element_name="SUPERVISOR_ID" selected_flag="0" message="Please select a supervisor.">
-		</td>
-	</tr>
+<cfform name="form_supervisor_entry" action="act_supervisor_submit.cfm" method="POST" class="form-horizontal">
+	<fieldset>
+		<legend><h2>Supervisor Entry Form</h2></legend>
+		<div class="control-group">
+			<label for="date_start">Date Implemented</label>
+			<div class="controls">
+				<input type="date" name="date_start" id="date_start" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="supervisor_id">Supervisor</label>
+			<div class="controls">
+				<cfmodule template="../common_files/dsp_team_select.cfm" element_name="supervisor_id" selected_flag="0" message="Please select a supervisor." class="span3">
+			</div>
+		</div>
+	</fieldset>
 <cfif get_present_supervisor.recordcount>
-<cfoutput>
-	<tr bgcolor="##78A0EB">
-		<td colspan="2" class="SelectText">
-			<strong>Current Supervisor<cfif get_present_supervisor.recordcount GT 1>s</cfif></strong>
-		</td>
-	</tr>
-	<tr bgcolor="##78A0EB">
-		<td class="SelectText">
-			Check box to remove
-		</td>
-		<td class="SelectText">
-			Last date as supervisor
-		</td>
-	</tr>
-</cfoutput>
-<cfoutput query="get_present_supervisor">
-	<tr bgcolor="##78A0EB">
-		<td class="SelectText">
-			<label for="#get_present_supervisor.user_account_id#"><input type="checkbox" name="supervisor_id_list" id="#get_present_supervisor.user_account_id#" value="#get_present_supervisor.user_account_id#" />#get_present_supervisor.sup_name#</label>
-		</td>
-		<td class="SelectText">
-			<input type="date" name="end_date_#get_present_supervisor.user_account_id#" id="end_date_#get_present_supervisor.user_account_id#" value="#dateformat(now(),'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" class="span3 date" />
-		</td>
-		<!--- <td>&nbsp;</td> --->
-	</tr>
-</cfoutput>
+	<fieldset>
+		<legend><h3>Current Supervisor</h3></legend>
+		<cfloop query="get_present_supervisor">
+		<div class="control-group">
+			<label for="end_date_#get_present_supervisor.supervisor_id#">#get_present_supervisor.sup_name#</label>
+			<div class="controls">
+				<input type="date" name="end_date_#get_present_supervisor.supervisor_id#" id="end_date_#get_present_supervisor.supervisor_id#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" class="span3 date" />
+				<p class="help-block">If provided, this date will be used to mark the end of this supervisor relationship.</p>
+			</div>
+		</div>
+		</cfloop>
+	</fieldset>
 </cfif>
-<cfoutput>
-	<!--- <cfif get_present_supervisor.recordcount>
-		<tr bgcolor="##78A0EB">
-			<td class="SelectText">
-				Last Date Under Most Recent Supervisor:
-			</td>
-			<td class="SelectText">
-				<cfinput type="text" name="end_date" size="10" maxlength="10" required="yes" validate="date" message="Please enter the last date under most recent supervisor. (m/d/yyyy)" value="#dateformat(Now(),'m/d/yyyy')#">
-			</td>
-		</tr>
-	</cfif> --->
-	<tr align="center" bgcolor="##78A0EB">
-		<td colspan="2" class="btn-group">
-			<input type="hidden" name="num_present_supervisors" value="#get_present_supervisor.recordcount#" />
+		<div class="form-actions">
 			<input type="hidden" name="emp_id" value="#emp_id#" />
-			<input type="submit" value="Submit Supervisor" />
-			<input type="button" onclick="javascript:window.close();" value="Cancel" />
-		</td>
-	</tr>
+			<input type="hidden" name="present_supervisor_id" value="#valuelist(get_present_supervisor.supervisor_id)#" />
+			<input type="submit" value="Submit Supervisor" class="btn btn-primary" />
+			<input type="button" onclick="javascript:window.close();" value="Cancel" class="btn" />
+		</div>
+</cfform>
 </cfoutput>
-

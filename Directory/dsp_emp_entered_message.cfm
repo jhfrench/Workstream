@@ -25,9 +25,8 @@ ORDER BY Demographics.last_name, Demographics.first_name
 <cfset variables.administrators_list=valuelist(get_administrators.emp_id)>
 </cfsilent>
 <cfoutput>
-	<tr>
-		<td>
-			#attributes.name# #attributes.lname# has been entered into the workstream database. This new account currently does not have access to any modules, reports or tools. To administer this new account (grant access to reports, change passwords, etc), please 
+<div class="alert">
+	#attributes.name# #attributes.lname# has been entered into the workstream database. This new account currently does not have access to any modules, reports or tools. To administer this new account (grant access to reports, change passwords, etc), please 
 </cfoutput>
 <cfif ListFind(variables.administrators_list, session.user_account_id)>
 	<cfoutput><a href="javascript:edit_employee(#variables.emp_id#)">administer this account</a>.</cfoutput>
@@ -38,5 +37,4 @@ ORDER BY Demographics.last_name, Demographics.first_name
 </cfoutput>
 </ul>
 </cfif>
-		</td>
-	</tr>
+</div>

@@ -72,7 +72,7 @@
 		<!-- <set name="attributes.object_name" value="Employee List"/>
 		<include template="../common_files/act_object_access.cfm"> -->
 		<set name="request.pagetitle" value="Employee Details"/>
-		<include template="pag_emp_details.cfm"/>
+		<include template="pag_employee_details.cfm"/>
 	</fuseaction>
 	<fuseaction name="benefits_entry">
 		<set name="no_banner" value="1"/>

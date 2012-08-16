@@ -15,12 +15,9 @@
 	--> attributes.emp_id: number containing the unique identifier of the individual being requested
 
  --->
-<cfquery name="get_present_supervisor" datasource="#application.datasources.main#">
-SELECT COALESCE(Emp_Contact.lname || ', ' || Emp_Contact.name, 'NA') AS sup_name, Emp_Contact.emp_id
-FROM Emp_Contact, Link_Employee_Supervisor
-WHERE Emp_Contact.emp_id=Link_Employee_Supervisor.supervisor_id
-	AND Link_Employee_Supervisor.user_account_id=#attributes.emp_id#
-	AND Link_Employee_Supervisor.date_end IS NULL
-ORDER BY Link_Employee_Supervisor.date_start DESC
+<cfquery name="get_present_supervisor" dbtype="query">
+SELECT *
+FROM get_supervisor_history
+WHERE current_supervisor_ind=1
 </cfquery>
 </cfsilent>

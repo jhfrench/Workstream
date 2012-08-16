@@ -15,7 +15,5 @@
 	END FUSEDOC --->
 
 </cfsilent>
-<cftransaction isolation="READ_COMMITTED">
-	<cfinclude template="qry_emp_supervisor_entry.cfm">
-	<cfinclude template="../common_files/js_reload_and_close.cfm">
-</cftransaction>
+<cfinclude template="qry_emp_supervisor_entry.cfm">
+<cfinclude template="../common_files/js_reload_and_close.cfm">

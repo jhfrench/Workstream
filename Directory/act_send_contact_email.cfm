@@ -15,6 +15,8 @@
 	--> name: string containing the first name of an employee
 	--> email: string containing individual email addresses
  --->
+</cfsilent>
+<!--- $issue$: do we want to reactivate this? Looks like a scheduled process that needs some other pieces (like get_emails query). For now, the REF_Screen record is deactivated --->
 <!--- paramed form variables (safety)--->
 <cfparam name="fname" default="">
 <cfparam name="lname" default="">

@@ -18,7 +18,7 @@
 <div class="row-fluid">
 	<div class="span3">
 		<img src="#request.dir_level##application.application_specific_settings.image_dir#photos/#get_emp_details.photo#" width="144" height="144" alt="#attributes.section_title#" border="0">
-		<cfif session.user_account_id EQ 1><a href="javascript:edit_employee('#emp_id#');" class="btn">Edit Employee Information</a></cfif>
+		<cfif session.user_account_id EQ 1><a href="javascript:edit_employee(#emp_id#);" class="btn">Edit Employee Information</a></cfif>
 		<br />
 		<b>Birthdate:</b> #dateformat(get_emp_details.dob,"mm/dd")#<br />
 		<b>Hire Date:</b> #dateformat(get_emp_details.hire_date,"m/d/yyyy")#<br />
@@ -42,12 +42,12 @@
 		</cfif>
 		<cfif listcontains(valuelist(get_user_access.fuseaction),"emp_entry")>
 
+			<cfinclude template="dsp_emp_job_titles.cfm">
+
 			<cfif listcontains("1" ,session.user_account_id)>
 			<!--- <cfif session.user_account_id EQ 126 OR session.user_account_id EQ 609> --->
 				<cfinclude template="dsp_emp_supervisor.cfm">
 			</cfif>
-
-			<cfinclude template="dsp_emp_position_number.cfm">
 
 			<!--- Only Jeromy can see this so hard code it--->
 			<cfif listcontains("1" ,session.user_account_id)>
@@ -56,7 +56,7 @@
 				<cfinclude template="dsp_emp_performance_review.cfm">
 			</cfif>
 
-			<cfinclude template="dsp_emp_job_titles.cfm">
+			<cfinclude template="dsp_emp_position_number.cfm">
 		</cfif>
 		<cfif get_subordinates.recordcount>
 			<h4>Direct Reports</h4>
