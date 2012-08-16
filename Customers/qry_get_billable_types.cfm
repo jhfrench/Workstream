@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I retrieve all of the information from the REF_Billable table.
+	Responsibilities: I retrieve all of the information from the REF_Billable_Type table.
 
 	||
 	Edits:
@@ -13,8 +13,8 @@
 	END FUSEDOC --->
 <cfquery name="get_billable_types" datasource="#application.datasources.main#">
 SELECT *
-FROM REF_Billable
-ORDER BY billable_type
+FROM REF_Billable_Type
+ORDER BY description
 </cfquery>
 </cfsilent>
 

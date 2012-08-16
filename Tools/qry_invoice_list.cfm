@@ -17,7 +17,7 @@
 <cfquery name="invoice_list" datasource="#application.datasources.main#">
 SELECT Customer.customer_id, Customer.root_code, Customer.description AS customer_name,
 	Project.project_id, Project.project_code, Project.description AS project_name, 
-	REF_Billable.billable_type_id, REF_Billable.billable_type, SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS revenue, COUNT(DISTINCT Time_Entry.task_id) AS total_tasks
+	REF_Billable_Type.billable_type_id, REF_Billable_Type.description AS billable_type, SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS revenue, COUNT(DISTINCT Time_Entry.task_id) AS total_tasks
 FROM Time_Entry
 	INNER JOIN Link_Company_Emp_Contact ON Time_Entry.emp_id=Link_Company_Emp_Contact.emp_id
 	LEFT OUTER JOIN Billing_Rate ON Time_Entry.emp_id=Billing_Rate.emp_id
@@ -27,7 +27,7 @@ FROM Time_Entry
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	LEFT OUTER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
 		AND Notes.active_ind=1
-	LEFT OUTER JOIN REF_Billable ON Project.billable_type_id=REF_Billable.billable_type_id
+	LEFT OUTER JOIN REF_Billable_Type ON Project.billable_type_id=REF_Billable_Type.billable_type_id
 WHERE Time_Entry.active_ind=1
 	AND Project.billable_type_id=1
 	AND Customer.customer_id=#attributes.customer_id#
@@ -47,7 +47,7 @@ WHERE Time_Entry.active_ind=1
 	)</cfif>
 GROUP BY Customer.customer_id, Customer.root_code, Customer.description,
 	Project.project_id, Project.project_code, Project.description, 
-	REF_Billable.billable_type_id, REF_Billable.billable_type
+	REF_Billable_Type.billable_type_id, REF_Billable_Type.description
 ORDER BY Customer.root_code, Project.project_code
 </cfquery>
 </cfsilent>

@@ -16,7 +16,7 @@
 <cfquery name="get_engagement_dashboard" datasource="#application.datasources.main#">
 SELECT Project.status, Customer.description AS customer_description, Project.description,
 	Project.project_code, Project.vision, Project.budget,
-	Project.Mission, REF_Billable.Billable_Type,
+	Project.Mission, REF_Billable.description AS Billable_Type,
 	Project.billable_type_id, Project.active_ind, REF_Active_Indicator.active_ind_Type,
 	Project.company_id, Flat_Rate.rate_end_date,
 	Flat_Rate.rate_start_date, Project.project_manager_emp_id, Emp_Contact.LName,

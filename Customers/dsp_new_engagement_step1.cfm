@@ -57,7 +57,7 @@
 		</td>
 		<td class="RegTextBd">
 			Billing Type<br />
-			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="billable_type" required="yes" message="Please specify the billing type for this engagement."></cfselect>
+			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="description" required="yes" message="Please specify the billing type for this engagement."></cfselect>
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="2" class="Note">
@@ -65,7 +65,7 @@
 					Specify which product this engagement will cover, and indicate if the engagement will require any custom data entry. Choose the billing structure for this engagement:
 					</cfoutput>
 					<cfoutput query="get_billable_types">
-					<br />-#billable_type#: #description#
+					<br />-#description#
 					</cfoutput><cfoutput>
 				</li>
 			</ol>

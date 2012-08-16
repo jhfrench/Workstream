@@ -123,17 +123,17 @@
 <!--- <cfset overview = evaluate(#MARKETING.OVERVIEW[ii]#)>		 --->
 <cfset  project_code = get_max_code.project_code +0.001>
 			<cfquery name="insert_project" datasource="#application.datasources.main#">
-                   INSERT INTO project
-			    (description, active_ind, project_code, customer_id, company_id, billable_type_id) 
-				VALUES ('#MARKETING.description[ii]#', 2, #variables.project_code#, #get_max_code.customer_id#, 9, 2)
-               </cfquery>
+			INSERT INTO Project (description, active_ind, project_code,
+				customer_id, company_id, billable_type_id) 
+			VALUES ('#marketing.description[ii]#', 2, #variables.project_code#,
+				#get_max_code.customer_id#, 9, 2)
+			</cfquery>
 			<cfquery name="get_max_id" datasource="#application.datasources.main#">
-                   select max(project_id) as project_id
-			    from project
-               </cfquery>
+			SELECT MAX(project_id) as project_id
+			FROM Project
+			</cfquery>
 			<cfquery name="insert_marketing" datasource="#application.datasources.main#">
-	              INSERT INTO marketing
-			    (project_code, project_id
+			INSERT INTO Marketing (project_code, project_id
 			    <cfif IsNumeric(MARKETING.projected_revenue[ii])>,projected_revenue</cfif>
 			    <cfif IsNumeric(MARKETING.probability[ii])>, probability </cfif>
 			    <cfif isdate(MARKETING.statusabovedate[ii])>,statusabovedate</cfif>

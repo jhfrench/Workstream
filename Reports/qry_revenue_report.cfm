@@ -21,7 +21,7 @@ SELECT COALESCE(Hour_Revenue.revenue,0) AS hour_revenue,
 FROM ABCD_Months, (
 		SELECT SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS revenue,
 			EXTRACT(MONTH FROM Time_Entry.date) AS revenue_month, EXTRACT(YEAR FROM Time_Entry.date) AS revenue_year,
-			Project.billable_type_id AS billable_type_id
+			Project.billable_type_id
 		FROM Time_Entry, Link_Company_Emp_Contact, Billing_Rate, Project
 		WHERE Time_Entry.emp_id=Link_Company_Emp_Contact.emp_id
 			AND Time_Entry.emp_id=Billing_Rate.emp_id

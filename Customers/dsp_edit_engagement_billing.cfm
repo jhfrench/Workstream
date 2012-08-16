@@ -33,7 +33,7 @@
 	<tr valign="top">
 		<td class="RegTextBd">
 			Billing Type<br />
-			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="billable_type" selected="#get_engagement_main.billable_type_id#" onchange="javascript:submit();" required="yes" message="Please specify the billing type for this engagement."></cfselect>
+			<cfselect name="billable_type_id" size="4" query="get_billable_types" value="billable_type_id" display="description" selected="#get_engagement_main.billable_type_id#" onchange="javascript:submit();" required="yes" message="Please specify the billing type for this engagement."></cfselect>
 		</td>
 		<td class="RegTextBd">
 			Budget<br />
