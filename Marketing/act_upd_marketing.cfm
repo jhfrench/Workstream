@@ -20,14 +20,7 @@
 		<cfset overview = MARKETING.OVERVIEW[ii]>
 
 	<cfif NOT comparenocase(MARKETING.RowStatus.Action[ii],  "u")> 
-			<cfif compare(MARKETING.projected_revenue[ii], "") 
-			or compare(MARKETING.probability[ii], "") 
-			or compare(MARKETING.statusabovedate[ii], "") 
-			or compare(MARKETING.statusindate[ii], "") 
-			or compare(MARKETING.statusbestfewdate[ii], "") 
-			or compare(MARKETING.statuscontractdate[ii], "") 
-			or  compare(MARKETING.company_size[ii], "") 
-			or compare(MARKETING.overview[ii], "")>
+			<cfif len(MARKETING.projected_revenue[ii])+len(MARKETING.probability[ii])+len(MARKETING.statusabovedate[ii])+len(MARKETING.statusindate[ii])+len(MARKETING.statusbestfewdate[ii])+len(MARKETING.statuscontractdate[ii])+len(MARKETING.company_size[ii])+len(MARKETING.overview[ii])>
 				<cfquery name="update_marketing" datasource="#application.datasources.main#">
 				UPDATE Marketing
 				SET overview =  '#overview#',
@@ -65,33 +58,28 @@
 				original_name = evaluate("MARKETING.original.NAME#jj#[ii]");
 			</cfscript>
 		<!--- this is where edits are made to an existing code --->
-			<cfif compare(emp_id, "")>
+			<cfif len(emp_id)>
 
-			<cfif compare(paddress, "") 
-			or compare(saddress, "") 
-			or compare(city, "") 
-			or compare(state, "") 
-			or compare(zip, "")>
+			<cfif len(paddress)+len(saddress)+len(city)+len(state)+len(zip)>
 					<cfquery name="update_location" datasource="#application.datasources.main#">
-					update location
-					set <cfif compare(paddress, "")>address1= '#paddress#',</cfif> 
-					<cfif compare(saddress, "")>address2 = '#saddress#',</cfif>
-					<cfif compare(state, "")>state = '#state#',</cfif>
-					<cfif compare(zip, "")> zip = '#zip#',</cfif>
-					<cfif compare(city, "")>city = '#city#'</cfif>
+					UPDATE Location
+					set <cfif len(paddress)>address1= '#paddress#',</cfif> 
+					<cfif len(saddress)>address2 = '#saddress#',</cfif>
+					<cfif len(state)>state = '#state#',</cfif>
+					<cfif len(zip)> zip = '#zip#',</cfif>
+					<cfif len(city)>city = '#city#'</cfif>
 					where #emp_id#=emp_id and location_type_id = 1
 				</cfquery>
 			</cfif>
-			<cfif compare(phone, "") 
-			or compare(extension, "")>
+			<cfif len(phone)+len(extension)>
 				<cfquery name="update_phone" datasource="#application.datasources.main#">
 					update phone
-					set <cfif compare(phone, "") >phone_number = '#phone#'</cfif>
-					<cfif compare(extension, "")>, extension = '#extension#'</cfif>
+					set <cfif len(phone) >phone_number = '#phone#'</cfif>
+					<cfif len(extension)>, extension = '#extension#'</cfif>
 					where #emp_id#=emp_id and phone_type_id = 1
 				</cfquery>
 			</cfif>
-			<cfif  compare(email, "")>
+			<cfif len(email)>
 				<cfquery name="update_email" datasource="#application.datasources.main#">
 					update email
 					set email = '#email#'
@@ -111,7 +99,7 @@
 			<!--- INSERT AN ENTIERLY NEW MARKETING CODE --->
 			<cfelseif NOT comparenocase(MARKETING.RowStatus.Action[ii],  "i")>
 			<!--- for insert I require that there be a Description --->
-		<cfif compare(MARKETING.description[ii], "")>
+		<cfif len(MARKETING.description[ii])>
 
 			<cfquery name="get_max_code" datasource="#application.datasources.main#">
                    SELECT MAX(project_code) AS project_code, customer_id
@@ -139,7 +127,7 @@
 			    <cfif isdate(MARKETING.statusbestfewdate[ii])>, statusbestfewdate </cfif>
 			    <cfif isdate(MARKETING.statuscontractdate[ii])> , statuscontractdate</cfif>
 			    <cfif isnumeric(MARKETING.company_size[ii])>, company_size</cfif>
-			    <cfif compare(MARKETING.overview[ii], "")> , overview</cfif>)
+			    <cfif len(MARKETING.overview[ii])> , overview</cfif>)
 				VALUES (#variables.project_code#, #get_max_id.project_id#
 				 <cfif isnumeric(MARKETING.projected_revenue[ii])>,'#MARKETING.PROJECTED_REVENUE[ii]#'</cfif> 
 				 <cfif isnumeric(MARKETING.probability[ii])>,'#MARKETING.PROBABILITY[ii]#'</cfif> 
@@ -148,7 +136,7 @@
 				 <cfif isdate(MARKETING.statusbestfewdate[ii])>,  '#MARKETING.STATUSBESTFEWDATE[ii]#' </cfif> 
 				 <cfif isdate(MARKETING.statuscontractdate[ii])> ,'#MARKETING.STATUSCONTRACTDATE[ii]#'</cfif> 
 				 <cfif isnumeric(MARKETING.company_size[ii])>, '#MARKETING.COMPANY_SIZE[ii]#' </cfif>
-				 <cfif compare(MARKETING.overview[ii], "")> ,  '#OVERVIEW#'</cfif>)
+				 <cfif len(MARKETING.overview[ii])> ,  '#OVERVIEW#'</cfif>)
 			</cfquery>
 			<cfloop from="1" to="3" index="jj">
 			    <cfscript>
@@ -165,7 +153,7 @@
 					lname = evaluate("MARKETING.LNAME#jj#[ii]");
 				</cfscript>
 				<!--- only insert the contact informtion if a person is entered. --->
-				<cfif compare(name, "") or compare(lname, "")>
+				<cfif len(name)+len(lname)>
 				<cfquery name="insert_emp_contact" datasource="#application.datasources.main#">
 	            INSERT INTO Emp_Contact (name, lname, emp_contact_type)
 				VALUES ('#name#', '#lname#', 3)
@@ -176,27 +164,27 @@
 				 </cfquery>
 				<cfquery name="insert_location" datasource="#application.datasources.main#">
 				INSERT INTO Location (emp_id
-					<cfif compare(paddress, "")>, address1</cfif>
-					<cfif compare(saddress, "")>, address2</cfif>
-					<cfif compare(city, "")>, city</cfif>
-					<cfif compare(state, "")>, state</cfif>
-					<cfif compare(zip, "")>, zip</cfif>)
-				VALUES (#get_emp_id.emp_id#<cfif compare(paddress, "")> , '#paddress#'</cfif>
-					<cfif compare(saddress, "")>, '#saddress#'</cfif> 
-					<cfif compare(city, "")>, '#city#'</cfif><cfif compare(state, "")>, '#state#'</cfif>
-					<cfif compare(zip, "")>, '#zip#'</cfif>)
+					<cfif len(paddress)>, address1</cfif>
+					<cfif len(saddress)>, address2</cfif>
+					<cfif len(city)>, city</cfif>
+					<cfif len(state)>, state</cfif>
+					<cfif len(zip)>, zip</cfif>)
+				VALUES (#get_emp_id.emp_id#<cfif len(paddress)> , '#paddress#'</cfif>
+					<cfif len(saddress)>, '#saddress#'</cfif> 
+					<cfif len(city)>, '#city#'</cfif><cfif len(state)>, '#state#'</cfif>
+					<cfif len(zip)>, '#zip#'</cfif>)
 				</cfquery>
 				<cfquery name="insert_phone" datasource="#application.datasources.main#">
 				INSERT INTO phone (emp_id, 
-					<cfif compare(phone, "")>phone_number,</cfif>
+					<cfif len(phone)>phone_number,</cfif>
 					phone_type_id)
 				VALUES (#get_emp_id.emp_id#, 
 					<cfif isnumeric(phone)>#phone#</cfif> 
 					,1)
 				</cfquery>
 				<cfquery name="insert_email" datasource="#application.datasources.main#">
-				INSERT INTO Email (emp_id, <cfif compare(email, "")>email</cfif>, email_type_id)
-				VALUES (#get_emp_id.emp_id#, <cfif compare(email, "")>'#email#'</cfif>,1)
+				INSERT INTO Email (emp_id, <cfif len(email)>email</cfif>, email_type_id)
+				VALUES (#get_emp_id.emp_id#, <cfif len(email)>'#email#'</cfif>,1)
 				</cfquery>
 				<cfquery name="insert_marketing_emp" datasource="#application.datasources.main#">
 				INSERT INTO Marketing_Emp (emp_id, project_id)

@@ -31,7 +31,7 @@ VALUES ('#attributes.datefield1#', #attributes.emp_id#, #attributes.project_id#,
 SELECT CURRVAL('Expense_expense_id_SEQ') AS expense_id
 </cfquery>
 <cfloop from="1" to="#Get_Expense_Type.recordcount#" index="ii">
-<cfif compare(evaluate("et_#ii#"), "") and compare(evaluate("et_#ii#"), ".00")>
+<cfif len(evaluate("et_#ii#")) and compare(evaluate("et_#ii#"), ".00")>
 <cfquery name="insert_expense_amount" datasource="#application.datasources.main#">
 INSERT INTO Expense_Amount (expense_type_id, expense_amount, expense_id) 
 VALUES (#ii#, #evaluate("et_#ii#")#, #get_expense_id.expense_id#)

@@ -13,7 +13,7 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<!--- <cfset variables.destination="#replace(cgi.PATH_TRANSLATED, listchangedelims(cgi.SCRIPT_NAME, "\", "/"), "")#isay\Create\upload.cfm">
+<!--- <cfset variables.destination="#replace(cgi.PATH_TRANSLATED, listchangedelims(cgi.SCRIPT_NAME, "\", "/"),"")#isay\Create\upload.cfm">
 <cffile action="UPLOAD" destination="#variables.destination#" filefield="photo" nameconflict="MAKEUNIQUE" accept="image/*">
 <cfset photo=file.serverfile> --->
 <cftransaction isolation="READ_COMMITTED">

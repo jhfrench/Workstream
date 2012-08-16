@@ -32,7 +32,7 @@
 <!--- If the action for that level of the array is UPDATE run update statements. --->
 <cfif NOT comparenocase(person_grid.RowStatus.Action[ii],  "u")> 
 <!--- there must be a name for the contact --->
-<cfif  compare(PERSON_GRID.name[ii], "") or compare(PERSON_GRID.lname[ii], "")>
+<cfif len(PERSON_GRID.name[ii]) or len(PERSON_GRID.lname[ii])>
 	<cftransaction isolation="READ_COMMITTED">
 	<!--- if the name has changed update the name --->
 	<cfif compare(PERSON_GRID.name[ii], PERSON_GRID.original.name[ii])>
@@ -51,15 +51,14 @@
           </cfquery>
 	</cfif>
 <!--- if the email is new then insert --->
-	<cfif  NOT compare(person_grid.original.email[ii], "") 
-	and compare(person_grid.email[ii], "")>
+	<cfif NOT len(person_grid.original.email[ii]) and len(person_grid.email[ii])>
 		<cfquery name="insert_email" datasource="#application.datasources.main#">
 	         INSERT INTO email
 		    (email, emp_id, email_type_id)
 		    values('#email#', #PERSON_GRID.emp_id[ii]#, 1)
 	     </cfquery>
 	<!--- Otherwise update the record --->
-	<cfelseif compare(person_grid.email[ii], "")>
+	<cfelseif len(person_grid.email[ii])>
 		<cfquery name="update_email" datasource="#application.datasources.main#">
 	         update email
 		    set email = '#email#'
@@ -67,9 +66,9 @@
 	     </cfquery>
 	</cfif>
 	<!--- if the phone number is new then insert. --->
-	<cfif  NOT compare(person_grid.original.phone_number[ii], "") 
-	and NOT compare(person_grid.original.extension[ii], "") 
-	and compare(person_grid.phone_number[ii], "")>
+	<cfif  NOT len(person_grid.original.phone_number[ii]) 
+	and NOT len(person_grid.original.extension[ii]) 
+	and len(person_grid.phone_number[ii])>
 		<cfquery name="insert_phone" datasource="#application.datasources.main#">
 	         INSERT INTO phone
 		    (phone_number 
@@ -89,13 +88,13 @@
 	</cfif>
 
 	<!--- if the address is new then insert --->
-	<cfif  NOT compare(person_grid.original.address1[ii], "") 
-	and NOT compare(person_grid.original.address2[ii], "") 
-	and NOT compare(person_grid.original.city[ii], "") 
-	and  NOT compare(person_grid.original.state[ii], "") 
-	and NOT compare(person_grid.original.zip[ii], "")> 
+	<cfif  NOT len(person_grid.original.address1[ii]) 
+	and NOT len(person_grid.original.address2[ii]) 
+	and NOT len(person_grid.original.city[ii]) 
+	and  NOT len(person_grid.original.state[ii]) 
+	and NOT len(person_grid.original.zip[ii])> 
 
-	<cfif compare(person_grid.address1[ii])+len(person_grid.address2[ii])+len(person_grid.city[ii])+len(person_grid.state[ii])+len(person_grid.zip[ii])>
+	<cfif len(person_grid.address1[ii])+len(person_grid.address2[ii])+len(person_grid.city[ii])+len(person_grid.state[ii])+len(person_grid.zip[ii])>
 			<cfquery name="insert_location" datasource="#application.datasources.main#">
 			INSERT INTO Location (address1, address2, city,
 				state, zip, emp_id,
@@ -105,11 +104,11 @@
 				1)
 		     </cfquery>
 		</cfif>
-	<cfelseif compare(person_grid.address1[ii], "") 
-	or compare(person_grid.address2[ii], "") 
-	or compare(person_grid.city[ii], "") 
-	or compare(person_grid.state[ii], "") 
-	or compare(person_grid.zip[ii], "")>
+	<cfelseif len(person_grid.address1[ii]) 
+	or len(person_grid.address2[ii]) 
+	or len(person_grid.city[ii]) 
+	or len(person_grid.state[ii]) 
+	or len(person_grid.zip[ii])>
 		<cfquery name="update_location" datasource="#application.datasources.main#">
 	         update location
 		    set address1 = '#address1#'
@@ -128,7 +127,7 @@
 <cfelseif NOT comparenocase(person_grid.RowStatus.Action[ii],  "i")>
 
 <!--- Insert name in to  emp_contact as long as a name is specified. --->
-<cfif compare(name, "") and compare(lname, "")>
+<cfif len(name) AND len(lname)>
 	<cftransaction isolation="READ_COMMITTED">
 	<cfquery name="insert_emp_contact" datasource="#application.datasources.main#">
 	INSERT INTO Emp_Contact (name, lname, emp_contact_type)
@@ -142,7 +141,7 @@ INSERT INTO Marketing_Emp (emp_id, project_id)
 VALUES (#get_emp_id.emp_id#, #project_id#)
 </cfquery>
 <!--- Insert new email address --->			 
-	<cfif  compare(person_grid.email[ii], "")>
+	<cfif len(person_grid.email[ii])>
 		<cfquery name="insert_email" datasource="#application.datasources.main#">
 		INSERT INTO email (email, emp_id, email_type_id)
 		VALUES ('#email#',#get_emp_id.emp_id# , 1)
