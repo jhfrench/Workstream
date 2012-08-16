@@ -25,16 +25,16 @@
 			From:
 		</td>
 		<td>
-			<cfinput type="datefield" name="from_date" value="" required="yes" validate="date" message="Please enter a properly formatted from date." size="11">
-			</td>
+			<input type="date" name="from_date" id="from_date" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
+		</td>
 	</tr>
 	<tr class="subHeadText">
 		<td>
 			To:
 		</td>
 		<td>
-			<cfinput type="datefield" name="to_date" value="" required="yes" validate="date" message="Please enter a properly formatted to date." size="11"><br />
-			</td>
+			<input type="date" name="to_date" id="to_date" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
+		</td>
 	</tr>
 
 	<tr class="subHeadText">

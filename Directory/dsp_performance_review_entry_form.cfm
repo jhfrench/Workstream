@@ -22,7 +22,7 @@ $Log:
 			Date Reviewed:
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="date_reviewed" size="10" maxlength="10" required="yes" validate="date" message="Please enter the date this employee was reviewed.  (m/d/yyyy)">
+			<input type="date" name="date_reviewed" id="date_reviewed" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">

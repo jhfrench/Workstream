@@ -29,7 +29,7 @@
 	</tr>
 	<tr>
 		<td>
-			<cfinput type="text" name="date_granted" size="10" required="yes" validate="date" message="Enter a date.">
+			<input type="date" name="date_granted" id="date_granted" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
 		</td>
 		<td>
 			<cfinput type="text" name="granted_hours" size="5" required="yes" validate="float" message="Enter hours.">

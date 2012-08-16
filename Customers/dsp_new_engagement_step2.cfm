@@ -49,7 +49,11 @@
 	</tr>
 	<tr valign="top">
 		<td>
-			Start: <cfinput type="text" name="start_date" required="yes" validate="date" message="Please enter a proper date for which billing is to begin on this engagement." size="8"> End: <cfinput type="text" name="end_date" required="no" validate="date" message="Please enter a proper date for which billing is to end on this engagement." size="8">
+			Start:
+			<input type="date" name="start_date" id="start_date" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
+			<p>Please enter a proper date for which billing is to begin on this engagement.</p>
+			End:
+			<input type="date" name="end_date" id="end_date" min="2011-09-01" maxlength="10" class="span3 date" />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">
@@ -61,7 +65,12 @@
 <cfcase value="3">
 	<tr valign="top">
 		<td>
-			Start: <cfinput type="text" name="start_date" required="yes" validate="date" message="Please enter a proper date for which billing is to begin on this engagement." size="8"> End: <cfinput type="text" name="end_date" required="no" validate="date" message="Please enter a proper date for which billing is to end on this engagement." size="8"> Months: <cfinput type="text" name="months" required="yes" validate="integer" message="Please enter the number of months over which this engagement will be billed to the customer." size="2"><br />
+			Start: 
+			<input type="date" name="start_date" id="start_date" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
+			<p>Please enter a proper date for which billing is to begin on this engagement.</p>
+			End:
+			<input type="date" name="end_date" id="end_date" min="2011-09-01" maxlength="10" class="span3 date" />
+			Months: <cfinput type="text" name="months" required="yes" validate="integer" message="Please enter the number of months over which this engagement will be billed to the customer." size="2">
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">
@@ -86,7 +95,10 @@
 	<tr valign="top">
 		<td>
 			<span class="RegTextBd">Work Dates</span><br />
-			Start: <cfinput type="text" name="project_start" required="yes" validate="date" message="Please enter a proper date for which work is to begin on this engagement." size="8"> End: <cfinput type="text" name="project_end" required="yes" validate="date" message="Please enter a proper date for which work is to end on this engagement." size="8"> <br />
+			Start:
+			<input type="date" name="project_start" id="project_start" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
+			End: 
+			<input type="date" name="project_end" id="project_end" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">

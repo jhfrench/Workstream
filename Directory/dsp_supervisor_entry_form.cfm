@@ -20,7 +20,7 @@
 			Date Implemented:
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="date" size="10" maxlength="10" required="yes" validate="date" message="Please enter the date this employee's supervisor was instated.  (m/d/yyyy)">
+			<input type="date" name="date" id="date" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
 		</td>
 	</tr>
 	<tr bgcolor="##78A0EB">
@@ -54,7 +54,7 @@
 			<label for="#get_present_supervisor.user_account_id#"><input type="checkbox" name="supervisor_id_list" id="#get_present_supervisor.user_account_id#" value="#get_present_supervisor.user_account_id#" />#get_present_supervisor.sup_name#</label>
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="end_date_#get_present_Supervisor.user_account_id#" size="10" maxlength="10" required="no" validate="date" message="Please enter the last date under most recent supervisor.  (m/d/yyyy)" value="#dateformat(Now(),'m/d/yyyy')#">
+			<input type="date" name="end_date_#get_present_supervisor.user_account_id#" id="end_date_#get_present_supervisor.user_account_id#" value="#dateformat(now(),'yyyy-mm-dd')#" min="2011-09-01" maxlength="10" class="span3 date" />
 		</td>
 		<!--- <td>&nbsp;</td> --->
 	</tr>

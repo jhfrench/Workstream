@@ -33,9 +33,13 @@
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="I provide date options." align="left">
 	<tr>
 		<td><label for="start_date">Start date</label></td>
-		<td><cfinput type="datefield" name="start_date" id="start_date" value="#attributes.start_date#" size="10" validate="date" message="Please enter a valid start date." /></td>
-		<td><label for="end_date">End date</label> </td>
-		<td><cfinput type="datefield" name="end_date" id="end_date" value="#attributes.end_date#" size="10" validate="date" message="Please enter a valid end date." /></td>
+		<td>
+			<input type="date" name="start_date" id="start_date" value="#dateformat(attributes.start_date,'yyyy-mm-dd')#" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
+		</td>
+		<td><label for="end_date">End date</label></td>
+		<td>
+			<input type="date" name="end_date" id="end_date" value="#dateformat(attributes.end_date,'yyyy-mm-dd')#" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
+		</td>
 		<td><input type="submit" value="Submit" /></td>
 	</tr>
 </table>

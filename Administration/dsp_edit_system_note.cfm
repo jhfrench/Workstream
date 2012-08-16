@@ -36,17 +36,19 @@
 			<tr>
 				<td><label for="display_start_date">Display Start Date (m/d/yyyy)</label>: <br />
 					<cfif attributes.system_note_id NEQ 0>
-						<cfinput type="text" name="display_start_date" id="display_start_date" value="#dateformat(get_system_note.display_start_date, 'm/d/yyyy')#" size="10" maxlength="10" required="yes" message="Please enter start date" validate="date">
+						<cfset variables.display_start_date=get_system_note.display_start_date>
 					<cfelse>
-						<cfinput type="text" name="display_start_date" id="display_start_date" value="#attributes.display_start_date#" size="10" maxlength="10" required="yes" message="Please enter start date" validate="date">
+						<cfset variables.display_start_date=attributes.display_start_date>
 					</cfif>
+					<input type="date" name="display_start_date" id="display_start_date" value="#dateformat(variables.display_start_date,'yyyy-mm-dd')#" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
 				</td>
 				<td><label for="display_end_date">Display End Date (m/d/yyyy)</label>: <br />
 					<cfif attributes.system_note_id NEQ 0>
-						<cfinput type="text" name="display_end_date" id="display_end_date" value="#dateformat(get_system_note.display_end_date, 'm/d/yyyy')#" size="10" maxlength="10" required="no" message="Please enter end date" validate="date">
+						<cfset variables.display_end_date=get_system_note.display_end_date>
 					<cfelse>
-						<cfinput type="text" name="display_end_date" id="display_end_date" value="#attributes.display_end_date#" size="10" maxlength="10" required="no" message="Please enter end date" validate="date">
+						<cfset variables.display_end_date=attributes.display_end_date>
 					</cfif>
+					<input type="date" name="display_end_date" id="display_end_date" value="#dateformat(variables.display_end_date,'yyyy-mm-dd')#" min="2011-09-01" maxlength="10" class="span3 date" />
 				</td>
 			</tr>
 			<tr>

@@ -38,7 +38,7 @@ $Log:
 			Date Begun:
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="date_start" size="10" maxlength="10" required="yes" validate="date" message="Please enter the date this benefit coverage began.  (m/d/yyyy)">
+			<input type="date" name="date_start" id="date_start" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">

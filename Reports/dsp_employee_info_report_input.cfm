@@ -24,7 +24,9 @@
 	<input type="hidden" name="report_elements" value="#attributes.report_elements#">
 
 	<tr class="SubHeadText">
-		<td colspan="3">Report Date&nbsp;&nbsp;<cfinput type="text" name="start_date" required="no" size="15" maxlength="10" validate="date" message="You must enter a valid from date"></td>
+		<td colspan="3">Report Date&nbsp;&nbsp;
+			<input type="date" name="start_date" id="start_date" min="2011-09-01" maxlength="10" class="span3 date" />
+		</td>
 	</tr>
 	<tr class="SubHeadText">
 		<td colspan="3">Columns Displayed in Report</td>

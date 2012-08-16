@@ -16,7 +16,7 @@
 	END FUSEDOC --->
 <cfparam name="attributes.action" default="index.cfm">
 <cfparam name="attributes.report_name" default="">
-<cfparam name="attributes.required" default="No">
+<cfparam name="attributes.required" default="">
 <!--- $issue$: is this template used? should the common_files version be used instead? --->
 </cfsilent>
 <cfoutput>
@@ -30,10 +30,12 @@
 	</tr>
 	<tr>
 		<td>
-			<label for="from_date">From</label>: <cfinput type="datefield" name="from_date" id="from_date" required="#attributes.required#" size="9" validate="date" message="You must enter a valid from date">
+			<label for="from_date">From</label>:
+			<input type="date" name="from_date" id="from_date" min="2011-09-01" maxlength="10"<cfif attributes.required> required="required"</cfif> class="span3 date" />
 		</td>
 		<td>
-			<label for="through_date">To</label>: <cfinput type="datefield" name="through_date" id="through_date" required="#attributes.required#" size="9" validate="date" message="You must enter a valid through date">
+			<label for="through_date">To</label>: 
+			<input type="date" name="through_date" id="through_date" min="2011-09-01" maxlength="10"<cfif attributes.required> required="required"</cfif> class="span3 date" />
 		</td>
 	</tr>
 	<tr>

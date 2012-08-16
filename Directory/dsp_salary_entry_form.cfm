@@ -23,7 +23,7 @@ $Log:
 	<div class="control-group">
 		<label class="control-label" for="date">Date Implemented:</label>
 		<div class="controls">
-			<cfinput type="text" name="date" id="date" size="10" maxlength="10" required="yes" validate="date" message="Please enter the date this employee's salary was instated.  (m/d/yyyy)" class="span3" />
+			<input type="date" name="date" id="date" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
 		</div>
 	</div>
 	<div class="control-group">

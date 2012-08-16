@@ -52,7 +52,10 @@
 <cfinclude template="qry_get_flat_rate.cfm">
 	<tr valign="top">
 		<td colspan="2">
-			Start: <cfinput type="text" name="start_date" value="#dateformat(get_flat_rate.rate_start_date,"m/d/yyyy")#" required="yes" validate="date" message="Please enter a proper date for which billing is to begin on this engagement." size="8"> End: <cfinput type="text" name="end_date" value="#dateformat(get_flat_rate.rate_end_date,"m/d/yyyy")#" required="yes" validate="date" message="Please enter a proper date for which billing is to end on this engagement." size="8"><br />
+			Start:
+			<input type="date" name="start_date" id="start_date" value="#dateformat(get_flat_rate.rate_start_date,'yyyy-mm-dd')#" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
+			End:
+			<input type="date" name="end_date" id="end_date" value="#dateformat(get_flat_rate.rate_end_date,'yyyy-mm-dd')#" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">

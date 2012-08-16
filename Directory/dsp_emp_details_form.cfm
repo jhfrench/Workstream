@@ -126,7 +126,9 @@
 					<tr>
 						<td class="SubHeadText">&nbsp;</td>
 						<td align="right">Date Change Effective: </td>
-						<td align="left"><cfinput type="text" name="effective_from" required="yes" validate="date" message="You must provide a date that the change becomes effective." value="#dateformat(now(), 'm/d/yyyy')#" maxlength="10" size="11"></td>
+						<td align="left">
+							<input type="date" name="effective_from" id="effective_from" value="#dateformat(now(),'yyyy-mm-dd')#" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
+						</td>
 						<td align="right">&nbsp;</td>
 						<td align="left">&nbsp;</td>
 					</tr>
