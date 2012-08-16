@@ -20,7 +20,7 @@
 	<tr>
 		<td align = "right">Edit</td>
 
-		<td><input  type="Radio" name="select" value="e"> </td>
+		<td><input  type="radio" name="select" value="e"> </td>
 	</tr>
 	<tr>
 		<td align = "right">Delete</td>

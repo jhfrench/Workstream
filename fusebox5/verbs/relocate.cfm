@@ -54,7 +54,7 @@ limitations under the License.
 							"The attribute 'type' must either be ""server"", ""client"", ""moved"" or ""javascript"", for a 'relocate' verb in fuseaction #fb_.verbInfo.circuit#.#fb_.verbInfo.fuseaction#.");
 			}
 		} else {
-			fb_.verbInfo.attributes.type = "client";
+			fb_.verbInfo.attributes.type="client";
 		}
 		// strict mode - check attribute count:
 		if (fb_.verbInfo.action.getCircuit().getApplication().strictMode) {

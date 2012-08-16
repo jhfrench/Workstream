@@ -19,7 +19,7 @@ SET name = '#attributes.name#',
 	lname = '#attributes.lname#',
 	mi = '#attributes.mi#',
 	credentials = '#attributes.Credentials#',
-	emp_contact_type = #attributes.Emp_contact_Type#
+	emp_contact_type=#attributes.Emp_contact_Type#
 WHERE emp_id = #attributes.emp_id#
 </cfquery>
 </cfsilent>

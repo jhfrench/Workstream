@@ -65,7 +65,7 @@
 			<label for="business_function_id_#business_function_id#">#business_function_description#</label>
 		</td>
 		<td>
-		<input name="comments_#business_function_id#" type="text" size="40" maxlength="40" value="<cfif len(get_business_function_list.comments)>#get_business_function_list.comments#<cfelse>#comment_value#</cfif>" title="Enter comments for business funtion" />
+		<input type="text" name="comments_#business_function_id#" size="40" maxlength="40" value="<cfif len(get_business_function_list.comments)>#get_business_function_list.comments#<cfelse>#comment_value#</cfif>" title="Enter comments for business funtion" />
 		</td>
 	</tr>
 </cfoutput>

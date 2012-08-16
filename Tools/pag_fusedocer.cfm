@@ -34,21 +34,21 @@
 	</tr>
 	<tr class="SubHeadText">
 		<td align="right" valign="top" class="SubHeadText">&lt;--</td>
-		<td><select name="directory">
+		<td><select name="directory" id="directory">
 				<cfloop list="directory1,directory2,sample_Directory/sub_directory,etc" index="ii">
 				<option value="#ii#" selected="selected">#ii#/</option></cfloop>
 			</select>
 		</td>
-		<td><select name="prefix">
+		<td><select name="prefix" id="prefix">
 				<cfloop list="act,app,dsp,pag,qry,sql" index="ii">
 				<option value="#ii#" selected="selected">#ii#_</option></cfloop>
 			</select>
 		</td>
 		<td align="left" valign="top" width="5%">
-			<cfinput name="name" type="Text" maxlength="25" value="" required="yes" message="Please enter a template name">
+			<cfinput type="text" name="name" maxlength="25" value="" required="yes" message="Please enter a template name">
 		</td>
 		<td align="left">
-			<select name="suffix">
+			<select name="suffix" id="suffix">
 				<option value="cfm" selected="selected">.cfm</option>
 				<option value="html">.html</option>
 			</select>
@@ -58,7 +58,7 @@
 		<td align="right" valign="top"></td>
 		<td align="right" valign="top" class="SubHeadText">Author: </td>
 		<td>
-				<select name="pin"></cfoutput><cfoutput query="get_team_select">
+				<select name="pin" id="pin"></cfoutput><cfoutput query="get_team_select">
 					<option value="#name#_#lname#"<cfif NOT comparenocase(attributes.pin, "#name#_#lname#")> selected="selected"</cfif>>#name# #lname#</option></cfoutput>
 				</select>
 		</td>

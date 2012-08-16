@@ -58,7 +58,7 @@
 			<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';" onclick="javascript:Element.toggle('var_id_#currentrow#'); return false;">
 
 				<td>
-					<input name="uupic" id="uupic_#variables.employeenumber#" type="radio" value="#variables.employeenumber#"<cfif get_external_demographics_data.recordcount EQ 1> checked="checked"</cfif> />
+					<input type="radio" name="uupic" id="uupic_#variables.employeenumber#" value="#variables.employeenumber#"<cfif get_external_demographics_data.recordcount EQ 1> checked="checked"</cfif> />
 				</td>
 				<td>
 					<label for="uupic_#variables.employeenumber#">#sn#, #givenname#</label>
@@ -76,7 +76,7 @@
 			<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';">
 			<cfif application.application_specific_settings.allow_non_demographics_user_ind>
 				<td>
-					<input name="uupic" id="uupic_0" type="radio" value="0"<cfif get_external_demographics_data.recordcount EQ 0> checked="checked"</cfif> />
+					<input type="radio" name="uupic" id="uupic_0" value="0"<cfif get_external_demographics_data.recordcount EQ 0> checked="checked"</cfif> />
 				</td>
 				<td>
 					<label for="uupic_0">Add a user that does not show in the external demographics warehouse.</label>

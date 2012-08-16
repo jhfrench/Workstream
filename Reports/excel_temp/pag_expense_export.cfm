@@ -56,8 +56,8 @@
 		<cfloop query="Get_reimbursement_types">
 
 			<cfoutput>
-				<cfset current_type = "#reimbursement_type#">
-				<cfset wkst_id = "#wkst_counter#">
+				<cfset current_type=reimbursement_type>
+				<cfset wkst_id=wkst_counter>
 			</cfoutput>
 
 			<cfinclude template="dsp_excel_wkst_title_template.cfm">

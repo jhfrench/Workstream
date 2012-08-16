@@ -147,7 +147,7 @@
 			</cfif>
 
 			<label for="#get_paid_by.description#">
-				<cfinput type="Radio" id="#get_paid_by.description#" name="paid_by_id" value="#get_paid_by.paid_by_id#" checked="#variables.selected_value#" required="#variables.required_ind#" message="Please specify who paid for this expense (paid by)."> #get_paid_by.description#
+				<cfinput type="radio" id="#get_paid_by.description#" name="paid_by_id" value="#get_paid_by.paid_by_id#" checked="#variables.selected_value#" required="#variables.required_ind#" message="Please specify who paid for this expense (paid by)."> #get_paid_by.description#
 			</label>
 		</cfoutput>
 		<cfoutput><input type="hidden" name="expense_id" value="<cfif isdefined('attributes.expense_id')>#attributes.expense_id#</cfif>"></cfoutput>
@@ -167,7 +167,7 @@
 				<cfset variables.supervisor_checked_ind_rejected="NO">
 			</cfif>
 				<input type="hidden" name="supervisor_settings" value="1">
-				Supervisor, please approve or reject this expense: Approve<cfinput type="Radio" name="supervisor_approval" value="2" checked="#supervisor_checked_ind_approved#" required="yes" message="Please give this expense a supervisors approval."> Reject<cfinput type="Radio" name="supervisor_approval" value="3" checked="#supervisor_checked_ind_rejected#">&nbsp;&nbsp;&nbsp;Supervisor Approval Memo: <cfinput type="text" name="supervisor_approval_memo" value="#attributes.supervisor_approval_memo#" message="Please enter an approval memo" required="yes" size="30">
+				Supervisor, please approve or reject this expense: Approve<cfinput type="radio" name="supervisor_approval" value="2" checked="#supervisor_checked_ind_approved#" required="yes" message="Please give this expense a supervisors approval."> Reject<cfinput type="radio" name="supervisor_approval" value="3" checked="#supervisor_checked_ind_rejected#">&nbsp;&nbsp;&nbsp;Supervisor Approval Memo: <cfinput type="text" name="supervisor_approval_memo" value="#attributes.supervisor_approval_memo#" message="Please enter an approval memo" required="yes" size="30">
 		<br />
 		</cfif>
 		<cfif variables.all_option EQ 1 AND isdefined("attributes.supervisor_flag") AND NOT attributes.supervisor_flag>
@@ -182,7 +182,7 @@
 				<cfset variables.accounting_checked_ind_rejected="NO">
 			</cfif>
 			<input type="hidden" name="accounting_pro_settings" value="1">
-			Accounting professional, please approve or reject this expense: Approve<cfinput type="Radio" name="accounting_approval" value="4" checked="#accounting_checked_ind_approved#" required="yes" message="Please give this expense an accounting professionals approval."> Reject<cfinput type="Radio" name="accounting_approval" value="5" checked="#accounting_checked_ind_rejected#">&nbsp;&nbsp;&nbsp;Accounting Professional Approval Memo: <cfinput type="text" name="accounting_approval_memo" value="#attributes.accounting_approval_memo#" message="Please enter an approval memo" required="yes" size="30">
+			Accounting professional, please approve or reject this expense: Approve<cfinput type="radio" name="accounting_approval" value="4" checked="#accounting_checked_ind_approved#" required="yes" message="Please give this expense an accounting professionals approval."> Reject<cfinput type="radio" name="accounting_approval" value="5" checked="#accounting_checked_ind_rejected#">&nbsp;&nbsp;&nbsp;Accounting Professional Approval Memo: <cfinput type="text" name="accounting_approval_memo" value="#attributes.accounting_approval_memo#" message="Please enter an approval memo" required="yes" size="30">
 		</cfif>
 	</td>
 </tr>

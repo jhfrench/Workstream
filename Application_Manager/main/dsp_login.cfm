@@ -34,7 +34,7 @@
 			</td>
 			<td>
 				<img src="images/spacer.gif" width="180" height="1" alt=""><br />
-				<input name="user_name" id="user_name" type="text"  maxlength="4000" size="20" value="#attributes.user_name#" />
+				<input type="text" name="user_name" id="user_name" maxlength="4000" size="20" value="#attributes.user_name#" />
 			</td>
 		</tr>
 		<tr>

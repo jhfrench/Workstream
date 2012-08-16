@@ -26,7 +26,7 @@
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="98%">
 	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="008080" section_title="Deadline Management" title_class="HeadTextWhite">
 	<tr bgcolor="##5F5F5F">
-		<td colspan="2" class="SubHeadTextWhite"><label for="hide_supervisor"><input type="Checkbox"<cfif isdefined("attributes.hide_supervisor")> checked="checked"</cfif> name="hide_supervisor" value="1" onclick="javascript:document.admin_planning.submit();" id="hide_supervisor" class="SubHeadTextWhite"> Remove your data</label></td>
+		<td colspan="2" class="SubHeadTextWhite"><label for="hide_supervisor"><input type="checkbox"<cfif isdefined("attributes.hide_supervisor")> checked="checked"</cfif> name="hide_supervisor" value="1" onclick="javascript:document.admin_planning.submit();" id="hide_supervisor" class="SubHeadTextWhite"> Remove your data</label></td>
 	</tr>
 <cfif get_subordinates.recordcount>
 	<tr>

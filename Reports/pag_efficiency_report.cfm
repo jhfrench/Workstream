@@ -24,17 +24,18 @@
 <form name="drill_down" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">
 	<fieldset>
 		#variables.project_name# Time for 
-		<select name="admin_month" onchange="javascript:document.drill_down.submit();">
+		<select name="admin_month">
 			<cfloop from="1" to="12" index="ii">
 			<option value="#ii#"<cfif attributes.admin_month EQ ii> selected="selected"</cfif>>#monthAsString(ii)#</option></cfloop>
 		</select>
-		<select name="admin_year" onchange="javascript:document.drill_down.submit();">
+		<select name="admin_year">
 			<cfloop from="#lowest_year#" to="#year(now())#" index="ii">
 			<option value="#ii#"<cfif attributes.admin_year EQ ii> selected="selected"</cfif>>#ii#</option></cfloop>
 		</select>
 		<label for="hide_supervisor">
-			<input type="Checkbox"<cfif isdefined("attributes.hide_supervisor")> checked="checked"</cfif> name="hide_supervisor" value="1" onclick="javascript:document.drill_down.submit();" id="hide_supervisor" class="SubHeadTextWhite" /> Remove your data
+			<input type="checkbox" name="hide_supervisor" id="hide_supervisor" value="1"<cfif isdefined("attributes.hide_supervisor")> checked="checked"</cfif> /> Remove your data
 		</label>
+		<input type="submit" name="submit" value="Go" class="btn btn-primary" />
 	</fieldset>
 </form>
 </cfoutput>

@@ -31,7 +31,7 @@
 		<div class="control-group">
 			<label for="username" accesskey="u">Username</label>
 			<div class="controls">
-				<cfinput name="user_name" id="user_name" type="text" size="20" value="#xmlformat(attributes.user_name)#" required="yes" message="Please enter username" maxlength="4000" />
+				<cfinput type="text" name="user_name" id="user_name" size="20" value="#xmlformat(attributes.user_name)#" required="yes" message="Please enter username" maxlength="4000" />
 			</div>
 		</div>
 		<div class="form-actions">

@@ -1,5 +1,4 @@
-
-<!--Reports/pag_it_time.cfm
+<!-- Reports/pag_it_time.cfm
 	Author: Jeromy F  -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -26,7 +25,8 @@
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="98%">
 	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="008080" section_title="Percent of IT Time" title_class="HeadTextWhite">
 	<tr bgcolor="##5F5F5F">
-		<td colspan="2" class="SubHeadTextWhite"><label for="hide_supervisor"><input type="Checkbox"<cfif isdefined("attributes.hide_supervisor")> checked="checked"</cfif> name="hide_supervisor" value="1" onclick="javascript:document.admin_planning.submit();" id="hide_supervisor" class="SubHeadTextWhite"> Remove your data</label></td>
+		<td colspan="2" class="SubHeadTextWhite"><label for="hide_supervisor"><input type="checkbox" name="hide_supervisor" id="hide_supervisor" value="1"<cfif isdefined("attributes.hide_supervisor")> checked="checked"</cfif> class="SubHeadTextWhite" /> Remove your data</label>
+	<input type="submit" name="submit" value="Go" class="btn btn-primary" /></td>
 	</tr>
 <cfif get_subordinates.recordcount>
 	<tr>

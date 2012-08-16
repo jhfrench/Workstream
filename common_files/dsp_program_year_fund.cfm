@@ -28,6 +28,6 @@
 	html_before2="</td>
 	</tr>
 	<tr>
-		<td nowrap><input type='checkbox' name='hide_fund_ind' value='1' id="fund_id" /></td>
+		<td nowrap><input type='checkbox' name='hide_fund_ind' id='fund_id' value='1' /></td>
 		<td><label for='fund_id'>Fund</label></td>
 		<td>" fieldname2="fund_id" display2="fund_description" value2="fund_id">

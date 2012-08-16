@@ -30,8 +30,8 @@
 	<input type="date" name="from_date" id="from_date" min="2011-09-01" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#"  maxlength="10" class="span2 date" />
 	<label for="to_date">End</label>
 	<input type="date" name="to_date" id="to_date" min="2011-09-01" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.to_date, 'yyyy-mm-dd')#"  maxlength="10" class="span2 date" />
-	<label for="show_completed"><input type="Checkbox" name="show_completed" id="show_completed" value="1"<cfif attributes.show_completed> checked="checked"</cfif> /> Show only completed tasks</label>
-	<label for="show_budgeted"><input type="Checkbox" name="show_budgeted" id="show_budgeted" value="1"<cfif attributes.show_budgeted> checked="checked"</cfif> /> Show only budgeted tasks</label>
+	<label for="show_completed"><input type="checkbox" name="show_completed" id="show_completed" value="1"<cfif attributes.show_completed> checked="checked"</cfif> /> Show only completed tasks</label>
+	<label for="show_budgeted"><input type="checkbox" name="show_budgeted" id="show_budgeted" value="1"<cfif attributes.show_budgeted> checked="checked"</cfif> /> Show only budgeted tasks</label>
 	<input type="hidden" name="emp_id" value="#attributes.emp_id#" />
 	<input type="submit" name="submit" value="Retrieve tasks" class="btn btn-primary" />
 </form>
