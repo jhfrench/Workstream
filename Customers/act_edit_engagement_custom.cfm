@@ -36,30 +36,28 @@ WHERE User_Fields.active_ind=1
 	<cfif len(evaluate("attributes.type_#user_field_type_id#_num_1_name")) NEQ 0>
 		<cfset tmpVar=evaluate("attributes.type_#user_field_type_id#_num_1_name")>
 		<cfset tmpVar=replace(tmpVar, "', /,%", "''", "All")>
+		<cftransaction>
 			<cfquery name="add_custom_fields" datasource="#application.datasources.main#">
 			INSERT INTO User_Fields (field_user_field_type_id, field_title, active_ind)
 			VALUES (#user_field_type_id#, '#tmpVar#', 2)
 			</cfquery>
-			<cfquery name="get_last_custom_field" datasource="#application.datasources.main#">
-			SELECT MAX(user_field_id) AS current_field
-			FROM User_Fields
-			</cfquery>
 			<cfquery name="add_to_link_table" datasource="#application.datasources.main#">
 			INSERT INTO User_Field_Project_Link(user_field_id, project_id)
-			VALUES(#get_last_custom_field.current_field#, #attributes.project_id#)
+			VALUES(CURRVAL('User_Fields_user_field_id_SEQ'), #attributes.project_id#)
 			</cfquery>
 			<cfif user_field_type_id EQ 1>
 			<cfloop from="1" to="8" index="opt_ii">
-				<cfif len(#evaluate("attributes.type_#user_field_type_id#_num_1_opt_#opt_ii#")#)>
+				<cfif len(evaluate("attributes.type_#user_field_type_id#_num_1_opt_#opt_ii#"))>
 				<cfset tmpVar1=evaluate("attributes.type_#user_field_type_id#_num_1_opt_#opt_ii#")>
 				<cfset tmpVar1=replace(tmpVar1, "', /,%", "''", "All")>
 				<cfquery name="add_custom_field_options" datasource="#application.datasources.main#">
 				INSERT INTO user_field_items(user_field_id, selection_title)
-				VALUES(#get_last_custom_field.current_field#, '#tmpVar1#')
+				VALUES(CURRVAL('User_Fields_user_field_id_SEQ'), '#tmpVar1#')
 				</cfquery>
 				</cfif>
 			</cfloop>
 			</cfif>
+	</cftransaction>
 	</cfif>
 </cfloop>
 </cfif>

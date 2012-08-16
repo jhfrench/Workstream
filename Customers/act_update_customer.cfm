@@ -58,7 +58,7 @@ WHERE customer_id=#attributes.customer_id#
 	<!--- and  update the Customer table with the new contact information --->
 			<cfquery name="update_customer" datasource="#application.datasources.main#">
 			UPDATE Customer
-			SET emp_contact_id=(SELECT MAX(emp_id) AS emp_contact_id FROM Emp_Contact)
+			SET emp_contact_id=CURRVAL('Emp_Contact_emp_id_SEQ')
 			WHERE customer_id=#attributes.customer_id#
 			</cfquery>
 	</cfif>

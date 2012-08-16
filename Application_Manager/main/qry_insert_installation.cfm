@@ -25,7 +25,5 @@ FROM Dual
 </cfquery>
 
 <cfquery name="qry_get_installation_id" datasource="#application.datasources.main#">
-SELECT MAX(installation_id) AS installation_id
-FROM Installation
-WHERE product_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.product_id#">
+SELECT CURRVAL('Installation_installation_id_SEQ') AS installation_id
 </cfquery>

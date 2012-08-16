@@ -34,21 +34,17 @@
 			INSERT INTO User_Fields (field_type_id, field_title, active_ind)
 			VALUES (#type_id#, '#variables.current_field_title#', 2)
 			</cfquery>
-			<cfquery name="get_last_custom_field" datasource="#application.datasources.main#">
-			SELECT MAX(user_field_id) AS current_field
-			FROM User_Fields
-			</cfquery>
 			<cfquery name="add_to_link_table" datasource="#application.datasources.main#">
 			INSERT INTO User_Field_Project_Link(user_field_id, project_id)
-			VALUES(#get_last_custom_field.current_field#, #get_project_id.project_id#)
+			VALUES(CURRVAL('User_Fields_user_field_id_SEQ'), #get_project_id.project_id#)
 			</cfquery>
 			<cfif type_id EQ 1>
 			<cfloop from="1" to="8" index="opt_ii">
-				<cfif len(#evaluate("attributes.type_#type_id#_num_#ii#_opt_#opt_ii#")#)>
+				<cfif len(evaluate("attributes.type_#type_id#_num_#ii#_opt_#opt_ii#"))>
 				<cfset variables.current_selection_title=evaluate("attributes.type_#type_id#_num_#ii#_opt_#opt_ii#")>
 				<cfquery name="add_custom_field_options" datasource="#application.datasources.main#">
 				INSERT INTO user_field_items(user_field_id, selection_title)
-				VALUES(#get_last_custom_field.current_field#, '#variables.current_selection_title#')
+				VALUES(CURRVAL('User_Fields_user_field_id_SEQ'), '#variables.current_selection_title#')
 				</cfquery>
 				</cfif>
 			</cfloop>

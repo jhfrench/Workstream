@@ -18,8 +18,7 @@ INSERT INTO Notes (note, emp_id, notes_type_id)
 VALUES ('#attributes.note#',#attributes.emp_id#, 6) 
 </cfquery>
 <cfquery name="get_notes_id" datasource="#application.datasources.main#">
-select max(notes_id) as notes_id
-from notes
+SELECT CURRVAL('Notes_notes_id_SEQ') AS notes_id
 </cfquery>
 
 <cfquery name="insert_expense" datasource="#application.datasources.main#">
@@ -29,8 +28,7 @@ VALUES ('#attributes.datefield1#', #attributes.emp_id#, #attributes.project_id#,
 	#attributes.reimbursement_type_id#, #get_notes_id.notes_id#)
 </cfquery>
 <cfquery name="get_expense_id" datasource="#application.datasources.main#">
-select max(expense_id) as expense_id
-from expense
+SELECT CURRVAL('Expense_expense_id_SEQ') AS expense_id
 </cfquery>
 <cfloop from="1" to="#Get_Expense_Type.recordcount#" index="ii">
 <cfif Compare(evaluate("et_#ii#"), "") and Compare(evaluate("et_#ii#"), ".00")>

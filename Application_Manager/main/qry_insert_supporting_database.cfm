@@ -22,7 +22,5 @@ FROM Dual
 </cfquery>
 
 <cfquery name="qry_get_supporting_database_id" datasource="#application.datasources.main#">
-SELECT MAX(supporting_database_id) AS supporting_database_id
-FROM Supporting_Database
-WHERE database_name='#evaluate("attributes.database_name_#database_count_ii#")#'
+SELECT CURRVAL('Supporting_Database_supporting_database_id_SEQ') AS supporting_database_id
 </cfquery>

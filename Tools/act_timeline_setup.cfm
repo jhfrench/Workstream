@@ -26,8 +26,8 @@ INSERT INTO Project_Planning (project_planning_name,project_id,user_field_id,sho
 VALUES ('#attributes.project_planning_name#',#attributes.project_id#,#attributes.user_field_id#,0,#attributes.hide_user_field_item_id#)
 </cfquery>
 <cfquery name="get_project_planning_id" datasource="#application.datasources.main#">
-SELECT MAX(project_planning_id) AS project_planning_id
-FROM Project_Planning
+SELECT CURRVAL('Project_Planning_project_planning_id_SEQ') AS project_planning_id
+FROM 
 </cfquery>
 </cftransaction>
 <cfset attributes.emp_id=listchangedelims(attributes.emp_id,variables.new_delim,"|")>

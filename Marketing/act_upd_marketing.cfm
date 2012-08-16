@@ -129,8 +129,7 @@
 				#get_max_code.customer_id#, 9, 2)
 			</cfquery>
 			<cfquery name="get_max_id" datasource="#application.datasources.main#">
-			SELECT MAX(project_id) as project_id
-			FROM Project
+			SELECT CURRVAL('Project_project_id_SEQ') AS project_id
 			</cfquery>
 			<cfquery name="insert_marketing" datasource="#application.datasources.main#">
 			INSERT INTO Marketing (project_code, project_id
