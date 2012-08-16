@@ -12,27 +12,32 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfif isdefined("attributes.emp_id")>
-	<cfset variables.emp_id=attributes.emp_id>
-<cfelse>
-	<cfset variables.emp_id=session.user_account_id>
-</cfif>
-<cfmodule template="../common_files/qry_employee_name.cfm" emp_id="#variables.emp_id#">
+<cfparam name="attributes.emp_id" default="#session.user_account_id#">
 <cfparam name="attributes.from_date" default="#month(now())#/1/#year(now())#">
 <cfparam name="attributes.to_date" default="#month(now())#/#DaysInMonth(now())#/#year(now())#">
+<cfparam name="attributes.show_budgeted" default="0">
+<cfparam name="attributes.show_completed" default="0">
+
+<cfmodule template="../common_files/qry_employee_name.cfm" emp_id="#attributes.emp_id#">
 </cfsilent>
+
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
+
 <cfinclude template="qry_employee_force.cfm">
-<table align="center" border="0" cellpadding="1" cellspacing="0" width="100%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="9" gutter="0" section_color="008080" section_title="&nbsp;ForcePlanner Report for #request.employee_name#" title_class="HeadTextWhite">
-	<cfinclude template="dsp_employee_force_header.cfm">
-	<cfinclude template="dsp_employee_force_row.cfm"><!--- 
-	<cfinclude template="dsp_supervisor_force_row_header.cfm"> --->
-</table>
-<p></p>
+<cfoutput>
+<form name="form_employee_force" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="well form-inline">
+	<label for="from_date">Start</label>
+	<input type="date" name="from_date" id="from_date" min="2011-09-01" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#"  maxlength="10" class="span2 date" />
+	<label for="to_date">End</label>
+	<input type="date" name="to_date" id="to_date" min="2011-09-01" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.to_date, 'yyyy-mm-dd')#"  maxlength="10" class="span2 date" />
+	<label for="show_completed"><input type="Checkbox" name="show_completed" id="show_completed" value="1"<cfif attributes.show_completed> checked="checked"</cfif> /> Show only completed tasks</label>
+	<label for="show_budgeted"><input type="Checkbox" name="show_budgeted" id="show_budgeted" value="1"<cfif attributes.show_budgeted> checked="checked"</cfif> /> Show only budgeted tasks</label>
+	<input type="hidden" name="emp_id" value="#attributes.emp_id#" />
+	<input type="submit" name="submit" value="Retrieve tasks" class="btn btn-primary" />
+</form>
+</cfoutput>
+<cfinclude template="dsp_employee_force_chart.cfm">
+
 <cfinclude template="qry_employee_force_totals.cfm">
 <cfinclude template="qry_team_force_totals.cfm">
-<table align="left" border="0" cellpadding="1" cellspacing="0" width="40%">
-	<cfinclude template="dsp_employee_force_totals.cfm">
-</table>
-	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
-
+<cfinclude template="dsp_employee_force_totals.cfm">

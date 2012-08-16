@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cf_htmlhead>
+</cfsilent>
 <script language="JavaScript" type="text/javascript">
 <!--<cfoutput>
 function sup_to_emp(fldValue) { 
@@ -37,7 +37,6 @@ function bn_tasks(fldValue) {
 }
 </cfoutput>//-->
 </script>
-</cf_htmlhead>
 <cfoutput>
 <form name="sup_to_emp" action="#request.dir_level#index.cfm?fuseaction=Reports.employee_force" method="post">
 	<input type="hidden" name="from_date" value="#attributes.from_date#">

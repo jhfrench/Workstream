@@ -16,10 +16,6 @@
 <cfparam name="attributes.to_date" default="#month(now())#/#DaysInMonth(now())#/#year(now())#">
 </cfsilent>
 <cfinclude template="qry_supervisor_force.cfm">
-<table align="center" border="0" cellpadding="1" cellspacing="0" width="100%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="10" gutter="0" section_color="008080" section_title="&nbsp;ForcePlanner Report" title_class="HeadTextWhite">
-	<cfinclude template="dsp_supervisor_force_header.cfm">
-	<cfinclude template="dsp_supervisor_force_row.cfm">
-</table>
+<cfinclude template="dsp_supervisor_force.cfm">
 <cfinclude template="act_force_hidden_links.cfm">
 

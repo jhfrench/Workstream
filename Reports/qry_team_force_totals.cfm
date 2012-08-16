@@ -14,12 +14,11 @@
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
  --->
 <cfquery name="team_force_totals" datasource="#application.datasources.main#">
-SELECT AVG(given_days) AS given_days,
-	AVG(duration_days) AS duration_days,
-	AVG(on_time)*100 AS on_time,
+SELECT AVG(given_days) AS given_days, AVG(duration_days) AS duration_days, AVG(on_time)*100 AS on_time,
 	AVG(on_budget)*100 AS on_budget
-FROM
-	(<cfmodule template="sql_employee_force.cfm" from_date="#attributes.from_date#" to_date="#attributes.to_date#">)
-AS temp_table
+FROM (
+	/* emp_id is excluded from this query because we want the whole team as a benchmark */
+	<cfmodule template="sql_employee_force.cfm" from_date="#attributes.from_date#" to_date="#attributes.to_date#" show_budgeted="#attributes.show_budgeted#" show_completed="#attributes.show_completed#">
+	) AS temp_table
 </cfquery>
 </cfsilent>
