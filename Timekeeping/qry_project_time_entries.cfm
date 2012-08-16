@@ -24,7 +24,7 @@ FROM Time_Entry, REF_Day_of_Week, Project, Notes,
 		Time_Entry.emp_id
 	FROM Time_Entry 
 	WHERE Time_Entry.active_ind=1
-		AND emp_id = #session.user_account_id# AND DATEDIFF(day, Time_Entry.date, CURRENT_TIMESTAMP) <= 60
+		AND emp_id = #session.user_account_id# AND (CURRENT_TIMESTAMP-Time_Entry.date) <= 60
 	GROUP BY  Time_Entry.date, Time_Entry.emp_id)
 AS hours_pin_date,
 	(SELECT EXTRACT(YEAR FROM Time_Entry.date) AS year, 
@@ -37,7 +37,7 @@ AS hours_pin_date,
 AS hours_pin_week
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.emp_id = #session.user_account_id#
-	AND DATEDIFF(day, Time_Entry.date, CURRENT_TIMESTAMP) <= 60
+	AND (CURRENT_TIMESTAMP-Time_Entry.date) <= 60
 	AND Time_Entry.emp_id = hours_pin_date.emp_id
 	AND Time_Entry.date = hours_pin_date.date
 	AND DATEPART (DW, Time_Entry.date) = REF_Day_Of_Week.Day_Num

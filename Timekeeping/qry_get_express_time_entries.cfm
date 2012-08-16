@@ -24,7 +24,7 @@ FROM Time_Entry, REF_Day_of_Week, Project, Notes,
 		FROM Time_Entry 
 		WHERE Time_Entry.active_ind=1
 			AND emp_id=#session.user_account_id#
-			AND DATEDIFF(day, Time_Entry.date, CURRENT_TIMESTAMP) <= 60
+			AND (CURRENT_TIMESTAMP-Time_Entry.date) <= 60
 		GROUP BY  Time_Entry.date, Time_Entry.emp_id
 	) AS Hours_Pin_Date,
 	(
@@ -45,7 +45,7 @@ WHERE Time_Entry.active_ind=1
 	AND EXTRACT(YEAR FROM Time_Entry.date)=Hours_Pin_Week.year
 	AND DATEPART(wk, Time_Entry.date)=Hours_Pin_Week.week
 	AND Time_Entry.emp_id=#session.user_account_id#
-	AND DATEDIFF(day, Time_Entry.date, CURRENT_TIMESTAMP) <= 60
+	AND (CURRENT_TIMESTAMP-Time_Entry.date) <= 60
 ORDER BY Time_Entry.date DESC, Notes.created_date DESC, Project.project_code
 </cfquery>
 </cfsilent>

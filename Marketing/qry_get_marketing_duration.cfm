@@ -15,18 +15,9 @@
 		- ->sortby3: a variable set so the grid can be filtered by the columns
 	END FUSEDOC --->
 
-
 <cfquery name="marketing_duration" datasource="#application.datasources.main#">
-SELECT AVG(DATEDIFF(D, Prospecting_Begin, Prospecting_End)) 
-    AS Prospecting_Dur, AVG(DATEDIFF(D, Qualifying_Begin, 
-    Qualifying_End)) AS Qualifying_Dur, AVG(DATEDIFF(D, 
-    Proposing_Begin, Proposing_End)) AS Proposing_Dur, 
-    AVG(DATEDIFF(D, Closing_Begin, Closing_End)) 
-    AS Closing_Dur
+SELECT AVG(prospecting_end-prospecting_begin) AS prospecting_dur, AVG(qualifying_end-qualifying_begin) AS qualifying_dur, AVG(proposing_end-proposing_begin) AS proposing_dur, 
+    AVG(closing_end-closing_begin) AS Closing_Dur
 FROM Marketing_For_Web_Query
 </cfquery>
-
 </cfsilent>
-
-
-
