@@ -31,7 +31,8 @@
 		<div class="control-group">
 			<label for="email_address">Email Address</label>
 			<div class="controls">
-				<cfinput type="text" name="email_address" id="email_address" size="20" maxlength="4000" required="yes" validate="email" validateat="onserver, onsubmit" message="You must enter a valid email address." value="#xmlformat(attributes.email_address)#" />
+				<input type="email" name="email_address" id="email_address" value="#xmlformat(attributes.email_address)#" maxlength="4000" required="required" class="span4" />
+				<!-- Use CF to create backup validation script <cfinput type="text" name="email_address" id="email_address" required="yes" validate="email" validateat="onserver, onsubmit" message="You must enter a valid email address." /> -->
 			</div>
 		</div>
 		<div class="form-actions">

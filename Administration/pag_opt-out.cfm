@@ -36,9 +36,11 @@
 <cfelse>
 	<h2>Opt-Out from #application.product_name# Emails</h2>
 	<cfform name="form_remove_me" method="post">
-		Please enter your <label for="email_address">email address</label>: <cfinput type="text" name="email_address" id="email_address" size="50" maxlength="4000" required="yes" validate="email" validateat="onserver, onsubmit" message="You must enter a valid email address." value="#attributes.email_address#" />
+		Please enter your <label for="email_address">email address</label>:
+		<input type="email" name="email_address" id="email_address" value="#attributes.email_address#" maxlength="4000" required="required" class="span3" />
+		<!-- Use CF to create backup validation script <cfinput type="text" name="email_address" id="email_address" required="yes" validate="email" validateat="onserver, onsubmit" message="You must enter a valid email address." /> -->
 		<br />Your email will be removed from future #application.product_name# email correspondence. 
-		<p style="text-align:center"><input type="submit" name="submit_remove" value="Please remove me" /></p>
+		<p style="text-align:center"><input type="submit" name="submit_remove" value="Please remove me" class="btn btn-primary"/></p>
 	</cfform>
 </cfif>
 </cfoutput>

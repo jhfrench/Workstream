@@ -62,7 +62,8 @@
 			<div class="control-group">
 				<label for="email_address">Email</label>
 				<div class="controls">
-					<cfinput type="text" name="email_address" id="email_address" size="50" maxlength="4000" required="yes" validate="email" validateat="onserver, onsubmit" message="You must enter a valid email address." value="#get_user_information.email_address#" />
+					<input type="email" name="email_address" id="email_address" value="#get_user_information.email_address#" maxlength="4000" required="required" class="span3" />
+					<!-- Use CF to create backup validation script <cfinput type="text" name="email_address" id="email_address" required="yes" validate="email" validateat="onserver, onsubmit" message="You must enter a valid email address." /> -->
 				</div>
 			</div>
 			<div class="control-group">
