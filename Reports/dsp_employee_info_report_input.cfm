@@ -25,7 +25,7 @@
 
 	<tr class="SubHeadText">
 		<td colspan="3">Report Date&nbsp;&nbsp;
-			<input type="date" name="start_date" id="start_date" min="2011-09-01" maxlength="10" class="span3 date" />
+			<input type="date" name="start_date" id="start_date" min="#application.application_specific_settings_workstream_start_date#" maxlength="10" class="span3 date" />
 		</td>
 	</tr>
 	<tr class="SubHeadText">

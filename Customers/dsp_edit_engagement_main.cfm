@@ -86,21 +86,21 @@
 		<div class="control-group">
 			<label for="project_start">Start</label>
 			<div class="controls">
-				<input type="date" name="project_start" id="project_start" value="#dateformat(get_engagement_main.project_start,'yyyy-mm-dd')#" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
+				<input type="date" name="project_start" id="project_start" value="#dateformat(get_engagement_main.project_start,'yyyy-mm-dd')#" min="#application.application_specific_settings_workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 				<p class="help-block">Required; please enter a proper date for which work is to begin on this engagement.</p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="project_end">End</label>
 			<div class="controls">
-				<input type="date" name="project_end" id="project_end" value="#dateformat(get_engagement_main.project_end,'yyyy-mm-dd')#" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
+				<input type="date" name="project_end" id="project_end" value="#dateformat(get_engagement_main.project_end,'yyyy-mm-dd')#" min="#application.application_specific_settings_workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 				<p class="help-block">Optional; date for which work is expected to end on this engagement.</p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="date_go_live">Go Live</label>
 			<div class="controls">
-				<input type="date" name="date_go_live" id="date_go_live" value="#dateformat(get_engagement_main.date_go_live,'yyyy-mm-dd')#" min="2011-09-01" maxlength="10" class="span3 date" />
+				<input type="date" name="date_go_live" id="date_go_live" value="#dateformat(get_engagement_main.date_go_live,'yyyy-mm-dd')#" min="#application.application_specific_settings_workstream_start_date#" maxlength="10" class="span3 date" />
 				<p class="help-block">Optional; date project is expected to be delivered.</p>
 			</div>
 		</div>

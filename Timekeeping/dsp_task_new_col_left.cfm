@@ -14,7 +14,6 @@
  --->
 </cfsilent>
 <cfoutput>
-
 <div class="row-fluid">
 	<div class="span6">
 		<label for="task_owner" class="h5">Owner <img src="#request.dir_level##application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See more employees." border="0"  onclick="OpenTeamWindow('task_owner');" /></label>
@@ -28,9 +27,9 @@
 	</div>
 	<div class="span6">
 			<label for="date_start" class="h5">Start Date</label>
-			<input type="date" name="date_start" id="date_start" min="2011-09-01" value="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" required="required" class="span6 date" />
+			<input type="date" name="date_start" id="date_start" min="#application.application_specific_settings_workstream_start_date#" value="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" required="required" class="span6 date" />
 			<label for="due_date" class="h5">Date Due</label>
-			<input type="date" name="due_date" id="due_date" min="2011-09-01" maxlength="10" required="required" class="span6 date" />
+			<input type="date" name="due_date" id="due_date" min="#application.application_specific_settings_workstream_start_date#" maxlength="10" required="required" class="span6 date" />
 			<label for="priority_id" class="h5">Priority</label>
 			<cfselect name="priority_id" id="priority_id" query="get_priorities" display="description" value="priority_id" selected="3" class="span6"></cfselect>
 			<label for="icon_id" class="h5">Icon</label>

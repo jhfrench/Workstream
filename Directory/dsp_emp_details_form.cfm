@@ -85,7 +85,7 @@
 						<td class="SubHeadText">&nbsp;</td>
 						<td align="right">Hire date: </td>
 						<td align="left">
-							<input type="date" name="hire_date" id="hire_date" min="2011-09-01" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(hire_date, 'yyyy-mm-dd')#"  maxlength="10" required="required" class="span6 date" />
+							<input type="date" name="hire_date" id="hire_date" min="#application.application_specific_settings_workstream_start_date#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(hire_date, 'yyyy-mm-dd')#"  maxlength="10" required="required" class="span6 date" />
 							<!-- Use CF to create client validation <cfinput type="text" name="hire_date" value="#dateformat(hire_date, 'm/d/yyyy')#" required="yes" validate="date" message="Please enter a properly formatted hire date." size="11"> -->
 						</td>
 						<td align="right"><font color=red>Company: </td>
@@ -127,7 +127,7 @@
 						<td class="SubHeadText">&nbsp;</td>
 						<td align="right">Date Change Effective: </td>
 						<td align="left">
-							<input type="date" name="effective_from" id="effective_from" value="#dateformat(now(),'yyyy-mm-dd')#" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
+							<input type="date" name="effective_from" id="effective_from" value="#dateformat(now(),'yyyy-mm-dd')#" min="#application.application_specific_settings_workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 						</td>
 						<td align="right">&nbsp;</td>
 						<td align="left">&nbsp;</td>

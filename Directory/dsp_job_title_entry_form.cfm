@@ -22,7 +22,7 @@ $Log:
 			Date Begun:
 		</td>
 		<td class="SelectText">
-			<input type="date" name="date_start" id="date_start" min="2011-09-01" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="date_start" id="date_start" min="#application.application_specific_settings_workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
