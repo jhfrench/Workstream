@@ -30,7 +30,7 @@
 <cfmodule template="../common_files/qry_get_ref_center.cfm" center_id="0">
 <form name="edit_ref_center_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="center_id">
-	<cfloop query="get_ref_center"><option value="#center_id#"<cfif not comparenocase(get_ref_center.center_id, attributes.center_id)> selected="selected"</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_center"><option value="#center_id#"<cfif NOT comparenocase(get_ref_center.center_id, attributes.center_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit center" value="Retrieve and edit center" />
 </form>

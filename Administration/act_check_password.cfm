@@ -130,7 +130,7 @@ REGULAR EXPRESSION CODE GOES HERE
 	<!--- close multipleREs if --->
 
 	<!--- if anything failed then kick them to failure page --->
-	<cfif not password_failed>
+	<cfif NOT password_failed>
 		<cflocation url="index.cfm?fuseaction=#variables.redirect_action#" addtoken="no">
 	</cfif>
 </cfif>

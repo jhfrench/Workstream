@@ -134,7 +134,7 @@ limitations under the License.
 
 		// compile <include>
 		if (fb_.verbInfo.attributes.contentvariable is not "" and not fb_.verbInfo.attributes.overwrite) {
-			fb_appendLine('<cfif not isDefined("#fb_.verbInfo.attributes.contentvariable#")>');
+			fb_appendLine('<cfif NOT isDefined("#fb_.verbInfo.attributes.contentvariable#")>');
 		}
 		fb_appendLine("<cftry>");
 		if (fb_.verbInfo.attributes.contentvariable is not "") {

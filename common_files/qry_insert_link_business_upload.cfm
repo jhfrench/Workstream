@@ -3,7 +3,7 @@
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_insert_link_business_upload.cfm">
 	<responsibilities>
-		I insert into link_business _upload table
+		I INSERT INTO link_business _upload table
 	</responsibilities>
 	<properties>
 		<history email="csliu@nasa.gov" author="Stephen Liu" type="create" date="7/21/2009" role="FuseCoder" comments="Created File">

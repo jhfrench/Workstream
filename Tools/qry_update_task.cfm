@@ -19,7 +19,7 @@
 	<cfset variables.update_count=1>
 	UPDATE Task
 	SET status_id=#evaluate("attributes.task_status#task_id#")#,
-		due_date=#createodbcdatetime(evaluate("attributes.task_due_date#task_id#"))#<cfif IsNumeric(evaluate("attributes.task_assigned#task_id#"))>,
+		due_date=#createodbcdatetime(evaluate("attributes.task_due_date#task_id#"))#<cfif isnumeric(evaluate("attributes.task_assigned#task_id#"))>,
 		budgeted_hours=(
 			SELECT COALESCE(SUM(Time_Entry.hours),0)
 			FROM Time_Entry

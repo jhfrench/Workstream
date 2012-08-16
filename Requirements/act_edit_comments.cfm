@@ -49,7 +49,7 @@
 		SELECT CURRVAL('Comments_comment_id_SEQ') AS comments_id
 		</cfquery>
 		<cfset attributes.comments_id=get_comments_id.comments_id>
-		<!--- insert into Link_Screen_Comments (comments_id, screen_id) --->
+		<!--- INSERT INTO Link_Screen_Comments (comments_id, screen_id) --->
 		<cfquery name="insert_link_screen_comments" datasource="#application.datasources.main#">
 		INSERT INTO Link_Screen_Comments (comments_id, screen_id, sort_order,
 			created_by)

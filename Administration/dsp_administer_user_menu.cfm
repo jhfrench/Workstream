@@ -23,7 +23,7 @@
 --->
 <cfparam name="attributes.work_phone" default="">
 
-<cfif not comparenocase(attributes.method, "cancel")>
+<cfif NOT comparenocase(attributes.method, "cancel")>
 	<cflocation url="index.cfm?fuseaction=Administration.manage_user_profiles">
 </cfif>
 

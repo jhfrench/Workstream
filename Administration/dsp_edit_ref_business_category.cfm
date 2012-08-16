@@ -29,7 +29,7 @@
 <cfoutput>
 <form name="edit_ref_business_category_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="business_category_id">
-	<cfloop query="get_ref_business_category"><option value="#business_category_id#"<cfif not comparenocase(get_ref_business_category.business_category_id, attributes.business_category_id)> selected="selected"</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_business_category"><option value="#business_category_id#"<cfif NOT comparenocase(get_ref_business_category.business_category_id, attributes.business_category_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit business category" value="Retrieve and edit business category" />
 </form>

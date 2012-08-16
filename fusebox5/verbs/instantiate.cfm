@@ -114,7 +114,7 @@ limitations under the License.
 							"Arguments may not be specified when there is no constructor specified for the class.");
 			}
 		} else {
-			fb_appendLine('<cfif not isDefined("#fb_.verbInfo.attributes.object#")>');
+			fb_appendLine('<cfif NOT isDefined("#fb_.verbInfo.attributes.object#")>');
 			fb_appendLine('<cfset #fb_.obj# = #fb_.creation# >');
 			if (fb_.constructor is not "") {
 				fb_appendLine('<cfset #fb_.obj#.#fb_.constructor#(#fb_.args#) >');

@@ -64,7 +64,7 @@ FROM Dual
 </cfquery>
 <cfset attributes.help_faq_id=get_help_faq_id.help_faq_id>
 
-<!--- insert into Link_Screen_Help_FAQ (help_faq_id, screen_id) --->
+<!--- INSERT INTO Link_Screen_Help_FAQ (help_faq_id, screen_id) --->
 <cfloop list="#attributes.screen_id#" index="variables.screen_id">
 	<cfinclude template="../common_files/qry_insert_link_screen_help_faq.cfm">
 </cfloop>

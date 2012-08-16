@@ -21,7 +21,7 @@
 </cfif>
 <cfset notnumericentries="">
 	<cfloop from="1" to="#listlen(attributes.hours)#" index="ii">
-		<cfif IsNumeric(listgetat(attributes.hours,ii))>
+		<cfif isnumeric(listgetat(attributes.hours,ii))>
 		<cftransaction isolation="READ_COMMITTED">
 			<cfinclude template="qry_upload_notes.cfm">
 			<cfinclude template="qry_get_project_details.cfm">

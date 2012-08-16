@@ -27,7 +27,7 @@
 
 	<cfoutput query="get_expenses">
 
-		<cfif NOT CompareNoCase(current_type, get_expenses.reimbursement_type)>
+		<cfif NOT comparenocase(current_type, get_expenses.reimbursement_type)>
 
 		<!--- <cfoutput> --->
 

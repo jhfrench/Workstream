@@ -19,7 +19,7 @@
 
 		<cfset overview = MARKETING.OVERVIEW[ii]>
 
-	<cfif not compareNoCase(MARKETING.RowStatus.Action[ii],  "u")> 
+	<cfif NOT comparenocase(MARKETING.RowStatus.Action[ii],  "u")> 
 			<cfif compare(MARKETING.projected_revenue[ii], "") 
 			or compare(MARKETING.probability[ii], "") 
 			or compare(MARKETING.statusabovedate[ii], "") 
@@ -29,16 +29,15 @@
 			or  compare(MARKETING.company_size[ii], "") 
 			or compare(MARKETING.overview[ii], "")>
 				<cfquery name="update_marketing" datasource="#application.datasources.main#">
-		              update marketing
-				    set 
-					 overview =  '#overview#',
-				    <cfif IsNumeric(MARKETING.projected_revenue[ii])>projected_revenue=  #val(MARKETING.PROJECTED_REVENUE[ii])#,</cfif>
-					<cfif IsNumeric(MARKETING.probability[ii])> probability= '#MARKETING.PROBABILITY[ii]#',</cfif>
+				UPDATE Marketing
+				SET overview =  '#overview#',
+				    <cfif isnumeric(MARKETING.projected_revenue[ii])>projected_revenue=  #val(MARKETING.PROJECTED_REVENUE[ii])#,</cfif>
+					<cfif isnumeric(MARKETING.probability[ii])> probability= '#MARKETING.PROBABILITY[ii]#',</cfif>
 					<cfif isdate(MARKETING.statusabovedate[ii])>statusabovedate= '#MARKETING.STATUSABOVEDATE[ii]#', </cfif>
 					<cfif isdate(MARKETING.statusindate[ii])>statusindate ='#MARKETING.STATUSINDATE[ii]#', </cfif>
 					<cfif isdate(MARKETING.statusbestfewdate[ii])> statusbestfewdate ='#MARKETING.STATUSBESTFEWDATE[ii]#' , </cfif>
 					<cfif isdate(MARKETING.statuscontractdate[ii])>statuscontractdate = '#MARKETING.STATUSCONTRACTDATE[ii]#',</cfif> source = #session.user_account_id#
-					<cfif IsNumeric(MARKETING.company_size[ii])>,company_size ='#MARKETING.COMPANY_SIZE[ii]#'</cfif>
+					<cfif isnumeric(MARKETING.company_size[ii])>,company_size ='#MARKETING.COMPANY_SIZE[ii]#'</cfif>
 					Where project_id = #MARKETING.project_id[ii]#
 		          </cfquery>
 			</cfif>
@@ -110,7 +109,7 @@
 		</cfquery>
 
 			<!--- INSERT AN ENTIERLY NEW MARKETING CODE --->
-			<cfelseif NOT compareNoCase(MARKETING.RowStatus.Action[ii],  "i")>
+			<cfelseif NOT comparenocase(MARKETING.RowStatus.Action[ii],  "i")>
 			<!--- for insert I require that there be a Description --->
 		<cfif compare(MARKETING.description[ii], "")>
 
@@ -133,22 +132,22 @@
 			</cfquery>
 			<cfquery name="insert_marketing" datasource="#application.datasources.main#">
 			INSERT INTO Marketing (project_code, project_id
-			    <cfif IsNumeric(MARKETING.projected_revenue[ii])>,projected_revenue</cfif>
-			    <cfif IsNumeric(MARKETING.probability[ii])>, probability </cfif>
+			    <cfif isnumeric(MARKETING.projected_revenue[ii])>,projected_revenue</cfif>
+			    <cfif isnumeric(MARKETING.probability[ii])>, probability </cfif>
 			    <cfif isdate(MARKETING.statusabovedate[ii])>,statusabovedate</cfif>
 			    <cfif isdate(MARKETING.statusindate[ii])>, statusindate</cfif>
 			    <cfif isdate(MARKETING.statusbestfewdate[ii])>, statusbestfewdate </cfif>
 			    <cfif isdate(MARKETING.statuscontractdate[ii])> , statuscontractdate</cfif>
-			    <cfif IsNumeric(MARKETING.company_size[ii])>, company_size</cfif>
+			    <cfif isnumeric(MARKETING.company_size[ii])>, company_size</cfif>
 			    <cfif compare(MARKETING.overview[ii], "")> , overview</cfif>)
 				VALUES (#variables.project_code#, #get_max_id.project_id#
-				 <cfif IsNumeric(MARKETING.projected_revenue[ii])>,'#MARKETING.PROJECTED_REVENUE[ii]#'</cfif> 
-				 <cfif IsNumeric(MARKETING.probability[ii])>,'#MARKETING.PROBABILITY[ii]#'</cfif> 
+				 <cfif isnumeric(MARKETING.projected_revenue[ii])>,'#MARKETING.PROJECTED_REVENUE[ii]#'</cfif> 
+				 <cfif isnumeric(MARKETING.probability[ii])>,'#MARKETING.PROBABILITY[ii]#'</cfif> 
 				 <cfif isdate(MARKETING.statusabovedate[ii])>,'#MARKETING.STATUSABOVEDATE[ii]#' </cfif>
 				 <cfif isdate(MARKETING.statusindate[ii])>,'#MARKETING.STATUSINDATE[ii]#'</cfif>
 				 <cfif isdate(MARKETING.statusbestfewdate[ii])>,  '#MARKETING.STATUSBESTFEWDATE[ii]#' </cfif> 
 				 <cfif isdate(MARKETING.statuscontractdate[ii])> ,'#MARKETING.STATUSCONTRACTDATE[ii]#'</cfif> 
-				 <cfif IsNumeric(MARKETING.company_size[ii])>, '#MARKETING.COMPANY_SIZE[ii]#' </cfif>
+				 <cfif isnumeric(MARKETING.company_size[ii])>, '#MARKETING.COMPANY_SIZE[ii]#' </cfif>
 				 <cfif compare(MARKETING.overview[ii], "")> ,  '#OVERVIEW#'</cfif>)
 			</cfquery>
 			<cfloop from="1" to="3" index="jj">
@@ -192,7 +191,7 @@
 					<cfif compare(phone, "")>phone_number,</cfif>
 					phone_type_id)
 				VALUES (#get_emp_id.emp_id#, 
-					<cfif IsNumeric(phone)>#phone#</cfif> 
+					<cfif isnumeric(phone)>#phone#</cfif> 
 					,1)
 				</cfquery>
 				<cfquery name="insert_email" datasource="#application.datasources.main#">

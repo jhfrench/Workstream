@@ -75,7 +75,7 @@ limitations under the License.
 			if (fb_.verbInfo.attributes.overwrite) {
 				fb_appendLine("<cfset #name# = #value# />");
 			} else {
-				fb_appendLine("<cfif not isDefined(""#name#"")><cfset #name# = #value# /></cfif>");
+				fb_appendLine("<cfif NOT isDefined(""#name#"")><cfset #name# = #value# /></cfif>");
 			}
 		} else {
 			fb_appendLine("<cfset #value# />");

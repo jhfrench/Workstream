@@ -68,7 +68,7 @@
 		SELECT CURRVAL('Help_Article_help_article_id_SEQ') AS help_article_id
 		</cfquery>
 		<cfset attributes.help_article_id=get_help_article_id.help_article_id>
-		<!--- insert into Link_Screen_Help_Article (help_article_id, screen_id) --->
+		<!--- INSERT INTO Link_Screen_Help_Article (help_article_id, screen_id) --->
 		<cfloop list="#attributes.screen_id#" index="variables.screen_id">
 			<cfquery name="insert_link_screen_help_article" datasource="#application.datasources.main#">
 			INSERT INTO Link_Screen_Help_Article (screen_id, help_article_id, created_by,

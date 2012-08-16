@@ -30,7 +30,7 @@
 <cfoutput>
 <form name="edit_ref_geographic_area_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="geographic_area_id">
-	<cfloop query="get_ref_geographic_area"><option value="#geographic_area_id#"<cfif not comparenocase(get_ref_geographic_area.geographic_area_id, attributes.geographic_area_id)> selected="selected"</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_geographic_area"><option value="#geographic_area_id#"<cfif NOT comparenocase(get_ref_geographic_area.geographic_area_id, attributes.geographic_area_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit geographic area" value="Retrieve and edit geographic area" />
 </form>

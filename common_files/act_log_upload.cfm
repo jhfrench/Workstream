@@ -3,7 +3,7 @@
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_log_upload.cfm.cfm">
 	<responsibilities>
-		I log a data upload attempt by the user. I insert into the LOG_Upload table the date/time, session.user_account_id, cgi.REMOTE_ADDR, file being uploaded (original name and archived name), and the upload_source_id.
+		I log a data upload attempt by the user. I INSERT INTO the LOG_Upload table the date/time, session.user_account_id, cgi.REMOTE_ADDR, file being uploaded (original name and archived name), and the upload_source_id.
 	</responsibilities>
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="8/17/2007" role="FuseCoder" comments="Created File">

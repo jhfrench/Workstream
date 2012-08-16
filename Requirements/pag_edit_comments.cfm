@@ -46,7 +46,7 @@
 		<cfset errMsg[1]="Please enter comments type">
 		<cfset variables.errCount=variables.errCount+1>
 	</cfif>
-	<cfif NOT IsNumeric(attributes.comments_number)>
+	<cfif NOT isnumeric(attributes.comments_number)>
 		<cfset errMsg[2]="Please enter comments number and make sure it is a number">
 		<cfset variables.errCount=variables.errCount+1>
 	</cfif>

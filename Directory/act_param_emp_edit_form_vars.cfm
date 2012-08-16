@@ -14,17 +14,17 @@
 
 	END FUSEDOC --->
 </cfsilent>
-<cfif IsNumeric(get_phone_types.recordcount)>
+<cfif isnumeric(get_phone_types.recordcount)>
 	<cfset loop_to_phone = get_phone_types.recordcount>
 <cfelse>
 	<cfset loop_to_phone = 6>
 </cfif>
-<cfif IsNumeric(get_email_types.recordcount)>
+<cfif isnumeric(get_email_types.recordcount)>
 	<cfset loop_to_email = get_email_types.recordcount>
 <cfelse>
 	<cfset loop_to_email = 3>
 </cfif>
-<cfif IsNumeric(get_locations.recordcount)>
+<cfif isnumeric(get_locations.recordcount)>
 	<cfset loop_to_Location = get_locations.recordcount>
 <cfelse>
 	<cfset loop_to_Location = 2>

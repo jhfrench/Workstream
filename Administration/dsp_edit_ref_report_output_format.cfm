@@ -29,7 +29,7 @@
 <cfmodule template="../common_files/qry_get_ref_report_output_format.cfm" report_output_format_id="0">
 <form name="ref_report_output_format_edit_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="report_output_format_id">
-	<cfloop query="get_ref_report_output_format"><option value="#report_output_format_id#"<cfif not comparenocase(get_ref_report_output_format.report_output_format_id, attributes.report_output_format_id)> selected="selected"</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_report_output_format"><option value="#report_output_format_id#"<cfif NOT comparenocase(get_ref_report_output_format.report_output_format_id, attributes.report_output_format_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit report output format" value="Retrieve and edit report output format" />
 </form>

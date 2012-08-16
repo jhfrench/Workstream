@@ -18,7 +18,7 @@
 	</table>
 <cfelse>
 	<cfparam name="flag" default="0">
-	<cfif compare(attributes.cfgridkey, "")>
+	<cfif len(attributes.cfgridkey)>
 		<cfif compare(flag, 1)>
 
 					<cfinclude template="qry_get_contact_name.cfm">
@@ -27,7 +27,7 @@
 					<cfinclude template="dsp_add_edit.cfm">
 					</table>
 		<cfelse>
-			<cfif CompareNoCase(select, "d")>
+			<cfif comparenocase(select, "d")>
 					<cfinclude template="qry_get_marketing_contact_info.cfm">
 					<table width="100%" border="0" align="center">
 					<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText" section_color="ffffff" section_title="Edit Current Contact" colspan="3" gutter="false" align="center">

@@ -20,17 +20,17 @@
 <cfparam name="attributes.back_text" default="Back">
 </cfsilent>
 <cfoutput>
-<cfif Not comparenocase(attributes.display_button1, "back")>
+<cfif NOT comparenocase(attributes.display_button1, "back")>
 	<td>
 		<input type="button" onclick="javascript:history.go(-1)" value="#attributes.back_text#">
 	</td>
 </cfif>
-<cfif Not comparenocase(attributes.display_button2, "submit")>
+<cfif NOT comparenocase(attributes.display_button2, "submit")>
 	<td>
 		<input type="submit" value="#attributes.submit_text#">
 	</td>
 </cfif>
-<cfif Not comparenocase(attributes.display_button3, "reset")>
+<cfif NOT comparenocase(attributes.display_button3, "reset")>
 	<td>
 		<input type="Reset">
 	</td>

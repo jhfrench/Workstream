@@ -30,7 +30,7 @@
 <cfoutput>
 <form name="edit_ref_country_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="country_id">
-	<cfloop query="get_ref_country"><option value="#country_id#"<cfif not comparenocase(get_ref_country.country_id, attributes.country_id)> selected="selected"</cfif>>#description#</option></cfloop>
+	<cfloop query="get_ref_country"><option value="#country_id#"<cfif NOT comparenocase(get_ref_country.country_id, attributes.country_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit country" value="Retrieve and edit country" />
 </form>

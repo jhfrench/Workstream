@@ -36,7 +36,7 @@ limitations under the License.
 		if (fb_.verbInfo.parent.ifUsed) {
 			fb_appendLine("<cfelse>");
 		} else {
-			fb_appendLine("<cfif not ( #fb_.verbInfo.parent.condition# )>");
+			fb_appendLine("<cfif NOT ( #fb_.verbInfo.parent.condition# )>");
 			fb_.verbInfo.parent.ifUsed = true;
 		}
 	}

@@ -31,14 +31,14 @@ limitations under the License.
 		<cfif isDefined("this")>
 			<cfloop item="__v" collection="#this#">
 				<!--- not safe to allow functions to be overridden --->
-				<cfif not isCustomFunction(this[__v])>
+				<cfif NOT isCustomFunction(this[__v])>
 					<cfset __fuseboxAppCfc.override(__v,this[__v],true) />
 				</cfif>
 			</cfloop>
 		</cfif>
-		<cfif not structKeyExists(application,FUSEBOX_APPLICATION_KEY)>
+		<cfif NOT structKeyExists(application,FUSEBOX_APPLICATION_KEY)>
 			<cflock name="#application.ApplicationName#_fusebox_#FUSEBOX_APPLICATION_KEY#" type="exclusive" timeout="300">
-				<cfif not structKeyExists(application,FUSEBOX_APPLICATION_KEY)>
+				<cfif NOT structKeyExists(application,FUSEBOX_APPLICATION_KEY)>
 					<cfset __fuseboxAppCfc.onApplicationStart() />
 				</cfif>
 			</cflock>

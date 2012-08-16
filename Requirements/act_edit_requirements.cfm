@@ -48,7 +48,7 @@
 		<cfquery name="get_requirement_id" datasource="#application.datasources.main#">
 		SELECT CURRVAL('Requirement_requirement_id_SEQ') AS requirement_id
 		</cfquery>
-		<!--- insert into Link_Screen_Requirement (requirement_id, screen_id) --->
+		<!--- INSERT INTO Link_Screen_Requirement (requirement_id, screen_id) --->
 		<cfquery name="insert_link_screen_requirement" datasource="#application.datasources.main#">
 		INSERT INTO Link_Screen_Requirement (requirement_id, screen_id, sort_order,
 			created_by)

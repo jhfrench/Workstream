@@ -30,7 +30,7 @@
 	<cfelse>
 		<cfset variables.rollover=get_pto_totals.rollover>
 	</cfif>
-	<cfif IsNumeric(get_pto_totals.PTO_hours_earned)>
+	<cfif isnumeric(get_pto_totals.PTO_hours_earned)>
 		<cfset variables.hours_earned="#numberformat(get_pto_totals.PTO_hours_earned,'___.__')#">
 	<cfelse>
 		<cfset variables.hours_earned=0>

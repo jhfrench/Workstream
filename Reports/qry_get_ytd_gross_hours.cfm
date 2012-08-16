@@ -26,7 +26,7 @@ FROM Time_Entry
 	INNER JOIN Emp_Contact ON Demographics.emp_id= Emp_Contact.emp_id
 	LEFT OUTER JOIN Project	ON Time_Entry.project_id=Project.project_id
 	LEFT OUTER JOIN Location ON Emp_Contact.emp_id=Location.emp_id
-		AND Location.location_type_id=1<CFIF NOT listfind(display_office,"ALL")>
+		AND Location.location_type_id=1<cfif NOT listfind(display_office,"ALL")>
 		<!--- Need to qualify the list of locations with single quotes since its a string value --->
 		AND Location.City IN (#ListQualify(display_office,"'",",","ALL")#) </cfif>
 	LEFT OUTER JOIN REF_Employee_Classification ON REF_Employee_Classification.employee_classification_id=Demographics.employee_classification_id

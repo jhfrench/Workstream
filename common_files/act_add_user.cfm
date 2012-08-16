@@ -58,7 +58,7 @@
 <!--- if username and password fields are not empty, and username does not exist in the database then insert --->
 <cfif variables.add_user_error_count EQ 0>
 	<cftransaction>
-		<!--- insert into user account table --->
+		<!--- INSERT INTO user account table --->
 		<cfinclude template="qry_insert_user_account.cfm">
 
 		<!--- get the id of the inserted record because it will be needed to populate Demographics table --->

@@ -35,7 +35,7 @@
 <form name="ref_business_function_form" action="index.cfm?fuseaction=#fuseaction#" method="post" class="well form-inline">
 	<label for="business_function_id">Retrieve an existing business function</label>
 	<select name="business_function_id">
-	<cfloop query="get_business_function"><option value="#business_function_id#"<cfif not comparenocase(get_business_function.business_function_id, attributes.business_function_id)> selected="selected"</cfif>>#description#</option></cfloop>
+	<cfloop query="get_business_function"><option value="#business_function_id#"<cfif NOT comparenocase(get_business_function.business_function_id, attributes.business_function_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit business function" value="Retrieve and edit business function" class="btn btn-primary" />
 	<a href="index.cfm?fuseaction=Administration.edit_ref_business_function" class="btn">Add new REF_Screen record</a>
@@ -63,7 +63,7 @@
 			<div class="controls">
 				<select name="parent_business_function_id">
 					<option value="NULL">No Parent</option>
-					<cfloop query="get_business_function"><option value="#business_function_id#"<cfif not comparenocase(get_business_function.business_function_id, attributes.parent_business_function_id)> selected="selected"</cfif>>#description#</option></cfloop>
+					<cfloop query="get_business_function"><option value="#business_function_id#"<cfif NOT comparenocase(get_business_function.business_function_id, attributes.parent_business_function_id)> selected="selected"</cfif>>#description#</option></cfloop>
 				</select>
 				<p class="help-block">This is the business function under which this record will be grouped in the navigation bar.</p>
 			</div>

@@ -31,7 +31,7 @@
 <!--- display all --->
 <form name="edit_ref_comments_type_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="comments_type_id">
-	<cfloop query="get_comments_type"><option value="#comments_type_id#"<cfif not comparenocase(get_comments_type.comments_type_id, attributes.comments_type_id)> selected="selected"</cfif>>#description#</option></cfloop>
+	<cfloop query="get_comments_type"><option value="#comments_type_id#"<cfif NOT comparenocase(get_comments_type.comments_type_id, attributes.comments_type_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit comments type" value="Retrieve and edit comments type" />
 </form>

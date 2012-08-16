@@ -13,7 +13,7 @@
 	 || 
 	END FUSEDOC --->
 <cfparam name="attributes.from_date" default="#month(now())#/1/#year(now())#">
-<cfparam name="attributes.to_date" default="#month(now())#/#DaysInMonth(now())#/#year(now())#">
+<cfparam name="attributes.to_date" default="#month(now())#/#daysinmonth(now())#/#year(now())#">
 </cfsilent>
 <cfinclude template="qry_supervisor_force.cfm">
 <cfinclude template="dsp_supervisor_force.cfm">

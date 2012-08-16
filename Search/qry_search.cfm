@@ -64,7 +64,7 @@
 <cfif listlen(attributes.task_id) GT 1>
 	<cfset variables.task_id="">
 	<cfloop list="#attributes.task_id#" index="ii">
-		<cfif IsNumeric(ii)>
+		<cfif isnumeric(ii)>
 			<cfset variables.task_id=listappend(variables.task_id,ii)>
 		</cfif>
 	</cfloop>

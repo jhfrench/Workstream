@@ -91,7 +91,7 @@
 Cut and Paste the following code:
 <hr></p>
 	<cfset first_name="">
-<cfif NOT Compare(form.pin, "TBD")>
+<cfif NOT compare(form.pin, "TBD")>
 	<cfset auth_name="To Be Determined">
 	<cfset author=form.pin>
 <cfelse>

@@ -22,7 +22,7 @@
 <cfset variables.module_color="808080,008000,970000,000000,0000ff,008080,E2B412,78A0EB,772862,18AEB6,778899,9C615A">
 </cfsilent>
 <cfoutput query="get_all_modules_and_reports">
-<cfif NOT CompareNoCase(report_name, "edit employee") and object_security>
+<cfif NOT comparenocase(report_name, "edit employee") and object_security>
 	<tr>
 		<td align="left" colspan="2">
 		<a href="javascript:edit_employee('#emp_id#');">Edit Employee Information</a>
@@ -64,7 +64,7 @@
 		<td>
 			&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="R#object_id#"<cfif object_security> checked="checked"</cfif> > #report_name#
 		</td>
-		<td><input type="checkbox" name="A_O#object_id#"<cfif object_all_option_editable> checked="checked"</cfif><cfif not object_all_option> disabled="disabled"</cfif>></td>
+		<td><input type="checkbox" name="A_O#object_id#"<cfif object_all_option_editable> checked="checked"</cfif><cfif NOT object_all_option> disabled="disabled"</cfif>></td>
 	</tr>
 	<cfset variables.module_name=module_name>
 </cfoutput>

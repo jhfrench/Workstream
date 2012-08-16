@@ -21,7 +21,7 @@
 		</td>
 		<td>Customer</td>
 		<td>
-		<cfif not len(attributes.project_id)>
+		<cfif NOT len(attributes.project_id)>
 			<cfmodule template="../common_files/edit_two_related_selects.cfm"
 			  
 				query="get_search_projects"

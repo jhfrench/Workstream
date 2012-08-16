@@ -146,7 +146,7 @@ limitations under the License.
 			fb_appendLine('<cfset #fb_.ret# = #fb_.obj#.#fb_.methodcall# >');
 		} else {
 			if (fb_.verbInfo.attributes.returnvariable is not "") {
-				fb_appendLine('<cfif not isDefined("#fb_.verbInfo.attributes.returnvariable#")><cfset #fb_.ret# = #fb_.obj#.#fb_.methodcall# ></cfif>');
+				fb_appendLine('<cfif NOT isDefined("#fb_.verbInfo.attributes.returnvariable#")><cfset #fb_.ret# = #fb_.obj#.#fb_.methodcall# ></cfif>');
 			} else {
 				fb_appendLine('<cfset #fb_.obj#.#fb_.methodcall# >');
 			}
