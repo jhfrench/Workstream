@@ -25,7 +25,7 @@ WHERE customer_id=#attributes.customer_id#
 	<cfquery name="get_company_id" datasource="#application.datasources.main#">
 	SELECT company_id AS visible
 	FROM Link_Customer_Company
-	WHERE code='#get_root_code.root_code#'
+	WHERE customer_id=#attributes.customer_id#
 	</cfquery>
 	<cfset variables.company_id=valuelist(get_company_id.visible)>
 </cfif>

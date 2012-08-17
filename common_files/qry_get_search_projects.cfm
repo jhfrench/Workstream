@@ -36,7 +36,7 @@ SELECT Customer.customer_id, Customer.description || ' (' ||  Customer.root_code
 FROM Customer, Project, Link_Project_Company, Link_Customer_Company
 WHERE Customer.customer_id = Project.customer_id
 	AND Project.project_id = Link_Project_Company.project_id
-	AND Customer.customer_id = Link_Customer_Company.customer_id
+	AND Customer.customer_id=Link_Customer_Company.customer_id
 	AND Link_Customer_Company.company_id IN (#variables.valid_codes#)
 	AND Link_Project_Company.company_id IN (#variables.valid_codes#)
 	AND Project.project_type_id!=3 

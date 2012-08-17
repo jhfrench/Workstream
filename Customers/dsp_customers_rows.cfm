@@ -12,25 +12,38 @@
 	 || 	 
 		END FUSEDOC --->
 </cfsilent>
-<cfoutput query="get_customers">
-	<tr<cfif (currentrow MOD 2) EQ 0> bgcolor="##E1E1E1"</cfif>>
-		<td>
-			<cfif Get_customers.drill><a href="javascript:customer('#clientcode#')"></cfif>
-			<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
-				#clientcode# - #clientname#
-			<cfelse>
-				#clientname# (#clientcode#)
-			</cfif>
-			<cfif Get_customers.drill></a></cfif>
-		</td>
-		<td align="center">
-			<cfif Get_customers.drill><a href="javascript:customer('#clientcode#')"></cfif>
-				#active#
-			<cfif get_customers.drill></a></cfif>
-		</td>
-		<td align="center">
-				<a href="javascript:edit('#customer_id#')">Edit</a>
-		</td>
+<table class="table table-striped table-bordered table-condensed">
+	<caption><h2>Customer List</h2></caption>
+	<thead>
+	<tr>
+		<th>
+			<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>Root Code - Customer Name<cfelse>Customer Name (Root Code)</cfif>
+		</th>
+		<th>
+			Status
+		</th>
+		<th>
+			Edit
+		</th>
 	</tr>
-</cfoutput>
-
+	</thead>
+	<tbody>
+	<cfoutput query="get_customers">
+		<tr>
+			<td>
+				<a href="<cfif Get_customers.drill>javascript:customer('#clientcode#')<cfelse>##</cfif>" title="View projects for #clientname#."><cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
+					#clientcode# - #clientname#
+				<cfelse>
+					#clientname# (#clientcode#)
+				</cfif></a>
+			</td>
+			<td>
+					#active#
+			</td>
+			<td align="center">
+					<a href="javascript:edit('#customer_id#')" class="btn btn-mini">Edit</a>
+			</td>
+		</tr>
+	</cfoutput>
+	</tbody>
+</table>

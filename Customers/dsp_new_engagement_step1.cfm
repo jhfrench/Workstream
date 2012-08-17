@@ -15,7 +15,7 @@
 </cfsilent>
 <cfinclude template="qry_get_root_codes.cfm">
 <cfinclude template="qry_get_companies.cfm">
-<cfinclude template="../common_filesqry_get_ref_billable_type.cfm">
+<cfinclude template="../common_files/qry_get_ref_billable_type.cfm">
 <cfinclude template="../common_files/qry_get_products.cfm">
 <cfoutput>
 <input type="hidden" name="step" value="2">

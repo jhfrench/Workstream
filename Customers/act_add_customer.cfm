@@ -35,8 +35,8 @@
 		#attributes.company_id# <cfif len(attributes.company_address1)>, '#attributes.company_address1#'</cfif><cfif len(attributes.company_address2)>, '#attributes.company_address2#'</cfif><cfif len(attributes.company_city)>, '#attributes.company_city#'</cfif>, '#attributes.company_state#'<cfif len(attributes.company_zip)>, '#attributes.company_zip#'</cfif><cfif len(attributes.lname)>, CURRVAL('Emp_Contact_emp_id_SEQ')</cfif>, 1)
 	</cfquery>
 	<cfquery name="company_id" datasource="#application.datasources.main#">
-	INSERT INTO Link_Customer_Company (customer_id, code, company_id)
-	SELECT CURRVAL('Customer_customer_id_SEQ'), '#variables.new_code#', company_id
+	INSERT INTO Link_Customer_Company (customer_id, company_id)
+	SELECT CURRVAL('Customer_customer_id_SEQ'), company_id
 	FROM REF_Company
 	WHERE company_id IN (<cfif isdefined("attributes.company_id")>#attributes.company_id#<cfelse>#attributes.company_id#</cfif>)
 	</cfquery>

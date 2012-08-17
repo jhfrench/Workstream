@@ -11,19 +11,35 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
+</cfsilent>
 <cftransaction isolation="READ_COMMITTED">
 <!--- I update the Customer table with the information that is only located on the Customer table --->
+<cfoutput>
+<pre>
+UPDATE Customer
+SET root_code='#attributes.root_code#',
+	description='#attributes.description#', 
+	company_id=#attributes.company_id#,
+	active_ind=#attributes.active_ind#,
+	company_address1='#attributes.company_address1#',
+	company_address2='#attributes.company_address2#',
+	company_city = '#attributes.company_city#',
+	company_state='#attributes.company_state#',
+	company_zip='#attributes.company_zip#'
+WHERE customer_id=#attributes.customer_id#
+</pre>
+</cfoutput>
 <cfquery name="update_customers" datasource="#application.datasources.main#">
 UPDATE Customer
 SET root_code='#attributes.root_code#',
 	description='#attributes.description#', 
 	company_id=#attributes.company_id#,
-	active_ind=#attributes.active_ind#,<cfif len(company_address1)>
-	company_address1='#attributes.company_address1#',</cfif><cfif len(company_address2)>
-	company_address2='#attributes.company_address2#',</cfif><cfif len(company_city)>
-	company_city = '#attributes.company_city#',</cfif>
-	company_state='#attributes.company_state#'<cfif len(company_zip)>,
-	company_zip ='#attributes.company_zip#'</cfif>
+	active_ind=#attributes.active_ind#,
+	company_address1='#attributes.company_address1#',
+	company_address2='#attributes.company_address2#',
+	company_city = '#attributes.company_city#',
+	company_state='#attributes.company_state#',
+	company_zip='#attributes.company_zip#'
 WHERE customer_id=#attributes.customer_id#
 </cfquery>
 <cfquery name="update_projects" datasource="#application.datasources.main#">
@@ -81,14 +97,12 @@ WHERE customer_id=#attributes.customer_id#
 the customer is visible to and insert them into the table. --->
 <cfquery name="delete_old" datasource="#application.datasources.main#">
 DELETE FROM Link_Customer_Company
-WHERE customer_id='#attributes.customer_id#'
+WHERE customer_id=#attributes.customer_id#
 </cfquery>
-<cfloop index="ii" list="#attributes.company_id#">
-	<cfquery name="insert_company_id" datasource="#application.datasources.main#">
+<cfquery name="insert_company_id" datasource="#application.datasources.main#">
+<cfloop index="ii" list="#attributes.visible_to_company_id#">
 	INSERT INTO Link_Customer_Company (customer_id, company_id)
-	VALUES ('#attributes.customer_id#', #ii#)
-	</cfquery>
+	VALUES (#attributes.customer_id#, #ii#);
 </cfloop>
+</cfquery>
 </cftransaction>
-</cfsilent>
-
