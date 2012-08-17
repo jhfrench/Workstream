@@ -35,9 +35,9 @@ Use DAF to encrypt the current password and new password
 	FROM Security
 	WHERE password= '#variables.current_pass#'
 	<cfif isdefined("attributes.make_changes")>
-		AND emp_id = '#attributes.emp_id#'
+		AND emp_id='#attributes.emp_id#'
 	<cfelse>
-		AND emp_id = '#session.user_account_id#'
+		AND emp_id='#session.user_account_id#'
 	</cfif>
 </cfquery>
 

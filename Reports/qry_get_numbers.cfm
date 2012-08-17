@@ -24,7 +24,7 @@ SELECT SUM(CASE WHEN Demographics.hire_date <= ABCD_Quarter.date_end AND (Demogr
 	ABCD_Quarter.thequarter, ABCD_Quarter.theyear
 FROM ABCD_Quarter, Demographics_Ngauge Demographics, Link_Company_Emp_Contact,  Turnover
 WHERE Turnover.demographics_id =* Demographics.demographics_id 
-	AND Link_Company_Emp_Contact.emp_id = Demographics.emp_id 
+	AND Link_Company_Emp_Contact.emp_id=Demographics.emp_id 
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 	AND Demographics.hire_date IS NOT NULL
 	AND ABCD_Quarter.date_start >= '#date_start#' 
@@ -36,7 +36,7 @@ ORDER BY ABCD_Quarter.thequarter, ABCD_Quarter.theyear
 SELECT COUNT(Emp_Contact.emp_id) AS total_pop
 FROM Emp_Contact, Link_Company_Emp_Contact, Demographics_Ngauge Demographics
 WHERE Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
-	AND Emp_Contact.emp_id = Demographics.emp_id
+	AND Emp_Contact.emp_id=Demographics.emp_id
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#) 
 	AND Demographics.hire_date IS NOT NULL
 	AND (Demographics.end_date <= DATEADD(qq, 1, CURRENT_TIMESTAMP) 

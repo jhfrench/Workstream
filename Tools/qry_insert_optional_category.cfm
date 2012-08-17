@@ -9,24 +9,21 @@
 	Name: Jeromy French
 	||
 	Edits:
-
-
-	 
 	 || 
 	END FUSEDOC --->
 
-<cfquery name="get_max_order_by" datasource="#application.datasources.main#">
-SELECT MAX(order_by) AS order_by_number
+<cfquery name="get_max_sort_order" datasource="#application.datasources.main#">
+SELECT MAX(sort_order) AS sort_order_number
 FROM REF_Expense_Category
-WHERE expense_category_id <> 18
+WHERE expense_category_id!=18
 </cfquery>
 
-<cfset variables.order_by = get_max_order_by.order_by_number + 1>
-<cfset variables.category_name = UCASE(LEFT(attributes.optional_new_category,1)) & RIGHT(attributes.optional_new_category, len(attributes.optional_new_category) - 1)>
+<cfset variables.sort_order=get_max_sort_order.sort_order_number + 1>
+<cfset variables.category_name=ucase(left(attributes.optional_new_category,1)) & right(attributes.optional_new_category, len(attributes.optional_new_category) - 1)>
 <cfquery name="insert_optional_category" datasource="#application.datasources.main#">
-INSERT INTO REF_Expense_Category (category, order_by, accounting_approval_ind,
+INSERT INTO REF_Expense_Category (category, sort_order, accounting_approval_ind,
 		active_ind)
-VALUES ('#variables.category_name#', #variables.order_by#, 0,
+VALUES ('#variables.category_name#', #variables.sort_order#, 0,
 		1);
 SELECT CURRVAL('REF_Expense_Category_expense_category_id_SEQ') AS expense_category_id
 </cfquery>

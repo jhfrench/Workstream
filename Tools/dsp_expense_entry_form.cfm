@@ -8,9 +8,6 @@
 	Name: Jeromy French
 	||
 	Edits:
-
-
-	 
 	 || 
 	END FUSEDOC --->
 <cfparam name="attributes.amount" default="">

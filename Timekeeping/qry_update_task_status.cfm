@@ -17,7 +17,7 @@
 <cfquery name="update_task_status" datasource="#application.datasources.main#">
 UPDATE Task
 SET status_id=#attributes.task_status#<cfif attributes.task_status EQ 7>, 
-	complete_date=#now()#,
+	complete_date=CURRENT_TIMESTAMP,
 	completed_by=#session.user_account_id#</cfif>
 WHERE task_id=#attributes.task_id#
 </cfquery>

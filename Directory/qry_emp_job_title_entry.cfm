@@ -18,7 +18,7 @@
 <cfquery name="get_old_job" datasource="#application.datasources.main#">
 SELECT TOP 1 job_title_id
 FROM Job_Title
-WHERE emp_id = '#attributes.emp_id#'
+WHERE emp_id='#attributes.emp_id#'
 		AND active_ind = 1
 ORDER BY date_start DESC
 </cfquery>

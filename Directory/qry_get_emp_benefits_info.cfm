@@ -31,7 +31,7 @@
 					WHERE
 						active_ind = 1)
 					AS REF_Benefit_Type
-	WHERE emp_id = #attributes.emp_id#
+	WHERE emp_id=#attributes.emp_id#
 	<!--- AND Benefit.active_ind = 1 --->
 	AND Benefit.benefit_type_id = REF_Benefit_Type.benefit_type_id
 </cfquery>

@@ -32,7 +32,7 @@ FROM Project
 	INNER JOIN REF_Billable_Type ON Project.billable_type_id=REF_Billable_Type.billable_type_id
 	INNER JOIN REF_Active_Indicator ON Project.active_ind = REF_Active_Indicator.active_ind
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
-	LEFT OUTER JOIN Emp_Contact ON Project.project_manager_emp_id = Emp_Contact.emp_id
+	LEFT OUTER JOIN Emp_Contact ON Project.project_manager_emp_id=Emp_Contact.emp_id
 	LEFT OUTER JOIN Flat_Rate ON Project.project_id = Flat_Rate.project_id
 		AND Flat_Rate.active_ind=1
     LEFT OUTER JOIN (

@@ -12,7 +12,7 @@
 	END FUSEDOC --->
 <cfquery name="get_hours" datasource="#application.datasources.main#">
 SELECT Time_Entry.work_date AS date, Time_Entry.hours, Notes.note AS notes,
-	CASE WHEN Customer.description != Project.description <cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
+	CASE WHEN Customer.description!=Project.description <cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
 		THEN (Project.project_code || '-' || Customer.description || '-' || Project.description) 
 		ELSE (Project.project_code || '-' || Project.description)
 	<cfelse>

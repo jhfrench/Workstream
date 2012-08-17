@@ -19,7 +19,7 @@
 SELECT COALESCE(employee_classification, 'Unknown') AS employee_classification, Emp_Contact.name, Emp_Contact.lname,
 	COALESCE(Location.city, 'Unknown') AS city,
 	SUM(CASE WHEN Project.billable_type_id=2 THEN Time_Entry.hours ELSE 0 END) AS non_billable, 
-	SUM(CASE WHEN Project.billable_type_id != 2 THEN Time_Entry.hours ELSE 0 END) AS billable,
+	SUM(CASE WHEN Project.billable_type_id!=2 THEN Time_Entry.hours ELSE 0 END) AS billable,
 	Demographics.emp_id, COALESCE(SUM(Time_Entry.hours), 0) AS gross_hours
 FROM Time_Entry
 	RIGHT OUTER JOIN Demographics_Ngauge AS Demographics ON Time_Entry.emp_id=Demographics.emp_id

@@ -10,9 +10,6 @@
 	||
 	Edits:
 	$Log$
-	Revision 1.2  2006/03/31 07:47:14  french
-	Modified query to use Link_Employee_Supervisor table instead of Demographics table.
-
 	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
@@ -24,17 +21,15 @@ WHERE Task.task_id=#attributes.task_id#
 	AND Emp_Contact.emp_id=Task.created_by
 UNION ALL
 SELECT Team.emp_id
-FROM Task, Team
-WHERE Task.task_id=#attributes.task_id#
-	AND Task.task_id=Team.task_id
+FROM Team
+WHERE Team.task_id=#attributes.task_id#
 	AND Team.role_id IN (1,5)
 UNION ALL
 SELECT Link_Employee_Supervisor.supervisor_id
-FROM Link_Employee_Supervisor, Team
-WHERE Link_Employee_Supervisor.user_account_id=Team.emp_id
-	AND Team.task_id=#attributes.task_id#
+FROM Link_Employee_Supervisor
+	INNER JOIN Team ON Link_Employee_Supervisor.user_account_id=Team.emp_id
+		AND Link_Employee_Supervisor.active_ind=1
+WHERE Team.task_id=#attributes.task_id#
 	AND Team.role_id=1
-	AND Link_Employee_Supervisor.active_ind=1
 </cfquery>
 </cfsilent>
-

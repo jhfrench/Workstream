@@ -14,7 +14,7 @@
  --->
 <cfif attributes.sum_assigned GT 0>
 <cfquery name="insert_forecast_assignment" datasource="#application.datasources.main#">
-/*EXECUTE LOOP : #emp_id_loop#*/
+/*EXECUTE LOOP: #emp_id_loop#*/
 	<cfloop query="get_prospectives">
 		<cfif isdefined("attributes.accept_#task_id#")>
 			<cfloop list="#emp_id_loop#" index="ii">
@@ -32,6 +32,7 @@
 					#evaluate("attributes.t#task_id#_#ii#")#);
 
 				/*update team membership*/
+				<!--- $issue$: Team needs active_ind --->
 				DELETE FROM Team
 				WHERE Team.role_id=4
 					AND Team.task_id=#task_id#

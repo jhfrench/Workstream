@@ -89,7 +89,7 @@
 				subNodes[i].options.length=0;
 				<cfif attributes.show_all_option_ind EQ 1>subNodes[i].options[0]=new Option("All","");</cfif>
 			}
-			if(thisSel.options[thisSel.selectedIndex].value !="") {
+			if(thisSel.options[thisSel.selectedIndex].value!="") {
 				optPos=<cfoutput>#attributes.show_all_option_ind#</cfoutput>;
 				lastVal="";
 				for (i=0; i < <cfoutput>#attributes.function_name#</cfoutput>_optValArr.length; i++) {

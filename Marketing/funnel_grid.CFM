@@ -52,10 +52,10 @@ function CSIShow(n,i) {
 	if (document.images) {
 		if (CSIm[n]) {
 			var img = (!IsIE()) ? CSFindElement(n, 0) : document[n];
-			if (img && typeof(CSIm[n][i].src) != "undefined") {
+			if (img && typeof(CSIm[n][i].src)!="undefined") {
 				img.src = CSIm[n][i].src;
 			}
-			if (i != 0)          self.status = CSIm[n][3];
+			if (i!=0)          self.status = CSIm[n][3];
 			else          self.status = " ";
 			return true;
 		}
@@ -68,7 +68,7 @@ function CSILoad(action) {
 	if (document.images) {
 		CSIm[im] = new Object();
 		for (var i=2;i<5;i++) {
-			if (action[i] != '') {
+			if (action[i]!='') {
 				CSIm[im][i-2] = new Image();
 				CSIm[im][i-2].src = action[i];
 			}
@@ -90,7 +90,7 @@ function CSAction2(fct, array) {
 		var actArray = fct[array[i]];
 		var tempArray = new Array;
 		for (var j=1;j<actArray.length;j++) {
-			if ((actArray[j] != null) && (typeof(actArray[j]) == "object") && (actArray[j].length == 2)) {
+			if ((actArray[j]!=null) && (typeof(actArray[j]) == "object") && (actArray[j].length == 2)) {
 				if (actArray[j][0] == "VAR") {
 					tempArray[j] = CSStateArray[actArray[j][1]];
 				}

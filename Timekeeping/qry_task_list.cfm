@@ -41,7 +41,7 @@
 </cfif>
 <cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id,"|") GT 1>
 	<cfset attributes.Inbox_owner = listlast(attributes.emp_id,"|")>
-	<cfset attributes.emp_id = listdeleteat(attributes.emp_id, "2","|")>
+	<cfset attributes.emp_id=listdeleteat(attributes.emp_id, "2","|")>
 </cfif>
 
 <cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id) GT 1 AND ListFind(session.workstream_task_list_order, "task_owner")>
@@ -55,7 +55,7 @@ SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id AS task_id,
 	Task.name AS task_name, COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS time_budgeted,
 	Task.status_id AS status_id, Task_Details.time_used AS time_used, Task_Details.task_icon AS task_icon, 
 	Task_Details.percent_time_used AS percent_time_used, Task_Details.task_owner AS task_owner,
-	(CASE WHEN Task.status_id IN (4,10) THEN Task_Details.task_status || ' by ' || Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
+	(CASE WHEN Task.status_id IN (3,8) /* QA, UAT */ THEN Task_Details.task_status || ' by ' || Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
 	(Customer.description || '-' || Project.description) AS project_name, priority
 FROM Task, Team, Emp_Contact,
 	Customer, Project, Link_Project_Company, (
@@ -74,12 +74,12 @@ FROM Task, Team, Emp_Contact,
 						AND Team.emp_id IN (<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#session.user_account_id#</cfif>)
 						AND (
 							(
-								Team.role_id IN (1,<cfif session.workstream_show_team>4,</cfif>0)
-								AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>13)
+								Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>)
+								AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>10) /*completed, on hold, prospective*/
 							)
 							OR (
-								Team.role_id=3 
-								AND Task.status_id IN (4,10)
+								Team.role_id=3 /* QA */
+								AND Task.status_id=3 /* QA */
 							)
 						)</cfif>
 					GROUP BY Task.task_id, REF_Priority.description
@@ -108,9 +108,9 @@ WHERE Customer.customer_id=Project.customer_id
 	AND Emp_Contact.emp_id=Team.emp_id 
 	AND Link_Project_Company.project_id=Project.project_id 
 	AND Link_Project_Company.company_id IN (#session.workstream_company_id#)
-	AND Team.role_id=3<cfif isdefined("attributes.project_id")>
+	AND Team.role_id=3 /* QA */<cfif isdefined("attributes.project_id")>
 	AND Project.project_id=#attributes.project_id#</cfif>
-	AND project.project_type_id!=3<cfif isdefined("session.workstream_task_list_order")>
+	AND Project.project_type_id!=3<cfif isdefined("session.workstream_task_list_order")>
 ORDER BY <cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id) GT 1>task_owner, #variables.temp_task_list_order#<cfelse>#session.workstream_task_list_order#</cfif></cfif>
 </cfquery>
 </cfsilent>

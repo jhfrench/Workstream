@@ -18,16 +18,16 @@ SELECT Emp_Contact.Name AS name,
     PTO_Hours.Pto_Type_Indicator, REF_Day_Length.Day_Length, 
     REF_Company.description AS company
 FROM Emp_Contact
-	INNER JOIN PTO_Hours ON Emp_Contact.emp_id = PTO_Hours.emp_id
-	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
-	INNER JOIN Demographics ON Emp_Contact.emp_id = Demographics.emp_id
+	INNER JOIN PTO_Hours ON Emp_Contact.emp_id=PTO_Hours.emp_id
+	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
+	INNER JOIN Demographics ON Emp_Contact.emp_id=Demographics.emp_id
 	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id = REF_Company.company_id LEFT OUTER
      JOIN
     REF_Day_Length ON Demographics.Day_Length_ID = REF_Day_Length.Day_Length_ID
 WHERE (Link_Company_Emp_Contact.company_id IN
 	(select company_id 
 	from Security_Company_Access 
-	where emp_id = #session.user_account_id#)) 
+	where emp_id=#session.user_account_id#)) 
 AND (Emp_Contact.emp_id IN ('#preservesinglequotes(attributes.drill_down)#'))
 ORDER BY lname
 <cfelse>
@@ -44,23 +44,23 @@ FROM Security_Company_Access, Emp_Contact, PTO_Hours, Demographics, REF_Day_Leng
 		AND Link_Company_Emp_Contact.company_id IN 
 			(SELECT company_id 
 			FROM Security_Company_Access 
-			WHERE emp_id = #session.user_account_id#)
+			WHERE emp_id=#session.user_account_id#)
 		AND Link_Company_Emp_Contact.emp_id*=Time_Entry.emp_id
 		AND EXTRACT(YEAR FROM Time_Entry.work_date) = EXTRACT(YEAR FROM CURRENT_DATE)
 	GROUP BY Link_Company_Emp_Contact.emp_id)
 AS Used_Hours
-WHERE Security_Company_Access.emp_id = emp_contact.emp_id
+WHERE Security_Company_Access.emp_id=emp_contact.emp_id
 	and  Security_Company_Access.company_id IN
 	(select company_id 
 	from Security_Company_Access 
-	where emp_id = #session.user_account_id#)
+	where emp_id=#session.user_account_id#)
 		AND Emp_Contact.emp_id=Security.emp_id
 		AND Emp_Contact.emp_id=Used_Hours.emp_id
-		AND Emp_Contact.emp_id = PTO_Hours.emp_id
-		AND Emp_Contact.emp_id = Demographics.emp_id
+		AND Emp_Contact.emp_id=PTO_Hours.emp_id
+		AND Emp_Contact.emp_id=Demographics.emp_id
 		AND Demographics.Day_Length_ID *= REF_Day_Length.Day_Length_ID
 		AND Demographics.Effective_To IS NULL 
-		And Security.Disable <> 1
+		And Security.Disable!=1
 		<cfif NOT listcontainsnoCase(attributes.emp_id,"ALL" )> AND (Emp_Contact.emp_id IN (#preservesinglequotes(attributes.emp_id)#))</cfif>
 ORDER BY lname
 </cfif>

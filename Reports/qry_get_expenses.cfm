@@ -31,7 +31,7 @@ FROM Notes
 			INNER JOIN REF_Expense_Type ON expense_amount.Expense_type_id = REF_Expense_Type.Expense_type_ID
 			INNER JOIN expense
 			INNER JOIN REF_Reimbursement_Type ON expense.reimbursement_type_id = REF_Reimbursement_Type.Reimbursement_ID
-			INNER JOIN Emp_Contact ON expense.emp_id = Emp_Contact.emp_id
+			INNER JOIN Emp_Contact ON expense.emp_id=Emp_Contact.emp_id
 			INNER JOIN Project ON expense.project_id = Project.project_id ON expense_amount.expense_id = expense.expense_id
 			INNER JOIN Notes ON expense.notes_id = Notes.notes_id
 		WHERE (expense.work_date >='#From_Date#'
@@ -39,7 +39,7 @@ FROM Notes
 	<cfif compare(project_id, 0) >AND expense.project_id = #attributes.project_id#</cfif>
 	<cfif isdefined("attributes.emp_id")>AND expense.emp_id IN (#attributes.emp_id#)</cfif>
 	<cfelse>
-			AND expense.emp_id = #session.user_account_id#
+			AND expense.emp_id=#session.user_account_id#
 	</cfif>
 	) AS JUNK
 	GROUP BY Reimbursement_Type, work_date, Description,

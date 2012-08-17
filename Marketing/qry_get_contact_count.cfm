@@ -20,16 +20,16 @@ FROM (
 		RIGHT OUTER JOIN Marketing
 		INNER JOIN Project ON Marketing.project_id = Project.project_id
 		LEFT OUTER JOIN Marketing_Emp
-		INNER JOIN Emp_Contact ON Marketing_Emp.emp_id = Emp_Contact.emp_id 
+		INNER JOIN Emp_Contact ON Marketing_Emp.emp_id=Emp_Contact.emp_id 
 			AND Project.project_id = Marketing_Emp.project_id LEFT OUTER
 		INNER JOIN Emp_Contact Emp_Contact1 ON Marketing.Source = Emp_Contact1.emp_id 
 			AND Task.project_id = Project.project_id
 		LEFT OUTER JOIN  Location ON Location.Location_Type_Id = 1
-			AND Emp_Contact.emp_id = Location.emp_id
+			AND Emp_Contact.emp_id=Location.emp_id
 		LEFT OUTER JOIN Phone ON Phone.Phone_type_id = 1
-			AND Emp_Contact.emp_id = Phone.emp_id
+			AND Emp_Contact.emp_id=Phone.emp_id
 		LEFT OUTER JOIN Email ON Email.email_type_id = 1
-			AND Emp_Contact.emp_id = Email.emp_id
+			AND Emp_Contact.emp_id=Email.emp_id
 		WHERE Time_Entry.active_ind=1
 		AND Marketing.project_code LIKE '6005.%'<cfif SortBy1 is not 'None'>
 		AND (#SortBy1# like '%#SortBy1stuff#%'</cfif><cfif sortBy2 is not 'None'>#SortBy2andor# #SortBy2# like '%#SortBy2stuff#%'</cfif><cfif SortBy3 is not 'None'>#SortBy3andor# #SortBy3# like '%#SortBy3stuff#%'</cfif><cfif SortBy1 is not 'None' or SortBy2 is not 'None'  or SortBy3 is not 'None' >)</cfif> 

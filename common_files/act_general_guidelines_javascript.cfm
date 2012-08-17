@@ -31,7 +31,7 @@ function checkNum(field_id)
 
 	var div_id=field_id;
 	div_id=div_id.replace(/Text/, "Div");
-	if ($F(field_id) !=parsefloat($F(field_id)))
+	if ($F(field_id)!=parsefloat($F(field_id)))
 		{
 			alert('You must enter a valid numerical expression with no letters or special characters (such as $, %, @, etc).');
 			$(field_id).value=$(div_id).innerHTML;

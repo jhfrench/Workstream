@@ -24,7 +24,7 @@
 			Ret.email_type_id, Em.Email_ID
 		FROM Email Em
 			RIGHT OUTER JOIN REF_Email_Type Ret ON  Em.email_type_id = Ret.email_type_id 
-				AND Em.emp_id = #variables.emp_id#
+				AND Em.emp_id=#variables.emp_id#
 	</cfquery>
 </cfsilent>
 

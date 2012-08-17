@@ -25,7 +25,7 @@ SELECT Customer.customer_id, Customer.description || ' (' ||  Customer.root_code
 	Project.project_id,
 	Project.project_code AS project_code, 
 	CASE
-		WHEN Customer.description != Project.description
+		WHEN Customer.description!=Project.description
 	<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
 		THEN (Project.project_code || '-' || Customer.description || '-' || Project.description) 
 		ELSE (Project.project_code || '-' || Project.description)
@@ -44,7 +44,7 @@ GROUP BY Customer.customer_id, Customer.description, Customer.root_code,
 	Project.description, Project.project_id, Project.project_code,
 	Project.billable_type_id, Project.company_id, 
 	CASE
-		WHEN Customer.description != Project.description
+		WHEN Customer.description!=Project.description
 	<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
 		THEN (Project.project_code || '-' || Customer.description || '-' || Project.description) 
 		ELSE (Project.project_code || '-' || Project.description)

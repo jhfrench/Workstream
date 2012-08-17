@@ -114,8 +114,8 @@ NOTE: These processes are still running from a previous call and will not be add
 						AND REF_Date.date_month=LOG_Upload.data_fiscal_month
 						AND LOG_Upload.active_ind=1
 						AND LOG_Upload.upload_source_id=#get_ftp_credentials.upload_source_id#
-				WHERE date_month=EXTRACT(MONTH FROM CURRENT_TIMESTAMP-'1 month')
-					AND date_year=EXTRACT(YEAR FROM CURRENT_TIMESTAMP+'1 month')
+				WHERE date_month=EXTRACT(MONTH FROM CURRENT_TIMESTAMP-interval '1 month')
+					AND date_year=EXTRACT(YEAR FROM CURRENT_TIMESTAMP+interval '1 month')
 				GROUP BY date_month
 				</cfquery>
 
@@ -135,8 +135,8 @@ NOTE: These processes are still running from a previous call and will not be add
 					date_month, MAX(fiscal_year) AS fiscal_year, 1 AS created_by,
 					CURRENT_TIMESTAMP AS created_date
 				FROM REF_Date
-				WHERE date_month=EXTRACT(MONTH FROM CURRENT_TIMESTAMP+'1 month')
-					AND date_year=EXTRACT(YEAR FROM CURRENT_TIMESTAMP-'1 month')
+				WHERE date_month=EXTRACT(MONTH FROM CURRENT_TIMESTAMP+interval '1 month')
+					AND date_year=EXTRACT(YEAR FROM CURRENT_TIMESTAMP-interval '1 month')
 				GROUP BY date_month
 				</cfquery>
 
@@ -162,11 +162,11 @@ NOTE: These processes are still running from a previous call and will not be add
 	SELECT Demographics.email_address
 	FROM Access_User_Business_Function
 		INNER JOIN Demographics ON Access_User_Business_Function.user_account_id=Demographics.user_account_id
+			AND Demographics.active_ind=1
 		INNER JOIN Link_User_Account_Status ON Access_User_Business_Function.user_account_id=Link_User_Account_Status.user_account_id
+			AND Link_User_Account_Status.active_ind=1
+			AND Link_User_Account_Status.account_status_id=1 /*active users only*/
 	WHERE Access_User_Business_Function.active_ind=1
-		AND Demographics.active_ind=1
-		AND Link_User_Account_Status.active_ind=1
-		AND Link_User_Account_Status.account_status_id=1 /*active users only*/
 		AND Access_User_Business_Function.business_function_id=563 /*regular maintenance*/
 		<cfif comparenocase(variables.environment_name, "Production")>AND Access_User_Business_Function.user_account_id=1</cfif>
 	GROUP BY Demographics.email_address
@@ -176,7 +176,7 @@ NOTE: These processes are still running from a previous call and will not be add
 		<cfoutput>
 			<cfmail to="#valuelist(get_datafactory_distribution_list.email_address)#" from="#application.erroremailfrom#" subject="FAAD Data Factory Notice" server="#application.email_server_name#">Please be aware: #variables.datafactory_notification#
 
-You are receiving this message because you have access to the "Regular Maintenance" screen of the FAAD system (https://#cgi.http_host##cgi.script_name#).</cfmail>
+You are receiving this message because you have access to the "Regular Maintenance" screen of the #application.product_name# system (https://#cgi.http_host##cgi.script_name#).</cfmail>
 		</cfoutput>
 	</cfif>
 </cfif>	

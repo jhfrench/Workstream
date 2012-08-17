@@ -21,7 +21,7 @@
 </cfsilent>
 <cfquery name="get_associated_tasks" datasource="#application.datasources.main#">
 SELECT Link_Task_Task.l_t_t_id, Task.task_id, Task.name,
-	Task.due_date, REF_Status.Status, 'base_task.gif' AS task_icon,
+	Task.due_date, REF_Status.Status<!--- $issue$: case --->, 'base_task.gif' AS task_icon,
 	1 AS sort_order
 FROM REF_Status, Task, Link_Task_Task
 WHERE REF_Status.status_id=Task.status_id

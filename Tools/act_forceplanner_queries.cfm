@@ -27,7 +27,7 @@ FROM
 	(/*top query selects Forceplanner tasks for the selected month*/
 	SELECT ' checked' AS previously_assigned, 
 		CASE 
-			WHEN Task.status_id IN (7,13) THEN 
+			WHEN Task.status_id IN (9,10) /*on hold, prospective*/ THEN 
 				CASE 
 					WHEN SUM(COALESCE(Time_Entry.hours,0)) = 0 THEN 1 
 					ELSE 3
@@ -60,7 +60,7 @@ FROM
 	/*bottom query selects tasks that weren't forceplanned for the selected month*/
 	SELECT '<cfif variables.temp_date LT variables.eval_date> disabled="disabled"</cfif>' AS previously_assigned,
 		CASE
-			WHEN Task.status_id IN (7,13) THEN 
+			WHEN Task.status_id IN (9,10) /*on hold, prospective*/ THEN 
 				CASE 
 					WHEN SUM(COALESCE(Time_Entry.hours,0)) = 0 THEN 1 
 					ELSE 3 
@@ -69,7 +69,7 @@ FROM
 		END AS previous_entry, 
 		Task.task_id AS task_id, Customer.description || '-' || Project.description AS project, Project.project_id, 
 		Task.due_date, Task.name AS task_name, COALESCE(Task.budgeted_hours,0) AS budget, 
-		<cfloop list="#emp_id_loop#" index="ii">SUM(CASE WHEN Team.role_id = 1 AND Team.emp_id =#ii# AND Team.task_id=Task.task_id THEN COALESCE(Task.budgeted_hours,0) ELSE 0 END) AS budget#ii#,
+		<cfloop list="#emp_id_loop#" index="ii">SUM(CASE WHEN Team.role_id=1 AND Team.emp_id =#ii# AND Team.task_id=Task.task_id THEN COALESCE(Task.budgeted_hours,0) ELSE 0 END) AS budget#ii#,
 		</cfloop>(CASE WHEN Project.billable_type_id = 2 THEN 'NB' ELSE 'B' END) AS billable
 	FROM Customer, Project, Task, Team, Time_Entry
 	WHERE Customer.customer_id=Project.customer_id
@@ -77,7 +77,7 @@ FROM
 		AND Task.task_id=Team.task_id
 		AND Task.task_id*=Time_Entry.task_id
 		AND Time_Entry.active_ind=1
-		AND <cfif attributes.force_month GTE month(now()) AND attributes.force_year GTE year(now())>Task.status_id != 11 /*exclude closed tasks*/
+		AND <cfif attributes.force_month GTE month(now()) AND attributes.force_year GTE year(now())>Task.status_id!=7 /*exclude closed tasks*/
 		AND Task.assigned_date < #createodbcdate(dateadd("m",1,"#attributes.force_month#/01/#attributes.force_year#"))# /*show tasks assigned (to be started) before the selected month*/<cfelse>EXTRACT(MONTH FROM Task.assigned_date)=#attributes.force_month# AND EXTRACT(YEAR FROM Task.assigned_date)=#attributes.force_year# /*show tasks assigned (to be started) during the selected month*/</cfif>
 		AND Team.emp_id IN (#session.user_account_id#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)
 		AND Team.role_id IN (1,4)
@@ -103,8 +103,8 @@ ORDER BY Cross_Tab.billable, LEFT(Cross_Tab.project,50), Cross_Tab.due_date, LEF
 <cfquery name="get_week_days" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT COUNT(*) * 8 AS hours_in_month
 FROM REF_Date
-WHERE date_month = #attributes.force_month#
-	AND date_year = #attributes.force_year#
+WHERE date_month=#attributes.force_month#
+	AND date_year=#attributes.force_year#
 	AND holiday_ind=0
 	AND weekend_ind=0
 </cfquery>

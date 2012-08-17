@@ -45,7 +45,7 @@
 				state = evaluate("MARKETING.STATE#jj#[ii]");
 				original_state = evaluate("MARKETING.original.STATE#jj#[ii]");
 				zip = evaluate("MARKETING.ZIP#jj#[ii]");
-				emp_id = evaluate("MARKETING.emp_id#jj#[ii]");
+				emp_id=evaluate("MARKETING.emp_id#jj#[ii]");
 				phone = evaluate("MARKETING.PHONE#jj#[ii]");
 				original_phone = evaluate("MARKETING.original.PHONE#jj#[ii]");
 				extension = evaluate("MARKETING.EXTENSION#jj#[ii]");
@@ -145,7 +145,7 @@
 					city = evaluate("MARKETING.CITY#jj#[ii]");
 					state = evaluate("MARKETING.STATE#jj#[ii]");
 					zip = evaluate("MARKETING.ZIP#jj#[ii]");
-					emp_id = evaluate("MARKETING.emp_id#jj#[ii]");
+					emp_id=evaluate("MARKETING.emp_id#jj#[ii]");
 					phone = evaluate("MARKETING.PHONE#jj#[ii]");
 					extension = evaluate("MARKETING.EXTENSION#jj#[ii]");
 					email = evaluate("MARKETING.EMAIL#jj#[ii]");

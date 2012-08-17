@@ -14,5 +14,5 @@
 
 <cfquery name="del_marketing_contact" datasource="#application.datasources.main#">
 DELETE FROM marketing_emp
-WHERE emp_id = #attributes.emp_id#
+WHERE emp_id=#attributes.emp_id#
 </cfquery>

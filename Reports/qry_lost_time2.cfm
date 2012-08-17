@@ -31,8 +31,8 @@ WHERE
 	 te.date between '#from_date#' and '#TO_DATE#'
 	AND (Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#))
 	AND Emp_Contact.emp_id *= te.emp_id 
-	AND Emp_Contact.emp_id = Security.emp_id 
-	AND Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id 
+	AND Emp_Contact.emp_id=Security.emp_id 
+	AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id 
 	<cfif NOT listcontainsnoCase(attributes.emp_id,"ALL" )> AND (Emp_Contact.emp_id IN (#preservesinglequotes(attributes.emp_id)#))</cfif>
 	GROUP BY security.emp_id, [name], lname
 	ORDER BY lname, name

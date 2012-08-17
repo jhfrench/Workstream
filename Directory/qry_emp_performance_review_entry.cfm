@@ -17,7 +17,7 @@
 	<cfquery name="get_old_review" datasource="#application.datasources.main#">
 		SELECT TOP 1 created_date, performance_review_id
 		FROM Performance_Review
-		WHERE emp_id = '#attributes.emp_id#'
+		WHERE emp_id='#attributes.emp_id#'
 		ORDER BY created_date DESC
 	</cfquery>
 

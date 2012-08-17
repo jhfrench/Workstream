@@ -29,7 +29,7 @@ SELECT Project.project_code, Project.description, Project.project_id,
 		(Project.description || ' (' ||  Project.project_code || ')') 
 	</cfif> AS project_label,
 	CASE WHEN
-	Customer.description != Project.description
+	Customer.description!=Project.description
 	<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
 		THEN (Project.project_code || '-' || Customer.description || '-' || Project.description) 
 		ELSE (Project.project_code || '-' || Project.description)
@@ -50,7 +50,7 @@ GROUP BY Project.project_code, Project.description, Project.project_id,
 		(Project.description || ' (' ||  Project.project_code || ')') 
 	</cfif>,
 	CASE WHEN
-	Customer.description != Project.description
+	Customer.description!=Project.description
 	<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
 		THEN (Project.project_code || '-' || Customer.description || '-' || Project.description) 
 		ELSE (Project.project_code || '-' || Project.description)

@@ -23,7 +23,7 @@ FROM expense_amount
 	<cfif compare(project_id, 0) >and expense.project_id = #attributes.project_id#</cfif>
 	<cfif isdefined("attributes.emp_id")>and expense.emp_id IN(#attributes.emp_id#)</cfif>
 	<cfelse>
-    and expense.emp_id = #session.user_account_id#
+    and expense.emp_id=#session.user_account_id#
 	</cfif>
 GROUP BY expense_type, REF_expense_type.expense_type_id
 ORDER BY REF_expense_type.expense_type_id

@@ -1,4 +1,4 @@
-
+<!--- $issue$: do we need this and the common_files version? --->
 <!--Customers/qry_get_open_tasks.cfm
 	Author: Jeromy F -->
 <cfsilent>
@@ -20,7 +20,7 @@ SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id AS task_id,
 	COALESCE(Task.budgeted_hours,0) AS time_budgeted, Task.status_id AS status_id, 
 	Task_Details.time_used AS time_used, Task_Details.task_icon AS task_icon, 
 	Task_Details.percent_time_used AS percent_time_used, Task_Details.task_owner AS task_owner,
-	(CASE WHEN Task.status_id=4 THEN Task_Details.task_status || ' by ' || Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
+	(CASE WHEN Task.status_id=3 /* QA */ THEN Task_Details.task_status || ' by ' || Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
 	(Customer.description || '-' || Project.description) AS project_name, Project.project_code AS project_code
 FROM Task, Team, Emp_Contact,  Customer, Project, Link_Project_Company, REF_Priority,
 	(SELECT Path.task_id AS task_id, COALESCE(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
@@ -32,7 +32,7 @@ FROM Task, Team, Emp_Contact,  Customer, Project, Link_Project_Company, REF_Prio
 			(SELECT Task.task_id
 			FROM Task
 			WHERE Task.project_id=#attributes.project_id#
-				AND Task.status_id!=11) 
+				AND Task.status_id!=7 /*exclude closed tasks*/) 
 		AS Valid_Tasks, Task, REF_Icon
 		WHERE Valid_Tasks.task_id=Task.task_id AND REF_Icon.icon_id=Task.icon_id)
 	AS Path
@@ -43,7 +43,8 @@ FROM Task, Team, Emp_Contact,  Customer, Project, Link_Project_Company, REF_Prio
 		GROUP BY task_id)
 	AS Recorded_Hours
 	ON Path.task_id = Recorded_Hours.task_id
-	WHERE Task.task_id=Path.task_id AND REF_Status.status_id=Task.status_id 
+	WHERE Task.task_id=Path.task_id
+		AND REF_Status.status_id=Task.status_id 
 		AND Team.role_id=1 AND Task.task_id=Team.task_id 
 		AND Emp_Contact.emp_id=Team.emp_id)
 AS Task_Details

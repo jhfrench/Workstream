@@ -14,6 +14,6 @@
 <cfquery name="get_expense_status" datasource="#application.datasources.main#">
 SELECT *
 FROM REF_Expense_Status
-ORDER BY order_by
+ORDER BY sort_order
 </cfquery>
 </cfsilent>

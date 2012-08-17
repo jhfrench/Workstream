@@ -36,10 +36,15 @@ WHERE (Project.active_ind=<cfif NOT session.workstream_show_closed_engagements>1
 	AND Task.task_id=Team.task_id AND Team.emp_id=Emp_Contact.emp_id 
 	AND Link_Project_Company.project_id=Project.project_id 
 	AND Link_Project_Company.company_id IN (#session.workstream_company_id#)
-	And project.project_type_id <> 3
-	AND ((Team.role_id IN (1,<cfif session.workstream_show_team>4,</cfif>0) 
-	AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>11,</cfif><cfif NOT session.workstream_show_on_hold>7,</cfif>0)) 
-	OR (Team.role_id=3 AND Task.status_id=4))
+	AND Project.project_type_id!=3
+	AND (
+		(
+		Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>) 
+			AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>10)<!--- completed, on hold, prospective --->
+		) 
+		OR (Team.role_id=3 
+			AND Task.status_id=3 /*needs QA*/)
+	)
 GROUP BY Customer.description, Project.project_code, Project.project_id, Project.description, Project.project_end, Project.mission
 <cfif isdefined("session.workstream_engagement_list_order")>ORDER BY #session.workstream_engagement_list_order#</cfif>
 </cfquery>

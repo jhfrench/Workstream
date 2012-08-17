@@ -19,7 +19,7 @@ FROM
 	FROM Team, Task, Project 
 	WHERE Team.task_id=Task.task_id 
 		AND Task.project_id=Project.project_id 
-		AND Task.status_id NOT IN (7,11,13)
+		AND Task.status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
 		AND Team.role_id=1
 		AND team.emp_id=#session.user_account_id#
 		AND Project.project_code NOT BETWEEN '6517' AND '6505'
@@ -28,9 +28,9 @@ FROM
 	FROM Task, Team, Emp_Contact
 	WHERE Team.emp_id=Emp_Contact.emp_id 
 		AND Task.task_id=Team.task_id 
-		AND Task.status_id NOT IN (7,11,13)
-		AND role_id=1 
-		AND team.emp_id != #session.user_account_id# 
+		AND Task.status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
+		AND Team.role_id=1 
+		AND Team.emp_id!=#session.user_account_id# 
 		AND EXISTS
 			(SELECT *
 			FROM Team
@@ -41,14 +41,14 @@ FROM
 	/*generic codes like PTO*/
 	SELECT Task.name AS task_name, Task.task_id AS workflow_id, 3 AS grouper
 	FROM Task
-	WHERE Task.status_id NOT IN (7,11,13)
+	WHERE Task.status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
 		AND Task.task_id IN (713,714,719)<!--- $issue$: static tasks from original system, probably need to be replicated --->
 	UNION ALL
 	/*marketing codes*/
 	SELECT Task.name AS task_name, Task.task_id AS workflow_id, 4 AS grouper
 	FROM Task
 	WHERE (task_id BETWEEN 4648 AND 4706)<!--- $issue$: static tasks from original system, probably need to be replicated --->
-		AND Task.status_id NOT IN (7,11,13)</cfif>) AS Express_Task_List
+		AND Task.status_id NOT IN (7,9,10) /*completed, on hold, prospective*/</cfif>) AS Express_Task_List
 ORDER BY grouper, Express_Task_List.task_name
 </cfquery>
 </cfsilent>

@@ -30,7 +30,7 @@ FROM User_Password
 WHERE User_Password.active_ind=1
 	AND Demographics.active_ind=1
 	AND Link_User_Account_Status.active_ind=1
-	AND Link_User_Account_Status.account_status_id=1
+	AND Link_User_Account_Status.account_status_id=1 /*active users*/
 	AND 90-(CURRENT_TIMESTAMP-User_Password.created_date) IN (30, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
 </cfquery>
 

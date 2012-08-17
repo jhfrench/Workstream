@@ -14,6 +14,6 @@
 <cfquery name="get_expense_category" datasource="#application.datasources.main#" >
 SELECT  *
 FROM REF_Expense_Category
-ORDER BY order_by, expense_category_id
+ORDER BY sort_order, expense_category_id
 </cfquery>
 </cfsilent>

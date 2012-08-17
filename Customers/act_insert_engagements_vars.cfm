@@ -36,7 +36,7 @@ SELECT project_code
 FROM Project
 WHERE Project.root_code='#get_root_code.root_code#'
 	AND LENGTH(project_code) > 4 
-	AND RIGHT(project_code, 3) != '000'
+	AND RIGHT(project_code, 3)!='000'
 </cfquery>
 
 <!--I set clientname so that it includes the root code as a prefix to the project name-->

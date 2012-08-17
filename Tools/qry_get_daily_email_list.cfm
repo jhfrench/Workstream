@@ -46,8 +46,8 @@ FROM Task, Notification,
 WHERE Task.task_id*=Notification.task_id
 	AND Task.task_id=Owner.task_id
 	AND Task.task_id=QA.task_id
-	AND Notification.notification_type IN (7,14,15)
-	AND Task.status_id IN (4,5)
+	AND Notification.notification_type IN (7,14,15)<!--- (8/17/12 | JF) commenting until this process is activated and I can figure out what task statii are elligibile
+	AND Task.status_id IN (4,5) --->
 	AND Task.notification_frequency_id!=1
 GROUP BY Task.task_id, CAST(Task.description AS VARCHAR(255)), Task.name,
 	Task.due_date, Task.notification_frequency_id, Owner.email,
@@ -58,7 +58,7 @@ HAVING
 		WHEN 3 THEN MAX(date_sent)+'7 day'
 		WHEN 4 THEN MAX(date_sent)+'14 day'
 		WHEN 5 THEN MAX(date_sent)+'1 month'
-		END < CURRENT_TIMESTAMP
+	END < CURRENT_TIMESTAMP
 </cfquery>
 </cfsilent>
 

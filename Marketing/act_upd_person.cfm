@@ -39,7 +39,7 @@
 		<cfquery name="update_name" datasource="#application.datasources.main#">
 		update emp_contact
 		set name = '#name#'
-		where emp_id = #PERSON_GRID.emp_id[ii]#
+		where emp_id=#PERSON_GRID.emp_id[ii]#
 		</cfquery>
 	</cfif>
 	<!--- if the last name has changed update it --->
@@ -47,7 +47,7 @@
 		<cfquery name="update_lname" datasource="#application.datasources.main#">
 			update emp_contact
 			set lname = '#lname#'
-			where emp_id = #PERSON_GRID.emp_id[ii]#
+			where emp_id=#PERSON_GRID.emp_id[ii]#
           </cfquery>
 	</cfif>
 <!--- if the email is new then insert --->
@@ -62,7 +62,7 @@
 		<cfquery name="update_email" datasource="#application.datasources.main#">
 		    update email
 		    set email = '#email#'
-		    where emp_id = #PERSON_GRID.emp_id[ii]# and email_type_id = 1
+		    where emp_id=#PERSON_GRID.emp_id[ii]# and email_type_id = 1
 		</cfquery>
 	</cfif>
 	<!--- if the phone number is new then insert. --->
@@ -81,7 +81,7 @@
 		    	update phone
 			set phone_number = '#phone_number#'
 			<cfif isnumeric(person_grid.extension[ii])> ,extension = #extension#</cfif>
-			where emp_id = #PERSON_GRID.emp_id[ii]# and phone_type_id = 1
+			where emp_id=#PERSON_GRID.emp_id[ii]# and phone_type_id = 1
 		</cfquery>
 	</cfif>
 
@@ -114,7 +114,7 @@
 		    , city = '#city#'
 		    ,state = '#state#'
 		    ,zip = '#zip#'
-		    where emp_id = #PERSON_GRID.emp_id[ii]# and location_type_id =1
+		    where emp_id=#PERSON_GRID.emp_id[ii]# and location_type_id =1
 		</cfquery>
 	</cfif>
 	</cftransaction>

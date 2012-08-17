@@ -27,17 +27,17 @@
 				AND task_id=#task_id#
 				AND date < '#month(now())#/1/#year(now())#')+#evaluate("attributes.task_assigned#task_id#"
 			)#</cfif>
-	WHERE task_id=#task_id# AND #variables.update_count#=#variables.update_count#<cfset variables.update_count=incrementvalue(variables.update_count)>
+	WHERE task_id=#task_id# /* #variables.update_count#<cfset variables.update_count=incrementvalue(variables.update_count)> */
 <cfelse>
 	UPDATE Forecast_Assignment
 	SET active_ind=0
 	WHERE active_ind=1
 		AND forecast_id=#variables.forecast_id#
-		AND task_id=#task_id#
+		AND task_id=#task_id#;
 	<cfif get_prospectives.previous_entry EQ 1>
 	UPDATE Task
-	SET status_id=13
-	WHERE task_id=#task_id#
+	SET status_id=10 /* I think we're going for prospective here */
+	WHERE task_id=#task_id#;
 	</cfif>
 </cfif>
 </cfoutput>

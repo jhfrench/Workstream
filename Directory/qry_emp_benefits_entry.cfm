@@ -17,7 +17,7 @@
 <cfquery name="get_old_benefit" datasource="#application.datasources.main#">
 SELECT TOP 1 benefit_id
 FROM Benefit
-WHERE emp_id = '#attributes.emp_id#'
+WHERE emp_id='#attributes.emp_id#'
 	AND active_ind = 1
 ORDER BY date_start DESC
 </cfquery>

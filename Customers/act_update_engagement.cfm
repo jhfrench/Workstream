@@ -1,4 +1,4 @@
-
+<!--- $issue$: does this really need close the tasks at the bottom? --->
 <!--Customers/act_update_engagement.cfm
 	Author: Jeromy F -->
 <cfsilent>
@@ -40,21 +40,20 @@ WHERE project_id=#project_id#
 
 <cfquery name="delete_old" datasource="#application.datasources.main#">
 DELETE FROM Link_Project_Company
-WHERE project_id=#attributes.project_id#
+WHERE project_id=#attributes.project_id#;
 <cfloop list="#attributes.company_id#" index="ii">
 INSERT INTO Link_Project_Company (project_id, company_id)
-VALUES (#attributes.project_id#, #ii#)
+VALUES (#attributes.project_id#, #ii#);
 </cfloop>
 </cfquery>
 
 <cfif isdefined("task_id")>
-	<cfloop list="#task_id#" index="ii">
-		<cfquery name="complete_tasks" datasource="#application.datasources.main#">
-		UPDATE Task
-		SET status_id=11,
-			complete_date=CURRENT_TIMESTAMP
-		WHERE task_id=#ii#
-		</cfquery> 
-	</cfloop>
+	<cfquery name="complete_tasks" datasource="#application.datasources.main#">
+	UPDATE Task
+	SET status_id=7 /*completed*/,
+		complete_date=CURRENT_TIMESTAMP,
+		completed_by=#session.user_account_id#
+	WHERE task_id IN (#task_id#)
+	</cfquery>
 </cfif>
 </cftransaction>

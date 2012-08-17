@@ -15,7 +15,7 @@
 	--> attributes.emp_id: number containing the unique identifier of the individual being requested
  --->
 <cfset variables.bgcolor="##78A0EB"><!--- 
-<cfset attributes.emp_id = url.emp_id> --->
+<cfset attributes.emp_id=url.emp_id> --->
 </cfsilent>
 <cfinclude template="qry_get_benefit_types.cfm">
 <cfform action="act_benefits_submit.cfm" name="benefits" method="POST">

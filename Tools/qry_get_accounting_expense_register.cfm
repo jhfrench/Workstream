@@ -9,9 +9,6 @@
 	Name: Jeromy French
 	||
 	Edits:
-
-
-	 
 	 || 
 	END FUSEDOC --->
 <cfquery name="get_accounting_expense_register" datasource="#application.datasources.main#">

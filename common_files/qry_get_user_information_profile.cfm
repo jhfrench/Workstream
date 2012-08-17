@@ -3,6 +3,7 @@
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_user_information_profile.cfm">
 	<responsibilities>
+		get user information
 	</responsibilities>
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="9/3/2007" role="FuseCoder" comments="Created File">
@@ -22,8 +23,6 @@
 	</IO>
 </fusedoc>
 --->
-
-<!--- get user information --->
 <cfquery name="get_user_information_profile" datasource="#application.datasources.main#">
 SELECT Demographics.demographics_id, Demographics.first_name, Demographics.middle_initial,
 	Demographics.last_name, Demographics.email_address, Demographics.work_phone,

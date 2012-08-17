@@ -17,9 +17,9 @@ SELECT Project.project_code AS code,
     Project.description AS client, Demographics.emp_id, 
     Time_Entry.Hours, Time_Entry.work_date
 FROM Project, Demographics, Time_Entry
-WHERE Demographics.emp_id = Time_Entry.emp_id
+WHERE Demographics.emp_id=Time_Entry.emp_id
 	AND Project.project_id = Time_Entry.project_id
-	AND Demographics.emp_id = #supervisor_user_account_id#
+	AND Demographics.emp_id=#supervisor_user_account_id#
 	AND Time_Entry.active_ind=1
 	AND Time_Entry.work_date >= '#From_date#'
 	AND Time_Entry.work_date <= '#Through_Date#'

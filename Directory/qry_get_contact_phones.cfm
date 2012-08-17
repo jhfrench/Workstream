@@ -25,7 +25,7 @@ SELECT REF_Phone_Type.Phone_Type_ID, REF_Phone_Type.Phone_Type, Phone.Phone_Numb
     Phone.Extension, Phone.Phone_id
 FROM REF_Phone_Type
 	LEFT OUTER JOIN Phone ON REF_Phone_Type.Phone_Type_ID = Phone.Phone_type_id 
-		AND Phone.emp_id = #variables.emp_id#
+		AND Phone.emp_id=#variables.emp_id#
 </cfquery>
 </cfsilent>
 

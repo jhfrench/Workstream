@@ -20,7 +20,7 @@
 SELECT status_id, status
 FROM REF_Status
 WHERE #application.last_updated#=#application.last_updated#
-ORDER BY order_by
+ORDER BY sort_order
 </cfquery>
 </cfsilent>
 

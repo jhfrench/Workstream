@@ -45,7 +45,7 @@ function myTrim(inputString) {
 var carriageReturn = new RegExp("\r");
 
 //alert("-->" + carriageReturn.test(inputString) + "<--" + "-->" + inputString.length + "<--");
-//if (typeof inputString != "string") { 
+//if (typeof inputString!="string") { 
 //	return inputString;
 //	}
 var retValue = inputString;
@@ -76,7 +76,7 @@ retValue = retValue.substring(0, retValue.length-2);
 	//alert("Point 2 -->" + ch + " " + retValue);
 }
 
-while (retValue.indexOf(" ") != -1) { // Note that there are two spaces in the string - look for multiple spaces within the string
+while (retValue.indexOf(" ")!=-1) { // Note that there are two spaces in the string - look for multiple spaces within the string
    retValue = retValue.substring(0, retValue.indexOf(" ")) + retValue.substring(retValue.indexOf(" ")+1, retValue.length); // Again, there are two spaces in each of the strings
 	}
 

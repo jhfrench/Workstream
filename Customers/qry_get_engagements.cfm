@@ -12,7 +12,7 @@
 	 || 
 	END FUSEDOC --->
 <cfquery name="get_engagements" datasource="#application.datasources.main#">
-SELECT Project.project_code, Project.description, Customer.description AS Cust_Description,
+SELECT Project.project_code, Project.description, Customer.description AS cust_description,
     Project.project_id, REF_Active_Indicator.active_ind_type, 
     COALESCE(REF_Billable_Type.description, 'Unknown') AS billable, COALESCE(COUNT(Task.task_id),0) AS open_tasks
 FROM Project
@@ -21,7 +21,7 @@ FROM Project
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	LEFT OUTER JOIN REF_Billable_Type ON Project.billable_type_id=REF_Billable_Type.billable_type_id
 	LEFT OUTER JOIN Task ON Project.project_id=Task.project_id
-		AND Task.status_id!=11
+		AND Task.status_id!=7 /*exclude closed tasks*/
 WHERE Customer.active_ind=1
 	AND Project.active_ind=#attributes.active_ind#
 	AND Link_Project_Company.company_id IN (#session.workstream_selected_company_id#)<cfif isdefined("attributes.client_code")>

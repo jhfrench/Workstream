@@ -22,7 +22,7 @@ SELECT REF_Location_Type.location_type, Location.address1, Location.address2,
 	Location.city, Location.state, Location.zip
 FROM Location, REF_Location_Type
 WHERE Location.location_type_id = REF_Location_Type.location_type_id
-	AND Location.emp_id = #attributes.emp_id#
+	AND Location.emp_id=#attributes.emp_id#
 ORDER BY location_type DESC
 </cfquery>
 </cfsilent>

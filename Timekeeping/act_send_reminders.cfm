@@ -31,7 +31,7 @@ WHERE Task.task_id=Task_Source.task_id
 	AND Notification.email_id=Email.email_id
 	AND Email.emp_id=Emp_Contact.emp_id
 	AND Email.email_type_id=1
-	AND Task.status_id!=11
+	AND Task.status_id!=7 /*exclude closed tasks*/
 	AND Notification.notification_type=1
 	AND Notification.date_to_send<=CURRENT_TIMESTAMP
 	AND Notification.date_sent IS NULL
@@ -51,7 +51,7 @@ WHERE Task.task_id=Task_Source.task_id
 	AND Notification.email_id=Email.email_id
 	AND Email.emp_id=Emp_Contact.emp_id
 	AND Notification.notification_type=2
-	AND task.task_id=#task_id#
+	AND Task.task_id=#task_id#
 </cfquery>
 <cfset variables.cc_list=valuelist(get_cc.email_to)>
 <cfmail from="#application.erroremailfrom#" to="#email_to#" cc="#variables.cc_list#" subject="workstream Task Reminder: #task_name#" server="#application.emailserver#">

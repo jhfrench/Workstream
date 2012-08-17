@@ -19,7 +19,7 @@
 <cfquery name="get_created_task" datasource="#application.datasources.main#">
 SELECT COALESCE(Task.task_id,0) AS task_id
 FROM Task, Team
-WHERE Task.task_id=Team.Task_ID
+WHERE Task.task_id=Team.task_id
 	AND Team.role_id=1
 	AND Team.emp_id=#attributes.task_owner#
 	AND Task.name='#attributes.task_name#'

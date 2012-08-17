@@ -96,9 +96,9 @@ SELECT Emp_Contact.Name, Emp_Contact.LName,
 	project_code = 9021 THEN (hours) ELSE 0 END) 
 	AS Remaining
 FROM Emp_Contact
-	INNER JOIN Time_Entry ON Emp_Contact.emp_id = Time_Entry.emp_id
-	INNER JOIN Demographics ON Emp_Contact.emp_id = Demographics.emp_id
-	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
+	INNER JOIN Time_Entry ON Emp_Contact.emp_id=Time_Entry.emp_id
+	INNER JOIN Demographics ON Emp_Contact.emp_id=Demographics.emp_id
+	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id = REF_Company.company_id
 	INNER JOIN Project ON Time_Entry.project_id = Project.project_id
 WHERE REF_Company.company_id IN (#session.workstream_selected_company_id#)

@@ -16,7 +16,7 @@
 SELECT demographics.emp_id, emp_contact.name, emp_contact.lname,
 	SUM(COALESCE(time_entry.hours,0)) AS 'PTO_Hours_Used',
 /*<!-- this is when the person doesn't fall into the regular accrual structure, if they don't fit in, the field pto_type_indicator is filled wth the number of pto HOURS that they will accrue through the whole year. so take the hours in the pto_type_indicator field and divide by 12 to get the monthly accrual, and then multiply the monthly accrual by the number of months passed so far for the number of months tht the employee has ben accruing time this year, - 1 (because you don't get your hours for this month until the month is over. -->*/
-	COALESCE(CASE WHEN pto_type_indicator > 0 THEN (CASE WHEN EXTRACT(YEAR FROM HIRE_DATE) <> EXTRACT(YEAR FROM CURRENT_DATE)  THEN pto_type_indicator /12 * (EXTRACT(MONTH FROM CURRENT_DATE) - 1)ELSE pto_type_indicator /12 * (EXTRACT(MONTH FROM CURRENT_DATE) - month(tenure_date ))END)  else 
+	COALESCE(CASE WHEN pto_type_indicator > 0 THEN (CASE WHEN EXTRACT(YEAR FROM HIRE_DATE)!=EXTRACT(YEAR FROM CURRENT_DATE)  THEN pto_type_indicator /12 * (EXTRACT(MONTH FROM CURRENT_DATE) - 1)ELSE pto_type_indicator /12 * (EXTRACT(MONTH FROM CURRENT_DATE) - month(tenure_date ))END)  else 
 /*<!-- If you haven't had your anniversary this year yet or your anniversary is this month, take the number of months this year minus 1 as the multiplier, else take the month of your anniversary minus 1 as the multiplier --> */
 (CASE WHEN EXTRACT(MONTH FROM tenure_date) >= EXTRACT(MONTH FROM CURRENT_DATE) THEN EXTRACT(MONTH FROM CURRENT_DATE) -1 else month(tenure_date) -1 end) *
 /*<!--- When you have had your anniversary this year already, then --->*/
@@ -53,17 +53,17 @@ end),0) +
 
 /*<!-- If you started work before the 15 of the month, you get credit  for working that month, otherwise it is as if you began working on the 1st of the next month, this is represented by "tenure_date" and is used to calculate all the PTO hours -->*/
 FROM (select case when EXTRACT(DAY FROM hire_date) > 15 then DATEADD(mm,1,hire_date) else hire_date end as tenure_date,*
-from demographics where effective_to IS NULL) as demographics inner join security on demographics.emp_id = security.emp_id
+from demographics where effective_to IS NULL) as demographics inner join security on demographics.emp_id=security.emp_id
  
-left Outer JOIN PTO_HOURS ON PTO_HOURS.emp_id = demographics.emp_id left outer JOIN time_entry ON demographics.emp_id = time_entry.emp_id 
+left Outer JOIN PTO_HOURS ON PTO_HOURS.emp_id=demographics.emp_id left outer JOIN time_entry ON demographics.emp_id=time_entry.emp_id 
 											AND Project_id IN	(SELECT project_id
 																FROM Project
 																WHERE project_type_id = 1) 
 AND EXTRACT(YEAR FROM Time_Entry.work_date) like EXTRACT(YEAR FROM CURRENT_DATE)
-inner join Link_Company_Emp_Contact on demographics.emp_id = Link_Company_Emp_Contact.emp_id
-inner join emp_contact on demographics.emp_id = emp_contact.emp_id
+inner join Link_Company_Emp_Contact on demographics.emp_id=Link_Company_Emp_Contact.emp_id
+inner join emp_contact on demographics.emp_id=emp_contact.emp_id
 WHERE Time_Entry.active_ind=1
-	AND security.disable <> 1 
+	AND security.disable!=1 
 AND company_id IN (#session.workstream_selected_company_id#) <cfif NOT listcontainsnoCase(attributes.emp_id,"ALL" )> AND (Emp_Contact.emp_id IN (#preservesinglequotes(attributes.emp_id)#))</cfif>
 <!--- <cfif individual>and demographics.emp_id=#emp_id#</cfif> --->
 

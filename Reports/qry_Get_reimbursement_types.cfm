@@ -24,7 +24,7 @@ FROM expense
 	<cfif compare(project_id, 0) >and expense.project_id = #attributes.project_id#</cfif>
 	<cfif isdefined("attributes.emp_id")>and expense.emp_id IN(#attributes.emp_id#)</cfif>
 	<cfelse>
-    and expense.emp_id = #session.user_account_id#
+    and expense.emp_id=#session.user_account_id#
 	</cfif>
 GROUP BY REF_Reimbursement_Type.Reimbursement_Type, 
     expense.reimbursement_type_id

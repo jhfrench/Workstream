@@ -15,6 +15,6 @@
 <cfquery name="get_contact" datasource="#application.datasources.main#">
 				    select name, lname
 				    from emp_contact
-				    where emp_id = #attributes.cfgridkey#
+				    where emp_id=#attributes.cfgridkey#
 				</cfquery>
 

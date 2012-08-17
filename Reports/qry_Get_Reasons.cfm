@@ -13,9 +13,9 @@
 	<-- reason_ID: number associated witha reason
 	<-- reason_desc: string that contains a reason's label or description.
 	END FUSEDOC --->
-<cfquery name="get_Reasons" datasource="#application.datasources.main#">
-SELECT reason_id, turn_reason AS separation_reason
+<cfquery name="get_reasons" datasource="#application.datasources.main#">
+SELECT reason_id, turn_reason AS separation_reason<!--- $issue$: why alias this? --->
 FROM REF_Turn_Reason
-WHERE reason_id != 3
+WHERE reason_id!=3
 </cfquery>
 

@@ -15,7 +15,7 @@
 <cfquery name="monthly_hours" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name, Emp_Contact.lname, Project.project_code AS clientcode,
 	CASE
-		WHEN Customer.description != Project.description
+		WHEN Customer.description!=Project.description
 	<cfif session.workstream_project_list_order EQ 2>
 			THEN (Project.project_code || '-' || Customer.description || '-' || Project.description)
 		ELSE (Project.project_code || '-' || Project.description)
@@ -42,7 +42,7 @@ WHERE Emp_Contact.emp_id=Time_Entry.emp_id
 	AND Project.billable_type_id<cfif NOT flag_non_billable>!</cfif>=2
 GROUP BY Emp_Contact.name, Emp_Contact.lname,
 	CASE
-		WHEN Customer.description != Project.description
+		WHEN Customer.description!=Project.description
 		<cfif session.workstream_project_list_order EQ 2>
 			THEN (Project.project_code || '-' || Customer.description || '-' || Project.description)
 		ELSE (Project.project_code || '-' || Project.description)
