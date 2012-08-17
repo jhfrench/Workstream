@@ -19,7 +19,7 @@
 SELECT *
 FROM Marketing_Date_For_Web
 WHERE year > 1999
-	AND year <= EXTRACT(YEAR FROM CURRENT_TIMESTAMP) 
+	AND year <= EXTRACT(YEAR FROM CURRENT_DATE) 
 ORDER BY year, month
 </cfquery>
 </cfsilent>

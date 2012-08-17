@@ -18,10 +18,10 @@
 <!---    <cfquery name="marketing" datasource="#application.datasources.main#">
 SELECT marketing.marketing_id, Marketing.Projected_Revenue, Marketing.Probability, 
     Marketing.project_code, Marketing.project_id, 
-    (cast(EXTRACT(MONTH FROM Marketing.StatusAboveDate) AS varchar(2)) || '/' || cast(datepart(dd, Marketing.StatusAboveDate) AS varchar(2)) || '/' || cast(EXTRACT(YEAR FROM Marketing.StatusAboveDate) AS varchar(4))) as StatusAboveDate, 
-    (cast(EXTRACT(MONTH FROM Marketing.StatusInDate) AS varchar(2)) || '/' || cast(datepart(dd, Marketing.StatusInDate) AS varchar(2)) || '/' || cast(EXTRACT(YEAR FROM Marketing.StatusInDate) AS varchar(4))) as StatusInDate, 
-    (cast(EXTRACT(MONTH FROM Marketing.StatusBestFewDate) AS varchar(2)) || '/' || cast(datepart(dd, Marketing.StatusBestFewDate) AS varchar(2)) || '/' || cast(EXTRACT(YEAR FROM Marketing.StatusBestFewDate) AS varchar(4))) as StatusBestFewDate,
-(cast(EXTRACT(MONTH FROM Marketing.StatusContractDate) AS varchar(2)) || '/' || cast(datepart(dd, Marketing.StatusContractDate) AS varchar(2)) || '/' || cast(EXTRACT(YEAR FROM Marketing.StatusContractDate) AS varchar(4))) as StatusContractDate, 
+    (cast(EXTRACT(MONTH FROM Marketing.StatusAboveDate) AS VARCHAR(2)) || '/' || cast(datepart(dd, Marketing.StatusAboveDate) AS VARCHAR(2)) || '/' || cast(EXTRACT(YEAR FROM Marketing.StatusAboveDate) AS VARCHAR(4))) as StatusAboveDate, 
+    (cast(EXTRACT(MONTH FROM Marketing.StatusInDate) AS VARCHAR(2)) || '/' || cast(datepart(dd, Marketing.StatusInDate) AS VARCHAR(2)) || '/' || cast(EXTRACT(YEAR FROM Marketing.StatusInDate) AS VARCHAR(4))) as StatusInDate, 
+    (cast(EXTRACT(MONTH FROM Marketing.StatusBestFewDate) AS VARCHAR(2)) || '/' || cast(datepart(dd, Marketing.StatusBestFewDate) AS VARCHAR(2)) || '/' || cast(EXTRACT(YEAR FROM Marketing.StatusBestFewDate) AS VARCHAR(4))) as StatusBestFewDate,
+(cast(EXTRACT(MONTH FROM Marketing.StatusContractDate) AS VARCHAR(2)) || '/' || cast(datepart(dd, Marketing.StatusContractDate) AS VARCHAR(2)) || '/' || cast(EXTRACT(YEAR FROM Marketing.StatusContractDate) AS VARCHAR(4))) as StatusContractDate, 
     Marketing.Converted_To_CustomerCode, 
     Marketing.Company_Size, Marketing.Overview,
     Project.active_ind, Emp_Contact.emp_id,
@@ -34,7 +34,7 @@ SELECT marketing.marketing_id, Marketing.Projected_Revenue, Marketing.Probabilit
 
 task_info.task_id, 
 task_info.last_task,
-(cast(EXTRACT(MONTH FROM task_info.Date) AS varchar(2)) || '/' || cast(datepart(dd, task_info.Date) AS varchar(2)) || '/' || cast(EXTRACT(YEAR FROM task_info.Date) AS varchar(4))) as [Date]
+(cast(EXTRACT(MONTH FROM task_info.Date) AS VARCHAR(2)) || '/' || cast(datepart(dd, task_info.Date) AS VARCHAR(2)) || '/' || cast(EXTRACT(YEAR FROM task_info.Date) AS VARCHAR(4))) as [Date]
 
 FROM (select top 1 project_id, task_id, task.name as last_task, (select max(Time_Entry.work_date) from time_entry where task.task_id = time_entry.task_id) as [date]
 	from Task 

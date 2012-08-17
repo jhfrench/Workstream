@@ -19,7 +19,7 @@ FROM (
 		SELECT fiscal_year, SUM(revenue_goal) AS revenue_goal
 		FROM Revenue_Goal
 		WHERE company_id=#session.workstream_company_id#
-			AND fiscal_year <= EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
+			AND fiscal_year <= EXTRACT(YEAR FROM CURRENT_DATE)
 		GROUP BY fiscal_year
 	) AS Revenue_Goal
 	LEFT OUTER JOIN (

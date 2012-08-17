@@ -24,4 +24,3 @@ WHERE Emp_Contact.emp_id=#session.user_account_id#
 	AND (Demographics.effective_from IS NULL OR Demographics.effective_from < CURRENT_TIMESTAMP)
 </cfquery>
 </cfsilent>
-

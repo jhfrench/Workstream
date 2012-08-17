@@ -19,19 +19,17 @@
 <cfif isdefined("attributes.project_id")>
 	<cfset identifier="project_id">
 </cfif>
-<cfset notnumericentries="">
-	<cfloop from="1" to="#listlen(attributes.hours)#" index="ii">
-		<cfif isnumeric(listgetat(attributes.hours,ii))>
-		<cftransaction isolation="READ_COMMITTED">
-			<cfinclude template="qry_upload_notes.cfm">
-			<cfinclude template="qry_get_project_details.cfm">
-			<cfinclude template="qry_upload_time_entry.cfm">
-		</cftransaction>
-		<cfelse>
-			<cfset notnumeric=1>
-			<cfset notnumericentries=listappend(notnumericentries,"Date=#listgetat(attributes.date,ii)#; Hours=#listgetat(attributes.hours,ii)#; #identifier#=#listgetat(evaluate("attributes.#identifier#"),ii)#; Notes=#evaluate("notes_#ii#")#")>
-		</cfif>
-	</cfloop>
+<cfloop from="1" to="#listlen(attributes.hours)#" index="ii">
+	<cfif isnumeric(listgetat(attributes.hours,ii))>
+	<cftransaction isolation="READ_COMMITTED">
+		<cfinclude template="qry_upload_notes.cfm">
+		<cfinclude template="qry_get_project_details.cfm">
+		<cfinclude template="qry_upload_time_entry.cfm">
+	</cftransaction>
+	<cfelse>
+		<cfset variables.not_numeric_entries=listappend(variables.not_numeric_entries,"Date=#listgetat(attributes.date,ii)#; Hours=#listgetat(attributes.hours,ii)#; #identifier#=#listgetat(evaluate('attributes.#identifier#'),ii)#; Notes=#evaluate('notes_#ii#')#")>
+	</cfif>
+</cfloop>
 <cfset session.workstream_last_loaded=attributes.last_loaded>
 </cfsilent>
 

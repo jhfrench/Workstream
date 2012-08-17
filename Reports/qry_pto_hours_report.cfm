@@ -46,7 +46,7 @@ FROM Security_Company_Access, Emp_Contact, PTO_Hours, Demographics, REF_Day_Leng
 			FROM Security_Company_Access 
 			WHERE emp_id = #session.user_account_id#)
 		AND Link_Company_Emp_Contact.emp_id*=Time_Entry.emp_id
-		AND EXTRACT(YEAR FROM Time_Entry.work_date) = EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
+		AND EXTRACT(YEAR FROM Time_Entry.work_date) = EXTRACT(YEAR FROM CURRENT_DATE)
 	GROUP BY Link_Company_Emp_Contact.emp_id)
 AS Used_Hours
 WHERE Security_Company_Access.emp_id = emp_contact.emp_id

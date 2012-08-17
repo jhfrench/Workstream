@@ -49,8 +49,8 @@ FROM (
 		SELECT Time_Entry.emp_id, SUM(Time_Entry.hours) AS hours_taken
 		FROM Time_Entry
 		WHERE Time_Entry.active_ind=1
-			AND EXTRACT(MONTH FROM Time_Entry.work_date)=EXTRACT(MONTH FROM CURRENT_TIMESTAMP)
-			AND EXTRACT(YEAR FROM Time_Entry.work_date)=EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
+			AND EXTRACT(MONTH FROM Time_Entry.work_date)=EXTRACT(MONTH FROM CURRENT_DATE)
+			AND EXTRACT(YEAR FROM Time_Entry.work_date)=EXTRACT(YEAR FROM CURRENT_DATE)
 			AND Time_Entry.emp_id=#session.user_account_id#
 			AND Time_Entry.project_id IN (
 				SELECT project_id
@@ -62,8 +62,8 @@ FROM (
 	LEFT OUTER JOIN (
 		SELECT PTO_Grant.emp_id, SUM(PTO_Grant.granted_hours) AS earned_hours
 		FROM PTO_Grant
-		WHERE EXTRACT(MONTH FROM PTO_Grant.date_granted)=EXTRACT(MONTH FROM CURRENT_TIMESTAMP)
-			AND EXTRACT(YEAR FROM PTO_Grant.date_granted)=EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
+		WHERE EXTRACT(MONTH FROM PTO_Grant.date_granted)=EXTRACT(MONTH FROM CURRENT_DATE)
+			AND EXTRACT(YEAR FROM PTO_Grant.date_granted)=EXTRACT(YEAR FROM CURRENT_DATE)
 			AND PTO_Grant.emp_id=#session.user_account_id#
 		GROUP BY PTO_Grant.emp_id
 	) AS Last_Month_Earned ON Remainder.user_account_id=Last_Month_Earned.emp_id

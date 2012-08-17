@@ -23,13 +23,13 @@ SELECT Task.task_id AS task_id, Project.customer_id, Project.project_id, Task.na
 		THEN (Project.project_code || '-' || Customer.description || '-' || CASE WHEN LENGTH(Project.description) > 50 THEN LEFT(Project.description, 50) || '...' ELSE Project.description END) 
 		ELSE (Project.project_code || '-' || Project.description)
 	END AS project_display,
-	CAST(Task.task_id AS varchar(128)) || '-' || Task.name AS task_display
+	CAST(Task.task_id AS VARCHAR(128)) || '-' || Task.name AS task_display
 	<cfelse>
 	CASE WHEN Customer.description != Project.description
 		THEN (Customer.description || '-' || CASE WHEN LENGTH(Project.description) > 50 THEN LEFT(Project.description, 50) || '...' ELSE Project.description END || ' (' ||  Project.project_code || ')') 
 		ELSE (Project.description || ' (' ||  Project.project_code || ')') 
 	END AS project_display,
-	Task.name || ' (' || CAST(Task.task_id AS varchar(128)) || ')' AS task_display
+	Task.name || ' (' || CAST(Task.task_id AS VARCHAR(128)) || ')' AS task_display
 	</cfif>
 FROM Link_Project_Company, Task, Project, Customer
 WHERE Link_Project_Company.project_id=Task.project_id

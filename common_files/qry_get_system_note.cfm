@@ -31,7 +31,7 @@ FROM System_Note
 WHERE System_Note.<cfif attributes.system_note_id NEQ 0>system_note_id=#attributes.system_note_id#<cfelse>active_ind=1</cfif>
 	AND Demographics.active_ind=1
 	AND System_Note.note_text IS NOT NULL<cfif attributes.use_date_limitation_ind>
-	AND CURRENT_TIMESTAMP BETWEEN System_Note.display_start_date AND COALESCE(System_Note.display_end_date, CURRENT_TIMESTAMP)+'1 day'</cfif>
+	AND CURRENT_DATE BETWEEN System_Note.display_start_date AND COALESCE(System_Note.display_end_date, CURRENT_TIMESTAMP)+'1 day'</cfif>
 ORDER BY System_Note.display_start_date, System_Note.display_end_date, System_Note.created_date
 </cfquery>
 

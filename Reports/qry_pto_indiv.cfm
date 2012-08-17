@@ -24,6 +24,6 @@ WHERE Time_Entry.active_ind=1
 		FROM Project
 		WHERE project_type_id = 1
 	)
-	and EXTRACT(YEAR FROM Time_Entry.work_date) = EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
+	and EXTRACT(YEAR FROM Time_Entry.work_date) = EXTRACT(YEAR FROM CURRENT_DATE)
 ORDER BY Time_Entry.work_date
 </cfquery>
