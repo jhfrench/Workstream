@@ -13,6 +13,7 @@
 	 || 
  --->
 </cfsilent>
+<cfparam name="variables.not_numeric_entries" default="">
 <cfinclude template="act_validate_hours_js.cfm">
 <cfif isdefined("attributes.hours") AND listlen(attributes.hours) AND session.workstream_last_loaded NEQ attributes.last_loaded>
 	<cfinclude template="act_upload_entries.cfm">
@@ -21,15 +22,24 @@
 <cfinclude template="qry_get_express_time_entries.cfm">
 
 <cfinclude template="../common_files/qry_express_check_date.cfm">
-<table align="center" border="0" cellpadding="1" cellspacing="0" width="100%">
-	<cfif isdefined("notnumeric")>
-		<cfinclude template="dsp_express_not_numeric.cfm">
-	</cfif>
-	<cfinclude template="dsp_express_cftree.cfm">
+<cfif listlen(variables.not_numeric_entries)>
+	<cfinclude template="dsp_express_not_numeric.cfm">
+</cfif>
+<cfinclude template="dsp_express_cftree.cfm">
+
 <cfform name="myform" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST">
-	<cfinclude template="dsp_express_input_rows_label.cfm">
+<table class="table table-striped table-bordered table-condensed">
+	<caption><h2><em>-Express=</em> Time Entry</h2></caption>
+	<thead>
+		<tr>
+			<th>Date</th>
+			<th>Hours</th>
+			<th><cfif compare(fuseaction, "time_entry")>Task<cfelse>Code</cfif></th>
+			<th>Notes</th>
+		</tr>
+	</thead>
 	<cfinclude template="dsp_express_input_rows.cfm">
 	<cfinclude template="dsp_express_entry_options.cfm">
-</cfform>
 </table>
+</cfform>
 

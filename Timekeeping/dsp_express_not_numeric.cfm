@@ -13,20 +13,13 @@
 	 || 
  --->
 </cfsilent>
-	<tr align="center" class="NoteBdRed">
-		<td colspan="5" class="NoteBdRed">
-			One or more of the entries you just submitted contained hours that were not numeric. These entries were not processed:
-		</td>
-	</tr>
-	<tr align="center" class="NoteBdRed">
-		<td align="left" class="NoteBdRed">
-			&nbsp;
-		</td>
-		<td align="left" colspan="4" class="NoteBdRed">
-			<ul class="NoteBdRed">
-			<cfloop list="#notnumericentries#" index="ii">
-				<li><cfoutput>#ii#</cfoutput></li>
-			</cfloop>
-			</ul>
-		</td>
-	</tr>
+<cfoutput>
+<div class="alert alert-warning">
+	One or more of the entries you just submitted contained hours that were not numeric. These entries were not processed:
+	<ul>
+	<cfloop list="#variables.not_numeric_entries#" index="ii">
+		<li>#ii#</li>
+	</cfloop>
+	</ul>
+</div>
+</cfoutput>

@@ -12,36 +12,36 @@
 	$Log$
 	 || 
  --->
-<cfset variables.go_back_to=datediff("d",express_check_date.date_locked,dateadd("m",1,now()))-1>
+<cfset variables.min_date=dateformat(express_check_date.date_locked, "yyyy-mm-dd")>
+<cfset variables.max_date=dateformat(dateadd("m", 1, express_check_date.date_locked))>
+<cfset variables.workstream_express_notes_height=session.workstream_express_notes_height>
+<cfset variables.workstream_express_notes_width=session.workstream_express_notes_width>
 <cfif NOT len(session.workstream_express_input_rows)>
-	<cfset session.workstream_express_input_rows=1>
+	<cfset variables.workstream_express_input_rows=1>
+<cfelse>
+	<cfset variables.workstream_express_input_rows=session.workstream_express_input_rows>
 </cfif>
 </cfsilent>
-<cfloop index="dex" from="1" to="#min(session.workstream_express_input_rows,30)#">
 <cfoutput>
-	<tr align="center">
-		<td align="center">
-			<select name="date">
-			<cfloop from="0" to="#variables.go_back_to#" index="ii">
-				<<option value="#dateformat(dateadd("m",1,now())-ii,'m/d/yyyy')#"<cfif NOT datediff("d",now(),dateadd("m",1,now())-ii)> selected="selected"</cfif>>#dateformat(dateadd("m",1,now())-ii,"m/d/yyyy (ddd)")#</option></cfloop>
+<tbody>
+<cfloop index="dex" from="1" to="#min(variables.workstream_express_input_rows,30)#">
+	<tr>
+		<td>
+			<input type="date" name="date" id="date" min="#variables.min_date#" max="#variables.max_date#" value="" maxlength="10" class="span8 date" />
+		</td>
+		<td>
+			<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" class="number span6">
+		</td>
+		<td>
+			<select name="task_id" size="1" class="span10">
+				<cfloop query="get_express_task_list"><cfparam name="request.grouper" default="#grouper#"><cfif compare(request.grouper,"nope") AND request.grouper NEQ grouper><option value="0">*************</option></cfif><option value="#workflow_id#">#task_name#</option><cfset request.grouper=grouper>
+				</cfloop><cfset request.grouper="nope">
 			</select>
 		</td>
-</cfoutput>
-
-		<td class="btn-group">
-			<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" class="span6">
+		<td>
+			<textarea rows="#variables.workstream_express_notes_height#" cols="#variables.workstream_express_notes_width#" name="notes_#DEX#" wrap="soft" class="span12"></textarea>
 		</td>
-
-		<td align="center">
-			<select name="task_id" size="1">
-				<cfoutput query="express_task_list"><cfparam name="request.grouper" default="#grouper#"><cfif compare(request.grouper,"nope") AND request.grouper NEQ grouper><option value="0">*************</option></cfif><option value="#workflow_id#">#task_name#</option><cfset request.grouper=grouper>
-				</cfoutput><cfset request.grouper="nope">
-			</select>
-		</td>
-
-		<td align="center">
-			<textarea rows="<cfoutput>#session.workstream_express_notes_height#" cols="#session.workstream_express_notes_width#" name="notes_#DEX#"</cfoutput> wrap="soft"></textarea>
-		</td>
-
 	</tr>
 </cfloop>
+</tbody>
+</cfoutput>

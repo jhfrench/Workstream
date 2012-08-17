@@ -12,7 +12,7 @@
 	$Log$
 	 || 
  --->
-<cfquery name="express_task_list" datasource="#application.datasources.main#">
+<cfquery name="get_express_task_list" datasource="#application.datasources.main#">
 SELECT *
 FROM
 	(SELECT Task.name AS task_name, Task.task_id AS workflow_id, 1 AS grouper
