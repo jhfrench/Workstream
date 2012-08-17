@@ -133,13 +133,12 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 		AS Valid_Tasks, Task, REF_Icon
 		WHERE Valid_Tasks.task_id=Task.task_id AND REF_Icon.icon_id=Task.icon_id)
 	AS Path
-	LEFT OUTER JOIN
-		(SELECT SUM(hours) AS hours_used, task_id AS task_id
+	LEFT OUTER JOIN (
+		SELECT SUM(hours) AS hours_used, task_id AS task_id
 		FROM Time_Entry
 		WHERE Time_Entry.active_ind=1
-		GROUP BY task_id)
-	AS Recorded_Hours
-	ON Path.task_id=Recorded_Hours.task_id
+		GROUP BY task_id
+	) AS Recorded_Hours ON Path.task_id=Recorded_Hours.task_id
 	WHERE Task.task_id=Path.task_id AND REF_Status.status_id=Task.status_id 
 		AND Team.role_id=1 AND Task.task_id=Team.task_id 
 		AND Emp_Contact.emp_id=Team.emp_id)

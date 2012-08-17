@@ -16,18 +16,18 @@
 SELECT COALESCE(AP_Time.ap_time,0) AS ap_time, Ttl_Time.ttl_time, COALESCE((AP_Time.ap_time/Ttl_Time.ttl_time),0)*100.000 AS ap_percent, 
 	Ttl_Time.time_year, Ttl_Time.time_month
 FROM
-	(SELECT SUM(hours) AS ap_time, EXTRACT(MONTH FROM date) AS time_month, EXTRACT(YEAR FROM date) AS time_year
+	(SELECT SUM(hours) AS ap_time, EXTRACT(MONTH FROM work_date) AS time_month, EXTRACT(YEAR FROM work_date) AS time_year
 	FROM Time_Entry
 	WHERE Time_Entry.active_ind=1
 		AND Time_Entry.project_id=1112
 		AND emp_id IN (#valuelist(get_subordinates.emp_id)#)
-	GROUP BY EXTRACT(MONTH FROM date), EXTRACT(YEAR FROM date))
+	GROUP BY EXTRACT(MONTH FROM work_date), EXTRACT(YEAR FROM work_date))
 AS AP_Time,
-	(SELECT SUM(hours) AS ttl_time, EXTRACT(MONTH FROM date) AS time_month, EXTRACT(YEAR FROM date) AS time_year
+	(SELECT SUM(hours) AS ttl_time, EXTRACT(MONTH FROM work_date) AS time_month, EXTRACT(YEAR FROM work_date) AS time_year
 	FROM Time_Entry
 	WHERE Time_Entry.active_ind=1
 		AND emp_id IN (#valuelist(get_subordinates.emp_id)#)
-	GROUP BY EXTRACT(MONTH FROM date), EXTRACT(YEAR FROM date))
+	GROUP BY EXTRACT(MONTH FROM work_date), EXTRACT(YEAR FROM work_date))
 AS Ttl_Time
 WHERE AP_Time.time_month=*Ttl_Time.time_month
 	AND AP_Time.time_year=*Ttl_Time.time_year

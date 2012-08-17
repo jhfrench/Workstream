@@ -104,7 +104,7 @@ FROM Emp_Contact
 WHERE REF_Company.company_id IN (#session.workstream_selected_company_id#)
 	AND demographics.end_date IS NULL
 	AND Time_Entry.active_ind=1
-	AND EXTRACT(YEAR FROM time_entry.date) = EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
+	AND EXTRACT(YEAR FROM Time_Entry.work_date) = EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
 GROUP BY emp_contact.lname, emp_contact.name, demographics.pin,
 	emp_contact.emp_id
 ORDER BY emp_contact.lname

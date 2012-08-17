@@ -24,8 +24,8 @@ FROM Emp_Contact
 
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
 WHERE Time_Entry.active_ind=1
-	AND (Time_Entry.Date >= '#start_date#')
-	AND (Time_Entry.Date <= '#end_date#')
+	AND (Time_Entry.work_date >= '#start_date#')
+	AND (Time_Entry.work_date <= '#end_date#')
 	AND (Demographics.Overtime = 1)
 	 		AND
      		((REF_Employee_Classification.employee_classification_id <> 4) OR

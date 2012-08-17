@@ -26,17 +26,17 @@ FROM (
 		SELECT revenue_year, SUM(revenue) AS revenue
 		FROM (
 			SELECT SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS revenue,
-				EXTRACT(MONTH FROM Time_Entry.date) AS revenue_month, EXTRACT(YEAR FROM Time_Entry.date) AS revenue_year
+				EXTRACT(MONTH FROM Time_Entry.work_date) AS revenue_month, EXTRACT(YEAR FROM Time_Entry.work_date) AS revenue_year
 			FROM Time_Entry
 				INNER JOIN Link_Company_Emp_Contact ON Time_Entry.emp_id=Link_Company_Emp_Contact.emp_id
 				INNER JOIN Billing_Rate ON Time_Entry.emp_id=Billing_Rate.emp_id
-					AND Time_Entry.date BETWEEN Billing_Rate.rate_start_date AND Billing_Rate.rate_end_date
+					AND Time_Entry.work_date BETWEEN Billing_Rate.rate_start_date AND Billing_Rate.rate_end_date
 				INNER JOIN Project ON Project.project_id=Time_Entry.project_id
 					AND Project.project_id=Billing_Rate.project_id
 			WHERE Time_Entry.active_ind=1
 				AND Project.billable_type_id=1
 				AND Link_Company_Emp_Contact.company_id=#session.workstream_company_id#
-			GROUP BY EXTRACT(MONTH FROM Time_Entry.date), EXTRACT(YEAR FROM Time_Entry.date), Project.billable_type_id
+			GROUP BY EXTRACT(MONTH FROM Time_Entry.work_date), EXTRACT(YEAR FROM Time_Entry.work_date), Project.billable_type_id
 			) AS Hour_Revenue
 		GROUP BY revenue_year
 	) AS Hourly_Revenue ON Revenue_Goal.fiscal_year=Hourly_Revenue.revenue_year

@@ -36,7 +36,7 @@ task_info.task_id,
 task_info.last_task,
 (cast(EXTRACT(MONTH FROM task_info.Date) AS varchar(2)) || '/' || cast(datepart(dd, task_info.Date) AS varchar(2)) || '/' || cast(EXTRACT(YEAR FROM task_info.Date) AS varchar(4))) as [Date]
 
-FROM (select top 1 project_id, task_id, task.name as last_task, (select max(time_entry.date) from time_entry where task.task_id = time_entry.task_id) as [date]
+FROM (select top 1 project_id, task_id, task.name as last_task, (select max(Time_Entry.work_date) from time_entry where task.task_id = time_entry.task_id) as [date]
 	from Task 
 	where project_id = 504
 ORDER BY task_id desc

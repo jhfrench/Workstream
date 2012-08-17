@@ -17,10 +17,10 @@
 <cfparam name="session.workstream_notes_display_sort" default="2">
 <cfif session.workstream_notes_display_sort EQ 1>
 	<!--- User wants to sort output by date of the work --->
-	<cfset variables.date_sort_field="COALESCE(Time_Entry.date, Notes.created_date)">
+	<cfset variables.date_sort_field="COALESCE(Time_Entry.work_date, Notes.created_date)">
 <cfelse>
 	<!--- User wants to sort output by date they entered the time --->
-	<cfset variables.date_sort_field="COALESCE(Notes.created_date, Time_Entry.date)">
+	<cfset variables.date_sort_field="COALESCE(Notes.created_date, Time_Entry.work_date)">
 </cfif>
 <cfquery name="qa_entry_details" datasource="#application.datasources.main#">
 SELECT Notes.notes_type_id, (Emp_Contact.lname || ', ' || LEFT(Emp_Contact.name,2)) AS initials, #variables.date_sort_field# AS date, Notes.note AS note

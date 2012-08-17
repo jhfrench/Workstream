@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="Showhours" datasource="#application.datasources.main#"> 
-SELECT Time_entry.hours, Time_entry.date
+SELECT Time_entry.hours, Time_Entry.work_date
 FROM PTO_Hours
 	INNER JOIN Emp_contact ON PTO_Hours.emp_id = Emp_contact.emp_id
 	INNER JOIN Time_entry ON PTO_Hours.emp_id = Time_entry.emp_id
@@ -24,6 +24,6 @@ WHERE Time_Entry.active_ind=1
 		FROM Project
 		WHERE project_type_id = 1
 	)
-	and EXTRACT(YEAR FROM time_entry.date) = EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
-ORDER BY Time_entry.date
+	and EXTRACT(YEAR FROM Time_Entry.work_date) = EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
+ORDER BY Time_Entry.work_date
 </cfquery>

@@ -24,6 +24,7 @@ SET project_id=#attributes.project_id#
 WHERE Time_Entry.active_ind=1
 	AND task_id=#attributes.task_id#
 	AND time_entry_id NOT IN (
+		/* don't reassign hours that have already been billed*/
 		SELECT time_entry_id
 		FROM Link_Invoice_Time_Entry
 			INNER JOIN Invoice ON Link_Invoice_Time_Entry.invoice_id=Invoice.invoice_id

@@ -22,10 +22,10 @@ FROM Emp_Contact
 	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id=REF_Company.company_id
 	INNER JOIN Demographics_Ngauge AS Demographics ON Emp_Contact.emp_id=Demographics.emp_id
 	LEFT OUTER JOIN REF_Employee_Classification ON Demographics.employee_classification_id=REF_Employee_Classification.employee_classification_id
-WHERE Time_Entry.date BETWEEN #variables.from_date# AND #variables.through_date#
+WHERE Time_Entry.work_date BETWEEN #variables.from_date# AND #variables.through_date#
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 	AND Time_Entry.active_ind=1
-	AND Time_Entry.date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, Time_Entry.date)
+	AND Time_Entry.work_date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, Time_Entry.work_date)
 GROUP BY Project.project_code, Project.description, REF_Employee_Classification.employee_classification
 ORDER BY clientcode
 </cfquery>

@@ -19,8 +19,8 @@ SELECT SUM(Time_Entry.hours) AS project_hours, Time_Entry.project_id, Project.de
 FROM Time_Entry, Project
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.emp_id=#session.user_account_id#
-	AND EXTRACT(MONTH FROM Time_Entry.date) = EXTRACT(MONTH FROM CURRENT_TIMESTAMP)
-	AND EXTRACT(YEAR FROM Time_Entry.date) = EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
+	AND EXTRACT(MONTH FROM Time_Entry.work_date) = EXTRACT(MONTH FROM CURRENT_TIMESTAMP)
+	AND EXTRACT(YEAR FROM Time_Entry.work_date) = EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
 	AND Project.project_id=Time_Entry.project_id
 GROUP BY Time_Entry.project_id, Project.description
 ORDER BY project_hours DESC

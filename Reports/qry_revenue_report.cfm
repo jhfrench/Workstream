@@ -20,7 +20,7 @@ SELECT COALESCE(Hour_Revenue.revenue,0) AS hour_revenue,
 	ABCD_Months.month, ABCD_Months.year
 FROM ABCD_Months, (
 		SELECT SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS revenue,
-			EXTRACT(MONTH FROM Time_Entry.date) AS revenue_month, EXTRACT(YEAR FROM Time_Entry.date) AS revenue_year,
+			EXTRACT(MONTH FROM Time_Entry.work_date) AS revenue_month, EXTRACT(YEAR FROM Time_Entry.work_date) AS revenue_year,
 			Project.billable_type_id
 		FROM Time_Entry, Link_Company_Emp_Contact, Billing_Rate, Project
 		WHERE Time_Entry.emp_id=Link_Company_Emp_Contact.emp_id
@@ -29,7 +29,7 @@ FROM ABCD_Months, (
 			AND Project.project_id=Time_Entry.project_id
 			AND Project.billable_type_id=1
 			AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
-		GROUP BY EXTRACT(MONTH FROM Time_Entry.date), EXTRACT(YEAR FROM Time_Entry.date), Project.billable_type_id
+		GROUP BY EXTRACT(MONTH FROM Time_Entry.work_date), EXTRACT(YEAR FROM Time_Entry.work_date), Project.billable_type_id
 	) AS Hour_Revenue,
 	(
 		SELECT SUM((COALESCE(Flat_Rate.budget,0)/COALESCE(Flate_Rate.months,1))) AS revenue, 

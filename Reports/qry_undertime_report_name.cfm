@@ -25,8 +25,8 @@ FROM Emp_Contact
 	LEFT OUTER JOIN REF_Employee_Classification ON Demographics.employee_classification_id = REF_Employee_Classification.employee_classification_id
 WHERE Security.disable <> 1
 	AND Time_Entry.active_ind=1
-	AND Time_entry.date>='#start_date#'<!--- $issue$: shouldn't this be BETWEEN? --->
-	AND Time_entry.date<='#end_Date#'
+	AND Time_Entry.work_date>='#start_date#'<!--- $issue$: shouldn't this be BETWEEN? --->
+	AND Time_Entry.work_date<='#end_Date#'
 	AND Demographics.overtime =1 <cfif comparenocase(attributes.pin, "all")>
 	AND Emp_Contact.emp_id IN (#attributes.pin#)<cfelse>
 	AND Security_Company_Access.company_id IN (#session.workstream_selected_company_id#)</cfif>

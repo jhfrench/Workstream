@@ -23,8 +23,8 @@ FROM (
 			INNER JOIN Link_Company_Emp_Contact ON Time_Entry.emp_id=Link_Company_Emp_Contact.emp_id
 				AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 		WHERE Time_Entry.active_ind=1
-			AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#
-			AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.year#
+			AND EXTRACT(MONTH FROM Time_Entry.work_date)=#attributes.month#
+			AND EXTRACT(YEAR FROM Time_Entry.work_date)=#attributes.year#
 		GROUP BY Time_Entry.project_id, Time_Entry.emp_id
 	) AS Hours_ID
 	INNER JOIN Project ON Hours_ID.project_id=Project.project_id

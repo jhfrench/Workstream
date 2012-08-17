@@ -23,8 +23,8 @@ FROM Emp_Contact,
 				LEFT OUTER JOIN Time_Entry ON Emp_Contact.emp_id=Time_Entry.emp_id
 					AND Time_Entry.project_id=#variables.project_id#
 					AND Time_Entry.active_ind=1
-					AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.admin_month#
-					AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.admin_year#
+					AND EXTRACT(MONTH FROM Time_Entry.work_date)=#attributes.admin_month#
+					AND EXTRACT(YEAR FROM Time_Entry.work_date)=#attributes.admin_year#
 			WHERE  Emp_Contact.emp_id IN (#valuelist(get_subordinates.emp_id)#)
 			GROUP BY Emp_Contact.emp_id
 		) AS Efficiency_Hours,
@@ -33,8 +33,8 @@ FROM Emp_Contact,
 			FROM Emp_Contact
 				LEFT OUTER JOIN Time_Entry ON Emp_Contact.emp_id=Time_Entry.emp_id
 					AND Time_Entry.active_ind=1
-					AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.admin_month#
-					AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.admin_year#
+					AND EXTRACT(MONTH FROM Time_Entry.work_date)=#attributes.admin_month#
+					AND EXTRACT(YEAR FROM Time_Entry.work_date)=#attributes.admin_year#
 			WHERE Emp_Contact.emp_id IN (#valuelist(get_subordinates.emp_id)#)
 			GROUP BY Emp_Contact.emp_id
 		) AS Ttl_hours

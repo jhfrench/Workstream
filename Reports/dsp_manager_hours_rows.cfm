@@ -37,7 +37,7 @@
 		<cfset variables.daily_total_hours=variables.daily_total_hours+hours>
 	</cfif>
 	<tr>
-		<td bgcolor="##e1e1e1">#dateformat(date, "m/d/yyyy")#</td>
+		<td bgcolor="##e1e1e1">#dateformat(work_date, "m/d/yyyy")#</td>
 		<td bgcolor="##e1e1e1">#display#</td>
 		<td bgcolor="##e1e1e1">#note#</td>
 		<td bgcolor="##e1e1e1">#decimalformat(hours)#</td>

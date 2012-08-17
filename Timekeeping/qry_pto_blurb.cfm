@@ -27,7 +27,7 @@ FROM (
 				SELECT SUM(Time_Entry.hours) AS hours_taken, emp_id
 				FROM Time_Entry
 				WHERE Time_Entry.active_ind=1
-					AND Time_Entry.date >= (
+					AND Time_Entry.work_date >= (
 						SELECT pto_start_date
 						FROM REF_Company
 						WHERE company_id = #session.workstream_company_id#
@@ -49,8 +49,8 @@ FROM (
 		SELECT Time_Entry.emp_id, SUM(Time_Entry.hours) AS hours_taken
 		FROM Time_Entry
 		WHERE Time_Entry.active_ind=1
-			AND EXTRACT(MONTH FROM Time_Entry.date)=EXTRACT(MONTH FROM CURRENT_TIMESTAMP)
-			AND EXTRACT(YEAR FROM Time_Entry.date)=EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
+			AND EXTRACT(MONTH FROM Time_Entry.work_date)=EXTRACT(MONTH FROM CURRENT_TIMESTAMP)
+			AND EXTRACT(YEAR FROM Time_Entry.work_date)=EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
 			AND Time_Entry.emp_id=#session.user_account_id#
 			AND Time_Entry.project_id IN (
 				SELECT project_id

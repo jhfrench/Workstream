@@ -21,7 +21,7 @@ SELECT Customer.customer_id, Customer.root_code, Customer.description AS custome
 FROM Time_Entry
 	INNER JOIN Link_Company_Emp_Contact ON Time_Entry.emp_id=Link_Company_Emp_Contact.emp_id
 	LEFT OUTER JOIN Billing_Rate ON Time_Entry.emp_id=Billing_Rate.emp_id
-		AND Time_Entry.date BETWEEN Billing_Rate.rate_start_date AND Billing_Rate.rate_end_date
+		AND Time_Entry.work_date BETWEEN Billing_Rate.rate_start_date AND Billing_Rate.rate_end_date
 	INNER JOIN Project ON Project.project_id=Time_Entry.project_id
 		AND Project.project_id=Billing_Rate.project_id
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
@@ -38,8 +38,8 @@ WHERE Time_Entry.active_ind=1
 		WHERE active_ind=1
 			AND invoice_id=#attributes.invoice_id#
 	)<cfelseif isdefined("attributes.month") AND isdefined("attributes.year")>
-	AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#
-	AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.year#<cfelse>
+	AND EXTRACT(MONTH FROM Time_Entry.work_date)=#attributes.month#
+	AND EXTRACT(YEAR FROM Time_Entry.work_date)=#attributes.year#<cfelse>
 	AND Time_Entry.time_entry_id NOT IN (
 		SELECT time_entry_id
 		FROM Link_Invoice_Time_Entry

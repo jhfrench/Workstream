@@ -91,8 +91,8 @@ FROM Task, Team, Emp_Contact,
 				SELECT SUM(hours) AS hours_used, task_id AS task_id
 				FROM Time_Entry
 				WHERE Time_Entry.active_ind=1<cfif from_invoice>
-					AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#
-					AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.year#</cfif>
+					AND EXTRACT(MONTH FROM Time_Entry.work_date)=#attributes.month#
+					AND EXTRACT(YEAR FROM Time_Entry.work_date)=#attributes.year#</cfif>
 				GROUP BY task_id
 			) AS Recorded_Hours ON Path.task_id = Recorded_Hours.task_id
 		WHERE Task.task_id=Path.task_id

@@ -35,8 +35,8 @@ FROM Time_Entry,
 WHERE Time_Entry.emp_id=*Elligible_Employees.emp_id
 	AND Time_Entry.project_id IN (#valuelist(manager_crosstab_codes.id)#)
 	AND Time_Entry.active_ind=1
-	AND Time_Entry.date >= #createodbcdatetime(attributes.from_date)#
-	AND Time_Entry.date <= #createodbcdatetime(attributes.through_date)#
+	AND Time_Entry.work_date >= #createodbcdatetime(attributes.from_date)#
+	AND Time_Entry.work_date <= #createodbcdatetime(attributes.through_date)#
 GROUP BY Elligible_Employees.emp_id, Elligible_Employees.name
 ORDER BY Elligible_Employees.name
 </cfquery>

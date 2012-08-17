@@ -27,7 +27,7 @@
 	<cfoutput query="get_ind_entry_details">
 		<tr>
 			<td class="date">
-				<a href="javascript:time_edit('#time_entry_id#');" title="Edit this time entry.">#dateformat(date,"m/d/yyyy")#</a>
+				<a href="javascript:time_edit('#time_entry_id#');" title="Edit this time entry.">#dateformat(work_date,"m/d/yyyy")#</a>
 			</td>
 			<td class="number">
 				<a href="javascript:time_edit('#time_entry_id#');" title="Edit this time entry.">#decimalformat(hours)#</a>

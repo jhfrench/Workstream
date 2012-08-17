@@ -11,7 +11,7 @@
 	 || 
 	END FUSEDOC --->
 <cfquery name="get_hours" datasource="#application.datasources.main#">
-SELECT Time_Entry.date AS date, Time_Entry.hours, Notes.note AS notes,
+SELECT Time_Entry.work_date AS date, Time_Entry.hours, Notes.note AS notes,
 	CASE WHEN Customer.description != Project.description <cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
 		THEN (Project.project_code || '-' || Customer.description || '-' || Project.description) 
 		ELSE (Project.project_code || '-' || Project.description)
@@ -26,8 +26,8 @@ WHERE Time_Entry.notes_id=Notes.notes_id
 	AND Project.customer_id=Customer.customer_id
 	AND Time_Entry.active_ind=1
 	AND Notes.active_ind=1
-	AND Time_Entry.date BETWEEN #createodbcdate(from_date)# AND #createodbcdate(through_date)#
+	AND Time_Entry.work_date BETWEEN #createodbcdate(from_date)# AND #createodbcdate(through_date)#
 	AND Time_Entry.emp_id=#emp_id#
-ORDER BY Time_Entry.date, project_display, Time_Entry.hours
+ORDER BY Time_Entry.work_date, project_display, Time_Entry.hours
 </cfquery>
 </cfsilent>

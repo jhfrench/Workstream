@@ -24,7 +24,7 @@ FROM Emp_Contact
 		SELECT SUM(Time_Entry.hours) AS hours_taken, emp_id
 		FROM Time_Entry
 		WHERE Time_Entry.active_ind=1
-			AND Time_Entry.date >= (SELECT pto_start_date FROM REF_Company WHERE company_id = #session.workstream_company_id#)<cfif NOT listcontainsnoCase(attributes.emp_id,"ALL" )>
+			AND Time_Entry.work_date >= (SELECT pto_start_date FROM REF_Company WHERE company_id = #session.workstream_company_id#)<cfif NOT listcontainsnoCase(attributes.emp_id,"ALL" )>
 			AND (Time_Entry.emp_id IN (#preservesinglequotes(attributes.emp_id)#))</cfif>
 			AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id = 1)
 		GROUP BY Emp_id

@@ -23,8 +23,8 @@ FROM Emp_Contact,
 			AND Time_Entry.emp_id=*Emp_Contact.emp_id
 			AND Emp_Contact.emp_id IN (#valuelist(get_subordinates.emp_id)#)
 			AND Time_Entry.project_id=1112
-			AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.admin_month#
-			AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.admin_year#
+			AND EXTRACT(MONTH FROM Time_Entry.work_date)=#attributes.admin_month#
+			AND EXTRACT(YEAR FROM Time_Entry.work_date)=#attributes.admin_year#
 		GROUP BY Emp_Contact.emp_id)
 	AS Admin_Hours,
 		(SELECT Emp_Contact.emp_id, SUM(hours) AS ttl_hours
@@ -32,8 +32,8 @@ FROM Emp_Contact,
 		WHERE Time_Entry.active_ind=1
 			AND Time_Entry.emp_id=*Emp_Contact.emp_id
 			AND Emp_Contact.emp_id IN (#valuelist(get_subordinates.emp_id)#)
-			AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.admin_month#
-			AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.admin_year#
+			AND EXTRACT(MONTH FROM Time_Entry.work_date)=#attributes.admin_month#
+			AND EXTRACT(YEAR FROM Time_Entry.work_date)=#attributes.admin_year#
 		GROUP BY Emp_Contact.emp_id)
 	AS Ttl_hours
 	WHERE Admin_Hours.emp_id=Ttl_Hours.emp_id)

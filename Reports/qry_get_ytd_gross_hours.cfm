@@ -31,7 +31,7 @@ FROM Time_Entry
 		AND Location.City IN (#ListQualify(display_office,"'",",","ALL")#) </cfif>
 	LEFT OUTER JOIN REF_Employee_Classification ON REF_Employee_Classification.employee_classification_id=Demographics.employee_classification_id
 WHERE Time_Entry.active_ind=1
-	AND Time_Entry.date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.to_date)#
+	AND Time_Entry.work_date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.to_date)#
 	AND (
 		Demographics.effective_from <= #createodbcdate(attributes.to_date)#
 		AND Demographics.effective_to >= #createodbcdate(attributes.from_date)#

@@ -22,7 +22,7 @@
 	<-- task_name: string that identifies the task name for a particular task
  --->
 <cfquery name="time_entry_edit" datasource="#application.datasources.main#">
-SELECT Time_Entry.date AS date, Time_Entry.hours AS hours,
+SELECT Time_Entry.work_date, Time_Entry.hours AS hours,
 	Notes.note AS note, Notes.notes_id AS notes_id,
 	<cfif entry_type>Task.name AS task_name, Task.task_id AS task_id,
 	</cfif>Project.description AS project_description, project.project_id,

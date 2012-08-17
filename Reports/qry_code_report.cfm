@@ -16,13 +16,13 @@ SELECT Emp_Contact.name, Emp_Contact.lname,
 	Project.project_code AS clientcode, 
 	Project.description AS clientname, 
 	REF_Employee_Classification.employee_classification,
-	<cfif isdefined("variables.month_loop")><cfloop from="1" to="#variables.month_loop#" index="ii"><cfset variables.current_month=dateformat(dateadd("m",ii-1,variables.from_date), "mm/yyyy")>SUM(CASE WHEN EXTRACT(MONTH FROM Time_Entry.date)=#month(variables.current_month)# AND EXTRACT(YEAR FROM Time_Entry.date)=#year(variables.current_month)# THEN Time_Entry.hours ELSE 0 END) AS 'period_#ii#',
+	<cfif isdefined("variables.month_loop")><cfloop from="1" to="#variables.month_loop#" index="ii"><cfset variables.current_month=dateformat(dateadd("m",ii-1,variables.from_date), "mm/yyyy")>SUM(CASE WHEN EXTRACT(MONTH FROM Time_Entry.work_date)=#month(variables.current_month)# AND EXTRACT(YEAR FROM Time_Entry.work_date)=#year(variables.current_month)# THEN Time_Entry.hours ELSE 0 END) AS 'period_#ii#',
 	</cfloop></cfif>SUM(Time_Entry.hours) AS hours, 
 	REF_Company.description AS company
 FROM Emp_Contact 
 		INNER JOIN Time_Entry ON Emp_Contact.emp_id = Time_Entry.emp_id
 		INNER JOIN Demographics_Ngauge AS Demographics ON Emp_Contact.emp_id = Demographics.emp_id
-			AND Time_Entry.date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, #createodbcdate(attributes.through_date)#)
+			AND Time_Entry.work_date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, #createodbcdate(attributes.through_date)#)
 		INNER JOIN Project ON Time_Entry.project_id = Project.project_id
 		INNER JOIN Customer ON Project.customer_id = Customer.customer_id
 		INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id = Link_Company_Emp_Contact.emp_id
@@ -30,7 +30,7 @@ FROM Emp_Contact
 		LEFT OUTER JOIN REF_Employee_Classification
 			ON Demographics.employee_classification_id = REF_Employee_Classification.employee_classification_id
 WHERE Time_Entry.active_ind=1
-	AND Time_Entry.date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.through_date)#
+	AND Time_Entry.work_date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.through_date)#
 	AND Project.project_id = #project_id#
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 	AND Demographics.effective_from <= #createodbcdate(attributes.through_date)#

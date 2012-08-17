@@ -33,8 +33,8 @@ FROM Time_Entry, Project,
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.project_id=Project.project_id
 	AND Time_Entry.emp_id=Elligible_Employees.emp_id
-	AND Time_entry.date >= #createodbcdatetime(attributes.from_date)#
-	AND Time_entry.date <= #createodbcdatetime(attributes.through_date)#
+	AND Time_Entry.work_date >= #createodbcdatetime(attributes.from_date)#
+	AND Time_Entry.work_date <= #createodbcdatetime(attributes.through_date)#
 GROUP BY Project.project_code, Project.project_id
 ORDER BY code
 </cfquery>

@@ -33,11 +33,11 @@ WHERE Emp_Contact.emp_id=Time_Entry.emp_id
 	AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	AND Project.customer_id=Customer.customer_id
 	AND Demographics.employee_classification_id*=REF_Employee_Classification.employee_classification_id
-	AND Time_Entry.date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, Time_Entry.date)
+	AND Time_Entry.work_date BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to, Time_Entry.work_date)
 	AND Demographics.effective_from <= #variables.through_date#
 	AND COALESCE(Demographics.effective_to,#variables.from_date#) >= #variables.from_date#
 	AND Time_Entry.active_ind=1
-	AND Time_Entry.date BETWEEN #variables.from_date# AND #variables.through_date#
+	AND Time_Entry.work_date BETWEEN #variables.from_date# AND #variables.through_date#
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 	AND Project.billable_type_id<cfif NOT flag_non_billable>!</cfif>=2
 GROUP BY Emp_Contact.name, Emp_Contact.lname,

@@ -14,13 +14,13 @@
 <cfset variables.date_closed=createodbcdate("#attributes.month#/#daysinmonth(variables.date_open)#/#attributes.year#")>
 <cfquery name="get_gross_hours" datasource="#application.datasources.main#">
 SELECT (Emp_Contact.lname || ', ' || Emp_Contact.name) AS name,<cfloop from="1" to="#variables.daysinmonth#" index="ii">
-	SUM(CASE WHEN EXTRACT(DAY FROM Time_Entry.date)=#ii# THEN Time_Entry.hours ELSE 0 END) AS day#ii#,</cfloop>
-	SUM(CASE WHEN Time_Entry.date IS NOT NULL THEN Time_Entry.hours ELSE 0 END) AS total
+	SUM(CASE WHEN EXTRACT(DAY FROM Time_Entry.work_date)=#ii# THEN Time_Entry.hours ELSE 0 END) AS day#ii#,</cfloop>
+	SUM(CASE WHEN Time_Entry.work_date IS NOT NULL THEN Time_Entry.hours ELSE 0 END) AS total
 FROM Emp_Contact
 	LEFT OUTER JOIN Time_Entry ON Emp_Contact.emp_id=Time_Entry.emp_id
 		AND Time_Entry.active_ind=1
-		AND EXTRACT(MONTH FROM Time_Entry.date)=#attributes.month#
-		AND EXTRACT(YEAR FROM Time_Entry.date)=#attributes.year#
+		AND EXTRACT(MONTH FROM Time_Entry.work_date)=#attributes.month#
+		AND EXTRACT(YEAR FROM Time_Entry.work_date)=#attributes.year#
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 		AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 	INNER JOIN Demographics_Ngauge Demographics ON Emp_Contact.emp_id=Demographics.emp_id

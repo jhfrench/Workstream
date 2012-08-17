@@ -21,8 +21,8 @@ FROM Time_Entry
 	INNER JOIN Customer ON Customer.customer_id=Project.customer_id
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.emp_id=#session.user_account_id#
-	AND EXTRACT(MONTH FROM Time_Entry.date) = EXTRACT(MONTH FROM CURRENT_TIMESTAMP)
-	AND EXTRACT(YEAR FROM Time_Entry.date) = EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
+	AND EXTRACT(MONTH FROM Time_Entry.work_date) = EXTRACT(MONTH FROM CURRENT_TIMESTAMP)
+	AND EXTRACT(YEAR FROM Time_Entry.work_date) = EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
 GROUP BY Customer.description, Project.description, Project.project_id
 ORDER BY project_hours DESC
 </cfquery>

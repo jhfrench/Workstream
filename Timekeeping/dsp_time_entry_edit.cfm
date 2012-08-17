@@ -56,9 +56,9 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="date">Date</label>
+			<label for="work_date">Date</label>
 			<div class="controls">
-				<input type="date" name="date" id="date" min="#dateformat(express_check_date.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(time_entry_edit.date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+				<input type="date" name="work_date" id="work_date" min="#dateformat(express_check_date.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(time_entry_edit.date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
 				<!-- LET CF create the validation JS <cfinput type="DateField" name="date" required="yes" message="Please enter a valid date for this task"> -->
 			</div>
 		</div>

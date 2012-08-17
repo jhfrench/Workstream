@@ -14,7 +14,7 @@
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	END FUSEDOC --->
 <cfquery name="get_extreme_dates" datasource="#application.datasources.main#">
-SELECT MIN(Time_Entry.date) AS min_date, MAX(Time_Entry.date) AS max_date
+SELECT MIN(Time_Entry.work_date) AS min_date, MAX(Time_Entry.work_date) AS max_date
 FROM Time_Entry
 	INNER JOIN Link_Company_Emp_Contact ON Time_Entry.emp_id=Link_Company_Emp_Contact.emp_id
 WHERE Time_Entry.active_ind=1

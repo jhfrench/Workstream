@@ -43,8 +43,8 @@ FROM
 		WHERE Time_Entry.active_ind=1
 			AND Time_Entry.emp_id=#session.user_account_id#
 			AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id=1)
-			AND Time_Entry.date >= (SELECT pto_start_date FROM REF_Company WHERE company_id=#session.workstream_company_id#) 
-			AND EXTRACT(YEAR FROM Time_Entry.date) < EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
+			AND Time_Entry.work_date >= (SELECT pto_start_date FROM REF_Company WHERE company_id=#session.workstream_company_id#) 
+			AND EXTRACT(YEAR FROM Time_Entry.work_date) < EXTRACT(YEAR FROM CURRENT_TIMESTAMP)
 		GROUP BY Time_Entry.emp_id
 		UNION ALL
 		SELECT 0 AS hours_out, SUM(COALESCE(PTO_Grant.granted_hours, 0)) AS hours_in, PTO_Grant.emp_id

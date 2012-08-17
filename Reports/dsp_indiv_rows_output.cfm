@@ -25,7 +25,7 @@
 	<!-- see this all the time--->
 	<tr valign="top">
 		<td>
-			#dateformat(date, "m/d/yyyy")#
+			#dateformat(work_date, "m/d/yyyy")#
 		</td>
 		<td>
 			#project_display#

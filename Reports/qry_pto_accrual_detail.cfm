@@ -36,7 +36,7 @@ FROM
 	as Emp_Duration 
 	WHERE PTO_Hours.emp_id=#page_pin# AND Emp_Duration.duration BETWEEN REF_PTO_Hours.Min_Month AND REF_PTO_Hours.Max_month
 	UNION ALL
-	SELECT 0.0 AS hours_in, Time_entry.hours AS hours_out, Time_entry.date AS transaction_date
+	SELECT 0.0 AS hours_in, Time_entry.hours AS hours_out, Time_Entry.work_date AS transaction_date
 	FROM Time_entry
 	WHERE Time_Entry.active_ind=1
 		AND emp_id=#variables.page_pin#

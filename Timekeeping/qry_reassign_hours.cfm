@@ -25,14 +25,31 @@ SET task_id=#attributes.reassign_task_id#,
 	project_id=#get_project_id.project_id#
 WHERE Time_Entry.active_ind=1
 	AND emp_id IN (#attributes.reassign_hours#)
-	AND task_id=#attributes.task_id#
-	AND date > '#express_check_date.date_locked#'
+	AND time_entry_id NOT IN (
+		/* don't reassign hours that have already been billed*/
+		SELECT time_entry_id
+		FROM Link_Invoice_Time_Entry
+			INNER JOIN Invoice ON Link_Invoice_Time_Entry.invoice_id=Invoice.invoice_id
+		WHERE Link_Invoice_Time_Entry.active_ind=1
+			AND Invoice.active_ind=1
+		GROUP BY time_entry_id
+	);
+
 UPDATE Notes
 SET task_id=#attributes.reassign_task_id#
-WHERE Notes.active_ind=1
-	AND emp_id IN (#attributes.reassign_hours#)
-	AND task_id=#attributes.task_id#
-	AND date > '#express_check_date.date_locked#'
+FROM Time_Entry
+WHERE Time_Entry.notes_id=Notes.notes_id
+	AND Notes.active_ind=1
+	AND Notes.emp_id IN (#attributes.reassign_hours#)
+	AND Time_Entry.time_entry_id NOT IN (
+		/* don't reassign hours that have already been billed*/
+		SELECT time_entry_id
+		FROM Link_Invoice_Time_Entry
+			INNER JOIN Invoice ON Link_Invoice_Time_Entry.invoice_id=Invoice.invoice_id
+		WHERE Link_Invoice_Time_Entry.active_ind=1
+			AND Invoice.active_ind=1
+		GROUP BY time_entry_id
+	);
 </cfquery>
 </cfsilent>
 
