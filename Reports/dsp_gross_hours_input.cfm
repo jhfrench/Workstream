@@ -19,13 +19,13 @@
 			<label for="month">Month</label>
 			<select name="month" id="month" size="1" class="span2">
 				<cfloop from="1" to="12" index="month_ii">
-					<option <cfif month(dateadd('M',-1, Now())) EQ month_ii>selected 				</cfif>value="#month_ii#">#MonthAsString(month_ii)#</option>
+					<option<cfif attributes.month EQ month_ii> selected="selected"</cfif>value="#month_ii#">#MonthAsString(month_ii)#</option>
 				</cfloop>
 			</select>
 			<label for="year">Year</label>
 			<select name="year" id="year" size="1" class="span2">
 				<cfloop from="2000" to="#year(now())#" index="year_num">
-					<option value="#year_num#"<cfif year_num EQ year(now())> selected="selected"</cfif>>#year_num#</option>
+					<option value="#year_num#"<cfif attributes.year EQ year_num> selected="selected"</cfif>>#year_num#</option>
 				</cfloop>
 			</select>
 			<label for="office_location">Office Location</label>
