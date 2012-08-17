@@ -51,20 +51,20 @@
 </cfif>
 
 <cfquery name="task_list" datasource="#application.datasources.main#">
-SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id AS task_id, 
+SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id, 
 	Task.name AS task_name, COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS time_budgeted,
-	Task.status_id AS status_id, Task_Details.time_used AS time_used, Task_Details.task_icon AS task_icon, 
-	Task_Details.percent_time_used AS percent_time_used, Task_Details.task_owner AS task_owner,
+	Task.status_id, Task_Details.time_used, Task_Details.task_icon, 
+	Task_Details.percent_time_used, Task_Details.task_owner,
 	(CASE WHEN Task.status_id IN (3,8) /* QA, UAT */ THEN Task_Details.task_status || ' by ' || Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
 	(Customer.description || '-' || Project.description) AS project_name, priority
 FROM Task, Team, Emp_Contact,
 	Customer, Project, Link_Project_Company, (
-		SELECT Path.task_id AS task_id, COALESCE(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
+		SELECT Path.task_id, COALESCE(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
 			(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
 			REF_Status.status AS task_status, Emp_Contact.lname AS task_owner, priority
 		FROM Task, REF_Status, Team,
 			Emp_Contact, (
-				SELECT Valid_Tasks.task_id AS task_id, CASE WHEN REF_Icon.path='0' THEN 'document.gif' ELSE REF_Icon.path END AS path, priority
+				SELECT Valid_Tasks.task_id, CASE WHEN REF_Icon.path='0' THEN 'document.gif' ELSE REF_Icon.path END AS path, priority
 				FROM (
 					SELECT Task.task_id, REF_Priority.description AS priority
 					FROM Task 
@@ -88,7 +88,7 @@ FROM Task, Team, Emp_Contact,
 					AND REF_Icon.icon_id=Task.icon_id
 			) AS Path
 			<cfif from_invoice>INNER<cfelse>LEFT OUTER</cfif> JOIN (
-				SELECT SUM(hours) AS hours_used, task_id AS task_id
+				SELECT task_id, SUM(hours) AS hours_used
 				FROM Time_Entry
 				WHERE Time_Entry.active_ind=1<cfif from_invoice>
 					AND EXTRACT(MONTH FROM Time_Entry.work_date)=#attributes.month#
@@ -114,4 +114,3 @@ WHERE Customer.customer_id=Project.customer_id
 ORDER BY <cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id) GT 1>task_owner, #variables.temp_task_list_order#<cfelse>#session.workstream_task_list_order#</cfif></cfif>
 </cfquery>
 </cfsilent>
-

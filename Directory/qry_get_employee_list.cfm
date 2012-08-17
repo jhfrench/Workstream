@@ -24,9 +24,9 @@
  --->
 <cfquery name="get_employee_list" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT (Emp_Contact.lname || ', ' || Emp_Contact.name) AS name,
-	Emp_Contact.emp_id AS emp_id, REF_Company.description AS company,
+	Emp_Contact.emp_id, REF_Company.description AS company,
 	COALESCE(Email.email,'NA') AS email, COALESCE(Phone.phone_number,'NA') AS phone_number,
-	COALESCE(Phone.extension,'NA') AS extension, Position_History.Position_ID
+	COALESCE(Phone.extension,'NA') AS extension, Position_History.position_id
 FROM Emp_Contact
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id=REF_Company.company_id

@@ -120,9 +120,9 @@
 <cfquery name="prepare_email" datasource="#application.datasources.main#">
 SELECT Email_Source.task_source AS email_from, Email.email AS email_to, 
 	Task.task_id, Task.name AS task_name, Task.description AS description, 
-	Task.budgeted_hours AS budgeted_hours, Task.due_date AS date_due, Emp_Contact.name AS name, Email.email_id
+	Task.budgeted_hours, Task.due_date AS date_due, Emp_Contact.name AS name, Email.email_id
 FROM Task, Team, Email, Emp_Contact,
-	(SELECT Email.email AS task_source, Team.task_id AS task_id
+	(SELECT Email.email AS task_source, Team.task_id
 	FROM Team, Email
 	WHERE Team.emp_id=Email.emp_id
 		AND Team.task_id=#attributes.task_id#

@@ -15,7 +15,7 @@
  --->
 <cfquery name="supervisor_force" datasource="#application.datasources.main#">
 SELECT Emp_Contact.lname || ', ' || Emp_Contact.name AS employee_name, 
-	Emp_Contact.emp_id AS emp_id, 
+	Emp_Contact.emp_id, 
 	COALESCE(bdata.cbt,0) AS cbt, COALESCE(bdata.cbh,0) AS cbh, COALESCE(bdata.nbt,0) AS nbt, COALESCE(bdata.nbh,0) AS nbh, 
 	COALESCE(nbdata.cnt,0) AS cnt, COALESCE(nbdata.cnh,0) AS cnh, COALESCE(nbdata.nnt,0) AS nnt, COALESCE(nbdata.nnh,0) AS nnh
 FROM Demographics_Ngauge Demographics, Emp_Contact

@@ -15,19 +15,19 @@
 </cfsilent>
 <cfparam name="attributes.project_id" default="0">
 <cfquery name="get_open_tasks" datasource="#application.datasources.main#">
-SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id AS task_id, 
+SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id, 
 	Task.name AS task_name, COALESCE(Task.description, 'No description provided.') AS task_description, REF_Priority.description AS priority,
-	COALESCE(Task.budgeted_hours,0) AS time_budgeted, Task.status_id AS status_id, 
-	Task_Details.time_used AS time_used, Task_Details.task_icon AS task_icon, 
-	Task_Details.percent_time_used AS percent_time_used, Task_Details.task_owner AS task_owner,
+	COALESCE(Task.budgeted_hours,0) AS time_budgeted, Task.status_id, 
+	Task_Details.time_used, Task_Details.task_icon, 
+	Task_Details.percent_time_used, Task_Details.task_owner,
 	(CASE WHEN Task.status_id=3 /* QA */ THEN Task_Details.task_status || ' by ' || Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
 	(Customer.description || '-' || Project.description) AS project_name, Project.project_code AS project_code
 FROM Task, Team, Emp_Contact,  Customer, Project, Link_Project_Company, REF_Priority,
-	(SELECT Path.task_id AS task_id, COALESCE(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
+	(SELECT Path.task_id, COALESCE(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
 		(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
-		REF_Status.status as task_status, Emp_Contact.lname as task_owner
+		REF_Status.status AS task_status, Emp_Contact.lname AS task_owner
 	FROM Task, REF_Status, Team, Emp_Contact,
-		(SELECT Valid_Tasks.task_id AS task_id, CASE WHEN REF_Icon.path='0' THEN 'document.gif' ELSE REF_Icon.path END as path
+		(SELECT Valid_Tasks.task_id, CASE WHEN REF_Icon.path='0' THEN 'document.gif' ELSE REF_Icon.path END as path
 			FROM
 			(SELECT Task.task_id
 			FROM Task
@@ -36,13 +36,12 @@ FROM Task, Team, Emp_Contact,  Customer, Project, Link_Project_Company, REF_Prio
 		AS Valid_Tasks, Task, REF_Icon
 		WHERE Valid_Tasks.task_id=Task.task_id AND REF_Icon.icon_id=Task.icon_id)
 	AS Path
-	LEFT OUTER JOIN
-		(SELECT SUM(hours) AS hours_used, task_id as task_id
+	LEFT OUTER JOIN (
+		SELECT task_id, SUM(hours) AS hours_used
 		FROM Time_Entry
 		WHERE active_ind=1
-		GROUP BY task_id)
-	AS Recorded_Hours
-	ON Path.task_id = Recorded_Hours.task_id
+		GROUP BY task_id
+	) AS Recorded_Hours ON Path.task_id = Recorded_Hours.task_id
 	WHERE Task.task_id=Path.task_id
 		AND REF_Status.status_id=Task.status_id 
 		AND Team.role_id=1 AND Task.task_id=Team.task_id 

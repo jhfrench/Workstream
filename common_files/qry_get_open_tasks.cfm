@@ -17,7 +17,7 @@
 	<-- task_name: string that describes the task
  --->
 <cfquery name="get_open_tasks" cachedwithin="#createtimespan(0,0,0,30)#" datasource="#application.datasources.main#">
-SELECT Task.task_id AS task_id, Project.customer_id, Project.project_id, Task.name AS task_name, 
+SELECT Task.task_id, Project.customer_id, Project.project_id, Task.name AS task_name, 
 	<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
 	CASE WHEN Customer.description!=Project.description
 		THEN (Project.project_code || '-' || Customer.description || '-' || CASE WHEN LENGTH(Project.description) > 50 THEN LEFT(Project.description, 50) || '...' ELSE Project.description END) 
@@ -31,13 +31,13 @@ SELECT Task.task_id AS task_id, Project.customer_id, Project.project_id, Task.na
 	END AS project_display,
 	Task.name || ' (' || CAST(Task.task_id AS VARCHAR(128)) || ')' AS task_display
 	</cfif>
-FROM Link_Project_Company, Task, Project, Customer
-WHERE Link_Project_Company.project_id=Task.project_id
-	AND Task.project_id=Project.project_id
-	AND Project.customer_id=Customer.customer_id
-	AND Link_Project_Company.company_id IN (#session.workstream_selected_company_id#)
-	AND Task.status_id!=7 /*exclude closed tasks*/<cfif isdefined("attributes.exclude_task_id")>
-	AND Task.task_id NOT IN (#attributes.exclude_task_id#)</cfif>
+FROM Link_Project_Company
+	INNER JOIN Task ON Link_Project_Company.project_id=Task.project_id
+		AND Task.status_id!=7 /*exclude closed tasks*/<cfif isdefined("attributes.exclude_task_id")>
+		AND Task.task_id NOT IN (#attributes.exclude_task_id#)</cfif>
+	INNER JOIN Project ON Task.project_id=Project.project_id
+	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
+WHERE Link_Project_Company.company_id IN (#session.workstream_selected_company_id#)
 ORDER BY project_display, task_display
 </cfquery>
 <cfset caller.get_open_tasks=get_open_tasks>

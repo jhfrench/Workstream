@@ -15,12 +15,12 @@
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
 <cfquery name="get_task_details" datasource="#application.datasources.main#">
-SELECT /**/Task.task_id AS task_id, Task.task_type_id, Task.name AS task_name,
+SELECT Task.task_id, Task.task_type_id, Task.name AS task_name,
 	COALESCE(Task.task_read_ind,0) AS task_read_ind, COALESCE(Task.description,'No description recorded for this task.') AS description, Task.entry_date AS date_assigned,
-	Task.due_date AS due_date, Task.complete_date, Task.status_id AS status_id,
-	Task.icon_id AS icon_id, COALESCE(Task.created_by,0) AS created_by, COALESCE(Task_Source.emp_id,0) AS task_source,
-	Task.priority_id AS priority, REF_Status.status AS status, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, 
-	Time_Used.hours_used AS hours_used,
+	Task.due_date, Task.complete_date, Task.status_id,
+	Task.icon_id, COALESCE(Task.created_by,0) AS created_by, COALESCE(Task_Source.emp_id,0) AS task_source,
+	Task.priority_id AS priority, REF_Status.status, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, 
+	Time_Used.hours_used,
 	CASE
 		WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0
 		ELSE Time_Used.hours_used/Task.budgeted_hours*200
@@ -40,29 +40,26 @@ FROM Task
 		SELECT #attributes.task_id# AS task_id, SUM(Time_Entry.hours) AS hours_used
 		FROM Time_Entry
 		WHERE active_ind=1
-			AND Time_Entry.task_id=#attributes.task_id#
+			AND task_id=#attributes.task_id#
 	) AS Time_Used ON Task.task_id=Time_Used.task_id
 	INNER JOIN (
-		SELECT Task.task_id, Team.emp_id AS emp_id, Emp_Contact.lname || ', ' || Emp_Contact.name AS source_name
-		FROM Task
-			INNER JOIN Team ON Task.task_id=Team.task_id
+		SELECT Team.task_id, Team.emp_id, Emp_Contact.lname || ', ' || Emp_Contact.name AS source_name
+		FROM Team
 			INNER JOIN Emp_Contact ON Team.emp_id=Emp_Contact.emp_id
 		WHERE Team.role_id=5
-			AND Task.task_id=#attributes.task_id#
+			AND Team.task_id=#attributes.task_id#
 	) AS Task_Source ON Task.task_id=Task_Source.task_id
 	INNER JOIN (
-		SELECT Task.task_id, Team.emp_id AS emp_id
-		FROM Task
-			INNER JOIN Team ON Task.task_id=Team.task_id
-		WHERE Team.role_id=1
-			AND Task.task_id=#attributes.task_id#
+		SELECT task_id, emp_id
+		FROM Team
+		WHERE role_id=1
+			AND task_id=#attributes.task_id#
 	) AS Task_Owner ON Task.task_id=Task_Owner.task_id
 	INNER JOIN (
-		SELECT Task.task_id, Team.emp_id AS emp_id
-		FROM Task
-			INNER JOIN Team ON Task.task_id=Team.task_id
-		WHERE Team.role_id=3
-			AND Task.task_id=#attributes.task_id#
+		SELECT task_id, emp_id
+		FROM Team
+		WHERE role_id=3
+			AND task_id=#attributes.task_id#
 	) AS Task_QA ON Task.task_id=Task_QA.task_id
 WHERE Task.task_id=#attributes.task_id#
 </cfquery>

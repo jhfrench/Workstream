@@ -16,7 +16,7 @@
 	<-- entry_type: boolean indicating whether or not a time entry has a task_id
  --->
 <cfquery name="entry_type" datasource="#application.datasources.main#">
-SELECT Time_Entry.task_id AS task_id
+SELECT Time_Entry.task_id
 FROM Time_Entry
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.time_entry_id=#request.time_entry_id#

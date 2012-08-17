@@ -34,7 +34,7 @@ FROM
 				END
 			ELSE Task.status_id 
 		END AS previous_entry, 
-		Task.task_id AS task_id, Customer.description || '-' || Project.description AS project, Project.project_id,
+		Task.task_id, Customer.description || '-' || Project.description AS project, Project.project_id,
 		Task.due_date, Task.name AS task_name, COALESCE(Task.budgeted_hours,0) AS budget, 
 		<cfloop list="#emp_id_loop#" index="ii"> (CASE WHEN Forecast_Assignment.emp_id=#ii# THEN COALESCE(Forecast_Assignment.hours_budgeted,0) ELSE 0 END) AS budget#ii#,
 		</cfloop>(CASE WHEN Project.billable_type_id = 2 THEN 'NB' ELSE 'B' END) AS billable
@@ -67,7 +67,7 @@ FROM
 				END
 			ELSE Task.status_id
 		END AS previous_entry, 
-		Task.task_id AS task_id, Customer.description || '-' || Project.description AS project, Project.project_id, 
+		Task.task_id, Customer.description || '-' || Project.description AS project, Project.project_id, 
 		Task.due_date, Task.name AS task_name, COALESCE(Task.budgeted_hours,0) AS budget, 
 		<cfloop list="#emp_id_loop#" index="ii">SUM(CASE WHEN Team.role_id=1 AND Team.emp_id =#ii# AND Team.task_id=Task.task_id THEN COALESCE(Task.budgeted_hours,0) ELSE 0 END) AS budget#ii#,
 		</cfloop>(CASE WHEN Project.billable_type_id = 2 THEN 'NB' ELSE 'B' END) AS billable

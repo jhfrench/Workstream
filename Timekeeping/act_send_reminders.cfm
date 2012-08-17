@@ -16,11 +16,11 @@
  --->
 <cfquery name="pre_due_email" datasource="#application.datasources.main#">
 SELECT Task.task_id, Task.name AS task_name, Task.description AS description, 
-	Task.budgeted_hours AS budgeted_hours, Task.due_date AS date_due, 
+	Task.budgeted_hours, Task.due_date AS date_due, 
 	Task_Source.task_source AS email_from, Email.email AS email_to, 
 	Emp_Contact.name AS name, Notification.days_before_due AS countdown
 FROM Task, Notification, Email, Emp_Contact,
-	(SELECT Email.email AS task_source, Email.emp_id AS source_id, Team.task_id AS task_id
+	(SELECT Email.email AS task_source, Email.emp_id AS source_id, Team.task_id
 	FROM Team, Email
 	WHERE Team.emp_id=Email.emp_id
 		AND Team.role_id=5
@@ -40,7 +40,7 @@ WHERE Task.task_id=Task_Source.task_id
 <cfquery name="get_cc" datasource="#application.datasources.main#">
 SELECT Email.email AS email_to
 FROM Task, Notification, Email, Emp_Contact,
-	(SELECT Email.email AS task_source, Email.emp_id AS source_id, Team.task_id AS task_id
+	(SELECT Email.email AS task_source, Email.emp_id AS source_id, Team.task_id
 	FROM Team, Email
 	WHERE Team.emp_id=Email.emp_id
 		AND Team.role_id=5
