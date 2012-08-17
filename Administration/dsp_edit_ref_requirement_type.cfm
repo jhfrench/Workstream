@@ -50,9 +50,11 @@
 				<td><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30"required="yes" message="Please enter description" maxlength="2000">
 				</td>
-				<td><label for="sort_order">Sort Order</label>: 
-					<br /><cfinput type="text" name="sort_order" id="sort_order" value=
-					#IIf(attributes.requirement_type_id EQ 0, ("get_requirement_type.recordcount+1"), ("get_requirement_type.sort_order"))# size="3" maxlength="3" required="yes" validate="integer" message="Please enter sort order"></td>
+				<td>
+					<label for="sort_order">Sort Order</label>: 
+					<br />
+					<input type="number" name="sort_order" id="sort_order" value="#IIf(attributes.requirement_type_id EQ 0, ('get_requirement_type.recordcount+1'), ('get_requirement_type.sort_order'))#" step="1" min="1" required="required" class="span5" />
+				</td>
 				<cfif attributes.requirement_type_id EQ 0>
 					<input type="hidden" name="active_ind" value="1" />
 				<cfelse>

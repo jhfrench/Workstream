@@ -27,7 +27,9 @@
 	<tr valign="top">
 		<td>
 			<span class="RegTextBd">Billing Details</span><br />
-			Budget: $<cfinput type="text" name="budget" required="yes" validate="float" message="Please specify a budget (as a number)." size="10"><br />
+			Budget: $
+			<input type="number" name="budget" id="budget" step="0.01" min="0" required="required" class="span5" />
+			<br />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" class="Note">
@@ -39,7 +41,8 @@
 <cfcase value="1">
 	<tr valign="top">
 		<td>
-			<label for="rate">Hourly rate</label>: $<cfinput type="text" name="rate" required="yes" validate="float" message="Please enter an hourly rate." size="8">
+			<label for="rate">Hourly rate</label>: $
+			<input type="number" name="rate" id="rate" step="0.01" min="0" max="9999" required="required" class="span5" />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">
@@ -70,7 +73,8 @@
 			<p>Please enter a proper date for which billing is to begin on this engagement.</p>
 			End:
 			<input type="date" name="end_date" id="end_date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" class="span3 date" />
-			Months: <cfinput type="text" name="months" required="yes" validate="integer" message="Please enter the number of months over which this engagement will be billed to the customer." size="2">
+			Months: 
+			<input type="number" name="months" id="months" step="1" min="0" required="required" class="span5" />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">
@@ -82,7 +86,8 @@
 <cfcase value="4">
 	<tr valign="top">
 		<td>
-			Incident Charge: $ <cfinput type="text" name="charge" required="yes" validate="integer" message="Please enter, per incident, the charge to the customer." size="4"><br />
+			Incident Charge: $ 
+			<input type="number" name="charge" id="charge" step="1" min="0" max="9999" required="required" class="span5" /><br />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">

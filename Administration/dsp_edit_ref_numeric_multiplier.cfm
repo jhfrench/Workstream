@@ -53,16 +53,20 @@
 				<td colspan="2"><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" maxlength="100" required="yes" message="Please enter description." >
 				</td>
-				<td><label for="divisor_to_1">Divisor to 1</label>: 
-					<br /><cfinput type="text" name="divisor_to_1" id="divisor_to_1" value="#attributes.divisor_to_1#" size="12" maxlength="12" required="yes" validate="integer" message="Please enter divisor to 1.">
+				<td>
+					<label for="divisor_to_1">Divisor to 1</label>: 
+					<br />
+					<input type="number" name="divisor_to_1" id="divisor_to_1" value="#attributes.divisor_to_1#" step="1" min="0" max="999999999999" required="required" class="span5" />
 				</td>
 			</tr>
 			<tr>
 				<td><label for="numeric_format_mask">Format mask</label>: 
 					<br /><cfinput type="text" name="numeric_format_mask" id="numeric_format_mask" value="#attributes.numeric_format_mask#" size="30" maxlength="30" required="yes" message="Please enter a format mask.">
 				</td>
-				<td><label for="sort_order">Sort Order</label>: 
-					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#get_numeric_multiplier.recordcount+1#" size="6" maxlength="6" required="yes" validate="integer" message="Please enter sort order.">
+				<td>
+					<label for="sort_order">Sort Order</label>: 
+					<br />
+					<input type="number" name="sort_order" id="sort_order" value="#get_numeric_multiplier.recordcount+1#" step="1" min="1" required="required" class="span5" />
 				</td>
 				<cfif attributes.numeric_multiplier_id EQ 0>
 					<input type="hidden" name="active_ind" value="1" />

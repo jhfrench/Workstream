@@ -37,7 +37,8 @@
 		</td>
 		<td class="RegTextBd">
 			Budget<br />
-			<span>$ </span><cfinput type="text" name="budget" value="#get_engagement_main.budget#" required="yes" validate="float" message="Please specify a budget." size="6"><br />
+			<span>$ </span>
+			<input type="number" name="budget" id="budget" value="#get_engagement_main.budget#" step="0.01" min="0" required="required" class="span5" /><br />
 			LOE<br />
 			<span>h </span><cfinput type="text" name="loe" value="#get_engagement_main.loe#" required="yes" size="6">
 		</td>
@@ -68,7 +69,8 @@
 <cfinclude template="qry_get_incident_charge.cfm">
 	<tr valign="top">
 		<td colspan="2">
-			Incident Charge: $ <cfinput type="text" name="charge" value="#decimalformat(get_incident_charge.charge)#" required="yes" validate="integer" message="Please enter, per incident, the charge to the customer." size="4"><br />
+			Incident Charge: $
+			<input type="number" name="charge" id="charge" value="#decimalformat(get_incident_charge.charge)#" step="1" min="0" max="9999" required="required" class="span5" /><br />
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">

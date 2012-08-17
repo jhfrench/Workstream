@@ -83,7 +83,8 @@
 			</tr>
 			<tr>
 				<th><label for="fiscal_year">Fiscal Year</label>: </th>
-				<td><cfinput type="text" name="fiscal_year" id="fiscal_year" value="#attributes.fiscal_year#" size="3" maxlength="4" required="yes" validate="integer" message="Please enter a fiscal year.">
+				<td>
+					<input type="number" name="fiscal_year" id="fiscal_year" value="#attributes.fiscal_year#" step="1" min="0" max="9999" required="required" class="span5" />
 				</td>
 			</tr>
 			<cfif get_program_year.recordcount EQ 1>

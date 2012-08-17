@@ -30,7 +30,8 @@ $Log:
 		<label class="control-label" for="salary">Salary</label>
 		<div class="controls">
 			<div class="input-prepend">
-				<span class="add-on">&##36;</span><cfinput type="text" name="salary" id="salary" size="10" maxlength="10" required="yes" validate="integer" message="Please enter this employee's salary amount." class="span3" />
+				<span class="add-on">&##36;</span>
+				<input type="number" name="salary" id="salary" step="1" min="0" max="9999999999" required="required" class="span5" />
 			</div>
 		</div>
 	</div>

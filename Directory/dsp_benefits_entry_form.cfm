@@ -46,9 +46,7 @@ $Log:
 			PP Deduction:
 		</td>
 		<td class="SelectText">
-
-			<cfinput type="text" name="benefit_amount" size="10" maxlength="10" validate="integer" required="yes" message="Please enter a valid benefit amount.">
-
+			<input type="number" name="benefit_amount" id="benefit_amount" step="1" min="0" max="9999999999" required="required" class="span5" />
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">

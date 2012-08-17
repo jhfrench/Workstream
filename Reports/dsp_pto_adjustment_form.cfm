@@ -32,7 +32,7 @@
 			<input type="date" name="date_granted" id="date_granted" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 		</td>
 		<td>
-			<cfinput type="text" name="granted_hours" size="5" required="yes" validate="float" message="Enter hours.">
+			<input type="number" name="granted_hours" id="granted_hours" step="0.25" min="0" max="999" required="required" class="span5" />
 		</td>
 		<td>
 			<cfinput type="text" name="comments" size="50" maxlength="50" required="yes" message="Enter comment.">

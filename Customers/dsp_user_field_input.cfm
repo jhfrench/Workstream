@@ -16,7 +16,8 @@
 	<cfoutput><tr valign="top">
 		<td class="RegTextBd">
 		</cfoutput><cfoutput query="get_user_field_types">
-			Number of #lcase(user_field_type)# form fields: <cfinput type="text" name="field#user_field_type_id#" required="yes" validate="integer" message="Please enter the number (0 if necessary) of desired #lcase(user_field_type)# form fields." size="2"><br />
+			Number of #lcase(user_field_type)# form fields:
+			<input type="number" name="field#user_field_type_id#" id="field#user_field_type_id#" step="1" min="0" max="10" required="required" class="span5" /><br />
 		</cfoutput><cfoutput>
 		</td>
 		<td width="55%" class="Note">

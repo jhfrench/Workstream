@@ -62,7 +62,9 @@
 			</tr>
 			<tr>
 				<td><label for="sort_order">Sort Order</label>: </td>
-				<td><cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter sort order."></td>
+				<td>
+					<input type="number" name="sort_order" id="sort_order" value="#attributes.sort_order#" step="1" min="0" max="999" required="required" class="span5" />
+				</td>
 			</tr>
 			<tr>
 				<cfif attributes.active_ind EQ 1>

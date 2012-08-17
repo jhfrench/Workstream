@@ -51,8 +51,10 @@
 				<td><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" required="yes" message="Please enter description." maxlength="30">
 				</td>
-				<td><label for="sort_order">Sort Order</label>: 
-					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#get_ref_variance_explanation_type.recordcount+1#" size="6" maxlength="12" required="yes" validate="integer" message="Please enter sort order.">
+				<td>
+					<label for="sort_order">Sort Order</label>: 
+					<br />
+					<input type="number" name="sort_order" id="sort_order" value="#get_ref_variance_explanation_type.recordcount+1#" step="1" min="1" required="required" class="span5" />
 				</td>
 				<cfif attributes.variance_explanation_type_id EQ 0>
 					<input type="hidden" name="active_ind" value="1" />

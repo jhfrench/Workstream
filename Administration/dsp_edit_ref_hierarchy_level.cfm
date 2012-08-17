@@ -50,8 +50,10 @@
 				<td><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" required="yes" message="Please enter description." maxlength="400">
 				</td>
-				<td><label for="sort_order">Sort Order</label>: 
-					<br /><cfinput type="text" name="sort_order" id="sort_order" value=" #IIf(attributes.hierarchy_level_id EQ 0, ("get_ref_hierarchy_level.recordcount+1"), ("get_ref_hierarchy_level.sort_order"))#" size="6" maxlength="6" required="yes" validate="integer" message="Please enter sort order.">
+				<td>
+					<label for="sort_order">Sort Order</label>: 
+					<br />
+					<input type="number" name="sort_order" id="sort_order" value="#IIf(attributes.hierarchy_level_id EQ 0, ('get_ref_hierarchy_level.recordcount+'), ('get_ref_hierarchy_level.sort_order'))#" step="1" min="1" required="required" class="span5" />
 				</td>
 				<td><label for="form_element_type_id">Form Element Type</label>: 
 					<br /><cfselect name="form_element_type_id" id="form_element_type_id" query="get_ref_form_element_type" value="form_element_type_id"

@@ -39,8 +39,10 @@
 				<td><label for="l_p_y_h_id">Link Program Year Hierarchy</label>: 
 					<br /><cfselect name="l_p_y_h_id" id="l_p_y_h_id" query="get_link_program_year_hierarchy" value="l_p_y_h_id" display="program_year_hierarchy_level" selected="#attributes.l_p_y_h_id#" required="yes" message="Please specify link program year / hierarchy level."></cfselect>
 				</td>
-				<td><label for="sort_order">Sort Order</label>: 
-					<br /><cfinput type="text" name="sort_order" id="sort_order" size="3" maxlength="3" value="#get_link_business_function_hier.recordcount+1#" required="yes" message="Please enter sort order.">
+				<td>
+					<label for="sort_order">Sort Order</label>: 
+					<br />
+					<cfinput type="text" name="sort_order" id="sort_order" size="3" maxlength="3" value="#get_link_business_function_hier.recordcount+1#" required="yes" message="Please enter sort order.">
 				</td>
 			</tr>
 			<tr>

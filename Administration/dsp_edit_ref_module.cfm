@@ -51,9 +51,10 @@
 				<td><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" required="yes" message="Please enter description." maxlength="100">
 				</td>
-				<td><label for="sort_order">Sort Order</label>: 
-					<br /><cfinput type="text" name="sort_order" id="sort_order" value=
-					#IIf(attributes.module_id EQ 0, ("get_ref_module.recordcount+1"), ("get_ref_module.sort_order"))# size="6" maxlength="6" required="yes" validate="integer" message="Please enter sort order.">
+				<td>
+					<label for="sort_order">Sort Order</label>: 
+					<br />
+					<input type="number" name="sort_order" id="sort_order" value="#IIf(attributes.module_id EQ 0, ('get_ref_module.recordcount+1'), ('get_ref_module.sort_order'))#" step="1" min="1" required="required" class="span5" />
 				</td>
 				<td><span title="describes the purpose of the radio buttons that follow">Viewable Indicator?</span>
 					<br /><cfinput type="radio" name="viewable_ind" id="viewable_ind_yes" value="1" checked="yes"><label for="viewable_ind_yes">Yes </label>

@@ -47,7 +47,7 @@
 	<div class="control-group">
 		<label class="control-label" for="sort_order">Sort Order</label>
 		<div class="controls">
-			<cfinput type="text" name="sort_order" id="sort_order" value="#attributes.sort_order#" size="3" maxlength="3" required="yes" validate="integer" message="Please enter a sort order." class="span3">
+			<input type="number" name="sort_order" id="sort_order" value="#attributes.sort_order#" step="1" min="1" required="required" class="span3" />
 		</div>
 	</div>
 <cfif attributes.help_article_id EQ 0>

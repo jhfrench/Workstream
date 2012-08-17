@@ -40,7 +40,7 @@ $Log:
 			Rating:
 		</td>
 		<td class="SelectText">
-			<cfinput type="text" name="rating" validate="float" size="10" maxlength="10" required="yes" message="Please enter the rating on this review.">
+			<input type="number" name="rating" id="rating" step="1" min="0" max="100" required="required" class="span5" />
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">

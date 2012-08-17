@@ -50,8 +50,10 @@
 				<td><label for="description">description</label>: 
 					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" required="yes" message="Please enter description." maxlength="2000">
 				</td>
-				<td><label for="sort_order">Sort Order</label>: 
-					<br /><cfinput type="text" name="sort_order" id="sort_order" value="#get_ref_resource_link_type_count.count1+1#" size="6" maxlength="12" required="yes" validate="integer" message="Please enter sort order.">
+				<td>
+					<label for="sort_order">Sort Order</label>: 
+					<br />
+					<input type="number" name="sort_order" id="sort_order" value="#get_ref_resource_link_type_count.count1+1#" step="1" min="1" required="required" class="span5" />
 				</td>
 				<cfif attributes.resource_link_type_id EQ 0>
 					<input type="hidden" name="active_ind" value="1" />
