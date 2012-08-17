@@ -134,7 +134,7 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 		WHERE Valid_Tasks.task_id=Task.task_id AND REF_Icon.icon_id=Task.icon_id)
 	AS Path
 	LEFT OUTER JOIN (
-		SELECT task_id AS task_id<!--- $issue$: why is this aliased? --->, SUM(hours) AS hours_used
+		SELECT task_id, SUM(hours) AS hours_used
 		FROM Time_Entry
 		WHERE Time_Entry.active_ind=1
 		GROUP BY task_id
