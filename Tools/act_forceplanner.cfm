@@ -13,8 +13,8 @@
 	 || 
  --->
 <cfset variables.quote='"'>
-<cfset variables.StatusMsg_replace="',#variables.quote#">
-<cfset variables.StatusMsg_replace_with=",">
+<cfset variables.status_message_replace="',#variables.quote#">
+<cfset variables.status_message_replace_with=",">
 <cfset variables.requested_sum=0>
 <cfset variables.total_requested=get_week_days.hours_in_month*get_subordinates.recordcount>
 <cfset variables.task_processed="">
@@ -91,7 +91,7 @@ function NonNumberComplain(arg)<cfset variables.task_processed="">
 if (arg == "t#task_id#_#ii#")
 	{
 	if (isNaN(document.forceplanner.t#task_id#_#ii#.value))
-		{alert('Please enter assigned hours as a number.\nEmployee:#listgetat(variables.emp_init_loop,variables.ee_counter)#\nTask: #ReplaceList(task_name, variables.StatusMsg_replace, variables.StatusMsg_replace_with)#');
+		{alert('Please enter assigned hours as a number.\nEmployee:#listgetat(variables.emp_init_loop,variables.ee_counter)#\nTask: #ReplaceList(task_name, variables.status_message_replace, variables.status_message_replace_with)#');
 		document.forceplanner.t#task_id#_#ii#.select();<!--- 
 		ready_check=1 --->;
 		}

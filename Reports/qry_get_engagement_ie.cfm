@@ -1,5 +1,5 @@
 
-<!--Reports/qry_get_engagement_dashboard.cfm
+<!--Reports/qry_get_engagement_ie.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -14,17 +14,19 @@ I get the names of IE's on current engagements.
 	END FUSEDOC --->
 
 <cfquery name="get_engagement_ie" datasource="#application.datasources.main#">
-SELECT Emp_contact.Lname,Emp_Contact.emp_id 
-FROM Project, Emp_Contact
-Where Emp_Contact.emp_id=Project.project_manager_emp_id and Status!=0
-Group by Lname, Emp_ID
-ORDER BY LName
+SELECT COALESCE(Emp_Contact.emp_id,0) AS emp_id, COALESCE(Emp_contact.lname, 'Unassigned') AS lname
+FROM Project
+	LEFT OUTER JOIN Emp_Contact ON Emp_Contact.emp_id=Project.project_manager_emp_id
+WHERE status!=0
+GROUP BY Emp_Contact.emp_id, Emp_contact.lname
+ORDER BY lname
 </cfquery>
 <cfquery name="get_engagement_customers" datasource="#application.datasources.main#">
 SELECT Customer.description, Customer.customer_id
-FROM Project, Customer
-Where Customer.customer_id = Project.customer_id and Project.Status!=0
-Group by Customer.description, Customer.customer_id
+FROM Project
+	INNER JOIN Customer ON Customer.customer_id=Project.customer_id
+WHERE Project.status!=0
+GROUP BY Customer.description, Customer.customer_id
 ORDER BY Customer.description
 </cfquery>
 </cfsilent>

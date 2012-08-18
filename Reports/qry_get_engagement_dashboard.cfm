@@ -19,7 +19,7 @@
 </cfsilent>
 
 <cfquery name="get_engagement_dashboard" datasource="#application.datasources.main#">
-SELECT Project.Status, Billing_History.Total_Bill_Amount, Customer.description AS customer_description,
+SELECT Project.status, Billing_History.total_bill_amount, Customer.description AS customer_description,
 	Project.description, Project.project_code, Project.Vision,
 	Project.budget, Project.Mission, REF_Billable_Type.description AS billable_type,
 	Project.billable_type_id, Project.active_ind, REF_Active_Indicator.active_ind_type,

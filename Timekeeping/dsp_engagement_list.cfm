@@ -19,8 +19,8 @@
 	--> task_count: number of tasks associated with the project that meets the user's specifications (ie on the team, not hidden, not completed)
  --->
 <cfset variables.quote='"'>
-<cfset variables.StatusMsg_replace="',#variables.quote#">
-<cfset variables.StatusMsg_replace_with=",">
+<cfset variables.status_message_replace="',#variables.quote#">
+<cfset variables.status_message_replace_with=",">
 </cfsilent>
 <table class="table table-striped table-bordered table-condensed">
 	<thead>
@@ -45,8 +45,8 @@
 		<tr>
 			<td class="date"><cfif isdate(project_end)>#dateformat(project_end, "m/d/yyyy")#<cfelse>None</cfif></td>
 			<th scope="row">#project_code#</th>
-			<td class="number"><a href="javascript:project_to_tasks('#project_id#');" title="View task details for #ReplaceList(project_name, variables.StatusMsg_replace, variables.StatusMsg_replace_with)#.">#task_count#</a></td>
-			<td><a href="javascript:project_to_tasks('#project_id#');" title="View task details for #ReplaceList(project_name, variables.StatusMsg_replace, variables.StatusMsg_replace_with)#.">#project_name#</a></td>
+			<td class="number"><a href="javascript:project_to_tasks('#project_id#');" title="View task details for #ReplaceList(project_name, variables.status_message_replace, variables.status_message_replace_with)#.">#task_count#</a></td>
+			<td><a href="javascript:project_to_tasks('#project_id#');" title="View task details for #ReplaceList(project_name, variables.status_message_replace, variables.status_message_replace_with)#.">#project_name#</a></td>
 		</tr>
 	</cfoutput>
 	<cfelse>

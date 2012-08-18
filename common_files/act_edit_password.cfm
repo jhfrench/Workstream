@@ -45,6 +45,6 @@
 
 <p>Please cut-and-paste the above text into the password field on the #application.product_name# login screen.<br />
 As a security feature, #application.product_name# will require you to change your password after you log in. You may log in at <a href="#variables.url_to_application#">#variables.url_to_application#</a></p>
-<p>Please contact the Help Desk at <!--- $issue$: contact info ---> 202-358-HELP(4357) if you did not request your password to be reset.</p>
+<p>Please contact the Help Desk<!--- $issue$: contact info   at 202-358-HELP(4357)---> if you did not request your password to be reset.</p>
 	</cfmail>
 </cfif>

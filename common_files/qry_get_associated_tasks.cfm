@@ -21,20 +21,21 @@
 </cfsilent>
 <cfquery name="get_associated_tasks" datasource="#application.datasources.main#">
 SELECT Link_Task_Task.l_t_t_id, Task.task_id, Task.name,
-	Task.due_date, REF_Status.Status<!--- $issue$: case --->, 'base_task.gif' AS task_icon,
+	Task.due_date, REF_Status.status, 'base_task.gif' AS task_icon,
 	1 AS sort_order
-FROM REF_Status, Task, Link_Task_Task
-WHERE REF_Status.status_id=Task.status_id
-	AND Task.task_id=Link_Task_Task.base_task_id
-	AND Link_Task_Task.linked_task_id=#attributes.task_id#
+FROM REF_Status
+	INNER JOIN Task ON REF_Status.status_id=Task.status_id
+	INNER JOIN Link_Task_Task ON Task.task_id=Link_Task_Task.base_task_id
+WHERE Link_Task_Task.linked_task_id=#attributes.task_id#
 UNION ALL
 SELECT Link_Task_Task.l_t_t_id, Task.task_id, Task.name,
-	Task.due_date, REF_Status.Status, 'sub_task.gif' AS task_icon,
+	Task.due_date, REF_Status.status, 'sub_task.gif' AS task_icon,
 	2 AS sort_order
+FROM REF_Status
+	INNER JOIN Task ON REF_Status.status_id=Task.status_id
+	INNER JOIN Link_Task_Task ON Task.task_id=Link_Task_Task.linked_task_id
 FROM REF_Status, Task, Link_Task_Task
-WHERE REF_Status.status_id=Task.status_id
-	AND Task.task_id=Link_Task_Task.linked_task_id
-	AND Link_Task_Task.base_task_id=#attributes.task_id#
+WHERE Link_Task_Task.base_task_id=#attributes.task_id#
 ORDER BY sort_order, task_id
 </cfquery>
 

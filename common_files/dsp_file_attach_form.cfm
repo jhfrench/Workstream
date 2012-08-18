@@ -41,15 +41,7 @@
 			<span class="SubHeadText">Select the file that you would like to attach.</span>
 		</td>
 	</tr>
-<!--- $issue$: we do need to come up with a company-wide network drive--perhaps something with dropbox or similar, mapped to a consistent Drive letter?
-	<tr>
-		<td class="SubHeadText">
-			&nbsp;
-		</td>
-		<td class="SelectText">
-			Please save the file in Spinnaker/timekeeping documents to attach it to a task.
-		</td>
-	</tr> --->
+<!--- $issue$: we do need to come up with a company-wide network drive--perhaps something with dropbox or similar, mapped to a consistent Drive letter? --->
 <form action="" method="post" enctype="multipart/form-data" name="tempform" id="junk" onsubmit="return false">
 	<tr>
 		<td class="SubHeadText">

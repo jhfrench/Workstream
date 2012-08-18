@@ -15,7 +15,7 @@
 <cfset variables.all_option=0>
 <cfparam name="attributes.program_year_id" default="#session.program_year_id#">
 <cfquery name="get_all_option" datasource="#application.datasources.main#">
-<!--- $issue$: really need to think through if Access_User_Business_Function needs the ability to designate a user as having heightened privileges for a given business function --->
+<!--- $issue$: really need to think through if Access_User_Business_Function needs the ability to designate a user as having heightened privileges for a given business function; make use of Link_*_Privilege? --->
 SELECT 1 AS all_option
 FROM Access_User_Business_Function
 WHERE active_ind=1

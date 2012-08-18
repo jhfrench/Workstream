@@ -1,5 +1,4 @@
-<!---$issue$ Steven: correct this fusedoc--->
-<!-- Administration/dsp_compose_email.cfm
+<!-- Administration/dsp_manage_vendor.cfm
 	Author: Jeromy French -->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_manage_vendor.cfm">
