@@ -17,7 +17,6 @@
 <cfparam name="attributes.action" default="index.cfm">
 <cfparam name="attributes.report_name" default="">
 <cfparam name="attributes.required" default="">
-<!--- $issue$: is this template used? should the common_files version be used instead? --->
 </cfsilent>
 <cfoutput>
 <cfform name="report" action="index.cfm?fuseaction=Reports.#attributes.action#"> 

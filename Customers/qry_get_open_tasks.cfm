@@ -1,4 +1,4 @@
-<!--- $issue$: do we need this and the common_files version? --->
+<!--- $issue$: is this template used? --->
 <!--Customers/qry_get_open_tasks.cfm
 	Author: Jeromy F -->
 <cfsilent>

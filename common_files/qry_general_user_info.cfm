@@ -1,4 +1,3 @@
-<!--- $issue$: is this template used? --->
 <!--common_files/qry_general_user_info.cfm
 	Author: Jeromy F -->
 <cfsilent>

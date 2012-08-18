@@ -24,7 +24,6 @@
 	--> lname: string containing the last name of an employee
 	<-- #attributes.select_name#: (variable name based on what is passed in through the module select_name attribute) number of the employee(s) selected
  --->
-<!--- $issue$: is this template used? --->
 <cfif isdefined("attributes.email_only")>
 	<cfset variables.email_only=1>
 </cfif>
