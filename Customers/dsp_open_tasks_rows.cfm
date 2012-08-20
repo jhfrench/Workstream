@@ -28,6 +28,7 @@
 	--> task_status: string that indicates the task status
  --->
 <cfset variables.quote='"'>
+<cfset variables.status_message_replace_with="">
 </cfsilent>
 <cfif get_open_tasks.recordcount>
 <table class="table table-striped table-bordered table-condensed">

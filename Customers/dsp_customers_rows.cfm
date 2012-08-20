@@ -31,7 +31,7 @@
 	<cfoutput query="get_customers">
 		<tr>
 			<td>
-				<a href="<cfif Get_customers.drill>javascript:customer('#clientcode#')<cfelse>##</cfif>" title="View projects for #clientname#."><cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
+				<a href="<cfif get_customers.drill>javascript:customer(#customer_id#)<cfelse>##</cfif>" title="View projects for #clientname#."><cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
 					#clientcode# - #clientname#
 				<cfelse>
 					#clientname# (#clientcode#)
@@ -41,7 +41,7 @@
 					#active#
 			</td>
 			<td align="center">
-					<a href="javascript:edit('#customer_id#')" class="btn btn-mini">Edit</a>
+					<a href="javascript:edit(#customer_id#)" class="btn btn-mini">Edit</a>
 			</td>
 		</tr>
 	</cfoutput>

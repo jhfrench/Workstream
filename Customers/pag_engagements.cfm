@@ -17,7 +17,7 @@
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="engagement" fuseaction="Customers.edit_engagement" field_name="project_id">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="open_tasks" fuseaction="Customers.open_tasks" field_name="project_id">
 <table class="table table-striped table-bordered table-condensed">
-	<caption><h2>Projects for <cfoutput>#get_engagements.cust_description#</cfoutput></h2></caption>
+	<caption><h2>Projects for <cfoutput>#get_engagements.customer_description#</cfoutput></h2></caption>
 	<cfinclude template="dsp_engagements_row_header.cfm">
 	<cfinclude template="dsp_engagements_rows.cfm">
 </table>

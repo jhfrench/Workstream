@@ -12,27 +12,13 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfoutput>
 <thead>
 	<tr>
-		<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2><th>
-			Project Code
-		</th></cfif>
-		<th>
-			Customer Name
-		</th>
-		<cfif NOT (isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2)><th>
-			Project Code
-		</th></cfif>
-		<th>
-			Billing Type
-		</th>
-		<th>
-			Open Tasks
-		</th>
-		<th>
-			Active
-		</th>
+		<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2><th>Project Code</th></cfif>
+		<th>Customer Name</th>
+		<cfif NOT (isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2)><th>Project Code</th></cfif>
+		<th>Billing Type</th>
+		<th>Open Tasks</th>
+		<th>Active</th>
 	</tr>
 </thead>
-</cfoutput>
