@@ -48,7 +48,7 @@
 
 				<option value="ALL" selected="selected">All Employees </option>
 				<cfoutput query="get_team_select">
-					<cfif Emp_ID is not ""><!--- Don't display blanks --->
+					<cfif len(emp_id)><!--- Don't display blanks --->
 						<option value="#emp_id#">#lname#, #left(name, 3)#</option>
 					</cfif>
 				</cfoutput>

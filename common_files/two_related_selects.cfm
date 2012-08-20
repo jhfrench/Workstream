@@ -111,7 +111,7 @@
 
 
 <!--- COUNTER VARIABLE WILL HOLD NUMBER OF groupS (OPTIONS IN FIRST SELECT) --->
-<cfset Counter=IIF(attributes.EmptyText1 is not "", 1, 0)>
+<cfset Counter=IIF(len(attributes.EmptyText1), 1, 0)>
 
 <!--- CREATE AN "IF" STATEMENT THAT COVERS EACH ITEM IN THE FIRST SELECT BOX --->
 <!--- WITHIN THE "IF" STATMENT, PRE-POPULATE ARRAY WITH CORRESPONDING ITEMS FOR SECOND SELECT --->
@@ -119,8 +119,8 @@
 	if (menuNum==#Counter#) {
 	  NewOpt=new Array;
 		NewVal=new Array;
-	<cfset Counter2=IIF(attributes.EmptyText2 is not "", 1, 0)>
-	<cfif attributes.EmptyText2 is not ""><cfoutput>NewOpt[0]=new Option("#attributes.EmptyText2#", ""); </cfoutput></cfif>
+	<cfset Counter2=IIF(len(attributes.EmptyText2), 1, 0)>
+	<cfif len(attributes.EmptyText2)><cfoutput>NewOpt[0]=new Option("#attributes.EmptyText2#", ""); </cfoutput></cfif>
 	<cfoutput>NewOpt[#Counter2#]=new Option("#replacelist(Myquery[attributes.Display2][Myquery.currentrow], "\,#Chr(9)#,#Chr(13)##Chr(10)#,',"",#Chr(13)#,#Chr(10)#",  "\\,\t,\n,\',\"",\r,\f")#", "#replacelist(Myquery[attributes.Value2][Myquery.currentrow], "\,#Chr(9)#,#Chr(13)##Chr(10)#,',"",#Chr(13)#,#Chr(10)#",  "\\,\t,\n,\',\"",\r,\f")#"); <cfset Counter2=Counter2+1>
 	</cfoutput>} <cfset Counter=Counter+1>
 </cfoutput>

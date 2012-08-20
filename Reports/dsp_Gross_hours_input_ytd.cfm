@@ -60,7 +60,7 @@
 		</cfoutput>
 				<option value="ALL" selected="selected">All Employees
 				<cfoutput query="get_team_select">
-					<cfif Emp_ID is not ""><!--- $issue$: get rid of is not "" --->
+					<cfif len(emp_id)>
 						<option value="#emp_id#">#lname#, #left(name, 3)#
 					</cfif>
 				</cfoutput>
@@ -78,7 +78,7 @@
 				<option value="ALL" selected="selected">All Offices</option>
 		</cfoutput>
 				<cfoutput query="office_loc">
-					<cfif Office_location is not ""><!--- Don't display blanks --->
+					<cfif len(office_location)><!--- Don't display blanks --->
 						<option value="#Office_location#">#Office_location#</option>
 					</cfif>
 				</cfoutput>
