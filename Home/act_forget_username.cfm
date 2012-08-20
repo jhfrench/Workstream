@@ -29,7 +29,7 @@ You are receiving this email because you have requested your #application.produc
 
 Your username is #get_username.user_name#. 
 
-Please contact the Help Desk at <!--- $issue$: contact info ---> 202-358-HELP(4357) if you did not request your username.
+Please contact the Help Desk <!--- $issue$: contact info at 202-358-HELP(4357)  ---> if you did not request your username.
 	</cfmail>
 	<cfset variables.username_found_ind=1>
 <cfelse>

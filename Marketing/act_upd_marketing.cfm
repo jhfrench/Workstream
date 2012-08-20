@@ -53,8 +53,8 @@
 				email = evaluate("MARKETING.EMAIL#jj#[ii]");
 				original_email = evaluate("MARKETING.original.EMAIL#jj#[ii]");
 				name = evaluate("MARKETING.NAME#jj#[ii]");
-				lname = evaluate("MARKETING.LNAME#jj#[ii]");
-				original_lname= evaluate("MARKETING.original.LNAME#jj#[ii]");
+				lname = evaluate("MARKETING.lname#jj#[ii]");
+				original_lname= evaluate("MARKETING.original.lname#jj#[ii]");
 				original_name = evaluate("MARKETING.original.NAME#jj#[ii]");
 			</cfscript>
 		<!--- this is where edits are made to an existing code --->
@@ -150,7 +150,7 @@
 					extension = evaluate("MARKETING.EXTENSION#jj#[ii]");
 					email = evaluate("MARKETING.EMAIL#jj#[ii]");
 					name = evaluate("MARKETING.NAME#jj#[ii]");
-					lname = evaluate("MARKETING.LNAME#jj#[ii]");
+					lname = evaluate("MARKETING.lname#jj#[ii]");
 				</cfscript>
 				<!--- only insert the contact informtion if a person is entered. --->
 				<cfif len(name)+len(lname)>

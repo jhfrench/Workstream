@@ -16,7 +16,7 @@
 <cfif isdefined("make_changes") AND len(attributes.company_id)>
 	<cfinclude template="act_edit_auxiliary.cfm">
 </cfif>
-<cfinclude template="qry_get_security_company_access_access.cfm">
+<cfinclude template="qry_get_Security_Company_Access_access.cfm">
 <cfinclude template="qry_get_user_details.cfm">
 <cfform action="index.cfm?fuseaction=Administration.edit_auxiliary" name="timekeeping_options" method="POST">
 <table align="center" bgcolor="#cccccc" border="0" cellpadding="0" cellspacing="0">

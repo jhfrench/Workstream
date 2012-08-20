@@ -20,7 +20,7 @@
 	<cfinclude template="act_update_company.cfm">
 	<cfinclude template="act_update_locations.cfm">
 	<!--- <cfinclude template="qry_emp_supervisor_entry.cfm"> --->
-	<cfinclude template="act_update_security_company_access.cfm">
+	<cfinclude template="act_update_Security_Company_Access.cfm">
 	<cfinclude template="act_update_email.cfm">
 	<cfinclude template="act_update_phone.cfm">
 	<cfinclude template="act_update_emp_bio.cfm">

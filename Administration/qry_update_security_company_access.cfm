@@ -1,5 +1,5 @@
 
-<!--Admin/qry_update_security_company_access.cfm
+<!--Admin/qry_update_Security_Company_Access.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -12,7 +12,7 @@
 	$Log$
 	 || 
  --->
-<cfquery name="update_security_company_access" datasource="#application.datasources.main#">
+<cfquery name="update_Security_Company_Access" datasource="#application.datasources.main#">
 /*wipe out old access*/
 DELETE FROM Security_Company_Access
 WHERE emp_id=#attributes.emp_id#;

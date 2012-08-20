@@ -12,7 +12,7 @@
 	 || 
 	END FUSEDOC --->
 <cfquery name="Sick_Hours" datasource="#application.datasources.main#">
-SELECT Emp_Contact.Name, Emp_Contact.LName, 
+SELECT Emp_Contact.Name, Emp_Contact.lname, 
 	Emp_Contact.emp_id, Demographics.pin, '24.00' AS allowed, 
 	SUM(CASE WHEN project_code = 20 OR
 	project_code = 1020 OR
@@ -105,7 +105,7 @@ WHERE REF_Company.company_id IN (#session.workstream_selected_company_id#)
 	AND demographics.end_date IS NULL
 	AND Time_Entry.active_ind=1
 	AND EXTRACT(YEAR FROM Time_Entry.work_date) = EXTRACT(YEAR FROM CURRENT_DATE)
-GROUP BY emp_contact.lname, emp_contact.name, demographics.pin,
-	emp_contact.emp_id
-ORDER BY emp_contact.lname
+GROUP BY Emp_Contact.lname, Emp_Contact.name, demographics.pin,
+	Emp_Contact.emp_id
+ORDER BY Emp_Contact.lname
 </cfquery>

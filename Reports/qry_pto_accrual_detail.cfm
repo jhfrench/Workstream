@@ -14,7 +14,7 @@
 <cfquery name="get_name" datasource="#application.datasources.main#" >
 SELECT name, lname
 FROM emp_contact
-WHERE emp_contact.emp_id ='#page_pin#'
+WHERE Emp_Contact.emp_id ='#page_pin#'
 </cfquery>
 <cfquery name="PTO_Hours" datasource="#application.datasources.main#">
 SELECT *

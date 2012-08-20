@@ -18,8 +18,9 @@ SELECT REF_Company.description AS company, Emp_Contact.name,
 FROM Link_Company_Emp_Contact
 	INNER JOIN Emp_Contact ON Link_Company_Emp_Contact.emp_id=Emp_Contact.emp_id
 	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id = REF_Company.company_id
-	INNER JOIN Security ON Emp_Contact.emp_id=Security.emp_id
-WHERE security.disable!=1
-	AND emp_contact.emp_id=#attributes.emp_id#
+	INNER JOIN Link_User_Account_Status ON Link_User_Account_Status.user_account_id=Emp_Contact.emp_id
+		AND Link_User_Account_Status.active_ind=1
+		AND Link_User_Account_Status.account_status_id=1 /*active*/
+WHERE Emp_Contact.emp_id=#attributes.emp_id#
 ORDER BY lname, name
 </cfquery>

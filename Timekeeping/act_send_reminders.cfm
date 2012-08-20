@@ -18,7 +18,7 @@
 SELECT Task.task_id, Task.name AS task_name, Task.description AS description, 
 	Task.budgeted_hours, Task.due_date AS date_due, 
 	Task_Source.task_source AS email_from, Email.email AS email_to, 
-	Emp_Contact.name AS name, Notification.days_before_due AS countdown
+	Emp_Contact.name, Notification.days_before_due AS countdown
 FROM Task, Notification, Email, Emp_Contact,
 	(SELECT Email.email AS task_source, Email.emp_id AS source_id, Team.task_id
 	FROM Team, Email

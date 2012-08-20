@@ -21,36 +21,16 @@
 	<caption><h2>Project Dashboard</h2></caption>
 	<thead>
 		<tr>
-			<th>
-				Customer &amp; Project Name
-			</th>
-			<th title="Date the project is to go live, or end (if known).">
-				Due
-			</th>
-			<th>
-				Status
-			</th>
-			<th>
-				Progress
-			</th>
-			<th>
-				Project Update
-			</th>
-			<th>
-				Budgeted
-			</th>
-			<th>
-				Invoiced
-			</th>
-			<th>
-				Upselling Opportunities
-			</th>
-			<th>
-				<abbr title="Project Manager">PM</abbr>
-			</th>
-			<th>
-				Updated
-			</th>
+			<th>Customer &amp; Project Name</th>
+			<th title="Date the project is to go live, or end (if known).">Due</th>
+			<th>Status</th>
+			<th>Progress</th>
+			<th>Project Update</th>
+			<th>Budgeted</th>
+			<th>Invoiced</th>
+			<th>Upselling Opportunities</th>
+			<th><abbr title="Project Manager">PM</abbr></th>
+			<th>Updated</th>
 		</tr>
 	</thead>
 	<tbody>

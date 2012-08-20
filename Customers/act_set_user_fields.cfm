@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 <cfif isdefined("delete_user_field_list")>
 	<cfif comparenocase(delete_user_field_list,"None")>
-		<cfloop from="1" to="#ListLen(Delete_User_Field_List)#" index="ii">
+		<cfloop from="1" to="#listlen(Delete_User_Field_List)#" index="ii">
 			<cfset current_user_field_delete=listgetat(Delete_User_Field_List,ii)>
 			<cfquery name="Add_User_Field_Items" datasource="#application.datasources.main#">
 			UPDATE User_Fields

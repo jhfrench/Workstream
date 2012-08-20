@@ -20,8 +20,6 @@ FROM Task
 		AND Team.role_id=1
 	INNER JOIN Project ON Task.project_id=Project.project_id
 	INNER JOIN Emp_Contact ON Team.emp_id=Emp_Contact.emp_id
-	INNER JOIN Security ON Emp_Contact.emp_id=Security.emp_id
-		AND Security.disable!=1
 WHERE Task.complete_date IS NULL
 	AND Project.project_id=#attributes.project_id#
    </cfquery>

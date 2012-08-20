@@ -15,10 +15,9 @@
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
 <cfquery name="get_editing_priveleges" datasource="#application.datasources.main#">
-SELECT Emp_Contact.emp_id AS editing_priveleges
-FROM Task, Emp_Contact
+SELECT Task.created_by AS editing_priveleges
+FROM Task
 WHERE Task.task_id=#attributes.task_id#
-	AND Emp_Contact.emp_id=Task.created_by
 UNION ALL
 SELECT Team.emp_id
 FROM Team

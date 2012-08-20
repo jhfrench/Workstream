@@ -12,14 +12,13 @@
 	$Log$
 	||
 	Variables:
-	--> application.team_changed: date of the last time emp_contact, security or demographics tables were changed
 	--> attributes.emp_id: number containing the unique identifier of the individual being requested
 	<-- lname: string containing the last name of an employee
 	<-- fname: string containing the first name of an employee
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="get_emp_details" datasource="#application.datasources.main#">
-SELECT Emp_Contact.name AS fname, Emp_Contact.lname AS lname, Demographics.ssn AS ssn,
+SELECT Emp_Contact.name AS fname, Emp_Contact.lname, Demographics.ssn AS ssn,
 	Demographics.dob, Demographics.hire_date, COALESCE(Demographics.photo,'nopic.jpg') AS photo,
 	Demographics.end_date, COALESCE(Emp_Contact.credentials,'') AS credentials, Emp_Biography.biography
 FROM Emp_Contact

@@ -1,4 +1,4 @@
-<!-- reports/qry_get_footer_file.cfm
+<!-- Reports/qry_get_footer_file.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC

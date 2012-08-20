@@ -28,7 +28,7 @@ I use emp_id and a REF_*_type_id as the key.
  } 
     I use emp_id as the key
     {
-    Emp_Contact.Name, Emp_Contact.LName,
+    Emp_Contact.Name, Emp_Contact.lname,
     }
     I use project_id as the key
     {

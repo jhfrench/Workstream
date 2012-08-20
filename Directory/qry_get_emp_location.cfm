@@ -12,7 +12,6 @@
 	$Log$
 	||
 	Variables:
-	--> application.team_changed: date of the last time emp_contact, security or demographics tables were changed
 	--> attributes.emp_id: number containing the unique identifier of the individual being requested
 	<-- address1: string containing the first address line for a person
 	<-- address2: string containing the second address line for a person

@@ -36,7 +36,7 @@ FROM Demographics_Ngauge Demographics, Emp_Contact
 			AND Forecast_Assignment.task_id=Team.task_id
 			AND Team.role_id=1
 		GROUP BY Forecast_Assignment.emp_id
-	) AS bdata ON bdata.emp_id=emp_contact.emp_id
+	) AS bdata ON bdata.emp_id=Emp_Contact.emp_id
 	LEFT OUTER JOIN (
 		SELECT COUNT(DISTINCT CASE WHEN task.status_id=7 /*completed*/ THEN Time_Entry.task_id ELSE NULL END) AS cnt, 
 			COALESCE(SUM(CASE WHEN task.status_id=7 /*completed*/ THEN Time_Entry.hours ELSE 0 END),0) AS cnh,
@@ -53,7 +53,7 @@ FROM Demographics_Ngauge Demographics, Emp_Contact
 			AND Time_Entry.task_id=Team.task_id
 			AND Team.role_id=1
 		GROUP BY Time_Entry.emp_id
-	) AS nbdata ON nbdata.emp_id=emp_contact.emp_id 
+	) AS nbdata ON nbdata.emp_id=Emp_Contact.emp_id 
 WHERE Demographics.emp_id=Emp_Contact.emp_id
 	AND Demographics.effective_to IS NULL
 	AND Demographics.end_date IS NULL

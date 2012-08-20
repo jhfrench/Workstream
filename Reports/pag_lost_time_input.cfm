@@ -1,5 +1,5 @@
 
-<!-- reports/pag_lost_time_input.cfm
+<!-- Reports/pag_lost_time_input.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC

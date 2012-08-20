@@ -96,7 +96,7 @@ Cut and Paste the following code:
 	<cfset author=form.pin>
 <cfelse>
 	<cfset auth_name=replace(form.pin, "_", " ")>
-	<cfif NOT ListLen(form.pin, "_") GT 2>
+	<cfif NOT listlen(form.pin, "_") GT 2>
 		<cfset first_name=ListFirst(form.pin, "_")>
 		<cfset last_init=Left(listgetat(form.pin, 2, "_"), 1)>
 	<cfelse>

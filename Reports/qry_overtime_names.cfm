@@ -31,7 +31,7 @@ WHERE Time_Entry.active_ind=1
 		<cfif listcontains(attributes.pin, "ALL") NEQ 1> 
 			AND Emp_contact.emp_id IN (#preservesinglequotes(attributes.pin)#) 
 		</cfif>
-GROUP BY Emp_Contact.Name, Emp_Contact.LName, 
+GROUP BY Emp_Contact.Name, Emp_Contact.lname, 
     REF_Employee_Classification.employee_classification, Demographics.pin
 HAVING (SUM(Time_entry.hours) > '40') 
 </cfquery>

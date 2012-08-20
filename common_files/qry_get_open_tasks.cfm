@@ -1,4 +1,4 @@
-<!--- $issue$: is this template used? --->
+<!--- $issue$: consolidate with common_files/, Customers/, and Timekeeping/qry_get_open_tasks --->
 <!--common_files/qry_get_open_tasks.cfm
 	Author: Jeromy F -->
 <cfsilent>

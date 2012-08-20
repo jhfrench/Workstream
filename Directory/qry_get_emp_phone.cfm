@@ -12,7 +12,6 @@
 	$Log$
 	||
 	Variables:
-	--> application.team_changed: date of the last time emp_contact, security or demographics tables were changed
 	--> attributes.emp_id: number containing the unique identifier of the individual being requested
 	<-- extension: string containing any extension for a phone number
 	<-- phone_number: string containing the phone number

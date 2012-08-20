@@ -1,5 +1,5 @@
 
-<!-- reports/qry_manager_hours_report_output.cfm
+<!-- Reports/qry_manager_hours_report_output.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC

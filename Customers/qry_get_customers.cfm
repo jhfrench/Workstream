@@ -24,7 +24,7 @@ FROM Customer
 		FROM Project
 			INNER JOIN Link_Project_Company ON Project.project_id = Link_Project_Company.project_id
 			INNER JOIN REF_Active_Indicator ON Project.active_ind=REF_Active_Indicator.active_ind
-		WHERE  LENGTH(Project.project_code) > 4 
+		WHERE LENGTH(Project.project_code) > 4 
 			AND RIGHT(Project.project_code, 3)!='000' 
 			AND Link_Project_Company.company_id IN (#session.workstream_selected_company_id#)
 		GROUP BY Project.customer_id, Project.root_code

@@ -1,5 +1,5 @@
 
-<!--Admin/qry_get_security_company_access_access.cfm
+<!--Admin/qry_get_Security_Company_Access_access.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -12,10 +12,10 @@
 	$Log$
 	 || 
  --->
-<cfquery name="get_security_company_access_access" datasource="#application.datasources.main#">
+<cfquery name="get_Security_Company_Access_access" datasource="#application.datasources.main#">
 SELECT REF_Company.company_id, REF_Company.description AS company, 
 	CASE
-		WHEN Security_Company_Access.security_company_access_id IS NULL THEN '' 
+		WHEN Security_Company_Access.Security_Company_Access_id IS NULL THEN '' 
 		ELSE ' SELECTED'
 	END AS has_company_access
 FROM REF_Company

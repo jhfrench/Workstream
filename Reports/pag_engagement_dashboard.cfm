@@ -12,7 +12,6 @@
 	 || 
 	END FUSEDOC --->
 <cfparam name="attributes.active_ind" default="1">
-<cfset today = now()>
 </cfsilent>
 <cfinclude template="qry_get_engagement_dashboard.cfm">
 <cfinclude template="qry_get_engagement_ie.cfm">
@@ -39,19 +38,19 @@
 			</select>
 			<label for="sort">Sort option</label>
 			<select name="sort" class="span2">
-				<option value="Customer.description,Project.description">Select Sort Variable</option>
-				<option value="Customer.description,Project.description">Customer</option>
-				<option value="Customer.description,Project.description DESC">Customer - Desc</option>
-				<option value="lname">IE</option>
-				<option value="lname DESC">IE - Desc</option>
-				<option value="Project_end">Due Date</option>
-				<option value="Project_end DESC">Due Date - Desc</option>
-				<option value="Status">Status</option>
-				<option value="Status DESC">Status - Desc</option>
-				<option value="Project.budget">Revenue</option>
-				<option value="Project.budget DESC">Revenue - Desc</option>
-				<option value="Project.date_updated">Date Updated</option>
-				<option value="Project.Date_Updated DESC">Date Updated - Desc</option>
+				<option value="Customer.description, Project.description">select sort variable</option>
+				<option value="Customer.description, Project.description">Customer</option>
+				<option value="Customer.description, Project.description DESC " ">Customer - descending</option>
+				<option value="lname"><abbr title="project manager">PM</abbr></option>
+				<option value="lname DESC " "><abbr title="project manager">PM</abbr> - descending</option>
+				<option value="project_end">Due Date</option>
+				<option value="project_end DESC " ">Due Date - descending</option>
+				<option value="status">Status</option>
+				<option value="status DESC " ">Status - descending</option>
+				<option value="Project.budget">Budgeted</option>
+				<option value="Project.budget DESC " ">Budgeted - descending</option>
+				<option value="Project.date_updated">Updated</option>
+				<option value="Project.date_updated DESC " ">Updated - descending</option>
 			</select>
 			<input type="submit" value="Go" class="btn btn-primary" />
 </form>

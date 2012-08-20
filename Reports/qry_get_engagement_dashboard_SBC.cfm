@@ -19,7 +19,7 @@ SELECT Project.status, Customer.description AS customer_description, Project.des
 	Project.Mission, REF_Billable.description AS Billable_Type,
 	Project.billable_type_id, Project.active_ind, REF_Active_Indicator.active_ind_Type,
 	Project.company_id, Flat_Rate.rate_end_date,
-	Flat_Rate.rate_start_date, Project.project_manager_emp_id, Emp_Contact.LName,
+	Flat_Rate.rate_start_date, Project.project_manager_emp_id, Emp_Contact.lname,
 	Emp_Contact.Name, Project.project_id, Project.created_date
 	Project.Date_Updated, Project.Project_End, Project.File_Path,
 	Project.date_go_live, Project.eng_status

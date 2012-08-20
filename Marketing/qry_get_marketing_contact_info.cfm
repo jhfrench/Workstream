@@ -15,8 +15,8 @@
 <cfquery name="get_marketing_contact_info" datasource="#application.datasources.main#">
 SELECT Email.Email, Phone.Phone_Number, Phone.Extension, 
     Location.Address1, Location.Address2, Location.City, 
-    Location.State, Location.Zip, Emp_Contact.LName, 
-    Emp_Contact.Name, emp_contact.emp_id
+    Location.State, Location.Zip, Emp_Contact.lname, 
+    Emp_Contact.Name, Emp_Contact.emp_id
 FROM Emp_Contact
 	LEFT OUTER JOIN  Email ON Emp_Contact.emp_id=Email.emp_id
 		AND Email.email_type_id = 1

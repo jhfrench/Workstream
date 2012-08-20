@@ -13,18 +13,14 @@
 	 || 
  --->
 <cfquery name="get_user_details" datasource="#application.datasources.main#">
-SELECT Emp_Contact.emp_id, Emp_Contact.lname AS lname, Emp_Contact.name as name,
-	 Link_Company_Emp_Contact.company_id, COALESCE(REF_Company.description,'NA') AS company_name, Security.username,
-	Security.password, Security.groups,
-	Security.disable, Email.email
-FROM Emp_Contact, Link_Company_Emp_Contact, REF_Company,
-	Security, Email
-WHERE Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
-	AND Link_Company_Emp_Contact.company_id*=REF_Company.company_id
-	AND Emp_Contact.emp_id*=Email.emp_id
-	AND Email.email_type_id = 1
-	AND Emp_Contact.emp_id=Security.emp_id
-	AND Emp_Contact.emp_id=<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#session.user_account_id#</cfif>
+SELECT Emp_Contact.emp_id, Emp_Contact.lname, Emp_Contact.name,
+	 Link_Company_Emp_Contact.company_id, COALESCE(REF_Company.description,'NA') AS company_name Email.email
+FROM Emp_Contact
+	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
+	LEFT OUTER JOIN REF_Company ON Link_Company_Emp_Contact.company_id=REF_Company.company_id
+	LEFT OUTER JOIN Email ON Emp_Contact.emp_id=Email.emp_id
+		AND Email.email_type_id = 1
+WHERE Emp_Contact.emp_id=<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#session.user_account_id#</cfif>
 ORDER BY Link_Company_Emp_Contact.company_id, lname, name, email_type_id
 </cfquery>
 </cfsilent>

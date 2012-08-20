@@ -1,5 +1,5 @@
 
-<!-- reports/qry_get_pto_detail.cfm
+<!-- Reports/qry_get_pto_detail.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC

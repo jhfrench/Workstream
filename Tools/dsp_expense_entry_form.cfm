@@ -35,11 +35,7 @@
 	<cfset attributes.supervisor_approval_memo=get_expense_details.supervisor_approval_memo>
 </cfif>
 
-
-
 <cfinclude template="../common_files/qry_get_valid_projects.cfm">
-
-
 
 <tr>
 	<td>Employee</td>

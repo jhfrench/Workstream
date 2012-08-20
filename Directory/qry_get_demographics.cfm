@@ -22,7 +22,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="get_demographics" datasource="#application.datasources.main#">
-SELECT Emp_Contact.Name AS fname, Emp_Contact.LName AS lname, Demographics.emp_id,
+SELECT Emp_Contact.Name AS fname, Emp_Contact.lname, Demographics.emp_id,
 	Emp_Biography.biography, Emp_Biography.emp_biography_id
 FROM Emp_Biography
 	RIGHT OUTER JOIN Emp_Contact

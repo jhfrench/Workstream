@@ -12,7 +12,6 @@
 	$Log$
 	||
 	Variables:
-	--> application.team_changed: date of the last time emp_contact, security or demographics tables were changed
  --->
 <cfquery name="get_employee_classification" datasource="#application.datasources.main#">
 SELECT *

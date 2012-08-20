@@ -15,7 +15,7 @@
 
 	END FUSEDOC --->
 <cfquery name="populate_employee_form" datasource="#application.datasources.main#">
-SELECT ec.Name, ec.LName, ec.Credentials, ec.MI, 
+SELECT ec.Name, ec.lname, ec.Credentials, ec.MI, 
 	ec.Emp_contact_Type, d.Employee_Type_ID, d.SSN, d.pin, d.hire_date, d.DOB, 
 	d.Manager_non_id, d.Photo, d.employee_classification_id, 
 	work_loc.Address1 AS address1_1, 

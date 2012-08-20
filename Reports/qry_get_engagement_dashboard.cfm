@@ -12,22 +12,22 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfparam name="attributes.sort" default="Customer.description, Project.description">
-<cfparam name="attributes.project_manager_emp_id" default="0">
-<cfparam name="attributes.customer_id" default="0">
 <cfparam name="attributes.active_ind" default="1">
+<cfparam name="attributes.customer_id" default="0">
+<cfparam name="attributes.project_manager_emp_id" default="0">
+<cfparam name="attributes.sort" default="Customer.description, Project.description">
 </cfsilent>
 
 <cfquery name="get_engagement_dashboard" datasource="#application.datasources.main#">
-SELECT Project.status, Billing_History.total_bill_amount, Customer.description AS customer_description,
-	Project.description, Project.project_code, Project.Vision,
-	Project.budget, Project.Mission, REF_Billable_Type.description AS billable_type,
-	Project.billable_type_id, Project.active_ind, REF_Active_Indicator.active_ind_type,
-	Project.company_id, Customer.customer_id, Flat_Rate.rate_end_date,
-	Flat_Rate.rate_start_date, Project.project_manager_emp_id, Emp_Contact.lname,
-	Emp_Contact.name, Project.project_id, Project.created_date,
-	Project.Date_Updated, Project.file_path,
-	COALESCE(Project.date_go_live, Project.project_end) AS deadline_date, Project.eng_status, Project.loe
+SELECT Project.project_id, Project.project_code, Project.description,
+	Project.company_id, Project.project_manager_emp_id, Project.created_date,
+	COALESCE(Project.date_go_live, Project.project_end) AS deadline_date, Project.status, Project.eng_status,
+	Project.billable_type_id, Project.loe, Project.budget,
+	Project.mission, Project.vision, Project.date_updated,
+	Project.file_path, Project.active_ind, Customer.description AS customer_description, 
+	Billing_History.total_bill_amount, REF_Billable_Type.description AS billable_type, REF_Active_Indicator.active_ind_type,
+	Customer.customer_id, Flat_Rate.rate_end_date, Flat_Rate.rate_start_date,
+	Emp_Contact.lname, Emp_Contact.name
 FROM Project
 	INNER JOIN REF_Billable_Type ON Project.billable_type_id=REF_Billable_Type.billable_type_id
 	INNER JOIN REF_Active_Indicator ON Project.active_ind = REF_Active_Indicator.active_ind

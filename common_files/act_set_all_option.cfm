@@ -21,7 +21,12 @@ FROM Access_User_Business_Function
 WHERE active_ind=1
 	AND program_year_id=#attributes.program_year_id#
 	AND user_account_id=#session.user_account_id#
-	AND business_function_id=#attributes.business_function_id#
+	AND business_function_id<cfif isdefined("attributes.business_function_id")>=#attributes.business_function_id#<cfelseif isdefined("attributes.fuseaction")> IN (
+		SELECT business_function_id
+		FROM REF_Screen
+		WHERE fuseaction='#attributes.fuseaction#'
+		GROUP BY business_function_id
+	)</cfif>
 </cfquery>
 <cfif get_all_option.recordcount NEQ 0>
 	<cfset variables.all_option=get_all_option.all_option>

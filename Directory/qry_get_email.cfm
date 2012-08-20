@@ -18,7 +18,7 @@
  --->
 
 <cfquery name="get_emails" datasource="#application.datasources.main#">
-SELECT Ec.Name AS fname, Ec.LName, Em.Email
+SELECT Ec.Name AS fname, Ec.lname, Em.Email
 FROM Email Em
 	INNER JOIN Emp_Contact Ec ON Em.emp_id=Ec.emp_id
 	LEFT OUTER JOIN REF_Email_Type Ret ON Em.email_type_id = Ret.email_type_id

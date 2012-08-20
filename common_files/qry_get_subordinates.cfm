@@ -23,11 +23,11 @@ FROM Emp_Contact
 	INNER JOIN Demographics_Ngauge AS Demographics ON Emp_Contact.emp_id=Demographics.emp_id
 WHERE 1=1
 	AND (
-		Link_Employee_Supervisor.supervisor_id = #session.user_account_id#<cfif NOT attributes.all_employees>
-		AND <cfif len(attributes.date_linked)>#createodbcdate(attributes.date_linked)# BETWEEN Link_Employee_Supervisor.date_start AND COALESCE(Link_Employee_Supervisor.date_end,#createodbcdate(attributes.date_linked)#+'1 day')<cfelse>Link_Employee_Supervisor.active_ind=1</cfif>
-		AND CURRENT_DATE BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to,CURRENT_DATE+'1 day')</cfif><cfif NOT isdefined("attributes.hide_supervisor")>
-		OR Link_Employee_Supervisor.emp_id=#session.user_account_id#</cfif>
-	)
+		Link_Employee_Supervisor.supervisor_id = #session.user_account_id#<cfif NOT isdefined("attributes.hide_supervisor")>
+			OR Link_Employee_Supervisor.emp_id=#session.user_account_id#</cfif>
+	)<cfif NOT attributes.all_employees>
+	AND <cfif len(attributes.date_linked)>#createodbcdate(attributes.date_linked)# BETWEEN Link_Employee_Supervisor.date_start AND COALESCE(Link_Employee_Supervisor.date_end,#createodbcdate(attributes.date_linked)#+'1 day')<cfelse>CURRENT_TIMESTAMP BETWEEN Link_Employee_Supervisor.date_start AND COALESCE(Link_Employee_Supervisor.date_end, CURRENT_DATE+interval '1 day')</cfif>
+	AND CURRENT_DATE BETWEEN Demographics.effective_from AND COALESCE(Demographics.effective_to,CURRENT_DATE+'1 day')</cfif>
 GROUP BY Emp_Contact.name, Emp_Contact.lname, Emp_Contact.emp_id
 ORDER BY Emp_Contact.lname, Emp_Contact.name
 </cfquery>
