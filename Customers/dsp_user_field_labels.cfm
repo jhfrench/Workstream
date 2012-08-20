@@ -16,38 +16,35 @@
 </cfsilent>
 <cfinclude template="qry_get_user_field_types.cfm">
 <cfif attributes.req_custom AND (isdefined("attributes.field1") AND attributes.field1 NEQ 0 OR isdefined("attributes.field2") AND attributes.field2 NEQ 0)>
-<cfoutput>
-	<tr valign="top">
-		<td>
-</cfoutput>
-		<cfoutput query="get_user_field_types">
-			<span class="RegTextBd">#user_field_type# custom fields</span><br />
-			<cfloop from="1" to="#evaluate("attributes.field#user_field_type_id#")#" index="ii">
-				Label: <cfinput type="text" name="type_#user_field_type_id#_num_#ii#_name" size="15"><br />
-					<cfif user_field_type_id NEQ 2><cfloop from="1" to="8" index="opt_ii">Option value #opt_ii#: <cfinput type="text" name="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#" size="15"><br />
-					</cfloop><p></p></cfif>
-			</cfloop>
-		</cfoutput>
-<cfoutput>
-		</td>
-		<td width="55%" class="Note">
-			<ol type="1" start="#variables.start#" class="Note">
-				<li>Provide the labels for each of your desired custom fields. For drop-down boxes, also provide the possible options, leaving blank any extra 'option value' fields. Any labels left blank will be ignored and will not be applied as custom fields to the engagement.</li><cfset variables.start=incrementvalue(variables.start)>
-			</ol>
-		</td>
-	</tr>
-</cfoutput>
+	<cfoutput query="get_user_field_types">
+	<fieldset>
+		<legend>#user_field_type# custom fields</legend>
+		<cfloop from="1" to="#evaluate("attributes.field#user_field_type_id#")#" index="ii">
+		<div class="control-group">
+			<label for="type_#user_field_type_id#_num_#ii#_name">Label</label>
+			<div class="controls">
+				<cfinput type="text" name="type_#user_field_type_id#_num_#ii#_name" id="type_#user_field_type_id#_num_#ii#_name" class="span3" />
+				<p class="help-block">Provide the labels for each of your desired custom fields.</p>
+			</div>
+		</div>
+	<cfif user_field_type_id NEQ 2>
+		<cfloop from="1" to="8" index="opt_ii">
+		<div class="control-group">
+			<label for="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#">Option value #opt_ii#</label>
+			<div class="controls">
+				<cfinput type="text" name="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#" ind="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#" value="" class="span3" />
+				<p class="help-block">For drop-down boxes, also provide the possible options, leaving blank any extra 'option value' fields. Any labels left blank will be ignored and will not be applied as custom fields to the engagement.</p>
+			</div>
+		</div>
+		</cfloop>
+	</cfif>
+		</cfloop>
+	</cfoutput>
+	</fieldset>
 <cfelse>
-<cfset onload="document.new_engagement.submit();">
-<cfoutput>
-	<tr valign="top">
-		<td>
-			No information to enter for this step.
-		</td>
-		<td width="55%" class="Note">
-			If this page does not automatically do so, please submit to the next page.
-		</td>
-	</tr>
-</cfoutput>
+	<cfset onload="document.new_engagement.submit();">
+	<div class="alert alert-warning">
+		<p>No information to enter for this step.</p>
+		<p>If this page does not automatically do so, please submit to the next page.</p>
+	</div>
 </cfif>
-

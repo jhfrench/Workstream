@@ -12,7 +12,6 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfset variables.start=1>
 <cfparam name="engagement_dashboard_return" default="0">
 </cfsilent>
 <cfinclude template="qry_get_engagement_main.cfm">
