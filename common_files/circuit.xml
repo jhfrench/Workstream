@@ -87,11 +87,15 @@
 	</fuseaction>
 	<fuseaction name="file_attach">
 		<set name="request.pagetitle" value="Attach Files"/>
+		<include template="dsp_header_pop_up.cfm"/>
 		<include template="pag_file_attach.cfm"/>
+		<include template="dsp_footer.cfm"/>
 	</fuseaction>
 	<fuseaction name="file_detach">
 		<set name="request.pagetitle" value="Detach Files"/>
+		<include template="dsp_header_pop_up.cfm"/>
 		<include template="pag_file_detach.cfm"/>
+		<include template="dsp_footer.cfm"/>
 	</fuseaction>
 	<fuseaction name="project_list">
 		<set name="request.pagetitle" value="Select A Project"/>

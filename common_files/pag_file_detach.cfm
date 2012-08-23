@@ -25,7 +25,7 @@
 <cfif get_associated_files.recordcount>
 	<cfinclude template="dsp_file_detach_form.cfm">
 <cfelse>
-<cfinclude template="dsp_file_detach_neg.cfm">
+	<cfinclude template="dsp_file_detach_neg.cfm">
 </cfif>
 </table>
 

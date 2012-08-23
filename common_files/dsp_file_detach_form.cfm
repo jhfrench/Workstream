@@ -15,7 +15,15 @@
 	--> file_path: string that contains directions to open the specified file
  --->
 </cfsilent>
-<form action="" method="post">
+<form action="" method="post" class="form-horizontal">
+		<fieldset id="file_attach_table">
+			<legend><h2>Upload <cfif isdefined("form.my_file")>another<cfelse>your</cfif> document</h2></legend>
+			<div class="control-group">
+				<label class="control-label" for="file_path">Path to file</label>
+				<div class="controls">
+					<cfselect name="file_path" id="file_path" query="get_project_attachment_path" value="file_path" description="file_path" required="yes" message="Please specify the file path." class="span8" />
+				</div>
+			</div>
 <cfoutput>
 	<tr>
 		<td colspan="2" class="SelectText">

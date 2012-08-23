@@ -25,9 +25,9 @@ function upload_file_type_check() {
 		return false;
 	}
 	else {
-		Element.toggle('file_attach_table');
-		Element.toggle('upload_in_progress');
-		return true;
+		$('#file_attach_table').toggle();
+		$('#upload_in_progress').toggle();
+		$('.form-actions').toggle();
 	}
 }
 </script>
@@ -40,43 +40,33 @@ FROM Link_Project_Attachment_Path
 WHERE Link_Project_Attachment_Path.active_ind=1
 ORDER BY Link_Project_Attachment_Path.file_path
 </cfquery>
-
-<cfform name="file_attach" action="index.cfm?fuseaction=#attributes.fuseaction#" method="Post" enctype="multipart/form-data" onsubmit="return upload_file_type_check();">
-<table border="0" cellspacing="0" cellpadding="0" summary="Table displays file upload form criteria until submitted." width="100%">
-	<tr>
-		<td id="file_attach_table">
-<table cellspacing="1" cellpadding="4" width="100%" border="0" bgcolor="#cccccc" summary="Table displays file upload form criteria">
-	<tr bgcolor="999999"><th>Upload your document</th></tr>
-	<tr bgcolor="#eeeeee">
-		<td>
-		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table displays files to upload">
-			<tr>
-				<td align="left"><label for="filebox">File to Upload</label>:</td>
-				<td align="left"><cfselect name="file_path" query="get_project_attachment_path" value="file_path" description="file_path" required="yes" message="Please specify the file path." /><input type="file" id="filebox" name="MY_FILE" alt="Please specify the filepath to the file you wish to upload." /></td>
-			</tr>
-		</table>
-		</td>
-	</tr>
-	<tr bgcolor="#dddddd">
-		<td align="center">
-		<cfoutput>
-			<input type="hidden" name="task_id" value="#attributes.task_id#" />
-			<input type="submit" name="upload_file" value="Upload File" class="btn btn-primary" />
-			<input type="reset" value="Cancel" class="btn" />
-		</cfoutput> 
-		</td>
-	</tr>
-</table>
-		</td>
-	</tr>
-	<tr id="upload_in_progress" style="display:none">
-		<td align="center">
-			<h2>Loading your file</h2>
-			<img src="images/loading.gif" alt="Animated gif that shows a gear and reads Loading your file" width="48" height="48" style="padding:30px;" align="center" />
-		</td>
-	</tr>
-</table>
-</cfform>
-
-
-
+<div id="pop-up-content">
+	<cfform name="file_attach" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" enctype="multipart/form-data" onsubmit="return upload_file_type_check();" class="form-horizontal">
+		<fieldset id="file_attach_table">
+			<legend><h2>Upload <cfif isdefined("form.my_file")>another<cfelse>your</cfif> document</h2></legend>
+			<div class="control-group">
+				<label class="control-label" for="file_path">Path to file</label>
+				<div class="controls">
+					<cfselect name="file_path" id="file_path" query="get_project_attachment_path" value="file_path" description="file_path" required="yes" message="Please specify the file path." class="span8" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="my_file">File to Upload</label>
+				<div class="controls">
+					<input type="file" name="MY_FILE" id="my_file" alt="Please specify the filepath to the file you wish to upload." required="required" class="span8" />
+				</div>
+			</div>
+			<div class="form-actions">
+			<cfoutput>
+				<input type="hidden" name="task_id" value="#attributes.task_id#" />
+				<input type="submit" name="upload_file" value="Upload File" class="btn btn-primary" />
+				<input type="reset" name="reset" value="Cancel" class="btn" />
+			</cfoutput> 
+			</div>
+		</fieldset>
+	</cfform>
+	<div class="alert alert-info" id="upload_in_progress" style="display:none">
+		<h2>Loading your file</h2>
+		<img src="images/loading.gif" alt="Animated gif that shows a gear and reads Loading your file" width="48" height="48" style="padding:30px;" align="center" />
+	</div>
+</div>
