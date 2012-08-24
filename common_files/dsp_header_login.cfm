@@ -45,20 +45,21 @@
 		Modernizr.load([
 			{
 				load: [
-					'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'
+					'//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js'
 				],
 				complete: function () {
 					if ( !window.jQuery ) {
-						Modernizr.load('common_files/js/libs/jquery-1.7.2.min.js');
+						Modernizr.load('common_files/js/libs/jquery-1.8.0.min.js');
 					}
 				}
 			},
 			{
 				// This will wait for the fallback to load and execute if it needs to.
 				load: [
-					'//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js',
-					'//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-transition.js',
-					'common_files/js/plugins.js'
+					'//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js',
+					'//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js',
+					'common_files/js/plugins.js',
+					'common_files/js/script.js'
 				]
 			}
 		]);

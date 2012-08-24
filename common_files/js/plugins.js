@@ -46,7 +46,7 @@ if (!('console' in this)) console={}; 'log info warn error dir clear'.replace(/\
 			//console.log('help articles active2');
 			
 			//load article div with default content
-			//getHelp('article', default_help);
+			getHelp('article', default_help);
 			
 			//assign onclick event to help article anchor tags to make use of AJAX calls instead of native HTML link functionality
 			$('#help_top_article a.article').on('click', function(){
@@ -182,7 +182,7 @@ if (!('console' in this)) console={}; 'log info warn error dir clear'.replace(/\
 		}
 
 		// inject clock span
-		 $('#task_details_resolution_entry_hours').append(' <!-- following clock image and related HTML are injected from plugins.js --><a href="#" onclick="$(\'#hours\').val( elapsed_time );" id="task_open_link" title="Update hours field to 0.25 hours."><i class="icon-time"></i> <span id="task_open_clock">0.25</span> hours</a>' );
+		 $('#task_details_resolution_entry_hours').append('<!-- following clock image and related HTML are injected from plugins.js --><a href="#" onclick="$(\'#hours\').val( elapsed_time );" id="task_open_link" title="Update hours field to 0.25 hours."><i class="icon-time"></i> <span id="task_open_clock">0.25</span> hours</a>' );
 //
 
 		// add a quarter hour every 15 minutes
@@ -218,4 +218,14 @@ if (!('console' in this)) console={}; 'log info warn error dir clear'.replace(/\
 				}
 			})
 		})
+	}
+	
+	if( $('a[data-toggle="modal"]').length ) {
+		$('#begin_page_content').append('<div id="utility" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="utility-label" aria-hidden="true" style="display: none;"><div class="modal-header"><button type="button" class="close btn" data-dismiss="modal" aria-hidden="false">x</button><h3 id="utility-label">Modal Heading</h3></div><div class="modal-body">placeholder</div><div class="modal-footer"></div></div>' );
+		$('a[data-toggle="modal"]').each(function() {
+			$(this).attr('href',$(this).attr('href')+'_utility');
+		});
+		$('a[data-toggle="modal"]').on('click', function(){
+			$('#utility-label').html( $(this).html() );
+		});
 	}

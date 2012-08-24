@@ -90,10 +90,16 @@
 		<include template="pag_file_attach.cfm"/>
 		<include template="dsp_footer.cfm"/>
 	</fuseaction>
+	<fuseaction name="file_attach_utility">
+		<include template="pag_file_attach.cfm"/>
+	</fuseaction>
 	<fuseaction name="file_detach">
 		<include template="dsp_header_pop_up.cfm"/>
 		<include template="pag_file_detach.cfm"/>
 		<include template="dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="file_detach_utility">
+		<include template="pag_file_detach.cfm"/>
 	</fuseaction>
 	<fuseaction name="project_list">
 		<set name="request.pagetitle" value="Select A Project"/>
@@ -104,10 +110,16 @@
 		<include template="pag_task_attach.cfm"/>
 		<include template="dsp_footer.cfm"/>
 	</fuseaction>
+	<fuseaction name="task_attach_utility">
+		<include template="pag_task_attach.cfm"/>
+	</fuseaction>
 	<fuseaction name="task_detach">
 		<include template="dsp_header_pop_up.cfm"/>
 		<include template="pag_task_detach.cfm"/>
 		<include template="dsp_footer.cfm"/>
+	</fuseaction>
+	<fuseaction name="task_detach_utility">
+		<include template="pag_task_detach.cfm"/>
 	</fuseaction>
 	<fuseaction name="team_list">
 		<set name="request.pagetitle" value="Select An Employee"/>

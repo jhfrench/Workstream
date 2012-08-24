@@ -62,22 +62,19 @@ else
 		Modernizr.load([
 			{
 				load: [
-					'//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'
+					'//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js'
 				],
 				complete: function () {
 					if ( !window.jQuery ) {
-						Modernizr.load('common_files/js/libs/jquery-1.7.2.min.js');
+						Modernizr.load('common_files/js/libs/jquery-1.8.0.min.js');
 					}
 				}
 			},
 			{
 				// This will wait for the fallback to load and execute if it needs to.
 				load: [
-					'//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js',
-					'//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-transition.js',
-					'//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-collapse.js',
-					'//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-dropdown.js',
-					'//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tab.js',
+					'//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js',
+					'//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js',
 					'common_files/js/plugins.js',
 					'common_files/js/script.js'
 				]
@@ -105,7 +102,7 @@ else
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</a>
-						<span class="brand "><a href="index.cfm?fuseaction=Timekeeping.home"><img src="images/workstream_icon.png" height="17" width="16" alt="#application.application_specific_settings.organization# Workstream" /></a>Workstream</span>
+						<a href="index.cfm?fuseaction=Timekeeping.home" class="brand"><img src="images/workstream_icon.png" height="17" width="16" alt="#application.application_specific_settings.organization# Workstream" />Workstream</a>
 						<div class="nav-collapse" id="menu">
 							<ul class="nav">
 								<cfinclude template="qry_get_module_sub_navigation.cfm" /><!--- 
