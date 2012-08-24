@@ -31,14 +31,18 @@ SELECT Task.task_id, Project.customer_id, Project.project_id, Task.name AS task_
 	END AS project_display,
 	Task.name || ' (' || CAST(Task.task_id AS VARCHAR(128)) || ')' AS task_display
 	</cfif>
-FROM Link_Project_Company
-	INNER JOIN Task ON Link_Project_Company.project_id=Task.project_id
-		AND Task.status_id!=7 /*exclude closed tasks*/<cfif isdefined("attributes.exclude_task_id")>
-		AND Task.task_id NOT IN (#attributes.exclude_task_id#)</cfif>
+FROM Task
+	INNER JOIN (
+		SELECT project_id
+		FROM Link_Project_Company
+		WHERE company_id IN (#session.workstream_selected_company_id#)
+		GROUP BY project_id
+	) AS Link_Project_Company ON Task.project_id=Link_Project_Company.project_id
 	INNER JOIN Project ON Task.project_id=Project.project_id
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
-WHERE Link_Project_Company.company_id IN (#session.workstream_selected_company_id#)
-ORDER BY project_display, task_display
+WHERE Task.status_id!=7 /*exclude closed tasks*/<cfif isdefined("attributes.exclude_task_id")>
+		AND Task.task_id NOT IN (#attributes.exclude_task_id#)</cfif>
+ORDER BY Customer.sort_order, project_display, task_display
 </cfquery>
 <cfset caller.get_open_tasks=get_open_tasks>
 </cfsilent>

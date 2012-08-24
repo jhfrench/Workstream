@@ -25,7 +25,7 @@
 	<-- task_count: number of tasks associated with the project that meets the user's specifications (ie on the team, not hidden, not completed)
  --->
 <cfquery name="engagement_list" datasource="#application.datasources.main#">
-SELECT Project.project_code AS project_code, Project.project_id, Project.project_end AS project_end,
+SELECT Project.project_code, Project.project_id, Project.project_end AS project_end,
 	Customer.description || '-' || Project.description AS project_name, COALESCE(Project.mission,'No mission specified') AS project_mission,
 	COUNT(Task.task_id) AS task_count
 FROM Customer, Project, Task, Team, Emp_Contact, Link_Project_Company

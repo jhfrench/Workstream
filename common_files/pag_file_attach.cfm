@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	 || 
-	<-- bgcolor: string that sets the backgroud color of this pop-up window
  --->
 </cfsilent>
 <cfif isdefined("form.my_file")>
@@ -32,18 +31,11 @@ function upload_file_type_check() {
 }
 </script>
 
-<cfquery name="get_project_attachment_path" datasource="#application.datasources.main#">
-SELECT Link_Project_Attachment_Path.file_path
-FROM Link_Project_Attachment_Path
-	INNER JOIN Task ON Link_Project_Attachment_Path.project_id=Task.project_id
-		AND Task.task_id=#attributes.task_id#
-WHERE Link_Project_Attachment_Path.active_ind=1
-ORDER BY Link_Project_Attachment_Path.file_path
-</cfquery>
+<cfinclude template="qry_get_project_attachment_path.cfm">
 <div id="pop-up-content">
 	<cfform name="file_attach" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" enctype="multipart/form-data" onsubmit="return upload_file_type_check();" class="form-horizontal">
 		<fieldset id="file_attach_table">
-			<legend><h2>Upload <cfif isdefined("form.my_file")>another<cfelse>your</cfif> document</h2></legend>
+			<legend><h2>Attach <cfif isdefined("form.my_file")>another<cfelse>your</cfif> document</h2></legend>
 			<div class="control-group">
 				<label class="control-label" for="file_path">Path to file</label>
 				<div class="controls">

@@ -13,8 +13,13 @@
 	 || 
  --->
 </cfsilent>
-<cfquery name="del_file" datasource="#application.datasources.main#">
+<cfquery name="delete_link_task_file" datasource="#application.datasources.main#">
 UPDATE Link_Task_File
 SET active_ind=0
-WHERE l_t_f_id IN (#attributes.l_t_f_id#)
+WHERE active_ind=1
+	AND l_t_f_id IN (#attributes.l_t_f_id#)
 </cfquery>
+<div class="alert alert-success">
+	<strong>That worked!</strong>
+	You have removed files from task <cfoutput>#attributes.task_id#</cfoutput>.
+</div>

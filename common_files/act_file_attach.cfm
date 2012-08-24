@@ -27,8 +27,8 @@
 			<p>(Couldn't delete it either)</p>
 			</cfcatch>
 		</cftry>
-	</cfcatch>
 		</div>
+	</cfcatch>
 </cftry>
 <cfset variables.file_path="#attributes.file_path##cffile.clientfile#">
 <cfquery name="update_task_files" datasource="#application.datasources.main#">
@@ -38,6 +38,7 @@ VALUES (#attributes.task_id#, '#variables.file_path#', #session.user_account_id#
 
 <cfoutput>
 <div class="alert alert-success">
+<strong>That worked!</strong>
 "#variables.file_path#" is now associated with task #attributes.task_id#.
 </div>
 </cfoutput>

@@ -17,38 +17,27 @@
 	--> task_name: string that gives the name of the task
  --->
 </cfsilent>
-<form action="" method="post">
 <cfoutput>
-	<tr>
-		<td colspan="2" class="SelectText">
-			Mark the tasks you wish to unbind from the task.
-		</td>
-	</tr>
-	<tr>
-		<td align="center" class="SubHeadText">
-			Delete Task
-		</td>
-		<td class="SubHeadText">
-			Name
-		</td>
-	</tr>
-</cfoutput>
-	<cfoutput query="get_associated_tasks">
-	<tr>
-		<td class="btn-group">
-			<input type="checkbox" name="del_task" value="#l_t_t_id#">
-		</td>
-		<td>
-			<img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="<cfif sort_order EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>" height="10" width="9" border="0">&nbsp;#name#
-		</td>
-	</tr>
-	</cfoutput>
-<cfoutput>
-	<tr>
-		<td align="center" colspan="2">
- 			<input type="submit" value="Unbind">
-		</td>
-	</tr>
-</cfoutput>
+<form name="task_detach" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
+	<fieldset>
+		<legend><h2>Remove Tasks</h2></legend>
+		<div class="control-group">
+			<label>Tasks associated with task #attributes.task_id#</label>
+			<div class="controls">
+				<cfloop query="get_associated_tasks">
+					<label class="checkbox" for="del_task_#l_t_t_id#">
+						<input type="checkbox" name="del_task" id="del_task_#l_t_t_id#" value="#l_t_t_id#">
+						<img src="#request.dir_level##application.application_specific_settings.image_dir##task_icon#" alt="<cfif sort_order EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>" height="10" width="9" border="0">&nbsp;#name#
+					</label>
+				</cfloop>
+				<p class="help-block">Mark the tasks you wish to unbind from task #attributes.task_id#.</p>
+			</div>
+		</div>
+		<div class="form-actions">
+			<input type="hidden" name="task_id" value="#attributes.task_id#" />
+			<input type="submit" name="delete" value="Remove" class="btn btn-primary" />
+			<input type="reset" name="reset" value="Reset" class="btn" />
+		</div>
+	</fieldset>
 </form>
-
+</cfoutput> 

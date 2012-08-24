@@ -23,7 +23,7 @@
 SELECT Customer.customer_id, Customer.description || ' (' ||  Customer.root_code || ')' AS customer,
 	Project.description AS project_name,
 	Project.project_id,
-	Project.project_code AS project_code, 
+	Project.project_code, 
 	CASE
 		WHEN Customer.description!=Project.description
 	<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>

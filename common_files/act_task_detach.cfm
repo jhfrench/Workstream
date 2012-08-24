@@ -12,9 +12,15 @@
 	$Log$
 	 || 
  --->
-<cfquery name="task_detach" datasource="#application.datasources.main#">
-DELETE FROM Link_Task_Task
-WHERE l_t_t_id IN (#attributes.del_task#)
-</cfquery>
 </cfsilent>
+<cfquery name="delete_link_task_task" datasource="#application.datasources.main#">
+UPDATE Link_Task_Task
+SET active_ind=0
+WHERE active_ind=1
+	AND l_t_t_id IN (#attributes.del_task#)
+</cfquery>
+<div class="alert alert-success">
+	<strong>That worked!</strong>
+	You have removed tasks from task <cfoutput>#attributes.task_id#</cfoutput>.
+</div>
 

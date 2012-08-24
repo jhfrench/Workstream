@@ -22,7 +22,7 @@
 SELECT Task.task_id, Task.name AS task_name, Task.due_date AS date_due,
 	COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS time_budgeted, Task.status_id,
 	(CASE WHEN Task.status_id=3 /* QA */ THEN REF_Status.status || ' by ' || QA.lname ELSE REF_Status.status END) AS task_status, Owner.lname AS task_owner,
-	(Customer.description || '-' || Project.description) AS project_name, Project.project_code AS project_code<!--- $issue$: poor alias --->, REF_Priority.description AS priority,
+	(Customer.description || '-' || Project.description) AS project_name, Project.project_code<!--- $issue$: poor alias --->, REF_Priority.description AS priority,
 	CASE WHEN REF_Icon.path='0' THEN 'document.gif' ELSE REF_Icon.path END AS task_icon, COALESCE(Recorded_Hours.hours_used,0) AS time_used, (COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used
 FROM Task
 	INNER JOIN Project ON Task.project_id=Project.project_id
