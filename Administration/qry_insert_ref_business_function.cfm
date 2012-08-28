@@ -30,7 +30,7 @@ INSERT INTO REF_Business_Function (parent_business_function_id, description, acr
 	sort_order, created_by, active_ind)
 VALUES (#attributes.parent_business_function_id#, '#attributes.description#', '#attributes.acronym#',
 	#attributes.require_login_ind#, #attributes.default_access_ind#, #attributes.viewable_ind#,
-	#attributes.sort_order#, #session.user_account_id#, #attributes.active_ind#)
+	#attributes.sort_order#, #variables.user_identification#, #attributes.active_ind#)
 </cfquery>
 <cfquery name="get_business_function_id" datasource="#application.datasources.main#">
 SELECT CURRVAL('REF_Business_Function_business_function_id_SEQ') AS business_function_id

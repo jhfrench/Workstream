@@ -31,7 +31,7 @@
 	<cfinclude template="../common_files/qry_insert_demographics.cfm">
 	<!--- handle account status change --->
 	<cfinclude template="../common_files/qry_deactivate_user_account_status.cfm">
-	<cfset attributes.created_by=session.user_account_id>
+	<cfset attributes.created_by=variables.user_identification>
 	<cfinclude template="../common_files/qry_insert_link_user_account_status.cfm">
 	<cfset attributes.display_message="User information was successfully updated.">
 </cfif>

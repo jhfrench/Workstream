@@ -52,7 +52,7 @@
 		<input type="hidden" name="customer_id" value="#attributes.customer_id#" />
 		</cfif>
 		<input type="submit" value="Get Invoice List" class="btn btn-primary" />
-<cfif session.user_account_id EQ 1>
+<cfif variables.user_identification EQ 1>
 &nbsp;&nbsp;<input type="checkbox" name="run_post" id="run_post" value="1" />&nbsp;<label for="run_post">Post Invoices</label>
 </cfif>
 </div>

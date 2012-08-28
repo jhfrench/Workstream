@@ -21,7 +21,7 @@
 	--> attributes.task_details: string of text that describes the work processes and conditions necessary for succesful completion of the task
 	--> attributes.task_name: string containing the name the user entered for the new task
 	--> attributes.task_status: number that indicates the current status of the new task (a task can be created after work for that task has already begun)
-	--> session.user_account_id: number that identifies the workstream account that created the task
+	--> variables.user_identification: number that identifies the workstream account that created the task
  --->
 <cftransaction isolation="READ_COMMITTED">
 <cfquery name="insert_new_task" datasource="#application.datasources.main#">
@@ -33,7 +33,7 @@ INSERT INTO Task (name, project_id, entry_date,
 VALUES ('#attributes.task_name#', #attributes.project_id#, CURRENT_TIMESTAMP,
 	#createodbcdate(attributes.date_start)#, #createodbcdate(attributes.due_date)#, #attributes.icon_id#,
 	#ceiling(attributes.budgeted_hours)#, #attributes.task_status#, '#attributes.task_details#',
-	#session.user_account_id#, #attributes.priority_id#<!--- ,
+	#variables.user_identification#, #attributes.priority_id#<!--- ,
 	#attributes.notification_frequency_id# --->);
 
 SELECT CURRVAL('Task_task_id_SEQ') AS task_id;
@@ -41,7 +41,7 @@ SELECT CURRVAL('Task_task_id_SEQ') AS task_id;
 <cfset attributes.task_id=insert_new_task.task_id>
 <cfquery name="insert_task_source" datasource="#application.datasources.main#">
 INSERT INTO Team(task_id,emp_id,role_id)
-VALUES (#attributes.task_id#,#session.user_account_id#,5)
+VALUES (#attributes.task_id#,#variables.user_identification#,5)
 </cfquery>
 </cftransaction>
 </cfsilent>

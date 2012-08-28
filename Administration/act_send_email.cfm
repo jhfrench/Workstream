@@ -26,7 +26,7 @@
 <cfif get_email_recipients.recordcount EQ 0>
 	<cfoutput>Your message has no valid recipients, so it cannot be sent<cfif len(attributes.carbon_copy_to)>;<br /> the following recipient(s) have opted out of receiving Workstream emails:<br /> #variables.carbon_copy_to#</cfif>.</cfoutput>
 <cfelse>
-<cfset variables.created_by=session.user_account_id>
+<cfset variables.created_by=variables.user_identification>
 <!--- INSERT MESSAGE DETAILS INTO DATABASE: --->
 	<!--- LOG_Email --->
 	<cfinclude template="qry_insert_log_email.cfm">

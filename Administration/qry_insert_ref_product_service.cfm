@@ -28,5 +28,5 @@
 INSERT INTO REF_Product_Service (code, description, sort_order,
 	created_by, active_ind)
 VALUES ('#attributes.code#', '#attributes.description#', #attributes.sort_order#, 
-	#session.user_account_id#,	#attributes.active_ind#)
+	#variables.user_identification#,	#attributes.active_ind#)
 </cfquery>

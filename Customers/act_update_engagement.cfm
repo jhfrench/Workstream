@@ -52,7 +52,7 @@ VALUES (#attributes.project_id#, #ii#);
 	UPDATE Task
 	SET status_id=7 /*completed*/,
 		complete_date=CURRENT_TIMESTAMP,
-		completed_by=#session.user_account_id#
+		completed_by=#variables.user_identification#
 	WHERE task_id IN (#task_id#)
 	</cfquery>
 </cfif>

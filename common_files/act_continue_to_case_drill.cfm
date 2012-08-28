@@ -24,12 +24,12 @@
 		</cfquery>
 		<cfset attributes.project_id = get_proj_from_task.project_id> 
 	<cfelse>
-		<cflocation url="#request.dir_level#/index.cfm?fuseaction=Timekeeping.engagement_list">
+		<cflocation url="/index.cfm?fuseaction=Timekeeping.engagement_list">
 	</cfif>
 
 </cfsilent>
 
-<form name="continue_on" method="post" action="<cfoutput>#request.dir_level#</cfoutput>claim/index.cfm?fuseaction=<cfoutput>#request.XFA.case_drill#</cfoutput>">
+<form name="continue_on" method="post" action="<cfoutput></cfoutput>claim/index.cfm?fuseaction=<cfoutput>#request.XFA.case_drill#</cfoutput>">
 	<input type="hidden" name="project_id" value="<cfoutput>#attributes.project_id#</cfoutput>">
 </form>
 

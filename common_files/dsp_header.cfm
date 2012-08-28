@@ -114,7 +114,7 @@ else
 							</form>
 							<ul class="nav pull-right"><cfif application.help.active_ind>
 								<li><a href="##help_area" id="nav_help_button" title="Access the #application.product_name# help system" class="btn btn-mini btn-info" style="color:##ffffff;">Help</a></li></cfif>
-								<cfif isdefined("session.user_account_id")><cfif session.password_created_by EQ session.user_account_id><li><a href="index.cfm?fuseaction=Home.logout" class="login_link"">Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></a></li></cfif><cfelse><li><a href="index.cfm?fuseaction=Home.login" class="login_link">Login for More Access</a></li></cfif>
+								<cfif isdefined("variables.user_identification")><cfif session.password_created_by EQ variables.user_identification><li><a href="index.cfm?fuseaction=Home.logout" class="login_link"">Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></a></li></cfif><cfelse><li><a href="index.cfm?fuseaction=Home.login" class="login_link">Login for More Access</a></li></cfif>
 							</ul>
 						</div><!--/.nav-collapse -->
 					</div>

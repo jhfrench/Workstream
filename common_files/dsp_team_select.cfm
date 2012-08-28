@@ -32,7 +32,7 @@
 		variables.emp_id_match=attributes.emp_id;
 	}
 	else {
-		variables.emp_id_match=session.user_account_id;
+		variables.emp_id_match=variables.user_identification;
 	}
 	if (isdefined("get_expense_details.emp_id")) {
 		variables.emp_id_match=get_expense_details.emp_id;

@@ -22,7 +22,7 @@ WHERE task_id=#attributes.task_id#
 	AND file_path='#variables.ii#'
 
 INSERT INTO Link_Task_File (task_id, file_path, created_by)
-VALUES (#attributes.task_id#, '#variables.ii#', #session.user_account_id#)
+VALUES (#attributes.task_id#, '#variables.ii#', #variables.user_identification#)
 </cfloop>
 </cfquery>
 </cfsilent>

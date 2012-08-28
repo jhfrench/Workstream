@@ -33,7 +33,7 @@
 <cfelseif listfindnocase(application.private_fuseactions, url.fuseaction)>
 	<!--- if the fuseaction is for one of the protected pages --->
 	<cfset variables.page_is_secure_ind=1>
-	<cfif NOT isdefined("session.user_account_id") AND comparenocase(url.fuseaction,"Home.login")>
+	<cfif NOT isdefined("variables.user_identification") AND comparenocase(url.fuseaction,"Home.login")>
 		<!--- if the user's user_account_id is not defined in the session scope and the fuseaction is not for the login page --->
 		<cfif len(url.fuseaction)>
 			<!--- if we have a fuseaction in the URL --->

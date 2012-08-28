@@ -25,7 +25,7 @@
 	<!--- create new REF_Fund records after making sure the new fund is not already in the database --->
 	<cfquery name="insert_ref_fund" datasource="#application.datasources.main#">
 	INSERT INTO REF_Fund (description, created_by)
-	SELECT #attributes.source_table#.#attributes.source_column#, #session.user_account_id#
+	SELECT #attributes.source_table#.#attributes.source_column#, #variables.user_identification#
 	FROM #attributes.source_table#
 	WHERE #attributes.source_table#.active_ind=1
 		AND #attributes.source_table#.#attributes.source_column# IS NOT NULL
@@ -60,7 +60,7 @@ WHERE active_ind=1
 			<!--- associate the fund with each year to which it is assigned --->
 			<cfquery name="insert_link_program_year_fund" datasource="#application.datasources.main#">
 			INSERT INTO Link_Program_Year_Fund (program_year_id, fund_id, created_by)
-			SELECT program_year_id, #fund_id#, #session.user_account_id#
+			SELECT program_year_id, #fund_id#, #variables.user_identification#
 			FROM REF_Program_Year
 			WHERE active_ind=1
 				AND description BETWEEN '#year_description#' AND '#year_description+variables.year_multiple-1#' /*we subtract one so that the fund won't be applied to an extra year (we count the year the fund was initiatied)*/

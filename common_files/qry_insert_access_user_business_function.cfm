@@ -30,7 +30,7 @@
 				program_year_id)
 			<cfswitch expression="#attributes.user_category#">
 				<cfcase value="add_user">
-			SELECT #attributes.user_account_id# AS user_account_id, business_function_id, #session.user_account_id# created_by,
+			SELECT #attributes.user_account_id# AS user_account_id, business_function_id, #variables.user_identification# created_by,
 				REF_Date.program_year_id
 			FROM REF_Business_Function, REF_Date
 			WHERE REF_Date.date_year=#year(now())#
@@ -40,7 +40,7 @@
 				AND REF_Business_Function.default_access_ind=1
 				</cfcase>
 				<cfcase value="existing_user">
-			SELECT User_Account.user_account_id, REF_Business_Function.business_function_id, #session.user_account_id# created_by,
+			SELECT User_Account.user_account_id, REF_Business_Function.business_function_id, #variables.user_identification# created_by,
 				REF_Date.program_year_id
 			FROM User_Account
 				INNER JOIN REF_Business_Function ON 1=REF_Business_Function.active_ind
@@ -65,7 +65,7 @@
 			program_year_id)
 			<cfswitch expression="#attributes.user_category#">
 				<cfcase value="add_user">
-		SELECT User_Account.user_account_id, REF_Screen.business_function_id, #session.user_account_id#,
+		SELECT User_Account.user_account_id, REF_Screen.business_function_id, #variables.user_identification#,
 			REF_Date.program_year_id
 		FROM User_Account, REF_Screen, REF_Date
 		WHERE User_Account.user_account_id IN (#attributes.user_account_id#)
@@ -85,7 +85,7 @@
 		GROUP BY User_Account.user_account_id, REF_Screen.business_function_id, REF_Date.program_year_id
 				</cfcase>
 				<cfcase value="existing_user">
-		SELECT User_Account.user_account_id, REF_Screen.business_function_id, #session.user_account_id#,
+		SELECT User_Account.user_account_id, REF_Screen.business_function_id, #variables.user_identification#,
 			#attributes.program_year_id#
 		FROM User_Account, REF_Screen
 		WHERE User_Account.user_account_id IN (#attributes.user_account_id#)

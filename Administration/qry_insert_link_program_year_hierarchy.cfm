@@ -27,6 +27,6 @@
 <cfquery name="insert_link_program_year_hierarchy" datasource="#application.datasources.main#">
 INSERT INTO Link_Program_Year_Hierarchy (hierarchy_level_id, program_year_id, created_by,
 	active_ind, sort_order)
-VALUES ('#attributes.hierarchy_level_id#', #attributes.program_year_id#, #session.user_account_id#,
+VALUES ('#attributes.hierarchy_level_id#', #attributes.program_year_id#, #variables.user_identification#,
 	#attributes.active_ind#, #attributes.sort_order#)
 </cfquery>

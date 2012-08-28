@@ -24,8 +24,8 @@ FROM Time_Entry,
 		AND (Demographics.end_date IS NULL
 			OR Demographics.end_date > #createodbcdatetime(attributes.from_date)#)<cfelse>
 		AND Link_Employee_Supervisor.user_account_id=Emp_Contact.emp_id 
-		AND (Link_Employee_Supervisor.supervisor_id=#session.user_account_id#
-			OR Link_Employee_Supervisor.user_account_id=#session.user_account_id#)
+		AND (Link_Employee_Supervisor.supervisor_id=#variables.user_identification#
+			OR Link_Employee_Supervisor.user_account_id=#variables.user_identification#)
 		AND Link_Employee_Supervisor.date_start < #createodbcdatetime(attributes.through_date)#
 		AND (Link_Employee_Supervisor.date_end IS NULL
 			OR Link_Employee_Supervisor.date_end > #createodbcdatetime(attributes.from_date)#)</cfif>

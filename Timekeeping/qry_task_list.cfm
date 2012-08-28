@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	--> application.datasources.main: string that contains the name of the datasource AS mapped in CF administrator
-	--> session.user_account_id: id that identifies user to workstream
+	--> variables.user_identification: id that identifies user to workstream
 	--> session.workstream_show_closed: number that indicates the desire of the user to hide or show tasks which have already been completed; 1 means include the task, 0 means exclude the task
 	--> session.workstream_show_on_hold: number that indicates the desire of the user to hide or show tasks which have been put on hold; 1 means include the task, 0 means exclude the task
 	--> session.workstream_show_team: number that indicates the desire of the user to hide or show tasks for which they are a member of the task team; 1 means include the task, 0 means exclude the task
@@ -71,7 +71,7 @@ FROM Task, Team, Emp_Contact,
 						INNER JOIN REF_Priority on Task.priority_id=REF_Priority.priority_id
 						INNER JOIN Team ON Task.task_id=Team.task_id
 					WHERE 1=1<cfif NOT from_invoice>
-						AND Team.emp_id IN (<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#session.user_account_id#</cfif>)
+						AND Team.emp_id IN (<cfif isdefined("attributes.emp_id")><cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.emp_id#" /><cfelse><cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" list="yes" /></cfif>)
 						AND (
 							(
 								Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>)
@@ -91,8 +91,8 @@ FROM Task, Team, Emp_Contact,
 				SELECT task_id, SUM(hours) AS hours_used
 				FROM Time_Entry
 				WHERE Time_Entry.active_ind=1<cfif from_invoice>
-					AND EXTRACT(MONTH FROM Time_Entry.work_date)=#attributes.month#
-					AND EXTRACT(YEAR FROM Time_Entry.work_date)=#attributes.year#</cfif>
+					AND EXTRACT(MONTH FROM Time_Entry.work_date)=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.month#" />
+					AND EXTRACT(YEAR FROM Time_Entry.work_date)=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.year#" /></cfif>
 				GROUP BY task_id
 			) AS Recorded_Hours ON Path.task_id = Recorded_Hours.task_id
 		WHERE Task.task_id=Path.task_id
@@ -107,9 +107,9 @@ WHERE Customer.customer_id=Project.customer_id
 	AND Task.task_id=Task_Details.task_id
 	AND Emp_Contact.emp_id=Team.emp_id 
 	AND Link_Project_Company.project_id=Project.project_id 
-	AND Link_Project_Company.company_id IN (#session.workstream_company_id#)
+	AND Link_Project_Company.company_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#session.workstream_company_id#" list="yes" />)
 	AND Team.role_id=3 /* QA */<cfif isdefined("attributes.project_id")>
-	AND Project.project_id=#attributes.project_id#</cfif>
+	AND Project.project_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#" /></cfif>
 	AND Project.project_type_id!=3<cfif isdefined("session.workstream_task_list_order")>
 ORDER BY <cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id) GT 1>task_owner, #variables.temp_task_list_order#<cfelse>#session.workstream_task_list_order#</cfif></cfif>
 </cfquery>

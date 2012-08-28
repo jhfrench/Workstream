@@ -57,7 +57,7 @@ FROM Demographics_Ngauge Demographics, Emp_Contact
 WHERE Demographics.emp_id=Emp_Contact.emp_id
 	AND Demographics.effective_to IS NULL
 	AND Demographics.end_date IS NULL
-	AND (Demographics.supervisor=#session.user_account_id# OR Demographics.emp_id=#session.user_account_id#)
+	AND (Demographics.supervisor=#variables.user_identification# OR Demographics.emp_id=#variables.user_identification#)
 </cfquery>
 </cfsilent>
 

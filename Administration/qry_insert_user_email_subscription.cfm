@@ -26,7 +26,7 @@
 
 <cfquery name="insert_user_email_subscription" datasource="#application.datasources.main#">
 INSERT INTO User_Email_Subscription (user_account_id, email_category_id, created_by)
-SELECT #attributes.user_account_id#, REF_Email_Category.email_category_id, #session.user_account_id#
+SELECT #attributes.user_account_id#, REF_Email_Category.email_category_id, #variables.user_identification#
 FROM REF_Email_Category
 WHERE email_category_id IN (0,#attributes.email_category_id#)
 </cfquery>

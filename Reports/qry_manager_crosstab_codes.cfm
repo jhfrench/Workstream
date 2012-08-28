@@ -15,7 +15,7 @@ SELECT Project.project_code AS code, Project.project_id, SUM(Time_Entry.hours) A
 FROM Time_Entry
 	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
 	INNER JOIN (
-		SELECT #session.user_account_id# AS emp_id
+		SELECT #variables.user_identification# AS emp_id
 		UNION ALL
 		SELECT Emp_Contact.emp_id
 		FROM Emp_Contact
@@ -23,7 +23,7 @@ FROM Time_Entry
 			INNER JOIN Demographics ON Demographics.hire_date < #createodbcdatetime(attributes.through_date)#
 				AND COALESCE(Demographics.end_date, CURRENT_DATE+ interval '1 day') > #createodbcdatetime(attributes.from_date)# IS NULL<cfelse>
 			INNER JOIN Link_Employee_Supervisor ON Link_Employee_Supervisor.user_account_id=Emp_Contact.emp_id 
-				AND Link_Employee_Supervisor.supervisor_id=#session.user_account_id#
+				AND Link_Employee_Supervisor.supervisor_id=#variables.user_identification#
 				AND Link_Employee_Supervisor.date_start < #createodbcdatetime(attributes.through_date)#
 				AND COALESCE(Link_Employee_Supervisor.date_end, CURRENT_DATE+ interval '1 day') > #createodbcdatetime(attributes.from_date)#</cfif>
 		WHERE 1=1<cfif listlen(session.workstream_selected_company_id)>

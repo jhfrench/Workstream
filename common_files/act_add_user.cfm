@@ -22,7 +22,7 @@
 </fusedoc>
 --->
 
-<cfparam name="session.user_account_id" default="0">
+<cfparam name="variables.user_identification" default="0">
 <cfparam name="variables.add_user_error_count" default="0">
 
 <!--- check if firstname field is empty --->
@@ -68,7 +68,7 @@
 		<cfset attributes.user_account_id=get_user_account_id.user_account_id>
 
 		<!--- set account as active --->
-		<cfmodule template="qry_insert_link_user_account_status.cfm" user_account_id="#attributes.user_account_id#" account_status_id="1" created_by="#session.user_account_id#">
+		<cfmodule template="qry_insert_link_user_account_status.cfm" user_account_id="#attributes.user_account_id#" account_status_id="1" created_by="#variables.user_identification#">
 
 		<!--- insert demograpghics info --->
 		<cfinclude template="qry_insert_demographics.cfm">

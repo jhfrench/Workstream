@@ -18,7 +18,7 @@ WHERE active_ind=1
 	AND company_id IN (#attributes.company_id#);
 
 INSERT INTO Date_Locked (company_id, date_locked, created_by)
-SELECT REF_Company.company_id, #createodbcdatetime(attributes.date_locked)# AS date_locked, #session.user_account_id#
+SELECT REF_Company.company_id, #createodbcdatetime(attributes.date_locked)# AS date_locked, #variables.user_identification#
 FROM REF_Company
 WHERE REF_Company.company_id IN (#attributes.company_id#)
 </cfquery>

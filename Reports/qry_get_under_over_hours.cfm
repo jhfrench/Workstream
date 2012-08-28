@@ -26,7 +26,7 @@ FROM Time_Entry
 			LEFT OUTER JOIN REF_Employee_Classification ON Demographics.employee_classification_id=REF_Employee_Classification.employee_classification_id
 			INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id<cfif NOT variables.all_option>
 			INNER JOIN Link_Employee_Supervisor ON Link_Employee_Supervisor.user_account_id=Emp_Contact.emp_id 
-				AND Link_Employee_Supervisor.supervisor_id=#session.user_account_id#
+				AND Link_Employee_Supervisor.supervisor_id=#variables.user_identification#
 				AND Link_Employee_Supervisor.date_start < #createodbcdatetime(attributes.through_date)#
 				AND COALESCE(Link_Employee_Supervisor.date_end, CURRENT_DATE+ interval '1 day') > #createodbcdatetime(attributes.from_date)#</cfif>
 		WHERE 1=1<cfif listlen(session.workstream_selected_company_id)>

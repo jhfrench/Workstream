@@ -14,7 +14,7 @@
  --->
 <cfinclude template="qry_profile_lookup.cfm">
 <cfscript>
-	session.user_account_id=profile_lookup.emp_id;
+	variables.user_identification=profile_lookup.emp_id;
 	session.workstream_account_changed=profile_lookup.account_changed;
 	session.workstream_company_id=profile_lookup.company_id;
 	session.workstream_company_name=profile_lookup.company_name;

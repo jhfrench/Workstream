@@ -57,7 +57,7 @@
 	</tr>
 	<tr>
 		<td align="center" class="SubHeadText">
-			<applet code="javachart.applet.columnApp.class" codebase="#request.dir_level##application.graphbase#" width="650" height="360">
+			<applet code="javachart.applet.columnApp.class" codebase="#application.graphbase#" width="650" height="360">
 				<param name="plotAreaColor" value="ffffff">
 				<param name="backgroundColor" value="ffffff">
 				<param name="2D" value="yes">

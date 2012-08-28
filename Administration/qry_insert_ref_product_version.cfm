@@ -28,5 +28,5 @@
 INSERT INTO REF_Product_Version (description, selectable_ind, scheduled_release_date,
 	created_by, active_ind, sort_order)
 VALUES ('#attributes.description#', #attributes.selectable_ind#, '#dateformat(attributes.scheduled_release_date, "dd-mmm-yyyy")#',
-	#session.user_account_id#, #attributes.active_ind#, #attributes.sort_order#)
+	#variables.user_identification#, #attributes.active_ind#, #attributes.sort_order#)
 </cfquery>

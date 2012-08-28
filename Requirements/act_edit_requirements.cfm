@@ -43,7 +43,7 @@
 		INSERT INTO Requirement (requirement_type_id, requirement_number, description,
 			product_version_id, priority_id, created_by)
 		VALUES (#attributes.requirement_type_id#, #attributes.requirement_number#, '#attributes.requirement_description#',
-			#attributes.product_version_id#, #attributes.priority_id#, #session.user_account_id#)
+			#attributes.product_version_id#, #attributes.priority_id#, #variables.user_identification#)
 		</cfquery>
 		<cfquery name="get_requirement_id" datasource="#application.datasources.main#">
 		SELECT CURRVAL('Requirement_requirement_id_SEQ') AS requirement_id
@@ -53,7 +53,7 @@
 		INSERT INTO Link_Screen_Requirement (requirement_id, screen_id, sort_order,
 			created_by)
 		VALUES (#get_requirement_id.requirement_id#, #attributes.screen_id#, #attributes.sort_order#,
-			#session.user_account_id#)
+			#variables.user_identification#)
 		</cfquery>
 		<cfquery name="insert_requirement_history" datasource="#application.datasources.main#">
 		INSERT INTO Requirement_History (original_requirement_id, replacement_requirement_id)

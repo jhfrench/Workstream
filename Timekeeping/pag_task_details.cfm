@@ -55,7 +55,7 @@
 		<cfset task_team=valuelist(get_task_team.emp_id)>
 		<cfset task_qa=get_task_details.qa_id>
 		<cfinclude template="../common_files/qry_get_user_fields.cfm">
-		<!---<cfif listfind("#valuelist(get_editing_priveleges.editing_priveleges)#,0",session.user_account_id)>
+		<!---<cfif listfind("#valuelist(get_editing_priveleges.editing_priveleges)#,0",variables.user_identification)>
 			<cfset variables.edit=1>
 		<cfelse>
 			<cfset variables.edit=0>

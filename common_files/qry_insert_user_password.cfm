@@ -20,15 +20,10 @@
 	</IO>
 </fusedoc>
 --->
-
-<cfif isdefined("session.user_account_id")>
-	<cfset variables.user_account_id=session.user_account_id>
-<cfelse>
-	<cfset variables.user_account_id=1>
-</cfif>
+<cfparam name="variables.user_identification" default="1">
 <cfquery name="insert_user_password" datasource="#application.datasources.main#">
 INSERT INTO User_Password (user_account_id, password, created_by,
 	active_ind)
-VALUES (#attributes.user_account_id#, '#variables.encrypted_password#', #variables.user_account_id#,
+VALUES (#attributes.user_account_id#, '#variables.encrypted_password#', #variables.user_identification#,
 	1)
 </cfquery>

@@ -76,7 +76,7 @@
 	<tr>
 		<td>&nbsp;</td>
 		<td>
-			<input type="hidden" name="created_by" value="#session.user_account_id#" />
+			<input type="hidden" name="created_by" value="#variables.user_identification#" />
 			<input type="hidden" name="l_u_a_s_id" value="#attributes.l_u_a_s_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
 		</td>

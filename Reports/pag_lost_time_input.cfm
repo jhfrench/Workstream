@@ -14,6 +14,5 @@
 
 	END FUSEDOC --->
 </cfsilent>
-<cfset request.dir_level = "../">
 <cfinclude template="qry_team_select_by_company.cfm">
 <cfinclude template="dsp_lost_time_input.cfm">

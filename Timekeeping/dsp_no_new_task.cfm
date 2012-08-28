@@ -25,7 +25,7 @@ WHERE Task.task_id=Team.task_id
 	AND Task.name='#attributes.task_name#'
 	AND Task.due_date='#attributes.due_date#'
 	AND Task.icon_id=#attributes.icon_id#
-	AND Task.created_by=#session.user_account_id#
+	AND Task.created_by=#variables.user_identification#
 </cfquery>
 <cfif get_created_task.recordcount>
 	<cfmodule template="../common_files/dsp_section_title.cfm" section_title="This form has probably already been submitted (task #get_created_task.task_id#); please ensure that you are not entering the same task twice." align="center" section_color="ffffff" colspan="2" gutter="0" title_class="Note">

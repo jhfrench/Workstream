@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfparam name="attributes.emp_id" default="#session.user_account_id#">
+<cfparam name="attributes.emp_id" default="#variables.user_identification#">
 <cfparam name="attributes.from_date" default="#month(now())#/1/#year(now())#">
 <cfparam name="attributes.to_date" default="#month(now())#/#daysinmonth(now())#/#year(now())#">
 <cfparam name="attributes.show_budgeted" default="0">

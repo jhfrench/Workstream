@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
-	--> session.user_account_id: id that identifies user to workstream
+	--> variables.user_identification: id that identifies user to workstream
 	--> session.workstream_show_closed: number that indicates the desire of the user to hide or show tasks which have already been completed; 1 means include the task, 0 means exclude the task
 	--> session.workstream_show_on_hold: number that indicates the desire of the user to hide or show tasks which have been put on hold; 1 means include the task, 0 means exclude the task
 	--> session.workstream_show_team: number that indicates the desire of the user to hide or show tasks for which they are a member of the task team; 1 means include the task, 0 means exclude the task
@@ -31,7 +31,7 @@ SELECT Project.project_code, Project.project_id, Project.project_end AS project_
 FROM Customer, Project, Task, Team, Emp_Contact, Link_Project_Company
 WHERE (Project.active_ind=<cfif NOT session.workstream_show_closed_engagements>1<cfelse>0 OR project_end IS NOT NULL</cfif>) 
 	AND Customer.customer_id=Project.customer_id
-	AND Team.emp_id=<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#session.user_account_id#</cfif> 
+	AND Team.emp_id=<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#variables.user_identification#</cfif> 
 	AND Project.project_id=Task.project_id 
 	AND Task.task_id=Team.task_id AND Team.emp_id=Emp_Contact.emp_id 
 	AND Link_Project_Company.project_id=Project.project_id 

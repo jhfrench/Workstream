@@ -16,7 +16,7 @@
 <cfquery name="get_carryover" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT COALESCE(carryover_limit, 40) AS carryover_limit
 FROM PTO_Rollover
-WHERE emp_id=#session.user_account_id#
+WHERE emp_id=#variables.user_identification#
 	AND rollover_year=EXTRACT(YEAR FROM CURRENT_DATE)-1
 	AND #year(now())#=#year(now())#
 </cfquery>
@@ -41,7 +41,7 @@ FROM
 		(SELECT SUM(COALESCE(Time_Entry.hours, 0)) AS hours_out, 0 AS hours_in, Time_Entry.emp_id
 		FROM Time_Entry
 		WHERE Time_Entry.active_ind=1
-			AND Time_Entry.emp_id=#session.user_account_id#
+			AND Time_Entry.emp_id=#variables.user_identification#
 			AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id=1)
 			AND Time_Entry.work_date >= (SELECT pto_start_date FROM REF_Company WHERE company_id=#session.workstream_company_id#) 
 			AND EXTRACT(YEAR FROM Time_Entry.work_date) < EXTRACT(YEAR FROM CURRENT_DATE)
@@ -49,7 +49,7 @@ FROM
 		UNION ALL
 		SELECT 0 AS hours_out, SUM(COALESCE(PTO_Grant.granted_hours, 0)) AS hours_in, PTO_Grant.emp_id
 		FROM PTO_Grant
-	 	WHERE PTO_Grant.emp_id=#session.user_account_id#
+	 	WHERE PTO_Grant.emp_id=#variables.user_identification#
 			AND date_granted >= (SELECT pto_start_date FROM REF_Company WHERE company_id=#session.workstream_company_id#) 
 			AND EXTRACT(YEAR FROM date_granted) < EXTRACT(YEAR FROM CURRENT_DATE)
 		GROUP BY PTO_Grant.emp_id) AS Previous_Years_Hours
@@ -74,7 +74,7 @@ FROM
 		AND Demographics.hire_date+'30 day' < CURRENT_TIMESTAMP
 		AND ((CURRENT_TIMESTAMP BETWEEN Demographics.effective_from AND Demographics.effective_to) 
 			OR Demographics.effective_to IS NULL)
-		AND Demographics.emp_id=#session.user_account_id#
+		AND Demographics.emp_id=#variables.user_identification#
 		AND ABCD_Months.month > EXTRACT(MONTH FROM CURRENT_DATE)
 		AND ABCD_Months.year=EXTRACT(YEAR FROM CURRENT_DATE))
 	AS Junk

@@ -29,7 +29,7 @@
 	<!--- handle demographics changes --->
 	<cfinclude template="../common_files/qry_deactivate_demographics.cfm">
 	<cfinclude template="../common_files/qry_insert_demographics.cfm">
-	<cfset attributes.created_by=session.user_account_id>
+	<cfset attributes.created_by=variables.user_identification>
 	<cfset attributes.display_message="User information was successfully updated.">
 </cfif>
 

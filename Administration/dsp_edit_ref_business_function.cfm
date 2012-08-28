@@ -110,7 +110,7 @@
 		</div>
 	</cfif>
 		<div class="form-actions">
-			<input type="hidden" name="created_by" value="#session.user_account_id#" />
+			<input type="hidden" name="created_by" value="#variables.user_identification#" />
 			<input type="hidden" name="business_function_id" value="#attributes.business_function_id#" />
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />

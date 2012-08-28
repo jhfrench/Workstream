@@ -83,7 +83,7 @@
 				<label for="account_status_id">Account Status</label>
 				<div class="controls">
 					<!--- only allow to lock and unlock when the user information being modified is not the current user --->
-					<cfif get_user_information.user_account_id NEQ session.user_account_id>
+					<cfif get_user_information.user_account_id NEQ variables.user_identification>
 						<cfloop query="get_ref_account_status">
 							<input type="radio" name="account_status_id" id="account_status_id_#account_status_id#" value="#account_status_id#"<cfif get_user_information.account_status_id EQ account_status_id> checked="checked"</cfif>/><label for="account_status_id_#account_status_id#">#description#</label>
 						</cfloop>

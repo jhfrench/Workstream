@@ -37,7 +37,7 @@
 	<cfif attributes.account_status_id NEQ 0>
 	<!--- lock the account --->
 		<cfinclude template="../common_files/qry_deactivate_user_account_status.cfm">
-		<cfset attributes.created_by=session.user_account_id>
+		<cfset attributes.created_by=variables.user_identification>
 		<cfinclude template="../common_files/qry_insert_link_user_account_status.cfm">
 		<cfif attributes.account_status_id EQ 2>
 			<cflocation url="index.cfm?fuseaction=#application.fusebox.defaultfuseaction#&display_message=User information has been locked ">

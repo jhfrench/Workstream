@@ -31,6 +31,6 @@ WHERE Access_User_Account_Grouper.active_ind=1
 	AND Access_User_Account_Grouper.program_year_id=#attributes.program_year_id#
 	AND Access_User_Account_Grouper.privilege_id IN (#attributes.privilege_id#)
 	AND Access_User_Account_Grouper.module_id=#attributes.module_id#
-	AND Access_User_Account_Grouper.user_account_id=#session.user_account_id#
+	AND Access_User_Account_Grouper.user_account_id=#variables.user_identification#
 GROUP BY organization_id
 </cfoutput>

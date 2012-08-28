@@ -23,7 +23,7 @@
 <cfparam name="attributes.datasource" default="">
 <cfparam name="attributes.sql_to_execute" default="">
 
-<cfif session.user_account_id EQ 1>
+<cfif variables.user_identification EQ 1>
 	<cfif len(attributes.sql_to_execute)>
 		<cftry>
 			<!--- execute sql --->

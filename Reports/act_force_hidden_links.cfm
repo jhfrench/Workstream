@@ -38,28 +38,28 @@ function bn_tasks(fldValue) {
 </cfoutput>//-->
 </script>
 <cfoutput>
-<form name="sup_to_emp" action="#request.dir_level#index.cfm?fuseaction=Reports.employee_force" method="post">
+<form name="sup_to_emp" action="index.cfm?fuseaction=Reports.employee_force" method="post">
 	<input type="hidden" name="from_date" value="#attributes.from_date#">
 	<input type="hidden" name="to_date" value="#attributes.to_date#">
-	<input type="hidden" name="emp_id" value="#session.user_account_id#">
+	<input type="hidden" name="emp_id" value="#variables.user_identification#">
 </form>
-<form name="bc_tasks" action="#request.dir_level#index.cfm?fuseaction=Reports.employee_force" method="post">
+<form name="bc_tasks" action="index.cfm?fuseaction=Reports.employee_force" method="post">
 	<input type="hidden" name="from_date" value="#attributes.from_date#">
 	<input type="hidden" name="to_date" value="#attributes.to_date#">
-	<input type="hidden" name="emp_id" value="#session.user_account_id#">
+	<input type="hidden" name="emp_id" value="#variables.user_identification#">
 	<input type="hidden" name="show_budgeted" value="1">
 	<input type="hidden" name="show_completed" value="1">
 </form>
-<form name="nc_tasks" action="#request.dir_level#index.cfm?fuseaction=Reports.employee_force" method="post">
+<form name="nc_tasks" action="index.cfm?fuseaction=Reports.employee_force" method="post">
 	<input type="hidden" name="from_date" value="#attributes.from_date#">
 	<input type="hidden" name="to_date" value="#attributes.to_date#">
-	<input type="hidden" name="emp_id" value="#session.user_account_id#">
+	<input type="hidden" name="emp_id" value="#variables.user_identification#">
 	<input type="hidden" name="show_completed" value="1">
 </form>
-<form name="bn_tasks" action="#request.dir_level#index.cfm?fuseaction=Reports.employee_force" method="post">
+<form name="bn_tasks" action="index.cfm?fuseaction=Reports.employee_force" method="post">
 	<input type="hidden" name="from_date" value="#attributes.from_date#">
 	<input type="hidden" name="to_date" value="#attributes.to_date#">
-	<input type="hidden" name="emp_id" value="#session.user_account_id#">
+	<input type="hidden" name="emp_id" value="#variables.user_identification#">
 	<input type="hidden" name="show_budgeted" value="1">
 </form>
 </cfoutput>

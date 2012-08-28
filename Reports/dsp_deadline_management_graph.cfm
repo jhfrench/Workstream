@@ -52,7 +52,7 @@
 </cfoutput>
 </cfsilent>
 Deadline Management Percent<br />
-<cfoutput><applet code="javachart.applet.stackBarApp.class" codebase="#request.dir_level##application.graphbase#" width="600" height="#graphheight#">
+<cfoutput><applet code="javachart.applet.stackBarApp.class" codebase="#application.graphbase#" width="600" height="#graphheight#">
 	<param name="plotAreaColor" value="ffffff">
 	<param name="backgroundColor" value="ffffff">
 	<param name="2D" value="yes">

@@ -27,6 +27,6 @@
 <cfquery name="insert_link_module_privilege" datasource="#application.datasources.main#">
 INSERT INTO Link_Module_Privilege (module_id, privilege_id, created_by,
 	active_ind)
-VALUES ('#attributes.module_id#', #attributes.privilege_id#, #session.user_account_id#,
+VALUES ('#attributes.module_id#', #attributes.privilege_id#, #variables.user_identification#,
 	#attributes.active_ind#)
 </cfquery>

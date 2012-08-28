@@ -24,8 +24,8 @@
 if (NOT isdefined("variables.carbon_copy_to"))
 	variables.carbon_copy_to="";
 if (NOT isdefined("variables.created_by")) {
-	if (isdefined("session.user_account_id"))
-		variables.created_by=session.user_account_id;
+	if (isdefined("variables.user_identification"))
+		variables.created_by=variables.user_identification;
 	else
 		variables.created_by=0;
 }

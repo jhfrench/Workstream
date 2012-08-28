@@ -28,7 +28,7 @@
 </cfswitch>
 </cfsilent>
 <cfoutput>
-<applet code="javachart.applet.columnApp.class" archive="javachart/jars/line.jar, javachart/jars/base.jar" codebase="#request.dir_level##application.graphbase#" width="500" height="300">
+<applet code="javachart.applet.columnApp.class" archive="javachart/jars/line.jar, javachart/jars/base.jar" codebase="#application.graphbase#" width="500" height="300">
 				<param name="backgroundColor" value="ffffff">
 				<param name="2D" value="yes">
 				<param name="CopyrightNotification" value="JavaChart is a copyrighted work, and subject to full legal protection">

@@ -18,7 +18,7 @@
 UPDATE Task
 SET status_id=#attributes.task_status#<cfif attributes.task_status EQ 7>, 
 	complete_date=CURRENT_TIMESTAMP,
-	completed_by=#session.user_account_id#</cfif>
+	completed_by=#variables.user_identification#</cfif>
 WHERE task_id=#attributes.task_id#
 </cfquery>
 </cfsilent>

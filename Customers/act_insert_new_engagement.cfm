@@ -20,7 +20,7 @@ INSERT INTO Project (root_code, customer_id, description,
 	active_ind, company_id, budget,
 	status)
 VALUES ('#get_root_code.root_code#', #attributes.customer_id#, '#attributes.description#',
-	#session.user_account_id#<cfif len(attributes.vision)>, '#attributes.vision#'</cfif><cfif len(attributes.mission)>, '#attributes.mission#'</cfif>
+	#variables.user_identification#<cfif len(attributes.vision)>, '#attributes.vision#'</cfif><cfif len(attributes.mission)>, '#attributes.mission#'</cfif>
 	<cfif len(attributes.business_case)>,' #attributes.business_case#'</cfif><cfif len(attributes.project_end)>, '#attributes.project_end#'</cfif><cfif len(attributes.project_start)>, '#attributes.project_start#'</cfif>, 
 	#attributes.product_id#, #attributes.billable_type_id#, '#variables.new_code#',
 	1, #get_root_code.company_id#, #attributes.budget#,

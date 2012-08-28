@@ -28,5 +28,5 @@
 UPDATE User_Preferences
 SET active_ind=0
 WHERE active_ind=1
-	AND user_account_id=#session.user_account_id#
+	AND user_account_id=#variables.user_identification#
 </cfquery>

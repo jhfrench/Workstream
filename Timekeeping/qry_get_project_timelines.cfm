@@ -16,7 +16,7 @@
 SELECT Project_Planning.project_planning_name, Project_Planning.project_planning_id
 FROM Project_Planning, Project_Planning_Access
 WHERE Project_Planning.project_planning_id=Project_Planning_Access.project_planning_id
-	AND Project_Planning_Access.emp_id=#session.user_account_id#
+	AND Project_Planning_Access.emp_id=#variables.user_identification#
 </cfquery>
 </cfsilent>
 

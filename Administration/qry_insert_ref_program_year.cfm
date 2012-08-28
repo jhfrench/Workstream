@@ -26,6 +26,6 @@
 <cfquery name="insert_ref_program_year" datasource="#application.datasources.main#">
 INSERT INTO REF_Program_Year (description, sort_order, created_by,
 	active_ind)
-VALUES ('#attributes.description#', #attributes.sort_order#, #session.user_account_id#,
+VALUES ('#attributes.description#', #attributes.sort_order#, #variables.user_identification#,
 	#attributes.active_ind#)
 </cfquery>

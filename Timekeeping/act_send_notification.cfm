@@ -135,7 +135,7 @@ WHERE Task.task_id=Team.task_id
 	AND Team.task_id=#attributes.task_id#
 	AND Team.role_id IN (#variables.receiver_type#)
 	AND Email.email_type_id=1
-	AND Email.emp_id!=#session.user_account_id#
+	AND Email.emp_id!=#variables.user_identification#
 </cfquery>
 <cfif prepare_email.recordcount>
 	<cfset variables.email_to=valuelist(prepare_email.email_to)>

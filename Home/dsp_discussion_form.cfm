@@ -32,7 +32,7 @@
 		INSERT INTO Discussion (parent_discussion_id, discussion_category, discussion_title,
 			discussion_text, link, created_by)
 		VALUES (#attributes.parent_discussion_id#, '#attributes.discussion_category#', '#left(attributes.discussion_text,30)#',
-			'#attributes.discussion_text#', '#attributes.link#', #session.user_account_id#)
+			'#attributes.discussion_text#', '#attributes.link#', #variables.user_identification#)
 		</cfquery>
 
 		<!--- get the id of the inserted record --->
@@ -61,7 +61,7 @@
 			INSERT INTO Discussion_Attachment (discussion_id, attachment_path, original_file_name,
 				created_by)
 			VALUES (#attributes.discussion_id#, '#variables.new_file_name#', '#attributes.file_attachment#',
-				#session.user_account_id#)
+				#variables.user_identification#)
 			</cfquery>
 		</cfif>
 	</cftransaction>

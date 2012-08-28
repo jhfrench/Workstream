@@ -49,7 +49,7 @@
 </cfoutput>
 </cfsilent>
 <cfoutput>
-<applet code="javachart.applet.stackBarApp.class" codebase="#request.dir_level##application.graphbase#" width="600" height="#variables.graph_height#">
+<applet code="javachart.applet.stackBarApp.class" codebase="#application.graphbase#" width="600" height="#variables.graph_height#">
 	<param name="plotAreaColor" value="ffffff">
 	<param name="backgroundColor" value="ffffff">
 	<param name="2D" value="yes">

@@ -47,7 +47,7 @@ FROM (
 			AND Access_User_Account_Grouper.active_ind=1
 			AND Access_User_Account_Grouper.privilege_id IN (#attributes.privilege_id#)
 			AND Access_User_Account_Grouper.module_id=#attributes.module_id#
-			AND Access_User_Account_Grouper.user_account_id=#session.user_account_id#</cfif>
+			AND Access_User_Account_Grouper.user_account_id=#variables.user_identification#</cfif>
 	START WITH Hierarchy_Assignment.parent_organization_id<cfif NOT len(attributes.start_with)> IS NULL<cfelse> IN (#attributes.start_with#)</cfif>
 	CONNECT BY PRIOR Hierarchy_Assignment.organization_id=Hierarchy_Assignment.parent_organization_id
 	ORDER SIBLINGS BY REF_Organization.sort_order

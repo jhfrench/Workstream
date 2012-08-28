@@ -16,8 +16,8 @@
 <HTML>
 <head>
 	<cfoutput><title>workstream #request.pagetitle#</title>
-	<cfif NOT isdefined("request.wireless_header")><script laworkstream="JavaScript" src="#request.dir_level#common_files/workstream.js"></script>
-	<link href="#request.dir_level#common_files/workstream.css" rel="stylesheet">
+	<cfif NOT isdefined("request.wireless_header")><script laworkstream="JavaScript" src="common_files/workstream.js"></script>
+	<link href="common_files/workstream.css" rel="stylesheet">
 	<LINK REL="SHORTCUT ICON" HREF="http://www.nucleusweb.com/nuc_logo_3.ico">
 	<meta name="Expires" content="#dateformat(now(), "ddd")#, #dateformat(dateadd("d", now(), -1), "dd")# #dateformat(now(), "mmm")# #dateformat(now(), "yyyy")# 00:00:00 GMT"></cfif></cfoutput>
 </head>

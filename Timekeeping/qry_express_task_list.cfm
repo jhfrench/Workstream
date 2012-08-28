@@ -21,7 +21,7 @@ FROM
 		AND Task.project_id=Project.project_id 
 		AND Task.status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
 		AND Team.role_id=1
-		AND team.emp_id=#session.user_account_id#
+		AND team.emp_id=#variables.user_identification#
 		AND Project.project_code NOT BETWEEN '6517' AND '6505'
 	UNION ALL
 	SELECT (Emp_Contact.lname || '-' || Task.name) AS task_name, Task.task_id AS workflow_id, 2 AS grouper
@@ -30,13 +30,13 @@ FROM
 		AND Task.task_id=Team.task_id 
 		AND Task.status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
 		AND Team.role_id=1 
-		AND Team.emp_id!=#session.user_account_id# 
+		AND Team.emp_id!=#variables.user_identification# 
 		AND EXISTS
 			(SELECT *
 			FROM Team
 			WHERE task_id=task.task_id
 				AND role_id=4 
-				AND team.emp_id=#session.user_account_id#)<cfif session.workstream_company_id EQ 1>
+				AND team.emp_id=#variables.user_identification#)<cfif session.workstream_company_id EQ 1>
 	UNION ALL
 	/*generic codes like PTO*/
 	SELECT Task.name AS task_name, Task.task_id AS workflow_id, 3 AS grouper

@@ -72,7 +72,7 @@
 	</tbody>
 </cfif>
 </table>
-<cfif attributes.module_id EQ 2 AND session.user_account_id EQ 1>
+<cfif attributes.module_id EQ 2 AND variables.user_identification EQ 1>
 <div style="color:white;padding-top:16px;padding-bottom:3px;font-weight: bold;">Application Setup:</div>
 <table cellspacing="1" cellpadding="3" border="0" width="100%" align="center" style="border:1px solid white;" summary="Table displays administration options only available to select developers.">
 	<tr>

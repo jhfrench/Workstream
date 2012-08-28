@@ -119,7 +119,7 @@ variables.tab_content_class=' active in';
 									<label class="checkbox"><input type="checkbox" name="email_requested_ind" id="email_requested_ind" value="1" /> Yes</label>
 								</div>
 							</div>
-							<cfif NOT (isdefined("session.user_account_id") AND len(session.email_address))>
+							<cfif NOT (isdefined("variables.user_identification") AND len(session.email_address))>
 							<div class="control-group">
 								<label class="control-label" for="asker_email_address">Your email address</label>
 								<div class="controls">

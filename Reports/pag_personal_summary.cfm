@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 <cfparam name="attributes.month" default="#month(now())#">
 <cfparam name="attributes.year" default="#year(now())#">
-<cfparam name="attributes.emp_id" default="#session.user_account_id#">
+<cfparam name="attributes.emp_id" default="#variables.user_identification#">
 </cfsilent>
 <cfset variables.show_details_ind=0>
 <cfinclude template="qry_leader_hours_by_month.cfm">

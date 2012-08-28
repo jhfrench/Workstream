@@ -30,7 +30,7 @@ INSERT INTO REF_Screen (active_ind, fuseaction, business_function_id,
 	starting_point_ind, body_onload, created_by)
 SELECT #attributes.active_ind#, REPLACE(REPLACE(description, ' ', '_'), '/', '_') || '.#attributes.new_fuseaction#', #attributes.business_function_id#,
 	#attributes.module_id#, '#attributes.check_variable#', '<cfif len(attributes.check_variable)>#attributes.relocate#</cfif>',
-	#attributes.starting_point_ind#, '#attributes.body_onload#', #session.user_account_id#
+	#attributes.starting_point_ind#, '#attributes.body_onload#', #variables.user_identification#
 FROM REF_Module
 WHERE module_id=#attributes.module_id#
 </cfquery>

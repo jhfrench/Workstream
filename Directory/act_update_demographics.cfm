@@ -30,7 +30,7 @@ INSERT INTO Demographics (nt_user_name, emp_id, ssn,
 	employee_classification_id, effective_from<cfif len(attributes.employee_type)>, employee_type_id</cfif>)
 VALUES ('#attributes.lname#', #attributes.emp_id#, '#attributes.ssn#',
 	'#attributes.pin#', #createodbcdatetime(attributes.hire_date)#, #createodbcdatetime(attributes.dob)#,
-	#attributes.manager_non_id#, <cfif isdefined("attributes.supervisor_id") AND listlen(attributes.supervisor_id) GT 1>#listgetat(attributes.supervisor_id, 1)#<cfelseif isdefined("attributes.supervisor_id") AND listlen(attributes.supervisor_id) EQ 1>#attributes.supervisor_id#<cfelse>#session.user_account_id#</cfif><cfif len(attributes.photo)>, '#attributes.photo#'</cfif>,
+	#attributes.manager_non_id#, <cfif isdefined("attributes.supervisor_id") AND listlen(attributes.supervisor_id) GT 1>#listgetat(attributes.supervisor_id, 1)#<cfelseif isdefined("attributes.supervisor_id") AND listlen(attributes.supervisor_id) EQ 1>#attributes.supervisor_id#<cfelse>#variables.user_identification#</cfif><cfif len(attributes.photo)>, '#attributes.photo#'</cfif>,
 	#attributes.employee_classification#, #createodbcdatetime(attributes.effective_from)#<cfif len(attributes.employee_type)>, #attributes.employee_type#</cfif>)
 </cfquery>
 </cfsilent>

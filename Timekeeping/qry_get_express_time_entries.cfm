@@ -26,7 +26,7 @@ FROM Time_Entry
 		SELECT Time_Entry.work_date, Time_Entry.emp_id, SUM(Time_Entry.Hours) AS sumhours
 		FROM Time_Entry 
 		WHERE Time_Entry.active_ind=1
-			AND Time_Entry.emp_id=#session.user_account_id#
+			AND Time_Entry.emp_id=#variables.user_identification#
 			AND Time_Entry.work_date-60 >= CURRENT_DATE
 		GROUP BY  Time_Entry.work_date, Time_Entry.emp_id
 	) AS Hours_Pin_Date ON Time_Entry.emp_id=Hours_Pin_Date.emp_id
@@ -36,12 +36,12 @@ FROM Time_Entry
 			MIN(Time_Entry.work_date) AS mindate
 		FROM Time_Entry
 		WHERE Time_Entry.active_ind=1
-			AND Time_Entry.emp_id=#session.user_account_id#
+			AND Time_Entry.emp_id=#variables.user_identification#
 		GROUP BY EXTRACT(YEAR FROM Time_Entry.work_date), EXTRACT(WEEK FROM Time_Entry.work_date)
 	) AS Hours_Pin_Week ON EXTRACT(YEAR FROM Time_Entry.work_date)=Hours_Pin_Week.year
 		AND EXTRACT(WEEK FROM Time_Entry.work_date)=Hours_Pin_Week.week
 WHERE Time_Entry.active_ind=1
-	AND Time_Entry.emp_id=#session.user_account_id#
+	AND Time_Entry.emp_id=#variables.user_identification#
 	AND Time_Entry.work_date-60 >= CURRENT_DATE
 	AND Notes.active_ind=1
 ORDER BY Time_Entry.work_date DESC, Notes.created_date DESC, Project.project_code

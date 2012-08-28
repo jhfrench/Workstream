@@ -64,7 +64,7 @@ FROM<cfloop query="get_nsm_levels">
 						AND Access_User_Account_Grouper.program_year_id=#attributes.program_year_id#
 						AND Access_User_Account_Grouper.module_id=#attributes.module_id#
 						AND Access_User_Account_Grouper.privilege_id=#attributes.privilege_id#
-						AND Access_User_Account_Grouper.user_account_id=#session.user_account_id#
+						AND Access_User_Account_Grouper.user_account_id=#variables.user_identification#
 				)
 				CONNECT BY PRIOR Hierarchy_Assignment.organization_id=Hierarchy_Assignment.parent_organization_id
 			) Elligible_Organizations ON REF_Organization.organization_id=Elligible_Organizations.organization_id
@@ -91,7 +91,7 @@ FROM<cfloop query="get_nsm_levels">
 					AND Access_User_Account_Grouper.program_year_id=#attributes.program_year_id#
 					AND Access_User_Account_Grouper.module_id=#attributes.module_id#
 					AND Access_User_Account_Grouper.privilege_id=#attributes.privilege_id#
-					AND Access_User_Account_Grouper.user_account_id=#session.user_account_id#
+					AND Access_User_Account_Grouper.user_account_id=#variables.user_identification#
 			)</cfif>
 		</cfif>
 	INNER JOIN<cfelse>
@@ -124,7 +124,7 @@ FROM<cfloop query="get_nsm_levels">
 						LEFT OUTER JOIN Access_User_Account_Grouper ON Hierarchy_Assignment.organization_id=Access_User_Account_Grouper.organization_id
 							AND Access_User_Account_Grouper.active_ind=1
 							AND Access_User_Account_Grouper.program_year_id=#attributes.program_year_id#
-							AND Access_User_Account_Grouper.user_account_id=#session.user_account_id#
+							AND Access_User_Account_Grouper.user_account_id=#variables.user_identification#
 							AND Access_User_Account_Grouper.module_id=#attributes.module_id#
 							AND Access_User_Account_Grouper.privilege_id=#attributes.privilege_id#
 					START WITH Hierarchy_Assignment.l_p_y_h_id=#l_p_y_h_id#

@@ -67,7 +67,7 @@ FROM User_Password
 			<cfinclude template="../common_files/act_general_user_info.cfm">
 			<cfinclude template="../common_files/qry_get_user_preferences.cfm">
 
-			<cfif session.password_created_by NEQ session.user_account_id>
+			<cfif get_username.password_created_by NEQ get_username.user_account_id>
 				<!--- if the person that created the password is not the user, then let the user change his/her password --->
 				<cfset variables.redirect_destination="fuseaction=Home.change_password&user_account_id=#get_username.user_account_id#&requested_page=#variables.redirect_destination#">
 			<cfelseif len(attributes.requested_page) AND NOT listfind("Home.login,Home.forum_commands,Help.view_help_article,Home.module_commands", attributes.requested_page)>

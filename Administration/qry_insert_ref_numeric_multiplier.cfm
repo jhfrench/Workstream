@@ -27,5 +27,5 @@
 INSERT INTO REF_Numeric_Multiplier (description, divisor_to_1, numeric_format_mask,
 	sort_order, created_by, active_ind)
 VALUES ('#attributes.description#', #attributes.divisor_to_1#, '#attributes.numeric_format_mask#',
-	#attributes.sort_order#, #session.user_account_id#, #attributes.active_ind#)
+	#attributes.sort_order#, #variables.user_identification#, #attributes.active_ind#)
 </cfquery>

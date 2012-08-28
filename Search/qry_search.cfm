@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	--> application.datasources.main: string that contains the name of the datasource AS mapped in CF administrator
-	--> session.user_account_id: id that identifies user to workstream
+	--> variables.user_identification: id that identifies user to workstream
 	--> session.workstream_show_closed: number that indicates the desire of the user to hide or show tasks which have already been completed; 1 means include the task, 0 means exclude the task
 	--> session.workstream_show_on_hold: number that indicates the desire of the user to hide or show tasks which have been put on hold; 1 means include the task, 0 means exclude the task
 	--> session.workstream_show_team: number that indicates the desire of the user to hide or show tasks for which they are a member of the task team; 1 means include the task, 0 means exclude the task

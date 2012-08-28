@@ -27,6 +27,6 @@
 <cfquery name="insert_ref_email_category" datasource="#application.datasources.main#">
 INSERT INTO REF_Email_Category (description, sort_order, created_by,
 	active_ind)
-VALUES ('#attributes.description#', #attributes.sort_order#, #session.user_account_id#,
+VALUES ('#attributes.description#', #attributes.sort_order#, #variables.user_identification#,
 	#attributes.active_ind#)
 </cfquery>

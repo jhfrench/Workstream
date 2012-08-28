@@ -13,7 +13,7 @@
 	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
-	--> session.user_account_id: id that identifies user to workstream
+	--> variables.user_identification: id that identifies user to workstream
 	--> variables.var1: number that indicates the total length of the hours used graph
 	<-- budgeted_hours: number that shows how many hours were budgeted for a task
 	<-- hours_used: number of hours used towards the completion of a task

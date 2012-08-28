@@ -6429,8 +6429,8 @@ footer {
   overflow-y: auto;
 }
 .faux-textarea p {
-  margin-left: 10px;
   margin-bottom: 0px;
+  padding-left: 10px;
   text-indent: -10px !important;
 }
 .docked {

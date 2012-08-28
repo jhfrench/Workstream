@@ -29,7 +29,7 @@
 					<cfif isdate(MARKETING.statusabovedate[ii])>statusabovedate= '#MARKETING.STATUSABOVEDATE[ii]#', </cfif>
 					<cfif isdate(MARKETING.statusindate[ii])>statusindate ='#MARKETING.STATUSINDATE[ii]#', </cfif>
 					<cfif isdate(MARKETING.statusbestfewdate[ii])> statusbestfewdate ='#MARKETING.STATUSBESTFEWDATE[ii]#' , </cfif>
-					<cfif isdate(MARKETING.statuscontractdate[ii])>statuscontractdate = '#MARKETING.STATUSCONTRACTDATE[ii]#',</cfif> source = #session.user_account_id#
+					<cfif isdate(MARKETING.statuscontractdate[ii])>statuscontractdate = '#MARKETING.STATUSCONTRACTDATE[ii]#',</cfif> source = #variables.user_identification#
 					<cfif isnumeric(MARKETING.company_size[ii])>,company_size ='#MARKETING.COMPANY_SIZE[ii]#'</cfif>
 					Where project_id = #MARKETING.project_id[ii]#
 			     </cfquery>

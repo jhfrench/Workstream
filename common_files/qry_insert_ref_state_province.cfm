@@ -25,5 +25,5 @@
 --->
 <cfquery name="insert_ref_state_province" datasource="#application.datasources.main#">
 INSERT INTO REF_State_Province (description, code, created_by)
-VALUES ('#attributes.description#', '#attributes.code#', #session.user_account_id#)
+VALUES ('#attributes.description#', '#attributes.code#', #variables.user_identification#)
 </cfquery>

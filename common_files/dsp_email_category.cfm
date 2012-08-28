@@ -21,8 +21,8 @@
 </fusedoc>
 --->
 <cfparam name="attributes.show_buttons_ind" default="1">
-<cfif isdefined("session.user_account_id")>
-	<cfparam name="attributes.user_account_id" default="#session.user_account_id#">
+<cfif isdefined("variables.user_identification")>
+	<cfparam name="attributes.user_account_id" default="#variables.user_identification#">
 </cfif>
 <cfparam name="attributes.subscribed_email_category_id" default="0">
 <cfmodule template="../common_files/qry_get_ref_email_category.cfm" email_category_id="0">

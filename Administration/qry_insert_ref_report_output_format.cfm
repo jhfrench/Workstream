@@ -27,6 +27,6 @@
 <cfquery name="insert_ref_report_output_format" datasource="#application.datasources.main#">
 INSERT INTO REF_Report_Output_Format (description, created_by, active_ind,
 	sort_order)
-VALUES ('#attributes.description#', #session.user_account_id#, #attributes.active_ind#,
+VALUES ('#attributes.description#', #variables.user_identification#, #attributes.active_ind#,
 	#attributes.sort_order#)
 </cfquery>

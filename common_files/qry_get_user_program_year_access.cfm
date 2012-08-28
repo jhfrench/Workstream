@@ -27,7 +27,7 @@ FROM Access_User_Business_Function
 	INNER JOIN REF_Program_Year ON Access_User_Business_Function.program_year_id=REF_Program_Year.program_year_id
 WHERE REF_Program_Year.active_ind=1
 	AND Access_User_Business_Function.active_ind=1
-	AND Access_User_Business_Function.user_account_id=#session.user_account_id#
+	AND Access_User_Business_Function.user_account_id=#variables.user_identification#
 GROUP BY REF_Program_Year.description, REF_Program_Year.program_year_id, REF_Program_Year.sort_order
 ORDER BY REF_Program_Year.sort_order DESC
 </cfquery>

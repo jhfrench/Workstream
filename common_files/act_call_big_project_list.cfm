@@ -12,7 +12,7 @@
 	$Log$
 	 || 
  --->
-<cfparam name="attributes.dir_level" default="#request.dir_level#">
+<cfparam name="attributes.dir_level" default="">
 <cfparam name="attributes.project_id" default="0">
 </cfsilent>
 <cfoutput>

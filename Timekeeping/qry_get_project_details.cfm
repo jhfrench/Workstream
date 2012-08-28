@@ -13,7 +13,7 @@
 	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
-	--> session.user_account_id: id that identifies user to workstream
+	--> variables.user_identification: id that identifies user to workstream
 	<-- notes_id: number that uniquely identifies a Notes entry
 	<-- project_id: number that uniquely identifies a Project entry
  --->

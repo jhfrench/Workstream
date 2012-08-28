@@ -69,12 +69,12 @@ WHERE REF_Module.active_ind=1
 	AND REF_Module.viewable_ind=1
 	AND REF_Screen.active_ind=1
 	AND REF_Business_Function.viewable_ind=1 /*this is for nav, so only show business functions that should be viewable in the nav*/
-	AND (REF_Business_Function.require_login_ind=0 /*show the screens that don't require login*/<cfif isdefined("session.user_account_id")>
+	AND (REF_Business_Function.require_login_ind=0 /*show the screens that don't require login*/<cfif isdefined("variables.user_identification")>
 		OR REF_Business_Function.business_function_id IN (
 			SELECT Access_User_Business_Function.business_function_id
 			FROM Access_User_Business_Function
 			WHERE Access_User_Business_Function.active_ind=1
-				AND Access_User_Business_Function.user_account_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#session.user_account_id#">
+				AND Access_User_Business_Function.user_account_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#">
 				AND Access_User_Business_Function.program_year_id=1)</cfif>)
 ORDER BY REF_Module.sort_order, REF_Business_Function.sort_order
 </cfquery>

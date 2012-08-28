@@ -18,7 +18,7 @@ FROM Emp_Contact
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 WHERE Emp_Contact.emp_contact_type=1
 	AND Link_Company_Emp_Contact.company_id<cfif variables.all_option> IN (#session.workstream_selected_company_id#)<cfelse>=#session.workstream_company_id#
-	AND (Emp_Contact.emp_id=#session.user_account_id#<cfif get_subordinates.recordcount> OR Emp_Contact.emp_id IN (#valuelist(get_subordinates.emp_id)#,#session.user_account_id#)</cfif>)
+	AND (Emp_Contact.emp_id=#variables.user_identification#<cfif get_subordinates.recordcount> OR Emp_Contact.emp_id IN (#valuelist(get_subordinates.emp_id)#,#variables.user_identification#)</cfif>)
 	</cfif>
 ORDER BY lname, name
 </cfquery>

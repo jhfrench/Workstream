@@ -93,27 +93,13 @@ FROM Last_Updated
 <!--- Error Handling --->
 <cfinclude template="#variables.path_prefix#errortemplates/act_setup_error_handling.cfm">
 
+<cfif isdefined("session.user_account_id")>
+	<cfset variables.user_identification=session.user_account_id>
+<cfelse>
+	<cfset variables.user_identification="unknown">
+</cfif>
+
 <!--- if configured to do so on the Installation table, log page requests --->
 <cfif application.log_page_request_ind>
-	<cfif isdefined("session.user_account_id")>
-		<cfset variables.user_identification=session.user_account_id>
-	<cfelse>
-		<cfset variables.user_identification="unknown">
-	</cfif>
 	<cfmodule template="#variables.path_prefix#act_log_page_request.cfm" log_type_id="1" user_identification="#variables.user_identification#">
 </cfif>
-
-<cfset request.dir_level="">
-<!--- for manually setting application variables, instead of having them reside in a database
-
-<cfdump var="#application.application_specific_settings#">
-</cfdump>
-<cfabort>
-
-<cfoutput>
-<cfloop collection="#application#" item="key">
-<cfif NOT listfindnocase("application_specific_settings,application_support_contacts,datasources,fusebox", key)>
-&lt;cfset application.#key#="#application[key]#"&gt;<br />
-</cfif>
-</cfloop>
-</cfoutput> --->

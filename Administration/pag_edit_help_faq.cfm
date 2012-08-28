@@ -59,7 +59,7 @@ if (get_help_faq.recordcount) {
 	}
 }
 else {
-	attributes.asked_by=session.user_account_id;
+	attributes.asked_by=variables.user_identification;
 	attributes.answered_previously_ind=0;
 	attributes.email_requested_ind=0;
 	attributes.screen_id=0;

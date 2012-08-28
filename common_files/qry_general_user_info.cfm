@@ -20,8 +20,8 @@
 	<-- pto_accrual_type_id: This is tells workstream what type of PTO accrual you have (lump sum or incremental)
 	<-- alternate_datasource: Use this if we need to have an additional datasource for this company.
  --->
-<cfif isdefined("session.user_account_id") AND isnumeric(session.user_account_id)>
-	<cfset variables.user_account_id=session.user_account_id>
+<cfif isdefined("variables.user_identification") AND isnumeric(variables.user_identification)>
+	<cfset variables.user_account_id=variables.user_identification>
 <cfelse>
 	<cfset variables.authorized_user=0>
 </cfif>

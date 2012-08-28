@@ -40,7 +40,7 @@
 		attributes.requested_page=application.fusebox.defaultfuseaction;
 	}
 	if (NOT isdefined("attributes.user_account_id")) {
-		attributes.user_account_id=session.user_account_id;
+		attributes.user_account_id=variables.user_identification;
 	}
 	variables.display_message="";
 </cfscript>

@@ -32,8 +32,8 @@ if (NOT isdefined("attributes.email_requested_ind")) {
 if (NOT isdefined("attributes.sort_order")) {
 	attributes.sort_order=dateformat(now(), 'yyyymmdd');
 }
-if (isdefined("session.user_account_id")) {
-	variables.created_by=session.user_account_id;
+if (isdefined("variables.user_identification")) {
+	variables.created_by=variables.user_identification;
 	variables.created_by_null="no";
 }
 else {

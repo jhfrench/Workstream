@@ -26,7 +26,7 @@
 <cflock scope="application" timeout="30" throwontimeout="no" type="exclusive">
 	<cfquery name="insert_ref_fund" datasource="#application.datasources.main#">
 	INSERT INTO REF_Fund (description,created_by,active_ind)
-	VALUES ('#attributes.description#', #session.user_account_id#,#attributes.active_ind#)
+	VALUES ('#attributes.description#', #variables.user_identification#,#attributes.active_ind#)
 	</cfquery>
 	<!--- get the id of the record just inserted --->
 	<cfset attributes.fund_id=get_current_sequence_value("REF_Fund_Seq")>

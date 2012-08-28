@@ -37,7 +37,7 @@
 			<cfinclude template="qry_deactivate_user_password.cfm">
 			<!--- create new user_password record --->
 			<cfinclude template="qry_insert_user_password.cfm">
-			<cfset session.password_created_by=session.user_account_id>
+			<cfset session.password_created_by=variables.user_identification>
 			<!--- $issue$ for users requesting a new password, this shouldn't just relocate; it should inform the user --->
 			<cflocation url="index.cfm" addtoken="no">
 			<div class="alert alert-warning">

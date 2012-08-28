@@ -39,6 +39,6 @@ WHERE Hierarchy_Assignment.active_ind=1
 	AND Access_User_Account_Grouper.active_ind=1
 	AND Access_User_Account_Grouper.privilege_id=2 /*only show records to which the user can write*/
 	AND Access_User_Account_Grouper.module_id=#attributes.module_id#
-	AND Access_User_Account_Grouper.user_account_id=#session.user_account_id#</cfif>
+	AND Access_User_Account_Grouper.user_account_id=#variables.user_identification#</cfif>
 ORDER BY REF_Organization.sort_order
 </cfquery>

@@ -20,7 +20,7 @@ SELECT 1 AS all_option
 FROM Access_User_Business_Function
 WHERE active_ind=1
 	AND program_year_id=#attributes.program_year_id#
-	AND user_account_id=#session.user_account_id#
+	AND user_account_id=#variables.user_identification#
 	AND business_function_id<cfif isdefined("attributes.business_function_id")>=#attributes.business_function_id#<cfelseif isdefined("attributes.fuseaction")> IN (
 		SELECT business_function_id
 		FROM REF_Screen

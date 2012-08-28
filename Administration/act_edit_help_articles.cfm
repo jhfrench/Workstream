@@ -3,7 +3,7 @@
 <!--- -->
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_edit_help_articles.cfm">
 	<responsibilities>
-		I act(send information to DB) for editing and adding help articles when the form is submitted.
+		I send information to DB for editing and adding help articles when the form is submitted.
 	</responsibilities>
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/17/2007" role="FuseCoder" comments="Created File">
@@ -61,7 +61,7 @@
 		<cfquery name="insert_help_article" datasource="#application.datasources.main#">
 		INSERT INTO Help_Article (sort_order, created_by, active_ind,
 			help_article_text, help_article_title)
-		VALUES (#attributes.sort_order#, #session.user_account_id#, #attributes.active_ind#,
+		VALUES (#attributes.sort_order#, #variables.user_identification#, #attributes.active_ind#,
 			<cfqueryparam value="#attributes.help_article_text#" cfsqltype="CF_SQL_LONGVARCHAR">, '#attributes.help_article_title#')
 		</cfquery>
 		<cfquery name="get_help_article_id" datasource="#application.datasources.main#">
@@ -73,7 +73,7 @@
 			<cfquery name="insert_link_screen_help_article" datasource="#application.datasources.main#">
 			INSERT INTO Link_Screen_Help_Article (screen_id, help_article_id, created_by,
 				active_ind)
-			VALUES (#variables.screen_id#, #get_help_article_id.help_article_id#, #session.user_account_id#,
+			VALUES (#variables.screen_id#, #get_help_article_id.help_article_id#, #variables.user_identification#,
 				#attributes.active_ind#)
 			</cfquery>
 		</cfloop>

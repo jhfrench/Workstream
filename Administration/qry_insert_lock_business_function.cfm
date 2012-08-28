@@ -26,7 +26,7 @@
 
 <cfquery name="insert_lock_business_function" datasource="#application.datasources.main#">
 INSERT INTO Lock_Business_Function(business_function_id,comments,created_by)
-	VALUES(#i#, '#business_function_comments#', #session.user_account_id#)
+	VALUES(#i#, '#business_function_comments#', #variables.user_identification#)
 </cfquery>
 
 

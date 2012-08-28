@@ -41,7 +41,7 @@ WHERE active_ind=1
 		created_by, salary_change_type_id, increase_amount,
 		increase_percent)
 	VALUES (#attributes.emp_id#, '#variables.salary#', '#attributes.date#',
-		#session.user_account_id#, #attributes.salary_change_type#, '#variables.increase_amount#',
+		#variables.user_identification#, #attributes.salary_change_type#, '#variables.increase_amount#',
 		'#variables.increase_percent#')
 	</cfquery>
 

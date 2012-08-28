@@ -19,7 +19,7 @@ FROM Emp_Contact
 	INNER JOIN Date_Locked ON Link_Company_Emp_Contact.company_id=Date_Locked.company_id
 		AND Date_Locked.active_ind=1
 	INNER JOIN Demographics_Ngauge AS Demographics ON Emp_Contact.emp_id=Demographics.emp_id
-WHERE Emp_Contact.emp_id=#session.user_account_id# 
+WHERE Emp_Contact.emp_id=#variables.user_identification# 
 	AND (Demographics.effective_to IS NULL OR Demographics.effective_to > CURRENT_TIMESTAMP)
 	AND (Demographics.effective_from IS NULL OR Demographics.effective_from < CURRENT_TIMESTAMP)
 </cfquery>

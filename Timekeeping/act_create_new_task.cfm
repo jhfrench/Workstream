@@ -30,7 +30,7 @@
 UPDATE Link_Task_File
 SET task_id=#attributes.task_id#
 WHERE task_id=0
-	AND created_by=#session.user_account_id#
+	AND created_by=#variables.user_identification#
 </cfquery>
 
 <cfif compare(attributes.linked_task_id,0)>

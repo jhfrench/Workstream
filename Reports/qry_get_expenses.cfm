@@ -39,7 +39,7 @@ FROM Notes
 	<cfif compare(project_id, 0) >AND expense.project_id = #attributes.project_id#</cfif>
 	<cfif isdefined("attributes.emp_id")>AND expense.emp_id IN (#attributes.emp_id#)</cfif>
 	<cfelse>
-			AND expense.emp_id=#session.user_account_id#
+			AND expense.emp_id=#variables.user_identification#
 	</cfif>
 	) AS JUNK
 	GROUP BY Reimbursement_Type, work_date, Description,

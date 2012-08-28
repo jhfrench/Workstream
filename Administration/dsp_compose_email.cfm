@@ -67,7 +67,7 @@ Only the first #variables.email_body_limit# characters of your capability statem
 <cfset attributes.upload_source_id=2>
 <cfinclude template="../common_files/act_upload.cfm">
 <div align="center">
-	<iframe id="upload_frame" style="display:none;width:400px; height:210px; border:0px;" frameborder="0" src="index.cfm?fuseaction=common_files.process_upload&upload_source_type_id=2&<cfoutput>user_account_id=#session.user_account_id#&cache_escape=#variables.cache_escape#</cfoutput>" title="Upload documents">
+	<iframe id="upload_frame" style="display:none;width:400px; height:210px; border:0px;" frameborder="0" src="index.cfm?fuseaction=common_files.process_upload&upload_source_type_id=2&<cfoutput>user_account_id=#variables.user_identification#&cache_escape=#variables.cache_escape#</cfoutput>" title="Upload documents">
 </iframe>
 </div>
 

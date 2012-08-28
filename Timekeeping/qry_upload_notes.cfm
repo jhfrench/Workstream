@@ -16,7 +16,7 @@
 	--> attributes.notes_#ii#: string that contains the notes that correspond to a particular time entry
 	--> attributes.notes_type_id: number that indicates what type of note is being entered into the database
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
-	--> session.user_account_id: id that identifies user to workstream
+	--> variables.user_identification: id that identifies user to workstream
 	--> request.note: string that contains the note that corresponds to a particular time entry
  --->
 <cfif isdefined("attributes.file_path")>
@@ -28,7 +28,7 @@
 <cfquery name="upload_express_notes" datasource="#application.datasources.main#">
 INSERT INTO Notes (task_id, emp_id, notes_type_id,
 	note)
-VALUES (<cfif isdefined("project_entry")>0<cfelse>#listgetat(attributes.task_id,ii)#</cfif>, #session.user_account_id#,#attributes.notes_type_id#,
+VALUES (<cfif isdefined("project_entry")>0<cfelse>#listgetat(attributes.task_id,ii)#</cfif>, #variables.user_identification#,#attributes.notes_type_id#,
 	'#HTMLEditFormat(request.note)#')
 </cfquery>
 </cfsilent>

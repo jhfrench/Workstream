@@ -73,7 +73,7 @@
 		<td align="right">
 			<cfoutput>
 			<input type="hidden" name="expense_id" value="#attributes.expense_id#" />
-			<input type="hidden" name="emp_id" value="#session.user_account_id#" />
+			<input type="hidden" name="emp_id" value="#variables.user_identification#" />
 			</cfoutput>
 			<input type="submit" name="Insert" value="Submit" class="btn btn-primary" />
 			<input type="reset" class="btn" />

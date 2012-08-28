@@ -50,7 +50,7 @@ FROM
 		AND Forecast_Assignment.active_ind=1
 		AND Forecast.forecast_year=#attributes.force_year#
 		AND Forecast.forecast_month=#attributes.force_month#
-		AND Team.emp_id IN (#session.user_account_id#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)
+		AND Team.emp_id IN (#variables.user_identification#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)
 		AND Team.role_id IN (1,4)
 	GROUP BY Forecast_Assignment.task_id, Forecast_Assignment.emp_id, Forecast_Assignment.hours_budgeted, 
 		Task.task_id, Customer.description || '-' || Project.description, Project.project_id, 
@@ -79,7 +79,7 @@ FROM
 		AND Time_Entry.active_ind=1
 		AND <cfif attributes.force_month GTE month(now()) AND attributes.force_year GTE year(now())>Task.status_id!=7 /*exclude closed tasks*/
 		AND Task.assigned_date < #createodbcdate(dateadd("m",1,"#attributes.force_month#/01/#attributes.force_year#"))# /*show tasks assigned (to be started) before the selected month*/<cfelse>EXTRACT(MONTH FROM Task.assigned_date)=#attributes.force_month# AND EXTRACT(YEAR FROM Task.assigned_date)=#attributes.force_year# /*show tasks assigned (to be started) during the selected month*/</cfif>
-		AND Team.emp_id IN (#session.user_account_id#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)
+		AND Team.emp_id IN (#variables.user_identification#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)
 		AND Team.role_id IN (1,4)
 		AND Task.task_id NOT IN (
 			SELECT Forecast_Assignment.task_id

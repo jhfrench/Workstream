@@ -84,7 +84,7 @@
 		<!--- INSERT INTO Link_Screen_Help_FAQ (help_faq_id, screen_id) --->
 		<cfquery name="insert_link_screen_help_faq" datasource="#application.datasources.main#">
 		INSERT INTO Link_Screen_Help_FAQ (screen_id, help_faq_id, created_by)
-		SELECT REF_Screen.screen_id, <cfqueryparam cfsqltype="cf_sql_integer" value="#get_help_faq_id.help_faq_id#"> AS help_faq_id, #session.user_account_id# AS created_by
+		SELECT REF_Screen.screen_id, <cfqueryparam cfsqltype="cf_sql_integer" value="#get_help_faq_id.help_faq_id#"> AS help_faq_id, #variables.user_identification# AS created_by
 		FROM REF_Screen
 		WHERE REF_Screen.screen_id IN (<cfqueryparam cfsqltype="cf_sql_integer" list="yes" value="#attributes.screen_id#" />)
 		</cfquery>

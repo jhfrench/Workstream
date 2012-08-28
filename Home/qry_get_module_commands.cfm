@@ -14,7 +14,7 @@
 		<in>
 			attributes.module_id
 			session.program_year_id
-			session.user_account_id
+			variables.user_identification
 		</in>
 		<passthrough>
 		</passthrough>
@@ -39,7 +39,7 @@ WHERE REF_Module.active_ind=1
 	AND REF_Business_Function.viewable_ind=1
 	AND Access_User_Business_Function.active_ind=1
 	AND Access_User_Business_Function.program_year_id=#session.program_year_id#
-	AND Access_User_Business_Function.user_account_id=#session.user_account_id#
+	AND Access_User_Business_Function.user_account_id=#variables.user_identification#
 	AND REF_Module.module_id=#attributes.module_id#
 GROUP BY REF_Module.description, REF_Business_Function.business_function_id, REF_Business_Function.description,
 	REF_screen.fuseaction, REF_Business_Function.sort_order, REF_Business_Function.navigation_type_id

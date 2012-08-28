@@ -27,5 +27,5 @@
 INSERT INTO REF_country (description, code, sort_order, 
 	created_by, active_ind)
 VALUES ('#attributes.description#', '#attributes.code#', #attributes.sort_order#, 
-	#session.user_account_id#, #attributes.active_ind#)
+	#variables.user_identification#, #attributes.active_ind#)
 </cfquery>

@@ -26,8 +26,8 @@
 
 			<p class="SubHeadText">
 			<cfinclude template="dsp_save_profile_instructions.cfm">
-			<a href="index.cfm?fuseaction=save_profile"><img src="#request.dir_level##application.application_specific_settings.image_dir#save_button.gif" width="15" height="15" alt="Save the current settings to a profile." border="0">&nbsp;Save the current settings to a profile</a><br />
-			<a href="index.cfm?fuseaction=load_profile"><img src="#request.dir_level##application.application_specific_settings.image_dir#load_button.gif" width="16" height="13" alt="Load a previously saved profile." border="0">&nbsp;Load a previously saved profile</a>
+			<a href="index.cfm?fuseaction=save_profile" class="btn">&nbsp;Save the current settings to a profile</a><br />
+			<a href="index.cfm?fuseaction=load_profile" class="btn">&nbsp;Load a previously saved profile</a>
 		</td>
 		<td class="SubHeadText">
 			View These Companies<br />

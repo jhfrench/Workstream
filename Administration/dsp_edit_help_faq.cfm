@@ -85,7 +85,7 @@
 	</div>
 </cfif>
 	<div class="form-actions">
-		<input type="hidden" name="answered_by" value="#session.user_account_id#" />
+		<input type="hidden" name="answered_by" value="#variables.user_identification#" />
 		<input type="hidden" name="answered_previously_ind" value="#attributes.answered_previously_ind#" />
 		<input type="hidden" name="asked_by" value="#attributes.asked_by#" />
 		<input type="hidden" name="asker_email_address" value="#get_help_faq.asker_email_address#" />

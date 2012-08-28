@@ -14,7 +14,7 @@
  --->
 <cfquery name="insert_forecast" datasource="#application.datasources.main#">
 INSERT INTO Forecast (forecast_month, forecast_year, approved_by)
-VALUES(#attributes.force_month#, #attributes.force_year#, #session.user_account_id#)
+VALUES(#attributes.force_month#, #attributes.force_year#, #variables.user_identification#)
 </cfquery>
 </cfsilent>
 

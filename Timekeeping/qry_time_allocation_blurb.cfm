@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
-	--> session.user_account_id: number that uniquely identifies the user
+	--> variables.user_identification: number that uniquely identifies the user
  --->
 <cfquery name="time_allocation_blurb" datasource="#application.datasources.main#">
 SELECT SUM(hours) AS project_hours, (Customer.description || '-' || Project.description) AS project_name, Project.project_id
@@ -20,7 +20,7 @@ FROM Time_Entry
 	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
 	INNER JOIN Customer ON Customer.customer_id=Project.customer_id
 WHERE Time_Entry.active_ind=1
-	AND Time_Entry.emp_id=#session.user_account_id#
+	AND Time_Entry.emp_id=#variables.user_identification#
 	AND EXTRACT(MONTH FROM Time_Entry.work_date) = EXTRACT(MONTH FROM CURRENT_DATE)
 	AND EXTRACT(YEAR FROM Time_Entry.work_date) = EXTRACT(YEAR FROM CURRENT_DATE)
 GROUP BY Customer.description, Project.description, Project.project_id

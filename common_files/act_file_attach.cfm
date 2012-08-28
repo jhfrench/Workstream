@@ -33,7 +33,7 @@
 <cfset variables.file_path="#attributes.file_path##cffile.clientfile#">
 <cfquery name="update_task_files" datasource="#application.datasources.main#">
 INSERT INTO Link_Task_File (task_id, file_path, created_by)
-VALUES (#attributes.task_id#, '#variables.file_path#', #session.user_account_id#)
+VALUES (#attributes.task_id#, '#variables.file_path#', #variables.user_identification#)
 </cfquery>
 
 <cfoutput>

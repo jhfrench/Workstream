@@ -35,7 +35,7 @@
 </cfif>
 <tr>
 	<td>&nbsp;</td>
-	<td><a href="../../project_planning/#attributes.project_planning_id#/#name#" target="_blank"><img src="#request.dir_level##application.application_specific_settings.image_dir#icon_#variables.file_img#.gif" valign="bottom" width="16" height="16" border="0"> #name#</a></td>
+	<td><a href="../../project_planning/#attributes.project_planning_id#/#name#" target="_blank"><img src="#application.application_specific_settings.image_dir#icon_#variables.file_img#.gif" valign="bottom" width="16" height="16" border="0"> #name#</a></td>
 	<td>#datelastmodified#</td>
 	<td>&nbsp;</td>
 </tr>

@@ -30,7 +30,7 @@ WHERE notes_id=#attributes.notes_id#
 <cfif isdefined("attributes.method") AND comparenocase(attributes.method,"delete this entry")>
 INSERT INTO Notes (emp_id, notes_type_id, note,
 	task_id)
-SELECT #session.user_account_id#, notes_type_id, '#attributes.note#',
+SELECT #variables.user_identification#, notes_type_id, '#attributes.note#',
 	task_id
 FROM Notes
 WHERE notes_id=#attributes.notes_id#

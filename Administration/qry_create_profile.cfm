@@ -21,7 +21,7 @@
 UPDATE User_Profile
 SET primary_profile_ind=0
 WHERE primary_profile_ind=1
-	AND emp_id=#session.user_account_id#
+	AND emp_id=#variables.user_identification#
 </cfquery>
 <cfquery name="create_profile" datasource="#application.datasources.main#">
 INSERT INTO User_Profile (emp_id, primary_profile_ind, account_changed,
@@ -32,7 +32,7 @@ INSERT INTO User_Profile (emp_id, primary_profile_ind, account_changed,
 	show_closed, show_closed_engagements, show_on_hold,
 	show_options, show_team, text_size,
 	notes_display_sort, task_list_order)
-VALUES (#session.user_account_id#,#variables.primary_profile_ind#,#createodbcdatetime(session.workstream_account_changed)#,
+VALUES (#variables.user_identification#,#variables.primary_profile_ind#,#createodbcdatetime(session.workstream_account_changed)#,
 	'#session.workstream_company_id#','#session.workstream_company_name#','#session.workstream_selected_company_id#',
 	#session.workstream_express_input_rows#,#session.workstream_express_notes_height#,#session.workstream_express_notes_width#,
 	#session.workstream_express_tree_height#,'#session.first_name#',#createodbcdatetime(session.workstream_last_loaded)#,

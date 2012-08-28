@@ -30,7 +30,7 @@
 </cfif>
 
 <!--- if user isn't explicitly editing another user's access, they are editing their own access --->
-<cfparam name="attributes.user_account_id" default="#session.user_account_id#">
+<cfparam name="attributes.user_account_id" default="#variables.user_identification#">
 <cfif isdefined("session.email_address") AND len(session.email_address)>
 	<cfset attributes.lookup_email_address=session.email_address>
 <cfelse>

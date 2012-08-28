@@ -38,7 +38,7 @@
 <cfoutput>
 <tr>
 	<td colspan="7" align="center">
-		<applet code="javachart.applet.labelLineApp.class" archive="javachart/jars/line.jar, javachart/jars/base.jar" codebase="#request.dir_level##application.graphbase#" width="990" height="180">
+		<applet code="javachart.applet.labelLineApp.class" archive="javachart/jars/line.jar, javachart/jars/base.jar" codebase="#application.graphbase#" width="990" height="180">
 			<param name="backgroundColor" value="ffffff">
 			<param name="2D" value="yes">
 			<param name="CopyrightNotification" value="JavaChart is a copyrighted work, and subject to full legal protection">

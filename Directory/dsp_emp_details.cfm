@@ -17,8 +17,8 @@
 <h2>Employee Details <small>#attributes.section_title#</small></h2>
 <div class="row-fluid">
 	<div class="span3">
-		<img src="#request.dir_level##application.application_specific_settings.image_dir#photos/#get_emp_details.photo#" width="144" height="144" alt="#attributes.section_title#" border="0">
-		<cfif session.user_account_id EQ 1><a href="javascript:edit_employee(#emp_id#);" class="btn">Edit Employee Information</a></cfif>
+		<img src="#application.application_specific_settings.image_dir#photos/#get_emp_details.photo#" width="144" height="144" alt="#attributes.section_title#" border="0">
+		<cfif variables.user_identification EQ 1><a href="javascript:edit_employee(#emp_id#);" class="btn">Edit Employee Information</a></cfif>
 		<br />
 		<b>Birthdate:</b> #dateformat(get_emp_details.dob,"mm/dd")#<br />
 		<b>Hire Date:</b> #dateformat(get_emp_details.hire_date,"m/d/yyyy")#<br />
@@ -44,13 +44,13 @@
 
 			<cfinclude template="dsp_emp_job_titles.cfm">
 
-			<cfif listcontains("1" ,session.user_account_id)>
-			<!--- <cfif session.user_account_id EQ 126 OR session.user_account_id EQ 609> --->
+			<cfif listcontains("1" ,variables.user_identification)>
+			<!--- <cfif variables.user_identification EQ 126 OR variables.user_identification EQ 609> --->
 				<cfinclude template="dsp_emp_supervisor.cfm">
 			</cfif>
 
 			<!--- Only Jeromy can see this so hard code it--->
-			<cfif listcontains("1" ,session.user_account_id)>
+			<cfif listcontains("1" ,variables.user_identification)>
 				<cfinclude template="dsp_emp_salary_info.cfm">
 				<cfinclude template="dsp_emp_benefits_info.cfm">
 				<cfinclude template="dsp_emp_performance_review.cfm">

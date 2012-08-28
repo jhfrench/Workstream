@@ -20,7 +20,7 @@ FROM Emp_Contact
 	LEFT OUTER JOIN REF_Company ON Link_Company_Emp_Contact.company_id=REF_Company.company_id
 	LEFT OUTER JOIN Email ON Emp_Contact.emp_id=Email.emp_id
 		AND Email.email_type_id = 1
-WHERE Emp_Contact.emp_id=<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#session.user_account_id#</cfif>
+WHERE Emp_Contact.emp_id=<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#variables.user_identification#</cfif>
 ORDER BY Link_Company_Emp_Contact.company_id, lname, name, email_type_id
 </cfquery>
 </cfsilent>

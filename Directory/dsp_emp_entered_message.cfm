@@ -28,7 +28,7 @@ ORDER BY Demographics.last_name, Demographics.first_name
 <div class="alert">
 	#attributes.name# #attributes.lname# has been entered into the workstream database. This new account currently does not have access to any modules, reports or tools. To administer this new account (grant access to reports, change passwords, etc), please 
 </cfoutput>
-<cfif ListFind(variables.administrators_list, session.user_account_id)>
+<cfif ListFind(variables.administrators_list, variables.user_identification)>
 	<cfoutput><a href="javascript:edit_employee(#variables.emp_id#)">administer this account</a>.</cfoutput>
 <cfelse>contact the following workstream administrators to set up the appropriate access:<br />
 <ul type="square">

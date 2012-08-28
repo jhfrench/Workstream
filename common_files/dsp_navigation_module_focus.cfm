@@ -56,7 +56,7 @@
 								<img src="images/end1.jpg" alt="" width="16" height="46" align="left"><a href="index.cfm?fuseaction=Home.main"><img src="images/home.jpg" alt="home" width="27" height="27" align="left" border="0"></a><cfif application.application_specific_settings.normal_navigation_ind EQ 0><a href="javascript:void(Element.toggle('sys2'); return false;)" onclick="Element.toggle('sys2'); return false;"><img src="images/nav.jpg" alt="my FAAD" width="27" height="27" align="left" border="0" style="margin-left:5px;"></a></cfif><a href="javascript:void(Element.toggle('help_win_area'); return false;)" onclick="javascript:Effect.toggle('help_area','appear'); return false;"><img src="images/help.jpg" alt="help" width="27" height="27" align="left" hspace="8" border="0" style="cursor:help;"></a>
 							</td>
 							<td class="toolbar" align="right"><img src="images/end2.jpg" alt="" width="16" height="46" align="right">
-							<cfif isdefined("session.user_account_id") AND session.password_created_by EQ session.user_account_id>
+							<cfif isdefined("variables.user_identification") AND session.password_created_by EQ variables.user_identification>
 								<cfset variables.reset_password_ind=0>
 								<table cellpadding="4" cellspacing="0" border="0" height="26" align="right" cols="1" summary="table displays logout link">
 									<tr>

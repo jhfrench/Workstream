@@ -25,7 +25,7 @@ FROM Emp_Contact
 WHERE Link_Company_Emp_Contact.company_id IN (
 		SELECT company_id 
 		FROM Security_Company_Access 
-		WHERE emp_id=#session.user_account_id#
+		WHERE emp_id=#variables.user_identification#
 	)
 AND (Emp_Contact.emp_id IN ('#preservesinglequotes(attributes.drill_down)#'))
 ORDER BY lname
@@ -55,14 +55,14 @@ FROM Security_Company_Access
 		WHERE Link_Company_Emp_Contact.company_id IN (
 				SELECT company_id 
 				FROM Security_Company_Access 
-				WHERE emp_id=#session.user_account_id#
+				WHERE emp_id=#variables.user_identification#
 			)
 		GROUP BY Link_Company_Emp_Contact.emp_id
 	) AS Used_Hours ON Emp_Contact.emp_id=Used_Hours.emp_id
 WHERE Security_Company_Access.company_id IN (
 		SELECT company_id 
 		FROM Security_Company_Access 
-		WHERE emp_id=#session.user_account_id#
+		WHERE emp_id=#variables.user_identification#
 	)<cfif NOT listcontainsnoCase(attributes.emp_id,"ALL" )>
 	AND Emp_Contact.emp_id IN (#preservesinglequotes(attributes.emp_id)#)</cfif>
 ORDER BY lname

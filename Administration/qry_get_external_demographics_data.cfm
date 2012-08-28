@@ -101,6 +101,6 @@
 	</cfif>
 	<cfset get_external_demographics_data=hqts_query>
 </cfif>
-<cfif session.user_account_id EQ 1>
+<cfif variables.user_identification EQ 1>
 	<cfdump var="#get_external_demographics_data#" expand="yes" />
 </cfif>

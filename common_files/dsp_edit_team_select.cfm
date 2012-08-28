@@ -30,7 +30,7 @@
 <cfif isdefined("attributes.emp_id")>
 	<cfset variables.emp_id_match=attributes.emp_id>
 <cfelse>
-	<cfset variables.emp_id_match=session.user_account_id>
+	<cfset variables.emp_id_match=variables.user_identification>
 </cfif>
 <cfif isdefined("get_expense_details.emp_id")>
 	<cfset variables.emp_id_match=get_expense_details.emp_id>

@@ -15,7 +15,7 @@
 	- ->Through_date: this is the end of the date range of the report.
 	END FUSEDOC --->
 <cfset variables.all_option=0>
-<cfset request.supervisor_user_account_id=session.user_account_id>
+<cfset request.supervisor_user_account_id=variables.user_identification>
 </cfsilent>
 <cfinclude template="act_verify_dates.cfm">
 <cfset variables.object_id=19>

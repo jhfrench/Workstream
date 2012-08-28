@@ -28,8 +28,8 @@ FROM Emp_Biography
 	RIGHT OUTER JOIN Emp_Contact
 	INNER JOIN Demographics_Ngauge AS Demographics ON Emp_Contact.emp_id=Demographics.emp_id 
 	ON Emp_Biography.emp_id=Demographics.emp_id
-WHERE (Demographics.Effective_To IS NULL)<cfif isdefined("session.user_account_id") and len(session.user_account_id)>
-	AND Demographics.emp_id=#session.user_account_id#</cfif>
+WHERE (Demographics.Effective_To IS NULL)<cfif isdefined("variables.user_identification") and len(variables.user_identification)>
+	AND Demographics.emp_id=#variables.user_identification#</cfif>
 </cfquery>
 <cfif len(get_demographics.recordcount)>
 	<cfset variables.emp_id=get_demographics.emp_id>

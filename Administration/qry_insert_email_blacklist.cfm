@@ -25,5 +25,5 @@
 
 <cfquery name="insert_email_blacklist" datasource="#application.datasources.main#">
 INSERT INTO Email_Blacklist (email_address, created_by)
-VALUES ('#attributes.email_address#', <cfif isdefined("session.user_account_id")>#session.user_account_id#<cfelse>NULL</cfif>)
+VALUES ('#attributes.email_address#', <cfif isdefined("variables.user_identification")>#variables.user_identification#<cfelse>NULL</cfif>)
 </cfquery>

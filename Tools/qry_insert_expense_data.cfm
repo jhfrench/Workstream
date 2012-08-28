@@ -27,12 +27,12 @@
 		paid_by_id=#attributes.paid_by_id#,<cfif isdefined("attributes.supervisor_settings")>
 		expense_status_id=#attributes.supervisor_approval#,<cfif attributes.accounting_approval EQ 2>
 		date_supervisor_approved=CURRENT_TIMESTAMP,</cfif>
-		supervisor_approval_emp_id=#session.user_account_id#,
+		supervisor_approval_emp_id=#variables.user_identification#,
 		supervisor_approval_memo='#attributes.supervisor_approval_memo#',</cfif><cfif isdefined("attributes.accounting_pro_settings")>
 		expense_status_id=#attributes.accounting_approval#,<cfif attributes.accounting_approval EQ 4>
 		date_accounting_approved=CURRENT_TIMESTAMP,</cfif>
 		accounting_approval_memo='#attributes.accounting_approval_memo#',
-		accounting_approval_emp_id=#session.user_account_id#</cfif>
+		accounting_approval_emp_id=#variables.user_identification#</cfif>
 	WHERE expense_id=#attributes.expense_id#
 	</cfquery>
 <cfelse>
@@ -70,7 +70,7 @@
 		'#attributes.expense_note#',
 		#attributes.paid_by_id#
 		<cfif isdefined("attributes.supervisor_settings")>
-			,#session.user_account_id#,
+			,#variables.user_identification#,
 			'#attributes.supervisor_approval_memo#',
 			#attributes.supervisor_approval#,
 			<cfif attributes.supervisor_approval>CURRENT_TIMESTAMP</cfif>
@@ -79,7 +79,7 @@
 			,CURRENT_TIMESTAMP,
 			'#attributes.accounting_approval_memo#',
 			#attributes.accounting_approval#,
-			#session.user_account_id#
+			#variables.user_identification#
 		</cfif>
 		)
 		</cfquery>

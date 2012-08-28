@@ -24,7 +24,7 @@
 <!--- create new REF_Procurement_Type records after making sure the new procurement_type is not already in the database --->
 <cfquery name="insert_#lcase(attributes.destination_table)#" datasource="#application.datasources.main#">
 INSERT INTO #attributes.destination_table# (#attributes.destination_column#, created_by)
-SELECT #attributes.source_table#.#attributes.source_column#, #session.user_account_id#
+SELECT #attributes.source_table#.#attributes.source_column#, #variables.user_identification#
 FROM #attributes.source_table#
 WHERE #attributes.source_table#.active_ind=1
 	AND #attributes.source_table#.#attributes.source_column# IS NOT NULL

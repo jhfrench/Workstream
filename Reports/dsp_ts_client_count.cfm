@@ -23,7 +23,7 @@
 </cfoutput>
 </cfsilent>
 <cfoutput>
-		<applet code="javachart.applet.spinningPie.class" archive="javachart/jars/pie.jar, javachart/jars/base.jar" codebase="#request.dir_level##application.graphbase#" width="300" height="150">
+		<applet code="javachart.applet.spinningPie.class" archive="javachart/jars/pie.jar, javachart/jars/base.jar" codebase="#application.graphbase#" width="300" height="150">
 			<param name="CopyrightNotification" value="JavaChart is a copyrighted work, and subject to full legal protection">
 			<param name="3D" value="true">
 			<param name="pieWidth" value="1">

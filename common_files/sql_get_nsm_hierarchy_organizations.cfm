@@ -52,7 +52,7 @@ FROM (
 					AND privilege_id=2 /*only show records to which the user can write*/
 					AND module_id=#attributes.module_id#<cfif len(attributes.start_with)>
 					AND organization_id=#attributes.start_with#</cfif>
-					AND user_account_id=#session.user_account_id#
+					AND user_account_id=#variables.user_identification#
 				GROUP BY center_id
 			) User_Module_Privilege ON REF_Center.center_id=User_Module_Privilege.center_id</cfif>
 		WHERE REF_Center.active_ind=1
@@ -76,7 +76,7 @@ FROM (
 				AND Access_User_Account_Grouper.active_ind=1
 				AND Access_User_Account_Grouper.privilege_id=2 /*only show records to which the user can write*/
 				AND Access_User_Account_Grouper.module_id=#attributes.module_id#
-				AND Access_User_Account_Grouper.user_account_id=#session.user_account_id#</cfif>
+				AND Access_User_Account_Grouper.user_account_id=#variables.user_identification#</cfif>
 		START WITH Hierarchy_Assignment.parent_organization_id<cfif NOT len(attributes.start_with)> IS NULL<cfelse> IN (#attributes.start_with#)</cfif>
 		CONNECT BY PRIOR Hierarchy_Assignment.organization_id=Hierarchy_Assignment.parent_organization_id
 	</cfif>
@@ -86,6 +86,6 @@ FROM (
 		AND Access_User_Account_Grouper.active_ind=1
 		AND Access_User_Account_Grouper.privilege_id=2 /*only show records to which the user can write*/
 		AND Access_User_Account_Grouper.module_id=#attributes.module_id#
-		AND Access_User_Account_Grouper.user_account_id=#session.user_account_id#</cfif>
+		AND Access_User_Account_Grouper.user_account_id=#variables.user_identification#</cfif>
 WHERE hierarchy_level_id IN (#attributes.hierarchy_level_id#)</cfif>
 </cfoutput>

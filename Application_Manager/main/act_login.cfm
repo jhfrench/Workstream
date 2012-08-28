@@ -53,7 +53,7 @@
 				<cfset variables.redirect_destination="fuseaction=main.welcome">
 			</cfif>
 			<!--- if the person that created the password is not the user, then let the user change his/her password --->
-			<cfif session.password_created_by NEQ session.user_account_id>
+			<cfif get_username.password_created_by NEQ get_username.user_account_id>
 				<cfset variables.redirect_destination="fuseaction=Application_Manager.change_password&user_account_id=#get_username.user_account_id#&requested_page=#variables.redirect_destination#">
 			</cfif>
 			<cfset variables.success_ind=1>

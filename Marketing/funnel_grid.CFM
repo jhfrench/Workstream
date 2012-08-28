@@ -123,26 +123,26 @@ function CSSetImageURL(action) {
 </CSSCRIPTDICT>
 <cfoutput>
 <CSACTIONS>
-	<csaction name="GoLiveAction1" class="Set Image URL" type="ONEVENT" val0="funnel_grid_13" val1="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_13-over.gif">
-	<csaction name="GoLiveAction2" class="Set Image URL" type="ONEVENT" val0="funnel_grid_13" val1="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_13.gif">
-	<csaction name="GoLiveAction3" class="Set Image URL" type="ONEVENT" val0="funnel_grid_14" val1="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_14-over.gif">
-	<csaction name="GoLiveAction4" class="Set Image URL" type="ONEVENT" val0="funnel_grid_14" val1="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_14.gif">
-	<csaction name="GoLiveAction5" class="Set Image URL" type="ONEVENT" val0="funnel_grid_15" val1="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_15-over.gif">
-	<csaction name="GoLiveAction6" class="Set Image URL" type="ONEVENT" val0="funnel_grid_15" val1="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_15.gif">
+	<csaction name="GoLiveAction1" class="Set Image URL" type="ONEVENT" val0="funnel_grid_13" val1="#application.application_specific_settings.image_dir#funnel_grid_13-over.gif">
+	<csaction name="GoLiveAction2" class="Set Image URL" type="ONEVENT" val0="funnel_grid_13" val1="#application.application_specific_settings.image_dir#funnel_grid_13.gif">
+	<csaction name="GoLiveAction3" class="Set Image URL" type="ONEVENT" val0="funnel_grid_14" val1="#application.application_specific_settings.image_dir#funnel_grid_14-over.gif">
+	<csaction name="GoLiveAction4" class="Set Image URL" type="ONEVENT" val0="funnel_grid_14" val1="#application.application_specific_settings.image_dir#funnel_grid_14.gif">
+	<csaction name="GoLiveAction5" class="Set Image URL" type="ONEVENT" val0="funnel_grid_15" val1="#application.application_specific_settings.image_dir#funnel_grid_15-over.gif">
+	<csaction name="GoLiveAction6" class="Set Image URL" type="ONEVENT" val0="funnel_grid_15" val1="#application.application_specific_settings.image_dir#funnel_grid_15.gif">
 </CSACTIONS>
 <CSACTIONDICT>
 <SCRIPT>
 <!--
 
-CSInit[CSInit.length] = new Array(CSILoad,/*CMP*/'funnel_grid_13',/*URL*/'#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_13-over.gif',/*URL*/'images/funnel_grid_13-over.gif',/*URL*/'','');
-CSInit[CSInit.length] = new Array(CSILoad,/*CMP*/'funnel_grid_14',/*URL*/'#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_14-over.gif',/*URL*/'#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_14-over.gif',/*URL*/'','');
-CSInit[CSInit.length] = new Array(CSILoad,/*CMP*/'funnel_grid_15',/*URL*/'#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_15-over.gif',/*URL*/'#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_15-over.gif',/*URL*/'','');
-CSAct[/*CMP*/ 'GoLiveAction1'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_13',/*URL*/ '#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_13-over.gif');
-CSAct[/*CMP*/ 'GoLiveAction2'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_13',/*URL*/ '#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_13.gif');
-CSAct[/*CMP*/ 'GoLiveAction3'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_14',/*URL*/ '#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_14-over.gif');
-CSAct[/*CMP*/ 'GoLiveAction4'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_14',/*URL*/ '#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_14.gif');
-CSAct[/*CMP*/ 'GoLiveAction5'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_15',/*URL*/ '#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_15-over.gif');
-CSAct[/*CMP*/ 'GoLiveAction6'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_15',/*URL*/ '#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_15.gif');
+CSInit[CSInit.length] = new Array(CSILoad,/*CMP*/'funnel_grid_13',/*URL*/'#application.application_specific_settings.image_dir#funnel_grid_13-over.gif',/*URL*/'images/funnel_grid_13-over.gif',/*URL*/'','');
+CSInit[CSInit.length] = new Array(CSILoad,/*CMP*/'funnel_grid_14',/*URL*/'#application.application_specific_settings.image_dir#funnel_grid_14-over.gif',/*URL*/'#application.application_specific_settings.image_dir#funnel_grid_14-over.gif',/*URL*/'','');
+CSInit[CSInit.length] = new Array(CSILoad,/*CMP*/'funnel_grid_15',/*URL*/'#application.application_specific_settings.image_dir#funnel_grid_15-over.gif',/*URL*/'#application.application_specific_settings.image_dir#funnel_grid_15-over.gif',/*URL*/'','');
+CSAct[/*CMP*/ 'GoLiveAction1'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_13',/*URL*/ '#application.application_specific_settings.image_dir#funnel_grid_13-over.gif');
+CSAct[/*CMP*/ 'GoLiveAction2'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_13',/*URL*/ '#application.application_specific_settings.image_dir#funnel_grid_13.gif');
+CSAct[/*CMP*/ 'GoLiveAction3'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_14',/*URL*/ '#application.application_specific_settings.image_dir#funnel_grid_14-over.gif');
+CSAct[/*CMP*/ 'GoLiveAction4'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_14',/*URL*/ '#application.application_specific_settings.image_dir#funnel_grid_14.gif');
+CSAct[/*CMP*/ 'GoLiveAction5'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_15',/*URL*/ '#application.application_specific_settings.image_dir#funnel_grid_15-over.gif');
+CSAct[/*CMP*/ 'GoLiveAction6'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_15',/*URL*/ '#application.application_specific_settings.image_dir#funnel_grid_15.gif');
 // -->
 </SCRIPT>
 </CSACTIONDICT>
@@ -153,69 +153,69 @@ CSAct[/*CMP*/ 'GoLiveAction6'] = new Array(CSSetImageURL,/*CMP*/ 'funnel_grid_15
 <TABLE WIDTH=305 BORDER=0 CELLPADDING=0 CELLSPACING=0>
 
 	<TR>
-		<td><img SRC="#request.dir_level##application.application_specific_settings.image_dir#spacer.gif" WIDTH="7" HEIGHT="1"></TD>
-		<td><img SRC="#request.dir_level##application.application_specific_settings.image_dir#spacer.gif" WIDTH="75" HEIGHT=1></TD>
-		<td><img SRC="#request.dir_level##application.application_specific_settings.image_dir#spacer.gif" width="9" height="1"></td>
-		<td><img SRC="#request.dir_level##application.application_specific_settings.image_dir#spacer.gif" width="6" height="1"></td>
-		<td><img SRC="#request.dir_level##application.application_specific_settings.image_dir#spacer.gif" width="9" height="1"></td>
-		<td><img SRC="#request.dir_level##application.application_specific_settings.image_dir#spacer.gif" width="2" height="1"></td>
-		<td><img SRC="#request.dir_level##application.application_specific_settings.image_dir#spacer.gif" width="25" height="1"></td>
-		<td><img SRC="#request.dir_level##application.application_specific_settings.image_dir#spacer.gif" width="89" height="1"></td>
-		<td><img SRC="#request.dir_level##application.application_specific_settings.image_dir#spacer.gif" width="83" height="1"></td>
+		<td><img SRC="#application.application_specific_settings.image_dir#spacer.gif" WIDTH="7" HEIGHT="1"></TD>
+		<td><img SRC="#application.application_specific_settings.image_dir#spacer.gif" WIDTH="75" HEIGHT=1></TD>
+		<td><img SRC="#application.application_specific_settings.image_dir#spacer.gif" width="9" height="1"></td>
+		<td><img SRC="#application.application_specific_settings.image_dir#spacer.gif" width="6" height="1"></td>
+		<td><img SRC="#application.application_specific_settings.image_dir#spacer.gif" width="9" height="1"></td>
+		<td><img SRC="#application.application_specific_settings.image_dir#spacer.gif" width="2" height="1"></td>
+		<td><img SRC="#application.application_specific_settings.image_dir#spacer.gif" width="25" height="1"></td>
+		<td><img SRC="#application.application_specific_settings.image_dir#spacer.gif" width="89" height="1"></td>
+		<td><img SRC="#application.application_specific_settings.image_dir#spacer.gif" width="83" height="1"></td>
 	</TR>
 	<tr>Total suspects currently not in any phase: #marketing_home.Not_Active#
-		<td COLSPAN="9"><img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_01.gif" WIDTH=305 HEIGHT=48></td>
+		<td COLSPAN="9"><img SRC="#application.application_specific_settings.image_dir#funnel_grid_01.gif" WIDTH=305 HEIGHT=48></td>
 	</tr>
 	<tr>
-		<td ROWSPAN="5"><img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_02.gif" WIDTH=7 HEIGHT=171></td>
+		<td ROWSPAN="5"><img SRC="#application.application_specific_settings.image_dir#funnel_grid_02.gif" WIDTH=7 HEIGHT=171></td>
 		<td align="right">
-			<img SRC="#request.dir_level##application.application_specific_settings.image_dir#zzz_funnel_grid_03.gif" WIDTH=10 HEIGHT=32><a href="index.cfm?fuseaction=home_Drill&variable=Prospecting">#marketing_home.Prospecting#</a>&nbsp;&nbsp;</td>
+			<img SRC="#application.application_specific_settings.image_dir#zzz_funnel_grid_03.gif" WIDTH=10 HEIGHT=32><a href="index.cfm?fuseaction=home_Drill&variable=Prospecting">#marketing_home.Prospecting#</a>&nbsp;&nbsp;</td>
 		<td COLSPAN=7>
-		<a href="index.cfm?fuseaction=home_Drill&variable=Prospecting">	<img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_04.gif" WIDTH=223 HEIGHT=40 border="0"></a></td>
+		<a href="index.cfm?fuseaction=home_Drill&variable=Prospecting">	<img SRC="#application.application_specific_settings.image_dir#funnel_grid_04.gif" WIDTH=223 HEIGHT=40 border="0"></a></td>
 	</tr>
 	<tr>
 		<td COLSPAN=2 align="right" valign="middle">
 			<a href="index.cfm?fuseaction=Marketing.home_Drill&variable=Qualifying">#marketing_home.Qualifying#</a>&nbsp;&nbsp;</td>
 		<td COLSPAN=6>
-			<a href="index.cfm?fuseaction=Marketing.home_Drill&variable=Qualifying"><img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_06.gif" WIDTH="214" HEIGHT="41" border="0"></a></td>
+			<a href="index.cfm?fuseaction=Marketing.home_Drill&variable=Qualifying"><img SRC="#application.application_specific_settings.image_dir#funnel_grid_06.gif" WIDTH="214" HEIGHT="41" border="0"></a></td>
 	</tr>
 	<tr>
 		<td COLSPAN=3 align="right">
-			<img SRC="#request.dir_level##application.application_specific_settings.image_dir#zzz_funnel_grid_07.gif" align="absmiddle" WIDTH=10 HEIGHT=38><font size="2" face="arial"><a href="index.cfm?fuseaction=Marketing.home_Drill&variable=Proposing">#marketing_home.Proposing#</a>&nbsp;&nbsp;</td>
+			<img SRC="#application.application_specific_settings.image_dir#zzz_funnel_grid_07.gif" align="absmiddle" WIDTH=10 HEIGHT=38><font size="2" face="arial"><a href="index.cfm?fuseaction=Marketing.home_Drill&variable=Proposing">#marketing_home.Proposing#</a>&nbsp;&nbsp;</td>
 		<td COLSPAN=5>
-			<a href="index.cfm?fuseaction=home_Drill&variable=Proposing"><img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_08.gif" WIDTH="208" HEIGHT="41" border="0"></a></td>
+			<a href="index.cfm?fuseaction=home_Drill&variable=Proposing"><img SRC="#application.application_specific_settings.image_dir#funnel_grid_08.gif" WIDTH="208" HEIGHT="41" border="0"></a></td>
 	</tr>
 	<tr>
 		<td COLSPAN=5 align="right">
-			<img SRC="#request.dir_level##application.application_specific_settings.image_dir#zzz_funnel_grid_09.gif" align="absmiddle" WIDTH="10" HEIGHT="40" border="0" alt=""><a href="index.cfm?fuseaction=home_Drill&variable=Closing">#marketing_home.Closing#</a>&nbsp;&nbsp;</td>
+			<img SRC="#application.application_specific_settings.image_dir#zzz_funnel_grid_09.gif" align="absmiddle" WIDTH="10" HEIGHT="40" border="0" alt=""><a href="index.cfm?fuseaction=home_Drill&variable=Closing">#marketing_home.Closing#</a>&nbsp;&nbsp;</td>
 		<td COLSPAN=3 ROWSPAN=2>
-			<a href="index.cfm?fuseaction=home_Drill&variable=Closing"><img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_10.gif" WIDTH=197 HEIGHT=49 border="0"></a></td>
+			<a href="index.cfm?fuseaction=home_Drill&variable=Closing"><img SRC="#application.application_specific_settings.image_dir#funnel_grid_10.gif" WIDTH=197 HEIGHT=49 border="0"></a></td>
 	</tr>
 	<tr>
 		<td COLSPAN=4>
-			<img SRC="#request.dir_level##application.application_specific_settings.image_dir#zzz_do_not_remove.gif" WIDTH=99 HEIGHT=7></td>
+			<img SRC="#application.application_specific_settings.image_dir#zzz_do_not_remove.gif" WIDTH=99 HEIGHT=7></td>
 		<td>
-			<img SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_12.gif" WIDTH=2 HEIGHT=7></td>
+			<img SRC="#application.application_specific_settings.image_dir#funnel_grid_12.gif" WIDTH=2 HEIGHT=7></td>
 	</tr>
 	<tr>
 		<td COLSPAN=7>
-			<CSOBJ W=133 H=28 T="Button" HT="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_13-over.gif" ST="" AL="" CSOVER="GoLiveAction1" CSOUT="GoLiveAction2">
+			<CSOBJ W=133 H=28 T="Button" HT="#application.application_specific_settings.image_dir#funnel_grid_13-over.gif" ST="" AL="" CSOVER="GoLiveAction1" CSOUT="GoLiveAction2">
 			<A HREF="index.cfm?fuseaction=home_Drill&variable=All"
-				ONMOUSEOVER="CSAction(new Array(/*CMP*/'GoLiveAction1'));return CSIShow(/*CMP*/'#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_13', 1);"
+				ONMOUSEOVER="CSAction(new Array(/*CMP*/'GoLiveAction1'));return CSIShow(/*CMP*/'#application.application_specific_settings.image_dir#funnel_grid_13', 1);"
 				ONMOUSEOUT="CSAction(new Array(/*CMP*/'GoLiveAction2'));">
-				<img name="funnel_grid_13" SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_13.gif" WIDTH=133 HEIGHT=28 BORDER=0></A></CSOBJ></td>
+				<img name="funnel_grid_13" SRC="#application.application_specific_settings.image_dir#funnel_grid_13.gif" WIDTH=133 HEIGHT=28 BORDER=0></A></CSOBJ></td>
 		<td>
-			<CSOBJ W=89 H=28 T="Button" HT="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_14-over.gif" ST="" AL="" CSOVER="GoLiveAction3" CSOUT="GoLiveAction4">
+			<CSOBJ W=89 H=28 T="Button" HT="#application.application_specific_settings.image_dir#funnel_grid_14-over.gif" ST="" AL="" CSOVER="GoLiveAction3" CSOUT="GoLiveAction4">
 			<A HREF="index.cfm?fuseaction=Line"
-				ONMOUSEOVER="CSAction(new Array(/*CMP*/'GoLiveAction3'));return CSIShow(/*CMP*/'#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_14', 1);"
+				ONMOUSEOVER="CSAction(new Array(/*CMP*/'GoLiveAction3'));return CSIShow(/*CMP*/'#application.application_specific_settings.image_dir#funnel_grid_14', 1);"
 				ONMOUSEOUT="CSAction(new Array(/*CMP*/'GoLiveAction4'));">
-				<img name="funnel_grid_14" SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_14.gif" WIDTH=89 HEIGHT=28 BORDER=0></A></CSOBJ></td>
+				<img name="funnel_grid_14" SRC="#application.application_specific_settings.image_dir#funnel_grid_14.gif" WIDTH=89 HEIGHT=28 BORDER=0></A></CSOBJ></td>
 		<td>
-			<CSOBJ W=83 H=28 T="Button" HT="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_15-over.gif" ST="" AL="" CSOVER="GoLiveAction5" CSOUT="GoLiveAction6">
+			<CSOBJ W=83 H=28 T="Button" HT="#application.application_specific_settings.image_dir#funnel_grid_15-over.gif" ST="" AL="" CSOVER="GoLiveAction5" CSOUT="GoLiveAction6">
 			<A HREF="index.cfm?fuseaction=Grid"
-				ONMOUSEOVER="CSAction(new Array(/*CMP*/'GoLiveAction5'));return CSIShow(/*CMP*/'#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_15', 1);"
+				ONMOUSEOVER="CSAction(new Array(/*CMP*/'GoLiveAction5'));return CSIShow(/*CMP*/'#application.application_specific_settings.image_dir#funnel_grid_15', 1);"
 				ONMOUSEOUT="CSAction(new Array(/*CMP*/'GoLiveAction6'));">
-				<img name="funnel_grid_15" SRC="#request.dir_level##application.application_specific_settings.image_dir#funnel_grid_15.gif" WIDTH=83 HEIGHT=28 BORDER=0></A></CSOBJ></td>
+				<img name="funnel_grid_15" SRC="#application.application_specific_settings.image_dir#funnel_grid_15.gif" WIDTH=83 HEIGHT=28 BORDER=0></A></CSOBJ></td>
 	</tr></cfoutput>
 </TABLE>
 <!-- End ImageReady Slices -->

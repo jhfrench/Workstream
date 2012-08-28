@@ -36,5 +36,5 @@ INSERT INTO Demographics (user_account_id, last_name, first_name,
 VALUES(#attributes.user_account_id#, '#attributes.last_name#', '#attributes.first_name#',
 	'#attributes.middle_initial#', '#attributes.email_address#', '#attributes.work_phone#',
 	#attributes.center_id#, '#attributes.uupic#', '#attributes.title#',
-	'#attributes.fax_phone#', #session.user_account_id#)
+	'#attributes.fax_phone#', #variables.user_identification#)
 </cfquery>

@@ -38,7 +38,7 @@ WHERE requirement_coded_ind=1
 <cfquery name="update_requirement_coded_ind" datasource="#application.datasources.main#">
 UPDATE Link_Screen_Requirement
 SET requirement_coded_ind=1,
-	requirement_coded_by=#session.user_account_id#,
+	requirement_coded_by=#variables.user_identification#,
 	date_requirement_coded=CURRENT_TIMESTAMP
 WHERE requirement_coded_ind=0
 	AND l_s_r_id IN (#attributes.requirement_coded_ind#)

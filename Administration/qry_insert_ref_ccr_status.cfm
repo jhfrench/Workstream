@@ -27,6 +27,6 @@
 <cfquery name="insert_ref_ccr_status" datasource="#application.datasources.main#">
 INSERT INTO REF_CCR_Status (description, sort_order, created_by, 
 	active_ind)
-VALUES ('#attributes.description#', #attributes.sort_order#, #session.user_account_id#,
+VALUES ('#attributes.description#', #attributes.sort_order#, #variables.user_identification#,
 	#attributes.active_ind#)
 </cfquery>

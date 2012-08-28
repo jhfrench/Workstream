@@ -31,14 +31,14 @@
 			<cfloop list="#evaluate('attributes.privilege_#privilege_id_ii#_organization_id')#" index="variables.organization_id_ii">
 			SELECT #attributes.program_year_id#, #attributes.module_id#, #user_account_id_ii#,
 				#variables.organization_id_ii#, NULL AS center_id, #variables.privilege_id_ii#,
-				#session.user_account_id#
+				#variables.user_identification#
 			FROM Dual
 			UNION ALL
 			<cfif isdefined("attributes.apply_to_children_ind")>
 			/* if the user so specifies, apply indicated access to children NSM entities */
 			SELECT #attributes.program_year_id#, #attributes.module_id#, #user_account_id_ii#,
 				Hierarchy_Assignment.organization_id, NULL AS center_id, #variables.privilege_id_ii#,
-				#session.user_account_id#
+				#variables.user_identification#
 			FROM Hierarchy_Assignment
 				INNER JOIN Link_Program_Year_Hierarchy ON Hierarchy_Assignment.l_p_y_h_id=Link_Program_Year_Hierarchy.l_p_y_h_id
 				INNER JOIN REF_Organization ON Hierarchy_Assignment.organization_id=REF_Organization.organization_id
@@ -55,7 +55,7 @@
 			<cfloop list="#evaluate('attributes.privilege_#variables.privilege_id_ii#_center_id')#" index="variables.center_id_ii">
 			SELECT #attributes.program_year_id#, #attributes.module_id#, #user_account_id_ii#,
 				#attributes.nsm_drilldown_organizations# AS organization_id, #variables.center_id_ii# AS center_id, #variables.privilege_id_ii#,
-				#session.user_account_id#
+				#variables.user_identification#
 			FROM Dual
 			UNION ALL
 			</cfloop>

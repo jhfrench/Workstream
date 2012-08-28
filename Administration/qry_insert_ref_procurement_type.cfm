@@ -26,6 +26,6 @@
 <cfquery name="insert_ref_procurement_type" datasource="#application.datasources.main#">
 INSERT INTO REF_Procurement_Type (description, sort_order, created_by,
 	active_ind, procurement_ind, abbreviation)
-VALUES ('#attributes.description#', #attributes.sort_order#, #session.user_account_id#,
+VALUES ('#attributes.description#', #attributes.sort_order#, #variables.user_identification#,
 	#attributes.active_ind#, #attributes.procurement_ind#, '#attributes.abbreviation#')
 </cfquery>

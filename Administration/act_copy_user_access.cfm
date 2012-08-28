@@ -32,7 +32,7 @@ WHERE active_ind=1
 INSERT INTO Access_User_Business_Function (user_account_id, program_year_id, business_function_id,
 	created_by)
 SELECT User_Account.user_account_id, program_year_id, business_function_id,
-	#session.user_account_id#
+	#variables.user_identification#
 FROM Access_User_Business_Function
 	INNER JOIN Link_User_Account_Status ON Access_User_Business_Function.active_ind=Link_User_Account_Status.active_ind
 	INNER JOIN User_Account ON User_Account.user_account_id=Link_User_Account_Status.user_account_id
@@ -56,7 +56,7 @@ INSERT INTO Access_User_Account_Grouper (user_account_id, program_year_id, modul
 	created_by)
 SELECT User_Account.user_account_id, program_year_id, module_id,
 	organization_id, center_id, privilege_id,
-	#session.user_account_id#
+	#variables.user_identification#
 FROM Access_User_Account_Grouper
 	INNER JOIN Link_User_Account_Status ON Access_User_Account_Grouper.active_ind=Link_User_Account_Status.active_ind
 	INNER JOIN User_Account ON User_Account.user_account_id=Link_User_Account_Status.user_account_id

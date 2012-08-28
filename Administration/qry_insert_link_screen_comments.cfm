@@ -28,5 +28,5 @@
 INSERT INTO Link_Screen_Comments (screen_id, comments_id, sort_order,
 	created_by, active_ind)
 VALUES ('#attributes.screen_id#', #attributes.comments_id#, #attributes.sort_order#,
-	#session.user_account_id#, #attributes.active_ind#)
+	#variables.user_identification#, #attributes.active_ind#)
 </cfquery>

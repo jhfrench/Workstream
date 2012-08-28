@@ -53,8 +53,8 @@
 	<cfoutput>Your message has no valid recipients, so it cannot be sent<cfif len(attributes.carbon_copy_to)>;<br /> the following recipient(s) have opted out of receiving <abbr title="#application.html_title#">#application.product_name#</abbr> emails:<br /> #variables.carbon_copy_to#</cfif>.</cfoutput>
 <cfelse>
 	<cfscript>
-		if (isdefined("session.user_account_id")) {
-			variables.created_by=session.user_account_id;
+		if (isdefined("variables.user_identification")) {
+			variables.created_by=variables.user_identification;
 		}
 		else {
 			variables.created_by=0;

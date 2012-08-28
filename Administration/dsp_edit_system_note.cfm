@@ -70,7 +70,7 @@
 	</tr>
 	<tr bgcolor="##dddddd">
 		<td class="btn-group">
-			<input type="hidden" name="created_by" value="#session.user_account_id#" />
+			<input type="hidden" name="created_by" value="#variables.user_identification#" />
 			<input type="hidden" name="system_note_id" value="#attributes.system_note_id#" />
 			<cfif attributes.system_note_id EQ 0>
 				<input type="submit" name="send_system_note" value="Submit System Note" class="btn btn-primary" />
