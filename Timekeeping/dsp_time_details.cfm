@@ -33,10 +33,10 @@
 	<cfoutput query="get_time_details">
 		<tr>
 			<th scope="row">
-				<a href="javascript:task_to_ind('#emp_id#|#task_id#');" title="View individual time entries for #last_name#.">#last_name#</a>
+				<a href="javascript:task_to_ind(#emp_id#);" title="View individual time entries for #last_name#.">#last_name#</a>
 			</td>
 			<td class="number">
-				<a href="javascript:task_to_ind('#emp_id#|#task_id#');" title="View individual time entries for #last_name#.">#decimalformat(hours)#</a>
+				<a href="javascript:task_to_ind(#emp_id#);" title="View individual time entries for #last_name#.">#decimalformat(hours)#</a>
 			</td>
 			<td>
 				<cfinput type="checkbox" name="reassign_hours" value="#emp_id#" required="yes" message="Please mark which hours you wish to reassign.">

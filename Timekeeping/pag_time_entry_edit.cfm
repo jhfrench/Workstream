@@ -27,6 +27,10 @@
 <cfif isdefined("attributes.referer")>
 	<cfinclude template="act_upload_time_entry_edits.cfm"><!--- 
 	<cflocation url="index.cfm?fuseaction=#attributes.referer#" addtoken="No"> --->
+	<div class="alert alert-success">
+	<p>The time entry has been updated.</p>
+	<p>You can <a href="index.cfm?fuseaction=<cfoutput>#attributes.referer#</cfoutput>">return</a> to what you were doing.</p>
+	</div>
 <cfelse>
 	<cfinclude template="../common_files/qry_get_valid_projects.cfm">
 	<cfinclude template="qry_entry_type.cfm">

@@ -21,7 +21,7 @@
 <cfinclude template="qry_get_time_details.cfm">
 <cfinclude template="qry_get_task_details_enhanced.cfm">
 <cfinclude template="qry_get_task_accumulated.cfm">
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="task_to_ind" field_name="emp_id_task_id" field_value=0 fuseaction="Timekeeping.individual_time">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="task_to_ind" fuseaction="Timekeeping.individual_time" field_name="emp_id" field2_name="task_id" field2_value="#attributes.task_id#">
 <cfform name="time_details" action="index.cfm?fuseaction=Timekeeping.time_details" method="POST">
 <cfinclude template="dsp_task_description.cfm">
 <cfif len(get_task_accumulated.budgeted_hours) AND get_task_accumulated.budgeted_hours GT 0>

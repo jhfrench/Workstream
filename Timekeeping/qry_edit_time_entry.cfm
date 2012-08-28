@@ -22,15 +22,22 @@
 UPDATE Time_Entry
 SET active_ind=0
 WHERE time_entry_id=#attributes.time_entry_id#
-	AND time_entry_id NOT IN (SELECT time_entry_id FROM Link_Invoice_Time_Entry WHERE active_ind=1) /*don't update or delete invoiced time*/;
+	AND time_entry_id NOT IN (
+		/* don't reassign hours that have already been billed*/
+		SELECT time_entry_id
+		FROM Link_Invoice_Time_Entry
+			INNER JOIN Invoice ON Link_Invoice_Time_Entry.invoice_id=Invoice.invoice_id
+		WHERE Link_Invoice_Time_Entry.active_ind=1
+			AND Invoice.active_ind=1
+		GROUP BY time_entry_id
+	);
 <cfif isdefined("attributes.method") AND comparenocase(attributes.method,"delete this entry")>
 INSERT INTO Time_Entry (emp_id, work_date, hours,
 	project_id, task_id, notes_id)
-SELECT #session.user_account_id#, '#dateformat(attributes.date,"yyyy-mm-dd")#', #attributes.hours#,
+SELECT #session.user_account_id#, '#dateformat(attributes.work_date,"yyyy-mm-dd")#', #attributes.hours#,
 	<cfif isdefined("attributes.project_id")>#attributes.project_id#<cfelse>project_id</cfif>, task_id, CURRVAL('Notes_notes_id_SEQ')
 FROM Time_Entry
 WHERE time_entry_id=#attributes.time_entry_id#
 	AND time_entry_id NOT IN (SELECT time_entry_id FROM Link_Invoice_Time_Entry WHERE active_ind=1) /*don't update or delete invoiced time*/
 </cfif>
 </cfquery>
-
