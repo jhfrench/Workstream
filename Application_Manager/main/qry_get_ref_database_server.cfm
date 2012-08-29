@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_get_ref_database_server" datasource="#application.datasources.main#">
+<cfquery name="qry_get_ref_database_server" datasource="#application.datasources.application_manager#">
 SELECT *
 FROM REF_Database_Server
 WHERE active_ind=1

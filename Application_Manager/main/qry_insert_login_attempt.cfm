@@ -23,7 +23,7 @@
 </fusedoc>
 --->
 <!--- always insert the encrypted password, never clear text --->
-<cfquery name="get_login_information" datasource="#application.datasources.main#">
+<cfquery name="get_login_information" datasource="#application.datasources.application_manager#">
 INSERT INTO Login_Attempt (user_name, password, success_ind)
 VALUES (COALESCE('#attributes.user_name#','UNSPECIFIED'), COALESCE('#attributes.password#','UNSPECIFIED'), #attributes.success_ind#)
 </cfquery>

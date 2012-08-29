@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_insert_ref_support_contact_type" datasource="#application.datasources.main#">
+<cfquery name="qry_insert_ref_support_contact_type" datasource="#application.datasources.application_manager#">
 INSERT INTO REF_Support_Contact_Type (support_contact_type_name, sort_order, active_ind)
 VALUES ('#attributes.support_contact_type_name#', 1, 1)
 </cfquery>

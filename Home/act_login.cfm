@@ -61,6 +61,7 @@ FROM User_Password
 				session.first_name=get_username.first_name;
 				session.email_address=get_username.email_address;
 				session.password_created_by=get_username.password_created_by;
+				variables.user_identification=get_username.user_account_id;
 			</cfscript>
 
 			<!--- $issue$ next two files should be consolidated --->
@@ -80,15 +81,15 @@ FROM User_Password
 		<!--- if user is not active --->
 		<cfelse>
 			<!--- Log the user as unsuccessful attempt --->
-			<cfset variables.display_message="<abbr title='#application.html_title#'>#application.product_name#</abbr> cannot authorize your access because your username/password combination is not correct.">
+			<cfset variables.display_message="#application.product_name# cannot authorize your access because your username/password combination is not correct.">
 		</cfif>
 	<!--- if user is not active --->
 	<cfelse>
-		<cfset variables.display_message="<abbr title='#application.html_title#'>#application.product_name#</abbr> cannot authorize your access because your username/password combination is not correct.">
+		<cfset variables.display_message="#application.product_name# cannot authorize your access because your username/password combination is not correct.">
 	</cfif>
 <!--- if account does not exist --->
 <cfelse>
-	<cfset variables.display_message="<abbr title='#application.html_title#'>#application.product_name#</abbr> cannot authorize your access because your username/password combination is not correct.">
+	<cfset variables.display_message="#application.product_name# cannot authorize your access because your username/password combination is not correct.">
 </cfif>
 
 <!--- keep track of login attempt --->

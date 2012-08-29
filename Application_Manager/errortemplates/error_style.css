@@ -1,0 +1,35 @@
+/* CSS Document */
+
+body {
+	background-color:#922005;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 1em;
+}
+
+section {
+	background-color:#FAF8CC;
+	border:5px solid #000000;
+	border-radius:8px;
+	-moz-border-radius:8px;
+	margin:0px 10px;
+	width:610px;
+}
+
+.center {
+	margin: 50px auto 20px auto;
+}
+
+.content {
+	margin:0px;
+	padding: 0px 30px;
+}
+
+.error_header {
+	background-image: url(../images/error_stripes.jpg);
+}
+
+.header {
+	color:#922005;
+	font-size: 1.3em;
+	font-weight:bold;
+}

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!-- errortemplates/error.cfm
 	Author: Jeromy F -->
 <!---
@@ -8,14 +9,6 @@
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="1/25/2007" role="FuseCoder" comments="Created File">
 			$Id$
-			JF: 2/1/8
-			I'm replacing client variables with session variables because it's more important for FOCUS. To do this correctly, I'd need to create the Error_Log.session_variables column, wddx the session scope into its own variable and insert that variable into the new field. Then make client wddx store client information again.
-
-			JF: 6/10/8
-			Reinstated client variable logging.
-
-			JF: 7/30/10
-			Converted to faster cfscript; split cftry into multiple blocks so one failure wouldn't wipe out other data.
 		</history>
 	</properties>
 </fusedoc>
@@ -158,29 +151,40 @@
 </cftry>
 
 <!--- Insert error data into the Error_Log table --->
-		<cfquery name="insert_error_info" datasource="#application.datasources.main#">
-		INSERT INTO Error_Log (erroring_template, erroring_querystring, 
-			http_referer, diagnostics, application_variables,
+<cfoutput>
+<pre>
+INSERT INTO Error_Log (erroring_template, erroring_querystring, 
+	http_referer, diagnostics, username, remote_address,
+	user_browser, error_web_datetime, error_sql_datetime)
+VALUES('#variables.error_template#', '#variables.error_querystring#',
+	'#variables.error_httpreferer#','#variables.error_diagnostics#', '#session.user_name#', '#variables.error_remoteaddress#',
+	'#variables.error_browser#', #createodbcdate(variables.error_datetime)#, CURRENT_TIMESTAMP)
+</pre>
+</cfoutput>
+		<cfquery name="insert_error_info" datasource="#application.datasources.application_manager#">
+		INSERT INTO Error_Log (intallation_id, erroring_template, erroring_querystring, 
+			http_referer, diagnostics<!--- , application_variables,
 			attributes_variables, cgi_variables, client_variables,
 			form_variables, request_variables, session_variables,
-			url_variables, username, remote_address,
+			url_variables --->, username, remote_address,
 			user_browser, error_web_datetime, error_sql_datetime)
-		SELECT '#variables.error_template#', '#variables.error_querystring#',
-			'#variables.error_httpreferer#','#variables.error_diagnostics#', '#application_variables#',
+		VALUES(#application.intallation_id#, '#variables.error_template#', '#variables.error_querystring#',
+			'#variables.error_httpreferer#','#variables.error_diagnostics#'<!--- , '#application_variables#',
 			'#attributes_variables#', '#cgi_variables#', '#client_variables#', 
 			'#form_variables#', '#request_variables#', '#session_variables#',
-			'#url_variables#', '#session.user_name#', '#variables.error_remoteaddress#',
-			'#variables.error_browser#', #createodbcdatetime(variables.error_datetime)#, CURRENT_TIMESTAMP
-		FROM Dual
+			'#url_variables#' --->, '#session.user_name#', '#variables.error_remoteaddress#',
+			'#variables.error_browser#', <cfqueryparam cfsqltype="CF_SQL_TIMESTAMP" value="#createodbcdatetime(variables.error_datetime)#" />, CURRENT_TIMESTAMP)
 		</cfquery>
+GOT TO 152
+<!--- 
 
 <cftry>
-	<cfquery name="get_next_error_log_id" datasource="#application.datasources.main#">
+	<cfquery name="get_next_error_log_id" datasource="#application.datasources.application_manager#">
 	SELECT CURRVAL('Error_Log_error_log_id_SEQ') AS error_log_id
 	</cfquery>
 	<cfset request.error_log_id=get_next_error_log_id.error_log_id>
 
-	<cfquery name="insert_error_info" datasource="#application.datasources.main#">
+	<cfquery name="insert_error_info" datasource="#application.datasources.application_manager#">
 	UPDATE Error_Log
 	SET error_variables='#error_variables#'
 	WHERE error_log_id=#request.error_log_id#
@@ -222,7 +226,7 @@
 		</cfcatch>
 	</cftry>
 
-	<cfquery name="insert_error_info" datasource="#application.datasources.main#">
+	<cfquery name="insert_error_info" datasource="#application.datasources.application_manager#">
 	UPDATE Error_Log
 	SET local_variables='#local_variables#'
 	WHERE error_log_id=#request.error_log_id#
@@ -305,48 +309,43 @@
 
 <cftry>
 	<cfoutput>
-	<html>
-		<head>
-			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-			<title>HITSS Application Error</title>
-			<link href="https://pavo.ait.com/Application_Manager/errortemplates/error_stlye.css" rel="stylesheet" type="text/css" />
-		</head>
-		<body>
-			<table class="center" width="686" border="0" cellspacing="0" cellpadding="0">
-				<tr>
-					<td><img src="https://pavo.ait.com/Application_Manager/errortemplates/top.jpg" width="686" height="140" /></td>
-				</tr>
-				<tr>
-					<td class="content">
-						<p class="header">You have experienced an unexpected error. <br /></p>
-						<p>The Error Reference Number is<cfif isdefined("request.error_log_id") AND len(request.error_log_id)>: #request.error_log_id#<cfelse> unknown.</cfif></p>
-						<p>We apologize for the inconvenience this may cause. This page automatically sends an email to the <abbr title="Applied Internet Technologies">AIT</abbr> Application Development department to ensure timely repair of the malfunction.</p>
-						<p>If you have any questions or concerns, please feel free to contact the <a href="mailto:service@ait.com"><abbr title="Applied Internet Technologies">AIT</abbr> Help Desk</a><cfif isdefined("request.error_log_id") AND len(request.error_log_id)> and reference Error Reference Number #request.error_log_id#</cfif>.
-							<!--- the very same code as above --->
-							<cfif isdefined("application.application_support_contacts")>
-								<cfloop list="#structKeyList(application.application_support_contacts)#" index="contact_type_ii">
-									<cfset variables.contact_list_legth=listlen(structkeylist(application.application_support_contacts[contact_type_ii])) - 1>
-									<ul>
-										<strong><cfif comparenocase(contact_type_ii, "Customer") NEQ 0>#application.application_support_contacts[contact_type_ii].type# <cfelse>#application.product_name#</cfif> Contact<cfif variables.contact_list_legth GT 1>s</cfif>:</strong>
-										<cfloop from="1" to="#variables.contact_list_legth#" index="contact_ii">
-											<ul>
-												#application.application_support_contacts[contact_type_ii][contact_ii].first_name# #application.application_support_contacts[contact_type_ii][contact_ii].last_name#<br /><cfif application.application_support_contacts[contact_type_ii][contact_ii].send_email_ind AND len(application.application_support_contacts[contact_type_ii][contact_ii].email)>
-												<a href="mailto:#application.application_support_contacts[contact_type_ii][contact_ii].email#">#application.application_support_contacts[contact_type_ii][contact_ii].email#</a><br /></cfif>
-												<cfif len(application.application_support_contacts[contact_type_ii][contact_ii].phone)>Phone: #application.application_support_contacts[contact_type_ii][contact_ii].phone#</cfif>
-											</ul>
-											<br />
-										</cfloop>
-									</ul>
-								</cfloop>
-							</cfif></p>
-							<cfif len(cgi.http_referer)><p>Please click here to <a href="#listfirst(cgi.http_referer,"?")#">return to the main #application.product_name# screen</a>.</p></cfif>
-					</td>
-				</tr>
-				<tr>
-					<td><img src="https://pavo.ait.com/Application_Manager/errortemplates/bottom.jpg" width="686" height="21" /></td>
-				</tr>
-			</table>
-		</body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>AIT Application Error</title>
+		<link rel="stylesheet" href="Application_Manager/errortemplates/error_style.css">
+	</head>
+	
+	<body>
+	<section class="center">
+		<div class="error_header">
+			<img src="Application_Manager/images/gears1.png" alt="" width="64" height="64" />
+		</div>
+		<div class="content">
+			<p class="header">You have encountered an unexpected error.</p>
+			<p>The Error Reference Number is<cfif isdefined("request.error_log_id") AND len(request.error_log_id)>: #request.error_log_id#<cfelse> unknown.</cfif></p>
+			<p>We apologize for the inconvenience this may cause. This page automatically sends an email to the <abbr title="Applied Internet Technologies">AIT</abbr> Application Development department to ensure timely repair of the malfunction.</p>
+			<p>If you have any questions or concerns, please feel free to contact the <a href="mailto:service@ait.com"><abbr title="Applied Internet Technologies">AIT</abbr> Help Desk</a><cfif isdefined("request.error_log_id") AND len(request.error_log_id)> and reference Error Reference Number #request.error_log_id#</cfif>.
+				<!--- the very same code as above --->
+				<cfif isdefined("application.application_support_contacts")>
+					<cfloop list="#structKeyList(application.application_support_contacts)#" index="contact_type_ii">
+						<cfset variables.contact_list_legth=listlen(structkeylist(application.application_support_contacts[contact_type_ii])) - 1>
+						<ul>
+							<strong><cfif comparenocase(contact_type_ii, "Customer") NEQ 0>#application.application_support_contacts[contact_type_ii].type# <cfelse>#application.product_name#</cfif> Contact<cfif variables.contact_list_legth GT 1>s</cfif>:</strong>
+							<cfloop from="1" to="#variables.contact_list_legth#" index="contact_ii">
+								<ul>
+									#application.application_support_contacts[contact_type_ii][contact_ii].first_name# #application.application_support_contacts[contact_type_ii][contact_ii].last_name#<br /><cfif application.application_support_contacts[contact_type_ii][contact_ii].send_email_ind AND len(application.application_support_contacts[contact_type_ii][contact_ii].email)>
+									<a href="mailto:#application.application_support_contacts[contact_type_ii][contact_ii].email#">#application.application_support_contacts[contact_type_ii][contact_ii].email#</a><br /></cfif>
+									<cfif len(application.application_support_contacts[contact_type_ii][contact_ii].phone)>Phone: #application.application_support_contacts[contact_type_ii][contact_ii].phone#</cfif>
+								</ul>
+								<br />
+							</cfloop>
+						</ul>
+					</cfloop>
+				</cfif></p>
+				<cfif len(cgi.http_referer)><p>Please click here to <a href="#listfirst(cgi.http_referer,"?")#">return to the main #application.product_name# screen</a>.</p></cfif>
+		</div>
+	</section>
+	</body>
 	</html>
 	</cfoutput>
 	<cfcatch>
@@ -359,4 +358,4 @@
 		 -->
 		</cfoutput>
 	</cfcatch>
-</cftry>
+</cftry> --->

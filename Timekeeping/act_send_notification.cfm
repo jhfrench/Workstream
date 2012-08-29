@@ -14,6 +14,7 @@
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: number that uniquely identifies a task
  --->
+ <cfset variables.user_identification=session.user_account_id>
 <cfswitch expression="#attributes.note_type#">
 	<cfcase value="completed">
 		<cfset variables.email_subject_prefix="Completed workstream Task">
@@ -121,21 +122,22 @@
 SELECT Email_Source.task_source AS email_from, Email.email AS email_to, 
 	Task.task_id, Task.name AS task_name, Task.description AS description, 
 	Task.budgeted_hours, Task.due_date AS date_due, Emp_Contact.name, Email.email_id
-FROM Task, Team, Email, Emp_Contact,
-	(SELECT Email.email AS task_source, Team.task_id
-	FROM Team, Email
-	WHERE Team.emp_id=Email.emp_id
-		AND Team.task_id=#attributes.task_id#
-		AND Team.role_id IN (#variables.sender_type#)
-		AND Email.email_type_id=1) AS Email_Source
-WHERE Task.task_id=Team.task_id
-	AND Team.emp_id=Email.emp_id
-	AND Team.emp_id=Emp_Contact.emp_id
-	AND Task.task_id=Email_Source.task_id
-	AND Team.task_id=#attributes.task_id#
-	AND Team.role_id IN (#variables.receiver_type#)
-	AND Email.email_type_id=1
-	AND Email.emp_id!=#variables.user_identification#
+FROM Task
+	INNER JOIN Team ON Task.task_id=Team.task_id
+		AND Team.role_id IN (#variables.receiver_type#)
+	INNER JOIN Email ON Team.emp_id=Email.emp_id
+		AND Email.email_type_id=1
+		AND Email.emp_id!=#variables.user_identification#
+	INNER JOIN Emp_Contact ON Team.emp_id=Emp_Contact.emp_id
+	INNER JOIN (
+		SELECT Email.email AS task_source, Team.task_id
+		FROM Team
+			INNER JOIN Email ON Team.emp_id=Email.emp_id
+		WHERE Team.task_id=#attributes.task_id#
+			AND Team.role_id IN (#variables.sender_type#)
+			AND Email.email_type_id=1
+	) AS Email_Source ON Task.task_id=Email_Source.task_id
+WHERE Task.task_id=#attributes.task_id#
 </cfquery>
 <cfif prepare_email.recordcount>
 	<cfset variables.email_to=valuelist(prepare_email.email_to)>
@@ -143,13 +145,15 @@ WHERE Task.task_id=Team.task_id
 
 	<cfif listlen(variables.email_to) AND len(variables.email_from)>
 		<cfset variables.email_subject="#variables.email_subject_prefix#: #prepare_email.task_name#">
-		<cfset variables.email_body="#prepare_email.name#,
+		<cfsavecontent variable="variables.email_body">
+#prepare_email.name#,
 
 The following task #variables.notification_text#: #prepare_email.task_name# (#attributes.task_id#)
 Due: #prepare_email.date_due#
 Description: #prepare_email.description#
 
-<a href='http://#cgi.http_host#/index.cfm?fuseaction=Timekeeping.task_details&task_id=#attributes.task_id#'>View task #attributes.task_id#</a>">
+<a href="http://#cgi.http_host#/index.cfm?fuseaction=Timekeeping.task_details&task_id=#attributes.task_id#">View task #attributes.task_id#</a>
+		</cfsavecontent>
 
 		<cfmodule template="../common_files/act_email.cfm" email_to="#variables.email_to#" email_from="#variables.email_from#" email_subject="#variables.email_subject#" email_body="#variables.email_body#" email_type="HTML">
 

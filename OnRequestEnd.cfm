@@ -20,5 +20,5 @@
 </fusedoc>
 --->
 <cfif application.log_page_request_ind>
-	<cfmodule template="#variables.path_prefix#act_log_page_request.cfm" log_type_id="2" page_request_id="#variables.page_request_id#" page_request_start_time="#variables.page_request_start_time#">
+	<cfmodule template="Application_Manager/act_log_page_request.cfm" log_type_id="2" page_request_id="#variables.page_request_id#" page_request_start_time="#variables.page_request_start_time#">
 </cfif>

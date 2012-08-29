@@ -28,59 +28,8 @@
 	</cfif>
 </cfsilent>
 
-<!--- code re-use disabled at direction of HITSS management
-<!--- development does not use https; Test and production do --->
-<cfif NOT len(cgi.https) OR NOT comparenocase(cgi.https,"off")>
-	<cfset variables.path_prefix="../../Application_Manager/trunk/">
-<cfelse>
-	<cfset variables.path_prefix="../Application_Manager/">
-</cfif>
-
 <!--- use Application_Manager to get installation-specific settings (which we'll set in the application scope) --->
-<cfinclude template="#variables.path_prefix#act_application_settings.cfm"> --->
-
-<cfscript>
-	variables.datasources.application_manager="Application_Manager";
-	variables.path_prefix="Application_Manager/";
-
-	switch(cgi.http_host) {
-		case "127.0.0.1:8500":
-		case "192.168.1.6:8500":
-		case "florence":
-		case "florence:80": {
-			variables.environment_name="Development";
-			variables.sessiontimeout="3";
-			break;
-		}
-
-		case "test.workstream.ait.com":
-		case "test.workstream.com": {
-			variables.environment_name="Test";
-			variables.sessiontimeout="0.04166666666665";
-			break;
-		}
-
-		default: {
-			variables.environment_name="Production";
-			variables.sessiontimeout="0.04166666666665";
-			break;
-		}
-	}
-</cfscript>
-
-<cfquery name="get_last_updated" datasource="#variables.datasources.application_manager#">
-SELECT last_updated
-FROM Last_Updated
-</cfquery>
-
-<cfapplication name="workstream_#dateformat(get_last_updated.last_updated,'yyyy_mm_dd')#_#timeformat(get_last_updated.last_updated,'HH:MM')#_#left(cgi.script_name,36)#1"
-	applicationtimeout="3"
-	clientmanagement="no"
-	clientstorage="registry"
-	sessionmanagement="yes"
-	sessiontimeout="#variables.sessiontimeout#"
-	setclientcookies="yes"
-	setdomaincookies="no">
+<cfinclude template="Application_Manager/act_application_settings.cfm">
 
 <cfinclude template="app_cf_settings.cfm">
 
@@ -91,7 +40,8 @@ FROM Last_Updated
 </cfif>
 
 <!--- Error Handling --->
-<cfinclude template="#variables.path_prefix#errortemplates/act_setup_error_handling.cfm">
+<cfset application.error_handling_enabled_ind=1>
+<cfinclude template="Application_Manager/errortemplates/act_setup_error_handling.cfm">
 
 <cfif isdefined("session.user_account_id")>
 	<cfset variables.user_identification=session.user_account_id>
@@ -101,5 +51,5 @@ FROM Last_Updated
 
 <!--- if configured to do so on the Installation table, log page requests --->
 <cfif application.log_page_request_ind>
-	<cfmodule template="#variables.path_prefix#act_log_page_request.cfm" log_type_id="1" user_identification="#variables.user_identification#">
+	<cfmodule template="Application_Manager/act_log_page_request.cfm" log_type_id="1" user_identification="#variables.user_identification#">
 </cfif>

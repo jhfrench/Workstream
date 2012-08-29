@@ -41,7 +41,7 @@
 
 	<footer role="contentinfo" class="row-fluid screen_only">
 			<div style="float: left;">
-				&nbsp;<cfoutput>&copy; #year(now())# Applied Internet Technologies</cfoutput>
+				&nbsp;<cfoutput>&copy; #year(now())# #application.application_specific_settings.organization#</cfoutput>
 			</div>
 			<div style="float: right">
 				<cfoutput>Version #application.product_release_version# (Last Updated: #dateformat(application.last_updated, "mmmm d, yyyy")#)</cfoutput>&nbsp;

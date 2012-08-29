@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_get_report_output" datasource="#application.datasources.main#">
+<cfquery name="qry_get_report_output" datasource="#application.datasources.application_manager#">
 SELECT product_name, Data.page_count, Data.error_count, 
 	CASE
 		WHEN COALESCE(Data.page_count,0)=0 THEN Data.error_count

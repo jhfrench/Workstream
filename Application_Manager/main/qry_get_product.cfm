@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_get_product" datasource="#application.datasources.main#">
+<cfquery name="qry_get_product" datasource="#application.datasources.application_manager#">
 SELECT product_id, product_name, created_date
 FROM Product
 ORDER BY product_name, created_date

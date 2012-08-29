@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_get_support_contact_info" datasource="#application.datasources.main#">
+<cfquery name="qry_get_support_contact_info" datasource="#application.datasources.application_manager#">
 SELECT Support_Contact_Info.support_contact_info_id, Support_Contact_Info.last_name || ', ' || Support_Contact_Info.first_name AS contact_name, REF_Support_Contact_Type.support_contact_type_name
 FROM Support_Contact_Info
 	LEFT OUTER JOIN REF_Support_Contact_Type ON Support_Contact_Info.support_contact_type_id=REF_Support_Contact_Type.support_contact_type_id

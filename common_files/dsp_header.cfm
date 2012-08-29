@@ -46,7 +46,7 @@ else
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>#application.html_title#</title>
+	<title>#application.product_name#</title>
 	<meta name="description" content="Applied Internet Technologies timekeeping software">
 	<meta name="author" content="Applied Internet Technologies: #application.application_specific_settings.official#">
 	<meta http-equiv="expires" content="#gethttptimestring(now())#" />

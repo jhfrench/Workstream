@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_get_ref_environment" datasource="#application.datasources.main#">
+<cfquery name="qry_get_ref_environment" datasource="#application.datasources.application_manager#">
 SELECT *
 FROM REF_Environment
 WHERE active_ind=1

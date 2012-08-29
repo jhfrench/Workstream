@@ -22,7 +22,7 @@
 --->
 
 <!--- get number of invalid login attempts since last valid login for given username --->
-<cfquery name="get_login_attempt" datasource="#application.datasources.main#">
+<cfquery name="get_login_attempt" datasource="#application.datasources.application_manager#">
 SELECT *
 FROM Login_Attempt
 WHERE success_ind=0 /*only count invalid attempts since last valid login*/

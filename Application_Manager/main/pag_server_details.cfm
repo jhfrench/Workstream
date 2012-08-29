@@ -17,7 +17,7 @@
 
 <cfswitch expression="#attributes.server_type#">
 	<cfcase value="REF_Host_Server">
-		<cfquery name="qry_get_host_servers" datasource="#application.datasources.main#">
+		<cfquery name="qry_get_host_servers" datasource="#application.datasources.application_manager#">
 		SELECT Installation.installation_id, Installation.product_id, REF_Host_Server.host_server_name,
 			Product.product_name
 		FROM Installation
@@ -46,7 +46,7 @@
 		</div>
 	</cfcase>
 	<cfcase value="REF_Database_Server">
-		<cfquery name="qry_get_database_servers" datasource="#application.datasources.main#">
+		<cfquery name="qry_get_database_servers" datasource="#application.datasources.application_manager#">
 		SELECT Installation.installation_id, Installation.product_id, REF_Database_Server.database_server_name,
 			Product.product_name
 		FROM Installation
@@ -77,7 +77,7 @@
 		</div>
 	</cfcase>
 	<cfcase value="REF_Email_Server">
-		<cfquery name="qry_get_email_servers" datasource="#application.datasources.main#">
+		<cfquery name="qry_get_email_servers" datasource="#application.datasources.application_manager#">
 		SELECT Installation.installation_id, Installation.product_id, REF_Email_Server.email_server_name,
 			Product.product_name
 		FROM Installation

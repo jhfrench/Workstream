@@ -63,7 +63,7 @@
 
 <body>
 
-<!--- <cfquery name="qry_get_error_diagnostics_datasource" datasource="#application.datasources.main#">
+<!--- <cfquery name="qry_get_error_diagnostics_datasource" datasource="#application.datasources.application_manager#">
 SELECT Installation.installation_id, Product.product_name, REF_Environment.environment_name,
 	Installation_URL.url_to_base
 FROM Installation
@@ -77,19 +77,19 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 
 <cfif isdefined("attributes.error_log_id") AND len(attributes.error_log_id)>
 	<cftry>
-		<cfquery name="qry_get_error_log_details" datasource="#application.datasources.main#">
+		<cfquery name="qry_get_error_log_details" datasource="#application.datasources.application_manager#">
 		SELECT *
 		FROM Error_Log
 		WHERE error_log_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.error_log_id#">
 		</cfquery>
 
-		<cfquery name="get_previous_error_log" datasource="#application.datasources.main#">
+		<cfquery name="get_previous_error_log" datasource="#application.datasources.application_manager#">
 		SELECT COALESCE(MAX(error_log_id),0) AS error_log_id
 		FROM Error_Log
 		WHERE error_log_id < <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.error_log_id#">
 		</cfquery>
 
-		<cfquery name="get_next_error_log" datasource="#application.datasources.main#">
+		<cfquery name="get_next_error_log" datasource="#application.datasources.application_manager#">
 		SELECT COALESCE(MIN(error_log_id),0) AS error_log_id
 		FROM Error_Log
 		WHERE error_log_id > <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.error_log_id#">

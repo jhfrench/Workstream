@@ -76,7 +76,7 @@
 	<cfoutput>
 	<html>
 		<head>
-			<title>#application.html_title#</title>
+			<title>#application.product_name#</title>
 			<script language="JavaScript" type="text/javascript">
 				alert("#variables.error_message#");
 				window.location.href="#variables.new_location#";

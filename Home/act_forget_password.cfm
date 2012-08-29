@@ -30,7 +30,7 @@
 		<table cellspacing="1" cellpadding="4" width="100%" border="0" width="250" summary="Table displays invalid username">
 		<tr>
 			<td style="color:white;">
-			<cfoutput><abbr title="#application.html_title#">#application.product_name#</abbr></cfoutput> cannot authorize your access because your username is invalid. You may <a href="index.cfm?fuseaction=Home.login" title="go back" style="color:yellow;">try to log in again</a>.
+			<cfoutput>#application.product_name#</cfoutput> cannot authorize your access because your username is invalid. You may <a href="index.cfm?fuseaction=Home.login" title="go back" style="color:yellow;">try to log in again</a>.
 			</td>
 		</tr>
 		</table>

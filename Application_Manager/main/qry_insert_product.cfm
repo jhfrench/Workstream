@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_insert_product" datasource="#application.datasources.main#">
+<cfquery name="qry_insert_product" datasource="#application.datasources.application_manager#">
 INSERT INTO Product (product_name, browser_navigation_enabled_ind, inactive_link,
 	created_date, active_ind)
 SELECT '#attributes.product_name#', #attributes.browser_navigation_enabled_ind#, '#attributes.inactive_link#',

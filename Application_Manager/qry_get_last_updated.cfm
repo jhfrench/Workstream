@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_get_last_updated" datasource="#application.datasources.main#">
+<cfquery name="qry_get_last_updated" datasource="Application_Manager">
 SELECT last_updated
 FROM Last_Updated
 </cfquery>

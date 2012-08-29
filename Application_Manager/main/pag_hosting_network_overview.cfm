@@ -40,7 +40,7 @@ Click on a server to see what applications that server supports.
 			#environment_name#
 		</th>
 
-		<cfquery name="qry_get_host_servers" datasource="#application.datasources.main#">
+		<cfquery name="qry_get_host_servers" datasource="#application.datasources.application_manager#">
 		SELECT Installation.environment_id, REF_Host_Server.host_server_id, REF_Host_Server.host_server_name
 		FROM Installation
 			INNER JOIN REF_Host_Server ON Installation.host_server_id=REF_Host_Server.host_server_id
@@ -65,7 +65,7 @@ Click on a server to see what applications that server supports.
 			</table>
 		</td>
 
-		<cfquery name="qry_get_database_servers" datasource="#application.datasources.main#">
+		<cfquery name="qry_get_database_servers" datasource="#application.datasources.application_manager#">
 		SELECT Installation.environment_id, REF_Database_Server.database_server_id, REF_Database_Server.database_server_name
 		FROM Installation
 			INNER JOIN L_Installation_Supporting_DB ON Installation.installation_id=L_Installation_Supporting_DB.installation_id
@@ -92,7 +92,7 @@ Click on a server to see what applications that server supports.
 			</table>
 		</td>
 
-		<cfquery name="qry_get_email_servers" datasource="#application.datasources.main#">
+		<cfquery name="qry_get_email_servers" datasource="#application.datasources.application_manager#">
 		SELECT Installation.environment_id, REF_Email_Server.email_server_id, REF_Email_Server.email_server_name
 		FROM Installation
 			INNER JOIN REF_Email_Server ON Installation.email_server_id=REF_Email_Server.email_server_id

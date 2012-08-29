@@ -26,7 +26,7 @@
 	<cfoutput>
 		<table align="center" cellpadding="0" cellspacing="0" border="0" cols="2" width="750" summary="Table displays navigation module">
 			<tr>
-				<td bgcolor="black" width="1%" align="right"><img src="images/mast.jpg" alt="#application.html_title#" width="730" height="120" border="0"></td>
+				<td bgcolor="black" width="1%" align="right"><img src="images/mast.jpg" alt="#application.product_name#" width="730" height="120" border="0"></td>
 				<td bgcolor="black" width="99%" align="center">
 					<div id="ad_area"<cfif get_system_note.recordcount EQ 0> style="display:none;"</cfif>>
 						<div id="ad_space" style="width:250px;padding:6px;background-color:black;color:white;font-size:9pt;border:1px dashed ##c28400;" align="left">

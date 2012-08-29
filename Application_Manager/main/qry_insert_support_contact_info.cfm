@@ -13,7 +13,7 @@
 </fusedoc>
 --->
 
-<cfquery name="qry_insert_support_contact_info" datasource="#application.datasources.main#">
+<cfquery name="qry_insert_support_contact_info" datasource="#application.datasources.application_manager#">
 INSERT INTO Support_Contact_Info (support_contact_type_id, last_name, first_name,
 	phone, email, created_date, 
 	active_ind)

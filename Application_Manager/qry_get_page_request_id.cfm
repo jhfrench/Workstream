@@ -13,6 +13,6 @@
 </fusedoc>
 --->
 
-<cfquery name="get_page_request_id" datasource="#application.datasources.main#">
+<cfquery name="get_page_request_id" datasource="#application.datasources.application_manager#">
 SELECT CURRVAL('LOG_Page_Request_page_request_id_SEQ') AS page_request_id
 </cfquery>

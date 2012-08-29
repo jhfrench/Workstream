@@ -94,7 +94,7 @@ else {
 <cfoutput>
 <html xmlns='http://www.w3.org/1999/xhtml'>
 	<head>
-		<title>#application.html_title#</title>
+		<title>#application.product_name#</title>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<meta http-equiv="expires" content="#gethttptimestring(application.last_updated)#" />
 		<meta http-equiv="refresh" content="5;url=<cfoutput>#request.content#</cfoutput>">
@@ -108,8 +108,8 @@ else {
 			</tr>
 			<tr>
 				<td class="content">
-					<h2 class="error_message">#application.html_title# alert!</h2>
-					You have entered #application.html_title# through an illegal URL. This problem may be caused by using a poorly formed history or favorite/bookmark link.
+					<h2 class="error_message">#application.product_name# alert!</h2>
+					You have entered #application.product_name# through an illegal URL. This problem may be caused by using a poorly formed history or favorite/bookmark link.
 					<ul>
 						<li>Momentarily you will be re-directed to suitable page within #application.product_name#.</li>
 						<li>Please update any favorites/bookmarks to point to <a href="#request.content#" class="">#request.content#</a></li>

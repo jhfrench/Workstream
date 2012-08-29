@@ -20,7 +20,7 @@
 	</IO>
 </fusedoc>
 --->
-<cfquery name="get_username" datasource="#application.datasources.main#">
+<cfquery name="get_username" datasource="#application.datasources.application_manager#">
 SELECT User_Account.user_account_id, Link_User_Account_Status.account_status_id, User_Password.password,
 	User_Account.created_date AS password_created_date, User_Password.created_by AS password_created_by, Demographics.first_name,
 	Demographics.last_name, Demographics.email_address, User_Account.user_name

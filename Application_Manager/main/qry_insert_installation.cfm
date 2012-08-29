@@ -14,7 +14,7 @@
 --->
 
 <cfset variables.application_name="Application_Temp#now()#">
-<cfquery name="qry_insert_installation" datasource="#application.datasources.main#">
+<cfquery name="qry_insert_installation" datasource="#application.datasources.application_manager#">
 INSERT INTO Installation (application_name, email_server_id, environment_id,
 	host_server_id, product_id, created_date,
 	active_ind)
@@ -24,6 +24,6 @@ SELECT '#variables.application_name#', #attributes.email_server_id#, #attributes
 FROM Dual
 </cfquery>
 
-<cfquery name="qry_get_installation_id" datasource="#application.datasources.main#">
+<cfquery name="qry_get_installation_id" datasource="#application.datasources.application_manager#">
 SELECT CURRVAL('Installation_installation_id_SEQ') AS installation_id
 </cfquery>
