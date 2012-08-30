@@ -33,7 +33,7 @@
 	</cflock>
 </cfif>
 
-<cfif application.error_handling_enabled_ind><!--- 
-	<cferror type="REQUEST" exception="any" template="error.html"> --->
+<cfif application.error_handling_enabled_ind>
+	<cferror type="REQUEST" exception="any" template="error.html">
 	<cferror type="EXCEPTION" template="error.cfm" mailto="kk" exception="any">
 </cfif>

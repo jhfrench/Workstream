@@ -151,33 +151,20 @@
 </cftry>
 
 <!--- Insert error data into the Error_Log table --->
-<cfoutput>
-<pre>
-INSERT INTO Error_Log (erroring_template, erroring_querystring, 
-	http_referer, diagnostics, username, remote_address,
-	user_browser, error_web_datetime, error_sql_datetime)
-VALUES('#variables.error_template#', '#variables.error_querystring#',
-	'#variables.error_httpreferer#','#variables.error_diagnostics#', '#session.user_name#', '#variables.error_remoteaddress#',
-	'#variables.error_browser#', #createodbcdate(variables.error_datetime)#, CURRENT_TIMESTAMP)
-</pre>
-</cfoutput>
 		<cfquery name="insert_error_info" datasource="#application.datasources.application_manager#">
-		INSERT INTO Error_Log (intallation_id, erroring_template, erroring_querystring, 
-			http_referer, diagnostics<!--- , application_variables,
+		INSERT INTO Error_Log (installation_id, erroring_template, erroring_querystring, 
+			http_referer, diagnostics, application_variables,
 			attributes_variables, cgi_variables, client_variables,
 			form_variables, request_variables, session_variables,
-			url_variables --->, username, remote_address,
+			url_variables, username, remote_address,
 			user_browser, error_web_datetime, error_sql_datetime)
-		VALUES(#application.intallation_id#, '#variables.error_template#', '#variables.error_querystring#',
-			'#variables.error_httpreferer#','#variables.error_diagnostics#'<!--- , '#application_variables#',
+		VALUES(#application.installation_id#, '#variables.error_template#', '#variables.error_querystring#',
+			'#variables.error_httpreferer#','#variables.error_diagnostics#', '#application_variables#',
 			'#attributes_variables#', '#cgi_variables#', '#client_variables#', 
 			'#form_variables#', '#request_variables#', '#session_variables#',
-			'#url_variables#' --->, '#session.user_name#', '#variables.error_remoteaddress#',
-			'#variables.error_browser#', <cfqueryparam cfsqltype="CF_SQL_TIMESTAMP" value="#createodbcdatetime(variables.error_datetime)#" />, CURRENT_TIMESTAMP)
+			'#url_variables#', '#session.user_name#', '#variables.error_remoteaddress#',
+			'#variables.error_browser#', '#dateformat(variables.error_datetime, 'yyyy-mm-dd')# #timeformat(now(), 'hh:mm:ss')#', CURRENT_TIMESTAMP)
 		</cfquery>
-GOT TO 152
-<!--- 
-
 <cftry>
 	<cfquery name="get_next_error_log_id" datasource="#application.datasources.application_manager#">
 	SELECT CURRVAL('Error_Log_error_log_id_SEQ') AS error_log_id
@@ -189,6 +176,7 @@ GOT TO 152
 	SET error_variables='#error_variables#'
 	WHERE error_log_id=#request.error_log_id#
 	</cfquery>
+
 
 	<cftry>
 		<!--- duplicate variables scope into the request scope, then clean out stuff we don't need to pare down the size; do this in descending order of size of element being cut --->
@@ -323,7 +311,7 @@ GOT TO 152
 		<div class="content">
 			<p class="header">You have encountered an unexpected error.</p>
 			<p>The Error Reference Number is<cfif isdefined("request.error_log_id") AND len(request.error_log_id)>: #request.error_log_id#<cfelse> unknown.</cfif></p>
-			<p>We apologize for the inconvenience this may cause. This page automatically sends an email to the <abbr title="Applied Internet Technologies">AIT</abbr> Application Development department to ensure timely repair of the malfunction.</p>
+			<p>We apologize for the inconvenience this may cause. This page automatically sends a notification to the <abbr title="Applied Internet Technologies">AIT</abbr> Application Development department to ensure timely repair of the malfunction.</p>
 			<p>If you have any questions or concerns, please feel free to contact the <a href="mailto:service@ait.com"><abbr title="Applied Internet Technologies">AIT</abbr> Help Desk</a><cfif isdefined("request.error_log_id") AND len(request.error_log_id)> and reference Error Reference Number #request.error_log_id#</cfif>.
 				<!--- the very same code as above --->
 				<cfif isdefined("application.application_support_contacts")>
@@ -358,4 +346,4 @@ GOT TO 152
 		 -->
 		</cfoutput>
 	</cfcatch>
-</cftry> --->
+</cftry>
