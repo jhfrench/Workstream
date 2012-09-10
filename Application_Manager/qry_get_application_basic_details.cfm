@@ -17,9 +17,8 @@
 	<cfset variables.url_to_base="#variables.url_to_base##variables.url_base_suffix#">
 </cfif>
 
-<!--- Determine which installation's records we should pull based on the URL through which the user acesses the system--->
+<!--- Following query used to get CF application.name and other generic application variables. It is a cached query controlled by the Application_Manager tool. Determine which installation's records we should pull based on the URL through which the user acesses the system--->
 <cfquery name="qry_get_application_basic_details" cachedafter="02/02/1978" datasource="Application_Manager">
-<!--- /* Following query used to get CF application.name and other generic application variables. It is a cached query controlled by the Application_Manager tool. */ --->
 SELECT Installation.installation_id, Installation.application_name, Installation.active_ind,
 	Installation.error_handling_enabled_ind, Installation.log_page_request_ind, Product.product_name,
 	Product.browser_navigation_enabled_ind, Product.inactive_link, Product.product_id,

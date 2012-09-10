@@ -40,7 +40,6 @@
 </cfif>
 
 <!--- Error Handling --->
-<cfset application.error_handling_enabled_ind=1>
 <cfinclude template="Application_Manager/errortemplates/act_setup_error_handling.cfm">
 
 <cfif isdefined("session.user_account_id")>

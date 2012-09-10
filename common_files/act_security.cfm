@@ -71,15 +71,15 @@
 		<cfset variables.new_location="index.cfm?fuseaction=#application.fusebox.defaultfuseaction#">
 	</cfif>
 </cfif>
-
+SECURITY RAN
 <cfif len(variables.error_message)>
 	<cfoutput>
-	<html>
 		<head>
 			<title>#application.product_name#</title>
 			<script language="JavaScript" type="text/javascript">
-				alert("#variables.error_message#");
+			setTimeout(function() {
 				window.location.href="#variables.new_location#";
+			}, 5000);
 			</script>
 			<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
 		</head>

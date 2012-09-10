@@ -24,6 +24,3 @@
 
 <!--- include the core file runtime --->
 <cfinclude template="fusebox5/fusebox5.cfm" />
-
-<!--- had to add this line from fusebox.init.cfm here to make fb5 work with FAAD --->
-<cfinclude template="common_files/act_security.cfm">

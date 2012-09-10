@@ -27,11 +27,16 @@
 <circuit access="public">
 	<prefuseaction callsuper="true">
 	</prefuseaction>
+	<fuseaction name="act_security">
+		<include template="act_security.cfm"/>
+	</fuseaction>
 	<fuseaction name="administration_nav">
 		<include template="../Administration/pag_welcome.cfm"/>
 	</fuseaction>
-	<fuseaction name="bw_report_links">
-		<include template="pag_bw_report_links.cfm"/>
+	<fuseaction name="bad_fuseaction">
+		<include template="act_header.cfm"/>
+		<include template="pag_bad_fuseaction.cfm"/>
+		<include template="dsp_footer.cfm"/>
 	</fuseaction>
 	<fuseaction name="change_password">
 		<include template="act_header.cfm"/>
@@ -46,19 +51,6 @@
 	<fuseaction name="forget_password">
 		<include template="act_header.cfm"/>
 		<include template="pag_forget_password.cfm"/>
-		<include template="dsp_footer.cfm"/>
-	</fuseaction>
-	<fuseaction name="login">
-		<include template="act_header.cfm"/>
-		<include template="pag_login.cfm"/>
-		<include template="dsp_footer.cfm"/>
-	</fuseaction>
-	<fuseaction name="logout">
-		<include template="act_logout.cfm"/>
-	</fuseaction>
-	<fuseaction name="main">
-		<include template="act_header.cfm"/>
-		<include template="pag_main.cfm"/>
 		<include template="dsp_footer.cfm"/>
 	</fuseaction>
 	<fuseaction name="process_upload">

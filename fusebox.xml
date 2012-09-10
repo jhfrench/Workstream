@@ -37,6 +37,7 @@
 
 	<globalfuseactions>
 		<preprocess>
+			<do action="common_files.act_security" />
 		</preprocess>
 		<postprocess>
 		</postprocess>
@@ -50,6 +51,7 @@
 		<phase name="postFuseaction">
 		</phase>
 		<phase name="fuseactionException">
+		No sire
 		</phase>
 		<phase name="postProcess">
 		</phase>

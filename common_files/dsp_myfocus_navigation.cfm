@@ -19,6 +19,7 @@
 	</IO>
 </fusedoc>
 --->
+<!--- $issue$: do we still need this template? --->
 <div style="visibility:hidden; height:1px; overflow:hidden">
 Navigation
 </div>
