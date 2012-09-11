@@ -45,7 +45,7 @@
 <cfif isdefined("session.user_account_id")>
 	<cfset variables.user_identification=session.user_account_id>
 <cfelse>
-	<cfset variables.user_identification="unknown">
+	<cfset variables.user_identification=0>
 </cfif>
 
 <!--- if configured to do so on the Installation table, log page requests --->

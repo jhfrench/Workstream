@@ -1,9 +1,16 @@
 /* CSS Document */
 
 body {
-	background-color:#922005;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 1em;
+}
+
+body.danger {
+	background-color:#922005;
+}
+
+body.warning {
+	background-color:#FFCC00
 }
 
 section {

@@ -17,8 +17,7 @@
 <cfswitch expression="#attributes.log_type_id#">
 	<cfcase value="1">
 		<cfinclude template="qry_insert_page_request.cfm">
-		<cfinclude template="qry_get_page_request_id.cfm">
-		<cfset caller.variables.page_request_id=get_page_request_id.page_request_id>
+		<cfset caller.variables.page_request_id=insert_page_request.page_request_id>
 		<cfset caller.variables.page_request_start_time=gettickcount()>
 	</cfcase>
 	<cfcase value="2">

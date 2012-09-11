@@ -26,21 +26,20 @@
 	<cfset variables.new_location="">
 	<cfset variables.current_location="#cgi.http_host##cgi.script_name#">
 </cfsilent>
-
 <cfif NOT len(cgi.query_string)>
 	<!--- if the user requests the root directory, redirect to the default fuseaction --->
 	<cflocation url="index.cfm?fuseaction=#url.fuseaction#" addtoken="no">
 <cfelseif listfindnocase(application.private_fuseactions, url.fuseaction)>
 	<!--- if the fuseaction is for one of the protected pages --->
 	<cfset variables.page_is_secure_ind=1>
-	<cfif NOT isdefined("variables.user_identification") AND comparenocase(url.fuseaction,"Home.login")>
+	<cfif variables.user_identification EQ 0 AND comparenocase(url.fuseaction,"Home.login")>
 		<!--- if the user's user_account_id is not defined in the session scope and the fuseaction is not for the login page --->
 		<cfif len(url.fuseaction)>
 			<!--- if we have a fuseaction in the URL --->
 			<!--- 3. Prevent from navigating the application after timed out or logged out --->
 			<cfif find(variables.current_location, listfirst(cgi.http_referer,"?"))>
 				<!---if the refer is the same application, then the session has timed out--->
-				<cfset variables.error_message="It looks like your session timed out (they only last #variables.sessiontimeout*24*60# minutes). Please login again.">
+				<cfset variables.error_message="It looks like your session timed out (they only last #qry_get_application_basic_details.sessiontimeout*24*60# minutes). Please login again.">
 			<cfelse>
 				<cfset variables.error_message="Please login.">
 			</cfif>
@@ -71,22 +70,33 @@
 		<cfset variables.new_location="index.cfm?fuseaction=#application.fusebox.defaultfuseaction#">
 	</cfif>
 </cfif>
-SECURITY RAN
+
 <cfif len(variables.error_message)>
 	<cfoutput>
-		<head>
-			<title>#application.product_name#</title>
-			<script language="JavaScript" type="text/javascript">
-			setTimeout(function() {
-				window.location.href="#variables.new_location#";
-			}, 5000);
-			</script>
-			<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
-		</head>
-		<body>
-			<a href="#variables.new_location#">#variables.error_message#</a>
-		</body>
-	</html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>#application.product_name#</title>
+	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
+	<link rel="stylesheet" href="Application_Manager/errortemplates/error_style.css">
+	<script language="JavaScript" type="text/javascript">
+	setTimeout(function() {
+		window.location.href="#variables.new_location#";
+	}, 5000);
+	</script>
+</head>
+
+<body class="warning">
+<section class="center">
+	<div class="error_header" aria-hidden="true">
+		<img src="Application_Manager/images/gears1.png" alt="" width="64" height="64" />
+	</div>
+	<div class="content">
+		<p>#variables.error_message#</p>
+		<p>If you aren't redirected shortly, please <a href="#variables.new_location#">log in</a>.</p>
+	</div>
+</section>
+</body>
+</html>
 	</cfoutput>
 	<cfabort>
 </cfif>
