@@ -34,7 +34,7 @@
 		</td>
 		<td>
 			<select name="task_id" size="1" class="span10">
-				<cfloop query="get_express_task_list"><cfparam name="request.grouper" default="#grouper#"><cfif compare(request.grouper,"nope") AND request.grouper NEQ grouper><option value="0">*************</option></cfif><option value="#workflow_id#">#task_name#</option><cfset request.grouper=grouper>
+				<cfloop query="get_express_task_list"><cfparam name="request.grouper" default="#grouper#"><cfif compare(request.grouper,"nope") AND request.grouper NEQ grouper><option value="0">*************</option></cfif><option value="#task_id#">#task_name#</option><cfset request.grouper=grouper>
 				</cfloop><cfset request.grouper="nope">
 			</select>
 		</td>

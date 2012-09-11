@@ -40,8 +40,6 @@
 	<cfset variables.notes_type_selected=0>
 </cfif>
 
-<!--- $issue$ THIS SHOULD GO INTO A REF TABLE SOME DAY --->
-<cfset variables.valid_files="cfm,doc,gif,htm,jpg,msg,pdf,ppt,sql,vsd,xls,zip">
 </cfsilent>
 <cfoutput>
 	<input type="hidden" name="task_id" value="#task_id#" />

@@ -12,7 +12,6 @@
 	$Log$
 	 || 
  --->
-<cfset variables.valid_files="cfm,doc,htm,msg,pdf,ppt,sql,txt,xls,zip">
 </cfsilent>
 <cfset dir_to_go_to = '\\192.168.0.152\attatched_files\workstream\Project_Planning\' & <!--- #variables.company# --->#attributes.project_planning_id# & '\'>
 <cfdirectory action="LIST" directory="#dir_to_go_to#" name="project_files">
@@ -28,9 +27,9 @@
 	<td>&nbsp;</td>
 </tr>
 </cfoutput>
-<cfoutput query="project_files" <!--- startrow="3" --->>
+<cfoutput query="project_files">
 <cfset variables.file_img="NA">
-<cfif listfindnocase(variables.valid_files,left(listlast(name,"."),3))>
+<cfif listfindnocase(application.application_specific_settings.valid_files,left(listlast(name,"."),3))>
 	 <cfset variables.file_img=left(listlast(name,"."),3)> 
 </cfif>
 <tr>
@@ -40,5 +39,3 @@
 	<td>&nbsp;</td>
 </tr>
 </cfoutput>
-
-

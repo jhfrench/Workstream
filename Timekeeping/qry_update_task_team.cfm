@@ -20,15 +20,14 @@ WHERE task_id=#attributes.task_id#
 	AND role_id=4
 </cfquery>
 <cfif listlen(attributes.task_team)>
-<cfif listcontains(attributes.task_team, "|")>
-	<cfset attributes.task_team = listdeleteat(attributes.task_team, "2", "|")>
-</cfif>
-<cfquery name="update_task_team" datasource="#application.datasources.main#">
-<cfloop list="#attributes.task_team#" index="ii">
-INSERT INTO Team(task_id,emp_id,role_id)
-VALUES (#attributes.task_id#,#ii#,4)
-</cfloop>
-</cfquery>
+	<cfif listlen(attributes.task_team, "|")>
+		<cfset attributes.task_team=listdeleteat(attributes.task_team, "2", "|")><!--- $issue$: can this be separated out into two different parameters? --->
+	</cfif>
+	<cfquery name="update_task_team" datasource="#application.datasources.main#">
+	INSERT INTO Team(task_id, emp_id, role_id)
+	SELECT #attributes.task_id#, emp_id, 4
+	FROM Emp_Contact
+	WHERE emp_id IN (#attributes.task_team#)
+	</cfquery>
 </cfif>
 </cfsilent>
-

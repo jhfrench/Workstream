@@ -21,4 +21,3 @@ FROM REF_Notification_Frequency
 ORDER BY sort_order
 </cfquery>
 </cfsilent>
-

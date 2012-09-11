@@ -34,7 +34,7 @@ SELECT REF_Module.module_id, REF_Module.description, REF_Module.sort_order,
 FROM REF_Module
 	LEFT OUTER JOIN Lock_Module ON REF_Module.module_id=Lock_Module.module_id
 		AND Lock_Module.active_ind=1
-WHERE <cfif attributes.module_id NEQ 0>REF_Module.module_id=#attributes.module_id#<cfelse>REF_Module.active_ind=1</cfif>
+WHERE REF_Module.<cfif attributes.module_id NEQ 0>module_id=#attributes.module_id#<cfelse>active_ind=1</cfif>
 <!--- if the page we are working on is lock module page --->
 <cfif attributes.lockable_module_ind EQ 1>AND REF_Module.lockable_ind=1</cfif>
 ORDER BY sort_order

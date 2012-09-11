@@ -20,8 +20,7 @@ FROM Time_Entry
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.work_date>='#start_date#'
 	AND Time_Entry.work_date<='#end_Date#'
-	AND time_entry.emp_id=#pin#
+	AND Time_Entry.emp_id=#attributes.emp_id#
 GROUP BY Project.description
 </cfquery>
 </cfsilent>
-

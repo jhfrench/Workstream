@@ -184,9 +184,6 @@
 	<fuseaction name="edit_system_note">
 		<include template="pag_edit_system_note.cfm"/>
 	</fuseaction>
-	<fuseaction name="edit_user">
-		<include template="pag_edit_user.cfm"/>
-	</fuseaction>
 	<fuseaction name="execute_sql">
 		<include template="pag_execute_sql.cfm"/>
 	</fuseaction>

@@ -39,7 +39,7 @@ Select a Week:
 <tr>
 <td>
 
-			<cfselect name="pin" size="5" message="Please don't leave blank" required="yes" multiple="yes">
+			<cfselect name="emp_id" size="5" message="Please don't leave blank" required="yes" multiple="yes">
 				<OPTION value="ALL" selected="selected">
 					ALL
 					<cfoutput query="get_overtime_employees">
@@ -56,4 +56,3 @@ Select a Week:
 </tr>
 </cfform>
 </table>
-

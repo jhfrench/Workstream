@@ -14,14 +14,12 @@
 	<-> prefix: string passed from entry form
 	<-> name: string passed from entry form
 	<-> suffix: string passed from entry form
-	<-- pin: string returned from query
-	--> pin: string passed from entry form
 	<-> responsibilities: string passed from entry form
 	<-> variables: string passed from entry form
  --->
 <cfform name="submit_fusedoc" action="index.cfm?fuseaction=Tools.fusedocer" method="POST">
 <cfinclude template="../common_files/qry_get_team_select.cfm">
-<cfparam name="attributes.pin" default="this_will_never_match">
+<cfparam name="attributes.emp_id" default="this_will_never_match">
 <cfoutput>
 <table>
 	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadTextWhite" section_color="636332" section_title="&nbsp;FuseDoc'er" colspan="6" gutter=0>
@@ -58,8 +56,8 @@
 		<td align="right" valign="top"></td>
 		<td align="right" valign="top" class="SubHeadText">Author: </td>
 		<td>
-				<select name="pin" id="pin"></cfoutput><cfoutput query="get_team_select">
-					<option value="#name#_#lname#"<cfif NOT comparenocase(attributes.pin, "#name#_#lname#")> selected="selected"</cfif>>#name# #lname#</option></cfoutput>
+				<select name="emp_id" id="emp_id"></cfoutput><cfoutput query="get_team_select">
+					<option value="#name#_#lname#"<cfif NOT comparenocase(attributes.emp_id, "#name#_#lname#")> selected="selected"</cfif>>#name# #lname#</option></cfoutput>
 				</select>
 		</td>
 		<cfoutput><td align="left" valign="top" class="SubHeadText">--&gt;</td>
@@ -89,20 +87,21 @@
 <cfif isdefined("form.prefix")>
 <p class="RptTitle">
 Cut and Paste the following code:
-<hr></p>
+</p>
+<hr>
 	<cfset first_name="">
-<cfif NOT compare(form.pin, "TBD")>
+<cfif NOT compare(attributes.emp_id, "TBD")>
 	<cfset auth_name="To Be Determined">
-	<cfset author=form.pin>
+	<cfset author=form.emp_id>
 <cfelse>
-	<cfset auth_name=replace(form.pin, "_", " ")>
-	<cfif NOT listlen(form.pin, "_") GT 2>
-		<cfset first_name=ListFirst(form.pin, "_")>
-		<cfset last_init=Left(listgetat(form.pin, 2, "_"), 1)>
+	<cfset auth_name=replace(attributes.emp_id, "_", " ")>
+	<cfif NOT listlen(attributes.emp_id, "_") GT 2>
+		<cfset first_name=ListFirst(attributes.emp_id, "_")>
+		<cfset last_init=Left(listgetat(attributes.emp_id, 2, "_"), 1)>
 	<cfelse>
-		<cfloop list="#form.pin#" index="ii">
+		<cfloop list="#attributes.emp_id#" index="ii">
 		<cfset first_name="#first_name# #ii#"></cfloop>
-		<cfset last_init=Left(listlast(form.pin, "_"), 1)>
+		<cfset last_init=Left(listlast(attributes.emp_id, "_"), 1)>
 	</cfif>
 	<cfset author="#first_name# #last_init#">
 </cfif>
@@ -121,7 +120,7 @@ Cut and Paste the following code:
 	 || <cfif isdefined("form.variables") AND len(form.variables)><cfloop list="#form.variables#" index="ii">
 	<cfoutput>#Trim(ii)#</cfoutput></cfloop><cfelse>
 	Variables:
-	/*ATTENTION <cfif form.pin IS "TBD"><cfoutput>#auth_name#</cfoutput><cfelse><cfoutput>#first_name#</cfoutput></cfif>: replace this line with names of templates and variables necesary for the page to function. Use FuseDoc conventions as defined in FuseDoc Primer/</cfif>
+	/*ATTENTION <cfif attributes.emp_id IS "TBD"><cfoutput>#auth_name#</cfoutput><cfelse><cfoutput>#first_name#</cfoutput></cfif>: replace this line with names of templates and variables necesary for the page to function. Use FuseDoc conventions as defined in FuseDoc Primer/</cfif>
 	END FUSEDOC ---&gt;
 <cfif left(Server.ColdFusion.ProductVersion, 1) GT 3>&lt;/cfsilent&gt;</cfif>
 

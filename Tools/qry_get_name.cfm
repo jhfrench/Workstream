@@ -17,6 +17,3 @@ FROM emp_contact
 WHERE emp_id=#attributes.emp_id#
 </cfquery>
 </cfsilent>
-
-
-

@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 <cfquery name="GetEmpDetails" datasource="#application.datasources.main#">
 <cfif isdefined("attributes.drill_down")> 
-SELECT Emp_Contact.emp_id AS pin, Emp_Contact.name, Emp_Contact.lname,
+SELECT Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname,
     PTO_Hours.Pto_Type_Indicator, REF_Day_Length.Day_Length, 
     REF_Company.description AS company
 FROM Emp_Contact
@@ -27,10 +27,10 @@ WHERE Link_Company_Emp_Contact.company_id IN (
 		FROM Security_Company_Access 
 		WHERE emp_id=#variables.user_identification#
 	)
-AND (Emp_Contact.emp_id IN ('#preservesinglequotes(attributes.drill_down)#'))
+	AND Emp_Contact.emp_id IN ('#preservesinglequotes(attributes.drill_down)#')
 ORDER BY lname
 <cfelse>
-SELECT DISTINCT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.emp_id AS pin<!--- $issue$ how is this used? can it be converted to emp_id or user_account_id? --->,
+SELECT DISTINCT Emp_Contact.emp_id, <!--- $issue$ how is this used? can it be converted to emp_id or user_account_id? --->Emp_Contact.name, Emp_Contact.lname,
 	Used_Hours.used_hours, COALESCE(REF_Day_Length.day_length, 8) AS day_length, PTO_Hours.pto_type_indicator
 FROM Security_Company_Access
 	INNER JOIN Emp_Contact ON Security_Company_Access.emp_id=Emp_Contact.emp_id

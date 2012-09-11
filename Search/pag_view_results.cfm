@@ -80,23 +80,22 @@
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_time" field_name="task_id" fuseaction="Timekeeping.time_details">
 
-
 <cfoutput>
 <!--- $issue$: "edit search" does not work. --->
- <form name="edit_form" action="index.cfm?fuseaction=Search.edit_search" method="POST">
-  	<input type="hidden" name="task_name" value="#attributes.task_name#" />
-  	<input type="hidden" name="task_id" value="#attributes.task_id#">
+<form name="edit_form" action="index.cfm?fuseaction=Search.edit_search" method="POST">
+	<input type="hidden" name="task_name" value="#attributes.task_name#" />
+	<input type="hidden" name="task_id" value="#attributes.task_id#">
 	<input type="hidden" name="date_entered_operator" value= "#attributes.date_entered_operator#">
 	<input type="hidden" name="date_entered" value="#attributes.date_entered#">
 	<input type="hidden" name="due_date_operator" value= "#attributes.due_date_operator#">
 	<input type="hidden" name="due_date" value="#attributes.due_date#" />
-  	<input type="hidden" name="priority_id" value="#attributes.priority_id#" />
-  	<input type="hidden" name="task_stati" value="#attributes.task_stati#" />
-  	<input type="hidden" name="notes" value="#attributes.notes#" />
-  	<input type="hidden" name="customer_id" value="#attributes.customer_id#" />
-  	<input type="hidden" name="project_id" value="#attributes.project_id#" />
-  	<input type="hidden" name="task_owner" value="#attributes.task_owner#" />
-  	<input type="hidden" name="task_source" value="#attributes.task_source#">
+	<input type="hidden" name="priority_id" value="#attributes.priority_id#" />
+	<input type="hidden" name="task_stati" value="#attributes.task_stati#" />
+	<input type="hidden" name="notes" value="#attributes.notes#" />
+	<input type="hidden" name="customer_id" value="#attributes.customer_id#" />
+	<input type="hidden" name="project_id" value="#attributes.project_id#" />
+	<input type="hidden" name="task_owner" value="#attributes.task_owner#" />
+	<input type="hidden" name="task_source" value="#attributes.task_source#">
 	<input type="submit" value="Edit Search" class="btn" />
- </form>
- </cfoutput>
+</form>
+</cfoutput>

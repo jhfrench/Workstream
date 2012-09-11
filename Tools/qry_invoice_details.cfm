@@ -16,7 +16,7 @@
 <cfquery name="invoice_details" datasource="#application.datasources.main#">
 SELECT Hours_ID.project_id, Hours_ID.hours, COALESCE(Billing_Rate.rate,0) AS rate,
 	(Hours_ID.hours*COALESCE(Billing_Rate.rate,0)) AS bill, Hours_ID.emp_id, (Emp_Contact.lname || ', ' || Emp_Contact.name) AS name, 
-	Demographics.pin, Project.project_code, Project.description AS project_name
+	Project.project_code, Project.description AS project_name
 FROM (
 		SELECT SUM(Time_Entry.hours) AS hours, Time_Entry.project_id, Time_Entry.emp_id
 		FROM Time_Entry
@@ -37,9 +37,7 @@ WHERE Project.billable_type_id=#attributes.billable_type_id#
 	AND Project.project_id=#attributes.project_id#
 GROUP BY Hours_ID.project_id, Project.billable_type_id, Hours_ID.hours, 
 	Billing_Rate.rate, Hours_ID.emp_id, Emp_Contact.name, 
-	Emp_Contact.lname, Demographics.pin, Project.project_code, 
-	Project.description
+	Emp_Contact.lname, Project.project_code, Project.description
 ORDER BY Emp_Contact.lname, Emp_Contact.name
 </cfquery>
 </cfsilent>
-

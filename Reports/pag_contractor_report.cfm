@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I contain the fuses for the indepedent contractor report.
+	Responsibilities: I display the independent contractor report.
 
 	||
 	Edits:

@@ -12,8 +12,7 @@
 	 || 
 	END FUSEDOC --->
 <cfquery name="get_overtime_employees" datasource="#application.datasources.main#"> 
-SELECT Emp_Contact.name, Emp_Contact.lname, 
-    Demographics.pin, Demographics.emp_id
+SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.emp_id
 FROM Demographics
 	INNER JOIN Emp_Contact ON Demographics.emp_id=Emp_Contact.emp_id
 	INNER JOIN Link_User_Account_Status ON Link_User_Account_Status.user_account_id=Emp_Contact.emp_id

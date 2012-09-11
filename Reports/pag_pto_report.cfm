@@ -34,10 +34,10 @@
 </cfoutput>
 <cfoutput query="GetEmpDetails">
 	<tr<cfif (currentrow MOD 1)> bgcolor="##E1E1E1"</cfif>>
-		<td><a href="javascript:drill_down('#pin#');">#name# #lname#</a></td>
-		<td align="right"><a href="javascript:drill_down('#pin#');">#pto_type_indicator#</a></td>
-		<td class="RegText number"><a href="javascript:drill_down('#pin#');">#used_hours#</a></td>
-		<td class="RegText number"><a href="javascript:drill_down('#pin#');">#Pto_Type_Indicator-Used_hours#</a></td>
+		<td><a href="javascript:drill_down('#emp_id#');">#name# #lname#</a></td>
+		<td align="right"><a href="javascript:drill_down('#emp_id#');">#pto_type_indicator#</a></td>
+		<td class="RegText number"><a href="javascript:drill_down('#emp_id#');">#used_hours#</a></td>
+		<td class="RegText number"><a href="javascript:drill_down('#emp_id#');">#pto_type_indicator-used_hours#</a></td>
 	</tr>
 </cfoutput>
 </cfif>

@@ -14,9 +14,6 @@
 <cfparam name="variables.individual" default="yes">
 <cfif NOT comparenocase(variables.individual, "No")>
 	<cfset attributes.emp_id=variables.user_identification>
-<cfelseif NOT comparenocase(variables.individual, "Yes")>
-	<cfset attributes.emp_id=attributes.pin>
-</cfif>
 <cfset variables.remain=0>
 <cfset variables.total_in=0>
 <cfset variables.total_out=0>
@@ -40,7 +37,7 @@
 	<cfinclude template="dsp_pto_accrual_detail_header.cfm">
 	<cfinclude template="dsp_pto_rows.cfm">
 </table>
-<cfif NOT comparenocase("french",CGI.auth_user)>
+<cfif NOT comparenocase("french",CGI.auth_user)><!--- $issue$: replace all of these with session.user_account_id --->
 	<!--- Used whenever Judy V asks that I make manual adjustment to PTO accrual --->
 	<cfinclude template="dsp_pto_adjustment_form.cfm">
 </cfif>

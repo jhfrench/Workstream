@@ -14,7 +14,7 @@
 </cfsilent>
  <cfquery name="get_Employee_ID" datasource="#application.datasources.main#">
 SELECT Emp_Contact.emp_id, Emp_Contact.Name, Emp_Contact.lname,
-	Demographics.pin, REF_Company.description AS company,
+	REF_Company.description AS company,
 	CASE
 		WHEN Link_User_Account_Status.account_status_id=1 THEN 'Active'
 		ELSE 'Inactive'

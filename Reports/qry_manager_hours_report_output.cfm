@@ -16,7 +16,7 @@
 <cfquery name="manager_hours_report_output" datasource="#application.datasources.main#">
 SELECT Employee_Data.employee_classification, Employee_Data.emp_id, Employee_Data.name,
 	Employee_Data.lname, Time_Entry_Data.date, Time_Entry_Data.display,
-	COALESCE(Time_Entry_Data.hours,0) AS hours, Employee_Data.company, Employee_Data.emp_id AS pin,
+	COALESCE(Time_Entry_Data.hours,0) AS hours, Employee_Data.company, Employee_Data.emp_id,
 	COALESCE(Notes.note,'') AS note
 FROM (
 	SELECT Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname,

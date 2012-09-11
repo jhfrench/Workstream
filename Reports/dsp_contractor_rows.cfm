@@ -16,7 +16,7 @@
 <tr>
 	<td>#lname#</td>
 	<td>#name#</td>
-	<td>#pin#</td>
+	<td>#emp_id#</td>
 	<td>#status#</td>
 </tr>
 </cfoutput>
