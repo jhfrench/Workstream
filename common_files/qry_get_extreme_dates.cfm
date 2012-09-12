@@ -1,5 +1,5 @@
 
-<!--Tools/qry_get_extreme_dates.cfm
+<!--common_files/qry_get_extreme_dates.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC

@@ -18,7 +18,7 @@
 </cfsilent>
 <cfinclude template="../common_files/qry_get_subordinates.cfm">
 <cfif get_subordinates.recordcount>
-	<cfinclude template="../common_files/qry_get_extreme_dates.cfm"><!--- $issue$: need to SVN move Tools/qry_get_extreme_dates.cfm to common_files/--->
+	<cfinclude template="../common_files/qry_get_extreme_dates.cfm">
 	<cfinclude template="qry_get_deadline_management.cfm">
 	<h2>Deadline Management</h2>
 	<div class="row-fluid">

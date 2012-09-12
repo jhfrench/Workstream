@@ -16,7 +16,7 @@
 <cfparam name="attributes.month" default="#month(now())#">
 <cfparam name="attributes.year" default="#year(now())#">
 </cfsilent>
-<cfinclude template="qry_get_extreme_dates.cfm">
+<cfinclude template="../common_files/qry_get_extreme_dates.cfm">
 <cfinclude template="qry_get_customer_invoice_list.cfm">
 <table class="table table-striped table-bordered table-condensed span8">
 	<caption><h3>Customer Invoice List for Work Completed in <cfoutput>#monthasstring(attributes.month)#, #attributes.year#</cfoutput></h3></caption>
