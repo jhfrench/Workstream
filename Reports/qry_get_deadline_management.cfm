@@ -20,13 +20,12 @@
 <cfquery name="get_deadline_management" datasource="#application.datasources.main#">
 SELECT Emp_Contact.emp_id, Emp_Contact.lname, Emp_Contact.name,
 	Task.due_date, EXTRACT(YEAR FROM Task.due_date) AS due_year, EXTRACT(MONTH FROM Task.due_date) AS due_month,
-	(CASE WHEN DATEDIFF(hh, Task.complete_date, Task.due_date) > -24 THEN 1.00 ELSE 0.00 END) AS on_time
+	(CASE WHEN Task.complete_date < (Task.due_date+INTERVAL '1 day') THEN 1.00 ELSE 0.00 END) AS on_time
 FROM Task
 	INNER JOIN Team ON Team.task_id=Task.task_id
 		AND Team.active_ind=1
 		AND Team.role_id=1 /*owner*/
-		AND Team.emp_id IN (#valuelist(get_subordinates.emp_id)#)<cfif>
-		AND Team.emp_id!=#attributes.hide_supervisor#</cfif>
+		AND Team.emp_id IN (#valuelist(get_subordinates.emp_id)#)
 	/*if a task has had multile owners it's not fair to judge the current owner for on-time performance of that task*/
 	INNER JOIN (
 		SELECT task_id, COUNT(*) AS owner_count
@@ -37,7 +36,6 @@ FROM Task
 		AND Team_History.owner_count=1
 	INNER JOIN Emp_Contact ON Team.emp_id=Emp_Contact.emp_id
 WHERE Task.complete_date IS NOT NULL
-	AND Task.due_date IS NOT NULL
 	AND Task.due_date <= CURRENT_TIMESTAMP
 </cfquery>
 
@@ -49,10 +47,10 @@ ORDER BY due_year DESC, due_month DESC
 </cfquery>
 
 <cfquery name="deadline_management_sub" dbtype="query">
-SELECT emp_id, lname, name, (AVG(on_time)*100) AS on_time
+SELECT emp_id, lname, name, SUM(on_time) AS on_time_count, COUNT(*) AS task_count, (AVG(on_time)*100) AS on_time_average
 FROM get_deadline_management
-WHERE due_year=#attributes.admin_month#
-	AND due_month=#attributes.admin_year#
+WHERE due_year=#attributes.admin_year#
+	AND due_month=#attributes.admin_month#
 GROUP BY lname, name, emp_id
 ORDER BY lname, name, emp_id
 </cfquery>

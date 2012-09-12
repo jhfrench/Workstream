@@ -31,7 +31,7 @@
 	<cfloop query="deadline_management_main">
 		<tr>
 			<td><cfif due_year NEQ variables.temp_year>#due_year#<cfset variables.temp_year=due_year><cfelse>&nbsp;</cfif></td>
-			<td><a href="javascript:change_month('#due_month#','#due_year#');">#monthasstring(due_month)#</a></td>
+			<td><a href="javascript:change_month('#due_month#','#due_year#');" title="View this month's details.">#monthasstring(due_month)#</a></td>
 			<td align="number">#decimalformat(on_time_percent)#</td>
 		</tr>
 	</cfloop>
