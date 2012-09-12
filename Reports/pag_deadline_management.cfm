@@ -21,7 +21,7 @@
 <cfif get_subordinates.recordcount>
 	<cfinclude template="../common_files/qry_get_extreme_dates.cfm">
 	<cfinclude template="qry_get_deadline_management.cfm">
-	<h2>Deadline Management</h2>
+	<cfinclude template="dsp_deadline_management_form.cfm">
 	<div class="row-fluid">
 		<div class="span6">
 			<cfinclude template="dsp_deadline_management_chart.cfm">
@@ -32,13 +32,8 @@
 		</div>
 	</div>
 	<div class="row-fluid">
-		<div class="span12">
+		<div class="span9">
 			<cfinclude template="dsp_deadline_management_sub.cfm">
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span12">
-			<cfinclude template="dsp_deadline_management_form.cfm">
 		</div>
 	</div>
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_employee" field_name="emp_id" fuseaction="Directory.employee_details">

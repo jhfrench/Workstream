@@ -12,8 +12,9 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfparam name="attributes.admin_month" default="#month(now())#">
-<cfparam name="attributes.admin_year" default="#year(now())#">
+<cfset variables.last_month=dateadd("m",-1, now())>
+<cfparam name="attributes.admin_month" default="#month(variables.last_month)#">
+<cfparam name="attributes.admin_year" default="#year(variables.last_month)#">
 <cfinclude template="act_efficiency_report.cfm">
 <cfset variables.lowest_year=year(now())>
 <cfset variables.temp_year=0>
@@ -22,28 +23,29 @@
 
 <cfoutput>
 <form name="drill_down" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">
-	<fieldset>
-		#variables.project_name# Time for 
-		<select name="admin_month">
-			<cfloop from="1" to="12" index="ii">
-			<option value="#ii#"<cfif attributes.admin_month EQ ii> selected="selected"</cfif>>#monthasstring(ii)#</option></cfloop>
-		</select>
-		<select name="admin_year">
-			<cfloop from="#variables.lowest_year#" to="#year(now())#" index="ii">
-			<option value="#ii#"<cfif attributes.admin_year EQ ii> selected="selected"</cfif>>#ii#</option></cfloop>
-		</select>
-		<label for="hide_supervisor">
-			<input type="checkbox" name="hide_supervisor" id="hide_supervisor" value="1"<cfif isdefined("attributes.hide_supervisor")> checked="checked"</cfif> /> Remove your data
-		</label>
-		<input type="submit" name="submit" value="Go" class="btn btn-primary" />
-	</fieldset>
+	#variables.project_name# Time for 
+	<label for="admin_month">Month</label>: 
+	<select name="admin_month" id="" class="span2">
+		<cfloop from="1" to="12" index="ii">
+		<option value="#ii#"<cfif attributes.admin_month EQ ii> selected="selected"</cfif>>#monthasstring(ii)#</option></cfloop>
+	</select>
+	<label for="admin_year">Year</label>: 
+	<select name="admin_year" id="" class="span2">
+		<cfloop from="#variables.lowest_year#" to="#year(now())#" index="ii">
+		<option value="#ii#"<cfif attributes.admin_year EQ ii> selected="selected"</cfif>>#ii#</option></cfloop>
+	</select>
+	<label for="hide_supervisor">
+		<input type="checkbox" name="hide_supervisor" id="hide_supervisor" value="1"<cfif isdefined("attributes.hide_supervisor")> checked="checked"</cfif> /> Remove your data
+	</label>
+	<input type="submit" name="submit" value="Go" class="btn btn-primary" />
 </form>
 </cfoutput>
 <cfif (get_hier_2_id.hier_2_id NEQ 0 AND get_hier_2_id.hier_2_id LT 4) OR get_subordinates.recordcount>
 	<cfinclude template="dsp_efficiency_report.cfm">
 <cfelse>
-	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="ffffff" section_title="Your search returned no records." title_class="Note">
+	<div class="alert alert-info">
+		Your search returned no records.
+	</div>
 </cfif>
 
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_employee" field_name="emp_id" fuseaction="Directory.employee_details">
-

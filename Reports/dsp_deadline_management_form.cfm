@@ -37,12 +37,15 @@
 </cfsilent>
 <cfoutput>
 <form name="deadline_management" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="well form-inline">
-	<label for="admin_month">Month</label>: <select name="admin_month" id="admin_month" class="span2">
+	Deadline Management for 
+	<label for="admin_month">Month</label>: 
+	<select name="admin_month" id="admin_month" class="span2">
 	<cfloop list="#variables.month_list#" index="variables.month_ii">
-		<option value="#variables.month_ii#"<cfif attributes.admin_month EQ variables.month_ii> selected="selected"</cfif>>#variables.month_ii#</option>
+		<option value="#variables.month_ii#"<cfif attributes.admin_month EQ variables.month_ii> selected="selected"</cfif>>#monthasstring(variables.month_ii)#</option>
 	</cfloop>
 	</select>
-	<label for="admin_year">Year</label>: <select name="admin_year" id="admin_year" class="span2">
+	<label for="admin_year">Year</label>: 
+	<select name="admin_year" id="admin_year" class="span2">
 	<cfloop from="#first_year#" to="#last_year#" index="ii">
 		<option value="#ii#"<cfif attributes.admin_year EQ ii> selected="selected"</cfif>>#ii#</option>
 	</cfloop>

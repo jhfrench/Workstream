@@ -27,7 +27,7 @@ WHERE Team.active_ind=1
 UNION ALL
 SELECT Link_Employee_Supervisor.supervisor_id
 FROM Link_Employee_Supervisor
-	INNER JOIN Team ON Link_Employee_Supervisor.user_account_id=Team.emp_id
+	INNER JOIN Team ON Link_Employee_Supervisor.emp_id=Team.emp_id
 		AND Link_Employee_Supervisor.active_ind=1
 WHERE Team.active_ind=1
 	AND Team.task_id=#attributes.task_id#
