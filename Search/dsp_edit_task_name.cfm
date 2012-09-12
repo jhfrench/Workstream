@@ -26,5 +26,4 @@
 		</td>
 	</tr>
 <cfmodule template="../common_files/act_autocheck_checkbox_js.cfm" checkbox_name="task_name">
-
 </cfoutput>

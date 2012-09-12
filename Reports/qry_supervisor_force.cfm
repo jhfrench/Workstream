@@ -13,6 +13,7 @@
 	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
  --->
+<!--- $issue$: this query probably needs to be rewritten --->
 <cfquery name="supervisor_force" datasource="#application.datasources.main#">
 SELECT Emp_Contact.lname || ', ' || Emp_Contact.name AS employee_name, 
 	Emp_Contact.emp_id, 
@@ -25,16 +26,16 @@ FROM Demographics_Ngauge Demographics, Emp_Contact
 			COUNT(DISTINCT CASE WHEN Task.status_id!=7 /*exclude closed tasks*/ THEN Forecast_Assignment.task_id ELSE NULL END) AS nbt, 
 			COALESCE(SUM(CASE WHEN task.status_id!=7 /*exclude closed tasks*/ THEN Time_Entry.hours ELSE 0 END),0) AS nbh,
 			Forecast_Assignment.emp_id
-		FROM Time_Entry <!--- $issue$: is this join right? --->
+		FROM Time_Entry 
 			RIGHT OUTER JOIN Forecast_Assignment ON Time_Entry.task_id=Forecast_Assignment.task_id
-				AND Time_Entry.active_ind=1
-				AND Forecast_Assignment.active_ind=1, 
-			Task, Team
-		WHERE Task.task_id=Forecast_Assignment.task_id
-			AND Task.due_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.to_date)#
-			AND Forecast_Assignment.emp_id=Team.emp_id
-			AND Forecast_Assignment.task_id=Team.task_id
-			AND Team.role_id=1
+				AND Forecast_Assignment.active_ind=1
+			INNER JOIN Task ON Task.task_id=Forecast_Assignment.task_id
+				AND Task.due_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.to_date)#
+			INNER JOIN Team ON Forecast_Assignment.emp_id=Team.emp_id
+				AND Forecast_Assignment.task_id=Team.task_id
+				AND Team.active_ind=1
+				AND Team.role_id=1
+		WHERE Time_Entry.active_ind=1
 		GROUP BY Forecast_Assignment.emp_id
 	) AS bdata ON bdata.emp_id=Emp_Contact.emp_id
 	LEFT OUTER JOIN (
@@ -45,19 +46,21 @@ FROM Demographics_Ngauge Demographics, Emp_Contact
 			Time_Entry.emp_id
 		FROM Time_Entry 
 			LEFT OUTER JOIN Forecast_Assignment ON Time_Entry.task_id=Forecast_Assignment.task_id
-				AND Forecast_Assignment.active_ind=1, Task, Team
+				AND Forecast_Assignment.active_ind=1
+			INNER JOIN Task ON Task.task_id=Time_Entry.task_id
+				AND Task.due_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.to_date)#
+			INNER JOIN Team ON Time_Entry.emp_id=Team.emp_id
+				AND Time_Entry.task_id=Team.task_id
+				AND Time_Entry.active_ind=1<!--- $issue$ perhaps Team also needs date_deleted so we can look at historical relationships like this one--->
+				AND Team.role_id=1
 		WHERE Time_Entry.active_ind=1
-			AND Task.task_id=Time_Entry.task_id
-			AND Task.due_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.to_date)#
-			AND Time_Entry.emp_id=Team.emp_id
-			AND Time_Entry.task_id=Team.task_id
-			AND Team.role_id=1
 		GROUP BY Time_Entry.emp_id
 	) AS nbdata ON nbdata.emp_id=Emp_Contact.emp_id 
 WHERE Demographics.emp_id=Emp_Contact.emp_id
 	AND Demographics.effective_to IS NULL
 	AND Demographics.end_date IS NULL
-	AND (Demographics.supervisor=#variables.user_identification# OR Demographics.emp_id=#variables.user_identification#)
+	AND (Demographics.supervisor=#variables.user_identification#
+		OR Demographics.emp_id=#variables.user_identification#)
 </cfquery>
 </cfsilent>
 

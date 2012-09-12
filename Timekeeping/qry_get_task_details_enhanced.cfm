@@ -46,19 +46,22 @@ FROM Task
 		SELECT Team.task_id, Team.emp_id, Emp_Contact.lname || ', ' || Emp_Contact.name AS source_name
 		FROM Team
 			INNER JOIN Emp_Contact ON Team.emp_id=Emp_Contact.emp_id
-		WHERE Team.role_id=5
+		WHERE Team.active_ind=1
+			AND Team.role_id=5
 			AND Team.task_id=#attributes.task_id#
 	) AS Task_Source ON Task.task_id=Task_Source.task_id
 	INNER JOIN (
 		SELECT task_id, emp_id
 		FROM Team
-		WHERE role_id=1
+		WHERE active_ind=1
+			AND role_id=1
 			AND task_id=#attributes.task_id#
 	) AS Task_Owner ON Task.task_id=Task_Owner.task_id
 	INNER JOIN (
 		SELECT task_id, emp_id
 		FROM Team
-		WHERE role_id=3
+		WHERE active_ind=1
+			AND role_id=3
 			AND task_id=#attributes.task_id#
 	) AS Task_QA ON Task.task_id=Task_QA.task_id
 WHERE Task.task_id=#attributes.task_id#

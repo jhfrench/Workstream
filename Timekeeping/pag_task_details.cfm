@@ -50,16 +50,16 @@
 		<cfinclude template="../common_files/qry_get_associated_tasks.cfm">
 		<cfinclude template="qry_time_entry_details.cfm">
 		<cfinclude template="../common_files/qry_express_check_date.cfm">
-		<!---<cfinclude template="qry_get_editing_priveleges.cfm">--->
 		<cfset task_owner=get_task_details.owner_id>
-		<cfset task_team=valuelist(get_task_team.emp_id)>
+		<cfset variables.task_team=valuelist(get_task_team.emp_id)>
 		<cfset task_qa=get_task_details.qa_id>
 		<cfinclude template="../common_files/qry_get_user_fields.cfm">
-		<!---<cfif listfind("#valuelist(get_editing_priveleges.editing_priveleges)#,0",variables.user_identification)>
-			<cfset variables.edit=1>
+		<cfinclude template="qry_get_editing_priveleges.cfm">
+		<cfif listfind("#valuelist(get_editing_priveleges.editing_priveleges)#,0",variables.user_identification)>
+			<cfset variables.edit_status="">
 		<cfelse>
-			<cfset variables.edit=0>
-		</cfif>--->
+			<cfset variables.edit_status=' disabled="disabled"'>
+		</cfif>
 		<cfoutput>
 		<form name="task_details_form" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="form">
 			<h2>#get_task_details.task_name# <small>(task #attributes.task_id#)</small></h2>

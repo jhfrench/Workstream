@@ -22,6 +22,7 @@ FROM Task
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id<cfif isdefined("attributes.customer_id")>
 		AND Customer.customer_id=#attributes.customer_id#</cfif>
 	INNER JOIN Team ON Task.task_id=Team.task_id
+		AND Team.active_ind=1
 		AND Team.role_id=1
 	INNER JOIN Emp_Contact ON Team.emp_id=Emp_Contact.emp_id
 	INNER JOIN REF_Priority ON Task.priority_id=REF_Priority.priority_id
@@ -30,4 +31,3 @@ WHERE Task.status_id!=7 /*exclude closed tasks*/
 ORDER BY Customer.description || '-' || Project.description, Task.due_date, Task.assigned_date
 </cfquery>
 </cfsilent>
-

@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfset temp_year=0>
+<cfset variables.temp_year=0>
 <cfset revisedrecordcount=0>
 <cfset counter=0>
 <cfset counter2=0>
@@ -66,8 +66,8 @@
 	<cfset ytd_incident=ytd_incident+incident_revenue>
 	<cfset ytd_revenue=ytd_revenue+month_revenue>
 	<tr>
-		<td align="center"><cfif year NEQ temp_year>#year#<cfelse>&nbsp;</cfif></td>
-		<td align="left">#MonthAsString(month)#</td>
+		<td align="center"><cfif year NEQ variables.temp_year>#year#<cfelse>&nbsp;</cfif></td>
+		<td align="left">#monthasstring(month)#</td>
 		<td align="right" bgcolor="##BAEE9B">#decimalformat(flat_revenue)#</td>
 		<td align="right">#decimalformat(hour_revenue)#</td>
 		<td align="right" bgcolor="##BAEE9B">#decimalformat(incident_revenue)#</td>
@@ -99,7 +99,7 @@
 			#dollarformat(ytd_revenue)#<cfset ytd_revenue=0>
 		</td>
 	</tr>
-	<cfset temp_year=year>
+	<cfset variables.temp_year=year>
 </cfif>
 </cfoutput>
 <cfoutput>

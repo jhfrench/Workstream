@@ -16,9 +16,9 @@
 			<td colspan="2" class="SubHeadText">
 				<cfoutput>#lname#, #name#</cfoutput>
 			</td>
-			<td class="SubHeadText">Beginning hours: <cfoutput>#GetEmpDetails.Pto_Type_Indicator#</cfoutput></td>
+			<td class="SubHeadText">Beginning hours: <cfoutput>#get_pto_hours_report.Pto_Type_Indicator#</cfoutput></td>
 			<td class="SubHeadText">
-				<cfoutput>#GetEmpDetails.company#</cfoutput>
+				<cfoutput>#get_pto_hours_report.company#</cfoutput>
 			</td>
 		</tr>
 		<tr bgcolor="#FDF4C6">

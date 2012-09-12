@@ -124,6 +124,7 @@ SELECT Email_Source.task_source AS email_from, Email.email AS email_to,
 	Task.budgeted_hours, Task.due_date AS date_due, Emp_Contact.name, Email.email_id
 FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
+		AND Team.active_ind=1
 		AND Team.role_id IN (#variables.receiver_type#)
 	INNER JOIN Email ON Team.emp_id=Email.emp_id
 		AND Email.email_type_id=1
@@ -133,7 +134,8 @@ FROM Task
 		SELECT Email.email AS task_source, Team.task_id
 		FROM Team
 			INNER JOIN Email ON Team.emp_id=Email.emp_id
-		WHERE Team.task_id=#attributes.task_id#
+		WHERE Team.active_ind=1
+			AND Team.task_id=#attributes.task_id#
 			AND Team.role_id IN (#variables.sender_type#)
 			AND Email.email_type_id=1
 	) AS Email_Source ON Task.task_id=Email_Source.task_id

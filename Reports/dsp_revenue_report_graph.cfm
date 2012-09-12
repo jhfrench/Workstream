@@ -38,12 +38,12 @@
 <cfset dataset2yvalues="">
 <cfoutput query="revenue_report">
 	<cfif month_revenue GT 0 OR (hour_revenue GT 0 OR flat_revenue GT 0 OR incident_revenue GT 0)>
-	<cfif year NEQ temp_year><cfset xaxislabels=listappend(xaxislabels,"--#year#--"," ")></cfif>
-	<cfset xaxislabels=listprepend(xaxislabels,MonthAsString(month))>
+	<cfif year NEQ variables.temp_year><cfset xaxislabels=listappend(xaxislabels,"--#year#--"," ")></cfif>
+	<cfset xaxislabels=listprepend(xaxislabels,monthasstring(month))>
 	<cfset dataset0yvalues=listprepend(dataset0yvalues,(flat_revenue/1000))>
 	<cfset dataset1yvalues=listprepend(dataset1yvalues,(hour_revenue/1000))>
 	<cfset dataset2yvalues=listprepend(dataset2yvalues,(incident_revenue/1000))>
-	<cfset temp_year=year>
+	<cfset variables.temp_year=year>
 	</cfif>
 </cfoutput>
 </cfsilent>

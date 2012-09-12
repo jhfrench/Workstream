@@ -14,44 +14,39 @@
 	END FUSEDOC --->
 <cfparam name="attributes.admin_month" default="#month(now())#">
 <cfparam name="attributes.admin_year" default="#year(now())#">
+<cfset attributes.date_linked="#attributes.admin_month#/1/#attributes.admin_year#">
 </cfsilent>
 <cfinclude template="../common_files/qry_get_subordinates.cfm">
 <cfif get_subordinates.recordcount>
-	<cfinclude template="act_change_month.cfm">
-	<cfinclude template="qry_deadline_management_main.cfm">
-	<cfinclude template="qry_deadline_management_sub.cfm">
-</cfif>
-<cfoutput>
-<form name="admin_planning" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
-<table align="center" border="0" cellpadding="1" cellspacing="0" width="98%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="3" gutter="0" section_color="008080" section_title="Deadline Management" title_class="HeadTextWhite">
-	<tr bgcolor="##5F5F5F">
-		<td colspan="2" class="SubHeadTextWhite"><label for="hide_supervisor"><input type="checkbox"<cfif isdefined("attributes.hide_supervisor")> checked="checked"</cfif> name="hide_supervisor" value="1" onclick="javascript:document.admin_planning.submit();" id="hide_supervisor" class="SubHeadTextWhite"> Remove your data</label></td>
-	</tr>
-<cfif get_subordinates.recordcount>
-	<tr>
-		<td valign="top">
+	<cfinclude template="../common_files/qry_get_extreme_dates.cfm"><!--- $issue$: need to SVN move Tools/qry_get_extreme_dates.cfm to common_files/--->
+	<cfinclude template="qry_get_deadline_management.cfm">
+	<h2>Deadline Management</h2>
+	<div class="row-fluid">
+		<div class="span6">
 			<cfinclude template="dsp_deadline_management_chart.cfm">
-		</td>
-		<td align="center" valign="top" class="SubHeadText">
-			<br />
-			<cfinclude template="dsp_deadline_management_graph.cfm">
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2">
+		</div>
+		<div class="span6">
+			<cfinclude template="dsp_deadline_management_graph.cfm"><!--- $issue$: change to canvas graph --->
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
 			<cfinclude template="dsp_deadline_management_sub.cfm">
-		</td>
-	</tr>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<cfinclude template="dsp_deadline_management_form.cfm">
+		</div>
+	</div>
+	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_employee" field_name="emp_id" fuseaction="Directory.employee_details">
+	<cfif isdefined("attributes.hide_supervisor")>
+		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="change_month" fuseaction="#attributes.fuseaction#" field_name="admin_month" field2_variable_ind="1" field2_name="admin_year" processform="1" hide_supervisor="1">
+	<cfelse>
+		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="change_month" fuseaction="#attributes.fuseaction#" field_name="admin_month" field2_variable_ind="1" field2_name="admin_year">
+	</cfif>
 <cfelse>
-	<tr>
-		<td align="center" class="Note">
-			Your search returned no records.
-		</td>
-	</tr>
+<div class="alert alert-info">
+	There is no data available for this report. 
+</div>
 </cfif>
-</cfoutput>
-</table>
-</form>
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_employee" field_name="emp_id" fuseaction="Directory.employee_details">
-

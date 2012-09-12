@@ -35,27 +35,23 @@
 <cfset variables.first_year=year(get_extreme_dates.min_date)>
 <cfset variables.last_year=year(get_extreme_dates.max_date)>
 </cfsilent>
-<cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="invoice_list" method="POST">
 <cfoutput>
-<div class="row-fluid">
-	<div class="span8 well form-inline">
-		<label for="year">Month</label>: <select name="month" id="month" class="span2">
-		<cfloop list="#variables.month_list#" index="variables.month_ii">
-			<option value="#variables.month_ii#"<cfif attributes.month EQ variables.month_ii> selected="selected"</cfif>>#variables.month_ii#</option>
-		</cfloop>
-		</select>
-		<label for="year">Year</label>: <select name="year" id="year" class="span2">
-		<cfloop from="#first_year#" to="#last_year#" index="ii">
-			<option value="#ii#"<cfif attributes.year EQ ii> selected="selected"</cfif>>#ii#</option>
-		</cfloop>
-		</select><cfif isdefined("attributes.customer_id")>
-		<input type="hidden" name="customer_id" value="#attributes.customer_id#" />
-		</cfif>
-		<input type="submit" value="Get Invoice List" class="btn btn-primary" />
+<cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="invoice_list" method="POST" class="span8 well form-inline">
+	<label for="year">Month</label>: <select name="month" id="month" class="span2">
+	<cfloop list="#variables.month_list#" index="variables.month_ii">
+		<option value="#variables.month_ii#"<cfif attributes.month EQ variables.month_ii> selected="selected"</cfif>>#variables.month_ii#</option>
+	</cfloop>
+	</select>
+	<label for="year">Year</label>: <select name="year" id="year" class="span2">
+	<cfloop from="#first_year#" to="#last_year#" index="ii">
+		<option value="#ii#"<cfif attributes.year EQ ii> selected="selected"</cfif>>#ii#</option>
+	</cfloop>
+	</select><cfif isdefined("attributes.customer_id")>
+	<input type="hidden" name="customer_id" value="#attributes.customer_id#" />
+	</cfif>
+	<input type="submit" value="Get Invoice List" class="btn btn-primary" />
 <cfif variables.user_identification EQ 1>
 &nbsp;&nbsp;<input type="checkbox" name="run_post" id="run_post" value="1" />&nbsp;<label for="run_post">Post Invoices</label>
 </cfif>
-</div>
-</cfoutput>
 </cfform>
-
+</cfoutput>

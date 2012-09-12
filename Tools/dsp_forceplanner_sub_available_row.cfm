@@ -19,7 +19,7 @@
 		<td colspan="2" valign="bottom" align="right" class="SubHeadText">
 			Available&nbsp;hours
 		</td>
-	<cfloop list="#emp_id_loop#" index="ii">
+	<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">
 		<td align="center" valign="bottom">
 			#get_week_days.hours_in_month#
 		</td>
@@ -35,4 +35,3 @@
 		</td>
 	</tr>
 </cfoutput>
-

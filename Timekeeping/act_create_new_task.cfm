@@ -12,7 +12,7 @@
 	$Log$
 	 || 
  --->
-<cfparam name="attributes.task_team" default="">
+<cfparam name="attributes.task_team" default=0>
 <cfparam name="attributes.reminder_cc_id" default="">
 <cfparam name="attributes.notification_to_id" default="">
 <cfparam name="attributes.notification_cc_id" default="">

@@ -35,13 +35,15 @@ FROM Task
 		SELECT Team.task_id, Team.emp_id, Emp_Contact.lname
 		FROM Team
 			INNER JOIN Emp_Contact ON Team.emp_id=Emp_Contact.emp_id
-		WHERE Team.role_id=1
+		WHERE Team.active_ind=1
+			AND Team.role_id=1
 	) AS Owner ON Task.task_id=Owner.task_id
 	INNER JOIN (
 		SELECT Team.task_id, Team.emp_id, Emp_Contact.lname
 		FROM Team
 			INNER JOIN Emp_Contact ON Team.emp_id=Emp_Contact.emp_id
-		WHERE Team.role_id=3
+		WHERE Team.active_ind=1
+			AND Team.role_id=3
 	) AS QA ON Task.task_id=QA.task_id
 	INNER JOIN REF_Icon ON Task.icon_id=REF_Icon.icon_id
 	LEFT OUTER JOIN (

@@ -23,7 +23,7 @@ FROM Emp_Contact
 	INNER JOIN Demographics_Ngauge AS Demographics ON Emp_Contact.emp_id=Demographics.emp_id
 WHERE 1=1
 	AND (
-		Link_Employee_Supervisor.supervisor_id = #variables.user_identification#<cfif NOT isdefined("attributes.hide_supervisor")>
+		Link_Employee_Supervisor.supervisor_id=#variables.user_identification#<cfif NOT isdefined("attributes.hide_supervisor")>
 			OR Link_Employee_Supervisor.emp_id=#variables.user_identification#</cfif>
 	)<cfif NOT attributes.all_employees>
 	AND <cfif len(attributes.date_linked)>#createodbcdate(attributes.date_linked)# BETWEEN Link_Employee_Supervisor.date_start AND COALESCE(Link_Employee_Supervisor.date_end,#createodbcdate(attributes.date_linked)#+'1 day')<cfelse>CURRENT_TIMESTAMP BETWEEN Link_Employee_Supervisor.date_start AND COALESCE(Link_Employee_Supervisor.date_end, CURRENT_DATE+interval '1 day')</cfif>
@@ -31,6 +31,5 @@ WHERE 1=1
 GROUP BY Emp_Contact.name, Emp_Contact.lname, Emp_Contact.emp_id
 ORDER BY Emp_Contact.lname, Emp_Contact.name
 </cfquery>
-<cfset variables.emp_id_loop=valuelist(get_subordinates.emp_id)>
+<cfset variables.subordinates_emp_id=valuelist(get_subordinates.emp_id)>
 </cfsilent>
-

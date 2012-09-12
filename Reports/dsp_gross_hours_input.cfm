@@ -19,7 +19,7 @@
 			<label for="month">Month</label>
 			<select name="month" id="month" size="1" class="span2">
 				<cfloop from="1" to="12" index="month_ii">
-					<option<cfif attributes.month EQ month_ii> selected="selected"</cfif>value="#month_ii#">#MonthAsString(month_ii)#</option>
+					<option<cfif attributes.month EQ month_ii> selected="selected"</cfif>value="#month_ii#">#monthasstring(month_ii)#</option>
 				</cfloop>
 			</select>
 			<label for="year">Year</label>

@@ -13,7 +13,7 @@
 	||
 	Variables:
 	END FUSEDOC --->
-<cfset temp_year=0>
+<cfset variables.temp_year=0>
 <cfswitch expression="#session.workstream_text_size#">
 	<cfcase value="Lg">
 		<cfset large="16">
@@ -35,8 +35,8 @@
 <cfset xaxislabels="">
 </cfsilent>
 <cfoutput query="get_marketing_line">
-	<cfset label_ii=left(MonthAsString(month),3)>
-	<cfif year NEQ temp_year>
+	<cfset label_ii=left(monthasstring(month),3)>
+	<cfif year NEQ variables.temp_year>
 		<cfset label_ii="#label_ii# #year#">
 	</cfif>
 	<cfset xaxislabels=listappend(xaxislabels,label_ii)>
@@ -44,7 +44,7 @@
 	<cfset dataset1yvalues=ListAppend(dataset1yvalues, decimalformat(Qualify))>
 	<cfset dataset2yvalues=ListAppend(dataset2yvalues, decimalformat(Propose))>
 	<cfset dataset3yvalues=ListAppend(dataset3yvalues, decimalformat(Close))>
-	<cfset temp_year=year>
+	<cfset variables.temp_year=year>
 </cfoutput>
 <cfoutput>
 <tr>

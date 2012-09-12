@@ -11,7 +11,7 @@
 	$Log$ 
 	 || 
 	END FUSEDOC --->
-<cfquery name="GetEmpDetails" datasource="#application.datasources.main#">
+<cfquery name="get_pto_hours_report" datasource="#application.datasources.main#">
 <cfif isdefined("attributes.drill_down")> 
 SELECT Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname,
     PTO_Hours.Pto_Type_Indicator, REF_Day_Length.Day_Length, 
@@ -19,7 +19,7 @@ SELECT Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname,
 FROM Emp_Contact
 	INNER JOIN PTO_Hours ON Emp_Contact.emp_id=PTO_Hours.emp_id
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
-	INNER JOIN Demographics ON Emp_Contact.emp_id=Demographics.emp_id
+	INNER JOIN Demographics_Ngauge Demographics ON Emp_Contact.emp_id=Demographics.emp_id
 	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id = REF_Company.company_id
 	LEFT OUTER JOIN REF_Day_Length ON Demographics.day_length_id = REF_Day_Length.day_length_id
 WHERE Link_Company_Emp_Contact.company_id IN (
@@ -30,12 +30,12 @@ WHERE Link_Company_Emp_Contact.company_id IN (
 	AND Emp_Contact.emp_id IN ('#preservesinglequotes(attributes.drill_down)#')
 ORDER BY lname
 <cfelse>
-SELECT DISTINCT Emp_Contact.emp_id, <!--- $issue$ how is this used? can it be converted to emp_id or user_account_id? --->Emp_Contact.name, Emp_Contact.lname,
+SELECT DISTINCT Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname,
 	Used_Hours.used_hours, COALESCE(REF_Day_Length.day_length, 8) AS day_length, PTO_Hours.pto_type_indicator
 FROM Security_Company_Access
 	INNER JOIN Emp_Contact ON Security_Company_Access.emp_id=Emp_Contact.emp_id
 	INNER JOIN PTO_Hours ON Emp_Contact.emp_id=PTO_Hours.emp_id
-	INNER JOIN Demographics ON Emp_Contact.emp_id=Demographics.emp_id
+	INNER JOIN Demographics_Ngauge Demographics ON Emp_Contact.emp_id=Demographics.emp_id
 		AND Demographics.Effective_To IS NULL 
 	LEFT OUTER JOIN REF_Day_Length ON Demographics.day_length_id=REF_Day_Length.day_length_id
 	INNER JOIN Link_User_Account_Status ON Link_User_Account_Status.user_account_id=Emp_Contact.emp_id

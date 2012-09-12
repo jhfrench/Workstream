@@ -17,8 +17,8 @@
 <table align="center" width="60%" cellpadding="2" cellspacing="0">
 <cfif isdefined("attributes.drill_down")>
 	<cfinclude template="dsp_pto_report_header.cfm">
-	<cfloop query="GetEmpDetails">
-		<cfset remaining=GetEmpDetails.Pto_Type_Indicator>
+	<cfloop query="get_pto_hours_report">
+		<cfset remaining=get_pto_hours_report.Pto_Type_Indicator>
 		<cfinclude template="qry_pto_indiv.cfm">
 		<cfinclude template="dsp_pto_col_header.cfm">
 		<cfinclude template="dsp_pto_indiv_rows.cfm">
@@ -32,7 +32,7 @@
 		<td align="right" class="SubHeadText">Remaining Hours</td>
 	</tr>
 </cfoutput>
-<cfoutput query="GetEmpDetails">
+<cfoutput query="get_pto_hours_report">
 	<tr<cfif (currentrow MOD 1)> bgcolor="##E1E1E1"</cfif>>
 		<td><a href="javascript:drill_down('#emp_id#');">#name# #lname#</a></td>
 		<td align="right"><a href="javascript:drill_down('#emp_id#');">#pto_type_indicator#</a></td>

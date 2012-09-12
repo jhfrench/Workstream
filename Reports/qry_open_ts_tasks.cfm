@@ -18,6 +18,7 @@ SELECT Emp_contact.lname, Task.task_id, Task.name,
 	REF_Priority.description AS priority
 FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
+		AND Team.active_ind=1
 		AND Team.role_id=1
 	INNER JOIN Emp_Contact ON Team.emp_id=Emp_Contact.emp_id
 	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id

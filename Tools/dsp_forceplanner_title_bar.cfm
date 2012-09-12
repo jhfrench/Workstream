@@ -19,7 +19,7 @@
 	<tr bgcolor="##772862" class="HeadTextWhite">
 		<td colspan="#variables.colspan#" align="left" valign="bottom" class="HeadTextWhite">
 			&nbsp;#session.workstream_company_name# ForcePlanner for <select name="force_month" onchange="form.submit();" class="ToolTextSm">
-				<cfloop from="1" to="12" index="ii"><option value="#ii#"<cfif ii EQ attributes.force_month> selected="selected"</cfif>>#MonthAsString(ii)#</option>
+				<cfloop from="1" to="12" index="ii"><option value="#ii#"<cfif ii EQ attributes.force_month> selected="selected"</cfif>>#monthasstring(ii)#</option>
 				</cfloop>
 				</select>
 				<select name="force_year" onchange="form.submit();" class="ToolTextSm">

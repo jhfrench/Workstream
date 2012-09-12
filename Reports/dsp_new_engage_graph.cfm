@@ -30,26 +30,26 @@
 </cfswitch>
 <cfset temp_month=0>
 <cfset temp_total=0>
-<cfset temp_year=0>
+<cfset variables.temp_year=0>
 <cfset dataset0yvalue="">
 <cfset dataset0Links="">
 <cfset xAxisLabels="">
 <cfoutput query="new_engage_output">
-	<cfif month_entered NEQ temp_month AND temp_year NEQ 0>
+	<cfif month_entered NEQ temp_month AND variables.temp_year NEQ 0>
 		<cfset dataset0yvalue=listprepend(dataset0yvalue,temp_total)>
-		<cfset xAxisLabels=listprepend(xAxisLabels,Left(MonthAsString(temp_month),1))>
-		<cfif temp_year NEQ year_entered><cfset xAxisLabels=listprepend(xAxisLabels,temp_year, " ")></cfif>
+		<cfset xAxisLabels=listprepend(xAxisLabels,Left(monthasstring(temp_month),1))>
+		<cfif variables.temp_year NEQ year_entered><cfset xAxisLabels=listprepend(xAxisLabels,variables.temp_year, " ")></cfif>
 		<cfset temp_total=0>
 		<cfset dataset0Links=listprepend(dataset0Links,"index.cfm?fuseaction=convert&root_code=#root_code#")>
 	</cfif>
 		<cfset temp_total=temp_total+engagement_count>
-		<cfset temp_year=year_entered>
+		<cfset variables.temp_year=year_entered>
 		<cfset temp_month=month_entered>
 </cfoutput>
 <cfset dataset0yvalue=listprepend(dataset0yvalue,temp_total)>
 		<cfset dataset0Links=listprepend(dataset0Links,"index.cfm?fuseaction=convert&root_code=#root_code#")>
-<cfset xAxisLabels=listprepend(xAxisLabels,Left(MonthAsString(temp_month),1))>
-<cfset xAxisLabels=listprepend(xAxisLabels,temp_year, " ")>
+<cfset xAxisLabels=listprepend(xAxisLabels,Left(monthasstring(temp_month),1))>
+<cfset xAxisLabels=listprepend(xAxisLabels,variables.temp_year, " ")>
 <table align="center" border="0" cellpadding="1" cellspacing="0">
 <cfoutput>
 	<tr>

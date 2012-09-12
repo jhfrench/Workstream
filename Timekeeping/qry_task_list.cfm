@@ -70,6 +70,7 @@ FROM Task, Team, Emp_Contact,
 					FROM Task 
 						INNER JOIN REF_Priority on Task.priority_id=REF_Priority.priority_id
 						INNER JOIN Team ON Task.task_id=Team.task_id
+							AND Team.active_ind=1
 					WHERE 1=1<cfif NOT from_invoice>
 						AND Team.emp_id IN (<cfif isdefined("attributes.emp_id")><cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.emp_id#" /><cfelse><cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" list="yes" /></cfif>)
 						AND (
@@ -98,6 +99,7 @@ FROM Task, Team, Emp_Contact,
 		WHERE Task.task_id=Path.task_id
 			AND REF_Status.status_id=Task.status_id
 			AND Task.task_id=Team.task_id 
+			AND Team.active_ind=1
 			AND Team.role_id=1
 			AND Emp_Contact.emp_id=Team.emp_id
 	) AS Task_Details
@@ -108,6 +110,7 @@ WHERE Customer.customer_id=Project.customer_id
 	AND Emp_Contact.emp_id=Team.emp_id 
 	AND Link_Project_Company.project_id=Project.project_id 
 	AND Link_Project_Company.company_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#session.workstream_company_id#" list="yes" />)
+	AND Team.active_ind=1
 	AND Team.role_id=3 /* QA */<cfif isdefined("attributes.project_id")>
 	AND Project.project_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#" /></cfif>
 	AND Project.project_type_id!=3<cfif isdefined("session.workstream_task_list_order")>

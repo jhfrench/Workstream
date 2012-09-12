@@ -17,8 +17,8 @@
 <cfquery name="get_task_qa" datasource="#application.datasources.main#">
 SELECT emp_id
 FROM Team
-WHERE task_id=#attributes.task_id#
+WHERE active_ind=1
+	AND task_id=#attributes.task_id#
 	AND role_id=3
 </cfquery>
 </cfsilent>
-

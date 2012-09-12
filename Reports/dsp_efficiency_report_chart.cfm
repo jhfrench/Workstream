@@ -30,9 +30,9 @@
 	</thead>
 	<tbody>
 	<cfloop query="efficiency_report_main">
-	<cfif time_year LT lowest_year><cfset lowest_year=time_year></cfif>
+	<cfif time_year LT variables.lowest_year><cfset lowest_year=time_year></cfif>
 		<tr>
-			<td class="date"><cfif time_year NEQ temp_year>#time_year#<cfset temp_year=time_year><cfelse>&nbsp;</cfif></td>
+			<td class="date"><cfif time_year NEQ variables.temp_year>#time_year#<cfset variables.temp_year=time_year><cfelse>&nbsp;</cfif></td>
 			<td class="date"><a href="javascript:change_month('#time_month#','#time_year#');">#monthasstring(time_month)#</a></td>
 			<td class="number">#decimalformat(efficiency_time)#</td>
 			<td class="number">#decimalformat(efficiency_percent)#</td>

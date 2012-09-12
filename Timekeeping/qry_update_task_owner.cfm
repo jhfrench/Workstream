@@ -14,15 +14,14 @@
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
-<cfquery name="update_task_owner" datasource="#application.datasources.main#">
-<cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"new_task")>
-INSERT INTO Team (task_id, emp_id, role_id)
-VALUES (#attributes.task_id#, #attributes.task_owner#, 1)
-<cfelse>
+<cfquery name="update_task_qa" datasource="#application.datasources.main#">
+<cfif comparenocase(listlast(attributes.fuseaction, '.'),"new_task")>
 UPDATE Team
-SET emp_id=#attributes.task_owner#
+SET active_ind=0
 WHERE task_id=#attributes.task_id#
-	AND role_id=1
+	AND role_id=1;
 </cfif>
+INSERT INTO Team(task_id, emp_id, role_id)
+VALUES (#attributes.task_id#, #attributes.task_qa#, 1);
 </cfquery>
 </cfsilent>

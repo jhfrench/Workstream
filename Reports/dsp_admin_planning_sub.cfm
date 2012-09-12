@@ -19,10 +19,10 @@
 			Admin/Planning for 
 			<select name="admin_month" onchange="javascript:document.admin_planning.submit();">
 				<cfloop from="1" to="12" index="ii">
-				<option value="#ii#"<cfif attributes.admin_month EQ ii> selected="selected"</cfif>>#monthAsString(ii)#</option></cfloop>
+				<option value="#ii#"<cfif attributes.admin_month EQ ii> selected="selected"</cfif>>#monthasstring(ii)#</option></cfloop>
 			</select>
 			<select name="admin_year" onchange="javascript:document.admin_planning.submit();">
-				<cfloop from="#lowest_year#" to="#year(now())#" index="ii">
+				<cfloop from="#variables.lowest_year#" to="#year(now())#" index="ii">
 				<option value="#ii#"<cfif attributes.admin_year EQ ii> selected="selected"</cfif>>#ii#</option></cfloop>
 			</select>
 		</td>

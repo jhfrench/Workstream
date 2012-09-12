@@ -39,13 +39,13 @@
 		<td align="center">
 			#billable#
 		</td>
-	<cfloop list="#emp_id_loop#" index="ii">
+	<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">
 		<td>
-			<cfset current_budget=replace(decimalformat(#evaluate("budget#ii#")#), ",", "", "all")>
+			<cfset current_budget=replace(decimalformat(#evaluate("budget#variables.emp_id#")#), ",", "", "all")>
 			<cfif listgetat(current_budget,2,".") EQ 0><cfset current_budget=numberformat(current_budget)></cfif>
-			<cfparam name="sum_#ii#" default="0">
-			<cfif len(previously_assigned)><cfset "sum_#ii#"=#evaluate("budget#ii#")#+#evaluate("sum_#ii#")#><cfset "task_assign#task_id#"=#evaluate("task_assign#task_id#")#+current_budget><cfelse><cfset current_budget=0></cfif>
-			<!--- ,'t#task_id#_#ii#' ---><cfinput type="text" name="t#task_id#_#ii#" onchange="CalculateRowFields('accept_#task_id#','e_#ii#');" onfocus="ReleaseRowFields('accept_#task_id#');" onblur="NonNumberComplain('t#task_id#_#ii#');" value="#current_budget#" size="2">
+			<cfparam name="sum_#variables.emp_id#" default="0">
+			<cfif len(previously_assigned)><cfset "sum_#variables.emp_id#"=#evaluate("budget#variables.emp_id#")#+#evaluate("sum_#variables.emp_id#")#><cfset "task_assign#task_id#"=#evaluate("task_assign#task_id#")#+current_budget><cfelse><cfset current_budget=0></cfif>
+			<!--- ,'t#task_id#_#variables.emp_id#' ---><cfinput type="text" name="t#task_id#_#variables.emp_id#" onchange="CalculateRowFields('accept_#task_id#','e_#variables.emp_id#');" onfocus="ReleaseRowFields('accept_#task_id#');" onblur="NonNumberComplain('t#task_id#_#variables.emp_id#');" value="#current_budget#" size="2">
 		</td>
 	</cfloop>
 		<td align="center">

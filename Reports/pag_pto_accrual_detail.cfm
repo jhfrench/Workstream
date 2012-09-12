@@ -25,7 +25,7 @@
 <cfif isdefined("attributes.adjustment_flag")>
 	<cfinclude template="qry_insert_pto_grant.cfm">
 </cfif>
-<cf_htmlhead><cfinclude template="open_menu.js"></cf_htmlhead>
+<cfinclude template="open_menu.js">
 <cfinclude template="../common_files/qry_get_employee_name.cfm">
 <cfinclude template="qry_get_pto_start.cfm">
 <cfinclude template="qry_get_pto_year_summary.cfm">
@@ -37,8 +37,8 @@
 	<cfinclude template="dsp_pto_accrual_detail_header.cfm">
 	<cfinclude template="dsp_pto_rows.cfm">
 </table>
-<cfif NOT comparenocase("french",CGI.auth_user)><!--- $issue$: replace all of these with session.user_account_id --->
-	<!--- Used whenever Judy V asks that I make manual adjustment to PTO accrual --->
+<cfif variables.user_identification EQ 1>
+	<!--- Used whenever Jeromy needs to make a manual adjustment to PTO accrual --->
 	<cfinclude template="dsp_pto_adjustment_form.cfm">
 </cfif>
 <cfinclude template="#get_pto_footer_file.pto_footer_file#">

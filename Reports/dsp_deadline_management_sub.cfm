@@ -17,46 +17,39 @@
 	--> on_time: decimal number that indicates the percent of tasks an employee has completed on time or early in the specified month
 	END FUSEDOC --->
 </cfsilent>
-<table align="left" border="0" cellpadding="1" cellspacing="0" width="40%">
 <cfoutput>
-	<tr bgcolor="##5F5F5F">
-		<td colspan="2" class="SubHeadTextWhite">
-			Deadline Management for 
-			<select name="admin_month" onchange="javascript:document.admin_planning.submit();">
-				<cfloop from="1" to="12" index="ii">
-				<option value="#ii#"<cfif attributes.admin_month EQ ii> selected="selected"</cfif>>#monthAsString(ii)#</option></cfloop>
-			</select>
-			<select name="admin_year" onchange="javascript:document.admin_planning.submit();">
-				<cfloop from="#lowest_year#" to="#year(now())#" index="ii">
-				<option value="#ii#"<cfif attributes.admin_year EQ ii> selected="selected"</cfif>>#ii#</option></cfloop>
-			</select>
-		</td>
-	</tr>
-	<tr bgcolor="##c0c0c0">
-		<td class="SubHeadText">
-			Team member
-		</td>
-		<td class="SubHeadText">
-			Percent
-		</td>
-	</tr>
-</cfoutput>
-<cfoutput query="deadline_management_sub">
-	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td>
-			<a href="javascript:list_to_employee('#emp_id#')">#lname#, #name#</a>
-		</td>
-		<td align="right">
-			#decimalformat(on_time)#
-		</td>
-	</tr>
-</cfoutput>
-<cfoutput>
-	<tr>
-		<td colspan="2" class="Note">
-			Employees who have no tasks due in #MonthAsString(attributes.admin_month)# of #attributes.admin_year# will not appear in this table.
-		</td>
-	</tr>
-</cfoutput>
+<table class="table table-striped table-bordered table-condensed">
+	<caption><h3>Deadline Management Details for <cfoutput>#attributes.admin_month#/#attributes.admin_year#</cfoutput></h3></caption>
+	<cfif deadline_management_sub.recordcount>
+	<thead>
+		<tr>
+			<th>Team member</th>
+			<th>Percent</th>
+		</tr>
+	</thead>
+	</cfif>
+	<tfoot>
+		<tr>
+			<td colspan="2">
+				Employees who have no tasks due in #monthasstring(attributes.admin_month)# of #attributes.admin_year# will not appear in this table.
+			</td>
+		</tr>
+	</tfoot>
+	<cfif deadline_management_sub.recordcount>
+	<tbody>
+	<cfloop query="deadline_management_sub">
+		<tr>
+			<td><a href="javascript:list_to_employee('#emp_id#')">#lname#, #name#</a></td>
+			<td class="number">#decimalformat(on_time)#</td>
+		</tr>
+	</cfloop>
+	</tbody>
+	<cfelse>
+		<tr>
+			<td colspan="2">
+				There is no available data for this report.
+			</td>
+		</tr>
+	</cfif>
 </table>
-
+</cfoutput>

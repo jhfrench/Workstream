@@ -15,7 +15,7 @@
 	--> due_month: number containing a month
 	--> on_time_percent: decimal number that indicates the number of tasks in the given due_year and due_month that were completed on time or early.
 	END FUSEDOC --->
-<cfset temp_year=0>
+<cfset variables.temp_year=0>
 <cfswitch expression="#session.workstream_text_size#">
 	<cfcase value="Lg">
 		<cfset large="16">
@@ -41,11 +41,11 @@
 <cfset dataset1yvalues="">
 <cfset dataset2yvalues="">
 <cfoutput query="deadline_management_main">
-<cfif temp_year NEQ due_year>
-	<cfset temp_variable="#due_year# #left(MonthAsString(due_month),3)#">
-	<cfset temp_year=due_year>
+<cfif variables.temp_year NEQ due_year>
+	<cfset temp_variable="#due_year# #left(monthasstring(due_month),3)#">
+	<cfset variables.temp_year=due_year>
 <cfelse>
-	<cfset temp_variable="#left(MonthAsString(due_month),3)#">
+	<cfset temp_variable="#left(monthasstring(due_month),3)#">
 </cfif>
 	<cfset xaxislabels=listprepend(xaxislabels,temp_variable)>
 	<cfset dataset0yvalues=listprepend(dataset0yvalues,(on_time_percent))>

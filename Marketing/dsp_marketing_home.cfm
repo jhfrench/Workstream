@@ -32,7 +32,7 @@
 	<cfset ytd_revenue=ytd_revenue+month_revenue>
 </cfif>
 </cfoutput>
-<cfset variables.marketing_text='Last month (#MonthAsString(prospects.nice_month)#), <span class="RegTextBd">#prospects.prospects# new suspects</span> were brought into the funnel. This month (#MonthAsString(prospects_this_month.nice_month)#), <span class="RegTextBd">#prospects_this_month.prospects_this_month# new suspects</span> have been identified. The monthly goal for suspects is xx (Coming Soon). <a href="index.cfm?fuseaction=Reports.new_engagement_output&root_code=6005">Click here to view the engagement report for new suspects by month.</a>'>
+<cfset variables.marketing_text='Last month (#monthasstring(prospects.nice_month)#), <span class="RegTextBd">#prospects.prospects# new suspects</span> were brought into the funnel. This month (#monthasstring(prospects_this_month.nice_month)#), <span class="RegTextBd">#prospects_this_month.prospects_this_month# new suspects</span> have been identified. The monthly goal for suspects is xx (Coming Soon). <a href="index.cfm?fuseaction=Reports.new_engagement_output&root_code=6005">Click here to view the engagement report for new suspects by month.</a>'>
 
 <cfset ytd_revenue_millions=ytd_revenue/1000000>
 <cfset variables.sales_text='The current closure rate for qualified prospects is xx% (Coming Soon). The goal for 2001 is to close xx% (Coming Soon) of all Qualified Prospects that are brought into the funnel by Marketing. <a href="index.cfm?fuseaction=Reports.sales_report">Click here for sales details.</a>'>

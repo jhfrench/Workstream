@@ -31,6 +31,7 @@ FROM Customer
 	INNER JOIN REF_Priority ON Task.priority_id=REF_Priority.priority_id
 	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id<cfif isdefined("attributes.emp_id")>
 	INNER JOIN Team ON Task.task_id=Team.task_id
+		AND Team.active_ind=1
 		AND Team.role_id=1
 		AND Team.emp_id IN (#attributes.emp_id#)</cfif><cfif isdefined("attributes.show_budgeted")>
 	INNER JOIN Forecast_Assignment ON Task.task_id=Forecast_Assignment.task_id

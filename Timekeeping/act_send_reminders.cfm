@@ -19,39 +19,42 @@ SELECT Task.task_id, Task.name AS task_name, Task.description AS description,
 	Task.budgeted_hours, Task.due_date AS date_due, 
 	Task_Source.task_source AS email_from, Email.email AS email_to, 
 	Emp_Contact.name, Notification.days_before_due AS countdown
-FROM Task, Notification, Email, Emp_Contact,
-	(SELECT Email.email AS task_source, Email.emp_id AS source_id, Team.task_id
-	FROM Team, Email
-	WHERE Team.emp_id=Email.emp_id
-		AND Team.role_id=5
-		AND Email.email_type_id=1)
-AS Task_Source
-WHERE Task.task_id=Task_Source.task_id
-	AND Task.task_id=Notification.task_id
-	AND Notification.email_id=Email.email_id
-	AND Email.emp_id=Emp_Contact.emp_id
-	AND Email.email_type_id=1
-	AND Task.status_id!=7 /*exclude closed tasks*/
-	AND Notification.notification_type=1
-	AND Notification.date_to_send<=CURRENT_TIMESTAMP
-	AND Notification.date_sent IS NULL
+FROM Task
+	INNER JOIN Notification ON Task.task_id=Notification.task_id
+		AND Notification.notification_type=1
+		AND Notification.date_to_send<=CURRENT_TIMESTAMP
+		AND Notification.date_sent IS NULL
+	INNER JOIN Email ON Notification.email_id=Email.email_id
+		AND Email.email_type_id=1
+	INNER JOIN Emp_Contact ON Email.emp_id=Emp_Contact.emp_id
+	INNER JOIN (
+		SELECT Email.email AS task_source, Email.emp_id AS source_id, Team.task_id
+		FROM Team
+			INNER JOIN Email ON Team.emp_id=Email.emp_id
+		WHERE Team.active_ind=1
+			AND Team.role_id=5
+			AND Email.email_type_id=1
+	) AS Task_Source ON Task.task_id=Task_Source.task_id
+WHERE Task.status_id!=7 /*exclude closed tasks*/
 </cfquery>
 <cfloop query="pre_due_email">
 <cfquery name="get_cc" datasource="#application.datasources.main#">
 SELECT Email.email AS email_to
-FROM Task, Notification, Email, Emp_Contact,
-	(SELECT Email.email AS task_source, Email.emp_id AS source_id, Team.task_id
-	FROM Team, Email
-	WHERE Team.emp_id=Email.emp_id
-		AND Team.role_id=5
-		AND Email.email_type_id=1)
-AS Task_Source
-WHERE Task.task_id=Task_Source.task_id
-	AND Task.task_id=Notification.task_id
-	AND Notification.email_id=Email.email_id
-	AND Email.emp_id=Emp_Contact.emp_id
-	AND Notification.notification_type=2
-	AND Task.task_id=#task_id#
+FROM Task
+	INNER JOIN Notification ON Task.task_id=Notification.task_id
+		AND Notification.notification_type=2
+	INNER JOIN Email ON Notification.email_id=Email.email_id
+		AND Email.email_type_id=1
+	INNER JOIN Emp_Contact ON Email.emp_id=Emp_Contact.emp_id
+	INNER JOIN (
+		SELECT Email.email AS task_source, Email.emp_id AS source_id, Team.task_id
+		FROM Team
+			INNER JOIN Email ON Team.emp_id=Email.emp_id
+		WHERE Team.active_ind=1
+			AND Team.role_id=5
+			AND Email.email_type_id=1
+	) AS Task_Source ON Task.task_id=Task_Source.task_id
+WHERE Task.task_id=#task_id#
 </cfquery>
 <cfset variables.cc_list=valuelist(get_cc.email_to)>
 <cfmail from="#application.erroremailfrom#" to="#email_to#" cc="#variables.cc_list#" subject="workstream Task Reminder: #task_name#" server="#application.emailserver#">
@@ -74,4 +77,3 @@ WHERE task_id=#task_id#
 </cfquery>
 </cfloop>
 </cfsilent>
-

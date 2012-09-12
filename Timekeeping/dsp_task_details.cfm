@@ -46,7 +46,7 @@
 	<input type="hidden" name="project_id" value="#get_task_details.project_id#" />
 	<input type="hidden" name="last_loaded" value="#now()#" />
 	<input type="hidden" name="orig_owner" value="#task_owner#" />
-	<input type="hidden" name="orig_team" value="#task_team#" />
+	<input type="hidden" name="orig_team" value="#variables.task_team#" />
 	<input type="hidden" name="orig_qa" value="#task_qa#" />
 	<input type="hidden" name="orig_due_date" value="#dateformat(get_task_details.due_date,"m/d/yyyy")#" />
 	<input type="hidden" name="orig_priority_id" value="#get_task_details.priority#" />
@@ -62,16 +62,16 @@
 <div class="row-fluid">
 	<div class="span6">
 		<label for="task_name" class="h5">Task name</label>
-		<input type="text" name="task_name" id="task_name" value="#htmleditformat(get_task_details.task_name)#" valign="top" size="#variables.cols#" maxlength="255" class="span11" />
+		<input type="text" name="task_name" id="task_name" value="#htmleditformat(get_task_details.task_name)#" valign="top" size="#variables.cols#" maxlength="255"#variables.edit_status# class="span11" />
 		<p><span class="h5">Customer</span>: #get_task_details.customer_name# <span class="h5">Project</span>: #replace(get_task_details.project_name,"#get_task_details.customer_name#-","")#&nbsp;<img src="#application.application_specific_settings.image_dir#popup_icon.gif" width="14" height="12" alt="See more projects." border="0" onclick="OpenProjectWindow('project_id');"></p>
 		<label for="task_details" class="h5">Description <a href="javascript:$('##task_details').attr('rows', '#variables.descrip_rows+15#');" title="Expand description"><i class="icon-resize-vertical"></i></a></label>
-		<textarea name="task_details" id="task_details" cols="#variables.cols-2#" rows="#variables.descrip_rows#" wrap="soft" class="span11">#replaceList(paragraphformat(get_task_details.description),'<P>,"',",")#</textarea>
+		<textarea name="task_details" id="task_details" cols="#variables.cols-2#" rows="#variables.descrip_rows#" wrap="soft"#variables.edit_status# class="span11">#replaceList(paragraphformat(get_task_details.description),'<P>,"',",")#</textarea>
 		<div class="row-fluid">
 			<div class="span4">
 				<label for="task_owner" class="h5">Owner</label>
 				<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_owner" emp_id="#task_owner#" class="span11">
 				<label for="task_team" class="h5">Team</label>
-				<cfmodule template="../common_files/dsp_team_select.cfm" multi="1" size="4" select_name="task_team" emp_id="#task_team#" class="span11">
+				<cfmodule template="../common_files/dsp_team_select.cfm" multi="1" size="4" select_name="task_team" emp_id="#variables.task_team#" class="span11">
 				<label for="task_qa" class="h5"><abbr title="Quality Assurance Tester">QA</abbr></label>
 				<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_qa" emp_id="#task_qa#" class="span11">
 				<label for="task_source" class="h5">Source</label>
@@ -81,7 +81,7 @@
 				<label for="date_assigned" class="h5">Date assigned</label>
 				<span id="date_assigned" class="span11 date">#dateformat(get_task_details.date_assigned,"m/d/yyyy")#</span>
 				<label for="due_date" class="h5">Date due</label>
-				<input type="date" name="due_date" id="due_date" min="#application.application_specific_settings.workstream_start_date#" value="#dateformat(get_task_details.due_date,'yyyy-mm-dd')#" maxlength="10" required="required" class="span11 date" />
+				<input type="date" name="due_date" id="due_date" min="#application.application_specific_settings.workstream_start_date#" value="#dateformat(get_task_details.due_date,'yyyy-mm-dd')#" maxlength="10" required="required"#variables.edit_status# class="span11 date" />
 				<div style="float:left;">
 				<label for="date_completed" class="h5">Date completed</label>
 				<span id="date_completed" class="span11 date"><cfif len(get_task_details.complete_date) AND get_task_details.status_id EQ 11>#dateformat(get_task_details.complete_date,"m/d/yyyy")#<cfelse>Not yet completed</cfif></span>
@@ -89,7 +89,7 @@
 			</div>
 			<div class="span4">
 				<label for="priority_id" class="h5">Priority</label>
-				<select name="priority_id" id="priority_id" class="span11">
+				<select name="priority_id" id="priority_id"#variables.edit_status# class="span11">
 				<cfloop query="get_priorities">
 					<option value="#priority_id#"<cfif priority_id EQ get_task_details.priority> selected="selected"</cfif>>#description#</option>
 				</cfloop>

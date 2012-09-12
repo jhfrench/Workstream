@@ -34,12 +34,12 @@
 		<td></td>
 		<td colspan="2">Remaining:</td>
 
-		<cfif isnumeric(GetEmpDetails.day_length)>
-			<cfset days_left=decimalformat(remaining/GetEmpDetails.day_length)>
+		<cfif isnumeric(get_pto_hours_report.day_length)>
+			<cfset days_left=decimalformat(remaining/get_pto_hours_report.day_length)>
 		<cfelse>
 			<cfset days_left=decimalformat(remaining/8)>
 		</cfif>
-			<td><cfoutput>#remaining# (#days_left# <cfif isnumeric(GetEmpDetails.day_length)>#GetEmpDetails.day_length#-hour days<cfelse>8-hour days</cfif>)</cfoutput></td>
+			<td><cfoutput>#remaining# (#days_left# <cfif isnumeric(get_pto_hours_report.day_length)>#GetEmpDetails.day_length#-hour days<cfelse>8-hour days</cfif>)</cfoutput></td>
 		</tr>
 		<tr>
 			<td colspan="4">&nbsp;</td>

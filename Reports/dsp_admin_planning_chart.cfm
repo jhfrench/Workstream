@@ -12,8 +12,8 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfset lowest_year=year(now())>
-<cfset temp_year=0>
+<cfset variables.lowest_year=year(now())>
+<cfset variables.temp_year=0>
 </cfsilent>
 <table border="0" cellpadding="1" cellspacing="0">
 <cfoutput>
@@ -29,10 +29,10 @@
 	</tr>
 </cfoutput>
 <cfoutput query="admin_planning_main">
-<cfif time_year LT lowest_year><cfset lowest_year=time_year></cfif>
+<cfif time_year LT variables.lowest_year><cfset lowest_year=time_year></cfif>
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td align="center"><cfif time_year NEQ temp_year>#time_year#<cfset temp_year=time_year><cfelse>&nbsp;</cfif></td>
-		<td align="left"><a href="javascript:change_month('#time_month#','#time_year#');">#MonthAsString(time_month)#</a></td>
+		<td align="center"><cfif time_year NEQ variables.temp_year>#time_year#<cfset variables.temp_year=time_year><cfelse>&nbsp;</cfif></td>
+		<td align="left"><a href="javascript:change_month('#time_month#','#time_year#');">#monthasstring(time_month)#</a></td>
 		<td align="right">#decimalformat(ap_time)#</td>
 		<td align="right">#decimalformat(ap_percent)#</td>
 	</tr>

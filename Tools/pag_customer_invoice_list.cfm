@@ -19,7 +19,7 @@
 <cfinclude template="qry_get_extreme_dates.cfm">
 <cfinclude template="qry_get_customer_invoice_list.cfm">
 <table class="table table-striped table-bordered table-condensed span8">
-	<caption><h3>Customer Invoice List for Work Completed in <cfoutput>#MonthAsString(attributes.month)#, #attributes.year#</cfoutput></h3></caption>
+	<caption><h3>Customer Invoice List for Work Completed in <cfoutput>#monthasstring(attributes.month)#, #attributes.year#</cfoutput></h3></caption>
 	<thead>
 	<tr>
 		<th>Customer</th>

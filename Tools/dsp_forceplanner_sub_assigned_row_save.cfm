@@ -19,9 +19,9 @@
 		<td colspan="2" valign="bottom" align="right" class="SubHeadText">
 			Assigned&nbsp;hours
 		</td>
-	<cfloop list="#emp_id_loop#" index="ii">
+	<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">
 		<td align="center" valign="bottom">
-			#evaluate("attributes.sum_#ii#")#
+			#evaluate("attributes.sum_#variables.emp_id#")#
 		</td>
 	</cfloop>
 		<td align="center">

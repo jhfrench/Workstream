@@ -14,12 +14,10 @@
 	END FUSEDOC --->
 </cfsilent>
 <script language="JavaScript" type="text/javascript">
-<!--
 function change_month(time_month, time_year) { 
 	document.drill_down.reset();
-	document.drill_down.admin_month.value = time_month;
-	document.drill_down.admin_year.value = time_year;
+	document.drill_down.admin_month.value=time_month;
+	document.drill_down.admin_year.value=time_year;
 	document.drill_down.submit();
 }
-//-->
 </script>

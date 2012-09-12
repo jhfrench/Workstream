@@ -15,8 +15,8 @@
 <cfparam name="attributes.admin_month" default="#month(now())#">
 <cfparam name="attributes.admin_year" default="#year(now())#">
 <cfinclude template="act_efficiency_report.cfm">
-<cfset lowest_year=year(now())>
-<cfset temp_year=0>
+<cfset variables.lowest_year=year(now())>
+<cfset variables.temp_year=0>
 </cfsilent>
 <cfinclude template="act_change_month.cfm">
 
@@ -26,10 +26,10 @@
 		#variables.project_name# Time for 
 		<select name="admin_month">
 			<cfloop from="1" to="12" index="ii">
-			<option value="#ii#"<cfif attributes.admin_month EQ ii> selected="selected"</cfif>>#monthAsString(ii)#</option></cfloop>
+			<option value="#ii#"<cfif attributes.admin_month EQ ii> selected="selected"</cfif>>#monthasstring(ii)#</option></cfloop>
 		</select>
 		<select name="admin_year">
-			<cfloop from="#lowest_year#" to="#year(now())#" index="ii">
+			<cfloop from="#variables.lowest_year#" to="#year(now())#" index="ii">
 			<option value="#ii#"<cfif attributes.admin_year EQ ii> selected="selected"</cfif>>#ii#</option></cfloop>
 		</select>
 		<label for="hide_supervisor">

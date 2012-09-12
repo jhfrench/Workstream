@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfset temp_year=0>
+<cfset variables.temp_year=0>
 <cfswitch expression="#session.workstream_text_size#">
 	<cfcase value="Lg">
 		<cfset large="16">
@@ -38,11 +38,11 @@
 <cfset dataset1yvalues="">
 <cfset dataset2yvalues="">
 <cfoutput query="efficiency_report_main">
-<cfif temp_year NEQ time_year>
-	<cfset temp_variable="#time_year# #left(MonthAsString(time_month),3)#">
-	<cfset temp_year=time_year>
+<cfif variables.temp_year NEQ time_year>
+	<cfset temp_variable="#time_year# #left(monthasstring(time_month),3)#">
+	<cfset variables.temp_year=time_year>
 <cfelse>
-	<cfset temp_variable="#left(MonthAsString(time_month),3)#">
+	<cfset temp_variable="#left(monthasstring(time_month),3)#">
 </cfif>
 	<cfset xaxislabels=listprepend(xaxislabels,temp_variable)>
 	<cfset dataset0yvalues=listprepend(dataset0yvalues,(efficiency_percent))>

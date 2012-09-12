@@ -108,7 +108,8 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 				</cfif>(SELECT Task.task_id, REF_Priority.description AS priority
 				FROM Task
 					INNER JOIN REF_Priority on Task.priority_id=REF_Priority.priority_id, Team
-				WHERE Team.task_id=Task.task_id<cfif listlen(attributes.task_id)>
+				WHERE Team.task_id=Task.task_id
+					AND Team.active_ind=1<cfif listlen(attributes.task_id)>
 					AND Task.task_id IN (#attributes.task_id#)</cfif><cfif listlen(attributes.task_name)>
 					AND (<cfloop list="#attributes.task_name#" index="ii">
 						<cfset counter=incrementvalue(counter)>LOWER(Task.name) LIKE '%#lcase(ii)#%'<cfif counter NEQ listlen(attributes.task_name)> OR </cfif>
@@ -141,19 +142,20 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 	) AS Recorded_Hours ON Path.task_id=Recorded_Hours.task_id
 	WHERE Task.task_id=Path.task_id
 		AND REF_Status.status_id=Task.status_id 
+		AND Team.active_ind=1
 		AND Team.role_id=1
 		AND Task.task_id=Team.task_id 
 		AND Emp_Contact.emp_id=Team.emp_id)
 AS Task_Details
 WHERE Project.customer_id=Customer.customer_id
 	AND Task_Details.task_id=Team.task_id
+	AND Team.active_ind=1
+	AND Team.role_id=3
 	AND Task.project_id=Project.project_id 
 	AND Task.task_id=Task_Details.task_id
-	AND Emp_Contact.emp_id=Team.emp_id
-	AND Team.role_id=3<cfif variables.use_customer_criteria>
+	AND Emp_Contact.emp_id=Team.emp_id<cfif variables.use_customer_criteria>
 	AND Customer.customer_id IN (#attributes.customer_id#) /*if the user specifies customer criteria, limit the results to just those customers*/</cfif>
 <cfif isdefined("session.workstream_task_list_order")>ORDER BY #session.workstream_task_list_order#</cfif>
 LIMIT 500
 </cfquery>
-
 </cfsilent>

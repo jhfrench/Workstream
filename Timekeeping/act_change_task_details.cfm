@@ -13,7 +13,7 @@
 	 || 
  --->
 <cfparam name="attributes.task_qa" default="">
-<cfparam name="attributes.task_team" default="">
+<cfparam name="attributes.task_team" default=0>
 <cfparam name="attributes.reminder_cc_id" default="">
 <cfparam name="attributes.notification_to_id" default="">
 <cfparam name="attributes.notification_cc_id" default="">
@@ -115,4 +115,3 @@
 <cfif isdefined("attributes.custom_text_collection")>
 	<cfinclude template="qry_upload_custom_text_answers.cfm">
 </cfif>
-

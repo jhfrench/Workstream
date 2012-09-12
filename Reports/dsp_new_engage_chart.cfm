@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfset temp_year=0>
+<cfset variables.temp_year=0>
 </cfsilent>
 <table class="table table-striped table-bordered table-condensed">
 	<caption><h2>New Project Report</h2></caption>
@@ -29,10 +29,10 @@
 	<cfoutput query="new_engage_output">
 		<tr>
 			<td class="number">
-				<cfif year_entered NEQ temp_year>#year_entered#<cfelse>&nbsp;</cfif>
+				<cfif year_entered NEQ variables.temp_year>#year_entered#<cfelse>&nbsp;</cfif>
 			</td>
 			<td>
-				#MonthAsString(month_entered)#
+				#monthasstring(month_entered)#
 			</td>
 			<td>
 				#customer_name#
@@ -40,7 +40,7 @@
 			<td class="number">
 				#numberformat(engagement_count)#
 			</td>
-			<cfset temp_year=year_entered>
+			<cfset variables.temp_year=year_entered>
 		</tr>
 	</cfoutput>
 	</tbody>

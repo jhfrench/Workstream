@@ -20,7 +20,7 @@
 </cfsilent>
 <cfinclude template="qry_invoice_details.cfm">
 <table class="table table-striped table-bordered table-condensed span8">
-	<caption><h3>Invoice Details for <cfoutput>#invoice_details.project_name# (#invoice_details.project_code#) Work Completed in #MonthAsString(attributes.month)#, #attributes.year#</cfoutput></h3></caption>
+	<caption><h3>Invoice Details for <cfoutput>#invoice_details.project_name# (#invoice_details.project_code#) Work Completed in #monthasstring(attributes.month)#, #attributes.year#</cfoutput></h3></caption>
 	<thead>
 	<cfinclude template="dsp_invoice_details_header.cfm">
 	</thead>

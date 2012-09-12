@@ -22,42 +22,34 @@
 <cfparam name="lname" default="">
 <cfparam name="endrow" default="0">
 
-	<cfif https eq "on">
-		<cfset hyperlinkedTo="https://">
-	<cfelse>
-		<cfset hyperlinkedTo="http://">
-	</cfif>
-	<cfset hyperlinkedTo="#hyperlinkedTo##server_name##PATH_INFO#?fuseaction=employee_contact_view">
+<cfif NOT comparenocase(cgi.https, "on")>
+	<cfset variables.directory_url="https://">
+<cfelse>
+	<cfset variables.directory_url="http://">
+</cfif>
+<cfset variables.directory_url="#variables.directory_url##server_name##PATH_INFO#?fuseaction=Directory.employee_contact_view">
 
-	<!--- @ make sure if behind the dmz we are the only ones getting emails --->
-	<cfif left(cgi.http_host, 7) eq "10.1.1."> 
-		<cfset application.emailserver="mail.nucleussolutions.com">
-		<cfset variables.send_to="jeromy_french@hotmail.com">
-	</cfif>
+<!--- @ make sure if behind the dmz we are the only ones getting emails --->
+<cfif left(cgi.http_host, 7) eq "10.1.1."> 
+	<cfset application.emailserver="mail.nucleussolutions.com">
+	<cfset variables.send_to="jeromy_french@hotmail.com">
+</cfif>
 
-	<cfif isdefined("variables.send_to")>
-		<cfset variables.email_name="variables.send_to">
-		<cfset endrow=1>
-	<cfelse>
-		<cfset variables.email_name="get_emails.email">
-		<cfset endrow=get_emails.recordcount>
-	</cfif>
+<cfif isdefined("variables.send_to")>
+	<cfset variables.email_name="variables.send_to">
+	<cfset endrow=1>
+<cfelse>
+	<cfset variables.email_name="get_emails.email">
+	<cfset endrow=get_emails.recordcount>
+</cfif>
 
-
-	<cfif get_emails.recordcount>
-		<cfloop query="get_emails" startrow="1" endrow="#endrow#">
-			<!--- @ debug: <cfoutput>#evaluate(variables.email_name)#</cfoutput><br /> --->
-			<cfmail to="#evaluate(variables.email_name)#" from="#application.erroremailfrom# " subject="Monthly Contacts Change Enquiry" server="#application.emailserver#" type="HTML">
-				<table width="80%">
-					<tr>
-						<td>
-							Dear #fname# #lname#,<br />
-							This is a monthly email sent to remind you to review your personal and employee data in workstream. Please <a href="#hyperlinkedTo#">use this link</a> to make any necessary modifications.
-
-							Thank you.
-						</td>
-					</tr>
-				</table>
-			</cfmail>
-		</cfloop>
-	</cfif>
+<cfif get_emails.recordcount>
+	<cfloop query="get_emails" startrow="1" endrow="#endrow#">
+		<!--- @ debug: <cfoutput>#evaluate(variables.email_name)#</cfoutput><br /> --->
+		<cfmail to="#evaluate(variables.email_name)#" from="#application.erroremailfrom# " subject="Monthly Contacts Change Enquiry" server="#application.emailserver#" type="HTML">
+		<p>Dear #fname# #lname#,<br />
+		This is a monthly email sent to remind you to review your personal and employee data in #application.product_name#. Please <a href="#variables.directory_url#">make any necessary modifications</a>.</p>
+		<p>Thank you.</p>
+		</cfmail>
+	</cfloop>
+</cfif>
