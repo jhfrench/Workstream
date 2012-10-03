@@ -151,19 +151,20 @@ function() {
 			};
 		};
 
-	}
+	};
 
 	if( $('#login_form').length ) {
 		$('#login_form').hide().show('slow');
 		if(typeof shake_ind !== 'undefined' && shake_ind) {
 			$('#login_form').effect('shake');
 		}
-	}
+	};
 
+	//if page includes resolution entry, inject a widget that will track how long the task has been open, adding a quarter hour every 15 minutes
 	if( $('#task_details_resolution_entry_hours').length ) {
 		var elapsed_time_running;
 		var elapsed_time=0.25;
-
+		
 		function update_elapsed_time() {
 			//add quarter hour
 			elapsed_time+=0.25;
@@ -173,16 +174,18 @@ function() {
 
 			if(elapsed_time==24) {
 				clearInterval(elapsed_time_running);
-			}
-		}
+			};
+		};
 
 		// inject clock span
-		 $('#task_details_resolution_entry_hours').append('<!-- following clock image and related HTML are injected from plugins.js --><a href="#" onclick="$(\'#hours\').val( elapsed_time );" id="task_open_link" title="Update hours field to 0.25 hours."><i class="icon-time"></i> <span id="task_open_clock">0.25</span> hours</a>' );
-//
+		$('#task_details_resolution_entry_hours').append( '<!-- following clock image and related HTML are injected from plugins.js --><a href="#" id="task_open_link" title="Update hours field to 0.25 hours."><i class="icon-time"></i> <span id="task_open_clock">0.25</span> hours</a>' );
+		$('#task_open_link').on('click', function(){
+			 $('#hours').val( elapsed_time );
+		});
 
 		// add a quarter hour every 15 minutes
 		elapsed_time_running=setInterval(function() {update_elapsed_time()}, 900000);
-	}
+	};
 	
 	if (!(Modernizr.input.required)) {
 	}
@@ -213,7 +216,7 @@ function() {
 				}
 			})
 		})
-	}
+	};
 	
 	if( $('a[data-toggle="modal"]').length ) {
 		$('#begin_page_content').append('<div id="utility" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="utility-label" aria-hidden="true" style="display: none;" data-common-name="utility"><div class="modal-header"><button type="button" class="close btn" data-dismiss="modal" aria-hidden="false">x</button><h3 id="utility-label">Modal Heading</h3></div><div class="modal-body" id="utility_body">placeholder</div><div class="modal-footer"></div></div>' );
@@ -224,6 +227,6 @@ function() {
 		$('a[data-toggle="modal"]').on('click', function(){
 			$('#utility-label').html( $(this).html() );
 		});
-	}
+	};
 }
 );
