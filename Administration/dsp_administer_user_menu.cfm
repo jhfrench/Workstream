@@ -35,57 +35,57 @@
 	<fieldset>
 		<legend><h3>Edit User</h3></legend>
 			<div class="control-group">
-				<label for="first_name">First Name</label>
+				<label class="control-label" for="first_name">First Name</label>
 				<div class="controls">
 					<cfinput type="text" name="first_name" id="first_name" size="50" maxlength="4000" required="yes" message="You must enter your full name" value="#get_user_information.first_name#" />
 				</div>
 			</div>
 			<div class="control-group">
-				<label for="middle_initial">Middle Initial</label>
+				<label class="control-label" for="middle_initial">Middle Initial</label>
 				<div class="controls">
 					<cfinput type="text" name="middle_initial" id="middle_initial" size="50" maxlength="4000" required="no" message="You must enter your full name" value="#get_user_information.middle_initial#" />
 				</div>
 			</div>
 			<div class="control-group">
-				<label for="last_name">Last Name</label>
+				<label class="control-label" for="last_name">Last Name</label>
 				<div class="controls">
 					<cfinput type="text" name="last_name" id="last_name" size="50" maxlength="4000" required="yes" message="You must enter your full name" value="#get_user_information.last_name#" />
 				</div>
 			</div>
 			<div class="control-group">
-				<label for="username">Username</label>
+				<label class="control-label" for="username">Username</label>
 				<div class="controls">
 					<span id="username">#get_user_information.user_name#</span>
 					<p class="help-block">Usernames cannot be changed.</p>
 				</div>
 			</div>
 			<div class="control-group">
-				<label for="email_address">Email</label>
+				<label class="control-label" for="email_address">Email</label>
 				<div class="controls">
 					<input type="email" name="email_address" id="email_address" value="#get_user_information.email_address#" maxlength="4000" required="required" class="span3" />
 					<!-- Use CF to create backup validation script <cfinput type="text" name="email_address" id="email_address" required="yes" validate="email" validateat="onserver, onsubmit" message="You must enter a valid email address." /> -->
 				</div>
 			</div>
 			<div class="control-group">
-				<label for="work_phone">Phone</label>
+				<label class="control-label" for="work_phone">Phone</label>
 				<div class="controls">
 					<cfset attributes.work_phone=replace(get_user_information.work_phone, "+", "", "ALL")>
 					<cfinput type="text" name="work_phone" id="work_phone" size="50" maxlength="4000" required="no" validate="telephone" validateat="onserver,onsubmit" value="#attributes.work_phone#">
 				</div>
 			</div>
 			<div class="control-group">
-				<label for="center_id">Center</label>
+				<label class="control-label" for="center_id">Center</label>
 				<div class="controls">
 					<cfselect name="center_id" id="center_id" query="get_ref_center" value="center_id" display="abbreviation" selected="#get_user_information.center_id#"></cfselect>
 				</div>
 			</div>
 			<div class="control-group">
-				<label for="account_status_id">Account Status</label>
+				<label class="control-label" for="account_status_id">Account Status</label>
 				<div class="controls">
 					<!--- only allow to lock and unlock when the user information being modified is not the current user --->
 					<cfif get_user_information.user_account_id NEQ variables.user_identification>
 						<cfloop query="get_ref_account_status">
-							<input type="radio" name="account_status_id" id="account_status_id_#account_status_id#" value="#account_status_id#"<cfif get_user_information.account_status_id EQ account_status_id> checked="checked"</cfif>/><label for="account_status_id_#account_status_id#">#description#</label>
+							<input type="radio" name="account_status_id" id="account_status_id_#account_status_id#" value="#account_status_id#"<cfif get_user_information.account_status_id EQ account_status_id> checked="checked"</cfif>/><label class="control-label" for="account_status_id_#account_status_id#">#description#</label>
 						</cfloop>
 					<cfelse>
 						#get_user_information.account_status#
@@ -94,7 +94,7 @@
 				</div>
 			</div>
 			<div class="control-group">
-				<label for="password_reset">Password</label>
+				<label class="control-label" for="password_reset">Password</label>
 				<div class="controls" id="password_reset">
 					<a href="javascript:reset_password(#attributes.user_account_id#);" onclick="hide();" title="Resetting the password will make the system send a new, random, password to the user's email address on file." class="btn btn-danger"><i class="icon-random icon-white"></i> Reset Password</a>
 					<p class="help-block">Password last updated #dateformat(get_user_password.created_date, "m/d/yyyy")# #timeformat(get_user_password.created_date)# by #get_user_password.first_name# #get_user_password.last_name#.</p>

@@ -44,7 +44,7 @@
 	<tr>
 		<td scope="row" class="number"">#task_id#</td>
 		<td>#task_owner#</td>
-		<td><a href="javascript:list_to_task('#task_id#');" title="View time details for #variables.status_message#."><img src="#application.application_specific_settings.image_dir##task_icon#" title="#ReplaceList(task_description, variables.quote, variables.status_message_replace_with)#" height="16" width="16" border="0">#task_name#</a></td>
+		<td><a href="javascript:list_to_task('#task_id#');" title="View time details for #variables.status_message#."><i class="#task_icon#" title="#ReplaceList(task_description, variables.quote, variables.status_message_replace_with)#"></i>#task_name#</a></td>
 		<td>#project_name#</td>
 		<td>#priority#</td>
 		<td><a href="javascript:list_to_time('#task_id#');" title="View time details for #variables.status_message#."><cfif listlen(time_used) GT 1 AND listgetat(time_used,2,".") GT 0>#decimalformat(time_used)#<cfelse>#numberformat(time_used)#</cfif><cfif time_budgeted>/#time_budgeted# #numberformat(percent_time_used)#%</cfif></a></td>

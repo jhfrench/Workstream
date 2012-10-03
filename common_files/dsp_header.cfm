@@ -66,7 +66,7 @@ else
 				],
 				complete: function () {
 					if ( !window.jQuery ) {
-						Modernizr.load('common_files/js/libs/jquery.min.js'');
+						Modernizr.load('common_files/js/libs/jquery.min.js');
 					}
 				}
 			},
@@ -94,7 +94,7 @@ else
 			<a href="##begin_page_content" title="hidden browser link to skip repetitive navigation" class="footerLnk">- Skip Nav</a>
 		</div>
 		<div class="span12">
-			<nav role="navigation" class="navbar navbar-fixed-top">
+			<nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
 				<div class="navbar-inner">
 					<div class="container">
 						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -110,7 +110,7 @@ else
 								<cfinclude template="dsp_navigation_module.cfm" />
 							</ul>
 							<form class="navbar-search pull-left" action="index.cfm?fuseaction=Search.output" method="post">
-								<input type="text" name="header_search_criteria" title="Search on task ID or task name" placeholder="search" class="search-query span5">
+								<input type="text" name="header_search_criteria" title="Search on task ID or task name" placeholder="search" class="search-query span9" />
 							</form>
 							<ul class="nav pull-right"><cfif application.help.active_ind>
 								<li><a href="##help_area" id="nav_help_button" title="Access the #application.product_name# help system" class="btn btn-mini btn-info" style="color:##ffffff;">Help</a></li></cfif>

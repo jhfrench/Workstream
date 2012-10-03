@@ -68,6 +68,7 @@ FROM (
 		GROUP BY EXTRACT(YEAR FROM Task.entry_date)
 	) AS Incident_Revenue ON Revenue_Goal.fiscal_year=Incident_Revenue.revenue_year
 GROUP BY Revenue_Goal.fiscal_year
+ORDER BY Revenue_Goal.fiscal_year
 </cfquery>
 </cfsilent>
 

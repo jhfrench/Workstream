@@ -49,7 +49,7 @@
 				],
 				complete: function () {
 					if ( !window.jQuery ) {
-						Modernizr.load('common_files/js/libs/jquery.min.js'');
+						Modernizr.load('common_files/js/libs/jquery.min.js');
 					}
 				}
 			},

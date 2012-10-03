@@ -17,17 +17,22 @@
 
 <section id="blurb_dashboard" class="span5">
 	<h2>Account Management Dashboard</h2>
-	<div id="operations_blurb">
-		<cfoutput query="operations_blurb">
-			<p style="right:0px;">
-				#customer#&nbsp;
+	<div id="operations_blurb"><!--- $issue$: is this id referenced anywhere? --->
+	<cfoutput query="operations_blurb">
+		<div class="row-fluid">
+			<div class="span4">
+				#customer#
+			</div>
+			<div class="span8">
 				<div class="progress">
-				  <div class="bar bar-success" style="width: #round(green_stretch)#%;"></div>
-				  <div class="bar bar-warning" style="width: #round(yellow_stretch)#%;"></div>
-				  <div class="bar bar-danger" style="width: #round(red_stretch)#%;"></div>
+				  <div class="bar" style="width: #round(blue_count/total_count*100)#%;" title="#blue_count# has/have unknown status"></div>
+				  <div class="bar bar-success" style="width: #round(green_count/total_count*100)#%;" title="#green_count# is/are doing well"></div>
+				  <div class="bar bar-warning" style="width: #round(yellow_count/total_count*100)#%;" title="#yellow_count# is/have areas of concern"></div>
+				  <div class="bar bar-danger" style="width: #round(red_count/total_count*100)#%;" title="#red_count# is/are in real trouble"></div>
 				</div>
-			</p>
-		</cfoutput>
+			</div>
+		</div>
+	</cfoutput>
 	</div>
 	<p><a href="index.cfm?fuseaction=Reports.engagement_dashboard" class="btn">View details &raquo;</a></p>
 </section>

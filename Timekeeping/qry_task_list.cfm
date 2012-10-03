@@ -59,12 +59,12 @@ SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id,
 	(Customer.description || '-' || Project.description) AS project_name, priority
 FROM Task, Team, Emp_Contact,
 	Customer, Project, Link_Project_Company, (
-		SELECT Path.task_id, COALESCE(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
+		SELECT Path.task_id, COALESCE(Recorded_Hours.hours_used,0) AS time_used, Path.class_name AS task_icon, 
 			(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
 			REF_Status.status AS task_status, Emp_Contact.lname AS task_owner, priority
 		FROM Task, REF_Status, Team,
 			Emp_Contact, (
-				SELECT Valid_Tasks.task_id, CASE WHEN REF_Icon.path='0' THEN 'document.gif' ELSE REF_Icon.path END AS path, priority
+				SELECT Valid_Tasks.task_id, REF_Icon.class_name, priority
 				FROM (
 					SELECT Task.task_id, REF_Priority.description AS priority
 					FROM Task 
