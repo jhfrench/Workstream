@@ -12,9 +12,8 @@
 	$Log$
 	 || 
  --->
-<cfparam name="variables.stretch_width" default="250">
 <cfquery name="operations_blurb" datasource="#application.datasources.main#">
-SELECT customer, #variables.stretch_width#*green_count/total_count AS green_stretch, #variables.stretch_width#*yellow_count/total_count AS yellow_stretch, #variables.stretch_width#*red_count/total_count AS red_stretch
+SELECT customer, green_count/total_count AS green_stretch, yellow_count/total_count AS yellow_stretch, red_count/total_count AS red_stretch
 FROM (
 	SELECT Customer.description AS customer,
 		SUM(CASE WHEN COALESCE(status,1)=1 THEN 1 ELSE 0 END)*1.00 AS green_count,
