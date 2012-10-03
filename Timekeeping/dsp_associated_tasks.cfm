@@ -33,7 +33,7 @@
 		<tr>
 			<th scope="row">#task_id#</td>
 			<td>
-				<a href="javascript:list_to_task('#task_id#');" title="View task."><img src="#application.application_specific_settings.image_dir##task_icon#" alt="<cfif sort_order EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>" style="height:10px; width:9px;" height="10" width="9" border="0" />&nbsp;#name#</a>
+				<a href="javascript:list_to_task('#task_id#');" title="View task."><i class="#task_icon#" alt="<cfif sort_order EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>"></i>&nbsp;#name#</a>
 			</td>
 			<td>#status#</td>
 			<td class="date">#dateformat(due_date,"m/d/yyyy")#</td>
