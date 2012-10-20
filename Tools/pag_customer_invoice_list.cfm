@@ -18,8 +18,10 @@
 </cfsilent>
 <cfinclude template="../common_files/qry_get_extreme_dates.cfm">
 <cfinclude template="qry_get_customer_invoice_list.cfm">
-<table class="table table-striped table-bordered table-condensed span8">
-	<caption><h3>Customer Invoice List for Work Completed in <cfoutput>#monthasstring(attributes.month)#, #attributes.year#</cfoutput></h3></caption>
+<table class="table table-striped table-bordered table-condensed">
+	<caption>
+		<h3>Customer Invoice List</h3> <h5>for Work Completed in <cfoutput>#monthasstring(attributes.month)#, #attributes.year#</cfoutput></h5>
+	</caption>
 	<thead>
 	<tr>
 		<th>Customer</th>
@@ -31,5 +33,5 @@
 	<cfinclude template="dsp_customer_invoice_list.cfm">
 	</tbody>
 </table>
-	<cfinclude template="dsp_invoice_list_form.cfm">
+<cfinclude template="dsp_invoice_list_form.cfm">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="customer_to_project" fuseaction="Tools.invoice_list" field_name="customer_id" processform="1" month="#attributes.month#" year="#attributes.year#">

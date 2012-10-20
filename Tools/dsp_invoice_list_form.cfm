@@ -36,7 +36,7 @@
 <cfset variables.last_year=year(get_extreme_dates.max_date)>
 </cfsilent>
 <cfoutput>
-<cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="invoice_list" method="POST" class="span8 well form-inline">
+<cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="invoice_list" method="POST" class="well form-inline">
 	<label for="year">Month</label>: <select name="month" id="month" class="span2">
 	<cfloop list="#variables.month_list#" index="variables.month_ii">
 		<option value="#variables.month_ii#"<cfif attributes.month EQ variables.month_ii> selected="selected"</cfif>>#variables.month_ii#</option>

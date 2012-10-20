@@ -23,7 +23,7 @@
 			#revenue#
 		</td>
 		<td>
-			<input type="checkbox" name="customer_id" value="#customer_id#">
+			<input type="checkbox" name="customer_id" value="#customer_id#" /><!--- this should be converted into a link styled as a button --->
 		</td>
 	</tr>
 </cfoutput>

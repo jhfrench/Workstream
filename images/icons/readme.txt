@@ -1,1 +1,1 @@
-I use spritepad.com to make the Workstream sprite using the images within this folder.
+I use http://wearekiss.com/spritepad to make the Workstream sprite using the images within this folder.

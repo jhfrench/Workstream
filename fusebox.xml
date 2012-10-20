@@ -7,7 +7,6 @@
 		<circuit alias="Directory" path="Directory/" parent=""/>
 		<circuit alias="Help" path="Help/" parent=""/>
 		<circuit alias="Home" path="Home/" parent=""/>
-		<circuit alias="Marketing" path="Marketing/" parent=""/>
 		<circuit alias="Reports" path="Reports/" parent=""/>
 		<circuit alias="Requirements" path="Requirements/" parent=""/>
 		<circuit alias="Search" path="Search/" parent=""/>
