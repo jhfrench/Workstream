@@ -24,33 +24,32 @@
 </fusedoc>
 --->
 
-<cfoutput>
-<cfform name="form_administer_sorter_table" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
-<table cellspacing="1" cellpadding="4" width="100%" border="0" bgcolor="##cccccc" summary="table head describes the data held in the table within this table">
-	<tr bgcolor="##cccccc"><th><strong>Administer System Sorter Table</strong></th></tr>
-	<tr bgcolor="##eeeeee">
-		<td>
-			<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table displays sorting options for administrator">
-				<tr>
-					<td><label for="table_to_sort">Table to sort</label>: </td>
-					<td><cfinput type="text" name="table_to_sort" id="table_to_sort" value="" size="50" maxlength="50" required="yes" message="Please enter name of the table to sort."></td>
-				</tr>
-				<tr>
-					<td><label for="id_of_sorted_column">Primary key of table to sort</label>: </td>
-					<td><cfinput type="text" name="id_of_sorted_column" id="id_of_sorted_column" value="" size="50" maxlength="50" required="yes" message="Please enter name of the id of sorted column"></td>
-				<tr>
-					<td><label for="text_of_sorted_column">Text of sorted column</label>: </td>
-					<td><cfinput type="text" name="text_of_sorted_column" id="text_of_sorted_column" value="" size="50" maxlength="50" required="yes" message="Please enter name of the text of sorted column"></td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-	<tr bgcolor="##dddddd">
-		<td class="btn-group">
+<cfform name="form_administer_sorter_table" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
+<fieldset>
+	<legend><h2>Resort Drop-Down Tables</h2></legend>
+	<div class="control-group">
+		<label for="table_to_sort" class="control-label">Table to sort</label>
+		<div class="controls">
+			<cfinput type="text" name="table_to_sort" id="table_to_sort" value="" size="50" maxlength="50" required="yes" message="Please enter name of the table to sort." />
+		</div>
+	</div>
+	<div class="control-group">
+		<label for="id_of_sorted_column" class="control-label">Primary key of table to sort</label>
+		<div class="controls">
+			<cfinput type="text" name="id_of_sorted_column" id="id_of_sorted_column" value="" size="50" maxlength="50" required="yes" message="Please enter name of the id of sorted column" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label for="text_of_sorted_column" class="control-label">Text of sorted column</label>
+		<div class="controls">
+			<cfinput type="text" name="text_of_sorted_column" id="text_of_sorted_column" value="" size="50" maxlength="50" required="yes" message="Please enter name of the text of sorted column" />
+		</div>
+	</div>
+	<div class="form-actions">
+		<span class="btn-group">
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
-		</td>
-	</tr>
-</table>
+		</span>
+	</div>
+</fieldset>
 </cfform>
-</cfoutput>

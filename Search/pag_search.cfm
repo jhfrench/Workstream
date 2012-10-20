@@ -27,35 +27,35 @@
 			</div>
 		</div> --->
 		<div class="control-group">
-			<label for="task_id">Task ID</label>
+			<label for="task_id" class="control-label">Task ID</label>
 			<div class="controls">
 				<cfinput type="text" name="task_id" id="task_id" size="50" class="span8" />
 				<p class="help-block">Separate multiple IDs with commas.</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="task_name">Task Name</label>
+			<label for="task_name" class="control-label">Task Name</label>
 			<div class="controls">
 				<input type="text" name="task_name" id="task_name" size="30" class="span8" />
 				<p class="help-block">Separate multiple phrases with commas.</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="description">Description</label>
+			<label for="description" class="control-label">Description</label>
 			<div class="controls">
 				<input type="text" name="description" id="description" size="30" class="span8" />
 				<p class="help-block">Separate multiple phrases with commas.</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="notes">Notes</label>
+			<label for="notes" class="control-label">Notes</label>
 			<div class="controls">
 				<input type="text" name="notes" id="notes" size="30" class="span8" />
 				<p class="help-block">Separate multiple phrases with commas.</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="date_entered">Date Entered</label>
+			<label for="date_entered" class="control-label">Date Entered</label>
 			<div class="controls">
 				<select name="date_entered_operator" id="date_entered_operator" class="span3">
 					<option value="1">Before</option>
@@ -67,7 +67,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="due_date">Date Due</label>
+			<label for="due_date" class="control-label">Date Due</label>
 			<div class="controls">
 				<select name="due_date_operator" id="date_entered_operator" class="span3">
 					<option value="1">Before</option>
@@ -79,19 +79,19 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="">Task Source</label>
+			<label for="task_source" class="control-label">Task Source</label>
 			<div class="controls">
 				<cfmodule template="../common_files/dsp_team_select.cfm" colspan="1" select_name="task_source" multi="1" emp_id="0" class="span8">
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="task_owner">Task Owner</label>
+			<label for="task_owner" class="control-label">Task Owner</label>
 			<div class="controls">
 				<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_owner" multi="1" emp_id="0" class="span8">
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="customer_id">Customer</label>
+			<label for="customer_id" class="control-label">Customer</label>
 			<div class="controls">
 				<cfmodule template="../common_files/two_related_selects.cfm" query="get_search_projects" name1="customer_id"
 					name2="project_id" display1="customer" display2="display"
@@ -102,13 +102,13 @@
 					HTMLBetween="</div>
 		</div>
 		<div class='control-group'>
-			<label for='project_id'>Project</label>
+			<label for='project_id' class='control-label'>Project</label>
 			<div class='controls'>">
 				<p class="help-block">Choose a <a href="#customer_id">customer</a> to see related projects.</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="priority_id">Priority</label>
+			<label for="priority_id" class="control-label">Priority</label>
 			<div class="controls">
 			<select name="priority_id" id="priority_id" multiple="multiple" size="3" class="span8">
 			<cfoutput query="get_priorities">
@@ -118,7 +118,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="task_stati">Task Status</label>
+			<label for="task_stati" class="control-label">Task Status</label>
 			<div class="controls">
 				<select name="task_stati" id="task_stati" multiple="multiple" size="4" class="span8">
 				<cfoutput query="get_task_stati">

@@ -21,7 +21,6 @@ SELECT icon_id, icon_name
 FROM REF_Icon
 WHERE active_ind=1
 	AND #application.icons_changed#=#application.icons_changed#
-ORDER BY icon_name
+ORDER BY sort_order
 </cfquery>
 </cfsilent>
-
