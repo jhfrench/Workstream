@@ -51,7 +51,6 @@
 <cfmodule template="qry_get_discussion.cfm" parent_discussion_id="0">
 
 <!--- The custom tag should be placed wherever the discussion and form should apear in the app itself...  ie if the navigation is accross the top , include template for nav here then tag below etc.--->
-<a name="begin_page_content"></a>
 <table align="center" width="100%" cellspacing=3 cellpadding=3 border=0 summary="Table displays discussion navigation">
 	<tr>
 		<td rowspan="2" valign="top" align="left" bgcolor="044669" width="200" id="Discussion Forum Navigation Bar">

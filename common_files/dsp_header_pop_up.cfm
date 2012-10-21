@@ -83,5 +83,5 @@
 <body class="container-fluid">
 
 	<div class="row-fluid">
-		<section id="begin_page_content" role="main" class="span9">
+		<section id="content_container" role="main" class="span12">
 </cfoutput>

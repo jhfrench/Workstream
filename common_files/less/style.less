@@ -10,6 +10,11 @@ body {
 footer {
 	background-color: @gray;
 	color: @white;
+	margin-bottom: 0;
+	position: fixed;
+	right: 0;
+	left: 0;
+	z-index: 1030;
 }
 
 .nav li.dropdown ul.dropdown-menu li:HOVER ul {
@@ -91,48 +96,23 @@ footer {
 	text-align:center;
 }
 
-#help_admin {
-	// background-color:#fcf2f5;
-}
-
-.no-js #help_area {
-	// background-color:#d1dee5;
-	border:1px solid black;
-	margin-right:0px;
-}
-
-.js #help_area {
-	border:1px solid black;
-	display:none;
-	margin-right:0px;
-}
-
-.js #help_top {
-	// background-color:#ecf2f5;
-	float:left;
-	height:220px;
-	overflow-y:scroll;
-}
-
-.js .help_main {
-	// background-color:#fcf2f5;
-	border-top: 1px solid #ddd;
-	float:left;
-	height:520px;
-	overflow-y:auto;
-	width:100%;
-}
-
-.js #watermark {
-	background-image:url("../../images/watermark_digital.jpg");
-	background-repeat:no-repeat;
-	height:335px;
-	opacity:0.6;
-	margin-top:10px;
-	position:relative;
-	z-index:1;
-	width:200px;
-}
+/*help area*/
+	.cursor_help {
+		cursor:help;
+	}
+	#help_area {
+		position: fixed;
+		right: 10px;
+	}
+	.js .help_top {
+		height: 220px;
+		overflow-y: auto;
+	}
+	.js .help_main {
+		border-top: 1px solid #ddd;
+		height: 520px;
+		overflow-y: auto;
+	}
 
 .login_background {
 	background-image: url(../../images/login_splash.jpg);

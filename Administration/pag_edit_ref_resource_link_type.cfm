@@ -24,7 +24,6 @@
 </fusedoc>
 --->
 
-<a name="begin_page_content"></a>
 <cfparam name="attributes.resource_link_type_id" default="0">
 <cfparam name="attributes.description" default="">
 <cfparam name="attributes.sort_order" default="">

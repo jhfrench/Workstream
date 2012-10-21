@@ -77,7 +77,6 @@
 </cfif>
 
 <cfmodule template="qry_get_discussion.cfm" discussion_id="#reply_parent_discussion_id#">
-<a name="#begin_page_content"></a>
 <cfoutput>
 	<table align="left" width="500" cellspacing="1" celpadding="1" border="0" bgcolor="silver" summary="Table allows replying of discussion form">
 		<tr>

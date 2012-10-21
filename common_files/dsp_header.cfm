@@ -111,10 +111,19 @@ else
 							</ul>
 							<form class="navbar-search pull-left" action="index.cfm?fuseaction=Search.output" method="post">
 								<input type="text" name="header_search_criteria" title="Search on task ID or task name" placeholder="search" class="search-query span9" />
-							</form>
-							<ul class="nav pull-right"><cfif application.help.active_ind>
-								<li><a href="##help_area" id="nav_help_button" title="Access the #application.product_name# help system" class="btn btn-mini btn-info" style="color:##ffffff;">Help</a></li></cfif>
-								<cfif isdefined("variables.user_identification")><cfif session.password_created_by EQ variables.user_identification><li><a href="index.cfm?fuseaction=Home.logout" class="login_link"">Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></a></li></cfif><cfelse><li><a href="index.cfm?fuseaction=Home.login" class="login_link">Login for More Access</a></li></cfif>
+							</form><cfif application.help.active_ind>
+							<form class="navbar-form pull-right">
+								<a href="##help_area" id="nav_help_button" title="Access the help system" class="btn btn-info cursor_help">Help</a>
+							</form></cfif>
+							<ul class="nav pull-right">
+								
+								<cfif isdefined("variables.user_identification")>
+									<cfif session.password_created_by EQ variables.user_identification>
+										<li><a href="index.cfm?fuseaction=Home.logout" class="login_link"><strong>Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></strong></a></li>
+									</cfif>
+								<cfelse>
+									<li><a href="index.cfm?fuseaction=Home.login" class="login_link"><strong>Login for More Access</strong></a></li>
+								</cfif>
 							</ul>
 						</div><!--/.nav-collapse -->
 					</div>
@@ -124,7 +133,7 @@ else
 	</header>
 
 	<div class="row-fluid">
-		<section id="begin_page_content" role="main" class="span9">
+		<section id="content_container" role="main" class="span12"><!--- $issue$: can we change this to "content_container"? --->
 
 
 

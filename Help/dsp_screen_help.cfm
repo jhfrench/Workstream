@@ -38,7 +38,6 @@ variables.tab_class=' class="active"';
 variables.tab_content_class=' active in';
 </cfscript>
 <cfoutput>
-<div id="help_area" role="complementary">
 	<ul id="help_tabs" class="nav nav-tabs" role="tablist"><cfif application.help.article_active_ind>
 		<li#variables.tab_class# role="tab" aria-controls="help_content_article"><a href="##help_content_article" data-toggle="tab" id="button_article">Articles</a></li><cfset variables.tab_class=""></cfif><cfif application.help.faq_active_ind>
 		<li#variables.tab_class# role="tab" aria-controls="help_content_faq"><a href="##help_content_faq" data-toggle="tab" id="button_faq"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li></cfif><cfif application.help.search_active_ind>
@@ -165,5 +164,4 @@ variables.tab_content_class=' active in';
 			</div>
 		</div></cfif>
 	</div>
-</div>
 </cfoutput>

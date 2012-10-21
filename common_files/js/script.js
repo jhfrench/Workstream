@@ -4,32 +4,36 @@
 */	
 $(document).ready(
 function() {
+	$('[aria-hidden="true"]').hide(); //hide anything that's marked as hidden to screen-readers
+	
 	if ( $('#help_area').length ) {
-		//use JavaScript to tell screen readers that the help_area is visibly hidden
-		$('#help_area:hidden').attr('aria-hidden', 'true');
+		//console.log( $('#help_area') );
 		
 		// bind help area reveal/conceal to relevant elements
-		$('#nav_help_button, #help_close').on('click', function() {
-			$('#help_area').slideToggle('slow');
-			//set aria-hidden attribute to help screen-readers
-			if ( $('#help_area').attr('aria-hidden')=='true' ) {
-				$('#help_area').attr('aria-hidden', 'false');
+		$('#nav_help_button').on('click', function() {
+			"use strict"; //let's avoid tom-foolery in this function
+			//adjust spans of main block and help area, set aria-hidden attribute on help blockto help screen-readers
+			if ( $('#help_area').attr('aria-hidden')==='true' ) {
+				$('#content_container.span12').switchClass('span12', 'span9', 300);
+				$('#help_area').delay(300).slideToggle(300).attr('aria-hidden', 'false');
 			}
 			else {
-				$('#help_area').attr('aria-hidden', 'true');
-			};
+				$('#help_area').slideToggle(300).attr('aria-hidden', 'true');
+				$('#content_container.span9').delay(300).switchClass('span9', 'span12', 300);
+			}
 		});
 		
 		// when called, getHelp loads relevant help area with content from jQuery's AJAX call
 		var getHelp = function (helpType, helpID) {
-			//console.log('$(\'div #help_main_'+helpType+'\').load(\'index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd\');');
+			"use strict"; //let's avoid tom-foolery in this function
+			console.log('$(\'div #help_main_'+helpType+'\').load(\'help.html dl#'+helpType+helpID+' dd\');');
 			//console.log('index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd');
 			// console.log( $('div #help_main_'+helpType) );
 			$('div #help_main_'+helpType).load(
-				'index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd',
+				'help.html dl#'+helpType+helpID+' dd',
 				function(response, status, xhr) {
-					if (status == 'error') {
-						console.log('help load errored');
+					if (status === 'error') {
+						//console.log('got here');
 						$('div #help_main_'+helpType).html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
 					}
 					return this;
@@ -41,17 +45,19 @@ function() {
 			//console.log('help articles active2');
 			
 			//load article div with default content
-			getHelp('article', default_help);
+			//getHelp('article', default_help);
 			
 			//assign onclick event to help article anchor tags to make use of AJAX calls instead of native HTML link functionality
 			$('#help_top_article a.article').on('click', function(){
+				"use strict"; //let's avoid tom-foolery in this function
 				getHelp( 'article', $(this).attr('data-id') );
 			}).attr('href', '#help_area').attr('aria-controls', 'help_main_article');
 			$('#help_top_article a.edit').on('click', function(){
+				"use strict"; //let's avoid tom-foolery in this function
 				edit_help_article( $(this).attr('data-id') );
 			}).attr('href', '#help_area');
-		};
-		
+		}
+
 		if ( $('#help_content_faq').length ) {
 			// console.log('help faq active');
 			
@@ -60,9 +66,11 @@ function() {
 			
 			//assign onclick event to help FAQ anchor tags to make use of AJAX calls instead of native HTML link functionality
 			$('#help_top_faq a.question').on('click', function(){
+				"use strict"; //let's avoid tom-foolery in this function
 				getHelp( 'faq', $(this).attr('data-id') );
 			}).attr('href', '#help_area').attr('aria-controls', 'help_main_faq');
 			$('#help_top_faq a.edit').on('click', function(){
+				"use strict"; //let's avoid tom-foolery in this function
 				edit_help_faq( $(this).attr('data-id') );
 			}).attr('href', '#help_area');
 
@@ -72,6 +80,7 @@ function() {
 			
 			// if user requests an email response to their FAQ, require that they specify an email address
 			$('#email_requested_ind').on('change', function(){
+				"use strict"; //let's avoid tom-foolery in this function
 				if($(this).is(':checked')){
 					$('#asker_email_address').attr('required','required');
 				}
@@ -81,10 +90,11 @@ function() {
 			});
 			
 			// handles the submission of a user's question
-			function submit_faq() {
+			var submit_faq = function() {
+				"use strict"; //let's avoid tom-foolery in this function
 				var errorMessage='';
 				var fieldFocus='';
-				var emailFilter = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/; 
+				var emailFilter = /^[\-a-z0-9~!$%\^&*_=+}{\'?]+(\.[\-a-z0-9~!$%\^&*_=+}{\'?]+)*@([a-z0-9_][\-a-z0-9_]*(\.[\-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
 				
 				//if user requests an email response to their FAQ, require that they specify a (valid) email address
 				//console.log($('#faq_form #asker_email_address').val());
@@ -97,15 +107,15 @@ function() {
 					else if( !emailFilter.test(emailAddressValue) ) {
 						errorMessage+='This email address doesn\'t look right.';
 						fieldFocus='#asker_email_address';
-					};
-				};
+					}
+				}
 				
 				//require a question
 				//console.log($('#faq_form #question').val());
 				if($('#faq_form #question').val() === '') {
 					errorMessage='Please enter your question.\n'+errorMessage;
 					fieldFocus='#question';
-				};
+				}
 				
 				if( errorMessage !== '') {
 					alert(errorMessage);
@@ -116,42 +126,42 @@ function() {
 						faq_form_action+' #faq_result',
 						$('#faq_form').serialize(),
 						function(response, status, xhr) {
-							if (status == 'error') {
+							if (status === 'error') {
 								$('div #help_main_faq').html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
 							}
 							else {
 								$('#question').val('');
 								$('#faq_form_legend').text('Want to ask something else?');
 								$('#question_label').text('Ask another question');
-							};
+							}
 							return this;
 						}
 					);
 				}
 			};
-		};
-		
+		}
+
 		if ( $('#help_content_search').length ) {
 			//grab form actions from baseline HTML then replace with javascript that will call Ajax functions
 			var help_search_form_action=$('#help_search_form').attr('action');
 			$('#help_search_form').attr('action', 'javascript:submit_search();');
 			
-			function submit_search() {	
+			var submit_search = function() {
+				"use strict"; //let's avoid tom-foolery in this function
 				$('div #help_main_search').load(
 					help_search_form_action+' #search_result',
 					$('#help_search_form').serialize(),
 					function(response, status, xhr) {
-						if (status == 'error') {
+						if (status === 'error') {
 							$('div #help_main_faq').html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
-						};
+						}
 						return this;
 					}
 				);
 				$('div #help_main_search').focus();
 			};
-		};
-
-	};
+		}
+	}
 
 	if( $('#login_form').length ) {
 		$('#login_form').hide().show('slow');
@@ -219,7 +229,7 @@ function() {
 	};
 	
 	if( $('a[data-toggle="modal"]').length ) {
-		$('#begin_page_content').append('<div id="utility" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="utility-label" aria-hidden="true" style="display: none;" data-common-name="utility"><div class="modal-header"><button type="button" class="close btn" data-dismiss="modal" aria-hidden="false">x</button><h3 id="utility-label">Modal Heading</h3></div><div class="modal-body" id="utility_body">placeholder</div><div class="modal-footer"></div></div>' );
+		$('#content_container').append('<div id="utility" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="utility-label" aria-hidden="true" style="display: none;" data-common-name="utility"><div class="modal-header"><button type="button" class="close btn" data-dismiss="modal" aria-hidden="false">x</button><h3 id="utility-label">Modal Heading</h3></div><div class="modal-body" id="utility_body">placeholder</div><div class="modal-footer"></div></div>' );
 		// point link at _utility version of fuseaction so header/footer are not generated into modal
 		$('a[data-toggle="modal"]').each(function() {
 			$(this).attr('href',$(this).attr('href')+'_utility');

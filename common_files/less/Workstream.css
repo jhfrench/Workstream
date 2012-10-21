@@ -9167,6 +9167,11 @@ body {
 footer {
   background-color: #555555;
   color: #ffffff;
+  margin-bottom: 0;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
 }
 .nav li.dropdown ul.dropdown-menu li:HOVER ul {
   display: block;
@@ -9297,36 +9302,22 @@ footer {
   font-weight: bold;
   text-align: center;
 }
-.no-js #help_area {
-  border: 1px solid black;
-  margin-right: 0px;
+/*help area*/
+.cursor_help {
+  cursor: help;
 }
-.js #help_area {
-  border: 1px solid black;
-  display: none;
-  margin-right: 0px;
+#help_area {
+  position: fixed;
+  right: 10px;
 }
-.js #help_top {
-  float: left;
+.js .help_top {
   height: 220px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .js .help_main {
   border-top: 1px solid #ddd;
-  float: left;
   height: 520px;
   overflow-y: auto;
-  width: 100%;
-}
-.js #watermark {
-  background-image: url("../../images/watermark_digital.jpg");
-  background-repeat: no-repeat;
-  height: 335px;
-  opacity: 0.6;
-  margin-top: 10px;
-  position: relative;
-  z-index: 1;
-  width: 200px;
 }
 .login_background {
   background-image: url(../../images/login_splash.jpg);
