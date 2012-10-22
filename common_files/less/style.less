@@ -3,7 +3,7 @@
 @import "spritepad_Workstream.less";
 
 body {
-	padding-top: 60px;
+	padding-top: 20px;
 	padding-bottom: 40px;
 }
 
@@ -88,18 +88,12 @@ footer {
 	vertical-align:middle;
 }
 
-.menubar {
-	background-image:url("../../images/menubar2.jpg");
-	background-repeat:repeat-x;
-	color:white;
-	font-weight:bold;
-	text-align:center;
-}
-
 /*help area*/
 	.cursor_help {
 		cursor:help;
 	}
+
+@media (min-width: 769px) {
 	#help_area {
 		position: fixed;
 		right: 10px;
@@ -113,6 +107,22 @@ footer {
 		height: 520px;
 		overflow-y: auto;
 	}
+}
+
+@media (max-width: 768px) {
+	#help_area {
+		position: static;
+	}
+	.js .help_top {
+		height: 100px;
+		overflow-y: auto;
+	}
+	.js .help_main {
+		border-top: 1px solid #ddd;
+		height: 220px;
+		overflow-y: auto;
+	}
+}
 
 .login_background {
 	background-image: url(../../images/login_splash.jpg);

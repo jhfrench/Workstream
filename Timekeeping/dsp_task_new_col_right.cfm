@@ -90,15 +90,15 @@ return retValue;
 <cfoutput>
 <div class="row-fluid">
 	<div class="span12">
-		<label for="task_name">Task Name <img src="#application.application_specific_settings.image_dir#popup_icon.gif" valign="bottom" width="14" height="12" alt="See pre-defined task names." border="0" onclick="OpenPreTaskWindow('task_name');" /></label>
-		<cfinput type="text" name="task_name" id="task_name" value="" required="yes" message="Please enter a task name." size="70" maxlength="255" class="span8">
+		<label for="task_name">Task Name <i class="icon-share" title="See pre-defined task names." onclick="OpenPreTaskWindow('task_name');"></i></label>
+		<cfinput type="text" name="task_name" id="task_name" value="" required="yes" message="Please enter a task name." size="70" maxlength="255" class="span12">
 	</div>
 </div>
 <cfinclude template="dsp_project_select_list.cfm">
 <div class="row-fluid">
 	<div classs="span12">
 		<label for="task_details">Description</label>
-		<textarea name="task_details" id="task_details" cols="#variables.cols#" rows="6" wrap="soft" class="span8"></textarea>
+		<textarea name="task_details" id="task_details" cols="#variables.cols#" rows="6" wrap="soft" class="span12"></textarea>
 	</div>
 </div>
 <div class="row-fluid">

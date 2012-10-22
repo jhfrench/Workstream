@@ -27,7 +27,7 @@
 	</cfoutput>
 	</div>
 <cfelse>
-	<p class="alert">No files currently associated with this task.</p>
+	<p class="text-warning">No files currently associated with this task.</p>
 </cfif>
 <cfoutput>
 <input type="hidden" name="file_path" value="0">

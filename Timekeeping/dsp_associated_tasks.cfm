@@ -31,9 +31,9 @@
 	<tbody>
 	<cfoutput query="get_associated_tasks">
 		<tr>
-			<th scope="row">#task_id#</td>
+			<td scope="row" class="number">#task_id#</td>
 			<td>
-				<a href="javascript:list_to_task('#task_id#');" title="View task."><i class="#task_icon#" alt="<cfif sort_order EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>"></i>&nbsp;#name#</a>
+				<a href="javascript:list_to_task('#task_id#');" title="View task."><i class="#task_icon#" title="<cfif sort_order EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>"></i>&nbsp;#name#</a>
 			</td>
 			<td>#status#</td>
 			<td class="date">#dateformat(due_date,"m/d/yyyy")#</td>
@@ -42,7 +42,7 @@
 	</tbody>
 </table>
 <cfelse>
-	<p class="alert">No tasks currently associated with this task.</p>
+	<p class="text-warning">No tasks currently associated with this task.</p>
 </cfif>
 <cfoutput>
 <input type="hidden" name="linked_task_id" value="0" />

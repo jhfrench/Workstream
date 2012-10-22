@@ -89,10 +89,8 @@ else
 </head>
 <body class="container-fluid">
 	<header role="banner" class="row-fluid">
-		<div style="position:absolute;top:-100em;left:-100em;">
-			<!-- Skip navigation link -->
-			<a href="##begin_page_content" title="hidden browser link to skip repetitive navigation" class="footerLnk">- Skip Nav</a>
-		</div>
+		<!-- Skip navigation link -->
+		<a href="##begin_page_content" title="hidden browser link to skip repetitive navigation" aria-hidden="false" style="position:absolute;top:-100em;left:-100em;">Skip navigation</a>
 		<div class="span12">
 			<nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
 				<div class="navbar-inner">
