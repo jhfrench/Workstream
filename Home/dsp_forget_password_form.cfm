@@ -29,7 +29,7 @@
 			Please enter your username and click the submit button. The system will send a new password to your email.
 		</div>
 		<div class="control-group">
-			<label for="username" accesskey="u">Username</label>
+			<label for="username" accesskey="u" class="control-label">Username</label>
 			<div class="controls">
 				<cfinput type="text" name="user_name" id="user_name" size="20" value="#xmlformat(attributes.user_name)#" required="yes" message="Please enter username" maxlength="4000" />
 			</div>

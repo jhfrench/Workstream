@@ -75,7 +75,7 @@
 </table>
 		</td>
 	</tr>
-	<tr id="upload_in_progress" style="display:none">
+	<tr id="upload_in_progress" aria-hidden="true" style="display:none">
 		<td align="center">
 			<h2>Loading your file</h2>
 			<img src="images/loading.gif" alt="Animated gif that shows a gear and reads Loading your file" width="48" height="48" style="padding:30px;" align="center">

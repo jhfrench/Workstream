@@ -100,7 +100,7 @@ else
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</a>
-						<a href="index.cfm?fuseaction=Timekeeping.home" class="brand"><img src="images/workstream_icon.png" height="17" width="16" alt="#application.application_specific_settings.organization# Workstream" />Workstream</a>
+						<a href="index.cfm?fuseaction=Timekeeping.home" class="brand"><i class="icon_workstream" title="#application.application_specific_settings.organization# Workstream"></i> Workstream</a>
 						<div class="nav-collapse" id="menu">
 							<ul class="nav">
 								<cfinclude template="qry_get_module_sub_navigation.cfm" /><!--- 

@@ -31,7 +31,7 @@
 	<cfif field_type_id EQ 1>
 		<cfinclude template="../common_files/qry_get_drop_down_options.cfm">
 		<div class="control-group">
-			<label for="#field_title#">#field_title#</label>
+			<label for="#field_title#" class="control-label">#field_title#</label>
 			<div class="controls">
 				<select name="#field_title#" id="#field_title#" class="span3">
 					<cfloop query="get_drop_down_options">
@@ -44,7 +44,7 @@
 		</div>
 	<cfelseif field_type_id EQ 2>
 		<div class="control-group">
-			<label for="#field_title#">#field_title#</label>
+			<label for="#field_title#" class="control-label">#field_title#</label>
 			<div class="controls">
 				<input type="text" name="display_#get_user_fields.currentrow#" id="display_#get_user_fields.currentrow#" size="8" value="" />
 				<p class="help-block">Click 'retire' checkbox to remove this custom field from displaying on a task for this engagement (archived data will remain in the database). Use the given label fields to make any text changes to form field names and options, but remember that archived data will reflect your changes.</p>

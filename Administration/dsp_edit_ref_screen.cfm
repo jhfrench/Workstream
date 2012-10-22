@@ -32,21 +32,21 @@
 	<fieldset>
 		<legend><h2><cfif attributes.screen_id EQ 0>Add new<cfelse>Edit existing</cfif> REF_Screen record</h2></legend>
 		<div class="control-group">
-			<label for="module_id">Module</label>
+			<label for="module_id" class="control-label">Module</label>
 			<div class="controls">
 				<cfselect name="module_id" id="module_id" query="get_ref_module" value="module_id" display="description" selected="#attributes.module_id#" required="yes" message="Please specify module.">
 				</cfselect>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="new_fuseaction">Fuseaction</label>
+			<label for="new_fuseaction" class="control-label">Fuseaction</label>
 			<div class="controls">
 				<cfinput type="text" name="new_fuseaction" id="fuseaction" value="#listlast(attributes.new_fuseaction,'.')#" size="45" maxlength="45" required="yes" message="Please enter fuseaction">
 				<p class="help-block">no need to type '[module].'</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="business_function_id">Business Function</label>
+			<label for="business_function_id" class="control-label">Business Function</label>
 			<div class="controls">
 				<cfselect name="business_function_id" id="business_function_id" query="get_business_function" value="business_function_id" display="description" selected="#attributes.business_function_id#" required="yes" message="Please specify business function.">
 				</cfselect>
@@ -72,14 +72,14 @@
 		</div>
 	</cfif>
 		<div class="control-group">
-			<label for="check_variable">Check variable</label>
+			<label for="check_variable" class="control-label">Check variable</label>
 			<div class="controls">
 				<cfinput type="text" name="check_variable" id="check_variable" size="30" maxlength="100" value="#attributes.check_variable#">
 				<p class="help-block">If supplied, system will check for the existence of this variable. Be sure to include variable scope.</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="relocate">Relocate</label>
+			<label for="relocate" class="control-label">Relocate</label>
 			<div class="controls">
 				<cfselect name="relocate" id="relocate" query="get_ref_screen" value="fuseaction" display="fuseaction" selected="#attributes.relocate#">
 				</cfselect>
@@ -101,7 +101,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="body_onload">Body Onload</label>
+			<label for="body_onload" class="control-label">Body Onload</label>
 			<div class="controls">
 				<cfinput type="text" name="body_onload" id="body_onload" size="40" maxlength="4000" value="#attributes.body_onload#" required="no">
 				<p class="help-block">Additional JavaScript to execute when this screen is loaded.</p>

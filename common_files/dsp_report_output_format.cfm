@@ -31,11 +31,11 @@
 		</select>
 		<br />
 		<a href="http://www.adobe.com/products/acrobat/readstep2.html" target="_blank">
-			<img src="images/pdf_logo.png" border="0" height="21" width="18" alt="P.D.F. logo" /> PDF output requires PDF viewer.
+			<i class="icon_file_pdf" title="P D F logo"></i> <abbr title="Postrscript Document Format">PDF</abbr> output requires PDF viewer.
 		</a>
 		<br />
 		<a href="http://office.microsoft.com/downloads/2000/xlviewer.aspx" target="_blank">
-			<img src="images/excel_logo.jpg" border="0" height="21" width="21" alt="Microsoft Excel logo" /> Excel output requires Excel viewer.
+			<i class="icon_file_xls" title="Microsoft Excel logo"></i> Excel output requires Excel viewer.
 		</a>
 	</td>
 </tr>

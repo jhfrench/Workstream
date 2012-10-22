@@ -23,20 +23,20 @@
 	<fieldset>
 		<legend><h2>Edit Project for <a href="javascript:engagement_list('#get_customer_name_code.root_code#');" title="View other projects for this customer.">#get_customer_name_code.project_name#</a>&ndash; #get_customer_name_code.project_code#</h2></legend>
 		<div class="control-group">
-			<label for="customer_id">Root Code</label>
+			<label for="customer_id" class="control-label">Root Code</label>
 			<div class="controls">
 				<cfselect name="customer_id" id="customer_id" size="1" query="get_root_codes" value="customer_id" selected="#get_engagement_main.customer_id#" required="yes" display="display"></cfselect>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="description">Project Name</label>
+			<label for="description" class="control-label">Project Name</label>
 			<div class="controls">
 				<cfinput type="text" name="description" id="description" value="#get_engagement_main.description#" required="yes" message="Please enter an Project Name" size="45" />
 				<p class="help-block">Choose a unique project name.</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="company_id">Visible To</label>
+			<label for="company_id" class="control-label">Visible To</label>
 			<div class="controls">
 				<select name="company_id" id="company_id" multiple="multiple" size="4">
 					<cfloop query="get_companies">
@@ -47,13 +47,13 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="project_manager_emp_id"><abbr title="Project Manager">PM</abbr>/Account Management</label>
+			<label for="project_manager_emp_id" class="control-label"><abbr title="Project Manager">PM</abbr>/Account Management</label>
 			<div class="controls">
 				<cfmodule template="../common_files/dsp_team_select.cfm" size="6" select_name="project_manager_emp_id" emp_id="#get_engagement_main.project_manager_emp_id#">
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="file_path">File Path</label>
+			<label for="file_path" class="control-label">File Path</label>
 			<div class="controls">
 				<div class="input-append">
 					<input type="text" name="file_path" id="file_path" value="#get_engagement_main.file_path#" class="span3">
@@ -62,14 +62,14 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="product_id">Product</label>
+			<label for="product_id" class="control-label">Product</label>
 			<div class="controls">
 				<cfselect name="product_id" id="product_id" query="get_products" value="product_id" display="product_name" selected="#get_engagement_main.product_id#" required="yes" message="Please choose which product this engagement applies to." size="4"></cfselect>
 				<p class="help-block">Specify which product this engagement will cover.</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="active_ind">Status</label>
+			<label for="active_ind" class="control-label">Status</label>
 			<div class="controls">
 				<select name="active_ind" id="active_ind">
 					<option value="1" <cfif get_engagement_main.active_ind EQ 1> selected="selected"</cfif>>Active</option>
@@ -80,21 +80,21 @@
 		<fieldset>
 		<legend>Project Dates</legend>
 		<div class="control-group">
-			<label for="project_start">Start</label>
+			<label for="project_start" class="control-label">Start</label>
 			<div class="controls">
 				<input type="date" name="project_start" id="project_start" value="#dateformat(get_engagement_main.project_start,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 				<p class="help-block">Required; please enter a proper date for which work is to begin on this engagement.</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="project_end">End</label>
+			<label for="project_end" class="control-label">End</label>
 			<div class="controls">
 				<input type="date" name="project_end" id="project_end" value="#dateformat(get_engagement_main.project_end,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 				<p class="help-block">Optional; date for which work is expected to end on this engagement.</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="date_go_live">Go Live</label>
+			<label for="date_go_live" class="control-label">Go Live</label>
 			<div class="controls">
 				<input type="date" name="date_go_live" id="date_go_live" value="#dateformat(get_engagement_main.date_go_live,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" class="span3 date" />
 				<p class="help-block">Optional; date project is expected to be delivered.</p>
@@ -102,7 +102,7 @@
 		</div>
 		</fieldset>
 		<div class="control-group">
-			<label for="status">Status</label>
+			<label for="status" class="control-label">Status</label>
 			<div class="controls">
 				<select name="status" id="status">
 					<option value="0"<cfif get_engagement_main.status EQ 0> selected="selected"</cfif>>None</option>
@@ -114,7 +114,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="eng_status">Progress</label>
+			<label for="eng_status" class="control-label">Progress</label>
 			<div class="controls">
 				<select name="eng_status" id="eng_status">
 					<option value="0"<cfif get_engagement_main.eng_status EQ 0> selected="selected"</cfif>>Not Started</option>
@@ -135,21 +135,21 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="vision">Project Update</label>
+			<label for="vision" class="control-label">Project Update</label>
 			<div class="controls">
 				<textarea name="vision" id="vision" cols="60" rows="3">#get_engagement_main.vision#</textarea>
 				<p class="help-block">Optional</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="mission">Upselling Opportunities</label>
+			<label for="mission" class="control-label">Upselling Opportunities</label>
 			<div class="controls">
 				<textarea name="mission" id="mission" cols="60" rows="3">#get_engagement_main.mission#</textarea>
 				<p class="help-block">Optional</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="business_case">Other Notes</label>
+			<label for="business_case" class="control-label">Other Notes</label>
 			<div class="controls">
 				<textarea name="business_case" id="business_case" cols="60" rows="3">#get_engagement_main.business_case#</textarea>
 				<p class="help-block">Optional</p>

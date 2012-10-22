@@ -46,20 +46,20 @@
 				</ul>
 			</div>
 			<div class="control-group">
-				<label for="old_password">Current password</label>
+				<label for="old_password" class="control-label">Current password</label>
 				<div class="controls">
 					<input name="old_password" id="old_password" type="password" size="50" maxlength="50" value="">
 					<p class="help-block">The last password you used to login</p>
 				</div>
 			</div>
 			<div class="control-group">
-				<label for="password">New password</label>
+				<label for="password" class="control-label">New password</label>
 				<div class="controls">
 					<input name="password" id="password" type="password" size="50" maxlength="16" value="">
 				</div>
 			</div>
 			<div class="control-group">
-				<label for="confirm_password">Confirm password</label>
+				<label for="confirm_password" class="control-label">Confirm password</label>
 				<div class="controls">
 					<input name="confirm_password" id="confirm_password" type="password" size="50" maxlength="16" value="" />
 				</div>

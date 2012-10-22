@@ -36,13 +36,13 @@
 	<fieldset>
 		<legend><h2>#time_entry_edit.task_name#<a href="javascript:note_to_task('#time_entry_edit.task_id#');" class="btn">View this task</a></h2></legend>
 		<div class="control-group">
-			<label for="customer_id">Customer</label>
+			<label for="customer_id" class="control-label">Customer</label>
 			<div class="controls">
 				<p id="customer_id">#time_entry_edit.customer_description#</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="project_id">Project</label>
+			<label for="project_id" class="control-label">Project</label>
 			<div class="controls">
 			<cfif NOT variables.entry_type>
 				<select name="project_id" id="project_id" size="1" class="span8">
@@ -56,23 +56,23 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="work_date">Date</label>
+			<label for="work_date" class="control-label">Date</label>
 			<div class="controls">
 				<input type="date" name="work_date" id="work_date" min="#dateformat(express_check_date.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(time_entry_edit.work_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
 				<!-- LET CF create the validation JS <cfinput type="DateField" name="date" required="yes" message="Please enter a valid date for this task"> -->
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="hours">Hours Worked</label>
+			<label for="hours" class="control-label">Hours Worked</label>
 			<div class="controls">
 				<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" value="#decimalformat(time_entry_edit.hours)#" class="span3" />
 				<!-- let CF create the JavaScript: <cfinput type="text" name="hours" id="hours" required="yes" validate="float" message="You must enter hours, as a number, for a time keeping entry. If you wish to delete a task, mark the delete checkbox." /> -->
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="">Notes</label>
+			<label for="note" class="control-label">Notes</label>
 			<div class="controls">
-				<textarea name="note" cols="100" rows="4" wrap="soft" class="span8">#stripcr(time_entry_edit.note)#</textarea>
+				<textarea name="note" id="note" cols="100" rows="4" wrap="soft" class="span8">#stripcr(time_entry_edit.note)#</textarea>
 			</div>
 		</div>
 		<div class="form-actions">

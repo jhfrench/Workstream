@@ -19,25 +19,25 @@
 	<fieldset>
 		<legend><h3>General</h3></legend>
 		<div class="control-group">
-			<label for="root_code">Root Code</label>
+			<label for="root_code" class="control-label">Root Code</label>
 			<div class="controls">
 				<input type="text" name="root_code" id="root_code" value="#customer_change.root_code#" maxlength="4" class="span4" />
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="description">Name</label>
+			<label for="description" class="control-label">Name</label>
 			<div class="controls">
 				<input type="text" name="description" id="description" value="#customer_change.description#" class="span4" />
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="company_id">Company</label>
+			<label for="company_id" class="control-label">Company</label>
 			<div class="controls">
 				<cfselect name="company_id" id="company_id" size="1" query="get_companies" value="company_id" display="description" selected="#customer_change.company_id#" class="span4" />
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="visible_to_company_id">Visible To</label>
+			<label for="visible_to_company_id" class="control-label">Visible To</label>
 			<div class="controls">
 				<cfselect name="visible_to_company_id" id="visible_to_company_id" size="3" multiple="yes" required="yes" message="You must select a company to be visible to." class="span4">
 					<cfloop query="get_companies">
@@ -48,7 +48,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="active_ind">Active</label>
+			<label for="active_ind" class="control-label">Active</label>
 			<div class="controls">
 				<select name="active_ind" id="active_ind" size="1" class="span4">
 					<option value="1"<cfif customer_change.active_ind EQ 1> selected="selected"</cfif>>Active</option>
@@ -60,31 +60,31 @@
 	<fieldset>
 		<legend><h3>Business Address</h3></legend>
 		<div class="control-group">
-			<label for="company_address1">Street</label>
+			<label for="company_address1" class="control-label">Street</label>
 			<div class="controls">
 				<input type="text" name="company_address1" id="company_address1" value="#customer_change.company_address1#" class="span4" />
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="company_address2">Street 2</label>
+			<label for="company_address2" class="control-label">Street 2</label>
 			<div class="controls">
 				<input type="text" name="company_address2" id="company_address2" value="#customer_change.company_address2#" class="span4" />
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="company_city">City</label>
+			<label for="company_city" class="control-label">City</label>
 			<div class="controls">
 				<input type="text" name="company_city" id="company_city" value="#customer_change.company_city#" class="span4" />
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="company_state">State</label>
+			<label for="company_state" class="control-label">State</label>
 			<div class="controls">
 				<cfselect name="company_state" id="company_state" size="1" query="get_states" value="state" display="state" selected="#customer_change.company_state#" class="span4" />
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="company_zip">Zip</label>
+			<label for="company_zip" class="control-label">Zip</label>
 			<div class="controls">
 				<input type="text" name="company_zip" id="company_zip" value="#customer_change.company_zip#" class="span4" />
 			</div>
@@ -93,13 +93,13 @@
 	<fieldset>
 		<legend><h3>Contact</h3></legend>
 		<div class="control-group">
-			<label for="name">First Name</label>
+			<label for="name" class="control-label">First Name</label>
 			<div class="controls">
 				<input type="text" name="name" id="name" value="#customer_change.name#" class="span4" />
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="lname">Last Name</label>
+			<label for="lname" class="control-label">Last Name</label>
 			<div class="controls">
 				<input type="text" name="lname" id="lname" value="#customer_change.lname#" class="span4" />
 			</div>

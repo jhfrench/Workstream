@@ -25,13 +25,13 @@
 		<legend><h2>Edit Project for <a href="javascript:engagement_list('#get_customer_name_code.root_code#');" title="View other projects for this customer.">#get_customer_name_code.project_name#</a>&ndash; #get_customer_name_code.project_code#</h2></legend>
 		<div class="control-group">
 			<br />
-			<label for="billable_type_id">Billing Type</label>
+			<label for="billable_type_id" class="control-label">Billing Type</label>
 			<div class="controls">
 				<cfselect name="billable_type_id" id="billable_type_id" size="4" query="get_ref_billable_type" value="billable_type_id" display="description" selected="#get_engagement_main.billable_type_id#" onchange="javascript:submit();" required="yes" message="Please specify the billing type for this engagement." class="span3"></cfselect>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="budget">Budget</label>
+			<label for="budget" class="control-label">Budget</label>
 			<div class="controls">
 				<div class="input-prepend input-append">
 					<span class="add-on">$</span><input type="number" name="budget" id="budget" value="#get_engagement_main.budget#" step="1" min="0" required="required" class="span3 number" /><span class="add-on">.00</span>
@@ -40,7 +40,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="loe"><abbr title="Level of Effort">LOE</abbr></label>
+			<label for="loe" class="control-label"><abbr title="Level of Effort">LOE</abbr></label>
 			<div class="controls">
 				<input type="number" name="loe" id="loe" value="#get_engagement_main.loe#" step="0.25" min="0" required="required" class="span3 number" />
 				<p class="help-block">How many hours are estimated to complete this task?</p>
@@ -53,14 +53,14 @@
 	<cfcase value="3">
 		<cfinclude template="qry_get_flat_rate.cfm">
 		<div class="control-group">
-			<label for="start_date">Start</label>
+			<label for="start_date" class="control-label">Start</label>
 			<div class="controls">
 				<input type="date" name="start_date" id="start_date" value="#dateformat(get_flat_rate.rate_start_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 				<p class="help-block"></p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="end_date">End</label>
+			<label for="end_date" class="control-label">End</label>
 			<div class="controls">
 				<input type="date" name="end_date" id="end_date" value="#dateformat(get_flat_rate.rate_end_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 				<p class="help-block"></p>
@@ -70,7 +70,7 @@
 	<cfcase value="4">
 		<cfinclude template="qry_get_incident_charge.cfm">
 		<div class="control-group">
-			<label for="charge">Incident Charge</label>
+			<label for="charge" class="control-label">Incident Charge</label>
 			<div class="controls">
 				<div class="input-prepend input-append">
 					<span class="add-on">$</span><input type="number" name="charge" id="charge" value="#decimalformat(get_incident_charge.charge)#" step="1" min="0" max="9999" required="required" class="span3 number" /><span class="add-on">.00</span>

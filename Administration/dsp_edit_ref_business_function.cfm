@@ -45,26 +45,26 @@
 	<fieldset>
 		<legend><h2><cfif attributes.business_function_id EQ 0>Add new<cfelse>Edit existing</cfif> REF_Business_Function record</h2></legend>
 		<div class="control-group">
-			<label for="description">Description</label>
+			<label for="description" class="control-label">Description</label>
 			<div class="controls">
 					<cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" maxlength="200" required="yes" message="Please enter description.">
 				<p class="help-block">This is what will get displayed in the navigation bar.</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="acronym">Acronym</label>
+			<label for="acronym" class="control-label">Acronym</label>
 			<div class="controls">
 				<cfinput type="text" name="acronym" id="acronym" value="#attributes.acronym#" size="15" maxlength="15" required="yes" message="Please enter acronym.">
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="parent_business_function_id" title="Not required, used to nest navigation.">Parent business function</label>
+			<label for="parent_business_function_id" class="control-label">Parent business function</label>
 			<div class="controls">
 				<select name="parent_business_function_id">
 					<option value="NULL">No Parent</option>
 					<cfloop query="get_business_function"><option value="#business_function_id#"<cfif NOT comparenocase(get_business_function.business_function_id, attributes.parent_business_function_id)> selected="selected"</cfif>>#description#</option></cfloop>
 				</select>
-				<p class="help-block">This is the business function under which this record will be grouped in the navigation bar.</p>
+				<p class="help-block">Not required, but used to nest navigation. This is the business function under which this record will be grouped in the navigation bar.</p>
 			</div>
 		</div>
 		<div class="control-group">
@@ -92,7 +92,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="sort_order">Sort Order</label>
+			<label for="sort_order" class="control-label">Sort Order</label>
 			<div class="controls">
 				<input type="number" name="sort_order" id="sort_order" value="#attributes.sort_order#" step="1" min="0" class="span5" />
 			</div>
