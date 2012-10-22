@@ -20,8 +20,8 @@
 </cfsilent>
 <cfinclude template="qry_get_emp_name.cfm">
 <cfinclude template="qry_invoice_notes_drill_down.cfm">
-<table class="table table-striped table-bordered table-condensed span8">
-	<caption><h3>Work Notes for <cfoutput>#get_emp_name.name#</cfoutput></h3></caption>
+<table class="table table-striped table-bordered table-condensed">
+	<caption><h3>Work Notes</h3> <h5>for <cfoutput>#get_emp_name.name#</cfoutput></h5></caption>
 	<thead>
 	<cfinclude template="dsp_invoice_notes_drill_down_header.cfm">
 	</thead>

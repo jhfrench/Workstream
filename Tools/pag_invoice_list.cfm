@@ -18,8 +18,8 @@
 </cfsilent>
 <cfinclude template="../common_files/qry_get_extreme_dates.cfm">
 <cfinclude template="qry_invoice_list.cfm">
-<table class="table table-striped table-bordered table-condensed span8">
-	<caption><h3>Project Invoice List for Work Completed in <cfoutput>#monthasstring(attributes.month)#, #attributes.year#</cfoutput></h3></caption>
+<table class="table table-striped table-bordered table-condensed">
+	<caption><h3>Project Invoice List</h3> <h5>for Work Completed in <cfoutput>#monthasstring(attributes.month)#, #attributes.year#</cfoutput></h5></caption>
 	<thead>
 	<cfinclude template="dsp_invoice_list_header.cfm">
 	</thead>
