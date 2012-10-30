@@ -34,19 +34,16 @@
 <cfmodule template="../common_files/act_encrypt.cfm" encryption_type="password_encryption" string_to_encrypt="#attributes.password#" user_account_id="#get_username.user_account_id#" password_created_date="#get_username.password_created_date#">
 
 <!--- helps create initial account
-<cfquery name="get_password" datasource="#application.datasources.main#">
-SELECT *
-FROM User_Password
+<cfquery name="get_username" datasource="#application.datasources.main#">
+UPDATE User_Password
+SET active_ind=0
 </cfquery>
-<cfif get_password.recordcount EQ 0>
-	<cfquery name="get_username" datasource="#application.datasources.main#">
-	SELECT user_account_id, CURRENT_TIMESTAMP AS password_created_date
-	FROM User_Account
-	</cfquery>
-	<cfmodule template="../common_files/act_encrypt.cfm" encryption_type="password_encryption" string_to_encrypt="#attributes.password#" user_account_id="#get_username.user_account_id#" password_created_date="#get_username.password_created_date#">
-	<cfset attributes.user_account_id=1>
-	<cfinclude template="../common_files/qry_insert_user_password.cfm">
-</cfif> --->
+<cfquery name="get_username" datasource="#application.datasources.main#">
+INSERT INTO User_Password (user_account_id, password)
+VALUES (1, '#variables.encrypted_password#')
+</cfquery>
+<cfinclude template="qry_get_username.cfm">
+ --->
 
 <!--- valid username supplied --->
 <cfif get_username.recordcount EQ 1>
@@ -81,15 +78,15 @@ FROM User_Password
 		<!--- if user is not active --->
 		<cfelse>
 			<!--- Log the user as unsuccessful attempt --->
-			<cfset variables.display_message="#application.product_name# cannot authorize your access because your username/password combination is not correct.">
+			<cfset variables.display_message="#application.product_name# cannot authorize your access because your username/password combination is not correct.1">
 		</cfif>
 	<!--- if user is not active --->
 	<cfelse>
-		<cfset variables.display_message="#application.product_name# cannot authorize your access because your username/password combination is not correct.">
+		<cfset variables.display_message="#application.product_name# cannot authorize your access because your username/password combination is not correct.2">
 	</cfif>
 <!--- if account does not exist --->
 <cfelse>
-	<cfset variables.display_message="#application.product_name# cannot authorize your access because your username/password combination is not correct.">
+	<cfset variables.display_message="#application.product_name# cannot authorize your access because your username/password combination is not correct.3">
 </cfif>
 
 <!--- keep track of login attempt --->

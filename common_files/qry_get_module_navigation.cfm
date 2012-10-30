@@ -24,6 +24,7 @@
 <cfquery name="get_module_navigation" dbtype="query">
 SELECT module_id, module_description, locked_ind
 FROM get_user_access
-GROUP BY module_id, module_description, locked_ind
+GROUP BY module_id, module_description, locked_ind,
+	module_sort_order
 ORDER BY module_sort_order
 </cfquery>
