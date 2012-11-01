@@ -39,7 +39,7 @@
 			<!--- 3. Prevent from navigating the application after timed out or logged out --->
 			<cfif find(variables.current_location, listfirst(cgi.http_referer,"?"))>
 				<!---if the refer is the same application, then the session has timed out--->
-				<cfset variables.error_message="It looks like your session timed out (they only last #qry_get_application_basic_details.sessiontimeout*24*60# minutes). Please login again.">
+				<cfset variables.error_message="It looks like your session timed out (they only last #numberformat(qry_get_application_basic_details.sessiontimeout*24*60)# minutes). Please login again.">
 			<cfelse>
 				<cfset variables.error_message="Please login.">
 			</cfif>

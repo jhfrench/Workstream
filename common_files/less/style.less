@@ -12,16 +12,16 @@ footer {
 	color: @white;
 }
 
-.nav li.dropdown ul.dropdown-menu li:HOVER ul {
-	display:block; 
-	position:absolute; 
-	left:100%;
+.nav li.dropdown ul.dropdown-menu li: HOVER ul {
+	display: block; 
+	position: absolute; 
+	left: 100%;
 	.border-radius(3px);
 }
 
 .nav li.dropdown ul.dropdown-menu ul {
 	display: none;
-	float:right;
+	float: right;
 	position: relative;
 	top: auto;
 	margin-top: -30px;
@@ -34,7 +34,7 @@ footer {
 .faux-textarea {
 	.uneditable-input;
 	cursor: auto;
-	overflow-y:auto;
+	overflow-y: auto;
 }
 
 .faux-textarea p {
@@ -43,49 +43,9 @@ footer {
 	text-indent: -10px !important; //outdent first line of each note
 }
 
-.docked {
-	opacity:0.8;
-	.navbar;
-}
-
-.banner_organization_link {
-	color:FFFFFF;
-	font-size:24px;
-	font-weight:bold;
-	padding:20px;
-	text-shadow:##333333 2px 2px 0px;
-}
-
-.mast {
-	display:block;
-	vertical-align:middle;
-	width:100%;
-}
-
-.mast .mast_only {
-	height:120px;
-}
-
-.mast a {
-	color:#FFFFFF;
-	font-size:24px;
-	font-weight:bold;
-	padding:20px;
-	text-shadow:#333333 2px 2px 0px;
-}
-
-.banner_image {
-	height:150px;
-	background-color:#006699;
-}
-
-.banner_image a {
-	vertical-align:middle;
-}
-
 /*help area*/
 	.cursor_help {
-		cursor:help;
+		cursor: help;
 	}
 
 @media (min-width: 769px) {
@@ -116,6 +76,13 @@ footer {
 	footer (
 		position: static;
 	)
+
+	#login_box { 
+		position: relative;
+		left: 540px;
+		width: 450px;
+	}
+
 	#help_area {
 		position: static;
 	}
@@ -132,40 +99,26 @@ footer {
 
 .login_background {
 	background-image: url(../../images/login_splash.jpg);
-	background-repeat:no-repeat;
+	background-repeat: no-repeat;
+	background-color: @gray;
 }
 
-#login_box { 
-	position: relative;
-	left:540px;
-	width:450px;
-}
-
-div#login_form { 
+#login_form { 
 	.border-radius(3px);
-	border:solid;
+	border: solid;
 	border-color: @grayDarker;
-	background-color:@white;
-	opacity:.8;
-	display:none;
+	background-color: @white;
+	opacity: .8;
+	display: none;
 }
 
-div#login_form form, #login_form form div.form-actions { 
-	margin-bottom:0px;
+#login_form form, #login_form form div.form-actions { 
+	margin-bottom: 0px;
 }
 
 #operations_blurb {
-	overflow:hidden;
-	text-align:right;
-}
-
-#operations_blurb span {
-	.border-radius(3px);
-	white-space:nowrap;
-}
-
-#operations_blurb img {
-	height:18px;
+	overflow: hidden;
+	text-align: right;
 }
 
 /*<!---text alignment--> */
@@ -175,7 +128,7 @@ div#login_form form, #login_form form div.form-actions {
 	}
 
 	.number, table td.login, table td.number {
-		text-align:right;
+		text-align: right;
 	}
 	
 	

@@ -93,22 +93,19 @@
 				<cfloop query="get_priorities">
 					<option value="#priority_id#"<cfif priority_id EQ get_task_details.priority> selected="selected"</cfif>>#description#</option>
 				</cfloop>
-				</select><!--- 
-				<cfselect name="priority_id" id="priority_id" query="get_priorities" display="description" value="priority_id" selected="#get_task_details.priority#" class="span11" /> --->
+				</select>
 				<label for="icon_id" class="h5">Icon</label>
 				<select name="icon_id" id="icon_id" class="span11">
 				<cfloop query="get_ref_icon">
 					<option value="#icon_id#"<cfif icon_id EQ get_task_details.icon_id> selected="selected"</cfif>>#icon_name#</option>
 				</cfloop>
-				</select><!--- 
-				<cfselect name="icon_id" id="icon_id" query="get_ref_icon" display="icon_name" value="icon_id" selected="#get_task_details.icon_id#" class="span11" /> --->
+				</select>
 				<label for="task_status" class="h5">Status</label>
 				<select name="task_status" id="task_status" class="span11">
 				<cfloop query="get_task_stati">
 					<option value="#status_id#"<cfif status_id EQ get_task_details.status_id> selected="selected"</cfif>>#status#</option>
 				</cfloop>
-				</select><!--- 
-				<cfselect name="task_status" id="task_status" query="get_task_stati" display="status" value="status_id" selected="#get_task_details.status_id#" class="span11" /> --->
+				</select>
 			</div>
 		</div>
 	</div>
@@ -130,7 +127,7 @@
 			</div>
 		<cfinclude template="dsp_task_detail_notes_entry.cfm">
 		<cfif listfind("1,5", session.workstream_emp_contact_type) OR session.workstream_show_hours_data_ind EQ 1>
-			<!--- show time data to employees or customers if their company is set up to view hours--->
+			<!--- show time data to employees, or customers *if* their company is set up to view hours--->
 			<cfinclude template="dsp_time_details_graph.cfm">
 		<cfelse>
 			<div class="row-fluid">

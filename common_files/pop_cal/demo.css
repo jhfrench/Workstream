@@ -1,6 +1,0 @@
-/* !!! DO NOT use any inline CSS(i.e. style="xxx") in the same page with the calendar tags,
-if you want the calendar working under Netscape 4.x!!! Use CSS class instead and
-add all the CSS classes to the following section !!! */
-
-.toleft {text-align:left;}
-.toright {text-align:right;}

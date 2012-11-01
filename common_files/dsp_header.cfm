@@ -24,8 +24,6 @@
 <cfscript>
 variables.access_message="";
 variables.allowed_modules=valuelist(get_module_navigation.module_id);
-if (NOT isdefined("variables.mast_image_name"))
-	variables.mast_image_name="mast.jpg";
 if (variables.page_is_secure_ind AND listfind(get_screen_details.screen_access_ind,1) EQ 0)
 	variables.access_message="Your access is not authorized for this screen.";
 else
@@ -73,8 +71,8 @@ else
 			{
 				// This will wait for the fallback to load and execute if it needs to.
 				load: [
-					'//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js',
-					'//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js',
+					'//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js',
+					'//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js',
 					'common_files/js/plugins.js',
 					'common_files/js/script.js'
 				]
