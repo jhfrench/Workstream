@@ -22,6 +22,7 @@
 	<cfinclude template="qry_company_entry.cfm">
 	<cfinclude template="qry_location_entry.cfm">
 	<!--- <cfset need_all_supervisors = 1> --->
+	<cfinclude template="qry_get_supervisor_history.cfm">
 	<cfinclude template="qry_get_present_supervisor.cfm">
 	<cfinclude template="qry_emp_supervisor_entry.cfm">
 	<cfinclude template="qry_Security_Company_Access_entry.cfm">
