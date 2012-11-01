@@ -26,11 +26,11 @@ function() {
 		// when called, getHelp loads relevant help area with content from jQuery's AJAX call
 		var getHelp = function (helpType, helpID) {
 			"use strict"; //let's avoid tom-foolery in this function
-			console.log('$(\'div #help_main_'+helpType+'\').load(\'help.html dl#'+helpType+helpID+' dd\');');
+			//console.log('$(\'div #help_main_'+helpType+'\').load(\'index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd\');');
 			//console.log('index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd');
-			// console.log( $('div #help_main_'+helpType) );
+			//console.log( $('div #help_main_'+helpType) );
 			$('div #help_main_'+helpType).load(
-				'help.html dl#'+helpType+helpID+' dd',
+				'index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd',
 				function(response, status, xhr) {
 					if (status === 'error') {
 						//console.log('got here');
