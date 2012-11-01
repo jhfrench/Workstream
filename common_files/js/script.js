@@ -164,7 +164,7 @@ function() {
 	}
 
 	if( $('#login_form').length ) {
-		$('#login_form').hide().show('slow');
+		$('#login_form').show('slow');
 		if(typeof shake_ind !== 'undefined' && shake_ind) {
 			$('#login_form').effect('shake');
 		}
@@ -181,6 +181,7 @@ function() {
 
 			//update HTML fields
 			$('#task_open_link').attr('title', 'Update hours field to '+elapsed_time+' hours');
+			$('#task_open_clock').text(elapsed_time);
 
 			if(elapsed_time==24) {
 				clearInterval(elapsed_time_running);
