@@ -101,14 +101,4 @@ return retValue;
 		<textarea name="task_details" id="task_details" cols="#variables.cols#" rows="6" wrap="soft" class="span12"></textarea>
 	</div>
 </div>
-<div class="row-fluid">
-	<div classs="span12">
-		<cfinclude template="dsp_associated_files.cfm">
-	</div>
-</div>
-<div class="row-fluid">
-	<div classs="span12">
-		<cfinclude template="dsp_associated_tasks.cfm">
-	</div>
-</div>
 </cfoutput>

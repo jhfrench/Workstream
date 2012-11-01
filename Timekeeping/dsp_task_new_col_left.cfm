@@ -39,17 +39,4 @@
 			<!-- let CF create the JavaScript: <cfinput type="text" name="budgeted_hours" id="budgeted_hours" required="yes" validate="float" message="Please enter a number for hours budgeted." class="span6"> -->
 	</div>
 </div>
-<div class="row-fluid">
-	<div class="span12">
-			<input type="hidden" name="last_loaded" value="#now()#" />
-			<input type="hidden" name="to_inbox" value="" />
-			<input type="hidden" name="to_edit" value="" />
-			<div class="btn-group">
-			<input type="button" value="Create New Task" class="btn btn-mini" onclick="checkTheDescription('');" />
-			<input type="button" value="Submit To Inbox" class="btn btn-mini btn-primary" onclick="checkTheDescription('to_inbox');" />
-			<input type="button" value="Create And Edit" class="btn btn-mini" onclick="checkTheDescription('to_edit');" />
-			</div>
-	</div>
-</div>
 </cfoutput>
-
