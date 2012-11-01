@@ -23,7 +23,7 @@
 		<cfif listfindnocase(application.application_specific_settings.valid_files,left(listlast(file_path,"."),3))>
 			<cfset variables.file_img=left(listlast(file_path,"."),3)>
 		</cfif>
-		<a href="<cfif comparenocase(left(file_path,4),'http')>file:///</cfif>#file_path#" target="_blank"><i class="icon_#variables.file_img#"></i> #file_path#</a><cfif currentrow NEQ get_associated_files.recordcount><br /></cfif>
+		<a href="<cfif comparenocase(left(file_path,4),'http')>file:///</cfif>#file_path#" target="_blank"><i class="icon_file_#variables.file_img#"></i> #file_path#</a><cfif currentrow NEQ get_associated_files.recordcount><br /></cfif>
 	</cfoutput>
 	</div>
 <cfelse>
