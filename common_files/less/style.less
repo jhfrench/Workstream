@@ -48,15 +48,22 @@ footer {
 		cursor: help;
 	}
 
+/*wide screens*/
 @media (min-width: 769px) {
 	footer {
 		bottom: 2px;
 		opacity: 0.8;
-        	position: fixed;
-        	right: 0;
-        	left: 0;
-        	z-index: 1030;
+		position: fixed;
+		right: 0;
+		left: 0;
+		z-index: 1030;
 	}
+
+	#login_box { 
+		position: relative;
+		left: 540px;
+	}
+	
 	#help_area {
 		position: fixed;
 		right: 10px;
@@ -72,16 +79,11 @@ footer {
 	}
 }
 
+/*thin screens*/
 @media (max-width: 768px) {
 	footer (
 		position: static;
 	)
-
-	#login_box { 
-		position: relative;
-		left: 540px;
-		width: 450px;
-	}
 
 	#help_area {
 		position: static;
@@ -97,12 +99,15 @@ footer {
 	}
 }
 
+
+#login_box { 
+	width: 450px;
+}
 .login_background {
 	background-image: url(../../images/login_splash.jpg);
 	background-repeat: no-repeat;
 	background-color: @gray;
 }
-
 #login_form { 
 	.border-radius(3px);
 	border: solid;
@@ -111,7 +116,6 @@ footer {
 	opacity: .8;
 	display: none;
 }
-
 #login_form form, #login_form form div.form-actions { 
 	margin-bottom: 0px;
 }

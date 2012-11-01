@@ -56,8 +56,8 @@
 			{
 				// This will wait for the fallback to load and execute if it needs to.
 				load: [
-					'//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js',
-					'//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js',
+					'//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js',
+					'//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js',
 					'common_files/js/plugins.js',
 					'common_files/js/script.js'
 				]
