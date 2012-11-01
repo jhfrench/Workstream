@@ -44,7 +44,6 @@
 		<label for="dob" class="control-label">Birthday</label>
 		<div class="controls">
 			<input type="date" name="dob" id="dob" min="1911-02-02" max="#dateformat(dateadd('yyyy',now(),-14), 'yyyy-mm-dd')#" value="#dateformat(dob, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
-			<!-- USE CF to create client validation <cfinput type="text" name="dob"required="yes" validate="date" message="Please enter a properly formatted birthdate." size="11"> -->
 		</div>
 	</div>
 	<div class="control-group">
@@ -94,7 +93,6 @@
 		<label for="hire_date" class="control-label">Hire date</label>
 		<div class="controls">
 			<input type="date" name="hire_date" id="hire_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(hire_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
-			<!-- Use CF to create client validation <cfinput type="text" name="hire_date" value="#dateformat(hire_date, 'm/d/yyyy')#" required="yes" validate="date" message="Please enter a properly formatted hire date." size="11"> -->
 		</div>
 	</div>
 	<div class="control-group">
