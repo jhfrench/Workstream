@@ -14,7 +14,7 @@
 	Variables:
  --->
 </cfsilent>
-<cfqueryparam name="attributes.overtime" default="NULL">
+<cfparam name="attributes.overtime" default="NULL">
 <cfquery name="emp_contact_entry" datasource="#application.datasources.main#">
 INSERT INTO Demographics_Ngauge (nt_user_name, emp_id, ssn,
 	hire_date, dob, manager_non_id,

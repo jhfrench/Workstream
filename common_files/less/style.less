@@ -53,12 +53,15 @@ footer {
 /*wide screens*/
 @media (min-width: 769px) {
 	footer {
-		bottom: 2px;
+		bottom: 0px;
 		opacity: 0.8;
         	position: fixed;
         	right: 0;
         	left: 0;
         	z-index: 1030;
+	}
+	footer div[class*="span"] {
+		min-height: 0px !important;
 	}
 
 	#login_box {
