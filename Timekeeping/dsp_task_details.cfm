@@ -1,5 +1,5 @@
 
-<!--Timekeeping/dsp_task_details_table.cfm
+<!--Timekeeping/dsp_task_details.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -112,11 +112,9 @@
 	<div class="span6">
 			<div class="row-fluid">
 				<div class="span12">
-				<label for="notes" class="h5">Progress notes</label>
+				<label for="notes" class="h5">Progress notes <a href="javascript:$('##notes').height( $('##notes').height()*2 );" title="Expand progress notes"><i class="icon-resize-vertical"></i></a></label>
 				<cfif time_entry_details.recordcount>
-					<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea span12">
-						<cfloop query="time_entry_details"><p<cfif notes_type_id EQ 2> class="alert-info"</cfif>><strong>(#initials# #dateformat(date,"m/d/yyyy")#)</strong> - #trim(note)#&nbsp;&nbsp;</p></cfloop>
-					</div>
+					<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea spann11"><cfloop query="time_entry_details"><p<cfif notes_type_id EQ 2> class="alert-info"</cfif>><strong>(<abbr title="#author#">#initials#</abbr> #dateformat(date,"m/d/yyyy")#)</strong> - #trim(note)#&nbsp;&nbsp;</p></cfloop></div>
 				<cfelse>
 					<div id="notes" class="alert">
 						Resolution notes not yet entered for this task.&nbsp;

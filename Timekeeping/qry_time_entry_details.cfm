@@ -23,7 +23,8 @@
 	<cfset variables.date_sort_field="COALESCE(Notes.created_date, Time_Entry.work_date)">
 </cfif>
 <cfquery name="time_entry_details" datasource="#application.datasources.main#">
-SELECT Notes.notes_type_id, (Emp_Contact.lname || ', ' || LEFT(Emp_Contact.name,2)) AS initials, #variables.date_sort_field# AS date, Notes.note AS note
+SELECT Notes.notes_type_id, (Emp_Contact.lname || ', ' || Emp_Contact.name) AS author, (LEFT(Emp_Contact.name,1) || LEFT(Emp_Contact.lname,1)) AS initials,
+	#variables.date_sort_field# AS date, Notes.note AS note
 FROM Notes
 	LEFT OUTER JOIN Time_Entry ON Notes.notes_id=Time_Entry.notes_id
 		AND Time_Entry.active_ind=1
@@ -34,4 +35,3 @@ WHERE Notes.active_ind=1
 ORDER BY #variables.date_sort_field#, Time_Entry.time_entry_id
 </cfquery>
 </cfsilent>
-
