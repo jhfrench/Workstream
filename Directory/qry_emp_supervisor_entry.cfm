@@ -15,7 +15,7 @@
  --->
 </cfsilent>
 <cfparam default="0" name="attributes.supervisor_id_list">
-<cfparam default="1" name="attributes.present_supervisor_id">
+<cfparam default="0" name="attributes.present_supervisor_id">
 <cfif isdefined("attributes.hire_date")>
 	<cfset attributes.date_start=attributes.hire_date>
 </cfif>
@@ -25,15 +25,15 @@
 	VALUES (#attributes.emp_id#, #attributes.supervisor_id#, #createodbcdate(attributes.date_start)#, 1)
 	</cfquery>
 </cfif>
-<cfloop list="#attributes.present_supervisor_id#" index="ii">
-	<cfif isdefined("attributes.end_date_#ii#")>
-	<cfquery name="emp_supervisor_update" datasource="#application.datasources.main#">
-	UPDATE Link_Employee_Supervisor
-	SET date_end=#createodbcdate(evaluate("attributes.end_date_#ii#"))#,
-		active_ind=0
-	WHERE supervisor_id=#ii#
-		AND emp_id=#attributes.emp_id#
-		AND date_end IS NULL
-	</cfquery>
-	</cfif>
-</cfloop>
+<cfif isdefined("attributes.end_date_#ii#")>
+	<cfloop list="#attributes.present_supervisor_id#" index="ii">
+		<cfquery name="emp_supervisor_update" datasource="#application.datasources.main#">
+		UPDATE Link_Employee_Supervisor
+		SET date_end=#createodbcdate(evaluate("attributes.end_date_#ii#"))#,
+			active_ind=0
+		WHERE supervisor_id=#ii#
+			AND emp_id=#attributes.emp_id#
+			AND date_end IS NULL
+		</cfquery>
+	</cfloop>
+</cfif>
