@@ -63,7 +63,7 @@
 <cfelse>
 	<!--- if we have a fuseaction in the URL and the fuseaction is not for one of the protected pages --->
 	<cfset variables.page_is_secure_ind=0>
-	<cfif len(cgi.http_referer) AND NOT listcontainsnocase("127.0.0.1,localhost,florence,192.168.1.3,ec2-23-23-70-186.compute-1.amazonaws.com", listgetat(cgi.http_referer,2,"/"))>
+	<cfif len(cgi.http_referer) AND NOT listcontainsnocase(application.valid_referer, listgetat(cgi.http_referer,2,"/"))>
 		<!--- if we do know the refering page, and the refering page doesn't originate from ait.com --->
 		<!--- 2. Prevent unauthorized interface attempts from other applications --->
 		<cfset variables.error_message="Unauthenticated access is prohibited.2">

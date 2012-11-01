@@ -34,18 +34,16 @@
 		</cfif>
 	</div>
 	<footer role="contentinfo" class="row-fluid screen_only">
-		<div class="navbar navbar-fixed-bottom">
-				<div class="span4">
-					&nbsp;<cfoutput>&copy; #year(now())# #application.application_specific_settings.organization#</cfoutput>
-				</div>
-				<div class="span4">
-					<noscript>
-					This application provides the optimal experience when JavaScript is enabled.
-					</noscript>
-				</div>
-				<div style="float: right" class="span4">
-					<cfoutput>Version #application.product_release_version# (Last Updated: #dateformat(application.last_updated, "mmmm d, yyyy")#)</cfoutput>&nbsp;
-				</div>
+		<div class="span4">
+			&nbsp;<cfoutput>&copy; #year(now())# #application.application_specific_settings.organization#</cfoutput>
+		</div>
+		<div class="span4">
+			<noscript>
+			This application provides the optimal experience when JavaScript is enabled.
+			</noscript>
+		</div>
+		<div style="float: right" class="span4">
+			<cfoutput>Version #application.product_release_version# (Last Updated: #dateformat(application.last_updated, "mmmm d, yyyy")#)</cfoutput>&nbsp;
 		</div>
 	</footer>
 </cfif>

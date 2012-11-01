@@ -73,6 +73,9 @@
 			</cflock>
 		</cfif>
 
+		<!--- Define list of referers from which we will accept incoming page requests --->
+		<cfinclude template="qry_get_valid_referer.cfm">
+
 		<!--- Set installation-specific variables into application-scoped variables. --->
 		<cfinclude template="qry_get_application_specific_settings.cfm">
 

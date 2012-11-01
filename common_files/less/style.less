@@ -10,11 +10,6 @@ body {
 footer {
 	background-color: @gray;
 	color: @white;
-	margin-bottom: 0;
-	position: fixed;
-	right: 0;
-	left: 0;
-	z-index: 1030;
 }
 
 .nav li.dropdown ul.dropdown-menu li:HOVER ul {
@@ -94,6 +89,14 @@ footer {
 	}
 
 @media (min-width: 769px) {
+	footer {
+		bottom: 2px;
+		opacity: 0.8;
+        	position: fixed;
+        	right: 0;
+        	left: 0;
+        	z-index: 1030;
+	}
 	#help_area {
 		position: fixed;
 		right: 10px;
@@ -110,6 +113,9 @@ footer {
 }
 
 @media (max-width: 768px) {
+	footer (
+		position: static;
+	)
 	#help_area {
 		position: static;
 	}
