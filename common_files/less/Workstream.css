@@ -1064,21 +1064,11 @@ footer{background-color:#555555;color:#ffffff;}
 .nav li.dropdown ul.dropdown-menu ul{display:none;float:right;position:relative;top:auto;margin-top:-30px;}
 .faux-textarea{display:inline-block;height:18px;padding:4px 6px;margin-bottom:9px;font-size:11px;line-height:18px;color:#555555;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;width:206px;background-color:#ffffff;border:1px solid #cccccc;-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);-webkit-transition:border linear .2s, box-shadow linear .2s;-moz-transition:border linear .2s, box-shadow linear .2s;-o-transition:border linear .2s, box-shadow linear .2s;transition:border linear .2s, box-shadow linear .2s;color:#999999;background-color:#fcfcfc;border-color:#cccccc;-webkit-box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.025);-moz-box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.025);box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.025);cursor:not-allowed;overflow:hidden;white-space:nowrap;cursor:auto;overflow-y:auto;}.faux-textarea:focus{border-color:rgba(82, 168, 236, 0.8);outline:0;outline:thin dotted \9;-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);}
 .faux-textarea p{margin-bottom:0px;padding-left:10px;text-indent:-10px !important;}
-.docked{opacity:0.8;overflow:visible;margin-bottom:18px;color:#777777;*position:relative;*z-index:2;}
-.banner_organization_link{color:FFFFFF;font-size:24px;font-weight:bold;padding:20px;text-shadow:##333333 2px 2px 0px;}
-.mast{display:block;vertical-align:middle;width:100%;}
-.mast .mast_only{height:120px;}
-.mast a{color:#FFFFFF;font-size:24px;font-weight:bold;padding:20px;text-shadow:#333333 2px 2px 0px;}
-.banner_image{height:150px;background-color:#006699;}
-.banner_image a{vertical-align:middle;}
 .cursor_help{cursor:help;}
-@media (min-width:769px){footer{bottom:2px;opacity:0.8;position:fixed;right:0;left:0;z-index:1030;} #help_area{position:fixed;right:10px;} .js .help_top{height:220px;overflow-y:auto;} .js .help_main{border-top:1px solid #ddd;height:520px;overflow-y:auto;}}@media (max-width:768px){footer (	position: static;	) #help_area{position:static;} .js .help_top{height:100px;overflow-y:auto;} .js .help_main{border-top:1px solid #ddd;height:220px;overflow-y:auto;}}.login_background{background-image:url(../../images/login_splash.jpg);background-repeat:no-repeat;}
-#login_box{position:relative;left:540px;width:450px;}
-div#login_form{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;border:solid;border-color:#222222;background-color:#ffffff;opacity:.8;display:none;}
+@media (min-width:769px){footer{bottom:2px;opacity:0.8;position:fixed;right:0;left:0;z-index:1030;} #login_box{position:relative;left:540px;width:450px;} #help_area{position:fixed;right:10px;} .js .help_top{height:220px;overflow-y:auto;} .js .help_main{border-top:1px solid #ddd;height:520px;overflow-y:auto;}}@media (max-width:768px){footer{position:static;} #login_box{width:90%;} #help_area{position:static;} .js .help_top{height:100px;overflow-y:auto;} .js .help_main{border-top:1px solid #ddd;height:220px;overflow-y:auto;}}.login_background{background-color:#999999;background-image:url(../../images/login_splash.jpg);background-repeat:no-repeat;}
+div#login_form{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;border:solid;border-color:#222222;background-color:#ffffff;opacity:0.8;display:none;}
 div#login_form form,#login_form form div.form-actions{margin-bottom:0px;}
 #operations_blurb{overflow:hidden;text-align:right;}
-#operations_blurb span{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;white-space:nowrap;}
-#operations_blurb img{height:18px;}
 .date,td.date{text-align:center;}
 .number,table td.login,table td.number{text-align:right;}
 .h1,.h2,.h3,.h4,.h5,.h6{margin:0;font-weight:bold;color:#333333;text-rendering:optimizelegibility;}.h1 small,.h2 small,.h3 small,.h4 small,.h5 small,.h6 small{font-weight:normal;color:#999999;}
