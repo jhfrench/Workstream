@@ -63,14 +63,14 @@
 				<label class="control-label" for="email_address">Email</label>
 				<div class="controls">
 					<input type="email" name="email_address" id="email_address" value="#get_user_information.email_address#" maxlength="4000" required="required" class="span3" />
-					<!-- Use CF to create backup validation script <cfinput type="text" name="email_address" id="email_address" required="yes" validate="email" validateat="onserver, onsubmit" message="You must enter a valid email address." /> -->
+					<!-- Use CF to create backup validation script <cfinput type="text" name="email_address" id="email_address" required="yes" validate="email" message="You must enter a valid email address." /> -->
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="work_phone">Phone</label>
 				<div class="controls">
 					<cfset attributes.work_phone=replace(get_user_information.work_phone, "+", "", "ALL")>
-					<cfinput type="text" name="work_phone" id="work_phone" size="50" maxlength="4000" required="no" validate="telephone" validateat="onserver,onsubmit" value="#attributes.work_phone#">
+					<cfinput type="text" name="work_phone" id="work_phone" size="50" maxlength="4000" required="no" validate="telephone" value="#attributes.work_phone#">
 				</div>
 			</div>
 			<div class="control-group">

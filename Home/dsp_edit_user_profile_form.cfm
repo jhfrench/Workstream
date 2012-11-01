@@ -61,14 +61,14 @@
 				<td><label for="email_address">Email</label>:</td>
 				<td>
 					<input type="email" name="email_address" id="email_address" value="#get_user_information_profile.email_address#" maxlength="4000" required="required" class="span3" />
-					<!-- Use CF to create backup validation script <cfinput type="text" name="email_address" id="email_address"  required="yes" validate="email" validateat="onserver, onsubmit" message="You must enter a valid email address." /> -->
+					<!-- Use CF to create backup validation script <cfinput type="text" name="email_address" id="email_address"  required="yes" validate="email" message="You must enter a valid email address." /> -->
 				</td>
 			</tr>
 			<tr>
 				<td><label for="work_phone">Phone</label>:</td>
 				<td>
 					<cfset attributes.work_phone=replace(get_user_information_profile.work_phone, "+", "", "ALL")>
-					<cfinput type="text" name="work_phone" id="work_phone" size="50" required="no" validate="telephone" validateat="onserver,onsubmit" value="#attributes.work_phone#" maxlength="4000">
+					<cfinput type="text" name="work_phone" id="work_phone" size="50" required="no" validate="telephone" value="#attributes.work_phone#" maxlength="4000">
 				</td>
 			</tr>
 			<tr>
