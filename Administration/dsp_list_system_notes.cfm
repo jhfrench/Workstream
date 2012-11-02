@@ -27,16 +27,10 @@
 <cfparam name="attributes.display_start_date" default="">
 <cfparam name="attributes.display_end_date" default="">
 
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the data held in the table below">
-	<tr>
-		<td align="left"><h2 style="margin:0px" id="top-side">Administer Messages</h2></td>
-	</tr>
-	<tr>
-		<td align="left" class="menuItem" bgcolor="#eeeeee" onmouseover="new Effect.Highlight(this, {duration:0.1,startcolor:'#5394bd',endcolor:'#5394bd',restorecolor:'#5394bd'});this.style.cursor='pointer';" onmouseout="new Effect.Highlight(this, {duration:0.25,startcolor:'#999999',endcolor:'#bbbbbb',restorecolor:'#eeeeee'});">
-			<a href="javascript:edit_system_note(0)">Add new system message</a>
-		</td>
-	</tr>
-</table>
+<ul class="breadcrumb">
+  <li>Administer Messages <span class="divider">/</span></li>
+  <li class="active"><a href="javascript:edit_system_note(0)">Add new system message</a></li>
+</ul>
 
 <img src="images/spacer.gif" alt="" width="560" height="1"><br />
 

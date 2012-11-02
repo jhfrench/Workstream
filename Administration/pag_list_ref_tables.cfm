@@ -26,7 +26,11 @@
 
 <cfinclude template="qry_get_ref_tables.cfm">
 <cfset variables.administration_fuseactions=structkeylist(application.fusebox.circuits.administration.fuseactions)>
-<h2 style="margin:0px" id="top-side">Manage Drop-Down Lists</h2>
+
+<ul class="breadcrumb">
+  <li>System Configuration <span class="divider">/</span></li>
+  <li class="active">Manage Drop-Down Lists</li>
+</ul>
 <table class="table table-striped table-bordered table-condensed">
 	<caption><h3>List of REF Tables</h3></caption>
 	<thead>
