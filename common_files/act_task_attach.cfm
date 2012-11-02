@@ -21,11 +21,10 @@
 <cfelse>
 	<script language="JavaScript" type="text/javascript">
 	opener.document.new_task_form.linked_task_id.value='#attributes.linked_task_id#';
-	// window.close();
 	</script>
 </cfif>
 <div class="alert alert-success">
 <strong>That worked!</strong>
-You have associated tasks with task #attributes.task_id#.
+You have associated tasks with task #attributes.base_task_id#.
 </div>
 </cfoutput>

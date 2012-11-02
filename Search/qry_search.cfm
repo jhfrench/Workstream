@@ -97,11 +97,11 @@ SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id,
 	(CASE WHEN Task.status_id IN (4,10) THEN Task_Details.task_status || ' by ' || Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
 	(Customer.description || '-' || Project.description) AS project_name, priority
 FROM Task, Team, Emp_Contact, Project, Customer,
-	(SELECT Path.task_id, COALESCE(Recorded_Hours.hours_used,0) AS time_used, Path.path AS task_icon, 
+	(SELECT Path.task_id, COALESCE(Recorded_Hours.hours_used,0) AS time_used, Path.class_name AS task_icon, 
 		(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
 		REF_Status.status AS task_status, Emp_Contact.lname AS task_owner, priority
 	FROM Task, REF_Status, Team, Emp_Contact,
-		(SELECT Valid_Tasks.task_id, CASE WHEN REF_Icon.path='0' THEN 'document.gif' ELSE REF_Icon.path END AS path, priority
+		(SELECT Valid_Tasks.task_id, REF_Icon.class_name, priority
 			FROM
 			<cfif len(attributes.notes)>(SELECT Notes.task_id, priority
 			FROM Notes,
@@ -132,7 +132,8 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 					<cfloop list="#attributes.notes#" index="ii"><cfset counter=incrementvalue(counter)>LOWER(Notes.note) LIKE '%#lcase(ii)#%'<cfif counter NEQ listlen(attributes.notes)> OR </cfif></cfloop>)
 			GROUP BY Notes.task_id, priority)</cfif>
 		AS Valid_Tasks, Task, REF_Icon
-		WHERE Valid_Tasks.task_id=Task.task_id AND REF_Icon.icon_id=Task.icon_id)
+		WHERE Valid_Tasks.task_id=Task.task_id
+			AND REF_Icon.icon_id=Task.icon_id)
 	AS Path
 	LEFT OUTER JOIN (
 		SELECT task_id, SUM(hours) AS hours_used
