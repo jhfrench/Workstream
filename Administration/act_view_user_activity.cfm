@@ -37,13 +37,14 @@ SELECT Login_Attempt.created_date,
 		WHEN 1 THEN 'Success'
 		ELSE 'Fail'
 	END AS success_status,
-	CASE	WHEN Link_User_Account_Status.active_ind IS NOT NULL THEN 'Locked'
+	CASE
+		WHEN Link_User_Account_Status.active_ind IS NOT NULL THEN 'Locked'
 		ELSE ''
 	END AS account_status
 FROM User_Account
 	INNER JOIN Login_Attempt ON UPPER(User_Account.user_name)=UPPER(Login_Attempt.user_name)
 	LEFT OUTER JOIN Link_User_Account_Status ON User_Account.user_account_id=Link_User_Account_Status.user_account_id
-		AND Login_Attempt.created_date BETWEEN Link_User_Account_Status.created_date-(1/43200) AND Link_User_Account_Status.created_date+(1/43200)
+		AND Login_Attempt.created_date BETWEEN Link_User_Account_Status.created_date-INTERVAL '12 hours' AND Link_User_Account_Status.created_date+INTERVAL '12 hours'
 		AND Link_User_Account_Status.account_status_id=2 /*locked*/
 WHERE User_Account.user_account_id=<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.user_account_id#"><cfif isdate(attributes.start_date) AND isdate(attributes.end_date)>
 		AND Login_Attempt.created_date BETWEEN <cfqueryparam cfsqltype="cf_sql_date" value="#createodbcdate(attributes.start_date)#"> AND <cfqueryparam cfsqltype="cf_sql_date" value="#createodbcdate(attributes.end_date)#"></cfif>
