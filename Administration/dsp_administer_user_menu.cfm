@@ -28,7 +28,7 @@
 </cfif>
 
 <cfoutput>
-<div class="alert">#attributes.display_message#</div>
+<cfif len(attributes.display_message)><div class="alert">#attributes.display_message#</div></cfif>
 <ul class="breadcrumb">
   <li><a href="index.cfm?fuseaction=Administration.manage_user_profiles">Manage User Profiles</a> <span class="divider">/</span></li>
   <li class="active">#get_user_information.first_name# #get_user_information.last_name#</li>
@@ -79,7 +79,8 @@
 		<div class="control-group">
 			<label class="control-label" for="center_id">Center</label>
 			<div class="controls">
-				<cfselect name="center_id" id="center_id" query="get_ref_center" value="center_id" display="abbreviation" selected="#get_user_information.center_id#"></cfselect>
+				<cfselect name="center_id" id="center_id" query="get_ref_center" value="center_id" display="abbreviation" selected="#get_user_information.center_id#">
+				</cfselect>
 			</div>
 		</div>
 		<div class="control-group">
@@ -88,7 +89,7 @@
 				<!--- only allow to lock and unlock when the user information being modified is not the current user --->
 				<cfif get_user_information.user_account_id NEQ variables.user_identification>
 					<cfloop query="get_ref_account_status">
-						<input type="radio" name="account_status_id" id="account_status_id_#account_status_id#" value="#account_status_id#"<cfif get_user_information.account_status_id EQ account_status_id> checked="checked"</cfif>/><label class="control-label" for="account_status_id_#account_status_id#">#description#</label>
+						<label class="radio inline" for="account_status_id_#account_status_id#"><input type="radio" name="account_status_id" id="account_status_id_#account_status_id#" value="#account_status_id#"<cfif get_user_information.account_status_id EQ account_status_id> checked="checked"</cfif>/>#description#</label>
 					</cfloop>
 				<cfelse>
 					#get_user_information.account_status#
