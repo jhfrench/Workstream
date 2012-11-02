@@ -46,7 +46,7 @@ FROM User_Account
 	LEFT OUTER JOIN Link_User_Account_Status ON User_Account.user_account_id=Link_User_Account_Status.user_account_id
 		AND Login_Attempt.created_date BETWEEN Link_User_Account_Status.created_date-INTERVAL '12 hours' AND Link_User_Account_Status.created_date+INTERVAL '12 hours'
 		AND Link_User_Account_Status.account_status_id=2 /*locked*/
-WHERE User_Account.user_account_id=<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.user_account_id#"><cfif isdate(attributes.start_date) AND isdate(attributes.end_date)>
+WHERE User_Account.user_account_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.user_account_id#"><cfif isdate(attributes.start_date) AND isdate(attributes.end_date)>
 		AND Login_Attempt.created_date BETWEEN <cfqueryparam cfsqltype="cf_sql_date" value="#createodbcdate(attributes.start_date)#"> AND <cfqueryparam cfsqltype="cf_sql_date" value="#createodbcdate(attributes.end_date)#"></cfif>
 ORDER BY Login_Attempt.login_attempt_id DESC
 </cfquery>
@@ -59,9 +59,9 @@ SELECT LOG_Page_Request.page_request_id, COALESCE(REPLACE(dbo.LISTFIRST(dbo.LIST
 	DATEPART("wk",REF_Date.odbc_date) AS date_week, REF_Date.date_day
 FROM LOG_Page_Request
 	LEFT OUTER JOIN REF_Date ON CAST(LOG_Page_Request.created_date AS DATE)=CAST(REF_Date.odbc_date AS DATE)
-WHERE LOG_Page_Request.user_identification='#attributes.user_account_id#'
-	AND LOG_Page_Request.url_requested LIKE '%#cgi.server_name#%'
-	AND LOG_Page_Request.url_requested NOT LIKE '%view_help%'<cfif isdate(attributes.start_date) AND isdate(attributes.end_date)>
+WHERE LOG_Page_Request.user_identification=<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.user_account_id#">
+	AND LOG_Page_Request.url_requested LIKE <cfqueryparam cfsqltype="cf_sql_varchar" value="%#cgi.server_name#%">
+	AND LOG_Page_Request.url_requested NOT LIKE <cfqueryparam cfsqltype="cf_sql_varchar" value="%view_help%"><cfif isdate(attributes.start_date) AND isdate(attributes.end_date)>
 	AND LOG_Page_Request.created_date BETWEEN <cfqueryparam cfsqltype="cf_sql_date" value="#createodbcdate(attributes.start_date)#"> AND <cfqueryparam cfsqltype="cf_sql_date" value="#createodbcdate(attributes.end_date)#"></cfif>
 ORDER BY LOG_Page_Request.page_request_id DESC
 </cfquery>
@@ -70,8 +70,8 @@ ORDER BY LOG_Page_Request.page_request_id DESC
 <cfquery name="get_favorite_pages" dbtype="query">
 SELECT url_requested, COUNT(*) AS count1
 FROM get_view_user_activity
-WHERE url_requested NOT LIKE '%login%'
-	AND url_requested NOT LIKE '%logout%'
+WHERE url_requested NOT LIKE <cfqueryparam cfsqltype="cf_sql_varchar" value="%login%">
+	AND url_requested NOT LIKE <cfqueryparam cfsqltype="cf_sql_varchar" value="%logout%">
 GROUP BY url_requested
 ORDER BY count1 DESC
 </cfquery>
