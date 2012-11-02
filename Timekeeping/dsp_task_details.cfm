@@ -42,30 +42,35 @@
 
 </cfsilent>
 <cfoutput>
-	<input type="hidden" name="task_id" value="#task_id#" />
-	<input type="hidden" name="project_id" value="#get_task_details.project_id#" />
+	<cfset variables.task_description=replaceList(paragraphformat(get_task_details.description),'<P>,"',",")>
+	<cfset variables.task_name=htmleditformat(get_task_details.task_name)>
 	<input type="hidden" name="last_loaded" value="#now()#" />
-	<input type="hidden" name="orig_owner" value="#task_owner#" />
-	<input type="hidden" name="orig_team" value="#variables.task_team#" />
-	<input type="hidden" name="orig_qa" value="#task_qa#" />
 	<input type="hidden" name="orig_due_date" value="#dateformat(get_task_details.due_date,"m/d/yyyy")#" />
-	<input type="hidden" name="orig_priority_id" value="#get_task_details.priority#" />
-	<input type="hidden" name="orig_project_id" value="#get_task_details.project_id#" />
-	<input type="hidden" name="orig_task_status_id" value="#get_task_details.status_id#" />
+	<input type="hidden" name="orig_file" value="#get_task_details.status_id#" />
 	<input type="hidden" name="orig_icon_id" value="#get_task_details.icon_id#" />
-	<input type="hidden" name="orig_task_description" value="#ReplaceList(paragraphformat(get_task_details.description),variables.string_to_replace,",")#" />
-	<input type="hidden" name="orig_reminder_days" value="#get_completion_days.reminder_days#" />
-	<input type="hidden" name="orig_reminder_cc" value="#valuelist(get_prep_email.email_id)#" />
 	<input type="hidden" name="orig_notification" value="#valuelist(get_completion_email.email_id)#" />
 	<input type="hidden" name="orig_notification_cc" value="#valuelist(get_completion_cc_email.email_id)#" />
-	<input type="hidden" name="orig_file" value="#get_task_details.status_id#" />
+	<input type="hidden" name="orig_owner" value="#task_owner#" />
+	<input type="hidden" name="orig_priority_id" value="#get_task_details.priority#" />
+	<input type="hidden" name="orig_project_id" value="#get_task_details.project_id#" />
+	<input type="hidden" name="orig_qa" value="#task_qa#" />
+	<input type="hidden" name="orig_reminder_cc" value="#valuelist(get_prep_email.email_id)#" />
+	<input type="hidden" name="orig_reminder_days" value="#get_completion_days.reminder_days#" />
+	<input type="hidden" name="orig_task_description" value="#variables.task_description#" />
+	<input type="hidden" name="orig_task_name" value="#variables.task_name#" />
+	<input type="hidden" name="orig_task_status_id" value="#get_task_details.status_id#" />
+	<input type="hidden" name="orig_team" value="#variables.task_team#" />
+	<input type="hidden" name="project_id" value="#get_task_details.project_id#" />
+	<input type="hidden" name="task_id" value="#task_id#" />
 <div class="row-fluid">
 	<div class="span6">
 		<label for="task_name" class="h5">Task name</label>
-		<input type="text" name="task_name" id="task_name" value="#htmleditformat(get_task_details.task_name)#" valign="top" size="#variables.cols#" maxlength="255"#variables.edit_status# class="span11" />
+		<input type="text" name="task_name" id="task_name" value="" valign="top" size="#variables.cols#" maxlength="255"#variables.edit_status# class="span11" />
 		<p><span class="h5">Customer</span>: #get_task_details.customer_name# <span class="h5">Project</span>: #replace(get_task_details.project_name,"#get_task_details.customer_name#-","")# <i class="icon-share" title="See more projects." onclick="OpenProjectWindow('project_id');"></i></p>
-		<label for="task_details" class="h5">Description <a href="javascript:$('##task_details').attr('rows', '#variables.descrip_rows+15#');" title="Expand description"><i class="icon-resize-vertical"></i></a></label>
-		<textarea name="task_details" id="task_details" cols="#variables.cols-2#" rows="#variables.descrip_rows#" wrap="soft"#variables.edit_status# class="span11">#replaceList(paragraphformat(get_task_details.description),'<P>,"',",")#</textarea>
+		<label for="task_description" class="h5">Description <a href="javascript:$('##task_description').attr('rows', '#variables.descrip_rows+15#');" title="Expand description"><i class="icon-resize-vertical"></i></a></label>
+		<textarea name="task_description" id="task_description" cols="#variables.cols-2#" rows="#variables.descrip_rows#" wrap="soft"#variables.edit_status# class="span11">
+			#variables.task_description#
+		</textarea>
 		<div class="row-fluid">
 			<div class="span4">
 				<label for="task_owner" class="h5">Owner</label>

@@ -54,8 +54,8 @@
 		<cfset variables.task_team=valuelist(get_task_team.emp_id)>
 		<cfset task_qa=get_task_details.qa_id>
 		<cfinclude template="../common_files/qry_get_user_fields.cfm">
-		<cfinclude template="qry_get_editing_priveleges.cfm">
-		<cfif listfind("#valuelist(get_editing_priveleges.editing_priveleges)#,0",variables.user_identification)>
+		<cfinclude template="qry_get_editing_privileges.cfm">
+		<cfif get_editing_privileges.recordcount>
 			<cfset variables.edit_status="">
 		<cfelse>
 			<cfset variables.edit_status=' disabled="disabled"'>
