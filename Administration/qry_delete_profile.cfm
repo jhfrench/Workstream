@@ -18,4 +18,3 @@ WHERE emp_id=#variables.user_identification#
 	AND profile_name='#attributes.profile_name#'
 </cfquery>
 </cfsilent>
-

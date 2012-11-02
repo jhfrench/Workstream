@@ -62,7 +62,7 @@ VALUES (1, '#variables.encrypted_password#')
 			</cfscript>
 
 			<!--- $issue$ next two files should be consolidated --->
-			<cfinclude template="../common_files/act_general_user_info.cfm">
+			<cfinclude template="../common_files/act_load_profile.cfm">
 			<cfinclude template="../common_files/qry_get_user_preferences.cfm">
 
 			<cfif get_username.password_created_by NEQ get_username.user_account_id>
