@@ -67,13 +67,13 @@ VALUES (1, '#variables.encrypted_password#')
 			
 			<!--- If known, send the user to the page they originally requested (unless the page they requested is "Application_Manager.login", it makes no sense to "send" them to the login page once they've logged in) --->
 			<cfif len(attributes.requested_page) AND NOT listfind("Application_Manager.login,Application_Manager.forum_commands,Help.view_help_article,Application_Manager.module_commands", attributes.requested_page)>
-				<cfset variables.redirect_destination="fuseaction=#attributes.requested_page#">
+				<cfset variables.redirect_destination="#attributes.requested_page#">
 			<cfelse>
-				<cfset variables.redirect_destination="fuseaction=#application.fusebox.defaultfuseaction#">
+				<cfset variables.redirect_destination="#application.fusebox.defaultfuseaction#">
 			</cfif>
 			<!--- if the person that created the password is not the user, then let the user change his/her password --->
 			<cfif get_username.password_created_by NEQ get_username.user_account_id>
-				<cfset variables.redirect_destination="fuseaction=Home.change_password&user_account_id=#get_username.user_account_id#&requested_page=#variables.redirect_destination#">
+				<cfset variables.redirect_destination="Home.change_password&user_account_id=#get_username.user_account_id#&requested_page=#variables.redirect_destination#">
 			</cfif>
 			
 			<cfset variables.success_ind=1>
@@ -96,7 +96,7 @@ VALUES (1, '#variables.encrypted_password#')
 
 <cfif variables.success_ind EQ 1>
 	<!--- the user got in --->
-	<cflocation url="index.cfm?#variables.redirect_destination#" addtoken="no">
+	<cflocation url="index.cfm?fuseaction=#variables.redirect_destination#" addtoken="no">
 <cfelse>
 	<!--- the user did not get in; get number of invalid login attempts since last valid login for given username --->
 	<cfinclude template="qry_get_login_attempt.cfm">

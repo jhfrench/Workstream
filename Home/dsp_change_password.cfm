@@ -62,7 +62,7 @@
 			</fieldset>
 		</form>
 	</div>
-	<div class="span8">
+	<div class="span4">
 		<div class="alert alert-info">
 			<h2>Password rules</h2>
 			<ul>
