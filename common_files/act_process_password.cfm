@@ -25,7 +25,7 @@
 <!--- check if the new password is the same as the old password, in the future, check password history to be sure new password in not with 10 uses --->
 <cfif NOT compare(attributes.password,attributes.old_password)>
 	<cfset variables.password_accepted_ind=0>
-	<cfset variables.display_message="<li>Your old and new password supplied cannot be the same. You have to change the new password.">
+	<cfset variables.display_message="<li>Your old and new password supplied cannot be the same. You have to change the new password.</li>">
 <cfelse>
 	<!--- check if the password for the password and the confirm password are the same; if they are the same proceed to check if the password meets criteria--->
 	<cfif NOT compare(attributes.password,attributes.confirm_password)>
@@ -38,14 +38,17 @@
 			<!--- create new user_password record --->
 			<cfinclude template="qry_insert_user_password.cfm">
 			<cfset session.password_created_by=variables.user_identification>
-			<!--- $issue$ for users requesting a new password, this shouldn't just relocate; it should inform the user --->
-			<cflocation url="index.cfm" addtoken="no">
 			<div class="alert alert-warning">
 				Your password has been succesfully changed. The application will require you to change your password when next you log in.
 			</div>
+			<script language="JavaScript" type="text/javascript">
+			setTimeout(function() {
+				window.location.href="index.cfm";
+			}, 5000);
+			</script>
 		</cfif>
 	<cfelse>
 		<cfset variables.password_accepted_ind=0>
-		<cfset variables.display_message="<li>The value you entered in new passwords and confirm password fields are not the same. Please make sure they are the same to proceed.">
+		<cfset variables.display_message="<li>The value you entered in new passwords and confirm password fields are not the same. Please make sure they are the same to proceed.</li>">
 	</cfif>
 </cfif>

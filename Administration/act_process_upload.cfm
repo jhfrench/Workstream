@@ -78,12 +78,8 @@
 	<!--- set upload_source_id to 0 so the upload drop-down won't be limited to the submitted upload_source_id --->
 	<cfset attributes.upload_source_id=0>
 </cfif>
-<cfoutput>
-<table summary="Table displays a message indicating the result of an upload.">
-	<tr>
-		<td class="bannerTxt">
-			#variables.display_message#
-		</td>
-	</tr>
-</table>
-</cfoutput>
+<cfif len(variables.display_message)>
+	<cfoutput>
+	<div class="alert alert-error">#variables.display_message#</div>
+	</cfoutput>
+</cfif>

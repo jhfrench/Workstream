@@ -25,9 +25,7 @@
 
 <cfoutput>
 <cfif len(variables.display_message)>
-<ul>
-#variables.display_message#
-</ul>
+	<div class="alert">#variables.display_message#</div>
 </cfif>
 
 <cfmodule template="../common_files/qry_get_ref_center.cfm" display_all_centers_ind="1">

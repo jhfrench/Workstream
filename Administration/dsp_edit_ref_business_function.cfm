@@ -26,9 +26,7 @@
 
 <cfoutput>
 <cfif len(variables.display_message)>
-<div class="alert">
-#variables.display_message#
-</div>
+	<div class="alert">#variables.display_message#</div>
 </cfif>
 <cfmodule template="qry_get_business_function.cfm" business_function_id="0">
 

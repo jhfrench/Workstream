@@ -21,8 +21,6 @@
 </fusedoc>
 --->
 
-
-
 <!--- if old password is defined, which only happens if the user is changing their own password, check old password --->
 <cfif len(attributes.old_password)>
 	<!--- run a query to verify the old password provided by the user --->

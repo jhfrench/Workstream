@@ -34,12 +34,17 @@
 			<cfset variables.module_comments=evaluate("comments_#module_id_ii#")>
 			<cfinclude template="qry_insert_lock_module.cfm">
 		</cfloop>
-		<cfset variables.display_message="<ul><li>Your changes have been applied</li></ul>">
+		<cfset variables.display_message="Your changes have been applied.">
 	</cfif>
 </cfif>
 
 <cfmodule template="../common_files/qry_get_ref_module.cfm" lockable_module_ind="1">
 <cfset variables.all_module_id=valuelist(get_ref_module.module_id)>
 
-<cfoutput><span style="font-size:14px;">#variables.display_message# </span></cfoutput>
+<cfif len(variables.display_message)>
+	<cfoutput>
+		<div class="alert">#variables.display_message#</div>
+	</cfoutput>
+</cfif>
+
 <cfinclude template="dsp_manage_system_access.cfm">

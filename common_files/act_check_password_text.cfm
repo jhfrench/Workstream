@@ -74,7 +74,7 @@ variables.good_password_length_ind=1;
 <cfif variables.password_verification_count GT 2 AND variables.good_password_length_ind EQ 1>
 	<cfset caller.variables.password_accepted_ind=1>
 <cfelse>
-	<cfset variables.display_message="<li>Password must be 8-16 characters long and must meet at least three of the following criteria: an upper case, a lower case, a number and a special character. Please make sure your password meets this standard.">
+	<cfset variables.display_message="<li>Password must be 8-16 characters long and must meet at least three of the following criteria: an upper case, a lower case, a number and a special character. Please make sure your password meets this standard.</li>">
 </cfif>
 
 <cfset caller.get_verification_count=variables.password_verification_count>

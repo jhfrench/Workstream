@@ -36,7 +36,7 @@
 <cfif isdefined("attributes.created_by")>
 	<!--- make sure end date is after start date --->
 	<cfif len(attributes.display_end_date) AND attributes.display_end_date LT attributes.display_start_date>
-		<cfset variables.display_message="End date entered cannot be before start date">
+		<cfset variables.display_message="The end date (#attributes.display_end_date#) cannot be earlier than the start date (#attributes.display_start_date#).">
 	 <cfelse>
 		<!--- deactivate old record --->
 		<cfinclude template="qry_deactivate_system_note.cfm">

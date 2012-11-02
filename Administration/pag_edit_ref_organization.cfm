@@ -44,4 +44,3 @@
 <cfinclude template="../common_files/qry_get_ref_organization.cfm">
 
 <cfinclude template="dsp_edit_ref_organization.cfm">
-

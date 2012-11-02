@@ -31,11 +31,11 @@
 <cfif NOT comparenocase(attributes.method,"search")>
 <!--- check if the user selects a center --->
 	<cfif NOT len(attributes.center_description)>
-		<cfset variables.display_message=variables.display_message & "<li>Please select a center">
+		<cfset variables.display_message=variables.display_message & "Please select a center.">
 	</cfif>
 	<!--- check if the user enters a last name --->
 	<cfif NOT len(attributes.last_name)>
-		<cfset variables.display_message=variables.display_message & "<li>Please enter lastname">
+		<cfset variables.display_message=variables.display_message & "<br />Please enter lastname.">
 	</cfif>
 	<!--- if the user selects a center and enters a lastname then process in external demographics warehouse --->
 	<cfif NOT len(variables.display_message)>
@@ -45,7 +45,9 @@
 
 
 <cfoutput>
-#variables.display_message#
+<cfif len(variables.display_message)>
+	<div class="alert alert-error">#variables.display_message#</div>
+</cfif>
 <form name="search_user_from_external_demographics_form" action="index.cfm?fuseaction=#attributes.fuesaction#" method="post">
 <table width="400" border="0" cellspacing="2" cellpadding="2" summary="Table displays user search select">
 	<tr>

@@ -29,7 +29,7 @@
 	<cfcase value="search">
 		<!--- check if the user enters a last name --->
 		<cfif NOT len(attributes.last_name)>
-			<cfset variables.display_message=variables.display_message & "<li>Please enter lastname</li>">
+			<cfset variables.display_message=variables.display_message & "<br />Please enter lastname">
 		</cfif>
 		<cfif len(variables.display_message)>
 			<!--- if there's a problem, redisplay the search form --->
@@ -47,7 +47,9 @@
 
 	<cfcase value="Add User">
 		<cfinclude template="../common_files/act_add_user.cfm">
-		<br /><cfoutput>#variables.display_message#</cfoutput>
+		<cfif len(variables.display_message)>
+			<div class="alert alert-error">#variables.display_message#</div>
+		</cfif>
 	</cfcase>
 
 	<!--- if the administrator selects a user --->

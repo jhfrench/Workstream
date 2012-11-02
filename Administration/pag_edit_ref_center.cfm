@@ -37,19 +37,19 @@
 <cfif NOT comparenocase(attributes.submit, "submit")>
 	<!--- if no input date in description, display message --->
 	<cfif NOT len(attributes.description)>
-		<cfset variables.display_message=variables.display_message & "<li>Please enter description</li>">
+		<cfset variables.display_message=variables.display_message & "<br />Please enter description.">
 		<cfset variables.check_form_field=variables.check_form_field+1>
 	</cfif>
 	<cfif NOT len(attributes.abbreviation)>
-		<cfset variables.display_message=variables.display_message & "<li>Please enter abbreviation</li>">
+		<cfset variables.display_message=variables.display_message & "<br />Please enter abbreviation.">
 		<cfset variables.check_form_field=variables.check_form_field+1>
 	</cfif>
 	<cfif NOT len(attributes.center_code)>
-		<cfset variables.display_message=variables.display_message & "<li>Please enter center code</li>">
+		<cfset variables.display_message=variables.display_message & "<br />Please enter center code.">
 		<cfset variables.check_form_field=variables.check_form_field+1>
 	</cfif>
 	<cfif NOT len(attributes.sort_order)>
-		<cfset variables.display_message=variables.display_message & "<li>Please enter sort_order</li>">
+		<cfset variables.display_message=variables.display_message & "<br />Please enter sort_order.">
 		<cfset variables.check_form_field=variables.check_form_field+1>
 	</cfif>
 	<!--- if there is no error --->

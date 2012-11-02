@@ -25,7 +25,9 @@
 --->
 
 <cfoutput>
-#variables.display_message#
+<cfif len(variables.display_message)>
+	<div class="alert">#variables.display_message#</div>
+</cfif>
 <cfparam name="attributes.method" default="">
 <cfmodule template="../common_files/qry_get_ref_center.cfm" center_id="0">
 <form name="edit_ref_center_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
