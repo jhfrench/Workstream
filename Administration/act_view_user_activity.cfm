@@ -52,11 +52,11 @@ ORDER BY Login_Attempt.login_attempt_id DESC
 </cfquery>
 
 <!---retrieve specified user's activity from the LOG_Page_Request table--->
-<cfquery name="get_view_user_activity" datasource="#application.datasources.main#">
-SELECT LOG_Page_Request.page_request_id, COALESCE(REPLACE(dbo.LISTFIRST(dbo.LISTLAST(LOG_Page_Request.url_requested, '?'),'&'), 'fuseaction=', ''), LOG_Page_Request.url_requested) AS url_requested, LOG_Page_Request.page_load_time,
-	LOG_Page_Request.created_date AS request_date, CAST(LOG_Page_Request.created_date AS time(7)) AS request_time, DATEPART("Hh", LOG_Page_Request.created_date) AS request_hour, 
-	REF_Date.day_of_week_number, REF_Date.date_year, REF_Date.date_month,
-	DATEPART("wk",REF_Date.odbc_date) AS date_week, REF_Date.date_day
+<cfquery name="get_view_user_activity" datasource="#application.datasources.application_manager#">
+SELECT LOG_Page_Request.page_request_id, COALESCE(REPLACE(LISTFIRST(LISTLAST(LOG_Page_Request.url_requested, '2'),'&'), 'fuseaction=', ''), LOG_Page_Request.url_requested) AS url_requested, LOG_Page_Request.page_load_time, 
+	LOG_Page_Request.created_date AS request_date, pg_catalog.TIME(LOG_Page_Request.created_date) AS request_time, EXTRACT(HOUR FROM LOG_Page_Request.created_date) AS request_hour, 
+	REF_Date.day_of_week_number, REF_Date.date_year, REF_Date.date_month, 
+	EXTRACT(WEEK FROM REF_Date.odbc_date) AS date_week, REF_Date.date_day 
 FROM LOG_Page_Request
 	LEFT OUTER JOIN REF_Date ON CAST(LOG_Page_Request.created_date AS DATE)=CAST(REF_Date.odbc_date AS DATE)
 WHERE LOG_Page_Request.user_identification=<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.user_account_id#">
