@@ -37,34 +37,29 @@
 <cfinclude template="../common_files/qry_get_user_information.cfm">
 <cfinclude template="../common_files/qry_get_user_navigation_access.cfm">
 <cfset variables.module_description="thiswill_never_match_jf">
+
+<cfoutput>
+<ul class="breadcrumb">
+  <li><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> <span class="divider">/</span></li>
+  <li><a href="javascript:view_user_access('#attributes.user_account_id#');">View User Access</a> <span class="divider">/</span></li>
+  <li class="active">Edit User Access</li>
+</ul>
+<a href="javascript:administer_user_menu('#attributes.user_account_id#');" class="btn">Manage User's Profile</a>
+<a href="javascript:view_user_activity('#attributes.user_account_id#');" class="btn">View User Activity</a><br />
+<cfif isdefined("attributes.relevant_business_function_id") AND len(attributes.relevant_business_function_id)>
+	<div class="alert alert-info">Module access changes have been applied</div>
+</cfif>
+<div class="alert alert-info">
+	<p>You are administering user access for: 
+		<ul>
+			<cfloop query="get_user_information"><li>#first_name# #last_name#</li></cfloop>
+		</ul>
+	</p>
+	<p>Check the business function's box to grant access to that function</p>
+</div>
+</cfoutput>
+
 <form name="form_edit_navigation_access" action="index.cfm?fuseaction=Administration.edit_navigation_access" method="post">
-
-
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the data held in the table below">
-	<tr>
-		<td align="left">
-			<h2 style="margin:0px" id="top-side"><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit User Access</h2>
-		</td>
-	</tr>
-	<tr>
-		<td><cfoutput>
-			<a href="javascript:administer_user_menu('#attributes.user_account_id#');">Manage User's Profile</a><br />
-			<a href="javascript:view_user_activity('#attributes.user_account_id#');">View User Activity</a></cfoutput>
-		</td>
-	</tr>
-	<tr>
-		<th>You are administering user access for: <cfoutput query="get_user_information">#first_name# #last_name#<cfif currentrow NEQ recordcount>, </cfif></cfoutput></th>
-	</tr>
-	<cfif isdefined("attributes.relevant_business_function_id") AND len(attributes.relevant_business_function_id)>
-	<tr>
-		<td>Module access changes have been applied</td>
-	</tr>
-	</cfif>
-	<tr>
-		<td>Check the business function's box to grant access to that function</td>
-	</tr>
-</table>
-
 <div class="datachart" style="border:1px solid ##999999">
 <table cellpadding="3" cellspacing="0" width="100%" border="0" summary="Table used to display modules associated with business functions">
 	<cfoutput query="get_user_navigation_access">

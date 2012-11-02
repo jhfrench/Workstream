@@ -21,7 +21,7 @@
 </fusedoc>
 --->
 
-<h2 style="margin:0px">Manage User Access</h2>
+<h2>Manage User Access</h2>
 <cfoutput>#attributes.display_message#
 <div style="position:absolute;top:-90em;left:-100em;">
 	<a href="##begin_table_content" title="hidden browser link to skip alphabetical navigation"></a>
@@ -36,23 +36,17 @@ Filter: <cfloop query="get_ref_account_status"> <a href="javascript:status_filte
 
 <a name="begin_table_content"></a>
 <cfform name="select_user_to_manage" action="index.cfm?fuseaction=Administration.edit_navigation_access" method="post">
-<div class="datachart" style="border:1px solid ##999999">
-<table cellpadding="3" cellspacing="0" width="100%" border="0" cols="6" summary="Table displays accounts whose access can be managed.">
-	<tr bgcolor="##999999">
-		<th align="left" scope="col">Edit User</th>
-		<th align="left" scope="col">Last Name</th>
-		<th align="left" scope="col">First Name</th>
-		<th align="left" scope="col">Username</th>
-		<th align="left" scope="col">Center</th>
-		<th align="left" scope="col">Status</th>
+<table class="table table-striped table-bordered table-condensed" summary="Table displays accounts whose access can be managed.">
+	<tr>
+		<th>Edit User</th>
+		<th>Last Name</th>
+		<th>First Name</th>
+		<th>Username</th>
+		<th>Center</th>
+		<th>Status</th>
 	</tr>
 	<cfloop query="get_user_information">
-	<cfif currentrow MOD 2>
-		<cfset variables.row_color="eeeeee">
-	<cfelse>
-		<cfset variables.row_color="dddddd">
-	</cfif>
-	<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';">
+	<tr>
 		<td><cfinput type="checkbox" name="user_account_id" id="user_account_id_#user_account_id#" value="#user_account_id#" required="yes" message="Please choose at least one user to administer." /></td>
 		<td>#last_name#</td>
 		<td>#first_name#</td>
@@ -69,6 +63,5 @@ Filter: <cfloop query="get_ref_account_status"> <a href="javascript:status_filte
 		</td>
 	</tr>
 </table>
-</div>
 </cfform>
 </cfoutput> 

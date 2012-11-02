@@ -21,32 +21,30 @@
 </fusedoc>
 --->
 
+<cfset variables.assigned_module_id=valuelist(get_user_module_access.module_id)>
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="view_user_access" fuseaction="Administration.view_user_access" field_name="user_account_id" field_value="">
-
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="Table displays managing user access">
-	<tr>
-		<th align="left">
-			<h2 style="margin:0px" id="top-side"><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit Access</h2>
-		</th>
-	</tr>
-</table>
-
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_nsm_privileges" fuseaction="Administration.edit_nsm_privileges" field_name="module_id" field_value="" processform="1" field2_name="user_account_id" field2_value="#attributes.user_account_id#" program_year_id="#attributes.program_year_id#">
 
-<cfset variables.assigned_module_id=valuelist(get_user_module_access.module_id)>
+<cfoutput>
+<ul class="breadcrumb">
+  <li><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> <span class="divider">/</span></li>
+  <li><a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> <span class="divider">/</span></li>
+  <li class="active">Edit Access</li>
+</ul>
+<a href="javascript:administer_user_menu('#attributes.user_account_id#');" class="btn">Manage User's Profile</a> <a href="javascript:view_user_activity('#attributes.user_account_id#');" class="btn">View User Activity</a><br />
+<cfif isdefined("attributes.access_administration_type")>
+	<div class="alert alert-info">Module access changes have been applied</div>
+</cfif>
+<div class="alert alert-info">
+	<p>You are administering user access for: 
+		<ul>
+			<cfloop query="get_user_information"><li>#first_name# #last_name#</li></cfloop>
+		</ul>
+	</p>
+</div>
+</cfoutput>
+
 <cfform name="specify_module_for_nsm_edit" action="index.cfm?fuseaction=Administration.edit_navigation_access" method="post">
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="This table describes the table that houses the administering user access form below">
-	<cfif isdefined("attributes.access_administration_type")>
-	<tr>
-		<td>Module access changes have been applied</td>
-	</tr>
-	</cfif>
-	<tr class="alt_list1">
-		<th>
-			You are administering module access for: <cfoutput query="get_user_information">#first_name# #last_name#<cfif currentrow NEQ recordcount>, </cfif></cfoutput>
-		</th>
-	</tr>
-</table>
 <div class="datachart" style="border:1px solid #999999">
 <table width="100%" border="0" cellspacing="1" cellpadding="4" summary="Table used to give user permissions">
 	<tr bgcolor="#808080">

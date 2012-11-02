@@ -22,13 +22,10 @@
 --->
 <cfset variables.show_button_ind=1>
 
-<table cellpadding="0" cellspacing="0" border="0" summary="Breadcrumb navigation for managing the NSM structure">
-	<tr>
-		<th align="left"><h2 style="margin:0px"><a href="index.cfm?fuseaction=Administration.manage_nsm_structure">Manage hierarchy Structure</a> &gt; Edit hierarchy Entities</h2>
-		</th>
-	</tr>
-</table><img src="images/spacer.gif" alt="" width="560" height="1" /><br />
-
+<ul class="breadcrumb">
+  <li><a href="index.cfm?fuseaction=Administration.manage_nsm_structure">Manage hierarchy Structure</a> <span class="divider">/</span></li>
+  <li class="active">Edit hierarchy Entities</li>
+</ul>
 <cfform name="form_edit_nsm_entity" action="index.cfm?fuseaction=Administration.edit_nsm_entity" method="post">
 <div class="datachart" style="border:1px solid ##999999">
 <table border="0" cellspacing="1" cellpadding="4" summary="Table displays edit entity information">

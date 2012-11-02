@@ -38,11 +38,10 @@
 	<cfset attributes.fund_id=get_ref_fund.fund_id>
 </cfif>
 
-<table cellpadding="0" cellspacing="0" border="0" summary="Table displays funds to edit">
-	<tr>
-		<th align="left"><h2 style="margin:0px" id="top-side"><a href="index.cfm?fuseaction=Administration.fund_control_welcome">Fund Control</a> &gt; Add New Fund</h2></th>
-	</tr>
-</table>
+<ul class="breadcrumb">
+  <li><a href="index.cfm?fuseaction=Administration.fund_control_welcome">Fund Control</a> <span class="divider">/</span></li>
+  <li class="active">Add New Fund</li>
+</ul>
 <cfform name="form_REF_Fund_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
 <div class="datachart" style="border:1px solid ##999999">
 <table cellspacing="1" cellpadding="4" width="100%" border="0" bgcolor="##cccccc" summary="table head describes the data held in the table within this table">

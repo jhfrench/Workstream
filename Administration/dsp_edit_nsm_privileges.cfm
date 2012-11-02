@@ -22,14 +22,12 @@
 --->
 <cfsetting requesttimeout="3000">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="view_user_access" fuseaction="Administration.view_user_access" field_name="user_account_id" field_value="" field2_name="program_year_id" field2_value="#attributes.program_year_id#">
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="navigation crumbs">
-	<tr>
-		<th align="left">
-			<h2 style="margin:0px"><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit hierarchy Access</h2>
-		</th>
-	</tr>
-</table>
 
+<ul class="breadcrumb">
+  <li><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> <span class="divider">/</span></li>
+  <li><a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> <span class="divider">/</span></li>
+  <li class="active">Edit hierarchy Access</li>
+</ul>
 <cfif isdefined("attributes.organization_id") AND len(attributes.organization_id)>
 	<cfinclude template="../common_files/act_hierarchy_breadcrumbs.cfm">
 </cfif>

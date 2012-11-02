@@ -28,11 +28,7 @@
 <cfset variables.module="">
 <cfset variables.business_function="">
 
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the table witing ">
-	<tr>
-		<th align="left"><h2 style="margin:0px" id="top-side">Requirements Document</h2></th>
-	</tr>
-</table>
+<h2 style="margin:0px" id="top-side">Requirements Document</h2>
 
 <div class="datachart" style="border:1px solid ##999999">
 <table width="98%" cellpadding="8" cellspacing="0" border="0" summary="table displays requriemnets documents">

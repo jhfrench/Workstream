@@ -23,14 +23,13 @@
 --->
 
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="view_user_access" fuseaction="Administration.view_user_access" field_name="user_account_id" field_value="">
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the data held in the table below">
-	<tr>
-		<th align="left">
-			<h2 style="margin:0px">Manage Users &gt; <a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; <a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> &gt; Edit hierarchy Access</h2>
-		</th>
-	</tr>
-</table>
 
+<ul class="breadcrumb">
+  <li>Manage Users <span class="divider">/</span></li>
+  <li><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> <span class="divider">/</span></li>
+  <li><a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> <span class="divider">/</span></li>
+  <li class="active">Edit hierarchy Access</li>
+</ul>
 <cfform name="specify_module_for_nsm_edit" action="index.cfm?fuseaction=Administration.edit_nsm_privileges" method="post">
 <div class="datachart" style="border:1px solid #999999">
 <table width="100%" border="0" cellspacing="1" cellpadding="4" summary="Table contains user information">

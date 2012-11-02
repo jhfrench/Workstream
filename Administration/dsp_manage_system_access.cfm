@@ -21,13 +21,7 @@
 </fusedoc>
 --->
 <cfoutput>
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the data held in the table below">
-	<tr>
-		<th align="left">
-			<h2 style="margin:0px" id="top-side">Manage System Access</h2>
-		</th>
-	</tr>
-</table>
+<h2 id="top-side">Manage System Access</h2>
 <form name="form_manage_system_access" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
 <div class="datachart" style="border:1px solid ##999999">
 <table cellpadding="3" cellspacing="0" width="100%" border="0" summary="Title of the form held in this table is Manage System Access">

@@ -25,31 +25,40 @@
 --->
 
 <cfoutput>
-<h2 style="margin:0px" id="top-side"><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> &gt; View User Activity &gt; #get_user_information.first_name# #get_user_information.last_name#</h2>
-<a href='javascript:edit_navigation_access(#attributes.user_account_id#);'>Manage User's Access</a><br />
-<a href="javascript:administer_user_menu('#attributes.user_account_id#');">Manage User's Profile</a><p />
+<ul class="breadcrumb">
+  <li><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> <span class="divider">/</span></li>
+  <li>View User Activity <span class="divider">/</span></li>
+  <li class="active">#get_user_information.first_name# #get_user_information.last_name#</li>
+</ul>
+<a href="javascript:edit_navigation_access(#attributes.user_account_id#);" class="btn">Manage User's Access</a>
+<a href="javascript:administer_user_menu('#attributes.user_account_id#');" class="btn">Manage User's Profile</a><br />
 
-<cfform name="" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="I provide date options." align="left">
-	<tr>
-		<td><label for="start_date">Start date</label></td>
-		<td>
-			<input type="date" name="start_date" id="start_date" value="#dateformat(attributes.start_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
-		</td>
-		<td><label for="end_date">End date</label></td>
-		<td>
-			<input type="date" name="end_date" id="end_date" value="#dateformat(attributes.end_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
-		</td>
-		<td><input type="submit" value="Submit" /></td>
-	</tr>
-</table>
-<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
+<cfform name="#attributes.fuseaction#" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
+	<fieldset>
+		<legend><h3>Edit User</h3></legend>
+		<div class="control-group">
+			<label class="control-label" for="start_date">Start Date</label>
+			<div class="controls">
+				<input type="date" name="start_date" id="start_date" value="#dateformat(attributes.start_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="end_date">End Date</label>
+			<div class="controls">
+				<input type="date" name="end_date" id="end_date" value="#dateformat(attributes.end_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
+			</div>
+		</div>
+		<div class="form-actions">
+			<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
+			<input type="submit" name="method" value="Update Data" class="btn btn-primary" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
+		</div>
+	</fieldset>
 </cfform>
 
 <!---display known login attempts--->
-<div class="datachart" style="border:1px solid ##999999">
-<h3 style="margin:0px" id="top-side">User's last 100 known login attempts<cfif isdate(attributes.start_date) AND isdate(attributes.end_date)> between #dateformat(attributes.start_date, "m/d/yyyy")# and #dateformat(attributes.end_date, "m/d/yyyy")#</cfif></h3>
-<table width="100%" cellpadding="0" cellspacing="0" border="0" cols="3" summary="I show the user's last 100 known login attempts." align="left">
+<table id="manage_user_profiles_table" class="table table-striped table-bordered table-condensed" summary="I show the user's last 100 known login attempts.">
+	<caption><h3 id="top-side">User's last 100 known login attempts<cfif isdate(attributes.start_date) AND isdate(attributes.end_date)> between #dateformat(attributes.start_date, "m/d/yyyy")# and #dateformat(attributes.end_date, "m/d/yyyy")#</cfif></h3></caption>
 	<thead>
 		<tr>
 			<th>Date/Time of Attempt</th>
@@ -59,12 +68,7 @@
 	</thead>
 	<tbody>
 	<cfloop query="get_user_login_attempts" startrow="1" endrow="100">
-	<cfif currentrow MOD 2>
-		<cfset variables.row_color="eeeeee">
-	<cfelse>
-		<cfset variables.row_color="dddddd">
-	</cfif>
-		<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';">
+		<tr>
 			<td scope="row">#created_date#</td>
 			<td>#success_status#</td>
 			<td>#account_status#</td>
@@ -75,8 +79,8 @@
 <br />
 <hr />
 <!---display favorite pages (other than log-in and log-out)--->
-<h3 style="margin:0px" id="top-side">User's 10 favorite pages</h3>
-<table width="100%" cellpadding="0" cellspacing="0" border="0" cols="2" summary="I show the user's top 10 pages (other than login and logout)." align="left">
+<table id="manage_user_profiles_table" class="table table-striped table-bordered table-condensed" summary="I show the user's top 10 pages (other than login and logout).">
+	<caption><h3 style="margin:0px" id="top-side">User's 10 favorite pages</h3></caption>
 	<thead>
 		<tr>
 			<th>url_requested</th>
@@ -85,12 +89,7 @@
 	</thead>
 	<tbody>
 	<cfloop query="get_favorite_pages" startrow="1" endrow="10">
-	<cfif currentrow MOD 2>
-		<cfset variables.row_color="eeeeee">
-	<cfelse>
-		<cfset variables.row_color="dddddd">
-	</cfif>
-		<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';">
+		<tr>
 			<td scope="row">#url_requested#</td>
 			<td>#count1#</td>
 		</tr>
@@ -100,8 +99,8 @@
 <br />
 <hr />
 <!---display favorite hours--->
-<h3 style="margin:0px" id="top-side">User's most active hours</h3>
-<table width="100%" cellpadding="0" cellspacing="0" border="0" cols="2" summary="I show the user's most active hours." align="right">
+<table id="manage_user_profiles_table" class="table table-striped table-bordered table-condensed" summary="I show the user's most active hours.">
+	<caption><h3 style="margin:0px" id="top-side">User's most active hours</h3></caption>
 	<thead>
 		<tr>
 			<th>request_hour</th>
@@ -110,12 +109,7 @@
 	</thead>
 	<tbody>
 	<cfloop query="get_favorite_hours" startrow="1" endrow="10">
-	<cfif currentrow MOD 2>
-		<cfset variables.row_color="eeeeee">
-	<cfelse>
-		<cfset variables.row_color="dddddd">
-	</cfif>
-		<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';">
+		<tr>
 			<td scope="row">#request_hour#</td>
 			<td>#count1#</td>
 		</tr>
@@ -125,8 +119,8 @@
 <br />
 <hr />
 <!---display count trend by week--->
-<h3 style="margin:0px" id="top-side">Week trend of activity</h3>
-<table width="100%" cellpadding="0" cellspacing="0" border="0" cols="2" summary="I show the user's top 10 pages (other than login and logout).">
+<table id="manage_user_profiles_table" class="table table-striped table-bordered table-condensed" summary="I show the user's top 10 pages (other than login and logout).">
+	<caption><h3 style="margin:0px" id="top-side">Week trend of activity</h3></caption>
 	<thead>
 		<tr>
 			<th>week</th>
@@ -135,12 +129,7 @@
 	</thead>
 	<tbody>
 	<cfloop query="get_week_trend">
-	<cfif currentrow MOD 2>
-		<cfset variables.row_color="eeeeee">
-	<cfelse>
-		<cfset variables.row_color="dddddd">
-	</cfif>
-		<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';">
+		<tr>
 			<td scope="row">#date_year# #date_week#</td>
 			<td>#count1#</td>
 		</tr>
@@ -150,8 +139,8 @@
 <br />
 <hr />
 <!---display probable error incidents--->
-<h3 style="margin:0px" id="top-side">Probable errors</h3>
-<table width="100%" cellpadding="0" cellspacing="0" border="0" cols="3" summary="I show the user's most recent page requests that probably resulted in errors." align="right">
+<table id="manage_user_profiles_table" class="table table-striped table-bordered table-condensed" summary="I show the user's most recent page requests that probably resulted in errors.">
+	<caption><h3 style="margin:0px" id="top-side">Probable errors</h3></caption>
 	<thead>
 		<tr>
 			<th>page_request_id</th>
@@ -161,12 +150,7 @@
 	</thead>
 	<tbody>
 	<cfloop query="get_probable_errors">
-	<cfif currentrow MOD 2>
-		<cfset variables.row_color="eeeeee">
-	<cfelse>
-		<cfset variables.row_color="dddddd">
-	</cfif>
-		<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';">
+		<tr>
 			<td scope="row">#page_request_id#</td>
 			<td>#url_requested#</td>
 			<td>#dateformat(request_date, "m/d/yyyy")#&nbsp;#request_time#</td>
@@ -177,8 +161,8 @@
 <br />
 <hr />
 <!---display table of all data--->
-<h3 style="margin:0px" id="top-side">All page requests</h3>
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="I show user activity for the specified dates (or last 60 days if no dates are specified)">
+<table id="manage_user_profiles_table" class="table table-striped table-bordered table-condensed" summary="I show user activity for the specified dates (or last 60 days if no dates are specified)">
+	<caption><h3 style="margin:0px" id="top-side">All page requests</h3></caption>
 	<thead>
 		<tr>
 			<th>page_request_id</th>
@@ -189,12 +173,7 @@
 	</thead>
 	<tbody>
 	<cfloop query="get_view_user_activity">
-	<cfif currentrow MOD 2>
-		<cfset variables.row_color="eeeeee">
-	<cfelse>
-		<cfset variables.row_color="dddddd">
-	</cfif>
-		<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';">
+		<tr>
 			<td scope="row">#page_request_id#</td>
 			<td>#url_requested#</td>
 			<td>#page_load_time#</td>
@@ -203,5 +182,4 @@
 	</cfloop>
 	</tbody>
 </table>
-</div>
 </cfoutput>

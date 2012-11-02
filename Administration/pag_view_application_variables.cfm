@@ -133,8 +133,13 @@
 		catch (any error_event) {}
 	}
 </cfscript>
-<h2>Administration &gt; System Configuration &gt; View Application Variables</h2>
-<a href="index.cfm?fuseaction=Administration.cause_error">Cause an error</a>
+
+<ul class="breadcrumb">
+  <li>Administration <span class="divider">/</span></li>
+  <li>System Configuration <span class="divider">/</span></li>
+  <li class="active">View Application Variables</li>
+</ul>
+<a href="index.cfm?fuseaction=Administration.cause_error" class="btn btn-danger">Cause an error</a>
 <form name="" action="index.cfm?fuseaction=Administration.view_application_variables" method="post">
 	<input type="checkbox" name="show_application_ind" id="show_application_ind" value="1"<cfif attributes.show_application_ind> checked="checked"</cfif> /><label for="show_application_ind">Show application scope</label><br />
 	<input type="checkbox" name="show_fusebox_ind" id="show_fusebox_ind" value="1"<cfif attributes.show_fusebox_ind> checked="checked"</cfif> /><label for="show_fusebox_ind">Show fusebox variables</label><br />

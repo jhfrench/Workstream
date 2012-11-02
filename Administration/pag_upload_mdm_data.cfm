@@ -27,10 +27,16 @@
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table displays upload MDM structure infor">
 	<tr>
-		<td align="left"><h2 style="margin:0px" id="top-side"><a href="index.cfm?fuseaction=Administration.manage_nsm_structure">Manage NSM Structure</a> &gt; Upload MDM Data</h2>
+		<td align="left"><h2 style="margin:0px" id="top-side"> &gt; </h2>
 		</td>
 	</tr>
-</table><img src="images/spacer.gif" alt="" width="560" height="1"><br />
+</table>
+
+
+<ul class="breadcrumb">
+  <li><a href="index.cfm?fuseaction=Administration.manage_nsm_structure">Manage NSM Structure</a> <span class="divider">/</span></li>
+  <li class="active">Upload MDM Data</li>
+</ul>
 
 <cfif isdefined("attributes.my_file")>
 	<!--- process data, show any entries that did not get uploaded --->
