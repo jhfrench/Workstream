@@ -30,7 +30,7 @@
 <cfparam name="attributes.sort_order" default="0">
 
 <h2>Administer Frequently Asked Questions</h2>
-<p><a href="javascript:edit_listed_help_faq(0);">Add a new <abbr title="Frequently Asked Question">FAQ</abbr></a></p>
+<a href="javascript:edit_listed_help_faq(0);" class="btn">Add a new <abbr title="Frequently Asked Question">FAQ</abbr></a>
 <table cols="5" summary="Table displays frequently asked questions that can be edited" class="table table-striped table-bordered table-condensed">
 	<thead>
 		<tr>

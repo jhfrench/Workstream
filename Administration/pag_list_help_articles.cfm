@@ -23,13 +23,14 @@
 	</IO>
 </fusedoc>
 --->
-<h2>Manage Help Module</h2>
+<h1>Manage Help Module</h1>
+<cfif application.help.article_active_ind>
+	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_listed_help_article" fuseaction="Administration.edit_help_article" field_name="help_article_id">
+	<cfinclude template="qry_get_all_help_articles.cfm">
+	<cfinclude template="dsp_list_help_articles.cfm">
+</cfif>
 <cfif application.help.faq_active_ind>
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_listed_help_faq" fuseaction="Administration.edit_help_faq" field_name="help_faq_id">
 	<cfinclude template="qry_get_all_help_faqs.cfm">
 	<cfinclude template="dsp_list_help_faqs.cfm">
 </cfif>
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_listed_help_article" fuseaction="Administration.edit_help_article" field_name="help_article_id">
-<cfinclude template="qry_get_all_help_articles.cfm">
-<cfinclude template="dsp_list_help_articles.cfm">
-
