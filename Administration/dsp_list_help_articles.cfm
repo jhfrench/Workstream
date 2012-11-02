@@ -37,7 +37,7 @@
 	<tbody>
 		<cfoutput query="get_all_help_articles">
 		<tr>
-			<th scope="row"><a href="javascript:edit_listed_help_article(#help_article_id#);" title="Edit this aticle">#help_article_title#</a></th>
+			<td scope="row"><a href="javascript:edit_listed_help_article(#help_article_id#);" title="Edit this aticle">#help_article_title#</a></td>
 			<td>#first_name# #last_name#</td>
 			<td class="number">#sort_order#</td>
 		</tr>

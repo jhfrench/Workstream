@@ -47,7 +47,7 @@
 			<td scope="column"><a href="javascript:edit_listed_help_faq(#help_faq_id#);" title="Edit this question/answer pair">#question#</a></td>
 			<td>#asked_by#</td>
 			<td>#answered_by#</td>
-			<td>#public_ind#</td>
+			<td><cfif len(public_ind)><i class="icon-ok"></i></cfif><>/td>
 			<td>#sort_order#</td>
 		</tr>
 	</cfoutput>
