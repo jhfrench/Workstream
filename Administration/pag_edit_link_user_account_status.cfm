@@ -52,7 +52,7 @@
   <li class="active">Link User Account Status</li>
 </ul>
 <cfoutput>
-	<cfform name="form_#attributes.fuseaction#" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
+<cfform name="form_#attributes.fuseaction#" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
 	<fieldset>
 		<legend><h3>Activity Criteria</h3></legend>
 		<div class="control-group">
