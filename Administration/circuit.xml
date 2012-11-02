@@ -85,12 +85,6 @@
 	<fuseaction name="edit_navigation_access">
 		<include template="pag_edit_navigation_access.cfm"/>
 	</fuseaction>
-	<fuseaction name="edit_nsm_entity">
-		<include template="pag_edit_nsm_entity.cfm"/>
-	</fuseaction>
-	<fuseaction name="edit_nsm_privileges">
-		<include template="pag_edit_nsm_privileges.cfm"/>
-	</fuseaction>
 	<fuseaction name="edit_ref_account_status">
 		<include template="pag_edit_ref_account_status.cfm"/>
 	</fuseaction>
@@ -175,12 +169,6 @@
 	<fuseaction name="edit_ref_address_type">
 		<include template="pag_edit_ref_address_type.cfm"/>
 	</fuseaction>
-	<fuseaction name="edit_ref_m_p_approval_status">
-		<include template="pag_edit_ref_m_p_approval_status.cfm"/>
-	</fuseaction>
-	<fuseaction name="edit_ref_m_p_status">
-		<include template="pag_edit_ref_m_p_status.cfm"/>
-	</fuseaction>
 	<fuseaction name="edit_system_note">
 		<include template="pag_edit_system_note.cfm"/>
 	</fuseaction>
@@ -214,9 +202,6 @@
 	<fuseaction name="manage_mentor_protege">
 		<include template="pag_manage_mentor_protege.cfm"/>
 	</fuseaction>
-	<fuseaction name="manage_nsm_structure">
-		<include template="pag_manage_nsm_structure.cfm"/>
-	</fuseaction>
 	<fuseaction name="manage_system_access">
 		<include template="pag_manage_system_access.cfm"/>
 	</fuseaction>
@@ -228,9 +213,6 @@
 	</fuseaction>
 	<fuseaction name="manage_vendor_data">
 		<include template="pag_manage_vendor_data.cfm"/>
-	</fuseaction>
-	<fuseaction name="manually_add_nsm">
-		<include template="pag_manually_add_nsm.cfm"/>
 	</fuseaction>
 	<fuseaction name="metrics_report">
 		<include template="pag_metrics_report.cfm"/>
@@ -254,9 +236,6 @@
 	</fuseaction>
 	<fuseaction name="set_deactivated_date">
 		<include template="pag_set_deactivated_date.cfm"/>
-	</fuseaction>
-	<fuseaction name="specify_module_for_nsm_edit">
-		<include template="pag_specify_module_for_nsm_edit.cfm"/>
 	</fuseaction>
 	<fuseaction name="upload">
 		<include template="pag_upload.cfm"/>
