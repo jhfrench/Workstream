@@ -38,19 +38,22 @@ ORDER BY User_Preferences.user_preferences_id
 </cfquery>
 
 <cfif get_user_preferences.recordcount>
-	<cfset session.divisor_to_1=get_user_preferences.divisor_to_1>
-	<cfset session.numeric_format_mask=get_user_preferences.numeric_format_mask>
-	<cfset session.numeric_multiplier_id=get_user_preferences.numeric_multiplier_id>
-	<cfset session.program_year_id=get_user_preferences.program_year_id>
-	<cfset session.text_size=get_user_preferences.text_size>
+	<cfscript>
+		session.divisor_to_1=get_user_preferences.divisor_to_1;
+		session.numeric_format_mask=get_user_preferences.numeric_format_mask;
+		session.numeric_multiplier_id=get_user_preferences.numeric_multiplier_id;
+		session.program_year_id=get_user_preferences.program_year_id;
+		session.text_size=get_user_preferences.text_size;
+	</cfscript>
 <cfelse>
-	<cfset session.divisor_to_1=1>
-	<cfset session.numeric_format_mask="999,999,999,999,999">
-	<cfset session.numeric_multiplier_id=1>
 	<cfinclude template="../common_files/qry_get_current_program_year.cfm">
-	<cfset session.program_year_id=get_current_program_year.program_year_id>
-	<cfset session.text_size="none">
+	<cfscript>
+		session.divisor_to_1=1;
+		session.numeric_format_mask="999,999,999,999,999";
+		session.numeric_multiplier_id=1;
+		session.program_year_id=get_current_program_year.program_year_id;
+		session.text_size="none";
+	</cfscript>
 </cfif>
 
 <cfset caller.get_user_preferences=get_user_preferences>
-<cfoutput><!-- session.numeric_format_mask=#session.numeric_format_mask# --></cfoutput>
