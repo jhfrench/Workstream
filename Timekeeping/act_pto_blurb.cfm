@@ -16,7 +16,7 @@
 
 <cfinclude template="qry_pto_blurb.cfm">
 <cfif pto_blurb.recordcount EQ 0>
-	<cfset variables.pto_blurb="You have no PTO available according to your workstream data.">
+	<cfset variables.pto_blurb="You have no PTO available according to your Workstream data.">
 <cfelse>
 	<cfset variables.remain=pto_blurb.remain>
 	<cfset variables.difference=0>
@@ -72,12 +72,11 @@
 	<cfelse>
 		<cfset variables.pto_blurb="#variables.pto_blurb# Your available PTO for the rest of the year will be up to #decimalformat(variables.remain+variables.hours_earned)# hours.">
 	</cfif>
+</cfif>
 
-	<!--- Send user the the PTO report appropriate to their company --->
-	<cfif session.workstream_company_id EQ 1>
-		<cfset variables.pto_action="pto_accrual_input">
-	<cfelse>
-		<cfset variables.pto_action="pto_input">
-	</cfif>
-
+<!--- Send user the the PTO report appropriate to their company --->
+<cfif session.workstream_company_id EQ 1>
+	<cfset variables.pto_action="pto_accrual_input">
+<cfelse>
+	<cfset variables.pto_action="pto_input">
 </cfif>
