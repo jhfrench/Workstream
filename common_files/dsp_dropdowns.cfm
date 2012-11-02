@@ -48,7 +48,7 @@
 </cfsilent>
 <cfform name="input_form" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">
 <cfoutput>
-<input type="hidden" name="evaluate_task_options" value="1">
+<input type="hidden" name="evaluate_task_options" value="1" />
 <cfif session.workstream_show_options><input type="hidden" name="show_options" value="#session.workstream_show_options#"></cfif>
 <cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>Project<cfelse>Task</cfif> Inbox for <cfmodule template="../common_files/dsp_team_select.cfm" emp_id="#attributes.emp_id#" show_team="1" onchange="form.submit();" fuseaction="#attributes.fuseaction#">
 <cfif session.workstream_show_options>

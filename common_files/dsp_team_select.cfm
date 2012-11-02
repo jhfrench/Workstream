@@ -57,7 +57,7 @@
 		attributes.show_team=0;
 	}
 	if (NOT isdefined("attributes.class")) {
-		attributes.class="SelectText";
+		attributes.class="";
 	}
 	if (NOT isdefined("attributes.selected_flag")) {
 		attributes.selected_flag=1;

@@ -12,29 +12,28 @@
 	$Log$
 	 || 
  --->
+<cfparam name="attributes.notification_cc_id" default="">
+<cfparam name="attributes.notification_to_id" default="">
+<cfparam name="attributes.reminder_cc_id" default="">
+<cfparam name="attributes.status_notification_frequency" default="">
 <cfparam name="attributes.task_qa" default="">
 <cfparam name="attributes.task_team" default=0>
-<cfparam name="attributes.reminder_cc_id" default="">
-<cfparam name="attributes.notification_to_id" default="">
-<cfparam name="attributes.notification_cc_id" default="">
-<cfparam name="attributes.status_notification_frequency" default="">
 </cfsilent>
 
-
-	<!---TASK DETAILS CAN BE EDITED BY THIS PERSON (task owner, supervisor of task owner, task source, or task creator)--->
-	<cfif compare(attributes.task_details,attributes.orig_task_description)>
-		<cfinclude template="qry_update_task_description.cfm">
-	</cfif>
-	<cfif compare(attributes.due_date,attributes.orig_due_date)>
-		<cfinclude template="qry_update_task_due_date.cfm">
-	</cfif>
-	<cfif compare(attributes.priority_id,attributes.orig_priority_id)>
-		<cfinclude template="qry_update_task_priority.cfm">
-	</cfif>
-	<cfif comparenocase(attributes.project_id,"undefined") AND attributes.project_id NEQ attributes.orig_project_id>
-		<cfinclude template="qry_update_task_project_id.cfm">
-	</cfif><!--- 
-	<cfinclude template="qry_update_notification_frequency.cfm"> --->
+<!---TASK DETAILS CAN BE EDITED BY THIS PERSON (task owner, supervisor of task owner, task source, or task creator)--->
+<cfif compare(attributes.task_details,attributes.orig_task_description)>
+	<cfinclude template="qry_update_task_description.cfm">
+</cfif>
+<cfif compare(attributes.due_date,attributes.orig_due_date)>
+	<cfinclude template="qry_update_task_due_date.cfm">
+</cfif>
+<cfif compare(attributes.priority_id,attributes.orig_priority_id)>
+	<cfinclude template="qry_update_task_priority.cfm">
+</cfif>
+<cfif comparenocase(attributes.project_id,"undefined") AND attributes.project_id NEQ attributes.orig_project_id>
+	<cfinclude template="qry_update_task_project_id.cfm">
+</cfif><!--- 
+<cfinclude template="qry_update_notification_frequency.cfm"> --->
 
 <cfif compare(attributes.task_owner,attributes.orig_owner)>
 	<cfinclude template="qry_update_task_owner.cfm">

@@ -40,12 +40,12 @@
 	<cfset from_invoice=0>
 </cfif>
 <cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id,"|") GT 1>
-	<cfset attributes.Inbox_owner = listlast(attributes.emp_id,"|")>
+	<cfset attributes.inbox_owner = listlast(attributes.emp_id,"|")>
 	<cfset attributes.emp_id=listdeleteat(attributes.emp_id, "2","|")>
 </cfif>
 
-<cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id) GT 1 AND ListFind(session.workstream_task_list_order, "task_owner")>
-	<cfset variables.temp_task_list_order=listdeleteat(session.workstream_task_list_order, ListFind(session.workstream_task_list_order, "task_owner"))>
+<cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id) GT 1 AND listfind(session.workstream_task_list_order, "task_owner")>
+	<cfset variables.temp_task_list_order=listdeleteat(session.workstream_task_list_order, listfind(session.workstream_task_list_order, "task_owner"))>
 <cfelse>
 	<cfset variables.temp_task_list_order=session.workstream_task_list_order>
 </cfif>
@@ -74,15 +74,15 @@ FROM Task, Team, Emp_Contact,
 					WHERE 1=1<cfif NOT from_invoice>
 						AND Team.emp_id IN (<cfif isdefined("attributes.emp_id")><cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.emp_id#" /><cfelse><cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" list="yes" /></cfif>)
 						AND (
-							(
-								Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>)
-								AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>10) /*completed, on hold, prospective*/
-							)
-							OR (
-								Team.role_id=3 /* QA */
-								AND Task.status_id=3 /* QA */
-							)
-						)</cfif>
+								(
+									Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>)
+									AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>10) /*completed, on hold, prospective*/
+								)
+								OR (
+									Team.role_id=3 /* QA */
+									AND Task.status_id=3 /* QA */
+								)
+							)</cfif>
 					GROUP BY Task.task_id, REF_Priority.description
 				) AS Valid_Tasks, Task, REF_Icon
 				WHERE Valid_Tasks.task_id=Task.task_id
