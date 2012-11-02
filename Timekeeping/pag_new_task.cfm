@@ -14,23 +14,23 @@
 	Variables:
 	END FUSEDOC --->
 </cfsilent>
-<cfparam name="session.workstream_last_loaded" default="#now()#">
+<cfparam name="session.workstream_last_loaded" default="#now()#" />
 <cfif isdefined("attributes.last_loaded") AND session.workstream_last_loaded NEQ attributes.last_loaded>
 	<cfinclude template="act_create_new_task.cfm">
 	<cfmodule template="act_send_notification.cfm" note_type="new_task" task_id="#attributes.task_id#">
 	<cfset session.workstream_last_loaded=attributes.last_loaded>
-		<cfif isdefined("attributes.to_inbox") AND len(attributes.to_inbox)>
-			<cflocation url="index.cfm?fuseaction=Timekeeping.task_list" addtoken="No">
-		<cfelseif isdefined("attributes.to_edit") AND len(attributes.to_edit)>
-			<form name="to_edit" action="index.cfm?fuseaction=Timekeeping.task_details" method = "post">
-				<input type="hidden" name="task_id" value="<cfoutput>#insert_new_task.task_id#</cfoutput>">
-			</form>
-			<script language="JavaScript" type="text/javascript">
-		    <!--
-		    	document.to_edit.submit();
-		    //-->
-		    </SCRIPT>
-		</cfif>
+	<cfif isdefined("attributes.to_inbox") AND len(attributes.to_inbox)>
+		<cflocation url="index.cfm?fuseaction=Timekeeping.task_list" addtoken="No">
+	<cfelseif isdefined("attributes.to_edit") AND len(attributes.to_edit)>
+		<form name="to_edit" action="index.cfm?fuseaction=Timekeeping.task_details" method = "post">
+			<input type="hidden" name="task_id" value="<cfoutput>#insert_new_task.task_id#</cfoutput>">
+		</form>
+		<script language="JavaScript" type="text/javascript">
+	    <!--
+	    	document.to_edit.submit();
+	    //-->
+	    </SCRIPT>
+	</cfif>
 <cfelse>
 	<cfinclude template="dsp_no_new_task.cfm">
 </cfif>

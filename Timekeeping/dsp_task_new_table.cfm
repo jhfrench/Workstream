@@ -34,7 +34,7 @@
 </div>
 <div class="row-fluid">
 	<div class="span12">
-		<input type="hidden" name="last_loaded" value="#now()#" />
+		<input type="hidden" name="last_loaded" value="<cfoutput>#now()#</cfoutput>" />
 		<input type="hidden" name="to_inbox" value="" />
 		<input type="hidden" name="to_edit" value="" />
 		<div class="btn-group">
