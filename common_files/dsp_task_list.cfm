@@ -43,7 +43,7 @@
 <cfset variables.status_message=jsstringformat(task_name)>
 	<tr>
 		<td scope="row" class="number"">#task_id#</td>
-		<td>#task_owner#</td>
+		<td><abbre title="#task_owner_full#">#task_owner#</abbr></td>
 		<td><a href="javascript:list_to_task('#task_id#');" title="View time details for #variables.status_message#."><i class="#task_icon#" title="#ReplaceList(task_description, variables.quote, variables.status_message_replace_with)#"></i>#task_name#</a></td>
 		<td>#project_name#</td>
 		<td>#priority#</td>

@@ -33,11 +33,11 @@
 	<-- time_used: total amount of time recorded towards completion of the task
  --->
 <cfif isdefined("attributes.ignore_owner")>
-	<cfset from_invoice=1>
+	<cfset variables.from_invoice=1>
 	<cfset attributes.month=listfirst(ignore_owner,"|")>
 	<cfset attributes.year=listlast(ignore_owner,"|")>
 <cfelse>
-	<cfset from_invoice=0>
+	<cfset variables.from_invoice=0>
 </cfif>
 <cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id,"|") GT 1>
 	<cfset attributes.inbox_owner = listlast(attributes.emp_id,"|")>
@@ -54,14 +54,15 @@
 SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id, 
 	Task.name AS task_name, COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS time_budgeted,
 	Task.status_id, Task_Details.time_used, Task_Details.task_icon, 
-	Task_Details.percent_time_used, Task_Details.task_owner,
+	Task_Details.percent_time_used, Task_Details.task_owner, Task_Details.task_owner_full,
 	(CASE WHEN Task.status_id IN (3,8) /* QA, UAT */ THEN Task_Details.task_status || ' by ' || Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
 	(Customer.description || '-' || Project.description) AS project_name, priority
 FROM Task, Team, Emp_Contact,
 	Customer, Project, Link_Project_Company, (
 		SELECT Path.task_id, COALESCE(Recorded_Hours.hours_used,0) AS time_used, Path.class_name AS task_icon, 
-			(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
-			REF_Status.status AS task_status, Emp_Contact.lname AS task_owner, priority
+			(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
+			REF_Status.status AS task_status, Emp_Contact.lname AS task_owner, (Emp_Contact.lname || ', ' || Emp_Contact.name) AS task_owner_full,
+			priority
 		FROM Task, REF_Status, Team,
 			Emp_Contact, (
 				SELECT Valid_Tasks.task_id, REF_Icon.class_name, priority
@@ -71,27 +72,27 @@ FROM Task, Team, Emp_Contact,
 						INNER JOIN REF_Priority on Task.priority_id=REF_Priority.priority_id
 						INNER JOIN Team ON Task.task_id=Team.task_id
 							AND Team.active_ind=1
-					WHERE 1=1<cfif NOT from_invoice>
+					WHERE 1=1<cfif NOT variables.from_invoice>
 						AND Team.emp_id IN (<cfif isdefined("attributes.emp_id")><cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.emp_id#" /><cfelse><cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" list="yes" /></cfif>)
 						AND (
-								(
-									Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>)
-									AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>10) /*completed, on hold, prospective*/
-								)
-								OR (
-									Team.role_id=3 /* QA */
-									AND Task.status_id=3 /* QA */
-								)
-							)</cfif>
+							(
+								Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>)
+								AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>10) /*completed, on hold, prospective*/
+							)
+							OR (
+								Team.role_id=3 /* QA */
+								AND Task.status_id=3 /* QA */
+							)
+						)</cfif>
 					GROUP BY Task.task_id, REF_Priority.description
 				) AS Valid_Tasks, Task, REF_Icon
 				WHERE Valid_Tasks.task_id=Task.task_id
 					AND REF_Icon.icon_id=Task.icon_id
 			) AS Path
-			<cfif from_invoice>INNER<cfelse>LEFT OUTER</cfif> JOIN (
+			<cfif variables.from_invoice>INNER<cfelse>LEFT OUTER</cfif> JOIN (
 				SELECT task_id, SUM(hours) AS hours_used
 				FROM Time_Entry
-				WHERE Time_Entry.active_ind=1<cfif from_invoice>
+				WHERE Time_Entry.active_ind=1<cfif variables.from_invoice>
 					AND EXTRACT(MONTH FROM Time_Entry.work_date)=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.month#" />
 					AND EXTRACT(YEAR FROM Time_Entry.work_date)=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.year#" /></cfif>
 				GROUP BY task_id
