@@ -1,26 +1,26 @@
+<!-- Customers/index.cfm
+	Author: Jeromy French -->
+<!---
+<fusedoc language="ColdFusion MX" specification="2.0" template="index.cfm">
+	<responsibilities>
+		I am an empty page that redirects the user to the main index.cfm page (and login screen). My primary purpose is to prevent directory listing.
+	</responsibilities>
+	<properties>
+		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/19/2007" role="FuseCoder" comments="Created File">
+			$Id:$
+		</history>
+	</properties>
+	<IO>
+		<in>
 
-<!--Customers/index.cfm
-	Author: Jeromy F -->
-<cfsilent>
-	<!-- FUSEDOC
-	||
-	Responsibilities: I am the FUSEBOX for the Customers module of workstream. 
+		</in>
+		<passthrough>
 
-	||
-	Edits:
-	$Log$
-	||
-	Variables:
-	--> attributes.fuseaction: string, usually defined in the url, that dictates which page to display.
-	<-- request.pagetitle: string that is used as a part of the HTML page title
-	END FUSEDOC --->
-<cfswitch expression="#attributes.fuseaction#">
-<!-- Begin Default Case --->
-	<cfdefaultcase>
-		<set name="request.pagetitle" value="customers">
-		<include template="pag_customers.cfm">
-	</cfdefaultcase>
-</cfswitch>
-</cf_bodycontent>
-<include template="../common_files/app_layout.cfm">
+		</passthrough>
+		<out>
 
+		</out>
+	</IO>
+</fusedoc>
+--->
+<cflocation url="../index.cfm?fuseaction=Home.login&requested_page=#application.fusebox.defaultfuseaction#" addtoken="no">
