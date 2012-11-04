@@ -35,24 +35,11 @@
 </cfsilent>
 
 <cfinclude template="qry_get_editing_privileges.cfm">
+<cfinclude template="qry_update_task.cfm">
 <cfif get_editing_privileges.recordcount>
-	<!---TASK DETAILS CAN BE EDITED BY THIS PERSON (task owner, supervisor of task owner, task source, or task creator)--->
-	<cfif compare(attributes.task_description,attributes.orig_task_description)>
-		<cfinclude template="qry_update_task_description.cfm">
-	</cfif>
-	<cfif compare(attributes.task_name,attributes.orig_task_name)>
-		<cfinclude template="qry_update_task_name.cfm">
-	</cfif>
-	<cfif compare(attributes.due_date,attributes.orig_due_date)>
-		<cfinclude template="qry_update_task_due_date.cfm">
-	</cfif>
-	<cfif compare(attributes.priority_id,attributes.orig_priority_id)>
-		<cfinclude template="qry_update_task_priority.cfm">
-	</cfif>
 	<cfif comparenocase(attributes.project_id,"undefined") AND attributes.project_id NEQ attributes.orig_project_id>
 		<cfinclude template="qry_update_task_project_id.cfm">
-	</cfif><!--- 
-	<cfinclude template="qry_update_notification_frequency.cfm"> --->
+	</cfif>
 </cfif>
 
 <cfif compare(attributes.task_owner,attributes.orig_owner)>
@@ -66,49 +53,9 @@
 	<cfinclude template="qry_update_task_qa.cfm">
 </cfif>
 <cfif compare(attributes.task_status,attributes.orig_task_status_id)>
-	<cfinclude template="qry_update_task_status.cfm">
-	<cfswitch expression="#attributes.task_status#">
-		<cfcase value="3">
-			<cfmodule template="act_send_notification.cfm" note_type="qa_ready" task_id="#attributes.task_id#">
-		</cfcase>
-		<cfcase value="4">
-			<cfmodule template="act_send_notification.cfm" note_type="needs_work" task_id="#attributes.task_id#">
-		</cfcase>
-		<cfcase value="7">
-			<cfmodule template="act_send_notification.cfm" note_type="completed" task_id="#attributes.task_id#">
-		</cfcase>
-		<cfcase value="8">
-			<cfmodule template="act_send_notification.cfm" note_type="qa_review_sandbox_ready" task_id="#attributes.task_id#">
-		</cfcase>
-
-		<cfcase value="5">
-			<cfmodule template="act_send_notification.cfm" note_type="qa_review_test_failed" task_id="#attributes.task_id#">
-		</cfcase>
-
-		<cfcase value="19">
-			<cfmodule template="act_send_notification.cfm" note_type="qa_review_test_passed" task_id="#attributes.task_id#">
-		</cfcase>
-
-		<cfcase value="20">
-			<cfmodule template="act_send_notification.cfm" note_type="qa_review_sandbox_passed" task_id="#attributes.task_id#">
-		</cfcase>
-
-		<cfcase value="21">
-			<cfmodule template="act_send_notification.cfm" note_type="implement_ready_test" task_id="#attributes.task_id#">
-		</cfcase>
-
-		<cfcase value="23">
-			<cfmodule template="act_send_notification.cfm" note_type="implement_ready_sandbox" task_id="#attributes.task_id#">
-		</cfcase>
-
-		<cfcase value="24">
-			<cfmodule template="act_send_notification.cfm" note_type="implement_ready_production" task_id="#attributes.task_id#">
-		</cfcase>
-	</cfswitch>
+	<cfmodule template="act_send_notification.cfm" task_status="#attributes.task_status#" task_id="#attributes.task_id#">
 </cfif>
-<cfif compare(attributes.icon_id,attributes.orig_icon_id)>
-	<cfinclude template="qry_update_task_icon.cfm">
-</cfif>
+
 <cfif (compare(attributes.reminder_days,attributes.orig_reminder_days)) OR (compare(attributes.task_owner,attributes.orig_owner))>
 <!---If the owner or number of days changes--->
 	<cfinclude template="qry_update_task_reminder_days.cfm">

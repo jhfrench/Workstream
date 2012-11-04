@@ -34,4 +34,3 @@ WHERE Time_Entry.active_ind=1
 	);
 </cfquery>
 </cfsilent>
-

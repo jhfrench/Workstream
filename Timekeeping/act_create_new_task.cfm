@@ -37,4 +37,3 @@ WHERE task_id=0
 	<cfset attributes.base_task_id=attributes.task_id>
 	<cfinclude template="../common_files/qry_task_attach.cfm">
 </cfif>
-

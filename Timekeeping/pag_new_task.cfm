@@ -17,7 +17,7 @@
 <cfparam name="session.workstream_last_loaded" default="#now()#" />
 <cfif isdefined("attributes.last_loaded") AND session.workstream_last_loaded NEQ attributes.last_loaded>
 	<cfinclude template="act_create_new_task.cfm">
-	<cfmodule template="act_send_notification.cfm" note_type="new_task" task_id="#attributes.task_id#">
+	<cfmodule template="act_send_notification.cfm" task_status="1" task_id="#attributes.task_id#">
 	<cfset session.workstream_last_loaded=attributes.last_loaded>
 	<cfif isdefined("attributes.to_inbox") AND len(attributes.to_inbox)>
 		<cflocation url="index.cfm?fuseaction=Timekeeping.task_list" addtoken="No">

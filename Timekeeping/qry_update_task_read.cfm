@@ -20,4 +20,3 @@ WHERE task_read_ind=0
 	AND task_id=#attributes.task_id#
 </cfquery>
 </cfsilent>
-

@@ -15,99 +15,104 @@
 	--> attributes.task_id: number that uniquely identifies a task
  --->
  <cfset variables.user_identification=session.user_account_id>
-<cfswitch expression="#attributes.note_type#">
-	<cfcase value="completed">
-		<cfset variables.email_subject_prefix="Completed workstream Task">
-		<cfset variables.notification_text="has been marked complete">
-		<cfset variables.sender_type=3>
-		<cfset variables.receiver_type="1,5">
-	</cfcase>
-	<cfcase value="needs_work">
-		<cfset variables.email_subject_prefix="workstream Task Needs Work">
-		<cfset variables.notification_text="has failed QA">
-		<cfset variables.sender_type=3>
-		<cfset variables.receiver_type=1>
-	</cfcase>
-	<cfcase value="new_task">
-		<cfset variables.email_subject_prefix="New workstream Task">
+<cfswitch expression="#attributes.task_status#">
+	
+	<cfcase value="1">
+		<cfset variables.email_subject_prefix="New Workstream Task">
 		<cfset variables.notification_text="has been created">
 		<cfset variables.sender_type=5>
 		<cfset variables.receiver_type=1>
 	</cfcase>
-	<cfcase value="new_owner">
-		<cfset variables.email_subject_prefix="Reassigned workstream Task">
-		<cfset variables.notification_text="has been assigned to you">
-		<cfset variables.sender_type=5>
-		<cfset variables.receiver_type=1>
-	</cfcase>
-	<cfcase value="qa_ready">
-		<cfset variables.email_subject_prefix="Please QA workstream Task">
+	
+	<cfcase value="3">
+		<cfset variables.email_subject_prefix="Please QA Workstream Task">
 		<cfset variables.notification_text="is ready for QA">
 		<cfset variables.sender_type=1>
 		<cfset variables.receiver_type=3>
 	</cfcase>
+	
+	<cfcase value="4">
+		<cfset variables.email_subject_prefix="Workstream Task Needs Work">
+		<cfset variables.notification_text="has failed QA">
+		<cfset variables.sender_type=3>
+		<cfset variables.receiver_type=1>
+	</cfcase>
+	
+	<cfcase value="7">
+		<cfset variables.email_subject_prefix="Completed Workstream Task">
+		<cfset variables.notification_text="has been marked complete">
+		<cfset variables.sender_type=3>
+		<cfset variables.receiver_type="1,5">
+	</cfcase>
 
 	<!--- Needs QA Review in Sandbox--->
-	<cfcase value="qa_review_sandbox_ready">
-		<cfset variables.email_subject_prefix="Please QA workstream Task in Sandbox">
+	<cfcase value="8">
+		<cfset variables.email_subject_prefix="Please QA Workstream Task in Sandbox">
 		<cfset variables.notification_text="is ready for QA in Sandbox">
 		<cfset variables.sender_type=1>
 		<cfset variables.receiver_type=3>
 	</cfcase>
 
 	<!--- Failed QA Review in Test--->
-	<cfcase value="qa_review_test_failed">
-		<cfset variables.email_subject_prefix="workstream Task Failed QA in Test">
+	<cfcase value="5">
+		<cfset variables.email_subject_prefix="Workstream Task Failed QA in Test">
 		<cfset variables.notification_text="has Failed QA in Test">
 		<cfset variables.sender_type=3>
 		<cfset variables.receiver_type=1>
 	</cfcase>
 
-	<!--- Failed QA Review in Sandbox--->
-	<cfcase value="qa_review_sandbox_failed">
-		<cfset variables.email_subject_prefix="workstream Task Failed QA in Sandbox">
-		<cfset variables.notification_text="has Failed QA in Sandbox">
-		<cfset variables.sender_type=3>
-		<cfset variables.receiver_type=1>
-	</cfcase>
-
 	<!--- Passed QA Review in Test--->
-	<cfcase value="qa_review_test_passed">
-		<cfset variables.email_subject_prefix="workstream Task Passed QA in Test">
+	<cfcase value="19">
+		<cfset variables.email_subject_prefix="Workstream Task Passed QA in Test">
 		<cfset variables.notification_text="has Passed QA in Test">
 		<cfset variables.sender_type=3>
 		<cfset variables.receiver_type=1>
 	</cfcase>
 
 	<!--- Passed QA Review in Sandbox--->
-	<cfcase value="qa_review_sandbox_passed">
-		<cfset variables.email_subject_prefix="Passed QA in Sandbox workstream Task">
+	<cfcase value="20">
+		<cfset variables.email_subject_prefix="Passed QA in Sandbox Workstream Task">
 		<cfset variables.notification_text="has Passed QA in Sandbox">
 		<cfset variables.sender_type=3>
 		<cfset variables.receiver_type=1>
 	</cfcase>
 
 	<!--- Ready to Implement in Test--->
-	<cfcase value="implement_ready_test">
-		<cfset variables.email_subject_prefix="workstream Task Ready to Implement in Test">
+	<cfcase value="21">
+		<cfset variables.email_subject_prefix="Workstream Task Ready to Implement in Test">
 		<cfset variables.notification_text="is ready to Implement in Test">
 		<cfset variables.sender_type=5>
 		<cfset variables.receiver_type=1>
 	</cfcase>
 
 	<!--- Ready to Implement in Sandbox--->
-	<cfcase value="implement_ready_sandbox">
-		<cfset variables.email_subject_prefix="Ready to Implement in Sandbox workstream Task">
+	<cfcase value="23">
+		<cfset variables.email_subject_prefix="Ready to Implement in Sandbox Workstream Task">
 		<cfset variables.notification_text="is ready to Implement in Sandbox">
 		<cfset variables.sender_type=5>
 		<cfset variables.receiver_type=1>
 	</cfcase>
 
 	<!--- Ready to Implement in Production--->
-	<cfcase value="implement_ready_production">
-		<cfset variables.email_subject_prefix="Ready to Implement in Prod workstream Task">
+	<cfcase value="24">
+		<cfset variables.email_subject_prefix="Ready to Implement in Prod Workstream Task">
 		<cfset variables.notification_text="is ready to Implement in Production">
 		<cfset variables.sender_type=5>
+		<cfset variables.receiver_type=1>
+	</cfcase>
+	
+	<cfcase value="new_owner">
+		<cfset variables.email_subject_prefix="Reassigned Workstream Task">
+		<cfset variables.notification_text="has been assigned to you">
+		<cfset variables.sender_type=5>
+		<cfset variables.receiver_type=1>
+	</cfcase>
+
+	<!--- Failed QA Review in Sandbox--->
+	<cfcase value="qa_review_sandbox_failed">
+		<cfset variables.email_subject_prefix="Workstream Task Failed QA in Sandbox">
+		<cfset variables.notification_text="has Failed QA in Sandbox">
+		<cfset variables.sender_type=3>
 		<cfset variables.receiver_type=1>
 	</cfcase>
 
@@ -159,7 +164,7 @@ Description: #prepare_email.description#
 
 		<cfmodule template="../common_files/act_email.cfm" email_to="#variables.email_to#" email_from="#variables.email_from#" email_subject="#variables.email_subject#" email_body="#variables.email_body#" email_type="HTML">
 
-		<cfif NOT comparenocase(attributes.note_type, "qa_ready")>
+		<cfif NOT comparenocase(attributes.task_status, 3)><!--- "qa_ready" --->
 			<cfquery name="update_task_notification_cc" datasource="#application.datasources.main#">
 			INSERT INTO Notification (task_id, email_id, notification_type,
 				date_sent, date_to_send)
