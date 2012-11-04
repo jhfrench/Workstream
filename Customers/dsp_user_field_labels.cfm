@@ -32,7 +32,7 @@
 		<div class="control-group">
 			<label for="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#">Option value #opt_ii#</label>
 			<div class="controls">
-				<cfinput type="text" name="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#" ind="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#" value="" class="span3" />
+				<cfinput type="text" name="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#" id="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#" value="" class="span3" />
 				<p class="help-block">For drop-down boxes, also provide the possible options, leaving blank any extra 'option value' fields. Any labels left blank will be ignored and will not be applied as custom fields to the engagement.</p>
 			</div>
 		</div>
