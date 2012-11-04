@@ -26,9 +26,9 @@
 			<div class="span8">
 				<div class="progress">
 				  <div class="bar" style="width: #round(blue_count/total_count*100)#%;" title="#blue_count# has/have unknown status"></div>
-				  <div class="bar bar-success" style="width: #round(green_count/total_count*100)#%;" title="#green_count# is/are doing well"></div>
-				  <div class="bar bar-warning" style="width: #round(yellow_count/total_count*100)#%;" title="#yellow_count# is/have areas of concern"></div>
-				  <div class="bar bar-danger" style="width: #round(red_count/total_count*100)#%;" title="#red_count# is/are in real trouble"></div>
+				  <div class="bar bar-success" style="width: #round(green_count/total_count*100)#%;" title="doing well: #green_count#"></div>
+				  <div class="bar bar-warning" style="width: #round(yellow_count/total_count*100)#%;" title="areas of concern: #yellow_count#"></div>
+				  <div class="bar bar-danger" style="width: #round(red_count/total_count*100)#%;" title="in real trouble: #red_count#"></div>
 				</div>
 			</div>
 		</div>
