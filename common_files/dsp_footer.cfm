@@ -33,7 +33,7 @@
 		</aside>
 		</cfif>
 	</div>
-	<footer role="contentinfo" class="row-fluid screen_only">
+	<footer role="contentinfo" class="row-fluid visible-desktop">
 		<div class="span4">
 			&nbsp;<cfoutput>&copy; #year(now())# #application.application_specific_settings.organization#</cfoutput>
 		</div>
