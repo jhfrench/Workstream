@@ -18,7 +18,7 @@
 UPDATE Task
 SET <cfif get_editing_privileges.recordcount>
 	/* task details can be edited by this person (task owner, supervisor of task owner, task source, or task creator) */
-	<cfif compare(attributes.task_description,attributes.orig_task_description)>description='#attributes.task_details#',</cfif>
+	<cfif compare(attributes.task_description,attributes.orig_task_description)>description='#attributes.task_description#',</cfif>
 	<cfif compare(attributes.due_date,attributes.orig_due_date)>due_date=#createodbcdate(attributes.due_date)#,</cfif>
 	<cfif compare(attributes.task_name,attributes.orig_task_name)>name='#attributes.task_name#',</cfif>
 	<cfif compare(attributes.priority_id,attributes.orig_priority_id)>priority_id=#attributes.priority_id#,</cfif>
