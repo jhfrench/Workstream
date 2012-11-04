@@ -29,13 +29,13 @@
 	<div class="control-group">
 		<label class="control-label" for="help_article_title">Help Article Title</label>
 		<div class="controls">
-				<cfinput type="text" name="help_article_title" id="help_article_title" value="#get_help_article.help_article_title#" size="60" maxlength="60" required="yes" message="Please enter a help article title." class="span6" />
+			<cfinput type="text" name="help_article_title" id="help_article_title" value="#get_help_article.help_article_title#" size="60" maxlength="60" required="yes" message="Please enter a help article title." class="span6" />
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="help_article_text">Help Article Text</label>
 		<div class="controls">
-			<cftextarea name="help_article_text" id="help_article_text" title="Help Article Text" summary="This textarea includes buttons for formatting entered text. You may make text bold, italicized, bulleted. You may also insert or edit Hyper-Text Markup Language links." cols="90" rows="16" height="600" width="480" richtext="yes" toolbar="Basic" skin="silver" toolbaronfocus="yes" wrap="virtual" value="#get_help_article.help_article_text#" class="span6"></cftextarea>
+			<textarea name="help_article_text" id="help_article_text" title="Help Article Text" cols="90" rows="16" height="600" richtext="yes" toolbar="Basic" wrap="virtual" value="#get_help_article.help_article_text#" class="span6"></textarea>
 		</div>
 	</div>
 	<div class="control-group">
