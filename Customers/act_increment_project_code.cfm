@@ -22,7 +22,7 @@ WHERE customer_id=#attributes.customer_id#
 	SELECT (CASE WHEN MAX(project_code)IS NULL THEN '#variables.root_base#' ELSE MAX(project_code) END) AS new_code
 	FROM Project
 	WHERE customer_id=#attributes.customer_id#
-		AND isnumeric(project_code)=1
+		AND project_code ~ '^[0-9]+$'
 	</cfquery>
 	<cfset variables.new_code=get_max_code.new_code+0.01>
 <cfelseif isdefined("attributes.strip_trailing")>
