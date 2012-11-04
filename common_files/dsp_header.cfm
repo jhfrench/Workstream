@@ -129,7 +129,7 @@ else
 	</header>
 
 	<div class="row-fluid">
-		<section id="content_container" role="main" class="span12"><!--- $issue$: can we change this to "content_container"? --->
+		<section id="content_container" role="main" class="span12">
 
 
 
