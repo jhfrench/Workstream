@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	 || 
-	--> session.workstream_text_size: string that contains either Lg, Md, or Sm; used in dynamically creaticalllass and refers to text size
  --->
 <cfif isdefined("make_changes") AND len(attributes.company_id)>
 	<cfinclude template="act_edit_auxiliary.cfm">

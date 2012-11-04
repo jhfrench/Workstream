@@ -30,13 +30,13 @@
 	<div class="control-group">
 		<label class="control-label" for="question">Question</label>
 		<div class="controls">
-				<cftextarea name="question" id="question" title="Frequently Asked Question's answer." summary="This textarea includes buttons for formatting entered text. You may make text bold, italicized, bulleted. You may also insert or edit Hyper-Text Markup Language links." cols="90" rows="8" height="300" width="480" richtext="yes" toolbar="Basic" skin="silver" toolbaronfocus="yes" wrap="virtual" value="#get_help_faq.question#" required="yes" message="Please include text for the question."></cftextarea>
+			<textarea name="question" id="question" title="User's Question." cols="90" rows="8" height="300" wrap="virtual" value="#get_help_faq.question#" required="required" class="span6"></textarea>
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="answer">Answer</label>
 		<div class="controls">
-			<cftextarea name="answer" id="answer" title="Frequently Asked Question's answer." summary="This textarea includes buttons for formatting entered text. You may make text bold, italicized, bulleted. You may also insert or edit Hyper-Text Markup Language links." cols="90" rows="16" height="600" width="480" richtext="yes" toolbar="Basic" skin="silver" toolbaronfocus="yes" wrap="virtual" value="#get_help_faq.answer#"></cftextarea>
+			<textarea name="answer" id="answer" title="Frequently Asked Question's answer." cols="90" rows="16" height="600" wrap="virtual" value="#get_help_faq.answer#" class="span6"></textarea>
 		</div>
 	</div>
 	<div class="control-group">

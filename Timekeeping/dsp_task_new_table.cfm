@@ -12,17 +12,6 @@
 	$Log$
 	 || 
  --->
-<cfswitch expression="#session.workstream_text_size#">
-	<cfcase value="Lg">
-		<cfset variables.cols=124>
-	</cfcase>
-	<cfcase value="Md">
-		<cfset variables.cols=127>
-	</cfcase>
-	<cfdefaultcase>
-		<cfset variables.cols=130>
-	</cfdefaultcase>
-</cfswitch>
 </cfsilent>
 <div class="row-fluid">
 	<div class="span4">

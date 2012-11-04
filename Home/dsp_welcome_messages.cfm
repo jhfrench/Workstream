@@ -39,10 +39,9 @@
 			<cfset variables.row_color="eeeeee">
 		</cfif>
 		<tr align="left" bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';" onmouseout="this.bgColor='###variables.row_color#';">
-			<td>
-				<a name="message_#system_note_id#">
-				<p style="margin-top:0px;margin-bottom:2px;"></a><span id="message2">#note_text#</span></p>
-				<p align="right" style="margin-top:0px;margin-bottom:0px;font-style:italic;"><small>&raquo;<span id="message2_owner">#created_by#</span>
+			<td id="message_#system_note_id#">
+				<p style="margin-top:0px;margin-bottom:2px;"><span id="message2">#note_text#</span></p>
+				<p align="right" style="margin-top:0px;margin-bottom:0px;font-style:italic;">&raquo;<span id="message2_owner">#created_by#</span>
 				<br /><span id="message2_date">#dateformat(display_start_date, "m/d/yyyy")#<cfif len(display_end_date)> through #dateformat(display_end_date, "m/d/yyyy")#</cfif></em>
 				<!--- if the user has access to edit system notes --->
 				<cfif listfind(variables.allowed_business_function_id,123)><br /><a href="javascript:edit_system_note(#system_note_id#)">Edit System Note</a></cfif>

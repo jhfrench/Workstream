@@ -69,9 +69,6 @@
 	</cfif>
 <!--- APPLICATION SETTINGS --->
 	<cfif isdefined("attributes.evaluate_app_options")>
-		<cfif isdefined("attributes.text_size")>
-			<cfset session.workstream_text_size=attributes.text_size>
-		</cfif>
 		<cfif isdefined("attributes.company_select_list")>
 			<cfset session.workstream_selected_company_id=listsort(attributes.company_select_list,"numeric")>
 		<cfelse>

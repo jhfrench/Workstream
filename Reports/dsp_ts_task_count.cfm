@@ -38,22 +38,22 @@
 			<param name="yAxisColor" value="#Y_TickBar#">
 			<param name="yAxisGridColor" value="#Y_TickBar#">
 			<param name="yAxisLabelColor" value="#X_label#">
-			<param name="yAxisLabelFont" value="Trebuchet MS,#small#,1">
+			<param name="yAxisLabelFont" value="Trebuchet MS,11,1">
 			<param name="yAxisLabelFormat" value="1">
 			<param name="yAxisOptions" value="rotateTitle, gridOn, AutoScale">
 			<param name="yAxisTickColor" value="#Y_TickBar#">
 			<param name="yAxisTitle" value="Tasks">
 			<param name="yAxisTitleColor" value="#X_label#">
-			<param name="yAxisTitleFont" value="Trebuchet MS,#small#,1">
+			<param name="yAxisTitleFont" value="Trebuchet MS,11,1">
 
 			<param name="xAxisColor" value="000000">
 			<param name="xAxisGridColor" value="#X_label#">
 			<param name="xAxisLabelColor" value="#X_label#">
-			<param name="xAxisLabelFont" value="Trebuchet MS,#small#,1">
+			<param name="xAxisLabelFont" value="Trebuchet MS,11,1">
 			<param name="xAxisLabels" value="#valuelist(ts_task_count.task_month)#">
 			<param name="xAxisTickColor" value="#X_label#">
 			<param name="xAxisTitle" value="Month">
-			<param name="xAxisTitleFont" value="Trebuchet MS,#small#,1">
+			<param name="xAxisTitleFont" value="Trebuchet MS,11,1">
 
 			<param name="barLabelColor" value="#X_label#">
 			<param name="barLabelFormat" value="1">

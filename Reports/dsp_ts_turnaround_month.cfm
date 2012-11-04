@@ -15,17 +15,6 @@
 <cfset Y_TickBar="708090">
 <cfset X_label="000000">
 <cfset xAxisLabels="">
-<cfswitch expression="#session.workstream_text_size#">
-	<cfcase value="Lg">
-		<cfset small="11">
-	</cfcase>
-	<cfcase value="Md">
-		<cfset small="11">
-	</cfcase>
-	<cfdefaultcase>
-		<cfset small="9">
-	</cfdefaultcase>
-</cfswitch>
 <cfset dataset0yvalues="">
 <cfoutput query="historical_ts_data">
 	<cfif task_year GT 2001>
@@ -50,7 +39,7 @@
 			<param name="plotAreaRight" value=".99">
 
 			<param name="legendOn" value="true">
-			<param name="legendLabelFont" value="Trebuchet MS,#small#,1">
+			<param name="legendLabelFont" value="Trebuchet MS,11,1">
 			<param name="iconWidth" value=".005">
 			<param name="legendllY" value="0">
 			<param name="legendllX" value="0">
@@ -64,22 +53,22 @@
 			<param name="yAxisColor" value="#Y_TickBar#">
 			<param name="yAxisGridColor" value="#Y_TickBar#">
 			<param name="yAxisLabelColor" value="#X_label#">
-			<param name="yAxisLabelFont" value="Trebuchet MS,#small#,1">
+			<param name="yAxisLabelFont" value="Trebuchet MS,11,1">
 			<param name="yAxisLabelFormat" value="1">
 			<param name="yAxisOptions" value="rotateTitle, gridOn, AutoScale">
 			<param name="yAxisTickColor" value="#Y_TickBar#">
 			<param name="yAxisTitle" value="Hours">
 			<param name="yAxisTitleColor" value="#X_label#">
-			<param name="yAxisTitleFont" value="Trebuchet MS,#small#,1">
+			<param name="yAxisTitleFont" value="Trebuchet MS,11,1">
 
 			<param name="xAxisColor" value="000000">
 			<param name="xAxisGridColor" value="#X_label#">
 			<param name="xAxisLabelColor" value="#X_label#">
-			<param name="xAxisLabelFont" value="Trebuchet MS,#small#,1">
+			<param name="xAxisLabelFont" value="Trebuchet MS,11,1">
 			<param name="xAxisLabels" value="#valuelist(historical_ts_data.task_month)#">
 			<param name="xAxisTickColor" value="#X_label#">
 			<param name="xAxisTitle" value="Month">
-			<param name="xAxisTitleFont" value="Trebuchet MS,#small#,1">
+			<param name="xAxisTitleFont" value="Trebuchet MS,11,1">
 
 			<param name="barLabelColor" value="#X_label#">
 			<param name="barLabelFormat" value="1">

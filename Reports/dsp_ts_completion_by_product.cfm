@@ -42,18 +42,18 @@
 				<param name="yAxisTickColor" value="#Y_TickBar#">
 				<param name="yAxisTitleColor" value="#X_label#">
 				<param name="yaxislabelformat" value="1">
-				<param name="yAxisLabelFont" value="Trebuchet MS,#small#,1">
+				<param name="yAxisLabelFont" value="Trebuchet MS,11,1">
 				<param name="yAxisTitle" value="Hours">
-				<param name="yAxisTitleFont" value="Trebuchet MS,#small#,1">
+				<param name="yAxisTitleFont" value="Trebuchet MS,11,1">
 
 				<param name="xAxisGridColor" value="#X_label#">
 				<param name="xAxisColor" value="000000">
 				<param name="xAxisTickColor" value="#X_label#">
 				<param name="xAxisLabelColor" value="#X_label#">
-				<param name="xAxisLabelFont" value="Trebuchet MS,#small#,1">
+				<param name="xAxisLabelFont" value="Trebuchet MS,11,1">
 				<param name="xAxisLabelAngle" value="90">
 				<param name="xAxisTitle" value="Product">
-				<param name="xAxisTitleFont" value="Trebuchet MS,#small#,1">
+				<param name="xAxisTitleFont" value="Trebuchet MS,11,1">
 
 				<param name="barLabelColor" value="#X_label#">
 				<param name="barLabelFormat" value="1">

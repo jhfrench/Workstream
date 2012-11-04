@@ -12,7 +12,6 @@
 	$Log$
 	||
 	Variables:
-	--> session.workstream_text_size: string indicating the size the user's text size preference
 	<-- [attributes.change_me]: list of variable names to update to the current date/time
 	<-- [attributes.application_variables]: boolean that tells workstream to update the application name, thereby resetting all application variables
 	 || 

@@ -57,7 +57,7 @@
 
 <cfset variables.email_body_limit=5000>
 <label for="email_body" style="width:100px">Text</label><br />
-<cftextarea name="email_body" id="email_body" cols="85" rows="15" required="yes" message="Please enter the text of your email." onKeyDown="text_counter(document.form_manage_email.email_body,'email_body_count',#variables.email_body_limit#)" onChange="text_counter(document.form_manage_email.email_body,'email_body_count',#variables.email_body_limit#)"></cftextarea><br />
+<textarea name="email_body" id="email_body" cols="85" rows="15" required="required" onChange="text_counter(document.form_manage_email.email_body,'email_body_count',#variables.email_body_limit#)"></textarea><br />
 Only the first #variables.email_body_limit# characters of your capability statement will be saved. You have <span id="email_body_count" title="Email body characters remaining.">#variables.email_body_limit#</span> characters remaining. Please consider attaching longer emails using the "Attach files" option that follows.<br />
 
 

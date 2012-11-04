@@ -12,17 +12,6 @@
 	$Log$
 	 || 
  --->
-	<cfswitch expression="#session.workstream_text_size#">
-		<cfcase value="Lg">
-			<cfset variables.small="11">
-		</cfcase>
-		<cfcase value="Md">
-			<cfset variables.small="11">
-		</cfcase>
-		<cfdefaultcase>
-			<cfset variables.small="9">
-		</cfdefaultcase>
-	</cfswitch>
 	<cfset variables.initial_color_list="FFC363,5A82B5,A5597B,6B7D63,E77963,5AA29C,CE5D63,428A6B,F7A263,9C9A5A,FF8E5A,7B96AD,528E84,BDCB94,A56163,4A8EAD,FFE784,4A6194,C6514A,A2835A,63E2E7,B55AB2,5AB55C,DDA0DD,000080,2E8B57,708090,7B68EE,000000,FF69B4,DC143C">
 	<cfset variables.color_list="">
 	<cfset variables.total=0>

@@ -42,7 +42,6 @@
 		session.workstream_show_options=profile_lookup.show_options;
 		session.workstream_show_team=profile_lookup.show_team;
 		session.workstream_task_list_order=profile_lookup.task_list_order;
-		session.workstream_text_size=profile_lookup.text_size;
 	</cfscript>
 <cfelse>
 	<cfscript>
@@ -64,7 +63,6 @@
 		session.workstream_show_options=1;
 		session.workstream_show_team=0;
 		session.workstream_task_list_order="task_id";
-		session.workstream_text_size="Md";
 	</cfscript>
 </cfif>
 </cfsilent>

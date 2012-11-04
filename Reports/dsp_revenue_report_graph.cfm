@@ -12,26 +12,8 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfswitch expression="#session.workstream_text_size#">
-	<cfcase value="Lg">
-		<cfset large="16">
-		<cfset small="11">
-		<cfset plotAreaLeft=12/100>
-		<cfset variables.graph_height=(revenue_report.recordcount*15.5)+10>
-	</cfcase>
-	<cfcase value="Md">
-		<cfset large="15">
-		<cfset small="11">
-		<cfset plotAreaLeft=11/100>
-		<cfset variables.graph_height=(revenue_report.recordcount*13.95)+10>
-	</cfcase>
-	<cfdefaultcase>
-		<cfset large="14">
-		<cfset small="9">
-		<cfset plotAreaLeft=10/100>
-		<cfset variables.graph_height=(revenue_report.recordcount*13.1)+10>
-	</cfdefaultcase>
-</cfswitch>
+<cfset plotAreaLeft=11/100>
+<cfset variables.graph_height=(revenue_report.recordcount*13.95)+10>
 <cfset xaxislabels="">
 <cfset dataset0yvalues="">
 <cfset dataset1yvalues="">
@@ -63,21 +45,21 @@ Sales By Billing Type<br />
 	<param name="yAxisGridColor" value="c0c0c0">
 	<param name="yAxisLabelColor" value="black">
 	<param name="yaxislabelformat" value="1">
-	<param name="yAxisLabelFont" value="Trebuchet MS,#small#,1">
+	<param name="yAxisLabelFont" value="Trebuchet MS,11,1">
 	<param name="yAxisLabelPrecision" value="1">
 	<param name="yAxisTickColor" value="black">
 	<param name="yAxisTitle" value="">
 	<param name="yAxisTitleColor" value="black">
-	<param name="yAxisTitleFont" value="Trebuchet MS,#large#,1">
+	<param name="yAxisTitleFont" value="Trebuchet MS,15,1">
 
 	<param name="xAxisGridColor" value="black">
 	<param name="xAxisLabelColor" value="black">
-	<param name="xAxisLabelFont" value="Trebuchet MS,#small#,1">
+	<param name="xAxisLabelFont" value="Trebuchet MS,11,1">
 	<param name="xAxisTickColor" value="black">
 	<param name="xAxisTitle" value="Month">
 	<param name="xAxisLabels" value="#xaxislabels#">
 	<param name="xAxisTitleColor" value="black">
-	<param name="xAxisTitleFont" value="Trebuchet MS,#large#,1">
+	<param name="xAxisTitleFont" value="Trebuchet MS,15,1">
 	<param name="yAxisOptions" value="gridOn, tickOff">
 
 	<param name="barLabelsOn" value="false">
@@ -108,7 +90,7 @@ Sales By Billing Type<br />
 	<param name="legendColor" value="ffffff">
 	<param name="legendllX" value=".7">
 	<param name="legendllY" value=".6">
-	<param name="legendLabelFont" value="Trebuchet MS,#small#,1">
+	<param name="legendLabelFont" value="Trebuchet MS,11,1">
 	<param name="legendLabelColor" value="black">
 	<param name="iconWidth" value=".02">
 	<param name="iconHeight" value=".02">

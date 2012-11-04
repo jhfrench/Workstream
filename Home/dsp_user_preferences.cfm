@@ -52,14 +52,6 @@
 						<cfinclude template="../common_files/dsp_numeric_multiplier.cfm">
 					</td>
 				</tr>--->
-				<tr>
-					<td><strong>Text Size:</strong></td>
-					<td>
-						<input type="radio" name="text_size" value="none" onclick="chooseStyle(this.value, 365)" id="small"<cfif NOT comparenocase(session.text_size,"none")> checked="checked"</cfif>><label for="small"> Small (default)&nbsp;</label>
-						<input type="radio" name="text_size" value="alt2" onclick="chooseStyle(this.value, 365)" id="medium"<cfif NOT comparenocase(session.text_size,"alt2")> checked="checked"</cfif>><label for="medium">Medium&nbsp;</label>
-						<input type="radio" name="text_size" value="alt3" onclick="chooseStyle(this.value, 365)" id="large"<cfif NOT comparenocase(session.text_size,"alt3")> checked="checked"</cfif>><label for="large">Large&nbsp;</label>
-					</td>
-				</tr>
 			</table>
 		</td>
 	</tr>

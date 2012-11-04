@@ -98,7 +98,7 @@ return retValue;
 <div class="row-fluid">
 	<div classs="span12">
 		<label for="task_details">Description</label>
-		<textarea name="task_details" id="task_details" cols="#variables.cols#" rows="6" wrap="soft" class="span12"></textarea>
+		<textarea name="task_details" id="task_details" cols="130" rows="6" wrap="soft" class="span12"></textarea>
 	</div>
 </div>
 </cfoutput>

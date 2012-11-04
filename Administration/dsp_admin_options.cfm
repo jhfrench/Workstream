@@ -17,13 +17,6 @@
 <cfoutput>
 	<tr valign="top">
 		<td class="SubHeadText">
-			Text Size<br />
-			<select name="text_size">
-				<option value="Lg"<cfif NOT compare(session.workstream_text_size,"Lg")> selected="selected"</cfif>>Large</option>
-				<option value="Md"<cfif NOT compare(session.workstream_text_size,"Md")> selected="selected"</cfif>>Medium</option>
-				<option value="Sm"<cfif NOT compare(session.workstream_text_size,"Sm")> selected="selected"</cfif>>Small</option>
-			</select>
-
 			<p class="SubHeadText">
 			<cfinclude template="dsp_save_profile_instructions.cfm">
 			<a href="index.cfm?fuseaction=save_profile" class="btn">&nbsp;Save the current settings to a profile</a><br />

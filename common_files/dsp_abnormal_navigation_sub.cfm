@@ -20,6 +20,7 @@
 	</IO>
 </fusedoc>
 --->
+$issue$ is this template used?
 <div id="nav_d2" class="nav_d2" style="display:none;">
 	<iframe src="null.html" scrolling="no" frameborder="0" class="nav_d2_inner">blank background</iframe>
 	<div class="nav_d2_outer">

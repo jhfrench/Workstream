@@ -30,7 +30,7 @@ INSERT INTO User_Profile (emp_id, primary_profile_ind, account_changed,
 	express_tree_height, first_name, last_loaded,
 	last_name, profile_name, project_list_order,
 	show_closed, show_closed_engagements, show_on_hold,
-	show_options, show_team, text_size,
+	show_options, show_team,
 	notes_display_sort, task_list_order)
 VALUES (#variables.user_identification#,#variables.primary_profile_ind#,#createodbcdatetime(session.workstream_account_changed)#,
 	'#session.workstream_company_id#','#session.workstream_company_name#','#session.workstream_selected_company_id#',
@@ -39,7 +39,7 @@ VALUES (#variables.user_identification#,#variables.primary_profile_ind#,#createo
 	'#session.last_name#','#attributes.profile_name#',
 	#session.workstream_project_list_order#,#session.workstream_show_closed#,#session.workstream_show_closed_engagements#,
 	#session.workstream_show_on_hold#,#session.workstream_show_options#,#session.workstream_show_team#,
-	'#session.workstream_text_size#',#session.workstream_notes_display_sort#,'#session.workstream_task_list_order#')
+	#session.workstream_notes_display_sort#,'#session.workstream_task_list_order#')
 </cfquery>
 </cfsilent>
 

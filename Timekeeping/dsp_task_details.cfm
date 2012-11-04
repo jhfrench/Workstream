@@ -12,18 +12,6 @@
 	$Log$
 	 || 
  --->
-
-<cfswitch expression="#session.workstream_text_size#">
-	<cfcase value="Lg">
-		<cfset variables.cols=114>
-	</cfcase>
-	<cfcase value="Md">
-		<cfset variables.cols=117>
-	</cfcase>
-	<cfdefaultcase>
-		<cfset variables.cols=120>
-	</cfdefaultcase>
-</cfswitch>
 <cfset variables.descrip_rows=min(3,(len(get_task_details.description)/variables.cols+1))>
 <cfset variables.resolution_rows=min(8,time_entry_details.recordcount)>
 <cfset entry_rows=variables.descrip_rows+variables.resolution_rows-9>
