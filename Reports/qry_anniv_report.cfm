@@ -21,8 +21,7 @@ FROM Emp_Contact, Demographics_Ngauge Demographics, Link_Company_Emp_Contact
 WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
-	AND (Demographics.end_date IS NULL
-		OR Demographics.end_date > CURRENT_TIMESTAMP)
+	AND (Demographics.effective_to IS NULL OR Demographics.effective_to > CURRENT_TIMESTAMP)
 	AND Emp_Contact.name!=''
 	AND CURRENT_TIMESTAMP BETWEEN effective_from AND COALESCE(effective_to,CURRENT_TIMESTAMP+interval '1 day') /*use this condition to retrieve only one record per person*/
 GROUP BY Emp_Contact.name, Emp_Contact.lname, Demographics.hire_date, Demographics.dob

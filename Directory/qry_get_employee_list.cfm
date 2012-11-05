@@ -39,7 +39,6 @@ FROM Emp_Contact
 WHERE #application.team_changed#=#application.team_changed#
 	AND Link_Company_Emp_Contact.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
 	AND Position_History.effective_end_date IS NULL
-	AND Demographics.end_date IS NULL
 	AND Demographics.effective_to IS NULL
 ORDER BY Link_Company_Emp_Contact.company_id, Emp_Contact.lname, Emp_Contact.name
 </cfquery>

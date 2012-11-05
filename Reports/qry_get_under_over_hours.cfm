@@ -22,7 +22,7 @@ FROM Time_Entry
 		FROM Emp_Contact
 			INNER JOIN Demographics ON Demographics.emp_id=Emp_Contact.emp_id
 				AND Demographics.hire_date < #createodbcdatetime(variables.end_date)#
-				AND COALESCE(Demographics.end_date, CURRENT_DATE+interval '1 day') > #createodbcdatetime(variables.start_date)#
+				AND COALESCE(Demographics.effective_to, CURRENT_DATE+interval '1 day') > #createodbcdatetime(variables.start_date)#
 			LEFT OUTER JOIN REF_Employee_Classification ON Demographics.employee_classification_id=REF_Employee_Classification.employee_classification_id
 			INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id<cfif NOT variables.all_option>
 			INNER JOIN Link_Employee_Supervisor ON Link_Employee_Supervisor.user_account_id=Emp_Contact.emp_id 

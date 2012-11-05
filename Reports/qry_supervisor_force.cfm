@@ -58,7 +58,6 @@ FROM Demographics_Ngauge Demographics, Emp_Contact
 	) AS nbdata ON nbdata.emp_id=Emp_Contact.emp_id 
 WHERE Demographics.emp_id=Emp_Contact.emp_id
 	AND Demographics.effective_to IS NULL
-	AND Demographics.end_date IS NULL
 	AND (Demographics.supervisor=#variables.user_identification#
 		OR Demographics.emp_id=#variables.user_identification#)
 </cfquery>

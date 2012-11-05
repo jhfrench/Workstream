@@ -29,12 +29,12 @@ FROM (
 		SELECT ABCD_Quarter.date_year, ABCD_Quarter.date_quarter, COUNT(Demographics.demographics_id) AS population_count
 		FROM ABCD_Quarter
 			LEFT OUTER JOIN (
-				SELECT Demographics_Ngauge.demographics_id, Demographics_Ngauge.hire_date, COALESCE(Demographics_Ngauge.end_date, CURRENT_DATE+ INTERVAL '1 day') AS end_date
+				SELECT Demographics_Ngauge.demographics_id, Demographics_Ngauge.hire_date, COALESCE(Demographics_Ngauge.effective_to, CURRENT_DATE+ INTERVAL '1 day') AS effective_to
 				FROM Demographics_Ngauge
 					INNER JOIN Link_Company_Emp_Contact ON Demographics_Ngauge.emp_id=Link_Company_Emp_Contact.emp_id
 						AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 			) AS Demographics ON Demographics.hire_date <= ABCD_Quarter.date_end
-				AND Demographics.end_date >= ABCD_Quarter.date_start
+				AND Demographics.effective_to >= ABCD_Quarter.date_start
 		WHERE ABCD_Quarter.date_start < CURRENT_DATE
 			AND ABCD_Quarter.date_end > '#application.application_specific_settings.workstream_start_date#'
 		GROUP BY ABCD_Quarter.date_year, ABCD_Quarter.date_quarter
