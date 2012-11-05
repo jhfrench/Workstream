@@ -23,7 +23,7 @@ WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 	AND (Demographics.effective_to IS NULL OR Demographics.effective_to > CURRENT_TIMESTAMP)
 	AND Emp_Contact.name!=''
-	AND CURRENT_TIMESTAMP BETWEEN effective_from AND COALESCE(effective_to,CURRENT_TIMESTAMP+interval '1 day') /*use this condition to retrieve only one record per person*/
+	AND CURRENT_TIMESTAMP BETWEEN hire_date AND COALESCE(effective_to,CURRENT_TIMESTAMP+interval '1 day') /*use this condition to retrieve only one record per person*/
 GROUP BY Emp_Contact.name, Emp_Contact.lname, Demographics.hire_date, Demographics.dob
 ORDER BY Emp_Contact.lname, Emp_Contact.name
 </cfquery>

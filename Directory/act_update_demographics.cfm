@@ -18,10 +18,10 @@
 	END FUSEDOC --->
 <cfquery name="end_demog_record" datasource="#application.datasources.main#">
 UPDATE Demographics
-SET effective_to=#createodbcdate(dateadd("d", -1, attributes.effective_from))#
+SET effective_to=#createodbcdate(dateadd("d", -1, attributes.hire_date))#
 WHERE emp_id=#attributes.emp_id# 
 	AND effective_to IS NULL
 </cfquery>
 
 <cfinclude template="qry_demographics_entry.cfm">
-</cfsilent>
+</cfsilent><!--- $issue$: is this template used? --->

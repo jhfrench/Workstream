@@ -21,6 +21,6 @@ FROM Emp_Contact
 	INNER JOIN Demographics_Ngauge AS Demographics ON Emp_Contact.emp_id=Demographics.emp_id
 WHERE Emp_Contact.emp_id=#variables.user_identification# 
 	AND (Demographics.effective_to IS NULL OR Demographics.effective_to > CURRENT_TIMESTAMP)
-	AND (Demographics.effective_from IS NULL OR Demographics.effective_from < CURRENT_TIMESTAMP)
+	AND (Demographics.hire_date IS NULL OR Demographics.hire_date < CURRENT_TIMESTAMP)
 </cfquery>
 </cfsilent>

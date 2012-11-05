@@ -33,11 +33,11 @@ FROM Time_Entry
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.work_date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.to_date)#
 	AND (
-		Demographics.effective_from <= #createodbcdate(attributes.to_date)#
+		Demographics.hire_date <= #createodbcdate(attributes.to_date)#
 		AND Demographics.effective_to >= #createodbcdate(attributes.from_date)#
 		OR (
 			Demographics.effective_to IS NULL
-			AND Demographics.effective_from  <= #createodbcdate(attributes.to_date)#)
+			AND Demographics.hire_date  <= #createodbcdate(attributes.to_date)#)
 		)
 --Something wrong?
 	AND Demographics.emp_id IN (#attributes.display_person#)

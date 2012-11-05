@@ -72,7 +72,7 @@ FROM (
 		WHERE Link_Company_Emp_Contact.emp_id=Demographics.emp_id
 			AND REF_Company.company_id=Link_Company_Emp_Contact.company_id
 			AND Demographics.hire_date+'30 day' < CURRENT_TIMESTAMP
-			AND ((CURRENT_TIMESTAMP BETWEEN Demographics.effective_from AND Demographics.effective_to) 
+			AND ((CURRENT_TIMESTAMP BETWEEN Demographics.hire_date AND Demographics.effective_to) 
 				OR Demographics.effective_to IS NULL)
 			AND Demographics.emp_id=#variables.user_identification#
 			AND ABCD_Months.month > EXTRACT(MONTH FROM CURRENT_DATE)

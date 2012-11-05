@@ -27,8 +27,8 @@ FROM (
 		AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id 
 		AND Link_Company_Emp_Contact.company_id=REF_Company.company_id 
 		AND REF_Employee_Classification.employee_classification_id =COALESCE(Demographics.employee_classification_id,7) 
-		AND COALESCE(Demographics.effective_to,#variables.from_date#) >= #variables.from_date#
-		AND COALESCE(Demographics.effective_from,#variables.through_date#) <= #variables.through_date#
+		AND COALESCE(Demographics.effective_to, #variables.from_date#) >= #variables.from_date#
+		AND COALESCE(Demographics.hire_date, #variables.through_date#) <= #variables.through_date#
 		AND Emp_Contact.emp_id IN (#attributes.included_emp_id#)
 	GROUP BY Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname, REF_Company.description
 	) AS Employee_Data 

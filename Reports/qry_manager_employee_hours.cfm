@@ -23,11 +23,11 @@ WHERE Demographics.emp_id=Time_Entry.emp_id
 	AND Time_Entry.active_ind=1
 	AND Time_Entry.work_date >= '#From_date#'
 	AND Time_Entry.work_date <= '#Through_Date#'
-	AND (Time_Entry.work_date between effective_from AND effective_to
-		OR effective_to IS NULL AND Time_Entry.work_date >= effective_from)
-	AND ((Demographics.effective_from <= #createodbcdate(variables.through_date)#
+	AND (Time_Entry.work_date between hire_date AND effective_to
+		OR effective_to IS NULL AND Time_Entry.work_date >= hire_date)
+	AND ((Demographics.hire_date <= #createodbcdate(variables.through_date)#
 		AND effective_to >= #createodbcdate(variables.from_date)#) 
-			OR (effective_to IS NULL AND effective_from  <= #createodbcdate(variables.through_date)#))
+			OR (effective_to IS NULL AND hire_date  <= #createodbcdate(variables.through_date)#))
 ORDER BY date, client, hours
 </cfquery>
 </cfsilent>
