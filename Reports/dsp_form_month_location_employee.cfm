@@ -18,14 +18,14 @@
 		<legend><h4>Criteria</h4></legend>
 			<label for="work_month">Month</label>
 			<select name="work_month" id="work_month" size="1" class="span2">
-				<cfloop from="1" to="12" index="month_ii">
-					<option<cfif attributes.month EQ month_ii> selected="selected"</cfif>value="#month_ii#">#monthasstring(month_ii)#</option>
+				<cfloop from="1" to="12" index="variables.month_ii">
+					<option<cfif attributes.work_month EQ variables.month_ii> selected="selected"</cfif>value="#variables.month_ii#">#monthasstring(variables.month_ii)#</option>
 				</cfloop>
 			</select>
 			<label for="work_year">Year</label>
 			<select name="work_year" id="work_year" size="1" class="span2">
-				<cfloop from="2000" to="#year(now())#" index="year_num">
-					<option value="#year_num#"<cfif attributes.year EQ year_num> selected="selected"</cfif>>#year_num#</option>
+				<cfloop from="2000" to="#year(now())#" index="variables.year_num">
+					<option value="#year_num#"<cfif attributes.work_year EQ variables.year_num> selected="selected"</cfif>>#variables.year_num#</option>
 				</cfloop>
 			</select>
 			<label for="office_location">Office Location</label>
