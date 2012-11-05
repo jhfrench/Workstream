@@ -15,11 +15,11 @@
 <cfset variables.workstream_task_list_order=session.workstream_task_list_order>
 </cfsilent>
 <colgroup>
-	<col />
-	<col class="hidden-phone" /><!--- hide owner col on phones --->
-	<col />
-	<col span="3" class="hidden-phone" /><!--- hide project, priority, time cols on phones --->
-	<col span="2" />
+	<col></col>
+	<col class="hidden-phone"></col><!--- hide owner col on phones --->
+	<col></col>
+	<col span="3" class="hidden-phone"></col><!--- hide project, priority, time cols on phones --->
+	<col span="2"></col>
 </colgroup>
 <thead>
 	<tr>
@@ -35,7 +35,7 @@
 		<th>
 			<a href="javascript:order_by('project_name');" title="Order by the task engagement.">Project<cfif NOT compare(ListFirst(ListFirst(variables.workstream_task_list_order), " "),"project_name")> <i class="icon-chevron-<cfif listlen(ListFirst(variables.workstream_task_list_order), " ") EQ 2>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
-		<th width="7%" nowrap>
+		<th>
 			<a href="javascript:order_by('Priority');" title="Order by Priority.">Priority<cfif NOT compare(ListFirst(ListFirst(variables.workstream_task_list_order), " "),"Priority")> <i class="icon-chevron-<cfif listlen(ListFirst(variables.workstream_task_list_order), " ") EQ 2>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
 		<th>
