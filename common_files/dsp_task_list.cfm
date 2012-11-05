@@ -37,13 +37,13 @@
 	<cfset variables.group = "constant">
 </cfif>
 </cfsilent>
-<tbody>
 <cfif task_list.recordcount>
+<tbody>
 <cfoutput query="task_list"> 
-<cfset variables.status_message=jsstringformat(task_name)>
+	<cfset variables.status_message=jsstringformat(task_name)>
 	<tr>
-		<td scope="row" class="number"">#task_id#</td>
-		<td><abbre title="#task_owner_full#">#task_owner#</abbr></td>
+		<td scope="row" class="number">#task_id#</td>
+		<td><abbr title="#task_owner_full#">#task_owner#</abbr></td>
 		<td><a href="javascript:list_to_task('#task_id#');" title="View time details for #variables.status_message#."><i class="#task_icon#" title="#ReplaceList(task_description, variables.quote, variables.status_message_replace_with)#"></i>#task_name#</a></td>
 		<td>#project_name#</td>
 		<td>#priority#</td>
@@ -52,15 +52,5 @@
 		<td class="date">#dateformat(date_due, "m/d/yyyy")#</td>
 	</tr>
 </cfoutput>
-<cfelse>
-	<cfif comparenocase(listlast(attributes.fuseaction, '.'), "task_list") AND comparenocase(listlast(attributes.fuseaction, '.'),"output")>
-		<cfinclude template="dsp_dropdowns.cfm">
-		<cfinclude template="dsp_task_list_header.cfm"> 
-	</cfif>
-	<tr>
-		<td align="center" colspan="8" class="Note">
-			You have no tasks that meet your criteria.
-		</td>
-	</tr>
-</cfif>
 </tbody>
+</cfif>

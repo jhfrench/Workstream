@@ -14,7 +14,13 @@
  --->
 <cfset variables.workstream_task_list_order=session.workstream_task_list_order>
 </cfsilent>
-<cfoutput>
+<colgroup>
+	<col />
+	<col class="hidden-phone" /><!--- hide owner col on phones --->
+	<col />
+	<col span="3" class="hidden-phone" /><!--- hide project, priority, time cols on phones --->
+	<col span="2" />
+</colgroup>
 <thead>
 	<tr>
 		<th>
@@ -43,4 +49,3 @@
 		</th>
 	</tr>
 </thead>
-</cfoutput>
