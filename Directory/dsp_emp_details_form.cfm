@@ -155,9 +155,9 @@
 	</div>
 	</cfif>
 	<div class="control-group">
-		<label for="overtime" class="control-label">Overtime Paid</label>
+		<label for="overtime_elligible_ind" class="control-label">Overtime Paid</label>
 		<div class="controls">
-			<select name="overtime" id="overtime" class="span3">
+			<select name="overtime_elligible_ind" id="overtime_elligible_ind" class="span3">
 				<option value="0">No</option>
 				<option value="1">Yes</option>
 			</select>

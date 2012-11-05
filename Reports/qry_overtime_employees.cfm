@@ -21,7 +21,7 @@ FROM Demographics
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 		AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 WHERE Demographics.effective_to IS NULL
-	AND Demographics.overtime = 1
+	AND Demographics.overtime_elligible_ind=1
 ORDER BY Emp_Contact.lname, Emp_Contact.name
 </cfquery>
 </cfsilent>
