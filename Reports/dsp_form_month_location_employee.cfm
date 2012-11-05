@@ -1,5 +1,5 @@
 
-<!--Report/dsp_Gross_hours_Input.cfm
+<!--Report/dsp_form_month_location_employee.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<form action="index.cfm?fuseaction=Reports.gross_hours" method="POST" class="well form-inline">
+<form id="form_month_location_employee" action="index.cfm?fuseaction=Reports.gross_hours" method="POST" class="well form-inline">
 	<fieldset>
 		<legend><h4>Criteria</h4></legend>
 			<label for="month">Month</label>
