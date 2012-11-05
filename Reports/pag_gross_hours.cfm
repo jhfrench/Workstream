@@ -14,8 +14,8 @@
 </cfsilent>
 <cfinclude template="../common_files/qry_office_select.cfm">
 <cfinclude template="../common_files/qry_get_team_select.cfm">
-<cfparam name="attributes.month" default="#month(dateadd('M',-1, now()))#">
-<cfparam name="attributes.year" default="#year(dateadd('M',-1, now()))#">
+<cfparam name="attributes.work_month" default="#month(dateadd('M',-1, now()))#">
+<cfparam name="attributes.work_year" default="#year(dateadd('M',-1, now()))#">
 <cfset variables.date_open=createodbcdate("#attributes.work_month#/1/#attributes.work_year#")>
 <cfset variables.daysinmonth=daysinmonth(variables.date_open)>
 <cfset variables.date_closed=createodbcdate("#attributes.work_month#/#daysinmonth(variables.date_open)#/#attributes.work_year#")>
