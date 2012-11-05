@@ -12,22 +12,25 @@
 	$Log$
 	 || 
  --->
-<cfset variables.descrip_rows=min(3,(len(get_task_details.description)/variables.cols+1))>
-<cfset variables.resolution_rows=min(8,time_entry_details.recordcount)>
-<cfset entry_rows=variables.descrip_rows+variables.resolution_rows-9>
-<cfset variables.string_to_replace='<P>,"'>
-
-<cfset variables.width=min(numberformat(get_task_details.image_width,"______"),variables.var1)>
-<cfset variables.width2=variables.var1-variables.width>
-
-<cfif get_task_details.qa_id EQ variables.user_identification AND get_task_details.status_id EQ 4>
-	<cfset variables.notes_type_selected=2>
-<cfelseif get_task_details.owner_id EQ variables.user_identification>
-	<cfset variables.notes_type_selected=1>
-<cfelse>
-	<cfset variables.notes_type_selected=0>
-</cfif>
-
+<cfscript>
+	variables.cols=80;
+	variables.descrip_rows=min(3,(len(get_task_details.description)/variables.cols+1));
+	variables.resolution_rows=min(8,time_entry_details.recordcount);
+	variables.entry_rows=variables.descrip_rows+variables.resolution_rows-9;
+	variables.string_to_replace='<P>,"';
+	variables.width=min(numberformat(get_task_details.image_width,"______"),variables.var1);
+	variables.width2=variables.var1-variables.width;
+	
+	if (get_task_details.qa_id EQ variables.user_identification AND get_task_details.status_id EQ 4) {
+		variables.notes_type_selected=2;
+	}
+	else if (get_task_details.owner_id EQ variables.user_identification) {
+		variables.notes_type_selected=1;	
+	}
+	else {
+		variables.notes_type_selected=0;	
+	}
+</cfscript>
 </cfsilent>
 <cfoutput>
 	<cfset variables.task_description=replaceList(paragraphformat(get_task_details.description),'<P>,"',",")>
@@ -148,3 +151,4 @@
 </div>
 </cfif>
 </cfoutput>
+

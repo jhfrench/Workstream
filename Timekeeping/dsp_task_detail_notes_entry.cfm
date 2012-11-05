@@ -40,7 +40,7 @@
 <div class="row-fluid">
 	<div class="span12">
 		<label for="notes">Notes</label>
-		<textarea name="notes" id="notes" wrap="soft" rows="#max(entry_rows,3)#" class="span12"></textarea>
+		<textarea name="notes" id="notes" wrap="soft" rows="#max(variables.entry_rows,3)#" class="span12"></textarea>
 	</div>
 </div>
 <div class="row-fluid">
