@@ -17,8 +17,7 @@
 <cfparam name="attributes.month" default="#month(dateadd('M',-1, now()))#">
 <cfparam name="attributes.year" default="#year(dateadd('M',-1, now()))#">
 <cfset variables.daysinmonth=daysinmonth(createodbcdate("#attributes.month#/1/#attributes.year#"))>
-
-<cfinclude template="qry_gross_hours.cfm">
-<cfinclude template="dsp_gross_hours.cfm">
 	
 <cfinclude template="dsp_gross_hours_input.cfm">
+<cfinclude template="qry_gross_hours.cfm">
+<cfinclude template="dsp_gross_hours.cfm">

@@ -13,7 +13,12 @@
 	END FUSEDOC --->
 </cfsilent>
 <table class="table table-striped table-bordered table-condensed">
-	<caption><h2>Gross Hours Report for <cfoutput>#monthasstring(attributes.month)#, #attributes.year#</cfoutput></h2></caption>
+	<caption>
+		<h2>
+			Gross Hours Report<br />
+			<small>for <cfoutput>#monthasstring(attributes.month)#, #attributes.year#</cfoutput></small>
+		</h2>
+	</caption>
 <cfif get_gross_hours.recordcount>
 	<thead>
 	<cfoutput>
