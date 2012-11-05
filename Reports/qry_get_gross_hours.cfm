@@ -1,5 +1,5 @@
 
-<!--Reports/qry_gross_hours.cfm
+<!--Reports/qry_get_gross_hours.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -10,8 +10,6 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfset variables.date_open=createodbcdate("#attributes.month#/1/#attributes.year#")>
-<cfset variables.date_closed=createodbcdate("#attributes.month#/#daysinmonth(variables.date_open)#/#attributes.year#")>
 <cfquery name="get_gross_hours" datasource="#application.datasources.main#">
 SELECT (Emp_Contact.lname || ', ' || Emp_Contact.name) AS name,<cfloop from="1" to="#variables.daysinmonth#" index="ii">
 	SUM(CASE WHEN EXTRACT(DAY FROM Time_Entry.work_date)=#ii# THEN Time_Entry.hours ELSE 0 END) AS day#ii#,</cfloop>
@@ -26,8 +24,8 @@ FROM Emp_Contact
 		AND Location.location_type_id=1
 	LEFT OUTER JOIN Time_Entry ON Emp_Contact.emp_id=Time_Entry.emp_id
 		AND Time_Entry.active_ind=1
-		AND EXTRACT(MONTH FROM Time_Entry.work_date)=#attributes.month#
-		AND EXTRACT(YEAR FROM Time_Entry.work_date)=#attributes.year#
+		AND EXTRACT(MONTH FROM Time_Entry.work_date)=#attributes.work_month#
+		AND EXTRACT(YEAR FROM Time_Entry.work_date)=#attributes.work_year#
 WHERE 1=1<cfif isdefined("attributes.emp_id") AND comparenocase(attributes.emp_id, "ALL")>
 	AND Emp_Contact.emp_id=#attributes.emp_id#</cfif><cfif isdefined("attributes.office_location") AND comparenocase(attributes.office_location, "ALL")>
 	AND Location.city='#attributes.office_location#'</cfif>
