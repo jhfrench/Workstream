@@ -61,7 +61,7 @@ FROM Task, Team, Emp_Contact,
 	Customer, Project, Link_Project_Company, (
 		SELECT Path.task_id, COALESCE(Recorded_Hours.hours_used,0) AS time_used, Path.class_name AS task_icon, 
 			(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
-			REF_Status.status AS task_status, Emp_Contact.lname AS task_owner, (Emp_Contact.lname || ', ' || Emp_Contact.name) AS task_owner_full,
+			REF_Status.status AS task_status, Emp_Contact.name AS task_owner, (Emp_Contact.lname || ', ' || Emp_Contact.name) AS task_owner_full,
 			priority
 		FROM Task, REF_Status, Team,
 			Emp_Contact, (
