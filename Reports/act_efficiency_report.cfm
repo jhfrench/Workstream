@@ -13,16 +13,8 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfinclude template="../common_files/qry_get_hier_2_id.cfm">
-<!--- <cfif get_hier_2_id.hier_2_id NEQ 0 AND get_hier_2_id.hier_2_id LT 4>
-	<cfinclude template="qry_get_departments.cfm">
+<cfinclude template="../common_files/qry_get_subordinates.cfm">
+<cfif get_subordinates.recordcount>
 	<cfinclude template="qry_efficiency_report_main.cfm">
 	<cfinclude template="qry_efficiency_report_sub.cfm">
-<cfelse> --->
-	<cfinclude template="../common_files/qry_get_subordinates.cfm">
-	<cfif get_subordinates.recordcount>
-		<cfinclude template="qry_efficiency_report_main.cfm">
-		<cfinclude template="qry_efficiency_report_sub.cfm">
-	</cfif>
-<!--- </cfif> --->
-
+</cfif>

@@ -20,6 +20,7 @@
 <cfset variables.temp_year=0>
 </cfsilent>
 <cfinclude template="act_change_month.cfm">
+<cfinclude template="act_efficiency_report.cfm">
 
 <cfoutput>
 <form name="drill_down" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">
@@ -40,7 +41,7 @@
 	<input type="submit" name="submit" value="Go" class="btn btn-primary" />
 </form>
 </cfoutput>
-<cfif (get_hier_2_id.hier_2_id NEQ 0 AND get_hier_2_id.hier_2_id LT 4) OR get_subordinates.recordcount>
+<cfif get_subordinates.recordcount>
 	<cfinclude template="dsp_efficiency_report.cfm">
 <cfelse>
 	<div class="alert alert-info">
