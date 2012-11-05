@@ -16,7 +16,7 @@
 	<caption>
 		<h2>
 			Gross Hours Report<br />
-			<small>for <cfoutput>#monthasstring(attributes.month)#, #attributes.year#</cfoutput></small>
+			<small>for <cfoutput>#monthasstring(attributes.work_month)#, #attributes.work_year#</cfoutput></small>
 		</h2>
 	</caption>
 <cfif get_gross_hours.recordcount>
