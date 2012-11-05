@@ -22,7 +22,7 @@ WHERE Time_Entry.active_ind=1
 	AND Time_entry.project_id IN (
 		SELECT project_id
 		FROM Project
-		WHERE project_type_id = 1
+		WHERE project_id=#application.application_specific_settings.pto_project_id#
 	)
 	and EXTRACT(YEAR FROM Time_Entry.work_date) = EXTRACT(YEAR FROM CURRENT_DATE)
 ORDER BY Time_Entry.work_date

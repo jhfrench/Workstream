@@ -31,7 +31,7 @@ SELECT Project.project_code, Project.project_id, Project.project_end AS project_
 FROM Customer
 	INNER JOIN Project ON Customer.customer_id=Project.customer_id
 		AND (Project.active_ind=<cfif NOT session.workstream_show_closed_engagements>1<cfelse>0 OR project_end IS NOT NULL</cfif>) 
-		AND Project.project_type_id!=3<!--- is this needed? --->
+		AND Project.project_id!=#application.application_specific_settings.pto_project_id#
 	INNER JOIN Task ON Project.project_id=Task.project_id 
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1

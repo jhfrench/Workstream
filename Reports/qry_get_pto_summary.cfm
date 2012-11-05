@@ -25,8 +25,8 @@ FROM Emp_Contact
 		FROM Time_Entry
 		WHERE Time_Entry.active_ind=1
 			AND Time_Entry.work_date >= (SELECT pto_start_date FROM REF_Company WHERE company_id = #session.workstream_company_id#)<cfif NOT listcontainsnoCase(attributes.emp_id,"ALL" )>
-			AND (Time_Entry.emp_id IN (#preservesinglequotes(attributes.emp_id)#))</cfif>
-			AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id = 1)
+			AND Time_Entry.emp_id IN (#preservesinglequotes(attributes.emp_id)#)</cfif>
+			AND Time_Entry.project_id=#application.application_specific_settings.pto_project_id#
 		GROUP BY Emp_id
 	) AS Hours_Taken_Table ON Emp_Contact.emp_id=Hours_Taken_Table.emp_id
 	LEFT OUTER JOIN (

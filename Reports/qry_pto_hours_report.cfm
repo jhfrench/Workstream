@@ -50,7 +50,7 @@ FROM Security_Company_Access
 				AND Time_Entry.project_id IN (
 					SELECT project_id
 					FROM Project
-					WHERE project_type_id = 1
+					WHERE project_id=#application.application_specific_settings.pto_project_id#
 				)
 		WHERE Link_Company_Emp_Contact.company_id IN (
 				SELECT company_id 

@@ -39,7 +39,7 @@ WHERE Customer.customer_id = Project.customer_id
 	AND Customer.customer_id=Link_Customer_Company.customer_id
 	AND Link_Customer_Company.company_id IN (#variables.valid_codes#)
 	AND Link_Project_Company.company_id IN (#variables.valid_codes#)
-	AND Project.project_type_id!=3 
+	AND Project.project_id!=#application.application_specific_settings.pto_project_id#
 GROUP BY Customer.customer_id, Customer.description, Customer.root_code,
 	Project.description, Project.project_id, Project.project_code,
 	Project.billable_type_id, Project.company_id, 

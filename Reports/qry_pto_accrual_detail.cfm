@@ -43,7 +43,7 @@ FROM
 		AND project_id IN (
 			SELECT Project_id
 			FROM Project
-			WHERE project_type_id = 1
+			WHERE project_id=#application.application_specific_settings.pto_project_id#
 		)
 	) AS PTO_table
 GROUP BY PTO_table.hours_in, PTO_table.hours_out, PTO_table.transaction_date

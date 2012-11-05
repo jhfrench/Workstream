@@ -33,7 +33,7 @@ FROM (
 						WHERE company_id = #session.workstream_company_id#
 					)
 					AND Time_Entry.emp_id=#variables.user_identification#
-					AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id = 1)
+					AND Time_Entry.project_id=#application.application_specific_settings.pto_project_id#
 				GROUP BY Emp_id
 			) AS Hours_Taken_Table ON User_Account.user_account_id=Hours_Taken_Table.emp_id
 			LEFT OUTER JOIN (
@@ -55,7 +55,7 @@ FROM (
 			AND Time_Entry.project_id IN (
 				SELECT project_id
 				FROM Project
-				WHERE project_type_id = 1
+				WHERE project_id=#application.application_specific_settings.pto_project_id#
 			)
 		GROUP BY Time_Entry.emp_id
 	) AS Last_Month_Taken ON Remainder.user_account_id=Last_Month_Taken.emp_id

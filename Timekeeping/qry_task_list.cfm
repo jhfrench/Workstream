@@ -114,7 +114,7 @@ WHERE Customer.customer_id=Project.customer_id
 	AND Team.active_ind=1
 	AND Team.role_id=3 /* QA */<cfif isdefined("attributes.project_id")>
 	AND Project.project_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#" /></cfif>
-	AND Project.project_type_id!=3<cfif isdefined("session.workstream_task_list_order")>
+	AND Project.project_id!=#application.application_specific_settings.pto_project_id#<cfif isdefined("session.workstream_task_list_order")>
 ORDER BY <cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id) GT 1>task_owner, #variables.temp_task_list_order#<cfelse>#session.workstream_task_list_order#</cfif></cfif>
 </cfquery>
 </cfsilent>

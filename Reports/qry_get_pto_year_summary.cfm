@@ -22,7 +22,7 @@ FROM
 	FROM Time_Entry
 	WHERE Time_Entry.active_ind=1
 		AND Time_Entry.emp_id=#attributes.emp_id#
-		AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id=1)
+		AND Time_Entry.project_id=#application.application_specific_settings.pto_project_id#
 		AND [date] >= #createodbcdatetime(Get_PTO_Start.pto_start_date)#
 	UNION ALL
 	SELECT 0 AS hours_out, COALESCE(PTO_Grant.granted_hours, 0) AS hours_in, 

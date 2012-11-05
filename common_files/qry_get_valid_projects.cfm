@@ -37,7 +37,7 @@ FROM Customer
 			(Project.company_id=#session.workstream_company_id# AND Project.billable_type_id=2)
 			OR Project.billable_type_id!=2
 		)
-		AND Project.project_type_id!=3
+		AND Project.project_id!=#application.application_specific_settings.pto_project_id#
 	INNER JOIN (
 		SELECT project_id
 		FROM Link_Project_Company

@@ -22,7 +22,7 @@ FROM
 	WHERE Time_Entry.active_ind=1
 		AND Notes.active_ind=1
 		AND Time_Entry.emp_id=#attributes.emp_id#
-		AND Time_Entry.project_id IN (SELECT project_id FROM Project WHERE project_type_id=1)
+		AND Time_Entry.project_id=#application.application_specific_settings.pto_project_id#
 		AND Time_Entry.work_date >= #createodbcdatetime(Get_PTO_Start.pto_start_date)#
 		AND EXTRACT(YEAR FROM Time_Entry.work_date) >= EXTRACT(YEAR FROM CURRENT_DATE)
 	UNION ALL

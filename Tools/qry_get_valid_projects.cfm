@@ -31,7 +31,7 @@ WHERE Customer.customer_id = Project.customer_id
 		END)
 		OR Project.company_id = 0
 	)
-	AND Project.project_type_id!=3
+	AND Project.project_id!=#application.application_specific_settings.pto_project_id#
 	AND Project.project_id IN 
 		(SELECT project_id
 		FROM user_fields, user_field_project_link
