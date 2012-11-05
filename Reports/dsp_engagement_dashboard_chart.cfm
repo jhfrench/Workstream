@@ -49,19 +49,20 @@
 				<!--- Show status color image and set status color variable based on the status code--->
 				<cfswitch expression="#status#">
 					<cfcase value="1">
-						<span style="background-image:url('images/bar_7.gif');"><i class="icon-star icon-white"></i></span> Good
+						<span class="badge badge-success"><i class="icon-star icon-white"></i></span> Good
 					</cfcase>
 					<cfcase value="2">
-						<span style="background-image:url('images/bar_3.gif');"><i class="icon-flag icon-white"></i></span> Caution
+						<span class="badge badge-warning"><i class="icon-flag icon-white"></i></span> Caution
 					</cfcase>
 					<cfdefaultcase>
 						<!--- No status so display a red so I get attention --->
-						<span style="background-image:url('images/bar_1.gif');"><i class="icon-fire icon-white"></i></span> Danger
+						<span class="badge badge-important"><i class="icon-fire icon-white"></i></span> Danger
 					</cfdefaultcase>
 				</cfswitch>
 				</a>
 			</td>
 			<td>
+				<!--- $issue$: either convert this to REF table, or cfswitch --->
 				<cfif eng_status EQ 0>Not Started</cfif>
 				<cfif eng_status EQ 1>Approved&ndash;In Progress</cfif>
 				<cfif eng_status EQ 11>Technical Review&ndash;Nucleus</cfif>
@@ -81,7 +82,7 @@
 			</td>
 			<td class="number">
 				&##36;#numberformat(budget,'___,___,___,___')#
-				<cfif loe GT 0><br />h #LOE#</cfif>
+				<cfif loe GT 0><br /><abbr title="estimated hours">h</abbr> #LOE#</cfif>
 			</td>
 			<td class="number">
 				&##36;<cfif len(total_bill_amount)>#numberformat(total_bill_amount,'___,___,___,___')#<cfelse>0</cfif>
