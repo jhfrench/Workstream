@@ -21,7 +21,6 @@ FROM
 	FROM View_Demographics_Workstream AS Demographics, Link_Company_Emp_Contact
 	WHERE Demographics.emp_id=Link_Company_Emp_Contact.emp_id
 		AND (Demographics.effective_to IS NULL OR Demographics.effective_to > CURRENT_TIMESTAMP)
-		AND (Demographics.end_date IS NULL OR Demographics.end_date > CURRENT_TIMESTAMP)
 		AND Link_Company_Emp_Contact.company_id=#listlast(session.workstream_company_id)#
 		AND EXTRACT(MONTH FROM Demographics.hire_date)=EXTRACT(MONTH FROM CURRENT_DATE)
 		AND EXTRACT(YEAR FROM Demographics.hire_date)=EXTRACT(YEAR FROM CURRENT_DATE))
