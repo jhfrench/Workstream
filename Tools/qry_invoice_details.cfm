@@ -29,7 +29,7 @@ FROM (
 	) AS Hours_ID
 	INNER JOIN Project ON Hours_ID.project_id=Project.project_id
 	INNER JOIN Emp_Contact ON Hours_ID.emp_id=Emp_Contact.emp_id
-	INNER JOIN Demographics_Ngauge Demographics ON Hours_ID.emp_id=Demographics.emp_id
+	INNER JOIN View_Demographics_Workstream Demographics ON Hours_ID.emp_id=Demographics.emp_id
 	LEFT OUTER JOIN Billing_Rate ON Hours_ID.emp_id=Billing_Rate.emp_id
 		AND Project.project_id=Billing_Rate.project_id
 		AND ('#attributes.month#/1/#attributes.year#' BETWEEN Billing_Rate.rate_start_date AND Billing_Rate.rate_end_date OR Billing_Rate.rate_end_date IS NULL)

@@ -18,7 +18,7 @@
 <cfset photo=file.serverfile> --->
 <cftransaction isolation="READ_COMMITTED">
 	<cfinclude template="qry_emp_contact_entry.cfm">
-	<cfinclude template="qry_demographics_entry.cfm"><!--- Demographics_Ngauge --->
+	<cfinclude template="qry_demographics_entry.cfm"><!--- View_Demographics_Workstream --->
 	<cfinclude template="qry_company_entry.cfm">
 	<cfinclude template="qry_location_entry.cfm">
 	<!--- <cfset need_all_supervisors = 1> --->

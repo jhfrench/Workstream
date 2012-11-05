@@ -18,7 +18,7 @@ SELECT Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname,
 FROM Emp_Contact
 	INNER JOIN PTO_Hours ON Emp_Contact.emp_id=PTO_Hours.emp_id
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
-	INNER JOIN Demographics_Ngauge Demographics ON Emp_Contact.emp_id=Demographics.emp_id
+	INNER JOIN View_Demographics_Workstream Demographics ON Emp_Contact.emp_id=Demographics.emp_id
 	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id = REF_Company.company_id
 WHERE Link_Company_Emp_Contact.company_id IN (
 		SELECT company_id 
@@ -33,7 +33,7 @@ SELECT DISTINCT Emp_Contact.emp_id, Emp_Contact.name, Emp_Contact.lname,
 FROM Security_Company_Access
 	INNER JOIN Emp_Contact ON Security_Company_Access.emp_id=Emp_Contact.emp_id
 	INNER JOIN PTO_Hours ON Emp_Contact.emp_id=PTO_Hours.emp_id
-	INNER JOIN Demographics_Ngauge Demographics ON Emp_Contact.emp_id=Demographics.emp_id
+	INNER JOIN View_Demographics_Workstream Demographics ON Emp_Contact.emp_id=Demographics.emp_id
 		AND Demographics.Effective_To IS NULL
 	INNER JOIN Link_User_Account_Status ON Link_User_Account_Status.user_account_id=Emp_Contact.emp_id
 		AND Link_User_Account_Status.active_ind=1

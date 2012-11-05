@@ -19,7 +19,7 @@ SELECT Emp_Contact.emp_id, Emp_Contact.Name, Emp_Contact.lname,
 		WHEN Link_User_Account_Status.account_status_id=1 THEN 'Active'
 		ELSE 'Inactive'
 	END AS status
-FROM Demographics_Ngauge AS Demographics
+FROM View_Demographics_Workstream AS Demographics
 	INNER JOIN Emp_Contact ON Demographics.emp_id=Emp_Contact.emp_id
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id = REF_Company.company_id

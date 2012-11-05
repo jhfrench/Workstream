@@ -19,7 +19,7 @@ SELECT Emp_Contact.lname || ', ' || Emp_Contact.name AS employee_name,
 	Emp_Contact.emp_id, 
 	COALESCE(bdata.cbt,0) AS cbt, COALESCE(bdata.cbh,0) AS cbh, COALESCE(bdata.nbt,0) AS nbt, COALESCE(bdata.nbh,0) AS nbh, 
 	COALESCE(nbdata.cnt,0) AS cnt, COALESCE(nbdata.cnh,0) AS cnh, COALESCE(nbdata.nnt,0) AS nnt, COALESCE(nbdata.nnh,0) AS nnh
-FROM Demographics_Ngauge Demographics, Emp_Contact
+FROM View_Demographics_Workstream Demographics, Emp_Contact
 	LEFT OUTER JOIN (
 		SELECT COUNT(DISTINCT CASE WHEN Task.status_id=7 /*completed*/ THEN Forecast_Assignment.task_id ELSE NULL END) AS cbt, 
 			COALESCE(SUM(CASE WHEN Task.status_id=7 /*completed*/ THEN Time_Entry.hours ELSE 0 END),0) AS cbh,

@@ -17,7 +17,7 @@
 <cfquery name="annivarsary" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name, Emp_Contact.lname, Demographics.hire_date,
 	DATEDIFF(M, Demographics.hire_date, CURRENT_TIMESTAMP)/12.0 AS years_employed, Demographics.dob
-FROM Emp_Contact, Demographics_Ngauge Demographics, Link_Company_Emp_Contact
+FROM Emp_Contact, View_Demographics_Workstream Demographics, Link_Company_Emp_Contact
 WHERE Emp_Contact.emp_id=Demographics.emp_id
 	AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)

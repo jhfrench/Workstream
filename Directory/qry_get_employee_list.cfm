@@ -31,7 +31,7 @@ FROM Emp_Contact
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id=REF_Company.company_id
 	INNER JOIN Position_History ON Emp_Contact.emp_id=Position_History.emp_id
-	INNER JOIN Demographics_Ngauge AS Demographics ON Emp_Contact.emp_id=Demographics.emp_id
+	INNER JOIN View_Demographics_Workstream AS Demographics ON Emp_Contact.emp_id=Demographics.emp_id
 	LEFT OUTER JOIN Email ON Emp_Contact.emp_id=Email.emp_id
 		AND Email.email_type_id=1
 	LEFT OUTER JOIN Phone ON Emp_Contact.emp_id=Phone.emp_id

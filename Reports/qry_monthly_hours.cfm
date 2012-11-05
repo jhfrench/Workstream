@@ -25,7 +25,7 @@ SELECT Emp_Contact.name, Emp_Contact.lname, Project.project_code AS clientcode,
 	</cfif>END AS clientname, REF_Employee_Classification.employee_classification,
 	SUM(Time_Entry.hours) AS hours, Link_Company_Emp_Contact.company_id
 FROM Emp_Contact, Time_Entry, Project,
-	Demographics_Ngauge Demographics, Customer, Link_Company_Emp_Contact,
+	View_Demographics_Workstream Demographics, Customer, Link_Company_Emp_Contact,
 	REF_Employee_Classification
 WHERE Emp_Contact.emp_id=Time_Entry.emp_id
 	AND Time_Entry.project_id=Project.project_id

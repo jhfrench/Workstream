@@ -21,7 +21,7 @@ SELECT Emp_Contact.name, Emp_Contact.lname,
 	REF_Company.description AS company
 FROM Emp_Contact 
 		INNER JOIN Time_Entry ON Emp_Contact.emp_id=Time_Entry.emp_id
-		INNER JOIN Demographics_Ngauge AS Demographics ON Emp_Contact.emp_id=Demographics.emp_id
+		INNER JOIN View_Demographics_Workstream AS Demographics ON Emp_Contact.emp_id=Demographics.emp_id
 			AND Time_Entry.work_date BETWEEN Demographics.hire_date AND COALESCE(Demographics.effective_to, #createodbcdate(attributes.through_date)#)
 		INNER JOIN Project ON Time_Entry.project_id = Project.project_id
 		INNER JOIN Customer ON Project.customer_id = Customer.customer_id

@@ -16,7 +16,7 @@
 	END FUSEDOC --->
 <cfquery name="populate_employee_form" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.credentials,
-	Emp_Contact.mi, Emp_Contact.emp_contact_type, d.Employee_Type_ID,
+	Emp_Contact.mi, Emp_Contact.emp_contact_type,
 	d.SSN, d.hire_date, d.DOB, 
 	d.Manager_non_id, d.Photo, d.employee_classification_id, 
 	work_loc.Address1 AS address1_1, work_loc.Address2 AS address2_1, work_loc.City AS city_1, 
@@ -29,7 +29,7 @@ SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.credentials,
 	cell_phone.Phone_Number AS phone_4, cell_phone.Extension AS phone_4_ext, pager_phone.Phone_Number AS phone_5, 
 	pager_phone.Extension AS phone_5_ext, Emp_Biography.biography
 FROM Emp_Contact
-	INNER JOIN Demographics_Ngauge d ON Emp_Contact.emp_id=d.emp_id
+	INNER JOIN View_Demographics_Workstream d ON Emp_Contact.emp_id=d.emp_id
 	LEFT OUTER JOIN Emp_Biography ON Emp_Contact.emp_id=Emp_Biography.emp_id
 	LEFT OUTER JOIN (
 		SELECT *

@@ -23,7 +23,7 @@ FROM Emp_Contact
 	INNER JOIN Link_Employee_Supervisor ON Emp_Contact.emp_id=Link_Employee_Supervisor.emp_id
 		AND Link_Employee_Supervisor.supervisor_id=#variables.user_identification#<cfif NOT isdefined("attributes.hide_supervisor")>
 		OR Emp_Contact.emp_id=#variables.user_identification#</cfif>
-	INNER JOIN Demographics_Ngauge AS Demographics ON Emp_Contact.emp_id=Demographics.emp_id
+	INNER JOIN View_Demographics_Workstream AS Demographics ON Emp_Contact.emp_id=Demographics.emp_id
 WHERE 1=1<cfif NOT attributes.all_employees>
 	AND <cfif len(attributes.date_linked)>#createodbcdate(attributes.date_linked)# BETWEEN Link_Employee_Supervisor.date_start AND COALESCE(Link_Employee_Supervisor.date_end,#createodbcdate(attributes.date_linked)#+INTERVAL '1 day')<cfelse>CURRENT_TIMESTAMP BETWEEN Link_Employee_Supervisor.date_start AND COALESCE(Link_Employee_Supervisor.date_end, CURRENT_DATE+INTERVAL '1 day')</cfif>
 	AND CURRENT_DATE BETWEEN Demographics.hire_date AND COALESCE(Demographics.effective_to,CURRENT_DATE+INTERVAL '1 day')</cfif>

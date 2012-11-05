@@ -29,9 +29,9 @@ FROM (
 		SELECT ABCD_Quarter.date_year, ABCD_Quarter.date_quarter, COUNT(Demographics.demographics_id) AS population_count
 		FROM ABCD_Quarter
 			LEFT OUTER JOIN (
-				SELECT Demographics_Ngauge.demographics_id, Demographics_Ngauge.hire_date, COALESCE(Demographics_Ngauge.effective_to, CURRENT_DATE+ INTERVAL '1 day') AS effective_to
-				FROM Demographics_Ngauge
-					INNER JOIN Link_Company_Emp_Contact ON Demographics_Ngauge.emp_id=Link_Company_Emp_Contact.emp_id
+				SELECT View_Demographics_Workstream.demographics_id, View_Demographics_Workstream.hire_date, COALESCE(View_Demographics_Workstream.effective_to, CURRENT_DATE+ INTERVAL '1 day') AS effective_to
+				FROM View_Demographics_Workstream
+					INNER JOIN Link_Company_Emp_Contact ON View_Demographics_Workstream.emp_id=Link_Company_Emp_Contact.emp_id
 						AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 			) AS Demographics ON Demographics.hire_date <= ABCD_Quarter.date_end
 				AND Demographics.effective_to >= ABCD_Quarter.date_start
@@ -40,9 +40,8 @@ FROM (
 		GROUP BY ABCD_Quarter.date_year, ABCD_Quarter.date_quarter
 	) AS Quarter_Population
 	LEFT OUTER JOIN (
-		SELECT EXTRACT(YEAR FROM created_date) AS turnover_year, EXTRACT(QUARTER FROM created_date) AS turnover_quarter,<cfloop query="get_ref_turnover_reason">
-			SUM(CASE WHEN Turnover.reason_id=#turnover_reason_id# THEN 1 ELSE 0 END) AS turnover_reason_id_#turnover_reason_id#,</cfloop>
-			1 AS for_sql_syntax
+		SELECT EXTRACT(YEAR FROM created_date) AS turnover_year, EXTRACT(QUARTER FROM created_date) AS turnover_quarter,<cfloop query="get_ref_turnover_reason">,
+			SUM(CASE WHEN Turnover.reason_id=#turnover_reason_id# THEN 1 ELSE 0 END) AS turnover_reason_id_#turnover_reason_id#</cfloop>
 		FROM Turnover
 		GROUP BY EXTRACT(YEAR FROM created_date), EXTRACT(QUARTER FROM created_date)
 	) AS Turnover ON Quarter_Population.date_year=Turnover.turnover_year
@@ -57,8 +56,8 @@ FROM get_turnover_report
 </cfquery>
 
 <cfquery name="get_total_population" datasource="#application.datasources.main#">
-SELECT COUNT(Demographics_Ngauge.demographics_id) AS total_population
-FROM Demographics_Ngauge
-	INNER JOIN Link_Company_Emp_Contact ON Demographics_Ngauge.emp_id=Link_Company_Emp_Contact.emp_id
+SELECT COUNT(View_Demographics_Workstream.demographics_id) AS total_population
+FROM View_Demographics_Workstream
+	INNER JOIN Link_Company_Emp_Contact ON View_Demographics_Workstream.emp_id=Link_Company_Emp_Contact.emp_id
 		AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 </cfquery>

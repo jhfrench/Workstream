@@ -131,12 +131,6 @@
 		</div>
 	</div>
 	<div class="control-group">
-		<label for="employee_type" class="control-label">Employee Type</label>
-		<div class="controls">
-			<cfselect name="employee_type" id="employee_type" selected="#employee_type_id#" query="qry_get_employee_type" value="employee_type_id" display="employee_type" class="span3" />
-		</div>
-	</div>
-	<div class="control-group">
 		<label for="supervisor_id" class="control-label">Supervisor</label>
 		<cfif isdefined("attributes.emp_id")>
 			<span id="supervisor_id">Can't be changed from this screen.</span><input type="hidden" name="supervisor_id" value="#supervisor_id#">
@@ -146,14 +140,6 @@
 		</div>
 		</cfif>
 	</div>
-	<cfif isdefined("attributes.emp_id")>
-	<div class="control-group">
-		<label for="effective_from" class="control-label">Date Change Effective</label>
-		<div class="controls">
-			<input type="date" name="effective_from" id="effective_from" value="#dateformat(now(),'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
-		</div>
-	</div>
-	</cfif>
 	<div class="control-group">
 		<label for="overtime_elligible_ind" class="control-label">Overtime Paid</label>
 		<div class="controls">

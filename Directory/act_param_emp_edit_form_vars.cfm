@@ -47,7 +47,6 @@
 <cfparam default="0" name="manager_non_id">
 <cfparam default="" name="emp_contact_type">
 <cfparam default="" name="employee_type">
-<cfparam default="" name="employee_type_id">
 <cfparam default="0" name="workstream">
 <cfloop from="1" to="#loop_to_phone#" index="ii">
 	<cfparam default="" name="phone_#ii#"> 

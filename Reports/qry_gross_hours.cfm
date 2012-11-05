@@ -19,9 +19,9 @@ SELECT (Emp_Contact.lname || ', ' || Emp_Contact.name) AS name,<cfloop from="1" 
 FROM Emp_Contact
 	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
 		AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
-	INNER JOIN Demographics_Ngauge ON Emp_Contact.emp_id=Demographics_Ngauge.emp_id
-		AND Demographics_Ngauge.hire_date <= #variables.date_closed#
-		AND COALESCE(Demographics_Ngauge.effective_to,#variables.date_open#) >= #variables.date_open#
+	INNER JOIN View_Demographics_Workstream ON Emp_Contact.emp_id=View_Demographics_Workstream.emp_id
+		AND View_Demographics_Workstream.hire_date <= #variables.date_closed#
+		AND COALESCE(View_Demographics_Workstream.effective_to,#variables.date_open#) >= #variables.date_open#
 	LEFT OUTER JOIN Location ON Emp_Contact.emp_id=Location.emp_id
 		AND Location.location_type_id=1
 	LEFT OUTER JOIN Time_Entry ON Emp_Contact.emp_id=Time_Entry.emp_id
