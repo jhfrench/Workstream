@@ -59,8 +59,34 @@
 			<cfinclude template="dsp_emp_position_number.cfm">
 		</cfif>
 		<cfif get_subordinates.recordcount>
-			<h4>Direct Reports</h4>
-			<cfloop query="get_subordinates"><a href="javascript:list_to_employee('#emp_id#');" title="View details for #replace(lname,"'","")# #replace(fname,"'","")#."><cfif currentrow NEQ 1>; </cfif>#lname#, #fname#</a></cfloop>
+			<cfset variables.level=0>
+			<cfset variables.open_count=0>
+			<h4>Subordinates</h4>
+			
+			<cfloop query="get_subordinates">
+				<cfif level GT variables.level>
+					<cfset variables.open_count=variables.open_count+1>
+					<ul>
+						<li>
+				<cfelseif level LT variables.level>
+					<cfloop from="#level+1#" to="#variables.level#" index="variables.open_count_ii">
+						<cfset variables.open_count=variables.open_count-1>
+						</li>
+					</ul>
+					</cfloop>
+						</li>
+						<li>
+				<cfelse>
+						</li>
+						<li>
+				</cfif>
+				<cfset variables.level=level>
+							<a href="javascript:list_to_employee('#user_account_id#');" title="View details for #jsstringformat(first_name)# #jsstringformat(last_name)#.">#last_name#, #first_name#</a>
+			</cfloop>
+			<cfloop from="1" to="#variables.open_count#" index="variables.open_count_ii">
+						</li>
+					</ul>
+			</cfloop>
 		</cfif>
 	</div>
 </div>
