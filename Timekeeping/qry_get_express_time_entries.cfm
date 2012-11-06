@@ -22,13 +22,14 @@ FROM Time_Entry
 	INNER JOIN REF_Day_of_Week ON EXTRACT (DOW FROM Time_Entry.work_date)=REF_Day_Of_Week.day_of_week_id
 	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
 	INNER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
+		AND Notes.active_ind=1
 	INNER JOIN (
 		SELECT Time_Entry.work_date, Time_Entry.emp_id, SUM(Time_Entry.Hours) AS sumhours
 		FROM Time_Entry 
 		WHERE Time_Entry.active_ind=1
 			AND Time_Entry.emp_id=#variables.user_identification#
 			AND Time_Entry.work_date-60 >= CURRENT_DATE
-		GROUP BY  Time_Entry.work_date, Time_Entry.emp_id
+		GROUP BY Time_Entry.work_date, Time_Entry.emp_id
 	) AS Hours_Pin_Date ON Time_Entry.emp_id=Hours_Pin_Date.emp_id
 		AND Time_Entry.work_date=Hours_Pin_Date.work_date
 	INNER JOIN (
@@ -43,8 +44,6 @@ FROM Time_Entry
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.emp_id=#variables.user_identification#
 	AND Time_Entry.work_date-60 >= CURRENT_DATE
-	AND Notes.active_ind=1
 ORDER BY Time_Entry.work_date DESC, Notes.created_date DESC, Project.project_code
 </cfquery>
 </cfsilent>
-
