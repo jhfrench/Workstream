@@ -15,7 +15,7 @@
 	--> project_name: string that contains the name of the project or engagement the task is assigned to
  --->
 </cfsilent>
-<h5>Associated files</h5>
+<h5>Associated Files</h5>
 <cfif comparenocase(listlast(attributes.fuseaction, '.'),"new_task") AND get_associated_files.recordcount>
 	<div>
 	<cfoutput query="get_associated_files">

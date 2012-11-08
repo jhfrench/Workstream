@@ -26,14 +26,14 @@
 <div class="form-horizontal">
 <h5>Due Date Reminder</h5>
 <div class="control-group">
-	<label for="reminder_days" class="control-label">Days</label>
+	<label for="reminder_days" class="h5 control-label">Days</label>
 	<div class="controls">
 	<input type="number" name="reminder_days" id="reminder_days" value="#variables.reminder_days#" step="1" min="0" max="90" class="span2" />
 	<span class="help-inline">Please specify your pre due date reminder as a number of whole days before the due date.</span>
 	</div>
 </div>
 <div class="control-group">
-	<label for="reminder_cc_id" class="control-label"><abbr title="Carbon-Copy">CC</abbr> List</label>
+	<label for="reminder_cc_id" class="h5 control-label"><abbr title="Carbon-Copy">CC</abbr> List</label>
 	<div class="controls">
 	<cfmodule template="../common_files/dsp_team_select.cfm" select_name="reminder_cc_id" emp_id="#variables.cc_list#" email_only="1" multi="1" size="4" class="span6">
 	</div>

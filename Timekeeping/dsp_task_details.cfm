@@ -55,7 +55,7 @@
 	<input type="hidden" name="task_id" value="#task_id#" />
 <div class="row-fluid">
 	<div class="span6">
-		<label for="task_name" class="h5">Task name</label>
+		<label for="task_name" class="h5">Task Name</label>
 		<input type="text" name="task_name" id="task_name" value="#variables.task_name#" valign="top" size="#variables.cols#" maxlength="255"#variables.edit_status# class="span11" />
 		<p><span class="h5">Customer</span>: #get_task_details.customer_name# <span class="h5">Project</span>: #replace(get_task_details.project_name,"#get_task_details.customer_name#-","")# <i class="icon-share" title="See more projects." onclick="OpenProjectWindow('project_id');"></i></p>
 		<label for="task_description" class="h5">Description <a href="javascript:$('##task_description').height( $('##task_description').height()*2 );" title="Expand description"><i class="icon-resize-vertical"></i></a></label>
@@ -74,12 +74,12 @@
 				<span id="task_source">#get_task_details.source_name#</span>
 			</div>
 			<div class="span4">
-				<label for="date_assigned" class="h5">Date assigned</label>
+				<label for="date_assigned" class="h5">Date Assigned</label>
 				<span id="date_assigned" class="span11 date">#dateformat(get_task_details.date_assigned,"m/d/yyyy")#</span>
-				<label for="due_date" class="h5">Date due</label>
+				<label for="due_date" class="h5">Date Due</label>
 				<input type="date" name="due_date" id="due_date" min="#application.application_specific_settings.workstream_start_date#" value="#dateformat(get_task_details.due_date,'yyyy-mm-dd')#" maxlength="10" required="required"#variables.edit_status# class="span11 date" />
 				<div style="float:left;">
-				<label for="date_completed" class="h5">Date completed</label>
+				<label for="date_completed" class="h5">Date Completed</label>
 				<span id="date_completed" class="span11 date"><cfif len(get_task_details.complete_date) AND get_task_details.status_id EQ 11>#dateformat(get_task_details.complete_date,"m/d/yyyy")#<cfelse>Not yet completed</cfif></span>
 				</div>
 			</div>
@@ -108,7 +108,7 @@
 	<div class="span6">
 			<div class="row-fluid">
 				<div class="span12">
-				<label for="notes" class="h5">Progress notes <a href="javascript:$('##notes').height( $('##notes').height()*2 );" title="Expand progress notes"><i class="icon-resize-vertical"></i></a></label>
+				<label for="notes" class="h5">Progress Notes <a href="javascript:$('##notes').height( $('##notes').height()*2 );" title="Expand progress notes"><i class="icon-resize-vertical"></i></a></label>
 				<cfif time_entry_details.recordcount>
 					<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea spann11"><cfloop query="time_entry_details"><p<cfif notes_type_id EQ 2> class="alert-info"</cfif>><strong>(<abbr title="#author#">#initials#</abbr> #dateformat(date,"m/d/yyyy")#)</strong> - #trim(note)#&nbsp;&nbsp;</p></cfloop></div>
 				<cfelse>
