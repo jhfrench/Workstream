@@ -17,7 +17,7 @@
 	--> task_name: string that gives the name of the task
  --->
 </cfsilent>
-<h5>Linked tasks</h5>
+<h5>Linked Tasks</h5>
 <cfif comparenocase(listlast(attributes.fuseaction, '.'),"new_task") AND get_associated_tasks.recordcount>
 <table class="table table-striped table-bordered">
 	<thead>

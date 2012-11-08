@@ -23,13 +23,13 @@
 <div class="form-horizontal">
 	<h5>Completion Notification</h5>
 	<div class="control-group">
-		<label for="notification_to_id" class="control-label">Recipient List</label>
+		<label for="notification_to_id" class="h5 control-label">Recipient List</label>
 		<div class="controls">
 		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="notification_to_id" emp_id="#variables.to_list#" email_only="1" multi="1" size="4" class="span6">
 		</div>
 	</div>
 	<div class="control-group">
-		<label for="notification_cc_id" class="control-label"><abbr title="Carbon-Copy">CC</abbr> List</label>
+		<label for="notification_cc_id" class="h5 control-label"><abbr title="Carbon-Copy">CC</abbr> List</label>
 		<div class="controls">
 		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="notification_cc_id" emp_id="#variables.cc_list#" email_only="1" multi="1" size="4" class="span6">
 		</div>
