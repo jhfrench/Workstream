@@ -3,7 +3,7 @@
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_grouper_options_and_user_privileges.cfm">
 	<responsibilities>
-		I get all the values for a specified grouper, and the priveleges (relevant to the module we're working with) a user has for that value. If we're deeper than the top level of the NSM hiearchy, I limit the returned values to only the children of parents to which the user already has some sort of access.
+		I get all the values for a specified grouper, and the priveleges (relevant to the module we're working with) a user has for that value. If we're deeper than the top level of the NSM hierarchy, I limit the returned values to only the children of parents to which the user already has some sort of access.
 	</responsibilities>
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/12/2007" role="FuseCoder" comments="Created File">
