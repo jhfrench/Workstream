@@ -18,14 +18,9 @@
 <cfparam name="attributes.through_date" default="">
 <cfparam name="attributes.report_name" default="">
 <cfparam name="attributes.required" default="">
-<cfif isdefined("attributes.action")>
-	<cfset variables.form_action="index.cfm?fuseaction=Reports.#attributes.action#">
-<cfelse>
-	<cfset variables.form_action="index.cfm?fuseaction=#caller.attributes.fuseaction#">
-</cfif>
 </cfsilent>
 <cfoutput>
-<form name="report" action="" class="well form-inline">
+<form name="report" action="#attributes.fuseaction#" class="well form-inline">
 	<fieldset>
 		<legend>#attributes.report_name# Criteria</legend>
 		<label for="from_date">From</label>

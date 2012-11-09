@@ -12,5 +12,5 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfmodule template="dsp_from_through_date.cfm" report_name="Individual Hours Report" required="yes" action="individual_hours">
+<cfmodule template="dsp_from_through_date.cfm" report_name="Individual Hours Report" required="yes" fuseaction="Reports.individual_hours">
 
