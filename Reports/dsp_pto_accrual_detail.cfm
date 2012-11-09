@@ -34,13 +34,13 @@
 				Totals
 			</th>
 			<td class="number">
-				#decimalformat(get_pto_year_summary.total_in)#
+				#decimalformat(get_pto_year_summary.hours_in)#
 			</td>
 			<td class="number">
-				#decimalformat(get_pto_year_summary.total_out)#
+				#decimalformat(get_pto_year_summary.hours_out)#
 			</td>
 			<td class="number">
-				#decimalformat(get_pto_year_summary.total_in-get_pto_year_summary.total_out)#
+				#decimalformat(get_pto_year_summary.hours_in-get_pto_year_summary.hours_out)#
 			</td>
 		</tr>
 	</tfoot>
