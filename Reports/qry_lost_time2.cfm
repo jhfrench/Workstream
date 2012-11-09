@@ -29,8 +29,8 @@ FROM Emp_Contact
 	INNER JOIN Link_User_Account_Status ON Link_User_Account_Status.user_account_id=Emp_Contact.user_account_id
 		AND Link_User_Account_Status.active_ind=1
 		AND Link_User_Account_Status.account_status_id=1 /*active*/
-	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id
-		AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)<cfif NOT listcontainsnoCase(attributes.user_account_id,"ALL" )>
+	INNER JOIN Link_Company_User_Account ON Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id
+		AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)<cfif NOT listcontainsnoCase(attributes.user_account_id,"ALL" )>
 WHERE Emp_Contact.user_account_id IN (#preservesinglequotes(attributes.user_account_id)#)</cfif>
 GROUP BY Emp_Contact.user_account_id, Emp_Contact.lname, Emp_Contact.name
 ORDER BY Emp_Contact.lname, Emp_Contact.name

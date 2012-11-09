@@ -17,10 +17,10 @@
 <cfquery name="annivarsary" datasource="#application.datasources.main#">
 SELECT Emp_Contact.name, Emp_Contact.lname, Demographics.hire_date,
 	DATEDIFF(M, Demographics.hire_date, CURRENT_TIMESTAMP)/12.0 AS years_employed, Demographics.dob
-FROM Emp_Contact, View_Demographics_Workstream Demographics, Link_Company_Emp_Contact
+FROM Emp_Contact, View_Demographics_Workstream Demographics, Link_Company_User_Account
 WHERE Emp_Contact.user_account_id=Demographics.user_account_id
-	AND Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id
-	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
+	AND Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id
+	AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)
 	AND (Demographics.effective_to IS NULL OR Demographics.effective_to > CURRENT_TIMESTAMP)
 	AND Emp_Contact.name!=''
 	AND CURRENT_TIMESTAMP BETWEEN hire_date AND COALESCE(effective_to,CURRENT_TIMESTAMP+interval '1 day') /*use this condition to retrieve only one record per person*/

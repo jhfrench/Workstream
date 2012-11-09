@@ -15,8 +15,8 @@
 <cfquery name="express_check_date" datasource="#application.datasources.main#">
 SELECT COALESCE(MAX(Date_Locked.date_locked), CURRENT_TIMESTAMP) AS date_locked
 FROM Emp_Contact
-	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id
-	INNER JOIN Date_Locked ON Link_Company_Emp_Contact.company_id=Date_Locked.company_id
+	INNER JOIN Link_Company_User_Account ON Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id
+	INNER JOIN Date_Locked ON Link_Company_User_Account.company_id=Date_Locked.company_id
 		AND Date_Locked.active_ind=1
 	INNER JOIN View_Demographics_Workstream AS Demographics ON Emp_Contact.user_account_id=Demographics.user_account_id
 WHERE Emp_Contact.user_account_id=#variables.user_identification# 

@@ -18,9 +18,9 @@
 SELECT *
 FROM (
 	SELECT REF_Company.description AS company, REF_Company.company_id
-	FROM Link_Company_Emp_Contact, REF_Company
-	WHERE Link_Company_Emp_Contact.company_id=REF_Company.company_id
-		AND Link_Company_Emp_Contact.user_account_id=#variables.user_identification#
+	FROM Link_Company_User_Account, REF_Company
+	WHERE Link_Company_User_Account.company_id=REF_Company.company_id
+		AND Link_Company_User_Account.user_account_id=#variables.user_identification#
 		AND #application.team_changed#=#application.team_changed#
 	UNION ALL
 	SELECT REF_Company.description AS company, Security_Company_Access.company_id

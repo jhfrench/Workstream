@@ -25,14 +25,14 @@ FROM Emp_Contact
 			AND Time_Entry.work_date BETWEEN Demographics.hire_date AND COALESCE(Demographics.effective_to, #createodbcdate(attributes.through_date)#)
 		INNER JOIN Project ON Time_Entry.project_id = Project.project_id
 		INNER JOIN Customer ON Project.customer_id = Customer.customer_id
-		INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id
-		INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id = REF_Company.company_id
+		INNER JOIN Link_Company_User_Account ON Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id
+		INNER JOIN REF_Company ON Link_Company_User_Account.company_id = REF_Company.company_id
 		LEFT OUTER JOIN REF_Employee_Classification
 			ON Demographics.employee_classification_id = REF_Employee_Classification.employee_classification_id
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.work_date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.through_date)#
 	AND Project.project_id = #project_id#
-	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
+	AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)
 	AND Demographics.hire_date <= #createodbcdate(attributes.through_date)#
 	AND COALESCE(Demographics.effective_to, #createodbcdate(attributes.from_date)#) >= #createodbcdate(attributes.from_date)#
 GROUP BY Emp_Contact.name, Emp_Contact.lname, 

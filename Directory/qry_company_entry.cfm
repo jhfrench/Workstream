@@ -15,7 +15,7 @@
  --->
 </cfsilent>
 <cfquery name="company_entry" datasource="#application.datasources.main#">
-INSERT INTO Link_Company_Emp_Contact (user_account_id, company_id)
+INSERT INTO Link_Company_User_Account (user_account_id, company_id)
 VALUES(#variables.user_account_id#, #attributes.company_id#)
 </cfquery>
 

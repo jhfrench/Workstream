@@ -21,11 +21,11 @@ SELECT Emp_Contact.user_account_id, Emp_Contact.Name, Emp_Contact.lname,
 	END AS status
 FROM View_Demographics_Workstream AS Demographics
 	INNER JOIN Emp_Contact ON Demographics.user_account_id=Emp_Contact.user_account_id
-	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id
-	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id = REF_Company.company_id
+	INNER JOIN Link_Company_User_Account ON Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id
+	INNER JOIN REF_Company ON Link_Company_User_Account.company_id = REF_Company.company_id
 	INNER JOIN Link_User_Account_Status ON Link_User_Account_Status.user_account_id=Emp_Contact.user_account_id
 		AND Link_User_Account_Status.active_ind=1
 WHERE Demographics.employee_classification_id = 4
-	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
+	AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)
 	AND Demographics.effective_to IS NULL
 </cfquery>

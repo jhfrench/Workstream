@@ -35,8 +35,8 @@ FROM Emp_Contact
 		WHERE PTO_Grant.user_account_id IN (#preservesinglequotes(attributes.user_account_id)#)</cfif>
 		GROUP BY user_account_id
 	) AS Hours_Earned ON Emp_Contact.user_account_id=Hours_Earned.user_account_id
-	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id
-WHERE Link_Company_Emp_Contact.company_id IN (#company_list_use#)<cfif NOT listcontainsnoCase(attributes.user_account_id,"ALL" )>
+	INNER JOIN Link_Company_User_Account ON Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id
+WHERE Link_Company_User_Account.company_id IN (#company_list_use#)<cfif NOT listcontainsnoCase(attributes.user_account_id,"ALL" )>
 	AND Emp_Contact.user_account_id IN (#preservesinglequotes(attributes.user_account_id)#)</cfif>
 ORDER BY Emp_Contact.lname, Emp_Contact.name
 </cfquery>

@@ -30,10 +30,10 @@ SELECT Project.description, Emp_Contact.name, Emp_Contact.lname,
 FROM Billing_Rate
 	INNER JOIN Project ON Billing_Rate.project_id = Project.project_id
 	INNER JOIN Emp_Contact ON Billing_Rate.user_account_id=Emp_Contact.user_account_id
-	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id
+	INNER JOIN Link_Company_User_Account ON Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id
 WHERE Billing_Rate.Rate IS NULL
 	AND Project.billable_type_id = 1
-	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
+	AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)
 ORDER BY name
 </cfquery>
 </cfsilent>

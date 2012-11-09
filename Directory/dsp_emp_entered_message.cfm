@@ -19,8 +19,8 @@ FROM Demographics
 	INNER JOIN Access_User_Business_Function ON Demographics.user_account_id=Access_User_Business_Function.user_account_id
 		AND Access_User_Business_Function.active_ind=1
 		AND Access_User_Business_Function.business_function_id=250 /*Administer User Access*/
-	INNER JOIN Link_Company_Emp_Contact ON Demographics.user_account_id=Link_Company_Emp_Contact.user_account_id
-		AND Link_Company_Emp_Contact.company_id=#session.workstream_company_id#
+	INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
+		AND Link_Company_User_Account.company_id=#session.workstream_company_id#
 WHERE Demographics.active_ind=1
 ORDER BY Demographics.last_name, Demographics.first_name
 </cfquery>
