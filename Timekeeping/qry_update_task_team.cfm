@@ -19,7 +19,7 @@ UPDATE Team
 SET active_ind=0
 WHERE task_id=#attributes.task_id#
 	AND role_id=4
-	AND emp_id NOT IN (#attributes.task_team#);
+	AND user_account_id NOT IN (#attributes.task_team#);
 <cfif listlen(attributes.task_team)>
 	INSERT INTO Team(task_id, user_account_id, role_id,
 		created_by)
