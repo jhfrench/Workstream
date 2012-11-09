@@ -28,7 +28,6 @@
 <cfinclude template="qry_get_pto_start.cfm">
 <cfinclude template="qry_get_pto_detail.cfm">
 <cfinclude template="qry_get_pto_year_summary.cfm">
-<cfinclude template="qry_get_footer_file.cfm">
 
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="time_edit" field_name="time_entry_id" field_value="0" fuseaction="Timekeeping.time_entry_edit" given_referer="Timekeeping.task_list">
 <cfinclude template="dsp_pto_accrual_detail.cfm">
@@ -37,4 +36,3 @@
 	<!--- Used whenever Jeromy needs to make a manual adjustment to PTO accrual --->
 	<cfinclude template="dsp_pto_adjustment_form.cfm">
 </cfif>
-<cfinclude template="#get_pto_footer_file.pto_footer_file#">
