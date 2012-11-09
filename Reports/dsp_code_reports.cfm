@@ -68,7 +68,7 @@
 <cfoutput>
 	<tr<cfif currentrow MOD 2> bgcolor="##e1e1e1"</cfif>>
 		<td>#clientName#&nbsp;</td>
-		<td>#lname#, #name#&nbsp;</td>
+		<td>#last_name#, #first_name#&nbsp;</td>
 <cfif variables.month_loop GT 1>
 <cfloop from="1" to="#variables.month_loop#" index="ii">
 		<cfset "variables.sum_period_#ii#"=evaluate("period_#ii#")+evaluate("variables.sum_period_#ii#")>
