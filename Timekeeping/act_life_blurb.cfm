@@ -27,6 +27,7 @@
 </cfif>
 
 <cfsavecontent variable="variables.life_blurb">
+<cfoutput>
 This month #session.workstream_company_name# added 
 <cfif variables.new_hire_count EQ 0>
 	no
@@ -48,4 +49,5 @@ This month #session.workstream_company_name# added
 	, and #variables.birthday_count# people will celebrate a birthday
 </cfif>. #session.workstream_company_name# currently has #variables.employee_count# employees.
 <!--- <a href="../index.cfm?fuseaction=Reports.personal_summary">Click here to view the report.</a> --->
+</cfoutput>
 </cfsavecontent>
