@@ -58,7 +58,7 @@
 		</div>
 		<div class="span8">
 			<canvas id="chart" width="300" height="250" style="cursor:pointer;">
-				We regret to inform you that your browser does not support canvas, a basic <a href="http://www.html5rocks.com">HTML5</a> feature.
+				Your browser does not support canvas, a basic <a href="http://www.html5rocks.com">HTML5</a> feature.
 			</canvas>
 		</div>
 	</div>
