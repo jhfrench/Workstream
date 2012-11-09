@@ -13,11 +13,11 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<cfif manager_hours_report_output.recordcount AND variables.emp_id NEQ manager_hours_report_output.emp_id>
+<cfif manager_hours_report_output.recordcount AND variables.user_account_id NEQ manager_hours_report_output.user_account_id>
 <cfif manager_hours_report_output.currentrow NEQ 1 AND variables.total_hours NEQ -1>
 	<cfinclude template="dsp_manager_hours_total_hours.cfm">
 </cfif>
-<cfset variables.emp_id=manager_hours_report_output.emp_id>
+<cfset variables.user_account_id=manager_hours_report_output.user_account_id>
 <cfset variables.daily_total_hours=0>
 <cfset variables.total_hours=-1>
 <tr bgcolor="##5F5F5F">

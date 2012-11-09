@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <table class="table table-striped table-bordered table-condensed">
-	<caption><h2><cfif listcontains(attributes.emp_id,"all")>Manager </cfif> Personal Time Off Report</h2></caption>
+	<caption><h2><cfif listcontains(attributes.user_account_id,"all")>Manager </cfif> Personal Time Off Report</h2></caption>
 	<thead>
 		<tr>
 			<th>Employee ID</th>
@@ -45,7 +45,7 @@
 	<cfoutput query="pto_hours">
 		<tr>
 			<td class="number">
-				<a href="javascript:pto('#emp_id#')">#emp_id#</a>
+				<a href="javascript:pto('#user_account_id#')">#user_account_id#</a>
 			</td>
 			<td>
 				#lname#, #name#

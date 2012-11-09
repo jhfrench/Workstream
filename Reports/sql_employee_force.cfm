@@ -29,18 +29,18 @@ FROM Customer
 	INNER JOIN Project ON Customer.customer_id=Project.customer_id
 	INNER JOIN Task ON Project.project_id=Task.project_id
 	INNER JOIN REF_Priority ON Task.priority_id=REF_Priority.priority_id
-	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id<cfif isdefined("attributes.emp_id")>
+	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id<cfif isdefined("attributes.user_account_id")>
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
 		AND Team.role_id=1
-		AND Team.user_account_id IN (#attributes.emp_id#)</cfif><cfif isdefined("attributes.show_budgeted")>
+		AND Team.user_account_id IN (#attributes.user_account_id#)</cfif><cfif isdefined("attributes.show_budgeted")>
 	INNER JOIN Forecast_Assignment ON Task.task_id=Forecast_Assignment.task_id
 		AND Forecast_Assignment.active_ind=1</cfif>
 	LEFT OUTER JOIN (
 		SELECT task_id, SUM(COALESCE(Time_Entry.hours,0)) AS hours_used
 		FROM Time_Entry
-		WHERE Time_Entry.active_ind=1<cfif isdefined("attributes.emp_id")>
-			AND Time_Entry.emp_id IN (#attributes.emp_id#)</cfif>
+		WHERE Time_Entry.active_ind=1<cfif isdefined("attributes.user_account_id")>
+			AND Time_Entry.user_account_id IN (#attributes.user_account_id#)</cfif>
 		GROUP BY Time_Entry.task_id
 	) AS Recorded_Hours ON Task.task_id=Recorded_Hours.task_id
 WHERE Task.assigned_date IS NOT NULL

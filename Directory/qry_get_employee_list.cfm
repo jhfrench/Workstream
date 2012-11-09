@@ -16,7 +16,7 @@
 	--> session.workstream_selected_company_id: id of the companies that the employee wishes to see
 	<-- company: id that identifies the user's company
 	<-- email: string containing the email address of an employee
-	<-- emp_id: id that identifies user to workstream
+	<-- user_account_id: id that identifies user to workstream
 	<-- extension: string containing the extension of an employee
 	<-- lname: string containing the last name of an employee
 	<-- name: string containing the first name of an employee
@@ -24,17 +24,17 @@
  --->
 <cfquery name="get_employee_list" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT (Emp_Contact.lname || ', ' || Emp_Contact.name) AS name,
-	Emp_Contact.emp_id, REF_Company.description AS company,
+	Emp_Contact.user_account_id, REF_Company.description AS company,
 	COALESCE(Email.email,'NA') AS email, COALESCE(Phone.phone_number,'NA') AS phone_number,
 	COALESCE(Phone.extension,'NA') AS extension, Position_History.position_id
 FROM Emp_Contact
-	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
+	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id
 	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id=REF_Company.company_id
-	INNER JOIN Position_History ON Emp_Contact.emp_id=Position_History.emp_id
-	INNER JOIN View_Demographics_Workstream AS Demographics ON Emp_Contact.emp_id=Demographics.emp_id
-	LEFT OUTER JOIN Email ON Emp_Contact.emp_id=Email.emp_id
+	INNER JOIN Position_History ON Emp_Contact.user_account_id=Position_History.user_account_id
+	INNER JOIN View_Demographics_Workstream AS Demographics ON Emp_Contact.user_account_id=Demographics.user_account_id
+	LEFT OUTER JOIN Email ON Emp_Contact.user_account_id=Email.user_account_id
 		AND Email.email_type_id=1
-	LEFT OUTER JOIN Phone ON Emp_Contact.emp_id=Phone.emp_id
+	LEFT OUTER JOIN Phone ON Emp_Contact.user_account_id=Phone.user_account_id
 		AND Phone.phone_type_id=1
 WHERE #application.team_changed#=#application.team_changed#
 	AND Link_Company_Emp_Contact.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)

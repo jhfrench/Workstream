@@ -16,7 +16,7 @@
 SELECT Project.customer_id, Project.description, Project.budget,
     Project.product_id, Project.billable_type_id, Project.mission,
     Project.vision, Project.business_case, Project.project_start, 
-	Project.project_end, Project.status, Project.project_manager_emp_id,
+	Project.project_end, Project.status, Project.project_manager_user_account_id,
 	Project.active_ind, Project.file_path, Project.date_go_live,
 	Project.eng_status, Project.LOE
 FROM Project

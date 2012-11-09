@@ -13,7 +13,7 @@
 	$Log$
 	 || 
 
-	--> emp_id: id that identifies user to workstream
+	--> user_account_id: id that identifies user to workstream
 	--> lname: string containing the last name of an employee
 	--> name: string containing the first name of an employee
 	--> address1: string containing the first address line for a person
@@ -60,7 +60,7 @@
 					#get_demographics.fname#
 					&nbsp;
 					#get_demographics.lname#
-				<input type="hidden" name="emp_id" value="#get_demographics.emp_id#">
+				<input type="hidden" name="user_account_id" value="#get_demographics.user_account_id#">
 			</td>
 		</tr>
 

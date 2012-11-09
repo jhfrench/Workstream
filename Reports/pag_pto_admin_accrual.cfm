@@ -17,6 +17,6 @@
 <cfparam name="individual" default="0">
 </cfsilent>
 <cfinclude template="qry_nucleus_pto.cfm">
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="pto" fuseaction="Reports.pto_detail" field_name="emp_id">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="pto" fuseaction="Reports.pto_detail" field_name="user_account_id">
 <cfinclude template="dsp_pto_header.cfm"> 
 <cfinclude template="dsp_pto_details_table.cfm">

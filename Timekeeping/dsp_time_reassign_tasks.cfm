@@ -40,7 +40,7 @@
 </div>
 <div>
 	<input type="hidden" name="task_id" value="#attributes.task_id#">
-	<cfif isdefined("attributes.emp_id")><input type="hidden" name="emp_id" value="#attributes.emp_id#"></cfif>
+	<cfif isdefined("attributes.user_account_id")><input type="hidden" name="user_account_id" value="#attributes.user_account_id#"></cfif>
 	<input type="submit" value="Reassign" class="btn btn-primary" />
 	<input type="Reset" class="btn" />
 </div>

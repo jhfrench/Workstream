@@ -18,7 +18,7 @@
 <cfquery name="get_old_job" datasource="#application.datasources.main#">
 SELECT TOP 1 job_title_id
 FROM Job_Title
-WHERE emp_id='#attributes.emp_id#'
+WHERE user_account_id='#attributes.user_account_id#'
 		AND active_ind = 1
 ORDER BY date_start DESC
 </cfquery>
@@ -30,9 +30,9 @@ ORDER BY date_start DESC
 </cfif>
 
 <cfquery name="emp_job_entry" datasource="#application.datasources.main#">
-INSERT INTO Job_Title (emp_id, date_start, active_ind,
+INSERT INTO Job_Title (user_account_id, date_start, active_ind,
 	 title)
-VALUES (#attributes.emp_id#, '#attributes.date_start#', 1,
+VALUES (#attributes.user_account_id#, '#attributes.date_start#', 1,
 	'#attributes.title#')
 </cfquery>
 

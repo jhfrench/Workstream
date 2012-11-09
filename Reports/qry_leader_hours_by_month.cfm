@@ -18,8 +18,8 @@ SELECT SUM(Time_Entry.Hours) AS sumofhours, EXTRACT(MONTH FROM Time_Entry.work_d
 FROM Time_Entry, Emp_Contact, Project, Customer
 WHERE Customer.customer_id=Project.customer_id
 	AND Time_Entry.project_id=Project.project_id
-	AND Time_Entry.emp_id=Emp_Contact.emp_id
-	AND Emp_Contact.emp_id=#attributes.emp_id# 
+	AND Time_Entry.user_account_id=Emp_Contact.user_account_id
+	AND Emp_Contact.user_account_id=#attributes.user_account_id# 
 	AND Time_Entry.active_ind=1
 	AND EXTRACT(MONTH FROM Time_Entry.work_date)=#attributes.month#
 	AND EXTRACT(YEAR FROM Time_Entry.work_date)=#attributes.year#
@@ -34,9 +34,9 @@ SELECT Emp_Contact.lname || ', ' || Emp_Contact.name, SUM(Time_Entry.Hours) AS S
 	EXTRACT(MONTH FROM Time_Entry.work_date) AS month, EXTRACT(YEAR FROM Time_Entry.work_date) AS year, 
 	EXTRACT(WEEK FROM Time_Entry.work_date) AS week
 FROM Emp_Contact, Time_Entry, Project
-WHERE Emp_Contact.emp_id=Time_Entry.emp_id
+WHERE Emp_Contact.user_account_id=Time_Entry.user_account_id
 	AND Time_Entry.project_id=Project.project_id
-	AND Emp_Contact.emp_id=#attributes.emp_id#
+	AND Emp_Contact.user_account_id=#attributes.user_account_id#
 	AND Time_Entry.active_ind=1
 	AND EXTRACT(MONTH FROM Time_Entry.work_date)=#attributes.month# 
 	AND EXTRACT(YEAR FROM Time_Entry.work_date)=#attributes.year#

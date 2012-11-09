@@ -19,7 +19,7 @@ FROM Demographics
 	INNER JOIN Access_User_Business_Function ON Demographics.user_account_id=Access_User_Business_Function.user_account_id
 		AND Access_User_Business_Function.active_ind=1
 		AND Access_User_Business_Function.business_function_id=250 /*Administer User Access*/
-	INNER JOIN Link_Company_Emp_Contact ON Demographics.user_account_id=Link_Company_Emp_Contact.emp_id
+	INNER JOIN Link_Company_Emp_Contact ON Demographics.user_account_id=Link_Company_Emp_Contact.user_account_id
 		AND Link_Company_Emp_Contact.company_id=#session.workstream_company_id#
 WHERE Demographics.active_ind=1
 ORDER BY Demographics.last_name, Demographics.first_name
@@ -31,7 +31,7 @@ ORDER BY Demographics.last_name, Demographics.first_name
 	<p>#attributes.name# #attributes.lname# has been entered into the workstream database.</p>
 	<p>This new account currently does not have access to any modules, reports or tools. To administer this new account (grant access to reports, change passwords, etc), please 
 	<cfif listfind(variables.administrators_list, variables.user_identification)>
-		<a href="javascript:edit_employee(#variables.emp_id#)">administer this account</a>.
+		<a href="javascript:edit_employee(#variables.user_account_id#)">administer this account</a>.
 	<cfelse>
 		contact the following #application.product_name# administrators to set up the appropriate access:<br />
 		<ul>

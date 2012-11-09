@@ -29,11 +29,11 @@
 					<option value="#customer_id#"<cfif attributes.customer_id EQ customer_id> selected="selected"</cfif>>#description#</option>
 				</cfoutput>
 			</select>
-			<label for="project_manager_emp_id">Project managers</label>
-			<select name="project_manager_emp_id" class="span2">
+			<label for="project_manager_user_account_id">Project managers</label>
+			<select name="project_manager_user_account_id" class="span2">
 				<option value="0">All project managers</option>
 				<cfoutput query="get_engagement_ie">
-					<option value ="#emp_id#"<cfif attributes.project_manager_emp_id EQ emp_id> selected="selected"</cfif>>#lname#</option>
+					<option value ="#user_account_id#"<cfif attributes.project_manager_user_account_id EQ user_account_id> selected="selected"</cfif>>#lname#</option>
 				</cfoutput>
 			</select>
 			<label for="sort">Sort option</label>
@@ -58,5 +58,5 @@
 <a href="index.cfm?fuseaction=Customers.new_engagement" class="btn"><i class="icon-plus-sign"></i> Add New Project</a>
 <cfinclude template="dsp_engagement_dashboard_chart.cfm">
 
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_project" fuseaction="Customers.edit_engagement" field_name="project_id" processform="true" option="1" engagement_dashboard_return="1" customer_id="#attributes.customer_id#" project_manager_emp_id="#attributes.project_manager_emp_id#" sort="#attributes.sort#">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_project" fuseaction="Customers.edit_engagement" field_name="project_id" processform="true" option="1" engagement_dashboard_return="1" customer_id="#attributes.customer_id#" project_manager_user_account_id="#attributes.project_manager_user_account_id#" sort="#attributes.sort#">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="account_status" fuseaction="Reports.account_status" field_name="project_id">

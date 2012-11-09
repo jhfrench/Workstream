@@ -13,7 +13,7 @@
 	 || 
 	--> company: id that identifies the user's company
 	--> email: string containing the email address of an employee
-	--> emp_id: id that identifies user to workstream
+	--> user_account_id: id that identifies user to workstream
 	--> extension: string containing the extension of an employee
 	--> lname: string containing the last name of an employee
 	--> name: string containing the first name of an employee
@@ -38,7 +38,7 @@
 	<cfoutput query="get_employee_list">
 		<tr>
 			<cfif listlen(session.workstream_selected_company_id) GT 1><td>#company#</td></cfif>
-			<td><a href="javascript:list_to_employee('#emp_id#');" title="View details for #replace(name,"'","")#.">#name#</a></td>
+			<td><a href="javascript:list_to_employee('#user_account_id#');" title="View details for #replace(name,"'","")#.">#name#</a></td>
 			<td>#extension#</td>
 			<td>
 				<cfset variables.phone=ReplaceList(phone_number,list1,list2)>
@@ -50,7 +50,7 @@
 					#variables.phone#
 				</cfif>
 			</td>
-			<td>#emp_id#</td>
+			<td>#user_account_id#</td>
 			<td>#position_id#</td>
 			<td><a href="mailto:#email#">#email#</a></td>
 		</tr>

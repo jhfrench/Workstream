@@ -26,7 +26,7 @@
 </cfif>
 <cfparam name="attributes.notes_type_id" default=1>
 <cfquery name="upload_express_notes" datasource="#application.datasources.main#">
-INSERT INTO Notes (task_id, emp_id, notes_type_id,
+INSERT INTO Notes (task_id, user_account_id, notes_type_id,
 	note)
 VALUES (<cfif isdefined("project_entry")>0<cfelse>#listgetat(attributes.task_id,ii)#</cfif>, #variables.user_identification#,#attributes.notes_type_id#,
 	'#HTMLEditFormat(request.note)#')

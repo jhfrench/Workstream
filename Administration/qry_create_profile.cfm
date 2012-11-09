@@ -21,10 +21,10 @@
 UPDATE User_Profile
 SET primary_profile_ind=0
 WHERE primary_profile_ind=1
-	AND emp_id=#variables.user_identification#
+	AND user_account_id=#variables.user_identification#
 </cfquery>
 <cfquery name="create_profile" datasource="#application.datasources.main#">
-INSERT INTO User_Profile (emp_id, primary_profile_ind, account_changed,
+INSERT INTO User_Profile (user_account_id, primary_profile_ind, account_changed,
 	company_id, company_name, company_select_list,
 	express_input_rows, express_notes_height, express_notes_width,
 	express_tree_height, first_name, last_loaded,

@@ -24,7 +24,7 @@ FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
 		AND Team.role_id=1
-	INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.emp_id
+	INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.user_account_id
 	INNER JOIN REF_Priority ON Task.priority_id=REF_Priority.priority_id
 WHERE Task.status_id!=7 /*exclude closed tasks*/
 		OR Task.complete_date BETWEEN CURRENT_DATE-interval '1 week' AND CURRENT_TIMESTAMP

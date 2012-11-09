@@ -14,12 +14,12 @@
 	Converted query into function call.
 	||
 	Variables:
-	--> attributes.emp_id: number containing the unique identifier of the individual being requested
+	--> attributes.user_account_id: number containing the unique identifier of the individual being requested
 	END FUSEDOC --->
 </cfsilent>
 
 <cfquery name="get_subordinates" datasource="#application.datasources.main#">
 SELECT *
-FROM Organization_Hierarchy(#attributes.emp_id#)
+FROM Organization_Hierarchy(#attributes.user_account_id#)
 </cfquery>
 

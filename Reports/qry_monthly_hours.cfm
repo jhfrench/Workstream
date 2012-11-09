@@ -27,10 +27,10 @@ SELECT Emp_Contact.name, Emp_Contact.lname, Project.project_code AS clientcode,
 FROM Emp_Contact, Time_Entry, Project,
 	View_Demographics_Workstream Demographics, Customer, Link_Company_Emp_Contact,
 	REF_Employee_Classification
-WHERE Emp_Contact.emp_id=Time_Entry.emp_id
+WHERE Emp_Contact.user_account_id=Time_Entry.user_account_id
 	AND Time_Entry.project_id=Project.project_id
-	AND Time_Entry.emp_id=Demographics.emp_id
-	AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
+	AND Time_Entry.user_account_id=Demographics.user_account_id
+	AND Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id
 	AND Project.customer_id=Customer.customer_id
 	AND Demographics.employee_classification_id*=REF_Employee_Classification.employee_classification_id
 	AND Time_Entry.work_date BETWEEN Demographics.hire_date AND COALESCE(Demographics.effective_to, Time_Entry.work_date)

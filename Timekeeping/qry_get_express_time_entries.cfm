@@ -24,25 +24,25 @@ FROM Time_Entry
 	INNER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
 		AND Notes.active_ind=1
 	INNER JOIN (
-		SELECT Time_Entry.work_date, Time_Entry.emp_id, SUM(Time_Entry.Hours) AS sumhours
+		SELECT Time_Entry.work_date, Time_Entry.user_account_id, SUM(Time_Entry.Hours) AS sumhours
 		FROM Time_Entry 
 		WHERE Time_Entry.active_ind=1
-			AND Time_Entry.emp_id=#variables.user_identification#
+			AND Time_Entry.user_account_id=#variables.user_identification#
 			AND Time_Entry.work_date-60 >= CURRENT_DATE
-		GROUP BY Time_Entry.work_date, Time_Entry.emp_id
-	) AS Hours_Pin_Date ON Time_Entry.emp_id=Hours_Pin_Date.emp_id
+		GROUP BY Time_Entry.work_date, Time_Entry.user_account_id
+	) AS Hours_Pin_Date ON Time_Entry.user_account_id=Hours_Pin_Date.user_account_id
 		AND Time_Entry.work_date=Hours_Pin_Date.work_date
 	INNER JOIN (
 		SELECT EXTRACT(YEAR FROM Time_Entry.work_date) AS year, EXTRACT(WEEK FROM Time_Entry.work_date) AS week, SUM(Time_Entry.hours) AS sumhoursweek, 
 			MIN(Time_Entry.work_date) AS mindate
 		FROM Time_Entry
 		WHERE Time_Entry.active_ind=1
-			AND Time_Entry.emp_id=#variables.user_identification#
+			AND Time_Entry.user_account_id=#variables.user_identification#
 		GROUP BY EXTRACT(YEAR FROM Time_Entry.work_date), EXTRACT(WEEK FROM Time_Entry.work_date)
 	) AS Hours_Pin_Week ON EXTRACT(YEAR FROM Time_Entry.work_date)=Hours_Pin_Week.year
 		AND EXTRACT(WEEK FROM Time_Entry.work_date)=Hours_Pin_Week.week
 WHERE Time_Entry.active_ind=1
-	AND Time_Entry.emp_id=#variables.user_identification#
+	AND Time_Entry.user_account_id=#variables.user_identification#
 	AND Time_Entry.work_date-60 >= CURRENT_DATE
 ORDER BY Time_Entry.work_date DESC, Notes.created_date DESC, Project.project_code
 </cfquery>

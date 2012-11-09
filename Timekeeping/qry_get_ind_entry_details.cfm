@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
-	--> attributes.emp_id: id that identifies user to workstream
+	--> attributes.user_account_id: id that identifies user to workstream
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
 	<-- date: date for a Time_Entry record
 	<-- hours: number of hours for a Time_Entry record
@@ -27,7 +27,7 @@ FROM Time_Entry
 WHERE Time_Entry.active_ind=1
 	AND Notes.active_ind=1
 	AND Time_Entry.task_id=#attributes.task_id#
-	AND Time_Entry.emp_id=#attributes.emp_id#
+	AND Time_Entry.user_account_id=#attributes.user_account_id#
 ORDER BY Time_Entry.work_date DESC, Time_Entry.time_entry_id
 </cfquery>
 </cfsilent>

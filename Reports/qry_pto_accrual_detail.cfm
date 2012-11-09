@@ -14,14 +14,14 @@
 <cfquery name="get_name" datasource="#application.datasources.main#" >
 SELECT name, lname
 FROM emp_contact
-WHERE Emp_Contact.emp_id ='#page_pin#'
+WHERE Emp_Contact.user_account_id ='#page_pin#'
 </cfquery>
 <cfquery name="PTO_Hours" datasource="#application.datasources.main#">
 SELECT *
 FROM 
 	(SELECT Time_Rollover_From_2000 as hours_in, 0 as hours_out, '2001-01-01' as transaction_date
 	FROM PTO_Hours
-	WHERE (emp_id=#page_pin#) AND COALESCE(Time_Rollover_From_2000,0) > 0
+	WHERE (user_account_id=#page_pin#) AND COALESCE(Time_Rollover_From_2000,0) > 0
 	UNION ALL
 	SELECT (CASE WHEN PTO_Hours.pto_type_indicator =0 THEN (REF_PTO_Hours.Accrual_Rate * 8) ELSE (PTO_Hours.pto_type_indicator/12) END) AS hours_in, 
 		0.0 AS hours_out, 
@@ -29,17 +29,17 @@ FROM
 	FROM REF_PTO_Hours, PTO_Hours,
 		(SELECT DATEDIFF(mm, (CASE WHEN EXTRACT(DAY FROM demographics.hire_date) > 15 THEN DATEADD(mm,1,demographics.hire_date) ELSE demographics.hire_date END), ABCD_Months.Start) AS duration, ABCD_Months.Start
 		FROM ABCD_Months, demographics
-		WHERE (demographics.emp_id=#page_pin#) 
+		WHERE (demographics.user_account_id=#page_pin#) 
 		AND ABCD_Months.Start > demographics.hire_date
 		AND (ABCD_Months.Start < CURRENT_TIMESTAMP) 
 		AND ABCD_Months.Start > '1/1/2001')
 	as Emp_Duration 
-	WHERE PTO_Hours.emp_id=#page_pin# AND Emp_Duration.duration BETWEEN REF_PTO_Hours.Min_Month AND REF_PTO_Hours.Max_month
+	WHERE PTO_Hours.user_account_id=#page_pin# AND Emp_Duration.duration BETWEEN REF_PTO_Hours.Min_Month AND REF_PTO_Hours.Max_month
 	UNION ALL
 	SELECT 0.0 AS hours_in, Time_entry.hours AS hours_out, Time_Entry.work_date AS transaction_date
 	FROM Time_entry
 	WHERE Time_Entry.active_ind=1
-		AND emp_id=#variables.page_pin#
+		AND user_account_id=#variables.page_pin#
 		AND project_id IN (
 			SELECT Project_id
 			FROM Project

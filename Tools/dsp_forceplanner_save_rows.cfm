@@ -44,10 +44,10 @@
 		<td align="center">
 			#billable#
 		</td>
-	<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">
+	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 		<td align="right">
-			<cfif evaluate("attributes.t#task_id#_#variables.emp_id#") NEQ 0>#numberformat(evaluate("attributes.t#task_id#_#variables.emp_id#"),"___._")#</cfif>
-			<cfset variables.task_assigned=variables.task_assigned+evaluate("attributes.t#task_id#_#variables.emp_id#")>
+			<cfif evaluate("attributes.t#task_id#_#variables.user_account_id#") NEQ 0>#numberformat(evaluate("attributes.t#task_id#_#variables.user_account_id#"),"___._")#</cfif>
+			<cfset variables.task_assigned=variables.task_assigned+evaluate("attributes.t#task_id#_#variables.user_account_id#")>
 		</td>
 	</cfloop>
 		<td align="center">

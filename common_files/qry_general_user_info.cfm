@@ -13,7 +13,7 @@
 	--> application.datasource.main: string that contains the name of the datasource as mapped in CF administrator
 	<-- company_id: id that identifies company of the user to workstream
 	<-- company_name: string that conatins company name of the user
-	<-- emp_id: id that identifies user to workstream
+	<-- user_account_id: id that identifies user to workstream
 	<-- first_name: string that contains first name of the user
 	<-- last_name: string that contains last name of the user
 	<-- last_updated: date that indicates the last time a user's account was modified; useful for navigation query caching
@@ -28,11 +28,11 @@
 <cfquery name="general_user_info" datasource="#application.datasources.main#">
 SELECT COALESCE(REF_Company.show_hours_data_ind,0) AS show_hours_data_ind, REF_Company.pto_accrual_type_id, REF_Company.display_chat,
 	REF_Company.company_id, REF_Company.description AS company_name, REF_Company.alternate_datasource,
-	Emp_Contact.emp_id, Emp_Contact.name AS first_name, Emp_Contact.lname AS last_name,
+	Emp_Contact.user_account_id, Emp_Contact.name AS first_name, Emp_Contact.lname AS last_name,
 	Emp_Contact.emp_contact_type
 FROM User_Account
 	INNER JOIN Emp_Contact ON User_Account.user_account_id=Emp_Contact.user_account_id
-	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
+	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id
 	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id=REF_Company.company_id
 WHERE User_Account.user_account_id=#variables.user_account_id#
 </cfquery>

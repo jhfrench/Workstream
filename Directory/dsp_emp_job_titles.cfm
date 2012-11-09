@@ -14,7 +14,7 @@ $Log:
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfoutput><h4>Job Title Info <a href="##" onclick="window.open('index.cfm?fuseaction=Directory.job_title_entry&emp_id=#attributes.emp_id#', 'Job', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=420,height=125');" class="btn btn-mini">ADD</a></h4></cfoutput>
+<cfoutput><h4>Job Title Info <a href="##" onclick="window.open('index.cfm?fuseaction=Directory.job_title_entry&user_account_id=#attributes.user_account_id#', 'Job', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=420,height=125');" class="btn btn-mini">ADD</a></h4></cfoutput>
 <table class="table table-striped table-bordered table-condensed">
 	<thead>
 		<tr>

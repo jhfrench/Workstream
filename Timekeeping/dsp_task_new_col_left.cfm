@@ -19,7 +19,7 @@
 		<label for="task_owner" class="h5">Owner <i class="icon-share" title="See more employees." onclick="OpenTeamWindow('task_owner');"></i></label>
 		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_owner" class="span9">
 		<label for="task_team" class="h5">Team</label>
-		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_team" multi="1" size="6" emp_id="0" class="span9">
+		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_team" multi="1" size="6" user_account_id="0" class="span9">
 		<label for="task_qa" class="h5"><abbr title="Quality Analyst">QA</abbr> <i class="icon-share" title="See more employees." onclick="OpenTeamWindow('task_qa');"></i></label>
 		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_qa" class="span9">
 		<label for="task_status" class="h5">Status</label>

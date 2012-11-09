@@ -16,14 +16,14 @@
 <cfloop query="get_email_types">
 <cfif len(evaluate("attributes.email_#email_type_id#"))>
 <cfquery name="email_entry" datasource="#application.datasources.main#">
-INSERT INTO Email(emp_id,email,email_type_id)
-VALUES(#variables.emp_id#,'#evaluate("attributes.email_#email_type_id#")#',#email_type_id#)
+INSERT INTO Email(user_account_id,email,email_type_id)
+VALUES(#variables.user_account_id#,'#evaluate("attributes.email_#email_type_id#")#',#email_type_id#)
 </cfquery>
 </cfif>
 </cfloop>
 </cfsilent><!--- 
 <cfquery name="email_delete" datasource="#application.datasources.main#">
 DELETE Email
-WHERE emp_id=#variables.emp_id#
+WHERE user_account_id=#variables.user_account_id#
 </cfquery> --->
 

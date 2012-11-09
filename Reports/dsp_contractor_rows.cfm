@@ -16,7 +16,7 @@
 <tr>
 	<td>#lname#</td>
 	<td>#name#</td>
-	<td>#emp_id#</td>
+	<td>#user_account_id#</td>
 	<td>#status#</td>
 </tr>
 </cfoutput>

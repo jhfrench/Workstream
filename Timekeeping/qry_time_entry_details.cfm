@@ -28,7 +28,7 @@ SELECT Notes.notes_type_id, (Emp_Contact.lname || ', ' || Emp_Contact.name) AS a
 FROM Notes
 	LEFT OUTER JOIN Time_Entry ON Notes.notes_id=Time_Entry.notes_id
 		AND Time_Entry.active_ind=1
-	INNER JOIN Emp_Contact ON Notes.emp_id=Emp_Contact.emp_id
+	INNER JOIN Emp_Contact ON Notes.user_account_id=Emp_Contact.user_account_id
 WHERE Notes.active_ind=1
 	AND Notes.task_id=#attributes.task_id#
 	AND Notes.notes_type_id IN (1,2,3,4,5,7)

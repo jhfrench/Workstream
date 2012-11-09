@@ -18,8 +18,8 @@
 SELECT Emp_Contact.name, Emp_Contact.lname, Demographics.hire_date,
 	DATEDIFF(M, Demographics.hire_date, CURRENT_TIMESTAMP)/12.0 AS years_employed, Demographics.dob
 FROM Emp_Contact, View_Demographics_Workstream Demographics, Link_Company_Emp_Contact
-WHERE Emp_Contact.emp_id=Demographics.emp_id
-	AND Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
+WHERE Emp_Contact.user_account_id=Demographics.user_account_id
+	AND Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id
 	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 	AND (Demographics.effective_to IS NULL OR Demographics.effective_to > CURRENT_TIMESTAMP)
 	AND Emp_Contact.name!=''

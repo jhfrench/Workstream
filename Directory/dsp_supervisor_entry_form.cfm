@@ -45,7 +45,7 @@
 	</fieldset>
 </cfif>
 		<div class="form-actions">
-			<input type="hidden" name="emp_id" value="#emp_id#" />
+			<input type="hidden" name="user_account_id" value="#user_account_id#" />
 			<input type="hidden" name="present_supervisor_id" value="#valuelist(get_present_supervisor.supervisor_id)#" />
 			<input type="submit" value="Submit Supervisor" class="btn btn-primary" />
 			<input type="button" onclick="javascript:window.close();" value="Cancel" class="btn" />

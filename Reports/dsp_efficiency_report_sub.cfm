@@ -24,7 +24,7 @@
 	<tbody>
 	<cfoutput query="efficiency_report_sub">
 		<tr>
-			<td scope="row"><a href="javascript:list_to_employee('#emp_id#')">#lname#, #name#</a></td>
+			<td scope="row"><a href="javascript:list_to_employee('#user_account_id#')">#lname#, #name#</a></td>
 			<td class="number">#decimalformat(efficiency_hours)#</td>
 			<td class="number">#decimalformat(efficiency_percent)#</td>
 		</tr>

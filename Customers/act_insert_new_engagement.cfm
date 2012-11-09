@@ -34,8 +34,8 @@ SELECT CURRVAL('Project_project_id_SEQ') AS project_id
 <cfcase value="1">
 	<!--- hourly --->
 	<cfquery name="insert_billing_rate" datasource="#application.datasources.main#">
-	INSERT INTO Billing_Rate (project_id, rate, rate_start_date<cfif len(attributes.end_date)>, rate_end_date</cfif>, emp_id)
-	SELECT #get_project_id.project_id#, '#attributes.rate#', '#attributes.start_date#'<cfif len(attributes.end_date)>, '#attributes.end_date#'</cfif>, emp_id
+	INSERT INTO Billing_Rate (project_id, rate, rate_start_date<cfif len(attributes.end_date)>, rate_end_date</cfif>, user_account_id)
+	SELECT #get_project_id.project_id#, '#attributes.rate#', '#attributes.start_date#'<cfif len(attributes.end_date)>, '#attributes.end_date#'</cfif>, user_account_id
 	FROM Link_Company_Emp_Contact
 	WHERE company_id IN (#attributes.company_id#)
 	</cfquery>

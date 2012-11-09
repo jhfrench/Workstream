@@ -26,5 +26,5 @@
 	</thead>
 	<cfinclude template="dsp_invoice_details.cfm">
 </table>
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_emp" fuseaction="Directory.employee_details" field_name="emp_id" processform="1" month="#attributes.month#" year="#attributes.year#">
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="emp_to_notes" fuseaction="Tools.invoice_notes_drill_down" field_name="emp_id_project" processform="1" month="#attributes.month#" year="#attributes.year#">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_emp" fuseaction="Directory.employee_details" field_name="user_account_id" processform="1" month="#attributes.month#" year="#attributes.year#">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="emp_to_notes" fuseaction="Tools.invoice_notes_drill_down" field_name="user_account_id_project" processform="1" month="#attributes.month#" year="#attributes.year#">

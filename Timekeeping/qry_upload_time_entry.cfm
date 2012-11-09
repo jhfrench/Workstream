@@ -21,7 +21,7 @@
  --->
 <cfparam name="ii" default=1>
 <cfquery name="upload_express_time_entry" datasource="#application.datasources.main#">
-INSERT INTO Time_Entry (emp_id, work_date, hours,
+INSERT INTO Time_Entry (user_account_id, work_date, hours,
 	project_id, task_id, notes_id)
 VALUES (#variables.user_identification#, #createodbcdate(listgetat(attributes.date,ii))#, #listgetat(attributes.hours,ii)#,
 	<cfif isdefined("project_entry")>#listgetat(attributes.project_id,ii)#<cfelse>#get_project_details.project_id#</cfif>,<cfif isdefined("project_entry")>0<cfelse>#listgetat(attributes.task_id,ii)#</cfif>,#get_project_details.notes_id#)

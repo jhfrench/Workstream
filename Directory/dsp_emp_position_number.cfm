@@ -14,7 +14,7 @@
 <cfinclude template="qry_get_position_number_history.cfm">
 </cfsilent>
 <cfoutput>
-<h4>Position Numbers <a href="javascript:position_number_change(#attributes.emp_id#);" class="btn btn-mini">ADD</a></h4>
+<h4>Position Numbers <a href="javascript:position_number_change(#attributes.user_account_id#);" class="btn btn-mini">ADD</a></h4>
 </cfoutput>
 <table class="table table-striped table-bordered table-condensed">
 	<thead>

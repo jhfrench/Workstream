@@ -20,7 +20,7 @@ SELECT REF_Company.company_id, REF_Company.description AS company,
 	END AS has_company_access
 FROM REF_Company
 	LEFT OUTER JOIN Security_Company_Access ON REF_Company.company_id=Security_Company_Access.company_id
-		AND Security_Company_Access.emp_id=#attributes.emp_id#
+		AND Security_Company_Access.user_account_id=#attributes.user_account_id#
 ORDER BY REF_Company.description, REF_Company.company_id
 </cfquery>
 </cfsilent>

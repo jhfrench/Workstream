@@ -13,8 +13,8 @@
 	||
 	Variables:
 	END FUSEDOC --->
-<cfset attributes.emp_id=ListFirst(attributes.emp_id_project,"|")>
-<cfset attributes.project_id=listlast(attributes.emp_id_project,"|")>
+<cfset attributes.user_account_id=ListFirst(attributes.user_account_id_project,"|")>
+<cfset attributes.project_id=listlast(attributes.user_account_id_project,"|")>
 <cfparam name="attributes.month" default="#month(now())#">
 <cfparam name="attributes.year" default="#year(now())#">
 </cfsilent>

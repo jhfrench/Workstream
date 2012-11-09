@@ -16,7 +16,7 @@
 </cfsilent>
 <cfparam name="attributes.customer_id" default="0">
 <cfparam name="engagement_dashboard_return" default="0">
-<cfparam name="attributes.project_manager_emp_id" default="0">
+<cfparam name="attributes.project_manager_user_account_id" default="0">
 <cfparam name="sort" default="Customer.description,Project.description">
 <cfset attributes.req_custom=1>
 <cfset attributes.field1=1>
@@ -59,7 +59,7 @@
 			<input type="hidden" name="edit" value="1" />
 			<input type="hidden" name="engagement_dashboard_Return" value="#engagement_dashboard_Return#" />
 			<input type="hidden" name="customer_id" value="#attributes.customer_id#" />
-			<input type="hidden" name="project_manager_emp_id" value="#attributes.project_manager_emp_id#" />
+			<input type="hidden" name="project_manager_user_account_id" value="#attributes.project_manager_user_account_id#" />
 			<input type="hidden" name="Sort" value="#sort#" />
 			<input type="submit" value="Proceed" class="btn btn-primary" />
 			<input type="reset" value="Reset" class="btn" />

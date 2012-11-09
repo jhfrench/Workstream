@@ -17,7 +17,7 @@
 	--> session.workstream_show_on_hold: number that indicates the desire of the user to hide or show tasks which have been put on hold; 1 means include the task, 0 means exclude the task
 	--> session.workstream_show_team: number that indicates the desire of the user to hide or show tasks for which they are a member of the task team; 1 means include the task, 0 means exclude the task
 	--> session.workstream_task_list_order: list of query columns to ORDER BY
-	--> [attributes.emp_id]: emp_id of the peson whose inbox the user wants to see
+	--> [attributes.user_account_id]: user_account_id of the peson whose inbox the user wants to see
 	<-- billing_code: code which task time will be invoiced to
 	<-- date_due: date when task is due
 	<-- percent_time_used: number showing the amount of time used divided by the amount of time budgeted, shown only if time was budgeted
@@ -147,7 +147,7 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 		AND Team.active_ind=1
 		AND Team.role_id=1
 		AND Task.task_id=Team.task_id 
-		AND Emp_Contact.emp_id=Team.user_account_id)
+		AND Emp_Contact.user_account_id=Team.user_account_id)
 AS Task_Details
 WHERE Project.customer_id=Customer.customer_id
 	AND Task_Details.task_id=Team.task_id
@@ -155,7 +155,7 @@ WHERE Project.customer_id=Customer.customer_id
 	AND Team.role_id=3
 	AND Task.project_id=Project.project_id 
 	AND Task.task_id=Task_Details.task_id
-	AND Emp_Contact.emp_id=Team.user_account_id<cfif variables.use_customer_criteria>
+	AND Emp_Contact.user_account_id=Team.user_account_id<cfif variables.use_customer_criteria>
 	AND Customer.customer_id IN (#attributes.customer_id#) /*if the user specifies customer criteria, limit the results to just those customers*/</cfif>
 <cfif isdefined("session.workstream_task_list_order")>ORDER BY #session.workstream_task_list_order#</cfif>
 LIMIT 500

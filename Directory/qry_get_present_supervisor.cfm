@@ -12,7 +12,7 @@
 	$Log$
 	||
 	Variables:
-	--> attributes.emp_id: number containing the unique identifier of the individual being requested
+	--> attributes.user_account_id: number containing the unique identifier of the individual being requested
 
  --->
 <cfquery name="get_present_supervisor" dbtype="query">

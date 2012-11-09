@@ -15,12 +15,12 @@
 	END FUSEDOC --->
 <cfquery name="company_delete" datasource="#application.datasources.main#">
 DELETE FROM Company
-WHERE emp_id=#attributes.emp_id#
+WHERE user_account_id=#attributes.user_account_id#
 </cfquery> 
 
 <cfquery name="company_entry" datasource="#application.datasources.main#">
-INSERT INTO Link_Company_Emp_Contact (emp_id, company_id)
-VALUES(#attributes.emp_id#,#attributes.company_id#)
+INSERT INTO Link_Company_Emp_Contact (user_account_id, company_id)
+VALUES(#attributes.user_account_id#,#attributes.company_id#)
 </cfquery> 
 
 </cfsilent>

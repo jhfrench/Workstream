@@ -36,7 +36,7 @@
 			<cfinclude template="dsp_deadline_management_sub.cfm">
 		</div>
 	</div>
-	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_employee" field_name="emp_id" fuseaction="Directory.employee_details">
+	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_employee" field_name="user_account_id" fuseaction="Directory.employee_details">
 	<cfif isdefined("attributes.hide_supervisor")>
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="change_month" fuseaction="#attributes.fuseaction#" field_name="admin_month" field2_variable_ind="1" field2_name="admin_year" processform="1" hide_supervisor="1">
 	<cfelse>

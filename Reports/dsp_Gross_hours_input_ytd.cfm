@@ -60,8 +60,8 @@
 		</cfoutput>
 				<option value="ALL" selected="selected">All Employees
 				<cfoutput query="get_team_select">
-					<cfif len(emp_id)>
-						<option value="#emp_id#">#lname#, #left(name, 3)#
+					<cfif len(user_account_id)>
+						<option value="#user_account_id#">#lname#, #left(name, 3)#
 					</cfif>
 				</cfoutput>
 		</select>

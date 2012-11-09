@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 <cfparam name="attributes.customer_id" default="0">
 <cfparam name="engagement_dashboard_return" default="0">
-<cfparam name="project_manager_emp_id_filter" default="All">
+<cfparam name="project_manager_user_account_id_filter" default="All">
 <cfparam name="sort" default="Customer.description, Project.description">
 </cfsilent>
 <cfinclude template="qry_get_engagement_main.cfm">
@@ -87,7 +87,7 @@
 			<input type="hidden" name="original_billable_type_id" value="#get_engagement_main.billable_type_id#" />
 			<input type="hidden" name="engagement_dashboard_Return" value="#engagement_dashboard_Return#" />
 			<input type="hidden" name="customer_id" value="#attributes.customer_id#" />
-			<input type="hidden" name="project_manager_emp_id_FIlter" value="#project_manager_emp_id_Filter#" />
+			<input type="hidden" name="project_manager_user_account_id_FIlter" value="#project_manager_user_account_id_Filter#" />
 			<input type="hidden" name="Sort" value="#sort#" />
 			<input type="submit" value="Proceed" class="btn btn-primary" />
 			<input type="reset" value="Reset" class="btn" />

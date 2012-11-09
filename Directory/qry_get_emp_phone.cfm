@@ -12,7 +12,7 @@
 	$Log$
 	||
 	Variables:
-	--> attributes.emp_id: number containing the unique identifier of the individual being requested
+	--> attributes.user_account_id: number containing the unique identifier of the individual being requested
 	<-- extension: string containing any extension for a phone number
 	<-- phone_number: string containing the phone number
 	<-- phone_type: string containing the type of phone number
@@ -21,7 +21,7 @@
 SELECT REF_Phone_Type.phone_type, Phone.phone_number, Phone.extension
 FROM Phone, REF_Phone_Type
 WHERE Phone.phone_type_id=REF_Phone_Type.phone_type_id
-	AND Phone.emp_id=#attributes.emp_id#
+	AND Phone.user_account_id=#attributes.user_account_id#
 ORDER BY REF_Phone_Type.phone_type DESC
 </cfquery>
 </cfsilent>

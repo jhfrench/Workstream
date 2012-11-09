@@ -22,7 +22,7 @@ FROM Time_Entry
 WHERE Notes.active_ind=1
 	AND Time_Entry.active_ind=1
 	AND Time_Entry.project_id=#attributes.project_id#
-	AND Time_Entry.emp_id=#attributes.emp_id#
+	AND Time_Entry.user_account_id=#attributes.user_account_id#
 	AND EXTRACT(MONTH FROM Time_Entry.work_date)=#attributes.month#
 	AND EXTRACT(YEAR FROM Time_Entry.work_date)=#attributes.year#
 ORDER BY Time_Entry.work_date, Time_Entry.time_entry_id

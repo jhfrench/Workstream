@@ -21,24 +21,24 @@ SELECT Time_Entry.time_entry_id AS ID, Hours_Pin_Week.sumhoursweek,
 FROM Time_Entry, REF_Day_of_Week, Project, Notes,
 	(SELECT  Time_Entry.work_date, 
 		SUM(Time_Entry.Hours) AS sumhours, 
-		Time_Entry.emp_id
+		Time_Entry.user_account_id
 	FROM Time_Entry 
 	WHERE Time_Entry.active_ind=1
-		AND emp_id=#variables.user_identification# AND (CURRENT_TIMESTAMP-Time_Entry.work_date) <= 60
-	GROUP BY  Time_Entry.work_date, Time_Entry.emp_id)
+		AND user_account_id=#variables.user_identification# AND (CURRENT_TIMESTAMP-Time_Entry.work_date) <= 60
+	GROUP BY  Time_Entry.work_date, Time_Entry.user_account_id)
 AS hours_pin_date,
 	(SELECT EXTRACT(YEAR FROM Time_Entry.work_date) AS year, 
 		EXTRACT(WEEK FROM Time_Entry.work_date) AS week, 
 		SUM(Time_Entry.hours) AS sumhoursweek, MIN(Time_Entry.work_date) AS mindate
 	FROM Time_Entry
 	WHERE Time_Entry.active_ind=1
-		AND Time_Entry.emp_id=#variables.user_identification#
+		AND Time_Entry.user_account_id=#variables.user_identification#
 	GROUP BY EXTRACT(YEAR FROM Time_Entry.work_date), EXTRACT(WEEK FROM Time_Entry.work_date))
 AS hours_pin_week
 WHERE Time_Entry.active_ind=1
-	AND Time_Entry.emp_id=#variables.user_identification#
+	AND Time_Entry.user_account_id=#variables.user_identification#
 	AND (CURRENT_TIMESTAMP-Time_Entry.work_date) <= 60
-	AND Time_Entry.emp_id=hours_pin_date.emp_id
+	AND Time_Entry.user_account_id=hours_pin_date.user_account_id
 	AND Time_Entry.work_date = hours_pin_date.date
 	AND DATEPART (DW, Time_Entry.work_date) = REF_Day_Of_Week.day_of_week_id
 	AND Time_Entry.project_id = Project.project_id

@@ -19,9 +19,9 @@
 		<td colspan="2" valign="bottom" align="right" class="SubHeadText">
 			Capacity&nbsp;Used
 		</td>
-	<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">
+	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 		<td align="center" valign="bottom">
-			<input type="text" name="capacity_#variables.emp_id#" value="#numberformat(evaluate("sum_#variables.emp_id#")/get_week_days.hours_in_month*100,"___")#%" size="3" readonly="readonly" />
+			<input type="text" name="capacity_#variables.user_account_id#" value="#numberformat(evaluate("sum_#variables.user_account_id#")/get_week_days.hours_in_month*100,"___")#%" size="3" readonly="readonly" />
 		</td>
 	</cfloop>
 		<td align="center" valign="bottom">

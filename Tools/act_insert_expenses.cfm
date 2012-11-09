@@ -14,17 +14,17 @@
 
 
 <cfquery name="insert_notes" datasource="#application.datasources.main#">
-INSERT INTO Notes (note, emp_id, notes_type_id)
-VALUES ('#attributes.note#',#attributes.emp_id#, 6) 
+INSERT INTO Notes (note, user_account_id, notes_type_id)
+VALUES ('#attributes.note#',#attributes.user_account_id#, 6) 
 </cfquery>
 <cfquery name="get_notes_id" datasource="#application.datasources.main#">
 SELECT CURRVAL('Notes_notes_id_SEQ') AS notes_id
 </cfquery>
 
 <cfquery name="insert_expense" datasource="#application.datasources.main#">
-INSERT INTO Expense (work_date, emp_id, project_id,
+INSERT INTO Expense (work_date, user_account_id, project_id,
 	reimbursement_type_id, notes_id)
-VALUES ('#attributes.datefield1#', #attributes.emp_id#, #attributes.project_id#,
+VALUES ('#attributes.datefield1#', #attributes.user_account_id#, #attributes.project_id#,
 	#attributes.reimbursement_type_id#, #get_notes_id.notes_id#)
 </cfquery>
 <cfquery name="get_expense_id" datasource="#application.datasources.main#">

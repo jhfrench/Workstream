@@ -44,12 +44,12 @@
 		</td>
 		<td>
 
-			<cfselect name="emp_id" required="yes" message="you must select an employee"class="RegText" size="3" style="width:130px" multiple="yes">
+			<cfselect name="user_account_id" required="yes" message="you must select an employee"class="RegText" size="3" style="width:130px" multiple="yes">
 
 				<option value="ALL" selected="selected">All Employees </option>
 				<cfoutput query="get_team_select">
-					<cfif len(emp_id)><!--- Don't display blanks --->
-						<option value="#emp_id#">#lname#, #left(name, 3)#</option>
+					<cfif len(user_account_id)><!--- Don't display blanks --->
+						<option value="#user_account_id#">#lname#, #left(name, 3)#</option>
 					</cfif>
 				</cfoutput>
 		</cfselect>

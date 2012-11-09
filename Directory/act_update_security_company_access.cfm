@@ -15,12 +15,12 @@
 	END FUSEDOC --->
 <cfquery name="Security_Company_Access_delete" datasource="#application.datasources.main#">
 DELETE FROM Security_Company_Access
-WHERE emp_id=#attributes.emp_id#
+WHERE user_account_id=#attributes.user_account_id#
 </cfquery>
 <cfset variables.visible_company_id=listappend(attributes.company_id,attributes.visable_company)>
 <cfquery name="Security_Company_Access_entry" datasource="#application.datasources.main#">
-INSERT INTO Security_Company_Access(emp_id, company_id)
-SELECT #attributes.emp_id# AS emp_id, company_id
+INSERT INTO Security_Company_Access(user_account_id, company_id)
+SELECT #attributes.user_account_id# AS user_account_id, company_id
 FROM REF_Company
 WHERE company_id IN (#variables.visible_company_id#)
 </cfquery>

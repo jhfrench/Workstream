@@ -15,7 +15,7 @@
 <cfinclude template="act_verify_dates.cfm">
 <cfif attributes.from_date LTE now() AND attributes.from_date LTE attributes.through_date>
 	<cfset variables.object_id=4>
-	<cfset variables.emp_id=0>
+	<cfset variables.user_account_id=0>
 	<cfset variables.compare_date="">
 	<cfinclude template="qry_manager_hours_report_output.cfm">
 	<table border="0" cellpadding="2" cellspacing="0" align="center" width="95%">

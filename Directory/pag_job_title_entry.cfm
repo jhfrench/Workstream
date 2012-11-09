@@ -12,10 +12,10 @@
 
 	||
 	Variables:
-	--> attributes.emp_id: number containing the unique identifier of the individual being requested
+	--> attributes.user_account_id: number containing the unique identifier of the individual being requested
  --->
 <cfset variables.bgcolor="##78A0EB"><!--- 
-<cfset attributes.emp_id=url.emp_id> --->
+<cfset attributes.user_account_id=url.user_account_id> --->
 </cfsilent>
 <cfform action="act_job_title_submit.cfm" name="benefits" method="POST">
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="100%" class="SelectText">

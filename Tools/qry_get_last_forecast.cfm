@@ -4,7 +4,7 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I retrieve the forecast id that corresponds to a given month, year, and forceplanner user's emp_id.
+	Responsibilities: I retrieve the forecast id that corresponds to a given month, year, and forceplanner user's user_account_id.
 	||
 	Name: Jeromy French
 	||

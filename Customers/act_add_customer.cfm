@@ -17,14 +17,14 @@
 		</cfquery>
 		<cfif len(attributes.phone)>
 			<cfquery name="insert_contact_phone" datasource="#application.datasources.main#">
-			INSERT INTO Phone (phone_number, emp_id, phone_type_id)
-			VALUES ('#attributes.phone#', CURRVAL('Emp_Contact_emp_id_SEQ'), 1)
+			INSERT INTO Phone (phone_number, user_account_id, phone_type_id)
+			VALUES ('#attributes.phone#', CURRVAL('Emp_Contact_user_account_id_SEQ'), 1)
 			</cfquery>
 		</cfif>
 		<cfif len(attributes.email)>
 			<cfquery name="insert_contact_email" datasource="#application.datasources.main#">
-			INSERT INTO Email (email, emp_id, email_type_id)
-			VALUES ('#attributes.email#', CURRVAL('Emp_Contact_emp_id_SEQ'), 1)
+			INSERT INTO Email (email, user_account_id, email_type_id)
+			VALUES ('#attributes.email#', CURRVAL('Emp_Contact_user_account_id_SEQ'), 1)
 			</cfquery>
 		</cfif>
 	</cfif>
@@ -32,7 +32,7 @@
 	INSERT INTO Customer (root_code, description, billable_type_id,
 		company_id<cfif len(attributes.company_address1)>, company_address1</cfif><cfif len(attributes.company_address2)>, company_address2</cfif><cfif len(attributes.company_city)>, company_city</cfif>, company_state<cfif len(attributes.company_zip)>, company_zip</cfif><cfif len(attributes.lname)>, emp_contact_id</cfif>, active_ind)
 	VALUES ('#variables.new_code#', '#attributes.description#', #attributes.billable_type_id#,
-		#attributes.company_id# <cfif len(attributes.company_address1)>, '#attributes.company_address1#'</cfif><cfif len(attributes.company_address2)>, '#attributes.company_address2#'</cfif><cfif len(attributes.company_city)>, '#attributes.company_city#'</cfif>, '#attributes.company_state#'<cfif len(attributes.company_zip)>, '#attributes.company_zip#'</cfif><cfif len(attributes.lname)>, CURRVAL('Emp_Contact_emp_id_SEQ')</cfif>, 1)
+		#attributes.company_id# <cfif len(attributes.company_address1)>, '#attributes.company_address1#'</cfif><cfif len(attributes.company_address2)>, '#attributes.company_address2#'</cfif><cfif len(attributes.company_city)>, '#attributes.company_city#'</cfif>, '#attributes.company_state#'<cfif len(attributes.company_zip)>, '#attributes.company_zip#'</cfif><cfif len(attributes.lname)>, CURRVAL('Emp_Contact_user_account_id_SEQ')</cfif>, 1)
 	</cfquery>
 	<cfquery name="company_id" datasource="#application.datasources.main#">
 	INSERT INTO Link_Customer_Company (customer_id, company_id)

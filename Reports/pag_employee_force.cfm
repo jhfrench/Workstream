@@ -12,13 +12,13 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfparam name="attributes.emp_id" default="#variables.user_identification#">
+<cfparam name="attributes.user_account_id" default="#variables.user_identification#">
 <cfparam name="attributes.from_date" default="#month(now())#/1/#year(now())#">
 <cfparam name="attributes.to_date" default="#month(now())#/#daysinmonth(now())#/#year(now())#">
 <cfparam name="attributes.show_budgeted" default="0">
 <cfparam name="attributes.show_completed" default="0">
 
-<cfmodule template="../common_files/qry_employee_name.cfm" emp_id="#attributes.emp_id#">
+<cfmodule template="../common_files/qry_employee_name.cfm" user_account_id="#attributes.user_account_id#">
 </cfsilent>
 
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
@@ -32,7 +32,7 @@
 	<input type="date" name="to_date" id="to_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.to_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
 	<label for="show_completed"><input type="checkbox" name="show_completed" id="show_completed" value="1"<cfif attributes.show_completed> checked="checked"</cfif> /> Show only completed tasks</label>
 	<label for="show_budgeted"><input type="checkbox" name="show_budgeted" id="show_budgeted" value="1"<cfif attributes.show_budgeted> checked="checked"</cfif> /> Show only budgeted tasks</label>
-	<input type="hidden" name="emp_id" value="#attributes.emp_id#" />
+	<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
 	<input type="submit" name="submit" value="Retrieve tasks" class="btn btn-primary" />
 </form>
 </cfoutput>

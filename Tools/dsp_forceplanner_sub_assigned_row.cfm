@@ -18,10 +18,10 @@
 		<td colspan="2" valign="bottom" align="right" class="SubHeadText">
 			Assigned&nbsp;hours
 		</td>
-	<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">
-		<cfparam name="sum_#variables.emp_id#" default="0">
+	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
+		<cfparam name="sum_#variables.user_account_id#" default="0">
 		<td align="center" valign="bottom">
-			<input type="text" name="sum_#variables.emp_id#" value="#evaluate('sum_#variables.emp_id#')#" size="3" readonly="readonly" />
+			<input type="text" name="sum_#variables.user_account_id#" value="#evaluate('sum_#variables.user_account_id#')#" size="3" readonly="readonly" />
 		</td>
 	</cfloop>
 		<td align="center" valign="bottom">

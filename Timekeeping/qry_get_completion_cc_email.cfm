@@ -4,7 +4,7 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I retrieve the emp_id of the people who are to receive email reminders of a task's due_date.
+	Responsibilities: I retrieve the user_account_id of the people who are to receive email reminders of a task's due_date.
 	||
 	Name: Jeromy French
 	||
@@ -13,10 +13,10 @@
 	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
-	<-- email_id: list that contains the emp_id's of everyone who is supposed to be CC'd on the email
+	<-- email_id: list that contains the user_account_id's of everyone who is supposed to be CC'd on the email
  --->
 <cfquery name="get_completion_cc_email" datasource="#application.datasources.main#">
-SELECT Email.emp_id as email_id
+SELECT Email.user_account_id as email_id
 FROM Notification, Email
 WHERE Notification.email_id=Email.email_id
 	AND task_id=#attributes.task_id#

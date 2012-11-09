@@ -30,8 +30,8 @@
 <cfset variables.quote='"'>
 <cfset variables.status_message_replace="',#variables.quote#">
 <cfset variables.status_message_replace_with=",">
-<cfparam name="attributes.emp_id" default="#variables.user_identification#">
-<cfif listlen(attributes.emp_id) GT 1>
+<cfparam name="attributes.user_account_id" default="#variables.user_identification#">
+<cfif listlen(attributes.user_account_id) GT 1>
 	<cfset variables.group = "task_owner">
 <cfelse>
 	<cfset variables.group = "constant">

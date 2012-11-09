@@ -13,22 +13,22 @@
 	 || 
 	--> attributes.fuseaction: string containing view that user has selected
 	--> [attributes.view]: string containing label of desired task list view
-	--> [attributes.emp_id]: number that indicates user to workstream
+	--> [attributes.user_account_id]: number that indicates user to workstream
 	<-- attributes.view: string containing label of desired task list view
 	--> session.last_name: last name of the current user
 	--> session.workstream_show_closed: number that indicates the desire of the user to hide or show tasks which have already been completed; 1 means include the task, 0 means exclude the task
 	--> session.workstream_show_on_hold: number that indicates the desire of the user to hide or show tasks which have been put on hold; 1 means include the task, 0 means exclude the task
 	--> session.workstream_show_team: number that indicates the desire of the user to hide or show tasks for which they are a member of the task team; 1 means include the task, 0 means exclude the task
  --->
-<cfif isdefined("attributes.emp_id") AND compare(attributes.emp_id,variables.user_identification)AND NOT isdefined("attributes.inbox_owner")>
+<cfif isdefined("attributes.user_account_id") AND compare(attributes.user_account_id,variables.user_identification)AND NOT isdefined("attributes.inbox_owner")>
 	<cfinclude template="../common_files/qry_get_employee_name.cfm">
 	<cfset request.first_name=get_employee_name.first_name>
 	<cfset request.last_name=get_employee_name.last_name>
-<cfelseif isdefined("attributes.emp_id") AND compare(attributes.emp_id,variables.user_identification) AND isdefined("attributes.inbox_owner")>
+<cfelseif isdefined("attributes.user_account_id") AND compare(attributes.user_account_id,variables.user_identification) AND isdefined("attributes.inbox_owner")>
 	<cfset request.first_name=task_list.task_owner>
 	<cfset request.last_name="">
 <cfelse>
-	<cfset attributes.emp_id=variables.user_identification>
+	<cfset attributes.user_account_id=variables.user_identification>
 	<cfset request.first_name=session.first_name>
 	<cfset request.last_name=session.last_name>
 </cfif>
@@ -50,7 +50,7 @@
 <cfoutput>
 <input type="hidden" name="evaluate_task_options" value="1" />
 <cfif session.workstream_show_options><input type="hidden" name="show_options" value="#session.workstream_show_options#"></cfif>
-<cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>Project<cfelse>Task</cfif> Inbox for <cfmodule template="../common_files/dsp_team_select.cfm" emp_id="#attributes.emp_id#" show_team="1" onchange="form.submit();" fuseaction="#attributes.fuseaction#">
+<cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>Project<cfelse>Task</cfif> Inbox for <cfmodule template="../common_files/dsp_team_select.cfm" user_account_id="#attributes.user_account_id#" show_team="1" onchange="form.submit();" fuseaction="#attributes.fuseaction#">
 <cfif session.workstream_show_options>
 	<cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>&nbsp;&nbsp;<label for="show_closed_engagements" class="checkbox" title="Show completed projects"><input type="checkbox" name="show_closed_engagements" id="show_closed_engagements" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_closed_engagements") AND session.workstream_show_closed_engagements> checked="checked"</cfif>>Completed projects</label></cfif>
 	<label for="show_on_hold" class="checkbox" title="Show tasks on hold"><input type="checkbox" name="show_on_hold" id="show_on_hold" onclick="javascript:form.submit();"<cfif isdefined("session.workstream_show_on_hold") AND session.workstream_show_on_hold> checked="checked"</cfif>>Tasks on hold</label>

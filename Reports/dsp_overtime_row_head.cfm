@@ -11,13 +11,13 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfset variables.compare_emp_id="-1">
+<cfset variables.compare_user_account_id="-1">
 </cfsilent>
 <cfif get_under_over_hours.recordcount>
 <cfoutput query="get_under_over_hours">
-<cfif variables.compare_emp_id NEQ emp_id>
+<cfif variables.compare_user_account_id NEQ user_account_id>
 <cfset variables.compare_row=1>
-<cfset variables.compare_emp_id=emp_id>
+<cfset variables.compare_user_account_id=user_account_id>
 <cfif currentrow NEQ 1>
 	<tr>
 		<td<cfif (variables.overtime_ind AND variables.total_hours GT 40) OR (NOT variables.overtime_ind AND variables.total_hours LT 40)> bgcolor="##FF0000"</cfif> class="RegTextIt">Total Hours:</td>

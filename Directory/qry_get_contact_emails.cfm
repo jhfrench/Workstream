@@ -13,7 +13,7 @@
 	||
 	Variables:
 	--> application.datasources.main: datasource for the application
-	--> variables.emp_id: contains the unique identifier of this employee
+	--> variables.user_account_id: contains the unique identifier of this employee
 	<-- email_type_id: string containing email Type ID for a person
 	<-- Email_Type: string containing email Type for a person 
 	<-- Email: string containing email for a person
@@ -24,7 +24,7 @@
 			Ret.email_type_id, Em.Email_ID
 		FROM Email Em
 			RIGHT OUTER JOIN REF_Email_Type Ret ON  Em.email_type_id = Ret.email_type_id 
-				AND Em.emp_id=#variables.emp_id#
+				AND Em.user_account_id=#variables.user_account_id#
 	</cfquery>
 </cfsilent>
 

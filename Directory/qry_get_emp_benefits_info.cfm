@@ -13,7 +13,7 @@
 
 	||
 	Variables:
-	--> attributes.emp_id: number containing the unique identifier of the individual being requested
+	--> attributes.user_account_id: number containing the unique identifier of the individual being requested
 
  --->
 <cfquery name="get_emp_benefits_info" datasource="#application.datasources.main#">
@@ -31,7 +31,7 @@
 					WHERE
 						active_ind = 1)
 					AS REF_Benefit_Type
-	WHERE emp_id=#attributes.emp_id#
+	WHERE user_account_id=#attributes.user_account_id#
 	<!--- AND Benefit.active_ind = 1 --->
 	AND Benefit.benefit_type_id = REF_Benefit_Type.benefit_type_id
 </cfquery>

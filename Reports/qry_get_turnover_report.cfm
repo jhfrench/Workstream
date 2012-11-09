@@ -31,7 +31,7 @@ FROM (
 			LEFT OUTER JOIN (
 				SELECT View_Demographics_Workstream.demographics_id, View_Demographics_Workstream.hire_date, COALESCE(View_Demographics_Workstream.effective_to, CURRENT_DATE+ INTERVAL '1 day') AS effective_to
 				FROM View_Demographics_Workstream
-					INNER JOIN Link_Company_Emp_Contact ON View_Demographics_Workstream.emp_id=Link_Company_Emp_Contact.emp_id
+					INNER JOIN Link_Company_Emp_Contact ON View_Demographics_Workstream.user_account_id=Link_Company_Emp_Contact.user_account_id
 						AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 			) AS Demographics ON Demographics.hire_date <= ABCD_Quarter.date_end
 				AND Demographics.effective_to >= ABCD_Quarter.date_start
@@ -58,6 +58,6 @@ FROM get_turnover_report
 <cfquery name="get_total_population" datasource="#application.datasources.main#">
 SELECT COUNT(View_Demographics_Workstream.demographics_id) AS total_population
 FROM View_Demographics_Workstream
-	INNER JOIN Link_Company_Emp_Contact ON View_Demographics_Workstream.emp_id=Link_Company_Emp_Contact.emp_id
+	INNER JOIN Link_Company_Emp_Contact ON View_Demographics_Workstream.user_account_id=Link_Company_Emp_Contact.user_account_id
 		AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
 </cfquery>

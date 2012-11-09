@@ -15,10 +15,10 @@
 <cfquery name="Showhours" datasource="#application.datasources.main#"> 
 SELECT Time_entry.hours, Time_Entry.work_date
 FROM PTO_Hours
-	INNER JOIN Emp_contact ON PTO_Hours.emp_id=Emp_contact.emp_id
-	INNER JOIN Time_entry ON PTO_Hours.emp_id=Time_entry.emp_id
+	INNER JOIN Emp_contact ON PTO_Hours.user_account_id=Emp_contact.user_account_id
+	INNER JOIN Time_entry ON PTO_Hours.user_account_id=Time_entry.user_account_id
 WHERE Time_Entry.active_ind=1
-	AND (Emp_Contact.emp_id='#attributes.drill_down#')
+	AND (Emp_Contact.user_account_id='#attributes.drill_down#')
 	AND Time_entry.project_id IN (
 		SELECT project_id
 		FROM Project

@@ -13,7 +13,7 @@
 	||
 	Variables:
 	--> application.datasources.main: datasource for the application
-	--> variables.emp_id: contains the unique identifier of this employee
+	--> variables.user_account_id: contains the unique identifier of this employee
 	<-- Phone_Type_ID: string containing Phone Type ID for a person
 	<-- Phone_Type: string containing Phone Type for a person 
 	<-- Phone_Number: string containing Phone Number for a person
@@ -25,7 +25,7 @@ SELECT REF_Phone_Type.Phone_Type_ID, REF_Phone_Type.Phone_Type, Phone.Phone_Numb
     Phone.Extension, Phone.Phone_id
 FROM REF_Phone_Type
 	LEFT OUTER JOIN Phone ON REF_Phone_Type.Phone_Type_ID = Phone.Phone_type_id 
-		AND Phone.emp_id=#variables.emp_id#
+		AND Phone.user_account_id=#variables.user_account_id#
 </cfquery>
 </cfsilent>
 

@@ -11,7 +11,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfset emp_id=variables.user_identification>
+<cfset user_account_id=variables.user_identification>
 </cfsilent>
 <cfinclude template="act_verify_dates.cfm">
 <cfinclude template="qry_individual_hours.cfm">

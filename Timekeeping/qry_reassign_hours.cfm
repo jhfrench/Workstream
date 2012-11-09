@@ -24,7 +24,7 @@ UPDATE Time_Entry
 SET task_id=#attributes.reassign_task_id#,
 	project_id=#get_project_id.project_id#
 WHERE Time_Entry.active_ind=1
-	AND emp_id IN (#attributes.reassign_hours#)
+	AND user_account_id IN (#attributes.reassign_hours#)
 	AND time_entry_id NOT IN (
 		/* don't reassign hours that have already been billed*/
 		SELECT time_entry_id
@@ -40,7 +40,7 @@ SET task_id=#attributes.reassign_task_id#
 FROM Time_Entry
 WHERE Time_Entry.notes_id=Notes.notes_id
 	AND Notes.active_ind=1
-	AND Notes.emp_id IN (#attributes.reassign_hours#)
+	AND Notes.user_account_id IN (#attributes.reassign_hours#)
 	AND Time_Entry.time_entry_id NOT IN (
 		/* don't reassign hours that have already been billed*/
 		SELECT time_entry_id

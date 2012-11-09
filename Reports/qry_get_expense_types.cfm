@@ -19,11 +19,11 @@ FROM expense_amount
 	INNER JOIN expense ON expense_amount.expense_id = expense.expense_id
 	INNER JOIN REF_Expense_Type ON expense_amount.Expense_type_id = REF_Expense_Type.Expense_type_ID
     WHERE (expense.work_date >='#From_Date#' AND expense.work_date <='#Through_Date#')
-     <cfif compare(project_id, 0) or  isdefined("attributes.emp_id")>
+     <cfif compare(project_id, 0) or  isdefined("attributes.user_account_id")>
 	<cfif compare(project_id, 0) >and expense.project_id = #attributes.project_id#</cfif>
-	<cfif isdefined("attributes.emp_id")>and expense.emp_id IN(#attributes.emp_id#)</cfif>
+	<cfif isdefined("attributes.user_account_id")>and expense.user_account_id IN(#attributes.user_account_id#)</cfif>
 	<cfelse>
-    and expense.emp_id=#variables.user_identification#
+    and expense.user_account_id=#variables.user_identification#
 	</cfif>
 GROUP BY expense_type, REF_expense_type.expense_type_id
 ORDER BY REF_expense_type.expense_type_id
