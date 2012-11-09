@@ -13,9 +13,9 @@
 	 || 
 	END FUSEDOC --->
 <cfif variables.month_loop GT 1>
-<cfloop from="1" to="#variables.month_loop#" index="ii">
-	<cfset "variables.period_total_#ii#"=0>
-</cfloop>
+	<cfloop from="1" to="#variables.month_loop#" index="ii">
+		<cfset "variables.period_total_#ii#"=0>
+	</cfloop>
 </cfif>
 </cfsilent>
 
@@ -106,25 +106,27 @@
 </cfif>
 		<cfset variables.grand_total_hours=emp_type_hours+grand_total_hours><cfset variables.emp_type_hours=0>
 </cfoutput>
-<cfoutput>
-<!-- I only want this after the client code changes -->
-	<tr>
-		<td colspan="#variables.column_count#">
-			&nbsp;&nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			Grand Total Hours:
-		</td>
-<cfif variables.month_loop GT 1>
-<cfloop from="1" to="#variables.month_loop#" index="ii">
-		<td class="number">#decimalformat(evaluate("variables.period_total_#ii#"))#</td>
-</cfloop>
-</cfif>
-		<td class="number">
-			#decimalformat(grand_total_hours)#
-		</td>
-	</tr>
-</cfoutput>
+	<tfoot>
+	<cfoutput>
+	<!-- I only want this after the client code changes -->
+		<tr>
+			<td colspan="#variables.column_count#">
+				&nbsp;&nbsp;
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				Grand Total Hours:
+			</td>
+	<cfif variables.month_loop GT 1>
+	<cfloop from="1" to="#variables.month_loop#" index="ii">
+			<td class="number">#decimalformat(evaluate("variables.period_total_#ii#"))#</td>
+	</cfloop>
+	</cfif>
+			<td class="number">
+				#decimalformat(grand_total_hours)#
+			</td>
+		</tr>
+	</cfoutput>
+	</tfoot>
 </table>
