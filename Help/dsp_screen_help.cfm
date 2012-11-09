@@ -39,9 +39,9 @@ variables.tab_content_class=' active in';
 </cfscript>
 <cfoutput>
 	<ul id="help_tabs" class="nav nav-tabs" role="tablist"><cfif application.help.article_active_ind>
-		<li#variables.tab_class# role="tab" aria-controls="help_content_article"><a href="##help_content_article" data-toggle="tab" id="button_article">Articles</a></li><cfset variables.tab_class=""></cfif><cfif application.help.faq_active_ind>
-		<li#variables.tab_class# role="tab" aria-controls="help_content_faq"><a href="##help_content_faq" data-toggle="tab" id="button_faq"><abbr title="Frequently Asked Questions">FAQ</abbr></a></li></cfif><cfif application.help.search_active_ind>
-		<li role="tab" aria-controls="help_content_search"><a href="##help_content_search" data-toggle="tab" id="button_search">Search</a></li></cfif>
+		<li#variables.tab_class# role="tab" aria-controls="help_content_article"><a href="##help_content_article" data-toggle="tab" id="button_article"><h3>Articles</h3></a></li><cfset variables.tab_class=""></cfif><cfif application.help.faq_active_ind>
+		<li#variables.tab_class# role="tab" aria-controls="help_content_faq"><a href="##help_content_faq" data-toggle="tab" id="button_faq"><h3><abbr title="Frequently Asked Questions">FAQ</abbr>s</h3></a></li></cfif><cfif application.help.search_active_ind>
+		<li role="tab" aria-controls="help_content_search"><a href="##help_content_search" data-toggle="tab" id="button_search"><h3>Search</h3></a></li></cfif>
 	</ul>
 	<div id="help_content" class="tab-content"><cfif application.help.article_active_ind>
 		<div id="help_content_article" class="tab-pane fade#variables.tab_content_class#" role="tabpanel">
@@ -59,7 +59,6 @@ variables.tab_content_class=' active in';
 			</cfif>
 			</div>
 			<div id="help_main_article" class="help_main">
-				Yo
 				<cfif get_screen_help_articles.recordcount>
 					<cfset variables.help_article_id=get_screen_help_articles.help_article_id>
 				<cfelse>
