@@ -16,7 +16,7 @@ I get the names of IE's on current engagements.
 <cfquery name="get_engagement_ie" datasource="#application.datasources.main#">
 SELECT COALESCE(Emp_Contact.user_account_id,0) AS user_account_id, COALESCE(Emp_contact.lname, 'Unassigned') AS lname
 FROM Project
-	LEFT OUTER JOIN Emp_Contact ON Emp_Contact.user_account_id=Project.project_manager_user_account_id
+	LEFT OUTER JOIN Emp_Contact ON Emp_Contact.user_account_id=Project.project_manager_id
 WHERE status!=0
 GROUP BY Emp_Contact.user_account_id, Emp_contact.lname
 ORDER BY lname

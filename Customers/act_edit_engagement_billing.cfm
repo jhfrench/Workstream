@@ -40,7 +40,7 @@ VALUES (#attributes.project_id#,#attributes.charge#);
 </cfswitch>
 </cfquery>
 <cfif engagement_dashboard_return EQ 1>
-	<cflocation url="../index.cfm?fuseaction=Reports.engagement_dashboard&customer_id=#attributes.customer_id#&project_manager_user_account_id=#attributes.project_manager_user_account_id#&sort=#sort#&###Project_ID#" addtoken="no">
+	<cflocation url="../index.cfm?fuseaction=Reports.engagement_dashboard&customer_id=#attributes.customer_id#&project_manager_id=#attributes.project_manager_id#&sort=#sort#&###Project_ID#" addtoken="no">
 </cfif>
 </cfsilent>
 
