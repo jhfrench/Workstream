@@ -14,7 +14,7 @@
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> variables.user_identification: number that uniquely identifies the user
  --->
-<cfquery name="life_blurb" cachedafter="02/02/1978" datasource="#application.datasources.main#">
+<cfquery name="get_life_blurb" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT SUM(CASE WHEN EXTRACT(MONTH FROM CURRENT_DATE)=EXTRACT(MONTH FROM Employee.hire_date) AND EXTRACT(YEAR FROM CURRENT_DATE) = EXTRACT(YEAR FROM Employee.hire_date) THEN 1 ELSE 0 END) AS new_hire_count,
 	SUM(CASE WHEN EXTRACT(MONTH FROM CURRENT_DATE)=EXTRACT(MONTH FROM Employee.birth_date) THEN 1 ELSE 0 END) AS birthday_count,
 	SUM(CASE WHEN EXTRACT(MONTH FROM CURRENT_DATE)=EXTRACT(MONTH FROM Employee.hire_date) AND EXTRACT(YEAR FROM CURRENT_DATE) > EXTRACT(YEAR FROM Employee.hire_date) THEN 1 ELSE 0 END) AS anniversary_count,
