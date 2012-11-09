@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I am the container for all the fuses in the billable hours report.
+	Responsibilities: I show the billiable AND non-billable hours reports, depending on the fuseaction (non_billable_ind is set in circuit.xml).
 
 	||
 	Edits:
@@ -16,11 +16,11 @@
 <cfset variables.total_hours=0>
 <cfset variables.grand_total_hours=0>
 <cfset variables.emp_type_hours=0>
-<cfset query="monthly_hours">
+<cfset query="get_monthly_hours">
 </cfsilent>
 <cfinclude template="act_verify_dates.cfm">
-<cfinclude template="qry_monthly_hours.cfm">
-<table align="center" border="0" cellpadding="1" cellspacing="0" width="70%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadTextWhite" section_color="008080" section_title="Billable Monthly Hours Report for #attributes.from_date#&nbsp;through&nbsp;#attributes.through_date#" colspan="6" gutter="false" align="center">
-	<cfinclude template="dsp_code_reports.cfm">
-</table>
+<cfinclude template="qry_get_monthly_hours.cfm">
+
+<cfinclude template="dsp_code_reports.cfm">
+
+<cfmodule template="dsp_from_thorugh_date.cfm" report_name="#attributes.report_name#" required="yes">
