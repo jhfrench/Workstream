@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 <cfparam name="attributes.user_account_id" default="#variables.user_identification#">
 <cfparam name="attributes.from_date" default="#month(now())#/1/#year(now())#">
-<cfparam name="attributes.to_date" default="#month(now())#/#daysinmonth(now())#/#year(now())#">
+<cfparam name="attributes.to_date" default="#month(now())#/#daysinmonth(now())#/#year(now())#"><!--- $issue$: change to_date to through_date to be consistent with other reports --->
 <cfparam name="attributes.show_budgeted" default="0">
 <cfparam name="attributes.show_completed" default="0">
 

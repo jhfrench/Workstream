@@ -26,7 +26,7 @@
 		<h3>for #attributes.from_date#&nbsp;through&nbsp;#attributes.through_date#</h3>
 	</cfoutput>
 	</caption>
-<cfoutput query="#query#" group="employee_classification">
+<cfoutput query="#variables.query#" group="employee_classification">
 <cfif len(employee_classification)>
 	<cfset variables.employee_classification=employee_classification>
 <cfelse>
