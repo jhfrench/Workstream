@@ -22,7 +22,7 @@ SELECT Demographics.first_name, Demographics.last_name, Project.project_code AS 
 	<cfelse>
 			THEN (Customer.description || '-' || Project.description || ' (' ||  Project.project_code || ')')
 		ELSE (Project.description || ' (' ||  Project.project_code || ')')
-	</cfif>END AS clientname, REF_Employee_Classification.description AS employee_classification,
+	</cfif>END AS clientname, REF_Employee_Classification.employee_classification,
 	SUM(Time_Entry.hours) AS hours, Link_Company_User_Account.company_id
 FROM Demographics
 	INNER JOIN Time_Entry ON Demographics.user_account_id=Time_Entry.user_account_id
@@ -49,7 +49,7 @@ GROUP BY Demographics.first_name, Demographics.last_name,
 		ELSE (Project.description || ' (' ||  Project.project_code || ')')
 	</cfif>END, Project.project_code,
 	REF_Employee_Classification.employee_classification, Link_Company_User_Account.company_id
-ORDER BY REF_Employee_Classification.description, clientname, Demographics.last_name, Demographics.first_name
+ORDER BY REF_Employee_Classification.employee_classification, clientname, Demographics.last_name, Demographics.first_name
 </cfquery>
 </cfsilent>
 

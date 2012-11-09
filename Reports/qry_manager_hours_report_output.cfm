@@ -26,7 +26,7 @@ FROM (
 	WHERE Emp_Contact.user_account_id=Demographics.user_account_id
 		AND Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id 
 		AND Link_Company_User_Account.company_id=REF_Company.company_id 
-		AND REF_Employee_Classification.employee_classification_id =COALESCE(Demographics.employee_classification_id,7) 
+		AND REF_Employee_Classification.employee_classification_id=COALESCE(Demographics.employee_classification_id,7) 
 		AND COALESCE(Demographics.effective_to, #variables.from_date#) >= #variables.from_date#
 		AND COALESCE(Demographics.hire_date, #variables.through_date#) <= #variables.through_date#
 		AND Emp_Contact.user_account_id IN (#attributes.included_user_account_id#)
