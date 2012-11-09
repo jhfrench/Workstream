@@ -118,7 +118,7 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 					)</cfif><cfif listlen(attributes.description)>
 					AND (<cfloop list="#attributes.description#" index="ii"><cfset counter=incrementvalue(counter)>LOWER(Task.description) LIKE '%#lcase(ii)#%'<cfif counter NEQ listlen(attributes.description)> OR </cfif></cfloop>)</cfif><cfif len(attributes.task_owner)>
 					AND Team.role_id=1
-					AND Team.emp_id IN (#attributes.task_owner#)</cfif><cfif len(attributes.task_source)>
+					AND Team.user_account_id IN (#attributes.task_owner#)</cfif><cfif len(attributes.task_source)>
 					AND Task.created_by IN (#attributes.task_source#)</cfif><cfif attributes.used_by_search>
 					AND Task.project_id IN (#attributes.project_id#)</cfif> /*limit to either user's access or search crietria, whichever is less*/<cfif len(attributes.task_stati)>
 					AND Task.status_id IN (#attributes.task_stati#)</cfif><cfif len(attributes.priority_id)>
@@ -147,7 +147,7 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 		AND Team.active_ind=1
 		AND Team.role_id=1
 		AND Task.task_id=Team.task_id 
-		AND Emp_Contact.emp_id=Team.emp_id)
+		AND Emp_Contact.emp_id=Team.user_account_id)
 AS Task_Details
 WHERE Project.customer_id=Customer.customer_id
 	AND Task_Details.task_id=Team.task_id
@@ -155,7 +155,7 @@ WHERE Project.customer_id=Customer.customer_id
 	AND Team.role_id=3
 	AND Task.project_id=Project.project_id 
 	AND Task.task_id=Task_Details.task_id
-	AND Emp_Contact.emp_id=Team.emp_id<cfif variables.use_customer_criteria>
+	AND Emp_Contact.emp_id=Team.user_account_id<cfif variables.use_customer_criteria>
 	AND Customer.customer_id IN (#attributes.customer_id#) /*if the user specifies customer criteria, limit the results to just those customers*/</cfif>
 <cfif isdefined("session.workstream_task_list_order")>ORDER BY #session.workstream_task_list_order#</cfif>
 LIMIT 500

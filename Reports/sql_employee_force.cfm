@@ -33,7 +33,7 @@ FROM Customer
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
 		AND Team.role_id=1
-		AND Team.emp_id IN (#attributes.emp_id#)</cfif><cfif isdefined("attributes.show_budgeted")>
+		AND Team.user_account_id IN (#attributes.emp_id#)</cfif><cfif isdefined("attributes.show_budgeted")>
 	INNER JOIN Forecast_Assignment ON Task.task_id=Forecast_Assignment.task_id
 		AND Forecast_Assignment.active_ind=1</cfif>
 	LEFT OUTER JOIN (

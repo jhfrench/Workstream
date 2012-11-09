@@ -25,7 +25,7 @@ FROM Task
 	INNER JOIN Team ON Team.task_id=Task.task_id
 		AND Team.active_ind=1
 		AND Team.role_id=1 /*owner*/
-		AND Team.emp_id IN (#valuelist(get_subordinates.emp_id)#)
+		AND Team.user_account_id IN (#valuelist(get_subordinates.emp_id)#)
 	/*if a task has had multile owners it's not fair to judge the current owner for on-time performance of that task*/
 	INNER JOIN (
 		SELECT task_id, COUNT(*) AS owner_count
@@ -34,7 +34,7 @@ FROM Task
 		GROUP BY task_id, emp_id
 	) AS Team_History ON Task.task_id=Team_History.task_id
 		AND Team_History.owner_count=1
-	INNER JOIN Emp_Contact ON Team.emp_id=Emp_Contact.emp_id
+	INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.emp_id
 WHERE Task.complete_date IS NOT NULL
 	AND Task.due_date <= CURRENT_TIMESTAMP
 </cfquery>

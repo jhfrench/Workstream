@@ -45,7 +45,7 @@ FROM
 		INNER JOIN Task ON Project.project_id=Task.project_id
 		INNER JOIN Team ON Task.task_id=Team.task_id
 			AND Team.active_ind=1
-			AND Team.emp_id IN (#variables.user_identification#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)
+			AND Team.user_account_id IN (#variables.user_identification#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)
 			AND Team.role_id IN (1,4)
 		LEFT OUTER JOIN Time_Entry ON Task.task_id=Time_Entry.task_id
 			AND Time_Entry.active_ind=1
@@ -72,7 +72,7 @@ FROM
 		END AS previous_entry, 
 		Task.task_id, Customer.description || '-' || Project.description AS project, Project.project_id, 
 		Task.due_date, Task.name AS task_name, COALESCE(Task.budgeted_hours,0) AS budget<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">, 
-		SUM(CASE WHEN Team.role_id=1 AND Team.emp_id=#variables.emp_id# AND Team.task_id=Task.task_id THEN COALESCE(Task.budgeted_hours,0) ELSE 0 END) AS budget#variables.emp_id#
+		SUM(CASE WHEN Team.role_id=1 AND Team.user_account_id=#variables.emp_id# AND Team.task_id=Task.task_id THEN COALESCE(Task.budgeted_hours,0) ELSE 0 END) AS budget#variables.emp_id#
 		</cfloop>, (CASE WHEN Project.billable_type_id=2 THEN 'NB' ELSE 'B' END) AS billable
 	FROM Customer
 		INNER JOIN Project ON Customer.customer_id=Project.customer_id
@@ -90,7 +90,7 @@ FROM
 			)
 		INNER JOIN Team ON Task.task_id=Team.task_id
 			AND Team.active_ind=1
-			AND Team.emp_id IN (#variables.user_identification#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)
+			AND Team.user_account_id IN (#variables.user_identification#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)
 			AND Team.role_id IN (1,4)
 		LEFT OUTER JOIN Time_Entry ON Task.task_id=Time_Entry.task_id
 			AND Time_Entry.active_ind=1

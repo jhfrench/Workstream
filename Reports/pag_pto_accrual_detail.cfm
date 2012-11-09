@@ -12,8 +12,7 @@
 	 || 
 	END FUSEDOC --->
 <cfparam name="variables.individual" default="yes">
-<cfif NOT comparenocase(variables.individual, "No")>
-	<cfset attributes.emp_id=variables.user_identification>
+<cfset attributes.emp_id=variables.user_identification>
 <cfset variables.remain=0>
 <cfset variables.total_in=0>
 <cfset variables.total_out=0>
