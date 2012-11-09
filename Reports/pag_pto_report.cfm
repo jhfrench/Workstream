@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I display the Lewisco Version Of the PTO report
+	Responsibilities: I display the PTO report
 
 	||
 	Edits:
