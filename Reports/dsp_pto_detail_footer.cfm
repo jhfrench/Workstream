@@ -16,7 +16,7 @@
 <div class="alert alert-info">
 <ul>
 	<li>
-		The <abbr title="Applied Internet Technology">AIT<abbr> <abbr title="Personal Time Off">PTO</abbr> program offers employees flexibility to balance work and personal life needs. 
+		The <abbr title="Applied Internet Technology">AIT</abbr> <abbr title="Personal Time Off">PTO</abbr> program offers employees flexibility to balance work and personal life needs. 
 		It also provides discretion, accountability, and responsibility for employees. Vacation, personal and sick time, as well as the first days (elimination period) of Short Term Disability, 
 		are all included in this single time off policy. The number of <abbr title="Personal Time Off">PTO</abbr> days you receive each year is based on your employment date. Accordingly, the 
 		amount of PTO increases with years of service.
