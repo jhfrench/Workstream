@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<cfform action="" method="POST" class="form-horizontal">
+<cfform action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="form-horizontal">
 	<fieldset>
 		<legend><h2><abbr title="Paid Time Off">PTO</abbr> Adjustment</h2></legend>
 		<div class="control-group">
