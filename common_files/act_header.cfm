@@ -36,7 +36,6 @@
 	</cfif>
 
 	<cfinclude template="qry_get_module_navigation.cfm">
-	<cfinclude template="qry_get_hidden_navigation_links.cfm">
 
 	<cfif application.application_specific_settings.normal_navigation_ind NEQ 1>
 		<cfset attributes.module_description=listfirst(replace(url.fuseaction,"_", " "),".")>
