@@ -20,7 +20,7 @@
 <cfparam name="attributes.required" default="">
 </cfsilent>
 <cfoutput>
-<form name="report" action="#attributes.fuseaction#" class="well form-inline">
+<form name="report" action="index.cfm?fuseaction=#attributes.fuseaction#" class="well form-inline">
 	<fieldset>
 		<legend>#attributes.report_name# Criteria</legend>
 		<label for="from_date">From</label>
