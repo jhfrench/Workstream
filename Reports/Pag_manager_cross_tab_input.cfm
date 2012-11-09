@@ -12,4 +12,4 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfmodule template="dsp_from_thorugh_date.cfm" report_name="Manager's Cross Tab Report" required="yes" action="manager_cross_tab">
+<cfmodule template="dsp_from_through_date.cfm" report_name="Manager's Cross Tab Report" required="yes" action="manager_cross_tab">

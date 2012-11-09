@@ -1,5 +1,5 @@
 
-<!--Reports/dsp_from_thorugh_date.cfm
+<!--Reports/dsp_from_through_date.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -21,7 +21,7 @@
 <cfif isdefined("attributes.action")>
 	<cfset variables.form_action="index.cfm?fuseaction=Reports.#attributes.action#">
 <cfelse>
-	<cfset variables.form_action="index.cfm?fuseaction=#attributes.fuseaction#">
+	<cfset variables.form_action="index.cfm?fuseaction=#caller.attributes.fuseaction#">
 </cfif>
 </cfsilent>
 <cfoutput>

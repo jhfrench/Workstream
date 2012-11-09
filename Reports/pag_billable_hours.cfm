@@ -25,4 +25,4 @@
 
 <cfinclude template="dsp_code_reports.cfm">
 
-<cfmodule template="dsp_from_thorugh_date.cfm" report_name="#attributes.report_name#" required="yes" from_date="#attributes.from_date#" through_date="#attributes.through_date#">
+<cfmodule template="dsp_from_through_date.cfm" report_name="#attributes.report_name#" required="yes" from_date="#attributes.from_date#" through_date="#attributes.through_date#">
