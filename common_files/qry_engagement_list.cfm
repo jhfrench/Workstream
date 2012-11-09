@@ -35,7 +35,7 @@ FROM Customer
 	INNER JOIN Task ON Project.project_id=Task.project_id 
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
-		AND Team.emp_id=<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#variables.user_identification#</cfif>
+		AND Team.user_account_id=<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#variables.user_identification#</cfif>
 		AND (
 				(
 				Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>) 
@@ -44,7 +44,7 @@ FROM Customer
 				OR (Team.role_id=3 
 					AND Task.status_id=3 /*needs QA*/)
 			)
-	INNER JOIN Emp_Contact ON Team.emp_id=Emp_Contact.emp_id 
+	INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.emp_id 
 	INNER JOIN Link_Project_Company ON Link_Project_Company.project_id=Project.project_id 
 		AND Link_Project_Company.company_id IN (#session.workstream_company_id#)\
 GROUP BY Customer.description, Project.project_code, Project.project_id, Project.description, Project.project_end, Project.mission

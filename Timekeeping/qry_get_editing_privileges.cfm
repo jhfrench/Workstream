@@ -25,15 +25,15 @@ FROM Team
 WHERE Team.active_ind=1
 	AND Team.task_id=#attributes.task_id#
 	AND Team.role_id IN (1,5)
-	AND Team.emp_id=#variables.user_identification#
+	AND Team.user_account_id=#variables.user_identification#
 UNION ALL
 SELECT 1
 FROM Link_Employee_Supervisor
-	INNER JOIN Team ON Link_Employee_Supervisor.emp_id=Team.emp_id
+	INNER JOIN Team ON Link_Employee_Supervisor.user_account_id=Team.user_account_id
 		AND Link_Employee_Supervisor.active_ind=1
 WHERE Team.active_ind=1
 	AND Team.task_id=#attributes.task_id#
 	AND Team.role_id=1
-	AND Team.emp_id=#variables.user_identification#
+	AND Team.user_account_id=#variables.user_identification#
 </cfquery>
 </cfsilent>

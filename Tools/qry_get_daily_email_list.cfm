@@ -37,7 +37,7 @@ FROM Task
 	INNER JOIN (
 		SELECT email, email_id, task_id
 		FROM Email, Team
-		WHERE Email.emp_id=Team.emp_id
+		WHERE Email.emp_id=Team.user_account_id
 			AND Team.active_ind=1
 			AND Team.role_id=1
 			AND Email.email_type_id=1
@@ -45,7 +45,7 @@ FROM Task
 	INNER JOIN (
 		SELECT email, email_id, task_id
 		FROM Email, Team
-		WHERE Email.emp_id=Team.emp_id
+		WHERE Email.emp_id=Team.user_account_id
 			AND Team.active_ind=1
 			AND Team.role_id=3
 			AND Email.email_type_id=1

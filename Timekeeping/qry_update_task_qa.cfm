@@ -21,7 +21,9 @@ SET active_ind=0
 WHERE task_id=#attributes.task_id#
 	AND role_id=3
 </cfif>
-INSERT INTO Team(task_id, emp_id, role_id)
-VALUES (#attributes.task_id#, #attributes.task_qa#, 3)
+INSERT INTO Team(task_id, user_account_id, role_id,
+	created_by)
+VALUES (#attributes.task_id#, #attributes.task_qa#, 3,
+	#variables.user_identification#)
 </cfquery>
 </cfsilent>

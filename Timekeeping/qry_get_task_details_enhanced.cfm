@@ -43,9 +43,9 @@ FROM Task
 			AND task_id=#attributes.task_id#
 	) AS Time_Used ON Task.task_id=Time_Used.task_id
 	INNER JOIN (
-		SELECT Team.task_id, Team.emp_id, Emp_Contact.lname || ', ' || Emp_Contact.name AS source_name
+		SELECT Team.task_id, Team.user_account_id, Emp_Contact.lname || ', ' || Emp_Contact.name AS source_name
 		FROM Team
-			INNER JOIN Emp_Contact ON Team.emp_id=Emp_Contact.emp_id
+			INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.emp_id
 		WHERE Team.active_ind=1
 			AND Team.role_id=5
 			AND Team.task_id=#attributes.task_id#

@@ -21,8 +21,10 @@ WHERE task_id=#attributes.task_id#
 	AND role_id=4
 	AND emp_id NOT IN (#attributes.task_team#);
 <cfif listlen(attributes.task_team)>
-	INSERT INTO Team(task_id, emp_id, role_id)
-	SELECT #attributes.task_id#, emp_id, 4
+	INSERT INTO Team(task_id, user_account_id, role_id,
+		created_by)
+	SELECT #attributes.task_id#, user_account_id, 4,
+		#variables.user_identification#
 	FROM Emp_Contact
 	WHERE emp_id IN (#attributes.task_team#)
 		/*don't duplicate team assignments*/

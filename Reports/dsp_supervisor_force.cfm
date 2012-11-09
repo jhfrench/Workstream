@@ -80,10 +80,10 @@
 		</tr>
 	</thead>
 	<tbody>
-	<cfoutput query="supervisor_force">
+	<cfoutput query="get_forceplanner_supervisor">
 		<tr>
 			<td>
-				<a href="javascript:sup_to_emp(#emp_id#);" title="View details for this employee.">#supervisor_force.employee_name#</a>
+				<a href="javascript:sup_to_emp(#emp_id#);" title="View details for this employee.">#get_forceplanner_supervisor.employee_name#</a>
 			</td>
 			<td class="number">
 				<a href="javascript:bc_tasks(#emp_id#);" title="View completed budgeted tasks for this employee.">#cbt#</a>

@@ -21,7 +21,7 @@
 		SET active_ind=0
 		WHERE Team.role_id=4
 			AND Team.task_id=#task_id#
-			AND emp_id IN (#variables.subordinates_emp_id#);
+			AND user_account_id IN (#variables.subordinates_emp_id#);
 			<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">
 				<cfif evaluate("attributes.t#task_id#_#ii#") NEQ 0>
 				UPDATE Forecast_Assignment
@@ -37,8 +37,10 @@
 					#evaluate("attributes.t#task_id#_#ii#")#);
 
 				/*update team membership*/
-				INSERT INTO Team (task_id, emp_id, role_id)
-				VALUES(#task_id#, #variables.emp_id#, 4);
+				INSERT INTO Team (task_id, user_account_id, role_id,
+					created_by)
+				VALUES(#task_id#, #variables.emp_id#, 4,
+					#variables.user_identification#);
 				</cfif>
 			</cfloop>
 		</cfif>

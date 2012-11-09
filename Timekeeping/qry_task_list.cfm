@@ -73,7 +73,7 @@ FROM Task, Team, Emp_Contact,
 						INNER JOIN Team ON Task.task_id=Team.task_id
 							AND Team.active_ind=1
 					WHERE 1=1<cfif NOT variables.from_invoice>
-						AND Team.emp_id IN (<cfif isdefined("attributes.emp_id")><cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.emp_id#" /><cfelse><cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" list="yes" /></cfif>)
+						AND Team.user_account_id IN (<cfif isdefined("attributes.emp_id")><cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.emp_id#" /><cfelse><cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" list="yes" /></cfif>)
 						AND (
 							(
 								Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>)
@@ -102,13 +102,13 @@ FROM Task, Team, Emp_Contact,
 			AND Task.task_id=Team.task_id 
 			AND Team.active_ind=1
 			AND Team.role_id=1
-			AND Emp_Contact.emp_id=Team.emp_id
+			AND Emp_Contact.emp_id=Team.user_account_id
 	) AS Task_Details
 WHERE Customer.customer_id=Project.customer_id
 	AND Task_Details.task_id=Team.task_id
 	AND Task.project_id=Project.project_id 
 	AND Task.task_id=Task_Details.task_id
-	AND Emp_Contact.emp_id=Team.emp_id 
+	AND Emp_Contact.emp_id=Team.user_account_id 
 	AND Link_Project_Company.project_id=Project.project_id 
 	AND Link_Project_Company.company_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#session.workstream_company_id#" list="yes" />)
 	AND Team.active_ind=1

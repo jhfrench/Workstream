@@ -20,7 +20,7 @@ FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
 		AND Team.role_id=1
-	INNER JOIN Emp_Contact ON Team.emp_id=Emp_Contact.emp_id
+	INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.emp_id
 	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id
 	INNER JOIN REF_Priority ON Task.priority_id=REF_Priority.priority_id
 WHERE LOWER(Task.name) LIKE 'ts%'

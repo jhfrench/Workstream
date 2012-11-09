@@ -51,7 +51,7 @@
 		<cfinclude template="qry_time_entry_details.cfm">
 		<cfinclude template="../common_files/qry_express_check_date.cfm">
 		<cfset task_owner=get_task_details.owner_id>
-		<cfset variables.task_team=valuelist(get_task_team.emp_id)>
+		<cfset variables.task_team=valuelist(get_task_Team.user_account_id)>
 		<cfset task_qa=get_task_details.qa_id>
 		<cfinclude template="../common_files/qry_get_user_fields.cfm">
 		<cfinclude template="qry_get_editing_privileges.cfm">

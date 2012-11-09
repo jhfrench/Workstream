@@ -20,7 +20,7 @@ FROM Task
 		AND Team.active_ind=1
 		AND Team.role_id=1
 	INNER JOIN Project ON Task.project_id=Project.project_id
-	INNER JOIN Emp_Contact ON Team.emp_id=Emp_Contact.emp_id
+	INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.emp_id
 WHERE Task.complete_date IS NULL
 	AND Project.project_id=#attributes.project_id#
 </cfquery>

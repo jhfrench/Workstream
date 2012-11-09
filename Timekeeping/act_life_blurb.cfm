@@ -19,11 +19,11 @@
 </cfsilent>
 
 <cfinclude template="qry_get_life_blurb.cfm">
-<cfif life_blurb.recordcount>
-	<cfset variables.new_hire_count=life_blurb.new_hire_count>
-	<cfset variables.anniversary_count=life_blurb.anniversary_count>
-	<cfset variables.birthday_count=life_blurb.birthday_count>
-	<cfset variables.employee_count=life_blurb.employee_count>
+<cfif get_life_blurb.recordcount>
+	<cfset variables.new_hire_count=get_life_blurb.new_hire_count>
+	<cfset variables.anniversary_count=get_life_blurb.anniversary_count>
+	<cfset variables.birthday_count=get_life_blurb.birthday_count>
+	<cfset variables.employee_count=get_life_blurb.employee_count>
 </cfif>
 
 <cfsavecontent variable="variables.life_blurb">
