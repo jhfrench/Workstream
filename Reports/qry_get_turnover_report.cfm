@@ -31,7 +31,8 @@ FROM (
 			LEFT OUTER JOIN ( 
 				SELECT Employee.user_account_id, Employee.hire_date, COALESCE(Employee.turnover_date, CURRENT_DATE+ INTERVAL '1 day') AS turnover_date
 				FROM Employee
-					INNER JOIN Link_Company_User_Account ON Employee.user_account_id=Link_Company_User_Account.user_account_id 
+					INNER JOIN Link_Company_User_Account ON Employee.user_account_id=Link_Company_User_Account.user_account_id
+						AND Link_Company_User_Account.active_ind=1
 						AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)
 				WHERE Employee.active_ind=1
 			) AS Population ON ABCD_Quarter.date_end >= Population.hire_date
@@ -59,8 +60,10 @@ FROM get_turnover_report
 </cfquery>
 
 <cfquery name="get_total_population" datasource="#application.datasources.main#">
-SELECT COUNT(View_Demographics_Workstream.demographics_id) AS total_population
-FROM View_Demographics_Workstream
-	INNER JOIN Link_Company_User_Account ON View_Demographics_Workstream.user_account_id=Link_Company_User_Account.user_account_id
+SELECT COUNT(Employee.user_account_id) AS total_population
+FROM Employee
+	INNER JOIN Link_Company_User_Account ON Employee.user_account_id=Link_Company_User_Account.user_account_id
+		AND Link_Company_User_Account.active_ind=1
 		AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)
+WHERE Employee.active_ind=1
 </cfquery>
