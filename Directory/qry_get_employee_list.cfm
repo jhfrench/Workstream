@@ -28,8 +28,8 @@ SELECT (Emp_Contact.lname || ', ' || Emp_Contact.name) AS name,
 	COALESCE(Email.email,'NA') AS email, COALESCE(Phone.phone_number,'NA') AS phone_number,
 	COALESCE(Phone.extension,'NA') AS extension, Position_History.position_id
 FROM Emp_Contact
-	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id
-	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id=REF_Company.company_id
+	INNER JOIN Link_Company_User_Account ON Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id
+	INNER JOIN REF_Company ON Link_Company_User_Account.company_id=REF_Company.company_id
 	INNER JOIN Position_History ON Emp_Contact.user_account_id=Position_History.user_account_id
 	INNER JOIN View_Demographics_Workstream AS Demographics ON Emp_Contact.user_account_id=Demographics.user_account_id
 	LEFT OUTER JOIN Email ON Emp_Contact.user_account_id=Email.user_account_id
@@ -37,9 +37,9 @@ FROM Emp_Contact
 	LEFT OUTER JOIN Phone ON Emp_Contact.user_account_id=Phone.user_account_id
 		AND Phone.phone_type_id=1
 WHERE #application.team_changed#=#application.team_changed#
-	AND Link_Company_Emp_Contact.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
+	AND Link_Company_User_Account.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
 	AND Position_History.effective_end_date IS NULL
 	AND Demographics.effective_to IS NULL
-ORDER BY Link_Company_Emp_Contact.company_id, Emp_Contact.lname, Emp_Contact.name
+ORDER BY Link_Company_User_Account.company_id, Emp_Contact.lname, Emp_Contact.name
 </cfquery>
 </cfsilent>

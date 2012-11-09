@@ -17,7 +17,7 @@
 <cfquery name="get_customer_invoice_list" datasource="#application.datasources.main#">
 SELECT Customer.customer_id, Customer.description AS customer_name, SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS revenue
 FROM Time_Entry
-	INNER JOIN Link_Company_Emp_Contact ON Time_Entry.user_account_id=Link_Company_Emp_Contact.user_account_id
+	INNER JOIN Link_Company_User_Account ON Time_Entry.user_account_id=Link_Company_User_Account.user_account_id
 	LEFT OUTER JOIN Billing_Rate ON Time_Entry.user_account_id=Billing_Rate.user_account_id
 		AND Time_Entry.work_date BETWEEN Billing_Rate.rate_start_date AND Billing_Rate.rate_end_date
 	INNER JOIN Project ON Project.project_id=Time_Entry.project_id
@@ -27,7 +27,7 @@ FROM Time_Entry
 		AND Notes.active_ind=1
 WHERE Time_Entry.active_ind=1
 	AND Project.billable_type_id=1
-	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)<cfif isdefined("attributes.invoice_id")>
+	AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)<cfif isdefined("attributes.invoice_id")>
 	AND Time_Entry.time_entry_id IN (
 		SELECT time_entry_id
 		FROM Link_Invoice_Time_Entry

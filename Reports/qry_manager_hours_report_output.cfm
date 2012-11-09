@@ -22,10 +22,10 @@ FROM (
 	SELECT Emp_Contact.user_account_id, Emp_Contact.name, Emp_Contact.lname,
 		MAX(COALESCE(REF_Employee_Classification.employee_classification, 'None')) AS employee_classification, REF_Company.description AS company
 	FROM Emp_contact, Demographics, REF_Employee_Classification,
-		Link_Company_Emp_Contact, REF_Company
+		Link_Company_User_Account, REF_Company
 	WHERE Emp_Contact.user_account_id=Demographics.user_account_id
-		AND Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id 
-		AND Link_Company_Emp_Contact.company_id=REF_Company.company_id 
+		AND Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id 
+		AND Link_Company_User_Account.company_id=REF_Company.company_id 
 		AND REF_Employee_Classification.employee_classification_id =COALESCE(Demographics.employee_classification_id,7) 
 		AND COALESCE(Demographics.effective_to, #variables.from_date#) >= #variables.from_date#
 		AND COALESCE(Demographics.hire_date, #variables.through_date#) <= #variables.through_date#

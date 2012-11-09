@@ -32,8 +32,8 @@ SELECT COALESCE(REF_Company.show_hours_data_ind,0) AS show_hours_data_ind, REF_C
 	Emp_Contact.emp_contact_type
 FROM User_Account
 	INNER JOIN Emp_Contact ON User_Account.user_account_id=Emp_Contact.user_account_id
-	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id
-	INNER JOIN REF_Company ON Link_Company_Emp_Contact.company_id=REF_Company.company_id
+	INNER JOIN Link_Company_User_Account ON Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id
+	INNER JOIN REF_Company ON Link_Company_User_Account.company_id=REF_Company.company_id
 WHERE User_Account.user_account_id=#variables.user_account_id#
 </cfquery>
 </cfsilent>

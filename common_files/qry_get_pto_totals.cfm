@@ -66,11 +66,11 @@ FROM (
 						BETWEEN REF_PTO_Hours.min_year AND REF_PTO_Hours.max_year) 
 				END 
 			AS pto_hours_earned 
-		FROM Link_Company_Emp_Contact, ABCD_Months, REF_Company, View_Demographics_Workstream AS Demographics
+		FROM Link_Company_User_Account, ABCD_Months, REF_Company, View_Demographics_Workstream AS Demographics
 			LEFT OUTER JOIN PTO_Rollover ON Demographics.user_account_id=PTO_Rollover.user_account_id
 				AND PTO_Rollover.rollover_year=EXTRACT(YEAR FROM CURRENT_DATE)
-		WHERE Link_Company_Emp_Contact.user_account_id=Demographics.user_account_id
-			AND REF_Company.company_id=Link_Company_Emp_Contact.company_id
+		WHERE Link_Company_User_Account.user_account_id=Demographics.user_account_id
+			AND REF_Company.company_id=Link_Company_User_Account.company_id
 			AND Demographics.hire_date+INTERVAL '30 day' < CURRENT_TIMESTAMP
 			AND ((CURRENT_TIMESTAMP BETWEEN Demographics.hire_date AND Demographics.effective_to) 
 				OR Demographics.effective_to IS NULL)

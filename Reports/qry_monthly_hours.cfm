@@ -23,14 +23,14 @@ SELECT Emp_Contact.name, Emp_Contact.lname, Project.project_code AS clientcode,
 			THEN (Customer.description || '-' || Project.description || ' (' ||  Project.project_code || ')')
 		ELSE (Project.description || ' (' ||  Project.project_code || ')')
 	</cfif>END AS clientname, REF_Employee_Classification.employee_classification,
-	SUM(Time_Entry.hours) AS hours, Link_Company_Emp_Contact.company_id
+	SUM(Time_Entry.hours) AS hours, Link_Company_User_Account.company_id
 FROM Emp_Contact, Time_Entry, Project,
-	View_Demographics_Workstream Demographics, Customer, Link_Company_Emp_Contact,
+	View_Demographics_Workstream Demographics, Customer, Link_Company_User_Account,
 	REF_Employee_Classification
 WHERE Emp_Contact.user_account_id=Time_Entry.user_account_id
 	AND Time_Entry.project_id=Project.project_id
 	AND Time_Entry.user_account_id=Demographics.user_account_id
-	AND Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id
+	AND Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id
 	AND Project.customer_id=Customer.customer_id
 	AND Demographics.employee_classification_id*=REF_Employee_Classification.employee_classification_id
 	AND Time_Entry.work_date BETWEEN Demographics.hire_date AND COALESCE(Demographics.effective_to, Time_Entry.work_date)
@@ -38,7 +38,7 @@ WHERE Emp_Contact.user_account_id=Time_Entry.user_account_id
 	AND COALESCE(Demographics.effective_to,#variables.from_date#) >= #variables.from_date#
 	AND Time_Entry.active_ind=1
 	AND Time_Entry.work_date BETWEEN #variables.from_date# AND #variables.through_date#
-	AND Link_Company_Emp_Contact.company_id IN (#session.workstream_selected_company_id#)
+	AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)
 	AND Project.billable_type_id<cfif NOT flag_non_billable>!</cfif>=2
 GROUP BY Emp_Contact.name, Emp_Contact.lname,
 	CASE
@@ -50,7 +50,7 @@ GROUP BY Emp_Contact.name, Emp_Contact.lname,
 			THEN (Customer.description || '-' || Project.description || ' (' ||  Project.project_code || ')')
 		ELSE (Project.description || ' (' ||  Project.project_code || ')')
 	</cfif>END, Project.project_code,
-	REF_Employee_Classification.employee_classification, Link_Company_Emp_Contact.company_id
+	REF_Employee_Classification.employee_classification, Link_Company_User_Account.company_id
 ORDER BY employee_classification, clientname, lname
 </cfquery>
 </cfsilent>

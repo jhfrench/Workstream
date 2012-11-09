@@ -22,7 +22,7 @@ FROM (
 		SELECT User_Account.user_account_id, COALESCE(Hours_Taken_Table.hours_taken, 0) AS PTO_hours_used, COALESCE(Hours_Earned.earned_hours,0) AS pto_hours_earned, 
 			COALESCE(Hours_Earned.earned_hours,0)-COALESCE(Hours_Taken_Table.hours_taken,0) AS remain
 		FROM User_Account
-			INNER JOIN Link_Company_Emp_Contact ON User_Account.user_account_id=Link_Company_Emp_Contact.user_account_id
+			INNER JOIN Link_Company_User_Account ON User_Account.user_account_id=Link_Company_User_Account.user_account_id
 			LEFT OUTER JOIN (
 				SELECT SUM(Time_Entry.hours) AS hours_taken, user_account_id
 				FROM Time_Entry
@@ -42,7 +42,7 @@ FROM (
 				WHERE PTO_Grant.user_account_id=#variables.user_identification#
 				GROUP BY user_account_id
 			) AS Hours_Earned ON User_Account.user_account_id=Hours_Earned.user_account_id
-		WHERE Link_Company_Emp_Contact.company_id IN (#company_list_use#)
+		WHERE Link_Company_User_Account.company_id IN (#company_list_use#)
 			AND User_Account.user_account_id=#variables.user_identification#
 	) AS Remainder
 	LEFT OUTER JOIN (
