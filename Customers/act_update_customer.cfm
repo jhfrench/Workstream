@@ -52,17 +52,17 @@ WHERE customer_id=#attributes.customer_id#
 <cfif len(attributes.name) OR len(attributes.lname)>
 <!--- see if the name entered exists in the database as a billing contact --->
 	<cfquery name="get_contact_name" datasource="#application.datasources.main#">
-	SELECT emp_id
+	SELECT user_account_id
 	FROM Emp_Contact
 	WHERE name='#attributes.name#'
 		AND lname='#attributes.lname#'
 		AND emp_contact_type=4
 	</cfquery>
 <!--- If the person is already in the system as a billing contact, update the Customer table to reference the existing contact --->
-	<cfif len(get_contact_name.emp_id)>
+	<cfif len(get_contact_name.user_account_id)>
 		<cfquery name="update_emp_contact" datasource="#application.datasources.main#">
 		UPDATE Customer
-	    SET emp_contact_id=#get_contact_name.emp_id#
+	    SET emp_contact_id=#get_contact_name.user_account_id#
 	    WHERE customer_id=#attributes.customer_id#
 		</cfquery>
 	<!--- If the person doesn't exist in the system, insert him into the system --->
@@ -74,7 +74,7 @@ WHERE customer_id=#attributes.customer_id#
 	<!--- and  update the Customer table with the new contact information --->
 			<cfquery name="update_customer" datasource="#application.datasources.main#">
 			UPDATE Customer
-			SET emp_contact_id=CURRVAL('Emp_Contact_emp_id_SEQ')
+			SET emp_contact_id=CURRVAL('Emp_Contact_user_account_id_SEQ')
 			WHERE customer_id=#attributes.customer_id#
 			</cfquery>
 	</cfif>

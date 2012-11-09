@@ -65,11 +65,11 @@
 		<div class="row-fluid">
 			<div class="span4">
 				<label for="task_owner" class="h5">Owner</label>
-				<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_owner" emp_id="#task_owner#" class="span11">
+				<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_owner" user_account_id="#task_owner#" class="span11">
 				<label for="task_team" class="h5">Team</label>
-				<cfmodule template="../common_files/dsp_team_select.cfm" multi="1" size="4" select_name="task_team" emp_id="#variables.task_team#" class="span11">
+				<cfmodule template="../common_files/dsp_team_select.cfm" multi="1" size="4" select_name="task_team" user_account_id="#variables.task_team#" class="span11">
 				<label for="task_qa" class="h5"><abbr title="Quality Assurance Tester">QA</abbr></label>
-				<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_qa" emp_id="#task_qa#" class="span11">
+				<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_qa" user_account_id="#task_qa#" class="span11">
 				<label for="task_source" class="h5">Source</label>
 				<span id="task_source">#get_task_details.source_name#</span>
 			</div>

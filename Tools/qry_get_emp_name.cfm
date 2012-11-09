@@ -16,6 +16,6 @@
 <cfquery name="get_emp_name" datasource="#application.datasources.main#">
 SELECT lname || ', ' || name AS name
 FROM Emp_Contact
-WHERE emp_id=#attributes.emp_id#
+WHERE user_account_id=#attributes.user_account_id#
 </cfquery>
 </cfsilent>

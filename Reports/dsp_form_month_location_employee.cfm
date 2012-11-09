@@ -33,10 +33,10 @@
 				<option value="ALL">ALL</option><cfloop query="office_loc">
 				<option value ="#office_location#">#office_location#</option></cfloop>
 			</select>
-			<label for="emp_id">Employee</label>
-			<select name="emp_id" id="emp_id" size="1" class="span2"> 
+			<label for="user_account_id">Employee</label>
+			<select name="user_account_id" id="user_account_id" size="1" class="span2"> 
 				<option value="ALL">ALL</option><cfloop query="get_team_select">
-				<option value="#emp_id#">#lname#, #name#</option></cfloop>
+				<option value="#user_account_id#">#lname#, #name#</option></cfloop>
 			</select>
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
 	</fieldset>

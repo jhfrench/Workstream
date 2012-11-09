@@ -28,5 +28,5 @@
 <cfset application.team_changed=now()>
 
 <cfset attributes.action="index.cfm?fuseaction=Directory.employee_details">
-<cfset attributes.fields="emp_id">
+<cfset attributes.fields="user_account_id">
 <cfinclude template="../common_files/act_forward_browser.cfm">

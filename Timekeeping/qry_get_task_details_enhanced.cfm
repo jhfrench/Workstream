@@ -18,7 +18,7 @@
 SELECT Task.task_id, Task.task_type_id, Task.name AS task_name, COALESCE(Task.task_read_ind,0) AS task_read_ind,
 	COALESCE(Task.description,'No description recorded for this task.') AS description, Task.entry_date AS date_assigned, Task.due_date,
 	Task.complete_date, Task.status_id, Task.icon_id,
-	COALESCE(Task.created_by,0) AS created_by, COALESCE(Task_Source.emp_id,0) AS task_source, Task.priority_id AS priority,
+	COALESCE(Task.created_by,0) AS created_by, COALESCE(Task_Source.user_account_id,0) AS task_source, Task.priority_id AS priority,
 	REF_Status.status, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Time_Used.hours_used,
 	CASE
 		WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0

@@ -21,7 +21,7 @@ FROM
 		INNER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
 	WHERE Time_Entry.active_ind=1
 		AND Notes.active_ind=1
-		AND Time_Entry.emp_id=#attributes.emp_id#
+		AND Time_Entry.user_account_id=#attributes.user_account_id#
 		AND Time_Entry.project_id=#application.application_specific_settings.pto_project_id#
 		AND Time_Entry.work_date >= #createodbcdatetime(Get_PTO_Start.pto_start_date)#
 		AND EXTRACT(YEAR FROM Time_Entry.work_date) >= EXTRACT(YEAR FROM CURRENT_DATE)
@@ -29,7 +29,7 @@ FROM
 	SELECT 0 AS hours_out, COALESCE(PTO_Grant.granted_hours, 0) AS hours_in, 
 		date_granted AS transaction_date, comments
 	FROM PTO_Grant
-		WHERE PTO_Grant.emp_id=#attributes.emp_id#
+		WHERE PTO_Grant.user_account_id=#attributes.user_account_id#
 		AND date_granted >= #createodbcdatetime(Get_PTO_Start.pto_start_date)#
 		AND EXTRACT(YEAR FROM [date_granted]) >= EXTRACT(YEAR FROM CURRENT_DATE)
 ) Current_Year_PTO

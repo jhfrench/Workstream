@@ -26,12 +26,12 @@ FROM Task
 	INNER JOIN Team Owner ON Task.task_id=Owner.task_id
 		AND Owner.active_ind=1
 		AND Owner.role_id=1 
-		AND Owner.emp_id!=#variables.user_identification#
+		AND Owner.user_account_id!=#variables.user_identification#
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
 		AND Team.role_id=4
 		AND Team.user_account_id=#variables.user_identification#
-	INNER JOIN Emp_Contact ON Owner.emp_id=Emp_Contact.emp_id
+	INNER JOIN Emp_Contact ON Owner.user_account_id=Emp_Contact.user_account_id
 WHERE Task.status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
 UNION ALL
 /*generic codes like PTO*/

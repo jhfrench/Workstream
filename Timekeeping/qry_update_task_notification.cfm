@@ -23,7 +23,7 @@ WHERE task_id=#attributes.task_id#
 <cfquery name="get_email_id" datasource="#application.datasources.main#">
 SELECT COALESCE(email_id,0) AS email_id
 FROM Email
-WHERE emp_id=#ii#
+WHERE user_account_id=#ii#
 </cfquery>
 <cfif get_email_id.recordcount>
 	<cfset email_id=get_email_id.email_id>

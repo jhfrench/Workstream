@@ -26,11 +26,11 @@ FROM Task
 		AND Notification.date_sent IS NULL
 	INNER JOIN Email ON Notification.email_id=Email.email_id
 		AND Email.email_type_id=1
-	INNER JOIN Emp_Contact ON Email.emp_id=Emp_Contact.emp_id
+	INNER JOIN Emp_Contact ON Email.user_account_id=Emp_Contact.user_account_id
 	INNER JOIN (
-		SELECT Email.email AS task_source, Email.emp_id AS source_id, Team.task_id
+		SELECT Email.email AS task_source, Email.user_account_id AS source_id, Team.task_id
 		FROM Team
-			INNER JOIN Email ON Team.user_account_id=Email.emp_id
+			INNER JOIN Email ON Team.user_account_id=Email.user_account_id
 		WHERE Team.active_ind=1
 			AND Team.role_id=5
 			AND Email.email_type_id=1
@@ -45,11 +45,11 @@ FROM Task
 		AND Notification.notification_type=2
 	INNER JOIN Email ON Notification.email_id=Email.email_id
 		AND Email.email_type_id=1
-	INNER JOIN Emp_Contact ON Email.emp_id=Emp_Contact.emp_id
+	INNER JOIN Emp_Contact ON Email.user_account_id=Emp_Contact.user_account_id
 	INNER JOIN (
-		SELECT Email.email AS task_source, Email.emp_id AS source_id, Team.task_id
+		SELECT Email.email AS task_source, Email.user_account_id AS source_id, Team.task_id
 		FROM Team
-			INNER JOIN Email ON Team.user_account_id=Email.emp_id
+			INNER JOIN Email ON Team.user_account_id=Email.user_account_id
 		WHERE Team.active_ind=1
 			AND Team.role_id=5
 			AND Email.email_type_id=1

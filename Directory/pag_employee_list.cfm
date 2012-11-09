@@ -17,4 +17,4 @@
 </cfsilent>
 <cfinclude template="qry_get_employee_list.cfm">
 <cfinclude template="dsp_employee_list.cfm">
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_employee" field_name="emp_id" fuseaction="Directory.employee_details">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_employee" field_name="user_account_id" fuseaction="Directory.employee_details">

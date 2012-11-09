@@ -36,7 +36,7 @@
 		</div>
 		<div class="form-actions">
 			<input type="hidden" name="adjustment_flag" value="#now()#" />
-			<input type="hidden" name="emp_id" value="#attributes.emp_id#" />
+			<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
 			<input type="submit" value="Create Adjustment" class="btn" />
 		</div>
 	</fieldset>

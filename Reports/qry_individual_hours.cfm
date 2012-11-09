@@ -27,7 +27,7 @@ WHERE Time_Entry.notes_id=Notes.notes_id
 	AND Time_Entry.active_ind=1
 	AND Notes.active_ind=1
 	AND Time_Entry.work_date BETWEEN #createodbcdate(from_date)# AND #createodbcdate(through_date)#
-	AND Time_Entry.emp_id=#emp_id#
+	AND Time_Entry.user_account_id=#user_account_id#
 ORDER BY Time_Entry.work_date, project_display, Time_Entry.hours
 </cfquery>
 </cfsilent>

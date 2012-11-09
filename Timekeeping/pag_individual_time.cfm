@@ -17,9 +17,9 @@
 <cfif isdefined("attributes.notes_id")>
 	<cfinclude template="qry_reassign_entries.cfm">
 </cfif>
-<cfif isdefined("attributes.emp_id_task_id")>
-	<cfloop list="#attributes.emp_id_task_id#" index="ii">
-		<cfset attributes.emp_id=listgetat(ii,1,"|")>
+<cfif isdefined("attributes.user_account_id_task_id")>
+	<cfloop list="#attributes.user_account_id_task_id#" index="ii">
+		<cfset attributes.user_account_id=listgetat(ii,1,"|")>
 		<cfset attributes.task_id=listgetat(ii,2,"|")>
 	</cfloop>
 </cfif>

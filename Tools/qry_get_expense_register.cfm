@@ -19,7 +19,7 @@ SELECT Expense.expense_id, Expense.date_incurred, Expense.created_date,Expense.e
 FROM Expense, REF_Expense_Status
 WHERE Expense.expense_status_id=REF_Expense_Status.expense_status_id
 	AND Expense.date_deleted IS NULL
-	AND Expense.emp_id=#attributes.emp_id#
+	AND Expense.user_account_id=#attributes.user_account_id#
 	AND Expense.date_incurred
 	<cfif isdefined("attributes.begin_date") AND isdefined("attributes.end_date") AND len(attributes.begin_date) AND len(attributes.end_date)>
 		>= '#attributes.begin_date#' AND Expense.date_incurred <= '#attributes.end_date#'

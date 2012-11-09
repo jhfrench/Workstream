@@ -17,7 +17,7 @@
 	--> session.workstream_show_on_hold: number that indicates the desire of the user to hide or show tasks which have been put on hold; 1 means include the task, 0 means exclude the task
 	--> session.workstream_show_team: number that indicates the desire of the user to hide or show tasks for which they are a member of the task team; 1 means include the task, 0 means exclude the task
 	--> session.workstream_engagement_list_order: list of query columns to ORDER BY
-	--> [attributes.emp_id]: emp_id of the peson whose inbox the user wants to see
+	--> [attributes.user_account_id]: user_account_id of the peson whose inbox the user wants to see
 	<-- project_code: numeric code of the project
 	<-- project_end: date or string containing targeted completion date for the project
 	<-- project_mission: string containing the desired outcome of the project
@@ -35,7 +35,7 @@ FROM Customer
 	INNER JOIN Task ON Project.project_id=Task.project_id 
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
-		AND Team.user_account_id=<cfif isdefined("attributes.emp_id")>#attributes.emp_id#<cfelse>#variables.user_identification#</cfif>
+		AND Team.user_account_id=<cfif isdefined("attributes.user_account_id")>#attributes.user_account_id#<cfelse>#variables.user_identification#</cfif>
 		AND (
 				(
 				Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>) 
@@ -44,7 +44,7 @@ FROM Customer
 				OR (Team.role_id=3 
 					AND Task.status_id=3 /*needs QA*/)
 			)
-	INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.emp_id 
+	INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.user_account_id 
 	INNER JOIN Link_Project_Company ON Link_Project_Company.project_id=Project.project_id 
 		AND Link_Project_Company.company_id IN (#session.workstream_company_id#)\
 GROUP BY Customer.description, Project.project_code, Project.project_id, Project.description, Project.project_end, Project.mission

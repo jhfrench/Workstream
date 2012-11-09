@@ -20,13 +20,13 @@ FROM
 	FROM Time_Entry
 	WHERE Time_Entry.active_ind=1
 		AND Time_Entry.project_id=1113
-		AND emp_id IN (#valuelist(get_subordinates.emp_id)#)
+		AND user_account_id IN (#valuelist(get_subordinates.user_account_id)#)
 	GROUP BY EXTRACT(MONTH FROM date), EXTRACT(YEAR FROM date))
 AS AP_Time,
 	(SELECT SUM(hours) AS ttl_time, EXTRACT(MONTH FROM date) AS time_month, EXTRACT(YEAR FROM date) AS time_year
 	FROM Time_Entry
 	WHERE Time_Entry.active_ind=1
-		AND emp_id IN (#valuelist(get_subordinates.emp_id)#)
+		AND user_account_id IN (#valuelist(get_subordinates.user_account_id)#)
 	GROUP BY EXTRACT(MONTH FROM date), EXTRACT(YEAR FROM date))
 AS Ttl_Time
 WHERE AP_Time.time_month=*Ttl_Time.time_month

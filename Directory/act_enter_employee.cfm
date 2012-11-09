@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I call the queries that are used to enter a new workstream user. If provided, I upload the provided image and convert the image path into a name to be used in the demographics table. Then I make an entry into the emp_contact table, where I also retrieve the emp_id for the new record. Using this emp_id I make entries into the demographics, company, location, supervisor, security, Security_Company_Access, email_phone and emp_biography tables.
+	Responsibilities: I call the queries that are used to enter a new workstream user. If provided, I upload the provided image and convert the image path into a name to be used in the demographics table. Then I make an entry into the emp_contact table, where I also retrieve the user_account_id for the new record. Using this user_account_id I make entries into the demographics, company, location, supervisor, security, Security_Company_Access, email_phone and emp_biography tables.
 	||
 	Name: Jeromy French
 	||

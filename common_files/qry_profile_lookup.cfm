@@ -14,7 +14,7 @@
 <cfquery name="profile_lookup" datasource="#application.datasources.main#">
 SELECT *
 FROM User_Profile
-WHERE emp_id=#variables.user_identification#
+WHERE user_account_id=#variables.user_identification#
 	<cfif isdefined("attributes.fuseaction")>
 		<cfif isdefined("attributes.user_profile_id")>AND user_profile_id=#attributes.user_profile_id#</cfif>
 		<cfif comparenocase(listlast(attributes.fuseaction, '.'),"load_profile") AND isdefined("attributes.profile_name")>AND profile_name='#attributes.profile_name#'<cfelse>

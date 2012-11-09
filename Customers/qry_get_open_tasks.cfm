@@ -34,14 +34,14 @@ FROM Task
 	INNER JOIN (
 		SELECT Team.task_id, Team.user_account_id, Emp_Contact.lname
 		FROM Team
-			INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.emp_id
+			INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.user_account_id
 		WHERE Team.active_ind=1
 			AND Team.role_id=1
 	) AS Owner ON Task.task_id=Owner.task_id
 	INNER JOIN (
 		SELECT Team.task_id, Team.user_account_id, Emp_Contact.lname
 		FROM Team
-			INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.emp_id
+			INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.user_account_id
 		WHERE Team.active_ind=1
 			AND Team.role_id=3
 	) AS QA ON Task.task_id=QA.task_id

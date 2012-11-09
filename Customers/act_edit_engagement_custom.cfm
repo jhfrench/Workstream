@@ -62,7 +62,7 @@ WHERE User_Fields.active_ind=1
 </cfloop>
 </cfif>
 <cfif engagement_dashboard_return EQ 1>
-	<cflocation url="../index.cfm?fuseaction=Reports.engagement_dashboard&customer_id=#attributes.customer_id#&project_manager_emp_id=#attributes.project_manager_emp_id#&sort=#sort#&###Project_ID#" addtoken="no">
+	<cflocation url="../index.cfm?fuseaction=Reports.engagement_dashboard&customer_id=#attributes.customer_id#&project_manager_user_account_id=#attributes.project_manager_user_account_id#&sort=#sort#&###Project_ID#" addtoken="no">
 </cfif>
 
 

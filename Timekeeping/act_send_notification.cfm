@@ -131,14 +131,14 @@ FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
 		AND Team.role_id IN (#variables.receiver_type#)
-	INNER JOIN Email ON Team.user_account_id=Email.emp_id
+	INNER JOIN Email ON Team.user_account_id=Email.user_account_id
 		AND Email.email_type_id=1
-		AND Email.emp_id!=#variables.user_identification#
-	INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.emp_id
+		AND Email.user_account_id!=#variables.user_identification#
+	INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.user_account_id
 	INNER JOIN (
 		SELECT Email.email AS task_source, Team.task_id
 		FROM Team
-			INNER JOIN Email ON Team.user_account_id=Email.emp_id
+			INNER JOIN Email ON Team.user_account_id=Email.user_account_id
 		WHERE Team.active_ind=1
 			AND Team.task_id=#attributes.task_id#
 			AND Team.role_id IN (#variables.sender_type#)

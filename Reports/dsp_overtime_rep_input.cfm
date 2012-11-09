@@ -39,10 +39,10 @@
 	</tr>
 	<tr>
 		<td>
-			<cfselect name="emp_id" size="5" message="Please don't leave blank" required="yes" multiple="yes">
+			<cfselect name="user_account_id" size="5" message="Please don't leave blank" required="yes" multiple="yes">
 			<OPTION value="ALL" selected="selected">ALL</option>
 			<cfoutput query="get_overtime_employees">
-				<option value="#emp_id#">#lname#, # name#</option>
+				<option value="#user_account_id#">#lname#, # name#</option>
 			</cfoutput>
 			</cfselect>
 		</td>

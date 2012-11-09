@@ -12,7 +12,7 @@
 	||
 	Variables:
 
-	--> variables.emp_id: number containing the unique identifier of the individual being requested
+	--> variables.user_account_id: number containing the unique identifier of the individual being requested
 	<-- address1: string containing the first address line for a person
 	<-- address2: string containing the second address line for a person
 	<-- Location_Type: string containing the Location type for a person
@@ -28,6 +28,6 @@
 		Lt.location_ID, Rlt.Location_Type_ID
 	FROM Location lt
 		RIGHT OUTER JOIN REF_Location_Type Rlt ON Lt.Location_Type_Id = Rlt.Location_Type_ID
-			AND Lt.emp_id =#variables.emp_id#
+			AND Lt.user_account_id =#variables.user_account_id#
 	</cfquery>
 </cfsilent>

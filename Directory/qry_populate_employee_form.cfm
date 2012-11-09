@@ -29,59 +29,59 @@ SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.credentials,
 	cell_phone.Phone_Number AS phone_4, cell_phone.Extension AS phone_4_ext, pager_phone.Phone_Number AS phone_5, 
 	pager_phone.Extension AS phone_5_ext, Emp_Biography.biography
 FROM Emp_Contact
-	INNER JOIN View_Demographics_Workstream d ON Emp_Contact.emp_id=d.emp_id
-	LEFT OUTER JOIN Emp_Biography ON Emp_Contact.emp_id=Emp_Biography.emp_id
+	INNER JOIN View_Demographics_Workstream d ON Emp_Contact.user_account_id=d.user_account_id
+	LEFT OUTER JOIN Emp_Biography ON Emp_Contact.user_account_id=Emp_Biography.user_account_id
 	LEFT OUTER JOIN (
 		SELECT *
 		FROM phone
 		WHERE phone_type_id = 5
-	) AS pager_phone ON Emp_Contact.emp_id=pager_phone.emp_id
+	) AS pager_phone ON Emp_Contact.user_account_id=pager_phone.user_account_id
 	LEFT OUTER JOIN (
 		SELECT *
 		FROM email
 		WHERE email_type_id = 2
-	) AS Home_Email ON Emp_Contact.emp_id=home_email.emp_id
+	) AS Home_Email ON Emp_Contact.user_account_id=home_email.user_account_id
 	LEFT OUTER JOIN (
 		SELECT *
 		FROM email
 		WHERE email_type_id = 3
-	) pager_email ON Emp_Contact.emp_id=pager_email.emp_id
+	) pager_email ON Emp_Contact.user_account_id=pager_email.user_account_id
 	LEFT OUTER JOIN (
 		SELECT *
 		FROM phone
 		WHERE phone_type_id = 1
-	) AS work_phone ON Emp_Contact.emp_id=work_phone.emp_id
+	) AS work_phone ON Emp_Contact.user_account_id=work_phone.user_account_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM phone
 		WHERE phone_type_id = 2
-	) home_phone ON Emp_Contact.emp_id=home_phone.emp_id
+	) home_phone ON Emp_Contact.user_account_id=home_phone.user_account_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM phone
 		WHERE phone_type_id = 3
-	) fax_phone ON Emp_Contact.emp_id=fax_phone.emp_id
+	) fax_phone ON Emp_Contact.user_account_id=fax_phone.user_account_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM phone
 		WHERE phone_type_id = 4
-	) cell_phone ON Emp_Contact.emp_id=cell_phone.emp_id
+	) cell_phone ON Emp_Contact.user_account_id=cell_phone.user_account_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM email
 		WHERE email_type_id = 1
-	) work_email ON Emp_Contact.emp_id=work_email.emp_id
+	) work_email ON Emp_Contact.user_account_id=work_email.user_account_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM location
 		WHERE location_type_id = 1
-	) work_loc ON Emp_Contact.emp_id=work_loc.emp_id
+	) work_loc ON Emp_Contact.user_account_id=work_loc.user_account_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM location WHERE location_type_id = 2
-	) home_loc ON Emp_Contact.emp_id=home_loc.emp_id
+	) home_loc ON Emp_Contact.user_account_id=home_loc.user_account_id
 WHERE d.Effective_To IS NULL
-	AND Emp_Contact.emp_id=#attributes.emp_id#
+	AND Emp_Contact.user_account_id=#attributes.user_account_id#
 </cfquery>
 <cfoutput query="populate_employee_form">
 	<cfset address1_1 = address1_1>
@@ -111,13 +111,13 @@ WHERE d.Effective_To IS NULL
 	<cfquery name="get_visible_companies" datasource="#application.datasources.main#">
 	SELECT company_id
 	FROM Security_Company_Access
-	WHERE emp_id=#attributes.emp_id#
+	WHERE user_account_id=#attributes.user_account_id#
 	</cfquery>
 	<cfset visable_company=valuelist(get_visible_companies.company_id)>
 	<cfquery name="get_supervisors" datasource="#application.datasources.main#">
 	SELECT supervisor_id
-	FROM  Link_Employee_Supervisor
-	WHERE emp_id=#attributes.emp_id#
+	FROM  Link_User_account_Supervisor
+	WHERE user_account_id=#attributes.user_account_id#
 		AND active_ind = 1
 	</cfquery>
 	<cfset supervisor_id = valuelist(get_supervisors.supervisor_id)>

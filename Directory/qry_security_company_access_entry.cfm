@@ -21,8 +21,8 @@
 <cfif len(attributes.visable_company)>
 <cfloop list="#attributes.visable_company#" index="ii">
 	<cfquery name="Security_Company_Access_entry" datasource="#application.datasources.main#">
-		INSERT INTO Security_Company_Access (emp_id, company_id)
-		VALUES (#variables.emp_id#, #ii#)
+		INSERT INTO Security_Company_Access (user_account_id, company_id)
+		VALUES (#variables.user_account_id#, #ii#)
 	</cfquery>
 </cfloop>
 <cfelse>
@@ -31,7 +31,7 @@
 	company that the new employee works for.
  --->
 <cfquery name="Security_Company_Access_entry" datasource="#application.datasources.main#">
-INSERT INTO Security_Company_Access(emp_id,company_id)
-VALUES(#variables.emp_id#,#attributes.company_id#)
+INSERT INTO Security_Company_Access(user_account_id,company_id)
+VALUES(#variables.user_account_id#,#attributes.company_id#)
 </cfquery>
 </cfif>

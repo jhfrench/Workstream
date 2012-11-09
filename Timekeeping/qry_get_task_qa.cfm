@@ -15,7 +15,7 @@
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
 <cfquery name="get_task_qa" datasource="#application.datasources.main#">
-SELECT emp_id
+SELECT user_account_id
 FROM Team
 WHERE active_ind=1
 	AND task_id=#attributes.task_id#

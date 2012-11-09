@@ -12,7 +12,7 @@
 
 	||
 	Variables:
-	--> attributes.emp_id: number containing the unique identifier of the individual being requested
+	--> attributes.user_account_id: number containing the unique identifier of the individual being requested
  --->
 </cfsilent>
 <cfif isdefined("attributes.submit")>

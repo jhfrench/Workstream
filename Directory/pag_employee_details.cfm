@@ -29,6 +29,6 @@
 	<cfset attributes.section_title="#attributes.section_title#; #get_emp_details.credentials#">
 </cfif>
 <cfinclude template="dsp_emp_details.cfm">
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_employee" field_name="emp_id" fuseaction="Directory.employee_details">
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_employee" field_name="emp_id" fuseaction="Directory.emp_edit">
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="position_number_change" field_name="emp_id" fuseaction="Directory.position_number_change">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_employee" field_name="user_account_id" fuseaction="Directory.employee_details">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_employee" field_name="user_account_id" fuseaction="Directory.emp_edit">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="position_number_change" field_name="user_account_id" fuseaction="Directory.position_number_change">

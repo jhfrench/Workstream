@@ -15,8 +15,8 @@
 <cfoutput>
 	<tr>
 		<td align="left" colspan="2">
-		<a href="javascript:edit_account('#attributes.emp_id#');">Edit Employee Account</a>
-		<br /><a href="javascript:edit_employee('#attributes.emp_id#');">Edit Employee Demographic Information</a>
+		<a href="javascript:edit_account('#attributes.user_account_id#');">Edit Employee Account</a>
+		<br /><a href="javascript:edit_employee('#attributes.user_account_id#');">Edit Employee Demographic Information</a>
 		</td>
 	</tr>
 	<tr valign="top">
@@ -31,7 +31,7 @@
 			</select>
 		</td>
 	</tr>
-	<input type="hidden" name="emp_id" value="#attributes.emp_id#">
+	<input type="hidden" name="user_account_id" value="#attributes.user_account_id#">
 	<input type="hidden" name="make_changes" value="1">
 	<input type="hidden" name="update_security_details" value="0">
 </cfoutput>

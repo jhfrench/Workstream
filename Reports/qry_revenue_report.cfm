@@ -23,8 +23,8 @@ FROM ABCD_Months, (
 			EXTRACT(MONTH FROM Time_Entry.work_date) AS revenue_month, EXTRACT(YEAR FROM Time_Entry.work_date) AS revenue_year,
 			Project.billable_type_id
 		FROM Time_Entry, Link_Company_Emp_Contact, Billing_Rate, Project
-		WHERE Time_Entry.emp_id=Link_Company_Emp_Contact.emp_id
-			AND Time_Entry.emp_id=Billing_Rate.emp_id
+		WHERE Time_Entry.user_account_id=Link_Company_Emp_Contact.user_account_id
+			AND Time_Entry.user_account_id=Billing_Rate.user_account_id
 			AND Time_Entry.project_id=Billing_Rate.project_id
 			AND Project.project_id=Time_Entry.project_id
 			AND Project.billable_type_id=1

@@ -26,15 +26,15 @@ WHERE task_id=#attributes.task_id#
 	SELECT #attributes.task_id#, user_account_id, 4,
 		#variables.user_identification#
 	FROM Emp_Contact
-	WHERE emp_id IN (#attributes.task_team#)
+	WHERE user_account_id IN (#attributes.task_team#)
 		/*don't duplicate team assignments*/
-		AND emp_id NOT IN (
-			SELECT emp_id
+		AND user_account_id NOT IN (
+			SELECT user_account_id
 			FROM Team
 			WHERE active_ind=1
 				AND task_id=#attributes.task_id#
 				AND role_id=4
-				AND emp_id IN (#attributes.task_team#)
+				AND user_account_id IN (#attributes.task_team#)
 		);
 </cfif>
 </cfquery>

@@ -24,5 +24,5 @@
 	<cfmodule template="../common_files/dsp_submit_options.cfm" include_reset="1" reset_value="Reset Options" submit_value="Save Settings">
 </table>
 </cfform>
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_account" field_name="emp_id" fuseaction="edit_account">
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_employee" field_name="emp_id" fuseaction="Directory.emp_edit">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_account" field_name="user_account_id" fuseaction="edit_account">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_employee" field_name="user_account_id" fuseaction="Directory.emp_edit">

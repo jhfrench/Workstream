@@ -13,12 +13,12 @@
 	 || 
 	END FUSEDOC --->
 <cfquery name="get_pto_names" datasource="#application.datasources.main#">
-SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.emp_id
+SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.user_account_id
 FROM Emp_Contact
-	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.emp_id=Link_Company_Emp_Contact.emp_id
+	INNER JOIN Link_Company_Emp_Contact ON Emp_Contact.user_account_id=Link_Company_Emp_Contact.user_account_id
 WHERE Emp_Contact.emp_contact_type=1
 	AND Link_Company_Emp_Contact.company_id<cfif variables.all_option> IN (#session.workstream_selected_company_id#)<cfelse>=#session.workstream_company_id#
-	AND (Emp_Contact.emp_id=#variables.user_identification#<cfif get_subordinates.recordcount> OR Emp_Contact.emp_id IN (#valuelist(get_subordinates.emp_id)#,#variables.user_identification#)</cfif>)
+	AND (Emp_Contact.user_account_id=#variables.user_identification#<cfif get_subordinates.recordcount> OR Emp_Contact.user_account_id IN (#valuelist(get_subordinates.user_account_id)#,#variables.user_identification#)</cfif>)
 	</cfif>
 ORDER BY lname, name
 </cfquery>

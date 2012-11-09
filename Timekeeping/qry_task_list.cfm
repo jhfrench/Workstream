@@ -17,7 +17,7 @@
 	--> session.workstream_show_on_hold: number that indicates the desire of the user to hide or show tasks which have been put on hold; 1 means include the task, 0 means exclude the task
 	--> session.workstream_show_team: number that indicates the desire of the user to hide or show tasks for which they are a member of the task team; 1 means include the task, 0 means exclude the task
 	--> session.workstream_task_list_order: list of query columns to ORDER BY
-	--> [attributes.emp_id]: emp_id of the peson whose inbox the user wants to see
+	--> [attributes.user_account_id]: user_account_id of the peson whose inbox the user wants to see
 	<-- billing_code: code which task time will be invoiced to
 	<-- date_due: date when task is due
 	<-- percent_time_used: number showing the amount of time used divided by the amount of time budgeted, shown only if time was budgeted
@@ -39,12 +39,12 @@
 <cfelse>
 	<cfset variables.from_invoice=0>
 </cfif>
-<cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id,"|") GT 1>
-	<cfset attributes.inbox_owner = listlast(attributes.emp_id,"|")>
-	<cfset attributes.emp_id=listdeleteat(attributes.emp_id, "2","|")>
+<cfif isdefined("attributes.user_account_id") AND listlen(attributes.user_account_id,"|") GT 1>
+	<cfset attributes.inbox_owner = listlast(attributes.user_account_id,"|")>
+	<cfset attributes.user_account_id=listdeleteat(attributes.user_account_id, "2","|")>
 </cfif>
 
-<cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id) GT 1 AND listfind(session.workstream_task_list_order, "task_owner")>
+<cfif isdefined("attributes.user_account_id") AND listlen(attributes.user_account_id) GT 1 AND listfind(session.workstream_task_list_order, "task_owner")>
 	<cfset variables.temp_task_list_order=listdeleteat(session.workstream_task_list_order, listfind(session.workstream_task_list_order, "task_owner"))>
 <cfelse>
 	<cfset variables.temp_task_list_order=session.workstream_task_list_order>
@@ -73,7 +73,7 @@ FROM Task, Team, Emp_Contact,
 						INNER JOIN Team ON Task.task_id=Team.task_id
 							AND Team.active_ind=1
 					WHERE 1=1<cfif NOT variables.from_invoice>
-						AND Team.user_account_id IN (<cfif isdefined("attributes.emp_id")><cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.emp_id#" /><cfelse><cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" list="yes" /></cfif>)
+						AND Team.user_account_id IN (<cfif isdefined("attributes.user_account_id")><cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.user_account_id#" /><cfelse><cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" list="yes" /></cfif>)
 						AND (
 							(
 								Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>)
@@ -102,19 +102,19 @@ FROM Task, Team, Emp_Contact,
 			AND Task.task_id=Team.task_id 
 			AND Team.active_ind=1
 			AND Team.role_id=1
-			AND Emp_Contact.emp_id=Team.user_account_id
+			AND Emp_Contact.user_account_id=Team.user_account_id
 	) AS Task_Details
 WHERE Customer.customer_id=Project.customer_id
 	AND Task_Details.task_id=Team.task_id
 	AND Task.project_id=Project.project_id 
 	AND Task.task_id=Task_Details.task_id
-	AND Emp_Contact.emp_id=Team.user_account_id 
+	AND Emp_Contact.user_account_id=Team.user_account_id 
 	AND Link_Project_Company.project_id=Project.project_id 
 	AND Link_Project_Company.company_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#session.workstream_company_id#" list="yes" />)
 	AND Team.active_ind=1
 	AND Team.role_id=3 /* QA */<cfif isdefined("attributes.project_id")>
 	AND Project.project_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#" /></cfif>
 	AND Project.project_id!=#application.application_specific_settings.pto_project_id#<cfif isdefined("session.workstream_task_list_order")>
-ORDER BY <cfif isdefined("attributes.emp_id") AND listlen(attributes.emp_id) GT 1>task_owner, #variables.temp_task_list_order#<cfelse>#session.workstream_task_list_order#</cfif></cfif>
+ORDER BY <cfif isdefined("attributes.user_account_id") AND listlen(attributes.user_account_id) GT 1>task_owner, #variables.temp_task_list_order#<cfelse>#session.workstream_task_list_order#</cfif></cfif>
 </cfquery>
 </cfsilent>

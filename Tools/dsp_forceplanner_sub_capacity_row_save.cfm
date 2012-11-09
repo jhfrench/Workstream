@@ -19,9 +19,9 @@
 		<td colspan="2" valign="bottom" align="right" class="SubHeadText">
 			Capacity&nbsp;Used
 		</td>
-	<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">
+	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 		<td align="center" valign="bottom">
-			#evaluate("attributes.capacity_#variables.emp_id#")#
+			#evaluate("attributes.capacity_#variables.user_account_id#")#
 		</td>
 	</cfloop>
 		<td align="center" valign="bottom">

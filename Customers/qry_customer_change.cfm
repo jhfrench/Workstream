@@ -20,6 +20,6 @@ SELECT REF_Company.description AS company, Customer.root_code, Customer.company_
 FROM Customer
 	INNER JOIN REF_Company ON Customer.company_id = REF_Company.company_id
 	INNER JOIN REF_Active_Indicator ON  Customer.active_ind = REF_Active_Indicator.active_ind
-	LEFT OUTER JOIN Emp_Contact ON Customer.Emp_Contact_ID = Emp_Contact.emp_id
+	LEFT OUTER JOIN Emp_Contact ON Customer.Emp_Contact_ID = Emp_Contact.user_account_id
 WHERE Customer.customer_id = #attributes.customer_id#
 </cfquery>

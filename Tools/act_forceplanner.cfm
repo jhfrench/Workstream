@@ -33,7 +33,7 @@ if (arg == "accept_#task_id#")
 			{document.forceplanner.accept_#task_id#.checked=1;
 			CalculateRowFields(arg, arg1);}
 		else
-			{<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">document.forceplanner.t#task_id#_#variables.emp_id#.blur();
+			{<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">document.forceplanner.t#task_id#_#variables.user_account_id#.blur();
 
 			<cfset "task_assign#task_id#"=0></cfloop>}
 		}
@@ -47,27 +47,27 @@ function CalculateRowFields(arg, arg1)
 {<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
 if (arg == "accept_#task_id#")
 	{var task_assigned#task_id#;
-	task_assigned#task_id#=<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">parseInt(document.forceplanner.t#task_id#_#variables.emp_id#.value,10) + </cfloop>0;
+	task_assigned#task_id#=<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">parseInt(document.forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
 	document.forceplanner.task_assigned#task_id#.value=task_assigned#task_id#;
 
 	var task_remainder#task_id#;
 	task_remainder#task_id#=#budget#-task_assigned#task_id#;
 	document.forceplanner.task_remainder#task_id#.value=task_remainder#task_id#;}
 </cfif></cfoutput>
-<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">
+<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 
-<cfoutput>if (arg1 == "e_#variables.emp_id#")<cfset variables.task_processed="">
-	{var sum_#variables.emp_id#;
-	sum_#variables.emp_id#</cfoutput>=<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>parseInt(document.forceplanner.t#task_id#_#variables.emp_id#.value,10) + </cfif></cfoutput>0;
+<cfoutput>if (arg1 == "e_#variables.user_account_id#")<cfset variables.task_processed="">
+	{var sum_#variables.user_account_id#;
+	sum_#variables.user_account_id#</cfoutput>=<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>parseInt(document.forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfif></cfoutput>0;
 	<cfoutput>
-	document.forceplanner.sum_#variables.emp_id#.value=sum_#variables.emp_id#;
+	document.forceplanner.sum_#variables.user_account_id#.value=sum_#variables.user_account_id#;
 
-	var capacity_#variables.emp_id#;
-	capacity_#variables.emp_id#=Math.ceil(sum_#variables.emp_id#/#get_week_days.hours_in_month#*100) + '%';
-	document.forceplanner.capacity_#variables.emp_id#.value=capacity_#variables.emp_id#;
+	var capacity_#variables.user_account_id#;
+	capacity_#variables.user_account_id#=Math.ceil(sum_#variables.user_account_id#/#get_week_days.hours_in_month#*100) + '%';
+	document.forceplanner.capacity_#variables.user_account_id#.value=capacity_#variables.user_account_id#;
 
 	var sum_assigned;
-	sum_assigned=<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">parseInt(document.forceplanner.sum_#variables.emp_id#.value,10) + </cfloop>0;
+	sum_assigned=<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">parseInt(document.forceplanner.sum_#variables.user_account_id#.value,10) + </cfloop>0;
 	document.forceplanner.sum_assigned.value=sum_assigned;
 
 	var sum_remaining;
@@ -87,12 +87,12 @@ return;}
 
 function NonNumberComplain(arg)<cfset variables.task_processed="">
 {<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)><cfset variables.ee_counter=0>
-<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id"><cfset variables.ee_counter=incrementvalue(variables.ee_counter)>
-if (arg == "t#task_id#_#variables.emp_id#")
+<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id"><cfset variables.ee_counter=incrementvalue(variables.ee_counter)>
+if (arg == "t#task_id#_#variables.user_account_id#")
 	{
-	if (isNaN(document.forceplanner.t#task_id#_#variables.emp_id#.value))
+	if (isNaN(document.forceplanner.t#task_id#_#variables.user_account_id#.value))
 		{alert('Please enter assigned hours as a number.\nEmployee:#listgetat(variables.emp_init_loop,variables.ee_counter)#\nTask: #ReplaceList(task_name, variables.status_message_replace, variables.status_message_replace_with)#');
-		document.forceplanner.t#task_id#_#variables.emp_id#.select();<!--- 
+		document.forceplanner.t#task_id#_#variables.user_account_id#.select();<!--- 
 		ready_check=1 --->;
 		}
 	}
@@ -104,12 +104,12 @@ function ReCalculate(arg)<cfset variables.task_processed="">
 {<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
 if (arg == "accept_#task_id#")
 	{if (!document.forceplanner.accept_#task_id#.checked)
-		{<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">document.forceplanner.t#task_id#_#variables.emp_id#.value=0;
-		CalculateRowFields('accept_#task_id#','e_#variables.emp_id#');
+		{<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">document.forceplanner.t#task_id#_#variables.user_account_id#.value=0;
+		CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');
 		</cfloop>}
 	else
-		{<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">document.forceplanner.t#task_id#_#variables.emp_id#.value=#evaluate("budget#variables.emp_id#")#;
-		CalculateRowFields('accept_#task_id#','e_#variables.emp_id#');
+		{<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">document.forceplanner.t#task_id#_#variables.user_account_id#.value=#evaluate("budget#variables.user_account_id#")#;
+		CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');
 		</cfloop>}
 	}
 </cfif></cfoutput>

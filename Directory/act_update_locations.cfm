@@ -18,7 +18,7 @@
 	END FUSEDOC --->
 <cfquery name="location_delete" datasource="#application.datasources.main#">
 DELETE FROM Location
-WHERE emp_id=#attributes.emp_id#
+WHERE user_account_id=#attributes.user_account_id#
 </cfquery> 
 <cfloop query="get_locations">
 	<cfif len(evaluate("attributes.address1_#location_type_id#"))>
@@ -28,10 +28,10 @@ WHERE emp_id=#attributes.emp_id#
 		<cfset state = evaluate("attributes.state_#location_type_id#")>
 		<cfset zip = "#evaluate("attributes.zip_#location_type_id#")#">
 		<cfquery name="location_entry" datasource="#application.datasources.main#">
-		INSERT INTO Location(emp_id, address1<cfif len(evaluate("attributes.address2_#location_type_id#"))>, address2</cfif>, 
+		INSERT INTO Location(user_account_id, address1<cfif len(evaluate("attributes.address2_#location_type_id#"))>, address2</cfif>, 
 			city, state, zip, 
 			location_type_id)
-		VALUES(#attributes.emp_id#,'#loc_1#'<cfif len(evaluate("attributes.address2_#location_type_id#"))>,'#loc_2#'</cfif>,
+		VALUES(#attributes.user_account_id#,'#loc_1#'<cfif len(evaluate("attributes.address2_#location_type_id#"))>,'#loc_2#'</cfif>,
 			'#city#','#state#','#zip#',
 			#location_type_id#)
 		</cfquery>

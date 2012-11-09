@@ -32,7 +32,7 @@ WHERE time_entry_id=#attributes.time_entry_id#
 		GROUP BY time_entry_id
 	);
 <cfif isdefined("attributes.method") AND comparenocase(attributes.method,"delete this entry")>
-INSERT INTO Time_Entry (emp_id, work_date, hours,
+INSERT INTO Time_Entry (user_account_id, work_date, hours,
 	project_id, task_id, notes_id)
 SELECT #variables.user_identification#, '#dateformat(attributes.work_date,"yyyy-mm-dd")#', #attributes.hours#,
 	<cfif isdefined("attributes.project_id")>#attributes.project_id#<cfelse>project_id</cfif>, task_id, CURRVAL('Notes_notes_id_SEQ')

@@ -21,7 +21,7 @@
 SELECT SUM(hours) AS month_hours, EXTRACT(YEAR FROM work_date) AS work_year, EXTRACT(MONTH FROM work_date) AS work_month
 FROM Time_Entry
 WHERE Time_Entry.active_ind=1
-	AND Time_Entry.emp_id=#variables.user_identification#
+	AND Time_Entry.user_account_id=#variables.user_identification#
 	AND Time_Entry.work_date BETWEEN #variables.previous_month# AND #variables.current_month#
 GROUP BY EXTRACT(YEAR FROM work_date), EXTRACT(MONTH FROM work_date)
 ORDER BY EXTRACT(YEAR FROM work_date), EXTRACT(MONTH FROM work_date)

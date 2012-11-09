@@ -15,11 +15,11 @@
 <cfquery name="update_Security_Company_Access" datasource="#application.datasources.main#">
 /*wipe out old access*/
 DELETE FROM Security_Company_Access
-WHERE emp_id=#attributes.emp_id#;
+WHERE user_account_id=#attributes.user_account_id#;
 
 /*insert new access*/
-INSERT INTO Security_Company_Access (emp_id, company_id)
-SELECT #attributes.emp_id# AS emp_id, company_id
+INSERT INTO Security_Company_Access (user_account_id, company_id)
+SELECT #attributes.user_account_id# AS user_account_id, company_id
 FROM REF_Company
 WHERE company_id IN (#attributes.company_id#);
 </cfquery>

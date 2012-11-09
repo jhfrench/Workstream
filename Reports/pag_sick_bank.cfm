@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfparam name="attributes.emp_id" default="">
+<cfparam name="attributes.user_account_id" default="">
 </cfsilent>
 
 <!--- Check to see if user has access to 'All' --->
@@ -21,9 +21,9 @@
 <cfinclude template="qry_get_pto_names.cfm">
 
 <!--- If employees haven't been specified, show select list --->
-<cfif NOT len(attributes.emp_id)>
+<cfif NOT len(attributes.user_account_id)>
 	<cfinclude template="dsp_sick_bank_input.cfm">
-<!--- If attributes.emp_id is known, show user sick bank for those emp_ids --->
+<!--- If attributes.user_account_id is known, show user sick bank for those user_account_ids --->
 <cfelse>
 	<cfinclude template="qry_get_sick_bank.cfm">
 	<cfinclude template="dsp_sick_bank_output.cfm">

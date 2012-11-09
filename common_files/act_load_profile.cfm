@@ -16,14 +16,14 @@
 	<cfscript>
 		session.first_name=general_user_info.first_name;
 		session.last_name=general_user_info.last_name;
-		session.workstream_emp_id=general_user_info.emp_id;
+		session.workstream_user_account_id=general_user_info.user_account_id;
 		session.workstream_pto_accrual_type_id=general_user_info.pto_accrual_type_id;
 		session.workstream_show_hours_data_ind=general_user_info.show_hours_data_ind; // This option helps us to decide if we should show the user "used hours" information
 	</cfscript>
 <cfinclude template="qry_profile_lookup.cfm">
 <cfif profile_lookup.recordcount>
 	<cfscript>
-		variables.user_identification=profile_lookup.emp_id;
+		variables.user_identification=profile_lookup.user_account_id;
 		session.workstream_account_changed=profile_lookup.account_changed;
 		session.workstream_company_id=profile_lookup.company_id;
 		session.workstream_company_name=profile_lookup.company_name;

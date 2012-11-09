@@ -23,8 +23,8 @@
 <cfquery name="get_prospectives" datasource="#application.datasources.main#">
 SELECT Cross_Tab.previously_assigned, Cross_Tab.previous_entry, Cross_Tab.task_id, 
 	LEFT(Cross_Tab.project,50) AS project, Cross_Tab.project_id, Cross_Tab.due_date,
-	LEFT(Cross_Tab.task_name,65) AS task_name, Cross_Tab.billable, Cross_Tab.budget<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">,
-	SUM(Cross_Tab.budget#variables.emp_id#) AS budget#variables.emp_id#</cfloop>
+	LEFT(Cross_Tab.task_name,65) AS task_name, Cross_Tab.billable, Cross_Tab.budget<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">,
+	SUM(Cross_Tab.budget#variables.user_account_id#) AS budget#variables.user_account_id#</cfloop>
 FROM
 	(/*top query selects Forceplanner tasks for the selected month*/
 	SELECT ' checked="checked"' AS previously_assigned, 
@@ -37,15 +37,15 @@ FROM
 			ELSE Task.status_id 
 		END AS previous_entry, 
 		Task.task_id, Customer.description || '-' || Project.description AS project, Project.project_id,
-		Task.due_date, Task.name AS task_name, COALESCE(Task.budgeted_hours,0) AS budget<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">, 
-		(CASE WHEN Forecast_Assignment.emp_id=#variables.emp_id# THEN COALESCE(Forecast_Assignment.hours_budgeted,0) ELSE 0 END) AS budget#variables.emp_id#
+		Task.due_date, Task.name AS task_name, COALESCE(Task.budgeted_hours,0) AS budget<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">, 
+		(CASE WHEN Forecast_Assignment.user_account_id=#variables.user_account_id# THEN COALESCE(Forecast_Assignment.hours_budgeted,0) ELSE 0 END) AS budget#variables.user_account_id#
 		</cfloop>, (CASE WHEN Project.billable_type_id=2 THEN 'NB' ELSE 'B' END) AS billable
 	FROM Customer
 		INNER JOIN Project ON Customer.customer_id=Project.customer_id
 		INNER JOIN Task ON Project.project_id=Task.project_id
 		INNER JOIN Team ON Task.task_id=Team.task_id
 			AND Team.active_ind=1
-			AND Team.user_account_id IN (#variables.user_identification#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)
+			AND Team.user_account_id IN (#variables.user_identification#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.user_account_id)#)
 			AND Team.role_id IN (1,4)
 		LEFT OUTER JOIN Time_Entry ON Task.task_id=Time_Entry.task_id
 			AND Time_Entry.active_ind=1
@@ -55,7 +55,7 @@ FROM
 			AND Forecast_Assignment.active_ind=1
 			AND Forecast.forecast_year=#attributes.force_year#
 			AND Forecast.forecast_month=#attributes.force_month#
-	GROUP BY Forecast_Assignment.task_id, Forecast_Assignment.emp_id, Forecast_Assignment.hours_budgeted, 
+	GROUP BY Forecast_Assignment.task_id, Forecast_Assignment.user_account_id, Forecast_Assignment.hours_budgeted, 
 		Task.task_id, Customer.description || '-' || Project.description, Project.project_id, 
 		Project.billable_type_id, Task.due_date, Task.status_id, 
 		Task.name, Task.budgeted_hours
@@ -71,8 +71,8 @@ FROM
 			ELSE Task.status_id
 		END AS previous_entry, 
 		Task.task_id, Customer.description || '-' || Project.description AS project, Project.project_id, 
-		Task.due_date, Task.name AS task_name, COALESCE(Task.budgeted_hours,0) AS budget<cfloop list="#variables.subordinates_emp_id#" index="variables.emp_id">, 
-		SUM(CASE WHEN Team.role_id=1 AND Team.user_account_id=#variables.emp_id# AND Team.task_id=Task.task_id THEN COALESCE(Task.budgeted_hours,0) ELSE 0 END) AS budget#variables.emp_id#
+		Task.due_date, Task.name AS task_name, COALESCE(Task.budgeted_hours,0) AS budget<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">, 
+		SUM(CASE WHEN Team.role_id=1 AND Team.user_account_id=#variables.user_account_id# AND Team.task_id=Task.task_id THEN COALESCE(Task.budgeted_hours,0) ELSE 0 END) AS budget#variables.user_account_id#
 		</cfloop>, (CASE WHEN Project.billable_type_id=2 THEN 'NB' ELSE 'B' END) AS billable
 	FROM Customer
 		INNER JOIN Project ON Customer.customer_id=Project.customer_id
@@ -90,7 +90,7 @@ FROM
 			)
 		INNER JOIN Team ON Task.task_id=Team.task_id
 			AND Team.active_ind=1
-			AND Team.user_account_id IN (#variables.user_identification#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.emp_id)#)
+			AND Team.user_account_id IN (#variables.user_identification#<cfif get_subordinates.recordcount>,</cfif>#valuelist(get_subordinates.user_account_id)#)
 			AND Team.role_id IN (1,4)
 		LEFT OUTER JOIN Time_Entry ON Task.task_id=Time_Entry.task_id
 			AND Time_Entry.active_ind=1

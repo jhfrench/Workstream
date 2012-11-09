@@ -79,7 +79,7 @@
 	<div class="control-group">
 		<label for="position_id" class="control-label">Position Number</label>
 		<div class="controls">
-		<cfif isdefined("attributes.emp_id")>
+		<cfif isdefined("attributes.user_account_id")>
 			<span id="position_id">Can't be changed from this screen.</span>
 		<cfelse>
 			<cfselect name="position_id" id="position_id" query="get_position_numbers" value="position_ID" display="position_id" required="yes" message="You must select a position number to enter this employee into workstream." class="span3">
@@ -132,11 +132,11 @@
 	</div>
 	<div class="control-group">
 		<label for="supervisor_id" class="control-label">Supervisor</label>
-		<cfif isdefined("attributes.emp_id")>
+		<cfif isdefined("attributes.user_account_id")>
 			<span id="supervisor_id">Can't be changed from this screen.</span><input type="hidden" name="supervisor_id" value="#supervisor_id#">
 		<cfelse>
 		<div class="controls">
-			<cfmodule template="../common_files/dsp_team_select.cfm" multi="1" valuelist="false" element_name="supervisor_id" selected_flag="0" message="Please select a supervisor." emp_id="#supervisor_id#" class="span3">
+			<cfmodule template="../common_files/dsp_team_select.cfm" multi="1" valuelist="false" element_name="supervisor_id" selected_flag="0" message="Please select a supervisor." user_account_id="#supervisor_id#" class="span3">
 		</div>
 		</cfif>
 	</div>
@@ -158,7 +158,7 @@
 	</div>
 	</fieldset>
 	<div class="form-actions">
-		<input type="hidden" name="emp_id" value="<cfif isdefined("attributes.emp_id")>#attributes.emp_id#</cfif>">
+		<input type="hidden" name="user_account_id" value="<cfif isdefined("attributes.user_account_id")>#attributes.user_account_id#</cfif>">
 		<input type="submit" name="submit" value="<cfif NOT comparenocase(attributes.fuseaction, "emp_edit")>Update Account<cfelse>Enter Record</cfif>" class="btn btn-primary" />
 		<input type="reset" value="Reset" class="btn" />
 	</div>
