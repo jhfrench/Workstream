@@ -68,9 +68,9 @@
 			</select>
 		</td>
 		<td align="left" colspan="100%">
-			<select name="project_manager_user_account_id" >
+			<select name="project_manager_id" >
 				<option value="all">All IEs</option><cfoutput query="Get_Engagement_IE">
-				<option value="#user_account_id#"<cfif attributes.project_manager_user_account_id EQ user_account_id> selected="selected"</cfif>>#lname#</option></cfoutput>
+				<option value="#user_account_id#"<cfif attributes.project_manager_id EQ user_account_id> selected="selected"</cfif>>#lname#</option></cfoutput>
 			</select>
 		</td>
 	</tr>
