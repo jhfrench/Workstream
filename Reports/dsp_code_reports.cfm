@@ -18,56 +18,64 @@
 </cfloop>
 </cfif>
 </cfsilent>
+
+<table class="table table-striped table-bordered table-condensed">
+	<caption>
+	<cfoutput>
+		<h2>#attributes.report_name#</h2>
+		<h3>for #attributes.from_date#&nbsp;through&nbsp;#attributes.through_date#</h3>
+	</cfoutput>
+	</caption>
 <cfoutput query="#query#" group="employee_classification">
 <cfif len(employee_classification)>
 	<cfset variables.employee_classification=employee_classification>
 <cfelse>
 	<cfset variables.employee_classification="Regular Employee">
 </cfif>
-	<tr class="SubHeadText">
-		<td bgcolor="##c0c0c0" colspan="#variables.column_count#" class="SubHeadText">
+	<tr>
+		<td colspan="#variables.column_count#">
 			#variables.employee_classification#
 		</td>
 	</tr>
 	<tr>
-		<td nowrap class="RegTextBd">
+		<td>
 			Customer
 		</td>
-		<td nowrap class="RegTextBd">
+		<td>
 			Name
 		</td>
 <cfif variables.month_loop GT 1>
 	<cfset variables.display_month=dateformat(variables.from_date, "mmm/yy")>
 	<cfloop from="1" to="#variables.month_loop#" index="ii">
 	<cfset "variables.sum_period_#ii#"=0>
-		<td align="center" class="RegTextBd">
+		<td>
 			&nbsp;#variables.display_month# Hours&nbsp;
 			<cfset variables.display_month=dateformat(dateadd("m",ii,variables.from_date), "mmm/yy")>
 		</td>
 	</cfloop>
 </cfif>
-		<td align="center" class="RegTextBd">
+		<td>
 			&nbsp;Total Hours&nbsp;
 		</td><cfif variables.month_loop LT 2>
-		<td align="center" class="RegTextBd">
+		<td>
 			&nbsp;Code Subtotal&nbsp;
 		</td>
-		<td align="center" class="RegTextBd">
+		<td>
 			&nbsp;Employee Type Subtotal&nbsp;
 		</td></cfif>
 	</tr>
 <cfoutput group="clientcode">
 <cfoutput>
 	<tr<cfif currentrow MOD 2> bgcolor="##e1e1e1"</cfif>>
-		<td nowrap>#clientName#&nbsp;</td>
-		<td nowrap>#lname#, #name#&nbsp;</td>
+		<td>#clientName#&nbsp;</td>
+		<td>#lname#, #name#&nbsp;</td>
 <cfif variables.month_loop GT 1>
 <cfloop from="1" to="#variables.month_loop#" index="ii">
 		<cfset "variables.sum_period_#ii#"=evaluate("period_#ii#")+evaluate("variables.sum_period_#ii#")>
-		<td align="right">#decimalformat(evaluate("period_#ii#"))#</td>
+		<td class="number">#decimalformat(evaluate("period_#ii#"))#</td>
 </cfloop>
 </cfif>
-		<td align="right">#decimalformat(hours)#</td>
+		<td class="number">#decimalformat(hours)#</td>
 		<cfset total_hours=total_hours+hours><cfset variables.emp_type_hours=hours+emp_type_hours>
 	</tr>
 </cfoutput>
@@ -78,20 +86,20 @@
 <cfif variables.month_loop GT 1>
 <cfloop from="1" to="#variables.month_loop#" index="ii">
 	<cfset "variables.period_total_#ii#"=evaluate("variables.sum_period_#ii#")+evaluate("variables.period_total_#ii#")>
-		<td align="right">#decimalformat(evaluate("variables.sum_period_#ii#"))#</td>
+		<td class="number">#decimalformat(evaluate("variables.sum_period_#ii#"))#</td>
 </cfloop>
 </cfif>
-		<td align="right">
+		<td class="number">
 			#decimalformat(total_hours)#<cfset variables.total_hours=0>
 		</td>
 	</tr>
 </cfoutput>
 <cfif variables.month_loop LT 2>
 	<tr class="SubHeadText">
-		<td colspan="4" align="right" class="SubHeadText">
+		<td colspan="4">
 			Total Hours for #variables.employee_classification#:
 		</td>
-		<td align="right" class="SubHeadText">
+		<td class="number">
 			#decimalformat(Emp_Type_Hours)#
 		</td>
 	</tr>
@@ -106,17 +114,17 @@
 		</td>
 	</tr>
 	<tr>
-		<td align="right" colspan="2" class="SubHeadText">
+		<td colspan="2">
 			Grand Total Hours:
 		</td>
 <cfif variables.month_loop GT 1>
 <cfloop from="1" to="#variables.month_loop#" index="ii">
-		<td align="right" class="SubHeadText">#decimalformat(evaluate("variables.period_total_#ii#"))#</td>
+		<td class="number">#decimalformat(evaluate("variables.period_total_#ii#"))#</td>
 </cfloop>
 </cfif>
-		<td align="right" class="SubHeadText">
+		<td class="number">
 			#decimalformat(grand_total_hours)#
 		</td>
 	</tr>
 </cfoutput>
-
+</table>
