@@ -36,7 +36,7 @@
 	<cfloop query="get_hours_by_code">
 		<tr>
 			<td>#employee_classification#</td>
-			<td>#project_code#&ndash;#project#</td>
+			<td>#clientname#</td>
 			<td class="number">#hours#</td>
 		</tr>
 	</cfloop>
