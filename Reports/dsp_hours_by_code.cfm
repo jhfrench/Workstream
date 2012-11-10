@@ -33,7 +33,7 @@
 		</tr>
 	</tfoot>
 	<tbody>
-	<cfloop query="hours_code">
+	<cfloop query="get_hours_by_code">
 		<tr>
 			<td>#employee_classification#</td>
 			<td>#project_code#&ndash;#project#</td>
