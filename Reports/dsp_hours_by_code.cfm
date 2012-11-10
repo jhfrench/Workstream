@@ -21,7 +21,7 @@
 	</caption>
 	<thead>
 		<tr>
-			<th>Employee_Classification</th>
+			<th>Employee Classification</th>
 			<th>Project</th>
 			<th>Hours</th>
 		</tr>
@@ -37,7 +37,7 @@
 		<tr>
 			<td>#employee_classification#</td>
 			<td>#project_code#&ndash;#project#</td>
-			<td>#hours#</td>
+			<td class="number">#hours#</td>
 		</tr>
 	</cfloop>
 	</tbody>
