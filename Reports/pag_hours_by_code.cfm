@@ -12,24 +12,11 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfinclude template="Act_verify_dates.cfm">
-<cfinclude template="qry_hours_code.cfm">
-<table border="0" cellpadding="4" cellspacing="0" align="center" width="95%">
+<cfparam name="attributes.from_date" default="#month(now())#/1/#year(now())#">
+<cfparam name="attributes.through_date" default="#month(now())#/#daysinmonth(now())#/#year(now())#">
+<cfset attributes.report_name="Hours by Code Report">
+<cfinclude template="qry_get_hours_by_code.cfm">
 
-<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText" section_color="ffffff" section_title="Hours By Code Report" gutter="false" align="center">
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="SubHeadText" section_color="ffffff" section_title="From: #attributes.from_date# &nbsp;To: #attributes.through_date#" gutter="false" align="center">
-	<cfoutput query="hours_code">
-		<cfif NOT temp_cc IS ClientCode>
-		   	<cfset count=0>
-			 <cfset temp_cc=ClientCode>
-				 <cfif hours_code.CurrentRow GT 1>
-				 	<cfinclude template="dsp_hours_code_totals.cfm">
-				</cfif>
-				<cfinclude template="dsp_hours_code_row_header.cfm">
-			</cfif>
-		<cfinclude template="dsp_hours_code_rows.cfm">
-		<cfif hours_code.recordcount EQ hours_code.CurrentRow>
-			<cfinclude template="dsp_hours_code_totals.cfm">
-		</cfif>
-	</cfoutput>
-</table>
+<cfinclude template="dsp_hours_by_code.cfm">
+
+<cfmodule template="dsp_from_through_date.cfm" report_name="#attributes.report_name#" required="yes" fuseaction="#attributes.fuseaction#">

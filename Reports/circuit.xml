@@ -72,19 +72,8 @@
 			<set name="attributes.report_name" value="Billable Hours Report"/>
 			<include template="pag_billable_hours.cfm"/>
 		</fuseaction>
-		<fuseaction name="code_report_input">
-		<!-- Begin Code Report -->
-			<!-- <set name="attributes.object_name" value="Code Report"/>
-			 -->
-			<set name="request.pagetitle" value="Code Report"/>
-			<include template="pag_code_report_input.cfm"/>
-		</fuseaction>
 		<fuseaction name="code_report">
-			<!-- <set name="attributes.object_name" value="Code Report"/>
-			 -->
-			<set name="request.pagetitle" value="Code Report"/>
 			<include template="pag_code_report.cfm"/>
-		<!-- End Code Report -->
 		</fuseaction>
 		<fuseaction name="contractors_input">
 		<!-- Begin contractors -->

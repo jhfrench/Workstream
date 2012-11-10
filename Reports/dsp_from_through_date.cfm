@@ -4,18 +4,16 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I am the fuse that is used in the reports module to submit to reports.
-
+	Responsibilities: I display the rows for the supervisor's ForcePlanner report. This report shows direct report's tasks and hours for complete and incomplete, budgeted and un-budgeted tasks.
+	||
+	Name: Jeromy French
 	||
 	Edits:
 	$Log$
 	 || 
-	--> attributes.report_name: this is the name of the report that the form is submitting to.
-	--> attributes.required: this is wether or not the form fields will be required. 
-	 || 
 	END FUSEDOC --->
-<cfparam name="attributes.from_date" default="">
-<cfparam name="attributes.through_date" default="">
+<cfparam name="attributes.from_date" default="#month(now())#/1/#year(now())#">
+<cfparam name="attributes.through_date" default="#month(now())#/#daysinmonth(now())#/#year(now())#">
 <cfparam name="attributes.report_name" default="">
 <cfparam name="attributes.required" default="">
 </cfsilent>
@@ -27,7 +25,7 @@
 		<input type="date" name="from_date" id="from_date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10"<cfif attributes.required> required="required"</cfif> value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" class="span3 date" />
 		<label for="through_date">To</label>
 		<input type="date" name="through_date" id="through_date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10"<cfif attributes.required> required="required"</cfif> value="#dateformat(attributes.through_date, 'yyyy-mm-dd')#" class="span3 date" />
-		<input type="submit" value="Enter Dates" class="btn btn-primary" />
+		<input type="submit" value="Update Report" class="btn btn-primary" />
 	</fieldset>
 </form>
 </cfoutput>
