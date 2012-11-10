@@ -29,7 +29,7 @@
 	<tfoot>
 		<tr>
 			<th colspan="2">Total Hours</th>
-			<td class="number">#get_hours_by_code_totals.hours_total#</td>
+			<td class="number">#numberformat(get_hours_by_code_totals.hours_total)#</td>
 		</tr>
 	</tfoot>
 	<tbody>
@@ -37,7 +37,7 @@
 		<tr>
 			<td>#employee_classification#</td>
 			<td>#clientname#</td>
-			<td class="number">#hours#</td>
+			<td class="number">#numberformat(hours)#</td>
 		</tr>
 	</cfloop>
 	</tbody>
