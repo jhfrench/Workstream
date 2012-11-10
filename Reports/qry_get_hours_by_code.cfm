@@ -34,7 +34,8 @@ FROM Time_Entry
 	LEFT OUTER JOIN REF_Employee_Classification ON Employee.employee_classification_id=REF_Employee_Classification.employee_classification_id
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.work_date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.through_date)#
-GROUP BY Project.project_code, Project.description, REF_Employee_Classification.employee_classification
+GROUP BY Project.project_code, Project.description, Customer.description,
+	REF_Employee_Classification.employee_classification
 ORDER BY clientname
 </cfquery>
 
