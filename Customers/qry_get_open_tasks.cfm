@@ -19,7 +19,7 @@
 </pre>
 </cfoutput> --->
 <cfquery name="get_open_tasks" datasource="#application.datasources.main#">
-SELECT Task.task_id, Task.name AS task_name, Task.due_date AS date_due,
+SELECT Task.task_id, Task.name AS task_name, Task.due_date,
 	COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS time_budgeted, Task.status_id,
 	(CASE WHEN Task.status_id=3 /* QA */ THEN REF_Status.status || ' by ' || QA.lname ELSE REF_Status.status END) AS task_status, Owner.lname AS task_owner,
 	(Customer.description || '-' || Project.description) AS project_name, Project.project_code<!--- $issue$: poor alias --->, REF_Priority.description AS priority,

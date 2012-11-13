@@ -20,18 +20,21 @@
 	--> session.workstream_show_on_hold: number that indicates the desire of the user to hide or show tasks which have been put on hold; 1 means include the task, 0 means exclude the task
 	--> session.workstream_show_team: number that indicates the desire of the user to hide or show tasks for which they are a member of the task team; 1 means include the task, 0 means exclude the task
  --->
-<cfif isdefined("attributes.user_account_id") AND compare(attributes.user_account_id,variables.user_identification)AND NOT isdefined("attributes.inbox_owner")>
-	<cfinclude template="../common_files/qry_get_employee_name.cfm">
-	<cfset request.first_name=get_employee_name.first_name>
-	<cfset request.last_name=get_employee_name.last_name>
-<cfelseif isdefined("attributes.user_account_id") AND compare(attributes.user_account_id,variables.user_identification) AND isdefined("attributes.inbox_owner")>
-	<cfset request.first_name=task_list.task_owner>
-	<cfset request.last_name="">
+<cfif isdefined("attributes.user_account_id") AND compare(attributes.user_account_id, variables.user_identification)>
+	<cfif isdefined("attributes.inbox_owner")>
+		<cfset request.first_name=task_list.task_owner>
+		<cfset request.last_name="">
+	<cfelse>
+		<cfinclude template="../common_files/qry_get_employee_name.cfm">
+		<cfset request.first_name=get_employee_name.first_name>
+		<cfset request.last_name=get_employee_name.last_name>
+	</cfif>
 <cfelse>
 	<cfset attributes.user_account_id=variables.user_identification>
 	<cfset request.first_name=session.first_name>
 	<cfset request.last_name=session.last_name>
 </cfif>
+
 <cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"engagement_list")>
 	<cfset colspan1=3>
 	<cfset colspan2=2>

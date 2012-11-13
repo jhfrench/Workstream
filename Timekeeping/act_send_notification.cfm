@@ -126,7 +126,7 @@
 <cfquery name="prepare_email" datasource="#application.datasources.main#">
 SELECT Email_Source.task_source AS email_from, Email.email AS email_to, 
 	Task.task_id, Task.name AS task_name, Task.description AS description, 
-	Task.budgeted_hours, Task.due_date AS date_due, Emp_Contact.name, Email.email_id
+	Task.budgeted_hours, Task.due_date, Emp_Contact.name, Email.email_id
 FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
@@ -156,7 +156,7 @@ WHERE Task.task_id=#attributes.task_id#
 #prepare_email.name#,
 
 The following task #variables.notification_text#: #prepare_email.task_name# (#attributes.task_id#)
-Due: #prepare_email.date_due#
+Due: #prepare_email.due_date#
 Description: #prepare_email.description#
 
 <a href="http://#cgi.http_host#/index.cfm?fuseaction=Timekeeping.task_details&task_id=#attributes.task_id#">View task #attributes.task_id#</a>

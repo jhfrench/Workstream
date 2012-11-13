@@ -12,7 +12,7 @@
 	$Log$
 	 || 
  --->
-<cfparam name="attributes.order_by" default="date_due">
+<cfparam name="attributes.order_by" default="due_date">
 <cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"admin_options")>
 	<cfset request.colspan=3>
 <cfelse>
