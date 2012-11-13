@@ -30,7 +30,6 @@
 <cfset variables.quote='"'>
 <cfset variables.status_message_replace="',#variables.quote#">
 <cfset variables.status_message_replace_with=",">
-<cfparam name="attributes.user_account_id" default="#variables.user_identification#">
 </cfsilent>
 <cfif task_list.recordcount>
 <tbody>
@@ -39,10 +38,10 @@
 	<tr>
 		<td scope="row" class="number">#task_id#</td>
 		<td><abbr title="#task_owner_full#">#task_owner#</abbr></td>
-		<td><a href="javascript:list_to_task('#task_id#');" title="View time details for #variables.status_message#."><i class="#task_icon#" title="#ReplaceList(task_description, variables.quote, variables.status_message_replace_with)#"></i>#task_name#</a></td>
+		<td><a href="javascript:list_to_task('#task_id#');" title="View time details for #variables.status_message#."><i class="#task_icon#" title="#jsstringformat(task_description)#"></i>#task_name#</a></td>
 		<td>#project_name#</td>
 		<td>#priority#</td>
-		<td><a href="javascript:list_to_time('#task_id#');" title="View time details for #variables.status_message#."><cfif listlen(time_used) GT 1 AND listgetat(time_used,2,".") GT 0>#decimalformat(time_used)#<cfelse>#numberformat(time_used)#</cfif><cfif time_budgeted>/#time_budgeted# #numberformat(percent_time_used)#%</cfif></a></td>
+		<td><a href="javascript:list_to_time('#task_id#');" title="View time details for #variables.status_message#."><cfif listlen(time_used) GT 1 AND listgetat(time_used,2,".") GT 0>#decimalformat(time_used)#<cfelse>#numberformat(time_used)#</cfif><cfif time_budgeted>/#time_budgeted# #numberformat((time_used/time_budgeted)*100)#%</cfif></a></td>
 		<td><cfif status_id NEQ 7 AND datecompare(now(), due_date, "d") GTE 0><i class="status_<cfif datecompare(now(), due_date, "d") EQ 0>not_started<cfelse>overdue</cfif>"></i>&nbsp;</cfif>#task_status#</td>
 		<td class="date">#dateformat(due_date, "m/d/yyyy")#</td>
 	</tr>
