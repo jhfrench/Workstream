@@ -12,7 +12,7 @@
 	$Log$
 	||
 	Variables:
-	--> application.team_changed: date of the last time emp_contact, security or demographics tables were changed
+	--> application.team_changed: date of the last time Employee or Demographics tables were changed
 	--> session.workstream_selected_company_id: id of the companies that the employee wishes to see
 	<-- company: id that identifies the user's company
 	<-- email: string containing the email address of an employee
