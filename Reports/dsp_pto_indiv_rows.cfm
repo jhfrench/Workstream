@@ -12,8 +12,8 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfif showhours.recordcount>
-<cfoutput query="Showhours">
+<cfif get_individual_PTO.recordcount>
+<cfoutput query="get_individual_PTO">
 <tr bgcolor="##FBEEA8">
 			<td></td>
 			<td>#dateformat(date, "m/d/yyyy")#</td>
