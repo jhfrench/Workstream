@@ -97,8 +97,8 @@ SELECT 1 AS constant, Task.due_date, Task.task_id,
 	(CASE WHEN Task.status_id IN (4,10) THEN Task_Details.task_status || ' by ' || Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
 	(Customer.description || '-' || Project.description) AS project_name, priority
 FROM Task, Team, Emp_Contact, Project, Customer,
-	(SELECT Path.task_id, COALESCE(Recorded_Hours.hours_used,0) AS time_used, Path.class_name AS task_icon, 
-		(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
+	(SELECT Path.task_id, COALESCE(Recorded_Hours.used_hours,0) AS time_used, Path.class_name AS task_icon, 
+		(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE (Recorded_Hours.used_hours/Task.budgeted_hours) END,0)*100) AS percent_time_used,
 		REF_Status.status AS task_status, Emp_Contact.name AS task_owner, (Emp_Contact.lname || ', ' || Emp_Contact.name) AS task_owner_full,
 		priority
 	FROM Task, REF_Status, Team, Emp_Contact,
@@ -137,7 +137,7 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 			AND REF_Icon.icon_id=Task.icon_id)
 	AS Path
 	LEFT OUTER JOIN (
-		SELECT task_id, SUM(hours) AS hours_used
+		SELECT task_id, SUM(hours) AS used_hours
 		FROM Time_Entry
 		WHERE Time_Entry.active_ind=1
 		GROUP BY task_id

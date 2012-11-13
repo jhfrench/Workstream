@@ -14,9 +14,9 @@
 	END FUSEDOC --->
 <cfquery name="get_sick_bank" datasource="#application.datasources.main#">
 SELECT Emp_Contact.lname, Emp_Contact.name, COALESCE(Sick_Bank.granted_hours,0) AS granted_hours,
-	COALESCE(Time_Taken.hours_used,0) AS hours_used, COALESCE(Sick_Bank.granted_hours,0)-COALESCE(Time_Taken.hours_used,0) AS hours_remaining
+	COALESCE(Time_Taken.used_hours,0) AS used_hours, COALESCE(Sick_Bank.granted_hours,0)-COALESCE(Time_Taken.used_hours,0) AS remaining_hours
 FROM Emp_Contact, Sick_Bank,
-	(SELECT user_account_id, SUM(hours) AS hours_used
+	(SELECT user_account_id, SUM(hours) AS used_hours
 	FROM Time_Entry
 	WHERE Time_Entry.active_ind=1
 		AND project_id=1881
