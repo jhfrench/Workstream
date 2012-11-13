@@ -12,13 +12,13 @@
 	$Log$
 	 || 
  --->
-<cfinclude template="qry_general_user_info.cfm">
+<cfinclude template="qry_get_general_user_info.cfm">
 	<cfscript>
-		session.first_name=general_user_info.first_name;
-		session.last_name=general_user_info.last_name;
-		session.workstream_user_account_id=general_user_info.user_account_id;
-		session.workstream_pto_accrual_type_id=general_user_info.pto_accrual_type_id;
-		session.workstream_show_hours_data_ind=general_user_info.show_hours_data_ind; // This option helps us to decide if we should show the user "used hours" information
+		session.first_name=get_general_user_info.first_name;
+		session.last_name=get_general_user_info.last_name;
+		session.workstream_user_account_id=get_general_user_info.user_account_id;
+		session.workstream_pto_accrual_type_id=get_general_user_info.pto_accrual_type_id;
+		session.workstream_show_hours_data_ind=get_general_user_info.show_hours_data_ind; // This option helps us to decide if we should show the user "used hours" information
 	</cfscript>
 <cfinclude template="qry_profile_lookup.cfm">
 <cfif profile_lookup.recordcount>
@@ -46,10 +46,10 @@
 <cfelse>
 	<cfscript>
 		session.workstream_account_changed="#now()#";
-		session.workstream_company_id=general_user_info.company_id;
-		session.workstream_company_name=valuelist(general_user_info.company_name);
-		session.workstream_selected_company_id=valuelist(general_user_info.company_id);
-		session.account_type_id=general_user_info.account_type_id;
+		session.workstream_company_id=get_general_user_info.company_id;
+		session.workstream_company_name=valuelist(get_general_user_info.company_name);
+		session.workstream_selected_company_id=valuelist(get_general_user_info.company_id);
+		session.account_type_id=get_general_user_info.account_type_id;
 		session.workstream_express_input_rows=5;
 		session.workstream_express_notes_height=1;
 		session.workstream_express_notes_width=40;

@@ -1,4 +1,4 @@
-<!--common_files/qry_general_user_info.cfm
+<!--common_files/qry_get_general_user_info.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -25,7 +25,7 @@
 <cfelse>
 	<cfset variables.authorized_user=0>
 </cfif>
-<cfquery name="general_user_info" datasource="#application.datasources.main#">
+<cfquery name="get_general_user_info" datasource="#application.datasources.main#">
 SELECT COALESCE(REF_Company.show_hours_data_ind,0) AS show_hours_data_ind, REF_Company.pto_accrual_type_id, REF_Company.display_chat,
 	REF_Company.company_id, REF_Company.description AS company_name, REF_Company.alternate_datasource,
 	User_Account.user_account_id, Demographics.first_name, Demographics.last_name,
@@ -33,7 +33,7 @@ SELECT COALESCE(REF_Company.show_hours_data_ind,0) AS show_hours_data_ind, REF_C
 FROM User_Account
 	INNER JOIN Demographics ON User_Account.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1
-	INNER JOIN Link_Company_User_Account ON Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id
+	INNER JOIN Link_Company_User_Account ON User_Account.user_account_id=Link_Company_User_Account.user_account_id
 	INNER JOIN REF_Company ON Link_Company_User_Account.company_id=REF_Company.company_id
 	INNER JOIN REF_Account_Type ON User_Account.account_type_id=REF_Account_Type.account_type_id
 WHERE User_Account.user_account_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_account_id#" />
