@@ -19,7 +19,7 @@
 	--> session.workstream_task_list_order: list of query columns to ORDER BY
 	--> [attributes.user_account_id]: user_account_id of the peson whose inbox the user wants to see
 	<-- billing_code: code which task time will be invoiced to
-	<-- date_due: date when task is due
+	<-- due_date: date when task is due
 	<-- percent_time_used: number showing the amount of time used divided by the amount of time budgeted, shown only if time was budgeted
 	<-- project_name: name of project which corresponds to the task
 	<-- time_budgeted: amount of time allocated or targeted to complete the task
@@ -89,7 +89,7 @@
 <cfset counter=0>
 
 <cfquery name="task_list" datasource="#application.datasources.main#">
-SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id,
+SELECT 1 AS constant, Task.due_date, Task.task_id,
 	Task.name AS task_name, COALESCE(Task.description, 'No description provided.') AS task_description,
 	COALESCE(Task.budgeted_hours,0) AS time_budgeted, Task.status_id, 
 	Task_Details.task_id, Task_Details.time_used, Task_Details.task_icon, 

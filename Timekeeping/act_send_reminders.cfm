@@ -16,7 +16,7 @@
  --->
 <cfquery name="pre_due_email" datasource="#application.datasources.main#">
 SELECT Task.task_id, Task.name AS task_name, Task.description AS description, 
-	Task.budgeted_hours, Task.due_date AS date_due, 
+	Task.budgeted_hours, Task.due_date, 
 	Task_Source.task_source AS email_from, Email.email AS email_to, 
 	Emp_Contact.name, Notification.days_before_due AS countdown
 FROM Task
@@ -60,10 +60,10 @@ WHERE Task.task_id=#task_id#
 <cfmail from="#application.erroremailfrom#" to="#email_to#" cc="#variables.cc_list#" subject="workstream Task Reminder: #task_name#" server="#application.emailserver#">
 <cfmailparam name="Reply-To" value="#email_from#">
 #name#,
-The following task will be due in #datediff("d",now(),dateadd("d",1,date_due))# day<cfif countdown NEQ 1>s</cfif>: 
+The following task will be due in #datediff("d",now(),dateadd("d",1,due_date))# day<cfif countdown NEQ 1>s</cfif>: 
 Task name: #task_name# (http://#cgi.server_name#/index.cfm?fuseaction=Timekeeping.task_details&task_id=#task_id#)
 Task Number: #task_id#
-Due: #dateformat(date_due,"mmm d, yyyy")#
+Due: #dateformat(due_date,"mmm d, yyyy")#
 Description
 -----------
 #description#

@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	--> application.application_specific_settings.image_dir: string that contains main path to the folder where all images are kept
-	--> date_due: date when task is due
+	--> due_date: date when task is due
 	--> task_id: unique number that identifies task entry
 	--> task_name: name or title of the task
 	--> task_owner: last name of the person ultimately responsible for succesful task resolution
@@ -47,13 +47,13 @@
 	<tbody>
 	<cfoutput query="get_open_tasks">
 		<tr>
-			<td class="date">#dateformat(date_due, "m/d/yyyy")#</td>
+			<td class="date">#dateformat(due_date, "m/d/yyyy")#</td>
 			<td class="number">#task_id#</td>
 			<td><a href="javascript:list_to_time('#task_id#');"><cfif listlen(time_used,".") GT 1>#decimalformat(time_used)#<cfelse>#numberformat(time_used)#</cfif><cfif time_budgeted>/#time_budgeted# #numberformat(percent_time_used)#%</cfif></a></td>
 			<td>#task_owner#</td>
 			<td><a href="javascript:list_to_task('#task_id#');"><i class="#task_icon#" title="#replacelist(task_description, variables.quote, variables.status_message_replace_with)#"></i> #task_name#</a></td>
 			<td>#project_name#</td>
-			<td><cfif NOT dateformat(now(), "m/d/yyyy") LT dateformat(date_due, "m/d/yyyy")><i class="status_<cfif dateformat(now(), "m/d/yyyy") EQ dateformat(date_due, "m/d/yyyy")>not_started<cfelse>overdue</cfif>"></i>&nbsp;</cfif>#task_status#</td>
+			<td><cfif NOT dateformat(now(), "m/d/yyyy") LT dateformat(due_date, "m/d/yyyy")><i class="status_<cfif dateformat(now(), "m/d/yyyy") EQ dateformat(due_date, "m/d/yyyy")>not_started<cfelse>overdue</cfif>"></i>&nbsp;</cfif>#task_status#</td>
 		</tr>
 	</cfoutput>
 	</tbody>

@@ -70,7 +70,7 @@
 				#status#
 			</td>
 			<td class="date">
-				#dateformat(date_due,"m/d/yyyy")#
+				#dateformat(due_date,"m/d/yyyy")#
 			</td>
 			<td class="date">
 				#dateformat(date_completed,"m/d/yyyy")#

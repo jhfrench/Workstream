@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	--> application.application_specific_settings.image_dir: string that contains main path to the folder where all images are kept
-	--> date_due: date when task is due
+	--> due_date: date when task is due
 	--> task_id: unique number that identifies task entry
 	--> task_name: name or title of the task
 	--> task_owner: last name of the person ultimately responsible for succesful task resolution
@@ -31,11 +31,6 @@
 <cfset variables.status_message_replace="',#variables.quote#">
 <cfset variables.status_message_replace_with=",">
 <cfparam name="attributes.user_account_id" default="#variables.user_identification#">
-<cfif listlen(attributes.user_account_id) GT 1>
-	<cfset variables.group = "task_owner">
-<cfelse>
-	<cfset variables.group = "constant">
-</cfif>
 </cfsilent>
 <cfif task_list.recordcount>
 <tbody>
@@ -48,8 +43,8 @@
 		<td>#project_name#</td>
 		<td>#priority#</td>
 		<td><a href="javascript:list_to_time('#task_id#');" title="View time details for #variables.status_message#."><cfif listlen(time_used) GT 1 AND listgetat(time_used,2,".") GT 0>#decimalformat(time_used)#<cfelse>#numberformat(time_used)#</cfif><cfif time_budgeted>/#time_budgeted# #numberformat(percent_time_used)#%</cfif></a></td>
-		<td><cfif status_id NEQ 7 AND datecompare(now(), date_due, "d") GTE 0><i class="status_<cfif datecompare(now(), date_due, "d") EQ 0>not_started<cfelse>overdue</cfif>"></i>&nbsp;</cfif>#task_status#</td>
-		<td class="date">#dateformat(date_due, "m/d/yyyy")#</td>
+		<td><cfif status_id NEQ 7 AND datecompare(now(), due_date, "d") GTE 0><i class="status_<cfif datecompare(now(), due_date, "d") EQ 0>not_started<cfelse>overdue</cfif>"></i>&nbsp;</cfif>#task_status#</td>
+		<td class="date">#dateformat(due_date, "m/d/yyyy")#</td>
 	</tr>
 </cfoutput>
 </tbody>

@@ -12,7 +12,7 @@
 	$Log$
 	 || 
  --->
-<cfparam name="attributes.order_by" default="date_due">
+<cfparam name="attributes.order_by" default="due_date">
 </cfsilent>
 <cfinclude template="../common_files/act_client_vars.cfm">
 <cfinclude template="../common_files/act_task_list_order.cfm">

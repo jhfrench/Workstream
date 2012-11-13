@@ -45,7 +45,7 @@
 			<a href="javascript:order_by('task_status');" title="Order by the task status.">Status<cfif NOT compare(ListFirst(ListFirst(variables.workstream_task_list_order), " "),"task_status")> <i class="icon-chevron-<cfif listlen(ListFirst(variables.workstream_task_list_order), " ") EQ 2>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
 		<th>
-			<a href="javascript:order_by('date_due');" title="Order by the date that the task is due.">Due<cfif NOT compare(ListFirst(ListFirst(variables.workstream_task_list_order), " "),"date_due")> <i class="icon-chevron-<cfif listlen(ListFirst(variables.workstream_task_list_order), " ") EQ 2>down<cfelse>up</cfif>"></i></cfif></a>
+			<a href="javascript:order_by('due_date');" title="Order by the date that the task is due.">Due<cfif NOT compare(ListFirst(ListFirst(variables.workstream_task_list_order), " "),"due_date")> <i class="icon-chevron-<cfif listlen(ListFirst(variables.workstream_task_list_order), " ") EQ 2>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
 	</tr>
 </thead>

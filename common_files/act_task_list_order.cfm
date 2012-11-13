@@ -15,20 +15,21 @@
 	--> attributes.reorder: boolean that allows the list to be ordered by new submission
 	<-> session.workstream_task_list_order: list of query columns to ORDER BY which is minipulated based on the contents of attributes.order_by
  --->
-<cfparam name="session.workstream_task_list_order" default="date_due">
+<cfparam name="session.workstream_task_list_order" default="due_date">
 <cfif isdefined("attributes.order_by") AND isdefined("attributes.reorder")>
-	<cfif listfind(session.workstream_task_list_order,attributes.order_by) EQ 1>
-		<cfset session.workstream_task_list_order=listdeleteat(session.workstream_task_list_order,1)>
-		<cfset session.workstream_task_list_order=listprepend(session.workstream_task_list_order, "#attributes.order_by# desc")>
-	<cfelseif listfind(session.workstream_task_list_order,attributes.order_by)>
-		<cfset session.workstream_task_list_order=listdeleteat(session.workstream_task_list_order,listfind(session.workstream_task_list_order,attributes.order_by))>
-		<cfset session.workstream_task_list_order=listprepend(session.workstream_task_list_order, attributes.order_by)>
-	<cfelseif listfind(session.workstream_task_list_order,"#attributes.order_by# desc")>
-		<cfset session.workstream_task_list_order=listdeleteat(session.workstream_task_list_order,listfind(session.workstream_task_list_order,"#attributes.order_by# desc"))>
-		<cfset session.workstream_task_list_order=listprepend(session.workstream_task_list_order, attributes.order_by)>
+	<cfif listfind(variables.task_list_order,attributes.order_by) EQ 1>
+		<cfset variables.task_list_order=listdeleteat(variables.task_list_order,1)>
+		<cfset variables.task_list_order=listprepend(variables.task_list_order, "#attributes.order_by# desc")>
+	<cfelseif listfind(variables.task_list_order,attributes.order_by)>
+		<cfset variables.task_list_order=listdeleteat(variables.task_list_order,listfind(variables.task_list_order,attributes.order_by))>
+		<cfset variables.task_list_order=listprepend(variables.task_list_order, attributes.order_by)>
+	<cfelseif listfind(variables.task_list_order,"#attributes.order_by# desc")>
+		<cfset variables.task_list_order=listdeleteat(variables.task_list_order,listfind(variables.task_list_order,"#attributes.order_by# desc"))>
+		<cfset variables.task_list_order=listprepend(variables.task_list_order, attributes.order_by)>
 	<cfelse>
-		<cfset session.workstream_task_list_order=listprepend(session.workstream_task_list_order, attributes.order_by)>
+		<cfset variables.task_list_order=listprepend(variables.task_list_order, attributes.order_by)>
 	</cfif>
+	<cfset session.workstream_task_list_order=variables.task_list_order>
 </cfif>
 </cfsilent>
 
