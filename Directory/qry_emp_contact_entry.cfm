@@ -14,20 +14,22 @@
 	Variables:
  --->
 </cfsilent>
-<cfquery name="emp_contact_entry" datasource="#application.datasources.main#">
-INSERT INTO Emp_Contact (name, mi, lname,
-	credentials, emp_contact_type)
-VALUES('#attributes.name#', '#attributes.mi#', '#attributes.lname#',
-	'#attributes.credentials#', #emp_contact_type#)
+<cftransaction>
+<cfquery name="insert_user_account" datasource="#application.datasources.main#">
+INSERT INTO User_Account (user_name, account_type_id)
+VALUES ('#attributes.last_name##left(attributes.first_name, 1)#', 1);
 </cfquery>
+	
 <cfquery name="max_user_account_id" datasource="#application.datasources.main#">
-SELECT CURRVAL('Emp_Contact_user_account_id_SEQ') AS user_account_id
+SELECT CURRVAL('User_Account_user_account_id_SEQ') AS user_account_id
 </cfquery>
+</cftransaction>
 <cfset variables.user_account_id=max_user_account_id.user_account_id>
 <cfset attributes.user_account_id=variables.user_account_id>
-<!--- 
-<cfquery name="emp_contact_delete" datasource="#application.datasources.main#">
-DELETE Emp_Contact
-WHERE user_account_id=#variables.user_account_id#
+
+<cfquery name="insert_demographics" datasource="#application.datasources.main#">
+INSERT INTO Demographics (first_name, last_name, middle_initial,
+	credentials, user_account_id)
+VALUES ('#attributes.first_name#', '#attributes.last_name#', '#attributes.middle_initial#',
+	'#attributes.credentials#', #attributes.user_account_id#);
 </cfquery>
- --->
