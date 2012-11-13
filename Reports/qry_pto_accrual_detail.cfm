@@ -11,11 +11,6 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfquery name="get_name" datasource="#application.datasources.main#" >
-SELECT name, lname
-FROM emp_contact
-WHERE Emp_Contact.user_account_id ='#page_pin#'
-</cfquery>
 <cfquery name="PTO_Hours" datasource="#application.datasources.main#">
 SELECT *
 FROM 

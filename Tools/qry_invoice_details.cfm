@@ -38,6 +38,6 @@ WHERE Project.billable_type_id=#attributes.billable_type_id#
 GROUP BY Hours_ID.project_id, Project.billable_type_id, Hours_ID.hours, 
 	Billing_Rate.rate, Hours_ID.user_account_id, Demographics.first_name, 
 	Demographics.last_name, Project.project_code, Project.description
-ORDER BY Demographics.last_name, Emp_Contact.name
+ORDER BY Demographics.last_name, Demographics.first_name
 </cfquery>
 </cfsilent>
