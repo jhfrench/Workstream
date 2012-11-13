@@ -57,10 +57,10 @@
 			<td colspan="2" class="SubHeadText">Name:</td>
 			<td class="SubHeadText">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					#get_demographics.fname#
+					#get_demographics.first_name#
 					&nbsp;
-					#get_demographics.lname#
-				<input type="hidden" name="user_account_id" value="#get_demographics.user_account_id#">
+					#get_demographics.last_name#
+				<input type="hidden" name="user_account_id" value="#get_demographics.user_account_id#" />
 			</td>
 		</tr>
 
@@ -128,7 +128,7 @@
 			<td>&nbsp;</td>
 			<td>
 				<textarea cols="100" rows="7" name="biography" >#get_demographics.biography#</textarea>
-				<input type="hidden" name="emp_biography_id" value="#get_demographics.emp_biography_id#">
+				<input type="hidden" name="emp_biography_id" value="#get_demographics.emp_biography_id#" />
 			</td>
 		</tr>
 

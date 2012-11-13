@@ -12,8 +12,9 @@
 	 || 
 	END FUSEDOC --->
 <cfquery name="get_name" datasource="#application.datasources.main#">
-SELECT name, lname
-FROM emp_contact
-WHERE user_account_id=#attributes.user_account_id#
+SELECT first_name, last_name
+FROM Demographics
+WHERE active_ind=1
+	AND user_account_id=#attributes.user_account_id#
 </cfquery>
 </cfsilent>

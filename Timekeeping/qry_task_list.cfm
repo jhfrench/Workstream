@@ -90,19 +90,23 @@ FROM Task
 		WHERE Team.active_ind=1
 			AND Team.role_id=3 /* QA */
 	) AS Task_Tester ON Task.task_id=Task_Tester.task_id<cfif NOT variables.from_invoice>
-	INNER JOIN Team ON Task.task_id=Team.task_id
-		AND Team.active_ind=1
-		AND Team.user_account_id IN (<cfif isdefined("attributes.user_account_id")><cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.user_account_id#" /><cfelse><cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" list="yes" /></cfif>)
-		AND (
-			(
-				Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>)
-					AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>10) /*completed, on hold, prospective*/
-			)
-			OR (
-			Team.role_id=3
-				AND Task.status_id=3 /* QA */
-			)
-		)</cfif><cfif isdefined("variables.temp_task_list_order")>
+	INNER JOIN (
+		SELECT Task.task_id
+		FROM Task
+			INNER JOIN Team ON Task.task_id=Team.task_id
+				AND Team.active_ind=1
+				AND Team.user_account_id IN (<cfif isdefined("attributes.user_account_id")><cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.user_account_id#" /><cfelse><cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" list="yes" /></cfif>)
+				AND (
+					(
+						Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>)
+							AND Task.status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>10) /*completed, on hold, prospective*/
+					)
+					OR (
+					Team.role_id=3
+						AND Task.status_id=3 /* QA */
+					)
+				)
+	) AS Valid_Tasks ON Task.task_id=Valid_Tasks.task_id</cfif><cfif isdefined("variables.temp_task_list_order")>
 ORDER BY <cfif isdefined("attributes.user_account_id") AND listlen(attributes.user_account_id) GT 1>task_owner, </cfif>#variables.temp_task_list_order#</cfif>
 LIMIT 500
 </cfquery>

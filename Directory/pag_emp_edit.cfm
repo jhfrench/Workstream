@@ -20,7 +20,7 @@
 	<cfinclude template="qry_get_open_positions.cfm">
 	<cfinclude template="qry_get_employee_type.cfm">
 	<cfinclude template="qry_get_employee_classification.cfm">
-	<cfinclude template="qry_get_user_type.cfm">
+	<cfinclude template="../qry_get_ref_account_type.cfm">
 	<cfinclude template="qry_populate_employee_form.cfm">
 
 	<cfinclude template="../common_files/qry_get_states.cfm">
@@ -30,8 +30,6 @@
 <cfform action="index.cfm?fuseaction=Directory.emp_update" name="emp_entry" method="POST" class="form-horizontal">
 	<fieldset>
 		<legend><h2>Edit Employee Details</h2></legend>
-		<cfoutput query="populate_employee_form">
 		<cfinclude template="dsp_emp_details_form.cfm">
-		</cfoutput>
 	</fieldset>
 </cfform>

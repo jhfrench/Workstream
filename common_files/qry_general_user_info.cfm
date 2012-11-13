@@ -29,11 +29,12 @@
 SELECT COALESCE(REF_Company.show_hours_data_ind,0) AS show_hours_data_ind, REF_Company.pto_accrual_type_id, REF_Company.display_chat,
 	REF_Company.company_id, REF_Company.description AS company_name, REF_Company.alternate_datasource,
 	Emp_Contact.user_account_id, Emp_Contact.name AS first_name, Emp_Contact.lname AS last_name,
-	Emp_Contact.emp_contact_type
+	User_Account.account_type_id
 FROM User_Account
 	INNER JOIN Emp_Contact ON User_Account.user_account_id=Emp_Contact.user_account_id
 	INNER JOIN Link_Company_User_Account ON Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id
 	INNER JOIN REF_Company ON Link_Company_User_Account.company_id=REF_Company.company_id
+	INNER JOIN REF_Account_Type ON 
 WHERE User_Account.user_account_id=#variables.user_account_id#
 </cfquery>
 </cfsilent>

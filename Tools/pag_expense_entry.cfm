@@ -61,7 +61,7 @@
 		</tr>
 	</cfif>
 	<tr>
-		<td colspan="6"><cfoutput query="get_name">Expenses for #UCase(name)# #UCase(lname)#</cfoutput></td>
+		<td colspan="6"><cfoutput query="get_name">Expenses for #first_name# #last_name#</cfoutput></td>
 	</tr>
 	<cfinclude template="expense_header.cfm">
 	<cfif get_expense_register.recordcount>

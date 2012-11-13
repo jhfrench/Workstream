@@ -17,21 +17,21 @@
 <fieldset>
 	<legend><h3>Personal</h3></legend>
 	<div class="control-group">
-		<label for="lname" class="control-label">Last Name</label>
+		<label for="last_name" class="control-label">Last Name</label>
 		<div class="controls">
-			<cfinput type="text" name="lname" id="lname" value="#lname#" required="yes" message="Please enter a last name." class="span3" />
+			<cfinput type="text" name="last_name" id="last_name" value="#last_name#" required="yes" message="Please enter a last name." class="span3" />
 		</div>
 	</div>
 	<div class="control-group">
-		<label for="name" class="control-label">First Name</label>
+		<label for="first_name" class="control-label">First Name</label>
 		<div class="controls">
-			<cfinput type="text" name="name" id="name" value="#name#" required="yes" message="Please enter a first name." class="span3" />
+			<cfinput type="text" name="first_name" id="first_name" value="#first_name#" required="yes" message="Please enter a first name." class="span3" />
 		</div>
 	</div>
 	<div class="control-group">
-		<label for="mi" class="control-label">Middle Initial</label>
+		<label for="middle_initial" class="control-label">Middle Initial</label>
 		<div class="controls">
-			<input type="text" name="mi" id="mi" value="#mi#" class="span3" />
+			<input type="text" name="middle_initial" id="middle_initial" value="#middle_initial#" class="span3" />
 		</div>
 	</div>
 	<div class="control-group">
@@ -41,21 +41,21 @@
 		</div>
 	</div>
 	<div class="control-group">
-		<label for="dob" class="control-label">Birthday</label>
+		<label for="birth_date" class="control-label">Birthday</label>
 		<div class="controls">
-			<input type="date" name="dob" id="dob" min="1911-02-02" max="#dateformat(dateadd('yyyy',now(),-14), 'yyyy-mm-dd')#" value="#dateformat(dob, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="birth_date" id="birth_date" min="1911-02-02" max="#dateformat(dateadd('yyyy',now(),-14), 'yyyy-mm-dd')#" value="#dateformat(birth_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
 		</div>
 	</div>
 	<div class="control-group">
-		<label for="ssn" class="control-label"><abbr title="Social Security Number">SSN</abbr></label>
+		<label for="uupic" class="control-label"><abbr title="Social Security Number">uupic</abbr></label>
 		<div class="controls">
-			<cfinput type="text" name="ssn" id="ssn" value="#ssn#" required="yes" validate="social_security_number" message="Please enter a properly formatted SSN." class="span3" />
+			<cfinput type="text" name="uupic" id="uupic" value="#uupic#" required="yes" message="Please enter a properly formatted uupic." class="span3" />
 		</div>
 	</div>
 	<div class="control-group">
-		<label for="photo" class="control-label">Picture</label>
+		<label for="photo_path" class="control-label">Picture</label>
 		<div class="controls">
-			<input type="text" name="photo" id="photo" value="#photo#" class="span3" /><!--- $issue$ <input type="file" name="photo" size="20" value=""> --->
+			<input type="text" name="photo_path" id="photo_path" value="#photo_path#" class="span3" /><!--- $issue$ <input type="file" name="photo_path" size="20" value=""> --->
 		</div>
 	</div>
 	<div class="control-group">
@@ -102,15 +102,6 @@
 		</div>
 	</div>
 	<div class="control-group">
-		<label for="manager_non_id" class="control-label">Manager/Non</label>
-		<div class="controls">
-			<select name="manager_non_id" id="manager_non_id" class="span3">
-				<option value="1"<cfif manager_non_id EQ "1"> selected="selected"</cfif>>Manager</option>
-				<option value="0"<cfif manager_non_id EQ "0"> selected="selected"</cfif>>Non-Manager</option>
-			</select>
-		</div>
-	</div>
-	<div class="control-group">
 		<label for="employee_classification" class="control-label">Employee Classification</label>
 		<div class="controls">
 			<cfselect name="employee_classification" id="employee_classification" query="get_employee_classification" selected="#employee_classification_id#" value="employee_classification_id" display="employee_classification" class="span3" />
@@ -125,9 +116,9 @@
 		</div>
 	</div>
 	<div class="control-group">
-		<label for="emp_contact_type" class="control-label">User Type</label>
+		<label for="account_type_id" class="control-label">User Type</label>
 		<div class="controls">
-			<cfselect name="emp_contact_type" id="emp_contact_type" selected="#emp_contact_type#" query="get_user_type" value="emp_contact_id" display="emp_contact_type" class="span3" />
+			<cfselect name="account_type_id" id="account_type_id" selected="#account_type_id#" query="get_ref_account_type" value="account_type_id" display="description" class="span3" />
 		</div>
 	</div>
 	<div class="control-group">

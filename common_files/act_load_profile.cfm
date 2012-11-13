@@ -28,7 +28,7 @@
 		session.workstream_company_id=profile_lookup.company_id;
 		session.workstream_company_name=profile_lookup.company_name;
 		session.workstream_selected_company_id=profile_lookup.company_select_list;
-		session.workstream_emp_contact_type=1;
+		session.account_type_id=1;
 		session.workstream_express_input_rows=profile_lookup.express_input_rows;
 		session.workstream_express_notes_height=profile_lookup.express_notes_height;
 		session.workstream_express_notes_width=profile_lookup.express_notes_width;
@@ -49,7 +49,7 @@
 		session.workstream_company_id=general_user_info.company_id;
 		session.workstream_company_name=valuelist(general_user_info.company_name);
 		session.workstream_selected_company_id=valuelist(general_user_info.company_id);
-		session.workstream_emp_contact_type=general_user_info.emp_contact_type;
+		session.account_type_id=general_user_info.account_type_id;
 		session.workstream_express_input_rows=5;
 		session.workstream_express_notes_height=1;
 		session.workstream_express_notes_width=40;

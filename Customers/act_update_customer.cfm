@@ -53,10 +53,12 @@ WHERE customer_id=#attributes.customer_id#
 <!--- see if the name entered exists in the database as a billing contact --->
 	<cfquery name="get_contact_name" datasource="#application.datasources.main#">
 	SELECT user_account_id
-	FROM Emp_Contact
-	WHERE name='#attributes.name#'
-		AND lname='#attributes.lname#'
-		AND emp_contact_type=4
+	FROM Demographics
+		INNER JOIN User_Account ON Demographics.user_account_id=User_Account.user_account_id
+			AND User_Account.account_type_id=2
+	WHERE Demographics.active_ind=1
+		AND Demographics.first_name='#attributes.name#'
+		AND Demographics.last_name='#attributes.lname#'
 	</cfquery>
 <!--- If the person is already in the system as a billing contact, update the Customer table to reference the existing contact --->
 	<cfif len(get_contact_name.user_account_id)>
@@ -67,14 +69,18 @@ WHERE customer_id=#attributes.customer_id#
 		</cfquery>
 	<!--- If the person doesn't exist in the system, insert him into the system --->
 	<cfelse>
-			<cfquery name="insert_new_contact" datasource="#application.datasources.main#">
-			INSERT INTO Emp_Contact (name, lname, emp_contact_type)
-			VALUES ('#attributes.name#', '#attributes.lname#', 4)
-			</cfquery>
+		<cfquery name="insert_user_account" datasource="#application.datasources.main#">
+		INSERT INTO User_Account (user_name, account_type_id)
+		VALUES ('#left(attributes.first_name,1)##attributes.last_name#', 2)
+		</cfquery>
+		<cfquery name="insert_customer_contact" datasource="#application.datasources.main#">
+		INSERT INTO Demographics (first_name, last_name, user_account_id)
+		VALUES ('#attributes.first_name#', '#attributes.last_name#', CURRVAL('User_Account_user_account_id_SEQ'))
+		</cfquery>
 	<!--- and  update the Customer table with the new contact information --->
 			<cfquery name="update_customer" datasource="#application.datasources.main#">
 			UPDATE Customer
-			SET emp_contact_id=CURRVAL('Emp_Contact_user_account_id_SEQ')
+			SET emp_contact_id=CURRVAL('User_Account_user_account_id_SEQ')
 			WHERE customer_id=#attributes.customer_id#
 			</cfquery>
 	</cfif>

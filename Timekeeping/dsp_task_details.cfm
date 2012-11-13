@@ -120,7 +120,7 @@
 				</div>
 			</div>
 		<cfinclude template="dsp_task_detail_notes_entry.cfm">
-		<cfif listfind("1,5", session.workstream_emp_contact_type) OR session.workstream_show_hours_data_ind EQ 1>
+		<cfif listfind("1,5", session.account_type_id) OR session.workstream_show_hours_data_ind EQ 1>
 			<!--- show time data to employees, or customers *if* their company is set up to view hours--->
 			<cfinclude template="dsp_time_details_graph.cfm">
 		<cfelse>
