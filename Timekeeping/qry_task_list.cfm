@@ -50,7 +50,7 @@
 </cfif>
 
 <cfquery name="task_list" datasource="#application.datasources.main#">
-SELECT Task.due_date, Task.task_id, Task.name,
+SELECT Task.due_date, Task.task_id, Task.name AS task_name,
 	COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Task.status_id,
 	REF_Icon.class_name AS task_icon, REF_Priority.description AS priority, COALESCE(Recorded_Hours.hours_used,0) AS hours_used, 
 	(Customer.description || '-' || Project.description) AS project_name, Task_Owner.first_name AS task_owner, Task_Owner.last_name || ', ' || Task_Owner.first_name AS task_owner_full_name,
