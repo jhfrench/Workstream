@@ -25,7 +25,7 @@ WHERE task_id=#attributes.task_id#
 		created_by)
 	SELECT #attributes.task_id#, user_account_id, 4,
 		#variables.user_identification#
-	FROM Emp_Contact
+	FROM User_Account
 	WHERE user_account_id IN (#attributes.task_team#)
 		/*don't duplicate team assignments*/
 		AND user_account_id NOT IN (

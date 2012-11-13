@@ -126,7 +126,7 @@
 <cfquery name="prepare_email" datasource="#application.datasources.main#">
 SELECT Email_Source.task_source AS email_from, Email.email AS email_to, 
 	Task.task_id, Task.name AS task_name, Task.description AS description, 
-	Task.budgeted_hours, Task.due_date, Emp_Contact.name, Email.email_id
+	Task.budgeted_hours, Task.due_date, Demographics.first_name, Email.email_id
 FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
@@ -134,7 +134,8 @@ FROM Task
 	INNER JOIN Email ON Team.user_account_id=Email.user_account_id
 		AND Email.email_type_id=1
 		AND Email.user_account_id!=#variables.user_identification#
-	INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.user_account_id
+	INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
+		AND Demographics.active_ind=1
 	INNER JOIN (
 		SELECT Email.email AS task_source, Team.task_id
 		FROM Team
@@ -153,7 +154,7 @@ WHERE Task.task_id=#attributes.task_id#
 	<cfif listlen(variables.email_to) AND len(variables.email_from)>
 		<cfset variables.email_subject="#variables.email_subject_prefix#: #prepare_email.task_name#">
 		<cfsavecontent variable="variables.email_body">
-#prepare_email.name#,
+#prepare_email.first_name#,
 
 The following task #variables.notification_text#: #prepare_email.task_name# (#attributes.task_id#)
 Due: #prepare_email.due_date#
