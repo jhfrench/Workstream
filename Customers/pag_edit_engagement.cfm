@@ -51,5 +51,5 @@
 	</cfcase>
 </cfswitch>
 <cfif isdefined("attributes.edit") AND (NOT isdefined("attributes.original_billable_type_id") OR attributes.billable_type_id EQ attributes.original_billable_type_id)>
-	<cfmodule template="../common_files/act_redirect_browser.cfm" display="Your changes have been applied to the engagement." fuseaction="Customers.edit_engagement&project_id=#attributes.project_id#">
+	<cfmodule template="../common_files/act_redirect_browser.cfm" delay="2000" display="Your changes have been applied to the engagement." fuseaction="Customers.edit_engagement&project_id=#attributes.project_id#">
 </cfif>
