@@ -24,7 +24,7 @@
 	</cfif>
 </cfif>
 <cfif isdefined("attributes.to_inbox")>
-	<cfmodule template="../common_files/act_redirect_browser.cfm" fuseaction="Timekeeping.task_list" delay="0" display="You are being redirected to your task list">
+	<cfmodule template="../common_files/act_redirect_browser.cfm" fuseaction="Timekeeping.task_list" display="You are being redirected to your task list.">
 <cfelse>
 	<cfinclude template="../common_files/act_call_big_team_list.cfm">
 	<cfinclude template="qry_get_task_details_enhanced.cfm">

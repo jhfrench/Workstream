@@ -34,8 +34,8 @@
  --->
 <cfif isdefined("attributes.ignore_owner")>
 	<cfset variables.from_invoice=1>
-	<cfset attributes.month=listfirst(ignore_owner,"|")>
-	<cfset attributes.year=listlast(ignore_owner,"|")>
+	<cfset attributes.month=listfirst(attributes.ignore_owner,"|")>
+	<cfset attributes.year=listlast(attributes.ignore_owner,"|")>
 <cfelse>
 	<cfset variables.from_invoice=0>
 </cfif>
@@ -57,14 +57,25 @@ SELECT 1 AS constant, Task.due_date AS date_due, Task.task_id,
 	Task_Details.percent_time_used, Task_Details.task_owner, Task_Details.task_owner_full,
 	(CASE WHEN Task.status_id IN (3,8) /* QA, UAT */ THEN Task_Details.task_status || ' by ' || Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
 	(Customer.description || '-' || Project.description) AS project_name, priority
-FROM Task, Team, Emp_Contact,
-	Customer, Project, Link_Project_Company, (
+FROM Task
+	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
+	INNER JOIN Project ON Task.project_id=Project.project_id
+		AND Project.project_id!=#application.application_specific_settings.pto_project_id#<cfif isdefined("attributes.project_id")>
+		AND Project.project_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#" /></cfif>
+	INNER JOIN Link_Project_Company ON Project.project_id=Link_Project_Company.project_id
+		AND Link_Project_Company.company_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#session.workstream_company_id#" list="yes" />)
+	INNER JOIN (
 		SELECT Path.task_id, COALESCE(Recorded_Hours.hours_used,0) AS time_used, Path.class_name AS task_icon, 
 			(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE (Recorded_Hours.hours_used/Task.budgeted_hours) END,0)*100) AS percent_time_used,
 			REF_Status.status AS task_status, Emp_Contact.name AS task_owner, (Emp_Contact.lname || ', ' || Emp_Contact.name) AS task_owner_full,
 			priority
-		FROM Task, REF_Status, Team,
-			Emp_Contact, (
+		FROM Task
+			INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id
+			INNER JOIN Team ON Task.task_id=Team.task_id 
+				AND Team.active_ind=1
+				AND Team.role_id=1 /* owner */
+			INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.user_account_id
+			INNER JOIN (
 				SELECT Valid_Tasks.task_id, REF_Icon.class_name, priority
 				FROM (
 					SELECT Task.task_id, REF_Priority.description AS priority
@@ -88,7 +99,7 @@ FROM Task, Team, Emp_Contact,
 				) AS Valid_Tasks, Task, REF_Icon
 				WHERE Valid_Tasks.task_id=Task.task_id
 					AND REF_Icon.icon_id=Task.icon_id
-			) AS Path
+			) AS Path ON Task.task_id=Path.task_id
 			<cfif variables.from_invoice>INNER<cfelse>LEFT OUTER</cfif> JOIN (
 				SELECT task_id, SUM(hours) AS hours_used
 				FROM Time_Entry
@@ -96,25 +107,12 @@ FROM Task, Team, Emp_Contact,
 					AND EXTRACT(MONTH FROM Time_Entry.work_date)=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.month#" />
 					AND EXTRACT(YEAR FROM Time_Entry.work_date)=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.year#" /></cfif>
 				GROUP BY task_id
-			) AS Recorded_Hours ON Path.task_id = Recorded_Hours.task_id
-		WHERE Task.task_id=Path.task_id
-			AND REF_Status.status_id=Task.status_id
-			AND Task.task_id=Team.task_id 
-			AND Team.active_ind=1
-			AND Team.role_id=1
-			AND Emp_Contact.user_account_id=Team.user_account_id
-	) AS Task_Details
-WHERE Customer.customer_id=Project.customer_id
-	AND Task_Details.task_id=Team.task_id
-	AND Task.project_id=Project.project_id 
-	AND Task.task_id=Task_Details.task_id
-	AND Emp_Contact.user_account_id=Team.user_account_id 
-	AND Link_Project_Company.project_id=Project.project_id 
-	AND Link_Project_Company.company_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#session.workstream_company_id#" list="yes" />)
-	AND Team.active_ind=1
-	AND Team.role_id=3 /* QA */<cfif isdefined("attributes.project_id")>
-	AND Project.project_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#" /></cfif>
-	AND Project.project_id!=#application.application_specific_settings.pto_project_id#<cfif isdefined("session.workstream_task_list_order")>
+			) AS Recorded_Hours ON Path.task_id=Recorded_Hours.task_id
+	) AS Task_Details ON Task.task_id=Task_Details.task_id
+	INNER JOIN Team ON Task_Details.task_id=Team.task_id
+		AND Team.active_ind=1
+		AND Team.role_id=3 /* QA */
+	INNER JOIN Emp_Contact ON Emp_Contact.user_account_id=Team.user_account_id<cfif isdefined("session.workstream_task_list_order")>
 ORDER BY <cfif isdefined("attributes.user_account_id") AND listlen(attributes.user_account_id) GT 1>task_owner, #variables.temp_task_list_order#<cfelse>#session.workstream_task_list_order#</cfif></cfif>
 </cfquery>
 </cfsilent>
