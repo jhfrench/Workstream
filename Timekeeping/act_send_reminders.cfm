@@ -18,7 +18,7 @@
 SELECT Task.task_id, Task.name AS task_name, Task.description AS description, 
 	Task.budgeted_hours, Task.due_date, 
 	Task_Source.task_source AS email_from, Email.email AS email_to, 
-	Emp_Contact.name, Notification.days_before_due AS countdown
+	Demographics.first_name, Notification.days_before_due AS countdown
 FROM Task
 	INNER JOIN Notification ON Task.task_id=Notification.task_id
 		AND Notification.notification_type=1
@@ -26,7 +26,8 @@ FROM Task
 		AND Notification.date_sent IS NULL
 	INNER JOIN Email ON Notification.email_id=Email.email_id
 		AND Email.email_type_id=1
-	INNER JOIN Emp_Contact ON Email.user_account_id=Emp_Contact.user_account_id
+	INNER JOIN Demographics ON Email.user_account_id=Demographics.user_account_id
+		AND Demographics.active_ind=1
 	INNER JOIN (
 		SELECT Email.email AS task_source, Email.user_account_id AS source_id, Team.task_id
 		FROM Team
@@ -45,7 +46,8 @@ FROM Task
 		AND Notification.notification_type=2
 	INNER JOIN Email ON Notification.email_id=Email.email_id
 		AND Email.email_type_id=1
-	INNER JOIN Emp_Contact ON Email.user_account_id=Emp_Contact.user_account_id
+	INNER JOIN Demographics ON Email.user_account_id=Demographics.user_account_id
+		AND Demographics.active_ind=1
 	INNER JOIN (
 		SELECT Email.email AS task_source, Email.user_account_id AS source_id, Team.task_id
 		FROM Team
@@ -59,7 +61,7 @@ WHERE Task.task_id=#task_id#
 <cfset variables.cc_list=valuelist(get_cc.email_to)>
 <cfmail from="#application.erroremailfrom#" to="#email_to#" cc="#variables.cc_list#" subject="workstream Task Reminder: #task_name#" server="#application.emailserver#">
 <cfmailparam name="Reply-To" value="#email_from#">
-#name#,
+#first_name#,
 The following task will be due in #datediff("d",now(),dateadd("d",1,due_date))# day<cfif countdown NEQ 1>s</cfif>: 
 Task name: #task_name# (http://#cgi.server_name#/index.cfm?fuseaction=Timekeeping.task_details&task_id=#task_id#)
 Task Number: #task_id#

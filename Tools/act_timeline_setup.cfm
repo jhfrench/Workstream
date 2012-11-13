@@ -38,12 +38,12 @@ FROM
 	</cfif>
 </cfloop>
 <cfquery name="insert_user_account_ids" datasource="#application.datasources.main#">
-INSERT INTO Project_Planning_Access(project_planning_id,user_account_id)
+INSERT INTO Project_Planning_Access (project_planning_id, user_account_id)
 SELECT #get_project_planning_id.project_planning_id# AS project_planning_id, user_account_id
-FROM Emp_Contact
+FROM User_Account
 WHERE user_account_id IN (#variables.user_account_id_list#)
 </cfquery>
-<cfset dir_to_make = '\\192.168.0.152\attatched_files\workstream\Project_Planning\' & '#get_project_planning_id.project_planning_id#'>
+<cfset dir_to_make = '\\192.168.0.152\attatched_files\workstream\Project_Planning\#get_project_planning_id.project_planning_id#'><!--- $issue$: what do we do with this? --->
 <cfdirectory action="create" directory="#dir_to_make#">
 <cfset session.last_submitted=attributes.last_submitted>
 </cfsilent>

@@ -21,7 +21,7 @@ FROM Task
 		AND Team.user_account_id=#variables.user_identification#
 WHERE Task.status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
 UNION ALL
-SELECT (Emp_Contact.lname || '-' || Task.name) AS task_name, Task.task_id, 2 AS sort_order
+SELECT (Demographics.last_name || '-' || Task.name) AS task_name, Task.task_id, 2 AS sort_order
 FROM Task
 	INNER JOIN Team Owner ON Task.task_id=Owner.task_id
 		AND Owner.active_ind=1
@@ -31,7 +31,8 @@ FROM Task
 		AND Team.active_ind=1
 		AND Team.role_id=4
 		AND Team.user_account_id=#variables.user_identification#
-	INNER JOIN Emp_Contact ON Owner.user_account_id=Emp_Contact.user_account_id
+	INNER JOIN Demographics ON Owner.user_account_id=Demographics.user_account_id
+		AND Demographics.active_ind=1
 WHERE Task.status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
 UNION ALL
 /*generic codes like PTO*/

@@ -42,7 +42,7 @@
 		<td bgcolor="##ffffff">&nbsp;</td>
 		<td><a href="javascript:list_to_details('#task_id#');"><img src="#application.application_specific_settings.image_dir##task_icon#" alt="#ReplaceList(task_description, variables.quote, variables.status_message_replace_with)#" height="16" width="16" border="0">&nbsp;#task_name#</a></td>
 	<cfinclude template="qry_get_team_members.cfm">
-		<td>#listchangedelims(valuelist(get_team_members.name),", ")#</td>
+		<td>#listchangedelims(valuelist(get_team_members.last_name),", ")#</td>
 		<td>#dateformat(assigned_date,"m/d/yyyy")#</td>
 		<td>#dateformat(due_date,"m/d/yyyy")#</td>
 		<td>#status#</td>

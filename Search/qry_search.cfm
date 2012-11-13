@@ -94,14 +94,14 @@ SELECT 1 AS constant, Task.due_date, Task.task_id,
 	COALESCE(Task.budgeted_hours,0) AS time_budgeted, Task.status_id, 
 	Task_Details.task_id, Task_Details.time_used, Task_Details.task_icon, 
 	Task_Details.percent_time_used, Task_Details.task_owner, Task_Details.task_owner_full,
-	(CASE WHEN Task.status_id IN (4,10) THEN Task_Details.task_status || ' by ' || Emp_Contact.lname ELSE Task_Details.task_status END) AS task_status,
+	(CASE WHEN Task.status_id IN (4,10) THEN Task_Details.task_status || ' by ' || Demographics.last_name ELSE Task_Details.task_status END) AS task_status,
 	(Customer.description || '-' || Project.description) AS project_name, priority
-FROM Task, Team, Emp_Contact, Project, Customer,
+FROM Task, Team, Demographics, Project, Customer,
 	(SELECT Path.task_id, COALESCE(Recorded_Hours.used_hours,0) AS time_used, Path.class_name AS task_icon, 
 		(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE (Recorded_Hours.used_hours/Task.budgeted_hours) END,0)*100) AS percent_time_used,
-		REF_Status.status AS task_status, Emp_Contact.name AS task_owner, (Emp_Contact.lname || ', ' || Emp_Contact.name) AS task_owner_full,
+		REF_Status.status AS task_status, Demographics.first_name AS task_owner, (Demographics.last_name || ', ' || Demographics.first_name) AS task_owner_full,
 		priority
-	FROM Task, REF_Status, Team, Emp_Contact,
+	FROM Task, REF_Status, Team, Demographics,
 		(SELECT Valid_Tasks.task_id, REF_Icon.class_name, priority
 			FROM
 			<cfif len(attributes.notes)>(SELECT Notes.task_id, priority
@@ -147,7 +147,7 @@ FROM Task, Team, Emp_Contact, Project, Customer,
 		AND Team.active_ind=1
 		AND Team.role_id=1
 		AND Task.task_id=Team.task_id 
-		AND Emp_Contact.user_account_id=Team.user_account_id)
+		AND Demographics.user_account_id=Team.user_account_id)
 AS Task_Details
 WHERE Project.customer_id=Customer.customer_id
 	AND Task_Details.task_id=Team.task_id
@@ -155,7 +155,8 @@ WHERE Project.customer_id=Customer.customer_id
 	AND Team.role_id=3
 	AND Task.project_id=Project.project_id 
 	AND Task.task_id=Task_Details.task_id
-	AND Emp_Contact.user_account_id=Team.user_account_id<cfif variables.use_customer_criteria>
+	AND Demographics.user_account_id=Team.user_account_id
+	AND Demographics.active_ind=1<cfif variables.use_customer_criteria>
 	AND Customer.customer_id IN (#attributes.customer_id#) /*if the user specifies customer criteria, limit the results to just those customers*/</cfif>
 <cfif isdefined("session.workstream_task_list_order")>ORDER BY #session.workstream_task_list_order#</cfif>
 LIMIT 500
