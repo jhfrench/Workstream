@@ -22,14 +22,14 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="get_demographics" datasource="#application.datasources.main#">
-SELECT Emp_Contact.Name AS fname, Emp_Contact.lname, Demographics.user_account_id,
+SELECT Demographics.user_account_id, Demographics.last_name, Demographics.first_name,
 	Emp_Biography.biography, Emp_Biography.emp_biography_id
-FROM Emp_Biography
-	RIGHT OUTER JOIN Emp_Contact
-	INNER JOIN View_Demographics_Workstream AS Demographics ON Emp_Contact.user_account_id=Demographics.user_account_id 
-	ON Emp_Biography.user_account_id=Demographics.user_account_id
-WHERE (Demographics.Effective_To IS NULL)<cfif isdefined("variables.user_identification") and len(variables.user_identification)>
-	AND Demographics.user_account_id=#variables.user_identification#</cfif>
+FROM Employee
+	INNER JOIN Demographics ON Employee.user_account_id=Demographics.user_account_id
+		AND Demographics.active_ind=1<cfif isdefined("variables.user_identification") and len(variables.user_identification)>
+		AND Demographics.user_account_id=#variables.user_identification#</cfif>
+	LEFT OUTER JOIN Emp_Biography ON Demographics.user_account_id=Emp_Biography.user_account_id
+ORDER BY Demographics.last_name, Demographics.first_name
 </cfquery>
 <cfif len(get_demographics.recordcount)>
 	<cfset variables.user_account_id=get_demographics.user_account_id>
