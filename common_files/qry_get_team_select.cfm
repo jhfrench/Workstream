@@ -39,8 +39,8 @@ FROM Employee
 		AND Email.email_type_id=1</cfif>
 WHERE Employee.active_ind=1
 	AND #application.team_changed#=#application.team_changed#
-GROUP BY Demographics.user_account_id, Demographics.last_name, Demographics.first_name,
-	<cfif isdefined("variables.email_only")>email_type_id</cfif>
+GROUP BY Demographics.user_account_id, Demographics.last_name, Demographics.first_name<cfif isdefined("variables.email_only")>,
+	email_type_id</cfif>
 ORDER BY Demographics.last_name, Demographics.first_name
 </cfquery>
 </cfsilent>
