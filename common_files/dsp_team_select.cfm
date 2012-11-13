@@ -70,13 +70,13 @@
 <cfif attributes.selected_flag>
 	<select name="#attributes.select_name#" id="#attributes.select_name#"<cfif attributes.size> size="#attributes.size#"</cfif><cfif attributes.multi> multiple="multiple"</cfif><cfif len(attributes.onchange)> onchange="javascript:#attributes.onchange#"</cfif><cfif len(attributes.class)> class="#attributes.class#"</cfif>>
 	<cfloop query="get_team_select">
-		<option value="#user_account_id#" title="#lname#, #name#"<cfif listfind(variables.user_account_id_match, get_team_select.user_account_id, ",")> selected="selected"</cfif>>#display#</option>
+		<option value="#user_account_id#" title="#last_name#, #first_name#"<cfif listfind(variables.user_account_id_match, get_team_select.user_account_id, ",")> selected="selected"</cfif>>#display#</option>
 	</cfloop>
 	</select>
 <cfelse>
 	<cfselect name="#attributes.element_name#" id="#attributes.element_name#" size="2" message="#attributes.message#" required="yes" class="#attributes.class#">
 		<cfloop query="get_team_select">
-			<option value="#user_account_id#" title="#lname#, #name#">#display#</option>
+			<option value="#user_account_id#" title="#last_name#, #first_name#">#display#</option>
 		</cfloop>
 	</cfselect>
 </cfif>

@@ -14,9 +14,10 @@
  --->
 	<tr align="center">
 		<td>
-			<cfoutput><select name="#attributes.formname#" size="#min(get_team_select.recordcount,28)#" onChange="OKButton()"></cfoutput><cfoutput query="get_team_select">
-				<option value="#user_account_id#">#lname#, #left(name, 3)#</option></cfoutput>
+			<cfoutput><select name="#attributes.formname#" size="#min(get_team_select.recordcount,28)#" onChange="OKButton()"><cfloop query="get_team_select">
+				<option value="#user_account_id#">#display#</option></cfloop>
 			</select>
+			</cfoutput>
 		</td>
 	</tr>
 
