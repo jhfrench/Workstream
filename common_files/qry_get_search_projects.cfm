@@ -14,7 +14,7 @@
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
  --->
 
-<cfif session.workstream_emp_contact_type EQ 2>
+<cfif session.account_type_id EQ 2>
 	<cfset variables.valid_codes=session.workstream_company_id>
 <cfelse>
 	<cfset variables.valid_codes=session.workstream_selected_company_id>

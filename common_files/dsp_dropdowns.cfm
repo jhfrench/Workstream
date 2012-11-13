@@ -42,7 +42,7 @@
 <cfelse>
 	<cfset colspan1=4>
 	<cfset colspan2=4>
-	<cfif listfind("1,5", session.workstream_emp_contact_type) OR session.workstream_show_hours_data_ind EQ 1><!--- show time data to employees or customers if their company is set up to view hours--->
+	<cfif listfind("1,5", session.account_type_id) OR session.workstream_show_hours_data_ind EQ 1><!--- show time data to employees or customers if their company is set up to view hours--->
 		<cfset variables.total_columns=8>
 	<cfelse>
 		<cfset variables.total_columns=7>

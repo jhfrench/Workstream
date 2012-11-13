@@ -13,7 +13,7 @@
 	<cfif len(attributes.lname)>
 		<cfquery name="insert_customer_contact" datasource="#application.datasources.main#">
 		INSERT INTO Emp_Contact (name, lname, emp_contact_type)
-		VALUES ('#attributes.name#', '#attributes.lname#', 4)
+		VALUES ('#attributes.name#', '#attributes.lname#', 2)
 		</cfquery>
 		<cfif len(attributes.phone)>
 			<cfquery name="insert_contact_phone" datasource="#application.datasources.main#">

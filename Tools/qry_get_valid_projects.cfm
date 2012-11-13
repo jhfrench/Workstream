@@ -20,10 +20,10 @@ FROM Customer, Project, Link_Project_Company, Link_Customer_Company
 WHERE Customer.customer_id = Project.customer_id
 	AND Project.project_id = Link_Project_Company.project_id
 	AND Customer.customer_id = Project.customer_id
-	AND Link_Customer_Company.company_id IN (<cfif session.workstream_emp_contact_type EQ 2>#session.workstream_company_id#<cfelse>#session.workstream_selected_company_id#</cfif>)
-	AND Link_Project_Company.company_id IN (<cfif session.workstream_emp_contact_type EQ 2>#session.workstream_company_id#<cfelse>#session.workstream_selected_company_id#</cfif>) 
+	AND Link_Customer_Company.company_id IN (<cfif session.account_type_id EQ 2>#session.workstream_company_id#<cfelse>#session.workstream_selected_company_id#</cfif>)
+	AND Link_Project_Company.company_id IN (<cfif session.account_type_id EQ 2>#session.workstream_company_id#<cfelse>#session.workstream_selected_company_id#</cfif>) 
 	AND (Project.active_ind = 1
-	AND (Project.project_end IS NULL OR CURRENT_TIMESTAMP < Project.project_end))<cfif session.workstream_emp_contact_type NEQ 2>
+	AND (Project.project_end IS NULL OR CURRENT_TIMESTAMP < Project.project_end))<cfif session.account_type_id NEQ 2>
 	AND (
 		(1 = CASE 
 			WHEN (Project.company_id = #session.workstream_company_id# AND Project.billable_type_id=2) OR Project.billable_type_id NOT IN (2) THEN 1 
