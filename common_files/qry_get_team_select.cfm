@@ -22,20 +22,25 @@
 <cfparam name="session.workstream_selected_company_id" default="#session.workstream_company_id#">
 <cfparam name="variables.user_account_id_match" default="">
 <cfparam name="attributes.all_employees" default="0">
+<!--- $issue$: Security_Company_Access should be switched over to Access_User_Account_Grouper --->
 <cfquery name="get_team_select" cachedafter="02/02/1978" datasource="#application.datasources.main#">
-SELECT Emp_Contact.user_account_id, Emp_Contact.lname, Emp_Contact.name,
-	COALESCE(Emp_Contact.lname,'') || ', ' || LEFT(COALESCE(Emp_Contact.name,''),2) AS display<cfif isdefined("variables.email_only")>, email_type_id</cfif>
-FROM Emp_Contact
-	INNER JOIN Security_Company_Access ON Emp_Contact.user_account_id=Security_Company_Access.user_account_id<cfif isdefined("variables.email_only")>
-	INNER JOIN Email ON Emp_Contact.user_account_id=Email.user_account_id
+SELECT Demographics.user_account_id, Demographics.last_name, Demographics.first_name,
+	COALESCE(Demographics.last_name,'unknown') || ', ' || LEFT(COALESCE(Demographics.first_name,'unknown'),2) AS display<cfif isdefined("variables.email_only")>, email_type_id</cfif>
+FROM Employee
+	INNER JOIN Security_Company_Access ON Employee.user_account_id=Security_Company_Access.user_account_id
+		AND Security_Company_Access.active_ind=1
+		AND (
+			Security_Company_Access.company_id IN (#session.workstream_selected_company_id#)<cfif len(variables.user_account_id_match)>
+				OR Security_Company_Access.user_account_id IN (#variables.user_account_id_match#)</cfif>
+		)
+	INNER JOIN Demographics ON Employee.user_account_id=Demographics.user_account_id
+		AND Demographics.active_ind=1<cfif isdefined("variables.email_only")>
+	INNER JOIN Email ON Employee.user_account_id=Email.user_account_id
 		AND Email.email_type_id=1</cfif>
-WHERE #application.team_changed#=#application.team_changed#
-	AND (
-		Security_Company_Access.company_id IN (#session.workstream_selected_company_id#)<cfif len(variables.user_account_id_match)>
-			OR Emp_Contact.user_account_id IN (#variables.user_account_id_match#)</cfif>
-	)
-GROUP BY Emp_Contact.user_account_id, Emp_Contact.lname, 
-	LEFT(Emp_Contact.name,2), Emp_Contact.name<cfif isdefined("variables.email_only")>, email_type_id</cfif>
-ORDER BY lname, name<cfif isdefined("variables.email_only")>, email_type_id</cfif>
+WHERE Employee.active_ind=1
+	AND #application.team_changed#=#application.team_changed#
+GROUP BY Demographics.user_account_id, Demographics.last_name, Demographics.first_name,
+	<cfif isdefined("variables.email_only")>email_type_id</cfif>
+ORDER BY Demographics.last_name, Demographics.first_name
 </cfquery>
 </cfsilent>
