@@ -57,7 +57,7 @@
 		<td align="right" valign="top" class="SubHeadText">Author: </td>
 		<td>
 				<select name="user_account_id" id="user_account_id"></cfoutput><cfoutput query="get_team_select">
-					<option value="#name#_#lname#"<cfif NOT comparenocase(attributes.user_account_id, "#name#_#lname#")> selected="selected"</cfif>>#name# #lname#</option></cfoutput>
+					<option value="#first_name#_#last_name#"<cfif NOT comparenocase(attributes.user_account_id, "#first_name#_#last_name#")> selected="selected"</cfif>>#first_name# #last_name#</option></cfoutput>
 				</select>
 		</td>
 		<cfoutput><td align="left" valign="top" class="SubHeadText">--&gt;</td>

@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I get the active people that work for the companys that you are allowed to see.
+	Responsibilities: I get the active people that work for the companies that you are allowed to see.
 
 	||
 	Edits: 
@@ -14,17 +14,20 @@
 
 	END FUSEDOC --->
 <cfquery name="get_team_select_by_company" datasource="#application.datasources.main#">
-SELECT Emp_Contact.user_account_id, Emp_Contact.lname, Emp_Contact.name,
+SELECT Demographics.user_account_id, Demographics.last_name, Demographics.first_name,
 	 Link_Company_User_Account.company_id, COALESCE(REF_Company.description,'NA') AS company_name
-FROM Emp_Contact
-	INNER JOIN Link_Company_User_Account ON Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id
+FROM Employee
+	INNER JOIN Demographics ON Employee.user_account_id=Demographics.user_account_id
+		AND Demographics.active_ind=1
+	INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
+		AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)
 	LEFT OUTER JOIN REF_Company ON Link_Company_User_Account.company_id=REF_Company.company_id
-	INNER JOIN Link_User_Account_Status ON Link_User_Account_Status.user_account_id=Emp_Contact.user_account_id
+	INNER JOIN Link_User_Account_Status ON Link_User_Account_Status.user_account_id=Demographics.user_account_id
 		AND Link_User_Account_Status.active_ind=1
 		AND Link_User_Account_Status.account_status_id=1 /*active*/
-WHERE Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)
+WHERE Employee.active_ind=1
 	AND #application.team_changed#=#application.team_changed#
-ORDER BY Link_Company_User_Account.company_id, Emp_Contact.lname, Emp_Contact.name
+ORDER BY Link_Company_User_Account.company_id, Demographics.last_name, Demographics.first_name
 </cfquery>
 </cfsilent>
 
