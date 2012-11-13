@@ -15,98 +15,99 @@
 
 	END FUSEDOC --->
 <cfquery name="populate_employee_form" datasource="#application.datasources.main#">
-SELECT Emp_Contact.name, Emp_Contact.lname, Emp_Contact.credentials,
-	Emp_Contact.mi, Emp_Contact.emp_contact_type,
-	d.SSN, d.hire_date, d.DOB, 
-	d.Manager_non_id, d.Photo, d.employee_classification_id, 
+SELECT Demographics.first_name, Demographics.last_name, Demographics.credentials,
+	Demographics.middle_initial, User_Account.account_type_id,
+	Demographics.uupic, Employee.hire_date, Employee.birth_date, 
+	Employee.photo_path, Employee.employee_classification_id, 
 	work_loc.Address1 AS address1_1, work_loc.Address2 AS address2_1, work_loc.City AS city_1, 
 	work_loc.State AS state_1, work_loc.Zip AS zip_1, 
 	home_loc.Address1 AS address1_2, home_loc.Address2 AS address2_2, home_loc.City AS city_2, 
 	home_loc.State AS state_2, home_loc.Zip AS zip_2, 
-	work_email.Email AS email_1, home_email.Email AS email_2, pager_email.email as email_3,
+	work_email.email AS email_1, home_email.email AS email_2, pager_email.email AS email_3,
 	work_phone.Phone_Number AS phone_1, work_phone.Extension AS phone_1_ext, home_phone.Phone_Number AS phone_2, 
 	home_phone.Extension AS phone_2_ext, fax_phone.Phone_Number AS phone_3, fax_phone.Extension AS phone_3_ext, 
 	cell_phone.Phone_Number AS phone_4, cell_phone.Extension AS phone_4_ext, pager_phone.Phone_Number AS phone_5, 
 	pager_phone.Extension AS phone_5_ext, Emp_Biography.biography
-FROM Emp_Contact
-	INNER JOIN View_Demographics_Workstream d ON Emp_Contact.user_account_id=d.user_account_id
-	LEFT OUTER JOIN Emp_Biography ON Emp_Contact.user_account_id=Emp_Biography.user_account_id
+FROM Employee
+	INNER JOIN Demographics ON Employee.user_account_id=Demographics.user_account_id
+		AND Demographics.active_ind=1	
+	LEFT OUTER JOIN User_Account ON Demographics.user_account_id=User_Account.user_account_id
+	LEFT OUTER JOIN Emp_Biography ON Employee.user_account_id=Emp_Biography.user_account_id
 	LEFT OUTER JOIN (
 		SELECT *
 		FROM phone
-		WHERE phone_type_id = 5
-	) AS pager_phone ON Emp_Contact.user_account_id=pager_phone.user_account_id
-	LEFT OUTER JOIN (
-		SELECT *
-		FROM email
-		WHERE email_type_id = 2
-	) AS Home_Email ON Emp_Contact.user_account_id=home_email.user_account_id
+		WHERE phone_type_id=5
+	) AS pager_phone ON Employee.user_account_id=pager_phone.user_account_id
 	LEFT OUTER JOIN (
 		SELECT *
 		FROM email
-		WHERE email_type_id = 3
-	) pager_email ON Emp_Contact.user_account_id=pager_email.user_account_id
+		WHERE email_type_id=2
+	) AS Home_Email ON Employee.user_account_id=home_email.user_account_id
+	LEFT OUTER JOIN (
+		SELECT *
+		FROM email
+		WHERE email_type_id=3
+	) AS pager_email ON Employee.user_account_id=pager_email.user_account_id
 	LEFT OUTER JOIN (
 		SELECT *
 		FROM phone
-		WHERE phone_type_id = 1
-	) AS work_phone ON Emp_Contact.user_account_id=work_phone.user_account_id
+		WHERE phone_type_id=1
+	) AS work_phone ON Employee.user_account_id=work_phone.user_account_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM phone
-		WHERE phone_type_id = 2
-	) home_phone ON Emp_Contact.user_account_id=home_phone.user_account_id
+		WHERE phone_type_id=2
+	) AS home_phone ON Employee.user_account_id=home_phone.user_account_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM phone
-		WHERE phone_type_id = 3
-	) fax_phone ON Emp_Contact.user_account_id=fax_phone.user_account_id
+		WHERE phone_type_id=3
+	) AS fax_phone ON Employee.user_account_id=fax_phone.user_account_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM phone
-		WHERE phone_type_id = 4
-	) cell_phone ON Emp_Contact.user_account_id=cell_phone.user_account_id
+		WHERE phone_type_id=4
+	) AS cell_phone ON Employee.user_account_id=cell_phone.user_account_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM email
-		WHERE email_type_id = 1
-	) work_email ON Emp_Contact.user_account_id=work_email.user_account_id
+		WHERE email_type_id=1
+	) AS work_email ON Employee.user_account_id=work_email.user_account_id
 	LEFT OUTER JOIN(
 		SELECT *
 		FROM location
-		WHERE location_type_id = 1
-	) work_loc ON Emp_Contact.user_account_id=work_loc.user_account_id
+		WHERE location_type_id=1
+	) AS work_loc ON Employee.user_account_id=work_loc.user_account_id
 	LEFT OUTER JOIN(
 		SELECT *
-		FROM location WHERE location_type_id = 2
-	) home_loc ON Emp_Contact.user_account_id=home_loc.user_account_id
-WHERE d.Effective_To IS NULL
-	AND Emp_Contact.user_account_id=#attributes.user_account_id#
+		FROM location WHERE location_type_id=2
+	) AS home_loc ON Employee.user_account_id=home_loc.user_account_id
+WHERE Employee.user_account_id=#attributes.user_account_id#
 </cfquery>
 <cfoutput query="populate_employee_form">
-	<cfset address1_1 = address1_1>
+	<cfset address1_1=address1_1>
 	<cfset address2_1 =address2_1>
-	<cfset city_1 = city_1>
-	<cfset state_1 = state_1> 
-	<cfset zip_1 = zip_1> 
-	<cfset address1_2 = address1_2>
-	<cfset address2_2 = address2_2>
-	<cfset city_2 = city_2>
-	<cfset state_2 = state_2> 
-	<cfset zip_2 = zip_2> 
-	<cfset email_1 = email_1> 
-	<cfset email_2 = email_2>
-	<cfset phone_1 = phone_1> 
-	<cfset phone_1_ext = phone_1_ext>
-	<cfset phone_2 = phone_2> 
-	<cfset phone_2_ext = phone_2_ext> 
-	<cfset phone_3 = phone_3> 
-	<cfset phone_3_ext = phone_3_ext>
-	<cfset phone_4  = phone_4> 
-	<cfset phone_4_ext = phone_4_ext> 
-	<cfset phone_5 = phone_5> 
-	<cfset phone_5_ext = phone_5_ext> 
-	<cfset email_3 = email_3> 
+	<cfset city_1=city_1>
+	<cfset state_1=state_1> 
+	<cfset zip_1=zip_1> 
+	<cfset address1_2=address1_2>
+	<cfset address2_2=address2_2>
+	<cfset city_2=city_2>
+	<cfset state_2=state_2> 
+	<cfset zip_2=zip_2> 
+	<cfset email_1=email_1> 
+	<cfset email_2=email_2>
+	<cfset phone_1=phone_1> 
+	<cfset phone_1_ext=phone_1_ext>
+	<cfset phone_2=phone_2> 
+	<cfset phone_2_ext=phone_2_ext> 
+	<cfset phone_3=phone_3> 
+	<cfset phone_3_ext=phone_3_ext>
+	<cfset phone_4 =phone_4> 
+	<cfset phone_4_ext=phone_4_ext> 
+	<cfset phone_5=phone_5> 
+	<cfset phone_5_ext=phone_5_ext> 
+	<cfset email_3=email_3> 
 </cfoutput>
 	<cfquery name="get_visible_companies" datasource="#application.datasources.main#">
 	SELECT company_id
@@ -116,9 +117,9 @@ WHERE d.Effective_To IS NULL
 	<cfset visable_company=valuelist(get_visible_companies.company_id)>
 	<cfquery name="get_supervisors" datasource="#application.datasources.main#">
 	SELECT supervisor_id
-	FROM  Link_User_account_Supervisor
+	FROM Link_User_Account_Supervisor
 	WHERE user_account_id=#attributes.user_account_id#
-		AND active_ind = 1
+		AND active_ind=1
 	</cfquery>
-	<cfset supervisor_id = valuelist(get_supervisors.supervisor_id)>
+	<cfset supervisor_id=valuelist(get_supervisors.supervisor_id)>
 </cfsilent>
