@@ -27,8 +27,8 @@
 	<tr<cfif currentrow MOD 2> bgcolor="##e1e1e1"</cfif>>
 		<td>#lname#, #name#</td>
 		<td align="right">#decimalformat(granted_hours)#</td>
-		<td align="right">#decimalformat(hours_used)#</td>
-		<td align="right">#decimalformat(hours_remaining)#</td>
+		<td align="right">#decimalformat(used_hours)#</td>
+		<td align="right">#decimalformat(remaining_hours)#</td>
 	</tr>
 </cfoutput>
 </table>

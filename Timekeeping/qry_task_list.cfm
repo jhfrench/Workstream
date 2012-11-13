@@ -52,7 +52,7 @@
 <cfquery name="task_list" datasource="#application.datasources.main#">
 SELECT Task.due_date, Task.task_id, Task.name AS task_name,
 	COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Task.status_id,
-	REF_Icon.class_name AS task_icon, REF_Priority.description AS priority, COALESCE(Recorded_Hours.hours_used,0) AS hours_used, 
+	REF_Icon.class_name AS task_icon, REF_Priority.description AS priority, COALESCE(Recorded_Hours.used_hours,0) AS used_hours, 
 	(Customer.description || '-' || Project.description) AS project_name, Task_Owner.first_name AS task_owner, Task_Owner.last_name || ', ' || Task_Owner.first_name AS task_owner_full_name,
 	(CASE WHEN Task.status_id IN (3,8) /* QA, UAT */ THEN REF_Status.status || ' by ' || COALESCE(Task_Tester.first_name,'unknown') ELSE REF_Status.status END) AS task_status
 FROM Task
@@ -67,7 +67,7 @@ FROM Task
 	INNER JOIN REF_Icon ON Task.icon_id=REF_Icon.icon_id
 	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id
 	<cfif variables.from_invoice>INNER<cfelse>LEFT OUTER</cfif> JOIN (
-		SELECT task_id, SUM(hours) AS hours_used
+		SELECT task_id, SUM(hours) AS used_hours
 		FROM Time_Entry
 		WHERE Time_Entry.active_ind=1<cfif variables.from_invoice>
 			AND EXTRACT(MONTH FROM Time_Entry.work_date)=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.month#" />

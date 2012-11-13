@@ -30,7 +30,7 @@
 				&nbsp;
 			</td>
 			<td class="number">
-				#decimalformat(get_pto_hours_summary.pto_hours_used)#
+				#decimalformat(get_pto_hours_summary.pto_used_hours)#
 			</td>
 			<td class="number">
 				#decimalformat(get_pto_hours_summary.pto_hours_earned)#
@@ -51,7 +51,7 @@
 				#lname#, #name#
 			</td>
 			<td class="number">
-				#decimalformat(pto_hours_used)#
+				#decimalformat(pto_used_hours)#
 			</td>
 			<td class="number">
 				#decimalformat(pto_hours_earned)#

@@ -19,14 +19,14 @@ SELECT Task.task_id, Task.task_type_id, Task.name AS task_name, COALESCE(Task.ta
 	COALESCE(Task.description,'No description recorded for this task.') AS description, Task.entry_date AS date_assigned, Task.due_date,
 	Task.complete_date, Task.status_id, Task.icon_id,
 	COALESCE(Task.created_by,0) AS created_by, COALESCE(Task_Source.user_account_id,0) AS task_source, Task.priority_id AS priority,
-	REF_Status.status, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Time_Used.hours_used,
+	REF_Status.status, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Time_Used.used_hours,
 	CASE
 		WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0
-		ELSE Time_Used.hours_used/Task.budgeted_hours*200
+		ELSE Time_Used.used_hours/Task.budgeted_hours*200
 	END AS image_width, 
 	CASE
 		WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0
-		ELSE Time_Used.hours_used/Task.budgeted_hours*100
+		ELSE Time_Used.used_hours/Task.budgeted_hours*100
 	END AS percent_used,
 	Task_Owner.user_account_id AS owner_id, Task_QA.user_account_id AS qa_id, Customer.description AS customer_name,
 	Project.description AS project_name, Project.project_id, Task.notification_frequency_id,
@@ -36,7 +36,7 @@ FROM Task
 	INNER JOIN Project ON Task.project_id=Project.project_id
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	LEFT OUTER JOIN (
-		SELECT #attributes.task_id# AS task_id, SUM(Time_Entry.hours) AS hours_used
+		SELECT #attributes.task_id# AS task_id, SUM(Time_Entry.hours) AS used_hours
 		FROM Time_Entry
 		WHERE active_ind=1
 			AND task_id=#attributes.task_id#
