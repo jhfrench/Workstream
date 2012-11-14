@@ -15,7 +15,7 @@
 </cfsilent>
 <cfoutput>
 <h1>Manager's Hours Report</h1>
-<h2>from #attributes.from_date# to #attributes.through_date#</h2>
+<h2>from #dateformat(attributes.from_date, "m/d/yyyy")# to #dateformat(attributes.through_date, "m/d/yyyy")#</h2>
 <cfif get_manager_hours_report_output.recordcount>
 	<cfloop query="get_manager_hours_report_output">
 		<cfif variables.user_account_id NEQ get_manager_hours_report_output.user_account_id>

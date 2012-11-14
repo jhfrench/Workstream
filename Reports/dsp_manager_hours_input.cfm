@@ -12,47 +12,29 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
+<cfmodule template="../common_files/act_set_all_option.cfm" business_function_id="644">
+<cfparam name="attributes.all_employees" default="0">
+<cfif variables.all_option>
+	<cfinclude template="../common_files/qry_get_team_select.cfm">
+	<cfset variables.recordcount=get_team_select.recordcount>
+	<cfset variables.source_query_name="get_team_select">
+<cfelse>
+	<cfinclude template="../common_files/qry_get_subordinates.cfm">
+	<cfset variables.recordcount=get_subordinates.recordcount>
+	<cfset variables.source_query_name="get_subordinates">
+</cfif>
+</cfsilent>
 <cfoutput>
-	<tr bgcolor="##008080">
-		<td colspan="2" class="HeadTextWhite">Manager Hours Report</td>
-	</tr>
-	<tr bgcolor="##5F5F5F">
-		<td colspan="2" class="RegTextWhite">Enter Dates (m/d/yyyy)</td>
-	</tr>
-	<tr>
-		<td>
-			From: 
-			<input type="date" name="from_date" id="from_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
-		</td>
-		<td>
-			To: 
-			<input type="date" name="through_date" id="through_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2" valign="top">
-			<label for="all_employees"><input type="checkbox" name="all_employees" id="all_employees" onclick="document.forms.all_employees.submit();" value="#all_employees_change#"> View <cfif compare(attributes.all_employees, 0)>Only Active<cfelse>Inactive</cfif> Employees</label>
-		</td>
-	</tr>
-	<tr>
-		<td valign="top">Included Employees:</td>
-		<td>
-</cfoutput>
-				<cfselect name="included_user_account_id" multiple="yes" size="#min(variables.recordcount,25)#">
-				<cfif variables.all_option>
-					<cfoutput query="get_team_select">
-					<option value="#user_account_id#" selected="selected">#display#</option>
-					</cfoutput>
-				<cfelse>
-					<cfoutput query="get_subordinates">
-					<option value="#user_account_id#" selected="selected">#display#</option>
-					</cfoutput>
-				</cfif>
-				</cfselect>
-		</td>
-	</tr>
-<cfoutput>
-	<tr>
-		<td align="center" colspan="2"><input type="submit" value="Generate Report"></td>
-	</tr>
-</cfoutput>
+<form name="report" action="index.cfm?fuseaction=#attributes.fuseaction#" class="well form-inline">
+	<label for="from_date">From</label>
+	<input type="date" name="from_date" id="from_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span4 date" />
+	<label for="through_date">To</label>
+	<input type="date" name="through_date" id="through_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span4 date" />
+	<label for="through_date">Included Employees</label>
+	<select name="included_user_account_id" required="required" multiple="yes" size="#min(variables.recordcount,25)#" class="span8">
+		<cfloop query="#variables.source_query_name#">
+		<option value="#user_account_id#" selected="selected">#display#</option>
+		</cfloop>
+	</select>
+	<input type="submit" value="Generate Report" class="btn btn-primary" />
+</form>

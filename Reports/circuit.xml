@@ -214,12 +214,6 @@
 			<set name="request.pagetitle" value="Manager Hours Report"/>
 			<include template="pag_manager_hours.cfm"/>
 		</fuseaction>
-		<fuseaction name="manager_hours_input">
-			<!-- <set name="attributes.object_name" value="Manager Hours"/>
-			 -->
-			<set name="request.pagetitle" value="Manager Hours Report"/>
-			<include template="pag_manager_hours_input.cfm"/>
-		</fuseaction>
 		<fuseaction name="manager_individual_hours">
 			<!-- <set name="attributes.object_name" value="Manager Individual Hours"/>
 			 -->
