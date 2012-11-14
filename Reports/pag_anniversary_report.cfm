@@ -35,5 +35,4 @@
 		</tr>
 	</cfoutput>
 	</tbody>
-	<cfinclude template="dsp_anniv_rows.cfm">
 </table>
