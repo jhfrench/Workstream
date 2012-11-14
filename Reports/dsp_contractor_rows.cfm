@@ -14,7 +14,7 @@
 </cfsilent>
 <cfoutput query="get_employee_id">
 <tr>
-	<td>#lname#</td>
+	<td>#last_name#</td>
 	<td>#name#</td>
 	<td>#user_account_id#</td>
 	<td>#status#</td>

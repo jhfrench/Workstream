@@ -13,7 +13,7 @@
 	||
 	Variables:
 	--> attributes.user_account_id: number containing the unique identifier of the individual being requested
-	<-- lname: string containing the last name of an employee
+	<-- last_name: string containing the last name of an employee
 	<-- fname: string containing the first name of an employee
 	END FUSEDOC --->
 </cfsilent>

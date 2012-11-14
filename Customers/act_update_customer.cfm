@@ -49,7 +49,7 @@ SET root_code='#attributes.root_code#',
 WHERE customer_id=#attributes.customer_id#
 </cfquery>
 <!--- See if the fields for name and Last Name are populate on the form. --->
-<cfif len(attributes.name) OR len(attributes.lname)>
+<cfif len(attributes.name) OR len(attributes.last_name)>
 <!--- see if the name entered exists in the database as a billing contact --->
 	<cfquery name="get_contact_name" datasource="#application.datasources.main#">
 	SELECT user_account_id

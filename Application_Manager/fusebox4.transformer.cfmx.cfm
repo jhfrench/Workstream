@@ -50,7 +50,7 @@ This software consists of voluntary contributions made by many individuals on be
       fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
       fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
       fb_.temp=structNew();
-      fb_.temp.xmlname="set";
+      fb_.temp.xmlast_name="set";
       fb_.temp.circuit="";
       fb_.temp.fuseaction="";
       fb_.temp.phase=fb_.phase;
@@ -61,7 +61,7 @@ This software consists of voluntary contributions made by many individuals on be
     }
     // and the Plugin itself
     fb_.temp=StructNew();
-    fb_.temp.xmlname="plugin";
+    fb_.temp.xmlast_name="plugin";
     fb_.temp.circuit=myFusebox.thisCircuit;
     fb_.temp.fuseaction=myFusebox.thisFuseaction;
     fb_.temp.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i];
@@ -80,11 +80,11 @@ This software consists of voluntary contributions made by many individuals on be
 
   for (fb_.i=1; fb_.i LTE arraylen(fb_.xnPreprocessFA); fb_.i=fb_.i + 1) {
     // only calls to fuseactions via a <fuseaction action="" />  (formerly only a <do> which has been deprecated!) are allowed here and it must have a fully qualified fuseaction
-    if (fb_.xnPreprocessFA[fb_.i].xmlName EQ "fuseaction" OR fb_.xnPreprocessFA[fb_.i].xmlName EQ "do") {
+    if (fb_.xnPreprocessFA[fb_.i].xmlast_name EQ "fuseaction" OR fb_.xnPreprocessFA[fb_.i].xmlast_name EQ "do") {
       if (StructKeyExists(fb_.xnPreprocessFA[fb_.i].xmlAttributes, "action") AND
           ListLen(fb_.xnPreprocessFA[fb_.i].xmlAttributes['action'], '.') GTE 2) {
         fb_.temp=structNew();
-        fb_.temp.xmlname="do";
+        fb_.temp.xmlast_name="do";
         fb_.temp.circuit=ListFirst(fb_.xnPreprocessFA[fb_.i].xmlAttributes['action'], '.');
         fb_.temp.fuseaction=listlast(fb_.xnPreprocessFA[fb_.i].xmlAttributes['action'], '.');
         fb_.temp.phase=fb_.phase;
@@ -100,7 +100,7 @@ This software consists of voluntary contributions made by many individuals on be
   /* now add the actual fuseaction which is the target of this page request */
   fb_.phase="requestedFuseaction";
   fb_.temp=structNew();
-  fb_.temp.xmlname="do";
+  fb_.temp.xmlast_name="do";
   fb_.temp.circuit=myFusebox.thisCircuit;
   fb_.temp.fuseaction=myFusebox.thisFuseaction;
   fb_.temp.phase=fb_.phase;
@@ -114,11 +114,11 @@ This software consists of voluntary contributions made by many individuals on be
 
   for (fb_.i=1; fb_.i LTE arraylen(fb_.xnPostprocessFA); fb_.i=fb_.i + 1) {
     // only calls to fuseactions via a <do> are allowed here and it must have a fully qualified fuseaction
-    if (fb_.xnPostprocessFA[fb_.i].xmlName EQ "fuseaction" OR fb_.xnPostprocessFA[fb_.i].xmlName EQ "do") {
+    if (fb_.xnPostprocessFA[fb_.i].xmlast_name EQ "fuseaction" OR fb_.xnPostprocessFA[fb_.i].xmlast_name EQ "do") {
       if (StructKeyExists(fb_.xnPostprocessFA[fb_.i].xmlAttributes, "action") AND
           ListLen(fb_.xnPostprocessFA[fb_.i].xmlAttributes['action'], '.') GTE 2) {
         fb_.temp=structNew();
-        fb_.temp.xmlname="do";
+        fb_.temp.xmlast_name="do";
         fb_.temp.circuit=ListFirst(fb_.xnPostprocessFA[fb_.i].xmlAttributes['action'], '.');
         fb_.temp.fuseaction=listlast(fb_.xnPostprocessFA[fb_.i].xmlAttributes['action'], '.');
         fb_.temp.phase=fb_.phase;
@@ -133,7 +133,7 @@ This software consists of voluntary contributions made by many individuals on be
 
   /* be sure to reset the myFusebox.thisCircuit to that of the originalCircuit */
   fb_.temp=structNew();
-  fb_.temp.xmlname="set";
+  fb_.temp.xmlast_name="set";
   fb_.temp.circuit=myFusebox.originalCircuit;
   fb_.temp.fuseaction=myFusebox.originalFuseaction;
   fb_.temp.phase=fb_.phase;
@@ -144,7 +144,7 @@ This software consists of voluntary contributions made by many individuals on be
 
   /* be sure to reset the myFusebox.thisFuseaction to that of the originalFuseaction */
   fb_.temp=structNew();
-  fb_.temp.xmlname="set";
+  fb_.temp.xmlast_name="set";
   fb_.temp.circuit=myFusebox.originalCircuit;
   fb_.temp.fuseaction=myFusebox.originalFuseaction;
   fb_.temp.phase=fb_.phase;
@@ -163,7 +163,7 @@ This software consists of voluntary contributions made by many individuals on be
       fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
       fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
       fb_.temp=structNew();
-      fb_.temp.xmlname="set";
+      fb_.temp.xmlast_name="set";
       fb_.temp.circuit="";
       fb_.temp.fuseaction="";
       fb_.temp.phase=fb_.phase;
@@ -174,7 +174,7 @@ This software consists of voluntary contributions made by many individuals on be
     }
     // and the Plugin itself
     fb_.temp=StructNew();
-    fb_.temp.xmlname="plugin";
+    fb_.temp.xmlast_name="plugin";
     fb_.temp.circuit=myFusebox.thisCircuit;
     fb_.temp.fuseaction=myFusebox.thisFuseaction;
     fb_.temp.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i];
@@ -195,7 +195,7 @@ This software consists of voluntary contributions made by many individuals on be
       fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
       fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
       fb_.temp=structNew();
-      fb_.temp.xmlname="set";
+      fb_.temp.xmlast_name="set";
       fb_.temp.circuit="";
       fb_.temp.fuseaction="";
       fb_.temp.phase=fb_.phase;
@@ -206,7 +206,7 @@ This software consists of voluntary contributions made by many individuals on be
     }
     // and the Plugin itself
     fb_.temp=StructNew();
-    fb_.temp.xmlname="errorHandler";
+    fb_.temp.xmlast_name="errorHandler";
     fb_.temp.circuit=myFusebox.thisCircuit;
     fb_.temp.fuseaction=myFusebox.thisFuseaction;
     fb_.temp.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i];
@@ -228,7 +228,7 @@ This software consists of voluntary contributions made by many individuals on be
       fb_.phase="requestedFuseaction";
 	</cfscript>
 
-		<cfif fb_.fuseQ[fb_.pointer].xmlName EQ "do">
+		<cfif fb_.fuseQ[fb_.pointer].xmlast_name EQ "do">
       <cfscript>
         fb_.doMore=TRUE;
 
@@ -269,7 +269,7 @@ This software consists of voluntary contributions made by many individuals on be
         // set the value of myFusebox.thisCircuit
         // (both here and at the end of the parsing of this <do> so that we always return to the right value of myFusebox.thisCircuit)
         fb_.temp=structNew();
-        fb_.temp.xmlname="set";
+        fb_.temp.xmlast_name="set";
         fb_.temp.circuit=myFusebox.thisCircuit;
         fb_.temp.fuseaction=myFusebox.thisFuseaction;
         fb_.temp.phase=fb_.phase;
@@ -282,7 +282,7 @@ This software consists of voluntary contributions made by many individuals on be
         // set the value of myFusebox.thisFuseaction
         // (both here and at the end of the parsing of this <do> so that we always return to the right value of myFusebox.thisFuseaction)
         fb_.temp=structNew();
-        fb_.temp.xmlname="set";
+        fb_.temp.xmlast_name="set";
         fb_.temp.circuit=myFusebox.thisCircuit;
         fb_.temp.fuseaction=myFusebox.thisFuseaction;
         fb_.temp.phase=fb_.phase;
@@ -295,7 +295,7 @@ This software consists of voluntary contributions made by many individuals on be
         // if this fuseaction has an exceptionHandler then insert space-holders for opening and closing <CFTRY></CFTRY> tags
         if (arrayLen(application.fusebox.pluginphases['fuseactionException']) GT 0) {
           fb_.temp=structNew();
-          fb_.temp.xmlname="beginExceptionHandler";
+          fb_.temp.xmlast_name="beginExceptionHandler";
           fb_.temp.circuit=myFusebox.thisCircuit;
           fb_.temp.fuseaction=myFusebox.thisFuseaction;
           fb_.temp.phase=fb_.phase;
@@ -316,7 +316,7 @@ This software consists of voluntary contributions made by many individuals on be
 			fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
 			fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
 			fb_.temp=structNew();
-			fb_.temp.xmlname="set";
+			fb_.temp.xmlast_name="set";
 			fb_.temp.circuit=myFusebox.thisCircuit;
 			fb_.temp.fuseaction=myFusebox.thisFuseaction;
 			fb_.temp.phase=fb_.phase;
@@ -328,7 +328,7 @@ This software consists of voluntary contributions made by many individuals on be
           }
           // and the Plugin itself
           fb_.temp=StructNew();
-          fb_.temp.xmlname="plugin";
+          fb_.temp.xmlast_name="plugin";
           fb_.temp.circuit=myFusebox.thisCircuit;
           fb_.temp.fuseaction=myFusebox.thisFuseaction;
           fb_.temp.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i];
@@ -363,12 +363,12 @@ This software consists of voluntary contributions made by many individuals on be
 			  for (fb_.i=arraylen(fb_.xnSuperPreFA); fb_.i GTE 1 ; fb_.i=fb_.i - 1) {
 				for (fb_.j=arrayLen(fb_.xnSuperPreFA[fb_.i].xmlChildren); fb_.j GTE 1; fb_.j=fb_.j - 1) {
 					// remember that any <include> needs to know its local circuit as an attribute
-				  if( fb_.xnSuperPreFA[ fb_.i ].xmlChildren[ fb_.j ].xmlName IS "include" ) {
+				  if( fb_.xnSuperPreFA[ fb_.i ].xmlChildren[ fb_.j ].xmlast_name IS "include" ) {
 						fb_.xnSuperPreFA[ fb_.i ].xmlChildren[ fb_.j ].xmlAttributes[ 'circuit' ]=fb_.aCircuit;
 				  }
 
 				  // some special handling for do's
-				  if (fb_.xnSuperPreFA[fb_.i].xmlChildren[fb_.j].xmlName EQ "do") {
+				  if (fb_.xnSuperPreFA[fb_.i].xmlChildren[fb_.j].xmlast_name EQ "do") {
 				    if (ListLen(fb_.xnSuperPreFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action'], '.') EQ 1) {
 					 // remember that any <do> might have only a fuseaction specified and only imply its local circuit do clarify all <do>s with explicit circuits
 					 fb_.xnSuperPreFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action']=fb_.aCircuit & "." & fb_.xnSuperPreFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action'];
@@ -385,7 +385,7 @@ This software consists of voluntary contributions made by many individuals on be
 			  }
 			  // make sure right value for myFusebox.thisCircuit is set
 			  fb_.temp=structNew();
-			  fb_.temp.xmlname="set";
+			  fb_.temp.xmlast_name="set";
 			  fb_.temp.circuit=myFusebox.thisCircuit;
 			  fb_.temp.fuseaction=myFusebox.thisFuseaction;
 			  fb_.temp.phase=fb_.phase;
@@ -396,7 +396,7 @@ This software consists of voluntary contributions made by many individuals on be
 			}
 			// since prefuseaction calls to super would have overwritten the myFusebox.thisCircuit we need to reset it again
 			fb_.temp=structNew();
-			fb_.temp.xmlname="set";
+			fb_.temp.xmlast_name="set";
 			fb_.temp.circuit=myFusebox.thisCircuit;
 			fb_.temp.fuseaction=myFusebox.thisFuseaction;
 			fb_.temp.phase=fb_.phase;
@@ -406,7 +406,7 @@ This software consists of voluntary contributions made by many individuals on be
 			arrayAppend(fb_.xnPreFA, fb_.temp);
 			// since prefuseaction calls to super would have overwritten the myFusebox.thisFuseaction we need to reset it again
 			fb_.temp=structNew();
-			fb_.temp.xmlname="set";
+			fb_.temp.xmlast_name="set";
 			fb_.temp.circuit=myFusebox.thisCircuit;
 			fb_.temp.fuseaction=myFusebox.thisFuseaction;
 			fb_.temp.phase=fb_.phase;
@@ -438,7 +438,7 @@ This software consists of voluntary contributions made by many individuals on be
 			  fb_.xnSuperPostFA=application.fusebox.circuits[fb_.aCircuit].postfuseaction.xml;
 			  // make sure right value for myFusebox.thisCircuit is set
 			  fb_.temp=structNew();
-			  fb_.temp.xmlname="set";
+			  fb_.temp.xmlast_name="set";
 			  fb_.temp.circuit=myFusebox.thisCircuit;
 			  fb_.temp.fuseaction=myFusebox.thisFuseaction;
 			  fb_.temp.phase=fb_.phase;
@@ -450,11 +450,11 @@ This software consists of voluntary contributions made by many individuals on be
 			  for (fb_.i=1; fb_.i LTE arrayLen(fb_.xnSuperPostFA); fb_.i=fb_.i + 1) {
 				for (fb_.j=1; fb_.j LTE arrayLen(fb_.xnSuperPostFA[1].xmlChildren); fb_.j=fb_.j + 1) {
 					// remember that any <include> needs to know its local circuit as an attribute
-				 	 	if( fb_.xnSuperPostFA[ fb_.i ].xmlChildren[ fb_.j ].xmlName IS "include" ) {
+				 	 	if( fb_.xnSuperPostFA[ fb_.i ].xmlChildren[ fb_.j ].xmlast_name IS "include" ) {
 						fb_.xnSuperPostFA[ fb_.i ].xmlChildren[ fb_.j ].xmlAttributes[ 'circuit' ]=fb_.aCircuit;
 						 	}
 				  // remember that any <do> might have only a fuseaction specified and only imply its local circuit do clarify all <do>s with explicit circuits
-				  if ((fb_.xnSuperPostFA[fb_.i].xmlChildren[fb_.j].xmlName EQ "do") AND
+				  if ((fb_.xnSuperPostFA[fb_.i].xmlChildren[fb_.j].xmlast_name EQ "do") AND
 					 (ListLen(fb_.xnSuperPostFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action'], '.') EQ 1)) {
 				    fb_.xnSuperPostFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action']=fb_.aCircuit & "." & fb_.xnSuperPostFA[fb_.i].xmlChildren[fb_.j].xmlAttributes['action'];
 				  }
@@ -472,7 +472,7 @@ This software consists of voluntary contributions made by many individuals on be
 
 			// since postfuseaction calls to super would have overwritten the myFusebox.thisCircuit we need to reset it again
 			fb_.temp=structNew();
-			fb_.temp.xmlname="set";
+			fb_.temp.xmlast_name="set";
 			fb_.temp.circuit=myFusebox.thisCircuit;
 			fb_.temp.fuseaction=myFusebox.thisFuseaction;
 			fb_.temp.phase=fb_.phase;
@@ -483,7 +483,7 @@ This software consists of voluntary contributions made by many individuals on be
 
 			// since postfuseaction calls to super would have overwritten the myFusebox.thisFuseaction we need to reset it again
 			fb_.temp=structNew();
-			fb_.temp.xmlname="set";
+			fb_.temp.xmlast_name="set";
 			fb_.temp.circuit=myFusebox.thisCircuit;
 			fb_.temp.fuseaction=myFusebox.thisFuseaction;
 			fb_.temp.phase=fb_.phase;
@@ -521,13 +521,13 @@ This software consists of voluntary contributions made by many individuals on be
 		     fb_.position=fb_.pointer-1 + fb_.j;
 
 		     // special handling for an <if> because its children have to be included
-		     if (fb_.xnFA[fb_.j].xmlName EQ "if") {
+		     if (fb_.xnFA[fb_.j].xmlast_name EQ "if") {
 		       // handle the opening of the conditional
 		       fb_.temp=StructNew();
 		       fb_.temp.circuit=myFusebox.thisCircuit;
 		       fb_.temp.fuseaction=myFusebox.thisFuseaction;
 		       fb_.temp.phase=fb_.phase;
-		       fb_.temp.xmlname="conditional";
+		       fb_.temp.xmlast_name="conditional";
 		       fb_.temp.xmlAttributes=StructNew();
 		       fb_.temp.xmlAttributes['mode']="begin";
 		       for (fb_.anItem in fb_.xnFA[fb_.j].xmlAttributes) {
@@ -539,7 +539,7 @@ This software consists of voluntary contributions made by many individuals on be
 
 		       // insert all the statements when conditional is TRUE
 		       for (fb_.m=1; fb_.m LTE arraylen(fb_.xnFA[fb_.j].xmlChildren); fb_.m=fb_.m + 1) {
-		         if (fb_.xnFA[fb_.j].xmlChildren[fb_.m].xmlName EQ "true") {
+		         if (fb_.xnFA[fb_.j].xmlChildren[fb_.m].xmlast_name EQ "true") {
 					fb_.Conditional=fb_.xnFA[fb_.j].xmlChildren[fb_.m].xmlChildren;
 					for (fb_.k=1; fb_.k LTE arrayLen(fb_.Conditional); fb_.k=fb_.k + 1) {
 					  fb_.conditionpointer=fb_.conditionpointer + 1;
@@ -547,13 +547,13 @@ This software consists of voluntary contributions made by many individuals on be
 					  fb_.tempChild.circuit=myFusebox.thisCircuit;
 					  fb_.tempChild.fuseaction=myFusebox.thisFuseaction;
 					  fb_.tempChild.phase=fb_.phase;
-					  fb_.tempChild.xmlName=fb_.Conditional[fb_.k].xmlName;
+					  fb_.tempChild.xmlast_name=fb_.Conditional[fb_.k].xmlast_name;
 					  fb_.tempChild.Attributes=StructNew();
 					  for (fb_.anItem in fb_.Conditional[fb_.k].xmlAttributes) {
 					    fb_.tempChild.xmlAttributes[fb_.anItem]=fb_.Conditional[fb_.k].xmlAttributes[fb_.anItem];
 					  }
 									  // the circuit name is required for all include verbs
-									  if (fb_.tempChild.xmlName EQ "include" AND NOT structKeyExists(fb_.tempChild.xmlAttributes, "circuit")) {
+									  if (fb_.tempChild.xmlast_name EQ "include" AND NOT structKeyExists(fb_.tempChild.xmlAttributes, "circuit")) {
 											fb_.tempChild.xmlAttributes['circuit']=myFusebox.thisCircuit;
 									  }
 										// fixed FB4.03 loop+if bug
@@ -569,7 +569,7 @@ This software consists of voluntary contributions made by many individuals on be
 		       fb_.temp.circuit=myFusebox.thisCircuit;
 		       fb_.temp.fuseaction=myFusebox.thisFuseaction;
 		       fb_.temp.phase=fb_.phase;
-		       fb_.temp.xmlname="conditional";
+		       fb_.temp.xmlast_name="conditional";
 		       fb_.temp.xmlAttributes=StructNew();
 		       fb_.temp.xmlAttributes['mode']="else";
 							// fixed FB4.03 loop+if bug
@@ -578,7 +578,7 @@ This software consists of voluntary contributions made by many individuals on be
 
 		       // insert all the statements when conditional is FALSE
 		       for (fb_.m=1; fb_.m LTE arraylen(fb_.xnFA[fb_.j].xmlChildren); fb_.m=fb_.m + 1) {
-		         if (fb_.xnFA[fb_.j].xmlChildren[fb_.m].xmlName EQ "false") {
+		         if (fb_.xnFA[fb_.j].xmlChildren[fb_.m].xmlast_name EQ "false") {
 					fb_.Conditional=fb_.xnFA[fb_.j].xmlChildren[fb_.m].xmlChildren;
 					for (fb_.k=1; fb_.k LTE arrayLen(fb_.Conditional); fb_.k=fb_.k + 1) {
 					  fb_.conditionpointer=fb_.conditionpointer + 1;
@@ -586,13 +586,13 @@ This software consists of voluntary contributions made by many individuals on be
 					  fb_.tempChild.circuit=myFusebox.thisCircuit;
 					  fb_.tempChild.fuseaction=myFusebox.thisFuseaction;
 					  fb_.tempChild.phase=fb_.phase;
-					  fb_.tempChild.xmlName=fb_.Conditional[fb_.k].xmlName;
+					  fb_.tempChild.xmlast_name=fb_.Conditional[fb_.k].xmlast_name;
 					  fb_.tempChild.Attributes=StructNew();
 					  for (fb_.anItem in fb_.Conditional[fb_.k].xmlAttributes) {
 					    fb_.tempChild.xmlAttributes[fb_.anItem]=fb_.Conditional[fb_.k].xmlAttributes[fb_.anItem];
 					  }
 									  // the circuit name is required for all include verbs
-									  if (fb_.tempChild.xmlName EQ "include" AND NOT structKeyExists(fb_.tempChild.xmlAttributes, "circuit")) {
+									  if (fb_.tempChild.xmlast_name EQ "include" AND NOT structKeyExists(fb_.tempChild.xmlAttributes, "circuit")) {
 											fb_.tempChild.xmlAttributes['circuit']=myFusebox.thisCircuit;
 									  }
 										// fixed FB4.03 loop+if bug
@@ -608,7 +608,7 @@ This software consists of voluntary contributions made by many individuals on be
 		       fb_.temp.circuit=myFusebox.thisCircuit;
 		       fb_.temp.fuseaction=myFusebox.thisFuseaction;
 		       fb_.temp.phase=fb_.phase;
-		       fb_.temp.xmlname="conditional";
+		       fb_.temp.xmlast_name="conditional";
 		       fb_.temp.xmlAttributes=StructNew();
 		       fb_.temp.xmlAttributes['mode']="end";
 							// fixed FB4.03 loop+if bug
@@ -616,13 +616,13 @@ This software consists of voluntary contributions made by many individuals on be
 		       arrayInsertAt(fb_.fuseQ, fb_.position + fb_.conditionpointer + fb_.looppointer, fb_.temp);
 		     }
 		     // special handling for a <loop> because its children have to be included
-		     else if (fb_.xnFA[fb_.j].xmlName EQ "loop") {
+		     else if (fb_.xnFA[fb_.j].xmlast_name EQ "loop") {
 		       // handle the opening of the loop
 		       fb_.temp=StructNew();
 		       fb_.temp.circuit=myFusebox.thisCircuit;
 		       fb_.temp.fuseaction=myFusebox.thisFuseaction;
 		       fb_.temp.phase=fb_.phase;
-		       fb_.temp.xmlname="loop";
+		       fb_.temp.xmlast_name="loop";
 		       fb_.temp.xmlAttributes=StructNew();
 		       fb_.temp.xmlAttributes['mode']="begin";
 		       for (fb_.anItem in fb_.xnFA[fb_.j].xmlAttributes) {
@@ -640,13 +640,13 @@ This software consists of voluntary contributions made by many individuals on be
 		         fb_.tempChild.circuit=myFusebox.thisCircuit;
 		         fb_.tempChild.fuseaction=myFusebox.thisFuseaction;
 		         fb_.tempChild.phase=fb_.phase;
-		         fb_.tempChild.xmlName=fb_.Loop[fb_.k].xmlName;
+		         fb_.tempChild.xmlast_name=fb_.Loop[fb_.k].xmlast_name;
 		         fb_.tempChild.Attributes=StructNew();
 		         for (fb_.anItem in fb_.Loop[fb_.k].xmlAttributes) {
 					fb_.tempChild.xmlAttributes[fb_.anItem]=fb_.Loop[fb_.k].xmlAttributes[fb_.anItem];
 		         }
 							  // the circuit name is required for all include verbs
-							  if (fb_.tempChild.xmlName EQ "include" AND NOT structKeyExists(fb_.tempChild.xmlAttributes, "circuit")) {
+							  if (fb_.tempChild.xmlast_name EQ "include" AND NOT structKeyExists(fb_.tempChild.xmlAttributes, "circuit")) {
 								fb_.tempChild.xmlAttributes['circuit']=myFusebox.thisCircuit;
 							  }
 								// fixed FB4.03 loop+if bug
@@ -660,7 +660,7 @@ This software consists of voluntary contributions made by many individuals on be
 		       fb_.temp.circuit=myFusebox.thisCircuit;
 		       fb_.temp.fuseaction=myFusebox.thisFuseaction;
 		       fb_.temp.phase=fb_.phase;
-		       fb_.temp.xmlname="loop";
+		       fb_.temp.xmlast_name="loop";
 		       fb_.temp.xmlAttributes=StructNew();
 		       fb_.temp.xmlAttributes['mode']="end";
 							// fixed FB4.03 loop+if bug
@@ -673,13 +673,13 @@ This software consists of voluntary contributions made by many individuals on be
 		       fb_.temp.circuit=myFusebox.thisCircuit;
 		       fb_.temp.fuseaction=myFusebox.thisFuseaction;
 		       fb_.temp.phase=fb_.phase;
-		       fb_.temp.xmlName=fb_.xnFA[fb_.j].xmlName;
+		       fb_.temp.xmlast_name=fb_.xnFA[fb_.j].xmlast_name;
 		       fb_.temp.xmlAttributes=StructNew();
 		       for (fb_.anItem in fb_.xnFA[fb_.j].xmlAttributes) {
 		         fb_.temp.xmlAttributes[fb_.anItem]=fb_.xnFA[fb_.j].xmlAttributes[fb_.anItem];
 		       }
 				// if it's an include and doesn't already have a circuit attribute then make sure it has a "circuit" attribute
-				if (fb_.xnFA[fb_.j].xmlName EQ "include") {
+				if (fb_.xnFA[fb_.j].xmlast_name EQ "include") {
 				  if (NOT StructKeyExists(fb_.temp.xmlAttributes, 'circuit')){
 					  fb_.temp.xmlAttributes['circuit']=myFusebox.thisCircuit;
 				  }
@@ -698,7 +698,7 @@ This software consists of voluntary contributions made by many individuals on be
 		     fb_.temp.circuit=myFusebox.thisCircuit;
 		     fb_.temp.fuseaction=myFusebox.thisFuseaction;
 		     fb_.temp.phase=fb_.phase;
-		     fb_.temp.xmlname="contentvariable";
+		     fb_.temp.xmlast_name="contentvariable";
 		     fb_.temp.xmlAttributes=StructNew();
 		     fb_.temp.xmlAttributes['contentvariable']=fb_.fuseQ[fb_.position+1].xmlAttributes['contentvariable'];
 		     fb_.temp.xmlAttributes['mode']="begin";
@@ -740,7 +740,7 @@ This software consists of voluntary contributions made by many individuals on be
 			fb_.value=application.fusebox.pluginphases[fb_.phase][fb_.i].parameters[fb_.j].xmlAttributes.value;
 			fb_.plugin=application.fusebox.pluginphases[fb_.phase][fb_.i].name;
 			fb_.temp=structNew();
-			fb_.temp.xmlname="set";
+			fb_.temp.xmlast_name="set";
 			fb_.temp.circuit=myFusebox.thisCircuit;
 			fb_.temp.fuseaction=myFusebox.thisFuseaction;
 			fb_.temp.phase=fb_.phase;
@@ -752,7 +752,7 @@ This software consists of voluntary contributions made by many individuals on be
           }
           // and the Plugin itself
           fb_.temp=StructNew();
-          fb_.temp.xmlname="plugin";
+          fb_.temp.xmlast_name="plugin";
           fb_.temp.circuit=myFusebox.thisCircuit;
           fb_.temp.fuseaction=myFusebox.thisFuseaction;
           fb_.temp.phase=fb_.phase;
@@ -777,7 +777,7 @@ This software consists of voluntary contributions made by many individuals on be
 			fb_.temp.circuit=myFusebox.thisCircuit;
 			fb_.temp.fuseaction=myFusebox.thisFuseaction;
 			fb_.temp.phase=fb_.phase;
-			fb_.temp.xmlname="set";
+			fb_.temp.xmlast_name="set";
 			fb_.temp.xmlAttributes=structNew();
 			fb_.temp.xmlAttributes['name']="myFusebox.plugins.#fb_.plugin#.parameters.#fb_.name#";
 			fb_.temp.xmlAttributes['value']=fb_.value;
@@ -786,7 +786,7 @@ This software consists of voluntary contributions made by many individuals on be
           }
           // and the Plugin itself
           fb_.temp=StructNew();
-          fb_.temp.xmlname="exceptionHandler";
+          fb_.temp.xmlast_name="exceptionHandler";
           fb_.temp.circuit=myFusebox.thisCircuit;
           fb_.temp.fuseaction=myFusebox.thisFuseaction;
           fb_.temp.phase=fb_.phase;
@@ -802,7 +802,7 @@ This software consists of voluntary contributions made by many individuals on be
         // we also did this when first parsing this <do>
         if (arrayLen(application.fusebox.pluginphases['fuseactionException']) GT 0) {
           fb_.temp=structNew();
-          fb_.temp.xmlname="endExceptionHandler";
+          fb_.temp.xmlast_name="endExceptionHandler";
           fb_.temp.circuit=myFusebox.thisCircuit;
           fb_.temp.fuseaction=myFusebox.thisFuseaction;
           fb_.temp.phase=fb_.phase;
@@ -816,7 +816,7 @@ This software consists of voluntary contributions made by many individuals on be
         // set the value of myFusebox.thisFuseaction
         // (this was also done at the beginning of the parsing of this <do> so that we always return to the right value of myFusebox.thisFuseaction)
         fb_.temp=structNew();
-        fb_.temp.xmlname="set";
+        fb_.temp.xmlast_name="set";
         fb_.temp.circuit=fb_.fuseQ[fb_.pointer].circuit;
         fb_.temp.fuseaction=fb_.fuseQ[fb_.pointer].fuseaction;
         fb_.temp.phase=fb_.phase;
@@ -829,7 +829,7 @@ This software consists of voluntary contributions made by many individuals on be
         // set the value of myFusebox.thisCircuit
         // (this was also done at the beginning of the parsing of this <do> so that we always return to the right value of myFusebox.thisCircuit)
         fb_.temp=structNew();
-        fb_.temp.xmlname="set";
+        fb_.temp.xmlast_name="set";
         fb_.temp.circuit=fb_.fuseQ[fb_.pointer].circuit;
         fb_.temp.fuseaction=fb_.fuseQ[fb_.pointer].fuseaction;
         fb_.temp.phase=fb_.phase;

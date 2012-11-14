@@ -42,7 +42,7 @@
 			<cfselect name="user_account_id" size="5" message="Please don't leave blank" required="yes" multiple="yes">
 			<OPTION value="ALL" selected="selected">ALL</option>
 			<cfoutput query="get_overtime_employees">
-				<option value="#user_account_id#">#lname#, # name#</option>
+				<option value="#user_account_id#">#last_name#, # name#</option>
 			</cfoutput>
 			</cfselect>
 		</td>

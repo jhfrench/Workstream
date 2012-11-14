@@ -14,7 +14,7 @@
 </cfsilent>
 <tr bgcolor="#FEFAE0">
 			<td colspan="2" class="SubHeadText">
-				<cfoutput>#lname#, #name#</cfoutput>
+				<cfoutput>#last_name#, #name#</cfoutput>
 			</td>
 			<td class="SubHeadText">Beginning hours: <cfoutput>#get_pto_hours_report.Pto_Type_Indicator#</cfoutput></td>
 			<td class="SubHeadText">

@@ -42,9 +42,9 @@ if ( $.cleanData ) {
 
 $.widget = function( name, base, prototype ) {
 	var namespace = name.split( "." )[ 0 ],
-		fullName;
+		fullast_name;
 	name = name.split( "." )[ 1 ];
-	fullName = namespace + "-" + name;
+	fullast_name = namespace + "-" + name;
 
 	if ( !prototype ) {
 		prototype = base;
@@ -52,7 +52,7 @@ $.widget = function( name, base, prototype ) {
 	}
 
 	// create selector for plugin
-	$.expr[ ":" ][ fullName ] = function( elem ) {
+	$.expr[ ":" ][ fullast_name ] = function( elem ) {
 		return !!$.data( elem, name );
 	};
 
@@ -78,7 +78,7 @@ $.widget = function( name, base, prototype ) {
 		namespace: namespace,
 		widgetName: name,
 		widgetEventPrefix: $[ namespace ][ name ].prototype.widgetEventPrefix || name,
-		widgetBaseClass: fullName
+		widgetBaseClass: fullast_name
 	}, prototype );
 
 	$.widget.bridge( name, $[ namespace ][ name ] );

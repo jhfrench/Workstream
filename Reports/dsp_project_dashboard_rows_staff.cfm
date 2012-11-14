@@ -23,7 +23,7 @@
 #customer_description# - #description#
 		</td>
 		<td valign="top">
-			#lname# <cfif NOT len(lname)>&nbsp;</cfif>
+			#last_name# <cfif NOT len(last_name)>&nbsp;</cfif>
 		</td>
 		<td valign="top">
 		<cfif len(file_path)><a href="http://#REPLACE(file_path,"N:","10.1.1.176/Nuco1")#"></cfif>
@@ -70,7 +70,7 @@
 		<td align="left" colspan="100%">
 			<select name="project_manager_id" >
 				<option value="all">All IEs</option><cfoutput query="Get_project_IE">
-				<option value="#user_account_id#"<cfif attributes.project_manager_id EQ user_account_id> selected="selected"</cfif>>#lname#</option></cfoutput>
+				<option value="#user_account_id#"<cfif attributes.project_manager_id EQ user_account_id> selected="selected"</cfif>>#last_name#</option></cfoutput>
 			</select>
 		</td>
 	</tr>
@@ -81,8 +81,8 @@
 			<option value="Customer.description,Project.description">Select Sort Variable</option>
 			<option value="Customer.description,Project.description">Customer</option>
 			<option value="Customer.description,Project.description DESC">Customer - Desc</option>
-			<option value="lname">IE</option>
-			<option value="lname Desc">IE - Desc</option>
+			<option value="last_name">IE</option>
+			<option value="last_name Desc">IE - Desc</option>
 			<option value="Project_end">Due Date</option>
 			<option value="Project_end Desc">Due Date - Desc</option>
 			<option value="Status">Status</option>

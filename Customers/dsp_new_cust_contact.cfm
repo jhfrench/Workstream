@@ -31,7 +31,7 @@
 		<cfinput type="text" required="no" name="name">
 	</td>
 	<td>
-		<cfinput type="text" required="no" name="lname">
+		<cfinput type="text" required="no" name="last_name">
 	</td>
 	<td>
 		<cfinput type="text" required="no" name="phone" validate="telephone">

@@ -454,7 +454,7 @@ This software consists of voluntary contributions made by many individuals on be
 
       for (fb_.i=1; fb_.i LTE arrayLen(fb_.xnCircuit[1].xmlChildren); fb_.i=fb_.i + 1) {
         /* the fuseactions */
-        if (fb_.xnCircuit[1].xmlChildren[fb_.i].xmlName EQ "fuseaction") {
+        if (fb_.xnCircuit[1].xmlChildren[fb_.i].xmlast_name EQ "fuseaction") {
           fb_.name=fb_.xnCircuit[1].xmlChildren[fb_.i].xmlAttributes['name'];
           fb_.application.fusebox.circuits[fb_.aCircuit].fuseactions[fb_.name]=structNew();
           fb_.application.fusebox.circuits[fb_.aCircuit].fuseactions[fb_.name].xml=fb_.xnCircuit[1].xmlChildren[fb_.i];
@@ -478,7 +478,7 @@ This software consists of voluntary contributions made by many individuals on be
           }
         }
         /* the prefuseactions */
-        else if (fb_.xnCircuit[1].xmlChildren[fb_.i].xmlName EQ "prefuseaction") {
+        else if (fb_.xnCircuit[1].xmlChildren[fb_.i].xmlast_name EQ "prefuseaction") {
           if (arrayLen(fb_.xnCircuit[1].xmlChildren[fb_.i].xmlChildren)) {
 			fb_.application.fusebox.circuits[fb_.aCircuit].prefuseaction.xml=fb_.xnCircuit[1].xmlChildren[fb_.i];
           }
@@ -488,7 +488,7 @@ This software consists of voluntary contributions made by many individuals on be
           }
         }
         /* the postfuseactions */
-        else if (fb_.xnCircuit[1].xmlChildren[fb_.i].xmlName EQ "postfuseaction") {
+        else if (fb_.xnCircuit[1].xmlChildren[fb_.i].xmlast_name EQ "postfuseaction") {
           if (arrayLen(fb_.xnCircuit[1].xmlChildren[fb_.i].xmlChildren)) {
 			fb_.application.fusebox.circuits[fb_.aCircuit].postfuseaction.xml=fb_.xnCircuit[1].xmlChildren[fb_.i];
           }

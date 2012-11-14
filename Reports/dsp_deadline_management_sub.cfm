@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	--> user_account_id: number that uniquely identifies an employee
-	--> lname: string containing the last name of an employee
+	--> last_name: string containing the last name of an employee
 	--> name: string containing the first name of an employee
 	--> on_time: decimal number that indicates the percent of tasks an employee has completed on time or early in the specified month
 	END FUSEDOC --->
@@ -41,7 +41,7 @@
 	<tbody>
 	<cfloop query="deadline_management_sub">
 		<tr>
-			<td><a href="javascript:list_to_employee('#user_account_id#')" title="View this employee's profile.">#lname#, #name#</a></td>
+			<td><a href="javascript:list_to_employee('#user_account_id#')" title="View this employee's profile.">#last_name#, #name#</a></td>
 			<td class="number">#numberformat(on_time_count)#</td>
 			<td class="number">#task_count#</td>
 			<td class="number">#decimalformat(on_time_average)#</td>

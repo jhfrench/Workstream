@@ -30,7 +30,7 @@
 		<td>#dateformat(due_date,"m/d/yyyy")#</td>
 		<td>#task_id#</td>
 		<td>#budgeted_hours#</td>
-		<td>#lname#</td>
+		<td>#last_name#</td>
 		<td><a href="javascript:list_to_task('#task_id#');">#name#</a></td>
 		<td>#status#</td>
 		<td>#priority#</td>

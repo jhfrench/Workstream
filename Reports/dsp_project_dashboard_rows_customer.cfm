@@ -36,7 +36,7 @@
 			#customer_description#<br />#description#
 		</td>
 		<td valign="top">
-			#lname#<cfif NOT len(lname)>&nbsp;</cfif>
+			#last_name#<cfif NOT len(last_name)>&nbsp;</cfif>
 		</td>
 		<td align="right" valign="top">
 		<cfif len(file_path)><a href="http://#REPLACE(file_path,"N:","10.1.1.176/Nuco1")#"></cfif>

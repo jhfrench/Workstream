@@ -15,7 +15,7 @@
 	--> email: string containing the email address of an employee
 	--> user_account_id: id that identifies user to workstream
 	--> extension: string containing the extension of an employee
-	--> lname: string containing the last name of an employee
+	--> last_name: string containing the last name of an employee
 	--> name: string containing the first name of an employee
 	--> phone_number: string containing the work phone number of an employee
  --->

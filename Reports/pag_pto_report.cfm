@@ -34,7 +34,7 @@
 </cfoutput>
 <cfoutput query="get_pto_hours_report">
 	<tr<cfif (currentrow MOD 1)> bgcolor="##E1E1E1"</cfif>>
-		<td><a href="javascript:drill_down('#user_account_id#');">#name# #lname#</a></td>
+		<td><a href="javascript:drill_down('#user_account_id#');">#name# #last_name#</a></td>
 		<td align="right"><a href="javascript:drill_down('#user_account_id#');">#pto_type_indicator#</a></td>
 		<td class="RegText number"><a href="javascript:drill_down('#user_account_id#');">#used_hours#</a></td>
 		<td class="RegText number"><a href="javascript:drill_down('#user_account_id#');">#pto_type_indicator-used_hours#</a></td>

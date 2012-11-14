@@ -21,7 +21,7 @@
 	--> variables.user_account_id_match: item to default select if criteria matches
 	--> company: number that contains the REF_Company.company_id for an employee
 	--> user_account_id: id that identifies user to workstream
-	--> lname: string containing the last name of an employee
+	--> last_name: string containing the last name of an employee
 	<-- #attributes.select_name#: (variable name based on what is passed in through the module select_name attribute) number of the employee(s) selected
  --->
 <cfif isdefined("attributes.email_only")>
@@ -65,7 +65,7 @@
 	<cfselect name="#attributes.element_name#" size="2" message="#attributes.message#" required="yes" class="#attributes.class#">
 
 		<cfloop query="get_team_select">
-			<option value="#user_account_id#">#lname#, #left(name, 3)#</option>
+			<option value="#user_account_id#">#last_name#, #left(name, 3)#</option>
 		</cfloop>
 
 	</cfselect>

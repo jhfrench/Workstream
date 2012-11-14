@@ -15,10 +15,10 @@
 <cfoutput>
 	<tr bgcolor="##5F5F5F">
 		<td colspan="2" class="SubHeadTextWhite">
-			Full Name: <cfif IsDefined ("name.lname")>#name.lname#, #name.name#<cfelse>#last_name#, #first_name#</cfif>
+			Full Name: <cfif IsDefined ("name.last_name")>#name.last_name#, #name.name#<cfelse>#last_name#, #first_name#</cfif>
 		</td>
 		<td colspan="2" class="SubHeadTextWhite">
-			Company: <cfif IsDefined ("name.lname")>#name.company#<cfelse>#company_name#</cfif>
+			Company: <cfif IsDefined ("name.last_name")>#name.company#<cfelse>#company_name#</cfif>
 		</td>
 	</tr>
 	<tr bgcolor="##c0c0c0">

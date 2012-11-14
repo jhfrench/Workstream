@@ -63,7 +63,7 @@ FROM Demographics
 	) AS Used_Hours ON Demographics.user_account_id=Used_Hours.user_account_id
 WHERE Demographics.active_ind=1<cfif NOT listcontainsnoCase(attributes.user_account_id,"ALL" )>
 	AND Demographics.user_account_id IN (#preservesinglequotes(attributes.user_account_id)#)</cfif>
-ORDER BY lname
+ORDER BY last_name
 </cfif>
 </cfquery>
 </cfsilent>

@@ -17,7 +17,7 @@
 	<-- company: number that contains the REF_Company.company_id for an employee
 	<-- user_account_id: id that identifies user to workstream
 	<-- f_init: string containing the first initial of an employee
-	<-- lname: string containing the last name of an employee
+	<-- last_name: string containing the last name of an employee
  --->
 <cfparam name="session.workstream_selected_company_id" default="#session.workstream_company_id#">
 <cfparam name="variables.user_account_id_match" default="">

@@ -18,7 +18,7 @@
 <cfinclude template="qry_get_email_types.cfm">
 <cfinclude template="act_param_emp_edit_form_vars.cfm">
 <cfinclude template="qry_get_open_positions.cfm">
-<cfif isdefined("attributes.lname")>
+<cfif isdefined("attributes.last_name")>
 	<cfinclude template="act_enter_employee.cfm">
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_employee" field_name="user_account_id" fuseaction="Administration.edit_account">
 	<cfinclude template="dsp_emp_entered_message.cfm">

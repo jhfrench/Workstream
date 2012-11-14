@@ -14,12 +14,12 @@ I get the names of IE's on current projects.
 	END FUSEDOC --->
 
 <cfquery name="get_project_ie" datasource="#application.datasources.main#">
-SELECT COALESCE(Emp_Contact.user_account_id,0) AS user_account_id, COALESCE(Emp_contact.lname, 'Unassigned') AS lname
+SELECT COALESCE(Demographics.user_account_id,0) AS user_account_id, COALESCE(Demographics.last_name, 'Unassigned') AS last_name
 FROM Project
-	LEFT OUTER JOIN Emp_Contact ON Emp_Contact.user_account_id=Project.project_manager_id
+	LEFT OUTER JOIN Demographics ON Demographics.user_account_id=Project.project_manager_id
 WHERE status!=0
-GROUP BY Emp_Contact.user_account_id, Emp_contact.lname
-ORDER BY lname
+GROUP BY Demographics.user_account_id, Demographics.last_name
+ORDER BY last_name
 </cfquery>
 <cfquery name="get_project_customers" datasource="#application.datasources.main#">
 SELECT Customer.description, Customer.customer_id

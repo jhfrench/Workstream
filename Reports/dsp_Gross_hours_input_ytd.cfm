@@ -43,9 +43,9 @@
 		</td>
 		<td>
 			<select name="sort_by" size="1" style="width:130px">
-				<option value="Emp_Contact.lname" selected="selected">Employees
-				<option value="Loc1.city, Emp_Contact.lname">Location
-				<option value="REF_Employee_Classification.employee_classification, Emp_Contact.lname">Employee Type
+				<option value="Demographics.last_name" selected="selected">Employees
+				<option value="Loc1.city, Demographics.last_name">Location
+				<option value="REF_Employee_Classification.employee_classification, Demographics.last_name">Employee Type
 			</select>
 		</td>
 	</tr>

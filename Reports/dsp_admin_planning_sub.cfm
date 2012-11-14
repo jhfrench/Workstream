@@ -42,7 +42,7 @@
 <cfoutput query="admin_planning_sub">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<td>
-			<a href="javascript:list_to_employee('#user_account_id#')">#lname#, #name#</a>
+			<a href="javascript:list_to_employee('#user_account_id#')">#last_name#, #name#</a>
 		</td>
 		<td align="right">
 			#decimalformat(admin_hours)#

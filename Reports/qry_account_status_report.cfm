@@ -14,7 +14,7 @@
 <cfquery name="account_status_report" datasource="#application.datasources.main#">
 SELECT Task.task_id, (Customer.description || '-' || Project.description) AS project_name, Task.name AS task_name,
 	REF_Status.status, REF_Priority.description AS priority, Task.assigned_date,
-	Task.due_date, Task.complete_date, Emp_contact.lname AS owner
+	Task.due_date, Task.complete_date, Demographics.last_name AS owner
 FROM Task
 	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id
 	INNER JOIN Project ON Task.project_id=Project.project_id<cfif isdefined("attributes.project_id")>
@@ -24,7 +24,7 @@ FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
 		AND Team.role_id=1
-	INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.user_account_id
+	INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
 	INNER JOIN REF_Priority ON Task.priority_id=REF_Priority.priority_id
 WHERE Task.status_id!=7 /*exclude closed tasks*/
 		OR Task.complete_date BETWEEN CURRENT_DATE-interval '1 week' AND CURRENT_TIMESTAMP

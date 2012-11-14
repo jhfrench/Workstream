@@ -14,7 +14,7 @@
 	 || 
 
 	--> user_account_id: id that identifies user to workstream
-	--> lname: string containing the last name of an employee
+	--> last_name: string containing the last name of an employee
 	--> name: string containing the first name of an employee
 	--> address1: string containing the first address line for a person
 	--> address2: string containing the second address line for a person
@@ -37,7 +37,7 @@
 
 </cfsilent>
 <cfparam name="fname" default="">
-<cfparam name="lname" default="">
+<cfparam name="last_name" default="">
 <cfparam name="work_phone" default="">
 <cfparam name="extension" default="">
 <cfparam name="home_phone" default="">

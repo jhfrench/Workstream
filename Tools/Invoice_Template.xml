@@ -493,7 +493,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.25">
     <Cell ss:StyleID="s68"><Data ss:Type="String">To:</Data></Cell>
-    <Cell ss:MergeAcross="1" ss:StyleID="s68"><Data ss:Type="String">#name# #lname#</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s68"><Data ss:Type="String">#name# #last_name#</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
    </Row>

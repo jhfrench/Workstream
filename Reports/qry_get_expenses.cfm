@@ -16,7 +16,7 @@ SELECT junk2.*, note, expense_id
 FROM Notes
 	INNER JOIN (
 		SELECT Reimbursement_Type, work_date, expense_id,
-			Description, project_code, [Name], lname,
+			Description, project_code, [Name], last_name,
 			<cfloop query="Get_Expense_Type">
 			SUM([#Get_Expense_Type.Expense_Type#]) as '#Get_Expense_Type.Expense_Type#',
 			</cfloop>notes_id
@@ -26,12 +26,12 @@ FROM Notes
 			<cfloop query="Get_Expense_Type">
 			(CASE WHEN #Get_Expense_Type.Expense_Type_ID# = expense_amount.expense_type_id then expense_amount else 0.00 end) AS '#Get_Expense_Type.Expense_Type#',
 			</cfloop>
-			Emp_Contact.Name, Emp_Contact.lname, expense.expense_id
+			Demographics.first_name, Demographics.last_name, expense.expense_id
 		FROM expense_amount
 			INNER JOIN REF_Expense_Type ON expense_amount.Expense_type_id = REF_Expense_Type.Expense_type_ID
 			INNER JOIN expense
 			INNER JOIN REF_Reimbursement_Type ON expense.reimbursement_type_id = REF_Reimbursement_Type.Reimbursement_ID
-			INNER JOIN Emp_Contact ON expense.user_account_id=Emp_Contact.user_account_id
+			INNER JOIN Demographics ON expense.user_account_id=Demographics.user_account_id
 			INNER JOIN Project ON expense.project_id = Project.project_id ON expense_amount.expense_id = expense.expense_id
 			INNER JOIN Notes ON expense.notes_id = Notes.notes_id
 		WHERE (expense.work_date >='#From_Date#'
@@ -44,7 +44,7 @@ FROM Notes
 	) AS JUNK
 	GROUP BY Reimbursement_Type, work_date, Description,
 		project_code, expense_id, [Name],
-		lname, notes_id 
+		last_name, notes_id 
 	) AS junk2 ON junk2.notes_id = notes.notes_id
 WHERE Notes.active_ind=1
 ORDER BY  Reimbursement_Type,work_date

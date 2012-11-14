@@ -342,19 +342,6 @@
 			 -->
 			<set name="request.pagetitle" value="Account Status Report"/>
 			<include template="pag_account_status_report.cfm"/>
-		</fuseaction>
-
-		<fuseaction name="project_dashboard_GE">
-			<!-- <set name="attributes.object_name" value="project Dashboard for GE"/>
-			 -->
-			<set name="request.pagetitle" value="project Dashboard for GE"/>
-			<include template="pag_project_dashboard_GE.cfm"/>
-		</fuseaction>
-		<fuseaction name="project_dashboard_SBC">
-			<!-- <set name="attributes.object_name" value="project Dashboard for SBC"/>
-			 -->
-			<set name="request.pagetitle" value="project Dashboard for SBC"/>
-			<include template="pag_project_dashboard_SBC.cfm"/>
 		</fuseaction>	
 		<fuseaction name="project_dashboard_DMA">
 			<!-- <set name="attributes.object_name" value="project Dashboard for DMA"/>

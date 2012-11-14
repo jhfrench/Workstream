@@ -13,7 +13,7 @@
 </cfsilent>
 <cfoutput query="annivarsary">
 <tr<cfif currentrow MOD 2> bgcolor="##e1e1e1"</cfif>>
-	<td>#lname#</td>
+	<td>#last_name#</td>
 	<td>#name#</td>
 	<td align="right">#dateformat(hire_date,"m/d/yyyy")#</td>
 	<td align="right">#decimalformat(years_employed)#</td>

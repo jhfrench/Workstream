@@ -33,7 +33,7 @@
 			<select name="project_manager_id" class="span2">
 				<option value="0">All project managers</option>
 				<cfoutput query="get_project_ie">
-					<option value ="#user_account_id#"<cfif attributes.project_manager_id EQ user_account_id> selected="selected"</cfif>>#lname#</option>
+					<option value ="#user_account_id#"<cfif attributes.project_manager_id EQ user_account_id> selected="selected"</cfif>>#last_name#</option>
 				</cfoutput>
 			</select>
 			<label for="sort">Sort option</label>
@@ -41,8 +41,8 @@
 				<option value="Customer.description, Project.description">select sort variable</option>
 				<option value="Customer.description, Project.description">Customer</option>
 				<option value="Customer.description, Project.description DESC " ">Customer - descending</option>
-				<option value="lname"><abbr title="project manager">PM</abbr></option>
-				<option value="lname DESC " "><abbr title="project manager">PM</abbr> - descending</option>
+				<option value="last_name"><abbr title="project manager">PM</abbr></option>
+				<option value="last_name DESC " "><abbr title="project manager">PM</abbr> - descending</option>
 				<option value="project_end">Due Date</option>
 				<option value="project_end DESC " ">Due Date - descending</option>
 				<option value="status">Status</option>

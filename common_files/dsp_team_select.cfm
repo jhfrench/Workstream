@@ -21,7 +21,7 @@
 	--> variables.user_account_id_match: item to default select if criteria matches
 	--> company: number that contains the REF_Company.company_id for an employee
 	--> user_account_id: id that identifies user to workstream
-	--> lname: string containing the last name of an employee
+	--> last_name: string containing the last name of an employee
 	<-- #attributes.select_name#: (variable name based on what is passed in through the module select_name attribute) number of the employee(s) selected
  --->
 <cfscript>

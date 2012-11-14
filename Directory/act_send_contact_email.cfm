@@ -11,7 +11,7 @@
 	Edits:
 	$Log$
 	 || 
-	--> lname: string containing the last name of an employee
+	--> last_name: string containing the last name of an employee
 	--> name: string containing the first name of an employee
 	--> email: string containing individual email addresses
  --->
@@ -19,7 +19,7 @@
 <!--- $issue$: do we want to reactivate this? Looks like a scheduled process that needs some other pieces (like get_active_employee_email query). For now, the REF_Screen record is deactivated --->
 <!--- paramed form variables (safety)--->
 <cfparam name="fname" default="">
-<cfparam name="lname" default="">
+<cfparam name="last_name" default="">
 <cfparam name="endrow" default="0">
 
 <cfif NOT comparenocase(cgi.https, "on")>
@@ -47,7 +47,7 @@
 	<cfloop query="get_active_employee_email" startrow="1" endrow="#endrow#">
 		<!--- @ debug: <cfoutput>#evaluate(variables.email_name)#</cfoutput><br /> --->
 		<cfmail to="#evaluate(variables.email_name)#" from="#application.erroremailfrom# " subject="Monthly Contacts Change Enquiry" server="#application.emailserver#" type="HTML">
-		<p>Dear #fname# #lname#,<br />
+		<p>Dear #fname# #last_name#,<br />
 		This is a monthly email sent to remind you to review your personal and employee data in #application.product_name#. Please <a href="#variables.directory_url#">make any necessary modifications</a>.</p>
 		<p>Thank you.</p>
 		</cfmail>

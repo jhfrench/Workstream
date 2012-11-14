@@ -91,7 +91,7 @@
 				#mission#&nbsp;
 			</td>
 			<td>
-				#lname#&nbsp;
+				#last_name#&nbsp;
 			</td>
 			<td class="date">
 				#dateformat(date_updated, "m/d/yyyy")#

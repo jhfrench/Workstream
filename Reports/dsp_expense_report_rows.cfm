@@ -28,7 +28,7 @@
 		<cfoutput>
 		<cfset expense_id = get_expenses.expense_id> 
 		<tr>
-			<td>#name# #lname#</td>
+			<td>#name# #last_name#</td>
 			<td><a href="javascript:expense('#expense_id#')">#dateformat(work_date, 'm/d/yyyy')#</a></td>
 			<td>#project_code#</td>
 			<td>#trim(Description)#</td>
