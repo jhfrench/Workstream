@@ -24,7 +24,7 @@
 	<cftransaction isolation="READ_COMMITTED">
 		<cfinclude template="qry_insert_notes.cfm">
 		<cfinclude template="qry_get_project_details.cfm">
-		<cfinclude template="qry_upload_time_entry.cfm">
+		<cfinclude template="qry_insert_time_entry.cfm">
 	</cftransaction>
 	<cfelse>
 		<cfset variables.not_numeric_entries=listappend(variables.not_numeric_entries,"Date=#listgetat(attributes.date,ii)#; Hours=#listgetat(attributes.hours,ii)#; #identifier#=#listgetat(evaluate('attributes.#identifier#'),ii)#; Notes=#evaluate('notes_#ii#')#")>

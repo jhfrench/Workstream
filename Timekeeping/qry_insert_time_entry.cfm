@@ -1,5 +1,5 @@
 
-<!--Timekeeping/qry_upload_express_time_entry.cfm
+<!--Timekeeping/qry_insert_time_entry.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -20,11 +20,13 @@
 	--> get_project_details.project_id: number that uniquely identifies a Project entry
  --->
 <cfparam name="ii" default=1>
-<cfquery name="upload_express_time_entry" datasource="#application.datasources.main#">
+<cfquery name="insert__time_entry" datasource="#application.datasources.main#">
 INSERT INTO Time_Entry (user_account_id, work_date, hours,
-	project_id, task_id, notes_id)
+	project_id, task_id, notes_id,
+	created_by)
 VALUES (#variables.user_identification#, #createodbcdate(listgetat(attributes.date,ii))#, #listgetat(attributes.hours,ii)#,
-	<cfif isdefined("project_entry")>#listgetat(attributes.project_id,ii)#<cfelse>#get_project_details.project_id#</cfif>,<cfif isdefined("project_entry")>0<cfelse>#listgetat(attributes.task_id,ii)#</cfif>,#get_project_details.notes_id#)
+	<cfif isdefined("project_entry")>#listgetat(attributes.project_id,ii)#<cfelse>#get_project_details.project_id#</cfif>,<cfif isdefined("project_entry")>0<cfelse>#listgetat(attributes.task_id,ii)#</cfif>,#get_project_details.notes_id#,
+	#variables.user_identification#)
 </cfquery>
 </cfsilent>
 
