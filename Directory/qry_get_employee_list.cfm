@@ -26,7 +26,7 @@
 SELECT (Demographics.last_name || ', ' || Demographics.first_name) AS name,
 	Demographics.user_account_id, REF_Company.description AS company,
 	COALESCE(Email.email,'NA') AS email, COALESCE(Phone.phone_number,'NA') AS phone_number,
-	COALESCE(Phone.extension,'NA') AS extension, Position_History.employment_position_id
+	COALESCE(Phone.extension,'NA') AS extension, Link_User_Account_Employment_Position.employment_position_id
 FROM Demographics
 	INNER JOIN (
 		SELECT user_account_id
@@ -36,9 +36,9 @@ FROM Demographics
 		GROUP BY user_account_id
 	) AS Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
 	INNER JOIN REF_Company ON Link_Company_User_Account.company_id=REF_Company.company_id
-	LEFT OUTER JOIN Position_History ON Demographics.user_account_id=Position_History.user_account_id
-		AND Position_History.active_ind=1
-		AND Position_History.effective_end_date IS NULL
+	LEFT OUTER JOIN Link_User_Account_Employment_Position ON Demographics.user_account_id=Link_User_Account_Employment_Position.user_account_id
+		AND Link_User_Account_Employment_Position.active_ind=1
+		AND Link_User_Account_Employment_Position.effective_end_date IS NULL
 	INNER JOIN Employee ON Demographics.user_account_id=Demographics.user_account_id
 		AND Employee.active_ind=1
 		AND Employee.turnover_date IS NULL

@@ -16,16 +16,16 @@
 
 <cfquery name="get_open_positions" datasource="#application.datasources.main#">
 SELECT * 
-FROM Position
+FROM Employment_Position
 	LEFT OUTER JOIN (
 		SELECT employment_position_id, effective_start_date, effective_end_date
-		FROM Position_History,
+		FROM Link_User_Account_Employment_Position,
 			(
-				SELECT MAX(position_history_id) AS position_history_id
-				FROM Position_History
+				SELECT MAX(l_u_a_e_p_id) AS l_u_a_e_p_id
+				FROM Link_User_Account_Employment_Position
 				GROUP BY employment_position_id
 			) AS inner_query
-		Where Position_History.position_history_id = Inner_Query.position_history_id
+		Where Link_User_Account_Employment_Position.l_u_a_e_p_id = Inner_Query.l_u_a_e_p_id
 	) AS Inner_Query2 ON Positions.employment_position_id = Inner_Query2.employment_position_id
 WHERE active_ind = 1 
 	AND (
