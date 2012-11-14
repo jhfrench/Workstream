@@ -24,7 +24,7 @@
 <cfinclude template="qry_get_emp_companies.cfm">
 <cfinclude template="qry_get_emp_location.cfm">
 <cfinclude template="qry_get_subordinates.cfm">
-<cfset attributes.section_title="#get_employee_details.lname#, #get_employee_details.fname#">
+<cfset attributes.section_title="#get_employee_details.last_name#, #get_employee_details.first_name#">
 <cfif compare(get_employee_details.credentials,"")>
 	<cfset attributes.section_title="#attributes.section_title#; #get_employee_details.credentials#">
 </cfif>

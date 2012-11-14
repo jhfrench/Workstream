@@ -18,12 +18,15 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="get_employee_details" datasource="#application.datasources.main#">
-SELECT Emp_Contact.name AS fname, Emp_Contact.lname, Demographics.ssn AS ssn,
-	Demographics.dob, Demographics.hire_date, COALESCE(Demographics.photo,'nopic.jpg') AS photo,
-	Demographics.effective_to, COALESCE(Emp_Contact.credentials,'') AS credentials, Emp_Biography.biography
-FROM Emp_Contact
-	INNER JOIN View_Demographics_Workstream AS Demographics ON Emp_Contact.user_account_id=Demographics.user_account_id
-	LEFT OUTER JOIN Emp_Biography ON Emp_Contact.user_account_id=Emp_Biography.user_account_id
-WHERE Demographics.effective_to IS NULL<cfif isdefined("attributes.user_account_id") and len(attributes.user_account_id)>
+SELECT Demographics.first_name, Demographics.last_name, Demographics.uupic,
+	Employee.birth_date, Employee.hire_date, COALESCE(Employee.photo_path,'nopic.jpg') AS photo,
+	Employee.turnover_date, COALESCE(Demographics.credentials,'') AS credentials, Emp_Biography.biography
+FROM Demographics
+	INNER JOIN Employee ON Demographics.user_account_id=Employee.user_account_id
+		AND Employee.active_ind=1
+		AND Employee.turnover_date IS NULL
+	LEFT OUTER JOIN Emp_Biography ON Demographics.user_account_id=Emp_Biography.user_account_id
+		AND Emp_Biography.active_ind=1
+WHERE Demographics.active_ind=1<cfif isdefined("attributes.user_account_id") and len(attributes.user_account_id)>
 	AND Demographics.user_account_id=#attributes.user_account_id#</cfif>
 </cfquery>
