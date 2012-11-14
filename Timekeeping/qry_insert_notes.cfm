@@ -1,5 +1,5 @@
 
-<!--Timekeeping/qry_upload_notes.cfm
+<!--Timekeeping/qry_insert_notes.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -27,9 +27,9 @@
 <cfparam name="attributes.notes_type_id" default=1>
 <cfquery name="upload_express_notes" datasource="#application.datasources.main#">
 INSERT INTO Notes (task_id, user_account_id, notes_type_id,
-	note)
+	note, created_by)
 VALUES (<cfif isdefined("project_entry")>0<cfelse>#listgetat(attributes.task_id,ii)#</cfif>, #variables.user_identification#,#attributes.notes_type_id#,
-	'#HTMLEditFormat(request.note)#')
+	'#HTMLEditFormat(request.note)#', #variables.user_identification#)
 </cfquery>
 </cfsilent>
 
