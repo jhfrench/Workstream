@@ -23,7 +23,7 @@
 		<cfset attributes.task_id=listgetat(ii,2,"|")>
 	</cfloop>
 </cfif>
-<cfinclude template="../common_files/qry_express_check_date.cfm">
+<cfinclude template="../common_files/qry_get_date_locked.cfm">
 <cfinclude template="qry_get_ind_entry_details.cfm">
 <cfinclude template="qry_get_task_details_enhanced.cfm">
 <cfinclude template="qry_get_task_accumulated.cfm">

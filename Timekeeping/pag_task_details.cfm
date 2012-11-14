@@ -49,7 +49,7 @@
 		<cfinclude template="../common_files/qry_get_associated_files.cfm">
 		<cfinclude template="../common_files/qry_get_associated_tasks.cfm">
 		<cfinclude template="qry_time_entry_details.cfm">
-		<cfinclude template="../common_files/qry_express_check_date.cfm">
+		<cfinclude template="../common_files/qry_get_date_locked.cfm">
 		<cfset task_owner=get_task_details.owner_id>
 		<cfset variables.task_team=valuelist(get_task_Team.user_account_id)>
 		<cfset task_qa=get_task_details.qa_id>

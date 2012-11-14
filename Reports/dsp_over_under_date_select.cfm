@@ -11,8 +11,8 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfinclude template="../common_files/qry_express_check_date.cfm">
-<cfset variables.go_back_to=datediff("d",express_check_date.date_locked,now())-1>
+<cfinclude template="../common_files/qry_get_date_locked.cfm">
+<cfset variables.go_back_to=datediff("d",get_date_locked.date_locked,now())-1>
 </cfsilent>
 <cfoutput>
 <cfif isdefined("attributes.date")>
