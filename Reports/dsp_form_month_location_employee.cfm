@@ -19,7 +19,7 @@
 			<label for="work_month">Month</label>
 			<select name="work_month" id="work_month" size="1" class="span2">
 				<cfloop from="1" to="12" index="variables.month_ii">
-					<option<cfif attributes.work_month EQ variables.month_ii> selected="selected"</cfif>value="#variables.month_ii#">#monthasstring(variables.month_ii)#</option>
+					<option<cfif attributes.work_month EQ variables.month_ii> selected="selected"</cfif> value="#variables.month_ii#">#monthasstring(variables.month_ii)#</option>
 				</cfloop>
 			</select>
 			<label for="work_year">Year</label>
@@ -31,7 +31,7 @@
 			<label for="office_location">Office Location</label>
 			<select name="office_location" id="office_location" size="1" class="span2">
 				<option value="ALL">ALL</option><cfloop query="office_loc">
-				<option value ="#office_location#">#office_location#</option></cfloop>
+				<option value="#office_location#">#office_location#</option></cfloop>
 			</select>
 			<label for="user_account_id">Employee</label>
 			<select name="user_account_id" id="user_account_id" size="1" class="span2"> 
