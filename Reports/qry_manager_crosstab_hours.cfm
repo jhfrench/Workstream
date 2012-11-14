@@ -21,8 +21,8 @@ FROM Time_Entry,
 	WHERE Demographics.user_account_id=Link_Company_User_Account.user_account_id<cfif variables.all_option>
 		AND Demographics.user_account_id=Demographics.user_account_id
 		AND Demographics.hire_date < #createodbcdatetime(attributes.through_date)#
-		AND (Demographics.effective_to IS NULL
-			OR Demographics.effective_to > #createodbcdatetime(attributes.from_date)#)<cfelse>
+		AND (Employee.turnover_date IS NULL
+			OR Employee.turnover_date > #createodbcdatetime(attributes.from_date)#)<cfelse>
 		AND Link_User_Account_Supervisor.user_account_id=Demographics.user_account_id 
 		AND (Link_User_Account_Supervisor.supervisor_id=#variables.user_identification#
 			OR Link_User_Account_Supervisor.user_account_id=#variables.user_identification#)

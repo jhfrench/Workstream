@@ -34,9 +34,9 @@ WHERE Time_Entry.active_ind=1
 	AND Time_Entry.work_date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.to_date)#
 	AND (
 		Demographics.hire_date <= #createodbcdate(attributes.to_date)#
-		AND Demographics.effective_to >= #createodbcdate(attributes.from_date)#
+		AND Employee.turnover_date >= #createodbcdate(attributes.from_date)#
 		OR (
-			Demographics.effective_to IS NULL
+			Employee.turnover_date IS NULL
 			AND Demographics.hire_date  <= #createodbcdate(attributes.to_date)#)
 		)
 --Something wrong?

@@ -57,7 +57,7 @@ FROM View_Demographics_Workstream Demographics, Demographics
 		GROUP BY Time_Entry.user_account_id
 	) AS nbdata ON nbdata.user_account_id=Demographics.user_account_id 
 WHERE Demographics.user_account_id=Demographics.user_account_id
-	AND Demographics.effective_to IS NULL
+	AND Employee.turnover_date IS NULL
 	AND (Demographics.supervisor=#variables.user_identification#
 		OR Demographics.user_account_id=#variables.user_identification#)
 </cfquery>

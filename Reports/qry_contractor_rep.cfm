@@ -27,5 +27,5 @@ FROM View_Demographics_Workstream AS Demographics
 		AND Link_User_Account_Status.active_ind=1
 WHERE Demographics.employee_classification_id = 4
 	AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)
-	AND Demographics.effective_to IS NULL
+	AND Employee.turnover_date IS NULL
 </cfquery>

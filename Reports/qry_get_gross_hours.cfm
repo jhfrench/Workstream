@@ -19,7 +19,7 @@ FROM Demographics
 		AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)
 	INNER JOIN View_Demographics_Workstream ON Demographics.user_account_id=View_Demographics_Workstream.user_account_id
 		AND View_Demographics_Workstream.hire_date <= #variables.date_closed#
-		AND COALESCE(View_Demographics_Workstream.effective_to,#variables.date_open#) >= #variables.date_open#
+		AND COALESCE(View_Demographics_Workstream.turnover_date,#variables.date_open#) >= #variables.date_open#
 	LEFT OUTER JOIN Location ON Demographics.user_account_id=Location.user_account_id
 		AND Location.location_type_id=1
 	LEFT OUTER JOIN Time_Entry ON Demographics.user_account_id=Time_Entry.user_account_id

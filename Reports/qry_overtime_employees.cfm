@@ -20,7 +20,7 @@ FROM Demographics
 		AND Link_User_Account_Status.account_status_id=1 /*active*/
 	INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
 		AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)
-WHERE Demographics.effective_to IS NULL
+WHERE Employee.turnover_date IS NULL
 	AND Demographics.overtime_elligible_ind=1
 ORDER BY Demographics.last_name, Demographics.first_name
 </cfquery>

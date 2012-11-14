@@ -33,7 +33,7 @@
 <cfparam default="" name="last_name">
 <cfparam default="" name="mi"> 
 <cfparam default="" name="credentials"> 
-<cfparam default="" name="dob"> 
+<cfparam default="" name="birth_date"> 
 <cfparam default="" name="ssn"> 
 <cfparam default="" name="pin"> 
 <cfparam default="" name="photo"> 

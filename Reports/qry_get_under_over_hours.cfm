@@ -22,7 +22,7 @@ FROM Time_Entry
 		FROM Demographics
 			INNER JOIN Demographics ON Demographics.user_account_id=Demographics.user_account_id
 				AND Demographics.hire_date < #createodbcdatetime(variables.end_date)#
-				AND COALESCE(Demographics.effective_to, CURRENT_DATE+interval '1 day') > #createodbcdatetime(variables.start_date)#
+				AND COALESCE(Employee.turnover_date, CURRENT_DATE+interval '1 day') > #createodbcdatetime(variables.start_date)#
 			LEFT OUTER JOIN REF_Employee_Classification ON Demographics.employee_classification_id=REF_Employee_Classification.employee_classification_id
 			INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id<cfif NOT variables.all_option>
 			INNER JOIN Link_User_Account_Supervisor ON Link_User_Account_Supervisor.user_account_id=Demographics.user_account_id 

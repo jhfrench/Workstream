@@ -23,7 +23,7 @@ FROM (
 			MAX(COALESCE(REF_Employee_Classification.employee_classification, 'None')) AS employee_classification, REF_Company.description AS company
 		FROM Demographics
 			INNER JOIN View_Demographics_Workstream ON Demographics.user_account_id=View_Demographics_Workstream.user_account_id
-				AND COALESCE(View_Demographics_Workstream.effective_to, #variables.from_date#) >= #variables.from_date#
+				AND COALESCE(View_Demographics_Workstream.turnover_date, #variables.from_date#) >= #variables.from_date#
 				AND COALESCE(View_Demographics_Workstream.hire_date, #variables.through_date#) <= #variables.through_date#
 			INNER JOIN REF_Employee_Classification ON REF_Employee_Classification.employee_classification_id=COALESCE(View_Demographics_Workstream.employee_classification_id,7)
 			INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id

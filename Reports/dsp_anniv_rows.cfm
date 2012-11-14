@@ -17,6 +17,6 @@
 	<td>#first_name#</td>
 	<td align="right">#dateformat(hire_date,"m/d/yyyy")#</td>
 	<td align="right">#decimalformat(years_employed)#</td>
-	<td align="right">#dateformat(dob,"mm/dd")#</td>
+	<td align="right">#dateformat(birth_date,"mm/dd")#</td>
 </tr>
 </cfoutput>
