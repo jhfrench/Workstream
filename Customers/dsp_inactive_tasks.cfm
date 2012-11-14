@@ -29,7 +29,7 @@
 		</tr>
  	</thead>
 	<tbody>
-	<cfoutput query="tasks_to_inactive">
+	<cfoutput query="get_tasks_to_deactivate">
 		<tr>
 			<td>#project_code#</td>
 			<td>#description#</td>

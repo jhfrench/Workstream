@@ -12,5 +12,5 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfinclude template="qry_get_tasks_to_inactive.cfm">
+<cfinclude template="qry_get_tasks_to_deactivate.cfm">
 <cfinclude template="dsp_inactive_tasks.cfm">
