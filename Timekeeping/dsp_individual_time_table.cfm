@@ -17,16 +17,19 @@
 	<caption><h3>Time Entries</h3></caption>
 	<thead>
 		<tr>
+			<th>Reassign Hours</th>
 			<th>Date</th>
 			<th>Hours</th>
 			<th>Notes</th>
-			<th>Reassign Hours</th>
 		</td>
 	</thead>
 	<tbody>
 	<cfoutput query="get_ind_entry_details">
 		<tr>
-			<td class="date">
+			<td>
+				<cfif billed_ind>Time previouly billed.<cfelse><cfinput type="checkbox" name="notes_id" value="#notes_id#" required="yes" message="Please mark which hours you wish to reassign."></cfif>
+			</td>
+			<td scope="row" class="date">
 				<a href="javascript:time_edit('#time_entry_id#');" title="Edit this time entry.">#dateformat(work_date,"m/d/yyyy")#</a>
 			</td>
 			<td class="number">
@@ -34,9 +37,6 @@
 			</td>
 			<td>
 				<a href="javascript:time_edit('#time_entry_id#');" title="Edit this time entry.">#replace(paragraphformat(stripcr(note)),"<P>","","all")#</a>
-			</td>
-			<td>
-				<cfif work_date LTE get_date_locked.date_locked>Time previouly billed.<cfelse><cfinput type="checkbox" name="notes_id" value="#notes_id#" required="yes" message="Please mark which hours you wish to reassign."></cfif>
 			</td>
 		</tr>
 	</cfoutput>

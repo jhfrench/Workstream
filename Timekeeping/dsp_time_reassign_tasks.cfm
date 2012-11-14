@@ -34,7 +34,7 @@
 				formname="time_details"
 				HTMLBetween="</div>
 	<div class='span6'>
-			<label class='h5' for=''>Task</label>">
+			<label class='h5' for='reassign_task_id'>Task</label>">
 
 	</div>
 </div>
