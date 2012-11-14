@@ -15,7 +15,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cftransaction isolation="READ_COMMITTED">
-	<cfinclude template="qry_emp_contact_update.cfm">
+	<cfinclude template="qry_update_employee_demographics.cfm">
 	<cfinclude template="act_update_demographics.cfm">
 	<cfinclude template="act_update_company.cfm">
 	<cfinclude template="act_update_locations.cfm">
