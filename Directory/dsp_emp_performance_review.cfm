@@ -24,11 +24,11 @@ $Log:
 		</tr>
 	</thead>
 	<tbody>
-	<cfoutput query="get_emp_performance_review_info">
+	<cfoutput query="get_performance_review">
 		<tr>
-			<td class="date">#dateformat(date_reviewed,'m/d/yyyy')#</td>
+			<td class="date">#dateformat(date_reviewed, "m/d/yyyy")#</td>
 			<td>#rating#</td>
-			<td>#lname#, #left(name, 3)#</td>
+			<td>#last_name#, #first_name#</td>
 		</tr>
 	</cfoutput>
 	</tbody>

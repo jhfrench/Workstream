@@ -23,7 +23,7 @@
 	<-- phone_number: string containing the work phone number of an employee
  --->
 <cfquery name="get_employee_list" cachedafter="02/02/1978" datasource="#application.datasources.main#">
-SELECT (Demographics.lastname || ', ' || Demographics.first_name) AS name,
+SELECT (Demographics.last_name || ', ' || Demographics.first_name) AS name,
 	Demographics.user_account_id, REF_Company.description AS company,
 	COALESCE(Email.email,'NA') AS email, COALESCE(Phone.phone_number,'NA') AS phone_number,
 	COALESCE(Phone.extension,'NA') AS extension, Position_History.position_id
