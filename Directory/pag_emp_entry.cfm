@@ -31,7 +31,7 @@
 	<cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="emp_entry" method="POST" class="form-horizontal">
 		<fieldset>
 			<legend><h2>New Employee Onboarding</h2></legend>
-			<cfinclude template="dsp_emp_details_form.cfm">
+			<cfinclude template="dsp_employee_details_form.cfm">
 		</fieldset>
 	</cfform>
 </cfif>

@@ -30,6 +30,6 @@
 <cfform action="index.cfm?fuseaction=Directory.emp_update" name="emp_entry" method="POST" class="form-horizontal">
 	<fieldset>
 		<legend><h2>Edit Employee Details</h2></legend>
-		<cfinclude template="dsp_emp_details_form.cfm">
+		<cfinclude template="dsp_employee_details_form.cfm">
 	</fieldset>
 </cfform>

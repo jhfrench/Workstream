@@ -1,5 +1,5 @@
 
-<!--Directory/dsp_emp_details.cfm
+<!--Directory/dsp_employee_details.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -17,12 +17,12 @@
 <h2>Employee Details <small>#attributes.section_title#</small></h2>
 <div class="row-fluid">
 	<div class="span3">
-		<img src="#application.application_specific_settings.image_dir#photos/#get_emp_details.photo#" width="144" height="144" alt="#attributes.section_title#" border="0">
+		<img src="#application.application_specific_settings.image_dir#photos/#get_employee_details.photo#" width="144" height="144" alt="#attributes.section_title#" border="0">
 		<cfif variables.user_identification EQ 1><a href="javascript:edit_employee(#user_account_id#);" class="btn">Edit Employee Information</a></cfif>
 		<br />
-		<b>Birthdate:</b> #dateformat(get_emp_details.dob,"mm/dd")#<br />
-		<b>Hire Date:</b> #dateformat(get_emp_details.hire_date,"m/d/yyyy")#<br />
-		<cfif compare(get_emp_details.effective_to,"")><b>End Date:</b> #dateformat(get_emp_details.effective_to,"m/d/yyyy")#</cfif>
+		<b>Birthdate:</b> #dateformat(get_employee_details.dob,"mm/dd")#<br />
+		<b>Hire Date:</b> #dateformat(get_employee_details.hire_date,"m/d/yyyy")#<br />
+		<cfif compare(get_employee_details.effective_to,"")><b>End Date:</b> #dateformat(get_employee_details.effective_to,"m/d/yyyy")#</cfif>
 		<cfif get_emp_phone.recordcount>
 			<cfinclude template="dsp_emp_phone.cfm">
 		</cfif>
@@ -34,10 +34,10 @@
 		</cfif>
 	</div>
 	<div class="span9">
-		<cfif len(get_emp_details.biography)>
+		<cfif len(get_employee_details.biography)>
 		<div class="lead">
 			<h4>Biography</h4>
-			#get_emp_details.biography#
+			#get_employee_details.biography#
 		</div>
 		</cfif>
 		<cfif listcontains(valuelist(get_user_access.fuseaction),"emp_entry")>
