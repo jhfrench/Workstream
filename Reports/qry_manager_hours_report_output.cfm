@@ -19,18 +19,19 @@ SELECT Employee_Data.employee_classification, Employee_Data.user_account_id, Emp
 	COALESCE(Time_Entry_Data.hours,0) AS hours, Employee_Data.company, Employee_Data.user_account_id,
 	COALESCE(Notes.note,'') AS note
 FROM (
-	SELECT Emp_Contact.user_account_id, Emp_Contact.name, Emp_Contact.lname,
-		MAX(COALESCE(REF_Employee_Classification.employee_classification, 'None')) AS employee_classification, REF_Company.description AS company
-	FROM Emp_contact, Demographics, REF_Employee_Classification,
-		Link_Company_User_Account, REF_Company
-	WHERE Emp_Contact.user_account_id=Demographics.user_account_id
-		AND Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id 
-		AND Link_Company_User_Account.company_id=REF_Company.company_id 
-		AND REF_Employee_Classification.employee_classification_id=COALESCE(Demographics.employee_classification_id,7) 
-		AND COALESCE(Demographics.effective_to, #variables.from_date#) >= #variables.from_date#
-		AND COALESCE(Demographics.hire_date, #variables.through_date#) <= #variables.through_date#
-		AND Emp_Contact.user_account_id IN (#attributes.included_user_account_id#)
-	GROUP BY Emp_Contact.user_account_id, Emp_Contact.name, Emp_Contact.lname, REF_Company.description
+		SELECT Demographics.user_account_id, Demographics.first_name AS name, Demographics.last_name AS lname,
+			MAX(COALESCE(REF_Employee_Classification.employee_classification, 'None')) AS employee_classification, REF_Company.description AS company
+		FROM Demographics
+			INNER JOIN View_Demographics_Workstream ON Demographics.user_account_id=View_Demographics_Workstream.user_account_id
+				AND COALESCE(View_Demographics_Workstream.effective_to, #variables.from_date#) >= #variables.from_date#
+				AND COALESCE(View_Demographics_Workstream.hire_date, #variables.through_date#) <= #variables.through_date#
+			INNER JOIN REF_Employee_Classification ON REF_Employee_Classification.employee_classification_id=COALESCE(View_Demographics_Workstream.employee_classification_id,7)
+			INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
+				AND Link_Company_User_Account.active_ind=1
+			INNER JOIN REF_Company ON Link_Company_User_Account.company_id=REF_Company.company_id 
+		WHERE Demographics.active_ind=1
+			AND Demographics.user_account_id IN (#attributes.included_user_account_id#)
+		GROUP BY Demographics.user_account_id, Demographics.name, Demographics.lname, REF_Company.description
 	) AS Employee_Data 
 	LEFT OUTER JOIN (
 		SELECT Time_Entry.user_account_id, Time_Entry.work_date, Time_Entry.hours, Time_Entry.notes_id, 
