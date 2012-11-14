@@ -124,7 +124,7 @@
 	</fuseaction>
 	<fuseaction name="employee_contact_email">
 		<!-- this fuse is only accessed by cf administration's scheduling function -->
-		<include template="qry_get_email.cfm"/>
+		<include template="qry_get_active_employee_email.cfm"/>
 		<include template="act_send_contact_email.cfm"/>
 	</fuseaction>
 	<fuseaction name="employee_contact_view">

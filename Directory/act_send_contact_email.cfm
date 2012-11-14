@@ -16,7 +16,7 @@
 	--> email: string containing individual email addresses
  --->
 </cfsilent>
-<!--- $issue$: do we want to reactivate this? Looks like a scheduled process that needs some other pieces (like get_emails query). For now, the REF_Screen record is deactivated --->
+<!--- $issue$: do we want to reactivate this? Looks like a scheduled process that needs some other pieces (like get_active_employee_email query). For now, the REF_Screen record is deactivated --->
 <!--- paramed form variables (safety)--->
 <cfparam name="fname" default="">
 <cfparam name="lname" default="">
@@ -39,12 +39,12 @@
 	<cfset variables.email_name="variables.send_to">
 	<cfset endrow=1>
 <cfelse>
-	<cfset variables.email_name="get_emails.email">
-	<cfset endrow=get_emails.recordcount>
+	<cfset variables.email_name="get_active_employee_email.email">
+	<cfset endrow=get_active_employee_email.recordcount>
 </cfif>
 
-<cfif get_emails.recordcount>
-	<cfloop query="get_emails" startrow="1" endrow="#endrow#">
+<cfif get_active_employee_email.recordcount>
+	<cfloop query="get_active_employee_email" startrow="1" endrow="#endrow#">
 		<!--- @ debug: <cfoutput>#evaluate(variables.email_name)#</cfoutput><br /> --->
 		<cfmail to="#evaluate(variables.email_name)#" from="#application.erroremailfrom# " subject="Monthly Contacts Change Enquiry" server="#application.emailserver#" type="HTML">
 		<p>Dear #fname# #lname#,<br />
