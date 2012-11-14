@@ -18,15 +18,14 @@
  --->
 
 <cfquery name="get_active_employee_email" datasource="#application.datasources.main#">
-SELECT Ec.Name AS fname, Ec.lname, Em.Email
-FROM Email Em
-	INNER JOIN Emp_Contact Ec ON Em.user_account_id=Ec.user_account_id
-	LEFT OUTER JOIN REF_Email_Type Ret ON Em.email_type_id = Ret.email_type_id
-	INNER JOIN Link_Company_User_Account ON Link_Company_User_Account.user_account_id=Ec.user_account_id
-	INNER JOIN REF_Company RCom ON Link_Company_User_Account.company_id = RCom.company_id
-WHERE Ret.email_type_id = 1
-	AND RCom.PTO_Accrual_Type_ID IS NOT NULL
+SELECT Demographics.first_name, Demographics.last_name, Email.email
+FROM Employee
+	INNER JOIN Demographics ON Employee.user_account_id=Demographics.user_account_id
+		AND Demographics.active_ind=1
+	INNER JOIN Email ON Employee.user_account_id=Email.user_account_id
+		AND Email.active_ind=1
+		AND Email.email_type_id=1
+WHERE Employee.active_ind=1
+	AND Employee.turnover_date IS NOT NULL
 </cfquery>
 </cfsilent>
-
-
