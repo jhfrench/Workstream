@@ -53,14 +53,14 @@
 <h2>for #get_demographics.first_name# #get_demographics.last_name#</h2>
 <form name="form_emp_contact_view" action="index.cfm?fuseaction=Directory.employee_contact_update" method="post" class="form-horizontal">
 	<fieldset>
-		<legend>Phone Numbers</legend>
+		<legend><h3>Phone Numbers</h3></legend>
 	<cfloop query="get_contact_phones">
 		<div class="control-group">
 			<label class="control-label" for="phone_number_#phone_type_id#">#phone_type#</label>
 			<div class="controls">
 				<input type="text" name="phone_number_#phone_type_id#" id="phone_number_#phone_type_id#" value="#phone_number#" maxlength="12" class="span8" />
 				<cfif listcontainsnocase(phone_type, "work")>
-					<label for="extension_#phone_type_id#">Extension</label> <input type="text" name="extension_#phone_type_id#" id="extension_#phone_type_id#" value="#extension#" maxlength="4" class="span8" />
+					<label for="extension_#phone_type_id#">Extension</label> <input type="text" name="extension_#phone_type_id#" id="extension_#phone_type_id#" value="#extension#" maxlength="4" class="span4" />
 				</cfif>
 				<input type="hidden" name="phone_id" value="#phone_id#" />
 				<input type="hidden" name="phone_type_id" value="#phone_type_id#" />
@@ -70,7 +70,7 @@
 	</fieldset>
 
 	<fieldset>
-		<legend>Emails</legend>
+		<legend><h3>Emails</h3></legend>
 		<!--- Emails --->
 	<cfloop query="get_contact_emails">
 		<div class="control-group">
@@ -85,7 +85,7 @@
 	</fieldset>
 
 	<fieldset>
-		<legend>Addresses</legend>
+		<legend><h3>Addresses</h3></legend>
 	<cfloop query="get_contact_locations">
 		<fieldset>
 			<legend>#location_type#</legend>
@@ -114,7 +114,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="zip_#location_type_id#"></label>
+			<label class="control-label" for="zip_#location_type_id#">Zip Code</label>
 			<div class="controls">
 				<input type="text" name="zip_#location_type_id#" id="zip_#location_type_id#" value="#zip#" maxlength="5" class="span4" />
 			</div>

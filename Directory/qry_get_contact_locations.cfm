@@ -20,14 +20,15 @@
 	<-- State: string containing the State for a person 
 	<-- Zip: string containing the Zip for a person
 	<-- location_ID: string containing the Locatio ID for a person
-	<-- Location_Type_ID: string containing Location Type ID for a person
+	<-- location_type_id: string containing Location Type ID for a person
  --->
-	<cfquery name="get_contact_locations" datasource="#application.datasources.main#">
-	SELECT Rlt.Location_Type, Lt.Address1, Lt.Address2,
-		Lt.City, Lt.State, Lt.Zip, 
-		Lt.location_ID, Rlt.Location_Type_ID
-	FROM Location lt
-		RIGHT OUTER JOIN REF_Location_Type Rlt ON Lt.Location_Type_Id = Rlt.Location_Type_ID
-			AND Lt.user_account_id =#variables.user_account_id#
-	</cfquery>
 </cfsilent>
+<cfquery name="get_contact_locations" datasource="#application.datasources.main#">
+SELECT REF_Location_Type.location_type_id, REF_Location_Type.location_type, Location.location_id,
+	Location.Address1, Location.Address2, Location.city,
+	Location.state, Location.zip
+FROM REF_Location_Type
+	LEFT OUTER JOIN Location ON REF_Location_Type.location_type_id=Location.location_type_id
+		AND Location.active_ind=1
+		AND Location.user_account_id=#variables.user_account_id#
+</cfquery>

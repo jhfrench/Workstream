@@ -29,6 +29,7 @@ FROM Employee
 		AND Demographics.active_ind=1<cfif isdefined("variables.user_identification") and len(variables.user_identification)>
 		AND Demographics.user_account_id=#variables.user_identification#</cfif>
 	LEFT OUTER JOIN Emp_Biography ON Demographics.user_account_id=Emp_Biography.user_account_id
+		AND Emp_Biography.active_ind=1
 ORDER BY Demographics.last_name, Demographics.first_name
 </cfquery>
 <cfif len(get_demographics.recordcount)>
