@@ -15,6 +15,6 @@
 <cfinclude template="../common_files/qry_get_states.cfm">
 <cfinclude template="qry_get_companies.cfm">
 <cfinclude template="qry_customer_change.cfm">
-<cfset code="#customer_change.root_code#">
+<cfset code=customer_change.root_code>
 <cfinclude template="qry_get_visible_to.cfm">
 <cfinclude template="dsp_edit_customer.cfm">

@@ -34,7 +34,7 @@
 	</cfif>
 	<cfquery name="insert_customer" datasource="#application.datasources.main#">
 	INSERT INTO Customer (root_code, description, billable_type_id,
-		company_id<cfif len(attributes.company_address1)>, company_address1</cfif><cfif len(attributes.company_address2)>, company_address2</cfif><cfif len(attributes.company_city)>, company_city</cfif>, company_state<cfif len(attributes.company_zip)>, company_zip</cfif><cfif len(attributes.lname)>, emp_contact_id</cfif>, active_ind)
+		company_id<cfif len(attributes.company_address1)>, company_address1</cfif><cfif len(attributes.company_address2)>, company_address2</cfif><cfif len(attributes.company_city)>, company_city</cfif>, company_state<cfif len(attributes.company_zip)>, company_zip</cfif><cfif len(attributes.lname)>, contact_user_account_id</cfif>, active_ind)
 	VALUES ('#variables.new_code#', '#attributes.description#', #attributes.billable_type_id#,
 		#attributes.company_id# <cfif len(attributes.company_address1)>, '#attributes.company_address1#'</cfif><cfif len(attributes.company_address2)>, '#attributes.company_address2#'</cfif><cfif len(attributes.company_city)>, '#attributes.company_city#'</cfif>, '#attributes.company_state#'<cfif len(attributes.company_zip)>, '#attributes.company_zip#'</cfif><cfif len(attributes.lname)>, CURRVAL('User_Account_user_account_id_SEQ')</cfif>, 1)
 	</cfquery>

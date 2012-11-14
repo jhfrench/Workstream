@@ -93,15 +93,15 @@
 	<fieldset>
 		<legend><h3>Contact</h3></legend>
 		<div class="control-group">
-			<label for="name" class="control-label">First Name</label>
+			<label for="first_name" class="control-label">First Name</label>
 			<div class="controls">
-				<input type="text" name="name" id="name" value="#customer_change.name#" class="span4" />
+				<input type="text" name="first_name" id="first_name" value="#customer_change.first_name#" class="span4" />
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="lname" class="control-label">Last Name</label>
+			<label for="last_name" class="control-label">Last Name</label>
 			<div class="controls">
-				<input type="text" name="lname" id="lname" value="#customer_change.lname#" class="span4" />
+				<input type="text" name="last_name" id="last_name" value="#customer_change.last_name#" class="span4" />
 			</div>
 		</div>
 	</fieldset>

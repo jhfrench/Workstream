@@ -57,14 +57,14 @@ WHERE customer_id=#attributes.customer_id#
 		INNER JOIN User_Account ON Demographics.user_account_id=User_Account.user_account_id
 			AND User_Account.account_type_id=2
 	WHERE Demographics.active_ind=1
-		AND Demographics.first_name='#attributes.name#'
-		AND Demographics.last_name='#attributes.lname#'
+		AND Demographics.first_name='#attributes.first_name#'
+		AND Demographics.last_name='#attributes.last_name#'
 	</cfquery>
 <!--- If the person is already in the system as a billing contact, update the Customer table to reference the existing contact --->
 	<cfif len(get_contact_name.user_account_id)>
-		<cfquery name="update_emp_contact" datasource="#application.datasources.main#">
+		<cfquery name="update_customer_contact" datasource="#application.datasources.main#">
 		UPDATE Customer
-	    SET emp_contact_id=#get_contact_name.user_account_id#
+	    SET contact_user_account_id=#get_contact_name.user_account_id#
 	    WHERE customer_id=#attributes.customer_id#
 		</cfquery>
 	<!--- If the person doesn't exist in the system, insert him into the system --->
@@ -80,21 +80,21 @@ WHERE customer_id=#attributes.customer_id#
 	<!--- and  update the Customer table with the new contact information --->
 			<cfquery name="update_customer" datasource="#application.datasources.main#">
 			UPDATE Customer
-			SET emp_contact_id=CURRVAL('User_Account_user_account_id_SEQ')
+			SET contact_user_account_id=CURRVAL('User_Account_user_account_id_SEQ')
 			WHERE customer_id=#attributes.customer_id#
 			</cfquery>
 	</cfif>
 <!---This is if the form is empty for contact information --->
 <cfelse>
 	<cfquery name="get_contact" datasource="#application.datasources.main#">
-	SELECT emp_contact_id
+	SELECT contact_user_account_id
 	FROM Customer
 	WHERE customer_id=#attributes.customer_id#
 	</cfquery>
-	<cfif len(get_contact.emp_contact_id)>
+	<cfif len(get_contact.contact_user_account_id)>
 		<cfquery name="remove_contact" datasource="#application.datasources.main#">
 		UPDATE Customer
-		SET emp_contact_id=NULL
+		SET contact_user_account_id=NULL
 		WHERE customer_id=#attributes.customer_id#
 		</cfquery>
 	</cfif>
