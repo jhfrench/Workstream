@@ -21,7 +21,7 @@
 <cfquery name="get_open_tasks" datasource="#application.datasources.main#">
 SELECT Task.task_id, Task.name AS task_name, Task.due_date,
 	COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS time_budgeted, Task.status_id,
-	(CASE WHEN Task.status_id=3 /* QA */ THEN REF_Status.status || ' by ' || QA.lname ELSE REF_Status.status END) AS task_status, Owner.lname AS task_owner,
+	(CASE WHEN Task.status_id=3 /* QA */ THEN REF_Status.status || ' by ' || QA.last_name ELSE REF_Status.status END) AS task_status, Owner.last_name AS task_owner,
 	(Customer.description || '-' || Project.description) AS project_name, Project.project_code<!--- $issue$: poor alias --->, REF_Priority.description AS priority,
 	CASE WHEN REF_Icon.path='0' THEN 'document.gif' ELSE REF_Icon.path END AS task_icon, COALESCE(Recorded_Hours.used_hours,0) AS time_used, (COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.used_hours/Task.budgeted_hours) END,0)*100) AS percent_time_used
 FROM Task
@@ -32,16 +32,18 @@ FROM Task
 	INNER JOIN REF_Priority ON Task.priority_id=REF_Priority.priority_id
 	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id
 	INNER JOIN (
-		SELECT Team.task_id, Team.user_account_id, Emp_Contact.lname
+		SELECT Team.task_id, Team.user_account_id, Demographics.last_name
 		FROM Team
-			INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.user_account_id
+			INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
+				AND Demographics.active_ind=1
 		WHERE Team.active_ind=1
 			AND Team.role_id=1
 	) AS Owner ON Task.task_id=Owner.task_id
 	INNER JOIN (
-		SELECT Team.task_id, Team.user_account_id, Emp_Contact.lname
+		SELECT Team.task_id, Team.user_account_id, Demographics.last_name
 		FROM Team
-			INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.user_account_id
+			INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
+				AND Demographics.active_ind=1
 		WHERE Team.active_ind=1
 			AND Team.role_id=3
 	) AS QA ON Task.task_id=QA.task_id
