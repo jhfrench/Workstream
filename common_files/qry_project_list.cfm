@@ -44,7 +44,6 @@ FROM Customer
 				OR (Team.role_id=3 
 					AND Task.status_id=3 /*needs QA*/)
 			)
-	INNER JOIN Emp_Contact ON Team.user_account_id=Emp_Contact.user_account_id 
 	INNER JOIN Link_Project_Company ON Link_Project_Company.project_id=Project.project_id 
 		AND Link_Project_Company.company_id IN (#session.workstream_company_id#)
 GROUP BY Customer.description, Project.project_code, Project.project_id, Project.description, Project.project_end, Project.mission
