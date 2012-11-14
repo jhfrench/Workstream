@@ -29,7 +29,7 @@
 				<cfset variables.datefield1=dateformat(get_expense_values.work_date,"m/d/yyyy")>
 			</cfif>
 			<input type="date" name="DateField1" id="from_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(variables.datefield1, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span6 date" />
-			<!-- Use CF to create validation <cfinput type="datefield" name="DateField1" message="Enter a date." validate="date" required="yes" size="12"> -->
+			<!-- Use CF to create validation <cfinput type="text" name="DateField1" message="Enter a date." validate="date" required="yes" size="12"> -->
 		</td>
 </tr>
 <tr>

@@ -59,7 +59,7 @@
 			<label for="work_date" class="control-label">Date</label>
 			<div class="controls">
 				<input type="date" name="work_date" id="work_date" min="#dateformat(get_date_locked.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(time_entry_edit.work_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
-				<!-- LET CF create the validation JS <cfinput type="DateField" name="date" required="yes" message="Please enter a valid date for this task"> -->
+				<!-- LET CF create the validation JS <cfinput type="text" name="date" required="yes" message="Please enter a valid date for this task"> -->
 			</div>
 		</div>
 		<div class="control-group">

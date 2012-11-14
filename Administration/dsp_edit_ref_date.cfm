@@ -61,7 +61,7 @@
 		<cfif attributes.date_id EQ 0>
 			<tr>
 				<th><label for="odbc_date">Date</label>: </th>
-				<td><cfinput type="datefield" name="odbc_date" id="odbc_date" value="" required="yes" message="Please specify a new date." />
+				<td><cfinput type="text" name="odbc_date" id="odbc_date" value="" validate="date" required="yes" message="Please specify a new date." />
 				</td>
 			</tr>
 		<cfelse>
