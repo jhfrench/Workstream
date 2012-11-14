@@ -14,7 +14,7 @@
 </cfsilent>
 <cfinclude template="qry_get_annivarsaries.cfm">
 <table class="table table-striped table-bordered table-condensed">
-	<caption>Anniversary Report</caption>
+	<caption><h1>Anniversary Report</h1></caption>
 	<thead>
 		<tr>
 			<th>Last Name</th>

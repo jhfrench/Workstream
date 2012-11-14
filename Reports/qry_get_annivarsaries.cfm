@@ -16,7 +16,7 @@
 
 <cfquery name="get_annivarsaries" datasource="#application.datasources.main#">
 SELECT Demographics.first_name, Demographics.last_name, Employee.hire_date,
-	EXTRACT(YEAR FROM AGE(Employee.hire_date)) AS years_employed, Employee.birth_date
+	(CURRENT_DATE-Employee.hire_date)/365.0 years_employed, Employee.birth_date
 FROM Employee
 	INNER JOIN Demographics ON Employee.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1
