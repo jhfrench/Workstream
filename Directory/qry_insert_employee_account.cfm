@@ -1,5 +1,5 @@
 
-<!--Directory/qry_emp_contact_entry.cfm
+<!--Directory/qry_insert_employee_account.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC

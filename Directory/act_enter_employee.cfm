@@ -17,7 +17,7 @@
 <cffile action="UPLOAD" destination="#variables.destination#" filefield="photo" nameconflict="MAKEUNIQUE" accept="image/*">
 <cfset photo=file.serverfile> --->
 <cftransaction isolation="READ_COMMITTED">
-	<cfinclude template="qry_emp_contact_entry.cfm">
+	<cfinclude template="qry_insert_employee_account.cfm">
 	<cfinclude template="qry_insert_demographics.cfm"><!--- View_Demographics_Workstream --->
 	<cfinclude template="qry_company_entry.cfm">
 	<cfinclude template="qry_location_entry.cfm">
