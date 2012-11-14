@@ -25,7 +25,7 @@ SELECT Project.project_id, Project.project_code, Project.description,
 	Project.billable_type_id, Project.loe, Project.budget,
 	Project.mission, Project.vision, Project.date_updated,
 	Project.file_path, Project.active_ind, Customer.description AS customer_description, 
-	Billing_History.total_bill_amount, REF_Billable_Type.description AS billable_type, REF_Active_Indicator.active_ind_type,
+	Billing_History.total_bill_amount, REF_Billable_Type.description AS billable_type,
 	Customer.customer_id, Demographics.last_name, Demographics.first_name
 FROM Project
 	INNER JOIN REF_Billable_Type ON Project.billable_type_id=REF_Billable_Type.billable_type_id
