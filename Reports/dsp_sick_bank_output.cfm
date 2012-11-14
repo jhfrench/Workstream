@@ -25,7 +25,7 @@
 </cfoutput>
 <cfoutput query="get_sick_bank">
 	<tr<cfif currentrow MOD 2> bgcolor="##e1e1e1"</cfif>>
-		<td>#last_name#, #name#</td>
+		<td>#last_name#, #first_name#</td>
 		<td align="right">#decimalformat(granted_hours)#</td>
 		<td align="right">#decimalformat(used_hours)#</td>
 		<td align="right">#decimalformat(remaining_hours)#</td>

@@ -29,7 +29,7 @@
 <cfelse>
 	<cfset loop_to_Location = 2>
 </cfif>
-<cfparam default="" name="name">
+<cfparam default="" name="first_name">
 <cfparam default="" name="last_name">
 <cfparam default="" name="mi"> 
 <cfparam default="" name="credentials"> 

@@ -28,7 +28,7 @@
 			<cfset nonbillable_grand_tot = nonbillable_grand_tot + non_billable>
 			<cfset gross_grand_tot = Gross_Hours + gross_grand_tot>
 		<td>
-			#last_name#, #Name# 
+			#last_name#, #first_name# 
 		</td>
 		<td>
 			#employee_classification# 

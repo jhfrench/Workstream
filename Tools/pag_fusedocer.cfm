@@ -43,7 +43,7 @@
 			</select>
 		</td>
 		<td align="left" valign="top" width="5%">
-			<cfinput type="text" name="name" maxlength="25" value="" required="yes" message="Please enter a template name">
+			<cfinput type="text" name="template_name" maxlength="25" value="" required="yes" message="Please enter a template name">
 		</td>
 		<td align="left">
 			<select name="suffix" id="suffix">

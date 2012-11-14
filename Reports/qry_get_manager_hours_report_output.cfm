@@ -19,7 +19,7 @@ SELECT Employee_Data.employee_classification, Employee_Data.user_account_id, Emp
 	COALESCE(Time_Entry_Data.hours,0) AS hours, Employee_Data.company, Employee_Data.user_account_id,
 	COALESCE(Notes.note,'No timekeeping records match the criteria for this employee.') AS note
 FROM (
-		SELECT Demographics.user_account_id, Demographics.first_name AS name, Demographics.last_name AS last_name,
+		SELECT Demographics.user_account_id, Demographics.first_name, Demographics.last_name,
 			MAX(COALESCE(REF_Employee_Classification.employee_classification, 'None')) AS employee_classification, REF_Company.description AS company
 		FROM Demographics
 			INNER JOIN View_Demographics_Workstream ON Demographics.user_account_id=View_Demographics_Workstream.user_account_id

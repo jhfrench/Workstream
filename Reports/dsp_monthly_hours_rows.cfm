@@ -18,7 +18,7 @@
 	<cfoutput>
 		<tr>
 			<td>#clientName# #ClientCode#</td>
-			<td> #last_name#, #name# </td>
+			<td> #last_name#, #first_name# </td>
 			<td align="right"> #decimalformat(hours)# <cfset total_hours=total_hours+hours> </td>
 		</tr></cfoutput>
 		

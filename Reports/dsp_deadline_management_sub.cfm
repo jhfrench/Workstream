@@ -41,7 +41,7 @@
 	<tbody>
 	<cfloop query="deadline_management_sub">
 		<tr>
-			<td><a href="javascript:list_to_employee('#user_account_id#')" title="View this employee's profile.">#last_name#, #name#</a></td>
+			<td><a href="javascript:list_to_employee('#user_account_id#')" title="View this employee's profile.">#last_name#, #first_name#</a></td>
 			<td class="number">#numberformat(on_time_count)#</td>
 			<td class="number">#task_count#</td>
 			<td class="number">#decimalformat(on_time_average)#</td>

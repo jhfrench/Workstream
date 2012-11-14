@@ -27,7 +27,7 @@
 <cfset variables.total_hours=0>
 	<tr>
 		<td class="SubHeadText">
-			#last_name#, #name#
+			#last_name#, #first_name#
 		</td>
 		<td class="SubHeadText">
 			#employee_classification#

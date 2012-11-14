@@ -48,7 +48,7 @@
 				<a href="javascript:pto('#user_account_id#')">#user_account_id#</a>
 			</td>
 			<td>
-				#last_name#, #name#
+				#last_name#, #first_name#
 			</td>
 			<td class="number">
 				#decimalformat(pto_used_hours)#

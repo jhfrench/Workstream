@@ -31,7 +31,7 @@
 			</cfif>
 		<table class="table table-striped table-bordered table-condensed">
 			<caption>
-				<h3>#last_name#, #name#</h3>
+				<h3>#last_name#, #first_name#</h3>
 				<h4>Employee Type <small>#employee_classification#</small> Company <small>#company#</small></h4>
 			</caption>
 			<thead>

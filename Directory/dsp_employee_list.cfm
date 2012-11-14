@@ -38,7 +38,7 @@
 	<cfoutput query="get_employee_list">
 		<tr>
 			<cfif listlen(session.workstream_selected_company_id) GT 1><td>#company#</td></cfif>
-			<td><a href="javascript:list_to_employee('#user_account_id#');" title="View details for #replace(name,"'","")#.">#name#</a></td>
+			<td><a href="javascript:list_to_employee('#user_account_id#');" title="View details for #replace(first_name,"'","")#.">#first_name#</a></td>
 			<td>#extension#</td>
 			<td>
 				<cfset variables.phone=ReplaceList(phone_number,list1,list2)>

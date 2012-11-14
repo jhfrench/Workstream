@@ -12,6 +12,7 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
+<!--- $issue$: change this query name --->
 <cfquery name="name" datasource="#application.datasources.main#"> 
 SELECT REF_Company.description AS company, Demographics.first_name, 
     Demographics.last_name, Demographics.user_account_id

@@ -15,7 +15,7 @@
 <cfoutput query="get_employee_id">
 <tr>
 	<td>#last_name#</td>
-	<td>#name#</td>
+	<td>#first_name#</td>
 	<td>#user_account_id#</td>
 	<td>#status#</td>
 </tr>
