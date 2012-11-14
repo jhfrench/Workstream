@@ -4,7 +4,7 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I insert a emp_contact record.
+	Responsibilities: I insert a employee.
 	||
 	Name: Jeromy French
 	||

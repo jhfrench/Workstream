@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I update the emp_contact table
+	Responsibilities: I update the employee's demographics record.
 
 	||
 	Edits: 
@@ -13,7 +13,7 @@
 	Variables:
 
 	END FUSEDOC --->
-<cfquery name="update_emp_contact" datasource="#application.datasources.main#">
+<cfquery name="update_employee_demographics" datasource="#application.datasources.main#">
 UPDATE Demographics
 SET active_ind=0
 WHERE active_ind=1
