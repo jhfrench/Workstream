@@ -50,7 +50,7 @@
 			</tfoot>
 			<tbody>
 		</cfif>
-				<tr>
+				<tr<cfif NOT get_total_hours.total_hours AND NOT len(work_date)> class="warning"</cfif>>
 					<td class="date">#dateformat(work_date, "m/d/yyyy")#</td>
 					<td>#display#</td>
 					<td>#note#</td>

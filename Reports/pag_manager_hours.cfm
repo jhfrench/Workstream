@@ -12,11 +12,11 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfif isdefined("attributes.from_date")>
-	<cfinclude template="act_verify_dates.cfm">
-	<cfif attributes.from_date LTE now() AND attributes.from_date LTE attributes.through_date>
-		<cfinclude template="qry_get_manager_hours_report_output.cfm">
-		<cfinclude template="dsp_manager_hours.cfm">
-	</cfif>
+<cfparam name="attributes.from_date" default="#month(now())#/1/#year(now())#">
+<cfparam name="attributes.through_date" default="#month(now())#/#daysinmonth(now())#/#year(now())#">
+<cfinclude template="act_verify_dates.cfm">
+<cfif attributes.from_date LTE now() AND attributes.from_date LTE attributes.through_date>
+	<cfinclude template="qry_get_manager_hours_report_output.cfm">
+	<cfinclude template="dsp_manager_hours.cfm">
 </cfif>
 <cfinclude template="dsp_manager_hours_input.cfm">
