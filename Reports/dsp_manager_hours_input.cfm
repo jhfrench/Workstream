@@ -37,3 +37,4 @@
 	</select>
 	<input type="submit" value="Generate Report" class="btn btn-primary" />
 </form>
+</cfoutput>
