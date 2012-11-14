@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 <cfquery name="get_subordinates" datasource="#application.datasources.main#">
 SELECT user_account_id
-FROM Link_User_account_Supervisor
+FROM Link_User_Account_Supervisor
 WHERE supervisor_id=#variables.user_identification#
 	AND CURRENT_TIMESTAMP BETWEEN date_start AND COALESCE(date_end, CURRENT_DATE+interval '1 day')
 </cfquery>

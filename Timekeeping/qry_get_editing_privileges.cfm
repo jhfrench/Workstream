@@ -28,9 +28,9 @@ WHERE Team.active_ind=1
 	AND Team.user_account_id=#variables.user_identification#
 UNION ALL
 SELECT 1
-FROM Link_User_account_Supervisor
-	INNER JOIN Team ON Link_User_account_Supervisor.user_account_id=Team.user_account_id
-		AND Link_User_account_Supervisor.active_ind=1
+FROM Link_User_Account_Supervisor
+	INNER JOIN Team ON Link_User_Account_Supervisor.user_account_id=Team.user_account_id
+		AND Link_User_Account_Supervisor.active_ind=1
 WHERE Team.active_ind=1
 	AND Team.task_id=#attributes.task_id#
 	AND Team.role_id=1

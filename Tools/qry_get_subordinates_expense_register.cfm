@@ -18,10 +18,10 @@ SELECT Expense.expense_id, Expense.date_incurred, Expense.created_date,Expense.e
 	Expense.amount
 FROM Expense
 	INNER JOIN REF_Expense_Status ON Expense.expense_status_id=REF_Expense_Status.expense_status_id
-	INNER JOIN Link_User_account_Supervisor ON Expense.user_account_id=Link_User_account_Supervisor.employee_id
+	INNER JOIN Link_User_Account_Supervisor ON Expense.user_account_id=Link_User_Account_Supervisor.employee_id
 WHERE Expense.date_deleted IS NULL
-	AND Link_User_account_Supervisor.supervisor_id=#attributes.user_account_id#
-	AND Expense.date_incurred BETWEEN Link_User_account_Supervisor.date_start AND COALESCE(Link_User_account_Supervisor.date_end,CURRENT_TIMESTAMP)
+	AND Link_User_Account_Supervisor.supervisor_id=#attributes.user_account_id#
+	AND Expense.date_incurred BETWEEN Link_User_Account_Supervisor.date_start AND COALESCE(Link_User_Account_Supervisor.date_end,CURRENT_TIMESTAMP)
 	AND Expense.expense_status_id=1<!--- $issue$: should this be active_ind? --->
 ORDER BY <cfif isdefined("attributes.order_by")>#attributes.order_by#<cfelse>Expense.date_incurred</cfif>
 </cfquery>
