@@ -23,23 +23,29 @@
 	<-- phone_number: string containing the work phone number of an employee
  --->
 <cfquery name="get_employee_list" cachedafter="02/02/1978" datasource="#application.datasources.main#">
-SELECT (Emp_Contact.lname || ', ' || Emp_Contact.name) AS name,
-	Emp_Contact.user_account_id, REF_Company.description AS company,
+SELECT (Demographics.lastname || ', ' || Demographics.first_name) AS name,
+	Demographics.user_account_id, REF_Company.description AS company,
 	COALESCE(Email.email,'NA') AS email, COALESCE(Phone.phone_number,'NA') AS phone_number,
 	COALESCE(Phone.extension,'NA') AS extension, Position_History.position_id
-FROM Emp_Contact
-	INNER JOIN Link_Company_User_Account ON Emp_Contact.user_account_id=Link_Company_User_Account.user_account_id
+FROM Demographics
+	INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
+		AND Link_Company_User_Account.active_ind=1
+		AND Link_Company_User_Account.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
 	INNER JOIN REF_Company ON Link_Company_User_Account.company_id=REF_Company.company_id
-	INNER JOIN Position_History ON Emp_Contact.user_account_id=Position_History.user_account_id
-	INNER JOIN View_Demographics_Workstream AS Demographics ON Emp_Contact.user_account_id=Demographics.user_account_id
-	LEFT OUTER JOIN Email ON Emp_Contact.user_account_id=Email.user_account_id
+	LEFT OUTER JOIN Position_History ON Demographics.user_account_id=Position_History.user_account_id
+		AND Position_History.active_ind=1
+		AND Position_History.effective_end_date IS NULL
+	INNER JOIN Employee ON Demographics.user_account_id=Demographics.user_account_id
+		AND Employee.active_ind=1
+		AND Employee.turnover_date IS NULL
+	LEFT OUTER JOIN Email ON Demographics.user_account_id=Email.user_account_id
+		AND Email.active_ind=1
 		AND Email.email_type_id=1
-	LEFT OUTER JOIN Phone ON Emp_Contact.user_account_id=Phone.user_account_id
+	LEFT OUTER JOIN Phone ON Demographics.user_account_id=Phone.user_account_id
+		AND Phone.active_ind=1
 		AND Phone.phone_type_id=1
-WHERE #application.team_changed#=#application.team_changed#
-	AND Link_Company_User_Account.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
-	AND Position_History.effective_end_date IS NULL
-	AND Demographics.effective_to IS NULL
-ORDER BY Link_Company_User_Account.company_id, Emp_Contact.lname, Emp_Contact.name
+WHERE Demographics.active_ind=1
+	AND #application.team_changed#=#application.team_changed#
+ORDER BY Link_Company_User_Account.company_id, Demographics.last_name, Demographics.first_name
 </cfquery>
 </cfsilent>

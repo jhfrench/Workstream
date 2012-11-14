@@ -29,7 +29,7 @@
 			<th>Name</th>
 			<th>Extension</th>
 			<th>Work Phone</th>
-			<th>HRID</th>
+			<th><abbr title="Human Resources Identifier">HRID</abbr></th>
 			<th>Pos Num</th>
 			<th>Email</th>
 		</tr>
@@ -58,7 +58,7 @@
 	</tbody>
 <cfelse>
 	<tr>
-		<td>
+		<td class="warning">
 			There are no employees that match your criteria.
 		</td>
 	</tr>
