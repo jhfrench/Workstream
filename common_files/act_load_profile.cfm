@@ -37,7 +37,7 @@
 		session.workstream_notes_display_sort=profile_lookup.notes_display_sort;
 		session.workstream_project_list_order=profile_lookup.project_list_order;
 		session.workstream_show_closed=profile_lookup.show_closed;
-		session.workstream_show_closed_engagements=profile_lookup.show_closed_engagements;
+		session.workstream_show_closed_project_ind=profile_lookup.show_closed_project_ind;
 		session.workstream_show_on_hold=profile_lookup.show_on_hold;
 		session.workstream_show_options=profile_lookup.show_options;
 		session.workstream_show_team=profile_lookup.show_team;
@@ -58,7 +58,7 @@
 		session.workstream_notes_display_sort=1;
 		session.workstream_project_list_order=1;
 		session.workstream_show_closed=0;
-		session.workstream_show_closed_engagements=0;
+		session.workstream_show_closed_project_ind=0;
 		session.workstream_show_on_hold=0;
 		session.workstream_show_options=1;
 		session.workstream_show_team=0;

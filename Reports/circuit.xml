@@ -101,15 +101,15 @@
 			<set name="request.pagetitle" value="Employee ForcePlanner"/>
 			<include template="pag_employee_force.cfm"/>
 		</fuseaction>
-		<fuseaction name="engagement_dashboard">
-			<!-- <set name="attributes.object_name" value="New engagements"/> -->
-			<set name="request.pagetitle" value="New Engagement Report"/>
-			<include template="pag_engagement_dashboard.cfm"/>
+		<fuseaction name="project_dashboard">
+			<!-- <set name="attributes.object_name" value="New projects"/> -->
+			<set name="request.pagetitle" value="New project Report"/>
+			<include template="pag_project_dashboard.cfm"/>
 		</fuseaction>
-		<fuseaction name="engagement_dashboard_staff">
-			<!-- <set name="attributes.object_name" value="New engagements"/> -->
-			<set name="request.pagetitle" value="New Engagement Report"/>
-			<include template="pag_engagement_dashboard_Staff.cfm"/>
+		<fuseaction name="project_dashboard_staff">
+			<!-- <set name="attributes.object_name" value="New projects"/> -->
+			<set name="request.pagetitle" value="New project Report"/>
+			<include template="pag_project_dashboard_Staff.cfm"/>
 		</fuseaction>
 		<fuseaction name="expense_report_input">
 			<!-- <set name="attributes.object_name" value="Expense Report"/>
@@ -232,11 +232,11 @@
 			<set name="request.pagetitle" value="Manager's Individual Hours Report"/>
 			<include template="pag_Manager_Individual_Hours_input.cfm"/>
 		</fuseaction>
-		<fuseaction name="new_engagement">
-			<!-- <set name="attributes.object_name" value="New engagements"/>
+		<fuseaction name="new_project">
+			<!-- <set name="attributes.object_name" value="New projects"/>
 			 -->
-			<set name="request.pagetitle" value="New Engagement Report"/>
-			<include template="pag_new_engagement"/>
+			<set name="request.pagetitle" value="New project Report"/>
+			<include template="pag_new_project"/>
 		</fuseaction>
 		<fuseaction name="non_billable_hours">
 			<set name="variables.non_billable_ind" value="1"/>
@@ -350,23 +350,23 @@
 			<include template="pag_account_status_report.cfm"/>
 		</fuseaction>
 
-		<fuseaction name="engagement_dashboard_GE">
-			<!-- <set name="attributes.object_name" value="Engagement Dashboard for GE"/>
+		<fuseaction name="project_dashboard_GE">
+			<!-- <set name="attributes.object_name" value="project Dashboard for GE"/>
 			 -->
-			<set name="request.pagetitle" value="Engagement Dashboard for GE"/>
-			<include template="pag_engagement_dashboard_GE.cfm"/>
+			<set name="request.pagetitle" value="project Dashboard for GE"/>
+			<include template="pag_project_dashboard_GE.cfm"/>
 		</fuseaction>
-		<fuseaction name="engagement_dashboard_SBC">
-			<!-- <set name="attributes.object_name" value="Engagement Dashboard for SBC"/>
+		<fuseaction name="project_dashboard_SBC">
+			<!-- <set name="attributes.object_name" value="project Dashboard for SBC"/>
 			 -->
-			<set name="request.pagetitle" value="Engagement Dashboard for SBC"/>
-			<include template="pag_engagement_dashboard_SBC.cfm"/>
+			<set name="request.pagetitle" value="project Dashboard for SBC"/>
+			<include template="pag_project_dashboard_SBC.cfm"/>
 		</fuseaction>	
-		<fuseaction name="engagement_dashboard_DMA">
-			<!-- <set name="attributes.object_name" value="Engagement Dashboard for DMA"/>
+		<fuseaction name="project_dashboard_DMA">
+			<!-- <set name="attributes.object_name" value="project Dashboard for DMA"/>
 			 -->
-			<set name="request.pagetitle" value="Engagement Dashboard for DMA"/>
-			<include template="pag_engagement_dashboard_DMA.cfm"/>
+			<set name="request.pagetitle" value="project Dashboard for DMA"/>
+			<include template="pag_project_dashboard_DMA.cfm"/>
 		</fuseaction>
 		<fuseaction name="nrt_contacts">
 			<!-- <set name="attributes.object_name" value="nrt_report_help"/> -->

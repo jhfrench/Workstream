@@ -16,7 +16,7 @@
 
 <cfoutput>
 <table class="table table-striped table-bordered table-condensed">
-	<caption><h2>ForcePlanner Report for #request.employee_name#</h2></caption>
+	<caption><h2>ForcePlanner Report for #get_demographics.first_name# #get_demographics.last_name#</h2></caption>
 	<thead>
 		<tr>
 			<th>
@@ -55,9 +55,9 @@
 	<cfloop query="employee_force">
 		<tr>
 			<td>
-				#engagement#
+				#project#
 			</td>
-			<td scope="row">
+			<td scope="row" class="number">
 				<a href="javascript:list_to_task(#task_id#);">#task#</a>
 			</td>
 			<td>

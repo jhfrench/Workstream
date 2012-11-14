@@ -67,7 +67,7 @@
 			<cfset variables.admin_time=decimalformat(project_hours/variables.this_month*100)>
 		</cfif>
 	</cfoutput>
-	<cfset variables.work_allocation_text="So far this month you have worked on #time_allocation_blurb.recordcount# different engagements.">
+	<cfset variables.work_allocation_text="So far this month you have worked on #time_allocation_blurb.recordcount# different projects.">
 	<cfif session.workstream_company_id EQ 1>
 		<cfif variables.admin_time LT 10>
 			<cfset variables.over_under="under">

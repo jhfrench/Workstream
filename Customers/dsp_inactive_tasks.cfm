@@ -43,7 +43,7 @@
 </table>
 
 <cfoutput>
-<form name="change" action="index.cfm?fuseaction=Customers.update_engagement" method="post" class="well">
+<form name="change" action="index.cfm?fuseaction=Customers.update_project" method="post" class="well">
 	<fieldset>
 		<legend>Are you sure that you want to deactivate all these tasks?</legend>
 		<input type="submit" value="Continue" name="Submit" class="btn btn-danger" />
@@ -73,7 +73,7 @@
 <cfelse>
 
 <cfoutput>
-<form name="auto" action="index.cfm?fuseaction=Customers.update_engagement" method="post">
+<form name="auto" action="index.cfm?fuseaction=Customers.update_project" method="post">
 	<input type="hidden" name="project_id" value="#attributes.project_id#">
 	<input type="hidden" name="project_code" value="#attributes.project_code#" >
 	<input type="hidden" name="description" value="#attributes.description#">

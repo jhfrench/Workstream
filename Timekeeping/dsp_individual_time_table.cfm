@@ -36,7 +36,7 @@
 				<a href="javascript:time_edit('#time_entry_id#');" title="Edit this time entry.">#replace(paragraphformat(stripcr(note)),"<P>","","all")#</a>
 			</td>
 			<td>
-				<cfif work_date LTE express_check_date.date_locked>Time previouly billed.<cfelse><cfinput type="checkbox" name="notes_id" value="#notes_id#" required="yes" message="Please mark which hours you wish to reassign."></cfif>
+				<cfif work_date LTE get_date_locked.date_locked>Time previouly billed.<cfelse><cfinput type="checkbox" name="notes_id" value="#notes_id#" required="yes" message="Please mark which hours you wish to reassign."></cfif>
 			</td>
 		</tr>
 	</cfoutput>

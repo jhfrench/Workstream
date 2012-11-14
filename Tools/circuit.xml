@@ -36,12 +36,6 @@
 		<set name="request.pagetitle" value="Customer Invoice List"/>
 		<include template="pag_customer_invoice_list.cfm"/>
 	</fuseaction>
-	<fuseaction name="date_locked">
-		<!-- <set name="attributes.object_name" value="Date Locked"/>
-		<include template="../common_files/act_object_access.cfm"> -->
-		<set name="request.pagetitle" value="Change Date Locked"/>
-		<include template="pag_date_locked.cfm"/>
-	</fuseaction>
 	<fuseaction name="daily_process">
 		<set name="attributes.object_name" value="Daily Processes"/>
 		<include template="pag_daily_processes.cfm"/>

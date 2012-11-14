@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I am the page that builds user defined fields when adding a new engagement.
+	Responsibilities: I am the page that builds user defined fields when adding a new project.
 	||
 	Name: Jeromy French
 	||

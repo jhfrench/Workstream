@@ -26,8 +26,8 @@
 	</tr>
 	<tr>
 		<td colspan="4">
-			<input name="date_locked" type="hidden" value="#express_check_date.date_locked#">
-			<input name="last_loaded" type="hidden" value="#now()#">
+			<input name="date_locked" type="hidden" value="#get_date_locked.date_locked#" />
+			<input name="last_loaded" type="hidden" value="#now()#" />
 			<input type="button" value="Submit Time Entry" name="Submit" onclick="check_form('hours')" class="btn btn-primary" />
 		</td>
 	</tr>

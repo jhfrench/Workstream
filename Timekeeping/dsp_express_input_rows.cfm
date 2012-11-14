@@ -12,8 +12,8 @@
 	$Log$
 	 || 
  --->
-<cfset variables.min_date=dateformat(express_check_date.date_locked, "yyyy-mm-dd")>
-<cfset variables.max_date=dateformat(dateadd("m", 1, express_check_date.date_locked))>
+<cfset variables.min_date=dateformat(get_date_locked.date_locked, "yyyy-mm-dd")>
+<cfset variables.max_date=dateformat(dateadd("m", 1, get_date_locked.date_locked))>
 <cfset variables.workstream_express_notes_height=session.workstream_express_notes_height>
 <cfset variables.workstream_express_notes_width=session.workstream_express_notes_width>
 <cfif NOT len(session.workstream_express_input_rows)>

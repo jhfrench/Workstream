@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I get all the notes entered for a case/engagement.
+	Responsibilities: I get all the notes entered for a case/project.
 
 	||
 	Edits:

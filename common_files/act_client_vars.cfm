@@ -23,10 +23,10 @@
  --->
 <!--- TIMEKEEPING SETTINGS --->
 	<cfif isdefined("attributes.evaluate_task_options")>
-		<cfif isdefined("attributes.show_closed_engagements")>
-			<cfset session.workstream_show_closed_engagements=1>
+		<cfif isdefined("attributes.show_closed_project_ind")>
+			<cfset session.workstream_show_closed_project_ind=1>
 		<cfelse>
-			<cfset session.workstream_show_closed_engagements=0>
+			<cfset session.workstream_show_closed_project_ind=0>
 		</cfif>
 		<cfif isdefined("attributes.show_closed")>
 			<cfset session.workstream_show_closed=1>

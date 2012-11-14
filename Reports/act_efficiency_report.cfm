@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I display the efficiency report for the engagement that corresponds to what the user requests (as determined by the fuseaction).
+	Responsibilities: I display the efficiency report for the project that corresponds to what the user requests (as determined by the fuseaction).
 	||
 	Name: Jeromy French
 	||

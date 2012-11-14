@@ -17,7 +17,7 @@
 <table class="table table-striped table-bordered table-condensed">
 	<caption>
 		<h1>Personal Time Off</h1>
-		<h2>#get_employee_name.first_name# #get_employee_name.last_name#</h2>
+		<h2>#get_demographics.first_name# #get_demographics.last_name#</h2>
 	</caption>
 	<thead>
 		<tr>
@@ -68,7 +68,7 @@
 </table>
 <cfelse>
 	<div class="alert alert-info">
-		No <abbr title="Personal Time Off">PTO</abbr> records found for #get_employee_name.first_name# #get_employee_name.last_name#.
+		No <abbr title="Personal Time Off">PTO</abbr> records found for #get_demographics.first_name# #get_demographics.last_name#.
 	</div>
 </cfif>
 </cfoutput>

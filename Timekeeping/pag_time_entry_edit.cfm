@@ -23,7 +23,7 @@
 	<cfset request.time_entry_id=attributes.time_entry_id>
 </cfif>
 </cfsilent>
-<cfinclude template="../common_files/qry_express_check_date.cfm">
+<cfinclude template="../common_files/qry_get_date_locked.cfm">
 <cfif isdefined("attributes.referer")>
 	<cfinclude template="act_upload_time_entry_edits.cfm"><!--- 
 	<cflocation url="index.cfm?fuseaction=#attributes.referer#" addtoken="No"> --->

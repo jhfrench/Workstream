@@ -14,7 +14,7 @@
  --->
 <cfset variables.var1=450>
 </cfsilent>
-<cfinclude template="../common_files/qry_express_check_date.cfm">
+<cfinclude template="../common_files/qry_get_date_locked.cfm">
 <cfif isdefined("attributes.reassign_hours")>
 	<cfinclude template="act_reassign_hours.cfm">
 </cfif>

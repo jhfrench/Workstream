@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I display the row of the customers screen, I provide managers with a link to edit the customer and allow a drill down to view any engagements below the customer level, if any exist.
+	Responsibilities: I display the row of the customers screen, I provide managers with a link to edit the customer and allow a drill down to view any projects below the customer level, if any exist.
 
 	||
 	Edits:

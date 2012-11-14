@@ -4,7 +4,7 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: I display the custom fields for a particular engagement.
+	Responsibilities: I display the custom fields for a particular project.
 	||
 	Name: Jeromy French
 	||

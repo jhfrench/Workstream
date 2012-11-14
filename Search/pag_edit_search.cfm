@@ -19,7 +19,7 @@ function isEmpty()
 
 			 if(document.input_form.project_id.value == '')
 			    {
-					 alert("You must select an engagement");
+					 alert("You must select an project");
 					 return false;
 				 }
 

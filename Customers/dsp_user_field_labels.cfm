@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I display the second step of the 'create new engagement' wizard.
+	Responsibilities: I display the second step of the 'create new project' wizard.
 	||
 	Name: Jeromy French
 	 || 
@@ -33,7 +33,7 @@
 			<label for="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#">Option value #opt_ii#</label>
 			<div class="controls">
 				<cfinput type="text" name="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#" id="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#" value="" class="span3" />
-				<p class="help-block">For drop-down boxes, also provide the possible options, leaving blank any extra 'option value' fields. Any labels left blank will be ignored and will not be applied as custom fields to the engagement.</p>
+				<p class="help-block">For drop-down boxes, also provide the possible options, leaving blank any extra 'option value' fields. Any labels left blank will be ignored and will not be applied as custom fields to the project.</p>
 			</div>
 		</div>
 		</cfloop>
@@ -42,7 +42,7 @@
 	</cfoutput>
 	</fieldset>
 <cfelse>
-	<cfset onload="document.new_engagement.submit();">
+	<cfset onload="document.new_project.submit();">
 	<div class="alert alert-warning">
 		<p>No information to enter for this step.</p>
 		<p>If this page does not automatically do so, please submit to the next page.</p>

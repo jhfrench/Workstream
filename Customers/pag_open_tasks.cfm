@@ -4,7 +4,7 @@
 <cfsilent>
 <!--- FUSEDOC
 	||
-	Responsibilities: I am the container for the view engagements page
+	Responsibilities: I am the container for the view projects page
 	||
 	Name: Jeromy French
 	||

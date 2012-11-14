@@ -33,7 +33,7 @@
 			<a href="javascript:order_by('task_name');" title="Order by the name of the task.">Name<cfif NOT compare(ListFirst(ListFirst(variables.workstream_task_list_order), " "),"task_name")> <i class="icon-chevron-<cfif listlen(ListFirst(variables.workstream_task_list_order), " ") EQ 2>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
 		<th>
-			<a href="javascript:order_by('project_name');" title="Order by the task engagement.">Project<cfif NOT compare(ListFirst(ListFirst(variables.workstream_task_list_order), " "),"project_name")> <i class="icon-chevron-<cfif listlen(ListFirst(variables.workstream_task_list_order), " ") EQ 2>down<cfelse>up</cfif>"></i></cfif></a>
+			<a href="javascript:order_by('project_name');" title="Order by the task project.">Project<cfif NOT compare(ListFirst(ListFirst(variables.workstream_task_list_order), " "),"project_name")> <i class="icon-chevron-<cfif listlen(ListFirst(variables.workstream_task_list_order), " ") EQ 2>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
 		<th>
 			<a href="javascript:order_by('Priority');" title="Order by Priority.">Priority<cfif NOT compare(ListFirst(ListFirst(variables.workstream_task_list_order), " "),"Priority")> <i class="icon-chevron-<cfif listlen(ListFirst(variables.workstream_task_list_order), " ") EQ 2>down<cfelse>up</cfif>"></i></cfif></a>

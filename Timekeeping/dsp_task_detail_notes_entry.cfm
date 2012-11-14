@@ -13,7 +13,7 @@
 	Variables:
 	 || 
 	END FUSEDOC --->
-<cfset variables.go_back_to=datediff("d", express_check_date.date_locked, now())-1>
+<cfset variables.go_back_to=datediff("d", get_date_locked.date_locked, now())-1>
 </cfsilent>
 <cfoutput>
 <fieldset class="well">
@@ -34,7 +34,7 @@
 	</div>
 	<div class="span4">
 		<label for="date">Date</label>
-		<input type="date" name="date" id="date" min="#dateformat(express_check_date.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" class="span8 date" />
+		<input type="date" name="date" id="date" min="#dateformat(get_date_locked.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" class="span8 date" />
 	</div>
 </div>
 <div class="row-fluid">
