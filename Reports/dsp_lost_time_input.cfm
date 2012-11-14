@@ -28,13 +28,13 @@
 		</td>
 		<td>
 			<input type="date" name="from_date" id="from_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span6 date" />
-			<!-- Use CF to create validation <cfinput type="datefield" name="from_date" value="" required="yes" validate="date" message="Please enter a properly formatted from date." size="11"> --->
+			<!-- Use CF to create validation <cfinput type="text" name="from_date" value="" required="yes" validate="date" message="Please enter a properly formatted from date." size="11"> --->
 
 			&nbsp;&nbsp;&nbsp;&nbsp;
 
 			To:
 			<input type="date" name="to_date" id="to_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span6 date" />
-			<!-- Use CF to create validation <cfinput type="datefield" name="to_date" value="" required="yes" validate="date" message="Please enter a properly formatted to date." size="11"> ---><br />
+			<!-- Use CF to create validation <cfinput type="text" name="to_date" value="" required="yes" validate="date" message="Please enter a properly formatted to date." size="11"> ---><br />
 			</td>
 	</tr>
 
