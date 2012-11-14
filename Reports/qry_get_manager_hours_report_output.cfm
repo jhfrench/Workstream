@@ -1,5 +1,5 @@
 
-<!-- Reports/qry_manager_hours_report_output.cfm
+<!-- Reports/qry_get_manager_hours_report_output.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC
@@ -13,11 +13,11 @@
 	Variables:
 
 	END FUSEDOC --->
-<cfquery name="manager_hours_report_output" datasource="#application.datasources.main#">
+<cfquery name="get_manager_hours_report_output" datasource="#application.datasources.main#">
 SELECT Employee_Data.employee_classification, Employee_Data.user_account_id, Employee_Data.name,
 	Employee_Data.lname, Time_Entry_Data.work_date, Time_Entry_Data.display,
 	COALESCE(Time_Entry_Data.hours,0) AS hours, Employee_Data.company, Employee_Data.user_account_id,
-	COALESCE(Notes.note,'') AS note
+	COALESCE(Notes.note,'No timekeeping records match the criteria for this employee.') AS note
 FROM (
 		SELECT Demographics.user_account_id, Demographics.first_name AS name, Demographics.last_name AS lname,
 			MAX(COALESCE(REF_Employee_Classification.employee_classification, 'None')) AS employee_classification, REF_Company.description AS company
