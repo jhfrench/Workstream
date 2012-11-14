@@ -25,9 +25,9 @@
 		<cfset request.first_name=task_list.task_owner>
 		<cfset request.last_name="">
 	<cfelse>
-		<cfinclude template="../common_files/qry_get_employee_name.cfm">
-		<cfset request.first_name=get_employee_name.first_name>
-		<cfset request.last_name=get_employee_name.last_name>
+		<cfinclude template="../common_files/qry_get_demographics.cfm">
+		<cfset request.first_name=get_demographics.first_name>
+		<cfset request.last_name=get_demographics.last_name>
 	</cfif>
 <cfelse>
 	<cfset attributes.user_account_id=variables.user_identification>

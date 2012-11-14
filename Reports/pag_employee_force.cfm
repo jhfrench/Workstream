@@ -18,7 +18,7 @@
 <cfparam name="attributes.show_budgeted" default="0">
 <cfparam name="attributes.show_completed" default="0">
 
-<cfmodule template="../common_files/qry_employee_name.cfm" user_account_id="#attributes.user_account_id#">
+<cfmodule template="../common_files/qry_get_demographics.cfm" user_account_id="#attributes.user_account_id#">
 </cfsilent>
 
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
