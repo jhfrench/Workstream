@@ -16,7 +16,7 @@
 
  --->
 <cfquery name="get_emp_position_number_history" datasource="#application.datasources.main#">
-SELECT position_id, effective_start_date, effective_end_date
+SELECT employment_position_id, effective_start_date, effective_end_date
 FROM Position_History
 WHERE user_account_id=#attributes.user_account_id#
 ORDER BY effective_start_date

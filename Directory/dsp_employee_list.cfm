@@ -51,7 +51,7 @@
 				</cfif>
 			</td>
 			<td>#user_account_id#</td>
-			<td>#position_id#</td>
+			<td>#employment_position_id#</td>
 			<td><a href="mailto:#email#">#email#</a></td>
 		</tr>
 	</cfoutput>

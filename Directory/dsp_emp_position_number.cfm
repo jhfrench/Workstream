@@ -28,7 +28,7 @@
 	<cfoutput query="get_emp_position_number_history">
 		<tr>
 			<th scope="row" class="number">
-				#position_id#<br />
+				#employment_position_id#<br />
 			</th>
 			<td class="date">
 				#dateformat(effective_start_date,'m/d/yyyy')#

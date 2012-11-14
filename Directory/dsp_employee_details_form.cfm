@@ -77,12 +77,12 @@
 	<fieldset>
 		<legend><h3>General</h3></legend>
 	<div class="control-group">
-		<label for="position_id" class="control-label">Position Number</label>
+		<label for="employment_position_id" class="control-label">Position Number</label>
 		<div class="controls">
 		<cfif isdefined("attributes.user_account_id")>
-			<span id="position_id">Can't be changed from this screen.</span>
+			<span id="employment_position_id">Can't be changed from this screen.</span>
 		<cfelse>
-			<cfselect name="position_id" id="position_id" query="get_position_numbers" value="position_ID" display="position_id" required="yes" message="You must select a position number to enter this employee into workstream." class="span3">
+			<cfselect name="employment_position_id" id="employment_position_id" query="get_open_positions" value="employment_position_id" display="employment_position_id" required="yes" message="You must select a position number to enter this employee into workstream." class="span3">
 					<option value="-1">-1</option>
 			</cfselect>
 			<p class="help-block">If the position number drop-down is empty, or you can't find the appropriate position number, you need to mark the incumbant as inactive or have a new position approved.</p>

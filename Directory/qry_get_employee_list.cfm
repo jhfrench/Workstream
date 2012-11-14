@@ -26,11 +26,15 @@
 SELECT (Demographics.last_name || ', ' || Demographics.first_name) AS name,
 	Demographics.user_account_id, REF_Company.description AS company,
 	COALESCE(Email.email,'NA') AS email, COALESCE(Phone.phone_number,'NA') AS phone_number,
-	COALESCE(Phone.extension,'NA') AS extension, Position_History.position_id
+	COALESCE(Phone.extension,'NA') AS extension, Position_History.employment_position_id
 FROM Demographics
-	INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
-		AND Link_Company_User_Account.active_ind=1
-		AND Link_Company_User_Account.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
+	INNER JOIN (
+		SELECT user_account_id
+		FROM Link_Company_User_Account
+		WHERE Link_Company_User_Account.active_ind=1
+			AND Link_Company_User_Account.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
+		GROUP BY user_account_id
+	) AS Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
 	INNER JOIN REF_Company ON Link_Company_User_Account.company_id=REF_Company.company_id
 	LEFT OUTER JOIN Position_History ON Demographics.user_account_id=Position_History.user_account_id
 		AND Position_History.active_ind=1
