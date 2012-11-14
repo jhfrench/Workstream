@@ -23,5 +23,5 @@ WHERE user_account_id=#attributes.user_account_id#
 	AND effective_to IS NULL
 </cfquery>
 
-<cfinclude template="qry_demographics_entry.cfm">
+<cfinclude template="qry_insert_demographics.cfm">
 </cfsilent><!--- $issue$: is this template used? --->

@@ -51,7 +51,7 @@
 <cfoutput>
 <h1>Personal Contact Sheet</h1>
 <h2>for #get_demographics.first_name# #get_demographics.last_name#</h2>
-<form name="form_emp_contact_view" action="index.cfm?fuseaction=Directory.employee_contact_update" method="post" class="form-horizontal">
+<form name="form_employee_contact_view" action="index.cfm?fuseaction=Directory.employee_contact_update" method="post" class="form-horizontal">
 	<fieldset>
 		<legend><h3>Phone Numbers</h3></legend>
 	<cfloop query="get_contact_phones">

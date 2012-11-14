@@ -19,7 +19,7 @@
 </cfsilent>
 <cfquery name="get_employee_details" datasource="#application.datasources.main#">
 SELECT Demographics.first_name, Demographics.last_name, Demographics.uupic,
-	Employee.birth_date, Employee.hire_date, COALESCE(Employee.photo_path,'nopic.jpg') AS photo,
+	Employee.birth_date, Employee.hire_date, COALESCE(Employee.photo_path,'nopic.jpg') AS photo_path,
 	Employee.turnover_date, COALESCE(Demographics.credentials,'') AS credentials, Emp_Biography.biography
 FROM Demographics
 	INNER JOIN Employee ON Demographics.user_account_id=Employee.user_account_id
