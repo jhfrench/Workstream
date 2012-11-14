@@ -10,10 +10,12 @@
 	||
 	Edits:
 	$Log$
+	(JF | 11/14/12)
+	Actually, if we don't have billing history, let's just let the user enter time "up to" 40 days ago.
 	 || 
  --->
 <cfquery name="get_date_locked" datasource="#application.datasources.main#">
-SELECT COALESCE(MAX(Billing_History.created_date), #createodbcdate(application.application_specific_settings.workstream_start_date)#) AS date_locked
+SELECT COALESCE(MAX(Billing_History.created_date), CURRENT_DATE+INTERVAL '-40 days') AS date_locked
 FROM Billing_History
 	INNER JOIN Link_Project_Company ON Billing_History.project_id=Link_Project_Company.project_id
 		AND Link_Project_Company.active_ind=1<cfif isdefined("attributes.project_id")>
