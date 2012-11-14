@@ -25,6 +25,6 @@ FROM Performance_Review
 		AND Reviewer.active_ind=1
 WHERE Performance_Review.active_ind=1
 	AND Performance_Review.user_account_id=#attributes.user_account_id#
-ORDER BY Performance_Review.date_reviewed, Reviewer.lname
+ORDER BY Performance_Review.date_reviewed, Reviewer.last_name
 </cfquery>
 </cfsilent>
