@@ -35,7 +35,7 @@ FROM Demographics
 	LEFT OUTER JOIN Link_User_Account_Employment_Position ON Demographics.user_account_id=Link_User_Account_Employment_Position.user_account_id
 		AND Link_User_Account_Employment_Position.active_ind=1
 		AND Link_User_Account_Employment_Position.effective_end_date IS NULL
-	INNER JOIN Employee ON Demographics.user_account_id=Demographics.user_account_id
+	INNER JOIN Employee ON Demographics.user_account_id=Employee.user_account_id
 		AND Employee.active_ind=1
 		AND Employee.turnover_date IS NULL
 	LEFT OUTER JOIN Email ON Demographics.user_account_id=Email.user_account_id
