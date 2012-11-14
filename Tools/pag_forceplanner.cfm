@@ -29,5 +29,5 @@
 	<cfinclude template="dsp_forceplanner_sub_capacity_row.cfm">
 </cfform>
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details" target="task_details">
-	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_project" field_name="project_id" fuseaction="Customers.edit_engagement" target="edit_engagement">
+	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_project" field_name="project_id" fuseaction="Customers.edit_project" target="edit_project">
 </table>

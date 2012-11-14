@@ -24,7 +24,7 @@
 		</cfquery>
 		<cfset attributes.project_id = get_proj_from_task.project_id> 
 	<cfelse>
-		<cflocation url="/index.cfm?fuseaction=Timekeeping.engagement_list">
+		<cflocation url="/index.cfm?fuseaction=Timekeeping.project_list">
 	</cfif>
 
 </cfsilent>

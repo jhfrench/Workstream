@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I retrieve the name and code for the customer so that the user can navigate to the customer's engagement list.
+	Responsibilities: I retrieve the name and code for the customer so that the user can navigate to the customer's project list.
 	||
 	Name: Jeromy F
 	||

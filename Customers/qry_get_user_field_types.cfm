@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I retrieve all the form fields that a user is allowed to specify as custom fields for an engagement.
+	Responsibilities: I retrieve all the form fields that a user is allowed to specify as custom fields for an project.
 	||
 	Name: Jeromy French
 	||

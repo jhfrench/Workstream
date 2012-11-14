@@ -55,7 +55,7 @@
 	<cfloop query="employee_force">
 		<tr>
 			<td>
-				#engagement#
+				#project#
 			</td>
 			<td scope="row">
 				<a href="javascript:list_to_task(#task_id#);">#task#</a>

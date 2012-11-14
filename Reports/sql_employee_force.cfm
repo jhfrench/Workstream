@@ -16,7 +16,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-SELECT Task.task_id, (Customer.description || '-' || Project.description) AS engagement, Task.name AS task, 
+SELECT Task.task_id, (Customer.description || '-' || Project.description) AS project, Task.name AS task, 
 	(CASE WHEN Project.billable_type_id = 2 THEN 'NB' ELSE 'B' END) AS billable, REF_Priority.description AS priority, 
 	REF_Status.status, Task.due_date, Task.complete_date AS date_completed,
 	COALESCE(Recorded_Hours.used_hours,0) AS used_hours, Task.budgeted_hours,

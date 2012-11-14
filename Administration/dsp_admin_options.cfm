@@ -31,7 +31,7 @@
 		</td>
 		<td class="SubHeadText">
 			Project list display order<br />
-			<cfselect name="project_list_order" required="yes" message="Please choose an order for your engagement list.">
+			<cfselect name="project_list_order" required="yes" message="Please choose an order for your project list.">
 				<option value="1"<cfif session.workstream_project_list_order EQ 1> selected="selected"</cfif>>Project (Code)</option>
 				<option value="2"<cfif session.workstream_project_list_order EQ 2> selected="selected"</cfif>>Code - Project</option>
 			</cfselect>

@@ -40,11 +40,11 @@
 		<set name="request.pagetitle" value="Delete Task"/>
 		<include template="pag_delete_task.cfm"/>
 	</fuseaction>
-	<fuseaction name="engagement_list">
-		<set name="request.pagetitle" value="Engagement List"/>
-		<!-- <set name="attributes.object_name" value="Engagement List"/>	
+	<fuseaction name="project_list">
+		<set name="request.pagetitle" value="project List"/>
+		<!-- <set name="attributes.object_name" value="project List"/>	
 		<include template="../common_files/act_object_access.cfm"/> -->
-		<include template="pag_engagement_list.cfm"/>
+		<include template="pag_project_list.cfm"/>
 	</fuseaction>
 	<fuseaction name="express_entry">
 		<set name="request.pagetitle" value="Express Timekeeping Entry"/>

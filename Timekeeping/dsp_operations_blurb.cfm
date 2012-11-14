@@ -32,5 +32,5 @@
 		</div>
 	</div>
 	</cfoutput>
-	<p><a href="index.cfm?fuseaction=Reports.engagement_dashboard" class="btn">View details &raquo;</a></p>
+	<p><a href="index.cfm?fuseaction=Reports.project_dashboard" class="btn">View details &raquo;</a></p>
 </section>

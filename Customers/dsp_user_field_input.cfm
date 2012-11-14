@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I ask the user how many user fields of each available type that they want for an engagement.
+	Responsibilities: I ask the user how many user fields of each available type that they want for an project.
 	||
 	Name: Jeromy French
 	 || 
@@ -22,7 +22,7 @@
 		</td>
 		<td width="55%" class="Note">
 			<ol type="1" start="#variables.start#" class="Note">
-				<li>For each available form field, specify how many custom fields this engagement requires. You can always add or retire custom fields when editing an engagement.</li><cfset variables.start=incrementvalue(variables.start)>
+				<li>For each available form field, specify how many custom fields this project requires. You can always add or retire custom fields when editing an project.</li><cfset variables.start=incrementvalue(variables.start)>
 			</ol>
 		</td>
 	</tr></cfoutput>

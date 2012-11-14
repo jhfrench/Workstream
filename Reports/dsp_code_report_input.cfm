@@ -14,5 +14,5 @@
 <cfif NOT isdefined("attributes.used_by_search")>
 	<cfset attributes.used_by_search=0>
 </cfif>
-</cfsilent><a href="index.cfm?fuseaction=code_report_input&used_by_search=<cfif attributes.used_by_search EQ 1>0">Hide<cfelse>1">Show</cfif> non-billable engagements</a><br />
-<cfselect name="project_id" size="10" display="display" value="project_id" query="project" required="yes" message="Please specify an engagement."></cfselect>
+</cfsilent><a href="index.cfm?fuseaction=code_report_input&used_by_search=<cfif attributes.used_by_search EQ 1>0">Hide<cfelse>1">Show</cfif> non-billable projects</a><br />
+<cfselect name="project_id" size="10" display="display" value="project_id" query="project" required="yes" message="Please specify an project."></cfselect>

@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I am the query that drives the customers list, I populate the list and provide information on if there are engagements below the customer code.
+	Responsibilities: I am the query that drives the customers list, I populate the list and provide information on if there are projects below the customer code.
 
 	||
 	Edits:
