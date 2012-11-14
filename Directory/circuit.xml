@@ -132,10 +132,10 @@
 		<include template="qry_get_contact_phones.cfm"/>
 		<include template="qry_get_contact_emails.cfm"/>
 		<include template="qry_get_contact_locations.cfm"/>
-		<include template="act_emp_contact_view.cfm"/>
+		<include template="pag_employee_contact_view.cfm"/>
 	</fuseaction>
 	<fuseaction name="employee_contact_update">
-		<include template="act_emp_contact_update.cfm"/>
+		<include template="act_employee_contact_update.cfm"/>
 	</fuseaction>
 
 	<postfuseaction>
