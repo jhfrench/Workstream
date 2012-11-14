@@ -31,7 +31,8 @@ FROM (
 			INNER JOIN REF_Company ON Link_Company_User_Account.company_id=REF_Company.company_id 
 		WHERE Demographics.active_ind=1
 			AND Demographics.user_account_id IN (#attributes.included_user_account_id#)
-		GROUP BY Demographics.user_account_id, Demographics.name, Demographics.lname, REF_Company.description
+		GROUP BY Demographics.user_account_id, Demographics.first_name, Demographics.last_name,
+			REF_Company.description
 	) AS Employee_Data 
 	LEFT OUTER JOIN (
 		SELECT Time_Entry.user_account_id, Time_Entry.work_date, Time_Entry.hours, Time_Entry.notes_id, 
