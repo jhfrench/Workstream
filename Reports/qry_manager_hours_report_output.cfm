@@ -15,7 +15,7 @@
 	END FUSEDOC --->
 <cfquery name="manager_hours_report_output" datasource="#application.datasources.main#">
 SELECT Employee_Data.employee_classification, Employee_Data.user_account_id, Employee_Data.name,
-	Employee_Data.lname, Time_Entry_Data.date, Time_Entry_Data.display,
+	Employee_Data.lname, Time_Entry_Data.work_date, Time_Entry_Data.display,
 	COALESCE(Time_Entry_Data.hours,0) AS hours, Employee_Data.company, Employee_Data.user_account_id,
 	COALESCE(Notes.note,'') AS note
 FROM (
@@ -46,6 +46,6 @@ FROM (
 	LEFT OUTER JOIN Notes ON Time_Entry_Data.notes_id=Notes.notes_id
 		AND Notes.active_ind=1
 ORDER BY Employee_Data.lname, Employee_Data.name, Employee_Data.employee_classification,
-	Time_Entry_Data.date
+	Time_Entry_Data.work_date
 </cfquery>
 </cfsilent>
