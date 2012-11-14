@@ -23,7 +23,6 @@
 	<cfset variables.recordcount=get_subordinates.recordcount>
 	<cfset variables.source_query_name="get_subordinates">
 </cfif>
-</cfsilent>
 <cfoutput>
 <form name="report" action="index.cfm?fuseaction=#attributes.fuseaction#" class="well form-inline">
 	<label for="from_date">From</label>
