@@ -24,17 +24,20 @@
 	<cfset variables.source_query_name="get_subordinates">
 </cfif>
 <cfoutput>
-<form name="report" action="index.cfm?fuseaction=#attributes.fuseaction#" class="well form-inline">
-	<label for="from_date">From</label>
-	<input type="date" name="from_date" id="from_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span4 date" />
-	<label for="through_date">To</label>
-	<input type="date" name="through_date" id="through_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span4 date" />
-	<label for="through_date">Included Employees</label>
-	<select name="included_user_account_id" required="required" multiple="yes" size="#min(variables.recordcount,25)#" class="span8">
-		<cfloop query="#variables.source_query_name#">
-		<option value="#user_account_id#" selected="selected">#display#</option>
-		</cfloop>
-	</select>
-	<input type="submit" value="Generate Report" class="btn btn-primary" />
+<form name="report" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">
+	<fieldset>
+		<legend>Criteria</legend>
+		<label for="from_date">From</label>
+		<input type="date" name="from_date" id="from_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+		<label for="through_date">To</label>
+		<input type="date" name="through_date" id="through_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+		<label for="through_date">Included Employees</label>
+		<select name="included_user_account_id" required="required" multiple="yes" size="#min(variables.recordcount,25)#" class="span3">
+			<cfloop query="#variables.source_query_name#">
+			<option value="#user_account_id#" selected="selected">#display#</option>
+			</cfloop>
+		</select>
+		<input type="submit" value="Generate Report" class="btn btn-primary" />
+	</fieldset>
 </form>
 </cfoutput>
