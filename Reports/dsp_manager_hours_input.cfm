@@ -22,11 +22,11 @@
 	<tr>
 		<td>
 			From: 
-			<input type="date" name="from_date" id="from_date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="from_date" id="from_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
 		</td>
 		<td>
 			To: 
-			<input type="date" name="through_date" id="through_date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="through_date" id="through_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
 		</td>
 	</tr>
 	<tr>

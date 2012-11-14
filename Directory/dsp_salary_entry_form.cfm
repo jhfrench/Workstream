@@ -23,7 +23,7 @@ $Log:
 	<div class="control-group">
 		<label class="control-label" for="date">Date Implemented:</label>
 		<div class="controls">
-			<input type="date" name="date" id="date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="date" id="date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
 		</div>
 	</div>
 	<div class="control-group">
