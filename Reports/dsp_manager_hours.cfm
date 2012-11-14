@@ -32,7 +32,7 @@
 		<table class="table table-striped table-bordered table-condensed">
 			<caption>
 				<h3>#lname#, #name#</h3>
-				<h2>Employee Type: <small>#employee_classification#</small>, Company: <small>#company#</small></h2>
+				<h4>Employee Type <small>#employee_classification#</small> Company <small>#company#</small></h4>
 			</caption>
 			<thead>
 				<tr>
@@ -44,10 +44,8 @@
 			</thead>
 			<tfoot>
 				<tr>
-					<td>
-						<td scope="row">Total Hours</td>
-						<td class="number">#decimalformat(get_total_hours.total_hours)#</td>
-					</td>
+					<td colspan="3" scope="row">Total Hours</td>
+					<td class="number">#decimalformat(get_total_hours.total_hours)#</td>
 				</tr>
 			</tfoot>
 			<tbody>
@@ -66,5 +64,4 @@
 		You have no known subordinates during the specified dates.
 	</div>
 </cfif>
-
-
+</cfoutput>
