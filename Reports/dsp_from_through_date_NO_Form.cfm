@@ -30,12 +30,12 @@
 	<tr>
 		<td>
 			From: 
-			<input type="date" name="from_date" id="from_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" maxlength="10"<cfif attributes.required_ind> required="required"</cfif> class="span6 date" />
+			<input type="date" name="from_date" id="from_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" maxlength="10"<cfif attributes.required_ind> required="required"</cfif> class="span6 date" />
 			<!-- Use CF to create validation <cfinput  type="text" name="from_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid from date"> --->
 		</td>
 		<td>
 			To: 
-			<input type="date" name="through_date" id="through_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" maxlength="10"<cfif attributes.required_ind> required="required"</cfif> class="span6 date" />
+			<input type="date" name="through_date" id="through_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" maxlength="10"<cfif attributes.required_ind> required="required"</cfif> class="span6 date" />
 			<!-- Use CF to create validation <cfinput type="text" name="through_date" required="#attributes.required#" validate="date" size="11" message="You must enter a valid through date"> --->
 		</td>
 	</tr>

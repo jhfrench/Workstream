@@ -55,14 +55,14 @@
 		<div class="control-group">
 			<label for="start_date" class="control-label">Start</label>
 			<div class="controls">
-				<input type="date" name="start_date" id="start_date" value="#dateformat(get_flat_rate.rate_start_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
+				<input type="date" name="start_date" id="start_date" value="#dateformat(get_flat_rate.rate_start_date,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
 				<p class="help-block"></p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="end_date" class="control-label">End</label>
 			<div class="controls">
-				<input type="date" name="end_date" id="end_date" value="#dateformat(get_flat_rate.rate_end_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
+				<input type="date" name="end_date" id="end_date" value="#dateformat(get_flat_rate.rate_end_date,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
 				<p class="help-block"></p>
 			</div>
 		</div>
