@@ -1,5 +1,5 @@
 
-<!--Directory/qry_Security_Company_Access_entry.cfm
+<!--Directory/qry_security_company_access_entry.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
