@@ -34,7 +34,7 @@
 <cfparam default="" name="mi"> 
 <cfparam default="" name="credentials"> 
 <cfparam default="" name="birth_date"> 
-<cfparam default="" name="ssn"> 
+<cfparam default="" name="uupic"> 
 <cfparam default="" name="pin"> 
 <cfparam default="" name="photo"> 
 <cfparam default="" name="biography"> 

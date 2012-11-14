@@ -64,7 +64,7 @@
 			<!-- <set name="attributes.object_name" value="Anniversary"/>
 			 -->
 			<set name="request.pagetitle" value="Anniversary Report"/>
-			<include template="pag_anniv_report.cfm"/>
+			<include template="pag_anniversary_report.cfm"/>
 		</fuseaction>
 		<!-- End Anniversary Report -->
 		<fuseaction name="billable_hours">

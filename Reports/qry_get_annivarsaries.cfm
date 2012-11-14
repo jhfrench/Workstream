@@ -1,5 +1,5 @@
 
-<!--Reports/qry_anniv_report.cfm
+<!--Reports/qry_get_annivarsaries.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -14,7 +14,7 @@
 	 || 
 	END FUSEDOC --->
 
-<cfquery name="annivarsary" datasource="#application.datasources.main#">
+<cfquery name="get_annivarsaries" datasource="#application.datasources.main#">
 SELECT Demographics.first_name, Demographics.last_name, Employee.hire_date,
 	EXTRACT(YEAR FROM AGE(Employee.hire_date)) AS years_employed, Employee.birth_date
 FROM Employee
@@ -29,4 +29,3 @@ GROUP BY Demographics.first_name, Demographics.last_name, Employee.hire_date, Em
 ORDER BY Demographics.last_name, Demographics.first_name
 </cfquery>
 </cfsilent>
-
