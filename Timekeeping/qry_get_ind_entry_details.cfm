@@ -21,9 +21,16 @@
  --->
 <cfquery name="get_ind_entry_details" datasource="#application.datasources.main#">
 SELECT Time_Entry.notes_id AS notes_id, Time_Entry.time_entry_id AS time_entry_id, Time_Entry.work_date,
-	Time_Entry.hours AS hours, Notes.note AS note
+	Time_Entry.hours AS hours, Notes.note, COALESCE(Link_Invoice_Time_Entry.time_entry_id,0) AS billed_ind
 FROM Time_Entry
 	INNER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
+	LEFT OUTER JOIN (
+		SELECT time_entry_id
+		FROM Link_Invoice_Time_Entry
+			INNER JOIN Invoice ON Link_Invoice_Time_Entry.invoice_id=Invoice.invoice_id
+				AND Invoice.active_ind=1
+		WHERE Link_Invoice_Time_Entry.active_ind=1
+	) AS Link_Invoice_Time_Entry ON Time_Entry.time_entry_id=Link_Invoice_Time_Entry.time_entry_id
 WHERE Time_Entry.active_ind=1
 	AND Notes.active_ind=1
 	AND Time_Entry.task_id=#attributes.task_id#
@@ -31,4 +38,3 @@ WHERE Time_Entry.active_ind=1
 ORDER BY Time_Entry.work_date DESC, Time_Entry.time_entry_id
 </cfquery>
 </cfsilent>
-
