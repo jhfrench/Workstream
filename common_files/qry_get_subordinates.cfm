@@ -12,22 +12,23 @@
 	$Log$
 	 || 
  --->
- <!--- $issue$: need to consolidate Link_User_account_Supervisor and Supervisor tables --->
 <cfparam name="attributes.date_linked" default="">
 <cfparam name="attributes.all_employees" default="0">
 </cfsilent>
 <cfquery name="get_subordinates" datasource="#application.datasources.main#">
-SELECT Emp_Contact.name, Emp_Contact.lname, (LEFT(Emp_Contact.name,2) || LEFT(Emp_Contact.lname,2)) AS initials,
-	Emp_Contact.user_account_id, Emp_Contact.lname || ', ' || LEFT(Emp_Contact.name,2) AS display
-FROM Emp_Contact
-	INNER JOIN Link_User_account_Supervisor ON Emp_Contact.user_account_id=Link_User_account_Supervisor.user_account_id
-		AND Link_User_account_Supervisor.supervisor_id=#variables.user_identification#<cfif NOT isdefined("attributes.hide_supervisor")>
-		OR Emp_Contact.user_account_id=#variables.user_identification#</cfif>
-	INNER JOIN View_Demographics_Workstream AS Demographics ON Emp_Contact.user_account_id=Demographics.user_account_id
-WHERE 1=1<cfif NOT attributes.all_employees>
-	AND <cfif len(attributes.date_linked)>#createodbcdate(attributes.date_linked)# BETWEEN Link_User_account_Supervisor.date_start AND COALESCE(Link_User_account_Supervisor.date_end,#createodbcdate(attributes.date_linked)#+INTERVAL '1 day')<cfelse>CURRENT_TIMESTAMP BETWEEN Link_User_account_Supervisor.date_start AND COALESCE(Link_User_account_Supervisor.date_end, CURRENT_DATE+INTERVAL '1 day')</cfif>
-	AND CURRENT_DATE BETWEEN Demographics.hire_date AND COALESCE(Demographics.effective_to,CURRENT_DATE+INTERVAL '1 day')</cfif>
-GROUP BY Emp_Contact.name, Emp_Contact.lname, Emp_Contact.user_account_id
-ORDER BY Emp_Contact.lname, Emp_Contact.name
+SELECT Demographics.first_name, Demographics.last_name, (LEFT(Demographics.first_name,1) || LEFT(Demographics.last_name,1)) AS initials,
+	Demographics.user_account_id, Demographics.last_name || ', ' || LEFT(Demographics.first_name,2) AS display
+FROM Demographics
+	INNER JOIN Link_User_Account_Supervisor ON Demographics.user_account_id=Link_User_Account_Supervisor.user_account_id
+		AND Link_User_Account_Supervisor.active_ind=1
+		AND (Link_User_Account_Supervisor.supervisor_id=#variables.user_identification#<cfif NOT isdefined("attributes.hide_supervisor")>
+		OR Demographics.user_account_id=#variables.user_identification#</cfif>)
+	INNER JOIN Employee ON Demographics.user_account_id=Employee.user_account_id
+		AND Employee.active_ind=1
+WHERE Demographics.active_ind=1<cfif NOT attributes.all_employees>
+	AND <cfif len(attributes.date_linked)>#createodbcdate(attributes.date_linked)#<cfelse>CURRENT_DATE</cfif> BETWEEN Link_User_Account_Supervisor.date_start AND COALESCE(Link_User_Account_Supervisor.date_end, CURRENT_TIMESTAMP)
+	AND <cfif len(attributes.date_linked)>#createodbcdate(attributes.date_linked)#<cfelse>CURRENT_DATE</cfif> BETWEEN Employee.hire_date AND COALESCE(Employee.turnover_date, CURRENT_TIMESTAMP)</cfif>
+GROUP BY Demographics.last_name, Demographics.first_name, Demographics.user_account_id
+ORDER BY Demographics.last_name, Demographics.first_name
 </cfquery>
 <cfset variables.subordinates_user_account_id=valuelist(get_subordinates.user_account_id)>
