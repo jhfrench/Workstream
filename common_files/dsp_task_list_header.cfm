@@ -14,7 +14,6 @@
  	--> variables.task_list_order: list of query columns to ORDER BY
  --->
 </cfsilent>
-<!--- $issue$: this "variables.task_list_order_column" business can be done much better --->
 <colgroup>
 	<col></col>
 	<col class="hidden-phone"></col><!--- hide owner col on phones --->

@@ -89,8 +89,9 @@ FROM Task
 				AND Demographics.active_ind=1
 		WHERE Team.active_ind=1
 			AND Team.role_id=3 /* QA */
-	) AS Task_Tester ON Task.task_id=Task_Tester.task_id<cfif NOT variables.from_invoice>
-	INNER JOIN (
+	) AS Task_Tester ON Task.task_id=Task_Tester.task_id
+WHERE 1=1<cfif NOT variables.from_invoice>
+	AND Task.task_id IN (
 		SELECT Task.task_id
 		FROM Task
 			INNER JOIN Team ON Task.task_id=Team.task_id
@@ -106,7 +107,7 @@ FROM Task
 						AND Task.status_id=3 /* QA */
 					)
 				)
-	) AS Valid_Tasks ON Task.task_id=Valid_Tasks.task_id</cfif><cfif isdefined("variables.temp_task_list_order")>
+	)</cfif><cfif isdefined("variables.temp_task_list_order")>
 ORDER BY <cfif isdefined("attributes.user_account_id") AND listlen(attributes.user_account_id) GT 1>task_owner, </cfif>#variables.temp_task_list_order#</cfif>
 LIMIT 500
 </cfquery>
