@@ -39,7 +39,7 @@
 			</ul>
 		</li>
 		</cfif>
-		<li class="dropdown"><a href="##" title="#module_description#" class="dropdown-toggle" data-toggle="dropdown">#module_description#<b class="caret"></strong></a>
+		<li class="dropdown"><a href="##" title="#module_description#" class="dropdown-toggle" data-toggle="dropdown">#module_description#<b class="caret"></b></a>
 			<ul class="dropdown-menu">
 	</cfif>
 	<cfif parent_business_function_id NEQ variables.parent_business_function_id>
@@ -54,7 +54,7 @@
 		<cfif parent_business_function_id NEQ business_function_id>
 			<cfset variables.hierachy_level=hierachy_level>
 			<cfset variables.flyout_opened_ind=1>
-			<li class="dropdown"><a href="##" title="#parent_business_function#" class="dropdown-toggle" data-toggle="dropdown">#parent_business_function#<b class="caret"></strong></a>
+			<li class="dropdown"><a href="##" title="#parent_business_function#" class="dropdown-toggle" data-toggle="dropdown">#parent_business_function#<b class="caret"></b></a>
 				<ul class="dropdown-menu">
 		</cfif>
 	</cfif>
