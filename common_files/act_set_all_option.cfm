@@ -32,5 +32,6 @@ WHERE active_ind=1
 <cfif get_all_option.recordcount NEQ 0>
 	<cfset variables.all_option=get_all_option.all_option>
 </cfif>
+<cfset caller.get_all_option=get_all_option>
 <cfset caller.variables.all_option=variables.all_option>
 </cfsilent>
