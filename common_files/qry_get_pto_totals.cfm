@@ -72,8 +72,8 @@ FROM (
 		WHERE Link_Company_User_Account.user_account_id=Demographics.user_account_id
 			AND REF_Company.company_id=Link_Company_User_Account.company_id
 			AND Demographics.hire_date+INTERVAL '30 day' < CURRENT_TIMESTAMP
-			AND ((CURRENT_TIMESTAMP BETWEEN Demographics.hire_date AND Employee.turnover_date) 
-				OR Employee.turnover_date IS NULL)
+			AND ((CURRENT_TIMESTAMP BETWEEN Demographics.hire_date AND Demographics.effective_to) 
+				OR Demographics.effective_to IS NULL)
 			AND Demographics.user_account_id=#variables.user_identification#
 			AND ABCD_Months.month > EXTRACT(MONTH FROM CURRENT_DATE)
 			AND ABCD_Months.year=EXTRACT(YEAR FROM CURRENT_DATE)
