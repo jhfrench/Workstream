@@ -20,7 +20,7 @@
 	<cfinclude template="qry_get_open_positions.cfm">
 	<cfinclude template="qry_get_employee_type.cfm">
 	<cfinclude template="qry_get_employee_classification.cfm">
-	<cfinclude template="../qry_get_ref_account_type.cfm">
+	<cfinclude template="../common_files/qry_get_ref_account_type.cfm">
 	<cfinclude template="qry_populate_employee_form.cfm">
 
 	<cfinclude template="../common_files/qry_get_states.cfm">
