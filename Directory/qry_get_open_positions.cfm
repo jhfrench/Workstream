@@ -23,19 +23,20 @@ FROM Employment_Position
 			(
 				SELECT MAX(l_u_a_e_p_id) AS l_u_a_e_p_id
 				FROM Link_User_Account_Employment_Position
+				WHERE Link_User_Account_Employment_Position.active_ind=1
 				GROUP BY employment_position_id
 			) AS inner_query
-		Where Link_User_Account_Employment_Position.l_u_a_e_p_id = Inner_Query.l_u_a_e_p_id
-	) AS Inner_Query2 ON Positions.employment_position_id = Inner_Query2.employment_position_id
-WHERE active_ind = 1 
+		WHERE Link_User_Account_Employment_Position.l_u_a_e_p_id = Inner_Query.l_u_a_e_p_id
+	) AS Inner_Query2 ON Employment_Position.employment_position_id = Inner_Query2.employment_position_id
+WHERE Employment_Position.active_ind = 1 
 	AND (
-		(
-			Inner_Query2.employment_position_id IS NOT NULL
-				AND Inner_Query2.effective_end_date < CURRENT_TIMESTAMP
-		)
-	or 
-		(
-			Inner_Query2.employment_position_id IS NULL
-		)
-)
+			(
+				Inner_Query2.employment_position_id IS NOT NULL
+					AND Inner_Query2.effective_end_date < CURRENT_TIMESTAMP
+			)
+		OR
+			(
+				Inner_Query2.employment_position_id IS NULL
+			)
+	)
 </cfquery>
