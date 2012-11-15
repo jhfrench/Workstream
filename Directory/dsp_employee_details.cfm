@@ -18,11 +18,11 @@
 <div class="row-fluid">
 	<div class="span3">
 		<img src="#get_employee_details.photo_path#" width="144" height="144" alt="#attributes.section_title#" border="0">
-		<cfif variables.user_identification EQ 1><a href="javascript:edit_employee(#user_account_id#);" class="btn">Edit Employee Information</a></cfif>
+		<cfif variables.user_identification EQ 1><br /><a href="javascript:edit_employee(#user_account_id#);" class="btn">Edit Employee Information</a></cfif>
 		<br />
-		<b>Birthdate:</b> #dateformat(get_employee_details.birth_date, "mm/dd")#<br />
-		<b>Hire Date:</b> #dateformat(get_employee_details.hire_date,"m/d/yyyy")#<br />
-		<cfif compare(get_employee_details.turnover_date,"")><b>End Date:</b> #dateformat(get_employee_details.turnover_date,"m/d/yyyy")#</cfif>
+		<b>Birthdate</b> #dateformat(get_employee_details.birth_date, "mm/dd")#<br />
+		<b>Hire Date</b> #dateformat(get_employee_details.hire_date, "m/d/yyyy")#<br />
+		<cfif compare(get_employee_details.turnover_date,"")><b>End Date</b> #dateformat(get_employee_details.turnover_date,"m/d/yyyy")#</cfif>
 		<cfif get_emp_phone.recordcount>
 			<cfinclude template="dsp_emp_phone.cfm">
 		</cfif>
