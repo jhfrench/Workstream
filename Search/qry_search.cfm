@@ -91,14 +91,13 @@
 <cfquery name="task_list" datasource="#application.datasources.main#">
 SELECT 1 AS constant, Task.due_date, Task.task_id,
 	Task.name AS task_name, COALESCE(Task.description, 'No description provided.') AS task_description,
-	COALESCE(Task.budgeted_hours,0) AS time_budgeted, Task.status_id, 
-	Task_Details.task_id, Task_Details.time_used, Task_Details.task_icon, 
-	Task_Details.percent_time_used, Task_Details.task_owner, Task_Details.task_owner_full_name,
+	COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Task.status_id, 
+	Task_Details.task_id, Task_Details.hours_used, Task_Details.task_icon, 
+	Task_Details.task_owner, Task_Details.task_owner_full_name,
 	(CASE WHEN Task.status_id IN (4,10) THEN Task_Details.task_status || ' by ' || Demographics.first_name ELSE Task_Details.task_status END) AS task_status,
 	(Customer.description || '-' || Project.description) AS project_name, priority
 FROM Task, Team, Demographics, Project, Customer,
-	(SELECT Path.task_id, COALESCE(Recorded_Hours.used_hours,0) AS time_used, Path.class_name AS task_icon, 
-		(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0 ELSE (Recorded_Hours.used_hours/Task.budgeted_hours) END,0)*100) AS percent_time_used,
+	(SELECT Path.task_id, COALESCE(Recorded_Hours.used_hours,0) AS hours_used, Path.class_name AS task_icon,
 		REF_Status.status AS task_status, Demographics.first_name AS task_owner, (Demographics.last_name || ', ' || Demographics.first_name) AS task_owner_full_name,
 		priority
 	FROM Task, REF_Status, Team, Demographics,
