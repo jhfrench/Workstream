@@ -14,5 +14,5 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="qry_get_subordinates.cfm">
-<cfinclude template="qry_get_all_option.cfm">
+<cfinclude template="../common_files/act_set_all_option.cfm" business_function_id="635">
 <cfinclude template="qry_get_pto_names.cfm">
