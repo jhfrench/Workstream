@@ -15,5 +15,5 @@
 </cfsilent>
 <h4>Email</h4>
 <cfoutput query="get_emp_email">
-<b>#email_type#</b>: <a href="mailto:#email#">#email#</a><br />
+<strong>#email_type#</strong>: <a href="mailto:#email#">#email#</a><br />
 </cfoutput>

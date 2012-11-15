@@ -95,7 +95,7 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 		WHERE error_log_id > <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.error_log_id#">
 		</cfquery>
 		<cfcatch type="Any">
-			<b>The query did not run, you forgot to specify a valid error number!</b>
+			<strong>The query did not run, you forgot to specify a valid error number!</strong>
 			<cfabort>
 		</cfcatch>
 	</cftry>

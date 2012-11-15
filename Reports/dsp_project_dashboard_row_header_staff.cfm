@@ -16,8 +16,8 @@
 <cfoutput>
 <form name="inactive" action="index.cfm?fuseaction=Reports.projects" method="post">
 	<tr bgcolor="##008080">
-		<td colspan="100%" class="HeadTextWhite"><b>
-			Project Dashboard - #dateformat(today,'m/d/yyyy')#</b>
+		<td colspan="100%" class="HeadTextWhite"><strong>
+			Project Dashboard - #dateformat(today,'m/d/yyyy')#</strong>
 			<input type="hidden" name="client_code" value="NOTHING">
 		</td>
 	</tr>

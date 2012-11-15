@@ -17,7 +17,7 @@
 </cfsilent>
 <h4>Phone</h4>
 <cfoutput query="get_emp_phone">
-<b>#phone_type#</b>: 
+<strong>#phone_type#</strong>: 
 <cfset phone=ReplaceList(phone_number,list1,list2)>
 <cfif len(phone) EQ 10>
 (#left(phone,3)#) #mid(phone,4,3)#-#right(phone,4)#

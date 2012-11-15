@@ -39,7 +39,7 @@
 		}
 		variables.errordate=dateformat(now(), "m/d/yyyy");
 		variables.errortime=timeformat(now(), "hh:mm:ss TT");
-		variables.error_diagnostics=stripcr(ReplaceList(error.diagnostics, "<p>,<pre>,</pre>,</P>,<hr>,<b>,</b>,<ol>,<li>,</ol>,<p>,</p>,'", ",,,,,,,,,,,,"));
+		variables.error_diagnostics=stripcr(ReplaceList(error.diagnostics, "<p>,<pre>,</pre>,</P>,<hr>,<strong>,</strong>,<ol>,<li>,</ol>,<p>,</p>,'", ",,,,,,,,,,,,"));
 		variables.error_querystring=error.querystring;
 		variables.error_remoteaddress=error.remoteaddress;
 		variables.error_httpreferer=error.httpreferer;
@@ -245,8 +245,8 @@
 		<body>
 		<font face="arial" size="-1">
 			HITSS product '#application.product_name#' generated the following error information:<ul>
-			<b>User:</b> <a href="mailto:#session.email_address#">#session.first_name# #session.last_name#</a> 
-			<br /><b>#application.product_name# Login:</b> #session.user_name#
+			<strong>User:</strong> <a href="mailto:#session.email_address#">#session.first_name# #session.last_name#</a> 
+			<br /><strong>#application.product_name# Login:</strong> #session.user_name#
 			<cfif isdefined("application.application_support_contacts")>
 				<cfloop list="#structKeyList(application.application_support_contacts)#" index="contact_type_ii">
 					<cfset variables.contact_list_legth=listlen(structkeylist(application.application_support_contacts[contact_type_ii])) - 1>
@@ -265,15 +265,15 @@
 			</cfif>
 
 			<cfif isdefined("request.error_log_id") AND len(request.error_log_id)>
-			<p><b>Error ID:</b> #request.error_log_id#
+			<p><strong>Error ID:</strong> #request.error_log_id#
 			</cfif>
-			<p><b>Error Datetime:</b> #variables.errordate# #variables.errortime#
-			<br /><b>Browser:</b> #variables.error_browser#
-			<br /><b>Template:</b> #variables.error_template#
-			<br /><b>HTTPreferer:</b> #variables.error_httpreferer#
-			<br /><b>Remoteaddress:</b> #variables.error_remoteaddress#
-			<br /><b>Querystring:</b> #variables.error_querystring#
-			<br /><b>Diagnostics:</b><ul>#variables.error_diagnostics#</ul>
+			<p><strong>Error Datetime:</strong> #variables.errordate# #variables.errortime#
+			<br /><strong>Browser:</strong> #variables.error_browser#
+			<br /><strong>Template:</strong> #variables.error_template#
+			<br /><strong>HTTPreferer:</strong> #variables.error_httpreferer#
+			<br /><strong>Remoteaddress:</strong> #variables.error_remoteaddress#
+			<br /><strong>Querystring:</strong> #variables.error_querystring#
+			<br /><strong>Diagnostics:</strong><ul>#variables.error_diagnostics#</ul>
 			</ul>
 		</font>
 		</body>
