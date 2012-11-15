@@ -31,7 +31,7 @@
 </cfif>
 <cfparam default="" name="first_name">
 <cfparam default="" name="last_name">
-<cfparam default="" name="mi"> 
+<cfparam default="" name="middle_initial"> 
 <cfparam default="" name="credentials"> 
 <cfparam default="" name="birth_date"> 
 <cfparam default="" name="uupic"> 
