@@ -237,9 +237,7 @@
 			<set name="attributes.report_name" value="Non-Billable Hours Report"/>
 			<include template="pag_billable_hours.cfm"/>
 		</fuseaction>
-		<fuseaction name="overtime">
-			<set name="attributes.report_title" value="Overtime"/>
-			<set name="variables.overtime_ind" value="1"/>
+		<fuseaction name="over_under_time">
 			<include template="pag_over_under_time.cfm"/>
 		</fuseaction>
 		<!-- End Overtime Report-->
@@ -311,11 +309,6 @@
 			 -->
 			<set name="request.pagetitle" value="Turnover Report"/>
 			<include template="pag_turnover_report_input.cfm"/>
-		</fuseaction>
-		<fuseaction name="undertime">
-			<set name="attributes.report_title" value="Undertime"/>
-			<set name="variables.overtime_ind" value="0"/>
-			<include template="pag_over_under_time.cfm"/>
 		</fuseaction>
 		<fuseaction name="sales_report">
 			<!-- <set name="attributes.object_name" value="Monthly Sales"/>
