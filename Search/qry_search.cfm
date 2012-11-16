@@ -118,7 +118,7 @@ FROM Task, Team, Demographics, Project, Customer,
 					AND (<cfloop list="#attributes.description#" index="ii"><cfset counter=incrementvalue(counter)>LOWER(Task.description) LIKE '%#lcase(ii)#%'<cfif counter NEQ listlen(attributes.description)> OR </cfif></cfloop>)</cfif><cfif len(attributes.task_owner)>
 					AND Team.role_id=1
 					AND Team.user_account_id IN (#attributes.task_owner#)</cfif><cfif len(attributes.task_source)>
-					AND Task.created_by IN (#attributes.task_source#)</cfif><cfif attributes.used_by_search>
+					AND Task.created_by IN (#attributes.task_source#)</cfif><cfif attributes.used_by_search_ind>
 					AND Task.project_id IN (#attributes.project_id#)</cfif> /*limit to either user's access or search crietria, whichever is less*/<cfif len(attributes.task_stati)>
 					AND Task.status_id IN (#attributes.task_stati#)</cfif><cfif len(attributes.priority_id)>
 					AND Task.priority_id IN (#attributes.priority_id#)</cfif><cfif isdate(attributes.date_entered)>

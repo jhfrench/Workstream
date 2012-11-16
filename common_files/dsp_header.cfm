@@ -137,7 +137,7 @@ else
 
 <!--- if user does not have access to this fuseaction, tell them and abort processing --->
 <cfif len(variables.access_message)>
-	<div class="alert alert-error">
+	<div class="alert alert-error" style="margin-top:200px;">
 		<strong>#variables.access_message#</strong>
 	</div>
 	<cfinclude template="dsp_footer.cfm">

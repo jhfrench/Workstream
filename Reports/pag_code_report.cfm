@@ -16,14 +16,21 @@
 <cfset variables.grand_total_hours=0>
 <cfset variables.emp_type_hours=0>
 <cfset variables.query="get_code_report">
+
+<cfparam name="attributes.from_date" default="#month(now())#/1/#year(now())#">
+<cfparam name="attributes.through_date" default="#month(now())#/#daysinmonth(now())#/#year(now())#">
+<cfset variables.from_date=attributes.from_date>
+<cfset variables.through_date=attributes.through_date>
 </cfsilent>
+
+<cfinclude template="../common_files/qry_project_code.cfm">
 <cfinclude template="act_verify_dates.cfm">
 
 <cfset variables.eval_month=month(variables.from_date)>
-<cfloop from="#variables.from_date#" to="#variables.through_date#" step="1" index="ii">
-<cfif month(ii) NEQ variables.eval_month>
+<cfloop from="#variables.from_date#" to="#variables.through_date#" step="1" index="variables.ii">
+<cfif month(variables.ii) NEQ variables.eval_month>
 	<cfset variables.month_loop=variables.month_loop+1>
-	<cfset variables.eval_month=month(ii)>
+	<cfset variables.eval_month=month(variables.ii)>
 </cfif>
 </cfloop>
 

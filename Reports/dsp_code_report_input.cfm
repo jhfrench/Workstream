@@ -11,8 +11,16 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfif NOT isdefined("attributes.used_by_search")>
-	<cfset attributes.used_by_search=0>
+<cfif NOT isdefined("attributes.used_by_search_ind")>
+	<cfset attributes.used_by_search_ind=0>
 </cfif>
-</cfsilent><a href="index.cfm?fuseaction=code_report_input&used_by_search=<cfif attributes.used_by_search EQ 1>0">Hide<cfelse>1">Show</cfif> non-billable projects</a><br />
-<cfselect name="project_id" size="10" display="display" value="project_id" query="project" required="yes" message="Please specify an project."></cfselect>
+</cfsilent>
+
+<cfform name="form_code_report_input" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">
+<fieldset>
+	<legend>Criteria</legend>
+	<label for="project_id">Project</label>
+	<cfselect name="project_id" id="project_id" query="project" value="project_id" display="display" required="yes" message="Please specify an project." size="10" class="span6"></cfselect>
+	<label class="checkbox"><input type="checkbox" name="used_by_search_ind" id="used_by_search_ind" value="1"<cfif attributes.used_by_search_ind> checked="checked"</cfif> /> Show non-billable projects</label>
+</fieldset>
+</cfform>

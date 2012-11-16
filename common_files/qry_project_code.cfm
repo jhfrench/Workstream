@@ -10,15 +10,15 @@
 	Edits:
 	$Log$
 	 || 
-	--> attributes.used_by_search: boolean that indicates if this list is used just for the search page
+	--> attributes.used_by_search_ind: boolean that indicates if this list is used just for the search page
 	--> session.workstream_selected_company_id: list of ids that correspond to companies the user wants to see
 	--> session.workstream_project_list_order: number that indicates the user's preference for ordering mixed lists (ie: ORDER BY numeric code, or by text description)
 	<-- project_code: number used in old model to identify a project, now serves as the billing code employees use for phone system, for example
 	<-- description: text label for a customer/project combination
 	<-- project_id: unique number used to identify a project
 	END FUSEDOC --->
-<cfif NOT isdefined("attributes.used_by_search")>
-	<cfset attributes.used_by_search=0>
+<cfif NOT isdefined("attributes.used_by_search_ind")>
+	<cfset attributes.used_by_search_ind=0>
 </cfif>
 <cfquery name="project" datasource="#application.datasources.main#">
 SELECT Project.project_code, Project.description, Project.project_id, 
@@ -39,7 +39,7 @@ SELECT Project.project_code, Project.description, Project.project_id,
 	</cfif>END AS display
 FROM Project, Customer, Link_Project_Company
 WHERE Project.customer_id=Customer.customer_id
-	AND Project.project_id=Link_Project_Company.project_id<cfif attributes.used_by_search EQ 0>
+	AND Project.project_id=Link_Project_Company.project_id<cfif attributes.used_by_search_ind EQ 0>
 	AND Project.billable_type_id IN (1,3,4)</cfif>
 	AND Link_Project_Company.company_id IN (#session.workstream_selected_company_id#)
 GROUP BY Project.project_code, Project.description, Project.project_id, 

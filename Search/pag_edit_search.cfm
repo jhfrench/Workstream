@@ -47,7 +47,7 @@ function isEmpty()
 	<cfinclude template="dsp_edit_notes.cfm">
 	<cfinclude template="../common_files/dsp_submit_button.cfm">
 	<cfoutput>
-	<input type="hidden" name="used_by_search" value="1">
+	<input type="hidden" name="used_by_search_ind" value="1">
 	<input type="hidden" name= "project_id_list" value= "#valuelist(get_search_projects.project_id)#">
 
 	</cfoutput>

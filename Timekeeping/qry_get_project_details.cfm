@@ -25,4 +25,3 @@ WHERE task.task_id=#listgetat(attributes.task_id,ii)#
 GROUP BY task.project_id</cfif> 
 </cfquery>
 </cfsilent>
-

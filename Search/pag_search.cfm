@@ -128,7 +128,7 @@
 			</div>
 		</div>
 		<div class="form-actions">
-			<input type="hidden" name="used_by_search" value="1" />
+			<input type="hidden" name="used_by_search_ind" value="1" />
 			<input type="hidden" name= "project_id_list" value= "<cfoutput>#valuelist(get_search_projects.project_id)#</cfoutput>" />
 			<input type="submit" name="method" value="Submit" class="btn btn-primary" />
 			<input type="reset" value="Reset" class="btn" />

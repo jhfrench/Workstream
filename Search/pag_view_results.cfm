@@ -63,8 +63,8 @@
 	if (NOT isdefined("attributes.task_stati")) {
 		attributes.task_stati="";
 	};
-	if (NOT isdefined("attributes.used_by_search")) {
-		attributes.used_by_search=1;
+	if (NOT isdefined("attributes.used_by_search_ind")) {
+		attributes.used_by_search_ind=1;
 	};
 </cfscript>
 </cfsilent>

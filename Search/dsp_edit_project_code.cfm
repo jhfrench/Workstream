@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfset attributes.used_by_search=1>
+<cfset attributes.used_by_search_ind=1>
 </cfsilent>
 
 	<tr valign="top">
