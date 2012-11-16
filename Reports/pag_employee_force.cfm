@@ -29,10 +29,10 @@
 <cfinclude template="qry_employee_force_totals.cfm">
 <cfinclude template="qry_team_force_totals.cfm">
 <div class="row-fluid">
-	<div class="span8">
+	<div class="span6">
 		<cfinclude template="dsp_employee_force_totals.cfm">
 	</div>
-	<div class="span4">
+	<div class="span6">
 		Horizontal bar graph goes here
 	</div>
 </div>
