@@ -11,6 +11,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
+</cfsilent>
 <cfoutput>
 <cfform name="form_date_select" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="well form-inline">
 <fieldset>
