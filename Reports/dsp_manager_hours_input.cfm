@@ -37,7 +37,7 @@
 			<option value="#user_account_id#" selected="selected">#display#</option>
 			</cfloop>
 		</select>
-		<input type="submit" value="Generate Report" class="btn btn-primary" />
+		<input type="submit" value="Update Report" class="btn btn-primary" />
 	</fieldset>
 </form>
 </cfoutput>

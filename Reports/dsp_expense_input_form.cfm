@@ -30,6 +30,6 @@
 		<td align="center"><cfmodule template="../common_files/dsp_team_select.cfm" onchange="" user_account_id="" multi="1"></td>
 	</tr>
 	<tr>
-		<td colspan="1"><input type="submit" name="Submit" value="Submit"></td>
+		<td colspan="1"><input type="submit" name="Submit" value="Update Report" class="btn btn-primary"></td>
 	</tr>
 </table>

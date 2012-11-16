@@ -60,6 +60,6 @@
 			<option value="Project.date_updated">Updated</option>
 			<option value="Project.date_updated DESC " ">Updated - descending</option>
 		</select>
-		<input type="submit" value="Go" class="btn btn-primary" />
+		<input type="submit" value="Update Report" class="btn btn-primary" />
 	</fieldset>
 </form>

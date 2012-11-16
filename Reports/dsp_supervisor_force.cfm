@@ -19,7 +19,7 @@
 	<input type="date" name="from_date" id="from_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
 	<label for="to_date">End</label>
 	<input type="date" name="to_date" id="to_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
-	<input type="submit" name="submit" value="Retrieve Tasks" class="btn btn-primary" />
+	<input type="submit" name="submit" value="Update Report" class="btn btn-primary" />
 </form>
 </cfoutput>
 <table class="table table-striped table-bordered table-condensed">

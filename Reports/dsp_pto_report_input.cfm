@@ -32,6 +32,6 @@
 </tr>
 <tr align="center">
 	<td colspan="2">
-		<input type="submit" value="Submit">
+		<input type="submit" value="Update Report">
 	</td>
 </tr>

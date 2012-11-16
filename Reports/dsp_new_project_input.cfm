@@ -18,6 +18,6 @@
 	<fieldset>
 		<label for="root_code">Customer</label>
 		<cfselect name="root_code" id="root_code" query="new_project_input" value="root_code" display="customer_name" size="#min(new_project_input.recordcount,15)#" required="yes" message="Please choose at least one customer." multiple="yes"></cfselect>
-		<input type="submit" name="submit" value="Look Up Projects" class="btn btn-primary" />
+		<input type="submit" name="submit" value="Update Report" class="btn btn-primary" />
 	</fieldset>
 </cfform>

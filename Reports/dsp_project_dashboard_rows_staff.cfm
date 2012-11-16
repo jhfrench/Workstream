@@ -94,7 +94,7 @@
 		</select>
 		</td>
 		<td align="left" class="btn-group">
-			<input type="submit" value="Go" />
+			<input type="submit" value="Update Report" class="btn btn-primary" />
 		</td>
 	</tr>
 </cfform>

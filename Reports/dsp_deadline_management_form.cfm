@@ -51,6 +51,6 @@
 	</cfloop>
 	</select>
 	<label for="hide_supervisor"><input type="checkbox" name="hide_supervisor" id="hide_supervisor" value="1"<cfif isdefined("attributes.hide_supervisor")> checked="checked"</cfif> /> Remove your data</label>
-	<input type="submit" value="Get Deadline Management" class="btn btn-primary" />
+	<input type="submit" value="Update Report" class="btn btn-primary" />
 </form>
 </cfoutput>

@@ -89,7 +89,7 @@
 	<tr>
 		<td colspan="3">
 			<cfoutput>
-				<input type="submit" onclick="selectAllList('display_person','ALL');" name="submit_criteria" value="Generate Report" Size="10" style="width:210px">
+				<input type="submit" onclick="selectAllList('display_person','ALL');" name="submit_criteria" value="Update Report" Size="10" style="width:210px">
 			</cfoutput>
 		</td>
 	</tr>

@@ -38,7 +38,7 @@
 				<option value="ALL">ALL</option><cfloop query="get_team_select">
 				<option value="#user_account_id#">#display#</option></cfloop>
 			</select>
-			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
+			<input type="submit" name="submit" value="Update Report" class="btn btn-primary" />
 	</fieldset>
 </form>
 </cfoutput>

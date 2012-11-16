@@ -55,6 +55,6 @@
 		</cfloop>
 	</select>
 	<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
-	<input type="submit" value="change date" class="btn btn-primary" />
+	<input type="submit" value="Update Report" class="btn btn-primary" />
 </cfform>
 </cfoutput>

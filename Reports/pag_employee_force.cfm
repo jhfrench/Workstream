@@ -33,7 +33,7 @@
 	<label for="show_completed"><input type="checkbox" name="show_completed" id="show_completed" value="1"<cfif attributes.show_completed> checked="checked"</cfif> /> Show only completed tasks</label>
 	<label for="show_budgeted"><input type="checkbox" name="show_budgeted" id="show_budgeted" value="1"<cfif attributes.show_budgeted> checked="checked"</cfif> /> Show only budgeted tasks</label>
 	<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
-	<input type="submit" name="submit" value="Retrieve tasks" class="btn btn-primary" />
+	<input type="submit" name="submit" value="Update Report" class="btn btn-primary" />
 </form>
 </cfoutput>
 <cfinclude template="dsp_employee_force_chart.cfm">

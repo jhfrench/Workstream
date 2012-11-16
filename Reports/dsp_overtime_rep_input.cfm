@@ -49,8 +49,8 @@
 	</tr>
 	<tr>
 		<td align="center">
-		<input type ="hidden" value ="true" name="flag" />
-		<input type="submit" value="Submit" align="middle" />
+		<input type ="hidden" value="true" name="flag" />
+		<input type="submit" value="Update Report" class="btn btn-primary" />
 		</td>
 	</tr>
 </table>
