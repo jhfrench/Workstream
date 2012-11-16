@@ -13,6 +13,7 @@
 	END FUSEDOC --->
 </cfsilent>
 
+<cfoutput>
 <h1>#attributes.report_title# Report</h1>
 <cfloop query="get_subordinates">
 <cfinclude template="qry_get_under_over_hours.cfm">
@@ -50,3 +51,4 @@
 </div>
 </cfif>
 </cfloop>
+</cfoutput>
