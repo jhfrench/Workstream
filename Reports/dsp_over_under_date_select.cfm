@@ -11,41 +11,17 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfinclude template="../common_files/qry_get_date_locked.cfm">
-<cfset variables.go_back_to=datediff("d",get_date_locked.date_locked,now())-1>
-</cfsilent>
 <cfoutput>
-<cfif isdefined("attributes.date")>
-	<cfset variables.start_date=attributes.date>
-	<cfset variables.end_date=dateadd("d", 6, attributes.date)>
-</cfif>
-<cfloop from="1" to="7" index="ii">
-	<cfset variables.temp_date=dateadd("d", -ii, now())>
-	<cfif dayofweek(variables.temp_date) EQ 1>
-		<cfset variables.select_start_date=variables.temp_date>
-		<cfset variables.select_end_date=dateadd("d", 6, variables.temp_date)>
-		<cfif NOT isdefined("attributes.date")>
-			<cfset variables.start_date=variables.select_start_date>
-			<cfset variables.end_date=variables.select_end_date>
-		</cfif>
-	</cfif>
-</cfloop>
-<cfif variables.overtime_ind>
-	<cfset variables.action="index.cfm?fuseaction=Reports.overtime">
-<cfelse>
-	<cfset variables.action="index.cfm?fuseaction=Reports.undertime">
-</cfif>
-<cfform action="#variables.action#" method="POST">
-	<tr bgcolor="##5F5F5F" class="SubHeadTextWhite">
-		<td colspan="2" align="center" valign="bottom" class="SubHeadTextWhite">
-			For
-	<select name="Date" onchange="document.forms[0].submit();">
-		<cfloop from="0" to="#variables.go_back_to#" step="7" index="ii">
-		<cfset variables.value_date=dateadd("d", -ii, variables.select_start_date)>
+<cfform name="form_date_select" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="well form-inline">
+<fieldset>
+	<legend>Criteria</legend>
+	<label for="date">For</label>
+	<select name="date" name="date" onchange="document.forms[0].submit();">
+		<cfloop from="0" to="#variables.go_back_to#" step="7" index="variables.ii">
+		<cfset variables.value_date=dateadd("d", -variables.ii, variables.select_start_date)>
 		<option value="#variables.value_date#"<cfif NOT comparenocase(dateformat(variables.start_date,"m/d/yyyy"), dateformat(variables.value_date,"m/d/yyyy"))> selected="selected"</cfif>>#dateformat(variables.value_date, "mmmm dd, yyyy")#-#dateformat(dateadd("d", 6, variables.value_date), "mmmm dd, yyyy")#</option>
 		</cfloop>
 	</select>
-		</td>
-	</tr>
+</fieldset>
 </cfform>
 </cfoutput>

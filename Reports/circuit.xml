@@ -238,16 +238,9 @@
 			<include template="pag_billable_hours.cfm"/>
 		</fuseaction>
 		<fuseaction name="overtime">
-			<!-- <set name="attributes.object_name" value="Overtime"/>
-			 -->
-			<set name="request.pagetitle" value="Overtime Report"/>
-			<include template="pag_overtime_report.cfm"/>
-		</fuseaction>
-		<fuseaction name="overtime_input">
-			<!-- <set name="attributes.object_name" value="Overtime"/>
-			 -->
-			<set name="request.pagetitle" value="Overtime Report"/>
-			<include template="pag_overtime_report.cfm"/>
+			<set name="attributes.report_title" value="Overtime"/>
+			<set name="variables.overtime_ind" value="1"/>
+			<include template="pag_over_under_time.cfm"/>
 		</fuseaction>
 		<!-- End Overtime Report-->
 		<!-- Begin Personal Summary Report -->
@@ -320,16 +313,9 @@
 			<include template="pag_turnover_report_input.cfm"/>
 		</fuseaction>
 		<fuseaction name="undertime">
-			<!-- <set name="attributes.object_name" value="Undertime"/>
-			 -->
-			<set name="request.pagetitle" value="Undertime Report"/>
-			<include template="pag_undertime_report.cfm"/>
-		</fuseaction>
-		<fuseaction name="undertime_input">
-			<!-- <set name="attributes.object_name" value="Undertime"/>
-			 -->
-			<set name="request.pagetitle" value="Undertime Report"/>
-			<include template="pag_undertime_report.cfm"/>
+			<set name="attributes.report_title" value="Undertime"/>
+			<set name="variables.overtime_ind" value="0"/>
+			<include template="pag_over_under_time.cfm"/>
 		</fuseaction>
 		<fuseaction name="sales_report">
 			<!-- <set name="attributes.object_name" value="Monthly Sales"/>
