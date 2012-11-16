@@ -35,8 +35,7 @@
 	<cfset variables.column_count=variables.month_loop+4>
 	<cfinclude template="qry_code_report_get_code.cfm">
 	<cfinclude template="qry_get_code_report.cfm">
-	<h1>Monthly Hours Report for #get_code.display#</h1>
-	<h2>From #attributes.from_date# &nbsp;To #attributes.through_date#</h2>
+	<cfset attributes.report_name="Monthly Hours Report for #get_code.display#">
 	<cfset variables.column_count=variables.column_count-1>
 	<cfinclude template="dsp_code_reports.cfm">
 </cfif>
