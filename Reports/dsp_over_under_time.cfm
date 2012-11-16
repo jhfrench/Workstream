@@ -48,3 +48,4 @@
 	#first_name# #last_name# has no time entries for the specified dates.
 </div>
 </cfif>
+</cfloop>
