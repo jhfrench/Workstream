@@ -47,7 +47,7 @@ function bn_tasks(fldValue) {
 	<input type="hidden" name="from_date" value="#attributes.from_date#">
 	<input type="hidden" name="through_date" value="#attributes.through_date#">
 	<input type="hidden" name="user_account_id" value="#variables.user_identification#">
-	<input type="hidden" name="show_budgeted" value="1">
+	<input type="hidden" name="show_budgeted_ind" value="1">
 	<input type="hidden" name="show_completed" value="1">
 </form>
 <form name="nc_tasks" action="index.cfm?fuseaction=Reports.employee_force" method="post">
@@ -60,7 +60,7 @@ function bn_tasks(fldValue) {
 	<input type="hidden" name="from_date" value="#attributes.from_date#">
 	<input type="hidden" name="through_date" value="#attributes.through_date#">
 	<input type="hidden" name="user_account_id" value="#variables.user_identification#">
-	<input type="hidden" name="show_budgeted" value="1">
+	<input type="hidden" name="show_budgeted_ind" value="1">
 </form>
 </cfoutput>
 

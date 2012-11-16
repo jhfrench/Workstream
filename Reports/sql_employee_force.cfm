@@ -33,7 +33,7 @@ FROM Customer
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
 		AND Team.role_id=1
-		AND Team.user_account_id IN (#attributes.user_account_id#)</cfif><cfif isdefined("attributes.show_budgeted")>
+		AND Team.user_account_id IN (#attributes.user_account_id#)</cfif><cfif attributes.show_budgeted_ind>
 	INNER JOIN Forecast_Assignment ON Task.task_id=Forecast_Assignment.task_id
 		AND Forecast_Assignment.active_ind=1</cfif>
 	LEFT OUTER JOIN (
@@ -44,7 +44,7 @@ FROM Customer
 		GROUP BY Time_Entry.task_id
 	) AS Recorded_Hours ON Task.task_id=Recorded_Hours.task_id
 WHERE Task.assigned_date IS NOT NULL
-	AND Task.due_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.through_date)#<cfif NOT isdefined("attributes.show_completed")>
+	AND Task.due_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.through_date)#<cfif attributes.show_completed>
 	AND Task.status_id!=7 /*exclude closed tasks*/</cfif>
 </cfoutput>
 <!--- 

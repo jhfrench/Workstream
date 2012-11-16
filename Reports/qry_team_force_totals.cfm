@@ -18,7 +18,7 @@ SELECT AVG(given_days) AS given_days, AVG(duration_days) AS duration_days, AVG(o
 	AVG(on_budget)*100 AS on_budget
 FROM (
 	/* user_account_id is excluded from this query because we want the whole team as a benchmark */
-	<cfmodule template="sql_employee_force.cfm" from_date="#attributes.from_date#" through_date="#attributes.through_date#" show_budgeted="#attributes.show_budgeted#" show_completed="#attributes.show_completed#">
+	<cfmodule template="sql_employee_force.cfm" from_date="#attributes.from_date#" through_date="#attributes.through_date#" show_budgeted_ind="#attributes.show_budgeted_ind#" show_completed="#attributes.show_completed#">
 	) AS temp_table
 </cfquery>
 </cfsilent>
