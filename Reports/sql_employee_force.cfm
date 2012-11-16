@@ -18,7 +18,7 @@
 <cfoutput>
 SELECT Task.task_id, (Customer.description || '-' || Project.description) AS project, Task.name AS task, 
 	(CASE WHEN Project.billable_type_id = 2 THEN 'NB' ELSE 'B' END) AS billable, REF_Priority.description AS priority, 
-	REF_Status.status, Task.due_date, Task.complete_date AS date_completed,
+	REF_Status.status, Task.due_date, Task.complete_date,
 	COALESCE(Recorded_Hours.used_hours,0) AS used_hours, Task.budgeted_hours,
 	(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (COALESCE(Recorded_Hours.used_hours,0)/Task.budgeted_hours) END,0)*100) AS budget_used,
 	(Task.due_date-Task.assigned_date)*1.0 AS given_days,

@@ -26,7 +26,7 @@
 				Task
 			</th>
 			<th>
-				Billable
+				Billable Type
 			</th>
 			<th>
 				Priority
@@ -57,7 +57,7 @@
 			<td>
 				#project#
 			</td>
-			<td scope="row" class="number">
+			<td scope="row">
 				<a href="javascript:list_to_task(#task_id#);">#task#</a>
 			</td>
 			<td>
@@ -73,7 +73,7 @@
 				#dateformat(due_date,"m/d/yyyy")#
 			</td>
 			<td class="date">
-				#dateformat(date_completed,"m/d/yyyy")#
+				#dateformat(complete_date,"m/d/yyyy")#
 			</td>
 			<td class="number">
 				<span<cfif on_budget EQ 0> class="text-error"</cfif>>#decimalformat(used_hours)#</span>
