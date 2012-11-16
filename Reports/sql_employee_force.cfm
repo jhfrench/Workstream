@@ -44,7 +44,7 @@ FROM Customer
 		GROUP BY Time_Entry.task_id
 	) AS Recorded_Hours ON Task.task_id=Recorded_Hours.task_id
 WHERE Task.assigned_date IS NOT NULL
-	AND Task.due_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.to_date)#<cfif NOT isdefined("attributes.show_completed")>
+	AND Task.due_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.through_date)#<cfif NOT isdefined("attributes.show_completed")>
 	AND Task.status_id!=7 /*exclude closed tasks*/</cfif>
 </cfoutput>
 <!--- 

@@ -40,25 +40,25 @@ function bn_tasks(fldValue) {
 <cfoutput>
 <form name="sup_to_emp" action="index.cfm?fuseaction=Reports.employee_force" method="post">
 	<input type="hidden" name="from_date" value="#attributes.from_date#">
-	<input type="hidden" name="to_date" value="#attributes.to_date#">
+	<input type="hidden" name="through_date" value="#attributes.through_date#">
 	<input type="hidden" name="user_account_id" value="#variables.user_identification#">
 </form>
 <form name="bc_tasks" action="index.cfm?fuseaction=Reports.employee_force" method="post">
 	<input type="hidden" name="from_date" value="#attributes.from_date#">
-	<input type="hidden" name="to_date" value="#attributes.to_date#">
+	<input type="hidden" name="through_date" value="#attributes.through_date#">
 	<input type="hidden" name="user_account_id" value="#variables.user_identification#">
 	<input type="hidden" name="show_budgeted" value="1">
 	<input type="hidden" name="show_completed" value="1">
 </form>
 <form name="nc_tasks" action="index.cfm?fuseaction=Reports.employee_force" method="post">
 	<input type="hidden" name="from_date" value="#attributes.from_date#">
-	<input type="hidden" name="to_date" value="#attributes.to_date#">
+	<input type="hidden" name="through_date" value="#attributes.through_date#">
 	<input type="hidden" name="user_account_id" value="#variables.user_identification#">
 	<input type="hidden" name="show_completed" value="1">
 </form>
 <form name="bn_tasks" action="index.cfm?fuseaction=Reports.employee_force" method="post">
 	<input type="hidden" name="from_date" value="#attributes.from_date#">
-	<input type="hidden" name="to_date" value="#attributes.to_date#">
+	<input type="hidden" name="through_date" value="#attributes.through_date#">
 	<input type="hidden" name="user_account_id" value="#variables.user_identification#">
 	<input type="hidden" name="show_budgeted" value="1">
 </form>

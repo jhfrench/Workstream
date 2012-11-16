@@ -26,7 +26,7 @@ FROM Employee
 		AND Demographics.active_ind=1
 	LEFT OUTER JOIN Time_Entry ON Employee.user_account_id=Time_Entry.user_account_id
 		AND Time_Entry.active_ind=1
-		AND Time_Entry.work_date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.to_date)#
+		AND Time_Entry.work_date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.through_date)#
 	LEFT OUTER JOIN Project	ON Time_Entry.project_id=Project.project_id
 	LEFT OUTER JOIN Location ON Demographics.user_account_id=Location.user_account_id
 		AND Location.location_type_id=1<cfif NOT listfind(display_office,"ALL")>
@@ -34,7 +34,7 @@ FROM Employee
 		AND Location.City IN (#ListQualify(display_office,"'",",","ALL")#) </cfif>
 	LEFT OUTER JOIN REF_Employee_Classification ON REF_Employee_Classification.employee_classification_id=Employee.employee_classification_id
 WHERE Employee.active_ind=1
-	AND Employee.hire_date <= #createodbcdate(attributes.to_date)#
+	AND Employee.hire_date <= #createodbcdate(attributes.through_date)#
 	AND (Employee.turnover_date >= #createodbcdate(attributes.from_date)#
 		OR Employee.turnover_date IS NULL
 	)

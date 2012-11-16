@@ -33,7 +33,7 @@
 			To:
 		</td>
 		<td>
-			<input type="date" name="to_date" id="to_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="through_date" id="through_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
 		</td>
 	</tr>
 

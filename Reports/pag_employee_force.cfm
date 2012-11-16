@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 <cfparam name="attributes.user_account_id" default="#variables.user_identification#">
 <cfparam name="attributes.from_date" default="#month(now())#/1/#year(now())#">
-<cfparam name="attributes.to_date" default="#month(now())#/#daysinmonth(now())#/#year(now())#"><!--- $issue$: change to_date to through_date to be consistent with other reports --->
+<cfparam name="attributes.through_date" default="#month(now())#/#daysinmonth(now())#/#year(now())#"><!--- $issue$: change through_date to through_date to be consistent with other reports --->
 <cfparam name="attributes.show_budgeted" default="0">
 <cfparam name="attributes.show_completed" default="0">
 
@@ -28,8 +28,8 @@
 <form name="form_employee_force" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="well form-inline">
 	<label for="from_date">Start</label>
 	<input type="date" name="from_date" id="from_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
-	<label for="to_date">End</label>
-	<input type="date" name="to_date" id="to_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.to_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
+	<label for="through_date">End</label>
+	<input type="date" name="through_date" id="through_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.through_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
 	<label for="show_completed"><input type="checkbox" name="show_completed" id="show_completed" value="1"<cfif attributes.show_completed> checked="checked"</cfif> /> Show only completed tasks</label>
 	<label for="show_budgeted"><input type="checkbox" name="show_budgeted" id="show_budgeted" value="1"<cfif attributes.show_budgeted> checked="checked"</cfif> /> Show only budgeted tasks</label>
 	<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />

@@ -9,7 +9,7 @@
 	Name: Joshua Peters
 	||
 	Variables:
-	from_date,to_date,display_person,display_office,sort_by
+	from_date,through_date,display_person,display_office,sort_by
 	||
 	Edits:
 	$Log$
@@ -18,7 +18,7 @@
 </cfsilent>
 <table cellpadding="3" cellspacing="0" border="0"bordercolor="##000000" align="center" width="100%">
 <cfmodule template="../common_files/dsp_section_title.cfm" section_title="Gross Hours Report - Breakdown" colspan="1" title_class="HeadText" section_color="ffffff" align="center" gutter="false"> 
-<cfmodule template="../common_files/dsp_section_title.cfm" title_class="SubHeadText" section_color="ffffff" section_title="From: #from_date# To: #to_date#" gutter="false" align="center" colspan="1">
+<cfmodule template="../common_files/dsp_section_title.cfm" title_class="SubHeadText" section_color="ffffff" section_title="From: #from_date# To: #through_date#" gutter="false" align="center" colspan="1">
 </table>
 
 <table cellpadding="3" cellspacing="0" border="0"bordercolor="##000000" align="center" width="100%">

@@ -15,7 +15,7 @@
 </cfsilent>
 <cfoutput>
 <table class="table table-striped table-bordered table-condensed">
-	<caption><h3>Totals (#attributes.from_date# through #attributes.to_date#)</h3></caption>
+	<caption><h3>Totals (#attributes.from_date# through #attributes.through_date#)</h3></caption>
 	<thead>
 		<tr>
 			<th>Metric</th>
