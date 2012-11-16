@@ -22,7 +22,7 @@ FROM Time_Entry
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.work_date BETWEEN #createodbcdatetime(variables.start_date)# AND #createodbcdatetime(variables.end_date)#
 	AND Time_Entry.user_account_id=#get_subordinates.user_account_id#
-GROUP BY Elligible_Employees.employee_classification, Project.description
+GROUP BY REF_Employee_Classification.employee_classification, Project.description
 ORDER BY Project.description
 </cfquery>
 
