@@ -1,4 +1,4 @@
-<!-- Reports/qry_employee_force_totals.cfm
+<!-- Reports/qry_get_employee_force_totals.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC

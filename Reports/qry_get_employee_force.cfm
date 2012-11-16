@@ -1,5 +1,5 @@
 
-<!--Reports/qry_employee_force.cfm
+<!--Reports/qry_get_employee_force.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC

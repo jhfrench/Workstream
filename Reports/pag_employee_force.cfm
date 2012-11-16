@@ -23,10 +23,10 @@
 
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
 
-<cfinclude template="qry_employee_force.cfm">
+<cfinclude template="qry_get_employee_force.cfm">
 <cfinclude template="dsp_employee_force_chart.cfm">
 
-<cfinclude template="qry_employee_force_totals.cfm">
+<cfinclude template="qry_get_employee_force_totals.cfm">
 <cfinclude template="qry_team_force_totals.cfm">
 <div class="row-fluid">
 	<div class="span6">
