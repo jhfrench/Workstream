@@ -20,7 +20,7 @@ FROM Time_Entry,
 	FROM Demographics, Link_Company_User_Account, <cfif variables.all_option>Demographics<cfelse>Link_User_Account_Supervisor</cfif>
 	WHERE Demographics.user_account_id=Link_Company_User_Account.user_account_id<cfif variables.all_option>
 		AND Demographics.user_account_id=Demographics.user_account_id
-		AND Demographics.hire_date < #createodbcdatetime(attributes.through_date)#
+		AND Employee.hire_date < #createodbcdatetime(attributes.through_date)#
 		AND (Employee.turnover_date IS NULL
 			OR Employee.turnover_date > #createodbcdatetime(attributes.from_date)#)<cfelse>
 		AND Link_User_Account_Supervisor.user_account_id=Demographics.user_account_id 

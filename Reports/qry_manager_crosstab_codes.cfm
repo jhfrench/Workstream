@@ -20,7 +20,7 @@ FROM Time_Entry
 		SELECT Demographics.user_account_id
 		FROM Demographics
 			INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id<cfif variables.all_option>
-			INNER JOIN Demographics ON Demographics.hire_date < #createodbcdatetime(attributes.through_date)#
+			INNER JOIN Demographics ON Employee.hire_date < #createodbcdatetime(attributes.through_date)#
 				AND COALESCE(Employee.turnover_date, CURRENT_DATE+ interval '1 day') > #createodbcdatetime(attributes.from_date)# IS NULL<cfelse>
 			INNER JOIN Link_User_Account_Supervisor ON Link_User_Account_Supervisor.user_account_id=Demographics.user_account_id 
 				AND Link_User_Account_Supervisor.supervisor_id=#variables.user_identification#

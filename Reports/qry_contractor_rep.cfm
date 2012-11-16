@@ -25,7 +25,7 @@ FROM View_Demographics_Workstream AS Demographics
 	INNER JOIN REF_Company ON Link_Company_User_Account.company_id = REF_Company.company_id
 	INNER JOIN Link_User_Account_Status ON Link_User_Account_Status.user_account_id=Demographics.user_account_id
 		AND Link_User_Account_Status.active_ind=1
-WHERE Demographics.employee_classification_id = 4
+WHERE Employee.employee_classification_id = 4
 	AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)
 	AND Employee.turnover_date IS NULL
 </cfquery>
