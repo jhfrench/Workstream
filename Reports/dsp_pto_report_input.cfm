@@ -35,9 +35,3 @@
 		<input type="submit" value="Submit">
 	</td>
 </tr>
-<cfif variables.only_one>
-<script language="JavaScript">
-	document.forms[0].submit();
-</script>
-</cfif>
-

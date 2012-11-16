@@ -59,7 +59,7 @@
 </table>
 <cfelse>
 <div class="alert alert-error">
-	<button type="button" class="close" data-dismiss="alert">×</button>
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
 	<strong>#get_subordinates.first_name# #get_subordinates.last_name#</strong> has no time entries for the specified dates.
 </div>
 </cfif>
