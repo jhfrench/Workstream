@@ -16,6 +16,7 @@
 </cfif>
 </cfsilent>
 
+<cfoutput>
 <cfform name="form_code_report_input" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">
 <fieldset>
 	<legend>Criteria</legend>
@@ -29,3 +30,4 @@
 	<input type="submit" value="Update Report" class="btn btn-primary" />
 </fieldset>
 </cfform>
+</cfoutput>
