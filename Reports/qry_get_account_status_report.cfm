@@ -1,5 +1,5 @@
 
-<!--Reports/qry_account_status_report.cfm
+<!--Reports/qry_get_account_task_matrix.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -11,23 +11,27 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfquery name="account_status_report" datasource="#application.datasources.main#">
+<cfquery name="get_account_task_matrix" datasource="#application.datasources.main#">
 SELECT Task.task_id, (Customer.description || '-' || Project.description) AS project_name, Task.name AS task_name,
 	REF_Status.status, REF_Priority.description AS priority, Task.assigned_date,
-	Task.due_date, Task.complete_date, Demographics.last_name AS owner
+	Task.due_date, Task.complete_date, Demographics.first_name AS owner
 FROM Task
-	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id
-	INNER JOIN Project ON Task.project_id=Project.project_id<cfif isdefined("attributes.project_id")>
+	INNER JOIN Project ON Task.project_id=Project.project_id
+		AND Project.active_ind=1<cfif isdefined("attributes.project_id")>
 		AND Project.project_id=#attributes.project_id#</cfif>
-	INNER JOIN Customer ON Project.customer_id=Customer.customer_id<cfif isdefined("attributes.customer_id")>
+	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
+		AND Customer.active_ind=1<cfif isdefined("attributes.customer_id")>
 		AND Customer.customer_id=#attributes.customer_id#</cfif>
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
-		AND Team.role_id=1
+		AND Team.role_id=1 /*owner*/
 	INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
+		AND Demographics.active_ind=1
 	INNER JOIN REF_Priority ON Task.priority_id=REF_Priority.priority_id
-WHERE Task.status_id!=7 /*exclude closed tasks*/
-		OR Task.complete_date BETWEEN CURRENT_DATE-interval '1 week' AND CURRENT_TIMESTAMP
+	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id
+WHERE Task.active_ind=1
+	AND (Task.status_id!=7 /*exclude closed tasks*/
+		OR Task.complete_date BETWEEN CURRENT_DATE-interval '1 week' AND CURRENT_TIMESTAMP)
 ORDER BY Customer.description || '-' || Project.description, Task.due_date, Task.assigned_date
 </cfquery>
 </cfsilent>

@@ -341,7 +341,7 @@
 			<!-- <set name="attributes.object_name" value="Account Status"/>
 			 -->
 			<set name="request.pagetitle" value="Account Status Report"/>
-			<include template="pag_account_status_report.cfm"/>
+			<include template="pag_account_task_matrix.cfm"/>
 		</fuseaction>	
 		<fuseaction name="project_dashboard_DMA">
 			<!-- <set name="attributes.object_name" value="project Dashboard for DMA"/>

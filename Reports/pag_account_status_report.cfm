@@ -1,5 +1,5 @@
 
-<!--Reports/pag_account_status_report.cfm
+<!--Reports/pag_account_task_matrix.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -12,10 +12,10 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfinclude template="qry_account_status_report.cfm">
+<cfinclude template="qry_get_account_task_matrix.cfm">
 
 <table class="table table-striped table-bordered table-condensed">
-	<caption><h2>Account Task Matrix</h2></caption>
+	<caption><h1>Account Task Matrix</h1></caption>
 	<thead>
 		<tr>
 			<th>Project</th>
@@ -30,7 +30,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	<cfoutput query="account_status_report"> 
+	<cfoutput query="get_account_task_matrix"> 
 		<tr>
 			<td>#project_name#</td>
 			<td class="number">#task_id#</td>
