@@ -35,7 +35,7 @@
 <cfset variables.column_count=variables.month_loop+4>
 <cfinclude template="qry_get_code_report.cfm">
 
-<cfif attributes.project_id AND listlen(attributes.project_id) EQ 1>
+<cfif listfirst(attributes.project_id) AND listlen(attributes.project_id) EQ 1>
 	<cfinclude template="qry_code_report_get_code.cfm">
 	<cfset attributes.report_name="Monthly Hours Report for #get_code.display#">
 <cfelse>
