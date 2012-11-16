@@ -17,6 +17,7 @@
 <cfloop query="get_subordinates">
 <cfinclude template="qry_get_under_over_hours.cfm">
 <cfif get_under_over_hours.recordcount>
+<cfset variables.time_problem_ind=0>
 <cfif (variables.overtime_ind AND get_under_over_hours_total.total_hours GT 40) OR (NOT variables.overtime_ind AND get_under_over_hours_total.total_hours LT 40)>
 	<cfset variables.time_problem_ind=1>
 </cfif>
