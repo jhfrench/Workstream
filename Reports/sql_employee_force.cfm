@@ -21,8 +21,8 @@ SELECT Task.task_id, (Customer.description || '-' || Project.description) AS pro
 	REF_Status.status, Task.due_date, Task.complete_date AS date_completed,
 	COALESCE(Recorded_Hours.used_hours,0) AS used_hours, Task.budgeted_hours,
 	(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (COALESCE(Recorded_Hours.used_hours,0)/Task.budgeted_hours) END,0)*100) AS budget_used,
-	(Task.due_date-Task.assigned_date)*1.0 AS given_days,
-	(Task.complete_date-Task.assigned_date)*1.0 AS duration_days,
+	EXTRACT(DAY FROM Task.due_date-Task.assigned_date) AS given_days,
+	EXTRACT(DAY FROM Task.complete_date-Task.assigned_date) AS duration_days,
 	(CASE WHEN Task.complete_date <= (Task.due_date+INTERVAL '86399 second') THEN 1.0 ELSE 0.0 END) AS on_time,
 	(CASE WHEN (COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0.0 ELSE (COALESCE(Recorded_Hours.used_hours,0)/Task.budgeted_hours) END,0)*100) <= 100 THEN 1.0 ELSE 0.0 END) AS on_budget
 FROM Customer
