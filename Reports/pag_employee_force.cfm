@@ -24,6 +24,12 @@
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
 
 <cfinclude template="qry_employee_force.cfm">
+<cfinclude template="dsp_employee_force_chart.cfm">
+
+<cfinclude template="qry_employee_force_totals.cfm">
+<cfinclude template="qry_team_force_totals.cfm">
+<cfinclude template="dsp_employee_force_totals.cfm">
+
 <cfoutput>
 <form name="form_employee_force" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="well form-inline">
 	<label for="from_date">Start</label>
@@ -36,8 +42,3 @@
 	<input type="submit" name="submit" value="Update Report" class="btn btn-primary" />
 </form>
 </cfoutput>
-<cfinclude template="dsp_employee_force_chart.cfm">
-
-<cfinclude template="qry_employee_force_totals.cfm">
-<cfinclude template="qry_team_force_totals.cfm">
-<cfinclude template="dsp_employee_force_totals.cfm">

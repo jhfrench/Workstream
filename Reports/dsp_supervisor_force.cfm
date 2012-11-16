@@ -13,18 +13,6 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfoutput>
-<form name="form_supervisor_force" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="well form-inline">
-<fieldset>
-	<legend>Criteria</legend>
-	<label for="from_date">Start</label>
-	<input type="date" name="from_date" id="from_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
-	<label for="through_date">End</label>
-	<input type="date" name="through_date" id="through_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
-	<input type="submit" name="submit" value="Update Report" class="btn btn-primary" />
-</fieldset>
-</form>
-</cfoutput>
 <table class="table table-striped table-bordered table-condensed">
 	<caption><h2>ForcePlanner Report</h2></caption>
 	<thead>
@@ -116,3 +104,15 @@
 	</cfoutput>
 	</tbody>
 </table>
+<cfoutput>
+<form name="form_supervisor_force" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="well form-inline">
+<fieldset>
+	<legend>Criteria</legend>
+	<label for="from_date">Start</label>
+	<input type="date" name="from_date" id="from_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
+	<label for="through_date">End</label>
+	<input type="date" name="through_date" id="through_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
+	<input type="submit" name="submit" value="Update Report" class="btn btn-primary" />
+</fieldset>
+</form>
+</cfoutput>
