@@ -39,6 +39,8 @@
 
 <cfoutput>
 <form name="form_employee_force" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="well form-inline">
+<fieldset>
+	<legend>Criteria</legend>
 	<label for="from_date">Start</label>
 	<input type="date" name="from_date" id="from_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
 	<label for="through_date">End</label>
@@ -47,5 +49,6 @@
 	<label for="show_budgeted_ind"><input type="checkbox" name="show_budgeted_ind" id="show_budgeted_ind" value="1"<cfif attributes.show_budgeted_ind> checked="checked"</cfif> /> Show only budgeted tasks</label>
 	<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
 	<input type="submit" name="submit" value="Update Report" class="btn btn-primary" />
+</fieldset>
 </form>
 </cfoutput>
