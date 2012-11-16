@@ -12,7 +12,7 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
- <cfquery name="get_Employee_ID" datasource="#application.datasources.main#">
+ <cfquery name="get_contractor_report" datasource="#application.datasources.main#">
 SELECT Employee.user_account_id, Demographics.first_name, Demographics.last_name,
 	REF_Company.description AS company,
 	CASE
