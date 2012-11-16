@@ -76,13 +76,13 @@
 				#dateformat(date_completed,"m/d/yyyy")#
 			</td>
 			<td class="number">
-				<span<cfif on_budget EQ 0> style="color:red"</cfif>>#decimalformat(used_hours)#</span>
+				<span<cfif on_budget EQ 0> class="text-error"</cfif>>#decimalformat(used_hours)#</span>
 			</td>
 			<td class="number">
-				<span<cfif on_budget EQ 0> style="color:red"</cfif>>#decimalformat(budgeted_hours)#</span>
+				<span<cfif on_budget EQ 0> class="text-error"</cfif>>#decimalformat(budgeted_hours)#</span>
 			</td>
 			<td class="number">
-				<span<cfif on_budget EQ 0> style="color:red"</cfif>>#numberformat(budget_used)#%</span>
+				<span<cfif on_budget EQ 0> class="text-error"</cfif>>#numberformat(budget_used)#%</span>
 			</td>
 		</tr>
 	</cfloop>
