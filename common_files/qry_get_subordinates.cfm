@@ -15,14 +15,15 @@
 <cfparam name="attributes.date_linked" default="">
 <cfparam name="attributes.all_employees" default="0">
 </cfsilent>
+<!--- $issue$: convert this to use a recursive query someday (right now it only returns immediate subordinates) --->
 <cfquery name="get_subordinates" datasource="#application.datasources.main#">
 SELECT Demographics.first_name, Demographics.last_name, (LEFT(Demographics.first_name,1) || LEFT(Demographics.last_name,1)) AS initials,
 	Demographics.user_account_id, Demographics.last_name || ', ' || LEFT(Demographics.first_name,2) AS display
 FROM Demographics
 	INNER JOIN Link_User_Account_Supervisor ON Demographics.user_account_id=Link_User_Account_Supervisor.user_account_id
 		AND Link_User_Account_Supervisor.active_ind=1
-		AND (Link_User_Account_Supervisor.supervisor_id=#variables.user_identification#<cfif NOT isdefined("attributes.hide_supervisor")>
-			OR Demographics.user_account_id=#variables.user_identification#</cfif>)
+		AND (Link_User_Account_Supervisor.supervisor_id=#caller.variables.user_identification#<cfif NOT isdefined("attributes.hide_supervisor")>
+			OR Demographics.user_account_id=#caller.variables.user_identification#</cfif>)
 	INNER JOIN Employee ON Demographics.user_account_id=Employee.user_account_id
 		AND Employee.active_ind=1
 WHERE Demographics.active_ind=1<cfif NOT attributes.all_employees>
@@ -43,4 +44,4 @@ GROUP BY Demographics.last_name, Demographics.first_name, Demographics.user_acco
 ORDER BY Demographics.last_name, Demographics.first_name, Demographics.user_account_id
 </cfquery>
 <cfset caller.get_subordinates=get_subordinates>
-<cfset variables.subordinates_user_account_id=valuelist(get_subordinates.user_account_id)>
+<cfset caller.variables.subordinates_user_account_id=valuelist(get_subordinates.user_account_id)>
