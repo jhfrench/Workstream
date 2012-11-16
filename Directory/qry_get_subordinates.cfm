@@ -22,4 +22,3 @@
 SELECT *
 FROM Organization_Hierarchy(#attributes.user_account_id#)
 </cfquery>
-
