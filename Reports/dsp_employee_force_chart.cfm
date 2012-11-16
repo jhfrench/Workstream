@@ -76,7 +76,7 @@
 				#dateformat(date_completed,"m/d/yyyy")#
 			</td>
 			<td class="number">
-				<span<cfif on_budget EQ 0> style="color:red"</cfif>><cfif listgetat(used_hours,2,".") GT 0>#decimalformat(used_hours)#</cfif></span>
+				<span<cfif on_budget EQ 0> style="color:red"</cfif>>#decimalformat(used_hours)#</span>
 			</td>
 			<td class="number">
 				<span<cfif on_budget EQ 0> style="color:red"</cfif>>#decimalformat(budgeted_hours)#</span>
