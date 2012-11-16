@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="get_under_over_hours" datasource="#application.datasources.main#">
-SELECT Elligible_Employees.user_account_id, REF_Employee_Classification.employee_classification, Project.description AS project_description, SUM(Time_Entry.hours) AS hours
+SELECT REF_Employee_Classification.employee_classification, Project.description AS project_description, SUM(Time_Entry.hours) AS hours
 FROM Time_Entry
 	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
 	INNER JOIN Employee ON Time_Entry.user_account_id=Employee.user_account_id
@@ -22,9 +22,8 @@ FROM Time_Entry
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.work_date BETWEEN #createodbcdatetime(variables.start_date)# AND #createodbcdatetime(variables.end_date)#
 	AND Time_Entry.user_account_id=#get_subordinates.user_account_id#
-GROUP BY Elligible_Employees.user_account_id, Elligible_Employees.last_name, Elligible_Employees.first_name,
-	Elligible_Employees.employee_classification, Project.description
-ORDER BY Elligible_Employees.last_name, Elligible_Employees.last_name
+GROUP BY Elligible_Employees.employee_classification, Project.description
+ORDER BY Project.description
 </cfquery>
 
 <cfquery name="get_under_over_hours_total" dbtype="query">
