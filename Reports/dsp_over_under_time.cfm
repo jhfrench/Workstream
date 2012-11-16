@@ -23,7 +23,7 @@
 	<cfset variables.time_problem_ind=1>
 </cfif>
 <table class="table table-striped table-bordered table-condensed">
-	<caption><h2>#last_name#, #first_name# <small>#employee_classification#</small></h2></caption>
+	<caption><h2>#get_subordinates.last_name#, #get_subordinates.first_name# <small>#get_under_over_hours.employee_classification#</small></h2></caption>
 	<thead>
 		<tr>
 			<th>Project</th>
@@ -47,7 +47,7 @@
 </table>
 <cfelse>
 <div class="alert alert-error">
-	#first_name# #last_name# has no time entries for the specified dates.
+	#get_subordinates.first_name# #get_subordinates.last_name# has no time entries for the specified dates.
 </div>
 </cfif>
 </cfloop>
