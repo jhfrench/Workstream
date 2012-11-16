@@ -21,11 +21,14 @@
 <fieldset>
 	<legend>Criteria</legend>
 	<label for="from_date">From</label>
-	<input type="date" name="from_date" id="from_date" value="#dateformat(attributes.from_date,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+	<input type="date" name="from_date" id="from_date" value="#dateformat(attributes.from_date,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span2 date" />
 	<label for="from_date">From</label>
-	<input type="date" name="through_date" id="through_date" value="#dateformat(attributes.through_date,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+	<input type="date" name="through_date" id="through_date" value="#dateformat(attributes.through_date,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span2 date" />
 	<label for="project_id">Project</label>
-	<cfselect name="project_id" id="project_id" query="project" value="project_id" display="display" required="yes" message="Please specify an project." size="10" class="span6"></cfselect>
+	<cfselect name="project_id" id="project_id" multiple="yes" required="yes" message="Please specify an project." size="10" class="span4">
+		<cfloop query="project"><option value="#project_id#"<cfif listfind(attributes.project_id, project_id)> selected="selected"</cfif>>#display#</option>
+	</cfloop>
+	</cfselect>
 	<label class="checkbox"><input type="checkbox" name="used_by_search_ind" id="used_by_search_ind" value="1"<cfif attributes.used_by_search_ind> checked="checked"</cfif> /> Show non-billable projects</label>
 	<input type="submit" value="Update Report" class="btn btn-primary" />
 </fieldset>

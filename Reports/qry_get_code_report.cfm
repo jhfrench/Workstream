@@ -25,8 +25,8 @@ FROM Demographics
 		AND Employee.active_ind=1
 		AND Employee.hire_date <= #createodbcdate(attributes.through_date)#
 		AND COALESCE(Employee.turnover_date, #createodbcdate(attributes.from_date)#) >= #createodbcdate(attributes.from_date)#
-	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
-		AND Project.project_id=#project_id#
+	INNER JOIN Project ON Time_Entry.project_id=Project.project_id<cfif attributes.project_id>
+		AND Project.project_id IN (#attributes.project_id#)</cfif>
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
 		AND Link_Company_User_Account.active_ind=1
