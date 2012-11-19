@@ -121,8 +121,6 @@
 		</div>
 	</fieldset>
 	<div class="form-actions">
-		<input type="hidden" name="used_by_search_ind" value="1" />
-		<input type="hidden" name="project_id_list" value="<cfoutput>#valuelist(get_search_projects.project_id)#</cfoutput>" />
 		<input type="submit" name="submit" value="Enter New Customer" class="btn btn-primary" />
 		<input type="reset" value="Reset" class="btn" />
 	</div>
