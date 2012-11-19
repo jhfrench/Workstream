@@ -1,4 +1,4 @@
-<!--- $issue$: is this template used? --->
+
 <!--Customers/dsp_new_cust_contact.cfm
 	Author: Jeromy F -->
 <cfsilent>

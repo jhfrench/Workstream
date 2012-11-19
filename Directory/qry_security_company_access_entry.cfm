@@ -1,4 +1,4 @@
-
+<!--- $issue$: convert to get_* --->
 <!--Directory/qry_security_company_access_entry.cfm
 	Author: Jeromy F -->
 <cfsilent>

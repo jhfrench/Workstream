@@ -1,5 +1,5 @@
 
-<!-- path/act_update_demographics.cfm
+<!-- Directory/act_update_demographics.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC
@@ -16,12 +16,12 @@
 	Variables:
 
 	END FUSEDOC --->
-<cfquery name="end_demog_record" datasource="#application.datasources.main#">
-UPDATE Demographics
-SET turnover_date=#createodbcdate(dateadd("d", -1, attributes.hire_date))#
-WHERE user_account_id=#attributes.user_account_id# 
-	AND turnover_date IS NULL
+<cfquery name="delete_employee" datasource="#application.datasources.main#">
+UPDATE Employee
+SET active_ind=0
+WHERE active_ind=1
+	AND user_account_id=#attributes.user_account_id# 
 </cfquery>
 
-<cfinclude template="qry_insert_demographics.cfm">
-</cfsilent><!--- $issue$: is this template used? --->
+<cfinclude template="qry_insert_employee.cfm">
+</cfsilent>

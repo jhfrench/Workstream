@@ -1,5 +1,5 @@
 
-<!--Directory/qry_insert_demographics.cfm
+<!--Directory/qry_insert_employee.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -15,7 +15,7 @@
  --->
 </cfsilent>
 <cfparam name="attributes.overtime_elligible_ind" default="0">
-<cfquery name="insert_demographics" datasource="#application.datasources.main#">
+<cfquery name="insert_employee" datasource="#application.datasources.main#">
 INSERT INTO Employee (user_account_id, uupic, hire_date,
 	birth_date, employee_classification_id, overtime_elligible_ind<cfif len(attributes.photo)>,
 	photo_path</cfif>)

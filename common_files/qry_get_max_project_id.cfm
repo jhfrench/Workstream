@@ -1,5 +1,5 @@
 
-<!-- path/qry_get_max_project_id.cfm
+<!-- common_files/qry_get_max_project_id.cfm
 	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC

@@ -18,14 +18,14 @@
 <cfset photo=file.serverfile> --->
 <cftransaction isolation="READ_COMMITTED">
 	<cfinclude template="qry_insert_employee_account.cfm">
-	<cfinclude template="qry_insert_demographics.cfm">
+	<cfinclude template="qry_insert_employee.cfm">
 	<cfinclude template="qry_company_entry.cfm">
 	<cfinclude template="qry_location_entry.cfm">
 	<!--- <cfset need_all_supervisors = 1> --->
 	<cfinclude template="qry_get_supervisor_history.cfm">
 	<cfinclude template="qry_get_present_supervisor.cfm">
 	<cfinclude template="qry_emp_supervisor_entry.cfm">
-	<cfinclude template="qry_security_company_access_entry.cfm"><!--- $issue$: convert to lowercase file name --->
+	<cfinclude template="qry_security_company_access_entry.cfm">
 	<cfinclude template="qry_email_entry.cfm">
 	<cfinclude template="qry_phone_entry.cfm">
 	<cfinclude template="qry_emp_biography_entry.cfm">
