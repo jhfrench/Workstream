@@ -88,7 +88,7 @@
 
 <cfset counter=0>
 
-<cfquery name="task_list" datasource="#application.datasources.main#">
+<cfquery name="get_task_list" datasource="#application.datasources.main#">
 SELECT 1 AS constant, Task.due_date, Task.task_id,
 	Task.name AS task_name, COALESCE(Task.description, 'No description provided.') AS task_description,
 	COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Task.status_id, 

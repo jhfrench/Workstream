@@ -33,7 +33,7 @@
 </cfsilent>
 <cfif task_list.recordcount>
 <tbody>
-<cfoutput query="task_list"> 
+<cfoutput query="get_task_list"> 
 	<cfset variables.status_message=jsstringformat(task_name)>
 	<tr>
 		<td scope="row" class="number">#task_id#</td>

@@ -1,5 +1,5 @@
 
-<!--Timekeeping/qry_task_list.cfm
+<!--Timekeeping/qry_get_task_list.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -49,7 +49,7 @@
 	<cfset variables.temp_task_list_order=listdeleteat(variables.temp_task_list_order, listfind(variables.temp_task_list_order, "task_owner"))>
 </cfif>
 
-<cfquery name="task_list" datasource="#application.datasources.main#">
+<cfquery name="get_task_list" datasource="#application.datasources.main#">
 SELECT Task.due_date, Task.task_id, Task.name AS task_name,
 	COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Task.status_id,
 	REF_Icon.class_name AS task_icon, REF_Priority.description AS priority, COALESCE(Recorded_Hours.used_hours,0) AS used_hours, 

@@ -16,7 +16,7 @@
 </cfsilent>
 <cfoutput>
 	<tr>
-		<th>Task</th>
+		<th>Task <abbr title="Identifier">ID</abbr></th>
 		<th>Date</th>
 		<th>Hours</th>
 		<th>Notes</th>
