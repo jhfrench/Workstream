@@ -25,7 +25,7 @@
 <cfelse>
 	<cfinclude template="qry_get_employee_type.cfm">
 	<cfinclude template="qry_get_employee_classification.cfm">
-	<cfinclude template="../qry_get_ref_account_type.cfm">
+	<cfinclude template="../common_files/qry_get_ref_account_type.cfm">
 	<cfinclude template="../common_files/qry_get_states.cfm">
 	<cfinclude template="../common_files/qry_get_teams.cfm">
 	<cfform action="index.cfm?fuseaction=#attributes.fuseaction#" name="emp_entry" method="POST" class="form-horizontal">
