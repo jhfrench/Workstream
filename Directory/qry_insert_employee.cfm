@@ -16,12 +16,12 @@
 </cfsilent>
 <cfparam name="attributes.overtime_elligible_ind" default="0">
 <cfquery name="insert_employee" datasource="#application.datasources.main#">
-INSERT INTO Employee (user_account_id, uupic, hire_date,
-	birth_date, employee_classification_id, overtime_elligible_ind<cfif len(attributes.photo_path)>,
-	photo_path</cfif>, created_by)
-VALUES (#variables.user_account_id#, '#attributes.uupic#', #createodbcdatetime(attributes.hire_date)#,
-	#createodbcdatetime(attributes.birth_date)#, #attributes.employee_classification#, #attributes.overtime_elligible_ind#<cfif len(attributes.photo_path)>,
-	#attributes.photo_path#</cfif>, #variables.user_identification#);
+INSERT INTO Employee (user_account_id, hire_date, birth_date,
+	employee_classification_id, overtime_elligible_ind<cfif len(attributes.photo_path)>, photo_path</cfif>,
+	created_by)
+VALUES (#variables.user_account_id#, #createodbcdatetime(attributes.hire_date)#, #createodbcdatetime(attributes.birth_date)#,
+	#attributes.employee_classification#, #attributes.overtime_elligible_ind#<cfif len(attributes.photo_path)>, #attributes.photo_path#</cfif>,
+	#variables.user_identification#);
 	
 INSERT INTO Link_Employee_Supervisor (user_account_id, supervisor_id, date_start,
 	created_by)

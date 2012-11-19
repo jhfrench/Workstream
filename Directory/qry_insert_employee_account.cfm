@@ -29,7 +29,9 @@ SELECT CURRVAL('User_Account_user_account_id_SEQ') AS user_account_id
 
 <cfquery name="insert_demographics" datasource="#application.datasources.main#">
 INSERT INTO Demographics (first_name, last_name, middle_initial,
-	credentials, user_account_id, created_by)
+	credentials, user_account_id, uupic,
+	created_by)
 VALUES ('#attributes.first_name#', '#attributes.last_name#', '#attributes.middle_initial#',
-	'#attributes.credentials#', #attributes.user_account_id#, #variables.user_identification#);
+	'#attributes.credentials#', #attributes.user_account_id#, '#attributes.uupic#',
+	#variables.user_identification#);
 </cfquery>
