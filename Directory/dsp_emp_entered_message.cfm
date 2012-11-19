@@ -28,7 +28,7 @@ ORDER BY Demographics.last_name, Demographics.first_name
 </cfsilent>
 <cfoutput>
 <div class="alert">
-	<p>#attributes.name# #attributes.last_name# has been entered into the workstream database.</p>
+	<p>#attributes.first_name# #attributes.last_name# has been entered into the workstream database.</p>
 	<p>This new account currently does not have access to any modules, reports or tools. To administer this new account (grant access to reports, change passwords, etc), please 
 	<cfif listfind(variables.administrators_list, variables.user_identification)>
 		<a href="javascript:edit_employee(#variables.user_account_id#)">administer this account</a>.

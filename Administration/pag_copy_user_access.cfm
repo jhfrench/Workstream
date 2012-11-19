@@ -71,7 +71,9 @@
 		AND Access_User_Account_Grouper.user_account_id=#attributes.source_user_account_id#
 		AND User_Account.user_account_id IN (#attributes.target_user_account_id#)
 	</cfquery>
+	<div class="alert alert-info">
 	The access has been copied.
+	</div>
 <cfelse>
 	<cfif attributes.source_user_account_id NEQ 0>
 		<cfset variables.form_element_type="checkbox">

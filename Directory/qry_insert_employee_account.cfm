@@ -27,6 +27,12 @@ SELECT CURRVAL('User_Account_user_account_id_SEQ') AS user_account_id
 <cfset variables.user_account_id=max_user_account_id.user_account_id>
 <cfset attributes.user_account_id=variables.user_account_id>
 
+<!--- initialize the account with a active status --->
+<cfquery name="insert_link_user_account_status" datasource="#application.datasources.main#">
+INSERT INTO Link_User_Account_Status (user_account_id, account_status_id, created_by)
+VALUES (#attributes.user_account_id#, 1, #variables.user_identification#);
+</cfquery>
+
 <cfquery name="insert_demographics" datasource="#application.datasources.main#">
 INSERT INTO Demographics (first_name, last_name, middle_initial,
 	credentials, user_account_id, uupic,
