@@ -22,7 +22,7 @@
  --->
 <cfif isdefined("attributes.user_account_id") AND compare(attributes.user_account_id, variables.user_identification)>
 	<cfif isdefined("attributes.inbox_owner")>
-		<cfset request.first_name=task_list.task_owner>
+		<cfset request.first_name=get_task_list.task_owner>
 		<cfset request.last_name="">
 	<cfelse>
 		<cfinclude template="../common_files/qry_get_demographics.cfm">

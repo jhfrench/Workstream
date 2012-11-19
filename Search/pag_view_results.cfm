@@ -72,7 +72,7 @@
 <cfinclude template="../common_files/act_task_list_order.cfm">
 <cfinclude template="qry_search.cfm">
 
-<cfif task_list.recordcount>
+<cfif get_task_list.recordcount>
 <table class="table table-striped table-bordered table-condensed">
 	<caption><h2><cfoutput>#application.application_specific_settings.organization#</cfoutput> Knowledgebase Search Results</h2></caption>
 	<cfinclude template="../common_files/dsp_task_list_header.cfm">

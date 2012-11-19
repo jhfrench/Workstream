@@ -31,7 +31,7 @@
 <cfset variables.status_message_replace="',#variables.quote#">
 <cfset variables.status_message_replace_with=",">
 </cfsilent>
-<cfif task_list.recordcount>
+<cfif get_task_list.recordcount>
 <tbody>
 <cfoutput query="get_task_list"> 
 	<cfset variables.status_message=jsstringformat(task_name)>
