@@ -33,17 +33,19 @@ WHERE project_id=#project_id#
 	</cfquery>
 	<cfif billable_type_id EQ 3>
 		<cfquery name="insert_flat_rate" datasource="#application.datasources.main#">
-		INSERT INTO Flat_Rate (rate_start_date, rate_end_date, project_id, budget)
-		VALUES ('#attributes.start_date#', '#attributes.end_date#', #attributes.project_id#, #attributes.budget#)
+		INSERT INTO Flat_Rate (rate_start_date, rate_end_date, project_id, budget, created_by)
+		VALUES ('#attributes.start_date#', '#attributes.end_date#', #attributes.project_id#, #attributes.budget#, #variables.user_identification#)
 		</cfquery>
 	</cfif>
 
-<cfquery name="delete_old" datasource="#application.datasources.main#">
-DELETE FROM Link_Project_Company
-WHERE project_id=#attributes.project_id#;
+<cfquery name="update_link_project_company" datasource="#application.datasources.main#">
+UPDATE Link_Project_Company
+SET active_ind=0
+WHERE active_ind=1
+	AND project_id=#attributes.project_id#;
 <cfloop list="#attributes.company_id#" index="ii">
-INSERT INTO Link_Project_Company (project_id, company_id)
-VALUES (#attributes.project_id#, #ii#);
+INSERT INTO Link_Project_Company (project_id, company_id, created_by)
+VALUES (#attributes.project_id#, #ii#, #variables.user_identification#);
 </cfloop>
 </cfquery>
 
