@@ -24,8 +24,9 @@
 </fusedoc>
 --->
 <cfparam name="attributes.limit_by_date_ind" default="1">
-<cfparam name="attributes.end_date" default="#now()#">
-<cfparam name="attributes.start_date" default="#dateadd('d', -60, attributes.end_date)#">
+<cfparam name="attributes.end_date" default="#dateadd('d', 1, now())#">
+<cfparam name="attributes.start_date" default="#dateadd('d', -61, attributes.end_date)#">
+
 
 <!---retrieve user's name and username--->
 <cfinclude template="../common_files/qry_get_user_information.cfm">
