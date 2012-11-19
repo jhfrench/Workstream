@@ -15,10 +15,4 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-	<tr>
-		<th>Task <abbr title="Identifier">ID</abbr></th>
-		<th>Date</th>
-		<th>Hours</th>
-		<th>Notes</th>
-	</tr>
 </cfoutput>
