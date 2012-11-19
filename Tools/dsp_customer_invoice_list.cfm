@@ -19,8 +19,8 @@
 		<td>
 			<a href="javascript:customer_to_project(#customer_id#);">#customer_name#</a>
 		</td>
-		<td class="RegText number">
-			#revenue#
+		<td class="number">
+			#dollarformat(revenue)#
 		</td>
 		<td>
 			<input type="checkbox" name="customer_id" value="#customer_id#" /><!--- this should be converted into a link styled as a button --->

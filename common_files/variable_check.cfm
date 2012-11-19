@@ -38,7 +38,6 @@ else {
 </cfscript>
 
 <cfif isdefined("request.no_check_variables")>
-<html>
 <head>
 	<link href="common_files/application.css" rel="stylesheet">
 </head>
@@ -60,7 +59,6 @@ else {
 	<cfabort>
 </cfif>
 <cfif isdefined("request.no_relocate")>
-<html>
 <head>
 	<link href="common_files/application.css" rel="stylesheet">
 </head>
@@ -92,36 +90,31 @@ else {
 		session.application_page_redirect_ind=1;
 	</cfscript>
 <cfoutput>
-<html xmlns='http://www.w3.org/1999/xhtml'>
-	<head>
-		<title>#application.product_name#</title>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<meta http-equiv="expires" content="#gethttptimestring(application.last_updated)#" />
-		<meta http-equiv="refresh" content="5;url=<cfoutput>#request.content#</cfoutput>">
-		<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
-		<link href="common_files/application.css" rel="stylesheet" />
-	</head>
-	<body>
-		<table class="center" width="686" border="0" cellspacing="0" cellpadding="0">
-			<tr>
-				<td><img src="Application_Manager/errortemplates/top.jpg" width="686" height="140" /></td>
-			</tr>
-			<tr>
-				<td class="content">
-					<h2 class="error_message">#application.product_name# alert!</h2>
-					You have entered #application.product_name# through an illegal URL. This problem may be caused by using a poorly formed history or favorite/bookmark link.
-					<ul>
-						<li>Momentarily you will be re-directed to suitable page within #application.product_name#.</li>
-						<li>Please update any favorites/bookmarks to point to <a href="#request.content#" class="">#request.content#</a></li>
-					</ul>
-					<p align="center" style="color:##808080"><abbr title="Applied Internet Technologies">AIT</abbr> Support Services</p>
-				</td>
-			</tr>
-			<tr>
-				<td><img src="Application_Manager/errortemplates/bottom.jpg" width="686" height="21" /></td>
-			</tr>
-		</table>
-	</body>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>#application.product_name#</title>
+	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
+	<link rel="stylesheet" href="Application_Manager/errortemplates/error_style.css">
+</head>
+
+<body class="warning">
+<section class="center">
+	<div class="error_header" aria-hidden="true">
+		<img src="Application_Manager/images/gears1.png" alt="" width="64" height="64" />
+	</div>
+	<div class="content">
+		<p class="header">You have entered #application.product_name# through an illegal URL.</p>
+		<p>
+			This problem may be caused by using a poorly formed history or favorite/bookmark link.
+			<ul>
+				<li>Momentarily you will be re-directed to suitable page within #application.product_name#.</li>
+				<li>Please update any favorites/bookmarks to point to <a href="#request.content#" class="">#request.content#</a></li>
+			</ul>
+		</p>
+	</div>
+</section>
+</body>
 </html>
 </cfoutput>
 <cfabort>
