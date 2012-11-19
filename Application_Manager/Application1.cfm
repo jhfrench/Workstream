@@ -32,7 +32,7 @@
 <cfset application.product_name="FAAD">
 <cfset application.html_title="Federal Assistance Award Data">
 <cfset application.active_ind="1">
-<cfset application.erroremailfrom="customer_service@ait.com">
+<cfset application.erroremailfrom="customer_info@appliedinter.net">
 <cfset application.product_id="122">
 <cfset application.support_email_recipients="">
 <cfset application.installation_id="459">

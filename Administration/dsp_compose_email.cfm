@@ -23,7 +23,7 @@
 
 <cfoutput>
 <label for="reply_to" style="width:100px">Reply To:</label>
-<input type="email" name="reply_to" id="reply_to" value="customer_service@ait.com" maxlength="4000" required="required" class="span3" />
+<input type="email" name="reply_to" id="reply_to" value="customer_info@appliedinter.net" maxlength="4000" required="required" class="span3" />
 <!-- Use CF to create backup validation script <cfinput type="text" name="reply_to" id="reply_to" validate="email" message="Please enter properly-formatted email addresses in the reply-to field." /> -->
 <br />
 
