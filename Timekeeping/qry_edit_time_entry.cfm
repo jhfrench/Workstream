@@ -33,9 +33,11 @@ WHERE time_entry_id=#attributes.time_entry_id#
 	);
 <cfif isdefined("attributes.method") AND comparenocase(attributes.method,"delete this entry")>
 INSERT INTO Time_Entry (user_account_id, work_date, hours,
-	project_id, task_id, notes_id)
+	project_id, task_id, notes_id,
+	created_by)
 SELECT #variables.user_identification#, '#dateformat(attributes.work_date,"yyyy-mm-dd")#', #attributes.hours#,
-	<cfif isdefined("attributes.project_id")>#attributes.project_id#<cfelse>project_id</cfif>, task_id, CURRVAL('Notes_notes_id_SEQ')
+	<cfif isdefined("attributes.project_id")>#attributes.project_id#<cfelse>project_id</cfif>, task_id, CURRVAL('Notes_notes_id_SEQ'),
+	#variables.user_identification#
 FROM Time_Entry
 WHERE time_entry_id=#attributes.time_entry_id#
 	AND time_entry_id NOT IN (SELECT time_entry_id FROM Link_Invoice_Time_Entry WHERE active_ind=1) /*don't update or delete invoiced time*/
