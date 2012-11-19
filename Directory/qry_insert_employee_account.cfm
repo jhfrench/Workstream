@@ -16,8 +16,8 @@
 </cfsilent>
 <cftransaction>
 <cfquery name="insert_user_account" datasource="#application.datasources.main#">
-INSERT INTO User_Account (user_name, account_type_id)
-VALUES ('#attributes.last_name##left(attributes.first_name, 1)#', 1);
+INSERT INTO User_Account (user_name, account_type_id, created_by)
+VALUES ('#attributes.last_name##left(attributes.first_name, 1)#', #attributes.account_type_id#, #variables.user_identification#);
 </cfquery>
 	
 <cfquery name="max_user_account_id" datasource="#application.datasources.main#">

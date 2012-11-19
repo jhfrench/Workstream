@@ -49,7 +49,7 @@
 	<div class="control-group">
 		<label for="uupic" class="control-label"><abbr title="Social Security Number">uupic</abbr></label>
 		<div class="controls">
-			<cfinput type="text" name="uupic" id="uupic" value="#uupic#" required="yes" message="Please enter a properly formatted uupic." class="span3" />
+			<input type="text" name="uupic" id="uupic" value="#uupic#" class="span3" />
 		</div>
 	</div>
 	<div class="control-group">

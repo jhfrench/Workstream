@@ -70,8 +70,8 @@ WHERE customer_id=#attributes.customer_id#
 	<!--- If the person doesn't exist in the system, insert him into the system --->
 	<cfelse>
 		<cfquery name="insert_user_account" datasource="#application.datasources.main#">
-		INSERT INTO User_Account (user_name, account_type_id)
-		VALUES ('#left(attributes.first_name,1)##attributes.last_name#', 2)
+		INSERT INTO User_Account (user_name, account_type_id, created_by)
+		VALUES ('#left(attributes.first_name,1)##attributes.last_name#', 2, #variables.user_identification#)
 		</cfquery>
 		<cfquery name="insert_customer_contact" datasource="#application.datasources.main#">
 		INSERT INTO Demographics (first_name, last_name, user_account_id)
