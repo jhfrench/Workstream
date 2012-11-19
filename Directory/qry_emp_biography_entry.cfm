@@ -15,8 +15,8 @@
  --->
 <cfif len(attributes.biography)>
 <cfquery name="emp_biography_entry" datasource="#application.datasources.main#">
-INSERT INTO Emp_Biography(user_account_id,biography)
-VALUES(#variables.user_account_id#,'#stripcr(paragraphformat(attributes.biography))#')
+INSERT INTO Emp_Biography(user_account_id, biography, created_by)
+VALUES(#variables.user_account_id#, '#stripcr(paragraphformat(attributes.biography))#', #variables.user_identification#)
 </cfquery><!--- 
 <cfquery name="emp_biography_delete" datasource="#application.datasources.main#">
 DELETE FROM Emp_Biography

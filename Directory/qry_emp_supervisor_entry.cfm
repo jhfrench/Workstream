@@ -21,8 +21,10 @@
 </cfif>
 <cfif isdefined("attributes.date_start")>
 	<cfquery name="emp_supervisor_entry" datasource="#application.datasources.main#">
-	INSERT INTO Link_User_Account_Supervisor (user_account_id, supervisor_id, date_start, active_ind)
-	VALUES (#attributes.user_account_id#, #attributes.supervisor_id#, #createodbcdate(attributes.date_start)#, 1)
+	INSERT INTO Link_User_Account_Supervisor (user_account_id, supervisor_id, date_start, active_ind,
+		created_by)
+	VALUES (#attributes.user_account_id#, #attributes.supervisor_id#, #createodbcdate(attributes.date_start)#, 1,
+		#variables.user_identification#)
 	</cfquery>
 </cfif>
 <cfif isdefined("attributes.end_date_#ii#")>

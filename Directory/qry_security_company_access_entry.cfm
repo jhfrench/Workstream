@@ -1,4 +1,4 @@
-<!--- $issue$: convert to get_* --->
+<!--- $issue$: convert to insert_* --->
 <!--Directory/qry_security_company_access_entry.cfm
 	Author: Jeromy F -->
 <cfsilent>
@@ -14,24 +14,10 @@
 	Variables:
  --->
 </cfsilent>
-	<!--- 
-	If the admin granted the new user access to multiple companies then 
-	grant that access
-	--->
-<cfif len(attributes.visable_company)>
-<cfloop list="#attributes.visable_company#" index="ii">
-	<cfquery name="Security_Company_Access_entry" datasource="#application.datasources.main#">
-		INSERT INTO Security_Company_Access (user_account_id, company_id)
-		VALUES (#variables.user_account_id#, #ii#)
-	</cfquery>
-</cfloop>
-<cfelse>
-<!--- 
-	If the admin didn't grant access to anything at all, then grant access to the 
-	company that the new employee works for.
- --->
+<cfset variables.company_id=listappend(attributes.visable_company,attributes.company_id)>
 <cfquery name="Security_Company_Access_entry" datasource="#application.datasources.main#">
-INSERT INTO Security_Company_Access(user_account_id,company_id)
-VALUES(#variables.user_account_id#,#attributes.company_id#)
+INSERT INTO Security_Company_Access(user_account_id, company_id, created_by)
+SELECT #variables.user_account_id#, company_id, #variables.user_identification#
+FROM REF_Company
+WHERE company_id IN (#variables.company_id#)
 </cfquery>
-</cfif>
