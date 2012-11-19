@@ -39,11 +39,11 @@ function upload_file_type_check() {
 			<div class="control-group">
 				<label class="control-label" for="file_path">Path to file</label>
 				<div class="controls">
-					<cfselect name="file_path" id="file_path" query="get_project_attachment_path" value="file_path" description="file_path" required="yes" message="Please specify the file path." class="span8" />
+					<cfselect name="file_path" id="file_path" query="get_project_attachment_path" value="file_path" display="file_path" required="yes" message="Please specify the file path." class="span8" />
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="my_file">File to Upload</label>
+				<label class="control-label" for="my_file">File to upload</label>
 				<div class="controls">
 					<input type="file" name="MY_FILE" id="my_file" alt="Please specify the filepath to the file you wish to upload." required="required" class="span8" />
 				</div>
@@ -59,6 +59,6 @@ function upload_file_type_check() {
 	</cfform>
 	<div class="alert alert-info" id="upload_in_progress" aria-hidden="true" style="display:none">
 		<h2>Loading your file</h2>
-		<img src="images/loading.gif" alt="Animated gif that shows a gear and reads Loading your file" width="48" height="48" style="padding:30px;" align="center" />
+		<img src="images/loading.gif" alt="" width="48" height="48" style="padding:30px;" align="center" />
 	</div>
 </div>
