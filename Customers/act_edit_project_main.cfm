@@ -33,11 +33,20 @@ WHERE project_id=#attributes.project_id#
 </cfquery>
 
 <cfquery name="delete_old" datasource="#application.datasources.main#">
-DELETE FROM Link_Project_Company
-WHERE project_id=#attributes.project_id#;
+UPDATE Link_Project_Company
+SET active_ind=1
+WHERE active_ind=0
+	AND project_id=#attributes.project_id#
+	AND company_id NOT IN (#attributes.company_id#);
 
-<cfloop list="#attributes.company_id#" index="ii">
-INSERT INTO Link_Project_Company (project_id, company_id)
-VALUES (#attributes.project_id#, #ii#);
-</cfloop>
+INSERT INTO Link_Project_Company (project_id, company_id, created_by)
+SELECT #attributes.project_id#, company_id, #variables.user_identification#
+FROM REF_Company
+WHERE company_id IN (#attributes.company_id#)
+	AND company_id NOT IN (
+		SELECT company_id
+		FROM Link_Project_Company
+		WHERE active_ind=1
+			AND project_id=#attributes.project_id#
+	);
 </cfquery>
