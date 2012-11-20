@@ -66,7 +66,7 @@ VALUES (1, '#variables.encrypted_password#')
 			<cfinclude template="../common_files/qry_get_user_preferences.cfm">
 			
 			<!--- If known, send the user to the page they originally requested (unless the page they requested is "Application_Manager.login", it makes no sense to "send" them to the login page once they've logged in) --->
-			<cfif len(attributes.requested_page) AND NOT listfind("Application_Manager.login,Application_Manager.forum_commands,Help.view_help_article,Application_Manager.module_commands", attributes.requested_page)>
+			<cfif len(attributes.requested_page) AND NOT listfind("Application_Manager.login,Help.view_help_article,Help.view_help_faq", attributes.requested_page)>
 				<cfset variables.redirect_destination="#attributes.requested_page#">
 			<cfelse>
 				<cfset variables.redirect_destination="#application.fusebox.defaultfuseaction#">

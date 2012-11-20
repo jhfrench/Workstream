@@ -18,16 +18,16 @@
 UPDATE Project
 SET active_ind=#attributes.active_ind#,
 	business_case='#attributes.business_case#',
-	customer_id=#attributes.customer_id#,
-	<cfif isdate("attributes.date_go_live")>date_go_live='#dateformat(attributes.date_go_live,'yyyy-mm-dd')#',</cfif>
+	customer_id=#attributes.customer_id#,<cfif isdate("attributes.date_go_live")>
+	date_go_live='#dateformat(attributes.date_go_live, "yyyy-mm-dd")#',</cfif>
 	description='#attributes.description#',
 	eng_status='#attributes.eng_status#',
 	file_path='#attributes.file_path#',
 	mission='#attributes.mission#',
 	product_id=#attributes.product_id#,
-	project_end='#dateformat(attributes.project_end,'yyyy-mm-dd')#',
+	project_end='#dateformat(attributes.project_end, "yyyy-mm-dd")#',
 	project_manager_id=#attributes.project_manager_id#,
-	project_start='#dateformat(attributes.project_start,'yyyy-mm-dd')#',
+	project_start='#dateformat(attributes.project_start, "yyyy-mm-dd")#',
 	status=#attributes.status#
 WHERE project_id=#attributes.project_id#
 </cfquery>
