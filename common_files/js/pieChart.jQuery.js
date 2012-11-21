@@ -66,24 +66,38 @@
 				// and assign click handlers to the table data cells
 				
 				//label color
-				sourceTable.find('td.graph_label_color').each( function(row_ii) {
-					// Extract and store the cell color
-					if ( rgb = $(this).css('background-color').match( /rgb\((\d+), (\d+), (\d+)/) ) {
-						chartColors[row_ii] = [ rgb[1], rgb[2], rgb[3] ];
-						// console.log('assigned rgb color:'+$(this).css('background-color'));
-					} else if ( hex = $(this).css('background-color').match(/#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/) ) {
-						chartColors[row_ii] = [ parseInt(hex[1],16) ,parseInt(hex[2],16), parseInt(hex[3], 16) ];
-						// console.log('assigned hex color:'+$(this).css('background-color'));
-					} else {
-						alert( "Error: Color could not be determined! Please specify table colors using the format '#xxxxxx'" );
-						return;
+				if ( sourceTable.find('td.graph_label_color').length ) {
+					//use the background of table cells classed as graph_label_color
+					sourceTable.find('td.graph_label_color').each( function(row_ii) {
+						// Extract and store the cell color
+						if ( rgb = $(this).css('background-color').match( /rgb\((\d+), (\d+), (\d+)/) ) {
+							chartColors[row_ii] = [ rgb[1], rgb[2], rgb[3] ];
+							// console.log('assigned rgb color:'+$(this).css('background-color'));
+						} else if ( hex = $(this).css('background-color').match(/#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/) ) {
+							chartColors[row_ii] = [ parseInt(hex[1],16) ,parseInt(hex[2],16), parseInt(hex[3], 16) ];
+							// console.log('assigned hex color:'+$(this).css('background-color'));
+						} else {
+							alert( "Error: Color could not be determined! Please specify table colors using the format '#xxxxxx'" );
+							return;
+						}
+			
+						// Store the slice index in this cell, and attach a click handler to it
+						$(this).data( 'slice', row_ii );
+						$(this).click( handleTableClick );
+			
+					} );
+				}
+				else {
+					//otherwise, use a default list
+					var myStringArray = ["FFC363","5A82B5","A5597B","6B7D63","E77963","5AA29","CE5D63","428A6B","F7A263","9C9A5A","FF8E5A","7B96AD","528E84","BDCB94","A56163","4A8EAD","FFE784","4A6194","C6514A","A2835A","63E2E7","B55AB2","5AB55C","DDA0DD","000080","2E8B57","708090","7B68EE","000000","FF69B4","DC143C"];
+					var hex;
+					for (var i = 0; i < myStringArray.length; i++) {
+						if ( hex = myStringArray[i].match(/([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/) ) {
+							chartColors[i] = [ parseInt(hex[1],16) ,parseInt(hex[2],16), parseInt(hex[3], 16) ];
+						}
 					}
-		
-					// Store the slice index in this cell, and attach a click handler to it
-					$(this).data( 'slice', row_ii );
-					$(this).click( handleTableClick );
-		
-				} );
+				}
+
 				//label
 				sourceTable.find('td.graph_label').each( function(row_ii) {
 					//store label

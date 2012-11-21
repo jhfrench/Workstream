@@ -39,7 +39,7 @@
 	<div class="row-fluid">
 		<div class="span4">
 			<table id="work_allocation" class="table table-striped table-bordered table-condensed pieChart">
-				<caption>#monthasstring(month(now()))# Hours Per Project</caption>
+				<caption><h4>#monthasstring(month(now()))# Hours Per Project</h4></caption>
 				<thead>
 					<tr>
 						<th colspan="2" scope="col" title="label">Project</th><th scope="col">Hours</th>
