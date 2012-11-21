@@ -73,7 +73,7 @@
 			<tbody>
 			<cfloop query="get_user_login_attempts" startrow="1" endrow="100">
 				<tr>
-					<td scope="row">#dateformat(created_date, 'm/d/yyyy')#</td>
+					<td scope="row" class="date">#dateformat(created_date, 'm/d/yyyy')#</td>
 					<td>#success_status#</td>
 					<td>#account_status#</td>
 				</tr>
@@ -163,7 +163,7 @@
 				<tr>
 					<td scope="row">#page_request_id#</td>
 					<td>#url_requested#</td>
-					<td>#dateformat(request_date, "m/d/yyyy")#&nbsp;#request_time#</td>
+					<td class="date">#dateformat(request_date, "m/d/yyyy")#&nbsp;#timeformat(request_time)#</td>
 				</tr>
 			</cfloop>
 			</tbody>
@@ -187,7 +187,7 @@
 					<td scope="row">#page_request_id#</td>
 					<td>#url_requested#</td>
 					<td class="number">#page_load_time#</td>
-					<td>#dateformat(request_date, "m/d/yyyy")#&nbsp;#request_time#</td>
+					<td class="date">#dateformat(request_date, "m/d/yyyy")#&nbsp;#timeformat(request_time)#</td>
 				</tr>
 			</cfloop>
 			</tbody>
