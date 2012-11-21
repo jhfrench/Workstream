@@ -28,7 +28,7 @@
 </script>
 <cfoutput>
 <div class="row-fluid">
-	<div class="span4">
+	<div class="span6">
 		<table id="hours_by_code" class="table table-striped table-bordered table-condensed pieChart">
 			<caption>
 				<h2>#attributes.report_name#</h2>
@@ -58,7 +58,7 @@
 			</tbody>
 		</table>
 	</div>
-	<div class="span8">
+	<div class="span6">
 		<canvas id="hours_by_code_canvas" width="300" height="250" style="cursor:pointer;">
 			Your browser does not support canvas, a basic <a href="http://www.html5rocks.com">HTML5</a> feature.
 		</canvas>
