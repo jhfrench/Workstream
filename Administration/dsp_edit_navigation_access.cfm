@@ -40,9 +40,11 @@
 
 <cfoutput>
 <ul class="breadcrumb">
-  <li><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> <span class="divider">/</span></li>
-  <li><a href="javascript:view_user_access('#attributes.user_account_id#');">View User Access</a> <span class="divider">/</span></li>
-  <li class="active">Edit User Access</li>
+	<h2>
+		<li><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> <span class="divider">/</span></li>
+		<li><a href="javascript:view_user_access('#attributes.user_account_id#');">View User Access</a> <span class="divider">/</span></li>
+		<li class="active">Edit User Access</li>
+	</h2>
 </ul>
 <a href="javascript:administer_user_menu('#attributes.user_account_id#');" class="btn">Manage User's Profile</a>
 <a href="javascript:view_user_activity('#attributes.user_account_id#');" class="btn">View User Activity</a><br />

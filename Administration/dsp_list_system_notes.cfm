@@ -28,8 +28,10 @@
 <cfparam name="attributes.display_end_date" default="">
 
 <ul class="breadcrumb">
-  <li>Administer Messages <span class="divider">/</span></li>
-  <li class="active"><a href="javascript:edit_system_note(0)">Add new system message</a></li>
+	<h2>
+		<li>Administer Messages <span class="divider">/</span></li>
+		<li class="active"><a href="javascript:edit_system_note(0)">Add new system message</a></li>
+	</h2>
 </ul>
 
 <img src="images/spacer.gif" alt="" width="560" height="1"><br />

@@ -29,8 +29,10 @@
 <cfset variables.administration_fuseactions=structkeylist(application.fusebox.circuits.administration.fuseactions)>
 
 <ul class="breadcrumb">
-  <li>System Configuration <span class="divider">/</span></li>
-  <li class="active">Manage Link Tables</li>
+	<h2>
+		<li>System Configuration <span class="divider">/</span></li>
+		<li class="active">Manage Link Tables</li>
+	</h2>
 </ul>
 <table class="table table-striped table-bordered table-condensed">
 	<caption><h3>List of Link Tables</h3></caption>

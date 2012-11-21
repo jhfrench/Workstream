@@ -47,9 +47,11 @@
 	<cfset attributes.program_year_id=get_program_year.program_year_id>
 </cfif>--->
 <ul class="breadcrumb">
-  <li>System Configuration <span class="divider">/</span></li>
-  <li><a href="index.cfm?fuseaction=Administration.list_link_tables">Manage Link Tables</a> <span class="divider">/</span></li>
-  <li class="active">Link User Account Status</li>
+	<h2>
+		<li>System Configuration <span class="divider">/</span></li>
+		<li><a href="index.cfm?fuseaction=Administration.list_link_tables">Manage Link Tables</a> <span class="divider">/</span></li>
+		<li class="active">Link User Account Status</li>
+	</h2>
 </ul>
 <cfoutput>
 <cfform name="form_#attributes.fuseaction#" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">

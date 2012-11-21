@@ -28,8 +28,10 @@
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="administer_bw_reports" fuseaction="Administration.administer_bw_reports" field_name="bw_report_links_id">
 
 <ul class="breadcrumb">
-  <li>Administer Resource Area <span class="divider">/</span></li>
-  <li class="active"><a href="javascript:administer_bw_reports(0);">Add Resource Link</a></li>
+	<h2>
+		<li>Administer Resource Area <span class="divider">/</span></li>
+		<li class="active"><a href="javascript:administer_bw_reports(0);">Add Resource Link</a></li>
+	</h2>
 </ul>
 
 <div class="datachart" style="border:1px solid #999999">

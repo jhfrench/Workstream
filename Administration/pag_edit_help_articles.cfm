@@ -26,9 +26,11 @@
 --->
 
 <ul class="breadcrumb">
-  <li>System Configuration <span class="divider">/</span></li>
-  <li><a href="index.cfm?fuseaction=Administration.list_help_articles">Administer Help Module</a> <span class="divider">/</span></li>
-  <li class="active">Manage Help Articles</li>
+	<h2>
+		<li>System Configuration <span class="divider">/</span></li>
+		<li><a href="index.cfm?fuseaction=Administration.list_help_articles">Administer Help Module</a> <span class="divider">/</span></li>
+		<li class="active">Manage Help Articles</li>
+	</h2>
 </ul>
 <cfif isdefined("attributes.help_article_title")>
 	<!--- if we're submitting help article details, commit the new info to the DB --->

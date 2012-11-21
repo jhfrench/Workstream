@@ -135,9 +135,11 @@
 </cfscript>
 
 <ul class="breadcrumb">
-  <li>Administration <span class="divider">/</span></li>
-  <li>System Configuration <span class="divider">/</span></li>
-  <li class="active">View Application Variables</li>
+	<h2>
+		<li>Administration <span class="divider">/</span></li>
+		<li>System Configuration <span class="divider">/</span></li>
+		<li class="active">View Application Variables</li>
+	</h2>
 </ul>
 <a href="index.cfm?fuseaction=Administration.cause_error" class="btn btn-danger">Cause an error</a>
 <form name="" action="index.cfm?fuseaction=Administration.view_application_variables" method="post">
