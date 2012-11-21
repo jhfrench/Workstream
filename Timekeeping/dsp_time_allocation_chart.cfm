@@ -24,9 +24,9 @@
 	Modernizr.load([
 		{
 			test: Modernizr.canvas,
-			nope: 'common_files/excanvas.js',
+			nope: 'common_files/js/excanvas.js',
 			complete: function () {
-				Modernizr.load('common_files/pie_graph.js');
+				Modernizr.load('common_files/js/pie_graph.js');
 			}
 		}
 	]);
