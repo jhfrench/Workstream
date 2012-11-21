@@ -34,15 +34,15 @@
 <cfoutput>
 <section id="blurb_project" class="span7">
 	<h2>Work Allocation</h2>
-	<cfif time_allocation_blurb.recordcount>
+<cfif time_allocation_blurb.recordcount>
 	<p>So far this month you have worked on #time_allocation_blurb.recordcount# <cfif time_allocation_blurb.recordcount EQ 1>project<cfelse>different projects</cfif>. You have spent none of your time on ADMIN/PLANNING. This is under the ADMIN/PLANNING work allocation target of 10% or less. You allocated your time as follows:</p>
-	<div id="work_allocation" class="row-fluid">
-
+	<div class="row-fluid">
 		<div class="span4">
-			<table id="chartData" class="table table-striped table-bordered table-condensed">
+			<table id="work_allocation" class="table table-striped table-bordered table-condensed pieChart">
+				<caption>#monthasstring(month(now()))# Hours Per Project</caption>
 				<thead>
 					<tr>
-						<th colspan="2" title="label">Project</th><th>Hours</th>
+						<th colspan="2" scope="col" title="label">Project</th><th scope="col">Hours</th>
 					</tr>
 				</thead>
 				<tbody style="cursor: pointer;">
@@ -50,20 +50,20 @@
 					<tr>
 						<td style="background-color:###listgetat(variables.color_list,time_allocation_blurb.currentrow)#;" class="graph_label_color">&nbsp;</td>
 						<td class="graph_label">#project_name#</td>
-						<td style="text-align:right;" class="graph_data">#decimalformat(project_hours)#</td>
+						<td class="graph_data">#decimalformat(project_hours)#</td>
 					</tr>
 				</cfloop>
 				</tbody>
 			</table>
 		</div>
 		<div class="span8">
-			<canvas id="chart" width="300" height="250" style="cursor:pointer;">
+			<canvas id="work_allocation_canvas" width="300" height="250" style="cursor:pointer;">
 				Your browser does not support canvas, a basic <a href="http://www.html5rocks.com">HTML5</a> feature.
 			</canvas>
 		</div>
 	</div>
-	<cfelse>
-		<p>You have not yet entered any time for #monthasstring(month(now()))#.</p>
-	</cfif>
+<cfelse>
+	<p>You have not yet entered any time for #monthasstring(month(now()))#.</p>
+</cfif>
 </section>
 </cfoutput>

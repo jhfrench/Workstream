@@ -44,7 +44,7 @@
 	<meta name="viewport" content="width=device-width">
 
 	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
-	<link rel="stylesheet" href="common_files/less/Workstream.css">
+	<link rel="stylesheet" href="common_files/Workstream.css">
 
 	<script src="common_files/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
 	<script type="text/javascript">
