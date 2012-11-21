@@ -12,8 +12,6 @@
 	$Log$
 	 || 
  --->
-	<cfset variables.initial_color_list="FFC363,5A82B5,A5597B,6B7D63,E77963,5AA29C,CE5D63,428A6B,F7A263,9C9A5A,FF8E5A,7B96AD,528E84,BDCB94,A56163,4A8EAD,FFE784,4A6194,C6514A,A2835A,63E2E7,B55AB2,5AB55C,DDA0DD,000080,2E8B57,708090,7B68EE,000000,FF69B4,DC143C">
-	<cfset variables.color_list="">
 	<cfset variables.total=0>
 	<cfset variables.this_month=0>
 	<cfset variables.last_month=0>
@@ -58,10 +56,8 @@
 	<cfset variables.work_allocation_text="">
 <cfelse>
 	<cfoutput query="time_allocation_blurb">
-		<cfif currentrow LTE listlen(variables.initial_color_list)>
-			<cfset variables.color_list=listappend(variables.color_list,listgetat(variables.initial_color_list,currentrow))>
-		<cfelse>
-			<cfset variables.color_list=listappend(variables.color_list,randrange(100000,999999))>
+		<cfif currentrow GT listlen(application.application_specific_settings.color_list)>
+			<cfset application.application_specific_settings.color_list=listappend(application.application_specific_settings.color_list,randrange(100000,999999))>
 		</cfif>
 		<cfif project_id EQ 1112>
 			<cfset variables.admin_time=decimalformat(project_hours/variables.this_month*100)>

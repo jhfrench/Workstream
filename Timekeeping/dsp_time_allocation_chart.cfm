@@ -13,7 +13,7 @@
 	||
 	Variables:
 	<-> variables.allocation_percent: number of hours spent on a particular project divided by the total number of hours worked during the same time range
-	--> variables.color_list: list of hexadecimal color values
+	--> application.application_specific_settings.color_list: list of hexadecimal color values
 	--> project_hours: number of hours spent on a particular project
 	--> project_name: name of the project
 	END FUSEDOC --->
@@ -48,7 +48,7 @@
 				<tbody style="cursor: pointer;">
 				<cfloop query="time_allocation_blurb">
 					<tr>
-						<td style="background-color:###listgetat(variables.color_list,time_allocation_blurb.currentrow)#;" class="graph_label_color">&nbsp;</td>
+						<td style="background-color:###listgetat(application.application_specific_settings.color_list,time_allocation_blurb.currentrow)#;" class="graph_label_color">&nbsp;</td>
 						<td class="graph_label">#project_name#</td>
 						<td class="graph_data">#decimalformat(project_hours)#</td>
 					</tr>
