@@ -20,18 +20,18 @@
 		</td>
 	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 		<cfparam name="sum_#variables.user_account_id#" default="0">
-		<td align="center" valign="bottom">
-			<input type="text" name="sum_#variables.user_account_id#" value="#evaluate('sum_#variables.user_account_id#')#" size="3" readonly="readonly" />
+		<td>
+			<input type="text" name="sum_#variables.user_account_id#" value="#evaluate('sum_#variables.user_account_id#')#" size="3" readonly="readonly" class="number span3" />
 		</td>
 	</cfloop>
-		<td align="center" valign="bottom">
+		<td>
 			#variables.requested_sum#
 		</td>
-		<td align="center" valign="bottom">
-			<input type="text" name="sum_assigned" value="0" size="3" readonly="readonly" />
+		<td>
+			<input type="text" name="sum_assigned" value="0" size="3" readonly="readonly" class="number span3" />
 		</td>
-		<td align="center" valign="bottom" />
-			<input type="text" name="sum_remaining" value="0" size="3" readonly="readonly" />
+		<td>
+			<input type="text" name="sum_remaining" value="0" size="3" readonly="readonly" class="number span3" />
 			<input type="hidden" name="force_year" value="#attributes.force_year#" />
 			<input type="hidden" name="force_month" value="#attributes.force_month#" />
 		</td>

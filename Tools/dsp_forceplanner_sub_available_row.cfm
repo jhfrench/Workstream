@@ -20,17 +20,17 @@
 			Available&nbsp;hours
 		</td>
 	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-		<td align="center" valign="bottom">
+		<td class="number">
 			#get_week_days.hours_in_month#
 		</td>
 	</cfloop>
-		<td align="center" valign="bottom">
+		<td class="number">
 			#variables.total_requested#
 		</td>
-		<td align="center" valign="bottom">
+		<td class="number">
 			#variables.total_requested#
 		</td>
-		<td align="center" valign="bottom">
+		<td class="number">
 			#variables.total_requested#
 		</td>
 	</tr>
