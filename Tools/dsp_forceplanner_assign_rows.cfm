@@ -45,7 +45,8 @@
 			<cfif listgetat(current_budget,2,".") EQ 0><cfset current_budget=numberformat(current_budget)></cfif>
 			<cfparam name="sum_#variables.user_account_id#" default="0">
 			<cfif len(previously_assigned)><cfset "sum_#variables.user_account_id#"=#evaluate("budget#variables.user_account_id#")#+#evaluate("sum_#variables.user_account_id#")#><cfset "task_assign#task_id#"=#evaluate("task_assign#task_id#")#+current_budget><cfelse><cfset current_budget=0></cfif>
-			<!--- ,'t#task_id#_#variables.user_account_id#' ---><cfinput type="text" name="t#task_id#_#variables.user_account_id#" onchange="CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');" onfocus="ReleaseRowFields('accept_#task_id#');" value="#current_budget#" class="number span8">
+			<!--- ,'t#task_id#_#variables.user_account_id#' --->
+			<input type="number" name="t#task_id#_#variables.user_account_id#" id="t#task_id#_#variables.user_account_id#" step="1" min="1" onchange="CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');" onfocus="ReleaseRowFields('accept_#task_id#');" value="#current_budget#" class="number span8" required="required" />
 		</td>
 	</cfloop>
 		<td class="number">

@@ -20,7 +20,7 @@
 <cfinclude template="act_forceplanner.cfm">
 <cfoutput>
 <h1>#session.workstream_company_name# ForcePlanner</h1>
-<cfform name="form_forceplanner" action="index.cfm?fuseaction=Tools.forceplanner_save" method="POST">
+<form name="form_forceplanner" action="index.cfm?fuseaction=Tools.forceplanner_save" method="POST">
 <table class="table table-striped table-bordered table-condensed">
 	<caption><h2>Tasks</h2></caption>
 	<cfinclude template="dsp_forceplanner_main_head.cfm">
@@ -105,7 +105,7 @@
 		</table>
 	</div>
 </div>
-</cfform>
+</form>
 </cfoutput>
 
 <cfinclude template="dsp_forceplanner_title_bar.cfm">
