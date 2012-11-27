@@ -51,17 +51,17 @@
 				<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 					<cfparam name="sum_#variables.user_account_id#" default="0">
 					<td class="number">
-						<input type="text" name="sum_#variables.user_account_id#" value="#evaluate('sum_#variables.user_account_id#')#" readonly="readonly" class="number span12" />
+						<input type="text" name="sum_#variables.user_account_id#" value="#evaluate('sum_#variables.user_account_id#')#" readonly="readonly" class="number span8" />
 					</td>
 				</cfloop>
 					<td class="number">
 						#variables.requested_sum#
 					</td>
 					<td class="number">
-						<input type="text" name="sum_assigned" value="0" readonly="readonly" class="number span12" />
+						<input type="text" name="sum_assigned" value="0" readonly="readonly" class="number span8" />
 					</td>
 					<td class="number">
-						<input type="text" name="sum_remaining" value="0" readonly="readonly" class="number span12" />
+						<input type="text" name="sum_remaining" value="0" readonly="readonly" class="number span8" />
 						<input type="hidden" name="force_year" value="#attributes.force_year#" />
 						<input type="hidden" name="force_month" value="#attributes.force_month#" />
 					</td>
@@ -87,7 +87,7 @@
 					<td scope="row">Capacity Used</td>
 				<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 					<td class="number">
-						<input type="text" name="capacity_#variables.user_account_id#" value="#numberformat(evaluate('sum_#variables.user_account_id#')/get_week_days.hours_in_month*100,"___")#%" readonly="readonly" class="number span12" />
+						<input type="text" name="capacity_#variables.user_account_id#" value="#numberformat(evaluate('sum_#variables.user_account_id#')/get_week_days.hours_in_month*100,"___")#%" readonly="readonly" class="number span8" />
 					</td>
 				</cfloop>
 					<td class="number">
@@ -95,10 +95,10 @@
 						#decimalformat(variables.total_capacity)#%
 					</td>
 					<td class="number">
-						<input type="text" name="capacity_assigned" value="0%" readonly="readonly" class="number span12" />
+						<input type="text" name="capacity_assigned" value="0%" readonly="readonly" class="number span8" />
 					</td>
 					<td class="number">
-						<input type="text" name="capacity_remaining" value="0%" readonly="readonly" class="number span12" />
+						<input type="text" name="capacity_remaining" value="0%" readonly="readonly" class="number span8" />
 					</td>
 				</tr>
 			</tbody>

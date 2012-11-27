@@ -30,8 +30,8 @@
 		<td>
 			<a href="javascript:list_to_project('#project_id#');" title="View project details">#project#</a>
 		</td>
-		<td>
-			<input type="date" name="task_due_date#task_id#" id="task_due_date#task_id#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" value="#dateformat(due_date, 'yyyy-mm-dd')#" maxlength="10" required="required" onfocus="ReleaseRowFields('accept_#task_id#');" class="span3 date" />
+		<td class="date">
+			<input type="date" name="task_due_date#task_id#" id="task_due_date#task_id#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" value="#dateformat(due_date, 'yyyy-mm-dd')#" maxlength="10" required="required" onfocus="ReleaseRowFields('accept_#task_id#');" class="span8 date" />
 		</td>
 		<td>
 			<input type="checkbox" name="accept_#task_id#" id="accept_#task_id#" value="#task_id#"#previously_assigned# onclick="ReCalculate('accept_#task_id#');" onkeydown="ReCalculate('accept_#task_id#');" />
@@ -40,7 +40,7 @@
 			#billable#
 		</td>
 	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-		<td>
+		<td class="number">
 			<cfset current_budget=replace(decimalformat(#evaluate("budget#variables.user_account_id#")#), ",", "", "all")>
 			<cfif listgetat(current_budget,2,".") EQ 0><cfset current_budget=numberformat(current_budget)></cfif>
 			<cfparam name="sum_#variables.user_account_id#" default="0">
@@ -51,10 +51,10 @@
 		<td class="number">
 			#budget#
 		</td>
-		<td>
+		<td class="number">
 			<input type="text" name="task_assigned#task_id#" value="#evaluate('task_assign#task_id#')#" readonly="readonly" class="number span8" />
 		</td>
-		<td>
+		<td class="number">
 			<cfset "task_remainder#task_id#"=budget-#evaluate("task_assign#task_id#")#>
 			<input type="text" name="task_remainder#task_id#" value="#evaluate('task_remainder#task_id#')#" readonly="readonly" class="number span8" />
 			<input type="hidden" name="task_status#task_id#" value="#previous_entry#">
