@@ -31,7 +31,7 @@
 			<a href="javascript:list_to_project('#project_id#');">#project#</a>
 		</td>
 		<td>
-			<input type="date" name="task_due_date#task_id#" id="task_due_date#task_id#" min="#dateformat(, 'yyyy-mm-dd')#" value="#dateformat(due_date, 'yyyy-mm-dd')#" maxlength="10" required="required" onfocus="ReleaseRowFields('accept_#task_id#');" class="span3 date" />
+			<input type="date" name="task_due_date#task_id#" id="task_due_date#task_id#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" value="#dateformat(due_date, 'yyyy-mm-dd')#" maxlength="10" required="required" onfocus="ReleaseRowFields('accept_#task_id#');" class="span3 date" />
 		</td>
 		<td>
 			<input type="checkbox" name="accept_#task_id#" id="accept_#task_id#" value="#task_id#"#previously_assigned# onclick="ReCalculate('accept_#task_id#');" onkeydown="ReCalculate('accept_#task_id#');" />
