@@ -19,9 +19,10 @@
 		<cfif isdefined("attributes.accept_#task_id#")>
 		UPDATE Team
 		SET active_ind=0
-		WHERE Team.role_id=4
+		WHERE Team.active_ind=1
+			AND Team.role_id=4
 			AND Team.task_id=#task_id#
-			AND user_account_id IN (#variables.subordinates_user_account_id#);
+			AND Team.user_account_id IN (#variables.subordinates_user_account_id#);
 			<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 				<cfif evaluate("attributes.t#task_id#_#ii#") NEQ 0>
 				UPDATE Forecast_Assignment

@@ -14,7 +14,7 @@
  --->
 <cfquery name="update_task" datasource="#application.datasources.main#">
 /*EXECUTE LOOP*/
-<cfoutput query="get_prospectives">
+<cfloop query="get_prospectives">
 <cfif isdefined("attributes.accept_#task_id#")>
 	<cfset variables.update_count=1>
 	UPDATE Task
@@ -25,8 +25,8 @@
 			FROM Time_Entry
 			WHERE Time_Entry.active_ind=1
 				AND task_id=#task_id#
-				AND date < '#month(now())#/1/#year(now())#')+#evaluate("attributes.task_assigned#task_id#"
-			)#</cfif>
+				AND date < '#month(now())#/1/#year(now())#'
+		)+#evaluate("attributes.task_assigned#task_id#")#</cfif>
 	WHERE task_id=#task_id# /* #variables.update_count#<cfset variables.update_count=incrementvalue(variables.update_count)> */
 <cfelse>
 	UPDATE Forecast_Assignment
@@ -40,7 +40,7 @@
 	WHERE task_id=#task_id#;
 	</cfif>
 </cfif>
-</cfoutput>
+</cfloop>
 </cfquery>
 </cfsilent>
 
