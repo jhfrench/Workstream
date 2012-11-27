@@ -19,16 +19,16 @@
 <fieldset>
 	<legend>Criteria</legend>
 	<label for="force_month">Month</label>
-	<select name="force_month" id="force_month" onchange="form.submit();" class="span4">
+	<select name="force_month" id="force_month" class="span4">
 	<cfloop from="1" to="12" index="ii"><option value="#ii#"<cfif ii EQ attributes.force_month> selected="selected"</cfif>>#monthasstring(ii)#</option>
 	</cfloop>
 	</select>
 	<label for="force_year">Year</label>
-	<select name="force_year" id="force_year" onchange="form.submit();" class="span4">
+	<select name="force_year" id="force_year" class="span4">
 		<cfloop from="#get_years.min_year#" to="#get_years.max_year#" index="ii"><option value="#ii#"<cfif ii EQ attributes.force_year> selected="selected"</cfif>>#ii#</option>
 	</cfloop>
 	</select>
-	<input type="submit" value="Update Report" class="btn btn-primary" />
+	<input type="submit" value="Get ForcePlanner Data" class="btn btn-primary" />
 </fieldset>
 </form>
 </cfoutput>

@@ -26,10 +26,10 @@
 			<div class="span2">Billable</div>
 		</div>
 	</div>
-	<div class="span4">
+	<div class="span5">
 		#variables.forceplanner_subordinates#
 	</div>
-	<div class="span4">
+	<div class="span3">
 		<div class="row-fluid">
 			<div class="span4">Requested Hours</div>
 			<div class="span4">Assigned Hours</div>
