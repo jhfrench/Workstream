@@ -15,26 +15,18 @@
  --->
 </cfsilent>
 <cfoutput>
-<div class="row-fluid">
-	<div class="span4">
-		<div class="row-fluid">
-			<div class="span2">Task ID</div>
-			<div class="span2">Task Name</div>
-			<div class="span2">Project</div>
-			<div class="span2">Due</div>
-			<div class="span2">Assign Task</div>
-			<div class="span2">Billable</div>
-		</div>
-	</div>
-	<div class="span5">
+<thead>
+	<tr>
+		<th>Task ID</th>
+		<th>Task Name</th>
+		<th>Project</th>
+		<th>Due</th>
+		<th>Assign Task</th>
+		<th>Billable</th>
 		#variables.forceplanner_subordinates#
-	</div>
-	<div class="span3">
-		<div class="row-fluid">
-			<div class="span4">Requested Hours</div>
-			<div class="span4">Assigned Hours</div>
-			<div class="span4">Remaining Hours</div>
-		</div>
-	</div>
-</div>
+		<th class="requested_hours">Requested Hours</th>
+		<th class="assigned_hours">Assigned Hours</th>
+		<th class="remaining_hours">Remaining Hours</th>
+	</tr>
+</thead>
 </cfoutput>

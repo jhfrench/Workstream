@@ -119,9 +119,7 @@ return;}
 </script>
 
 <cfsavecontent variable="variables.forceplanner_subordinates">
-<div class="row-fluid">
 	<cfoutput query="get_subordinates">
-		<div class="span1"><abbr title="#first_name# #last_name#">#initials#</abbr></div>
+		<th><abbr title="#first_name# #last_name#">#initials#</abbr></th>
 	</cfoutput>
-</div>
 </cfsavecontent>
