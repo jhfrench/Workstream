@@ -22,6 +22,7 @@
 <cfset variables.emp_init_loop=valuelist(get_subordinates.initials)>
 <cfset variables.target_population=listappend(valuelist(get_subordinates.user_account_id), variables.user_identification)>
 
+<!--- $issue$: need to include task priority --->
 <cfquery name="get_prospectives" datasource="#application.datasources.main#">
 SELECT Cross_Tab.previously_assigned, Cross_Tab.previous_entry, Cross_Tab.task_id, 
 	LEFT(Cross_Tab.project,50) AS project, Cross_Tab.project_id, Cross_Tab.due_date,
@@ -124,6 +125,7 @@ GROUP BY Cross_Tab.previously_assigned, Cross_Tab.previous_entry, Cross_Tab.task
 ORDER BY Cross_Tab.billable, LEFT(Cross_Tab.project,50), Cross_Tab.due_date, LEFT(Cross_Tab.task_name,65), Cross_Tab.previously_assigned DESC
 </cfquery>
 
+<!--- $issue$: Add Employee.expected_workload (int) and convert this query to include it in the calculation of capacity --->
 <cfquery name="get_week_days" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT COUNT(*) * 8 AS hours_in_month
 FROM REF_Date
