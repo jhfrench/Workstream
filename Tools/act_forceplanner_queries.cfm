@@ -14,7 +14,7 @@
  --->
 <!--- $isue$ can we just replace variables.temp_date with attributes.date_linked? --->
 <cfscript>
-	attributes.date_linked="#attributes.force_month#/01/#attributes.force_year#";
+	attributes.date_linked=createodbcdate("#attributes.force_month#/01/#attributes.force_year#");
 	variables.temp_date=attributes.date_linked;
 	variables.eval_date="08/01/2001";
 </cfscript>

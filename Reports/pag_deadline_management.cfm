@@ -15,7 +15,7 @@
 <cfset variables.last_month=dateadd("m",-1, now())>
 <cfparam name="attributes.admin_month" default="#month(variables.last_month)#">
 <cfparam name="attributes.admin_year" default="#year(variables.last_month)#">
-<cfset attributes.date_linked="#attributes.admin_month#/1/#attributes.admin_year#">
+<cfset attributes.date_linked=createodbcdate("#attributes.admin_month#/1/#attributes.admin_year#")>
 </cfsilent>
 <cfinclude template="../common_files/qry_get_subordinates.cfm">
 <cfif get_subordinates.recordcount>
