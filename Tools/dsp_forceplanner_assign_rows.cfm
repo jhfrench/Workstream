@@ -52,11 +52,11 @@
 			#budget#
 		</td>
 		<td>
-			<input type="text" name="task_assigned#task_id#" value="#evaluate('task_assign#task_id#')#" size="3" readonly="readonly" class="number span3" />
+			<input type="text" name="task_assigned#task_id#" value="#evaluate('task_assign#task_id#')#" readonly="readonly" class="number span3" />
 		</td>
 		<td>
 			<cfset "task_remainder#task_id#"=budget-#evaluate("task_assign#task_id#")#>
-			<input type="text" name="task_remainder#task_id#" value="#evaluate('task_remainder#task_id#')#" size="3" readonly="readonly" class="number span3" />
+			<input type="text" name="task_remainder#task_id#" value="#evaluate('task_remainder#task_id#')#" readonly="readonly" class="number span3" />
 			<input type="hidden" name="task_status#task_id#" value="#previous_entry#">
 		</td>
 	</tr>
