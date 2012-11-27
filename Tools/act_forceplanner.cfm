@@ -120,7 +120,7 @@ return;}
 var adjustColumnWidths=function() {
 <cfoutput>
 <cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-	$('th.th_#variables.user_account_id#').width( $('th.th_#variables.user_account_id##').width() );</cfloop>
+	$('th.th_#variables.user_account_id#').width( $('th.th_#variables.user_account_id#').width() );</cfloop>
 <cfloop list="requested_hours,assigned_hours,remaining_hours" index="variables.th_class">
 	$('th.#variables.th_class#').width( $('th.#variables.th_class#').width() );</cfloop>
 </cfoutput>
