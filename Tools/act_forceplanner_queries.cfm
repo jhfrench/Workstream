@@ -78,7 +78,7 @@ FROM
 		INNER JOIN Project ON Customer.customer_id=Project.customer_id
 		INNER JOIN Task ON Project.project_id=Task.project_id
 			AND <cfif attributes.force_month GTE month(now()) AND attributes.force_year GTE year(now())>Task.status_id!=7 /*exclude closed tasks*/
-			AND Task.assigned_date < #createodbcdate(dateadd("m",1,"#attributes.force_month#/01/#attributes.force_year#"))# /*show tasks assigned (to be started) before the selected month*/<cfelse>EXTRACT(MONTH FROM Task.assigned_date)=#attributes.force_month# AND EXTRACT(YEAR FROM Task.assigned_date)=#attributes.force_year# /*show tasks assigned (to be started) during the selected month*/</cfif>
+			AND Task.assigned_date < <cfqueryparam cfsqltype="cf_sql_date" value="#dateadd('m', 1, attributes.date_linked)#" /> /*show tasks assigned (to be started) before the selected month*/<cfelse>EXTRACT(MONTH FROM Task.assigned_date)=#attributes.force_month# AND EXTRACT(YEAR FROM Task.assigned_date)=#attributes.force_year# /*show tasks assigned (to be started) during the selected month*/</cfif>
 			AND Task.task_id NOT IN (
 				SELECT Forecast_Assignment.task_id
 				FROM Forecast
