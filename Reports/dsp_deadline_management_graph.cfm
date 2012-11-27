@@ -16,6 +16,7 @@
 	--> on_time_percent: decimal number that indicates the number of tasks in the given due_year and due_month that were completed on time or early.
 	END FUSEDOC --->
 
+</cfsilent>
 			graph goes here
 			<!--- $issue$: change to canvas graph --->
 			
@@ -38,7 +39,6 @@
 	<cfset xaxislabels=listprepend(xaxislabels,temp_variable)>
 	<cfset dataset0yvalues=listprepend(dataset0yvalues,(on_time_percent))>
 </cfoutput>
-</cfsilent>
 Deadline Management Percent<br />
 <cfoutput><applet code="javachart.applet.stackBarApp.class" codebase="#application.graphbase#" width="600" height="#graphheight#">
 	<param name="plotAreaColor" value="ffffff">
