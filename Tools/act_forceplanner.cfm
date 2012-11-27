@@ -20,27 +20,28 @@
 <cfset variables.task_processed="">
 </cfsilent>
 <script language="JavaScript">
-function ReleaseRowFields(arg, arg1)
-{<cfoutput query="get_prospectives">
-<cfif NOT listFind(variables.task_processed,task_id)>
-<cfset variables.task_processed=listappend(variables.task_processed,task_id)>
-<cfset variables.requested_sum=variables.requested_sum+budget>
-<cfif comparenocase(fuseaction, "forceplanner_save")>
-if (arg == "accept_#task_id#") {
-	if (!document.forceplanner.accept_#task_id#.checked) {
-		if (confirm('This task must be assigned before you can allocate time or modify the due date.\nWould you like to assign it now?')) {
-			document.forceplanner.accept_#task_id#.checked=1;
-			CalculateRowFields(arg, arg1);
+function ReleaseRowFields(arg, arg1) {
+	switch(arg) {<cfoutput query="get_prospectives">
+	<cfif NOT listFind(variables.task_processed,task_id)>
+	<cfset variables.task_processed=listappend(variables.task_processed,task_id)>
+	<cfset variables.requested_sum=variables.requested_sum+budget>
+	<cfif comparenocase(fuseaction, "forceplanner_save")>
+	case "accept_#task_id#":
+		if (!document.forceplanner.accept_#task_id#.checked) {
+			if (confirm('This task must be assigned before you can allocate time or modify the due date.\nWould you like to assign it now?')) {
+				document.forceplanner.accept_#task_id#.checked=1;
+				CalculateRowFields(arg, arg1);
+			}
+			else {<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
+				document.forceplanner.t#task_id#_#variables.user_account_id#.blur();<cfset "task_assign#task_id#"=0></cfloop>
+			}
 		}
-		else {<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-			document.forceplanner.t#task_id#_#variables.user_account_id#.blur();<cfset "task_assign#task_id#"=0></cfloop>
-		}
-	}
-	return;
+		return;
+		break;
+	</cfif>
+	</cfif>
+	</cfoutput>}
 }
-</cfif>
-</cfif>
-</cfoutput>}
 
 <cfif comparenocase(fuseaction, "forceplanner_save")>
 <cfset variables.task_processed="">
