@@ -42,7 +42,6 @@ function ReleaseRowFields(arg, arg1) {
 	</cfif>
 	</cfoutput>}
 }
-<!--- 
 <cfif comparenocase(fuseaction, "forceplanner_save")>
 <cfset variables.task_processed="">
 function CalculateRowFields(arg, arg1){
@@ -121,7 +120,7 @@ function ReCalculate(arg)<cfset variables.task_processed="">{
 	return;
 }
 </cfif>
- --->
+
 var adjustColumnWidths=function() {
 <cfoutput>
 <cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
