@@ -15,19 +15,20 @@
 <cfset variables.colspan=decrementvalue(variables.colspan)>
 </cfsilent>
 <cfoutput>
-<form name="ChangeMonth" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST">
-	<tr bgcolor="##772862" class="HeadTextWhite">
-		<td colspan="#variables.colspan#" align="left" valign="bottom" class="HeadTextWhite">
-			&nbsp;#session.workstream_company_name# ForcePlanner for <select name="force_month" onchange="form.submit();" class="ToolTextSm">
-				<cfloop from="1" to="12" index="ii"><option value="#ii#"<cfif ii EQ attributes.force_month> selected="selected"</cfif>>#monthasstring(ii)#</option>
-				</cfloop>
-				</select>
-				<select name="force_year" onchange="form.submit();" class="ToolTextSm">
-					<cfloop from="#get_years.min_year#" to="#get_years.max_year#" index="ii"><option value="#ii#"<cfif ii EQ attributes.force_year> selected="selected"</cfif>>#ii#</option>
-				</cfloop>
-				</select>
-		</td>
-	</tr>
+<form name="form_forceplanner_criteria" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="well form-inline">
+<fieldset>
+	<legend>Criteria</legend>
+	<label for="force_month">Month</label>
+	<select name="force_month" id="force_month" onchange="form.submit();" class="span4">
+	<cfloop from="1" to="12" index="ii"><option value="#ii#"<cfif ii EQ attributes.force_month> selected="selected"</cfif>>#monthasstring(ii)#</option>
+	</cfloop>
+	</select>
+	<label for="force_year">Year</label>
+	<select name="force_year" id="force_year" onchange="form.submit();" class="span4">
+		<cfloop from="#get_years.min_year#" to="#get_years.max_year#" index="ii"><option value="#ii#"<cfif ii EQ attributes.force_year> selected="selected"</cfif>>#ii#</option>
+	</cfloop>
+	</select>
+	<input type="submit" value="Update Report" class="btn btn-primary" />
+</fieldset>
 </form>
 </cfoutput>
-

@@ -25,20 +25,20 @@
 <cfset variables.task_processed=listappend(variables.task_processed,task_id)>
 <cfset variables.trigger=1>
 <cfset variables.processed_counter=incrementvalue(variables.processed_counter)>
-	<tr<cfif NOT (variables.processed_counter MOD 2)> bgcolor="##E1E1E1"</cfif>>
+	<tr>
 		<td>
-			<a href="javascript:list_to_project('#project_id#');">#project#</a>
+			<a href="javascript:list_to_task('#task_id#');">#task_id#</a>
 		</td>
 		<td>
 			<a href="javascript:list_to_task('#task_id#');">#task_name#</a>
 		</td>
 		<td>
-			<a href="javascript:list_to_task('#task_id#');">#task_id#</a>
+			<a href="javascript:list_to_project('#project_id#');">#project#</a>
 		</td>
-		<td align="center">
+		<td class="date">
 			<a href="javascript:list_to_task('#task_id#');">#dateformat(due_date,"m/d/yyyy")#</a>
 		</td>
-		<td class="btn-group">
+		<td>
 			<input type="checkbox" name="accept_#task_id#" checked="yes" value="#task_id#" disabled="disabled" />
 		</td>
 		<td align="center">
@@ -50,14 +50,14 @@
 			<cfset variables.task_assigned=variables.task_assigned+evaluate("attributes.t#task_id#_#variables.user_account_id#")>
 		</td>
 	</cfloop>
-		<td align="center">
+		<td class="number">
 			#budget#
 		</td>
-		<td align="center">
+		<td>
 			#variables.task_assigned#
 			<cfset variables.task_remainder=budget-variables.task_assigned>
 		</td>
-		<td align="center" class="RegText<cfif variables.task_remainder LT 0>Red</cfif>">
+		<td>
 			#variables.task_remainder#
 		</td>
 	</tr>
@@ -66,10 +66,9 @@
 <cfset variables.task_remainder=0>
 </cfoutput>
 <cfif variables.trigger EQ 0>
-	<tr>
-		<cfoutput><td align="center" bgcolor="##E1E1E1" colspan="#variables.colspan#" class="Note">
+	<tr class="error">
+		<td colspan="<cfoutput>#variables.colspan#</cfoutput>">
 			There are no prospective tasks to assign.
-		</td></cfoutput>
+		</td>
 	</tr>
 </cfif>
-

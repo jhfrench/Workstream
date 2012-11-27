@@ -20,23 +20,23 @@
 <cfif NOT listFind(variables.task_processed,task_id)>
 <cfset variables.processed_counter=incrementvalue(variables.processed_counter)>
 <cfset variables.task_processed=listappend(variables.task_processed,task_id)>
-	<tr<cfif NOT (variables.processed_counter MOD 2)> bgcolor="##E1E1E1"</cfif>>
+	<tr>
 		<td>
-			<a href="javascript:list_to_project('#project_id#');">#project#</a>
+			<a href="javascript:list_to_task('#task_id#');">#task_id#</a>
 		</td>
 		<td>
 			<a href="javascript:list_to_task('#task_id#');">#task_name#</a>
 		</td>
 		<td>
-			<a href="javascript:list_to_task('#task_id#');">#task_id#</a>
+			<a href="javascript:list_to_project('#project_id#');">#project#</a>
 		</td>
-		<td class="btn-group">
-			<input type="text" name="task_due_date#task_id#" value="#dateformat(due_date,"m/d/yyyy")#" size="11" maxlength="11" onfocus="ReleaseRowFields('accept_#task_id#');">
+		<td>
+			<input type="date" name="task_due_date#task_id#" id="task_due_date#task_id#" min="#dateformat(, 'yyyy-mm-dd')#" value="#dateformat(due_date, 'yyyy-mm-dd')#" maxlength="10" required="required" onfocus="ReleaseRowFields('accept_#task_id#');" class="span3 date" />
 		</td>
-		<td class="btn-group">
-			<input type="checkbox"#previously_assigned# name="accept_#task_id#" value="#task_id#" onclick="ReCalculate('accept_#task_id#');" onkeydown="ReCalculate('accept_#task_id#');">
+		<td>
+			<input type="checkbox" name="accept_#task_id#" id="accept_#task_id#" value="#task_id#"#previously_assigned# onclick="ReCalculate('accept_#task_id#');" onkeydown="ReCalculate('accept_#task_id#');" />
 		</td>
-		<td align="center">
+		<td>
 			#billable#
 		</td>
 	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
@@ -45,17 +45,19 @@
 			<cfif listgetat(current_budget,2,".") EQ 0><cfset current_budget=numberformat(current_budget)></cfif>
 			<cfparam name="sum_#variables.user_account_id#" default="0">
 			<cfif len(previously_assigned)><cfset "sum_#variables.user_account_id#"=#evaluate("budget#variables.user_account_id#")#+#evaluate("sum_#variables.user_account_id#")#><cfset "task_assign#task_id#"=#evaluate("task_assign#task_id#")#+current_budget><cfelse><cfset current_budget=0></cfif>
-			<!--- ,'t#task_id#_#variables.user_account_id#' ---><cfinput type="text" name="t#task_id#_#variables.user_account_id#" onchange="CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');" onfocus="ReleaseRowFields('accept_#task_id#');" onblur="NonNumberComplain('t#task_id#_#variables.user_account_id#');" value="#current_budget#" size="2">
+			<!--- ,'t#task_id#_#variables.user_account_id#' ---><cfinput type="text" name="t#task_id#_#variables.user_account_id#" onchange="CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');" onfocus="ReleaseRowFields('accept_#task_id#');" onblur="NonNumberComplain('t#task_id#_#variables.user_account_id#');" value="#current_budget#" size="2" class="number span1">
 		</td>
 	</cfloop>
-		<td align="center">
+		<td class="number">
 			#budget#
 		</td>
-		<td class="btn-group">
-			<input type="text" name="task_assigned#task_id#" value="#evaluate("task_assign#task_id#")#" size="3" readonly="readonly" />
+		<td>
+			<input type="text" name="task_assigned#task_id#" value="#evaluate('task_assign#task_id#')#" size="3" readonly="readonly" class="number span1" />
 		</td>
-		<td align="center">
-			<cfset "task_remainder#task_id#"=budget-#evaluate("task_assign#task_id#")#><input type="text" name="task_remainder#task_id#" value="#evaluate('task_remainder#task_id#')#" size="3" readonly="readonly"><input type="hidden" name="task_status#task_id#" value="#previous_entry#">
+		<td>
+			<cfset "task_remainder#task_id#"=budget-#evaluate("task_assign#task_id#")#>
+			<input type="text" name="task_remainder#task_id#" value="#evaluate('task_remainder#task_id#')#" size="3" readonly="readonly" class="number span1" />
+			<input type="hidden" name="task_status#task_id#" value="#previous_entry#">
 		</td>
 	</tr>
 </cfif>
@@ -64,10 +66,10 @@
 </cfif>
 </cfoutput>
 <cfelse>
-	<tr>
-		<cfoutput><td align="center" bgcolor="##E1E1E1" colspan="#variables.colspan#" class="Note">
+	<tr class="error">
+		<td colspan="<cfoutput>#variables.colspan#</cfoutput>">
 			There are no prospective tasks to assign.
-		</td></cfoutput>
+		</td>
 	</tr>
 </cfif>
 

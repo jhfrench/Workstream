@@ -117,3 +117,9 @@ return;}
 </cfif>
 //-->
 </script>
+
+<cfsavecontent var="variables.forceplanner_subordinates">
+	<cfoutput query="get_subordinates">
+		<th><abbr title="#first_name# #last_name#">#initials#</abbr></th>
+	</cfoutput>
+</cfsavecontent>

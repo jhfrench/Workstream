@@ -37,7 +37,8 @@
 </cfsilent>
 <cfoutput>
 <form name="deadline_management" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="well form-inline">
-	Deadline Management for 
+<fieldset>
+	<legend>Deadline Management for </legend>
 	<label for="admin_month">Month</label>: 
 	<select name="admin_month" id="admin_month" class="span2">
 	<cfloop list="#variables.month_list#" index="variables.month_ii">
@@ -52,5 +53,6 @@
 	</select>
 	<label for="hide_supervisor"><input type="checkbox" name="hide_supervisor" id="hide_supervisor" value="1"<cfif isdefined("attributes.hide_supervisor")> checked="checked"</cfif> /> Remove your data</label>
 	<input type="submit" value="Update Report" class="btn btn-primary" />
+</fieldset>
 </form>
 </cfoutput>

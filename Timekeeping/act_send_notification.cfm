@@ -14,7 +14,7 @@
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: number that uniquely identifies a task
  --->
- <cfset variables.user_identification=session.user_account_id>
+<cfset variables.user_identification=session.user_account_id>
 <cfswitch expression="#attributes.task_status#">
 	
 	<cfcase value="1">
