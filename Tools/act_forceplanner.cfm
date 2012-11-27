@@ -48,7 +48,7 @@ function ReleaseRowFields(arg, arg1) {
 function CalculateRowFields(arg, arg1){
 	switch(arg) {
 		<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
-		case "accept_#task_id#"":		
+		case "accept_#task_id#":		
 			var task_assigned#task_id#=<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">parseInt(document.forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
 			document.forceplanner.task_assigned#task_id#.value=task_assigned#task_id#;
 		
