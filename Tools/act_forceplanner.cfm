@@ -27,13 +27,13 @@ function ReleaseRowFields(arg, arg1) {
 	<cfset variables.requested_sum=variables.requested_sum+budget>
 	<cfif comparenocase(fuseaction, "forceplanner_save")>
 	case "accept_#task_id#":
-		if (!document.forceplanner.accept_#task_id#.checked) {
+		if ($('##accept_#task_id#').attr('checked')==='undefined') {
 			if (confirm('This task must be assigned before you can allocate time or modify the due date.\nWould you like to assign it now?')) {
-				document.forceplanner.accept_#task_id#.checked=1;
+				document.form_forceplanner.accept_#task_id#.checked=1;
 				CalculateRowFields(arg, arg1);
 			}
 			else {<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-				document.forceplanner.t#task_id#_#variables.user_account_id#.blur();<cfset "task_assign#task_id#"=0></cfloop>
+				document.form_forceplanner.t#task_id#_#variables.user_account_id#.blur();<cfset "task_assign#task_id#"=0></cfloop>
 			}
 		}
 		return;
@@ -42,18 +42,18 @@ function ReleaseRowFields(arg, arg1) {
 	</cfif>
 	</cfoutput>}
 }
-
+<!--- 
 <cfif comparenocase(fuseaction, "forceplanner_save")>
 <cfset variables.task_processed="">
 function CalculateRowFields(arg, arg1){
 	switch(arg) {
 		<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
 		case "accept_#task_id#":		
-			var task_assigned#task_id#=<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">parseInt(document.forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
-			document.forceplanner.task_assigned#task_id#.value=task_assigned#task_id#;
+			var task_assigned#task_id#=<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">parseInt(document.form_forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
+			document.form_forceplanner.task_assigned#task_id#.value=task_assigned#task_id#;
 		
 			var task_remainder#task_id#=#budget#-task_assigned#task_id#;
-			document.forceplanner.task_remainder#task_id#.value=task_remainder#task_id#;
+			document.form_forceplanner.task_remainder#task_id#.value=task_remainder#task_id#;
 			break;
 		</cfif></cfoutput>
 	}
@@ -62,24 +62,24 @@ function CalculateRowFields(arg, arg1){
 	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 		<cfoutput><cfset variables.task_processed="">
 		case "e_#variables.user_account_id#":
-			var sum_#variables.user_account_id#</cfoutput>=<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>parseInt(document.forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfif></cfoutput>0;
+			var sum_#variables.user_account_id#</cfoutput>=<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>parseInt(document.form_forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfif></cfoutput>0;
 			<cfoutput>
-			document.forceplanner.sum_#variables.user_account_id#.value=sum_#variables.user_account_id#;
+			document.form_forceplanner.sum_#variables.user_account_id#.value=sum_#variables.user_account_id#;
 		
 			var capacity_#variables.user_account_id#=Math.ceil(sum_#variables.user_account_id#/#get_week_days.hours_in_month#*100) + '%';
-			document.forceplanner.capacity_#variables.user_account_id#.value=capacity_#variables.user_account_id#;
+			document.form_forceplanner.capacity_#variables.user_account_id#.value=capacity_#variables.user_account_id#;
 		
-			var sum_assigned=<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">parseInt(document.forceplanner.sum_#variables.user_account_id#.value,10) + </cfloop>0;
-			document.forceplanner.sum_assigned.value=sum_assigned;
+			var sum_assigned=<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">parseInt(document.form_forceplanner.sum_#variables.user_account_id#.value,10) + </cfloop>0;
+			document.form_forceplanner.sum_assigned.value=sum_assigned;
 		
 			var sum_remaining=#requested_sum#-sum_assigned;
-			document.forceplanner.sum_remaining.value=sum_remaining;
+			document.form_forceplanner.sum_remaining.value=sum_remaining;
 		
 			var capacity_assigned=Math.ceil(sum_assigned/#variables.total_requested#*100) + '%';
-			document.forceplanner.capacity_assigned.value=capacity_assigned;
+			document.form_forceplanner.capacity_assigned.value=capacity_assigned;
 		
 			var capacity_remaining=Math.ceil(sum_remaining/#variables.total_requested#*100) + '%';
-			document.forceplanner.capacity_remaining.value=capacity_remaining;
+			document.form_forceplanner.capacity_remaining.value=capacity_remaining;
 			</cfoutput>
 			break;
 	</cfloop>
@@ -91,9 +91,9 @@ function NonNumberComplain(arg) {<cfoutput query="get_prospectives"><cfif NOT li
 	switch(arg) {
 		<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id"><cfset variables.ee_counter=incrementvalue(variables.ee_counter)>
 		case "t#task_id#_#variables.user_account_id#":
-			if (isNaN(document.forceplanner.t#task_id#_#variables.user_account_id#.value)) {
+			if (isNaN(document.form_forceplanner.t#task_id#_#variables.user_account_id#.value)) {
 				alert('Please enter assigned hours as a number.\nEmployee:#listgetat(variables.emp_init_loop,variables.ee_counter)#\nTask: #ReplaceList(task_name, variables.status_message_replace, variables.status_message_replace_with)#');
-				document.forceplanner.t#task_id#_#variables.user_account_id#.select();<!--- 
+				document.form_forceplanner.t#task_id#_#variables.user_account_id#.select();<!--- 
 				ready_check=1 --->;
 			}
 			break;
@@ -107,12 +107,12 @@ function ReCalculate(arg)<cfset variables.task_processed="">{
 	switch(arg) {
 		<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
 		case "accept_#task_id#":
-			if ($('##accept_22').attr('checked')==='undefined') {<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-				document.forceplanner.t#task_id#_#variables.user_account_id#.value=0;
+			if ($('##accept_#task_id#').attr('checked')==='undefined') {<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
+				document.form_forceplanner.t#task_id#_#variables.user_account_id#.value=0;
 				CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');</cfloop>
 			}
 			else {<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-				document.forceplanner.t#task_id#_#variables.user_account_id#.value=#evaluate("budget#variables.user_account_id#")#;
+				document.form_forceplanner.t#task_id#_#variables.user_account_id#.value=#evaluate("budget#variables.user_account_id#")#;
 				CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');</cfloop>
 			}
 			break;
@@ -121,7 +121,7 @@ function ReCalculate(arg)<cfset variables.task_processed="">{
 	return;
 }
 </cfif>
-
+ --->
 var adjustColumnWidths=function() {
 <cfoutput>
 <cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
