@@ -19,13 +19,13 @@
 		<th>
 			<a href="javascript:order_by('task_id');" title="Order by the task ID.">Task <abbr title="Identifier">ID</abbr><cfif NOT compare(variables.task_list_order_column,"task_id")> <i class="icon-chevron-<cfif variables.task_list_order_down_ind>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
-		<th class="hidden-phone">
+		<th class="hidden-phone hidden-tablet">
 			<a href="javascript:order_by('task_owner_full_name');" title="Order by the task owner.">Owner<cfif NOT compare(variables.task_list_order_column,"task_owner_full_name")> <i class="icon-chevron-<cfif variables.task_list_order_down_ind>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
 		<th>
 			<a href="javascript:order_by('task_name');" title="Order by the name of the task.">Task<cfif NOT compare(variables.task_list_order_column,"task_name")> <i class="icon-chevron-<cfif variables.task_list_order_down_ind>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
-		<th class="hidden-phone">
+		<th class="hidden-phone hidden-tablet">
 			<a href="javascript:order_by('project_name');" title="Order by the task project.">Project<cfif NOT compare(variables.task_list_order_column,"project_name")> <i class="icon-chevron-<cfif variables.task_list_order_down_ind>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
 		<th class="hidden-phone">
