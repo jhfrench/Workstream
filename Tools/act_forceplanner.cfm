@@ -85,6 +85,7 @@ function CalculateRowFields(arg, arg1){
 	return;
 }
 
+<!--- 
 <cfset variables.task_processed="">
 function NonNumberComplain(arg) {<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)><cfset variables.ee_counter=0>
 	switch(arg) {
@@ -119,8 +120,8 @@ function ReCalculate(arg)<cfset variables.task_processed="">{
 	}
 	return;
 }
+ --->
 </cfif>
-
 var adjustColumnWidths=function() {
 <cfoutput>
 <cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
