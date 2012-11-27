@@ -47,8 +47,8 @@ function ReleaseRowFields(arg, arg1) {
 <cfset variables.task_processed="">
 function CalculateRowFields(arg, arg1){
 	switch(arg) {
-		case "accept_#task_id#"":		
 		<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
+		case "accept_#task_id#"":		
 			var task_assigned#task_id#=<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">parseInt(document.forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
 			document.forceplanner.task_assigned#task_id#.value=task_assigned#task_id#;
 		
@@ -60,8 +60,8 @@ function CalculateRowFields(arg, arg1){
 	
 	switch(arg1) {
 	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
+		<cfoutput><cfset variables.task_processed="">
 		case "e_#variables.user_account_id#":
-		<cfoutput>if (arg1 == )<cfset variables.task_processed="">
 			var sum_#variables.user_account_id#</cfoutput>=<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>parseInt(document.forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfif></cfoutput>0;
 			<cfoutput>
 			document.forceplanner.sum_#variables.user_account_id#.value=sum_#variables.user_account_id#;
@@ -138,3 +138,4 @@ var adjustColumnWidths=function() {
 		<th class="th_#user_account_id#"><abbr title="#first_name# #last_name#">#initials#</abbr></th>
 	</cfoutput>
 </cfsavecontent>
+
