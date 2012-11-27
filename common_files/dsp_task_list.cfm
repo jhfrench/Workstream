@@ -37,11 +37,11 @@
 	<cfset variables.status_message=jsstringformat(task_name)>
 	<tr>
 		<td scope="row" class="number">#task_id#</td>
-		<td><abbr title="#task_owner_full_name#">#task_owner#</abbr></td>
+		<td class="hidden-phone"><abbr title="#task_owner_full_name#">#task_owner#</abbr></td>
 		<td><a href="javascript:list_to_task('#task_id#');" title="View time details for #variables.status_message#."><i class="#task_icon#" title="#replacelist(task_description, variables.quote, variables.status_message_replace_with)#"></i>#task_name#</a></td>
-		<td>#project_name#</td>
-		<td>#priority#</td>
-		<td><a href="javascript:list_to_time('#task_id#');" title="View time details for #variables.status_message#."><cfif listlen(used_hours) GT 1 AND listgetat(used_hours,2,".") GT 0>#decimalformat(used_hours)#<cfelse>#numberformat(used_hours)#</cfif><cfif budgeted_hours>/#budgeted_hours# #numberformat((used_hours/budgeted_hours)*100)#%</cfif></a></td>
+		<td class="hidden-phone">#project_name#</td>
+		<td class="hidden-phone">#priority#</td>
+		<td class="hidden-phone"><a href="javascript:list_to_time('#task_id#');" title="View time details for #variables.status_message#."><cfif listlen(used_hours) GT 1 AND listgetat(used_hours,2,".") GT 0>#decimalformat(used_hours)#<cfelse>#numberformat(used_hours)#</cfif><cfif budgeted_hours>/#budgeted_hours# #numberformat((used_hours/budgeted_hours)*100)#%</cfif></a></td>
 		<td><cfif status_id NEQ 7 AND datecompare(now(), due_date, "d") GTE 0><i class="status_<cfif datecompare(now(), due_date, "d") EQ 0>not_started<cfelse>overdue</cfif>"></i>&nbsp;</cfif>#task_status#</td>
 		<td class="date">#dateformat(due_date, "m/d/yyyy")#</td>
 	</tr>

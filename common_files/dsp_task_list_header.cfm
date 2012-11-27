@@ -14,31 +14,24 @@
  	--> variables.task_list_order: list of query columns to ORDER BY
  --->
 </cfsilent>
-<colgroup>
-	<col></col>
-	<col class="hidden-phone"></col><!--- hide owner col on phones --->
-	<col></col>
-	<col span="3" class="hidden-phone"></col><!--- hide project, priority, time cols on phones --->
-	<col span="2"></col>
-</colgroup>
 <thead>
 	<tr>
 		<th>
 			<a href="javascript:order_by('task_id');" title="Order by the task ID.">Task <abbr title="Identifier">ID</abbr><cfif NOT compare(variables.task_list_order_column,"task_id")> <i class="icon-chevron-<cfif variables.task_list_order_down_ind>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
-		<th>
+		<th class="hidden-phone">
 			<a href="javascript:order_by('task_owner_full_name');" title="Order by the task owner.">Owner<cfif NOT compare(variables.task_list_order_column,"task_owner_full_name")> <i class="icon-chevron-<cfif variables.task_list_order_down_ind>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
 		<th>
 			<a href="javascript:order_by('task_name');" title="Order by the name of the task.">Task<cfif NOT compare(variables.task_list_order_column,"task_name")> <i class="icon-chevron-<cfif variables.task_list_order_down_ind>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
-		<th>
+		<th class="hidden-phone">
 			<a href="javascript:order_by('project_name');" title="Order by the task project.">Project<cfif NOT compare(variables.task_list_order_column,"project_name")> <i class="icon-chevron-<cfif variables.task_list_order_down_ind>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
-		<th>
+		<th class="hidden-phone">
 			<a href="javascript:order_by('REF_Priority.sort_order');" title="Order by Priority.">Priority<cfif NOT compare(variables.task_list_order_column,"REF_Priority.sort_order")> <i class="icon-chevron-<cfif variables.task_list_order_down_ind>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
-		<th>
+		<th class="hidden-phone">
 			<a href="javascript:order_by('used_hours');" title="Order by the task time.">Time<cfif NOT compare(variables.task_list_order_column,"used_hours")> <i class="icon-chevron-<cfif variables.task_list_order_down_ind>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
 		<th>
