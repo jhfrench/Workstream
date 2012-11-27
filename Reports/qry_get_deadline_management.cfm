@@ -47,11 +47,12 @@ ORDER BY due_year DESC, due_month DESC
 </cfquery>
 
 <cfquery name="deadline_management_sub" dbtype="query">
-SELECT user_account_id, last_name, first_name, SUM(on_time) AS on_time_count, COUNT(*) AS task_count, (AVG(on_time)*100) AS on_time_average
+SELECT user_account_id, last_name, first_name,
+	SUM(on_time) AS on_time_count, COUNT(*) AS task_count, (AVG(on_time)*100) AS on_time_average
 FROM get_deadline_management
 WHERE due_year=#attributes.admin_year#
 	AND due_month=#attributes.admin_month#
-GROUP BY last_name, name, user_account_id
-ORDER BY last_name, name, user_account_id
+GROUP BY last_name, first_name, user_account_id
+ORDER BY last_name, first_name, user_account_id
 </cfquery>
 </cfsilent>
