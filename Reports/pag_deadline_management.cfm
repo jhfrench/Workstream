@@ -27,8 +27,7 @@
 			<cfinclude template="dsp_deadline_management_chart.cfm">
 		</div>
 		<div class="span6">
-			graph goes here
-			<!--- $issue$: change to canvas graph <cfinclude template="dsp_deadline_management_graph.cfm">--->
+			<cfinclude template="dsp_deadline_management_graph.cfm">
 		</div>
 	</div>
 	<div class="row-fluid">

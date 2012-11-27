@@ -15,6 +15,12 @@
 	--> due_month: number containing a month
 	--> on_time_percent: decimal number that indicates the number of tasks in the given due_year and due_month that were completed on time or early.
 	END FUSEDOC --->
+
+			graph goes here
+			<!--- $issue$: change to canvas graph --->
+			
+<!--- 
+			
 <cfset variables.temp_year=0>
 <cfset plotAreaLeft=11/100>
 <cfset graphheight=(deadline_management_main.recordcount*19.25)+10>
@@ -90,3 +96,4 @@ Deadline Management Percent<br />
 	<param name="iconHeight" value=".02">
 </applet><br />Percent of tasks completed on time or early</cfoutput>
 
+ --->

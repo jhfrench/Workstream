@@ -25,8 +25,8 @@
 		window.location.href="index.cfm?fuseaction=#attributes.fuseaction#";
 	}, #attributes.delay#);
 	</script>
-	<div class="alert alert-info">
+	<div class="alert alert-success">
+		<strong>Got it</strong><br />
 		<a href="index.cfm?fuseaction=#attributes.fuseaction#">#attributes.display#</a>
 	</div>
 </cfoutput>
-
