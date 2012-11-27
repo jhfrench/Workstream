@@ -101,20 +101,24 @@ if (arg == "t#task_id#_#variables.user_account_id#")
 </cfif></cfoutput>
 return;}
 
-function ReCalculate(arg)<cfset variables.task_processed="">
-{<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
-if (arg == "accept_#task_id#")
-	{if (!document.forceplanner.accept_#task_id#.checked)
-		{<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">document.forceplanner.t#task_id#_#variables.user_account_id#.value=0;
-		CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');
-		</cfloop>}
-	else
-		{<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">document.forceplanner.t#task_id#_#variables.user_account_id#.value=#evaluate("budget#variables.user_account_id#")#;
-		CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');
-		</cfloop>}
-	}
-</cfif></cfoutput>
-return;}
+function ReCalculate(arg)<cfset variables.task_processed="">{
+	switch(arg)
+		{
+		<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
+		case "accept_#task_id#":
+			if ($('#accept_22').attr('checked')==='undefined') {<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
+				document.forceplanner.t#task_id#_#variables.user_account_id#.value=0;
+				CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');</cfloop>
+			}
+			else {<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
+				document.forceplanner.t#task_id#_#variables.user_account_id#.value=#evaluate("budget#variables.user_account_id#")#;
+				CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');</cfloop>
+			}
+			break;
+		</cfif></cfoutput>
+		}
+	return;
+}
 </cfif>
 
 var adjustColumnWidths=function() {
@@ -124,6 +128,7 @@ var adjustColumnWidths=function() {
 <cfloop list="requested_hours,assigned_hours,remaining_hours" index="variables.th_class">
 	$('th.#variables.th_class#').width( $('th.#variables.th_class#').width() );</cfloop>
 </cfoutput>
+	return true;
 }
 </script>
 
