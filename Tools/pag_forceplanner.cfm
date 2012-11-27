@@ -40,9 +40,9 @@
 				<tr>
 					<th>Team Totals</th>
 					#variables.forceplanner_subordinates#
-					<th>Requested Hours</th>
-					<th>Assigned Hours</th>
-					<th>Remaining Hours</th>
+					<th class="requested_hours">Requested Hours</th>
+					<th class="assigned_hours">Assigned Hours</th>
+					<th class="remaining_hours">Remaining Hours</th>
 				</tr>
 			</thead>
 			<tbody>
