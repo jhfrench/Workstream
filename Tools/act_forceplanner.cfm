@@ -87,23 +87,7 @@ function CalculateRowFields(arg, arg1){
 }
 
 <cfset variables.task_processed="">
-function NonNumberComplain(arg) {<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)><cfset variables.ee_counter=0>
-	switch(arg) {
-		<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id"><cfset variables.ee_counter=incrementvalue(variables.ee_counter)>
-		case "t#task_id#_#variables.user_account_id#":
-			if (isNaN(document.form_forceplanner.t#task_id#_#variables.user_account_id#.value)) {
-				alert('Please enter assigned hours as a number.\nEmployee:#listgetat(variables.emp_init_loop,variables.ee_counter)#\nTask: #ReplaceList(task_name, variables.status_message_replace, variables.status_message_replace_with)#');
-				document.form_forceplanner.t#task_id#_#variables.user_account_id#.select();<!--- 
-				ready_check=1 --->;
-			}
-			break;
-		</cfloop>
-		</cfif></cfoutput>
-	}
-	return;
-}
-
-function ReCalculate(arg)<cfset variables.task_processed="">{
+function ReCalculate(arg){
 	switch(arg) {
 		<cfoutput query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
 		case "accept_#task_id#":
@@ -121,6 +105,7 @@ function ReCalculate(arg)<cfset variables.task_processed="">{
 	return;
 }
 </cfif>
+
 var adjustColumnWidths=function() {
 <cfoutput>
 <cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
