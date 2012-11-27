@@ -120,6 +120,6 @@ return;}
 
 <cfsavecontent variable="variables.forceplanner_subordinates">
 	<cfoutput query="get_subordinates">
-		<th><abbr title="#first_name# #last_name#">#initials#</abbr></th>
+		<th class="th_#user_account_id#"><abbr title="#first_name# #last_name#">#initials#</abbr></th>
 	</cfoutput>
 </cfsavecontent>
