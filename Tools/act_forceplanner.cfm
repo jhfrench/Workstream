@@ -94,7 +94,7 @@ function ReCalculate(arg){
 		case "accept_#task_id#":
 			if ( $('##'+arg).is(':checked') ) {
 				//remove read-only attribute from employee hours assignment fields
-				$('##'+arg).parents('tr').find('input.number').removeAttr('readonly').attr('required','required')each(function() {
+				$('##'+arg).parents('tr').find('input.number').removeAttr('readonly').attr('required','required').each(function() {
 					$(this).val( $(this).attr('data_value') );
 				});
 				//assign default budget for each team member (generally this means giving the task owner all the requested hours)
