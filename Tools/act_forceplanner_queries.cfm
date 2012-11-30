@@ -16,7 +16,6 @@
 <cfscript>
 	attributes.date_linked=createodbcdate("#attributes.force_month#/01/#attributes.force_year#");
 	variables.temp_date=attributes.date_linked;
-	variables.eval_date="08/01/2001";
 </cfscript>
 <cfinclude template="../common_files/qry_get_subordinates.cfm">
 <cfset variables.emp_init_loop=valuelist(get_subordinates.initials)>
@@ -71,7 +70,7 @@ FROM
 		Task.name, Task.budgeted_hours
 	UNION ALL
 	/*bottom query selects tasks that weren't forceplanned for the selected month*/
-	SELECT '<cfif variables.temp_date LT variables.eval_date> disabled="disabled"</cfif>' AS previously_assigned,
+	SELECT '<cfif variables.temp_date LT now()> disabled="disabled"</cfif>' AS previously_assigned,
 		CASE
 			WHEN Task.status_id IN (9,10) /*on hold, prospective*/ THEN <!--- $issue$ are these the right statii? --->
 				CASE 

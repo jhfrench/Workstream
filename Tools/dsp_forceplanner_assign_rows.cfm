@@ -59,16 +59,16 @@
 			#budget#
 		</td>
 		<td class="number">
-			<input type="text" name="task_assigned#task_id#" value="#variables.task_assign#" readonly="readonly" class="number span8" />
+			<input type="text" name="task_assigned#task_id#" data_value="#variables.task_assign#" value="#variables.task_assign#" readonly="readonly" class="number span8" />
 		</td>
 		<td class="number">
-			<cfset "task_remainder#task_id#"=budget-variables.task_assign>
-			<input type="text" name="task_remainder#task_id#" value="#evaluate('task_remainder#task_id#')#" readonly="readonly" class="number span8" />
+			<cfset variables.task_remainder=budget-variables.task_assign>
+			<input type="text" name="task_remainder#task_id#" data_value="#variables.task_remainder#" value="#variables.task_remainder#" readonly="readonly" class="number span8" />
 			<input type="hidden" name="task_status#task_id#" value="#previous_entry#">
 		</td>
 	</tr>
 </cfif>
-<cfif variables.processed_counter GT 3 AND NOT variables.processed_counter MOD 15>
+<cfif currentrow NEQ recordcount AND NOT currentrow MOD 15>
 	<cfinclude template="dsp_forceplanner_main_head.cfm">
 </cfif>
 </cfoutput>

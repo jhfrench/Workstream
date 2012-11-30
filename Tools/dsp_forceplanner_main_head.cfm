@@ -24,9 +24,9 @@
 		<th>Assign Task</th>
 		<th>Billable</th>
 		#variables.forceplanner_subordinates#
-		<th class="requested_hours">Requested Hours</th>
-		<th class="assigned_hours">Assigned Hours</th>
-		<th class="remaining_hours">Remaining Hours</th>
+		<th class="requested_hours" title="Requested hours">Requested</th>
+		<th class="assigned_hours" title="Assigned hours">Assigned</th>
+		<th class="remaining_hours" title="Remaining hours">Remaining</th>
 	</tr>
 </thead>
 </cfoutput>

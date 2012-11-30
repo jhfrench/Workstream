@@ -89,10 +89,11 @@ function CalculateRowFields(arg, arg1){
 function ReCalculate(arg){
 	"use strict"; //let's avoid tom-foolery in this function
 	console.log( arg );
+	console.log( $('##'+arg).attr('checked') );
 	switch(arg) {
 		<cfloop query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
 		case "accept_#task_id#":
-			if ($('##accept_#task_id#').attr('checked')==='undefined') {
+			if ( $('##'+arg).attr('checked')==='undefined' ) {
 				//assign checkbox is unchecked, so make employee hours assignment fields read-only and set data_value of field to value of the field, then set value of field to 0
 				$('##'+arg).parents('tr').find('input.number').attr('readonly','readonly').each(function() {
 					$(this).attr( 'data_value', $(this).val() );
