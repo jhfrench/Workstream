@@ -8,7 +8,6 @@
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/17/2007" role="FuseCoder" comments="Created File">
 			$Id:$
-			(10/15/07 | JF) Brought right-hand help column more to the left.
 		</history>
 	</properties>
 	<IO>
@@ -71,8 +70,9 @@ else
 								'common_files/js/libs/jquery.min.js',
 								'common_files/js/libs/js/plugins/jquery-ui.min.js'
 							]
-						}]);
-				}
+						}
+					]);
+				};
 			}
 		},
 		{
@@ -80,20 +80,20 @@ else
 				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js'
 			],
 			complete: function(){
-				if ( !window.jQuery.support.transition ) {
+				if ( !window.jQuery.support ) {
 					Modernizr.load([
 						{
 							load: [
 								'common_files/js/libs/bootstrap.min.js'
 							]
-						}]);
+						}
+					]);
 				}
 			}
 		},
 		{
 			// This will wait for the fallback to load and execute if it needs to.
 			both: [
-				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js',
 				'common_files/js/plugins.js',
 				'common_files/js/script.js'
 			],

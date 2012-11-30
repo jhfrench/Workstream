@@ -26,7 +26,7 @@ function ReleaseRowFields(arg, arg1) {
 	<cfset variables.requested_sum=variables.requested_sum+budget>
 	<cfif comparenocase(fuseaction, "forceplanner_save")>
 	case "accept_#task_id#":
-		if ($('##accept_#task_id#').attr('checked')==='undefined') {
+		if ( !$('##'+arg).is(':checked') ) {
 			if (confirm('This task must be assigned before you can allocate time or modify the due date.\nWould you like to assign it now?')) {
 				document.form_forceplanner.accept_#task_id#.checked=1;
 				CalculateRowFields(arg, arg1);

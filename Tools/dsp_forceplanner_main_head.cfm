@@ -17,12 +17,12 @@
 <cfoutput>
 <thead>
 	<tr>
+		<th>Billable</th>
+		<th>Project</th>
 		<th>Task ID</th>
 		<th>Task Name</th>
-		<th>Project</th>
-		<th>Due</th>
 		<th>Assign Task</th>
-		<th>Billable</th>
+		<th>Due</th>
 		#variables.forceplanner_subordinates#
 		<th class="requested_hours" title="Requested hours">Requested</th>
 		<th class="assigned_hours" title="Assigned hours">Assigned</th>
