@@ -27,8 +27,8 @@ FROM Demographics
 		AND Employee.active_ind=1
 WHERE Demographics.active_ind=1<cfif NOT attributes.all_employees>
 <cfif isdefined("attributes.date_linked")>/*we're looking for the organization at a specified point in time*/
-	AND <cfqueryparam cfsqltype="cf_sql_date" value="#attributes.date_linked#" /> BETWEEN Link_User_Account_Supervisor.date_start AND COALESCE(Link_User_Account_Supervisor.date_end, CURRENT_TIMESTAMP)
-	AND <cfqueryparam cfsqltype="cf_sql_date" value="#attributes.date_linked#" /> BETWEEN Employee.hire_date AND COALESCE(Employee.turnover_date, CURRENT_TIMESTAMP)
+	AND <cfqueryparam cfsqltype="cf_sql_date" value="#attributes.date_linked#" /> BETWEEN Link_User_Account_Supervisor.date_start AND COALESCE(Link_User_Account_Supervisor.date_end, #attributes.date_linked#)
+	AND <cfqueryparam cfsqltype="cf_sql_date" value="#attributes.date_linked#" /> BETWEEN Employee.hire_date AND COALESCE(Employee.turnover_date, #attributes.date_linked#)
 <cfelseif isdefined("attributes.start_date") AND isdefined("attributes.end_date")>/*this is the goal-post scenario*/
 	AND Link_User_Account_Supervisor.date_start < #attributes.end_date#
 	AND COALESCE(Link_User_Account_Supervisor.date_end, #dateadd("d", 1, attributes.start_date)#) > #attributes.start_date#
