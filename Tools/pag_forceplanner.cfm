@@ -85,7 +85,7 @@
 					</td>
 				</cfloop>
 					<td class="number">
-						<cfif variables.total_requested><cfset variables.total_capacity=requested_sum/variables.total_requested*100><cfelse><cfset variables.total_capacity=0></cfif>
+						<cfif variables.total_requested><cfset variables.total_capacity=variables.requested_sum/variables.total_requested*100><cfelse><cfset variables.total_capacity=0></cfif>
 						#decimalformat(variables.total_capacity)#%
 					</td>
 					<td class="number">
@@ -102,7 +102,7 @@
 <cfif variables.show_submit_button>
 	<input type="hidden" name="force_month" value="#attributes.force_month#" />
 	<input type="hidden" name="force_year" value="#attributes.force_year#" />
-	<input type="hidden" name="prospective_tasks" value="#valuelist(get_prospectives.task_id)#" />
+	<input type="hidden" name="prospective_tasks" value="#variables.prospectives_task_id#" />
 	<input type="hidden" name="sum_assigned" id="sum_assigned" value="0" />
 	<input type="button" name="submit_button" value="Assign Tasks" onkeypress="document.forceplanner.submit();" onclick="document.forceplanner.submit();" class="btn btn-danger" />
 	<input type="reset" name="reset" value="Reload Form" class="btn" />

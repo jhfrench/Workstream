@@ -72,12 +72,6 @@
 		<set name="request.pagetitle" value="ForcePlanner"/>
 		<include template="pag_forceplanner.cfm"/>
 	</fuseaction>
-	<fuseaction name="forceplanner_save">
-		<!-- <set name="attributes.object_name" value="Forceplanner"/>
-		<include template="../common_files/act_object_access.cfm"> -->
-		<set name="request.pagetitle" value="ForcePlanner"/>
-		<include template="pag_forceplanner_save.cfm"/>
-	</fuseaction>
 	<fuseaction name="fusedocer">
 		<!-- <set name="attributes.object_name" value="FuseDoc'er"/>
 		<include template="../common_files/act_object_access.cfm"> -->

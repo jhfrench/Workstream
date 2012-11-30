@@ -12,7 +12,7 @@
 	$Log$
 	 || 
  --->
-
+<cfset variables.prospectives_task_id=valuelist(get_prospectives.task_id)>
 <cfset variables.requested_sum=0>
 <cfset variables.total_requested=get_week_days.hours_in_month*get_subordinates.recordcount>
 </cfsilent>
@@ -20,24 +20,17 @@
 <script language="JavaScript">
 var ReleaseRowFields=function(task_id) {
 	"use strict"; //let's avoid tom-foolery in this function
-	
-	switch(task_id) {<cfloop query="get_prospectives">
-	<cfset variables.requested_sum=variables.requested_sum+budget>
-	<cfif comparenocase(fuseaction, "forceplanner_save")>
-	case #task_id#:
-		if ( !$('##accept_'+task_id).is(':checked') ) {
-			if (confirm('This task must be assigned before you can allocate time or modify the due date.\nWould you like to assign it now?')) {
-				document.form_forceplanner.accept_#task_id#.checked=1;<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-				CalculateRowFields(task_id, #variables.user_account_id#);</cfloop>
-			}
-			else {<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-				document.form_forceplanner.t#task_id#_#variables.user_account_id#.blur();</cfloop>
-			}
+	if ( !$('##accept_'+task_id).is(':checked') ) {
+		if (confirm('This task must be assigned before you can allocate time or modify the due date.\nWould you like to assign it now?')) {
+			$('##accept_'+task_id).attr('checked','checked');
+			CalculateRowFields(task_id, 0);
 		}
-		return;
-		break;
-	</cfif>
-	</cfloop>}
+		else {
+			$('##accept_'+task_id).parents('tr').find('input.number').each(function() {
+				$(this).blur();
+			});
+		}
+	}
 }
 
 var CalculateRowFields=function(task_id, user_account_id){
@@ -46,7 +39,7 @@ var CalculateRowFields=function(task_id, user_account_id){
 	//calculate new hours assigned, and hours remaining, for the affected task
 	switch(task_id) {
 		<cfloop query="get_prospectives">
-		case "accept_#task_id#":		
+		case #task_id#:		
 			var task_assigned#task_id#=<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">parseInt(document.form_forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
 			document.form_forceplanner.task_assigned#task_id#.value=task_assigned#task_id#;
 			$('##display_task_assigned#task_id#').text(task_assigned#task_id#);
@@ -62,53 +55,71 @@ var CalculateRowFields=function(task_id, user_account_id){
 	switch(user_account_id) {
 	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 		case #variables.user_account_id#:
-			var sum_#variables.user_account_id#=<cfloop query="get_prospectives">parseInt(document.form_forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
+			var sum_#variables.user_account_id#=<cfloop list="#variables.prospectives_task_id#" index="variables.task_id">parseInt(document.form_forceplanner.t#variables.task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
 			$('##sum_#variables.user_account_id#').text(sum_#variables.user_account_id#);
 		
 			var capacity_#variables.user_account_id#=Math.ceil(sum_#variables.user_account_id#/#get_week_days.hours_in_month#*100);
 			$('##capacity_#variables.user_account_id#').text(capacity_#variables.user_account_id#);
-			
-			var sum_assigned=0;
-			$('.employee_sum').each(function() {
-				sum_assigned+=parseInt( $(this).text(),10 );	
-			});
-			$('##display_sum_assigned').text(sum_assigned);
-			$('##sum_assigned').val(sum_assigned);
-		
-			var sum_remaining=#requested_sum#-sum_assigned;
-			$('##display_sum_remaining').text(sum_remaining);
-		
-			var capacity_assigned=Math.ceil(sum_assigned/#variables.total_requested#*100);
-			$('##capacity_assigned').text(capacity_assigned);
-		
-			var capacity_remaining=Math.ceil(sum_remaining/#variables.total_requested#*100);
-			$('##capacity_remaining').text(capacity_remaining);
 			break;
 	</cfloop>
+		case 0:
+	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
+			var sum_#variables.user_account_id#=<cfloop list="#variables.prospectives_task_id#" index="variables.task_id">parseInt(document.form_forceplanner.t#variables.task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
+			$('##sum_#variables.user_account_id#').text(sum_#variables.user_account_id#);
+		
+			var capacity_#variables.user_account_id#=Math.ceil(sum_#variables.user_account_id#/#get_week_days.hours_in_month#*100);
+			$('##capacity_#variables.user_account_id#').text(capacity_#variables.user_account_id#);
+			break;
+	</cfloop>
+	
+	UpdateSummaryTable();
 	return;
 	}
+}
+
+var UpdateSummaryTable=function() {
+	"use strict"; //let's avoid tom-foolery in this function
+	
+	//update the total amount of assigned workload for all team members
+	var sum_assigned=0;
+	$('.employee_sum').each(function() {
+		sum_assigned+=parseInt( $(this).text(),10 );	
+	});
+	$('##display_sum_assigned').text(sum_assigned);
+	$('##sum_assigned').val(sum_assigned);
+
+	//update remaining team capacity
+	var sum_remaining=#variables.requested_sum#-sum_assigned;
+	$('##display_sum_remaining').text(sum_remaining);
+
+	//update percentage of assigned workload
+	var capacity_assigned=Math.ceil(sum_assigned/#variables.total_requested#*100);
+	$('##capacity_assigned').text(capacity_assigned);
+
+	//update percentage of remaining team capacity
+	var capacity_remaining=Math.ceil(sum_remaining/#variables.total_requested#*100);
+	$('##capacity_remaining').text(capacity_remaining);	
 }
 
 var ReCalculate=function(task_id){
 	"use strict"; //let's avoid tom-foolery in this function
 	switch(task_id) {
-		<cfloop query="get_prospectives">
-		case #task_id#:
+		<cfloop list="#variables.prospectives_task_id#" index="variables.task_id">
+		case #variables.task_id#:
 			if ( $('##accept_'+task_id).is(':checked') ) {
 				//remove read-only attribute from employee hours assignment fields
 				$('##accept_'+task_id).parents('tr').find('input.number').removeAttr('readonly').attr('required','required').each(function() {
 					$(this).val( $(this).attr('data_value') );
 				});
 				//assign default budget for each team member (generally this means giving the task owner all the requested hours)
-				<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-				CalculateRowFields(task_id,#variables.user_account_id#);</cfloop>
+				CalculateRowFields(task_id, 0);
 			}
 			else {
 				//assign checkbox is unchecked, so make employee hours assignment fields read-only and set data_value of field to value of the field, then set value of field to 0
 				$('##accept_'+task_id).parents('tr').find('input.number').attr('readonly','readonly').removeAttr('required').each(function() {
 					$(this).attr( 'data_value', $(this).val() );
-				}).val(0);<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-				CalculateRowFields(task_id,#variables.user_account_id#);</cfloop>
+				}).val(0);
+				CalculateRowFields(task_id, 0);
 			}
 			break;
 		</cfloop>
