@@ -72,10 +72,10 @@ var CalculateRowFields=function(task_id, user_account_id){
 			$('##capacity_#variables.user_account_id#').text(capacity_#variables.user_account_id#);
 			break;
 	</cfloop>
+	}
 	
 	UpdateSummaryTable();
-	return;
-	}
+	return task_id;
 }
 
 var ReCalculate=function(task_id){
