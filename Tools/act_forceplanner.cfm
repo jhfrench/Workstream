@@ -18,15 +18,17 @@
 </cfsilent>
 <cfoutput>
 <script language="JavaScript">
-function ReleaseRowFields(arg, arg1) {
-	switch(arg) {<cfloop query="get_prospectives">
+var ReleaseRowFields=function(task_id) {
+	"use strict"; //let's avoid tom-foolery in this function
+	
+	switch(task_id) {<cfloop query="get_prospectives">
 	<cfset variables.requested_sum=variables.requested_sum+budget>
 	<cfif comparenocase(fuseaction, "forceplanner_save")>
-	case "accept_#task_id#":
-		if ( !$('##'+arg).is(':checked') ) {
+	case #task_id#:
+		if ( !$('##accept_'+task_id).is(':checked') ) {
 			if (confirm('This task must be assigned before you can allocate time or modify the due date.\nWould you like to assign it now?')) {
-				document.form_forceplanner.accept_#task_id#.checked=1;
-				CalculateRowFields(arg, arg1);
+				document.form_forceplanner.accept_#task_id#.checked=1;<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
+				CalculateRowFields(task_id, #variables.user_account_id##);</cfloop>
 			}
 			else {<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 				document.form_forceplanner.t#task_id#_#variables.user_account_id#.blur();</cfloop>
@@ -38,10 +40,10 @@ function ReleaseRowFields(arg, arg1) {
 	</cfloop>}
 }
 
-function CalculateRowFields(task_id, user_account_id){
+var CalculateRowFields=function(task_id, user_account_id){
 	"use strict"; //let's avoid tom-foolery in this function
 	
-	//calculate new hours assigned, and hours remaning, for the affect task
+	//calculate new hours assigned, and hours remaining, for the affected task
 	switch(task_id) {
 		<cfloop query="get_prospectives">
 		case "accept_#task_id#":		
@@ -59,7 +61,7 @@ function CalculateRowFields(task_id, user_account_id){
 	//calculate affected employee's assigned hours, remaining capacity, and update those totals (and capacity used percentages) for the team
 	switch(user_account_id) {
 	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-		case "e_#variables.user_account_id#":
+		case #variables.user_account_id#:
 			var sum_#variables.user_account_id#=<cfloop query="get_prospectives">parseInt(document.form_forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
 			$('##sum_#variables.user_account_id#').text(sum_#variables.user_account_id#);
 		
@@ -71,7 +73,7 @@ function CalculateRowFields(task_id, user_account_id){
 				sum_assigned+=parseInt( $(this).text(),10 );	
 			});
 			$('##display_sum_assigned').text(sum_assigned);
-			$('##sum_assigned').value(sum_assigned);
+			$('##sum_assigned').val(sum_assigned);
 		
 			var sum_remaining=#requested_sum#-sum_assigned;
 			$('##display_sum_remaining').text(sum_remaining);
@@ -87,31 +89,31 @@ function CalculateRowFields(task_id, user_account_id){
 	}
 }
 
-function ReCalculate(arg){
+var ReCalculate=function(task_id){
 	"use strict"; //let's avoid tom-foolery in this function
-	switch(arg) {
+	switch(task_id) {
 		<cfloop query="get_prospectives">
-		case "accept_#task_id#":
-			if ( $('##'+arg).is(':checked') ) {
+		case #task_id#:
+			if ( $('##accept_'+task_id).is(':checked') ) {
 				//remove read-only attribute from employee hours assignment fields
-				$('##'+arg).parents('tr').find('input.number').removeAttr('readonly').attr('required','required').each(function() {
+				$('##accept_'+task_id).parents('tr').find('input.number').removeAttr('readonly').attr('required','required').each(function() {
 					$(this).val( $(this).attr('data_value') );
 				});
 				//assign default budget for each team member (generally this means giving the task owner all the requested hours)
 				<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-				CalculateRowFields(arg,'e_#variables.user_account_id#');</cfloop>
+				CalculateRowFields(task_id,'e_#variables.user_account_id#');</cfloop>
 			}
 			else {
 				//assign checkbox is unchecked, so make employee hours assignment fields read-only and set data_value of field to value of the field, then set value of field to 0
-				$('##'+arg).parents('tr').find('input.number').attr('readonly','readonly').removeAttr('required').each(function() {
+				$('##accept_'+task_id).parents('tr').find('input.number').attr('readonly','readonly').removeAttr('required').each(function() {
 					$(this).attr( 'data_value', $(this).val() );
 				}).val(0);<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-				CalculateRowFields(arg,'e_#variables.user_account_id#');</cfloop>
+				CalculateRowFields(task_id,'e_#variables.user_account_id#');</cfloop>
 			}
 			break;
 		</cfloop>
 	}
-	return arg;
+	return task_id;
 }
 
 //make all the summary columns line up between the two different tables
