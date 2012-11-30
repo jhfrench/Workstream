@@ -163,10 +163,11 @@ function() {
 		}
 	}
 
-	if( $('#login_form').length ) {
-		$('#login_form').show('slow');
+	//on larger screens, show the login form
+	if( $('.js .login_form').length ) {
+		$('.js .login_form').show('slow');
 		if(typeof shake_ind !== 'undefined' && shake_ind) {
-			$('#login_form').effect('shake');
+			$('.js .login_form').effect('shake');
 		}
 	};
 

@@ -70,4 +70,4 @@
 	<em class="lead">
 		This <abbr title="Applied Internet Technologies">AIT</abbr> system is for authorized users only.  By accessing this system you are consenting to complete monitoring with no expectation of privacy.  Unauthorized access or use may subject you to disciplinary action and criminal prosecution.
 	</em>
-	<div id="login_form">
+	<div class="login_form">

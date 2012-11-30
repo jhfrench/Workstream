@@ -35,7 +35,7 @@ footer {
 		cursor:help;
 	}
 
-/*wide screens*/
+/*medium screens (and larger)*/
 @media (min-width: 769px) {
 	footer {
 		bottom: 0px;
@@ -47,12 +47,6 @@ footer {
 	}
 	footer div[class*="span"] {
 		min-height: 0px !important;
-	}
-
-	#login_box {
-        	position: relative;
-        	left:540px;
-		width: 450px;
 	}
 
 	#help_area {
@@ -68,9 +62,16 @@ footer {
 		height: 520px;
 		overflow-y: auto;
 	}
+
+        #login_box {
+                width: 450px;
+        }
+	.js .login_form {
+        	display: none;
+	}
 }
 
-/*medium screens (and larger)*/
+/*wide screens*/
 @media (min-width: 980px) {
 	.nav li.dropdown ul.dropdown-menu li:HOVER ul {
 		display: block; 
@@ -90,9 +91,6 @@ footer {
 
 /*thin screens*/
 @media (max-width: 768px) {
-	#login_box {
-		width: 90%;
-	}
 	#help_area {
 		position: static;
 	}
@@ -108,21 +106,19 @@ footer {
 }
 
 .login_background {
-	background-color: @grayLight;
-	background-image: url(../images/login_splash.jpg);
-	background-repeat: no-repeat;
+	#gradient.directional(@grayDark, @grayLighter, 135deg);
+	padding-bottom: 610px;
 }
 
-div#login_form { 
+div.login_form { 
 	.border-radius(3px);
 	border: solid;
 	border-color: @grayDarker;
 	background-color: @white;
-	opacity: 0.8;
-	display: none;
+	opacity: 0.75;
 }
 
-div#login_form form, #login_form form div.form-actions { 
+div.login_form form, .login_form form div.form-actions { 
 	margin-bottom: 0px;
 }
 
