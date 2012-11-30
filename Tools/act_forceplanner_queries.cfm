@@ -12,11 +12,7 @@
 	$Log$
 	 || 
  --->
-<!--- $isue$ can we just replace variables.temp_date with attributes.date_linked? --->
-<cfscript>
-	attributes.date_linked=createodbcdate("#attributes.force_month#/01/#attributes.force_year#");
-	variables.temp_date=attributes.date_linked;
-</cfscript>
+<cfset attributes.date_linked=createodbcdate("#attributes.force_month#/01/#attributes.force_year#")>
 <cfinclude template="../common_files/qry_get_subordinates.cfm">
 <cfset variables.emp_init_loop=valuelist(get_subordinates.initials)>
 <cfset variables.target_population=listappend(valuelist(get_subordinates.user_account_id), variables.user_identification)>
@@ -29,7 +25,7 @@ SELECT Cross_Tab.previously_assigned, Cross_Tab.disabled_text, Cross_Tab.previou
 	SUM(Cross_Tab.budget#variables.user_account_id#) AS budget#variables.user_account_id#</cfloop>
 FROM
 	(/*top query selects Forceplanner tasks for the selected month*/
-	SELECT ' checked="checked"' AS previously_assigned, '<cfif variables.temp_date LT now()> disabled="disabled"</cfif>' AS disabled_text, 
+	SELECT ' checked="checked"' AS previously_assigned, '<cfif attributes.date_linked LT now()> disabled="disabled"</cfif>' AS disabled_text, 
 		CASE 
 			WHEN Task.status_id IN (9,10) /*on hold, prospective*/ THEN <!--- $issue$ are these the right statii? --->
 				CASE 
@@ -70,7 +66,7 @@ FROM
 		Task.name, Task.budgeted_hours
 	UNION ALL
 	/*bottom query selects tasks that weren't forceplanned for the selected month*/
-	SELECT '' AS previously_assigned, '<cfif variables.temp_date LT now()> disabled="disabled"</cfif>' AS disabled_text,
+	SELECT '' AS previously_assigned, '<cfif attributes.date_linked LT now()> disabled="disabled"</cfif>' AS disabled_text,
 		CASE
 			WHEN Task.status_id IN (9,10) /*on hold, prospective*/ THEN <!--- $issue$ are these the right statii? --->
 				CASE 

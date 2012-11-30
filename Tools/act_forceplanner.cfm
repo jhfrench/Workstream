@@ -101,14 +101,14 @@ var ReCalculate=function(task_id){
 				});
 				//assign default budget for each team member (generally this means giving the task owner all the requested hours)
 				<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-				CalculateRowFields(task_id,'e_#variables.user_account_id#');</cfloop>
+				CalculateRowFields(task_id,#variables.user_account_id#);</cfloop>
 			}
 			else {
 				//assign checkbox is unchecked, so make employee hours assignment fields read-only and set data_value of field to value of the field, then set value of field to 0
 				$('##accept_'+task_id).parents('tr').find('input.number').attr('readonly','readonly').removeAttr('required').each(function() {
 					$(this).attr( 'data_value', $(this).val() );
 				}).val(0);<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-				CalculateRowFields(task_id,'e_#variables.user_account_id#');</cfloop>
+				CalculateRowFields(task_id,#variables.user_account_id#);</cfloop>
 			}
 			break;
 		</cfloop>
