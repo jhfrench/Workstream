@@ -28,7 +28,7 @@ var ReleaseRowFields=function(task_id) {
 		if ( !$('##accept_'+task_id).is(':checked') ) {
 			if (confirm('This task must be assigned before you can allocate time or modify the due date.\nWould you like to assign it now?')) {
 				document.form_forceplanner.accept_#task_id#.checked=1;<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-				CalculateRowFields(task_id, #variables.user_account_id##);</cfloop>
+				CalculateRowFields(task_id, #variables.user_account_id#);</cfloop>
 			}
 			else {<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 				document.form_forceplanner.t#task_id#_#variables.user_account_id#.blur();</cfloop>
