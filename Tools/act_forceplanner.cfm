@@ -32,7 +32,7 @@ function ReleaseRowFields(arg, arg1) {
 				CalculateRowFields(arg, arg1);
 			}
 			else {<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-				document.form_forceplanner.t#task_id#_#variables.user_account_id#.blur();<cfset "task_assign#task_id#"=0></cfloop>
+				document.form_forceplanner.t#task_id#_#variables.user_account_id#.blur();</cfloop>
 			}
 		}
 		return;
@@ -87,17 +87,23 @@ function CalculateRowFields(arg, arg1){
 
 <cfset variables.task_processed="">
 function ReCalculate(arg){
+	"use strict"; //let's avoid tom-foolery in this function
+	console.log( arg );
 	switch(arg) {
 		<cfloop query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
 		case "accept_#task_id#":
 			if ($('##accept_#task_id#').attr('checked')==='undefined') {
-				//assign checkbox is unchecked, so make employee hours assignment fields read-only and set value of field to 0
-				$('##'+arg).parents('tr').find('input.number').attr('readonly','readonly').val(0);<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
+				//assign checkbox is unchecked, so make employee hours assignment fields read-only and set data_value of field to value of the field, then set value of field to 0
+				$('##'+arg).parents('tr').find('input.number').attr('readonly','readonly').each(function() {
+					$(this).attr( 'data_value', $(this).val() );
+				}).val(0);<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 				CalculateRowFields(arg,'e_#variables.user_account_id#');</cfloop>
 			}
 			else {
 				//remove read-only attribute from employee hours assignment fields
-				$('##'+arg).parents('tr').find('input.number').removeAttr('readonly');
+				$('##'+arg).parents('tr').find('input.number').removeAttr('readonly').each(function() {
+					$(this).val( $(this).attr('data_value') );
+				});
 				//assign default budget for each team member (generally this means giving the task owner all the requested hours)
 				<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 				document.form_forceplanner.t#task_id#_#variables.user_account_id#.value=#evaluate("budget#variables.user_account_id#")#;
@@ -106,7 +112,7 @@ function ReCalculate(arg){
 			break;
 		</cfif></cfloop>
 	}
-	return;
+	return arg;
 }
 
 var adjustColumnWidths=function() {
