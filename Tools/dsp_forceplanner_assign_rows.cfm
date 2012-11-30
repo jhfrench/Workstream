@@ -12,14 +12,9 @@
 	$Log$
 	 || 
  --->
-<cfset variables.task_processed="">
-<cfset variables.processed_counter=0>
 </cfsilent>
 <cfif get_prospectives.recordcount>
 <cfoutput query="get_prospectives">
-<cfif NOT listFind(variables.task_processed,task_id)>
-<cfset variables.processed_counter=incrementvalue(variables.processed_counter)>
-<cfset variables.task_processed=listappend(variables.task_processed,task_id)>
 	<tr>
 		<td>
 			#billable#
@@ -69,10 +64,9 @@
 			<input type="hidden" name="task_status#task_id#" value="#previous_entry#">
 		</td>
 	</tr>
-</cfif>
-<cfif currentrow NEQ recordcount AND NOT currentrow MOD 15>
-	<cfinclude template="dsp_forceplanner_main_head.cfm">
-</cfif>
+	<cfif currentrow NEQ recordcount AND NOT currentrow MOD 15>
+		<cfinclude template="dsp_forceplanner_main_head.cfm">
+	</cfif>
 </cfoutput>
 <cfelse>
 	<tr class="error">

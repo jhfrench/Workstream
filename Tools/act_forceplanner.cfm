@@ -44,14 +44,17 @@ function ReleaseRowFields(arg, arg1) {
 
 <cfset variables.task_processed="">
 function CalculateRowFields(arg, arg1){
+	"use strict"; //let's avoid tom-foolery in this function
 	switch(arg) {
 		<cfloop query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
 		case "accept_#task_id#":		
 			var task_assigned#task_id#=<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">parseInt(document.form_forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
 			document.form_forceplanner.task_assigned#task_id#.value=task_assigned#task_id#;
+			$('##display_task_assigned#task_id#').text(task_assigned#task_id#);
 		
 			var task_remainder#task_id#=#budget#-task_assigned#task_id#;
 			document.form_forceplanner.task_remainder#task_id#.value=task_remainder#task_id#;
+			$('##display_task_remainder#task_id#').text(task_remainder#task_id#);
 			break;
 		</cfif></cfloop>
 	}
@@ -88,8 +91,6 @@ function CalculateRowFields(arg, arg1){
 <cfset variables.task_processed="">
 function ReCalculate(arg){
 	"use strict"; //let's avoid tom-foolery in this function
-	console.log( arg );
-	console.log( $('##'+arg).attr('checked') );
 	switch(arg) {
 		<cfloop query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
 		case "accept_#task_id#":
@@ -100,7 +101,6 @@ function ReCalculate(arg){
 				});
 				//assign default budget for each team member (generally this means giving the task owner all the requested hours)
 				<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-				document.form_forceplanner.t#task_id#_#variables.user_account_id#.value=#evaluate("budget#variables.user_account_id#")#;
 				CalculateRowFields(arg,'e_#variables.user_account_id#');</cfloop>
 			}
 			else {
