@@ -61,7 +61,7 @@
 			<cfset variables.task_remainder=budget-variables.task_assign>
 			<span id="display_task_remainder#task_id#">#variables.task_remainder#</span>
 			<input type="hidden" name="task_remainder#task_id#" id="task_remainder#task_id#" data_value="#variables.task_remainder#" value="#variables.task_remainder#" />
-			<input type="hidden" name="task_status#task_id#" value="#previous_entry#">
+			<input type="hidden" name="task_status#task_id#" value="#previous_entry#" />
 		</td>
 	</tr>
 	<cfif currentrow NEQ recordcount AND NOT currentrow MOD 15>

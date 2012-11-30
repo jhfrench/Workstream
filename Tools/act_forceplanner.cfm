@@ -15,14 +15,11 @@
 
 <cfset variables.requested_sum=0>
 <cfset variables.total_requested=get_week_days.hours_in_month*get_subordinates.recordcount>
-<cfset variables.task_processed="">
 </cfsilent>
 <cfoutput>
 <script language="JavaScript">
 function ReleaseRowFields(arg, arg1) {
 	switch(arg) {<cfloop query="get_prospectives">
-	<cfif NOT listFind(variables.task_processed,task_id)>
-	<cfset variables.task_processed=listappend(variables.task_processed,task_id)>
 	<cfset variables.requested_sum=variables.requested_sum+budget>
 	<cfif comparenocase(fuseaction, "forceplanner_save")>
 	case "accept_#task_id#":
@@ -38,15 +35,13 @@ function ReleaseRowFields(arg, arg1) {
 		return;
 		break;
 	</cfif>
-	</cfif>
 	</cfloop>}
 }
 
-<cfset variables.task_processed="">
 function CalculateRowFields(arg, arg1){
 	"use strict"; //let's avoid tom-foolery in this function
 	switch(arg) {
-		<cfloop query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
+		<cfloop query="get_prospectives">
 		case "accept_#task_id#":		
 			var task_assigned#task_id#=<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">parseInt(document.form_forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
 			document.form_forceplanner.task_assigned#task_id#.value=task_assigned#task_id#;
@@ -56,43 +51,40 @@ function CalculateRowFields(arg, arg1){
 			document.form_forceplanner.task_remainder#task_id#.value=task_remainder#task_id#;
 			$('##display_task_remainder#task_id#').text(task_remainder#task_id#);
 			break;
-		</cfif></cfloop>
+		</cfloop>
 	}
 	
 	switch(arg1) {
 	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-		<cfset variables.task_processed="">
 		case "e_#variables.user_account_id#":
-			var sum_#variables.user_account_id#=<cfloop query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>parseInt(document.form_forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfif></cfloop>0;
-
-			document.form_forceplanner.sum_#variables.user_account_id#.value=sum_#variables.user_account_id#;
+			var sum_#variables.user_account_id#=<cfloop query="get_prospectives">parseInt(document.form_forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
+			$('##sum_#variables.user_account_id#').text(sum_#variables.user_account_id#);
 		
-			var capacity_#variables.user_account_id#=Math.ceil(sum_#variables.user_account_id#/#get_week_days.hours_in_month#*100) + '%';
-			document.form_forceplanner.capacity_#variables.user_account_id#.value=capacity_#variables.user_account_id#;
+			var capacity_#variables.user_account_id#=Math.ceil(sum_#variables.user_account_id#/#get_week_days.hours_in_month#*100);
+			$('##capacity_#variables.user_account_id#').text(capacity_#variables.user_account_id#);
 		
 			var sum_assigned=<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">parseInt(document.form_forceplanner.sum_#variables.user_account_id#.value,10) + </cfloop>0;
+			$('##sum_assigned').text(sum_assigned);
 			document.form_forceplanner.sum_assigned.value=sum_assigned;
 		
 			var sum_remaining=#requested_sum#-sum_assigned;
-			document.form_forceplanner.sum_remaining.value=sum_remaining;
+			$('##sum_remaining').text(sum_remaining);
 		
-			var capacity_assigned=Math.ceil(sum_assigned/#variables.total_requested#*100) + '%';
-			document.form_forceplanner.capacity_assigned.value=capacity_assigned;
+			var capacity_assigned=Math.ceil(sum_assigned/#variables.total_requested#*100);
+			$('##capacity_assigned').text(capacity_assigned);
 		
-			var capacity_remaining=Math.ceil(sum_remaining/#variables.total_requested#*100) + '%';
-			document.form_forceplanner.capacity_remaining.value=capacity_remaining;
-
+			var capacity_remaining=Math.ceil(sum_remaining/#variables.total_requested#*100);
+			$('##capacity_remaining').text(capacity_remaining);
 			break;
 	</cfloop>
 	return;
 	}
 }
 
-<cfset variables.task_processed="">
 function ReCalculate(arg){
 	"use strict"; //let's avoid tom-foolery in this function
 	switch(arg) {
-		<cfloop query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
+		<cfloop query="get_prospectives">
 		case "accept_#task_id#":
 			if ( $('##'+arg).is(':checked') ) {
 				//remove read-only attribute from employee hours assignment fields
@@ -111,7 +103,7 @@ function ReCalculate(arg){
 				CalculateRowFields(arg,'e_#variables.user_account_id#');</cfloop>
 			}
 			break;
-		</cfif></cfloop>
+		</cfloop>
 	}
 	return arg;
 }
