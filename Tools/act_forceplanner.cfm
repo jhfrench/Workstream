@@ -23,10 +23,11 @@ var ReleaseRowFields=function(task_id) {
 	if ( !$('##accept_'+task_id).is(':checked') ) {
 		if (confirm('This task must be assigned before you can allocate time or modify the due date.\nWould you like to assign it now?')) {
 			$('##accept_'+task_id).attr('checked','checked');
+			ReleaseRow(task_id);
 			CalculateRowFields(task_id, 0);
 		}
 		else {
-			$('##accept_'+task_id).parents('tr').find('input.number').each(function() {
+			$('.task_id_'+task_id).each(function() {
 				$(this).blur();
 			});
 		}
@@ -77,6 +78,43 @@ var CalculateRowFields=function(task_id, user_account_id){
 	}
 }
 
+var ReCalculate=function(task_id){
+	"use strict"; //let's avoid tom-foolery in this function
+
+	if ( $('##accept_'+task_id).is(':checked') ) {
+		ReleaseRow(task_id);
+		//assign default budget for each team member (generally this means giving the task owner all the requested hours)
+		CalculateRowFields(task_id, 0);
+	}
+	else {
+		//assign checkbox is unchecked, so make employee hours assignment fields read-only and set data_value of field to value of the field, then set value of field to 0
+		LockRow(task_id);
+		CalculateRowFields(task_id, 0);
+	};
+
+	return task_id;
+}
+
+var ReleaseRow=function(task_id){
+	"use strict"; //let's avoid tom-foolery in this function
+
+	//remove read-only attribute from employee hours assignment fields
+	$('.task_id_'+task_id).removeAttr('readonly').attr('required','required').each(function() {
+		$(this).val( $(this).attr('data_value') );
+	});
+	return task_id;
+}
+
+var LockRow=function(task_id){
+	"use strict"; //let's avoid tom-foolery in this function
+
+	//assign checkbox is unchecked, so make employee hours assignment fields read-only and set data_value of field to value of the field, then set value of field to 0
+	$('.task_id_'+task_id).attr('readonly','readonly').removeAttr('required').each(function() {
+		$(this).attr( 'data_value', $(this).val() );
+	}).val(0);
+	return task_id;
+}
+
 var UpdateSummaryTable=function() {
 	"use strict"; //let's avoid tom-foolery in this function
 	
@@ -99,32 +137,6 @@ var UpdateSummaryTable=function() {
 	//update percentage of remaining team capacity
 	var capacity_remaining=Math.ceil(sum_remaining/#variables.total_requested#*100);
 	$('##capacity_remaining').text(capacity_remaining);	
-}
-
-var ReCalculate=function(task_id){
-	"use strict"; //let's avoid tom-foolery in this function
-	switch(task_id) {
-		<cfloop list="#variables.prospectives_task_id#" index="variables.task_id">
-		case #variables.task_id#:
-			if ( $('##accept_'+task_id).is(':checked') ) {
-				//remove read-only attribute from employee hours assignment fields
-				$('##accept_'+task_id).parents('tr').find('input.number').removeAttr('readonly').attr('required','required').each(function() {
-					$(this).val( $(this).attr('data_value') );
-				});
-				//assign default budget for each team member (generally this means giving the task owner all the requested hours)
-				CalculateRowFields(task_id, 0);
-			}
-			else {
-				//assign checkbox is unchecked, so make employee hours assignment fields read-only and set data_value of field to value of the field, then set value of field to 0
-				$('##accept_'+task_id).parents('tr').find('input.number').attr('readonly','readonly').removeAttr('required').each(function() {
-					$(this).attr( 'data_value', $(this).val() );
-				}).val(0);
-				CalculateRowFields(task_id, 0);
-			}
-			break;
-		</cfloop>
-	}
-	return task_id;
 }
 
 //make all the summary columns line up between the two different tables
