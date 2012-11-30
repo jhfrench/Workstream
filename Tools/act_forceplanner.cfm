@@ -93,14 +93,7 @@ function ReCalculate(arg){
 	switch(arg) {
 		<cfloop query="get_prospectives"><cfif NOT listFind(variables.task_processed,task_id)><cfset variables.task_processed=listappend(variables.task_processed,task_id)>
 		case "accept_#task_id#":
-			if ( $('##'+arg).attr('checked')==='undefined' ) {
-				//assign checkbox is unchecked, so make employee hours assignment fields read-only and set data_value of field to value of the field, then set value of field to 0
-				$('##'+arg).parents('tr').find('input.number').attr('readonly','readonly').each(function() {
-					$(this).attr( 'data_value', $(this).val() );
-				}).val(0);<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-				CalculateRowFields(arg,'e_#variables.user_account_id#');</cfloop>
-			}
-			else {
+			if ( $('##'+arg).is(':checked') ) {
 				//remove read-only attribute from employee hours assignment fields
 				$('##'+arg).parents('tr').find('input.number').removeAttr('readonly').each(function() {
 					$(this).val( $(this).attr('data_value') );
@@ -108,6 +101,13 @@ function ReCalculate(arg){
 				//assign default budget for each team member (generally this means giving the task owner all the requested hours)
 				<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 				document.form_forceplanner.t#task_id#_#variables.user_account_id#.value=#evaluate("budget#variables.user_account_id#")#;
+				CalculateRowFields(arg,'e_#variables.user_account_id#');</cfloop>
+			}
+			else {
+				//assign checkbox is unchecked, so make employee hours assignment fields read-only and set data_value of field to value of the field, then set value of field to 0
+				$('##'+arg).parents('tr').find('input.number').attr('readonly','readonly').each(function() {
+					$(this).attr( 'data_value', $(this).val() );
+				}).val(0);<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 				CalculateRowFields(arg,'e_#variables.user_account_id#');</cfloop>
 			}
 			break;
