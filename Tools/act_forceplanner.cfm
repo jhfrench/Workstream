@@ -97,7 +97,7 @@ function ReCalculate(arg){
 			}
 			else {
 				//remove read-only attribute from employee hours assignment fields
-				$('##'+arg).parents('tr').find('input.number').attr('readonly','');
+				$('##'+arg).parents('tr').find('input.number').removeAttr('readonly');
 				//assign default budget for each team member (generally this means giving the task owner all the requested hours)
 				<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 				document.form_forceplanner.t#task_id#_#variables.user_account_id#.value=#evaluate("budget#variables.user_account_id#")#;

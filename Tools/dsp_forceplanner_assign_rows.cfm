@@ -39,6 +39,7 @@
 		<td>
 			#billable#
 		</td>
+	<cfset variables.task_assign=0>
 	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 		<td class="number">
 			<cfset variables.employee_budget=evaluate("budget#variables.user_account_id#")>
@@ -47,11 +48,10 @@
 			<cfparam name="sum_#variables.user_account_id#" default="0">
 			<cfif len(previously_assigned)>
 				<cfset "sum_#variables.user_account_id#"=variables.employee_budget+evaluate("sum_#variables.user_account_id#")>
-				<cfset "task_assign#task_id#"=evaluate("task_assign#task_id#")+variables.current_budget>
+				<cfset variables.task_assign=variables.task_assign+variables.current_budget>
 			<cfelse>
 				<cfset variables.current_budget=0>
 			</cfif>
-			<!--- ,'t#task_id#_#variables.user_account_id#' --->
 			<input type="number" name="t#task_id#_#variables.user_account_id#" id="t#task_id#_#variables.user_account_id#" step="1" min="1" onchange="CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');" onfocus="ReleaseRowFields('accept_#task_id#');" data_value="#variables.employee_budget#" value="#variables.current_budget#" class="number span8" required="required" />
 		</td>
 	</cfloop>
@@ -59,10 +59,10 @@
 			#budget#
 		</td>
 		<td class="number">
-			<input type="text" name="task_assigned#task_id#" value="#evaluate('task_assign#task_id#')#" readonly="readonly" class="number span8" />
+			<input type="text" name="task_assigned#task_id#" value="#variables.task_assign#" readonly="readonly" class="number span8" />
 		</td>
 		<td class="number">
-			<cfset "task_remainder#task_id#"=budget-#evaluate("task_assign#task_id#")#>
+			<cfset "task_remainder#task_id#"=budget-variables.task_assign>
 			<input type="text" name="task_remainder#task_id#" value="#evaluate('task_remainder#task_id#')#" readonly="readonly" class="number span8" />
 			<input type="hidden" name="task_status#task_id#" value="#previous_entry#">
 		</td>
