@@ -16,6 +16,9 @@
 <cfparam name="attributes.force_year" default="#year(now())#">
 <cfset variables.show_submit_button=1>
 </cfsilent>
+<cfif isdefined("attributes.")>
+	<cfinclude template="act_forceplanner_save.cfm">
+</cfif>
 <cfinclude template="act_forceplanner_queries.cfm">
 <cfinclude template="act_forceplanner.cfm">
 <cfoutput>
@@ -29,6 +32,9 @@
 <div class="row-fluid">
 	<div class="span4">
 	<cfif variables.show_submit_button>
+		<input type="hidden" name="prospective_tasks" value="#valuelist(get_prospectives.task_id)#" />
+		<input type="hidden" name="force_year" value="#attributes.force_year#" />
+		<input type="hidden" name="force_month" value="#attributes.force_month#" />
 		<input type="button" name="submit_button" value="Assign Tasks" onkeypress="document.forceplanner.submit();" onclick="document.forceplanner.submit();" class="btn btn-danger" /><br />
 		<input type="reset" name="reset" value="Reload Form" class="btn" />
 	</cfif>
@@ -62,8 +68,6 @@
 					</td>
 					<td class="number">
 						<input type="text" name="sum_remaining" value="0" readonly="readonly" class="number span8" />
-						<input type="hidden" name="force_year" value="#attributes.force_year#" />
-						<input type="hidden" name="force_month" value="#attributes.force_month#" />
 					</td>
 				</tr>
 				<tr>

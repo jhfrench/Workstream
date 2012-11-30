@@ -1,5 +1,5 @@
 
-<!--Tools/qry_get_last_forecast.cfm
+<!--Tools/qry_get_forecast.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -12,7 +12,7 @@
 	$Log$
 	 || 
  --->
-<cfquery name="get_last_forecast" datasource="#application.datasources.main#">
+<cfquery name="get_forecast" datasource="#application.datasources.main#">
 SELECT forecast_id
 FROM Forecast
 WHERE active_ind=1
@@ -20,5 +20,5 @@ WHERE active_ind=1
 	AND forecast_year=#attributes.force_year#
 	AND approved_by=#variables.user_identification#
 </cfquery>
+<cfset variables.forecast_id=get_forecast.forecast_id>
 </cfsilent>
-

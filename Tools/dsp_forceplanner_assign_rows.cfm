@@ -34,19 +34,25 @@
 			<input type="date" name="task_due_date#task_id#" id="task_due_date#task_id#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" value="#dateformat(due_date, 'yyyy-mm-dd')#" maxlength="10" required="required" onfocus="ReleaseRowFields('accept_#task_id#');" class="span8 date" />
 		</td>
 		<td>
-			<input type="checkbox" name="accept_#task_id#" id="accept_#task_id#" value="#task_id#"#previously_assigned# onclick="ReCalculate('accept_#task_id#');" onkeydown="ReCalculate('accept_#task_id#');" />
+			<input type="checkbox" name="accept_task" id="accept_#task_id#" value="#task_id#"#previously_assigned# onchange="ReCalculate('accept_#task_id#');" />
 		</td>
 		<td>
 			#billable#
 		</td>
 	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 		<td class="number">
-			<cfset current_budget=replace(decimalformat(#evaluate("budget#variables.user_account_id#")#), ",", "", "all")>
-			<cfif listgetat(current_budget,2,".") EQ 0><cfset current_budget=numberformat(current_budget)></cfif>
+			<cfset variables.employee_budget=evaluate("budget#variables.user_account_id#")>
+			<cfset variables.current_budget=replace(decimalformat(variables.employee_budget), ",", "", "all")>
+			<cfif listgetat(variables.current_budget,2,".") EQ 0><cfset variables.current_budget=numberformat(variables.current_budget)></cfif>
 			<cfparam name="sum_#variables.user_account_id#" default="0">
-			<cfif len(previously_assigned)><cfset "sum_#variables.user_account_id#"=#evaluate("budget#variables.user_account_id#")#+#evaluate("sum_#variables.user_account_id#")#><cfset "task_assign#task_id#"=#evaluate("task_assign#task_id#")#+current_budget><cfelse><cfset current_budget=0></cfif>
+			<cfif len(previously_assigned)>
+				<cfset "sum_#variables.user_account_id#"=variables.employee_budget+evaluate("sum_#variables.user_account_id#")>
+				<cfset "task_assign#task_id#"=evaluate("task_assign#task_id#")+variables.current_budget>
+			<cfelse>
+				<cfset variables.current_budget=0>
+			</cfif>
 			<!--- ,'t#task_id#_#variables.user_account_id#' --->
-			<input type="number" name="t#task_id#_#variables.user_account_id#" id="t#task_id#_#variables.user_account_id#" step="1" min="1" onchange="CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');" onfocus="ReleaseRowFields('accept_#task_id#');" value="#current_budget#" class="number span8" required="required" />
+			<input type="number" name="t#task_id#_#variables.user_account_id#" id="t#task_id#_#variables.user_account_id#" step="1" min="1" onchange="CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');" onfocus="ReleaseRowFields('accept_#task_id#');" data_value="#variables.employee_budget#" value="#variables.current_budget#" class="number span8" required="required" />
 		</td>
 	</cfloop>
 		<td class="number">

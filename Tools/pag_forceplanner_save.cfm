@@ -18,6 +18,7 @@
 </cfsilent>
 <cfinclude template="act_forceplanner_queries.cfm">
 <cfinclude template="act_forceplanner_save.cfm">
+<cfset variables.colspan=get_subordinates.recordcount+9>
 <cfinclude template="act_forceplanner.cfm">
 <cfform name="forceplanner" action="index.cfm?fuseaction=Tools.forceplanner_save" method="POST">
 <table align="center" border="0" cellpadding="1" cellspacing="0" width="100%">
