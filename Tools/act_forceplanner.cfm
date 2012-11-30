@@ -38,9 +38,11 @@ function ReleaseRowFields(arg, arg1) {
 	</cfloop>}
 }
 
-function CalculateRowFields(arg, arg1){
+function CalculateRowFields(task_id, user_account_id){
 	"use strict"; //let's avoid tom-foolery in this function
-	switch(arg) {
+	
+	//calculate new hours assigned, and hours remaning, for the affect task
+	switch(task_id) {
 		<cfloop query="get_prospectives">
 		case "accept_#task_id#":		
 			var task_assigned#task_id#=<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">parseInt(document.form_forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
@@ -54,7 +56,8 @@ function CalculateRowFields(arg, arg1){
 		</cfloop>
 	}
 	
-	switch(arg1) {
+	//calculate affected employee's assigned hours, remaining capacity, and update those totals (and capacity used percentages) for the team
+	switch(user_account_id) {
 	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 		case "e_#variables.user_account_id#":
 			var sum_#variables.user_account_id#=<cfloop query="get_prospectives">parseInt(document.form_forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
@@ -62,13 +65,16 @@ function CalculateRowFields(arg, arg1){
 		
 			var capacity_#variables.user_account_id#=Math.ceil(sum_#variables.user_account_id#/#get_week_days.hours_in_month#*100);
 			$('##capacity_#variables.user_account_id#').text(capacity_#variables.user_account_id#);
-		
-			var sum_assigned=<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">parseInt(document.form_forceplanner.sum_#variables.user_account_id#.value,10) + </cfloop>0;
-			$('##sum_assigned').text(sum_assigned);
-			document.form_forceplanner.sum_assigned.value=sum_assigned;
+			
+			var sum_assigned=0;
+			$('.employee_sum').each(function() {
+				sum_assigned+=parseInt( $(this).text(),10 );	
+			});
+			$('##display_sum_assigned').text(sum_assigned);
+			$('##sum_assigned').value(sum_assigned);
 		
 			var sum_remaining=#requested_sum#-sum_assigned;
-			$('##sum_remaining').text(sum_remaining);
+			$('##display_sum_remaining').text(sum_remaining);
 		
 			var capacity_assigned=Math.ceil(sum_assigned/#variables.total_requested#*100);
 			$('##capacity_assigned').text(capacity_assigned);
@@ -119,7 +125,7 @@ var adjustColumnWidths=function() {
 
 <cfsavecontent variable="variables.forceplanner_subordinates">
 	<cfloop query="get_subordinates">
-		<th class="th_#user_account_id#"><abbr title="#first_name# #last_name#">#initials# <a href="javascript:list_to_employee();" title="View employee's details"><i class="icon-user"></i></a></abbr></th>
+		<th class="th_#user_account_id#"><abbr title="#first_name# #last_name#">#initials#</abbr> <a href="javascript:list_to_employee();" title="View employee's details"><i class="icon-user"></i></a></th>
 	</cfloop>
 </cfsavecontent>
 </cfoutput>

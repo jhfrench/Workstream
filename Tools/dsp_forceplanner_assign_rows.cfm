@@ -47,7 +47,7 @@
 			<cfelse>
 				<cfset variables.current_budget=0>
 			</cfif>
-			<input type="number" name="t#task_id#_#variables.user_account_id#" id="t#task_id#_#variables.user_account_id#" step="1" min="1" onchange="CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');" onfocus="ReleaseRowFields('accept_#task_id#');" data_value="#variables.employee_budget#" value="#variables.current_budget#" class="number span8" required="required" />
+			<input type="number" name="t#task_id#_#variables.user_account_id#" id="t#task_id#_#variables.user_account_id#" step="1" min="1" onchange="CalculateRowFields('accept_#task_id#','e_#variables.user_account_id#');" onfocus="ReleaseRowFields('accept_#task_id#');" data_value="#variables.employee_budget#" value="#variables.current_budget#"#previously_assigned# class="number span8" required="required" />
 		</td>
 	</cfloop>
 		<td class="number">
