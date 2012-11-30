@@ -94,7 +94,7 @@ function ReCalculate(arg){
 		case "accept_#task_id#":
 			if ( $('##'+arg).is(':checked') ) {
 				//remove read-only attribute from employee hours assignment fields
-				$('##'+arg).parents('tr').find('input.number').removeAttr('readonly').each(function() {
+				$('##'+arg).parents('tr').find('input.number').removeAttr('readonly').attr('required','required')each(function() {
 					$(this).val( $(this).attr('data_value') );
 				});
 				//assign default budget for each team member (generally this means giving the task owner all the requested hours)
@@ -103,7 +103,7 @@ function ReCalculate(arg){
 			}
 			else {
 				//assign checkbox is unchecked, so make employee hours assignment fields read-only and set data_value of field to value of the field, then set value of field to 0
-				$('##'+arg).parents('tr').find('input.number').attr('readonly','readonly').each(function() {
+				$('##'+arg).parents('tr').find('input.number').attr('readonly','readonly').removeAttr('required').each(function() {
 					$(this).attr( 'data_value', $(this).val() );
 				}).val(0);<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 				CalculateRowFields(arg,'e_#variables.user_account_id#');</cfloop>
@@ -114,6 +114,7 @@ function ReCalculate(arg){
 	return arg;
 }
 
+//make all the summary columns line up between the two different tables
 var adjustColumnWidths=function() {
 <cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 	$('th.th_#variables.user_account_id#').width( $('th.th_#variables.user_account_id#').width() );</cfloop>

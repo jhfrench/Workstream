@@ -23,13 +23,13 @@
 
 <!--- $issue$: need to include task priority --->
 <cfquery name="get_prospectives" datasource="#application.datasources.main#">
-SELECT Cross_Tab.previously_assigned, Cross_Tab.previous_entry, Cross_Tab.task_id, 
+SELECT Cross_Tab.previously_assigned, Cross_Tab.disabled_text, Cross_Tab.previous_entry, Cross_Tab.task_id, 
 	LEFT(Cross_Tab.project,50) AS project, Cross_Tab.project_id, Cross_Tab.due_date,
 	LEFT(Cross_Tab.task_name,65) AS task_name, Cross_Tab.billable, Cross_Tab.budget<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">,
 	SUM(Cross_Tab.budget#variables.user_account_id#) AS budget#variables.user_account_id#</cfloop>
 FROM
 	(/*top query selects Forceplanner tasks for the selected month*/
-	SELECT ' checked="checked"' AS previously_assigned, 
+	SELECT ' checked="checked"' AS previously_assigned, '<cfif variables.temp_date LT now()> disabled="disabled"</cfif>' AS disabled_text, 
 		CASE 
 			WHEN Task.status_id IN (9,10) /*on hold, prospective*/ THEN <!--- $issue$ are these the right statii? --->
 				CASE 
@@ -70,7 +70,7 @@ FROM
 		Task.name, Task.budgeted_hours
 	UNION ALL
 	/*bottom query selects tasks that weren't forceplanned for the selected month*/
-	SELECT '<cfif variables.temp_date LT now()> disabled="disabled"</cfif>' AS previously_assigned,
+	SELECT '' AS previously_assigned, '<cfif variables.temp_date LT now()> disabled="disabled"</cfif>' AS disabled_text,
 		CASE
 			WHEN Task.status_id IN (9,10) /*on hold, prospective*/ THEN <!--- $issue$ are these the right statii? --->
 				CASE 
@@ -118,7 +118,7 @@ FROM
 		Project.billable_type_id, Task.status_id, Task.due_date, 
 		Task.name, Task.budgeted_hours
 ) AS Cross_Tab
-GROUP BY Cross_Tab.previously_assigned, Cross_Tab.previous_entry, Cross_Tab.task_id, 
+GROUP BY Cross_Tab.previously_assigned, Cross_Tab.disabled_text, Cross_Tab.previous_entry, Cross_Tab.task_id, 
 	Cross_Tab.project, Cross_Tab.project_id, Cross_Tab.due_date, 
 	Cross_Tab.task_name, Cross_Tab.budget, Cross_Tab.billable
 ORDER BY Cross_Tab.billable, LEFT(Cross_Tab.project,50), Cross_Tab.due_date, LEFT(Cross_Tab.task_name,65), Cross_Tab.previously_assigned DESC
