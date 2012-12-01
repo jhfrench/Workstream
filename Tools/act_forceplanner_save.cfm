@@ -29,7 +29,7 @@
 					FROM Time_Entry
 					WHERE Time_Entry.active_ind=1
 						AND task_id=#variables.task_id#
-						AND date < '#month(now())#/1/#year(now())#'
+						AND created_date < '#month(now())#/1/#year(now())#'
 				)+#evaluate("attributes.task_assigned#variables.task_id#")#</cfif>
 			WHERE task_id=#variables.task_id#;
 			

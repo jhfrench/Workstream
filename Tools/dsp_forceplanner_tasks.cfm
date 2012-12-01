@@ -23,7 +23,10 @@
 		</table>
 	</cfif>
 <table class="table table-striped table-bordered table-condensed">
-	<caption><h2><a href="javascript:list_to_project('#project_id#');" title="View project details">#project_name#</a> Tasks <small>#billable_type_description# <label for="toggle_all_#variables.project_id#"><input type="checkbox" name="toggle_all_#variables.project_id#" id="toggle_all_#variables.project_id#" value="#variables.project_id#" onchange="ToggleProject(#variables.project_id#);" /></label></small></h2></caption>
+	<caption>
+		<h2><a href="javascript:list_to_project('#project_id#');" title="View project details">#project_name#</a> Tasks <small>#billable_type_description#</small></h2>
+		<label for="toggle_all_#variables.project_id#" title="Toggle all tasks for this project"><input type="checkbox" name="toggle_all_#variables.project_id#" id="toggle_all_#variables.project_id#" value="#variables.project_id#" onchange="ToggleProject(#variables.project_id#);" /> Toggle</label>
+	</caption>
 	<cfinclude template="dsp_forceplanner_main_head.cfm">
 </cfif>
 	<tr>
