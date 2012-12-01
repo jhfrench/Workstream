@@ -38,40 +38,38 @@ var CalculateRowFields=function(task_id, user_account_id){
 	"use strict"; //let's avoid tom-foolery in this function
 	
 	//calculate new hours assigned, and hours remaining, for the affected task
-	switch(task_id) {
-		<cfloop query="get_prospectives">
-		case #task_id#:		
-			var task_assigned#task_id#=<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">parseInt(document.form_forceplanner.t#task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
-			document.form_forceplanner.task_assigned#task_id#.value=task_assigned#task_id#;
-			$('##display_task_assigned#task_id#').text(task_assigned#task_id#);
+	var task_total=0;
+	$('.task_id_'+task_id).each(function(){
+		task_total+=$(this).val();	
+	});
+	$('##task_assigned#task_id#').value(task_total);
+	$('##display_task_assigned#task_id#').text(task_total);
 		
-			var task_remainder#task_id#=#budget#-task_assigned#task_id#;
-			document.form_forceplanner.task_remainder#task_id#.value=task_remainder#task_id#;
-			$('##display_task_remainder#task_id#').text(task_remainder#task_id#);
-			break;
-		</cfloop>
-	}
+	var task_remainder=parseInt($('##accept_'+task_id).parents('tr').find('td.display_task_budget').text(),10)-task_total;
+	$('##task_remainder#task_id#').value(task_remainder);
+	$('##display_task_remainder#task_id#').text(task_remainder);
 	
 	//calculate affected employee's assigned hours, remaining capacity, and update those totals (and capacity used percentages) for the team
 	switch(user_account_id) {
 	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 		case #variables.user_account_id#:
-			var sum_#variables.user_account_id#=<cfloop list="#variables.prospectives_task_id#" index="variables.task_id">parseInt(document.form_forceplanner.t#variables.task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
-			$('##sum_#variables.user_account_id#').text(sum_#variables.user_account_id#);
+			var employee_total=0;
+			$('.user_account_id_'+user_account_id).each(function(){
+				employee_total+=$(this).val();
+			});
+			$('##sum_#variables.user_account_id#').text(employee_total);
 		
-			var capacity_#variables.user_account_id#=Math.ceil(sum_#variables.user_account_id#/#get_week_days.hours_in_month#*100);
-			$('##capacity_#variables.user_account_id#').text(capacity_#variables.user_account_id#);
+			$('##capacity_#variables.user_account_id#').text( Math.ceil(employee_total/#get_week_days.hours_in_month#*100) );
 			break;
 	</cfloop>
 		case 0:
-	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
+		<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 			var sum_#variables.user_account_id#=<cfloop list="#variables.prospectives_task_id#" index="variables.task_id">parseInt(document.form_forceplanner.t#variables.task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
 			$('##sum_#variables.user_account_id#').text(sum_#variables.user_account_id#);
 		
-			var capacity_#variables.user_account_id#=Math.ceil(sum_#variables.user_account_id#/#get_week_days.hours_in_month#*100);
-			$('##capacity_#variables.user_account_id#').text(capacity_#variables.user_account_id#);
+			$('##capacity_#variables.user_account_id#').text( Math.ceil(sum_#variables.user_account_id#/#get_week_days.hours_in_month#*100) );
+		</cfloop>
 			break;
-	</cfloop>
 	}
 	
 	UpdateSummaryTable();
@@ -121,7 +119,7 @@ var UpdateSummaryTable=function() {
 	//update the total amount of assigned workload for all team members
 	var sum_assigned=0;
 	$('.employee_sum').each(function() {
-		sum_assigned+=parseInt( $(this).text(),10 );
+		sum_assigned+=parseInt($(this).text(),10);
 	});
 	$('##display_sum_assigned').text(sum_assigned);
 	$('##sum_assigned').val(sum_assigned);
