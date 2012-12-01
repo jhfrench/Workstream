@@ -121,14 +121,24 @@ var UpdateSummaryTable=function() {
 	//update the total amount of assigned workload for all team members
 	var sum_assigned=0;
 	$('.employee_sum').each(function() {
-		sum_assigned+=parseInt( $(this).text(),10 );	
+		sum_assigned+=parseInt( $(this).text(),10 );
 	});
 	$('##display_sum_assigned').text(sum_assigned);
 	$('##sum_assigned').val(sum_assigned);
-
+	
+	var sum_requested=0;
+	$('#form_forceplanner input[type="checkbox"]:checked').parents('tr').find('td.display_task_budget').each( function() {
+		sum_requested+=parseInt( $(this).text(),10 );
+	});
+	$('##display_sum_requested').text(sum_requested);
+	
 	//update remaining team capacity
 	var sum_remaining=#variables.requested_sum#-sum_assigned;
 	$('##display_sum_remaining').text(sum_remaining);
+
+	//update percentage of requested workload
+	var capacity_requested=Math.ceil(sum_requested/#variables.total_requested#*100);
+	$('##capacity_requested').text(capacity_requested);
 
 	//update percentage of assigned workload
 	var capacity_assigned=Math.ceil(sum_assigned/#variables.total_requested#*100);

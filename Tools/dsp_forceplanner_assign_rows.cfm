@@ -52,7 +52,7 @@
 			<input type="number" name="t#task_id#_#variables.user_account_id#" id="t#task_id#_#variables.user_account_id#" step="1" min="0" onchange="CalculateRowFields(#task_id#,#variables.user_account_id#);" onfocus="ReleaseRowFields(#task_id#);" data_value="#variables.employee_budget#" value="#variables.current_budget#"#variables.read_only# class="number span8 task_id_#task_id# user_account_id_#variables.user_account_id#" />
 		</td>
 	</cfloop>
-		<td class="number">
+		<td class="number display_task_budget">
 			#budget#
 		</td>
 		<td class="number">

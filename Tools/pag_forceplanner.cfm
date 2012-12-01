@@ -50,14 +50,14 @@
 						<span id="sum_#variables.user_account_id#" class="employee_sum">#evaluate('sum_#variables.user_account_id#')#</span>
 					</td>
 				</cfloop>
-					<td class="number">
+					<td id="display_sum_requested" class="number">
 						#variables.requested_sum#
 					</td>
-					<td class="number">
-						<span id="display_sum_assigned">0</span>
+					<td id="display_sum_assigned" class="number">
+						0
 					</td>
-					<td class="number">
-						<span id="display_sum_remaining">0</span>
+					<td id="display_sum_remaining" class="number">
+						0
 					</td>
 				</tr>
 				<tr>
@@ -86,7 +86,7 @@
 				</cfloop>
 					<td class="number">
 						<cfif variables.total_requested><cfset variables.total_capacity=variables.requested_sum/variables.total_requested*100><cfelse><cfset variables.total_capacity=0></cfif>
-						#decimalformat(variables.total_capacity)#%
+						<span id="capacity_requested">#decimalformat(variables.total_capacity)#</span>%
 					</td>
 					<td class="number">
 						<span id="capacity_assigned">0</span>%
