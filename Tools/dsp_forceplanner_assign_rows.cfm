@@ -17,7 +17,7 @@
 <cfoutput query="get_prospectives">
 	<tr>
 		<td>
-			#billable#
+			<abbr title="#billable_type_description#">#billable_type_acronym#</abbr>
 		</td>
 		<td>
 			<a href="javascript:list_to_project('#project_id#');" title="View project details">#project#</a>
@@ -27,6 +27,9 @@
 		</td>
 		<td>
 			<a href="javascript:list_to_task('#task_id#');" title="View task details">#task_name#</a>
+		</td>
+		<td>
+			<a href="javascript:list_to_task('#task_id#');" title="View task details">#task_priority#</a>
 		</td>
 		<td>
 			<input type="checkbox" name="accept_task" id="accept_#task_id#" value="#task_id#"#previously_assigned##disabled_text# onchange="ReCalculate(#task_id#);" />

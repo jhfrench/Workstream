@@ -133,7 +133,7 @@ var UpdateSummaryTable=function() {
 	$('##display_sum_requested').text(sum_requested);
 	
 	//update remaining team capacity
-	var sum_remaining=#variables.requested_sum#-sum_assigned;
+	var sum_remaining=sum_requested-sum_assigned;
 	$('##display_sum_remaining').text(sum_remaining);
 
 	//update percentage of requested workload

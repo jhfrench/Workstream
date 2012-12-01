@@ -21,6 +21,7 @@
 		<th>Project</th>
 		<th>Task ID</th>
 		<th>Task Name</th>
+		<th>Priority</th>
 		<th>Assign Task</th>
 		<th>Due</th>
 		#variables.forceplanner_subordinates#
