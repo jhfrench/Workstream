@@ -42,11 +42,11 @@ var CalculateRowFields=function(task_id, user_account_id){
 	$('.task_id_'+task_id).each(function(){
 		task_total+=$(this).val();	
 	});
-	$('##task_assigned'+task_id).value(task_total);
+	$('##task_assigned'+task_id).val(task_total);
 	$('##display_task_assigned'+task_id).text(task_total);
 		
 	var task_remainder=parseInt($('##accept_'+task_id).parents('tr').find('td.display_task_budget').text(),10)-task_total;
-	$('##task_remainder'+task_id).value(task_remainder);
+	$('##task_remainder'+task_id).val(task_remainder);
 	$('##display_task_remainder'+task_id).text(task_remainder);
 	
 	//calculate affected employee's assigned hours, remaining capacity, and update those totals (and capacity used percentages) for the team
