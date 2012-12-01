@@ -47,12 +47,12 @@
 				AND task_id=#variables.task_id#
 				AND user_account_id IN (#attributes.list_subordinate_user_account_id#);
 				<cfloop list="#attributes.list_subordinate_user_account_id#" index="variables.user_account_id">
-					<cfif evaluate("attributes.t#variables.task_id#_#ii#") NEQ 0>
+					<cfif evaluate("attributes.t#variables.task_id#_#variables.user_account_id#") NEQ 0>
 	
 					INSERT INTO Forecast_Assignment (forecast_id, task_id, user_account_id,
 						hours_budgeted, created_by)
 					VALUES (#variables.forecast_id#, #variables.task_id#, #variables.user_account_id#,
-						#evaluate("attributes.t#variables.task_id#_#ii#")#, #variables.user_identification#);
+						#evaluate("attributes.t#variables.task_id#_#variables.user_account_id#")#, #variables.user_identification#);
 	
 					/*update team membership*/
 					INSERT INTO Team (task_id, user_account_id, role_id,
