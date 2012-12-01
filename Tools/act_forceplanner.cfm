@@ -40,7 +40,7 @@ var CalculateRowFields=function(task_id, user_account_id){
 	//calculate new hours assigned, and hours remaining, for the affected task
 	var task_total=0;
 	$('.task_id_'+task_id).each(function(){
-		task_total+=$(this).val();	
+		task_total+=parseInt( $(this).val(), 10 );	
 	});
 	$('##task_assigned'+task_id).val(task_total);
 	$('##display_task_assigned'+task_id).text(task_total);
@@ -55,7 +55,7 @@ var CalculateRowFields=function(task_id, user_account_id){
 		case #variables.user_account_id#:
 			var employee_total=0;
 			$('.user_account_id_'+user_account_id).each(function(){
-				employee_total+=$(this).val();
+				employee_total+=parseInt( $(this).val(), 10 );
 			});
 			$('##sum_#variables.user_account_id#').text(employee_total);
 		
