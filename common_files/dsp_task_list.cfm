@@ -36,7 +36,7 @@
 <cfoutput query="get_task_list"> 
 	<cfset variables.status_message=jsstringformat(task_name)>
 	<tr>
-		<td scope="row" class="number">#task_id#</td>
+		<td scope="row">#task_id#</td>
 		<td class="hidden-phone hidden-tablet"><abbr title="#task_owner_full_name#">#task_owner#</abbr></td>
 		<td><a href="javascript:list_to_task('#task_id#');" title="View time details for #variables.status_message#."><i class="#task_icon#" title="#replacelist(task_description, variables.quote, variables.status_message_replace_with)#"></i>#task_name#</a></td>
 		<td class="hidden-phone hidden-tablet">#project_name#</td>
