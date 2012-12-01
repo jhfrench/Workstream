@@ -67,11 +67,10 @@
 			WHERE active_ind=1
 				AND forecast_id=#variables.forecast_id#
 				AND task_id=#variables.task_id#;
-			<cfif get_prospectives.previous_entry EQ 1>
+
 			UPDATE Task
 			SET status_id=10 /* I think we're going for prospective here */
 			WHERE task_id=#variables.task_id#;
-			</cfif>
 		</cfif>
 	</cfloop>
 	</cfquery>
