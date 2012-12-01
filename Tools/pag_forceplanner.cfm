@@ -30,7 +30,7 @@
 		<input type="hidden" name="force_month" value="#attributes.force_month#" />
 		<input type="hidden" name="force_year" value="#attributes.force_year#" />
 		<input type="hidden" name="list_prospective_task_id" value="#variables.list_prospective_task_id#" />
-		<input type="hidden" name="list_subordinate_user_account_id" value="#variables.emp_init_loop#" />
+		<input type="hidden" name="list_subordinate_user_account_id" value="#variables.subordinates_user_account_id#" />
 		<input type="hidden" name="sum_assigned" id="sum_assigned" value="0" />
 		<input type="submit" name="submit_button" value="Assign Tasks" onkeypress="document.forceplanner.submit();" onclick="document.forceplanner.submit();" class="btn btn-danger<cfif attributes.date_linked LT now()> disabled" disabled="disabled</cfif>" />
 		<input type="reset" name="reset" value="Reload Form" class="btn<cfif attributes.date_linked LT now()> disabled" disabled="disabled</cfif>" />

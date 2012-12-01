@@ -22,7 +22,7 @@ var ReleaseRowFields=function(task_id) {
 	"use strict"; //let's avoid tom-foolery in this function
 	if ( !$('##accept_'+task_id).is(':checked') ) {
 		if (confirm('This task must be assigned before you can allocate time or modify the due date.\nWould you like to assign it now?')) {
-			$('##accept_'+task_id).attr('checked','checked');
+			$('##accept_'+task_id).attr('checked', true);
 			ReleaseRow(task_id);
 			CalculateRowFields(task_id, 0);
 		}
@@ -145,6 +145,12 @@ var UpdateSummaryTable=function() {
 	//update percentage of remaining team capacity
 	var capacity_remaining=Math.ceil(sum_remaining/#variables.total_requested#*100);
 	$('##capacity_remaining').text(capacity_remaining);	
+}
+
+//if the user clicks the project's toggle chechbox, either select or deselect all of that project's task's checkboxes (and recalc)
+var ToggleProject=function(project_id) {
+	$('input.project_'+project_id+'[type="checkbox"]').attr('checked', $('##toggle_all_'+project_id).is(':checked')).each(function() { ReCalculate($(this).prop('value')); });
+	return true;
 }
 
 //make all the summary columns line up between the two different tables
