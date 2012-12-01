@@ -12,19 +12,19 @@
 	$Log$
 	 || 
  --->
-<cfset attributes.date_linked=createodbcdate("#attributes.force_month#/01/#attributes.force_year#")>
+<cfset attributes.date_linked=createodbcdate("#attributes.force_month#/28/#attributes.force_year#")>
 <cfinclude template="../common_files/qry_get_subordinates.cfm">
 <cfset variables.emp_init_loop=valuelist(get_subordinates.initials)>
 <cfset variables.target_population=listappend(valuelist(get_subordinates.user_account_id), variables.user_identification)>
 </cfsilent>
 <cfquery name="get_prospectives" datasource="#application.datasources.main#">
 /*top query selects Forceplanner tasks for the selected month*/
-SELECT ' checked="checked"' AS previously_assigned, '<cfif attributes.date_linked LT now()> disabled="disabled"</cfif>' AS disabled_text, 
+SELECT ' checked="checked"' AS previously_assigned, '<cfif NOT datecompare(attributes.date_linked, now())> disabled="disabled"</cfif>' AS disabled_text, 
 	CASE 
-		WHEN Task.status_id IN (9,10) /*on hold, prospective*/ THEN <!--- $issue$ are these the right statii? --->
+		WHEN Task.status_id IN (9,10) /*on hold, prospective*/ THEN
 			CASE 
-				WHEN SUM(COALESCE(Time_Entry.hours,0))=0 THEN 1 
-				ELSE 3
+				WHEN SUM(COALESCE(Time_Entry.hours,0))=0 THEN 1 /*new*/
+				ELSE 3 /*in progress*/
 			END
 		ELSE Task.status_id 
 	END AS previous_entry, 
@@ -67,12 +67,12 @@ GROUP BY Forecast_Assignment.task_id, Forecast_Assignment.user_account_id, Forec
 	REF_Priority.description, REF_Priority.sort_order
 UNION ALL
 /*bottom query selects tasks that weren't forceplanned for the selected month*/
-SELECT '' AS previously_assigned, '<cfif attributes.date_linked LT now()> disabled="disabled"</cfif>' AS disabled_text,
+SELECT '' AS previously_assigned, '<cfif NOT datecompare(attributes.date_linked, now())> disabled="disabled"</cfif>' AS disabled_text,
 	CASE
-		WHEN Task.status_id IN (9,10) /*on hold, prospective*/ THEN <!--- $issue$ are these the right statii? --->
+		WHEN Task.status_id IN (9,10) /*on hold, prospective*/ THEN
 			CASE 
-				WHEN SUM(COALESCE(Time_Entry.hours,0))=0 THEN 1 
-				ELSE 3 
+				WHEN SUM(COALESCE(Time_Entry.hours,0))=0 THEN 1 /*new*/
+				ELSE 3 /*in progress*/
 			END
 		ELSE Task.status_id
 	END AS previous_entry, 
@@ -116,8 +116,8 @@ WHERE Task.active_ind=1
 				AND Forecast.forecast_month=#attributes.force_month#
 			GROUP BY Forecast_Assignment.task_id
 		)
-	AND <cfif attributes.force_month GTE month(now()) AND attributes.force_year GTE year(now())>Task.status_id!=7 /*exclude closed tasks*/
-	AND Task.assigned_date < <cfqueryparam cfsqltype="cf_sql_date" value="#dateadd('m', 1, attributes.date_linked)#" /> /*show tasks assigned (to be started) before the selected month*/<cfelse>EXTRACT(MONTH FROM Task.assigned_date)=#attributes.force_month# AND EXTRACT(YEAR FROM Task.assigned_date)=#attributes.force_year# /*show tasks assigned (to be started) during the selected month*/</cfif>
+	AND <cfif datecompare(attributes.date_linked, now())>Task.status_id!=7 /*exclude closed tasks*/
+	AND Task.assigned_date < <cfqueryparam cfsqltype="cf_sql_date" value="#attributes.date_linked#" /> /*show tasks assigned (to be started) before the selected month*/<cfelse>EXTRACT(MONTH FROM Task.assigned_date)=#attributes.force_month# AND EXTRACT(YEAR FROM Task.assigned_date)=#attributes.force_year# /*show tasks assigned (to be started) during the selected month*/</cfif>
 GROUP BY Task.task_id, project_name, Project.project_id, 
 	Task.status_id, Task.due_date, task_name,
 	Task.budgeted_hours,

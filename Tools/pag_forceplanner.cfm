@@ -104,8 +104,8 @@
 	<input type="hidden" name="force_year" value="#attributes.force_year#" />
 	<input type="hidden" name="prospective_tasks" value="#variables.prospectives_task_id#" />
 	<input type="hidden" name="sum_assigned" id="sum_assigned" value="0" />
-	<input type="button" name="submit_button" value="Assign Tasks" onkeypress="document.forceplanner.submit();" onclick="document.forceplanner.submit();" class="btn btn-danger" />
-	<input type="reset" name="reset" value="Reload Form" class="btn" />
+	<input type="submit" name="submit_button" value="Assign Tasks" onkeypress="document.forceplanner.submit();" onclick="document.forceplanner.submit();" class="btn btn-danger<cfif attributes.date_linked LT now()> disabled" disabled="disabled</cfif>" />
+	<input type="reset" name="reset" value="Reload Form" class="btn<cfif attributes.date_linked LT now()> disabled" disabled="disabled</cfif>" />
 </cfif>
 </form>
 </cfoutput>
