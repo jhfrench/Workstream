@@ -23,7 +23,7 @@
 		</table>
 	</cfif>
 <table class="table table-striped table-bordered table-condensed">
-	<caption><h2><a href="javascript:list_to_project('#project_id#');" title="View project details">#project_name#</a> Tasks <small><abbr title="#billable_type_description#">#billable_type_acronym#</abbr></small></h2></caption>
+	<caption><h2><a href="javascript:list_to_project('#project_id#');" title="View project details">#project_name#</a> Tasks <small>#billable_type_description#</small></h2></caption>
 	<cfinclude template="dsp_forceplanner_main_head.cfm">
 </cfif>
 	<tr>

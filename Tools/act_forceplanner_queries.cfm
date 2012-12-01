@@ -32,7 +32,7 @@ SELECT ' checked="checked"' AS previously_assigned, '<cfif NOT datecompare(attri
 	Task.due_date, LEFT(Task.name,65) AS task_name, COALESCE(Task.budgeted_hours,0) AS budget<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">, 
 	(CASE WHEN Forecast_Assignment.user_account_id=#variables.user_account_id# THEN COALESCE(Forecast_Assignment.hours_budgeted,0) ELSE 0 END) AS budget#variables.user_account_id#
 	</cfloop>,
-	REF_Billable_Type.description AS billable_type_description, REF_Billable_Type.acronym AS billable_type_acronym, REF_Billable_Type.sort_order AS billable_type_order,
+	REF_Billable_Type.description AS billable_type_description, REF_Billable_Type.sort_order AS billable_type_order,
 	REF_Priority.description AS task_priority, REF_Priority.sort_order AS priority_order, 1 AS main_sort
 FROM Forecast
 	INNER JOIN Forecast_Assignment ON Forecast.forecast_id=Forecast_Assignment.forecast_id
@@ -63,7 +63,7 @@ WHERE Forecast.active_ind=1
 GROUP BY Forecast_Assignment.task_id, Forecast_Assignment.user_account_id, Forecast_Assignment.hours_budgeted, 
 	Task.task_id, project_name, Project.project_id, 
 	Task.due_date, Task.status_id, task_name, Task.budgeted_hours,
-	REF_Billable_Type.description, REF_Billable_Type.acronym, REF_Billable_Type.sort_order,
+	REF_Billable_Type.description, REF_Billable_Type.sort_order,
 	REF_Priority.description, REF_Priority.sort_order
 UNION ALL
 /*bottom query selects tasks that weren't forceplanned for the selected month*/
@@ -80,7 +80,7 @@ SELECT '' AS previously_assigned, '<cfif NOT datecompare(attributes.date_linked,
 	Task.due_date, LEFT(Task.name,65) AS task_name, COALESCE(Task.budgeted_hours,0) AS budget<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">, 
 	SUM(CASE WHEN Team.role_id=1 AND Team.user_account_id=#variables.user_account_id# THEN COALESCE(Task.budgeted_hours,0) ELSE 0 END) AS budget#variables.user_account_id#
 	</cfloop>,
-	REF_Billable_Type.description AS billable_type_description, REF_Billable_Type.acronym AS billable_type_acronym, REF_Billable_Type.sort_order AS billable_type_order,
+	REF_Billable_Type.description AS billable_type_description, REF_Billable_Type.sort_order AS billable_type_order,
 	REF_Priority.description AS task_priority, REF_Priority.sort_order AS priority_order, 2 AS main_sort
 FROM Task
 	INNER JOIN REF_Priority ON Task.priority_id=REF_Priority.priority_id
@@ -121,7 +121,7 @@ WHERE Task.active_ind=1
 GROUP BY Task.task_id, project_name, Project.project_id, 
 	Task.status_id, Task.due_date, task_name,
 	Task.budgeted_hours,
-	REF_Billable_Type.description, REF_Billable_Type.acronym, REF_Billable_Type.sort_order,
+	REF_Billable_Type.description, REF_Billable_Type.sort_order,
 	REF_Priority.description, REF_Priority.sort_order
 ORDER BY billable_type_order, project_name, priority_order,
 	due_date, task_name, main_sort
