@@ -19,7 +19,7 @@
 	</cfif>
 	<cfquery name="update_task" datasource="#application.datasources.main#">
 	/*EXECUTE LOOP*/
-	<cfloop list="#attributes.task_id#" index="variables.task_id">
+	<cfloop list="#attributes.list_prospective_task_id#" index="variables.task_id">
 		<cfif listfind(attributes.accept_task,variables.task_id)>
 			UPDATE Task
 			SET status_id=#evaluate("attributes.task_status#variables.task_id#")#,

@@ -12,7 +12,7 @@
 	$Log$
 	 || 
  --->
-<cfset variables.prospectives_task_id=valuelist(get_prospectives.task_id)>
+<cfset variables.list_prospective_task_id=valuelist(get_prospectives.task_id)>
 <cfset variables.requested_sum=0>
 <cfset variables.total_requested=get_week_days.hours_in_month*get_subordinates.recordcount>
 </cfsilent>
@@ -64,7 +64,7 @@ var CalculateRowFields=function(task_id, user_account_id){
 	</cfloop>
 		case 0:
 		<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-			var sum_#variables.user_account_id#=<cfloop list="#variables.prospectives_task_id#" index="variables.task_id">parseInt(document.form_forceplanner.t#variables.task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
+			var sum_#variables.user_account_id#=<cfloop list="#variables.list_prospective_task_id#" index="variables.task_id">parseInt(document.form_forceplanner.t#variables.task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
 			$('##sum_#variables.user_account_id#').text(sum_#variables.user_account_id#);
 		
 			$('##capacity_#variables.user_account_id#').text( Math.ceil(sum_#variables.user_account_id#/#get_week_days.hours_in_month#*100) );
@@ -151,7 +151,7 @@ var UpdateSummaryTable=function() {
 var adjustColumnWidths=function() {
 <cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
 	$('th.th_#variables.user_account_id#').width( $('th.th_#variables.user_account_id#').width() );</cfloop>
-<cfloop list="requested_hours,assigned_hours,remaining_hours" index="variables.th_class">
+<cfloop list="head_task_id,head_task_name,head_task_priority,head_task_assign,head_task_due,requested_hours,assigned_hours,remaining_hours" index="variables.th_class">
 	$('th.#variables.th_class#').width( $('th.#variables.th_class#').width() );</cfloop>
 	return true;
 }

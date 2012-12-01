@@ -13,17 +13,16 @@
 	 || 
 	--> variables.emp_init_loop: list of employee initials
  --->
+<cfset variables.row_count=0>
 </cfsilent>
 <cfoutput>
 <thead>
 	<tr>
-		<th>Billable</th>
-		<th>Project</th>
-		<th>Task ID</th>
-		<th>Task Name</th>
-		<th>Priority</th>
-		<th>Assign Task</th>
-		<th>Due</th>
+		<th id="head_task_id">Task <abbr title="Identifier">ID</abbr></th>
+		<th id="head_task_name">Task Name</th>
+		<th id="head_task_priority">Priority</th>
+		<th id="head_task_assign">Assign Task</th>
+		<th id="head_task_due">Due</th>
 		#variables.forceplanner_subordinates#
 		<th class="requested_hours" title="Requested hours">Requested</th>
 		<th class="assigned_hours" title="Assigned hours">Assigned</th>
