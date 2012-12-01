@@ -20,7 +20,7 @@
 			<abbr title="#billable_type_description#">#billable_type_acronym#</abbr>
 		</td>
 		<td>
-			<a href="javascript:list_to_project('#project_id#');" title="View project details">#project#</a>
+			<a href="javascript:list_to_project('#project_id#');" title="View project details">#project_name#</a>
 		</td>
 		<td scope="row">
 			<a href="javascript:list_to_task('#task_id#');" title="View task details">#task_id#</a>
