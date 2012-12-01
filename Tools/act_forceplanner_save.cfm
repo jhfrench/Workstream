@@ -69,7 +69,7 @@
 				AND task_id=#variables.task_id#;
 
 			UPDATE Task
-			SET status_id=10 /* I think we're going for prospective here */
+			SET status_id=9 /* on-hold */
 			WHERE task_id=#variables.task_id#;
 		</cfif>
 	</cfloop>
