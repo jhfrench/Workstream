@@ -18,7 +18,7 @@ FROM Forecast
 WHERE active_ind=1
 	AND forecast_month=#attributes.force_month#
 	AND forecast_year=#attributes.force_year#
-	AND approved_by=#variables.user_identification#
+	AND created_by=#variables.user_identification#
 </cfquery>
 <cfset variables.forecast_id=get_forecast.forecast_id>
 </cfsilent>

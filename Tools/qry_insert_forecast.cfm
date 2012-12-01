@@ -13,7 +13,7 @@
 	 || 
  --->
 <cfquery name="insert_forecast" datasource="#application.datasources.main#">
-INSERT INTO Forecast (forecast_month, forecast_year, approved_by)
+INSERT INTO Forecast (forecast_month, forecast_year, created_by)
 VALUES(#attributes.force_month#, #attributes.force_year#, #variables.user_identification#);
 
 SELECT CURRVAL('Forecast_forecast_id_SEQ') AS forecast_id;

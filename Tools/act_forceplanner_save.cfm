@@ -50,9 +50,9 @@
 					<cfif evaluate("attributes.t#variables.task_id#_#ii#") NEQ 0>
 	
 					INSERT INTO Forecast_Assignment (forecast_id, task_id, user_account_id,
-						hours_budgeted)
+						hours_budgeted, created_by)
 					VALUES (#variables.forecast_id#, #variables.task_id#, #variables.user_account_id#,
-						#evaluate("attributes.t#variables.task_id#_#ii#")#);
+						#evaluate("attributes.t#variables.task_id#_#ii#")#, #variables.user_identification#);
 	
 					/*update team membership*/
 					INSERT INTO Team (task_id, user_account_id, role_id,
