@@ -127,7 +127,7 @@ var UpdateSummaryTable=function() {
 	$('##sum_assigned').val(sum_assigned);
 	
 	var sum_requested=0;
-	$('#form_forceplanner input[type="checkbox"]:checked').parents('tr').find('td.display_task_budget').each( function() {
+	$('##form_forceplanner input[type="checkbox"]:checked').parents('tr').find('td.display_task_budget').each( function() {
 		sum_requested+=parseInt( $(this).text(),10 );
 	});
 	$('##display_sum_requested').text(sum_requested);
