@@ -38,15 +38,15 @@
 			WHERE Team.active_ind=1
 				AND Team.role_id=4
 				AND Team.task_id=#variables.task_id#
-				AND Team.user_account_id IN (#variables.subordinates_user_account_id#);
+				AND Team.user_account_id IN (#attributes.list_subordinate_user_account_id#);
 				
 			UPDATE Forecast_Assignment
 			SET active_ind=0
 			WHERE active_ind=1
 				AND forecast_id=#variables.forecast_id#
 				AND task_id=#variables.task_id#
-				AND user_account_id IN (#variables.subordinates_user_account_id#);
-				<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
+				AND user_account_id IN (#attributes.list_subordinate_user_account_id#);
+				<cfloop list="#attributes.list_subordinate_user_account_id#" index="variables.user_account_id">
 					<cfif evaluate("attributes.t#variables.task_id#_#ii#") NEQ 0>
 	
 					INSERT INTO Forecast_Assignment (forecast_id, task_id, user_account_id,
