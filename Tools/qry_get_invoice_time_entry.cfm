@@ -31,8 +31,8 @@ FROM Time_Entry
 	INNER JOIN Demographics ON Time_Entry.created_by=Demographics.user_account_id
 		AND Demographics.active_ind=1
 	LEFT OUTER JOIN Link_Invoice_Time_Entry ON Time_Entry.time_entry_id=Link_Invoice_Time_Entry.time_entry_id
-		AND Link_Invoice_Time_Entry.active_ind=1
-		AND Link_Invoice_Time_Entry.invoice_id=#attributes.invoice_id#
+		AND Link_Invoice_Time_Entry.active_ind=1<cfif attributes.invoice_id>
+		AND Link_Invoice_Time_Entry.invoice_id=#attributes.invoice_id#</cfif>
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.user_account_id=#attributes.user_account_id#
 	AND Link_Invoice_Time_Entry.l_i_t_e_id IS <cfif attributes.invoice_id>NOT</cfif> NULL
