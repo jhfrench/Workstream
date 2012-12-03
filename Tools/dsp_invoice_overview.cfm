@@ -34,10 +34,10 @@
 				Totals
 			</td>
 			<td class="number">
-				#dollarformat(get_invoice_detail_total.invoice_bill_amount)#
+				#dollarformat(get_invoice_overview_total.invoice_bill_amount)#
 			</td>
 			<td class="number">
-				#dollarformat(get_invoice_detail_total.invoice_received_amount)#
+				#dollarformat(get_invoice_overview_total.invoice_received_amount)#
 			</td>
 		</tr>
 	</tfoot>
