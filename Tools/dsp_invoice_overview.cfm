@@ -48,13 +48,13 @@
 				<a href="javascript:get_invoice_detail(#invoice_id#,#customer_id#);" title="View invoice details">#customer_name#</a>
 			</td>
 			<td scope="row" class="date">
-				#dateformat(created_date, "m/d/yyyy")#
+				<cfif NOT invoice_id><a href="javascript:" class="btn btn-danger disabled"><i class="icon-tag icon-white"></i> Generate Invoice</a><cfelse>#dateformat(created_date, "m/d/yyyy")#</cfif>
 			</td>
 			<td>
 				#invoicer#
 			</td>
 			<td class="number">
-				#dollarformat(invoice_bill_amount)#<cfif NOT invoice_id><a href="javascript:" class="btn btn-danger disabled"><i class="icon-tag"></i> Generate Invoice</a></cfif>
+				#dollarformat(invoice_bill_amount)#
 			</td>
 			<td class="number">
 				#dollarformat(invoice_received_amount)#

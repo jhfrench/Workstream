@@ -15,7 +15,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="get_invoice_by_user_account" datasource="#application.datasources.main#">
-SELECT Demographics.user_account_id, Demographics.last_name||', '||Demographics.first_name AS employee, Project.description AS project_name
+SELECT Demographics.user_account_id, Demographics.last_name||', '||Demographics.first_name AS employee, Project.description AS project_name,
 	Billing_Rate.rate, REF_Billable_Type.billable_type_id, REF_Billable_Type.description AS billable_type,
 	SUM(Time_Entry.hours) AS hours, SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS bill
 FROM Time_Entry
@@ -33,8 +33,9 @@ FROM Time_Entry
 		AND Link_Invoice_Time_Entry.invoice_id=#attributes.invoice_id#
 WHERE Time_Entry.active_ind=1
 	AND Link_Invoice_Time_Entry.l_i_t_e_id IS <cfif attributes.invoice_id>NOT</cfif> NULL
-GROUP BY Demographics.user_account_id, Demographics.last_name, Demographics.first_name, Billing_Rate.rate,
-	REF_Billable_Type.billable_type_id, REF_Billable_Type.description
+GROUP BY Demographics.user_account_id, Demographics.last_name, Demographics.first_name,
+	Project.description, Billing_Rate.rate, REF_Billable_Type.billable_type_id,
+	REF_Billable_Type.description
 ORDER BY Demographics.last_name, Demographics.first_name, Demographics.user_account_id
 </cfquery>
 <cfquery dbtype="query" name="get_invoice_by_user_account_total">
