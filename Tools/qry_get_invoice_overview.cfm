@@ -39,7 +39,6 @@ FROM Time_Entry
 		AND Time_Entry.project_id=Billing_Rate.project_id
 		AND Time_Entry.work_date BETWEEN Billing_Rate.rate_start_date AND Billing_Rate.rate_end_date
 WHERE Time_Entry.active_ind=1
-	AND Time_Entry.work_date <  DATE_TRUNC('MONTH', CURRENT_TIMESTAMP) /*don't invoice anything from the current month*/
 	AND Time_Entry.time_entry_id NOT IN (SELECT Link_Invoice_Time_Entry.time_entry_id FROM Link_Invoice_Time_Entry WHERE Link_Invoice_Time_Entry.active_ind=1)
 GROUP BY Customer.customer_id, Customer.sort_order, Customer.description
 ORDER BY major_sort_order, sort_order, created_date

@@ -51,7 +51,7 @@
 				#dollarformat(rate)#
 			</td>
 			<td class="number">
-				<a href="javascript:get_invoice_time_entry_invoice_id(#user_account_id#, #evaluate(variables.field2_name)#);" title="View details for these hours">#decimalformat(hours)#</a>
+				<a href="javascript:get_invoice_time_entry(#user_account_id#, #evaluate(variables.field2_name)#);" title="View details for these hours">#decimalformat(hours)#</a>
 			</td>
 			<td class="number">
 				#dollarformat(bill)#
