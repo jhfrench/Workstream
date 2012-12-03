@@ -44,7 +44,7 @@ WHERE Time_Entry.active_ind=1
 GROUP BY Customer.customer_id, Customer.sort_order, Customer.description
 ORDER BY major_sort_order, sort_order, created_date
 </cfquery>
-<cfquery dbtype="query" name="get_invoice_detail_total">
+<cfquery dbtype="query" name="get_invoice_overview_total">
 SELECT SUM(invoice_bill_amount) AS invoice_bill_amount, SUM(invoice_received_amount) AS invoice_received_amount
-FROM get_invoice_detail
+FROM get_invoice_overview
 </cfquery>
