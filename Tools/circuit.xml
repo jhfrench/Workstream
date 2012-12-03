@@ -30,12 +30,6 @@
 	</prefuseaction>
 
 
-	<fuseaction name="customer_invoice_list">
-		<!-- <set name="attributes.object_name" value="Invoice Details"/>
-		<include template="../common_files/act_object_access.cfm"> -->
-		<set name="request.pagetitle" value="Customer Invoice List"/>
-		<include template="pag_customer_invoice_list.cfm"/>
-	</fuseaction>
 	<fuseaction name="daily_process">
 		<set name="attributes.object_name" value="Daily Processes"/>
 		<include template="pag_daily_processes.cfm"/>
@@ -91,23 +85,8 @@
 		<include template="pag_insert_rate_change.cfm"/>
 	</fuseaction>
 	<!-- End billing rate insert -->
-	<fuseaction name="invoice_details">
-		<!-- <set name="attributes.object_name" value="Invoice Details"/>
-		<include template="../common_files/act_object_access.cfm"> -->
-		<set name="request.pagetitle" value="Invoice List"/>
-		<include template="pag_invoice_details.cfm"/>
-	</fuseaction>
-	<fuseaction name="invoice_notes_drill_down">
-		<!-- <set name="attributes.object_name" value="Invoice Details"/>
-		<include template="../common_files/act_object_access.cfm"> -->
-		<set name="request.pagetitle" value="Invoice Notes"/>
-		<include template="pag_invoice_notes_drill_down.cfm"/>
-	</fuseaction>
-	<fuseaction name="invoice_list">
-		<!-- <set name="attributes.object_name" value="Invoice Details"/>
-		<include template="../common_files/act_object_access.cfm"> -->
-		<set name="request.pagetitle" value="Invoice List"/>
-		<include template="pag_invoice_list.cfm"/>
+	<fuseaction name="invoice">
+		<include template="pag_invoice.cfm"/>
 	</fuseaction>
 	<fuseaction name="query_interface">
 		<!-- <set name="attributes.object_name" value="Query Interface"/> -->

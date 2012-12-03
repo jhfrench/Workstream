@@ -48,36 +48,35 @@
 </cfsilent>
 <cfoutput>
 <script language="JavaScript" type="text/javascript">
-<!--
-function #attributes.function_name#(fldValue<cfif attributes.field2_variable_ind>,fldValue2</cfif>) {
+var #attributes.function_name#=function(fldValue,fldValue2) {
+	"use strict"; //let's avoid tom-foolery in this function
 	document.#attributes.function_name#.#attributes.field_name#.value=fldValue;<cfif attributes.field2_variable_ind>
 	document.#attributes.function_name#.#attributes.field2_name#.value=fldValue2;</cfif>
 	<cfif attributes.processform>
-		<cfloop collection="#attributes#" item="field">
-			<cfif NOT listcontains(variables.javascript_ignore,lcase(field))>
-				document.#attributes.function_name#.#field#.value='#xmlformat(evaluate("attributes.#field#"))#';
+		<cfloop collection="#attributes#" item="variables.field">
+			<cfif NOT listcontains(variables.javascript_ignore,lcase(variables.field))>
+				document.#attributes.function_name#.#variables.field#.value='#xmlformat(evaluate("attributes.#variables.field#"))#';
 			</cfif>
 		</cfloop>
 	</cfif>
 	document.#attributes.function_name#.submit();
 }
-//-->
 </script>
 
 <form name="#attributes.function_name#" id="form_#attributes.function_name#" action="index.cfm?fuseaction=#attributes.fuseaction#"<cfif isdefined("attributes.target")> target="#attributes.target#"</cfif> method="post">
-	<input type="hidden" name="#attributes.field_name#" value="#attributes.field_value#" />
+	<input type="hidden" name="#attributes.field_name#" id="#attributes.field_name#" value="#attributes.field_value#" />
 	<cfif len(attributes.field2_name)>
-		<input type="hidden" name="#attributes.field2_name#" value="#attributes.field2_value#" />
+		<input type="hidden" name="#attributes.field2_name#" id="#attributes.field2_name#" value="#attributes.field2_value#" />
 	</cfif>
 	<cfif attributes.processform>
 		<cfloop collection="#attributes#" item="field">
 			<cfif NOT listcontains(variables.ignore_these,field)>
-				<input type="hidden" name="#field#" value="#xmlformat(evaluate("attributes.#field#"))#" />
+				<input type="hidden" name="#field#" id="#field#" value="#xmlformat(evaluate("attributes.#field#"))#" />
 			</cfif>
 		</cfloop>
 	</cfif>
 	<cfif isdefined("attributes.given_referer")>
-		<input type="hidden" name="given_referer" value="#attributes.given_referer#" />
+		<input type="hidden" name="given_referer" value="#attributes.given_referer#" /><!--- $issue$ does this need its own explicit condition/set? Why not jsut use process_form=true and given_refere="xyz"?  --->
 	</cfif>
 </form>
 </cfoutput>

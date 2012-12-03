@@ -1,0 +1,56 @@
+
+<!--Tools/dsp_invoice_time_entry.cfm
+	Author: Jeromy F -->
+<cfsilent>
+	<!--- FUSEDOC
+	||
+	Responsibilities: I display the notes for an employee/month/year/project code.
+	||
+	Name: Jeromy French
+	||
+	Edits: 
+	$Log$
+	||
+	Variables:
+	END FUSEDOC --->
+</cfsilent>
+<cfoutput>
+<table class="table table-striped table-bordered table-condensed">
+	<caption><h1>Work Notes</h1> <h3>for #get_invoice_time_entry.employee# <a href="javascript:employee_details(#get_invoice_time_entry.user_account_id#);" title="View employee details"><i class="icon-user"></i></a></h3></caption>
+	<thead>
+		<tr>
+			<th>Task <abbr title="Identifier">ID</abbr></th>
+			<th>Task</th>
+			<th>Date</th>
+			<th>Note</th>
+			<th>Hours</th>
+			<th>Bill</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<td colspan="4">
+				Total Hours: #get_invoice_notes_drill_down_total.hours#
+			</td>
+			<td class="number">
+				#numberformat(get_invoice_time_entry_total.hours)#
+			</td>
+			<td class="number">
+				#dollarformat(get_invoice_time_entry_total.bill)#
+			</td>
+		</tr>
+	</tfoot>
+	<tbody>
+	<cfloop query="invoice_notes_drill_down">
+		<tr>
+			<td><a href="javascript:task_details(#task_id#);" title="View task #task_id#">#task_id#</a></td>
+			<td><a href="javascript:task_details(#task_id#);" title="View task #task_id#">#task_name#</a></td>
+			<td class="date">#dateformat(work_date,"m/d/yyyy")#</td>
+			<td>#note#</td>
+			<td class="number"><a href="javascript:time_entry_edit(#time_entry_id#);" title="Edit note details">#decimalformat(hours)#</a></td>
+			<td class="number">#dollarformat(bill)#</td>
+		</tr>
+	</cfloop>
+	</tbody>
+</table>
+</cfoutput>
