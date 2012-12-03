@@ -59,7 +59,7 @@
 				#invoicer#
 			</td>
 			<td class="number">
-				#dollarformat(total_bill_amount)#<cfif NOT invoice_id><a href="javascript:" class="btn btn-danger disabled"><i class="icon-tag"></i> Generate Invoice</a></cfif>
+				#dollarformat(total_bill_amount)#
 			</td>
 			<td class="number">
 				#dollarformat(payment_received_amount)#

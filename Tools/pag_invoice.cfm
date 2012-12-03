@@ -29,14 +29,14 @@
 	</cfcase>
 	<cfcase value="3">
 		<cfif attributes.invoice_id>
-			<cfset variables.field_name="invoice_id">
+			<cfset variables.field2_name="invoice_id">
 		<cfelse>
 			<cfset variables.field2_name="project_id">
 		</cfif>
 		<cfinclude template="qry_get_invoice_by_user_account.cfm">
 		<cfinclude template="dsp_invoice_by_user_account.cfm">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="employee_details" fuseaction="Directory.employee_details" field_name="user_account_id">
-		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_time_entry" fuseaction="#attributes.fuseaction#" field_name="user_account_id" field2_variable_ind="1" field2_name="#variables.field_name#" processform="1" step="4">
+		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_time_entry" fuseaction="#attributes.fuseaction#" field_name="user_account_id" field2_variable_ind="1" field2_name="#variables.field2_name#" processform="1" step="4">
 	</cfcase>
 	<cfcase value="4">
 		<cfinclude template="qry_get_invoice_time_entry.cfm">

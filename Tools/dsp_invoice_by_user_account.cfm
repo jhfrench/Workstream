@@ -28,9 +28,6 @@
 			<th>Bill</th>
 		</tr>
 	</thead>
-SELECT Demographics.user_account_id, Demographics.last_name||', '||Demographics.first_name AS employee, Billing_Rate.rate,
-, SUM(Time_Entry.hours) AS ,
-	SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS 
 	<tfoot>
 		<tr>
 			<td scope="row" colspan="2">
