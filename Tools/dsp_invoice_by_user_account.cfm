@@ -40,7 +40,7 @@ SELECT Demographics.user_account_id, Demographics.last_name||', '||Demographics.
 				#dollarformat(get_invoice_by_user_account_total.hours)#
 			</td>
 			<td class="number">
-				#dollarformat(get_invoice_by_user_account_total.payment_received_amount)#
+				#dollarformat(get_invoice_by_user_account_total.bill)#
 			</td>
 		</tr>
 	</tfoot>

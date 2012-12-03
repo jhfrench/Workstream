@@ -27,7 +27,7 @@ FROM (<cfif attributes.invoice_id>
 			AND Billing_History.invoice_id=#attributes.invoice_id#
 	<cfelse>
 		SELECT Time_Entry.project_id, SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS total_bill_amount, 0 AS payment_received_amount,
-			0 AS created_by, NULL AS created_date
+			0 AS created_by, NOW() AS created_date
 		FROM Time_Entry
 			INNER JOIN Billing_Rate ON Time_Entry.user_account_id=Billing_Rate.user_account_id
 				AND Time_Entry.project_id=Billing_Rate.project_id
@@ -39,7 +39,7 @@ FROM (<cfif attributes.invoice_id>
 	) AS Invoice_Detail
 	INNER JOIN Project ON Invoice_Detail.project_id=Project.project_id
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
-		AND Customer.customer_id=2--#attributes.customer_id#
+		AND Customer.customer_id=#attributes.customer_id#
 	INNER JOIN REF_Billable_Type ON Project.billable_type_id=REF_Billable_Type.billable_type_id
 	LEFT OUTER JOIN Demographics ON Invoice_Detail.created_by=Demographics.user_account_id
 		AND Demographics.active_ind=1
