@@ -30,7 +30,7 @@
 	<tfoot>
 		<tr>
 			<td colspan="4">
-				Total Hours: #get_invoice_notes_drill_down_total.hours#
+				Total Hours: #get_get_invoice_time_entry_total.hours#
 			</td>
 			<td class="number">
 				#numberformat(get_invoice_time_entry_total.hours)#
@@ -41,7 +41,7 @@
 		</tr>
 	</tfoot>
 	<tbody>
-	<cfloop query="invoice_notes_drill_down">
+	<cfloop query="get_invoice_time_entry">
 		<tr>
 			<td><a href="javascript:task_details(#task_id#);" title="View task #task_id#">#task_id#</a></td>
 			<td><a href="javascript:task_details(#task_id#);" title="View task #task_id#">#task_name#</a></td>
