@@ -35,7 +35,9 @@ FROM Time_Entry
 		AND Link_Invoice_Time_Entry.invoice_id=#attributes.invoice_id#</cfif>
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.user_account_id=#attributes.user_account_id#
-	AND Link_Invoice_Time_Entry.l_i_t_e_id IS <cfif attributes.invoice_id>NOT</cfif> NULL
+	AND Link_Invoice_Time_Entry.l_i_t_e_id IS <cfif attributes.invoice_id>NOT NULL<cfelse> NULL<cfif attributes.current_month_ind>
+	AND DATE_TRUNC('MONTH', Time_Entry.work_date)=DATE_TRUNC('MONTH', CURRENT_TIMESTAMP) /*let's only look at the current month*/<cfelse>
+	AND Time_Entry.work_date < DATE_TRUNC('MONTH', CURRENT_TIMESTAMP) /*let's only look at entries from before this month*/</cfif></cfif>
 </cfquery>
 <cfquery dbtype="query" name="get_invoice_time_entry_total">
 SELECT SUM(hours) AS hours, SUM(bill) AS bill

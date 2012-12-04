@@ -20,12 +20,14 @@
 	<cfcase value="1">
 		<cfinclude template="qry_get_invoice_overview.cfm">
 		<cfinclude template="dsp_invoice_overview.cfm">
-		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_detail" fuseaction="#attributes.fuseaction#" field_name="invoice_id" field2_variable_ind="1" field2_name="customer_id" processform="1" step="2">
+		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_detail1" fuseaction="#attributes.fuseaction#" field_name="invoice_id" field2_variable_ind="1" field2_name="customer_id" processform="1" step="2" current_month_ind="0">
+		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_detail2" fuseaction="#attributes.fuseaction#" field_name="invoice_id" field2_variable_ind="1" field2_name="customer_id" processform="1" step="2" current_month_ind="0">
+		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_detail3" fuseaction="#attributes.fuseaction#" field_name="invoice_id" field2_variable_ind="1" field2_name="customer_id" processform="1" step="2" current_month_ind="1">
 	</cfcase>
 	<cfcase value="2">
 		<cfinclude template="qry_get_invoice_detail.cfm">
 		<cfinclude template="dsp_invoice_detail.cfm">
-		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_by_user_account" fuseaction="#attributes.fuseaction#" field_name="invoice_id" field2_variable_ind="1" field2_name="project_id" processform="1" step="3">
+		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_by_user_account" fuseaction="#attributes.fuseaction#" field_name="invoice_id" field2_variable_ind="1" field2_name="project_id" processform="1" step="3" current_month_ind="#attributes.current_month_ind#">
 	</cfcase>
 	<cfcase value="3">
 		<cfif attributes.invoice_id>
@@ -36,7 +38,7 @@
 		<cfinclude template="qry_get_invoice_by_user_account.cfm">
 		<cfinclude template="dsp_invoice_by_user_account.cfm">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="employee_details" fuseaction="Directory.employee_details" field_name="user_account_id">
-		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_time_entry" fuseaction="#attributes.fuseaction#" field_name="user_account_id" field2_variable_ind="1" field2_name="#variables.field2_name#" processform="1" step="4">
+		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_time_entry" fuseaction="#attributes.fuseaction#" field_name="user_account_id" field2_variable_ind="1" field2_name="#variables.field2_name#" processform="1" step="4" current_month_ind="#attributes.current_month_ind#">
 	</cfcase>
 	<cfcase value="4">
 		<cfinclude template="qry_get_invoice_time_entry.cfm">

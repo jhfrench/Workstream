@@ -22,6 +22,7 @@
 	<thead>
 		<tr>
 			<th>Customer</th>
+			<th>Invoiced</th>
 			<th>Invoice/Work Date</th>
 			<th>Invoiced By</th>
 			<th>Invoice Amount</th>
@@ -30,7 +31,7 @@
 	</thead>
 	<tfoot>
 		<tr>
-			<td scope="row" colspan="3">
+			<td scope="row" colspan="4">
 				Totals
 			</td>
 			<td class="number">
@@ -45,13 +46,22 @@
 	<cfloop query="get_invoice_overview">
 		<tr>
 			<td scope="row">
-				<a href="javascript:get_invoice_detail(#invoice_id#,#customer_id#);" title="View invoice details">#customer_name#</a>
+				<a href="javascript:get_invoice_detail#major_sort_order#(#invoice_id#,#customer_id#);" title="View invoice details">#customer_name#</a>
+			</td>
+			<td>
+				<cfif major_sort_order EQ 1>
+					<i class="icon-ok" title="This invoice has been generated"></i>
+				<cfelseif show_generate_button_ind>
+					<a href="javascript:generate_invoice(#customer_id#);" class="btn btn-danger"><i class="icon-tag icon-white"></i> Generate Invoice</a>
+				<cfelse>
+					not yet elligible
+				</cfif>
 			</td>
 			<td scope="row" class="date">
 				#dateformat(created_date, "m/d/yyyy")#
 			</td>
 			<td>
-				<cfif NOT invoice_id><a href="javascript:process_invoice(#customer_id#,#year(created_date)#,#month(created_date)#);" class="btn btn-danger"><i class="icon-tag icon-white"></i> Generate Invoice</a><cfelse>#invoicer#</cfif>
+				#invoicer#
 			</td>
 			<td class="number">
 				#dollarformat(invoice_bill_amount)#
