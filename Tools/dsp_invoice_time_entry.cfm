@@ -29,8 +29,8 @@
 	</thead>
 	<tfoot>
 		<tr>
-			<td colspan="4">
-				Total Hours: #get_get_invoice_time_entry_total.hours#
+			<td scope="row" colspan="4">
+				Totals
 			</td>
 			<td class="number">
 				#numberformat(get_invoice_time_entry_total.hours)#
