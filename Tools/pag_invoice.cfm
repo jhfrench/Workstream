@@ -41,6 +41,8 @@
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_time_entry" fuseaction="#attributes.fuseaction#" field_name="user_account_id" field2_variable_ind="1" field2_name="#variables.field2_name#" processform="1" step="4" current_month_ind="#attributes.current_month_ind#">
 	</cfcase>
 	<cfcase value="4">
+		<cfparam name="attributes.invoice_id" default="0">
+		<cfparam name="attributes.customer_id" default="0">
 		<cfinclude template="qry_get_invoice_time_entry.cfm">
 		<cfinclude template="dsp_invoice_time_entry.cfm">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="employee_details" fuseaction="Directory.employee_details" field_name="user_account_id">
