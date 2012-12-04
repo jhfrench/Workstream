@@ -22,7 +22,7 @@
 	<thead>
 		<tr>
 			<th>Customer</th>
-			<th>Invoice Date</th>
+			<th>Invoice/Work Date</th>
 			<th>Invoiced By</th>
 			<th>Invoice Amount</th>
 			<th>Received Amount</th>
@@ -48,10 +48,10 @@
 				<a href="javascript:get_invoice_detail(#invoice_id#,#customer_id#);" title="View invoice details">#customer_name#</a>
 			</td>
 			<td scope="row" class="date">
-				<cfif NOT invoice_id><a href="javascript:" class="btn btn-danger disabled"><i class="icon-tag icon-white"></i> Generate Invoice</a><cfelse>#dateformat(created_date, "m/d/yyyy")#</cfif>
+				#dateformat(created_date, "m/d/yyyy")#
 			</td>
 			<td>
-				#invoicer#
+				<cfif NOT invoice_id><a href="javascript:process_invoice(#customer_id#,#year(created_date)#,#month(created_date)#);" class="btn btn-danger"><i class="icon-tag icon-white"></i> Generate Invoice</a><cfelse>#invoicer#</cfif>
 			</td>
 			<td class="number">
 				#dollarformat(invoice_bill_amount)#

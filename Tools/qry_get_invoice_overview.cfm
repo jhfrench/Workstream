@@ -29,7 +29,7 @@ WHERE Invoice.active_ind=1
 GROUP BY Invoice.invoice_id, Invoice.created_date, Customer.customer_id,
 	Customer.sort_order, Customer.description, Demographics.last_name, Demographics.first_name
 UNION ALL
-SELECT 2 AS major_sort_order, 0 AS invoice_id, NULL AS created_date,
+SELECT 2 AS major_sort_order, 0 AS invoice_id, DATE_TRUNC('MONTH', Time_Entry.created_date) AS created_date,
 	Customer.customer_id, Customer.sort_order, Customer.description AS customer_name,
 	NULL AS invoicer, SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS invoice_bill_amount, 0 AS invoice_received_amount
 FROM Time_Entry
@@ -40,7 +40,8 @@ FROM Time_Entry
 		AND Time_Entry.work_date BETWEEN Billing_Rate.rate_start_date AND Billing_Rate.rate_end_date
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.time_entry_id NOT IN (SELECT Link_Invoice_Time_Entry.time_entry_id FROM Link_Invoice_Time_Entry WHERE Link_Invoice_Time_Entry.active_ind=1)
-GROUP BY Customer.customer_id, Customer.sort_order, Customer.description
+GROUP BY DATE_TRUNC('MONTH', Time_Entry.created_date), Customer.customer_id, Customer.sort_order,
+	Customer.description
 ORDER BY major_sort_order, sort_order, created_date
 </cfquery>
 <cfquery dbtype="query" name="get_invoice_overview_total">
