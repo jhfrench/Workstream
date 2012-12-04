@@ -34,7 +34,7 @@
 				Totals
 			</td>
 			<td class="number">
-				#dollarformat(get_invoice_by_user_account_total.hours)#
+				#numberformat(get_invoice_by_user_account_total.hours)#
 			</td>
 			<td class="number">
 				#dollarformat(get_invoice_by_user_account_total.bill)#
