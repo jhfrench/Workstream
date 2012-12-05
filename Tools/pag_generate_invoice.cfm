@@ -611,43 +611,23 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
+<cfloop query="get_invoice_project_summary">
    <Row ss:AutoFitHeight="0" ss:Height="13.5">
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">1001.01</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">eAuth mura</Data></Cell>
-    <Cell ss:StyleID="s112" ss:Formula="='Project 01'!R[-8]C[1]"><Data
-      ss:Type="Number">17.5</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">#project_code#</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">#project_name#</Data></Cell>
+    <Cell ss:StyleID="s112" ss:Formula="='Project #project_code#'!R[-8]C[1]"><Data
+      ss:Type="Number">#entry_count+4#</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="13.5">
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">1001.02</Data></Cell>
-    <Cell ss:StyleID="s88" ss:Formula="='Project 02'!R[-14]C[-1]"><Data
-      ss:Type="String">Service Request Module</Data></Cell>
-    <Cell ss:StyleID="s129" ss:Formula="='Project 02'!R[-6]C[1]"><Data
-      ss:Type="Number">148.75</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="13.5">
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">1001.03</Data></Cell>
-    <Cell ss:StyleID="s73" ss:Formula="='Project 03'!R[-15]C[-1]"><Data
-      ss:Type="String">NSAVC Cohort IV Training Module and Bios</Data></Cell>
-    <Cell ss:StyleID="s130" ss:Formula="='Project 03'!R[-8]C[1]"><Data
-      ss:Type="Number">113.75</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-   </Row>
+</cfloop>
    <Row ss:Height="18">
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s123"><Data ss:Type="String">Total</Data></Cell>
-    <Cell ss:StyleID="s131" ss:Formula="=SUM(R[-3]C:R[-1]C)"><Data ss:Type="Number">280</Data></Cell>
+    <Cell ss:StyleID="s131" ss:Formula="=SUM(R[-#get_invoice_project_summary.recordcount#]C:R[-1]C)"><Data ss:Type="Number">280</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -713,9 +693,9 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="Project 01">
+ <Worksheet ss:Name="Project 1001.01">
   <Names>
-   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project 01'!R1C1:R3C5"/>
+   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project 1001.01'!R1C1:R3C5"/>
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s79" ss:DefaultRowHeight="15">
@@ -781,9 +761,9 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="Project 02">
+ <Worksheet ss:Name="Project 1001.02">
   <Names>
-   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project 02'!R1C1:R4C5"/>
+   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project 1001.02'!R1C1:R4C5"/>
   </Names>
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s79" ss:DefaultRowHeight="15">
@@ -883,9 +863,9 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="Project 03">
+ <Worksheet ss:Name="Project 1001.03">
   <Names>
-   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project 03'!R1C1:R3C5"/>
+   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project 1001.03'!R1C1:R3C5"/>
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s79" ss:DefaultRowHeight="15">
