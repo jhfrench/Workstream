@@ -16,4 +16,6 @@
 </cfsilent>
 <cfinclude template="act_generate_invoice.cfm">
 
-<cfdump var="#act_generate_invoice#" />
+<cfif variables.continue_processing_ind>
+	<cfdump var="#act_generate_invoice#" />
+</cfif>

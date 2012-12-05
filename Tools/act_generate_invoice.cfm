@@ -14,4 +14,28 @@
 	Variables:
 	END FUSEDOC --->
 </cfsilent>
-<cfinclude template="qry_act_generate_invoice.cfm">
+
+<cfset variables.continue_processing_ind=1>
+<cftry>
+	<cfinclude template="qry_act_generate_invoice.cfm">
+	<cfcatch type="Database">
+		<cfset variables.continue_processing_ind=0>
+		<cfoutput>
+		<cfif NOT comparenocase(cfcatch.message,"ERROR: One or more employees are missing a billing rate.")>
+			<a href="index.cfm?fuseaction=Tools.rate_change">#cfcatch.message#</a>
+		<cfelseif variables.user_identification EQ 1>
+			<h1>Database Error</h1>
+			<dl>
+				<dt>Message</dt>
+				<dd>#cfcatch.message#</dd>
+				<dt>Native error code</dt>
+				<dd>#cfcatch.nativeerrorcode#</dd>
+				<dt>SQLState</dt>
+				<dd>#cfcatch.sqlstate#</dd>
+				<dt>Detail</dt>
+				<dd>#cfcatch.detail#</dd>
+			</dl>
+		</cfif>
+		</cfoutput>
+	</cfcatch>
+</cftry>
