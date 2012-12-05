@@ -27,43 +27,35 @@
 <circuit access="public">
 	<prefuseaction callsuper="true">
 		<include template="../common_files/act_header.cfm"/>
+		<!-- $issue$: these variable declarations should be nested within the relevant fuseactions, not set for the entire module -->
 		<set name="day" value="Never_Equal"/>
 		<set name="total_hours" value="0"/>
-		<set name="temp_et" value="This_should_never_be_equal"/>
-		<set name="temp_cn" value="This_should_never_be_equal"/>
-		<set name="temp_cc" value="This_should_never_be_equal"/>
-		<set name="grand_total_hours" value="0"/>
-		<set name="Emp_type_hours" value="0"/>
+		<set name="variables.temp_employee_classification" value="This_should_never_be_equal"/>
+		<set name="variables.temp_client_name" value="This_should_never_be_equal"/>
+		<set name="variables.temp_client_code" value="This_should_never_be_equal"/>
+		<set name="variables.grand_total_hours" value="0"/>
+		<set name="variables.emp_type_hours" value="0"/>
 	</prefuseaction>
 
 
 		<!-- Begin Report Menu Screen -->
 		<fuseaction name="home">
-			<set name="request.pagetitle" value="report menu"/>
 			<include template="pag_report.cfm"/>
 		</fuseaction>
 		<!-- End Report Menu Screen-->
 		<fuseaction name="lost_time_input">
-			<set name="request.pagetitle" value="Lost time"/>
 			<include template="pag_lost_time_input.cfm"/>
 		</fuseaction>
 		<fuseaction name="lost_time">
-			<set name="request.pagetitle" value="Lost time"/>
 			<include template="pag_lost_time.cfm"/>
 		</fuseaction>
 		<fuseaction name="admin_planning">
-			<!-- <set name="attributes.object_name" value="Admin/Planning Efficiency"/>
-			 -->
-			<set name="request.pagetitle" value="Admin/Planning Efficiency"/>
 			<set name="variables.project_name" value="Admin/Planning"/>
 			<set name="variables.project_id" value="1112"/>
 			<include template="pag_efficiency_report.cfm"/>
 		</fuseaction>
 		<!-- Begin Anniversary report -->
 		<fuseaction name="anniversary">
-			<!-- <set name="attributes.object_name" value="Anniversary"/>
-			 -->
-			<set name="request.pagetitle" value="Anniversary Report"/>
 			<include template="pag_anniversary_report.cfm"/>
 		</fuseaction>
 		<!-- End Anniversary Report -->
@@ -75,161 +67,86 @@
 		<fuseaction name="code_report">
 			<include template="pag_code_report.cfm"/>
 		</fuseaction>
-		<fuseaction name="contractors_input">
 		<!-- Begin contractors -->
-			<!-- <set name="attributes.object_name" value="Contractors"/>
-			 -->
-			<set name="request.pagetitle" value="Contractors Report"/>
+		<fuseaction name="contractors_input">
 			<include template="pag_contractor_report_input.cfm"/>
 		</fuseaction>
 		<fuseaction name="contractors">
-			<!-- <set name="attributes.object_name" value="Contractors"/>
-			 -->
-			<set name="request.pagetitle" value="Contractors Report"/>
 			<include template="pag_contractor_report.cfm"/>
 		<!-- End contractors report -->
 		</fuseaction>
 		<fuseaction name="deadline_management">
-			<!-- <set name="attributes.object_name" value="Deadline Management"/>
-			 -->
-			<set name="request.pagetitle" value="Deadline Management Report"/>
 			<include template="pag_deadline_management.cfm"/>
 		</fuseaction>
 		<fuseaction name="employee_force">
-			<!-- <set name="attributes.object_name" value="Personal Forceplanner"/>
-			 -->
-			<set name="request.pagetitle" value="Employee ForcePlanner"/>
 			<include template="pag_employee_force.cfm"/>
 		</fuseaction>
 		<fuseaction name="project_dashboard">
-			<!-- <set name="attributes.object_name" value="New projects"/> -->
-			<set name="request.pagetitle" value="New project Report"/>
 			<include template="pag_project_dashboard.cfm"/>
 		</fuseaction>
 		<fuseaction name="project_dashboard_staff">
-			<!-- <set name="attributes.object_name" value="New projects"/> -->
-			<set name="request.pagetitle" value="New project Report"/>
 			<include template="pag_project_dashboard_Staff.cfm"/>
 		</fuseaction>
 		<fuseaction name="expense_report_input">
-			<!-- <set name="attributes.object_name" value="Expense Report"/>
-			 -->
-			<set name="request.pagetitle" value="Expense Report Input"/>
 			<include template="pag_expense_report_input.cfm"/>
 		</fuseaction>
 		<fuseaction name="expense_report">
-			<!-- <set name="attributes.object_name" value="Expense Report"/>
-			 -->
-			<set name="request.pagetitle" value="Expense Report"/>
 			<include template="pag_expense_report.cfm"/>
 		</fuseaction>
 		<fuseaction name="gross_hours_input_ytd">
-			<!-- <set name="attributes.object_name" value="Gross Hours - Breakdown"/>
-			 -->
-			<set name="request.pagetitle" value="Gross Hours Report - Breakdown"/>
 			<include template="pag_gross_hours_input_ytd.cfm"/>
 		</fuseaction>
 		<fuseaction name="gross_hours">
-			<!-- <set name="attributes.object_name" value="Gross Hours"/>
-			 -->
-			<set name="request.pagetitle" value="Gross Hours Report"/>
 			<include template="pag_gross_hours.cfm"/>
 		</fuseaction>
 		<fuseaction name="gross_hours_ytd">
-			<!-- <set name="attributes.object_name" value="Gross Hours - Breakdown"/>
-			 -->
-			<set name="request.pagetitle" value="Gross Hours Report - Breakdown"/>
 			<include template="pag_gross_hours_ytd.cfm"/>
 		</fuseaction>
 		<fuseaction name="Hours_By_Code_input">
-			<!-- <set name="attributes.object_name" value="Hours By Code"/>
-			 -->
-			<set name="request.pagetitle" value="Hours By Code Report"/>
 			<include template="pag_hours_by_code_input.cfm"/>
 		</fuseaction>
 		<fuseaction name="Hours_By_Code">
-			<!-- <set name="attributes.object_name" value="Hours By Code"/>
-			 -->
-			<set name="request.pagetitle" value="Hours By Code Report"/>
 			<include template="pag_hours_by_code.cfm"/>
 		</fuseaction>
 		<fuseaction name="individual_hours_input">
-			<!-- <set name="attributes.object_name" value="Individual Hours"/>
-			 -->
-			<set name="request.pagetitle" value="Individual Hours Report"/>
 			<include template="pag_individual_hours_input.cfm"/>
 		</fuseaction>
 		<fuseaction name="individual_hours">
-			<!-- <set name="attributes.object_name" value="Individual Hours"/>
-			 -->
-			<set name="request.pagetitle" value="Individual Hours Report"/>
 			<include template="pag_individual_hours.cfm"/>
 		</fuseaction>
 		<fuseaction name="ip_report">
-			<!-- <set name="attributes.object_name" value="Implementation Analysis Report"/>
-			 -->
-			<set name="request.pagetitle" value="Implementation Analysis Report"/>
 			<include template="pag_ip_report.cfm"/>
 		</fuseaction>
 		<fuseaction name="it_time">
-			<!-- <set name="attributes.object_name" value="IT Time"/>
-			 -->
-			<set name="request.pagetitle" value="IT Time"/>
 			<set name="variables.project_name" value="IT"/>
 			<set name="variables.project_id" value="1113"/>
 			<include template="pag_efficiency_report.cfm"/>
 		</fuseaction>
 		<fuseaction name="Leadership_hours_input">
-			<!-- <set name="attributes.object_name" value="Leadership Time Reports"/>
-			 -->
-			<set name="request.pagetitle" value="Leadership Hours Report"/>
 			<include template="pag_leader_hours_report_input.cfm"/>
 		</fuseaction>
 		<fuseaction name="Leadership_hours">
-			<!-- <set name="attributes.object_name" value="Leadership Time Reports"/>
-			 -->
-			<set name="request.pagetitle" value="Leadership Hours Report"/>
 			<include template="pag_leader_hours_report.cfm"/>
 		</fuseaction>
 		<fuseaction name="Manager_cross_tab_input">
-			<!-- <set name="attributes.object_name" value="Manager's Cross Tab Report"/>
-			 -->
-			<set name="request.pagetitle" value="Manager's Cross Tab Report"/>
 			<include template="pag_manager_cross_tab_input.cfm"/>
 		</fuseaction>
 		<fuseaction name="Manager_cross_tab">
-			<!-- <set name="attributes.object_name" value="Manager's Cross Tab Report"/>
-			 -->
-			<set name="request.pagetitle" value="Manager's Cross Tab Report"/>
 			<include template="pag_manager_cross_tab.cfm"/>
 		</fuseaction>
 		<fuseaction name="Manager_cross_tab_mail">
-			<!-- <set name="attributes.object_name" value="Manager's Cross Tab Report"/>
-			 -->
 			<include template="pag_crosstab_mail.cfm"/>
 		</fuseaction>
 		<fuseaction name="manager_hours">
-			<!-- <set name="attributes.object_name" value="Manager Hours"/>
-			 -->
-			<set name="request.pagetitle" value="Manager Hours Report"/>
 			<include template="pag_manager_hours.cfm"/>
 		</fuseaction>
 		<fuseaction name="manager_individual_hours">
-			<!-- <set name="attributes.object_name" value="Manager Individual Hours"/>
-			 -->
-			<set name="request.pagetitle" value="Manager's Individual Hours Report"/>
 			<include template="pag_mgr_Indiv_Hours.cfm"/>
 		</fuseaction>
 		<fuseaction name="manager_individual_hours_input">
-			<!-- <set name="attributes.object_name" value="Manager Individual Hours"/>
-			 -->
-			<set name="request.pagetitle" value="Manager's Individual Hours Report"/>
 			<include template="pag_Manager_Individual_Hours_input.cfm"/>
 		</fuseaction>
 		<fuseaction name="new_project">
-			<!-- <set name="attributes.object_name" value="New projects"/>
-			 -->
-			<set name="request.pagetitle" value="New project Report"/>
 			<include template="pag_new_project"/>
 		</fuseaction>
 		<fuseaction name="non_billable_hours">
@@ -243,95 +160,51 @@
 		<!-- End Overtime Report-->
 		<!-- Begin Personal Summary Report -->
 		<fuseaction name="personal_summary">
-			<!-- <set name="attributes.object_name" value="Personal Hours Summary"/>
-			 -->
-			<set name="request.pagetitle" value="My Hours Report"/>
 			<include template="pag_personal_summary.cfm"/>
 		</fuseaction>
 		<!-- Begin PTO (non-accrual) Report -->
 		<fuseaction name="pto">
-			<!-- <set name="attributes.object_name" value="PTO Report"/>
-			 -->
-			<set name="request.pagetitle" value="PTO Report"/>
 			<include template="pag_pto_report.cfm"/>
 		</fuseaction>
 		<fuseaction name="pto_accrual_input">
-			<!-- <set name="attributes.object_name" value="PTO Report"/>
-			 -->
-			<set name="request.pagetitle" value="PTO Report"/>
 			<include template="pag_pto_accrual.cfm"/>
 		</fuseaction>
 		<fuseaction name="pto_detail">
-			<!-- <set name="attributes.object_name" value="PTO Report"/>
-			 -->
-			<set name="request.pagetitle" value="Detail PTO Report"/>
 			<include template="pag_pto_accrual_detail.cfm"/>
 		</fuseaction>
 		<fuseaction name="pto_drill_down">
-			<!-- <set name="attributes.object_name" value="PTO Report"/>
-			 -->
-			<set name="request.pagetitle" value="PTO Report Detail"/>
 			<include template="pag_pto_report_detail.cfm"/>
 		</fuseaction>
 		<fuseaction name="pto_input">
-			<!-- <set name="attributes.object_name" value="PTO Report"/>
-			 -->
-			<set name="request.pagetitle" value="PTO Report"/>
 			<include template="pag_pto_report_input.cfm"/>
 		</fuseaction>
 		<fuseaction name="sick_bank">
-			<!-- <set name="attributes.object_name" value="Sick Bank"/>
-			 -->
-			<set name="request.pagetitle" value="Sick Bank"/>
 			<include template="pag_sick_bank.cfm"/>
 		</fuseaction>
 		<fuseaction name="supervisor_force">
-			<!-- <set name="attributes.object_name" value="Supervisor Forceplanner"/>
-			 -->
-			<set name="request.pagetitle" value="Supervisor ForcePlanner"/>
 			<include template="pag_supervisor_force.cfm"/>
 		</fuseaction>
 		<fuseaction name="tech_support">
-			<!-- <set name="attributes.object_name" value="Tech Support"/>
-			 -->
-			<set name="request.pagetitle" value="Tech Support"/>
 			<include template="pag_tech_support.cfm"/>
 		</fuseaction>
 		
 		<fuseaction name="turnover">
-			<!-- <set name="attributes.object_name" value="turnover"/>
-			 -->
-			<set name="request.pagetitle" value="Turnover Report"/>
 			<include template="pag_turnover_report.cfm"/>
 		</fuseaction>
 		<fuseaction name="turnover_input">
-			<!-- <set name="attributes.object_name" value="turnover"/>
-			 -->
-			<set name="request.pagetitle" value="Turnover Report"/>
 			<include template="pag_turnover_report_input.cfm"/>
 		</fuseaction>
 		<fuseaction name="sales_report">
-			<!-- <set name="attributes.object_name" value="Monthly Sales"/>
-			 -->
-			<set name="request.pagetitle" value="Monthly Revenue Report"/>
 			<include template="pag_revenue_report.cfm"/>
 		</fuseaction>
 		<fuseaction name="account_status">
-			<!-- <set name="attributes.object_name" value="Account Status"/>
-			 -->
-			<set name="request.pagetitle" value="Account Status Report"/>
 			<include template="pag_account_task_matrix.cfm"/>
 		</fuseaction>	
 		<fuseaction name="project_dashboard_DMA">
-			<!-- <set name="attributes.object_name" value="project Dashboard for DMA"/>
-			 -->
-			<set name="request.pagetitle" value="project Dashboard for DMA"/>
 			<include template="pag_project_dashboard_DMA.cfm"/>
 		</fuseaction>
 		<fuseaction name="nrt_contacts">
-			<!-- <set name="attributes.object_name" value="nrt_report_help"/> -->
 			<include template="Ops_Contacts.html"/>
-			<set name="request.pagetitle" value="nrt_report_help"/>
 		</fuseaction>
 
 	<postfuseaction>

@@ -76,7 +76,7 @@
 </cfloop>
 </cfif>
 		<td class="number">#decimalformat(hours)#</td>
-		<cfset total_hours=total_hours+hours><cfset variables.emp_type_hours=hours+emp_type_hours>
+		<cfset total_hours=total_hours+hours><cfset variables.emp_type_hours=hours+variables.emp_type_hours>
 	</tr>
 </cfoutput>
 	<tr valign="top">
@@ -100,11 +100,11 @@
 			Total Hours for #variables.employee_classification#:
 		</td>
 		<td class="number">
-			#decimalformat(Emp_Type_Hours)#
+			#decimalformat(variables.emp_type_hours)#
 		</td>
 	</tr>
 </cfif>
-		<cfset variables.grand_total_hours=emp_type_hours+grand_total_hours><cfset variables.emp_type_hours=0>
+		<cfset variables.grand_total_hours=variables.emp_type_hours+variables.grand_total_hours><cfset variables.emp_type_hours=0>
 </cfoutput>
 	<tfoot>
 	<cfoutput>
@@ -124,7 +124,7 @@
 	</cfloop>
 	</cfif>
 			<td class="number">
-				#decimalformat(grand_total_hours)#
+				#decimalformat(variables.grand_total_hours)#
 			</td>
 		</tr>
 	</cfoutput>

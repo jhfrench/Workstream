@@ -25,7 +25,7 @@
 					Grand Total Hours:
 				</td>
 				<td align="left">
-					<cfoutput>#decimalformat(grand_total_hours)#</cfoutput>
+					<cfoutput>#decimalformat(variables.grand_total_hours)#</cfoutput>
 				</td>
 			</tr>
 	</cfif>

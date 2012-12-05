@@ -29,95 +29,45 @@
 		<include template="../common_files/act_header.cfm"/>
 	</prefuseaction>
 	<fuseaction name="add_customer">
-		<!-- <set name="attributes.object_name" value="customers"/>	
-		<include template="../common_files/act_object_access.cfm"/> -->
-		<set name="request.pagetitle" value="Add Customer"/>
 		<include template="pag_add_customer.cfm"/>
 	</fuseaction>
 	<fuseaction name="add_project">
-		<!-- <set name="attributes.object_name" value="new project"/>	
-		<include template="../common_files/act_object_access.cfm"/> -->
-		<set name="request.pagetitle" value="Add projects"/>
 		<include template="pag_add_project.cfm"/>
 	</fuseaction>
 	<fuseaction name="customers">
-<!-- Begin  Customers Screen -->
-		<!-- <set name="attributes.object_name" value="customers"/>	
-		<include template="../common_files/act_object_access.cfm"/> -->
-		<set name="request.pagetitle" value="Customers"/>
 		<include template="pag_customers.cfm"/>
 	</fuseaction>
 	<fuseaction name="disable_task">
-<!-- Begin projects Screen-->
-		<!-- <set name="attributes.object_name" value="customers"/>	
-		<include template="../common_files/act_object_access.cfm"/> -->
-		<set name="request.pagetitle" value="Inactivate Tasks"/>
 		<include template="pag_inactive_tasks.cfm"/>
 	</fuseaction>
 	<fuseaction name="edit_billing_details">
-		<!-- <set name="attributes.object_name" value="customers"/>	
-		<include template="../common_files/act_object_access.cfm"/> -->
-		<set name="request.pagetitle" value="Edit projects"/>
 		<include template="pag_edit_project.cfm"/>
 	</fuseaction>
 	<fuseaction name="edit_custom_fields">
-		<!-- <set name="attributes.object_name" value="customers"/>	
-		<include template="../common_files/act_object_access.cfm"/> -->
-		<set name="request.pagetitle" value="Edit projects"/>
 		<include template="pag_edit_project.cfm"/>
 	</fuseaction>
 	<fuseaction name="edit_customer">
-<!-- Begin Edit Root/Project-->
-		<!-- <set name="attributes.object_name" value="customers"/>	
-		<include template="../common_files/act_object_access.cfm"/> -->
-		<set name="request.pagetitle" value="Edit Customer"/>
 		<include template="pag_edit_customer.cfm"/>		
 	</fuseaction>
 	<fuseaction name="edit_project">
-<!-- Begin projects Screen-->
-		<!-- <set name="attributes.object_name" value="customers"/>	
-		<include template="../common_files/act_object_access.cfm"/> -->
-		<set name="request.pagetitle" value="Edit projects"/>
 		<include template="pag_edit_project.cfm"/>
 	</fuseaction>
 	<fuseaction name="projects">
-<!-- Begin projects Screen-->
-		<!-- <set name="attributes.object_name" value="customers"/>
-		<include template="../common_files/act_object_access.cfm"> -->
-		<set name="request.pagetitle" value="projects"/>
 		<include template="pag_projects.cfm"/>
 	</fuseaction>
 	<fuseaction name="instructions">
-<!-- Begin View project Instructions -->
-		<set name="request.pagetitle" value="New project Instructions"/>
-		<set name="no_banner" value="1"/>
 		<include template="dsp_new_project_instructions.cfm"/>
 	</fuseaction>
 	<fuseaction name="new_customer">
-<!-- Begin New Customer -->
-		<!-- <set name="attributes.object_name" value="new customers"/>	
-		<include template="../common_files/act_object_access.cfm"/> -->		
-		<set name="request.pagetitle" value="New Customer"/>
 		<include template="pag_new_customer.cfm"/>		
 	</fuseaction>
 	<fuseaction name="new_project">
-<!-- Begin New_Project  -->
-		<!-- <set name="attributes.object_name" value="new project"/>	
-		<include template="../common_files/act_object_access.cfm"/> -->
-		<set name="request.pagetitle" value="New project"/>
 		<include template="pag_new_project.cfm"/>		
 	</fuseaction>
 	<fuseaction name="open_tasks">
-		<!-- <set name="attributes.object_name" value="customers"/>	
-		<include template="../common_files/act_object_access.cfm"/> -->
-		<set name="request.pagetitle" value="Open Tasks"/>
 		<include template="pag_open_tasks.cfm"/>		
 	</fuseaction>
 	<fuseaction name="update_customers">
-<!-- Begin  Customers Screen -->
-		<!-- <set name="attributes.object_name" value="customers"/>	
-		<include template="../common_files/act_object_access.cfm"/> -->
-		<set name="request.pagetitle" value="Update Customers"/>
 		<include template="pag_update_customers.cfm"/>
 	</fuseaction>
 	<postfuseaction>

@@ -12,8 +12,8 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-	<cfif NOT temp_cn IS ClientName>
-		<cfset temp_cn=ClientName>
+	<cfif comparenocase(variables.temp_client_name, ClientName)>
+		<cfset variables.temp_client_name=ClientName>
 	</cfif> 
 	<cfoutput>
 		<tr>

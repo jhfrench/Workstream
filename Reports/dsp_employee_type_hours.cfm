@@ -17,7 +17,7 @@
 					Total Hours for Employee Type:
 				</td>
 				<td>
-					<cfoutput>#decimalformat(Emp_Type_Hours)#</cfoutput><cfset Emp_Type_Hours =0>
+					<cfoutput>#decimalformat(variables.emp_type_hours)#</cfoutput><cfset variables.emp_type_hours=0>
 				</td>
 			</tr>
 

@@ -12,9 +12,9 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfif comparenocase(temp_et,employee_classification)>
-<cfset temp_et=employee_classification>
-<cfif Emp_type_hours GT 0>
+<cfif comparenocase(variables.temp_employee_classification,employee_classification)>
+<cfset variables.temp_employee_classification=employee_classification>
+<cfif variables.emp_type_hours>
 <cfinclude template="dsp_employee_classification_hours.cfm">
 </cfif>
 	<tr class="SubHeadText">

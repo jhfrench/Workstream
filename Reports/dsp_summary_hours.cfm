@@ -14,11 +14,10 @@
 </cfsilent>
 			<tr valign="top" class="RegTextIt">
 				<td colspan="2" align="right">
-
 					Summary Hours: 
 				</td>
 				<td align="left">
-					<cfoutput>#decimalformat(total_hours)#</cfoutput><cfset grand_total_hours = total_hours + grand_total_hours> <cfset Emp_type_hours = total_hours + Emp_Type_hours>	<cfset total_hours=0>
+					<cfoutput>#decimalformat(total_hours)#</cfoutput><cfset variables.grand_total_hours = total_hours + variables.grand_total_hours> <cfset variables.emp_type_hours = total_hours + variables.emp_type_hours>	<cfset total_hours=0>
 				</td>
 			</tr>
 			<tr>

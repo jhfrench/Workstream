@@ -94,7 +94,6 @@
 		<include template="pag_file_detach.cfm"/>
 	</fuseaction>
 	<fuseaction name="project_list">
-		<set name="request.pagetitle" value="Select A Project"/>
 		<include template="pag_big_project_list.cfm"/>
 	</fuseaction>
 	<fuseaction name="task_attach">
@@ -114,7 +113,6 @@
 		<include template="pag_task_detach.cfm"/>
 	</fuseaction>
 	<fuseaction name="team_list">
-		<set name="request.pagetitle" value="Select An Employee"/>
 		<include template="pag_big_team_list.cfm"/>
 	</fuseaction>
 	<postfuseaction>
