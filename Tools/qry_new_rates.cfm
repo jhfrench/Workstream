@@ -16,6 +16,7 @@ INSERT INTO Billing_Rate (project_id, user_account_id, rate)
 SELECT Time_entry.project_id, Time_entry.user_account_id, Billing_Rate.rate 
 FROM Time_entry
 	LEFT OUTER JOIN Billing_Rate ON Time_entry.user_account_id=Billing_Rate.user_account_id
+		AND Billing_Rate.active_ind=1
 		AND Time_entry.project_id=Billing_Rate.project_id
 WHERE Time_Entry.active_ind=1
 	AND Billing_Rate.billing_rate_id IS NULL
@@ -32,6 +33,7 @@ FROM Billing_Rate
 	INNER JOIN Demographics ON Billing_Rate.user_account_id=Demographics.user_account_id
 	INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
 WHERE Billing_Rate.Rate IS NULL
+	AND Billing_Rate.active_ind=1
 	AND Project.billable_type_id = 1
 	AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)
 ORDER BY name

@@ -14,6 +14,13 @@
 	Variables:
 	END FUSEDOC --->
 </cfsilent>
+
+<script type="text/javascript">
+	//load the js for making the AJAX call
+	Modernizr.load([
+		'common_files/js/act_generate_invoice.js'
+	]);
+</script>
 <cfoutput>
 <table class="table table-striped table-bordered table-condensed">
 	<caption>

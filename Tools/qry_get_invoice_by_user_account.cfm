@@ -20,6 +20,7 @@ SELECT Demographics.user_account_id, Demographics.last_name||', '||Demographics.
 	SUM(Time_Entry.hours) AS hours, SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS bill
 FROM Time_Entry
 	INNER JOIN Billing_Rate ON Time_Entry.user_account_id=Billing_Rate.user_account_id
+		AND Billing_Rate.active_ind=1
 		AND Time_Entry.project_id=Billing_Rate.project_id
 		AND Time_Entry.work_date BETWEEN Billing_Rate.rate_start_date AND Billing_Rate.rate_end_date
 	INNER JOIN Project ON Time_Entry.project_id=Project.project_id<cfif NOT attributes.invoice_id>

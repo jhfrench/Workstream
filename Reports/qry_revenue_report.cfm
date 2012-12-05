@@ -12,6 +12,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
+	<!--- $issue$: this should be rewritten --->
 <cfquery name="revenue_report" datasource="#application.datasources.main#">
 SELECT COALESCE(Hour_Revenue.revenue,0) AS hour_revenue, 
 	COALESCE(Flat_Revenue.revenue,0) AS flat_revenue,
@@ -26,6 +27,7 @@ FROM ABCD_Months, (
 		WHERE Time_Entry.user_account_id=Link_Company_User_Account.user_account_id
 			AND Time_Entry.user_account_id=Billing_Rate.user_account_id
 			AND Time_Entry.project_id=Billing_Rate.project_id
+			AND Billing_Rate.active_ind=1
 			AND Project.project_id=Time_Entry.project_id
 			AND Project.billable_type_id=1
 			AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)

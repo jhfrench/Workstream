@@ -39,6 +39,7 @@ FROM Time_Entry
 	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	INNER JOIN Billing_Rate ON Time_Entry.user_account_id=Billing_Rate.user_account_id
+		AND Billing_Rate.active_ind=1
 		AND Time_Entry.project_id=Billing_Rate.project_id
 		AND Time_Entry.work_date BETWEEN Billing_Rate.rate_start_date AND Billing_Rate.rate_end_date
 WHERE Time_Entry.active_ind=1
@@ -54,6 +55,7 @@ FROM Time_Entry
 	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	INNER JOIN Billing_Rate ON Time_Entry.user_account_id=Billing_Rate.user_account_id
+		AND Billing_Rate.active_ind=1
 		AND Time_Entry.project_id=Billing_Rate.project_id
 		AND Time_Entry.work_date BETWEEN Billing_Rate.rate_start_date AND Billing_Rate.rate_end_date
 WHERE Time_Entry.active_ind=1

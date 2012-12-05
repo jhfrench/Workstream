@@ -1,5 +1,5 @@
 
-<!--Tools/pag_customer_invoice_list.cfm
+<!--Tools/pag_invoice.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -20,6 +20,7 @@
 	<cfcase value="1">
 		<cfinclude template="qry_get_invoice_overview.cfm">
 		<cfinclude template="dsp_invoice_overview.cfm">
+		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="generate_invoice" fuseaction="Tools.generate_invoice" field_name="customer_id" processform="1" target="generate_invoice">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_detail1" fuseaction="#attributes.fuseaction#" field_name="invoice_id" field2_variable_ind="1" field2_name="customer_id" processform="1" step="2" current_month_ind="0">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_detail2" fuseaction="#attributes.fuseaction#" field_name="invoice_id" field2_variable_ind="1" field2_name="customer_id" processform="1" step="2" current_month_ind="0">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_detail3" fuseaction="#attributes.fuseaction#" field_name="invoice_id" field2_variable_ind="1" field2_name="customer_id" processform="1" step="2" current_month_ind="1">

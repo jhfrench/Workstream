@@ -29,13 +29,14 @@ FROM (
 				EXTRACT(MONTH FROM Time_Entry.work_date) AS revenue_month, EXTRACT(YEAR FROM Time_Entry.work_date) AS revenue_year
 			FROM Time_Entry
 				INNER JOIN Link_Company_User_Account ON Time_Entry.user_account_id=Link_Company_User_Account.user_account_id
-				INNER JOIN Billing_Rate ON Time_Entry.user_account_id=Billing_Rate.user_account_id
-					AND Time_Entry.work_date BETWEEN Billing_Rate.rate_start_date AND Billing_Rate.rate_end_date
+					AND Link_Company_User_Account.company_id=#session.workstream_company_id#
 				INNER JOIN Project ON Project.project_id=Time_Entry.project_id
-					AND Project.project_id=Billing_Rate.project_id
+					AND Project.billable_type_id=1
+				INNER JOIN Billing_Rate ON Time_Entry.user_account_id=Billing_Rate.user_account_id
+					AND Billing_Rate.project_id=Project.project_id
+					AND Billing_Rate.active_ind=1
 			WHERE Time_Entry.active_ind=1
-				AND Project.billable_type_id=1
-				AND Link_Company_User_Account.company_id=#session.workstream_company_id#
+				AND Time_Entry.work_date BETWEEN Billing_Rate.rate_start_date AND Billing_Rate.rate_end_date
 			GROUP BY EXTRACT(MONTH FROM Time_Entry.work_date), EXTRACT(YEAR FROM Time_Entry.work_date), Project.billable_type_id
 			) AS Hour_Revenue
 		GROUP BY revenue_year

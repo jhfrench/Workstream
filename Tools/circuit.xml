@@ -53,22 +53,21 @@
 	<fuseaction name="fusedocer">
 		<include template="pag_fusedocer.cfm"/>
 	</fuseaction>
-	<!-- Begin Home -->
+	<fuseaction name="generate_invoice">
+		<include template="pag_generate_invoice.cfm"/>
+	</fuseaction>
 	<fuseaction name="home">
 		<include template="pag_home.cfm"/>
 	</fuseaction>
-	<!-- End Home -->
 	<fuseaction name="insert_rate">
 		<include template="pag_insert_rate_change.cfm"/>
 	</fuseaction>
-	<!-- End billing rate insert -->
 	<fuseaction name="invoice">
 		<include template="pag_invoice.cfm"/>
 	</fuseaction>
 	<fuseaction name="query_interface">
 		<include template="pag_query_interface.cfm"/>
 	</fuseaction>
-	<!-- Begin billing rate insert -->
 	<fuseaction name="rate_change">
 		<include template="pag_rate_change.cfm"/>
 	</fuseaction>
