@@ -693,7 +693,8 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="Project 1001.01">
+<cfoutput query="get_invoice_project_summary">
+ <Worksheet ss:Name="Project #project_code#">
   <Names>
    <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project 1001.01'!R1C1:R3C5"/>
   </Names>
@@ -707,7 +708,7 @@
    <Row ss:Height="17.399999999999999" ss:StyleID="s80">
     <Cell ss:StyleID="s90"><Data ss:Type="String">Project:</Data><NamedCell
       ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">eAuth mura</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">#project_name#</Data><NamedCell
       ss:Name="Print_Area"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="Print_Area"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="Print_Area"/></Cell>
@@ -727,207 +728,25 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Line Total</Data><NamedCell
       ss:Name="Print_Area"/></Cell>
    </Row>
+	<cfquery dbtype="query" name="get_invoice_project_details">
+	SELECT time_entry_id, performed_date, hours,
+			rate, revenue, note
+	FROM act_generate_invoice
+	WHERE project_id=#get_invoice_project_summary.project_id#
+	</cfquery>
+<cfloop query="get_invoice_project_details">
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="DateTime">2012-09-18T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Looking up relevant CSS file.</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="Number">8.75</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="DateTime">#dateformat(performed_date, 'yyyy-mm-dd')#T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="Number">#hours#</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">#note#</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">#rate#</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="Number">#revenue#</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">#time_entry_id#</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2012-09-18T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Added margin-left:auto;margin-right:auto; to .main_content on css/service_request.css</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">8.75</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s76"><Data ss:Type="String">Total</Data></Cell>
-    <Cell ss:StyleID="s77" ss:Formula="=SUM(R[-2]C:R[-1]C)"><Data ss:Type="Number">17.5</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Layout x:CenterHorizontal="1"/>
-    <PageMargins x:Bottom="0.5" x:Top="0.5"/>
-   </PageSetup>
-   <Print>
-    <ValidPrinterInfo/>
-    <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>600</VerticalResolution>
-   </Print>
-   <DoNotDisplayGridlines/>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="Project 1001.02">
-  <Names>
-   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project 1001.02'!R1C1:R4C5"/>
-  </Names>
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="9" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s79" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s79" ss:Width="46.2"/>
-   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="40.799999999999997"/>
-   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="411.6"/>
-   <Column ss:StyleID="s79" ss:Width="42.6"/>
-   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="72"/>
-   <Row ss:Height="17.399999999999999" ss:StyleID="s80">
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Project:</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Service Request Module</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s81"><NamedCell ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s81"><NamedCell ss:Name="Print_Area"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="9" ss:StyleID="s80">
-    <Cell ss:MergeAcross="4" ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Date</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Hours</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Description</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Unit Price</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Line Total</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="DateTime">2012-09-18T00:00:00.000</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="Number">0.25</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Looking up relevant CSS file.</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Hourly-$35</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="Number">8.75</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="Number">446</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2012-09-18T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Added margin-left:auto;margin-right:auto; to .main_content on css/service_request.css</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">8.75</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="DateTime">2012-09-18T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="Number">0.5</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Determined that reset.css includes a css rule to set float: left; on label elements. Removing the float causes everything to center, which doesn't look right either.</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="Number">17.5</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2012-10-19T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="Number">2.25</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Researched issue, determined the following facts:&#10;•	The production database has no records entered between Oct 12 (Fri) and 17 (Wed). There have been other gaps of 4+ days in the system’s history (see attached).&#10;•	The current production database has the following attributes for tickets 443 and 444:&#10;requestor	date_received	description&#10;Ricks, Karen	10/17/2012 16:22	Project eClips need to be added to the FY12 list o...&#10;Ricks, Karen	10/17/2012 16:27	Project:  Comp.NASA Innovations in Climate Educati...&#10;&#10;•	The development database has not had an entry since early August; that last record was given tracking number 152. This rules out a production vs development database possibility.&#10;•	The Service Request source code has not been altered in weeks; this anomaly is not a result of a bug introduced into the code this week.&#10;&#10;Further thoughts:&#10;I considered the possibility Jessica had shared an edit link for ticket 443 with Bryan and Karen, but editing a ticket does not send out the announcement email (only ticket creation). Besides, Karen created tickets 443 and 444 within 5 minutes of each other, so I don’t think she was using a bad link.&#10;My suspicion remains that the database was restored from an old backup (that didn’t have tickets 443 and 444)&#45;-twice, or (less likely) Expert Host has a replication problem (*if* they even are replicating this database across multiple servers).&#10;&#10;Recommended steps:&#10;Determine a way to schedule twice-a-day backups of database, keeping 2 weeks of backups, so that at most we’d only “lose�? 12 hours of data.&#10;Contact Expert Host to determine if they changed our database host, responded to a corrupt database, or took any other action that might have resulted in lost data.&#10;Re-enter tickets using information stored within the emails Tasha forwarded to us.&#10;</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">78.75</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="DateTime">2012-10-22T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Created the replacement tickets (461-463) with a note that references the number (and date created) of the original ticket. I wasn't able to look-up the correct phone numbers, so I substituted mine. Will continue to follow up with ExpertHost. Emailed customer.</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="Number">35</Data></Cell>
-   </Row>
+</cfloop>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="s76"><Data ss:Type="String">Total</Data></Cell>
-    <Cell ss:StyleID="s77" ss:Formula="=SUM(R[-5]C:R[-1]C)"><Data ss:Type="Number">148.75</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Layout x:CenterHorizontal="1"/>
-    <PageMargins x:Bottom="0.5" x:Top="0.5"/>
-   </PageSetup>
-   <Print>
-    <ValidPrinterInfo/>
-    <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>600</VerticalResolution>
-   </Print>
-   <DoNotDisplayGridlines/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <RangeSelection>R2</RangeSelection>
-    </Pane>
-   </Panes>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="Project 1001.03">
-  <Names>
-   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project 1001.03'!R1C1:R3C5"/>
-  </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="8" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s79" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s79" ss:Width="46.2"/>
-   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="40.799999999999997"/>
-   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="203.4"/>
-   <Column ss:StyleID="s79" ss:Width="42.6"/>
-   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="72"/>
-   <Row ss:Height="17.399999999999999" ss:StyleID="s80">
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Project:</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">NSAVC Cohort IV Training Module and Bios</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s81"><NamedCell ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s81"><NamedCell ss:Name="Print_Area"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="9" ss:StyleID="s80">
-    <Cell ss:MergeAcross="4" ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Date</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Hours</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Description</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Unit Price</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Line Total</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="DateTime">2012-09-18T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Looking up relevant CSS file.</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="Number">8.75</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2012-09-18T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Added margin-left:auto;margin-right:auto; to .main_content on css/service_request.css</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">8.75</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="DateTime">2012-09-18T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="Number">0.5</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Determined that reset.css includes a css rule to set float: left; on label elements. Removing the float causes everything to center, which doesn't look right either.</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="Number">17.5</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2012-10-19T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="Number">2.25</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Researched issue, determined the following facts:&#10;•	The production database has no records entered between Oct 12 (Fri) and 17 (Wed). There have been other gaps of 4+ days in the system’s history (see attached).&#10;•	The current production database has the following attributes for tickets 443 and 444:&#10;requestor	date_received	description&#10;Ricks, Karen	10/17/2012 16:22	Project eClips need to be added to the FY12 list o...&#10;Ricks, Karen	10/17/2012 16:27	Project:  Comp.NASA Innovations in Climate Educati...&#10;&#10;•	The development database has not had an entry since early August; that last record was given tracking number 152. This rules out a production vs development database possibility.&#10;•	The Service Request source code has not been altered in weeks; this anomaly is not a result of a bug introduced into the code this week.&#10;&#10;Further thoughts:&#10;I considered the possibility Jessica had shared an edit link for ticket 443 with Bryan and Karen, but editing a ticket does not send out the announcement email (only ticket creation). Besides, Karen created tickets 443 and 444 within 5 minutes of each other, so I don’t think she was using a bad link.&#10;My suspicion remains that the database was restored from an old backup (that didn’t have tickets 443 and 444)&#45;-twice, or (less likely) Expert Host has a replication problem (*if* they even are replicating this database across multiple servers).&#10;&#10;Recommended steps:&#10;Determine a way to schedule twice-a-day backups of database, keeping 2 weeks of backups, so that at most we’d only “lose�? 12 hours of data.&#10;Contact Expert Host to determine if they changed our database host, responded to a corrupt database, or took any other action that might have resulted in lost data.&#10;Re-enter tickets using information stored within the emails Tasha forwarded to us.&#10;</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">78.75</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s76"><Data ss:Type="String">Total</Data></Cell>
-    <Cell ss:StyleID="s77" ss:Formula="=SUM(R[-4]C:R[-1]C)"><Data ss:Type="Number">113.75</Data></Cell>
+    <Cell ss:StyleID="s77" ss:Formula="=SUM(R[-#entry_count#]C:R[-1]C)"><Data ss:Type="Number">10000000</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -946,6 +765,7 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
+</cfoutput>
 </Workbook>
 		<cfheader name="Content-Disposition" value="filename=Invoice_#replace(get_customer_invoice_details.customer_name, ' ', '_', 'All')#_#dateformat(now(), 'yyyy_mm_dd')#.xml">
 	</cfsavecontent>

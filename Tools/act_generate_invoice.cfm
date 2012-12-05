@@ -56,9 +56,10 @@ WHERE Customer.customer_id=#attributes.customer_id#
 
 <cfif variables.continue_processing_ind>
 	<cfquery dbtype="query" name="get_invoice_project_summary">
-	SELECT project_code, project_name, COUNT(*) AS entry_count
+	SELECT project_id, project_code, project_name,
+		COUNT(*) AS entry_count
 	FROM act_generate_invoice
-	GROUP BY project_code, project_name
+	GROUP BY project_id, project_code, project_name
 	ORDER BY project_code, project_name
 	</cfquery>
 </cfif>
