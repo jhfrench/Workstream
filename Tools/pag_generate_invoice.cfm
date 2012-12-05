@@ -616,8 +616,8 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">#project_code#</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">#project_name#</Data></Cell>
-    <Cell ss:StyleID="s112" ss:Formula="='Project #project_code#'!R[-8]C[1]"><Data
-      ss:Type="Number">#entry_count+4#</Data></Cell>
+    <Cell ss:StyleID="s112" ss:Formula="='Project #project_code#'!R[#entry_count+4-(13+get_invoice_project_summary.currentrow)#]C[1]"><Data
+      ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
