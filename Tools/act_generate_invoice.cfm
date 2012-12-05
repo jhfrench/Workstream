@@ -21,10 +21,13 @@
 	<cfcatch type="Database">
 		<cfset variables.continue_processing_ind=0>
 		<cfoutput>
+		<div class="alert alert-error">
 		<cfif NOT comparenocase(cfcatch.message,"ERROR: One or more employees are missing a billing rate.")>
-			<a href="index.cfm?fuseaction=Tools.rate_change">#cfcatch.message#</a>
+			<h1>Uh oh</h1>
+			<p>#cfcatch.message#</p>
+			<a href="index.cfm?fuseaction=Tools.rate_change">Please create the necessary billing rates for customer #attributes.customer_id#.</a>
 		<cfelseif variables.user_identification EQ 1>
-			<h1>Database Error</h1>
+			<h1 class="text-error">Database Error</h1>
 			<dl>
 				<dt>Message</dt>
 				<dd>#cfcatch.message#</dd>
@@ -36,6 +39,7 @@
 				<dd>#cfcatch.detail#</dd>
 			</dl>
 		</cfif>
+		</div>
 		</cfoutput>
 	</cfcatch>
 </cftry>
