@@ -967,7 +967,7 @@
   </WorksheetOptions>
  </Worksheet>
 </Workbook>
-		<cfheader name="Content-Disposition" value="filename=Invoice_#replace(get_customer_invoice_details.description, ' ', '_', 'All')#_#dateformat(now(), 'yyyy_mm_dd')#.xml">
+		<cfheader name="Content-Disposition" value="filename=Invoice_#replace(get_customer_invoice_details.customer_name, ' ', '_', 'All')#_#dateformat(now(), 'yyyy_mm_dd')#.xml">
 	</cfsavecontent>
 	<cfset variables.file_path=gettempfile(gettempdirectory(),"excel_")/>
 	<cffile action="WRITE" file="#variables.file_path#" output="#variables.generate_invoice.trim()#"/>
