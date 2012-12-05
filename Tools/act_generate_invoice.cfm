@@ -17,7 +17,7 @@
 
 <cfset variables.continue_processing_ind=1>
 <cfquery name="get_customer_invoice_details" datasource="#application.datasources.main#">
-SELECT Customer.root_code, Customer.abbreviation, Customer.description,
+SELECT Customer.root_code, Customer.abbreviation, Customer.description AS customer_name,
 	Customer.company_address1, Customer.company_address2, Customer.company_city,
 	Customer.company_state, Customer.company_zip, Demographics.last_name,
 	Demographics.first_name, Demographics.email_address, Demographics.work_phone

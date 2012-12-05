@@ -16,7 +16,7 @@
 </cfsilent>
 <cfinclude template="act_generate_invoice.cfm">
 
-		<cfdump var="#get_customer_invoice_details" />
+		<cfdump var="#get_customer_invoice_details#" />
 		<cfdump var="#get_invoice_project_summary#" />
 		<cfdump var="#act_generate_invoice#" />
 		
@@ -34,8 +34,10 @@
   <Author>jfrench</Author>
   <LastAuthor>jhfrench</LastAuthor>
   <LastPrinted>2006-05-17T18:53:55Z</LastPrinted>
-  <Created>2006-01-23T19:37:33Z</Created>
-  <LastSaved>2012-11-06T04:07:58Z</LastSaved>
+<cfoutput>
+  <Created>#dateformat(now(), 'yyyy-mm-dd')#T#timeformat(now(), 'HH:mm:ss')#Z</Created>
+  <LastSaved>#dateformat(now(), 'yyyy-mm-dd')#T#timeformat(now(), 'HH:mm:ss')#Z</LastSaved>
+</cfoutput>
   <Company>Microsoft Corporation</Company>
   <Version>14.00</Version>
  </DocumentProperties>
@@ -513,12 +515,13 @@
     <Cell ss:StyleID="s61"/>
     <Cell ss:StyleID="s61"/>
    </Row>
+<cfoutput>
    <Row ss:AutoFitHeight="0" ss:Height="18">
     <Cell ss:StyleID="s58"><Data ss:Type="String">Applied Internet Technologies</Data></Cell>
     <Cell ss:StyleID="s58"/>
     <Cell ss:StyleID="s58"/>
     <Cell ss:StyleID="s59"><Data ss:Type="String">Date:</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="DateTime">2012-10-31T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s60"><Data ss:Type="DateTime">#dateformat(now(), 'yyyy-mm-dd')#T00:00:00.000</Data></Cell>
     <Cell ss:StyleID="s61"/>
     <Cell ss:StyleID="s61"/>
    </Row>
@@ -526,8 +529,8 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">Jeromy French</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Invoice #:</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="s59"><Data ss:Type="String">Invoice ##:</Data></Cell>
+    <Cell ss:StyleID="s59"><Data ss:Type="Number">#act_generate_invoice.invoice_id#</Data></Cell>
     <Cell ss:StyleID="s61"/>
     <Cell ss:StyleID="s61"/>
    </Row>
@@ -536,7 +539,7 @@
     <Cell ss:StyleID="s58"/>
     <Cell ss:StyleID="s58"/>
     <Cell ss:StyleID="s59"><Data ss:Type="String">Customer ID:</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="Number">1001</Data></Cell>
+    <Cell ss:StyleID="s59"><Data ss:Type="Number">#get_customer_invoice_details.root_code#</Data></Cell>
     <Cell ss:StyleID="s61"/>
     <Cell ss:StyleID="s61"/>
    </Row>
@@ -551,7 +554,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell ss:StyleID="s59"><Data ss:Type="String">To:</Data></Cell>
-    <Cell ss:MergeAcross="1" ss:StyleID="s66"><Data ss:Type="String">Leo Geiger</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s66"><Data ss:Type="String">#get_customer_invoice_details.first_name# #get_customer_invoice_details.last_name#</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s61"/>
@@ -559,7 +562,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell ss:StyleID="s67"/>
-    <Cell ss:MergeAcross="1" ss:StyleID="s66"><Data ss:Type="String">International Code Design, Inc.</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s66"><Data ss:Type="String">#get_customer_invoice_details.customer_name#</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s61"/>
@@ -567,7 +570,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">6411 Ivy Lane, Suite 305</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">#get_customer_invoice_details.company_address1#<cfif len(get_customer_invoice_details.company_address2)>, #get_customer_invoice_details.company_address2#</cfif></Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
@@ -576,14 +579,14 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Greenbelt, MD 20770</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">#get_customer_invoice_details.company_city#, #get_customer_invoice_details.company_state# #get_customer_invoice_details.company_zip#</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">301.441.4917</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">#get_customer_invoice_details.work_phone#</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
@@ -649,6 +652,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
+</cfoutput>
    <Row ss:AutoFitHeight="0" ss:Height="9">
     <Cell ss:MergeAcross="4" ss:StyleID="s104"/>
     <Cell ss:StyleID="s68"/>
@@ -963,7 +967,7 @@
   </WorksheetOptions>
  </Worksheet>
 </Workbook>
-		<cfheader name="Content-Disposition" value="filename=Invoice_#replace(get_customer_invoice_details.description, ' ', '_', 'All')#_#dateformat(now(), 'yyyy-mm-dd')#.xml">
+		<cfheader name="Content-Disposition" value="filename=Invoice_#replace(get_customer_invoice_details.description, ' ', '_', 'All')#_#dateformat(now(), 'yyyy_mm_dd')#.xml">
 	</cfsavecontent>
 	<cfset variables.file_path=gettempfile(gettempdirectory(),"excel_")/>
 	<cffile action="WRITE" file="#variables.file_path#" output="#variables.generate_invoice.trim()#"/>
