@@ -25,8 +25,10 @@
   <Author>jfrench</Author>
   <LastAuthor>jhfrench</LastAuthor>
   <LastPrinted>2006-05-17T18:53:55Z</LastPrinted>
-  <Created>2006-01-23T19:37:33Z</Created>
-  <LastSaved>2012-12-05T19:48:54Z</LastSaved>
+<cfoutput>
+  <Created>#dateformat(now(), 'yyyy-mm-dd')#T#timeformat(now(), 'HH:mm:ss')#Z</Created>
+  <LastSaved>#dateformat(now(), 'yyyy-mm-dd')#T#timeformat(now(), 'HH:mm:ss')#Z</LastSaved>
+</cfoutput>
   <Company>Microsoft Corporation</Company>
   <Version>14.00</Version>
  </DocumentProperties>
