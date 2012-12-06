@@ -590,12 +590,13 @@
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
    </Row>
+<cfset variables.total_revenue=0>
 <cfloop query="get_invoice_project_summary">
    <Row ss:AutoFitHeight="0" ss:Height="13.5">
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s80"><Data ss:Type="String">#project_code#</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">#project_name#</Data></Cell>
-    <Cell ss:StyleID="s82" ss:Formula="='Project #project_code#'!R[#entry_count+4-(13+get_invoice_project_summary.currentrow)#]C[1]"><Data ss:Type="Number">#numberformat(project_revenue)#</Data></Cell>
+    <Cell ss:StyleID="s82" ss:Formula="='Project #project_code#'!R[#entry_count+4-(13+get_invoice_project_summary.currentrow)#]C[1]"><Data ss:Type="Number">#numberformat(project_revenue)#<cfset variables.total_revenue=variables.total_revenue+project_revenue></Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
@@ -605,7 +606,7 @@
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Total</Data></Cell>
-    <Cell ss:StyleID="s89" ss:Formula="=SUM(R[-#get_invoice_project_summary.recordcount#]C:R[-1]C)"><Data ss:Type="Number">1000000</Data></Cell>
+    <Cell ss:StyleID="s89" ss:Formula="=SUM(R[-#get_invoice_project_summary.recordcount#]C:R[-1]C)"><Data ss:Type="Number">#variables.total_revenue#</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>

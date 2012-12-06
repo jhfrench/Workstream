@@ -62,4 +62,14 @@ WHERE Customer.customer_id=#attributes.customer_id#
 	GROUP BY project_id, project_code, project_name
 	ORDER BY project_code, project_name
 	</cfquery>
+	
+	<!--- $issue$: get rid of this as soon as invoice tool works --->
+	<cfquery name="reset" datasource="#application.datasources.main#">
+	DELETE FROM Billing_History
+	WHERE invoice_id>15;
+	DELETE FROM Link_Invoice_Time_Entry
+	WHERE invoice_id>15;
+	DELETE FROM Invoice
+	WHERE invoice_id>15;
+	</cfquery>
 </cfif>

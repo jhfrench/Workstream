@@ -23,14 +23,4 @@
 	<cfset variables.file_path=gettempfile(gettempdirectory(),"excel_")/>
 	<cffile action="WRITE" file="#variables.file_path#" output="#variables.generate_invoice.trim()#"/>
 	<cfcontent type="application/msexcel" file="#variables.file_path#" deletefile="true"/>
-	
-	<!--- $issue$: get rid of this as soon as invoice tool works --->
-	<cfquery name="reset" datasource="#application.datasources.main#">
-	DELETE FROM Billing_History
-	WHERE invoice_id>15;
-	DELETE FROM Link_Invoice_Time_Entry
-	WHERE invoice_id>15;
-	DELETE FROM Invoice
-	WHERE invoice_id>15;
-	</cfquery>
 </cfif>
