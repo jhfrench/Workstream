@@ -731,7 +731,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s10#variables.cell1_style#"><Data ss:Type="DateTime">#dateformat(performed_date, 'yyyy-mm-dd')#T00:00:00.000</Data></Cell>
     <Cell ss:StyleID="s10#variables.cell2_style#"><Data ss:Type="Number">#decimalformat(hours)#</Data></Cell>
-    <Cell ss:StyleID="s1#variables.cell3_style#"><Data ss:Type="String"><!--- #xmlformat(note)# --->note</Data></Cell>
+    <Cell ss:StyleID="s1#variables.cell3_style#"><Data ss:Type="String">#xmlformat(note)#</Data></Cell>
     <Cell ss:StyleID="s8#variables.cell4_style#"><Data ss:Type="String">#rate#</Data></Cell>
     <Cell ss:StyleID="s1#variables.cell5_style#"><Data ss:Type="Number">#decimalformat(revenue)#</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="Number">#time_entry_id#</Data></Cell>
