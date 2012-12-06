@@ -673,9 +673,10 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="Project 1001.01">
+<cfoutput query="get_invoice_project_summary">
+ <Worksheet ss:Name="Project #project_code#">
   <Names>
-   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project 1001.01'!R1C1:R3C5"/>
+   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project #project_code#'!R1C1:R3C5"/>
   </Names>
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s97" ss:DefaultRowHeight="15">
@@ -687,7 +688,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="17.55" ss:StyleID="s98">
     <Cell ss:StyleID="s99"><Data ss:Type="String">Project:</Data><NamedCell
       ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">eAuth mura</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">#project_name#</Data><NamedCell
       ss:Name="Print_Area"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="Print_Area"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="Print_Area"/></Cell>
@@ -707,17 +708,25 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">Line Total</Data><NamedCell
       ss:Name="Print_Area"/></Cell>
    </Row>
+	<cfquery dbtype="query" name="get_invoice_project_details">
+	SELECT time_entry_id, performed_date, hours,
+			rate, revenue, note
+	FROM act_generate_invoice
+	WHERE project_id=#get_invoice_project_summary.project_id#
+	</cfquery>
+<cfloop query="get_invoice_project_details">
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-19T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">No further word on this project; closing task as done.</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="Number">554</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">#dateformat(performed_date, 'yyyy-mm-dd')#T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="Number"><!--- #hours# --->1</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String"><!--- #xmlformat(note)# --->note</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String"><!--- #rate# --->Hourly 1</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number"><!--- #revenue# --->1</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="Number">#time_entry_id#</Data></Cell>
    </Row>
+</cfloop>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="s111"><Data ss:Type="String">Total</Data></Cell>
-    <Cell ss:StyleID="s112" ss:Formula="=SUM(R[-1]C:R[-1]C)"><Data ss:Type="Number">8.75</Data></Cell>
+    <Cell ss:StyleID="s112" ss:Formula="=SUM(R[-#entry_count#]C:R[-1]C)"><Data ss:Type="Number">10000000</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -736,361 +745,5 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="Project 1001.02">
-  <Names>
-   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project 1001.02'!R1C1:R4C5"/>
-  </Names>
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="41" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s97" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s97" ss:Width="46.2"/>
-   <Column ss:StyleID="s97" ss:AutoFitWidth="0" ss:Width="40.799999999999997"/>
-   <Column ss:StyleID="s97" ss:AutoFitWidth="0" ss:Width="412.8"/>
-   <Column ss:StyleID="s97" ss:AutoFitWidth="0" ss:Width="45.599999999999994"/>
-   <Column ss:StyleID="s97" ss:Width="41.4"/>
-   <Row ss:AutoFitHeight="0" ss:Height="17.55" ss:StyleID="s98">
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Project:</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Service Request Module</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s100"><NamedCell ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s100"><NamedCell ss:Name="Print_Area"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="9" ss:StyleID="s98">
-    <Cell ss:MergeAcross="4" ss:StyleID="s102"><NamedCell ss:Name="Print_Area"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Date</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Hours</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Description</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Unit Price</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Line Total</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-08T00:00:00.000</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.25</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Discovered scrunched image on Service Request. Documenting need to fix.</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">8.75</Data><NamedCell
-      ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">519</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-08T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">0.5</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Importing SVN history into local Git copy of Service Request code so I can work remotely and still have the benefit of version control.</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">17.5</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">520</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-08T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.5</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Corrected, moved into development. Emailed James to have him take a look and approve for prod. Also pointed out that items in blue nav bar are different between service request and OSSI.</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">17.5</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">521</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-09T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">James replied that he was aware and was making a list of things to fix in Service Request.</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">527</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-15T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">James has some enhancements and bug fixes he wants to email to me today. I will send him an email of outstanding service-request tasks so he can compare to his list.</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">533</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-15T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">0.5</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Emailed list of outstanding Service Request and NSAVC Entry tasks to James.</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">17.5</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">535</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-19T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Need more detail...which pages error? Might want to table this task until error-handling is in-place, because then I'll be able to have a record of each error and would be able to more easily diagnose and correct.</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">543</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-19T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Need more detail: which link? Is the user already logged-in when they click on the link?</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">544</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-19T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.5</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Created tasks for new items in James's 11/18 email.</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">17.5</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">545</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-19T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Sent LOE via email to James and Leo so they can review and prioritize work.</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">547</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-19T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.5</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Adding James (jchi) to Workstream. Initial password is A1*7758A39ED6C9C3CBEC08AE5A</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">17.5</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">551</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-19T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">0.5</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Adjusted jchi Workstream access.</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">17.5</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">552</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-19T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Determined that correct link is &amp;quot;http://www.i-codedesign.com/service_request/index.cfm?hash_id=%23%29%3C&amp;quot;. Error-handling is developed in test; once it's in production we'll be able to see these errors and respond to them with the benefit of thorough diagnostics information. </Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">555</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-19T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">4.25</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Created Error_Log.installation_id default of 0. Updated datasource for Error_Log inserts. Adjusted styling of display pages. Created test page at http://www.i-codedesign.com/service_request_development/test_page.cfm. Need to check if &quot;AIT&quot; references should be replaced by &quot;ICD&quot; references. This is ready for James to test.</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">148.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">614</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-19T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">2.25</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Defining additional variables used by error-handling.</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">78.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">615</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-19T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Added diagnostics viewer (http://www.i-codedesign.com/service_request_development/dsp_view_error_diagnostics.cfm)</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">105</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">618</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-21T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Asked for steps to reproduce.</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">560</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-21T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Added variable after hash_id in URL so that if the URL gets corrupted by an email program the useful parts of the link won't be damaged. Moved code to Service Request development area.</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">35</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">561</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-21T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Emailed James to see if he thinks we should replace pagination with table scrolling powered by javasript (see example at http://jsfiddle.net/jhfrench/eNP2N/)</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">562</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-21T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">For the SPAM prevention&#45;-instead of spending time and money to install captcha on the server, I recommend a much lower-tech and cheaper solution:&#13;&#10;&#13;&#10;Prove you're human! 1 + 4 = [input field]&#13;&#10;The first two numbers would be randomly generated (something between 0 and 9) and the answer would be checked on server-side. Dead simple to code, easier to read/use for the user (I think my personal success rate with captcha phrases is probably 60%).</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">564</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-21T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">I think they're talking about this one: http://www.i-codedesign.com/service_request/index.cfm?idnew_table=468&#13;&#10;The request came through with a bad phone number, but the phone field is not editable.&#13;&#10;&#13;&#10;We can handle in a couple of ways:&#13;&#10;1. Make the field editable if it's entered incorrectly (using javascript)&#13;&#10;2. Remove from validation routine any fields that the user can't alter&#13;&#10;3. Prevent these bad submissions from coming through by adding spam trapping&#13;&#10;4. Prevent these bad submissions from coming through by applying server-side validation (which can't be defeated by turning off javascript)&#13;&#10;&#13;&#10;I recommend a combination of options 1, 3 and 4 because it covers all the injection scenarios pretty nicely.</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">565</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-21T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">James indicates in 11/21 9:38 email to go with this recommendation.</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">566</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-21T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">James indicates in 11/21 9:38 email to develop this recommendation. </Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">567</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-23T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Called Leo. Work on bugs first because NASA hasn't yet approved hours for any other work.</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">568</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-26T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Altered text area countdowns to alert user to correct number of max characters.</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">569</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-26T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">0.5</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Replaced &quot;onKeyUp/Down&quot; firing events of textarea countdown with onKeyPress. Augmented onKeyPress firing event (which, like onKeyUp/Down, is not 508-compliant) to &quot;onChange&quot;, which is accessible. </Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">17.5</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">571</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-26T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">1.75</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Adding server-side validation to check for valid email address on new request submission. Added spam trapping that demands the user solve some simple equation that adds up to a number less than 9 (ie: 3+4=?). Added server-side validation for the answer.</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">61.25</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">572</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-26T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Edited development request 152 (http://www.i-codedesign.com/service_request_development/index.cfm?idnew_table=152) to change email address to invalid value.</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">573</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-26T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Closing in deference to duplicate task 197.</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">575</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-26T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Changed color used when a request is disapproved by the requestor.</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">576</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-26T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Asked James to elaborate on what's needed for this task.</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">578</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-26T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">James called: fix alignment of radio buttons. He suspects that a table cell is unclosed and coloring extra contents green.</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">579</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-26T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Requester Review radio buttons and labels look good in Chrome, IE7 and IE9, even after re-sizing screen. Need to generate approval email so I can follow the link to make sure I'm looking in the right spot.</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">580</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-26T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">index.cfm needs to require a login if idnew_table is defined. Otherwise, do not require a login.</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">581</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-26T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">2.5</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">If &quot;phone number&quot; or &quot;email&quot; fields are not populated with valid values, the user is now allowed to edit those fields.</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">87.5</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">620</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="DateTime">2012-11-26T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="Number">3.75</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Fixed pagination on admin.cfm (http://www.i-codedesign.com/service_request_development/admin.cfm) so that it will adhere to the sort order of the table through the different slices of data. Set pagination to slice data every 25 rows. Updated jQuery library to 1.8.3.</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="Number">131.25</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">621</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">2012-11-29T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">0.25</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Left a vmail for Leo detailing progress. Promised to follow-up with an email 11/30/2012.</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Hourly-$35</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">8.75</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="Number">587</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s111"><Data ss:Type="String">Total</Data></Cell>
-    <Cell ss:StyleID="s112" ss:Formula="=SUM(R[-37]C:R[-1]C)"><Data
-      ss:Type="Number">971.25</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Layout x:CenterHorizontal="1"/>
-    <PageMargins x:Bottom="0.5" x:Top="0.5"/>
-   </PageSetup>
-   <Unsynced/>
-   <Print>
-    <ValidPrinterInfo/>
-    <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>600</VerticalResolution>
-   </Print>
-   <DoNotDisplayGridlines/>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
+</cfoutput>
 </Workbook>
