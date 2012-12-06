@@ -64,53 +64,20 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s57">
-   <Interior/>
-  </Style>
-  <Style ss:ID="s58">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-   <Borders/>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="12"
-    ss:Color="#993366"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s59">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s60">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-   <Interior/>
-   <NumberFormat ss:Format="[ENG][$-409]mmmm\ d\,\ yyyy;@"/>
-  </Style>
-  <Style ss:ID="s61">
-   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#993366"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s62">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-   <Borders/>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Color="#993366"/>
-   <Interior/>
-  </Style>
   <Style ss:ID="s63">
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="38"
+    ss:Color="#808080" ss:Italic="1"/>
    <Interior/>
   </Style>
   <Style ss:ID="s64">
-   <Alignment ss:Vertical="Bottom"/>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
    <Interior/>
   </Style>
   <Style ss:ID="s65">
-   <Alignment ss:Vertical="Top"/>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="12"
     ss:Color="#993366"/>
    <Interior/>
   </Style>
@@ -118,17 +85,57 @@
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
    <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
     ss:Color="#993366"/>
+   <Interior/>
   </Style>
   <Style ss:ID="s67">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
    <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366" ss:Bold="1"/>
+    ss:Color="#993366"/>
    <Interior/>
+   <NumberFormat ss:Format="[ENG][$-409]mmmm\ d\,\ yyyy;@"/>
   </Style>
   <Style ss:ID="s68">
    <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#993366"/>
+   <Interior/>
   </Style>
   <Style ss:ID="s69">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Color="#993366"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s70">
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Vertical="Top"/>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+  </Style>
+  <Style ss:ID="s74">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366" ss:Bold="1"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s75">
+   <Alignment ss:Vertical="Bottom"/>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s76">
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#993366"/>
+  </Style>
+  <Style ss:ID="s77">
    <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
@@ -140,7 +147,7 @@
     ss:Color="#993366" ss:Bold="1"/>
    <Interior ss:Color="#9DBEC3" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s70">
+  <Style ss:ID="s78">
    <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
@@ -150,7 +157,7 @@
     ss:Color="#993366" ss:Bold="1"/>
    <Interior ss:Color="#9DBEC3" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s79">
    <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
@@ -162,7 +169,7 @@
     ss:Color="#993366" ss:Bold="1"/>
    <Interior ss:Color="#9DBEC3" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s72">
+  <Style ss:ID="s80">
    <Alignment ss:Vertical="Top"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
@@ -179,7 +186,7 @@
    <Interior ss:Color="#EDF3F3" ss:Pattern="Solid"/>
    <NumberFormat ss:Format="@"/>
   </Style>
-  <Style ss:ID="s73">
+  <Style ss:ID="s81">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
@@ -194,8 +201,8 @@
    <Interior ss:Color="#EDF3F3" ss:Pattern="Solid"/>
    <NumberFormat/>
   </Style>
-  <Style ss:ID="s74">
-   <Alignment ss:Vertical="Top"/>
+  <Style ss:ID="s82">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Top"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
      ss:Color="#D6DCE0"/>
@@ -211,273 +218,22 @@
    <Interior ss:Color="#E3EDED" ss:Pattern="Solid"/>
    <NumberFormat ss:Format="_(* #,##0.00_);_(* \(#,##0.00\);_(* &quot;-&quot;??_);_(@_)"/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s83">
    <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
    <Borders/>
    <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
     ss:Color="#993366"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-   <NumberFormat/>
-  </Style>
-  <Style ss:ID="s76">
-   <Alignment ss:Horizontal="Right" ss:Vertical="Center"/>
-   <Borders/>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s77">
-   <Alignment ss:Vertical="Center"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-   </Borders>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-   <Interior ss:Color="#E3EDED" ss:Pattern="Solid"/>
-   <NumberFormat
-    ss:Format="_(&quot;$&quot;* #,##0.00_);_(&quot;$&quot;* \(#,##0.00\);_(&quot;$&quot;* &quot;-&quot;??_);_(@_)"/>
-  </Style>
-  <Style ss:ID="s78">
-   <Alignment ss:Vertical="Center"/>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman"/>
-  </Style>
-  <Style ss:ID="s79">
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Color="#993366"/>
-  </Style>
-  <Style ss:ID="s80">
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-  </Style>
-  <Style ss:ID="s81">
-   <Alignment ss:Vertical="Top"/>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-  </Style>
-  <Style ss:ID="s82">
-   <Alignment ss:Vertical="Top"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-   </Borders>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-   <Interior ss:Color="#EDF3F3" ss:Pattern="Solid"/>
-   <NumberFormat ss:Format="m/d/yy;@"/>
-  </Style>
-  <Style ss:ID="s83">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-   </Borders>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-   <Interior ss:Color="#EDF3F3" ss:Pattern="Solid"/>
    <NumberFormat/>
   </Style>
   <Style ss:ID="s84">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-   </Borders>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-   <Interior ss:Color="#EDF3F3" ss:Pattern="Solid"/>
-   <NumberFormat/>
-  </Style>
-  <Style ss:ID="s85">
-   <Alignment ss:Vertical="Top"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-   </Borders>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-   <Interior/>
-   <NumberFormat ss:Format="m/d/yy;@"/>
-  </Style>
-  <Style ss:ID="s86">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-   </Borders>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-   <Interior/>
-   <NumberFormat/>
-  </Style>
-  <Style ss:ID="s87">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-   </Borders>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-   <Interior/>
-   <NumberFormat ss:Format="_(* #,##0.00_);_(* \(#,##0.00\);_(* &quot;-&quot;??_);_(@_)"/>
-  </Style>
-  <Style ss:ID="s88">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-   </Borders>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-   <Interior/>
-   <NumberFormat/>
-  </Style>
-  <Style ss:ID="s89">
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Color="#FFFFFF"/>
-  </Style>
-  <Style ss:ID="s90">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="12"
-    ss:Color="#993366" ss:Bold="1"/>
-  </Style>
-  <Style ss:ID="s101">
-   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-  </Style>
-  <Style ss:ID="s102">
-   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
-   <Borders/>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="38"
-    ss:Color="#808080" ss:Italic="1"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s104">
-   <Alignment ss:Vertical="Bottom"/>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Color="#993366"/>
-  </Style>
-  <Style ss:ID="s105">
-   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#000000"/>
-  </Style>
-  <Style ss:ID="s106">
-   <Alignment ss:Vertical="Bottom"/>
-   <Borders/>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-  </Style>
-  <Style ss:ID="s112">
-   <Alignment ss:Horizontal="Right" ss:Vertical="Top"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-   </Borders>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-   <Interior ss:Color="#E3EDED" ss:Pattern="Solid"/>
-   <NumberFormat ss:Format="_(* #,##0.00_);_(* \(#,##0.00\);_(* &quot;-&quot;??_);_(@_)"/>
-  </Style>
-  <Style ss:ID="s123">
    <Alignment ss:Horizontal="Right" ss:Vertical="Center"/>
    <Borders/>
    <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="12"
     ss:Color="#993366"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s128">
-   <Alignment ss:Vertical="Top"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-   </Borders>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-   <Interior/>
-   <NumberFormat ss:Format="@"/>
-  </Style>
-  <Style ss:ID="s129">
-   <Alignment ss:Horizontal="Right" ss:Vertical="Top"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-   </Borders>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-   <Interior/>
-   <NumberFormat ss:Format="_(* #,##0.00_);_(* \(#,##0.00\);_(* &quot;-&quot;??_);_(@_)"/>
-  </Style>
-  <Style ss:ID="s130">
-   <Alignment ss:Horizontal="Right" ss:Vertical="Top"/>
-   <Borders>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
-     ss:Color="#D6DCE0"/>
-   </Borders>
-   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
-    ss:Color="#993366"/>
-   <Interior ss:Color="#E3EDED" ss:Pattern="Solid"/>
-   <NumberFormat ss:Format="_(* #,##0.00_);_(* \(#,##0.00\);_(* &quot;-&quot;??_);_(@_)"/>
-  </Style>
-  <Style ss:ID="s131">
+  <Style ss:ID="s85">
    <Alignment ss:Horizontal="Right" ss:Vertical="Top"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Double" ss:Weight="3"/>
@@ -493,105 +249,300 @@
    <NumberFormat
     ss:Format="_(&quot;$&quot;* #,##0.00_);_(&quot;$&quot;* \(#,##0.00\);_(&quot;$&quot;* &quot;-&quot;??_);_(@_)"/>
   </Style>
+  <Style ss:ID="s87">
+   <Alignment ss:Vertical="Bottom"/>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Color="#993366"/>
+  </Style>
+  <Style ss:ID="s89">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="14"
+    ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s90">
+   <Alignment ss:Vertical="Center"/>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman"/>
+  </Style>
+  <Style ss:ID="s92">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+  </Style>
+  <Style ss:ID="s93">
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Color="#993366"/>
+  </Style>
+  <Style ss:ID="s94">
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+  </Style>
+  <Style ss:ID="s95">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="12"
+    ss:Color="#993366" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s96">
+   <Alignment ss:Vertical="Top"/>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+  </Style>
+  <Style ss:ID="s98">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+  </Style>
+  <Style ss:ID="s99">
+   <Alignment ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+   </Borders>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+   <Interior ss:Color="#EDF3F3" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="m/d/yy;@"/>
+  </Style>
+  <Style ss:ID="s100">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+   </Borders>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+   <Interior ss:Color="#EDF3F3" ss:Pattern="Solid"/>
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s101">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+   </Borders>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+   <Interior ss:Color="#EDF3F3" ss:Pattern="Solid"/>
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s102">
+   <Alignment ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+   </Borders>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+   <Interior ss:Color="#E3EDED" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="_(* #,##0.00_);_(* \(#,##0.00\);_(* &quot;-&quot;??_);_(@_)"/>
+  </Style>
+  <Style ss:ID="s103">
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Color="#FFFFFF"/>
+  </Style>
+  <Style ss:ID="s104">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Center"/>
+   <Borders/>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s105">
+   <Alignment ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+   </Borders>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+   <Interior ss:Color="#E3EDED" ss:Pattern="Solid"/>
+   <NumberFormat
+    ss:Format="_(&quot;$&quot;* #,##0.00_);_(&quot;$&quot;* \(#,##0.00\);_(&quot;$&quot;* &quot;-&quot;??_);_(@_)"/>
+  </Style>
+  <Style ss:ID="s106">
+   <Alignment ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+   </Borders>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+   <Interior/>
+   <NumberFormat ss:Format="m/d/yy;@"/>
+  </Style>
+  <Style ss:ID="s107">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+   </Borders>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+   <Interior/>
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s108">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+   </Borders>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+   <Interior/>
+   <NumberFormat ss:Format="_(* #,##0.00_);_(* \(#,##0.00\);_(* &quot;-&quot;??_);_(@_)"/>
+  </Style>
+  <Style ss:ID="s109">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#D6DCE0"/>
+   </Borders>
+   <Font ss:FontName="Palatino Linotype" x:Family="Roman" ss:Size="8"
+    ss:Color="#993366"/>
+   <Interior/>
+   <NumberFormat/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Invoice Overview">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="24" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="23" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="13.2">
    <Column ss:Index="2" ss:Width="99"/>
    <Column ss:Width="150"/>
    <Column ss:Width="54.599999999999994"/>
    <Column ss:AutoFitWidth="0" ss:Width="78"/>
    <Row ss:AutoFitHeight="0" ss:Height="56.25">
-    <Cell ss:MergeAcross="4" ss:StyleID="s102"><Data ss:Type="String">Invoice</Data></Cell>
-    <Cell ss:StyleID="s57"/>
-    <Cell ss:StyleID="s57"/>
+    <Cell ss:MergeAcross="4" ss:StyleID="s63"><Data ss:Type="String">Invoice</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="9">
-    <Cell ss:StyleID="s58"/>
-    <Cell ss:StyleID="s58"/>
-    <Cell ss:StyleID="s58"/>
-    <Cell ss:StyleID="s59"/>
-    <Cell ss:StyleID="s60"/>
-    <Cell ss:StyleID="s61"/>
-    <Cell ss:StyleID="s61"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
 <cfoutput>
    <Row ss:AutoFitHeight="0" ss:Height="18">
-    <Cell ss:StyleID="s58"><Data ss:Type="String">Applied Internet Technologies</Data></Cell>
-    <Cell ss:StyleID="s58"/>
-    <Cell ss:StyleID="s58"/>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Date:</Data></Cell>
-    <Cell ss:StyleID="s60"><Data ss:Type="DateTime">#dateformat(now(), 'yyyy-mm-dd')#T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s61"/>
-    <Cell ss:StyleID="s61"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Jeromy French</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Invoice ##:</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="Number">#act_generate_invoice.invoice_id#</Data></Cell>
-    <Cell ss:StyleID="s61"/>
-    <Cell ss:StyleID="s61"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="18">
-    <Cell ss:StyleID="s58"/>
-    <Cell ss:StyleID="s58"/>
-    <Cell ss:StyleID="s58"/>
-    <Cell ss:StyleID="s59"><Data ss:Type="String">Customer ID:</Data></Cell>
-    <Cell ss:StyleID="s59"><Data ss:Type="Number">#get_customer_invoice_details.root_code#</Data></Cell>
-    <Cell ss:StyleID="s61"/>
-    <Cell ss:StyleID="s61"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="9">
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s61"/>
-    <Cell ss:StyleID="s61"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s59"><Data ss:Type="String">To:</Data></Cell>
-    <Cell ss:MergeAcross="1" ss:StyleID="s66"><Data ss:Type="String">#get_customer_invoice_details.first_name# #get_customer_invoice_details.last_name#</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Applied Internet Technologies</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s61"/>
-    <Cell ss:StyleID="s61"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:MergeAcross="1" ss:StyleID="s66"><Data ss:Type="String">#get_customer_invoice_details.customer_name#</Data></Cell>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s61"/>
-    <Cell ss:StyleID="s61"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">#get_customer_invoice_details.company_address1#<cfif len(get_customer_invoice_details.company_address2)>, #get_customer_invoice_details.company_address2#</cfif></Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s61"/>
-    <Cell ss:StyleID="s61"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">#get_customer_invoice_details.company_city#, #get_customer_invoice_details.company_state# #get_customer_invoice_details.company_zip#</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Date:</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">#dateformat(now(), 'yyyy-mm-dd')#T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">#get_customer_invoice_details.work_phone#</Data></Cell>
-    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Jeromy French</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Invoice ##:</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="Number">#act_generate_invoice.invoice_id#</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="18">
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s61"/>
-    <Cell ss:StyleID="s61"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Customer ID:</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="Number">#get_customer_invoice_details.root_code#</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="9">
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15">
+    <Cell ss:StyleID="s66"><Data ss:Type="String">To:</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s72"><Data ss:Type="String">#get_customer_invoice_details.first_name# #get_customer_invoice_details.last_name#</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15">
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:MergeAcross="1" ss:StyleID="s72"><Data ss:Type="String">#get_customer_invoice_details.customer_name#</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15">
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">#get_customer_invoice_details.company_address1#<cfif len(get_customer_invoice_details.company_address2)>, #get_customer_invoice_details.company_address2#</cfif>/Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15">
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">#get_customer_invoice_details.company_city#, #get_customer_invoice_details.company_state# #get_customer_invoice_details.company_zip#</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s76"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15">
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">#get_customer_invoice_details.work_phone#</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="9">
     <Cell ss:StyleID="s68"/>
@@ -613,62 +564,62 @@
    </Row>
 <cfloop query="get_invoice_project_summary">
    <Row ss:AutoFitHeight="0" ss:Height="13.5">
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#project_code#</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">#project_name#</Data></Cell>
-    <Cell ss:StyleID="s112" ss:Formula="='Project #project_code#'!R[#entry_count+4-(13+get_invoice_project_summary.currentrow)#]C[1]"><Data
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">#project_code#</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">#project_name#</Data></Cell>
+    <Cell ss:StyleID="s82" ss:Formula="='Project #project_code#'!R[#entry_count+4-(13+get_invoice_project_summary.currentrow)#]C[1]"><Data
       ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
 </cfloop>
-   <Row ss:Height="18">
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s123"><Data ss:Type="String">Total</Data></Cell>
-    <Cell ss:StyleID="s131" ss:Formula="=SUM(R[-#get_invoice_project_summary.recordcount#]C:R[-1]C)"><Data ss:Type="Number">280</Data></Cell>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+   <Row ss:AutoFitHeight="0" ss:Height="18">
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s83"/>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Total</Data></Cell>
+    <Cell ss:StyleID="s85" ss:Formula="=SUM(R[-#get_invoice_project_summary.recordcount#]C:R[-1]C)"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
 </cfoutput>
    <Row ss:AutoFitHeight="0" ss:Height="9">
-    <Cell ss:MergeAcross="4" ss:StyleID="s104"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:MergeAcross="4" ss:StyleID="s87"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
-   <Row>
-    <Cell ss:MergeAcross="4" ss:MergeDown="1" ss:StyleID="s105"><ss:Data
-      ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font html:Size="14"
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:MergeAcross="4" ss:MergeDown="1" ss:StyleID="s89"><ss:Data
+      ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
        html:Color="#000000">Payment due upon receipt, please make all checks payable to Applied Internet Technologies</Font><Font
        html:Size="10" html:Color="#808080">&#10;Thank you for your business!</Font></ss:Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="39.6"/>
+   <Row ss:AutoFitHeight="0" ss:Height="39.450000000000003"/>
    <Row ss:AutoFitHeight="0" ss:Height="9">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="13.5">
-    <Cell ss:MergeAcross="4" ss:StyleID="s101"><Data ss:Type="String">2809 Marshall Street, Falls Church, VA 22042  703.850.6391 jeromy_french@hotmail.com</Data></Cell>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:MergeAcross="4" ss:StyleID="s92"><Data ss:Type="String">2809 Marshall Street, Falls Church, VA 22042  703.850.6391 jeromy_french@hotmail.com</Data></Cell>
+    <Cell ss:StyleID="s76"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -677,6 +628,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -696,36 +648,36 @@
 <cfoutput query="get_invoice_project_summary">
  <Worksheet ss:Name="Project #project_code#">
   <Names>
-   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project 1001.01'!R1C1:R3C5"/>
+   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project #project_code#'!R1C1:R3C5"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s79" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s79" ss:Width="46.2"/>
-   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="40.799999999999997"/>
-   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="387.6"/>
-   <Column ss:StyleID="s79" ss:Width="42.6"/>
-   <Column ss:StyleID="s79" ss:AutoFitWidth="0" ss:Width="72"/>
-   <Row ss:Height="17.399999999999999" ss:StyleID="s80">
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Project:</Data><NamedCell
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s93" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s93" ss:Width="46.2"/>
+   <Column ss:StyleID="s93" ss:AutoFitWidth="0" ss:Width="40.799999999999997"/>
+   <Column ss:StyleID="s93" ss:AutoFitWidth="0" ss:Width="387.6"/>
+   <Column ss:StyleID="s93" ss:Width="42.6"/>
+   <Column ss:StyleID="s93" ss:AutoFitWidth="0" ss:Width="72"/>
+   <Row ss:AutoFitHeight="0" ss:Height="17.55" ss:StyleID="s94">
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Project:</Data><NamedCell
       ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">#project_name#</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">#project_name#</Data><NamedCell
       ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s81"><NamedCell ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s81"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="Print_Area"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="9" ss:StyleID="s80">
-    <Cell ss:MergeAcross="4" ss:StyleID="s106"><NamedCell ss:Name="Print_Area"/></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="9" ss:StyleID="s94">
+    <Cell ss:MergeAcross="4" ss:StyleID="s98"><NamedCell ss:Name="Print_Area"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Date</Data><NamedCell
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Date</Data><NamedCell
       ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Hours</Data><NamedCell
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Hours</Data><NamedCell
       ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Description</Data><NamedCell
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Description</Data><NamedCell
       ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Unit Price</Data><NamedCell
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Unit Price</Data><NamedCell
       ss:Name="Print_Area"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Line Total</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Line Total</Data><NamedCell
       ss:Name="Print_Area"/></Cell>
    </Row>
 	<cfquery dbtype="query" name="get_invoice_project_details">
@@ -736,17 +688,17 @@
 	</cfquery>
 <cfloop query="get_invoice_project_details">
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="DateTime">#dateformat(performed_date, 'yyyy-mm-dd')#T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="Number">#hours#</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">#note#</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">#rate#</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="Number">#revenue#</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">#time_entry_id#</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="DateTime">#dateformat(performed_date, 'yyyy-mm-dd')#T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="Number">#hours#</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">#note#</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">#rate#</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="Number">#revenue#</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="Number">#time_entry_id#</Data></Cell>
    </Row>
 </cfloop>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s76"><Data ss:Type="String">Total</Data></Cell>
-    <Cell ss:StyleID="s77" ss:Formula="=SUM(R[-#entry_count#]C:R[-1]C)"><Data ss:Type="Number">10000000</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s104"><Data ss:Type="String">Total</Data></Cell>
+    <Cell ss:StyleID="s105" ss:Formula="=SUM(R[-#entry_count#]C:R[-1]C)"><Data ss:Type="Number">10000000</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
