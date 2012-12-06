@@ -715,12 +715,25 @@
 	WHERE project_id=#get_invoice_project_summary.project_id#
 	</cfquery>
 <cfloop query="get_invoice_project_details">
+<cfif get_invoice_project_details.currentrow MOD 2>
+	<cfset variables.cell1_style="3">
+	<cfset variables.cell2_style="4">
+	<cfset variables.cell3_style="05">
+	<cfset variables.cell4_style="1">
+	<cfset variables.cell5_style="06">
+<cfelse>
+	<cfset variables.cell1_style="8">
+	<cfset variables.cell2_style="9">
+	<cfset variables.cell3_style="10">
+	<cfset variables.cell4_style="4">
+	<cfset variables.cell5_style="10">
+</cfif>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="DateTime">#dateformat(performed_date, 'yyyy-mm-dd')#T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">#hours#</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String"><!--- #xmlformat(note)# --->note</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">#rate#</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number">#revenue#</Data></Cell>
+    <Cell ss:StyleID="s10#variables.cell1_style#"><Data ss:Type="DateTime">#dateformat(performed_date, 'yyyy-mm-dd')#T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s10#variables.cell2_style#"><Data ss:Type="Number">#hours#</Data></Cell>
+    <Cell ss:StyleID="s1#variables.cell3_style#"><Data ss:Type="String"><!--- #xmlformat(note)# --->note</Data></Cell>
+    <Cell ss:StyleID="s8#variables.cell4_style#"><Data ss:Type="String">#rate#</Data></Cell>
+    <Cell ss:StyleID="s1#variables.cell5_style#"><Data ss:Type="Number">#revenue#</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="Number">#time_entry_id#</Data></Cell>
    </Row>
 </cfloop>
