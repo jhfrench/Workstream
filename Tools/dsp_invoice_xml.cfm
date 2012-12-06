@@ -676,7 +676,7 @@
 <cfoutput query="get_invoice_project_summary">
  <Worksheet ss:Name="Project #project_code#">
   <Names>
-   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project #project_code#'!R1C1:R3C5"/>
+   <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project #project_code#'!R1C1:R#currentrow+2#C5"/>
   </Names>
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s97" ss:DefaultRowHeight="15">
