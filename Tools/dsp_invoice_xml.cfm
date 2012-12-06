@@ -717,16 +717,16 @@
 <cfloop query="get_invoice_project_details">
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"><Data ss:Type="DateTime">#dateformat(performed_date, 'yyyy-mm-dd')#T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number"><!--- #hours# --->1</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="Number">#hours#</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String"><!--- #xmlformat(note)# --->note</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String"><!--- #rate# --->Hourly 1</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="Number"><!--- #revenue# --->1</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">#rate#</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">#revenue#</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="Number">#time_entry_id#</Data></Cell>
    </Row>
 </cfloop>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="s111"><Data ss:Type="String">Total</Data></Cell>
-    <Cell ss:StyleID="s112" ss:Formula="=SUM(R[-#entry_count#]C:R[-1]C)"><Data ss:Type="Number">10000000</Data></Cell>
+    <Cell ss:StyleID="s112" ss:Formula="=SUM(R[-#entry_count#]C:R[-1]C)"><Data ss:Type="Number">#numberformat(project_revenue)#</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
