@@ -595,8 +595,7 @@
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s80"><Data ss:Type="String">#project_code#</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">#project_name#</Data></Cell>
-    <Cell ss:StyleID="s82" ss:Formula="='Project #project_code#'!R[#entry_count+4-(13+get_invoice_project_summary.currentrow)#]C[1]"><Data
-      ss:Type="Number">1000000</Data></Cell>
+    <Cell ss:StyleID="s82" ss:Formula="='Project #project_code#'!R[#entry_count+4-(13+get_invoice_project_summary.currentrow)#]C[1]"><Data ss:Type="Number">#numberformat(project_revenue)#</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
