@@ -494,12 +494,13 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
+<cfoutput>
    <Row ss:AutoFitHeight="0" ss:Height="18">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Applied Internet Technologies</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Date:</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2012-10-31T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">#dateformat(now(), 'yyyy-mm-dd')#T00:00:00.000</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -507,8 +508,8 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">Jeromy French</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Invoice #:</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Invoice ##:</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="Number">#act_generate_invoice.invoice_id#</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -517,7 +518,7 @@
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Customer ID:</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="Number">1001</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="Number">#get_customer_invoice_details.root_code#</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -532,7 +533,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell ss:StyleID="s66"><Data ss:Type="String">To:</Data></Cell>
-    <Cell ss:MergeAcross="1" ss:StyleID="s72"><Data ss:Type="String">Leo Geiger</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s72"><Data ss:Type="String">#get_customer_invoice_details.first_name# #get_customer_invoice_details.last_name#</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s68"/>
@@ -540,7 +541,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell ss:StyleID="s74"/>
-    <Cell ss:MergeAcross="1" ss:StyleID="s72"><Data ss:Type="String">International Code Design, Inc.</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s72"><Data ss:Type="String">#get_customer_invoice_details.customer_name#</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s68"/>
@@ -548,7 +549,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">6411 Ivy Lane, Suite 305</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">#get_customer_invoice_details.company_address1#<cfif len(get_customer_invoice_details.company_address2)>, #get_customer_invoice_details.company_address2#</cfif></Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -557,14 +558,14 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Greenbelt, MD 20770</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">#get_customer_invoice_details.company_city#, #get_customer_invoice_details.company_state# #get_customer_invoice_details.company_zip#</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">301.441.4917</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">#get_customer_invoice_details.work_phone#</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -589,36 +590,28 @@
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
    </Row>
+<cfloop query="get_invoice_project_summary">
    <Row ss:AutoFitHeight="0" ss:Height="13.5">
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">1001.01</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">eAuth mura</Data></Cell>
-    <Cell ss:StyleID="s82" ss:Formula="='Project 1001.01'!R[-9]C[1]"><Data
-      ss:Type="Number">8.75</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">#project_code#</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">#project_name#</Data></Cell>
+    <Cell ss:StyleID="s82" ss:Formula="='Project #project_code#'!R[#entry_count+4-(13+get_invoice_project_summary.currentrow)#]C[1]"><Data
+      ss:Type="Number">1000000</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="13.5">
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">1001.02</Data></Cell>
-    <Cell ss:StyleID="s84" ss:Formula="='Project 1001.02'!R[-14]C[-1]"><Data
-      ss:Type="String">Service Request Module</Data></Cell>
-    <Cell ss:StyleID="s85" ss:Formula="='Project 1001.02'!R[26]C[1]"><Data
-      ss:Type="Number">971.25</Data></Cell>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-   </Row>
+</cfloop>
    <Row ss:AutoFitHeight="0" ss:Height="18">
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Total</Data></Cell>
-    <Cell ss:StyleID="s89" ss:Formula="=SUM(R[-2]C:R[-1]C)"><Data ss:Type="Number">980</Data></Cell>
+    <Cell ss:StyleID="s89" ss:Formula="=SUM(R[-#get_invoice_project_summary.recordcount#]C:R[-1]C)"><Data ss:Type="Number">1000000</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
    </Row>
+</cfoutput>
    <Row ss:AutoFitHeight="0" ss:Height="9">
     <Cell ss:MergeAcross="4" ss:StyleID="s91"/>
     <Cell ss:StyleID="s76"/>
