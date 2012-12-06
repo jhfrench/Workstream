@@ -1,7 +1,6 @@
-
+<cfsilent>
 <!--Tools/dsp_invoice_xml.cfm
 	Author: Jeromy F -->
-<cfsilent>
 	<!--- FUSEDOC
 	||
 	Responsibilities: I display the invoice tool invoice list.
@@ -719,7 +718,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"><Data ss:Type="DateTime">#dateformat(performed_date, 'yyyy-mm-dd')#T00:00:00.000</Data></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="Number">#hours#</Data></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">#note#</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">#xmlformat(note)#</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">#rate#</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="Number">#revenue#</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="Number">#time_entry_id#</Data></Cell>
