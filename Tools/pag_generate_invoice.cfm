@@ -16,9 +16,10 @@
 </cfsilent>
 <cfinclude template="act_generate_invoice.cfm">		
 <cfif variables.continue_processing_ind>
+	<cfset variables.last_month=dateadd("d", -day(now()), now())>
 	<cfsavecontent variable="variables.generate_invoice">
 		<cfinclude template="dsp_invoice_xml.cfm">
-		<cfheader name="Content-Disposition" value="filename=Invoice_#replace(get_customer_invoice_details.customer_name, ' ', '_', 'All')#_#dateformat(now(), 'yyyy_mm_dd')#.xml.xls">
+		<cfheader name="Content-Disposition" value="filename=Invoice_#replace(get_customer_invoice_details.customer_name, ' ', '_', 'All')#_#dateformat(variables.last_month, 'yyyy_mm_dd')#.xml.xls">
 	</cfsavecontent>
 	<cfset variables.file_path=gettempfile(gettempdirectory(),"excel_")/>
 	<cffile action="WRITE" file="#variables.file_path#" output="#variables.generate_invoice.trim()#"/>
