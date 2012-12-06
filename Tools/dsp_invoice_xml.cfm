@@ -596,7 +596,7 @@
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s80"><Data ss:Type="String">#project_code#</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">#project_name#</Data></Cell>
-    <Cell ss:StyleID="s82" ss:Formula="='Project #project_code#'!R[#entry_count+4-(13+get_invoice_project_summary.currentrow)#]C[1]"><Data ss:Type="Number">#numberformat(project_revenue)#<cfset variables.total_revenue=variables.total_revenue+project_revenue></Data></Cell>
+    <Cell ss:StyleID="s82" ss:Formula="='Project #project_code#'!R[#entry_count+4-(13+get_invoice_project_summary.currentrow)#]C[1]"><Data ss:Type="Number">#decimalformat(project_revenue)#<cfset variables.total_revenue=variables.total_revenue+project_revenue></Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
@@ -730,16 +730,16 @@
 </cfif>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s10#variables.cell1_style#"><Data ss:Type="DateTime">#dateformat(performed_date, 'yyyy-mm-dd')#T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s10#variables.cell2_style#"><Data ss:Type="Number">#hours#</Data></Cell>
+    <Cell ss:StyleID="s10#variables.cell2_style#"><Data ss:Type="Number">#decimalformat(hours)#</Data></Cell>
     <Cell ss:StyleID="s1#variables.cell3_style#"><Data ss:Type="String"><!--- #xmlformat(note)# --->note</Data></Cell>
     <Cell ss:StyleID="s8#variables.cell4_style#"><Data ss:Type="String">#rate#</Data></Cell>
-    <Cell ss:StyleID="s1#variables.cell5_style#"><Data ss:Type="Number">#revenue#</Data></Cell>
+    <Cell ss:StyleID="s1#variables.cell5_style#"><Data ss:Type="Number">#decimalformat(revenue)#</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="Number">#time_entry_id#</Data></Cell>
    </Row>
 </cfloop>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="s111"><Data ss:Type="String">Total</Data></Cell>
-    <Cell ss:StyleID="s112" ss:Formula="=SUM(R[-#entry_count#]C:R[-1]C)"><Data ss:Type="Number">#numberformat(project_revenue)#</Data></Cell>
+    <Cell ss:StyleID="s112" ss:Formula="=SUM(R[-#entry_count#]C:R[-1]C)"><Data ss:Type="Number">#decimalformat(project_revenue)#</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
