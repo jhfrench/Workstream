@@ -678,7 +678,7 @@
   <Names>
    <NamedRange ss:Name="Print_Area" ss:RefersTo="='Project #project_code#'!R1C1:R#currentrow+2#C5"/>
   </Names>
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="#entry_count+4#" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s97" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s97" ss:Width="46.2"/>
    <Column ss:StyleID="s97" ss:AutoFitWidth="0" ss:Width="40.799999999999997"/>
