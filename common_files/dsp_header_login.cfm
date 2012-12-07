@@ -37,7 +37,7 @@
 	<meta name="viewport" content="width=device-width">
 
 	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
-	<link rel="stylesheet" href="common_files/Workstream.css">
+	<link rel="stylesheet" href="common_files/Workstream_Login.css">
 
 	<script src="common_files/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
 	<script type="text/javascript">
@@ -59,10 +59,10 @@
 					'//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js',
 					'//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js',
 					'common_files/js/plugins.js',
-					'common_files/js/script.js'
+					'common_files/js/clockTower.js'
 				]
 			}
 		]);
 	</script>
 </head>
-<body class="container-fluid login_background">
+<body class="container-fluid">

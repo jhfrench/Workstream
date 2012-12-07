@@ -5,14 +5,6 @@
 $(document).ready(
 function() {
 	$('[aria-hidden="true"]').hide(); //hide anything that's marked as hidden to screen-readers
-
-	//show the login form (on larger screens)
-	if( $('.js .login_form').length ) {
-		$('.js div.login_form').show('slow');
-		if(typeof shake_ind !== 'undefined' && shake_ind) {
-			$('.js .login_form').effect('shake', 2500);
-		}
-	};
 	
 	if ( $('#help_area').length ) {
 		//console.log( $('#help_area') );
@@ -199,6 +191,7 @@ function() {
 		elapsed_time_running=setInterval(function() {update_elapsed_time()}, 900000);
 	};
 	
+	/*the followin 29 lines of code are not ready for production
 	if (!(Modernizr.input.required)) {
 	}
 	else {
@@ -229,6 +222,7 @@ function() {
 			})
 		})
 	};
+	*/
 	
 	if( $('a[data-toggle="modal"]').length ) {
 		$('#content_container').append('<div id="utility" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="utility-label" aria-hidden="true" style="display: none;" data-common-name="utility"><div class="modal-header"><button type="button" class="close btn" data-dismiss="modal" aria-hidden="false">x</button><h3 id="utility-label">Modal Heading</h3></div><div class="modal-body" id="utility_body">placeholder</div><div class="modal-footer"></div></div>' );

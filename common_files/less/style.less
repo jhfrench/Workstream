@@ -30,20 +30,19 @@ footer {
 	text-indent: -10px !important; //outdent first line of each note
 }
 
-/*help area*/
-	.cursor_help {
-		cursor:help;
-	}
+.cursor_help {
+	cursor:help;
+}
 
 /*medium screens (and larger)*/
 @media (min-width: 769px) {
 	footer {
 		bottom: 0px;
 		opacity: 0.8;
-        		position: fixed;
-        		right: 0;
-        		left: 0;
-        		z-index: 1030;
+		position: fixed;
+		right: 0;
+		left: 0;
+		z-index: 1030;
 	}
 	footer div[class*="span"] {
 		min-height: 0px !important;
@@ -61,13 +60,6 @@ footer {
 		border-top: 1px solid #ddd;
 		height: 520px;
 		overflow-y: auto;
-	}
-
-        #login_box {
-                width: 450px;
-        }
-	.js .login_form {
-        	display: none;
 	}
 }
 
@@ -103,23 +95,6 @@ footer {
 		height: 220px;
 		overflow-y: auto;
 	}
-}
-
-.login_background {
-	#gradient.directional(@grayDark, @grayLighter, 135deg);
-	padding-bottom: 610px;
-}
-
-div.login_form { 
-	.border-radius(3px);
-	border: solid;
-	border-color: @grayDarker;
-	background-color: @white;
-	opacity: 0.75;
-}
-
-div.login_form form, .login_form form div.form-actions { 
-	margin-bottom: 0px;
 }
 
 #blurb_dashboard [class*="span"] {
