@@ -29,7 +29,7 @@
 	var shake_ind=1;
 	</script>
 </cfif>
-<form name="login_form" id="login_form" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="login_form form-horizontal">
+<form name="login_form" id="login_form" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
 	<fieldset>
 		<legend>Please Log In</legend>
 		<div class="control-group">
