@@ -22,10 +22,7 @@
 --->
 
 <!-- END MAIN BODY -->
-<cfif listfindnocase("Administration.clean_up_old_accounts,Home.login,Home.forget_password,Home.forget_username", url.fuseaction)>
-		</div>
-	</div>
-<cfelse>
+<cfif variables.show_footer_ind>
 		</section>
 		<cfif application.help.active_ind>
 		<aside id="help_area" aria-hidden="true" role="complementary" class="span3 alert alert-info">
@@ -46,9 +43,9 @@
 			<cfoutput>Version #application.product_release_version# (Last Updated: #dateformat(application.last_updated, "mmmm d, yyyy")#)</cfoutput>&nbsp;
 		</div>
 	</footer>
+	<!--- I provide a hidden div within which you can have Ajax load (and process) a specified fuseaction. This is useful for things like ordering lots of data after an upload (without making the upload wait for the ordering), or setting session variables without reloading the controlling page (like hiding the navigation bar). --->
+	<div id="hidden_process" style="display:none;" aria-hidden="true"></div>
 </cfif>
-<!--- I provide a hidden div within which you can have Ajax load (and process) a specified fuseaction. This is useful for things like ordering lots of data after an upload (without making the upload wait for the ordering), or setting session variables without reloading the controlling page (like hiding the navigation bar). --->
-<div id="hidden_process" style="display:none;" aria-hidden="true"></div>
 <cfif application.application_specific_settings.show_requirements_ind EQ 1>
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>

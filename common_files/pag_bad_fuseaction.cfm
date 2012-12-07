@@ -1,7 +1,7 @@
-<!-- common_files/pag_bad_request.cfm
+<!-- common_files/pag_bad_fuseaction.cfm
 	Author: Jeromy French -->
 <!---
-<fusedoc language="ColdFusion MX" specification="2.0" template="pag_bad_request.cfm">
+<fusedoc language="ColdFusion MX" specification="2.0" template="pag_bad_fuseaction.cfm">
 	<responsibilities>
 		I determine the appropriate default fuesaction and send the logged in user to that page.
 	</responsibilities>

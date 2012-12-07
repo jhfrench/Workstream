@@ -47,8 +47,8 @@
 			</div>
 		</div>
 		<div class="form-actions">
-				<input type="hidden" name="requested_page" value="#xmlformat(attributes.requested_page)#" />
-				<input type="submit" name="method" value="login" class="btn btn-primary" />
+			<input type="hidden" name="requested_page" value="#xmlformat(attributes.requested_page)#" />
+			<input type="submit" name="method" value="login" class="btn btn-primary" />
 		</div>
 	</fieldset>
 </form>

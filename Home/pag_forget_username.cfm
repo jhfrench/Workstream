@@ -20,13 +20,19 @@
 	</IO>
 </fusedoc>
 --->
-<cfoutput>
 <cfparam name="attributes.email_address" default="">
 <cfparam name="attributes.method" default="">
-<cfif NOT comparenocase(attributes.method, "submit")>
-	<cfinclude template="act_forget_username.cfm">
-	<cfinclude template="dsp_forget_username.cfm">
-<cfelse>
-	<cfinclude template="dsp_forget_username_form.cfm">
-</cfif>
-</cfoutput>
+
+<div id="login_box">
+	<em class="lead">
+		This <abbr title="Applied Internet Technologies">AIT</abbr> system is for authorized users only.  By accessing this system you are consenting to complete monitoring with no expectation of privacy.  Unauthorized access or use may subject you to disciplinary action and criminal prosecution.
+	</em>
+	<div class="login_form">
+		<cfif NOT comparenocase(attributes.method, "submit")>
+			<cfinclude template="act_forget_username.cfm">
+			<cfinclude template="dsp_forget_username.cfm">
+		<cfelse>
+			<cfinclude template="dsp_forget_username_form.cfm">
+		</cfif>
+	</div>
+</div>

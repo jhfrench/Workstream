@@ -23,8 +23,10 @@
 
 <!--- this string of numbers will always be unique, which is useful for defeating the browser caching of the Main navigation menu --->
 <cfset variables.cache_escape="#dateformat(application.last_updated,'yyyymmdd')##timeformat(now(),'hhmmss')#">
+<cfset variables.show_footer_ind=1>
 
 <cfif listfindnocase("common_files.bad_fuseaction,Home.login,Home.forget_password,Home.forget_username", url.fuseaction)>
+	<cfset variables.show_footer_ind=0>
 	<cfinclude template="dsp_header_login.cfm">
 <cfelse>
 	<cfinclude template="qry_get_user_access.cfm">
