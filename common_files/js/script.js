@@ -5,6 +5,14 @@
 $(document).ready(
 function() {
 	$('[aria-hidden="true"]').hide(); //hide anything that's marked as hidden to screen-readers
+
+	//show the login form (on larger screens)
+	if( $('.js .login_form').length ) {
+		$('.js div.login_form').show('slow');
+		if(typeof shake_ind !== 'undefined' && shake_ind) {
+			$('.js .login_form').effect('shake', 2500);
+		}
+	};
 	
 	if ( $('#help_area').length ) {
 		//console.log( $('#help_area') );
@@ -162,14 +170,6 @@ function() {
 			};
 		}
 	}
-
-	//on larger screens, show the login form
-	if( $('.js .login_form').length ) {
-		$('.js .login_form').show('slow');
-		if(typeof shake_ind !== 'undefined' && shake_ind) {
-			$('.js .login_form').effect('shake');
-		}
-	};
 
 	//if page includes resolution entry, inject a widget that will track how long the task has been open, adding a quarter hour every 15 minutes
 	if( $('#task_details_resolution_entry_hours').length ) {
