@@ -2,7 +2,7 @@
 @import "bootstrap/responsive.less";
 
 body {
-	padding-top: 20px;
+	padding-left: 0px;
 	padding-bottom: 610px;
 	background-color: @grayDark;
 }
@@ -11,7 +11,9 @@ body {
 @media (min-width: 769px) {
 
 	#login_box {
+		padding-top: 20px;
 		width: 450px;
+		padding-bottom: 20px;
 	}
 
 	.js .login_form {
@@ -38,7 +40,6 @@ div.login_form form, .login_form form div.form-actions {
 /* for the abstract at clocks next to login form */
 	#clock_tower{
 		height:600px;
-		border:1px solid #111111;
 		width:200px;
 	}
 	.clock{
@@ -67,25 +68,25 @@ div.login_form form, .login_form form div.form-actions {
 	.clock .bg, .clock .front{
 		width:100px;
 		height:200px;
-		background-color:#919191;
+		background-color: @grayDarker;
 		position:absolute;
 		top:0;
 	}
 	
 	.clock .display{
 		/* Holds the number of seconds, minutes or hours respectfully */
-		position:absolute;
-		width:200px;
-		font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
-		z-index:20;
-		color:#F5F5F5;
-		font-size:60px;
-		text-align:center;
-		top:65px;
-		left:0;
+		position: absolute;
+		width: 200px;
+		font-family: @sansFontFamily;
+		z-index: 20;
+		color: #F5F5F5;
+		font-size: 60px;
+		text-align: center;
+		top: 70px;
+		left: 0;
 		
 		/* CSS3 text shadow: */
-		text-shadow:4px 4px 5px #333333;
+		text-shadow:4px 4px 5px @grayLighter;
 	}
 	
 	/* The left part of the background: */
