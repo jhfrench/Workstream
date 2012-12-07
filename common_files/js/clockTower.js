@@ -183,6 +183,8 @@ $(document).ready(function(){
 	
 	$('[aria-hidden="true"]').hide(); //hide anything that's marked as hidden to screen-readers
 
+    $('#clock_tower').tzineClock();
+
 	//show the login form (on larger screens)
 	if( $('.js .login_form').length ) {
 		$('.js div.login_form').show('slow');
@@ -190,7 +192,5 @@ $(document).ready(function(){
 			$('.js .login_form').effect('shake', 2500);
 		}
 	};
-
-    $('#clock_tower').tzineClock();
 
 });

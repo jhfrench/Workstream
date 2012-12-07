@@ -35,14 +35,14 @@
 		<div class="control-group">
 			<label class="control-label" accesskey="u" for="user_name">Username</label>
 			<div class="controls">
-				<input type="text" name="user_name" id="user_name" value="#xmlformat(attributes.user_name)#" size="20" maxlength="4000" required="required" autofocus="autofocus" class="span2" />
+				<input type="text" name="user_name" id="user_name" value="#xmlformat(attributes.user_name)#" size="20" maxlength="4000" required="required" autofocus="autofocus" class="span8" />
 				<p class="help-block"><a href="index.cfm?fuseaction=Home.forget_username">Forgotten Your Username?</a></p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="password" accesskey="p">Password</label>
 			<div class="controls">
-				<input type="password" name="password" id="password" value="" size="20" required="required" class="span2" />
+				<input type="password" name="password" id="password" value="" size="20" required="required" class="span8" />
 				<p class="help-block"><a href="index.cfm?fuseaction=Home.forget_password">Forgotten Your Password?</a></p>
 			</div>
 		</div>

@@ -2,9 +2,12 @@
 @import "bootstrap/responsive.less";
 
 body {
-	padding-left: 0px;
 	padding-bottom: 610px;
 	background-color: @grayDark;
+}
+
+.container-fluid {
+	padding-left: 0px;
 }
 
 /*medium screens (and larger)*/
@@ -12,8 +15,9 @@ body {
 
 	#login_box {
 		padding-top: 20px;
-		width: 450px;
 		padding-bottom: 20px;
+		padding-left: 20px;
+		width: 450px;
 	}
 
 	.js .login_form {
@@ -68,7 +72,7 @@ div.login_form form, .login_form form div.form-actions {
 	.clock .bg, .clock .front{
 		width:100px;
 		height:200px;
-		background-color: @grayDarker;
+		background-color: @grayDark;
 		position:absolute;
 		top:0;
 	}
@@ -79,14 +83,14 @@ div.login_form form, .login_form form div.form-actions {
 		width: 200px;
 		font-family: @sansFontFamily;
 		z-index: 20;
-		color: #F5F5F5;
+		color: @grayLighter;
 		font-size: 60px;
 		text-align: center;
-		top: 70px;
+		top: 85px;
 		left: 0;
 		
 		/* CSS3 text shadow: */
-		text-shadow:4px 4px 5px @grayLighter;
+		text-shadow:4px 4px 5px @grayLight;
 	}
 	
 	/* The left part of the background: */
