@@ -43,38 +43,38 @@ div.login_form form, .login_form form div.form-actions {
 
 /* for the abstract at clocks next to login form */
 	#clock_tower{
-		height:600px;
-		width:200px;
+		height: 600px;
+		width: 200px;
 	}
 	.clock{
 		/* The .clock div. Created dynamically by jQuery */
-		height:200px;
-		width:200px;
-		position:relative;
-		overflow:hidden;
-		float:left;
+		height: 200px;
+		width: 200px;
+		position: relative;
+		overflow: hidden;
+		float: left;
 	}
 	
 	.clock .rotate{
 		/* There are two .rotate divs - one for each half of the background */
-		position:absolute;
-		width:200px;
-		height:200px;
-		top:0;
-		left:0;
+		position: absolute;
+		width: 200px;
+		height: 200px;
+		top: 0;
+		left: 0;
 	}
 	
 	.rotate.right{
-		display:none;
-		z-index:11;
+		display: none;
+		z-index: 11;
 	}
 	
 	.clock .bg, .clock .front{
-		width:100px;
-		height:200px;
+		width: 100px;
+		height: 200px;
 		background-color: @grayDark;
-		position:absolute;
-		top:0;
+		position: absolute;
+		top: 0;
 	}
 	
 	.clock .display{
@@ -90,27 +90,27 @@ div.login_form form, .login_form form div.form-actions {
 		left: 0;
 		
 		/* CSS3 text shadow: */
-		text-shadow:4px 4px 5px @grayLight;
+		text-shadow: 4px 4px 5px @grayLight;
 	}
 	
 	/* The left part of the background: */
 	
-	.clock .bg.left{ left:0; }
+	.clock .bg.left{ left: 0; }
 	
 	/* Individual styles for each color: */
-	.orange .bg.left{ background:url("../images/bg_orange.png") no-repeat left top; }
-	.green .bg.left{ background:url("../images/bg_green.png") no-repeat left top; }
-	.blue .bg.left{ background:url("../images/bg_blue.png") no-repeat left top; }
+	.orange .bg.left{ background: url("../images/bg_orange.png") no-repeat left top; }
+	.green .bg.left{ background: url("../images/bg_green.png") no-repeat left top; }
+	.blue .bg.left{ background: url("../images/bg_blue.png") no-repeat left top; }
 	
 	/* The right part of the background: */
-	.clock .bg.right{ left:100px; }
+	.clock .bg.right{ left: 100px; }
 	
-	.orange .bg.right{ background:url("../images/bg_orange.png") no-repeat right top; }
-	.green .bg.right{ background:url("../images/bg_green.png") no-repeat right top; }
-	.blue .bg.right{ background:url("../images/bg_blue.png") no-repeat right top; }
+	.orange .bg.right{ background: url("../images/bg_orange.png") no-repeat right top; }
+	.green .bg.right{ background: url("../images/bg_green.png") no-repeat right top; }
+	.blue .bg.right{ background: url("../images/bg_blue.png") no-repeat right top; }
 	
 	
 	.clock .front.left{
-		left:0;
-		z-index:10;
+		left: 0;
+		z-index: 10;
 	}
