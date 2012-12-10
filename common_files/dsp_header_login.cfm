@@ -39,7 +39,7 @@
 	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
 	<link rel="stylesheet" href="common_files/Workstream_Login.css">
 
-	<script src="common_files/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+	<script src="common_files/js/modernizr-2.5.3-respond-1.1.0.min.js"></script>
 	<script type="text/javascript">
 		//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
 		Modernizr.load([
@@ -49,7 +49,7 @@
 				],
 				complete: function () {
 					if ( !window.jQuery ) {
-						Modernizr.load('common_files/js/libs/jquery.min.js');
+						Modernizr.load('common_files/js/jquery.min.js');
 					}
 				}
 			},
@@ -57,7 +57,7 @@
 				// This will wait for the fallback to load and execute if it needs to.
 				load: [
 					'//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js',
-					'//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js',
+					'//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js',
 					'common_files/js/plugins.js',
 					'common_files/js/clockTower.js'
 				]
