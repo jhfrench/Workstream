@@ -31,7 +31,6 @@
 
 <!--- @ make sure if behind the dmz we are the only ones getting emails --->
 <cfif left(cgi.http_host, 7) eq "10.1.1."> 
-	<cfset application.emailserver="mail.nucleussolutions.com">
 	<cfset variables.send_to="jeromy_french@hotmail.com">
 </cfif>
 
@@ -46,7 +45,7 @@
 <cfif get_active_employee_email.recordcount>
 	<cfloop query="get_active_employee_email" startrow="1" endrow="#endrow#">
 		<!--- @ debug: <cfoutput>#evaluate(variables.email_name)#</cfoutput><br /> --->
-		<cfmail to="#evaluate(variables.email_name)#" from="#application.erroremailfrom# " subject="Monthly Contacts Change Enquiry" server="#application.emailserver#" type="HTML">
+		<cfmail to="#evaluate(variables.email_name)#" from="#application.application_specific_settings.system_email_sender# " subject="Monthly Contacts Change Enquiry" server="#application.email_server_name#" type="HTML">
 		<p>Dear #fname# #last_name#,<br />
 		This is a monthly email sent to remind you to review your personal and employee data in #application.product_name#. Please <a href="#variables.directory_url#">make any necessary modifications</a>.</p>
 		<p>Thank you.</p>

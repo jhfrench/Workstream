@@ -81,7 +81,7 @@ NOTE: These processes are still running from a previous call and will not be add
 	FROM get_active_processes
 	</cfquery>
 	<cfif datediff("h", get_oldest_process.oldest_process, now()) GT 4 AND listfind("2,3,4,5,6",datepart("w",now())) AND datepart("h",now()) EQ 10 AND len(application.support_email_recipients) AND len(application.email_server_name)>
-		<cfmail to="#application.support_email_recipients#" from="#application.erroremailfrom#" subject="FAAD Data Factory Stuck" server="#application.email_server_name#" type="HTML">
+		<cfmail to="#application.support_email_recipients#" from="#application.application_specific_settings.system_email_sender#" subject="FAAD Data Factory Stuck" server="#application.email_server_name#" type="HTML">
 		#variables.old_processes#
 		</cfmail>
 	</cfif>
@@ -174,7 +174,7 @@ NOTE: These processes are still running from a previous call and will not be add
 	</cfquery>
 	<cfif get_datafactory_distribution_list.recordcount>
 		<cfoutput>
-			<cfmail to="#valuelist(get_datafactory_distribution_list.email_address)#" from="#application.erroremailfrom#" subject="FAAD Data Factory Notice" server="#application.email_server_name#">Please be aware: #variables.datafactory_notification#
+			<cfmail to="#valuelist(get_datafactory_distribution_list.email_address)#" from="#application.application_specific_settings.system_email_sender#" subject="FAAD Data Factory Notice" server="#application.email_server_name#">Please be aware: #variables.datafactory_notification#
 
 You are receiving this message because you have access to the "Regular Maintenance" screen of the #application.product_name# system (https://#cgi.http_host##cgi.script_name#).</cfmail>
 		</cfoutput>

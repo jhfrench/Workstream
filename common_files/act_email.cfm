@@ -18,7 +18,7 @@
 <cfparam name="attributes.email_type" default="">
 <cfparam name="attributes.email_body" default="">
 </cfsilent>
-<cfmail subject="#attributes.email_subject#" to="#attributes.email_to#" from="#application.erroremailfrom#" server="#application.emailserver#" type="#attributes.email_type#">
+<cfmail subject="#attributes.email_subject#" to="#attributes.email_to#" from="#application.application_specific_settings.system_email_sender#" server="#application.email_server_name#" type="#attributes.email_type#">
 <cfmailparam name="Reply-To" value="#attributes.email_from#">
 #attributes.email_body#<cfif isdefined("attributes.task_id")>
 
