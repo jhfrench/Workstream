@@ -51,7 +51,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="span4">
+	<div class="span4 visible-desktop">
 		<div id="clock_tower"></div>
 	</div>
 </div>

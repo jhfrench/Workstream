@@ -183,7 +183,7 @@ $(document).ready(function(){
 	
 	$('[aria-hidden="true"]').hide(); //hide anything that's marked as hidden to screen-readers
 
-    $('#clock_tower').tzineClock();
+	$('#clock_tower:visible').tzineClock();
 
 	//show the login form (on larger screens)
 	if( $('.js .login_form').length ) {
