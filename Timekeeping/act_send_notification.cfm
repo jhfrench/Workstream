@@ -168,9 +168,9 @@ Description: #prepare_email.description#
 		<cfif NOT comparenocase(attributes.task_status, 3)><!--- "qa_ready" --->
 			<cfquery name="update_task_notification_cc" datasource="#application.datasources.main#">
 			INSERT INTO Notification (task_id, email_id, notification_type,
-				date_sent, date_to_send)
+				date_sent, date_to_send, created_by)
 			VALUES (#attributes.task_id#, #prepare_email.email_id#, 7,
-				CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+				CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #variables.user_identification#)
 			</cfquery>
 		</cfif>
 	</cfif>
