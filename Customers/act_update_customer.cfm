@@ -54,8 +54,6 @@ WHERE customer_id=#attributes.customer_id#
 	<cfquery name="get_contact_name" datasource="#application.datasources.main#">
 	SELECT user_account_id
 	FROM Demographics
-		INNER JOIN User_Account ON Demographics.user_account_id=User_Account.user_account_id
-			AND User_Account.account_type_id=2
 	WHERE Demographics.active_ind=1
 		AND Demographics.first_name='#attributes.first_name#'
 		AND Demographics.last_name='#attributes.last_name#'
