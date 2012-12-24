@@ -25,7 +25,7 @@ WHERE customer_id=#attributes.customer_id#
 		AND project_code ~ '^[0-9]*(.[0-9]+)?$'
 	</cfquery>
 	<cfset variables.new_code=get_max_code.new_code+0.01>
-<cfelseif isdefined("attributes.strip_trailing")>
+<cfelseif attributes.strip_trailing_ind>
 	<cfset variables.new_code=get_root_code.root_code>
 <cfelse>
 	<cfset variables.new_code=get_root_code.root_code+0.01>

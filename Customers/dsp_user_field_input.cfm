@@ -13,17 +13,12 @@
 	 || 
 	END FUSEDOC --->
 <cfinclude template="qry_get_user_field_types.cfm">
-	<cfoutput><tr valign="top">
-		<td class="RegTextBd">
-		</cfoutput><cfoutput query="get_user_field_types">
-			Number of #lcase(user_field_type)# form fields:
-			<input type="number" name="field#user_field_type_id#" id="field#user_field_type_id#" step="1" min="0" max="10" required="required" class="span5" /><br />
-		</cfoutput><cfoutput>
-		</td>
-		<td width="55%" class="Note">
-			<ol type="1" start="#variables.start#" class="Note">
-				<li>For each available form field, specify how many custom fields this project requires. You can always add or retire custom fields when editing an project.</li><cfset variables.start=incrementvalue(variables.start)>
-			</ol>
-		</td>
-	</tr></cfoutput>
-
+<cfoutput query="get_user_field_types">
+	<div class="control-group">
+		<label class="control-label" for="field#user_field_type_id#">Number of #lcase(user_field_type)# form fields</label>
+		<div class="controls">
+			<input type="number" name="field#user_field_type_id#" id="field#user_field_type_id#" step="1" min="0" max="10" required="required" class="span5" />
+			<p class="help-block">You can always add or retire custom fields when editing an project.</p>
+		</div>
+	</div>
+</cfoutput>

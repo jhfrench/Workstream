@@ -14,10 +14,9 @@
 <cfparam name="attributes.step" default="1">
 <cfparam name="attributes.fuseaction" default="new_project">
 </cfsilent>
-<cfform name="new_project" method="POST" action="index.cfm?fuseaction=#attributes.fuseaction#">
-<table align="center" border="0" cellpadding="1" cellspacing="0" width="90%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadTextWhite" section_color="008000" section_title="&nbsp;Create New Project, Step #attributes.step#" colspan="5" gutter="false" align="left">
+<cfform name="new_project" method="POST" action="index.cfm?fuseaction=#attributes.fuseaction#" class="form-horizontal">
+<fieldset>
+	<legend><h2>Create New Project, Step #attributes.step#</h2></legend>
 	<cfinclude template="dsp_new_project_step#attributes.step#.cfm">
-</table>
+</fieldset>
 </cfform>
-

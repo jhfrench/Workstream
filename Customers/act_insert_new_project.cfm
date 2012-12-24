@@ -24,20 +24,22 @@ VALUES ('#get_root_code.root_code#', #attributes.customer_id#, '#attributes.desc
 	<cfif len(attributes.business_case)>,' #attributes.business_case#'</cfif><cfif len(attributes.project_end)>, '#attributes.project_end#'</cfif><cfif len(attributes.project_start)>, '#attributes.project_start#'</cfif>, 
 	#attributes.product_id#, #attributes.billable_type_id#, '#variables.new_code#',
 	1, #get_root_code.company_id#, #attributes.budget#,
-	1)
+	1);
+SELECT CURRVAL('Project_project_id_SEQ') AS project_id;
 </cfquery>
-<cfquery name="get_project_id" datasource="#application.datasources.main#">
-SELECT CURRVAL('Project_project_id_SEQ') AS project_id
-</cfquery>
+<cfset attributes.project_id=insert_project.project_id>
 
 <cfswitch expression="#attributes.billable_type_id#">
 <cfcase value="1">
 	<!--- hourly --->
 	<cfquery name="insert_billing_rate" datasource="#application.datasources.main#">
-	INSERT INTO Billing_Rate (project_id, rate, rate_start_date<cfif len(attributes.end_date)>, rate_end_date</cfif>, user_account_id)
-	SELECT #get_project_id.project_id#, '#attributes.rate#', '#attributes.start_date#'<cfif len(attributes.end_date)>, '#attributes.end_date#'</cfif>, user_account_id
+	INSERT INTO Billing_Rate (project_id, user_account_id, rate,
+		rate_start_date<cfif len(attributes.end_date)>, rate_end_date</cfif>, created_by)
+	SELECT #attributes.project_id#, Link_Company_User_Account.user_account_id, '#attributes.rate#',
+		'#attributes.start_date#'<cfif len(attributes.end_date)>, '#attributes.end_date#'</cfif>, #variables.user_identification#
 	FROM Link_Company_User_Account
-	WHERE company_id IN (#attributes.company_id#)
+	WHERE active_ind=1
+		AND company_id IN (#attributes.company_id#)
 	</cfquery>
 </cfcase>
 <!--- <cfcase value="2">
@@ -46,27 +48,29 @@ non-billable
 <cfcase value="3">
 	<!--- flat rate --->
 	<cfquery name="insert_flat_rate" datasource="#application.datasources.main#">
-	INSERT INTO Flat_Rate (rate_start_date<cfif len(attributes.end_date)>, rate_end_date</cfif>, project_id, budget)
-	VALUES('#attributes.start_date#'<cfif len(attributes.end_date)>, '#attributes.end_date#'</cfif>, #get_project_id.project_id#, #attributes.budget#)
+	INSERT INTO Flat_Rate (project_id, budget, rate_start_date,
+		<cfif len(attributes.end_date)>rate_end_date, </cfif>created_by)
+	VALUES(#attributes.project_id#, #attributes.budget#, '#attributes.start_date#',
+		<cfif len(attributes.end_date)>'#attributes.end_date#', </cfif>#variables.user_identification#)
 	</cfquery>
 </cfcase>
 <cfcase value="4">
 	<!--- per-incident --->
 	<cfquery name="incident_rate" datasource="#application.datasources.main#">
-	INSERT INTO Incident_Rate (project_id, charge)
-	VALUES(#get_project_id.project_id#, #attributes.charge#)
+	INSERT INTO Incident_Rate (project_id, charge, created_by)
+	VALUES(#attributes.project_id#, #attributes.charge#, #variables.user_identification#)
 	</cfquery>
 </cfcase>
 </cfswitch>
 
 <cfquery name="delete_old" datasource="#application.datasources.main#">
 DELETE FROM Link_Project_Company
-WHERE project_id=#get_project_id.project_id#
+WHERE project_id=#attributes.project_id#
 	AND company_id IN (#variables.company_id#)
 </cfquery>
 <cfquery name="insert_visible" datasource="#application.datasources.main#">
-INSERT INTO Link_Project_Company (project_id, company_id)
-SELECT #get_project_id.project_id# AS project_id, company_id
+INSERT INTO Link_Project_Company (project_id, company_id, created_by)
+SELECT #attributes.project_id# AS project_id, company_id, #variables.user_identification#
 FROM REF_Company
 WHERE company_id IN (#variables.company_id#)
 </cfquery>

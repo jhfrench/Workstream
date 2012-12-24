@@ -18,10 +18,10 @@
 <cfif attributes.req_custom AND (isdefined("attributes.field1") AND attributes.field1 NEQ 0 OR isdefined("attributes.field2") AND attributes.field2 NEQ 0)>
 	<cfoutput query="get_user_field_types">
 	<fieldset>
-		<legend>#user_field_type# custom fields</legend>
-		<cfloop from="1" to="#evaluate("attributes.field#user_field_type_id#")#" index="ii">
+		<legend><h4>#user_field_type# custom fields</h4></legend>
+		<cfloop from="1" to="#evaluate('attributes.field#user_field_type_id#')#" index="ii">
 		<div class="control-group">
-			<label for="type_#user_field_type_id#_num_#ii#_name">Label</label>
+			<label class="control-label" for="type_#user_field_type_id#_num_#ii#_name">Label</label>
 			<div class="controls">
 				<cfinput type="text" name="type_#user_field_type_id#_num_#ii#_name" id="type_#user_field_type_id#_num_#ii#_name" class="span3" />
 				<p class="help-block">Provide the labels for each of your desired custom fields.</p>
@@ -30,7 +30,7 @@
 	<cfif user_field_type_id NEQ 2>
 		<cfloop from="1" to="8" index="opt_ii">
 		<div class="control-group">
-			<label for="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#">Option value #opt_ii#</label>
+			<label class="control-label" for="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#">Option value #opt_ii#</label>
 			<div class="controls">
 				<cfinput type="text" name="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#" id="type_#user_field_type_id#_num_#ii#_opt_#opt_ii#" value="" class="span3" />
 				<p class="help-block">For drop-down boxes, also provide the possible options, leaving blank any extra 'option value' fields. Any labels left blank will be ignored and will not be applied as custom fields to the project.</p>
@@ -42,7 +42,11 @@
 	</cfoutput>
 	</fieldset>
 <cfelse>
-	<cfset onload="document.new_project.submit();">
+	<script type="text/javascript">
+		$(document).ready(function() {
+			document.new_project.submit();
+		});
+	</script>
 	<div class="alert alert-warning">
 		<p>No information to enter for this step.</p>
 		<p>If this page does not automatically do so, please submit to the next page.</p>
