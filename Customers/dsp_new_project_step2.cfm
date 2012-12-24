@@ -71,7 +71,7 @@
 		</div>
 	</div>
 	<div class="control-group">
-		<label class="control-label" for="">Months</label>
+		<label class="control-label" for="months">Months</label>
 		<div class="controls">
 			<input type="number" name="months" id="months" step="1" min="0" required="required" class="span5" />
 			<p class="help-block">Provide the number of months for which this project will be billed to the customer. The customer will be billed in equal increments.</p>
@@ -82,7 +82,10 @@
 	<div class="control-group">
 		<label class="control-label" for="charge">Incident Charge</label>
 		<div class="controls">
-			<input type="number" name="charge" id="charge" step="1" min="0" max="9999" required="required" class="span5" />
+			<div class="input-prepend">
+				<span class="add-on">$</span>
+				<input type="number" name="charge" id="charge" step="1" min="0" max="9999" required="required" class="span5" />
+			</div>
 			<p class="help-block">Specify the per-incident charge that the customer will incur each time a new task is created under this project.</p>
 		</div>
 	</div>
