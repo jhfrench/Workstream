@@ -12,6 +12,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
+</cfsilent>
 <cfinclude template="qry_get_user_field_types.cfm">
 <cfoutput query="get_user_field_types">
 	<div class="control-group">
