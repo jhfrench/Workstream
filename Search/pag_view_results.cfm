@@ -89,7 +89,8 @@
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_time" field_name="task_id" fuseaction="Timekeeping.time_details">
 
 <cfoutput>
-<!--- $issue$: "edit search" does not work. --->
+<a href="index.cfm?fuseaction=Search.home" class="btn">New Search</a>
+<!--- $issue$: "edit search" does not work.
 <form name="edit_form" action="index.cfm?fuseaction=Search.edit_search" method="POST">
 	<input type="hidden" name="task_name" value="#attributes.task_name#" />
 	<input type="hidden" name="task_id" value="#attributes.task_id#">
@@ -105,5 +106,5 @@
 	<input type="hidden" name="task_owner" value="#attributes.task_owner#" />
 	<input type="hidden" name="task_source" value="#attributes.task_source#">
 	<input type="submit" value="Edit Search" class="btn" />
-</form>
+</form> --->
 </cfoutput>
