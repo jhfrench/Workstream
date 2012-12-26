@@ -41,10 +41,9 @@ This month #session.workstream_company_name# added
 	#variables.anniversary_count# people
 <cfelse>
 	one person
-</cfif> will mark their anniversary
-
+</cfif> will mark the anniversary of their hiring
 <cfif variables.birthday_count EQ 1>
-	, and #variables.birthday_count# person will celebrate a birthday
+	, and one person will celebrate a birthday
 <cfelseif variables.birthday_count NEQ 0>
 	, and #variables.birthday_count# people will celebrate a birthday
 </cfif>. #session.workstream_company_name# currently has #variables.employee_count# employees.
