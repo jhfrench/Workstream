@@ -47,7 +47,7 @@
 <cfoutput>
 <input type="hidden" name="linked_task_id" value="0" />
 <div class="btn-group">
-	<a id="task_attach" data-toggle="modal" href="index.cfm?base_task_id=#attributes.task_id#&fuseaction=common_files.task_attach" data-target="##utility" title="Associate another task to this task." class="btn btn-mini"><i class="icon-magnet"></i> Attach</a>
-	<a id="task_detach" data-toggle="modal" href="index.cfm?task_id=#attributes.task_id#&fuseaction=common_files.task_detach" data-target="##utility" title="Remove a task association from this task." class="btn btn-mini"><i class="icon-remove-sign"></i> Remove</a>
+	<a id="task_attach" data-toggle="modal" href="index.cfm?base_task_id=#attributes.task_id#&fuseaction=common_files.task_attach" data-target="##utility" title="Associate another task to this task." class="btn"><i class="icon-magnet"></i> Attach</a>
+	<a id="task_detach" data-toggle="modal" href="index.cfm?task_id=#attributes.task_id#&fuseaction=common_files.task_detach" data-target="##utility" title="Remove a task association from this task." class="btn"><i class="icon-remove-sign"></i> Remove</a>
 </div>
 </cfoutput>
