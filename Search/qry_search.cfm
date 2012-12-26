@@ -86,78 +86,72 @@
 	<cfset variables.use_customer_criteria=0>
 </cfif>
 
-<cfset counter=0>
+<cfset variables.counter=0>
 
 <cfquery name="get_task_list" datasource="#application.datasources.main#">
-SELECT 1 AS constant, Task.due_date, Task.task_id,
-	Task.name AS task_name, COALESCE(Task.description, 'No description provided.') AS task_description,
-	COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Task.status_id, 
-	Task_Details.task_id, Task_Details.used_hours, Task_Details.task_icon, 
-	Task_Details.task_owner, Task_Details.task_owner_full_name,
-	(CASE WHEN Task.status_id IN (4,10) THEN Task_Details.task_status || ' by ' || Demographics.first_name ELSE Task_Details.task_status END) AS task_status,
-	(Customer.description || '-' || Project.description) AS project_name, priority
-FROM Task, Team, Demographics, Project, Customer,
-	(SELECT Path.task_id, COALESCE(Recorded_Hours.used_hours,0) AS used_hours, Path.class_name AS task_icon,
-		REF_Status.status AS task_status, Demographics.first_name AS task_owner, (Demographics.last_name || ', ' || Demographics.first_name) AS task_owner_full_name,
-		priority
-	FROM Task, REF_Status, Team, Demographics,
-		(SELECT Valid_Tasks.task_id, REF_Icon.class_name, priority
-			FROM
-			<cfif len(attributes.notes)>(SELECT Notes.task_id, priority
-			FROM Notes,
-				</cfif>(SELECT Task.task_id, REF_Priority.description AS priority
-				FROM Task
-					INNER JOIN REF_Priority on Task.priority_id=REF_Priority.priority_id, Team
-				WHERE Team.task_id=Task.task_id
-					AND Team.active_ind=1<cfif listlen(attributes.task_id)>
-					AND Task.task_id IN (#attributes.task_id#)</cfif><cfif listlen(attributes.task_name)>
-					AND (<cfloop list="#attributes.task_name#" index="ii">
-						<cfset counter=incrementvalue(counter)>LOWER(Task.name) LIKE '%#lcase(ii)#%'<cfif counter NEQ listlen(attributes.task_name)> OR </cfif>
-					</cfloop>
-					)</cfif><cfif listlen(attributes.description)>
-					AND (<cfloop list="#attributes.description#" index="ii"><cfset counter=incrementvalue(counter)>LOWER(Task.description) LIKE '%#lcase(ii)#%'<cfif counter NEQ listlen(attributes.description)> OR </cfif></cfloop>)</cfif><cfif len(attributes.task_owner)>
-					AND Team.role_id=1
-					AND Team.user_account_id IN (#attributes.task_owner#)</cfif><cfif len(attributes.task_source)>
-					AND Task.created_by IN (#attributes.task_source#)</cfif><cfif attributes.used_by_search_ind>
-					AND Task.project_id IN (#attributes.project_id#)</cfif> /*limit to either user's access or search crietria, whichever is less*/<cfif len(attributes.task_stati)>
-					AND Task.status_id IN (#attributes.task_stati#)</cfif><cfif len(attributes.priority_id)>
-					AND Task.priority_id IN (#attributes.priority_id#)</cfif><cfif isdate(attributes.date_entered)>
-					AND Task.entry_date #preservesinglequotes(variables.date_entered)#</cfif><cfif isdate(attributes.due_date)>
-					AND Task.due_date #preservesinglequotes(variables.due_date)#</cfif>
-				GROUP BY Task.task_id, REF_Priority.description)<cfif listlen(attributes.notes) NEQ 0><cfset counter=0>
-			AS Temporary_Tab
-			WHERE Notes.task_id=Temporary_Tab.task_id
-				AND Notes.active_ind=1
-				AND (
-					<cfloop list="#attributes.notes#" index="ii"><cfset counter=incrementvalue(counter)>LOWER(Notes.note) LIKE '%#lcase(ii)#%'<cfif counter NEQ listlen(attributes.notes)> OR </cfif></cfloop>)
-			GROUP BY Notes.task_id, priority)</cfif>
-		AS Valid_Tasks, Task, REF_Icon
-		WHERE Valid_Tasks.task_id=Task.task_id
-			AND REF_Icon.icon_id=Task.icon_id)
-	AS Path
-	LEFT OUTER JOIN (
+SELECT Task.due_date, Task.task_id, Task.name AS task_name,
+	COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Task.status_id,
+	REF_Icon.class_name AS task_icon, REF_Priority.description AS priority, COALESCE(Recorded_Hours.used_hours,0) AS used_hours, 
+	(Customer.description || '-' || Project.description) AS project_name, Task_Owner.first_name AS task_owner, Task_Owner.last_name || ', ' || Task_Owner.first_name AS task_owner_full_name,
+	(CASE WHEN Task.status_id IN (3,8) /* QA, UAT */ THEN REF_Status.status || ' by ' || COALESCE(Task_Tester.first_name,'unknown') ELSE REF_Status.status END) AS task_status
+FROM Task
+	INNER JOIN Project ON Task.project_id=Project.project_id 
+		AND Project.project_id!=#application.application_specific_settings.pto_project_id#<cfif isdefined("attributes.project_id")>
+		AND Project.project_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#" list="true" />)</cfif>
+	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
+	INNER JOIN Link_Project_Company ON Project.project_id=Link_Project_Company.project_id
+		AND Link_Project_Company.active_ind=1
+		AND Link_Project_Company.company_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#session.workstream_company_id#" list="yes" />)
+	INNER JOIN REF_Priority on Task.priority_id=REF_Priority.priority_id
+	INNER JOIN REF_Icon ON Task.icon_id=REF_Icon.icon_id
+	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id
+	INNER JOIN (
 		SELECT task_id, SUM(hours) AS used_hours
 		FROM Time_Entry
-		WHERE Time_Entry.active_ind=1
+		WHERE Time_Entry.active_ind=1<cfif variables.from_invoice>
+			AND EXTRACT(MONTH FROM Time_Entry.work_date)=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.month#" />
+			AND EXTRACT(YEAR FROM Time_Entry.work_date)=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.year#" /></cfif>
 		GROUP BY task_id
-	) AS Recorded_Hours ON Path.task_id=Recorded_Hours.task_id
-	WHERE Task.task_id=Path.task_id
-		AND REF_Status.status_id=Task.status_id 
-		AND Team.active_ind=1
-		AND Team.role_id=1
-		AND Task.task_id=Team.task_id 
-		AND Demographics.user_account_id=Team.user_account_id)
-AS Task_Details
-WHERE Project.customer_id=Customer.customer_id
-	AND Task_Details.task_id=Team.task_id
-	AND Team.active_ind=1
-	AND Team.role_id=3
-	AND Task.project_id=Project.project_id 
-	AND Task.task_id=Task_Details.task_id
-	AND Demographics.user_account_id=Team.user_account_id
-	AND Demographics.active_ind=1<cfif variables.use_customer_criteria>
-	AND Customer.customer_id IN (#attributes.customer_id#) /*if the user specifies customer criteria, limit the results to just those customers*/</cfif>
-<cfif isdefined("session.workstream_task_list_order")>ORDER BY #session.workstream_task_list_order#</cfif>
+	) AS Recorded_Hours ON Task.task_id=Recorded_Hours.task_id
+	INNER JOIN (
+		SELECT Team.task_id, Demographics.last_name, Demographics.first_name
+		FROM Team
+			INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
+				AND Demographics.active_ind=1
+		WHERE Team.active_ind=1
+			AND Team.role_id=1 /* owner */<cfif len(attributes.task_owner)>
+			AND Team.user_account_id IN (#attributes.task_owner#)</cfif>
+	) AS Task_Owner ON Task.task_id=Task_Owner.task_id
+	LEFT OUTER JOIN (
+		SELECT Team.task_id, Demographics.last_name, Demographics.first_name
+		FROM Team
+			INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
+				AND Demographics.active_ind=1
+		WHERE Team.active_ind=1
+			AND Team.role_id=3 /* QA */
+	) AS Task_Tester ON Task.task_id=Task_Tester.task_id<cfif len(attributes.notes)>
+	INNER JOIN (
+		SELECT task_id
+		FROM Notes
+		WHERE Notes.active_ind=1
+			AND (1=0<cfloop list="#attributes.notes#" index="variables.notes_ii">
+				OR LOWER(Notes.note) LIKE '%#lcase(variables.notes_ii)#%'</cfloop>)
+		GROUP BY task_id
+	) AS Notes ON Task.task_id=Notes.task_id</cfif>
+WHERE 1=1<cfif listlen(attributes.task_id)>
+	AND Task.task_id IN (#attributes.task_id#)</cfif><cfif listlen(attributes.task_name)>
+	AND (1=0<cfloop list="#attributes.task_name#" index="variables.task_name_ii">
+		OR LOWER(Task.name) LIKE '%#lcase(variables.task_name_ii)#%'</cfloop>
+	)</cfif><cfif listlen(attributes.description)>
+	AND (1=0<cfloop list="#attributes.description#" index="variables.description_ii">
+		OR LOWER(Task.description) LIKE '%#lcase(variables.description_ii)#%'</cfloop>)</cfif><cfif len(attributes.task_source)>
+	AND Task.created_by IN (#attributes.task_source#)</cfif><cfif attributes.used_by_search_ind>
+	AND Task.project_id IN (#attributes.project_id#)</cfif> /*limit to either user's access or search crietria, whichever is less*/<cfif len(attributes.task_stati)>
+	AND Task.status_id IN (#attributes.task_stati#)</cfif><cfif len(attributes.priority_id)>
+	AND Task.priority_id IN (#attributes.priority_id#)</cfif><cfif isdate(attributes.date_entered)>
+	AND Task.entry_date #preservesinglequotes(variables.date_entered)#</cfif><cfif isdate(attributes.due_date)>
+	AND Task.due_date #preservesinglequotes(variables.due_date)#</cfif><cfif isdefined("variables.temp_task_list_order")>
+ORDER BY <cfif isdefined("attributes.user_account_id") AND listlen(attributes.user_account_id) GT 1>task_owner, </cfif>#variables.temp_task_list_order#</cfif>
 LIMIT 500
 </cfquery>
 </cfsilent>
