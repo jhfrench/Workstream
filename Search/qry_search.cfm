@@ -108,9 +108,7 @@ FROM Task
 	INNER JOIN (
 		SELECT task_id, SUM(hours) AS used_hours
 		FROM Time_Entry
-		WHERE Time_Entry.active_ind=1<cfif variables.from_invoice>
-			AND EXTRACT(MONTH FROM Time_Entry.work_date)=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.month#" />
-			AND EXTRACT(YEAR FROM Time_Entry.work_date)=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.year#" /></cfif>
+		WHERE Time_Entry.active_ind=1
 		GROUP BY task_id
 	) AS Recorded_Hours ON Task.task_id=Recorded_Hours.task_id
 	INNER JOIN (
