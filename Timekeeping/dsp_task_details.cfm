@@ -57,7 +57,13 @@
 	<div class="span6">
 		<label for="task_name" class="h5">Task Name</label>
 		<input type="text" name="task_name" id="task_name" value="#variables.task_name#" valign="top" size="#variables.cols#" maxlength="255"#variables.edit_status# class="span11" />
-		<p><span class="h5">Customer</span>: #get_task_details.customer_name# <span class="h5">Project</span>: #replace(get_task_details.project_name,"#get_task_details.customer_name#-","")# <i class="icon-share" title="See more projects." onclick="OpenProjectWindow('project_id');"></i></p>
+		<p>
+			<span class="h5">Customer</span>: <span id="customer_name">#get_task_details.customer_name#</span> 
+			<span class="h5">Project</span>: <span id="project_name">#replace(get_task_details.project_name,"#get_task_details.customer_name#-","")#</span> 
+			<a id="file_attach" href="index.cfm?task_id=#attributes.task_id#&fuseaction=common_files.project_list" role="button" data-toggle="modal" data-target="##utility" title="Change this task's project assignment." class="btn btn-mini">
+				<i class="icon-share"></i> Change
+			</a>
+		</p>
 		<label for="task_description" class="h5">Description <a href="javascript:$('##task_description').height( $('##task_description').height()*2 );" title="Expand description"><i class="icon-resize-vertical"></i></a></label>
 		<textarea name="task_description" id="task_description" cols="#variables.cols-2#" rows="#variables.descrip_rows#" wrap="soft"#variables.edit_status# class="span11">
 			#variables.task_description#

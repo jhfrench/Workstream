@@ -41,13 +41,15 @@ FROM Customer
 	INNER JOIN (
 		SELECT project_id
 		FROM Link_Project_Company
-		WHERE company_id IN (#variables.valid_codes#)
+		WHERE active_ind=1
+			AND company_id IN (#variables.valid_codes#)
 		GROUP BY project_id
 	) AS Link_Project_Company ON Project.project_id=Link_Project_Company.project_id
 	INNER JOIN (
 		SELECT customer_id
 		FROM Link_Customer_Company
-		WHERE company_id IN (#variables.valid_codes#)
+		WHERE active_ind=1
+			AND company_id IN (#variables.valid_codes#)
 		GROUP BY customer_id
 	) AS Link_Customer_Company ON Customer.customer_id=Link_Customer_Company.customer_id
 ORDER BY Customer.sort_order, display

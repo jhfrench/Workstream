@@ -68,7 +68,7 @@
 	</fuseaction>
 	<fuseaction name="project_list">
 		<include template="act_header.cfm"/>
-		<include template="pag_big_project_list.cfm"/>
+		<include template="pag_project_list.cfm"/>
 		<include template="dsp_footer.cfm"/>
 	</fuseaction>
 	<fuseaction name="relocate_login">

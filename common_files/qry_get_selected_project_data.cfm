@@ -14,9 +14,9 @@
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
  --->
 <cfquery name="get_selected_project_data" datasource="#application.datasources.main#">
-SELECT *
+SELECT Project.*
 FROM Project
-WHERE Project.project_id=#attributes.project_id#
+	INNER JOIN Task ON Project.project_id=Task.project_id
+		AND Task.task_id=#attributes.task_id#
 </cfquery>
 </cfsilent>
-

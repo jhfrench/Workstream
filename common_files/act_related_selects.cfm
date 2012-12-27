@@ -105,25 +105,27 @@
 	}
 </cfoutput>
 </script>
-
-<cfloop from="1" to="#attributes.select_boxes#" index="select_field_ii">
-	<cfset variables.select_name=evaluate("attributes.FieldName" & select_field_ii)>
-	<cfoutput><cfif isdefined("attributes.html_before#select_field_ii#")>#evaluate("attributes.html_before" & select_field_ii)#</cfif>
-	<cfif isdefined("attributes.label#select_field_ii#")><strong><label for="#variables.select_name#">#evaluate("attributes.label" & select_field_ii)#</label></strong></cfif>
-	<select name="#variables.select_name#" id="#variables.select_name#" size="<cfif isdefined("attributes.select_size#select_field_ii#")>#evaluate("attributes.select_size#select_field_ii#")#<cfelse>4</cfif>"<cfif select_field_ii LT attributes.select_boxes> onchange="#attributes.function_name#(this,#evaluate(select_field_ii-1)#,this.form.#evaluate("attributes.FieldName" & (select_field_ii+1))#,new Array(<cfloop from="#(select_field_ii+1)#" to="#attributes.select_boxes#" index="nextSel">this.form.#evaluate("attributes.FieldName" & (nextSel))#<cfif nextSel LT attributes.select_boxes>,</cfif></cfloop>));"</cfif>>
-	<option value="0">#evaluate("attributes.blank_option" & select_field_ii)#</option></cfoutput>
-	<cfif select_field_ii EQ 1>
-		<cfoutput query="variables.hierarchy_query" group="#evaluate("attributes.Value" & select_field_ii)#">
-		<option value="#evaluate(evaluate("attributes.value" & select_field_ii))#"<cfif isdefined("attributes.selected_value" & select_field_ii) AND evaluate("attributes.selected_value" & select_field_ii) EQ evaluate(evaluate("attributes.value" & select_field_ii))> selected="selected"</cfif>><cfif isdefined("attributes.display#select_field_ii#")>#evaluate(evaluate("attributes.display" & select_field_ii))#<cfelse>#evaluate(evaluate("attributes.Value" & select_field_ii))#</cfif></option>
-		</cfoutput>
-	<cfelseif isdefined("attributes.selected_value" & select_field_ii)>
+<cfoutput>
+<cfloop from="1" to="#attributes.select_boxes#" index="variables.select_field_ii">
+	<cfparam name="attributes.class#variables.select_field_ii#" default="">
+	<cfparam name="attributes.select_size#variables.select_field_ii#" default="4">
+	<cfset variables.select_name=evaluate("attributes.FieldName" & variables.select_field_ii)>
+	<cfif isdefined("attributes.html_before#variables.select_field_ii#")>#evaluate("attributes.html_before" & variables.select_field_ii)#</cfif>
+	<select name="#variables.select_name#" id="#variables.select_name#" size="#evaluate('attributes.select_size#variables.select_field_ii#')#" class="#evaluate('attributes.class#variables.select_field_ii#')#"<cfif variables.select_field_ii LT attributes.select_boxes> onchange="#attributes.function_name#(this,#evaluate(variables.select_field_ii-1)#,this.form.#evaluate("attributes.FieldName" & (variables.select_field_ii+1))#,new Array(<cfloop from="#(variables.select_field_ii+1)#" to="#attributes.select_boxes#" index="nextSel">this.form.#evaluate("attributes.FieldName" & (nextSel))#<cfif nextSel LT attributes.select_boxes>,</cfif></cfloop>));"</cfif>>
+		<option value="0">#evaluate("attributes.blank_option" & variables.select_field_ii)#</option>
+	<cfif variables.select_field_ii EQ 1>
+		<cfloop query="variables.hierarchy_query" group="#evaluate('attributes.value' & variables.select_field_ii)#">
+		<option value="#evaluate(evaluate("attributes.value" & variables.select_field_ii))#"<cfif isdefined("attributes.selected_value" & variables.select_field_ii) AND evaluate("attributes.selected_value" & variables.select_field_ii) EQ evaluate(evaluate("attributes.value" & variables.select_field_ii))> selected="selected"</cfif>><cfif isdefined("attributes.display#variables.select_field_ii#")>#evaluate(evaluate("attributes.display" & variables.select_field_ii))#<cfelse>#evaluate(evaluate("attributes.Value" & variables.select_field_ii))#</cfif></option>
+		</cfloop>
+	<cfelseif isdefined("attributes.selected_value" & variables.select_field_ii)>
 		<!---Get the values available for this set--->
-		<cfoutput query="variables.hierarchy_query" group="#evaluate("attributes.Value" & select_field_ii)#">
-		<cfif evaluate("attributes.selected_value" & (select_field_ii-1)) EQ evaluate(evaluate("attributes.value" & (select_field_ii-1)))>
-			<option value="#evaluate(evaluate("attributes.value" & select_field_ii))#"<cfif isdefined("attributes.selected_value" & select_field_ii) and evaluate("attributes.selected_value" & select_field_ii) EQ evaluate(evaluate("attributes.value" & select_field_ii))> selected="selected"</cfif>><cfif isdefined("attributes.display#select_field_ii#")>#evaluate(evaluate("attributes.display" & select_field_ii))#<cfelse>#evaluate(evaluate("attributes.Value" & select_field_ii))#</cfif></option>
+		<cfloop query="variables.hierarchy_query" group="#evaluate('attributes.value' & variables.select_field_ii)#">
+		<cfif evaluate("attributes.selected_value" & (variables.select_field_ii-1)) EQ evaluate(evaluate("attributes.value" & (variables.select_field_ii-1)))>
+			<option value="#evaluate(evaluate("attributes.value" & variables.select_field_ii))#"<cfif isdefined("attributes.selected_value" & variables.select_field_ii) and evaluate("attributes.selected_value" & variables.select_field_ii) EQ evaluate(evaluate("attributes.value" & variables.select_field_ii))> selected="selected"</cfif>><cfif isdefined("attributes.display#variables.select_field_ii#")>#evaluate(evaluate("attributes.display" & variables.select_field_ii))#<cfelse>#evaluate(evaluate("attributes.Value" & variables.select_field_ii))#</cfif></option>
 		</cfif>
-		</cfoutput>
+		</cfloop>
 	</cfif>
 	</select>
 </cfloop>
+</cfoutput>
 <!---tag code ends--->
