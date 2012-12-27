@@ -12,6 +12,7 @@
 	$Log$
 	 || 
  --->
+</cfsilent>
 <cfif isdefined("attributes.project_id")>
 <!--- update project_id for the given task and that task's time entries that haven't already been billed --->
 	<cfquery name="update_project_id" datasource="#application.datasources.main#">
@@ -43,7 +44,6 @@
 	<cfset attributes.default1=get_selected_project_data.customer_id>
 	<cfset attributes.default2=get_selected_project_data.project_id>
 	<cfinclude template="qry_get_valid_projects.cfm">
-	</cfsilent>
 	<cfform name="project_list" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="form-horizontal">
 	<fieldset>
 		<legend><h2>Choose A Customer and Project</h2></legend>
