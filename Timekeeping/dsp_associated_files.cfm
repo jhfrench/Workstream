@@ -32,7 +32,7 @@
 <cfoutput>
 <input type="hidden" name="file_path" value="0">
 <div class="btn-group">
-	<a id="file_attach" data-toggle="modal" href="index.cfm?task_id=#attributes.task_id#&fuseaction=common_files.file_attach" data-target="##utility" title="Associate a file path to this task." class="btn"><i class="icon-folder-open"></i> Attach</a>
-	<a id="file_detach" data-toggle="modal" href="index.cfm?task_id=#attributes.task_id#&fuseaction=common_files.file_detach" data-target="##utility" title="Remove a file path from this task." class="btn"><i class="icon-remove-sign"></i> Remove</a>
+	<a id="file_attach" href="index.cfm?task_id=#attributes.task_id#&fuseaction=common_files.file_attach" role="button" data-toggle="modal" data-target="##utility" title="Associate a file path to this task." class="btn"><i class="icon-folder-open"></i> Attach</a>
+	<a id="file_detach" href="index.cfm?task_id=#attributes.task_id#&fuseaction=common_files.file_detach" role="button" data-toggle="modal" data-target="##utility" title="Remove a file path from this task." class="btn"><i class="icon-remove-sign"></i> Remove</a>
 </div>
 </cfoutput>

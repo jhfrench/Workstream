@@ -225,13 +225,23 @@ function() {
 	*/
 	
 	if( $('a[data-toggle="modal"]').length ) {
-		$('#content_container').append('<div id="utility" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="utility-label" aria-hidden="true" style="display: none;" data-common-name="utility"><div class="modal-header"><button type="button" class="close btn" data-dismiss="modal" aria-hidden="false">x</button><h3 id="utility-label">Modal Heading</h3></div><div class="modal-body" id="utility_body">placeholder</div><div class="modal-footer"></div></div>' );
-		// point link at _utility version of fuseaction so header/footer are not generated into modal
-		$('a[data-toggle="modal"]').each(function() {
-			$(this).attr('href',$(this).attr('href')+'_utility');
-		});
+		$('#content_container').append('<div id="utility" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="utility-label" aria-hidden="true" style="display: none;" data-common-name="utility"><div class="modal-header"><button type="button" class="close btn" data-dismiss="modal" aria-hidden="false">x</button><h3 id="utility-label">Modal Heading</h3></div><div class="modal-body" id="utility_body">placeholder</div><div class="modal-footer"></div></div>' );
 		$('a[data-toggle="modal"]').on('click', function(){
+			// update modal header with contents of button that invoked the modal
 			$('#utility-label').html( $(this).html() );
+			var utility_target=$(this).attr('href')+' #content_container';
+			//console.log( utility_target );
+			//fixes a bootstrap bug that prevents a modal from being reused
+			$('#utility_body').load(
+				utility_target,
+				function(response, status, xhr) {
+					if (status === 'error') {
+						//console.log('got here');
+						$('#utility_body').html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
+					}
+					return this;
+				}
+			);
 		});
 	};
 }

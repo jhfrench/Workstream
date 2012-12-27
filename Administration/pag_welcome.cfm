@@ -20,23 +20,13 @@
 	</IO>
 </fusedoc>
 --->
+<!--- $issue$: get each of the following links into application nav, then delete this template and references to it --->
 <cfset attributes.module_description="">
-<cfinclude template="../common_files/qry_get_module_sub_navigation.cfm" />
-<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="Table displays administration information">
-	<tr>
-		<th align="left"><h2 style="margin:0px" id="top-side">Administration</h2>
-		</th>
-	</tr>
-</table><img src="images/spacer.gif" alt="" width="560" height="1"><br />
+<h2 style="margin:0px" id="top-side">Administration</h2>
 <table cellspacing="1" cellpadding="3" border="0" bgcolor="#eeeeee" width="100%" summary="Table displays module navigation">
 	<tr valign="top">
 		<td>
 			<table cellspacing="1" cellpadding="3" border="0" bgcolor="#eeeeee" width="200" summary="Table shows module navigation">
-			<cfoutput query="get_module_sub_navigation">
-				<tr>
-					<td class="menuItem" bgcolor="##eeeeee" onmouseover="new Effect.Highlight(this, {duration:0.1,startcolor:'##5394bd',endcolor:'##5394bd',restorecolor:'##5394bd'});this.style.cursor='pointer';" onmouseout="new Effect.Highlight(this, {duration:0.25,startcolor:'##999999',endcolor:'##bbbbbb',restorecolor:'##eeeeee'});"><a href="index.cfm?fuseaction=#fuseaction#">#business_function_description#</a></td>
-				</tr>
-			</cfoutput>
 			<cfif NOT comparenocase(application.environment_name,"development")>
 				<tr>
 					<th class="menuHead">Viewable in development only</th>
