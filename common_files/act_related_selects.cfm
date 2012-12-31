@@ -70,42 +70,34 @@
 <cfelse>
 	<cfset variables.hierarchy_query=evaluate(attributes.query)>
 </cfif>
-
+<cfoutput>
 <script language="JavaScript" type="text/javascript">
-	var <cfoutput>#attributes.function_name#</cfoutput>_optValArr=new Array();
+	var #attributes.function_name#_optValArr=new Array();
 	<cfset variables.loop_counter=0>
-
-	<cfoutput query="variables.hierarchy_query">
+	<cfloop query="variables.hierarchy_query">
 		#attributes.function_name#_optValArr[#variables.loop_counter#]=new Array(<cfloop from="1" to="#attributes.select_boxes#" index="item">new Array("<cfif isdefined("attributes.display#item#")>#evaluate(evaluate("attributes.display" & item))#<cfelse>#evaluate(evaluate("attributes.Value" & item))#</cfif>","#evaluate(evaluate("attributes.Value" & item))#") <cfif item LT attributes.select_boxes>,</cfif></cfloop>);
 		<cfset variables.loop_counter=incrementValue(variables.loop_counter)>
-	</cfoutput>
-	<cfoutput>
-	<cfset selList="">
-	<cfloop from="1" to="#attributes.select_boxes#" index="item">
-		<cfset selList=ListAppend(selList,"Sel" & item)>
 	</cfloop>
-	function <cfoutput>#attributes.function_name#</cfoutput>(thisSel,pos,nextSel,subNodes) {
+	function #attributes.function_name#(thisSel,pos,nextSel,subNodes) {
 			for (i=0; i < subNodes.length; i++) {
-				subNodes[i].options.length=0;
-				<cfif attributes.show_all_option_ind EQ 1>subNodes[i].options[0]=new Option("All","");</cfif>
+				subNodes[i].options.length=0;<cfif attributes.show_all_option_ind EQ 1>
+				subNodes[i].options[0]=new Option("All","");</cfif>
 			}
 			if(thisSel.options[thisSel.selectedIndex].value!="") {
-				optPos=<cfoutput>#attributes.show_all_option_ind#</cfoutput>;
+				optPos=#attributes.show_all_option_ind#;
 				lastVal="";
-				for (i=0; i < <cfoutput>#attributes.function_name#</cfoutput>_optValArr.length; i++) {
-					if(<cfoutput>#attributes.function_name#</cfoutput>_optValArr[i][pos][1]==thisSel.options[thisSel.selectedIndex].value){
-						if(<cfoutput>#attributes.function_name#</cfoutput>_optValArr[i][eval(pos+1)][1]!=lastVal){
-							lastVal=<cfoutput>#attributes.function_name#</cfoutput>_optValArr[i][eval(pos+1)][1];
-							subNodes[0].options[optPos]=new Option(<cfoutput>#attributes.function_name#</cfoutput>_optValArr[i][eval(pos+1)][0],<cfoutput>#attributes.function_name#</cfoutput>_optValArr[i][eval(pos+1)][1]);
+				for (i=0; i < #attributes.function_name#_optValArr.length; i++) {
+					if(#attributes.function_name#_optValArr[i][pos][1]==thisSel.options[thisSel.selectedIndex].value){
+						if(#attributes.function_name#_optValArr[i][eval(pos+1)][1]!=lastVal){
+							lastVal=#attributes.function_name#_optValArr[i][eval(pos+1)][1];
+							subNodes[0].options[optPos]=new Option(#attributes.function_name#_optValArr[i][eval(pos+1)][0],#attributes.function_name#_optValArr[i][eval(pos+1)][1]);
 							optPos++;
 						}
 					}
 				}
 			}
 	}
-</cfoutput>
 </script>
-<cfoutput>
 <cfloop from="1" to="#attributes.select_boxes#" index="variables.select_field_ii">
 	<cfparam name="attributes.class#variables.select_field_ii#" default="">
 	<cfparam name="attributes.select_size#variables.select_field_ii#" default="4">
