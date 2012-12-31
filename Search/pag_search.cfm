@@ -13,12 +13,25 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
+<cfscript>
+	if (isdefined("attributes.header_search_criteria")) {
+		if (isnumeric(attributes.header_search_criteria)) {
+			attributes.task_id=attributes.header_search_criteria;
+			attributes.task_name="";
+		}
+		else {
+			attributes.task_id="";
+			attributes.task_name=attributes.header_search_criteria;
+		};
+	};
+</cfscript>
 <cfinclude template="../common_files/qry_get_search_projects.cfm">
 <cfinclude template="../common_files/qry_get_priorities.cfm">
 <cfinclude template="../common_files/qry_get_task_stati.cfm">
+<cfoutput>
 <cfform name="input_form" action="index.cfm?fuseaction=Search.output" method="post" class="form-horizontal">
 	<fieldset>
-		<legend><h2><cfoutput>#application.application_specific_settings.organization#</cfoutput> Knowledgebase Search</h2></legend>
+		<legend><h2>#application.application_specific_settings.organization# Knowledgebase Search</h2></legend>
 		<!--- <div class="control-group">
 			<label for="" id=""></label>
 			<div class="controls">
@@ -29,14 +42,14 @@
 		<div class="control-group">
 			<label for="task_id" class="control-label">Task ID</label>
 			<div class="controls">
-				<cfinput type="text" name="task_id" id="task_id" size="50" class="span8" />
+				<cfinput type="text" name="task_id" id="task_id" value="#attributes.task_id#" size="50" class="span8" />
 				<p class="help-block">Separate multiple IDs with commas.</p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="task_name" class="control-label">Task Name</label>
 			<div class="controls">
-				<input type="text" name="task_name" id="task_name" size="30" class="span8" />
+				<input type="text" name="task_name" id="task_name" value="#attributes.task_name#" size="30" class="span8" />
 				<p class="help-block">Separate multiple phrases with commas.</p>
 			</div>
 		</div>
@@ -62,7 +75,7 @@
 					<option value="2">On</option>
 					<option value="3">After</option>
 				</select>
-				<cfoutput><input type="date" name="date_entered" id="date_entered" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" class="span5 date" /></cfoutput>
+				<input type="date" name="date_entered" id="date_entered" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" class="span5 date" />
 				<p class="help-block">Searches on the date the task was entered.</p>
 			</div>
 		</div>
@@ -74,7 +87,7 @@
 					<option value="2">On</option>
 					<option value="3">After</option>
 				</select>
-				<cfoutput><input type="date" name="due_date" id="due_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" class="span5 date" /></cfoutput>
+				<input type="date" name="due_date" id="due_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" class="span5 date" />
 				<p class="help-block">Searches on the date the task is due.</p>
 			</div>
 		</div>
@@ -104,16 +117,16 @@
 		<div class='control-group'>
 			<label for='project_id' class='control-label'>Project</label>
 			<div class='controls'>">
-				<p class="help-block">Choose a <a href="#customer_id">customer</a> to see related projects.</p>
+				<p class="help-block">Choose a <a href="##customer_id">customer</a> to see related projects.</p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="priority_id" class="control-label">Priority</label>
 			<div class="controls">
 			<select name="priority_id" id="priority_id" multiple="multiple" size="3" class="span8">
-			<cfoutput query="get_priorities">
+			<cfloop query="get_priorities">
 				<option value="#priority_id#">#description#</option>
-			</cfoutput>
+			</cfloop>
 			</select>
 			</div>
 		</div>
@@ -121,17 +134,18 @@
 			<label for="task_stati" class="control-label">Task Status</label>
 			<div class="controls">
 				<select name="task_stati" id="task_stati" multiple="multiple" size="4" class="span8">
-				<cfoutput query="get_task_stati">
+				<cfloop query="get_task_stati">
 					<option value="#status_id#">#status#</option>
-				</cfoutput>
+				</cfloop>
 				</select>
 			</div>
 		</div>
 		<div class="form-actions">
 			<input type="hidden" name="used_by_search_ind" value="1" />
-			<input type="hidden" name= "project_id_list" value= "<cfoutput>#valuelist(get_search_projects.project_id)#</cfoutput>" />
+			<input type="hidden" name= "project_id_list" value= "#valuelist(get_search_projects.project_id)#" />
 			<input type="submit" name="method" value="Submit" class="btn btn-primary" />
 			<input type="reset" value="Reset" class="btn" />
 		</div>
 	</fieldset>
 </cfform>
+</cfoutput>

@@ -5,7 +5,14 @@
 $(document).ready(
 function() {
 	$('[aria-hidden="true"]').hide(); //hide anything that's marked as hidden to screen-readers
-	
+
+	if ( $('#navbar-search-full').length ) {
+		// change full search link to first change form target, then submit that form; change link's href to be a internal link; update link's title
+		$('#navbar-search-full').click( function() {
+			$('#form-navbar-search').attr('action',  $(this).attr('href')).submit();
+		}).attr('href','#navbar-search-full').attr('title', $(this).attr('title')+' with entered criteria');
+	}
+
 	if ( $('#help_area').length ) {
 		//console.log( $('#help_area') );
 		
