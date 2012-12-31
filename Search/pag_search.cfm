@@ -14,13 +14,13 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfscript>
+	attributes.task_id="";
+	attributes.task_name="";
 	if (isdefined("attributes.header_search_criteria")) {
 		if (isnumeric(attributes.header_search_criteria)) {
 			attributes.task_id=attributes.header_search_criteria;
-			attributes.task_name="";
 		}
 		else {
-			attributes.task_id="";
 			attributes.task_name=attributes.header_search_criteria;
 		};
 	};
