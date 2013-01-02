@@ -129,8 +129,8 @@ else
 							<form id="form-navbar-search" class="navbar-search pull-left" action="index.cfm?fuseaction=Search.output" method="post">
 								<div class="input-append">
 									<input type="text" name="header_search_criteria" title="Criteria to search" placeholder="search" class="search-query span9" />
-									<input type="submit" name="quick" value="Quick" title="Search on task ID or task name" class="btn" />
-									<a href="index.cfm?fuseaction=Search.home" id="navbar-search-full" title="Start a full search" class="btn" />Full</a>
+									<input type="submit" name="quick" value="Quick" title="Search on task ID or task name" class="btn btn-inverse" />
+									<a href="index.cfm?fuseaction=Search.home" id="navbar-search-full" title="Start a full search" class="btn btn-inverse" />Full</a>
 								</div>
 							</form><cfif application.help.active_ind>
 							<form class="navbar-form pull-right">
