@@ -23,7 +23,7 @@
 		<td align="center" class="SubHeadText">Client Name</td>
 		<td align="center" class="SubHeadText"><cfif variables.show_details_ind>Total </cfif>Hours</td>
 	</tr>
-<cfoutput query="Agg_hours_by_month">
+<cfoutput query="get_individual_hours_summary_by_client">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<cfif variables.show_details_ind><td align="center">#name#</td>
 		<td align="center">#month#/#year#</td></cfif>
@@ -43,7 +43,7 @@
 		<td align="center" class="SubHeadText">Week</td>
 		<td align="center" class="SubHeadText"><cfif variables.show_details_ind>Total </cfif>Hours</td>
 	</tr>
-<cfoutput query="Agg_hours_by_week">
+<cfoutput query="get_individual_hours_summary_by_week">
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<cfif variables.show_details_ind><td align="center">#name#</td></cfif>
 		<td align="left"><cfif variables.show_details_ind>#month#/#year# </cfif>Week #week#</td>

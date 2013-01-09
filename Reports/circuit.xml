@@ -122,12 +122,6 @@
 			<set name="variables.project_id" value="1113"/>
 			<include template="pag_efficiency_report.cfm"/>
 		</fuseaction>
-		<fuseaction name="Leadership_hours_input">
-			<include template="pag_leader_hours_report_input.cfm"/>
-		</fuseaction>
-		<fuseaction name="Leadership_hours">
-			<include template="pag_leader_hours_report.cfm"/>
-		</fuseaction>
 		<fuseaction name="Manager_cross_tab_input">
 			<include template="pag_manager_cross_tab_input.cfm"/>
 		</fuseaction>

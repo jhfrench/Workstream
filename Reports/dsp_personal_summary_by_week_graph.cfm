@@ -15,7 +15,7 @@
 </cfsilent>
 <cfsavecontent variable="variables.chart_under_menu">
 	<cfchart chartHeight="240" chartWidth="320" font="Trebuchet MS" fontsize="11" fontBold="yes" show3D="yes" pieSliceStyle="solid" showLegend="no">
-	<cfchartseries type="bar" query="agg_hours_by_week" valueColumn="sumofhours" itemColumn="week" paintStyle="raise" seriescolor="5A82B5" seriesLabel="hours worked per week" />
+	<cfchartseries type="bar" query="get_individual_hours_summary_by_week" valueColumn="hours_worked" itemColumn="work_week" paintStyle="raise" seriescolor="5A82B5" seriesLabel="hours worked per week" />
 	</cfchart>
 </cfsavecontent>
 <div id="personal_summary_by_week_graph">
