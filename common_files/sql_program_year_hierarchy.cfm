@@ -22,6 +22,7 @@
 --->
 <cfparam name="attributes.program_year_id" default="1">
 <cfoutput>
+<!--- $issue$: convert from Oracle-specific START WITH/CONNECT BY to Postgres recursive query --->
 SELECT rownum AS sort_order, Hierarchy_Assignment.organization_id, level AS nsm_level,
 	REF_Organization.description, REF_Organization.organization_code
 FROM Hierarchy_Assignment

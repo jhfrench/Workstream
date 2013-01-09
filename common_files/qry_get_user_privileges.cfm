@@ -23,7 +23,6 @@
 <cfif NOT isdefined("attributes.privilege_id")>
 	<cfset attributes.privilege_id=valuelist(get_ref_privilege.privilege_id)>
 </cfif>
-
 <cfquery name="get_user_privileges" datasource="#application.datasources.main#">
 SELECT REF_Module.module_id, REF_Module.description AS module_description, NSM_Hierarchy.nsm_level,
 	CASE
@@ -37,6 +36,7 @@ SELECT REF_Module.module_id, REF_Module.description AS module_description, NSM_H
 	SUM(CASE WHEN Access_User_Account_Grouper.privilege_id=#privilege_id_ii# THEN 1 ELSE 0 END) AS privilege_#privilege_id_ii#</cfloop>
 FROM REF_Module
 	INNER JOIN (
+		<!--- $issue$: convert from Oracle-specific START WITH/CONNECT BY to Postgres recursive query --->
 		SELECT rownum AS nsm_order, Hierarchy_Assignment.organization_id, level AS nsm_level,
 			REF_Organization.description AS organization_description, REF_Organization.organization_code, 1 AS active_ind
 		FROM Hierarchy_Assignment

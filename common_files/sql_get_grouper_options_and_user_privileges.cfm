@@ -11,6 +11,7 @@ SELECT REF_Center.center_id, REF_Center.abbreviation AS description, REF_Center.
 	REF_Hierarchy_Level.description AS hierarchy_description
 FROM REF_Center
 	INNER JOIN (
+	<!--- $issue$: convert from Oracle-specific START WITH/CONNECT BY to Postgres recursive query --->
 		SELECT center_id
 		FROM Hierarchy_Assignment
 			INNER JOIN Link_Program_Year_Hierarchy ON Hierarchy_Assignment.l_p_y_h_id=Link_Program_Year_Hierarchy.l_p_y_h_id
@@ -48,6 +49,7 @@ ORDER BY REF_Center.sort_order
 SELECT REF_Center.center_id
 FROM REF_Center
 	INNER JOIN (
+	<!--- $issue$: convert from Oracle-specific START WITH/CONNECT BY to Postgres recursive query --->
 		SELECT center_id
 		FROM Hierarchy_Assignment
 			INNER JOIN Link_Program_Year_Hierarchy ON Hierarchy_Assignment.l_p_y_h_id=Link_Program_Year_Hierarchy.l_p_y_h_id

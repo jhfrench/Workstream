@@ -10,6 +10,7 @@ SELECT REF_Hierarchy_Level.hierarchy_level_id, REF_Hierarchy_Level.description A
 	rownum AS sort_order
 FROM REF_Hierarchy_Level
 	INNER JOIN (
+	<!--- $issue$: convert from Oracle-specific START WITH/CONNECT BY to Postgres recursive query --->
 		SELECT CONNECT_BY_ROOT(Link_Program_Year_Hierarchy.hierarchy_level_id) AS root_hierarchy_level_id, Link_Program_Year_Hierarchy.hierarchy_level_id, SYS_CONNECT_BY_PATH(Link_Program_Year_Hierarchy.hierarchy_level_id,'/') AS path,
 			Link_Program_Year_Hierarchy.l_p_y_h_id, level AS level_order, Link_Program_Year_Hierarchy.sort_order,
 			center_affiliation_ind

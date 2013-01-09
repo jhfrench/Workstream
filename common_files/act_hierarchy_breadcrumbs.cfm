@@ -35,6 +35,7 @@
 SELECT Breadcrumb_Hierarchy.organization_id, Breadcrumb_Hierarchy.description, Breadcrumb_Hierarchy.l_p_y_h_id,
 	Breadcrumb_Hierarchy.hierarchy_level_id, MIN(Child_Hierarchy_Level.l_p_y_h_id) AS next_l_p_y_h_id
 FROM (
+		<!--- $issue$: convert from Oracle-specific START WITH/CONNECT BY to Postgres recursive query --->
 		SELECT REF_Organization.organization_id, REF_Organization.description, Link_Program_Year_Hierarchy.l_p_y_h_id,
 			REF_Hierarchy_Level.hierarchy_level_id, rownum AS sort_order
 		FROM Hierarchy_Assignment

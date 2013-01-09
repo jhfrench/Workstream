@@ -51,6 +51,7 @@ FROM<cfloop query="get_nsm_levels">
 			REF_Organization.description || ' (' ||  REF_Organization.organization_code || ')' AS level_#hierarchy_level_id#_display, REF_Organization.sort_order, #hierarchy_level_id# AS hierarchy_level_id
 		FROM REF_Organization 
 			INNER JOIN (
+			<!--- $issue$: convert from Oracle-specific START WITH/CONNECT BY to Postgres recursive query --->
 				SELECT Hierarchy_Assignment.parent_organization_id, Hierarchy_Assignment.organization_id, Hierarchy_Assignment.l_p_y_h_id
 				FROM Hierarchy_Assignment
 					INNER JOIN Link_Program_Year_Hierarchy ON Hierarchy_Assignment.l_p_y_h_id=Link_Program_Year_Hierarchy.l_p_y_h_id
@@ -115,6 +116,7 @@ FROM<cfloop query="get_nsm_levels">
 				/*retrieve all the level #l_p_y_h_id# organizations (ancestors) if any of that ancestor's desendants have the relevant access*/
 				SELECT organization_id
 				FROM (
+				<!--- $issue$: convert from Oracle-specific START WITH/CONNECT BY to Postgres recursive query --->
 					SELECT CONNECT_BY_ROOT(Hierarchy_Assignment.organization_id) AS organization_id, COALESCE(Access_User_Account_Grouper.active_ind,0) AS child_access_count
 					FROM Hierarchy_Assignment
 						INNER JOIN Link_Program_Year_Hierarchy ON Hierarchy_Assignment.l_p_y_h_id=Link_Program_Year_Hierarchy.l_p_y_h_id

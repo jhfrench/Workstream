@@ -32,6 +32,7 @@
 		WHERE organization_id IN (#attributes.affected_organization_id#)
 		UNION ALL
 		/* if the user so specifies, apply indicated access to children NSM entities */
+		<!--- $issue$: convert from Oracle-specific START WITH/CONNECT BY to Postgres recursive query --->
 		SELECT Hierarchy_Assignment.organization_id
 		FROM Hierarchy_Assignment
 			INNER JOIN Link_Program_Year_Hierarchy ON Hierarchy_Assignment.l_p_y_h_id=Link_Program_Year_Hierarchy.l_p_y_h_id

@@ -36,6 +36,7 @@
 			UNION ALL
 			<cfif isdefined("attributes.apply_to_children_ind")>
 			/* if the user so specifies, apply indicated access to children NSM entities */
+			<!--- $issue$: convert from Oracle-specific START WITH/CONNECT BY to Postgres recursive query --->
 			SELECT #attributes.program_year_id#, #attributes.module_id#, #user_account_id_ii#,
 				Hierarchy_Assignment.organization_id, NULL AS center_id, #variables.privilege_id_ii#,
 				#variables.user_identification#
