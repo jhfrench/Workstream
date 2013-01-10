@@ -24,7 +24,7 @@
 variables.access_message="";
 variables.allowed_modules=valuelist(get_module_navigation.module_id);
 if (variables.page_is_secure_ind AND listfind(get_screen_details.screen_access_ind,1) EQ 0)
-	variables.access_message="Your access is not authorized for this screen.";
+	variables.access_message="<strong>Busted!</strong><br />Your access is not authorized for this screen.";
 else
 	if (listfind(get_screen_details.locked_ind,1)) {
 		variables.access_message="This module has been locked.";

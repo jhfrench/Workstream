@@ -29,7 +29,7 @@ FROM Time_Entry
 	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 WHERE Time_Entry.active_ind=1
-	AND Time_Entry.work_date BETWEEN #createodbcdate(from_date)# AND #createodbcdate(through_date)#
+	AND Time_Entry.work_date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.through_date)#
 	AND Time_Entry.user_account_id=#attributes.user_account_id#
 ORDER BY Time_Entry.work_date, project_display, Time_Entry.hours
 </cfquery>
