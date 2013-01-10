@@ -1,5 +1,5 @@
 
-<!--Reports/pag_personal_summary.cfm
+<!--Reports/pag_individual_hours_summary.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC

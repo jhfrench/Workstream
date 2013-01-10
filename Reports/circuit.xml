@@ -111,6 +111,9 @@
 		<fuseaction name="individual_hours_detail">
 			<include template="pag_individual_hours_detail.cfm"/>
 		</fuseaction>
+		<fuseaction name="individual_hours_summary">
+			<include template="pag_individual_hours_summary.cfm"/>
+		</fuseaction>
 		<fuseaction name="ip_report">
 			<include template="pag_ip_report.cfm"/>
 		</fuseaction>
@@ -149,10 +152,6 @@
 			<include template="pag_over_under_time.cfm"/>
 		</fuseaction>
 		<!-- End Overtime Report-->
-		<!-- Begin Personal Summary Report -->
-		<fuseaction name="personal_summary">
-			<include template="pag_personal_summary.cfm"/>
-		</fuseaction>
 		<!-- Begin PTO (non-accrual) Report -->
 		<fuseaction name="pto">
 			<include template="pag_pto_report.cfm"/>
