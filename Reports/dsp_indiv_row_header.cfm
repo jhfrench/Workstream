@@ -21,19 +21,4 @@
 			Company: <cfif IsDefined ("name.last_name")>#name.company#<cfelse>#company_name#</cfif>
 		</td>
 	</tr>
-	<tr bgcolor="##c0c0c0">
-		<td class="RegTextBd">
-			Work&nbsp;Day
-		</td>
-		<td class="RegTextBd">
-			Code
-		</td>
-		<td class="RegTextBd">
-			Hours
-		</td>
-		<td class="RegTextBd">
-			Notes
-		</td>
-	</tr>
 </cfoutput>
-

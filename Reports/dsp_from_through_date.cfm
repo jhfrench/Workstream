@@ -15,7 +15,7 @@
 <cfparam name="attributes.from_date" default="#month(now())#/1/#year(now())#">
 <cfparam name="attributes.through_date" default="#month(now())#/#daysinmonth(now())#/#year(now())#">
 <cfparam name="attributes.report_name" default="">
-<cfparam name="attributes.required" default="">
+<cfparam name="attributes.required" default="0">
 </cfsilent>
 <cfoutput>
 <form name="report" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">

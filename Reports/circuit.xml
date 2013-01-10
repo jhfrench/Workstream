@@ -108,11 +108,8 @@
 		<fuseaction name="Hours_By_Code">
 			<include template="pag_hours_by_code.cfm"/>
 		</fuseaction>
-		<fuseaction name="individual_hours_input">
-			<include template="pag_individual_hours_input.cfm"/>
-		</fuseaction>
-		<fuseaction name="individual_hours">
-			<include template="pag_individual_hours.cfm"/>
+		<fuseaction name="individual_hours_detail">
+			<include template="pag_individual_hours_detail.cfm"/>
 		</fuseaction>
 		<fuseaction name="ip_report">
 			<include template="pag_ip_report.cfm"/>
