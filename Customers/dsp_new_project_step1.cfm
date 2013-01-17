@@ -71,9 +71,10 @@
 			<cfselect name="billable_type_id" id="billable_type_id" size="4" query="get_ref_billable_type" value="billable_type_id" display="description" required="yes" message="Please specify the billing type for this project." class="span9"></cfselect>
 			<p class="help-block">
 				Choose the billing structure for this project:
-					<ul><cfloop query="get_ref_billable_type">
-						<li>#description#</li>
-					</cfloop></ul>
+					<dl class="dl-horizontal"><cfloop query="get_ref_billable_type">
+						<dt>#description#</dt>
+						<dd>#definition#</dd>
+					</cfloop></dl>
 			</p>
 		</div>
 	</div>

@@ -13,7 +13,6 @@
 <cfquery name="get_ref_billable_type" datasource="#application.datasources.main#">
 SELECT *
 FROM REF_Billable_Type
-ORDER BY description
+ORDER BY sort_order
 </cfquery>
 </cfsilent>
-
