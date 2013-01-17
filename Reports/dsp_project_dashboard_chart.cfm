@@ -48,6 +48,9 @@
 				<a href="javascript:account_status(#project_id#);" title="View active related tasks">
 				<!--- Show status color image and set status color variable based on the status code--->
 				<cfswitch expression="#status#">
+					<cfcase value="0">
+						<span class="badge badge-default"><i class="icon-question-sign icon-white"></i></span> Unknown
+					</cfcase>
 					<cfcase value="1">
 						<span class="badge badge-success"><i class="icon-star icon-white"></i></span> Good
 					</cfcase>

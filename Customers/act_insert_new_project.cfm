@@ -23,7 +23,7 @@ VALUES ('#get_root_code.root_code#', #attributes.customer_id#, '#attributes.desc
 	#variables.user_identification#<cfif len(attributes.vision)>, '#attributes.vision#'</cfif><cfif len(attributes.mission)>, '#attributes.mission#'</cfif>
 	<cfif len(attributes.business_case)>,' #attributes.business_case#'</cfif><cfif len(attributes.project_end)>, '#attributes.project_end#'</cfif><cfif len(attributes.project_start)>, '#attributes.project_start#'</cfif>, 
 	#attributes.product_id#, #attributes.billable_type_id#, '#variables.new_code#',
-	1, #get_root_code.company_id#, #attributes.budget#,
+	1, #session.workstream_company_id#, #attributes.budget#,
 	1);
 SELECT CURRVAL('Project_project_id_SEQ') AS project_id;
 </cfquery>
