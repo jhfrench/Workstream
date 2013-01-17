@@ -45,7 +45,7 @@
 		Modernizr.load([
 			{
 				load: [
-					'//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'
+					'//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'
 				],
 				complete: function () {
 					if ( !window.jQuery ) {
