@@ -59,7 +59,7 @@ else
 	Modernizr.load([
 		{
 			both: [
-				'//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js',
+				'//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js',
 				'//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js'
 			],
 			complete: function(){
