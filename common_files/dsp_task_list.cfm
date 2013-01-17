@@ -46,9 +46,9 @@
 			<cfif status_id NEQ 7>
 				<cfset variables.days_left=datecompare(due_date, now(), 'd')>
 				<cfif variables.days_left EQ 0>
-					<span class="badge badge-warning"><i class="icon icon-bell"></i></span>
+					<span class="badge badge-warning"><i class="icon-white icon-bell"></i></span>
 				<cfelseif variables.days_left LT 0>
-					<span class="badge badge-important"><i class="icon icon-bullhorn"></i></span>
+					<span class="badge badge-important"><i class="icon-white icon-bullhorn"></i></span>
 				</cfif>
 				&nbsp;
 			</cfif>#task_status#
