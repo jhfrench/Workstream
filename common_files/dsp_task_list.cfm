@@ -42,7 +42,17 @@
 		<td class="hidden-phone hidden-tablet">#project_name#</td>
 		<td class="hidden-phone">#priority#</td>
 		<td class="hidden-phone"><a href="javascript:list_to_time('#task_id#');" title="View time details for #variables.status_message#."><cfif listlen(used_hours) GT 1 AND listgetat(used_hours,2,".") GT 0>#decimalformat(used_hours)#<cfelse>#numberformat(used_hours)#</cfif><cfif budgeted_hours>/#budgeted_hours# #numberformat((used_hours/budgeted_hours)*100)#%</cfif></a></td>
-		<td><cfif status_id NEQ 7 AND datecompare(now(), due_date, "d") GTE 0><i class="status_<cfif datecompare(now(), due_date, "d") EQ 0>not_started<cfelse>overdue</cfif>"></i>&nbsp;</cfif>#task_status#</td>
+		<td>
+			<cfif status_id NEQ 7>
+				<cfset variables.days_left=datecompare(due_date, now(), 'd')>
+				<cfif variables.days_left EQ 0>
+					<span class="badge badge-warning"><i class="icon icon-bell"></i></span>
+				<cfelseif variables.days_left LT 0>
+					<span class="badge badge-important"><i class="icon icon-bullhorn"></i></span>
+				</cfif>
+				&nbsp;
+			</cfif>#task_status#
+		</td>
 		<td class="date">#dateformat(due_date, "m/d/yyyy")#</td>
 	</tr>
 </cfoutput>
