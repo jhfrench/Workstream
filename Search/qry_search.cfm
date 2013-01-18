@@ -93,7 +93,11 @@ SELECT Task.due_date, Task.task_id, Task.name AS task_name,
 	COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Task.status_id,
 	REF_Icon.class_name AS task_icon, REF_Priority.description AS priority, COALESCE(Recorded_Hours.used_hours,0) AS used_hours, 
 	(Customer.description || '-' || Project.description) AS project_name, Task_Owner.first_name AS task_owner, Task_Owner.last_name || ', ' || Task_Owner.first_name AS task_owner_full_name,
-	(CASE WHEN Task.status_id IN (3,8) /* QA, UAT */ THEN REF_Status.status || ' by ' || COALESCE(Task_Tester.first_name,'unknown') ELSE REF_Status.status END) AS task_status
+	(CASE
+		WHEN Task.status_id=3 /* QA */ THEN REF_Status.status || ' by ' || COALESCE(Task_Tester.first_name,'unknown')
+		WHEN Task.status_id=8 /* UAT */ THEN REF_Status.status || ' by ' || COALESCE(Customer.description,'customer')
+		ELSE REF_Status.status
+	END) AS task_status
 FROM Task
 	INNER JOIN Project ON Task.project_id=Project.project_id 
 		AND Project.project_id!=#application.application_specific_settings.pto_project_id#<cfif isdefined("attributes.project_id")>
