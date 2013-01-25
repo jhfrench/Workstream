@@ -8,8 +8,9 @@ function() {
 
 	if ( $('#navbar-search-full').length ) {
 		// change full search link to first change form target, then submit that form; change link's href to be an internal link; update link's title
-		$('#navbar-search-full').click( function() {
-			$('#form-navbar-search').attr('action',  $(this).attr('href')).submit();
+		$('#navbar-search-full').click( function(event) {
+			event.preventDefault(); //don't let the link open a new page
+			$('#form-navbar-search').attr('action',  $(this).attr('href')).submit(); //instead, change the search form action, then submit it
 		}).attr('href','#navbar-search-full').attr('title', $('#navbar-search-full').attr('title')+' with entered criteria');
 	}
 
@@ -189,7 +190,7 @@ function() {
 		};
 
 		// inject clock span
-		$('#task_details_resolution_entry_hours').append( '<!-- following clock image and related HTML are injected from plugins.js --><button type="button" id="task_open_link" title="Update hours field to 0.25 hours." class="btn btn-small"><i class="icon-time"></i> <span id="task_open_clock">0.25</span> hours</button>' );
+		$('#task_details_resolution_entry_hours').append( '<!-- following clock image and related HTML are injected from plugins.js --><button type="button" id="task_open_link" title="Update hours field to 0.25 hours." class="btn btn-mini"><i class="icon-time"></i> <span id="task_open_clock">0.25</span> hours</button>' );
 		$('#task_open_link').on('click', function(){
 			 $('#hours').val( elapsed_time );
 		});
