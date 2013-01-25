@@ -30,6 +30,6 @@
 <cfoutput>
 <div class="alert alert-info">
 	The password has been reset<cfif NOT comparenocase(attributes.fuseaction, "Home.forget_password")> and sent to your email.<br />
-	Please go to <a href="index.cfm?fuseaction=Home.login">#application.product_name# home page</a> and log in again<cfelse><!-- #attributes.password# --></cfif>.
+	Please go to <a href="index.cfm?fuseaction=Home.login">#application.product_name# home page</a> and log in again<cfelse> <!-- #attributes.password# --></cfif>.
 </div>
 </cfoutput>

@@ -46,10 +46,7 @@
 </cfscript>
 
 <cfif NOT comparenocase(attributes.method, "Change Password")>
-		<cfinclude template="act_change_password.cfm">
-		<cfif variables.password_accepted_ind>
-			<cflocation url="index.cfm?fuseaction=#attributes.requested_page#" addtoken="no">
-		</cfif>
+	<cfinclude template="act_change_password.cfm">
 </cfif>
 
 <cfinclude template="../common_files/qry_get_user_information.cfm">

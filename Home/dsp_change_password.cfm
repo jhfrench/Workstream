@@ -22,13 +22,6 @@
 --->
 
 <cfoutput>
-<cfif len(variables.display_message)>
-<div class="alert alert-error">
-	<ul>
-		#variables.display_message#
-	</ul>
-</div>
-</cfif>
 <div class="row-fluid">
 	<div class="span8">
 		<form name="form_change_password" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">

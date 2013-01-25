@@ -34,7 +34,7 @@
 		<cfinclude template="act_process_password.cfm">
 	<cfelse>
 		<cfset variables.password_accepted_ind=0>
-		<cfset variables.display_message="<li>The current password you entered is not correct.">
+		<cfset variables.display_message="<li>The current password you entered is not correct.</li>">
 	</cfif>
 <cfelse>
 	<cfinclude template="act_process_password.cfm">
