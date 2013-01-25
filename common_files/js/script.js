@@ -189,7 +189,7 @@ function() {
 		};
 
 		// inject clock span
-		$('#task_details_resolution_entry_hours').append( '<!-- following clock image and related HTML are injected from plugins.js --><a href="#" id="task_open_link" title="Update hours field to 0.25 hours."><i class="icon-time"></i> <span id="task_open_clock">0.25</span> hours</a>' );
+		$('#task_details_resolution_entry_hours').append( '<!-- following clock image and related HTML are injected from plugins.js --><a href="#hours" id="task_open_link" title="Update hours field to 0.25 hours."><i class="icon-time"></i> <span id="task_open_clock">0.25</span> hours</a>' );
 		$('#task_open_link').on('click', function(){
 			 $('#hours').val( elapsed_time );
 		});
