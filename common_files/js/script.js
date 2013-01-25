@@ -11,7 +11,7 @@ function() {
 		$('#navbar-search-full').click( function(event) {
 			event.preventDefault(); //don't let the link open a new page
 			$('#form-navbar-search').attr('action',  $(this).attr('href')).submit(); //instead, change the search form action, then submit it
-		}).attr('href','#navbar-search-full').attr('title', $('#navbar-search-full').attr('title')+' with entered criteria');
+		}).attr('title', $('#navbar-search-full').attr('title')+' with entered criteria');
 	}
 
 	if ( $('#help_area').length ) {
