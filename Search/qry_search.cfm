@@ -109,7 +109,7 @@ FROM Task
 	INNER JOIN REF_Priority on Task.priority_id=REF_Priority.priority_id
 	INNER JOIN REF_Icon ON Task.icon_id=REF_Icon.icon_id
 	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id
-	INNER JOIN (
+	LEFT OUTER JOIN (
 		SELECT task_id, SUM(hours) AS used_hours
 		FROM Time_Entry
 		WHERE Time_Entry.active_ind=1
