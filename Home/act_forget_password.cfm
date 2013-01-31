@@ -25,7 +25,7 @@
 	<cfset attributes.user_account_id=get_username.user_account_id>
 	<cfinclude template="../Administration/pag_reset_password.cfm">
 <cfelse>
-	<div class="alert alert-error" style="position:relative;top:10px;">
+	<div class="alert alert-error">
 		<cfoutput>#application.product_name#</cfoutput> cannot authorize your access because your username is invalid. You may <a href="index.cfm?fuseaction=Home.login" title="go back">try to log in again</a>.
 	</div>
 </cfif>

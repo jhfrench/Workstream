@@ -31,13 +31,13 @@
 
 <h2>Manage User Access</h2>
 <cfoutput>
-<a href="##select_user_to_manage" title="hidden browser link to skip alphabetical navigation" style="position:absolute;top:-90em;left:-100em;"></a>
+<a href="##select_user_to_manage" class="visually-hidden" aria-hidden="false">skip results filtering</a>
 <div class="btn-toolbar">
 	<div class="btn-group">
 	<cfloop list="A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z" index="variables.character_ii">
-		<a href="javascript:alphabet_navigation('#variables.character_ii#');" class="btn btn-mini">#variables.character_ii#</a>
+		<a href="javascript:alphabet_navigation('#variables.character_ii#');" title="Filter to show only last names beginning with '#variables.character_ii#'" class="btn btn-mini">#variables.character_ii#</a>
 	</cfloop>
-	<a href="javascript:alphabet_navigation('');" class="btn btn-mini">All</a>
+	<a href="javascript:alphabet_navigation('');" title="Remove any last name filter" class="btn btn-mini">All</a>
 	</div>
 </div>
 

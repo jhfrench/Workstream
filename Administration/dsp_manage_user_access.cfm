@@ -23,20 +23,19 @@
 
 <h2>Manage User Access</h2>
 <cfoutput>#attributes.display_message#
-<div style="position:absolute;top:-90em;left:-100em;">
-	<a href="##begin_table_content" title="hidden browser link to skip alphabetical navigation"></a>
-</div>
+<a href="##form_manage_user_access" class="visually-hidden" aria-hidden="false">skip results filtering</a>
 Filter: <cfloop query="get_ref_account_status"> <a href="javascript:status_filter(#account_status_id#);" title="Filter to show only #lcase(description)# accounts.">#description#</a> |</cfloop> <a href="javascript:status_filter(0);" title="Filter to show all accounts.">All</a>
-<div style="width:100%">
+<div class="btn-toolbar">
+	<div class="btn-group">
 	<cfloop list="A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z" index="variables.character_ii">
-		<a href="javascript:alphabet_navigation('#character_ii#');" title="Filter to show only last names beginning with '#variables.character_ii#'">#variables.character_ii#</a> | 
+		<a href="javascript:alphabet_navigation('#variables.character_ii#');" title="Filter to show only last names beginning with '#variables.character_ii#'" class="btn btn-mini">#variables.character_ii#</a>
 	</cfloop>
-	<a href="javascript:alphabet_navigation('');" title="Remove any last name filter">All</a>
+	<a href="javascript:alphabet_navigation('');" title="Remove any last name filter" class="btn btn-mini">All</a>
+	</div>
 </div>
 
-<a name="begin_table_content"></a>
-<cfform name="select_user_to_manage" action="index.cfm?fuseaction=Administration.edit_navigation_access" method="post">
-<table class="table table-striped table-bordered table-condensed" summary="Table displays accounts whose access can be managed.">
+<cfform id="form_manage_user_access" action="index.cfm?fuseaction=Administration.edit_navigation_access" method="post">
+<table id="table_manage_user_access" class="table table-striped table-bordered table-condensed" summary="Table displays accounts whose access can be managed.">
 	<tr>
 		<th>Edit User</th>
 		<th>Last Name</th>
