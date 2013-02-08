@@ -53,14 +53,14 @@ else
 	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
 	<link rel="stylesheet" href="common_files/Workstream.css">
 
-	<script src="common_files/js/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+	<script src="common_files/js/modernizr.custom.40623.js"></script>
 	<script type="text/javascript">
 	//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
 	Modernizr.load([
 		{
 			both: [
 				'//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js',
-				'//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js'
+				'//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js'
 			],
 			complete: function(){
 				if ( !window.jQuery ) {
@@ -77,7 +77,7 @@ else
 		},
 		{
 			load: [
-				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js'
+				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js'
 			],
 			complete: function(){
 				if ( !window.jQuery.support ) {

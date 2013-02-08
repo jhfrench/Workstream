@@ -46,35 +46,57 @@
 	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
 	<link rel="stylesheet" href="common_files/Workstream.css">
 
-	<script src="common_files/js/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+	<script src="common_files/js/modernizr.custom.40623.js"></script>
 	<script type="text/javascript">
-		//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
-		Modernizr.load([
-			{
-				load: [
-					'//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'
-				],
-				complete: function () {
-					if ( !window.jQuery ) {
-						Modernizr.load('common_files/js/jquery.min.js');
-					}
-				}
-			},
-			{
-				// This will wait for the fallback to load and execute if it needs to.
-				load: [
-					'//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js',
-					'//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js',
-					'common_files/js/plugins.js',
-					'common_files/js/script.js'
-				]
-			},
-			{
-				complete: function () {
-					<cfoutput>#get_screen_details.body_onload#</cfoutput>
+	//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
+	Modernizr.load([
+		{
+			both: [
+				'//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js',
+				'//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js'
+			],
+			complete: function(){
+				if ( !window.jQuery ) {
+					Modernizr.load([
+						{
+							both: [
+								'common_files/js/jquery.min.js',
+								'common_files/js/jquery-ui.min.js'
+							]
+						}
+					]);
+				};
+			}
+		},
+		{
+			load: [
+				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js'
+			],
+			complete: function(){
+				if ( !window.jQuery.support ) {
+					Modernizr.load([
+						{
+							load: [
+								'common_files/js/bootstrap.min.js'
+							]
+						}
+					]);
 				}
 			}
-		]);
+		},
+		{
+			// This will wait for the fallback to load and execute if it needs to.
+			both: [
+				'common_files/js/plugins.js',
+				'common_files/js/script.js'
+			],
+			complete: function () {
+				$(document).ready(function() {
+					<cfoutput>#get_screen_details.body_onload#</cfoutput>
+				});
+			}
+		}
+	]);
 	</script>
 </head>
 <body class="container-fluid">
