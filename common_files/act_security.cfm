@@ -38,16 +38,21 @@
 			<!--- if we have a fuseaction in the URL --->
 			<!--- 3. Prevent from navigating the application after timed out or logged out --->
 			<cfif find(variables.current_location, listfirst(cgi.http_referer,"?"))>
-				<!---if the refer is the same application, then the session has timed out--->
-				<cfset variables.error_message="It looks like your session timed out (they only last #numberformat(qry_get_application_basic_details.sessiontimeout*24*60)# minutes). Please login again.">
+				<!---if the refer is the same application, then the session has eitehr been dropped by an app upgrade, or timed out--->
+				<cfif datediff("s", now(), application.last_updated) LT (qry_get_application_basic_details.sessiontimeout*24*60*60)>
+					<cfset variables.error_message="#application.product_name# has been recently upgraded. We regret that it is necessary for you to login again.">
+				<cfelse>
+					<cfset variables.error_message="It looks like your session timed out (they only last #numberformat(qry_get_application_basic_details.sessiontimeout*24*60)# minutes). Please login again.">
+				</cfif>
 			<cfelse>
 				<cfset variables.error_message="Please login.">
 			</cfif>
-			<cfset variables.new_location="index.cfm?fuseaction=Home.logout&requested_page=#url.fuseaction#">
+			<cfset variables.new_location="index.cfm?fuseaction=Home.logout">
+			<cfset variables.requested_page=url.fuseaction>
 		<cfelse>
 			<!--- if we don't have a fuseaction in the URL --->
 			<cfset variables.new_location="index.cfm?fuseaction=Home.main">
-			<cflocation url="index.cfm?fuseaction=Home.login&requested_page=#application.fusebox.defaultfuseaction#" addtoken="no">
+			<cfset variables.requested_page=application.fusebox.defaultfuseaction>
 		</cfif>
 	<cfelseif NOT (isdefined("cgi.http_referer") AND len(cgi.http_referer))>
 		<!--- if we don't know the http_referer --->
@@ -58,7 +63,8 @@
 		<!--- if the page request is not originating from the application's host server --->
 		<!--- 2. Prevent unauthorized interface attempts from other applications --->
 		<cfset variables.error_message="Unauthenticated access is prohibited.1">
-		<cfset variables.new_location="index.cfm?fuseaction=Home.logout&requested_page=#url.fuseaction#">
+		<cfset variables.new_location="index.cfm?fuseaction=Home.logout">
+		<cfset variables.requested_page=url.fuseaction>
 	</cfif>
 <cfelse>
 	<!--- if we have a fuseaction in the URL and the fuseaction is not for one of the protected pages --->
@@ -79,9 +85,14 @@
 	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
 	<link rel="stylesheet" href="Application_Manager/errortemplates/error_style.css">
 	<script language="JavaScript" type="text/javascript">
-	setTimeout(function() {
-		window.location.href="#variables.new_location#";
-	}, 5000);
+		var submit_security_redirect=function() {
+			document.getElementById('security_redirect').submit();	
+		}
+		document.getElementById('manual_link').href="##";
+		document.getElementById('manual_link').onclick="javascript:submit_security_redirect();";
+		setTimeout(function() {
+			submit_security_redirect();
+		}, 4000);
 	</script>
 </head>
 
@@ -92,9 +103,12 @@
 	</div>
 	<div class="content">
 		<p>#variables.error_message#</p>
-		<p>If you aren't redirected shortly, please <a href="#variables.new_location#">log in</a>.</p>
+		<p>If you aren't redirected shortly, please <a href="#variables.new_location#" id="manual_link">log in</a>.</p>
 	</div>
 </section>
+<form id="security_redirect" action="#variables.new_location#" method="post">
+	<cfif isdefined("variables.requested_page")><input type="hidden" name="requested_page" value="#variables.requested_page#"></cfif>
+</form>
 </body>
 </html>
 	</cfoutput>
