@@ -87,12 +87,19 @@
 	<script language="JavaScript" type="text/javascript">
 		var submit_security_redirect=function() {
 			document.getElementById('security_redirect').submit();	
-		}
-		document.getElementById('manual_link').href="##";
-		document.getElementById('manual_link').onclick="javascript:submit_security_redirect();";
-		setTimeout(function() {
-			submit_security_redirect();
-		}, 4000);
+		};
+		
+		var onload_ready=function() {
+			document.getElementById('manual_link').href="##";
+			document.getElementById('manual_link').onclick="javascript:submit_security_redirect();";
+			setTimeout(function() {
+				submit_security_redirect();
+			}, 4000);
+		};
+		
+		document.body.onload=function() {
+			onload_ready();
+		};
 	</script>
 </head>
 
