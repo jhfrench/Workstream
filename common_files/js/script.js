@@ -18,12 +18,13 @@ function() {
 		//console.log( $('#help_area') );
 		
 		// bind help area reveal/conceal to relevant elements
-		$('#nav_help_button').on('click', function() {
+		$('#nav_help_button').click(function(event) {
 			"use strict"; //let's avoid tom-foolery in this function
-			//adjust spans of main block and help area, set aria-hidden attribute on help blockto help screen-readers
+			event.preventDefault(); //don't let a tag try to jump us to #help_area before we reveal it
+			//adjust spans of main block and help area, set aria-hidden attribute on help block to help screen-readers
 			if ( $('#help_area').attr('aria-hidden')==='true' ) {
 				$('#content_container.span12').switchClass('span12', 'span9', 300);
-				$('#help_area').delay(300).slideToggle(300).attr('aria-hidden', 'false');
+				$('#help_area').delay(300).slideToggle(300, function() { window.location.hash = "help_area"; }).attr('aria-hidden', 'false');	
 			}
 			else {
 				$('#help_area').slideToggle(300).attr('aria-hidden', 'true');
