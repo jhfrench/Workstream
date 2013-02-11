@@ -1,5 +1,4 @@
 
-
 <!--Customers/act_set_root_code.cfm
 	Author: Jeromy F -->
 <cfsilent>
@@ -18,11 +17,11 @@
 <cfelse>
 	<cfinclude template="qry_get_code_prefix.cfm">
 	<cfquery name="get_new_root_code" datasource="#application.datasources.main#">
-	SELECT MAX(root_code)+1 AS root_code
+	SELECT COALESCE(MAX(root_code),0) AS root_code 
 	FROM Customer
 	WHERE 1=1<cfif len(get_code_prefix.code_prefix)>
 		AND root_code LIKE '#get_code_prefix.code_prefix#%'</cfif>
 		AND SUBSTRING(root_code, 1, 4) NOT IN ('9998','9999')
 	</cfquery>
-	<cfset variables.new_code=get_new_root_code.root_code>
+	<cfset variables.new_code=get_new_root_code.root_code+1>
 </cfif>
