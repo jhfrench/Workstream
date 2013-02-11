@@ -45,14 +45,16 @@
 	Modernizr.load([
 		{
 			both: [
-				'//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'
+				'//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js',
+				'//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js'
 			],
 			complete: function(){
 				if ( !window.jQuery ) {
 					Modernizr.load([
 						{
 							both: [
-								'common_files/js/jquery.min.js'
+								'common_files/js/jquery.min.js',
+								'common_files/js/jquery-ui.min.js'
 							]
 						}
 					]);
@@ -79,7 +81,7 @@
 			// This will wait for the fallback to load and execute if it needs to.
 			both: [
 				'common_files/js/plugins.js',
-				'
+				'common_files/js/clockTower.js''
 			]
 		}
 	]);

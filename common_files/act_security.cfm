@@ -89,17 +89,25 @@
 			document.getElementById('security_redirect').submit();	
 		};
 		
-		var onload_ready=function() {
+		var onload_ready=function(remaining_time) {
+			if (arguments.callee.done) return; //don't execute more than once
+			arguments.callee.done = true;
 			document.getElementById('manual_link').href="##";
 			document.getElementById('manual_link').onclick="javascript:submit_security_redirect();";
 			setTimeout(function() {
 				submit_security_redirect();
-			}, 4000);
+			}, remaining_time);
 		};
 		
-		document.body.onload=function() {
-			onload_ready();
+		//once we're loaded, let's go!
+		window.onload=function() {
+			onload_ready(4000);
 		};
+		
+		//this is a fallback for if something (CSS or an imag) doesn't load; don't wait longer than 3 seconds
+		setTimeout(function() {
+			onload_ready(1000);
+		}, 3000);
 	</script>
 </head>
 

@@ -42,13 +42,13 @@
 						<div class="control-group">
 							<label class="control-label" accesskey="u" for="user_name">Username</label>
 							<div class="controls">
-								<input type="text" name="user_name" id="user_name" value="#xmlformat(attributes.user_name)#" size="20" maxlength="4000" required="required" autofocus="autofocus" class="span8" />
+								<input type="text" name="user_name" id="user_name" value="#xmlformat(attributes.user_name)#" maxlength="4000" required="required" autofocus="autofocus" class="span8" />
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label" for="password" accesskey="p">Password</label>
 							<div class="controls">
-								<input type="password" name="password" id="password" value="" size="20" required="required" class="span8" />
+								<input type="password" name="password" id="password" value="" required="required" class="span8" />
 							</div>
 						</div>
 						<div class="form-actions">
