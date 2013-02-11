@@ -81,7 +81,7 @@
 			// This will wait for the fallback to load and execute if it needs to.
 			both: [
 				'common_files/js/plugins.js',
-				'common_files/js/clockTower.js''
+				'common_files/js/clockTower.js'
 			]
 		}
 	]);
