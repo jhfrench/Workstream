@@ -20,6 +20,12 @@
 	<fieldset>
 		<legend>Customer Information</legend>
 		<div class="control-group">
+			<label for="description" class="control-label">Name</label>
+			<div class="controls">
+				<cfinput type="text" name="description" id="description" required="yes" message="Please enter a root code" class="span3" />
+			</div>
+		</div>
+		<div class="control-group">
 			<label for="root_code" class="control-label">Root Code</label>
 			<div class="controls">
 				<div id="code_options">
@@ -45,12 +51,6 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="description" class="control-label">Root Code</label>
-			<div class="controls">
-				<cfinput type="text" name="description" id="description" required="yes" message="Please enter a root code" class="span3" />
-			</div>
-		</div>
-		<div class="control-group">
 			<span class="control-label">Billable</span>
 			<div class="controls">
 				<label class="radio"><input type="radio" name="billable_type_id" id="billable_type_id_1" value="1" selected="selected" />Yes</label><br />
@@ -64,14 +64,14 @@
 		<div class="control-group">
 			<label for="name" class="control-label">First Name</label>
 			<div class="controls">
-				<input type="text" name="name" id="name" required="no" class="span5" />
+				<input type="text" name="name" id="name" class="span5" />
 				<p class="help-block">Our main point-of-contact for this customer</p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="last_name" class="control-label">Last Name</label>
 			<div class="controls">
-				<input type="text" name="last_name" id="last_name" required="no" class="span5" />
+				<input type="text" name="last_name" id="last_name" class="span5" />
 			</div>
 		</div>
 		<div class="control-group">
@@ -92,19 +92,19 @@
 		<div class="control-group">
 			<label for="company_address1" class="control-label">Address 1</label>
 			<div class="controls">
-				<input type="text" name="company_address1" id="company_address1" required="no" class="span5" />
+				<input type="text" name="company_address1" id="company_address1" class="span5" />
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="company_address2" class="control-label">Address 2</label>
 			<div class="controls">
-				<input type="text" name="company_address2" id="company_address2" required="no" class="span5" />
+				<input type="text" name="company_address2" id="company_address2" class="span5" />
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="company_city" class="control-label">City</label>
 			<div class="controls">
-				<input type="text" name="company_city" id="company_city" required="no" class="span5" />
+				<input type="text" name="company_city" id="company_city" class="span5" />
 			</div>
 		</div>
 		<div class="control-group">
