@@ -17,7 +17,7 @@
 	END FUSEDOC --->
 <cfparam name="attributes.delay" default="0">
 <cfparam name="attributes.display" default="You are being redirected to your task list">
-<cfparam name="attributes.fuseaction" default="task_list">
+<cfparam name="attributes.fuseaction" default="Timekeeping.task_list">
 </cfsilent>
 <cfoutput>
 	<script language="JavaScript" type="text/javascript">

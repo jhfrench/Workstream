@@ -94,7 +94,7 @@ FROM Task
 		WHERE Team.active_ind=1
 			AND Team.role_id=3 /* QA */
 	) AS Task_Tester ON Task.task_id=Task_Tester.task_id
-WHERE 1=1<cfif NOT variables.from_invoice>
+WHERE Task.active_ind=1<cfif NOT variables.from_invoice>
 	AND Task.task_id IN (
 		SELECT Task.task_id
 		FROM Task
