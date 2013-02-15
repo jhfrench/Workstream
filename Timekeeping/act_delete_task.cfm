@@ -23,3 +23,4 @@ WHERE active_ind=1
 	AND task_id IN (#attributes.task_id#)
 </cfquery>
 </cfsilent>
+<cfmodule template="../common_files/act_redirect_browser.cfm" delay="2000" display="Your task has been deleted.<br />You are now being redirected to your task list.">
