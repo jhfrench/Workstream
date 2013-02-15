@@ -62,9 +62,9 @@
 	<fieldset>
 		<legend>Contact Information</legend>
 		<div class="control-group">
-			<label for="name" class="control-label">First Name</label>
+			<label for="first_name" class="control-label">First Name</label>
 			<div class="controls">
-				<input type="text" name="name" id="name" class="span5" />
+				<input type="text" name="first_name" id="first_name" class="span5" />
 				<p class="help-block">Our main point-of-contact for this customer</p>
 			</div>
 		</div>
