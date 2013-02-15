@@ -27,7 +27,7 @@ function() {
 				$('#help_area').delay(300).slideToggle(300, function() { window.location.hash = "help_area"; }).attr('aria-hidden', 'false');	
 			}
 			else {
-				$('#help_area').slideToggle(300).attr('aria-hidden', 'true');
+				$('#help_area').slideToggle(300, function() { window.location.hash = ""; }).attr('aria-hidden', 'true');
 				$('#content_container.span9').delay(300).switchClass('span9', 'span12', 300);
 			}
 		});

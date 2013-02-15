@@ -38,10 +38,10 @@
 				</cfif></a>
 			</td>
 			<td>
-					#active#
+				#active#
 			</td>
 			<td align="center">
-					<a href="javascript:edit(#customer_id#)" class="btn btn-mini">Edit</a>
+				<a href="javascript:edit(#customer_id#)" class="btn btn-mini">Edit</a>
 			</td>
 		</tr>
 	</cfoutput>
