@@ -9,6 +9,7 @@
 	Name: Jeromy French
 	||
 	Edits:
+	(2/18/13 | JF) Removing nuance from valid project look-up that used to specify companies could only se their own non-billable projects. Instead, project visibility to companies will be determined by Link_Project_Company.
 	$Log$
 	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
