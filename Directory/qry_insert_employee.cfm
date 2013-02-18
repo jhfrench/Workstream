@@ -20,7 +20,7 @@ INSERT INTO Employee (user_account_id, hire_date, birth_date,
 	employee_classification_id, overtime_elligible_ind<cfif len(attributes.photo_path)>, photo_path</cfif>,
 	created_by)
 VALUES (#variables.user_account_id#, #createodbcdate(attributes.hire_date)#, #createodbcdate(attributes.birth_date)#,
-	#attributes.employee_classification#, #attributes.overtime_elligible_ind#<cfif len(attributes.photo_path)>, #attributes.photo_path#</cfif>,
+	#attributes.employee_classification#, #attributes.overtime_elligible_ind#<cfif len(attributes.photo_path)>, '#attributes.photo_path#'</cfif>,
 	#variables.user_identification#);
 	
 INSERT INTO Link_Employee_Supervisor (user_account_id, supervisor_id, date_start,
