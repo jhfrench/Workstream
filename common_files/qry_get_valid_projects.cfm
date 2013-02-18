@@ -33,10 +33,6 @@ FROM Customer
 	INNER JOIN Project ON Customer.customer_id=Project.customer_id
 		AND Project.active_ind=1
 		AND COALESCE(Project.project_end, CURRENT_TIMESTAMP) > CURRENT_DATE
-		AND (
-			(Project.company_id=#session.workstream_company_id# AND Project.billable_type_id=2)
-			OR Project.billable_type_id!=2
-		)
 		AND Project.project_id!=#application.application_specific_settings.pto_project_id#
 	INNER JOIN (
 		SELECT project_id
