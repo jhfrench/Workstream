@@ -60,7 +60,7 @@
 	<cfinclude template="../common_files/act_validate_password_change.cfm">
 </cfif>
 
-<cfif len(variables.display_message)>>
+<cfif len(variables.display_message)>
 	<div class="alert alert-<cfif variables.password_accepted_ind>success<cfelse>error</cfif>">
 		<ul>
 			<cfoutput>#variables.display_message#</cfoutput>
