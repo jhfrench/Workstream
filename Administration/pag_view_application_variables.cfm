@@ -134,13 +134,13 @@
 	}
 </cfscript>
 
-<ul class="breadcrumb">
-	<h2>
+<h2>
+	<ul class="breadcrumb">
 		<li>Administration <span class="divider">/</span></li>
 		<li>System Configuration <span class="divider">/</span></li>
 		<li class="active">View Application Variables</li>
-	</h2>
-</ul>
+	</ul>
+</h2>
 <a href="index.cfm?fuseaction=Administration.cause_error" class="btn btn-danger">Cause an error</a>
 <form name="" action="index.cfm?fuseaction=Administration.view_application_variables" method="post">
 	<input type="checkbox" name="show_application_ind" id="show_application_ind" value="1"<cfif attributes.show_application_ind> checked="checked"</cfif> /><label for="show_application_ind">Show application scope</label><br />

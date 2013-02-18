@@ -28,12 +28,12 @@
 <cfinclude template="qry_get_link_tables.cfm">
 <cfset variables.administration_fuseactions=structkeylist(application.fusebox.circuits.administration.fuseactions)>
 
-<ul class="breadcrumb">
-	<h2>
+<h2>
+	<ul class="breadcrumb">
 		<li>System Configuration <span class="divider">/</span></li>
 		<li class="active">Manage Link Tables</li>
-	</h2>
-</ul>
+	</ul>
+</h2>
 <table class="table table-striped table-bordered table-condensed">
 	<caption><h3>List of Link Tables</h3></caption>
 	<thead>

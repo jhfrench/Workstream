@@ -26,11 +26,11 @@
 
 <!--- get all privileges except read --->
 <cfmodule template="../common_files/qry_get_ref_privilege.cfm" exclude_privilege_id="1">
-<ul class="breadcrumb">
-	<h2>
+<h2>
+	<ul class="breadcrumb">
 		<li><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> <span class="divider">/</span></li>
 		<li class="active">View User Access</li>
-	</h2>
-</ul>
+	</ul>
+</h2>
 <cfset variables.show_buttons_ind=1>
 <cfinclude template="../common_files/dsp_view_user_access.cfm">

@@ -25,13 +25,13 @@
 --->
 
 <cfoutput>
-<ul class="breadcrumb">
-	<h2>
+<h2>
+	<ul class="breadcrumb">
 		<li><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> <span class="divider">/</span></li>
 		<li>View User Activity <span class="divider">/</span></li>
 		<li class="active">#get_user_information.first_name# #get_user_information.last_name#</li>
-	</h2>
-</ul>
+	</ul>
+</h2>
 <a href="javascript:edit_navigation_access(#attributes.user_account_id#);" class="btn">Manage User's Access</a>
 <a href="javascript:administer_user_menu('#attributes.user_account_id#');" class="btn">Manage User's Profile</a><br />
 

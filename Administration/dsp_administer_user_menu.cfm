@@ -29,12 +29,12 @@
 
 <cfoutput>
 <cfif len(attributes.display_message)><div class="alert">#attributes.display_message#</div></cfif>
-<ul class="breadcrumb">
-	<h2>
+<h2>
+	<ul class="breadcrumb">
 		<li><a href="index.cfm?fuseaction=Administration.manage_user_profiles">Manage User Profiles</a> <span class="divider">/</span></li>
 		<li class="active">#get_user_information.first_name# #get_user_information.last_name#</li>
-	</h2>
-</ul>
+	</ul>
+</h2>
 <a href="javascript:edit_navigation_access(#attributes.user_account_id#);" class="btn">Manage User's Access</a> <a href="javascript:view_user_activity('#attributes.user_account_id#');" class="btn">View User Activity</a>
 <cfform name="administer_user_menu" action="index.cfm?fuseaction=Administration.administer_user_menu" method="post" class="form-horizontal">
 	<fieldset>

@@ -26,13 +26,13 @@
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_nsm_privileges" fuseaction="Administration.edit_nsm_privileges" field_name="module_id" field_value="" processform="1" field2_name="user_account_id" field2_value="#attributes.user_account_id#" program_year_id="#attributes.program_year_id#">
 
 <cfoutput>
-<ul class="breadcrumb">
-	<h2>
+<h2>
+	<ul class="breadcrumb">
 		<li><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> <span class="divider">/</span></li>
 		<li><a href="javascript:view_user_access('<cfoutput>#attributes.user_account_id#</cfoutput>');">View User Access</a> <span class="divider">/</span></li>
 		<li class="active">Edit Access</li>
-	</h2>
-</ul>
+	</ul>
+</h2>
 <a href="javascript:administer_user_menu('#attributes.user_account_id#');" class="btn">Manage User's Profile</a> <a href="javascript:view_user_activity('#attributes.user_account_id#');" class="btn">View User Activity</a><br />
 <cfif isdefined("attributes.access_administration_type")>
 	<div class="alert alert-info">Module access changes have been applied</div>
