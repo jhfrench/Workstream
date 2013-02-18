@@ -1,5 +1,5 @@
 
-<!--Reports/qry_get_project_dashboard.cfm
+<!--Customers/qry_get_project_dashboard.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC

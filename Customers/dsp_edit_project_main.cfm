@@ -17,7 +17,9 @@
 <cfinclude template="qry_get_project_main.cfm">
 <cfinclude template="qry_get_root_codes.cfm">
 <cfinclude template="qry_get_companies.cfm">
+<cfinclude template="../common_files/qry_get_link_project_company.cfm">
 <cfinclude template="../common_files/qry_get_products.cfm">
+<cfset variables.linked_companies=valuelist(get_link_project_company.company_id)>
 <cfoutput>
 <cfform name="edit_project_main_form" action="index.cfm?fuseaction=Customers.edit_project" method="post" class="form-horizontal">
 	<fieldset>
@@ -40,7 +42,7 @@
 			<div class="controls">
 				<select name="company_id" id="company_id" multiple="multiple" size="4">
 					<cfloop query="get_companies">
-						<option value="#company_id#"<cfif listcontains(session.workstream_selected_company_id,company_id)> selected="selected"</cfif>>#description#</option>
+						<option value="#company_id#"<cfif listcontains(variables.linked_companies,company_id)> selected="selected"</cfif>>#description#</option>
 					</cfloop>
 				</select>
 				<p class="help-block">Specify which companies' employees should see this project.</p>

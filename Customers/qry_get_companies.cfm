@@ -17,4 +17,3 @@ FROM REF_Company
 ORDER BY description
 </cfquery> 
 </cfsilent>
-
