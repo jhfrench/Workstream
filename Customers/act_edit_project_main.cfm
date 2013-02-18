@@ -34,8 +34,8 @@ WHERE project_id=#attributes.project_id#
 
 <cfquery name="delete_old" datasource="#application.datasources.main#">
 UPDATE Link_Project_Company
-SET active_ind=1
-WHERE active_ind=0
+SET active_ind=0
+WHERE active_ind=1
 	AND project_id=#attributes.project_id#
 	AND company_id NOT IN (#attributes.company_id#);
 
