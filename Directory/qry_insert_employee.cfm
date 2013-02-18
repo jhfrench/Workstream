@@ -25,6 +25,6 @@ VALUES (#variables.user_account_id#, #createodbcdate(attributes.hire_date)#, #cr
 	
 INSERT INTO Link_Employee_Supervisor (user_account_id, supervisor_id, date_start,
 	created_by)
-VALUES (#variables.user_account_id#, <cfif listlen(attributes.supervisor_id) GT 1>#listgetat(attributes.supervisor_id, 1)#<cfelseif listlen(attributes.supervisor_id) EQ 1>#attributes.supervisor_id#<cfelse>#variables.user_identification#</cfif>, #createodbcdate(attributes.hire_date)#
+VALUES (#variables.user_account_id#, <cfif listlen(attributes.supervisor_id) GT 1>#listgetat(attributes.supervisor_id, 1)#<cfelseif listlen(attributes.supervisor_id) EQ 1>#attributes.supervisor_id#<cfelse>#variables.user_identification#</cfif>, #createodbcdate(attributes.hire_date)#,
 	#variables.user_identification#);
 </cfquery>
