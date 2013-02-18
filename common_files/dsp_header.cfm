@@ -137,12 +137,10 @@ else
 								<a href="##help_area" id="nav_help_button" title="Access the help system" class="btn btn-info cursor_help">Help</a>
 							</form></cfif>
 							<ul class="nav pull-right">
-								<cfif isdefined("variables.user_identification")>
-									<cfif session.password_created_by EQ variables.user_identification>
-										<li><a href="index.cfm?fuseaction=Home.logout" class="login_link"><strong>Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></strong></a></li>
-									</cfif>
-								<cfelse>
+								<cfif NOT isdefined("variables.user_identification")>
 									<li><a href="index.cfm?fuseaction=Home.login" class="login_link"><strong>Login for More Access</strong></a></li>
+								<cfelseif session.password_created_by EQ variables.user_identification>
+									<li><a href="index.cfm?fuseaction=Home.logout" class="login_link"><strong>Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></strong></a></li>
 								</cfif>
 							</ul>
 						</div><!--/.nav-collapse -->
