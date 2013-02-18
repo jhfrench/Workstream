@@ -27,6 +27,6 @@ FROM REF_Company
 		FROM Security_Company_Access
 		WHERE Security_Company_Access.user_account_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" />
 	) Associated_Companies ON REF_Company.company_id=Associated_Companies.company_id
-GROUP BY description, company_id
-ORDER BY description
+GROUP BY REF_Company.description, REF_Company.company_id
+ORDER BY REF_Company.description
 </cfquery>
