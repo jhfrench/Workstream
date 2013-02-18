@@ -12,22 +12,21 @@
 	$Log$
 	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
+	--> variables.user_identification: integer that identifies a user
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="get_teams" datasource="#application.datasources.main#">
-SELECT *
-FROM (
-	SELECT REF_Company.description AS company, REF_Company.company_id
-	FROM Link_Company_User_Account, REF_Company
-	WHERE Link_Company_User_Account.company_id=REF_Company.company_id
-		AND Link_Company_User_Account.user_account_id=#variables.user_identification#
-		AND #application.team_changed#=#application.team_changed#
-	UNION ALL
-	SELECT REF_Company.description AS company, Security_Company_Access.company_id
-	FROM Security_Company_Access, REF_Company
-	WHERE Security_Company_Access.company_id = REF_Company.company_id
-		AND Security_Company_Access.user_account_id=#variables.user_identification#
-	) AS Elligible_Companies
-GROUP BY company, company_id
-ORDER BY company
+SELECT REF_Company.description AS company, REF_Company.company_id
+FROM REF_Company
+	INNER JOIN (
+		SELECT company_id
+		FROM Link_Company_User_Account
+		WHERE Link_Company_User_Account.user_account_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" />
+		UNION ALL
+		SELECT company_id
+		FROM Security_Company_Access
+		WHERE Security_Company_Access.user_account_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" />
+	) Associated_Companies ON REF_Company.company_id=Associated_Companies.company_id
+GROUP BY description, company_id
+ORDER BY description
 </cfquery>
