@@ -20,4 +20,4 @@ FROM Link_Project_Company
 WHERE active_ind=1
 	AND project_id=#attributes.project_id#
 </cfquery>
-<cfset caller.attributes.link_project_company=link_project_company>
+<cfset caller.attributes.get_link_project_company=get_link_project_company>
