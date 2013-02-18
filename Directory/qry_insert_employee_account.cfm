@@ -36,8 +36,8 @@ VALUES (#attributes.user_account_id#, 1, #variables.user_identification#);
 <cfquery name="insert_demographics" datasource="#application.datasources.main#">
 INSERT INTO Demographics (first_name, last_name, middle_initial,
 	credentials, user_account_id, uupic,
-	created_by)
+	email_address, work_phone, created_by)
 VALUES ('#attributes.first_name#', '#attributes.last_name#', '#attributes.middle_initial#',
 	'#attributes.credentials#', #attributes.user_account_id#, '#attributes.uupic#',
-	#variables.user_identification#);
+	'#attributes.email_1#', '#attributes.phone_1#', #variables.user_identification#);
 </cfquery>
