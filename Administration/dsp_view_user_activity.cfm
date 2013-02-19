@@ -29,40 +29,17 @@
 	<ul class="breadcrumb">
 		<li><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> <span class="divider">/</span></li>
 		<li>View User Activity <span class="divider">/</span></li>
-		<li class="active">#get_user_information.first_name# #get_user_information.last_name#</li>
+		<li class="active">#get_user_information.first_name# #get_user_information.last_name#<cfif isdate(attributes.start_date) AND isdate(attributes.end_date)> <small>between #dateformat(attributes.start_date, "m/d/yyyy")# and #dateformat(attributes.end_date, "m/d/yyyy")#</small></cfif></li>
 	</ul>
 </h2>
 <a href="javascript:edit_navigation_access(#attributes.user_account_id#);" class="btn">Manage User's Access</a>
 <a href="javascript:administer_user_menu('#attributes.user_account_id#');" class="btn">Manage User's Profile</a><br />
 
-<cfform name="#attributes.fuseaction#" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
-	<fieldset>
-		<legend><h3>Activity Criteria</h3></legend>
-		<div class="control-group">
-			<label class="control-label" for="start_date">Start Date</label>
-			<div class="controls">
-				<input type="date" name="start_date" id="start_date" value="#dateformat(attributes.start_date,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="end_date">End Date</label>
-			<div class="controls">
-				<input type="date" name="end_date" id="end_date" value="#dateformat(attributes.end_date,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(dateadd('d', 1, now()),'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
-			</div>
-		</div>
-		<div class="form-actions">
-			<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
-			<input type="submit" name="method" value="Update Data" class="btn btn-primary" />
-			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
-		</div>
-	</fieldset>
-</cfform>
-
 <div class="row-fluid">
 	<div class="span6">
 		<!---display known login attempts--->
 		<table id="manage_user_profiles_table" class="table table-striped table-bordered table-condensed"\>
-			<caption><h3>User's last 100 known login attempts<cfif isdate(attributes.start_date) AND isdate(attributes.end_date)> between #dateformat(attributes.start_date, "m/d/yyyy")# and #dateformat(attributes.end_date, "m/d/yyyy")#</cfif></h3></caption>
+			<caption><h3>User's last 100 known login attempts</h3></caption>
 			<thead>
 				<tr>
 					<th>Date/Time of Attempt</th>
@@ -73,7 +50,7 @@
 			<tbody>
 			<cfloop query="get_user_login_attempts" startrow="1" endrow="100">
 				<tr>
-					<td scope="row" class="date">#dateformat(created_date, 'm/d/yyyy')#</td>
+					<td scope="row" class="date">#dateformat(created_date, 'm/d/yyyy')#&nbsp;#timeformat(created_date)#</td>
 					<td>#success_status#</td>
 					<td>#account_status#</td>
 				</tr>
@@ -194,4 +171,17 @@
 		</table>
 	</div>
 </div>
+
+<cfform name="#attributes.fuseaction#" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">
+	<fieldset>
+		<legend><h3>Activity Criteria</h3></legend>
+		<label class="control-label" for="start_date">Start Date</label>
+		<input type="date" name="start_date" id="start_date" value="#dateformat(attributes.start_date,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+		<label class="control-label" for="end_date">End Date</label>
+		<input type="date" name="end_date" id="end_date" value="#dateformat(attributes.end_date,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(dateadd('d', 1, now()),'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+		<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
+		<input type="submit" name="method" value="Update Data" class="btn btn-primary" />
+		<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
+	</fieldset>
+</cfform>
 </cfoutput>
