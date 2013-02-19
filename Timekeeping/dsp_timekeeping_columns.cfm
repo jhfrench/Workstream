@@ -52,7 +52,7 @@
 				<p><a href="##" class="btn">View details &raquo;</a></p>
 			</section>
 			<section id="blurb_unbilled_work" class="span3">
-				<h2>Remaining Work</h2>
+				<h2>Projected Bill</h2>
 				<p>Coming soon: Unbilled work to date, with a projection to the end of the month.</p>
 				<p><a href="##" class="btn">View details &raquo;</a></p>
 			</section>
