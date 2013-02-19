@@ -184,7 +184,7 @@
 		<fuseaction name="turnover_input">
 			<include template="pag_turnover_report_input.cfm"/>
 		</fuseaction>
-		<fuseaction name="sales_report">
+		<fuseaction name="revenue_report">
 			<include template="pag_revenue_report.cfm"/>
 		</fuseaction>
 		<fuseaction name="account_status">
