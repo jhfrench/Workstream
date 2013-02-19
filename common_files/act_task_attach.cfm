@@ -20,7 +20,7 @@
 	<cfinclude template="qry_task_attach.cfm">
 	<div class="alert alert-success">
 		<strong>That worked!</strong>
-		You have associated tasks with <a href="javascript:task_details(attributes.base_task_id);">task #attributes.base_task_id#</a>.
+		You have associated tasks with <a href="javascript:task_details(#attributes.base_task_id#);">task #attributes.base_task_id#</a>.
 	</div>
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="task_details" field_name="task_id" fuseaction="Timekeeping.task_details">
 <cfelse>

@@ -39,7 +39,7 @@ VALUES (#attributes.task_id#, '#variables.file_path#', #variables.user_identific
 <cfoutput>
 <div class="alert alert-success">
 	<strong>That worked!</strong>
-	"#variables.file_path#" is now associated with <a href="javascript:task_details(attributes.base_task_id);">task #attributes.base_task_id#</a>.
+	"#variables.file_path#" is now associated with <a href="javascript:task_details(#attributes.base_task_id#);">task #attributes.base_task_id#</a>.
 </div>
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="task_details" field_name="task_id" fuseaction="Timekeeping.task_details">
 </cfoutput>

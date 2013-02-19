@@ -21,6 +21,6 @@ WHERE active_ind=1
 </cfquery>
 <div class="alert alert-success">
 	<strong>That worked!</strong>
-	You have removed tasks from task <cfoutput>#attributes.task_id#</cfoutput>.
+	You have removed tasks from <cfoutput><a href="javascript:task_details(#attributes.base_task_id#);">task #attributes.base_task_id#</a>.</cfoutput>
 </div>
-
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="task_details" field_name="task_id" fuseaction="Timekeeping.task_details">

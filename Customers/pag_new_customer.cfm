@@ -14,7 +14,7 @@
 <cfinclude template="qry_get_companies.cfm">
 <cfinclude template="../common_files/qry_get_states.cfm">
 
-<cfform id"new_customer" action="index.cfm?fuseaction=Customers.add_customer" method="POST" class="form-horizontal">
+<cfform id="new_customer" action="index.cfm?fuseaction=Customers.add_customer" method="POST" class="form-horizontal">
 <fieldset>
 	<legend><h2>Create New Customer</h2></legend>
 	<fieldset>
