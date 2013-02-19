@@ -58,4 +58,8 @@
 		<!--- update table_to_sort --->
 		<cfinclude template="qry_update_table_to_sort.cfm">
 	</cfif>
+	<div class="alert alert-success">
+		<strong>Got it</strong>
+		<cfoutput>#attributes.table_to_sort# is now sorted by #attributes.text_of_sorted_column#.</cfoutput>
+	</div>
 </cfif>
