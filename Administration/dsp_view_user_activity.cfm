@@ -38,7 +38,7 @@
 <div class="row-fluid">
 	<div class="span6">
 		<!---display known login attempts--->
-		<table id="manage_user_profiles_table" class="table table-striped table-bordered table-condensed"\>
+		<table id="manage_user_profiles_table" class="table table-bordered table-condensed">
 			<caption><h3>User's last 100 known login attempts</h3></caption>
 			<thead>
 				<tr>
@@ -49,10 +49,10 @@
 			</thead>
 			<tbody>
 			<cfloop query="get_user_login_attempts" startrow="1" endrow="100">
-				<tr>
+				<tr class="<cfif locked_ind>error<cfelseif NOT success_status>warning<cfelse>success</cfif>">
 					<td scope="row" class="date">#dateformat(created_date, 'm/d/yyyy')#&nbsp;#timeformat(created_date)#</td>
-					<td>#success_status#</td>
-					<td>#account_status#</td>
+					<td><cfif success_status>Success<cfelse>Fail</cfif></td>
+					<td><cfif locked_ind>Locked</cfif></td>
 				</tr>
 			</cfloop>
 			</tbody>
