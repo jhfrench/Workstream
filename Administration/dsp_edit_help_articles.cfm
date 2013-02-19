@@ -25,7 +25,7 @@
 --->
 <cfoutput>
 <cfform name="form_help_article_entry" action="index.cfm?fuseaction=Administration.edit_help_article" method="post" class="form-horizontal">
-	<legend><cfif attributes.help_article_id EQ 0>Add new<cfelse>Edit existing</cfif> help article</legend>
+	<legend><cfif attributes.help_article_id EQ 0>Create new<cfelse>Edit existing</cfif> help article</legend>
 	<div class="control-group">
 		<label class="control-label" for="help_article_title">Help Article Title</label>
 		<div class="controls">

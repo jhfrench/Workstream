@@ -26,7 +26,7 @@
 
 <cfoutput>
 <cfform name="form_faq_entry" action="index.cfm?fuseaction=Administration.edit_help_faq" method="post" class="form-horizontal">
-	<legend><cfif attributes.help_faq_id EQ 0>Add new<cfelse>Edit existing</cfif> <abbr title="Frequently Asked Question">FAQ</abbr></legend>
+	<legend><cfif attributes.help_faq_id EQ 0>Create new<cfelse>Edit existing</cfif> <abbr title="Frequently Asked Question">FAQ</abbr></legend>
 	<div class="control-group">
 		<label class="control-label" for="question">Question</label>
 		<div class="controls">

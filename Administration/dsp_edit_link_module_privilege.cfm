@@ -33,7 +33,7 @@
 <cfoutput>
 <cfform name="form_#attributes.fuseaction#" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
 	<fieldset>
-		<legend><h3><cfif attributes.l_m_p_id EQ 0>Add new<cfelse>Edit existing</cfif> LINK_Module_Privilege</h3></legend>
+		<legend><h3><cfif attributes.l_m_p_id EQ 0>Create new<cfelse>Edit existing</cfif> LINK_Module_Privilege</h3></legend>
 		<div class="control-group">
 			<label class="control-label" for="module_id">Module</label>
 			<div class="controls">

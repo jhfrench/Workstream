@@ -41,7 +41,7 @@
 <h2>
 	<ul class="breadcrumb">
 		<li><a href="index.cfm?fuseaction=Administration.fund_control_welcome">Fund Control</a> <span class="divider">/</span></li>
-		<li class="active">Add New Fund</li>
+		<li class="active">Create New Fund</li>
 	</ul>
 </h2>
 <cfform name="form_REF_Fund_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">

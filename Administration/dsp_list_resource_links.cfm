@@ -30,7 +30,7 @@
 <h2>
 	<ul class="breadcrumb">
 		<li>Administer Resource Area <span class="divider">/</span></li>
-		<li class="active"><a href="javascript:administer_bw_reports(0);">Add Resource Link</a></li>
+		<li class="active"><a href="javascript:administer_bw_reports(0);">Create Resource Link</a></li>
 	</ul>
 </h2>
 

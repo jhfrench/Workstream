@@ -4,7 +4,7 @@
 	<cfsilent>
 <!--- FUSEDOC
 	||
-	Responsibilities: I contain the fuses for the new Create New Customer Root page.
+	Responsibilities: I show the form for adding a new customer.
 	||
 	Edits:
 	$Log$
@@ -14,9 +14,9 @@
 <cfinclude template="qry_get_companies.cfm">
 <cfinclude template="../common_files/qry_get_states.cfm">
 
-<cfform name="form_" action="index.cfm?fuseaction=Customers.add_customer" method="POST" class="form-horizontal">
+<cfform id"new_customer" action="index.cfm?fuseaction=Customers.add_customer" method="POST" class="form-horizontal">
 <fieldset>
-	<legend><h2>Add New Customer</h2></legend>
+	<legend><h2>Create New Customer</h2></legend>
 	<fieldset>
 		<legend>Customer Information</legend>
 		<div class="control-group">

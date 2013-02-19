@@ -26,11 +26,11 @@
 <cfform name="choose_screen" action="" method="post" class="well form-inline">
 	<cfselect name="screen_id" value="screen_id" display="fuseaction" query="get_ref_screen" selected="#attributes.screen_id#"></cfselect>
 	<input type="submit" alt="Retrieve Screen Settings" value="Retrieve Screen Settings" class="btn btn-primary" />
-	<a href="index.cfm?fuseaction=Administration.edit_ref_screen" class="btn">Add new REF_Screen record</a>
+	<a href="index.cfm?fuseaction=Administration.edit_ref_screen" class="btn">Create new REF_Screen record</a>
 </cfform>
 <cfform name="ref_screen_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
 	<fieldset>
-		<legend><h2><cfif attributes.screen_id EQ 0>Add new<cfelse>Edit existing</cfif> REF_Screen record</h2></legend>
+		<legend><h2><cfif attributes.screen_id EQ 0>Create new<cfelse>Edit existing</cfif> REF_Screen record</h2></legend>
 		<div class="control-group">
 			<label for="module_id" class="control-label">Module</label>
 			<div class="controls">

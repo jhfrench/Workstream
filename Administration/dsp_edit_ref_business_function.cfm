@@ -36,12 +36,12 @@
 	<cfloop query="get_business_function"><option value="#business_function_id#"<cfif NOT comparenocase(get_business_function.business_function_id, attributes.business_function_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" alt="Retrieve and edit business function" value="Retrieve and edit business function" class="btn btn-primary" />
-	<a href="index.cfm?fuseaction=Administration.edit_ref_business_function" class="btn">Add new REF_Screen record</a>
+	<a href="index.cfm?fuseaction=Administration.edit_ref_business_function" class="btn">Create new REF_Screen record</a>
 </form>
 <br/>
 <cfform name="REF_business_function_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
 	<fieldset>
-		<legend><h2><cfif attributes.business_function_id EQ 0>Add new<cfelse>Edit existing</cfif> REF_Business_Function record</h2></legend>
+		<legend><h2><cfif attributes.business_function_id EQ 0>Create new<cfelse>Edit existing</cfif> REF_Business_Function record</h2></legend>
 		<div class="control-group">
 			<label for="description" class="control-label">Description</label>
 			<div class="controls">

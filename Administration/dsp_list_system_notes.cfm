@@ -30,7 +30,7 @@
 <h2>
 	<ul class="breadcrumb">
 		<li>Administer Messages <span class="divider">/</span></li>
-		<li class="active"><a href="javascript:edit_system_note(0)">Add new system message</a></li>
+		<li class="active"><a href="javascript:edit_system_note(0)">Create new system message</a></li>
 	</ul>
 </h2>
 

@@ -27,7 +27,7 @@
 <cfoutput>
 <cfform name="form_link_program_year_hierarchy" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
 	<fieldset>
-		<legend><h2><cfif attributes.l_p_y_h_id EQ 0>Add new<cfelse>Edit existing</cfif> Link_Program_Year_Hierarchy</legend>
+		<legend><h2><cfif attributes.l_p_y_h_id EQ 0>Create new<cfelse>Edit existing</cfif> Link_Program_Year_Hierarchy</legend>
 		<div class="control-group">
 			<label for="hierarchy_level_id" class="control-label">Hierarchy Level</label>
 			<div class="controls">

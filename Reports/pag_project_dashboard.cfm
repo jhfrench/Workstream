@@ -17,7 +17,7 @@
 <cfinclude template="qry_get_project_ie.cfm">
 
 <cfinclude template="dsp_project_dashboard_chart.cfm">
-<a href="index.cfm?fuseaction=Customers.new_project" class="btn"><i class="icon-plus-sign"></i> Add New Project</a>
+<a href="index.cfm?fuseaction=Customers.new_project" class="btn"><i class="icon-plus-sign"></i> Create New Project</a>
 
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_project" fuseaction="Customers.edit_project" field_name="project_id" processform="true" option="1" project_dashboard_return="1" customer_id="#attributes.customer_id#" project_manager_id="#attributes.project_manager_id#" sort="#attributes.sort#">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="account_status" fuseaction="Reports.account_status" field_name="project_id">
