@@ -29,7 +29,7 @@
 				<h2>Hours Worked</h2>
 				<p>#variables.hours_blurb#</p>
 				<cfif listfind(variables.allowed_modules, 3)>
-					<p><a href="index.cfm?fuseaction=Reports.personal_summary" class="btn">View details &raquo;</a></p>
+					<p><a href="index.cfm?fuseaction=Reports.individual_hours_summary" class="btn">View details &raquo;</a></p>
 				</cfif>
 			</section>
 			<section id="blurb_revenue" class="span3">
