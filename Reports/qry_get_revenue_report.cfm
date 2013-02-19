@@ -1,5 +1,5 @@
 
-<!--Reports/qry_revenue_report.cfm
+<!--Reports/qry_get_revenue_report.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -13,7 +13,7 @@
 	 || 
 	END FUSEDOC --->
 	<!--- $issue$: this should be rewritten --->
-<cfquery name="revenue_report" datasource="#application.datasources.main#">
+<cfquery name="get_revenue_report" datasource="#application.datasources.main#">
 SELECT COALESCE(Hour_Revenue.revenue,0) AS hour_revenue, 
 	COALESCE(Flat_Revenue.revenue,0) AS flat_revenue,
 	COALESCE(Incident_Revenue.revenue,0) AS incident_revenue,

@@ -13,12 +13,12 @@
 	 || 
 	END FUSEDOC --->
 <cfset plotAreaLeft=11/100>
-<cfset variables.graph_height=(revenue_report.recordcount*13.95)+10>
+<cfset variables.graph_height=(get_revenue_report.recordcount*13.95)+10>
 <cfset xaxislabels="">
 <cfset dataset0yvalues="">
 <cfset dataset1yvalues="">
 <cfset dataset2yvalues="">
-<cfoutput query="revenue_report">
+<cfoutput query="get_revenue_report">
 	<cfif month_revenue GT 0 OR (hour_revenue GT 0 OR flat_revenue GT 0 OR incident_revenue GT 0)>
 	<cfif year NEQ variables.temp_year><cfset xaxislabels=listappend(xaxislabels,"--#year#--"," ")></cfif>
 	<cfset xaxislabels=listprepend(xaxislabels,monthasstring(month))>

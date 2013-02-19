@@ -46,7 +46,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	<cfoutput query="revenue_report">
+	<cfoutput query="get_revenue_report">
 	<cfif month_revenue GT 0 OR (hour_revenue GT 0 OR flat_revenue GT 0 OR incident_revenue GT 0)>
 	<cfset revisedrecordcount=IncrementValue(revisedrecordcount)>
 	<cfif counter LT 3>
