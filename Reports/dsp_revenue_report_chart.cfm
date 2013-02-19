@@ -82,7 +82,7 @@
 		<cfset total_incident=total_incident+ytd_incident>
 		<cfset total_revenue=total_revenue+ytd_revenue>
 		<tr class="info">
-			<td>
+			<td colspan="2">
 				#year# YTD
 			</td>
 			<td class="number">

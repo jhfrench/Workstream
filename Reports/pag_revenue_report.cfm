@@ -14,7 +14,13 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="qry_get_revenue_report.cfm">
-<cfinclude template="dsp_revenue_report_chart.cfm">
-<cfif revisedrecordcount>
-	<cfinclude template="dsp_revenue_report_graph.cfm">
-</cfif>
+<div class="row-fluid">
+	<div class="span6">
+		<cfinclude template="dsp_revenue_report_chart.cfm">
+	</div>
+	<div class="span6">
+		<cfif revisedrecordcount>
+			<cfinclude template="dsp_revenue_report_graph.cfm">
+		</cfif>
+	</div>
+</div>

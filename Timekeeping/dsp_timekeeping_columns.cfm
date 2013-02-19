@@ -35,6 +35,9 @@
 			<section id="blurb_revenue" class="span3">
 				<h2>Revenue Goal</h2>
 				<cfinclude template="dsp_revenue_progress.cfm">
+				<cfif listfind(variables.allowed_modules, 3)>
+					<p><a href="index.cfm?fuseaction=Reports.revenue_report" class="btn">View details &raquo;</a></p>
+				</cfif>
 			</section>
 		</div>
 		<div class="row-fluid">
