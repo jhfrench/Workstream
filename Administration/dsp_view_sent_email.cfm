@@ -26,9 +26,10 @@
 </fusedoc>
 --->
 
-<h2>View Sent Emails</h2>
-<div class="datachart" style="border:1px solid #999999">
-<table cellpadding="3" cellspacing="0" width="100%" border="0" cols="7" summary="table displays list of files that have been uploaded into the system">
+
+<table class="table table-striped table-bordered table-condensed">
+	<caption><h2>View Sent Emails</h2></caption>
+	<thead>
 		<tr>
 			<th>email_id</th>
 			<th>Sender</th>
@@ -38,14 +39,10 @@
 			<th>Message</th>
 			<th>Created&nbsp;Date</th>
 		</tr>
-	<cfif get_log_email.recordcount>
-		<cfoutput query="get_log_email" group="email_id" groupcasesensitive="no">
-		<cfif currentrow MOD 2>
-			<cfset variables.row_color="eeeeee">
-		<cfelse>
-			<cfset variables.row_color="dddddd">
-		</cfif>
-		<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';" onmouseout="this.bgColor='###variables.row_color#';">
+	</thead>
+	<tbody>
+	<cfoutput query="get_log_email" group="email_id" groupcasesensitive="no">
+		<tr>
 			<td scope="row">#email_id#</td>
 			<td>#sender# (#reply_to#)</td>
 			<td>#email_address#<cfif len(carbon_copy_to)> (CC: #carbon_copy_to#)</cfif></td>
@@ -54,7 +51,6 @@
 			<td>#email_body#</td>
 			<td>#dateformat(created_date)# #timeformat(created_date)#</td>
 		</tr>
-		</cfoutput>
-	</cfif>
-	</table>
-</div>
+	</cfoutput>
+	</tbody>
+</table>

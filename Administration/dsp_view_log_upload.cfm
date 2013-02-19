@@ -45,4 +45,4 @@
 		</tr>
 	</cfoutput>
 	</tbody>
-	</table>
+</table>
