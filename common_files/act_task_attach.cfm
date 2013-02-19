@@ -18,13 +18,15 @@
 <cfoutput>
 <cfif attributes.base_task_id NEQ 0>
 	<cfinclude template="qry_task_attach.cfm">
+	<div class="alert alert-success">
+		<strong>That worked!</strong>
+		You have associated tasks with <a href="javascript:task_details(attributes.base_task_id);">task #attributes.base_task_id#</a>.
+	</div>
+	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="task_details" field_name="task_id" fuseaction="Timekeeping.task_details">
 <cfelse>
-	<script language="JavaScript" type="text/javascript">
-	opener.document.new_task_form.linked_task_id.value='#attributes.linked_task_id#';
-	</script>
+	<div class="alert alert-error">
+		<strong>Nein!</strong>
+		I can't link to task "0"!
+	</div>
 </cfif>
-<div class="alert alert-success">
-<strong>That worked!</strong>
-You have associated tasks with task #attributes.base_task_id#.
-</div>
 </cfoutput>
