@@ -44,17 +44,17 @@
 			<section id="blurb_latest_work" class="span6">
 				<h2>Latest Work</h2>
 				<p>Coming soon: 50 most recent time entries relevant to your company</p>
-				<p><a href="index.cfm?fuseaction=Timekeeping.home" class="btn">View details &raquo;</a></p>
+				<p><a href="##" class="btn">View details &raquo;</a></p>
 			</section>
 			<section id="blurb_remaining_work" class="span3">
 				<h2>Remaining Work</h2>
 				<p>Coming soon: breakdown of hours remaining, projected over the months remaining between now and when the tasks are due</p>
-				<p><a href="index.cfm?fuseaction=Timekeeping.home" class="btn">View details &raquo;</a></p>
+				<p><a href="##" class="btn">View details &raquo;</a></p>
 			</section>
 			<section id="blurb_unbilled_work" class="span3">
 				<h2>Remaining Work</h2>
 				<p>Coming soon: Unbilled work to date, with a projection to the end of the month.</p>
-				<p><a href="index.cfm?fuseaction=Timekeeping.home" class="btn">View details &raquo;</a></p>
+				<p><a href="##" class="btn">View details &raquo;</a></p>
 			</section>
 		</cfif>
 		</div>

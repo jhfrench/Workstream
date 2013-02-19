@@ -13,8 +13,12 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfinclude template="act_pto_blurb.cfm">
-<cfinclude template="act_life_blurb.cfm">
+<cfif session.account_type_id EQ 1>
+	<cfinclude template="act_pto_blurb.cfm">
+	<cfinclude template="act_life_blurb.cfm">
+<cfelse>
+	<!--- $issue$: queries that support latest/remaining/unbilled work will go here --->
+</cfif>
 <cfinclude template="act_hours_blurb.cfm">
 <cfinclude template="../common_files/qry_get_revenue_goal.cfm">
 <cfinclude template="qry_operations_blurb.cfm">
