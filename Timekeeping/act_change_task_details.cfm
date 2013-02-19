@@ -44,7 +44,7 @@
 
 <cfif compare(attributes.task_owner,attributes.orig_owner)>
 	<cfinclude template="qry_update_task_owner.cfm">
-	<cfmodule template="act_send_notification.cfm" note_type="new_owner" task_id="#attributes.task_id#">
+	<cfmodule template="act_send_notification.cfm" task_status="new_owner" task_id="#attributes.task_id#">
 </cfif>
 <cfif compare(listsort(attributes.task_team,"numeric"),listsort(attributes.orig_team,"numeric"))>
 	<cfinclude template="qry_update_task_team.cfm">
@@ -52,7 +52,7 @@
 <cfif compare(attributes.task_qa,attributes.orig_qa)>
 	<cfinclude template="qry_update_task_qa.cfm">
 </cfif>
-<cfif compare(attributes.task_status,attributes.orig_task_status_id)>
+<cfif listfindnocase("1,3,4,5,7,8,19,20,21,23,24",attributes.task_status) AND compare(attributes.task_status,attributes.orig_task_status_id)>
 	<cfmodule template="act_send_notification.cfm" task_status="#attributes.task_status#" task_id="#attributes.task_id#">
 </cfif>
 

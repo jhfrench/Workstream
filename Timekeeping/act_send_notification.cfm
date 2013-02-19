@@ -37,6 +37,14 @@
 		<cfset variables.sender_type=3>
 		<cfset variables.receiver_type=1>
 	</cfcase>
+
+	<!--- Failed QA Review in Test--->
+	<cfcase value="5">
+		<cfset variables.email_subject_prefix="Workstream Task Failed QA in Test">
+		<cfset variables.notification_text="has Failed QA in Test">
+		<cfset variables.sender_type=3>
+		<cfset variables.receiver_type=1>
+	</cfcase>
 	
 	<cfcase value="7">
 		<cfset variables.email_subject_prefix="Completed Workstream Task">
@@ -51,14 +59,6 @@
 		<cfset variables.notification_text="is ready for QA in Sandbox">
 		<cfset variables.sender_type=1>
 		<cfset variables.receiver_type=3>
-	</cfcase>
-
-	<!--- Failed QA Review in Test--->
-	<cfcase value="5">
-		<cfset variables.email_subject_prefix="Workstream Task Failed QA in Test">
-		<cfset variables.notification_text="has Failed QA in Test">
-		<cfset variables.sender_type=3>
-		<cfset variables.receiver_type=1>
 	</cfcase>
 
 	<!--- Passed QA Review in Test--->
