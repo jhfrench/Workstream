@@ -19,7 +19,12 @@ SELECT COALESCE(Hour_Revenue.revenue,0) AS hour_revenue,
 	COALESCE(Incident_Revenue.revenue,0) AS incident_revenue,
 	(COALESCE(Hour_Revenue.revenue,0) + COALESCE(Flat_Revenue.revenue,0) + COALESCE(Incident_Revenue.revenue,0)) AS month_revenue,
 	ABCD_Months.month, ABCD_Months.year
-FROM ABCD_Months
+FROM (
+		SELECT date_month AS month, date_year AS year
+		FROM REF_Date
+		WHERE odbc_date BETWEEN #createodbcdate(application.application_specific_settings.workstream_start_date)# AND CURRENT_TIMESTAMP
+		GROUP BY date_month, date_year
+	) AS ABCD_Months
 	LEFT OUTER JOIN (
 		SELECT SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS revenue,
 			EXTRACT(MONTH FROM Time_Entry.work_date) AS revenue_month, EXTRACT(YEAR FROM Time_Entry.work_date) AS revenue_year,
@@ -73,7 +78,6 @@ FROM ABCD_Months
 	GROUP BY Temp_Incident.revenue_month, Temp_Incident.revenue_year
 	) AS Incident_Revenue ON ABCD_Months.month=Incident_Revenue.revenue_month
 		AND ABCD_Months.year=Incident_Revenue.revenue_year
-WHERE ABCD_Months.start <= CURRENT_TIMESTAMP
 ORDER BY ABCD_Months.year DESC, ABCD_Months.month DESC
 </cfquery>
 </cfsilent>
