@@ -16,6 +16,7 @@
 
 <cfoutput>
 		<div class="row-fluid">
+		<cfif session.account_type_id EQ 1>
 			<section id="blurb_PTO" class="span3">
 				<h2><abbr title="Paid Time Off">PTO</abbr></h2>
 				<p>#variables.pto_blurb#</p>
@@ -39,6 +40,23 @@
 					<p><a href="index.cfm?fuseaction=Reports.revenue_report" class="btn">View details &raquo;</a></p>
 				</cfif>
 			</section>
+		<cfelse>
+			<section id="blurb_latest_work" class="span6">
+				<h2>Latest Work</h2>
+				<p>Coming soon: 50 most recent time entries relevant to your company</p>
+				<p><a href="index.cfm?fuseaction=Timekeeping.home" class="btn">View details &raquo;</a></p>
+			</section>
+			<section id="blurb_remaining_work" class="span3">
+				<h2>Remaining Work</h2>
+				<p>Coming soon: breakdown of hours remaining, projected over the months remaining between now and when the tasks are due</p>
+				<p><a href="index.cfm?fuseaction=Timekeeping.home" class="btn">View details &raquo;</a></p>
+			</section>
+			<section id="blurb_unbilled_work" class="span3">
+				<h2>Remaining Work</h2>
+				<p>Coming soon: Unbilled work to date, with a projection to the end of the month.</p>
+				<p><a href="index.cfm?fuseaction=Timekeeping.home" class="btn">View details &raquo;</a></p>
+			</section>
+		</cfif>
 		</div>
 		<div class="row-fluid">
 		<cfif operations_blurb.recordcount>
