@@ -39,7 +39,7 @@
 	<div class="span6">
 		<!---display known login attempts--->
 		<table id="manage_user_profiles_table" class="table table-bordered table-condensed">
-			<caption><h3>User's last 100 known login attempts</h3></caption>
+			<caption><h3>Known Login Attempts</h3></caption>
 			<thead>
 				<tr>
 					<th>Date/Time of Attempt</th>
@@ -61,7 +61,7 @@
 	<div class="span6">
 		<!---display favorite pages (other than log-in and log-out)--->
 		<table id="manage_user_profiles_table" class="table table-striped table-bordered table-condensed">
-			<caption><h3 style="margin:0px">User's 10 favorite pages</h3></caption>
+			<caption><h3 style="margin:0px">User's 10 Favorite Pages</h3></caption>
 			<thead>
 				<tr>
 					<th>url_requested</th>
@@ -84,7 +84,7 @@
 	<div class="span6">
 		<!---display favorite hours--->
 		<table id="manage_user_profiles_table" class="table table-striped table-bordered table-condensed">
-			<caption><h3 style="margin:0px">User's most active hours</h3></caption>
+			<caption><h3 style="margin:0px">User's Most Active Hours</h3></caption>
 			<thead>
 				<tr>
 					<th>request hour</th>
@@ -104,7 +104,7 @@
 	<div class="span6">
 		<!---display count trend by week--->
 		<table id="manage_user_profiles_table" class="table table-striped table-bordered table-condensed">
-			<caption><h3 style="margin:0px">Week trend of activity</h3></caption>
+			<caption><h3 style="margin:0px">Week Trend of Activity</h3></caption>
 			<thead>
 				<tr>
 					<th>week</th>
@@ -127,7 +127,7 @@
 	<div class="span6">
 		<!---display probable error incidents--->
 		<table id="manage_user_profiles_table" class="table table-striped table-bordered table-condensed">
-			<caption><h3 style="margin:0px">Probable errors</h3></caption>
+			<caption><h3 style="margin:0px">Probable Errors</h3></caption>
 			<thead>
 				<tr>
 					<th>page_request_id</th>
@@ -149,7 +149,7 @@
 	<div class="span6">
 		<!---display table of all data--->
 		<table id="manage_user_profiles_table" class="table table-striped table-bordered table-condensed">
-			<caption><h3 style="margin:0px">All page requests</h3></caption>
+			<caption><h3 style="margin:0px">All Page Requests</h3></caption>
 			<thead>
 				<tr>
 					<th>page_request_id</th>
