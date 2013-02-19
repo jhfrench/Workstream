@@ -23,6 +23,5 @@
 	</IO>
 </fusedoc>
 --->
-<h2>View Uploaded Files</h2>
 <cfinclude template="qry_get_log_upload.cfm">
 <cfinclude template="dsp_view_log_upload.cfm">
