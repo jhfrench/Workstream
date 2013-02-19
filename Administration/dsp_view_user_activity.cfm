@@ -49,9 +49,9 @@
 			</thead>
 			<tbody>
 			<cfloop query="get_user_login_attempts" startrow="1" endrow="100">
-				<tr class="<cfif locked_ind>error<cfelseif NOT success_status>warning<cfelse>success</cfif>">
+				<tr class="<cfif locked_ind>error<cfelseif NOT success_ind>warning<cfelse>success</cfif>">
 					<td scope="row" class="date">#dateformat(created_date, 'm/d/yyyy')#&nbsp;#timeformat(created_date)#</td>
-					<td><cfif success_status>Success<cfelse>Fail</cfif></td>
+					<td><cfif success_ind>Success<cfelse>Fail</cfif></td>
 					<td><cfif locked_ind>Locked</cfif></td>
 				</tr>
 			</cfloop>
