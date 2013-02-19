@@ -33,7 +33,7 @@
 
 <!---retrieve attempted logins of user's username--->
 <cfquery name="get_user_login_attempts" datasource="#application.datasources.main#">
-SELECT Login_Attempt.created_date, Login_Attempt.success_ind, Link_User_Account_Status.active_ind AS locked_ind
+SELECT Login_Attempt.created_date, Login_Attempt.success_ind, COALESCE(Link_User_Account_Status.active_ind,0) AS locked_ind
 FROM User_Account
 	INNER JOIN Login_Attempt ON UPPER(User_Account.user_name)=UPPER(Login_Attempt.user_name)
 	LEFT OUTER JOIN Link_User_Account_Status ON User_Account.user_account_id=Link_User_Account_Status.user_account_id
