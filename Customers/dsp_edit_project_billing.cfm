@@ -13,7 +13,7 @@
 	 || 
 	END FUSEDOC --->
 <cfparam name="attributes.customer_id" default="0">
-<cfparam name="project_dashboard_return" default="0">
+<cfparam name="project_dashboard_return_ind" default="0">
 <cfparam name="project_manager_id_filter" default="All">
 <cfparam name="sort" default="Customer.description, Project.description">
 </cfsilent>

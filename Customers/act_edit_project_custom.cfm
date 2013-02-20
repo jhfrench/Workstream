@@ -61,7 +61,7 @@ WHERE User_Fields.active_ind=1
 	</cfif>
 </cfloop>
 </cfif>
-<cfif project_dashboard_return EQ 1>
+<cfif project_dashboard_return_ind EQ 1>
 	<cflocation url="../index.cfm?fuseaction=Reports.project_dashboard&customer_id=#attributes.customer_id#&project_manager_id=#attributes.project_manager_id#&sort=#sort#&###Project_ID#" addtoken="no">
 </cfif>
 

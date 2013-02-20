@@ -15,7 +15,7 @@
 <cfset variables.start=1>
 </cfsilent>
 <cfparam name="attributes.customer_id" default="0">
-<cfparam name="project_dashboard_return" default="0">
+<cfparam name="project_dashboard_return_ind" default="0">
 <cfparam name="attributes.project_manager_id" default="0">
 <cfparam name="sort" default="Customer.description,Project.description">
 <cfset attributes.req_custom=1>

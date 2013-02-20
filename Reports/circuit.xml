@@ -84,9 +84,6 @@
 		<fuseaction name="project_dashboard">
 			<include template="pag_project_dashboard.cfm"/>
 		</fuseaction>
-		<fuseaction name="project_dashboard_staff">
-			<include template="pag_project_dashboard_Staff.cfm"/>
-		</fuseaction>
 		<fuseaction name="expense_report_input">
 			<include template="pag_expense_report_input.cfm"/>
 		</fuseaction>
@@ -189,9 +186,6 @@
 		</fuseaction>
 		<fuseaction name="account_status">
 			<include template="pag_account_task_matrix.cfm"/>
-		</fuseaction>	
-		<fuseaction name="project_dashboard_DMA">
-			<include template="pag_project_dashboard_DMA.cfm"/>
 		</fuseaction>
 		<fuseaction name="nrt_contacts">
 			<include template="Ops_Contacts.html"/>
