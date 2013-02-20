@@ -44,7 +44,7 @@
 	</tbody>
 			<tr>
 				<td bgcolor="##2C6399">
-					<span style="padding-bottom:2px; float:left;color:white;" onclick="Element.toggle('element_#variables.parent_counter#');Element.toggle('menu_minus_#variables.parent_counter#');Element.toggle('menu_plus_#variables.parent_counter#');return false;"><i class="icon-zoom-in" id="menu_plus_#variables.parent_counter#" style="cursor: n-resize;"></i><img src="images/collapse.gif" alt="Hide Current Year details" height="9" width="9" id="menu_minus_#variables.parent_counter#" style="display:none;cursor: e-resize;" />&nbsp;#business_function_description#</span>
+					<span style="padding-bottom:2px; float:left;color:white;" onclick="Element.toggle('element_#variables.parent_counter#');Element.toggle('menu_minus_#variables.parent_counter#');Element.toggle('menu_plus_#variables.parent_counter#');return false;"><i class="icon-zoom-in" id="menu_plus_#variables.parent_counter#" style="cursor: n-resize;"></i><i class="icon-zoom-out" id="menu_minus_#variables.parent_counter#" style="display:none;cursor: e-resize;"></i>&nbsp;#business_function_description#</span>
 				</td>
 			</tr>
 		</cfcase>
@@ -77,7 +77,7 @@
 <table cellspacing="1" cellpadding="3" border="0" width="100%" align="center" style="border:1px solid white;" summary="Table displays administration options only available to select developers.">
 	<tr>
 		<td bgcolor="#2C6399">
-			<span style="padding-bottom:2px; float:left;color:white;" onclick="Element.toggle('element_ln2');Element.toggle('menu_minus_ln2');Element.toggle('menu_plus_ln2');return false;"><i class="icon-zoom-in" id="menu_plus_ln2" style="cursor: n-resize;"></i><img src="images/collapse.gif" alt="Hide Current Year details" height="9" width="9" id="menu_minus_ln2" style="display:none;cursor: e-resize;" />&nbsp;Admin Tasks</span>
+			<span style="padding-bottom:2px; float:left;color:white;" onclick="Element.toggle('element_ln2');Element.toggle('menu_minus_ln2');Element.toggle('menu_plus_ln2');return false;"><i class="icon-zoom-in" id="menu_plus_ln2" style="cursor: n-resize;"></i><i class="icon-zoom-out" id="menu_minus_ln2" style="display:none;cursor: e-resize;"></i>&nbsp;Admin Tasks</span>
 		</td>
 	</tr>
 	<tbody id="element_ln2" style="display:none">
@@ -148,7 +148,7 @@
 <table cellspacing="1" cellpadding="3" border="0" width="100%" align="center" style="border:1px solid white;" summary="Table displays administration options only available to select developers.">
 	<tr>
 		<td bgcolor="#2C6399">
-			<span style="padding-bottom:2px; float:left;color:white;" onclick="Element.toggle('element_ln1');Element.toggle('menu_minus_ln1');Element.toggle('menu_plus_ln1');return false;"><i class="icon-zoom-in" id="menu_plus_ln1" style="cursor: n-resize;"></i><img src="images/collapse.gif" alt="Hide Current Year details" height="9" width="9" id="menu_minus_ln1" style="display:none;cursor: e-resize;" />&nbsp;Help</span>
+			<span style="padding-bottom:2px; float:left;color:white;" onclick="Element.toggle('element_ln1');Element.toggle('menu_minus_ln1');Element.toggle('menu_plus_ln1');return false;"><i class="icon-zoom-in" id="menu_plus_ln1" style="cursor: n-resize;"></i><i class="icon-zoom-out" id="menu_minus_ln1" style="display:none;cursor: e-resize;"></i>&nbsp;Help</span>
 		</td>
 	</tr>
 	<tbody id="element_ln1" style="display:none">

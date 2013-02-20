@@ -76,7 +76,7 @@
 	</cfif>
 
 
-<div class="forum#discussion_id#" title="icon will collapse or expand the #attributes.level# level and all subtopics of the discussion thread" id="collapse#discussion_id#"><a href="##" onclick="blocking('#discussion_id#'); return false;"><img src="images/collapse.gif" alt="icon will collapse or expand level #attributes.level# and its children" border="0" name="collapse-expand_discussion_level"></a></div><!--- </td> --->
+<div class="forum#discussion_id#" title="icon will collapse or expand the #attributes.level# level and all subtopics of the discussion thread" id="collapse#discussion_id#"><a href="##" onclick="blocking('#discussion_id#'); return false;"><i class="icon-zoom-out"></i></div><!--- </td> --->
 
 
 
