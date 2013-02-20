@@ -30,7 +30,7 @@
 	<select name="form_element_type_id">
 	<cfloop query="get_ref_form_element_type"><option value="#form_element_type_id#"<cfif NOT comparenocase(get_ref_form_element_type.form_element_type_id, attributes.form_element_type_id)> selected="selected"</cfif>>#form_element_type_description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit form element type" value="Retrieve and edit form element type" />
+	<input type="submit" name="method" value="Retrieve and edit form element type" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="qry_get_ref_form_element_type.cfm" form_element_type_id="#attributes.form_element_type_id#">

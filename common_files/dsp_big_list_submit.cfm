@@ -15,7 +15,7 @@
 </cfsilent>
 	<tr>
 		<td align="center"> 
-			<input type="button" value="Return" onclick="OKButton()">
+			<input type="button" value="Return" onclick="OKButton()" class="btn" />
 		</td>
 	</tr>
 

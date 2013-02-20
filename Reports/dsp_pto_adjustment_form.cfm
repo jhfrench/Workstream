@@ -37,7 +37,7 @@
 		<div class="form-actions">
 			<input type="hidden" name="adjustment_flag" value="#now()#" />
 			<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
-			<input type="submit" value="Create Adjustment" class="btn" />
+			<input type="submit" value="Create Adjustment" class="btn btn-warning" />
 		</div>
 	</fieldset>
 </cfform>

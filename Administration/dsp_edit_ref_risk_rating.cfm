@@ -31,7 +31,7 @@
 	<select name="risk_rating_id">
 	<cfloop query="get_ref_risk_rating"><option value="#risk_rating_id#"<cfif NOT comparenocase(get_ref_risk_rating.risk_rating_id, attributes.risk_rating_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit risk_rating" value="Retrieve and edit risk_rating" />
+	<input type="submit" name="method" value="Retrieve and edit risk_rating" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="qry_get_ref_risk_rating.cfm" risk_rating_id="#attributes.risk_rating_id#">

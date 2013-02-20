@@ -27,6 +27,6 @@
 	</td>
 </tr>
 <tr align="center">
-      <td width="385" height="28" align="left" colspan="3"><div align="center"><center><p><input type="submit" value="Submit" name="Submit" /> </td>
+      <td width="385" height="28" align="left" colspan="3"><div align="center"><center><p><input type="submit" name="Submit" value="Submit" class="btn btn-primary" /> </td>
    </tr>
 </cfform>

@@ -33,7 +33,7 @@
 	<select name="fsc_id" id="fsc_id">
 	<cfloop query="get_ref_fsc"><option value="#fsc_id#"<cfif NOT comparenocase(get_ref_fsc.fsc_id, attributes.fsc_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select><br />
-	<input type="submit" name="method" value="Retrieve and edit FSC" />
+	<input type="submit" name="method" value="Retrieve and edit <abbr title='Federal Supply Classification'>FSC</abbr>" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_fsc.cfm" fsc_id="#attributes.fsc_id#">

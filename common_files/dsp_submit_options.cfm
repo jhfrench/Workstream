@@ -20,7 +20,8 @@
 <cfoutput>
 	<tr align="center">
 		<td align="center" colspan="#request.colspan#">
-			<cfif attributes.include_reset><input type="Reset" value="#attributes.reset_value#">&nbsp;</cfif><input type="submit" value="#attributes.submit_value#">
+			<input type="submit" value="#attributes.submit_value#" class="btn btn-primary" />
+			<cfif attributes.include_reset><input type="Reset" value="#attributes.reset_value#" class="btn" /></cfif>
 		</td>
 	</tr>
 </cfoutput>

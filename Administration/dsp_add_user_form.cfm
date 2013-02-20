@@ -71,8 +71,8 @@
 		</div>
 	</div>
 	<div class="form-actions">
-		<input name="method" type="submit" alt="Add User" value="Add User" class="btn btn-primary" />
-		<input name="cancel" type="button" value="Cancel" onclick="this.form.action='index.cfm?fuseaction=Administration.add_user'; this.form.reset(); this.form.submit();" class="btn" />
+		<input type="submit" name="method" value="Add User" class="btn btn-primary" />
+		<input type="button" name="cancel" value="Cancel" onclick="this.form.action='index.cfm?fuseaction=Administration.add_user'; this.form.reset(); this.form.submit();" class="btn" />
 	</div>
 </cfoutput>
 </cfform>

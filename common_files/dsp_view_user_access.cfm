@@ -20,6 +20,7 @@
 	</IO>
 </fusedoc>
 --->
+<!--- $issue$: does this template get used? --->
 <cfset variables.privilege_column_count=get_ref_privilege.recordcount>
 <cfparam name="variables.show_buttons_ind" default="1">
 <cfsetting requesttimeout="3000">
@@ -79,7 +80,7 @@
 				<td align="center" colspan="#variables.privilege_column_count+1#">
 					<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
 					<input type="hidden" name="program_year_id" value="#attributes.program_year_id#" />
-					<input type="button" name="administration_type" value="Edit Access" onclick="javascript:document.view_user_access.action='index.cfm?fuseaction=Administration.edit_navigation_access';document.view_user_access.submit();" />
+					<input type="button" name="administration_type" value="Edit Access" onclick="javascript:document.view_user_access.action='index.cfm?fuseaction=Administration.edit_navigation_access';document.view_user_access.submit();" class="btn" />
 					<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 				</td>
 			</tr>

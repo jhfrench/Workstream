@@ -120,7 +120,7 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 	Yes <input type="radio" value="1" id="display_all" name="display_all" onclick="javascript:document.whatever.submit();"<cfif attributes.display_all> checked="checked"</cfif> />
 	No <input type="radio" value="0" id="display_all" name="display_all" onclick="javascript:document.whatever.submit();"<cfif NOT attributes.display_all> checked="checked"</cfif> />
 	<br />
-	<input type="button" value="Submit" onclick="submit_form()" />
+	<input type="button" value="Submit" onclick="submit_form()" class="btn btn-primary" />
 </form>
 
 <hr>

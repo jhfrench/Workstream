@@ -78,7 +78,8 @@
 	</tr>
 	<tr>
 		<td colspan="5" align="center" valign="top">
-			<input type="reset"> <input type="submit" value="Generate FuseDoc">
+			<input type="submit" value="Generate FuseDoc" class="btn btn-primary" />
+			<input type="reset" class="btn" />
 		</td>
 	</tr>
 </cfoutput>

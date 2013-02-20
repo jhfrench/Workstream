@@ -30,7 +30,7 @@
 </tr>
 <tr>
 	<td align="center">
-		<input type="submit" value="Update Report">
+		<input type="submit" value="Update Report" class="btn btn-primary" />
 	</td>
 </tr>
 </cfoutput>

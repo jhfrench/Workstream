@@ -26,11 +26,11 @@
 <cfparam name="attributes.method" default="">
 <cfmodule template="../common_files/qry_get_ref_account_status.cfm" account_status_id="0">
 <cfoutput>
-<form name="ref_account_edit_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
+<form name="ref_account_edit_form" action="index.cfm?fuseaction=#fuseaction#" method="post" class="well form-inline">
 	<select name="account_status_id">
 	<cfloop query="get_ref_account_status"><option value="#account_status_id#">#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit account status" value="Retrieve and edit ref account" />
+	<input type="submit" name="method" value="Retrieve and edit ref account" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 <cfmodule template="../common_files/qry_get_ref_account_status.cfm" account_status_id="#attributes.account_status_id#">

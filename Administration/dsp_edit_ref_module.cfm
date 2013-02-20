@@ -31,7 +31,7 @@
 	<select name="module_id">
 	<cfloop query="get_ref_module"><option value="#module_id#"<cfif NOT comparenocase(get_ref_module.module_id, attributes.module_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit module" value="Retrieve and edit module" />
+	<input type="submit" name="method" value="Retrieve and edit module" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_module.cfm" module_id="#attributes.module_id#">

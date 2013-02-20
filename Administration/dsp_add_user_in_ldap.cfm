@@ -87,7 +87,7 @@
 		<td class="btn-group">
 			<input type="hidden" name="center_id" value="#get_ref_center.center_id#" />
 			<input type="hidden" name="uupic" value="#attributes.uupic#" />
-			<input type="submit" name="method" alt="Add User" value="Add User" class="btn btn-primary" />
+			<input type="submit" name="method" value="Add User" class="btn btn-primary" />
 			<input type="button" name="cancel" value="Cancel" onclick="this.form.action='index.cfm?fuseaction=Administration.add_user'; this.form.reset(); this.form.submit();" class="btn" />
 		</td>
 	</tr>

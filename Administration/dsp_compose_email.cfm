@@ -71,12 +71,14 @@ Only the first #variables.email_body_limit# characters of your capability statem
 </iframe>
 </div>
 
-Please note that a copy of this message will automatically be sent your email address (#session.email_address#).<br />
+<div class="alert alert-info">
+	Please note that a copy of this message will automatically be sent your email address (#session.email_address#).
+</div>
 
 <div align="center">
 	<input type="hidden" name="upload_id" id="upload_id" value="0" />
 	<input type="hidden" name="step" value="3" />
-	<input type="submit" value="send your message" />
+	<input type="submit" value="send your message" class="btn btn-primary" />
 </div>
 
 </cfoutput>

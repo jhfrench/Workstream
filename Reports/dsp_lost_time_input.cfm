@@ -58,9 +58,7 @@
 
 	<tr>
 		<td colspan="3">
-			<cfoutput>
-				<input type="submit" value="Update Report" Size="10" style="width:210px">
-			</cfoutput>
+			<input type="submit" value="Update Report" class="btn btn-primary" />
 		</td>
 	</tr>
 </table>

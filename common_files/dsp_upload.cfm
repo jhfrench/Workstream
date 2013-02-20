@@ -34,7 +34,7 @@
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table displays files to upload">
 			<tr>
 				<td align="left"><label for="filebox">File to Upload</label>:</td>
-				<td align="left"><input type="file" id="filebox" name="MY_FILE" alt="Please specify the filepath to the file you wish to upload." /></td>
+				<td align="left"><input type="file" id="filebox" name="MY_FILE" /></td>
 			</tr>
 			<!--- if we want the user to specify which upload they're using, show them a drop-down box with the options (this also means whatever data they use will be assigned to the program year of the date they perform the upload) --->
 			<cfif get_ref_upload_source.recordcount GT 1>

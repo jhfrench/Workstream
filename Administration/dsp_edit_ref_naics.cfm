@@ -32,7 +32,7 @@
 	<select name="naics_id" id="naics_id">
 	<cfloop query="get_ref_naics"><option value="#naics_id#"<cfif NOT comparenocase(get_ref_naics.naics_id, attributes.naics_id)> selected="selected"</cfif>>#code# #description#</option></cfloop>
 	</select><br />
-	<input type="submit" name="method" value="Retrieve and edit NAICS" />
+	<input type="submit" name="method" value="Retrieve and edit NAICS" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_naics.cfm" naics_id="#attributes.naics_id#">

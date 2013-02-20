@@ -31,7 +31,7 @@
 	<select name="control_rating_id">
 	<cfloop query="get_ref_control_rating"><option value="#control_rating_id#"<cfif NOT comparenocase(get_ref_control_rating.control_rating_id, attributes.control_rating_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit control_rating" value="Retrieve and edit control_rating" />
+	<input type="submit" name="method" value="Retrieve and edit control_rating" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="qry_get_ref_control_rating.cfm" control_rating_id="#attributes.control_rating_id#">

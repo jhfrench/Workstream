@@ -33,7 +33,7 @@
 		<option value="#product_service_id#"<cfif NOT comparenocase(get_ref_product_service.product_service_id, attributes.product_service_id)> selected="selected"</cfif>>#description#</option>
 		</cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and Edit Product Service" value="Retrieve and Edit Product Service" />
+	<input type="submit" name="method" value="Retrieve and Edit Product Service" class="btn btn-primary" />
 </form>
 
 <cfif len(attributes.method)>

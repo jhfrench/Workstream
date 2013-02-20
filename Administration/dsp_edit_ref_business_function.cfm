@@ -35,7 +35,7 @@
 	<select name="business_function_id">
 	<cfloop query="get_business_function"><option value="#business_function_id#"<cfif NOT comparenocase(get_business_function.business_function_id, attributes.business_function_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit business function" value="Retrieve and edit business function" class="btn btn-primary" />
+	<input type="submit" name="method" value="Retrieve and edit business function" class="btn btn-primary" />
 	<a href="index.cfm?fuseaction=Administration.edit_ref_business_function" class="btn">Create new REF_Screen record</a>
 </form>
 <br/>

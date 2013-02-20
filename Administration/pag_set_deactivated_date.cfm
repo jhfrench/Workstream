@@ -30,8 +30,7 @@
 	<cfif attributes.reset_ind>
 		<cfquery name="reset" datasource="#application.datasources.main#">
 		UPDATE #attributes.table_name#
-		SET active_ind=0,
-			deactivated_date=NULL
+		SET deactivated_date=NULL
 		WHERE active_ind=0
 		</cfquery>
 	</cfif>
@@ -91,5 +90,5 @@
 <p></p>
 <label for="reset_ind">Reset all records?</label><br /><input type="checkbox" name="reset_ind" id="reset_ind" value="1" />
 <p></p>
-<input type="submit" />
+<input type="submit" class="btn btn-danger" />
 </form>

@@ -31,7 +31,7 @@
 	<select name="priority_id">
 	<cfloop query="get_ref_priority"><option value="#priority_id#"<cfif NOT comparenocase(get_ref_priority.priority_id, attributes.priority_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit priority" value="Retrieve and edit priority" />
+	<input type="submit" name="method" value="Retrieve and edit priority" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="qry_get_ref_priority.cfm" priority_id="#attributes.priority_id#">

@@ -31,7 +31,7 @@
 	<select name="business_category_id">
 	<cfloop query="get_ref_business_category"><option value="#business_category_id#"<cfif NOT comparenocase(get_ref_business_category.business_category_id, attributes.business_category_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit business category" value="Retrieve and edit business category" />
+	<input type="submit" name="method" value="Retrieve and edit business category" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_business_category.cfm" business_category_id="#attributes.business_category_id#">

@@ -27,9 +27,9 @@
 		<input type="hidden" name="to_inbox" value="" />
 		<input type="hidden" name="to_edit" value="" />
 		<div class="btn-group">
-			<input type="button" value="Create New Task" class="btn" onclick="checkTheDescription('');" />
-			<input type="button" value="Submit To Inbox" class="btn btn-primary" onclick="checkTheDescription('to_inbox');" />
-			<input type="button" value="Create And Edit" class="btn" onclick="checkTheDescription('to_edit');" />
+			<input type="button" value="Create New Task" onclick="checkTheDescription('');" class="btn" />
+			<input type="button" value="Submit To Inbox" onclick="checkTheDescription('to_inbox');" class="btn btn-primary" />
+			<input type="button" value="Create And Edit" onclick="checkTheDescription('to_edit');" class="btn" />
 		</div>
 	</div>
 </div>

@@ -62,8 +62,8 @@ $Log:
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">
 		<td colspan="2" class="btn-group">
 			<input type="hidden" name="user_account_id" value="#user_account_id#" />
-			<input type="submit" value="Submit Benefit" />
-			<input type="button" onclick="javascript:window.close();" value="Cancel" />
+			<input type="submit" value="Submit Benefit" class="btn btn-primary" />
+			<input type="button" onclick="javascript:window.close();" value="Cancel" class="btn" />
 		</td>
 	</tr>
 </cfoutput>

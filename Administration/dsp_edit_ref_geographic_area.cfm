@@ -32,7 +32,7 @@
 	<select name="geographic_area_id">
 	<cfloop query="get_ref_geographic_area"><option value="#geographic_area_id#"<cfif NOT comparenocase(get_ref_geographic_area.geographic_area_id, attributes.geographic_area_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit geographic area" value="Retrieve and edit geographic area" />
+	<input type="submit" name="method" value="Retrieve and edit geographic area" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_geographic_area.cfm" geographic_area_id="#attributes.geographic_area_id#">

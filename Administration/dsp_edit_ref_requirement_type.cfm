@@ -31,7 +31,7 @@
 	<select name="requirement_type_id">
 	<cfloop query="get_requirement_type"><option value="#requirement_type_id#"<cfif NOT comparenocase(get_requirement_type.requirement_type_id, attributes.requirement_type_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit requirement type" value="Retrieve and edit requirement type" />
+	<input type="submit" name="method" value="Retrieve and edit requirement type" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_requirement_type.cfm"requirement_type_id="#attributes.requirement_type_id#">

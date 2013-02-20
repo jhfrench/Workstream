@@ -31,7 +31,7 @@
 	<select name="product_version_id">
 	<cfloop query="get_ref_product_version"><option value="#product_version_id#"<cfif NOT comparenocase(get_ref_product_version.product_version_id, attributes.product_version_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit product version" value="Retrieve and edit product version" />
+	<input type="submit" name="method" value="Retrieve and edit product version" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="qry_get_ref_product_version.cfm" product_version_id="#attributes.product_version_id#">

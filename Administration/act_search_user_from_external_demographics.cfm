@@ -94,7 +94,7 @@
 	<tr bgcolor="##dddddd">
 		<td class="btn-group">
 			<input type="hidden" name="method" value="select_user" />
-			<input name="submit" type="submit" alt="Next Step" value="Next Step" />
+			<input type="submit" name="submit" value="Next Step" class="btn btn-primary" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>

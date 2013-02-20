@@ -29,7 +29,7 @@
 <form name="edit_ref_date_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<label for="odbc_date">Date</label><br/>
 	<input type="text" name="odbc_date" id="odbc_date" value="" /><br />
-	<input type="submit" name="method" value="Retrieve and edit date record" />
+	<input type="submit" name="method" value="Retrieve and edit date record" class="btn btn-primary" />
 </form>
 <cfform name="ref_date_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
 

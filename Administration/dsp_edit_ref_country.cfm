@@ -32,7 +32,7 @@
 	<select name="country_id">
 	<cfloop query="get_ref_country"><option value="#country_id#"<cfif NOT comparenocase(get_ref_country.country_id, attributes.country_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit country" value="Retrieve and edit country" />
+	<input type="submit" name="method" value="Retrieve and edit country" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_country.cfm" country_id="#attributes.country_id#">

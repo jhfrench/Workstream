@@ -31,7 +31,7 @@
 	<select name="contact_type_id">
 	<cfloop query="get_ref_contact_type"><option value="#contact_type_id#"<cfif NOT comparenocase(get_ref_contact_type.contact_type_id, attributes.contact_type_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit Contact Type" value="Retrieve and edit Contact Type" />
+	<input type="submit" name="method" value="Retrieve and edit Contact Type" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="qry_get_ref_contact_type.cfm" contact_type_id="#attributes.contact_type_id#">

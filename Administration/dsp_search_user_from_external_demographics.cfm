@@ -71,7 +71,7 @@
 	<tr>
 		<td>&nbsp;</td>
 		<td>
-			<input type="submit" name="method" alt="Search" value="Search" />
+			<input type="submit" name="method" value="Search" class="btn btn-primary" />
 			<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
 		</td>
 	</tr>

@@ -52,7 +52,7 @@
 	<tr>
 		<td align="center" colspan="2">
 			<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
-			<input type="submit" value="confirm" />
+			<input type="submit" value="confirm" class="btn btn-primary" />
 		</td>
 	</tr>
 	</cfif>

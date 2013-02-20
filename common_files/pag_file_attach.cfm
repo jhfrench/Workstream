@@ -45,7 +45,7 @@ function upload_file_type_check() {
 			<div class="control-group">
 				<label class="control-label" for="my_file">File to upload</label>
 				<div class="controls">
-					<input type="file" name="MY_FILE" id="my_file" alt="Please specify the filepath to the file you wish to upload." required="required" class="span8" />
+					<input type="file" name="MY_FILE" id="my_file" required="required" class="span8" />
 				</div>
 			</div>
 			<div class="form-actions">

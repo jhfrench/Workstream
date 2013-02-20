@@ -31,7 +31,7 @@
 	<select name="privilege_id">
 	<cfloop query="get_ref_privilege"><option value="#privilege_id#"<cfif NOT comparenocase(get_ref_privilege.privilege_id, attributes.privilege_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit privilege" value="Retrieve and edit privilege" />
+	<input type="submit" name="method" value="Retrieve and edit privilege" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_privilege.cfm" privilege_id="#attributes.privilege_id#">

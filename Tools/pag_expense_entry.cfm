@@ -95,7 +95,7 @@ Status: <cfselect name="expense_status_id" size="1" query="get_expense_status" v
 	<td colspan="5">Expense Detail</td>
 </tr>
 <tr>
-	<td colspan="5"><input type="submit" name="New" value="New"></td>
+	<td colspan="5"><input type="submit" name="New" value="New" class="btn" /></td>
 </tr>
 	</cfform>
 	<cfform action="index.cfm?fuseaction=Tools.expense_insert" method="post" name="expense_insert"> 

@@ -148,7 +148,7 @@
 	<input type="checkbox" name="show_server_ind" id="show_server_ind" value="1"<cfif attributes.show_server_ind> checked="checked"</cfif> /><label for="show_server_ind">Show server scope</label><br />
 	<input type="checkbox" name="show_session_ind" id="show_session_ind" value="1"<cfif attributes.show_session_ind> checked="checked"</cfif> /><label for="show_session_ind">Show session scope</label><br />
 	<input type="checkbox" name="show_variables_ind" id="show_variables_ind" value="1"<cfif attributes.show_variables_ind> checked="checked"</cfif> /><label for="show_variables_ind">Show variables scope</label><br />
-	<input type="submit" value="show selected scopes" />
+	<input type="submit" value="show selected scopes" class="btn btn-primary" />
 </form>
 <cfif attributes.show_application_ind>
 	<p>Application Scope

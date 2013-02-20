@@ -46,5 +46,5 @@ Select the audience you wish to receive your email:
 
 <div align="center">
 	<input type="hidden" name="step" value="2" />
-	<input type="submit" value="write your message" />
+	<input type="submit" value="write your message" class="btn btn-primary" />
 </div>

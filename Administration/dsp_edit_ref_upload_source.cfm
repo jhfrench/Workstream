@@ -31,7 +31,7 @@
 	<select name="upload_source_id">
 	<cfloop query="get_ref_upload_source"><option value="#upload_source_id#"<cfif NOT comparenocase(get_ref_upload_source.upload_source_id, attributes.upload_source_id)> selected="selected"</cfif>>#upload_source#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit upload source" value="Retrieve and edit upload source" />
+	<input type="submit" name="method" value="Retrieve and edit upload source" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_upload_source.cfm" upload_source_id="#attributes.upload_source_id#">

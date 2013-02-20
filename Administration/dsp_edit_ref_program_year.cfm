@@ -31,7 +31,7 @@
 	<select name="program_year_id">
 	<cfloop query="get_program_year"><option value="#program_year_id#"<cfif NOT comparenocase(get_program_year.program_year_id, attributes.program_year_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit program year" value="Retrieve and edit program year" />
+	<input type="submit" name="method" value="Retrieve and edit program year" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_program_year.cfm" program_year_id="#attributes.program_year_id#">

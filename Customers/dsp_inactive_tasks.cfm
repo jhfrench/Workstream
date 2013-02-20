@@ -46,8 +46,8 @@
 <form name="change" action="index.cfm?fuseaction=Customers.update_project" method="post" class="well">
 	<fieldset>
 		<legend>Are you sure that you want to deactivate all these tasks?</legend>
-		<input type="submit" value="Continue" name="Submit" class="btn btn-danger" />
-		<input type="button" value="Back" name="back" onclick="history.go(-1)" class="btn" />
+		<input type="submit" name="Submit" value="Continue" class="btn btn-danger" />
+		<input type="button" name="back" value="Back" onclick="history.go(-1)" class="btn" />
 		<input type="hidden" name="project_id" value="#attributes.project_id#">
 		<input type="hidden" name="project_code" value="#attributes.project_code#" >
 		<input type="hidden" name="description" value="#attributes.description#">

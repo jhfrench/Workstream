@@ -37,7 +37,7 @@
 		<input type="checkbox" name="hide_coded_requirements" id="hide_coded_requirements" value="1"<cfif session.hide_coded_requirements> checked="checked"</cfif> />
 	</label>
 	<div class="btn-group">
-		<input type="submit" name="submit" value="Submit" alt="submit" class="btn btn-primary" />
+		<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
 		<input type="reset" value="Reset" class="btn" />
 	</div>
 </form>

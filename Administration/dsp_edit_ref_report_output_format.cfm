@@ -31,7 +31,7 @@
 	<select name="report_output_format_id">
 	<cfloop query="get_ref_report_output_format"><option value="#report_output_format_id#"<cfif NOT comparenocase(get_ref_report_output_format.report_output_format_id, attributes.report_output_format_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
-	<input type="submit" name="method" alt="Retrieve and edit report output format" value="Retrieve and edit report output format" />
+	<input type="submit" name="method" value="Retrieve and edit report output format" class="btn btn-primary" />
 </form>
 <cfif len(attributes.method)>
 	<cfmodule template="../common_files/qry_get_ref_report_output_format.cfm" report_output_format_id="#attributes.report_output_format_id#">

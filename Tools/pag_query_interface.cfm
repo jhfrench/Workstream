@@ -26,7 +26,7 @@
 	</tr>
 	<tr>
 		<td class="btn-group">
-			<input type="submit">
+			<input type="submit" class="btn btn-danger" />
 		</td>
 	</tr>
 </table>

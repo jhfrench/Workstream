@@ -35,7 +35,8 @@
 	</tr>
 	<tr bgcolor="##e6e6e6">
 		<td class="btn-group">
-			<input type="Reset"> | <input type="submit" value="Update">
+			<input type="submit" value="Update" class="btn btn-primary" />
+			<input type="Reset" class="btn" />
 		</td>
 	</tr>
 </form>
