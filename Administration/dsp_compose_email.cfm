@@ -29,7 +29,7 @@
 
 <label for="send_to" style="width:100px">To:</label>&nbsp;
 <cfif get_target_email_audience.recordcount>
-	<a onclick="javascript:Element.toggle('target_audience');Element.toggle('show_target_audience');Element.toggle('hide_target_audience');" id="show_target_audience"><img src="images/expand.gif" border="0" alt="Show child details"> Show target audience</a><a onclick="javascript:Element.toggle('target_audience');Element.toggle('show_target_audience');Element.toggle('hide_target_audience');" id="hide_target_audience" style="display:none;"><img src="images/collapse.gif" border="0" alt="Hide child details" /> Hide target audience</a><br />
+	<a onclick="javascript:Element.toggle('target_audience');Element.toggle('show_target_audience');Element.toggle('hide_target_audience');" id="show_target_audience"><i class="icon-zoom-in"></i> Show target audience</a><a onclick="javascript:Element.toggle('target_audience');Element.toggle('show_target_audience');Element.toggle('hide_target_audience');" id="hide_target_audience" style="display:none;"><img src="images/collapse.gif" border="0" alt="Hide child details" /> Hide target audience</a><br />
 	<div id="target_audience" style="display:none;">
 	<img src="images/spacer.gif" alt="" align="left" height="1" width="100" border="0" />
 		<table width="280" summary="Table lists email addresses which qualify based on your selected criteria. If the user has 'opted-out' of receiving emails that fact is noted, and that user will not be sent this message.">
@@ -62,7 +62,7 @@ Only the first #variables.email_body_limit# characters of your capability statem
 
 
 <label for="upload_id" style="width:100px">Attach files</label> 
-<a onclick="javascript:Element.toggle('upload_frame');Element.toggle('show_upload_frame');Element.toggle('hide_upload_frame');" id="show_upload_frame"><img src="images/expand.gif" border="0" alt="Show child details"> Show Upload</a><a onclick="javascript:Element.toggle('upload_frame');Element.toggle('show_upload_frame');Element.toggle('hide_upload_frame');" id="hide_upload_frame" style="display:none;"><img src="images/collapse.gif" border="0" alt="Hide child details" /> Hide Upload</a><br />
+<a onclick="javascript:Element.toggle('upload_frame');Element.toggle('show_upload_frame');Element.toggle('hide_upload_frame');" id="show_upload_frame"><i class="icon-zoom-in"></i> Show Upload</a><a onclick="javascript:Element.toggle('upload_frame');Element.toggle('show_upload_frame');Element.toggle('hide_upload_frame');" id="hide_upload_frame" style="display:none;"><img src="images/collapse.gif" border="0" alt="Hide child details" /> Hide Upload</a><br />
 
 <cfset attributes.upload_source_id=2>
 <cfinclude template="../common_files/act_upload.cfm">
