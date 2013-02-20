@@ -8,8 +8,6 @@
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/27/2009" role="FuseCoder" comments="Created File">
 			$Id:$
-			(JF | 9/9/9)
-			Making corrections depicted in 508_jm_2009_09_09_6.png.
 		</history>
 	</properties>
 	<IO>
