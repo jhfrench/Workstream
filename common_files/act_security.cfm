@@ -96,10 +96,7 @@
 			if (arguments.callee.done) return; //don't execute more than once
 			arguments.callee.done = true;
 			document.getElementById('manual_link').href="##";
-			$('##manual_link').click(function(e) {
-			    e.preventDefault(); // prevent the link's default behaviour
-			    submit_security_redirect();
-			});
+			document.getElementById('manual_link').onclick="javascript:submit_security_redirect(); return false;";
 			setTimeout(function() {
 				submit_security_redirect();
 			}, remaining_time);

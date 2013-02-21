@@ -24,6 +24,9 @@
 	if (NOT isdefined("attributes.method")) {
 		attributes.method="";
 	};
+	if (NOT isdefined("attributes.process_form_ind")) {
+		attributes.process_form_ind=0;
+	};
 	if (NOT isdefined("attributes.requested_page")) {
 		attributes.requested_page=application.fusebox.defaultfuseaction;
 	};
