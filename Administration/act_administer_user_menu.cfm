@@ -40,5 +40,5 @@
 <cfinclude template="../common_files/qry_get_user_password.cfm">
 
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="reset_password" fuseaction="Administration.reset_password" field_name="user_account_id">
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_navigation_access" fuseaction="Administration.edit_navigation_access" field_name="user_account_id" field2_name="program_year_id" field2_value="#session.program_year_id#" processform="1" method="Select">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_navigation_access" fuseaction="Administration.edit_navigation_access" field_name="user_account_id" field2_name="program_year_id" field2_value="#session.program_year_id#" process_form_ind="1" method="Select">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="view_user_activity" fuseaction="Administration.view_user_activity" field_name="user_account_id" field_value="">

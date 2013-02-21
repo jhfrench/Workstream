@@ -112,6 +112,6 @@ You can access #application.product_name# at #listfirst(cgi.http_referer,"?")#.
 		<br />The new user does not have an email address so the system cannot send the user his/her password.
 	</cfif>
 	<cfset attributes.last_name="">
-	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_navigation_access" fuseaction="Administration.edit_navigation_access" field_name="user_account_id" processform="1" program_year_id="1" method="Select">
+	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_navigation_access" fuseaction="Administration.edit_navigation_access" field_name="user_account_id" process_form_ind="1" program_year_id="1" method="Select">
 	<cfset variables.display_message="A new user has been added. You may <a href='javascript:edit_navigation_access(#attributes.user_account_id#);'>edit this user's access</a> now, or in the future by clicking on the Administration > Manage Users > Administer User Access navigation link.">
 </cfif>

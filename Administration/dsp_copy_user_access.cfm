@@ -21,7 +21,7 @@
 </fusedoc>
 --->
 
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="alphabet_navigation" fuseaction="Administration.copy_user_access" field_name="last_initial" field_value="" processform="1" source_user_account_id="#attributes.source_user_account_id#">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="alphabet_navigation" fuseaction="Administration.copy_user_access" field_name="last_initial" field_value="" process_form_ind="1" source_user_account_id="#attributes.source_user_account_id#">
 <h2>Copy User Access</h2>
 
 <cfoutput>#attributes.display_message#

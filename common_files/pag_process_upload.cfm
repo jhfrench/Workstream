@@ -142,7 +142,7 @@
 	attributes.fuseaction="common_files.process_upload";
 	attributes.field_name="delete_upload_id";
 	attributes.field_value="";
-	attributes.processform=1;
+	attributes.process_form_ind=1;
 	attributes.delete_ind=1;
 </cfscript>
 <cfinclude template="../common_files/act_drilldown_form.cfm">

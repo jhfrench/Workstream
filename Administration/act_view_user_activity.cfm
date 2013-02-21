@@ -93,5 +93,5 @@ WHERE page_load_time IS NULL
 ORDER BY page_request_id DESC
 </cfquery>
 
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_navigation_access" fuseaction="Administration.edit_navigation_access" field_name="user_account_id" field2_name="program_year_id" field2_value="#session.program_year_id#" processform="1" method="Select">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_navigation_access" fuseaction="Administration.edit_navigation_access" field_name="user_account_id" field2_name="program_year_id" field2_value="#session.program_year_id#" process_form_ind="1" method="Select">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="administer_user_menu" fuseaction="Administration.administer_user_menu" field_name="user_account_id" field_value="">
