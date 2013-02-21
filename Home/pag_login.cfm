@@ -39,7 +39,7 @@
 </cfscript>
 
 <!--- if the form is submitted --->
-<cfif NOT comparenocase(attributes.method,"login")>
+<cfif NOT comparenocase(attributes.method,"sign in")>
 	<cfinclude template="act_login.cfm">
 </cfif>
 

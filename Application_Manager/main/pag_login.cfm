@@ -27,7 +27,7 @@
 <cfparam name="variables.display_message" default="">
 
 <!--- if the form is submitted --->
-<cfif NOT comparenocase(attributes.method,"Login")>
+<cfif NOT comparenocase(attributes.method,"sign in")>
 	<cfinclude template="act_login.cfm">
 </cfif>
 
