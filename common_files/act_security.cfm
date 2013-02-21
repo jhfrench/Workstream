@@ -24,7 +24,7 @@
 	<cfparam name="url.fuseaction" default="#application.fusebox.defaultfuseaction#">
 	<cfset variables.current_location="#cgi.http_host##cgi.script_name#">
 	<cfset variables.error_message="">
-	<cfset variables.ignore_these="FIELDNAMES,FUSEACTION">
+	<cfset variables.ignore_these="FIELDNAMES,FUSEACTION,fusebox.password">
 	<cfset variables.new_location="">
 	<cfset variables.process_form_ind=0>
 </cfsilent>
