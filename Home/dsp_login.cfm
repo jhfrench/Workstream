@@ -53,6 +53,15 @@
 						</div>
 						<div class="form-actions">
 							<input type="hidden" name="requested_page" value="#xmlformat(attributes.requested_page)#" />
+							<cfif attributes.process_form_ind>
+								<cfset variables.ignore_these="FIELDNAMES,FUSEACTION,requested_page,process_form_ind">
+								<input type="hidden" name="process_form_ind" value="1" />
+								<cfloop collection="#attributes#" item="variables.field">
+									<cfif NOT listcontainsnocase(variables.ignore_these,variables.field)>
+										<input type="hidden" name="#variables.field#" id="#variables.field#" value="#evaluate("attributes.#variables.field#")#" />
+									</cfif>
+								</cfloop>
+							</cfif>
 							<input type="submit" name="method" value="login" class="btn btn-primary" />
 							<p class="help-block"><a href="index.cfm?fuseaction=Home.forget_username">Forgotten Your Username?</a></p>
 							<p class="help-block"><a href="index.cfm?fuseaction=Home.forget_password">Forgotten Your Password?</a></p>

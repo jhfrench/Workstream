@@ -22,9 +22,11 @@
 </fusedoc>
 --->
 	<cfparam name="url.fuseaction" default="#application.fusebox.defaultfuseaction#">
-	<cfset variables.error_message="">
-	<cfset variables.new_location="">
 	<cfset variables.current_location="#cgi.http_host##cgi.script_name#">
+	<cfset variables.error_message="">
+	<cfset variables.ignore_these="FIELDNAMES,FUSEACTION">
+	<cfset variables.new_location="">
+	<cfset variables.process_form_ind=0>
 </cfsilent>
 <cfif NOT len(cgi.query_string)>
 	<!--- if the user requests the root directory, redirect to the default fuseaction --->
@@ -38,12 +40,13 @@
 			<!--- if we have a fuseaction in the URL --->
 			<!--- 3. Prevent from navigating the application after timed out or logged out --->
 			<cfif find(variables.current_location, listfirst(cgi.http_referer,"?"))>
-				<!---if the refer is the same application, then the session has eitehr been dropped by an app upgrade, or timed out--->
+				<!---if the refer is the same application, then the session has either been dropped by an app upgrade, or timed out--->
 				<cfif datediff("s", now(), application.last_updated) GT (qry_get_application_basic_details.sessiontimeout*24*60*60)>
 					<cfset variables.error_message="#application.product_name# has been recently upgraded. We regret that it is necessary for you to login again.">
 				<cfelse>
 					<cfset variables.error_message="It looks like your session timed out (they only last #numberformat(qry_get_application_basic_details.sessiontimeout*24*60)# minutes). Please login again.">
 				</cfif>
+				<cfset variables.process_form_ind=1>
 			<cfelse>
 				<cfset variables.error_message="Please login.">
 			</cfif>
@@ -93,7 +96,10 @@
 			if (arguments.callee.done) return; //don't execute more than once
 			arguments.callee.done = true;
 			document.getElementById('manual_link').href="##";
-			document.getElementById('manual_link').onclick="javascript:submit_security_redirect();";
+			$('##manual_link').click(function(e) {
+			    e.preventDefault(); // prevent the link's default behaviour
+			    submit_security_redirect();
+			});
 			setTimeout(function() {
 				submit_security_redirect();
 			}, remaining_time);
@@ -123,6 +129,14 @@
 </section>
 <form id="security_redirect" action="#variables.new_location#" method="post">
 	<cfif isdefined("variables.requested_page")><input type="hidden" name="requested_page" value="#variables.requested_page#"></cfif>
+	<cfif variables.process_form_ind>
+		<input type="hidden" name="process_form_ind" value="1" />
+		<cfloop collection="#attributes#" item="variables.field">
+			<cfif NOT listcontainsnocase(variables.ignore_these,variables.field)>
+				<input type="hidden" name="#variables.field#" id="#variables.field#" value="#evaluate("attributes.#variables.field#")#" />
+			</cfif>
+		</cfloop>
+	</cfif>
 </form>
 </body>
 </html>
