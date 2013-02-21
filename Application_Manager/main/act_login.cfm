@@ -24,8 +24,8 @@
 <cfset variables.success_ind=0>
 
 <!--- use structdelete to destroy individual session vars --->
-<cfloop collection="#session#" item="session_variable_ii">
-	<cfset structdelete(session, session_variable_ii)>
+<cfloop collection="#session#" item="variables.session_variable_ii">
+	<cfset structdelete(session, variables.session_variable_ii)>
 </cfloop>
 
 <!--- get the username provided to check if it exists --->

@@ -23,9 +23,9 @@
 <!--- assume that the user will not get in --->
 <cfset variables.success_ind=0>
 
-<cfloop collection="#session#" item="session_variable_ii">
-	<!--- USE STRUCTDELETE TO DESTROY INDIVIDUAL SESSION VARS --->
-	<cfset structdelete(session, session_variable_ii)>
+<!--- USE STRUCTDELETE TO DESTROY INDIVIDUAL SESSION VARS --->
+<cfloop collection="#session#" item="variables.session_variable_ii">
+	<cfset structdelete(session, variables.session_variable_ii)>
 </cfloop>
 
 <!--- get the username provided to check if it exists --->

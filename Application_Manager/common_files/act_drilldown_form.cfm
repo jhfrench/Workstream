@@ -41,9 +41,9 @@ function #attributes.function_name#(fldValue<cfif attributes.field2_variable_ind
 	document.#attributes.function_name#.#attributes.field_name#.value=fldValue;<cfif attributes.field2_variable_ind>
 	document.#attributes.function_name#.#attributes.field2_name#.value=fldValue2;</cfif>
 	<cfif attributes.processform>
-		<cfloop collection="#attributes#" item="field">
-			<cfif NOT listcontains(variables.javascript_ignore,lcase(field))>
-				document.#attributes.function_name#.#field#.value='#evaluate("attributes.#field#")#';
+		<cfloop collection="#attributes#" item="variables.field">
+			<cfif NOT listcontains(variables.javascript_ignore,lcase(variables.field))>
+				document.#attributes.function_name#.#variables.field#.value='#evaluate("attributes.#variables.field#")#';
 			</cfif>
 		</cfloop>
 	</cfif>
@@ -58,9 +58,9 @@ function #attributes.function_name#(fldValue<cfif attributes.field2_variable_ind
 		<input type="hidden" name="#attributes.field2_name#" value="#attributes.field2_value#" />
 	</cfif>
 	<cfif attributes.processform>
-		<cfloop collection="#attributes#" item="field">
-			<cfif NOT listcontains(variables.ignore_these,field)>
-				<input type="hidden" name="#field#" value="#evaluate("attributes.#field#")#" />
+		<cfloop collection="#attributes#" item="variables.field">
+			<cfif NOT listcontainsnocase(variables.ignore_these,variables.field)>
+				<input type="hidden" name="#variables.field#" id="#variables.field#" value="#evaluate('attributes.#variables.field#')#" />
 			</cfif>
 		</cfloop>
 	</cfif>

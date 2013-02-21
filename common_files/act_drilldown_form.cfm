@@ -69,9 +69,9 @@ var #attributes.function_name#=function(fldValue,fldValue2) {
 		<input type="hidden" name="#attributes.field2_name#" id="#attributes.field2_name#" value="#attributes.field2_value#" />
 	</cfif>
 	<cfif attributes.processform>
-		<cfloop collection="#attributes#" item="field">
-			<cfif NOT listcontains(variables.ignore_these,field)>
-				<input type="hidden" name="#field#" id="#field#" value="#xmlformat(evaluate("attributes.#field#"))#" />
+		<cfloop collection="#attributes#" item="variables.field">
+			<cfif NOT listcontainsnocase(variables.ignore_these,variables.field)>
+				<input type="hidden" name="#variables.field#" id="#variables.field#" value="#xmlformat(evaluate("attributes.#variables.field#"))#" />
 			</cfif>
 		</cfloop>
 	</cfif>

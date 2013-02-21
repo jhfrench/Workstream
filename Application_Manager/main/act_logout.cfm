@@ -25,9 +25,9 @@
 	<!--- SET A LOCK --->
 	<cflock timeout="3" name="#session.sessionid#" type="exclusive">
 		<!--- LOOP OVER THE COLLECTION OF SESSION VARS --->
-		<cfloop collection="#session#" item="session_variable_ii">
+		<cfloop collection="#session#" item="variables.session_variable_ii">
 			<!--- USE STRUCTDELETE TO DESTROY INDIVIDUAL SESSION VARS --->
-			<cfset structdelete(session, session_variable_ii)>
+			<cfset structdelete(session, variables.session_variable_ii)>
 		</cfloop>
 	</cflock>
 
