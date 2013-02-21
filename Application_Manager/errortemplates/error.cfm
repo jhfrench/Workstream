@@ -246,7 +246,7 @@
 		<font face="arial" size="-1">
 			HITSS product '#application.product_name#' generated the following error information:<ul>
 			<strong>User:</strong> <a href="mailto:#session.email_address#">#session.first_name# #session.last_name#</a> 
-			<br /><strong>#application.product_name# Login:</strong> #session.user_name#
+			<br /><strong>#application.product_name# username:</strong> #session.user_name#
 			<cfif isdefined("application.application_support_contacts")>
 				<cfloop list="#structKeyList(application.application_support_contacts)#" index="contact_type_ii">
 					<cfset variables.contact_list_legth=listlen(structkeylist(application.application_support_contacts[contact_type_ii])) - 1>

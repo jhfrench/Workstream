@@ -39,7 +39,7 @@
 	<div class="span6">
 		<!---display known login attempts--->
 		<table id="manage_user_profiles_table" class="table table-bordered table-condensed">
-			<caption><h3>Known Login Attempts</h3></caption>
+			<caption><h3>Known Sign In Attempts</h3></caption>
 			<thead>
 				<tr>
 					<th>Date/Time of Attempt</th>

@@ -117,8 +117,8 @@
 					<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea spann11"><cfloop query="time_entry_details"><p<cfif notes_type_id EQ 2> class="alert-info"</cfif>><strong>(<abbr title="#author#">#initials#</abbr> #dateformat(date,"m/d/yyyy")#)</strong> - #trim(note)#&nbsp;&nbsp;</p></cfloop></div>
 				<cfelse>
 					<div id="notes" class="alert">
-						Resolution notes not yet entered for this task.&nbsp;
 						<a href="javascript:delete_check('#attributes.task_id#');" title="Delete this task from workstream." class="btn btn-danger"><i class="icon-trash icon-white"></i> Delete this task</a>
+						&nbsp;Resolution notes not yet entered for this task.
 					</div>
 				</cfif>
 				</div>

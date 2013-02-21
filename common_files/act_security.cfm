@@ -42,13 +42,13 @@
 			<cfif find(variables.current_location, listfirst(cgi.http_referer,"?"))>
 				<!---if the refer is the same application, then the session has either been dropped by an app upgrade, or timed out--->
 				<cfif datediff("s", now(), application.last_updated) GT (qry_get_application_basic_details.sessiontimeout*24*60*60)>
-					<cfset variables.error_message="#application.product_name# has been recently upgraded. We regret that it is necessary for you to login again.">
+					<cfset variables.error_message="#application.product_name# has been recently upgraded. We regret that it is necessary for you to sign in again.">
 				<cfelse>
-					<cfset variables.error_message="It looks like your session timed out (they only last #numberformat(qry_get_application_basic_details.sessiontimeout*24*60)# minutes). Please login again.">
+					<cfset variables.error_message="It looks like your session timed out (they only last #numberformat(qry_get_application_basic_details.sessiontimeout*24*60)# minutes). Please sign in again.">
 				</cfif>
 				<cfset variables.process_form_ind=1>
 			<cfelse>
-				<cfset variables.error_message="Please login.">
+				<cfset variables.error_message="Please sign in.">
 			</cfif>
 			<cfset variables.new_location="index.cfm?fuseaction=Home.login">
 			<cfset variables.requested_page=url.fuseaction>
@@ -121,7 +121,7 @@
 	</div>
 	<div class="content">
 		<p>#variables.error_message#</p>
-		<p>If you aren't redirected shortly, please <a href="#variables.new_location#" id="manual_link">log in</a>.</p>
+		<p>If you aren't redirected shortly, please <a href="#variables.new_location#" id="manual_link">sign in</a>.</p>
 	</div>
 </section>
 <form id="security_redirect" action="#variables.new_location#" method="post">

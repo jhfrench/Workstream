@@ -1,5 +1,6 @@
 <!-- Administration/act_data_factory_ping.cfm
 	Author: Jeromy French -->
+	<!--- $issue$: this needs to be removed. --->
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_data_factory_ping.cfm">
 	<responsibilities>

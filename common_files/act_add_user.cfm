@@ -104,7 +104,7 @@ Your #application.product_name# account has been created, welcome to the system.
 
 "#variables.reset_password_value#"
 
--- this password is case-sensitive, so please type it exactly as it appears between the quote marks. The system will require you to change your password after your next login.
+-- this password is case-sensitive, so please type it exactly as it appears between the quote marks. The system will require you to change your password after your next sign in.
 
 You can access #application.product_name# at #listfirst(cgi.http_referer,"?")#.
 		</cfmail>

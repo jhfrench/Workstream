@@ -38,7 +38,7 @@
 				</cfif>
 				<form name="login_form" id="login_form" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
 					<fieldset>
-						<legend>Please Log In</legend>
+						<legend>Please Sign In</legend>
 						<div class="control-group">
 							<label class="control-label" accesskey="u" for="user_name">Username</label>
 							<div class="controls">
@@ -62,7 +62,7 @@
 									</cfif>
 								</cfloop>
 							</cfif>
-							<input type="submit" name="method" value="login" class="btn btn-primary" />
+							<input type="submit" name="method" value="Sign In" class="btn btn-primary" />
 							<p class="help-block"><a href="index.cfm?fuseaction=Home.forget_username">Forgotten Your Username?</a></p>
 							<p class="help-block"><a href="index.cfm?fuseaction=Home.forget_password">Forgotten Your Password?</a></p>
 						</div>

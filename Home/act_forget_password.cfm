@@ -26,6 +26,6 @@
 	<cfinclude template="../Administration/pag_reset_password.cfm">
 <cfelse>
 	<div class="alert alert-error">
-		<cfoutput>#application.product_name#</cfoutput> cannot authorize your access because your username is invalid. You may <a href="index.cfm?fuseaction=Home.login" title="go back">try to log in again</a>.
+		<cfoutput>#application.product_name#</cfoutput> cannot authorize your access because your username is invalid. You may <a href="index.cfm?fuseaction=Home.login" title="go back">try to sign in again</a>.
 	</div>
 </cfif>

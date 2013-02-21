@@ -31,7 +31,7 @@
 					<label for="old_password" class="control-label">Current password</label>
 					<div class="controls">
 						<input name="old_password" id="old_password" type="password" size="50" maxlength="50" value="">
-						<p class="help-block">The last password you used to login</p>
+						<p class="help-block">The last password you used to sign in</p>
 					</div>
 				</div>
 				<div class="control-group">

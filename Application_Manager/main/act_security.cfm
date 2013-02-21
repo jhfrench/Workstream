@@ -35,7 +35,7 @@
 			<cflocation url="index.cfm?fuseaction=main.login&requested_page=#url.fuseaction#" addtoken="no">
 		<cfelseif len(url.fuseaction)>
 			<!--- 3. Prevent from navigating Application_Manager after timed out or logged out --->
-			<cfset variables.error_message="Your session has expired, please login again.">
+			<cfset variables.error_message="Your session has expired, please sign in again.">
 			<cfset variables.new_location="index.cfm?fuseaction=main.logout&requested_page=#url.fuseaction#">
 		<cfelse>
 			<cflocation url="index.cfm?fuseaction=main.login&requested_page=#application.fusebox.defaultfuseaction#" addtoken="no">

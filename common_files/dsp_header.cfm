@@ -138,9 +138,9 @@ else
 							</form></cfif>
 							<ul class="nav pull-right">
 								<cfif NOT isdefined("variables.user_identification")>
-									<li><a href="index.cfm?fuseaction=Home.login" class="login_link"><strong>Login for More Access</strong></a></li>
+									<li><a href="index.cfm?fuseaction=Home.login" class="login_link"><strong>Sign in for More Access</strong></a></li>
 								<cfelseif session.password_created_by EQ variables.user_identification>
-									<li><a href="index.cfm?fuseaction=Home.logout" class="login_link"><strong>Logout <cfoutput>#session.first_name# #session.last_name#</cfoutput></strong></a></li>
+									<li><a href="index.cfm?fuseaction=Home.logout" class="login_link"><strong>Sign out <cfoutput>#session.first_name# #session.last_name#</cfoutput></strong></a></li>
 								</cfif>
 							</ul>
 						</div><!--/.nav-collapse -->

@@ -45,7 +45,7 @@
 		<cfinclude template="qry_insert_user_password.cfm">
 		<cfset session.password_created_by=variables.user_identification>
 		<cfif attributes.user_account_id NEQ variables.user_identification>
-			<cfset variables.display_message="<li>The user's password has been succesfully changed. The new password is only temporary; #application.product_name# will require the user to change their password the next time they log in.</li>">
+			<cfset variables.display_message="<li>The user's password has been succesfully changed. The new password is only temporary; #application.product_name# will require the user to change their password the next time they sign in.</li>">
 		<cfelse>
 			<cfset variables.display_message="<li>Your password has been succesfully changed.</li>">
 		</cfif>

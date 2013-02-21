@@ -66,11 +66,11 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">Is a login required to access?</label>
+			<label class="control-label">Is a sign-in required to access?</label>
 			<div class="controls">
 				<label for="require_login_ind_yes" class="radio"><cfinput type="radio" name="require_login_ind" id="require_login_ind_yes" value="1" checked="#variables.require_login_ind_yes#">Yes</label>
 				<label for="require_login_ind_no" class="radio"><cfinput type="radio" name="require_login_ind" id="require_login_ind_no" value="0" checked="#variables.require_login_ind_no#">No</label>
-				<p class="help-block">If a login is not required to access, this business function will show in everyone's naviation bar.</p>
+				<p class="help-block">If a sign-in is not required to access, this business function will show in everyone's naviation bar.</p>
 			</div>
 		</div>
 		<div class="control-group">
