@@ -50,7 +50,7 @@
 			<cfelse>
 				<cfset variables.error_message="Please login.">
 			</cfif>
-			<cfset variables.new_location="index.cfm?fuseaction=Home.logout">
+			<cfset variables.new_location="index.cfm?fuseaction=Home.login">
 			<cfset variables.requested_page=url.fuseaction>
 		<cfelse>
 			<!--- if we don't have a fuseaction in the URL --->
