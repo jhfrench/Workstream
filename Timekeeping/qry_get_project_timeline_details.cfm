@@ -15,7 +15,7 @@
 <cfquery name="get_project_timeline_details" datasource="#application.datasources.main#">
 SELECT Project_Planning.project_planning_name, User_Fields.field_title,
 	User_Field_Items.selection_title, User_Field_Values.Task_ID, Task.task_id,
-	(CASE WHEN REF_Icon.path!='0' THEN REF_Icon.path ELSE 'document.gif' END) AS task_icon, 
+	REF_Icon.class_name AS task_icon, 
     Task.name AS task_name, Task.description AS task_description, Task.assigned_date,
 	Task.due_date, REF_Task_Status.description AS status
 FROM Project_Planning
