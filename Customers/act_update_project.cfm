@@ -52,10 +52,19 @@ VALUES (#attributes.project_id#, #ii#, #variables.user_identification#);
 <cfif isdefined("task_id")>
 	<cfquery name="complete_tasks" datasource="#application.datasources.main#">
 	UPDATE Task
-	SET task_status_id=7 /*completed*/,
-		complete_date=CURRENT_TIMESTAMP,
+	SET complete_date=CURRENT_TIMESTAMP,
 		completed_by=#variables.user_identification#
-	WHERE task_id IN (#task_id#)
+	WHERE task_id IN (#task_id#);
+	
+	UPDATE Link_Task_Task_Status
+	SET active_ind=0
+	WHERE active_ind=1
+		AND task_id IN (#task_id#);
+		
+	INSERT INTO Link_Task_Task_Status (task_id, task_status_id, created_by)
+	SELECT task_id, 7 /*completed*/, #variables.user_identification#
+	FROM Task
+	WHERE task_id IN (#task_id#);
 	</cfquery>
 </cfif>
 </cftransaction>

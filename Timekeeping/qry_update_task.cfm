@@ -23,14 +23,23 @@ SET <cfif get_editing_privileges.recordcount>
 	<cfif compare(attributes.task_name,attributes.orig_task_name)>name='#attributes.task_name#',</cfif>
 	<cfif compare(attributes.priority_id,attributes.orig_priority_id)>priority_id=#attributes.priority_id#,</cfif>
 </cfif>
-<cfif compare(attributes.task_status,attributes.orig_task_status_id)>
-	task_status_id=#attributes.task_status#,<cfif attributes.task_status EQ 7> 
+<cfif compare(attributes.task_status,attributes.orig_task_status_id) AND attributes.task_status EQ 7> 
 	complete_date=CURRENT_TIMESTAMP,
-	completed_by=#variables.user_identification#,</cfif>
+	completed_by=#variables.user_identification#,
 </cfif>
 	<cfif compare(attributes.icon_id,attributes.orig_icon_id)>icon_id=#attributes.icon_id#,</cfif>
 	<!--- notification_frequency_id=#attributes.notification_frequency_id#, --->
 	active_ind=active_ind
-WHERE task_id=#attributes.task_id#
+WHERE task_id=#attributes.task_id#;
+	
+<cfif compare(attributes.task_status,attributes.orig_task_status_id)>
+UPDATE Link_Task_Task_Status
+SET active_ind=0
+WHERE active_ind=1
+	AND task_id=#attributes.task_id#;
+	
+INSERT INTO Link_Task_Task_Status (task_id, task_status_id, created_by)
+VALUES (#attributes.task_id#, #attributes.task_status#, #variables.user_identification#);
+</cfif>
 </cfquery>
 </cfsilent>

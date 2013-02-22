@@ -20,6 +20,9 @@
 	<cfquery name="update_task" datasource="#application.datasources.main#">
 	/*EXECUTE LOOP*/
 	<cfloop list="#attributes.list_prospective_task_id#" index="variables.task_id">
+		UPDATE Link_Task_Task_Status
+		SET active_ind=0
+		WHERE task_id=#variables.task_id#;
 		<cfif listfind(attributes.accept_task,variables.task_id)>
 			UPDATE Task
 			SET due_date=#createodbcdatetime(evaluate("attributes.task_due_date#variables.task_id#"))#<cfif isnumeric(evaluate("attributes.task_assigned#variables.task_id#"))>,
@@ -30,10 +33,6 @@
 						AND task_id=#variables.task_id#
 						AND created_date < '#month(now())#/1/#year(now())#'
 				)+#evaluate("attributes.task_assigned#variables.task_id#")#</cfif>
-			WHERE task_id=#variables.task_id#;
-			
-			UPDATE Link_Task_Task_Status
-			SET active_ind=0
 			WHERE task_id=#variables.task_id#;
 
 			INSERT INTO Link_Task_Task_Status (task_id, task_status_id, created_by)
@@ -74,9 +73,8 @@
 				AND forecast_id=#variables.forecast_id#
 				AND task_id=#variables.task_id#;
 
-			UPDATE Task
-			SET task_status_id=9 /* on-hold */
-			WHERE task_id=#variables.task_id#;
+			INSERT INTO Link_Task_Task_Status (task_id, task_status_id, created_by)
+			VALUES (#variables.task_id#, 9 /* on-hold */, #variables.user_identification#);
 		</cfif>
 	</cfloop>
 	</cfquery>

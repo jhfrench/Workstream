@@ -27,21 +27,26 @@
 <cfquery name="insert_new_task" datasource="#application.datasources.main#">
 INSERT INTO Task (name, project_id, entry_date, 
 	assigned_date, due_date, icon_id,
-	budgeted_hours, task_status_id, description,
-	created_by, priority_id<!--- ,
+	budgeted_hours, description, priority_id,
+	created_by<!--- ,
 	notification_frequency_id --->)
 VALUES ('#attributes.task_name#', #attributes.project_id#, CURRENT_TIMESTAMP,
 	#createodbcdate(attributes.date_start)#, #createodbcdate(attributes.due_date)#, #attributes.icon_id#,
-	#ceiling(attributes.budgeted_hours)#, #attributes.task_status#, '#attributes.task_details#',
-	#variables.user_identification#, #attributes.priority_id#<!--- ,
+	#ceiling(attributes.budgeted_hours)#, '#attributes.task_details#', #attributes.priority_id#,
+	#variables.user_identification#<!--- ,
 	#attributes.notification_frequency_id# --->);
 
 SELECT CURRVAL('Task_task_id_SEQ') AS task_id;
 </cfquery>
 <cfset attributes.task_id=insert_new_task.task_id>
 <cfquery name="insert_task_source" datasource="#application.datasources.main#">
-INSERT INTO Team(task_id, user_account_id, role_id)
-VALUES (#attributes.task_id#, #variables.user_identification#, 5)
+INSERT INTO Link_Task_Task_Status(task_id, task_status_id, created_by)
+VALUES (#attributes.task_id#, #attributes.task_status#, , #variables.user_identification#);
+
+INSERT INTO Team(task_id, user_account_id, role_id,
+	created_by)
+VALUES (#attributes.task_id#, #variables.user_identification#, 5,
+	#variables.user_identification#);
 </cfquery>
 </cftransaction>
 </cfsilent>
