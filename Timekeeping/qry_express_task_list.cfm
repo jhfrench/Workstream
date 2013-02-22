@@ -19,11 +19,14 @@ FROM Task
 		AND Team.active_ind=1
 		AND Team.role_id=1
 		AND Team.user_account_id=#variables.user_identification#
-WHERE Task.task_status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
+	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
+		AND Link_Task_Task_Status.active_ind=1
+		AND Link_Task_Task_Status.task_status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
+WHERE Task.active_ind=1
 UNION ALL
 SELECT (Demographics.last_name || '-' || Task.name) AS task_name, Task.task_id, 2 AS sort_order
 FROM Task
-	INNER JOIN Team Owner ON Task.task_id=Owner.task_id
+	INNER JOIN Team AS Owner ON Task.task_id=Owner.task_id
 		AND Owner.active_ind=1
 		AND Owner.role_id=1 
 		AND Owner.user_account_id!=#variables.user_identification#
@@ -33,12 +36,18 @@ FROM Task
 		AND Team.user_account_id=#variables.user_identification#
 	INNER JOIN Demographics ON Owner.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1
-WHERE Task.task_status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
+	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
+		AND Link_Task_Task_Status.active_ind=1
+		AND Link_Task_Task_Status.task_status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
+WHERE Task.active_ind=1
 UNION ALL
 /*generic codes like PTO*/
 SELECT Task.name AS task_name, Task.task_id, 3 AS sort_order
 FROM Task
-WHERE Task.task_status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
+	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
+		AND Link_Task_Task_Status.active_ind=1
+		AND Link_Task_Task_Status.task_status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
+WHERE Task.active_ind=1
 	AND Task.task_id IN (713,714,719)<!--- $issue$: static tasks from original system, probably need to be replicated --->
 ORDER BY sort_order, task_name
 </cfquery>

@@ -25,7 +25,9 @@ FROM Project_Planning
 	INNER JOIN User_Field_Values ON User_Field_Items.user_field_items_id=User_Field_Values.user_field_items_id
 	INNER JOIN Task ON User_Field_Values.task_id=Task.task_id
 	INNER JOIN REF_Icon ON Task.icon_id=REF_Icon.icon_id
-	INNER JOIN REF_Task_Status ON Task.task_status_id=REF_Task_Status.task_status_id
+	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
+		AND Link_Task_Task_Status.active_ind=1
+	INNER JOIN REF_Task_Status ON Link_Task_Task_Status.task_status_id=REF_Task_Status.task_status_id
 WHERE Project_Planning.project_planning_id=#attributes.project_planning_id#
 ORDER BY User_Field_Items.user_field_items_id, Task.assigned_date
 </cfquery>

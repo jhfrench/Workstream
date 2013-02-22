@@ -17,7 +17,7 @@
 <cfquery name="get_task_details" datasource="#application.datasources.main#">
 SELECT Task.task_id, Task.task_type_id, Task.name AS task_name, COALESCE(Task.task_read_ind,0) AS task_read_ind,
 	COALESCE(Task.description,'No description recorded for this task.') AS description, Task.entry_date AS date_assigned, Task.due_date,
-	Task.complete_date, Task.task_status_id, Task.icon_id,
+	Task.complete_date, Link_Task_Task_Status.task_status_id, Task.icon_id,
 	COALESCE(Task.created_by,0) AS created_by, COALESCE(Task_Source.user_account_id,0) AS task_source, Task.priority_id AS priority,
 	REF_Task_Status.description AS status, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Time_Used.used_hours,
 	CASE
@@ -32,7 +32,9 @@ SELECT Task.task_id, Task.task_type_id, Task.name AS task_name, COALESCE(Task.ta
 	Project.description AS project_name, Project.project_id, Task.notification_frequency_id,
 	Task_Source.source_name
 FROM Task
-	INNER JOIN REF_Task_Status ON Task.task_status_id=REF_Task_Status.task_status_id
+	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
+		AND Link_Task_Task_Status.active_ind=1
+	INNER JOIN REF_Task_Status ON Link_Task_Task_Status.task_status_id=REF_Task_Status.task_status_id
 	INNER JOIN Project ON Task.project_id=Project.project_id
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	LEFT OUTER JOIN (

@@ -29,7 +29,10 @@ FROM Customer
 	INNER JOIN Project ON Customer.customer_id=Project.customer_id
 	INNER JOIN Task ON Project.project_id=Task.project_id
 	INNER JOIN REF_Priority ON Task.priority_id=REF_Priority.priority_id
-	INNER JOIN REF_Task_Status ON Task.task_status_id=REF_Task_Status.task_status_id<cfif isdefined("attributes.user_account_id")>
+	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
+		AND Link_Task_Task_Status.active_ind=1<cfif attributes.show_completed>
+		AND Link_Task_Task_Status.task_status_id!=7 /*exclude closed tasks*/</cfif>
+	INNER JOIN REF_Task_Status ON Link_Task_Task_Status.task_status_id=REF_Task_Status.task_status_id<cfif isdefined("attributes.user_account_id")>
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
 		AND Team.role_id=1
@@ -44,8 +47,7 @@ FROM Customer
 		GROUP BY Time_Entry.task_id
 	) AS Recorded_Hours ON Task.task_id=Recorded_Hours.task_id
 WHERE Task.assigned_date IS NOT NULL
-	AND Task.due_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.through_date)#<cfif attributes.show_completed>
-	AND Task.task_status_id!=7 /*exclude closed tasks*/</cfif>
+	AND Task.due_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.through_date)#
 </cfoutput>
 <!--- 
 

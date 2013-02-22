@@ -21,10 +21,13 @@ FROM Task
 		AND Team.active_ind=1
 		AND Team.role_id=1
 	INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
-	INNER JOIN REF_Task_Status ON Task.task_status_id=REF_Task_Status.task_status_id
+	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
+		AND Link_Task_Task_Status.active_ind=1
+		AND Link_Task_Task_Status.task_status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
+	INNER JOIN REF_Task_Status ON Link_Task_Task_Status.task_status_id=REF_Task_Status.task_status_id
 	INNER JOIN REF_Priority ON Task.priority_id=REF_Priority.priority_id
-WHERE LOWER(Task.name) LIKE 'ts%'
-	AND Task.task_status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
+WHERE Task.active_ind=1
+	AND LOWER(Task.name) LIKE 'ts%'
 ORDER BY Demographics.last_name
 </cfquery>
 </cfsilent>

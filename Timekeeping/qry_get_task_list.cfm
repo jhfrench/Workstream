@@ -51,12 +51,12 @@
 
 <cfquery name="get_task_list" datasource="#application.datasources.main#">
 SELECT Task.due_date, Task.task_id, Task.name AS task_name,
-	COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Task.task_status_id,
+	COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Link_Task_Task_Status.task_status_id,
 	REF_Icon.class_name AS task_icon, REF_Priority.description AS priority, COALESCE(Recorded_Hours.used_hours,0) AS used_hours, 
 	(Customer.description || '-' || Project.description) AS project_name, Task_Owner.first_name AS task_owner, Task_Owner.last_name || ', ' || Task_Owner.first_name AS task_owner_full_name,
 	(CASE
-		WHEN Task.task_status_id=3 /* QA */ THEN REF_Task_Status.description || ' by ' || COALESCE(Task_Tester.first_name,'unknown')
-		WHEN Task.task_status_id=8 /* UAT */ THEN REF_Task_Status.description || ' by ' || COALESCE(Customer.description,'customer')
+		WHEN Link_Task_Task_Status.task_status_id=3 /* QA */ THEN REF_Task_Status.description || ' by ' || COALESCE(Task_Tester.first_name,'unknown')
+		WHEN Link_Task_Task_Status.task_status_id=8 /* UAT */ THEN REF_Task_Status.description || ' by ' || COALESCE(Customer.description,'customer')
 		ELSE REF_Task_Status.description
 	END) AS task_status
 FROM Task
@@ -69,7 +69,9 @@ FROM Task
 		AND Link_Project_Company.company_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#session.workstream_company_id#" list="yes" />)
 	INNER JOIN REF_Priority on Task.priority_id=REF_Priority.priority_id
 	INNER JOIN REF_Icon ON Task.icon_id=REF_Icon.icon_id
-	INNER JOIN REF_Task_Status ON Task.task_status_id=REF_Task_Status.task_status_id
+	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
+		AND Link_Task_Task_Status.active_ind=1
+	INNER JOIN REF_Task_Status ON Link_Task_Task_Status.task_status_id=REF_Task_Status.task_status_id
 	<cfif variables.from_invoice>INNER<cfelse>LEFT OUTER</cfif> JOIN (
 		SELECT task_id, SUM(hours) AS used_hours
 		FROM Time_Entry
@@ -104,11 +106,11 @@ WHERE Task.active_ind=1<cfif NOT variables.from_invoice>
 				AND (
 					(
 						Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>)
-							AND Task.task_status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>10) /*completed, on hold, prospective*/
+							AND Link_Task_Task_Status.task_status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>10) /*completed, on hold, prospective*/
 					)
 					OR (
 					Team.role_id=3
-						AND Task.task_status_id=3 /* QA */
+						AND Link_Task_Task_Status.task_status_id=3 /* QA */
 					)
 				)
 	)</cfif><cfif isdefined("variables.temp_task_list_order")>

@@ -19,21 +19,27 @@
 	<-- task_name: string that gives the name of the task
 	END FUSEDOC --->
 </cfsilent>
+<!--- $issue$:maybe this should be rewritten --->
 <cfquery name="get_associated_tasks" datasource="#application.datasources.main#">
-SELECT Link_Task_Task.l_t_t_id, Task.task_id, Task.name,
-	Task.due_date, REF_Task_Status.description AS status, 'task_base' AS task_icon,
-	1 AS sort_order
-FROM Link_Task_Task
-	INNER JOIN Task ON Link_Task_Task.base_task_id=Task.task_id
-	INNER JOIN REF_Task_Status ON Task.task_status_id=REF_Task_Status.task_status_id
-WHERE Link_Task_Task.linked_task_id=#attributes.task_id#
-UNION ALL
-SELECT Link_Task_Task.l_t_t_id, Task.task_id, Task.name,
-	Task.due_date, REF_Task_Status.description AS status, 'task_sub' AS task_icon,
-	2 AS sort_order
-FROM Link_Task_Task
-	INNER JOIN Task ON Link_Task_Task.linked_task_id=Task.task_id
-	INNER JOIN REF_Task_Status ON Task.task_status_id=REF_Task_Status.task_status_id
-WHERE Link_Task_Task.base_task_id=#attributes.task_id#
-ORDER BY sort_order, task_id
+SELECT Linked_Tasks.l_t_t_id, Linked_Tasks.task_id, Task.name,
+	Task.due_date, REF_Task_Status.description AS status, Linked_Tasks.task_icon,
+	Linked_Tasks.sort_order
+FROM (
+		SELECT Link_Task_Task.l_t_t_id, Link_Task_Task.base_task_id AS task_id, 'task_base' AS task_icon,
+			1 AS sort_order
+		FROM Link_Task_Task
+		WHERE Link_Task_Task.active_ind=1
+			AND Link_Task_Task.linked_task_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.task_id#">
+		UNION ALL
+		SELECT Link_Task_Task.l_t_t_id, Link_Task_Task.linked_task_id AS task_id, 'task_sub' AS task_icon,
+			2 AS sort_order
+		FROM Link_Task_Task
+		WHERE Link_Task_Task.active_ind=1
+			AND Link_Task_Task.base_task_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.task_id#">
+	) AS Linked_Tasks
+	INNER JOIN Task ON Linked_Tasks.task_id=Task.task_id
+	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
+		AND Link_Task_Task_Status.active_ind=1
+	INNER JOIN REF_Task_Status ON Link_Task_Task_Status.task_status_id=REF_Task_Status.task_status_id
+ORDER BY Linked_Tasks.sort_order, Linked_Tasks.task_id
 </cfquery>

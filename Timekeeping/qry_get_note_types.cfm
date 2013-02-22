@@ -21,4 +21,3 @@ WHERE notes_type_id IN (1,2<cfif NOT get_task_details.task_read_ind>,3</cfif>)
 ORDER BY sort_order
 </cfquery>
 </cfsilent>
-

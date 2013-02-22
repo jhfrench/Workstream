@@ -32,8 +32,8 @@ SELECT Task.task_id, CAST(Task.description AS VARCHAR(255)) AS description, Task
 		WHEN 5 THEN MAX(date_sent)+'1 month'
 	END AS next_notification
 FROM Task
-	LEFT OUTER JOIN Notification ON Task.task_id=Notification.task_id<!--- $issue$: add active_ind to notification --->
-		AND Notification.notification_type IN (7,14,15)
+	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
+		AND Link_Task_Task_Status.active_ind=1
 	INNER JOIN (
 		SELECT email, email_id, task_id
 		FROM Email, Team
@@ -50,8 +50,10 @@ FROM Task
 			AND Team.role_id=3
 			AND Email.email_type_id=1
 	) AS QA ON Task.task_id=QA.task_id
+	LEFT OUTER JOIN Notification ON Task.task_id=Notification.task_id<!--- $issue$: add active_ind to notification --->
+		AND Notification.notification_type IN (7,14,15)
 WHERE Task.notification_frequency_id!=1<!--- $issue$: commenting until this process is activated and I can figure out what task statii are elligibile
-	AND Task.task_status_id IN (4,5) --->
+	AND Link_Task_Task_Status.task_status_id IN (4,5) --->
 GROUP BY Task.task_id, CAST(Task.description AS VARCHAR(255)), Task.name,
 	Task.due_date, Task.notification_frequency_id, Owner.email,
 	Notification.notification_type, QA.email

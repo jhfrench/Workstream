@@ -15,10 +15,10 @@
 	--> attributes.linked_task_id: list of tasks to be attached to a particular task
  --->
 <cfquery name="task_attach" datasource="#application.datasources.main#">
-INSERT INTO Link_Task_Task (base_task_id, linked_task_id)
-SELECT #attributes.base_task_id# AS base_task_id, task_id AS linked_task_id
+INSERT INTO Link_Task_Task (base_task_id, linked_task_id, created_by)
+SELECT <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.base_task_id#"> AS base_task_id, task_id AS linked_task_id, #variables.user_identification#
 FROM Task
-WHERE task_id IN (#attributes.linked_task_id#)
+WHERE task_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.linked_task_id#" list="true">)
+	AND task_id!=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.base_task_id#"> /*don't link a task to itself because that's just dumb*/
 </cfquery>
 </cfsilent>
-

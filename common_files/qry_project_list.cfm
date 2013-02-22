@@ -32,17 +32,20 @@ FROM Customer
 	INNER JOIN Project ON Customer.customer_id=Project.customer_id
 		AND (Project.active_ind=<cfif NOT session.workstream_show_closed_project_ind>1<cfelse>0 OR COALESCE(project_end, CURRENT_DATE) > CURRENT_TIMESTAMP</cfif>) 
 		AND Project.project_id!=#application.application_specific_settings.pto_project_id#
-	INNER JOIN Task ON Project.project_id=Task.project_id 
+	INNER JOIN Task ON Project.project_id=Task.project_id
+		AND Task.active_ind=1
+	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
+		AND Link_Task_Task_Status.active_ind=1
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
 		AND Team.user_account_id=<cfif isdefined("attributes.user_account_id")>#attributes.user_account_id#<cfelse>#variables.user_identification#</cfif>
 		AND (
 				(
 				Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>) 
-					AND Task.task_status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>10)<!--- completed, on hold, prospective --->
+					AND Link_Task_Task_Status.task_status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>10)<!--- completed, on hold, prospective --->
 				) 
 				OR (Team.role_id=3 
-					AND Task.task_status_id=3 /*needs QA*/)
+					AND Link_Task_Task_Status.task_status_id=3 /*needs QA*/)
 			)
 	INNER JOIN Link_Project_Company ON Link_Project_Company.project_id=Project.project_id 
 		AND Link_Project_Company.company_id IN (#session.workstream_company_id#)

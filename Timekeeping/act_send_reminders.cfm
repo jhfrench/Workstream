@@ -36,7 +36,10 @@ FROM Task
 			AND Team.role_id=5
 			AND Email.email_type_id=1
 	) AS Task_Source ON Task.task_id=Task_Source.task_id
-WHERE Task.task_status_id!=7 /*exclude closed tasks*/
+	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
+		AND Link_Task_Task_Status.active_ind=1
+		AND Link_Task_Task_Status.task_status_id!=7 /*exclude closed tasks*/
+WHERE Task.active_ind=1
 </cfquery>
 <cfloop query="pre_due_email">
 <cfquery name="get_cc" datasource="#application.datasources.main#">
