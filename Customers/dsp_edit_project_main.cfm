@@ -107,7 +107,7 @@
 		<div class="control-group">
 			<label for="status" class="control-label">Status</label>
 			<div class="controls">
-				<select name="status" id="status">
+				<select name="status" id="status" class="span3">
 					<option value="0"<cfif get_project_main.status EQ 0> selected="selected"</cfif>>None</option>
 					<option value="1"<cfif get_project_main.status EQ 1> selected="selected"</cfif>>Good</option>
 					<option value="2"<cfif get_project_main.status EQ 2> selected="selected"</cfif>>Warning</option>
@@ -119,28 +119,28 @@
 		<div class="control-group">
 			<label for="project_status_id" class="control-label">Progress</label>
 			<div class="controls">
-				<cfselect id="project_status_id" query="get_ref_project_status" name="project_status_id" value="project_status_id" display="description" selected="#get_project_main.project_status_id#" />
+				<cfselect id="project_status_id" query="get_ref_project_status" name="project_status_id" value="project_status_id" display="description" selected="#get_project_main.project_status_id#" class="span3" />
 				<p class="help-block">What is the project's current work status?</p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="vision" class="control-label">Project Update</label>
 			<div class="controls">
-				<textarea name="vision" id="vision" cols="60" rows="3">#get_project_main.vision#</textarea>
+				<textarea name="vision" id="vision" class="span3" rows="3">#get_project_main.vision#</textarea>
 				<p class="help-block">Optional</p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="mission" class="control-label">Upselling Opportunities</label>
 			<div class="controls">
-				<textarea name="mission" id="mission" cols="60" rows="3">#get_project_main.mission#</textarea>
+				<textarea name="mission" id="mission" class="span3" rows="3">#get_project_main.mission#</textarea>
 				<p class="help-block">Optional</p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="business_case" class="control-label">Other Notes</label>
 			<div class="controls">
-				<textarea name="business_case" id="business_case" cols="60" rows="3">#get_project_main.business_case#</textarea>
+				<textarea name="business_case" id="business_case" class="span3" rows="3">#get_project_main.business_case#</textarea>
 				<p class="help-block">Optional</p>
 			</div>
 		</div>
