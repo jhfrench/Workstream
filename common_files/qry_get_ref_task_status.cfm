@@ -17,7 +17,7 @@
 	<-- status: string that contains the name (of the status) to display to the user
  --->
 <cfquery name="get_ref_task_status" cachedafter="02/02/1978" datasource="#application.datasources.main#">
-SELECT task_status_id, status
+SELECT task_status_id, description
 FROM REF_Task_Status
 WHERE #application.last_updated#=#application.last_updated#
 ORDER BY sort_order

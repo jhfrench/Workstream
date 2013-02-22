@@ -135,7 +135,7 @@
 			<div class="controls">
 				<select name="task_stati" id="task_stati" multiple="multiple" size="4" class="span8">
 				<cfloop query="get_ref_task_status">
-					<option value="#task_status_id#">#status#</option>
+					<option value="#task_status_id#">#description#</option>
 				</cfloop>
 				</select>
 			</div>

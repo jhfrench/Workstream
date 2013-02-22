@@ -23,7 +23,7 @@
 		<label for="task_qa" class="h5"><abbr title="Quality Analyst">QA</abbr> <i class="icon-share" title="See more employees." onclick="OpenTeamWindow('task_qa');"></i></label>
 		<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_qa" class="span9">
 		<label for="task_status" class="h5">Status</label>
-		<cfselect query="get_ref_task_status" name="task_status" id="task_status" display="status" value="task_status_id" selected="1" class="span9"></cfselect>
+		<cfselect query="get_ref_task_status" name="task_status" id="task_status" display="description" value="task_status_id" selected="1" class="span9"></cfselect>
 	</div>
 	<div class="span6">
 			<label for="date_start" class="h5">Start Date</label>

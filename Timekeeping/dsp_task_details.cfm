@@ -103,7 +103,7 @@
 				<label for="task_status" class="h5">Status</label>
 				<select name="task_status" id="task_status" class="span11">
 				<cfloop query="get_ref_task_status">
-					<option value="#task_status_id#"<cfif task_status_id EQ get_task_details.task_status_id> selected="selected"</cfif>>#status#</option>
+					<option value="#task_status_id#"<cfif task_status_id EQ get_task_details.task_status_id> selected="selected"</cfif>>#description#</option>
 				</cfloop>
 				</select>
 			</div>

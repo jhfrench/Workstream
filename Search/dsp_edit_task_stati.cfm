@@ -22,7 +22,7 @@
 		<td>
 			<select name="task_stati" multiple="multiple" size="4" onclick="checkbox_task_stati()">
 			<cfoutput query="get_ref_task_status">
-				<option value="#task_status_id#"<cfif listfind(attributes.task_stati, get_ref_task_status.task_status_id,",")> selected="selected"</cfif>>#status#</option>
+				<option value="#task_status_id#"<cfif listfind(attributes.task_stati, get_ref_task_status.task_status_id,",")> selected="selected"</cfif>>#description#</option>
 			</cfoutput>
 			</select>
 		</td>
