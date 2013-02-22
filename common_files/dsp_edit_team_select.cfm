@@ -17,7 +17,7 @@
 	--> [attributes.onchange]: string containing javascript that is called when the select box is changed
 	--> [attributes.select_name]: string that sets the name of the select box
 	--> [attributes.size]: number that indicates how many options the select box should display simultaneously
-	--> [attributes.selected_flag]: flag that determines whether there are pre-selected items in the select box
+	--> [attributes.selected_value_ind]: flag that determines whether there are pre-selected items in the select box
 	--> variables.user_account_id_match: item to default select if criteria matches
 	--> company: number that contains the REF_Company.company_id for an employee
 	--> user_account_id: id that identifies user to workstream
@@ -45,11 +45,11 @@
 <cfparam name="attributes.onchange" default="">
 <cfparam name="attributes.show_team" default="0">
 <cfparam name="attributes.class" default="SelectText">
-<cfparam name="attributes.selected_flag" default="1">
+<cfparam name="attributes.selected_value_ind" default="1">
 <cfset variables.company_id=0>
 </cfsilent>
 <cfif NOT isdefined("get_team_select.recordcount")><cfinclude template="qry_get_team_select.cfm"></cfif>
-<cfif attributes.selected_flag>
+<cfif attributes.selected_value_ind>
 	<select name="<cfoutput>#attributes.select_name#"<cfif attributes.size> size="#attributes.size#"</cfif> <cfif attributes.multi> multiple="multiple"</cfif><cfif len(attributes.onchange)> onchange="javascript:#attributes.onchange#"</cfif><cfif len(attributes.class)> class="#attributes.class#"</cfif>></cfoutput>
 	<cfoutput query="get_team_select">
 		<cfif attributes.select_name EQ "task_source">

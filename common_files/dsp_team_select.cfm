@@ -17,7 +17,7 @@
 	--> [attributes.onchange]: string containing javascript that is called when the select box is changed
 	--> [attributes.select_name]: string that sets the name of the select box
 	--> [attributes.size]: number that indicates how many options the select box should display simultaneously
-	--> [attributes.selected_flag]: flag that determines whether there are pre-selected items in the select box
+	--> [attributes.selected_value_ind]: flag that determines whether there are pre-selected items in the select box
 	--> variables.user_account_id_match: item to default select if criteria matches
 	--> company: number that contains the REF_Company.company_id for an employee
 	--> user_account_id: id that identifies user to workstream
@@ -59,15 +59,15 @@
 	if (NOT isdefined("attributes.class")) {
 		attributes.class="";
 	}
-	if (NOT isdefined("attributes.selected_flag")) {
-		attributes.selected_flag=1;
+	if (NOT isdefined("attributes.selected_value_ind")) {
+		attributes.selected_value_ind=1;
 	}
 	variables.company_id=0;
 </cfscript>
 </cfsilent>
 <cfif NOT isdefined("get_team_select.recordcount")><cfinclude template="qry_get_team_select.cfm"></cfif>
 <cfoutput>
-<cfif attributes.selected_flag>
+<cfif attributes.selected_value_ind>
 	<select name="#attributes.select_name#" id="#attributes.select_name#"<cfif attributes.size> size="#attributes.size#"</cfif><cfif attributes.multi> multiple="multiple"</cfif><cfif len(attributes.onchange)> onchange="javascript:#attributes.onchange#"</cfif><cfif len(attributes.class)> class="#attributes.class#"</cfif>>
 	<cfloop query="get_team_select">
 		<option value="#user_account_id#" title="#last_name#, #first_name#"<cfif listfind(variables.user_account_id_match, get_team_select.user_account_id, ",")> selected="selected"</cfif>>#display#</option>

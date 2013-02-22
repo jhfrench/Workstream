@@ -26,7 +26,7 @@
 		<div class="control-group">
 			<label for="supervisor_id" class="control-label">Supervisor</label>
 			<div class="controls">
-				<cfmodule template="../common_files/dsp_team_select.cfm" element_name="supervisor_id" selected_flag="0" message="Please select a supervisor." class="span3">
+				<cfmodule template="../common_files/dsp_team_select.cfm" element_name="supervisor_id" selected_value_ind="0" message="Please select a supervisor." class="span3">
 			</div>
 		</div>
 	</fieldset>

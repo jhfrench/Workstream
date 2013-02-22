@@ -52,7 +52,7 @@
 		<div class="control-group">
 			<label for="project_manager_id" class="control-label"><abbr title="Project Manager">PM</abbr>/Account Management</label>
 			<div class="controls">
-				<cfmodule template="../common_files/dsp_team_select.cfm" size="6" select_name="project_manager_id" user_account_id="#get_project_main.project_manager_id#">
+				<cfmodule template="../common_files/dsp_team_select.cfm" size="6" select_name="project_manager_id" selected_value_ind="1" user_account_id="#get_project_main.project_manager_id#">
 			</div>
 		</div>
 		<div class="control-group">

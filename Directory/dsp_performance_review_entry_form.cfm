@@ -49,7 +49,7 @@ $Log:
 		</td>
 		<td class="SelectText">
 			<!--- <cfset attributes.size = 2> --->
-			<cfset attributes.selected_flag = 0>
+			<cfset attributes.selected_value_ind = 0>
 			<cfset attributes.element_name = "reviewer_id">
 			<cfset attributes.message = "Please select a reviewer.">
 			<cfset attributes.class = "RegText">
