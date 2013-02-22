@@ -19,7 +19,7 @@
 <cfinclude template="qry_get_companies.cfm">
 <cfinclude template="../common_files/qry_get_link_project_company.cfm">
 <cfinclude template="../common_files/qry_get_products.cfm">
-<cfinclude template="..common_files/qry_get_ref_project_status.cfm">
+<cfinclude template="../common_files/qry_get_ref_project_status.cfm">
 <cfset variables.linked_companies=valuelist(get_link_project_company.company_id)>
 <cfoutput>
 <cfform name="edit_project_main_form" action="index.cfm?fuseaction=Customers.edit_project" method="post" class="form-horizontal">

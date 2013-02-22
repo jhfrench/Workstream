@@ -24,12 +24,14 @@ SELECT Task.task_id, Task.name AS task_name, Task.due_date,
 	(CASE WHEN Link_Task_Task_Status.task_status_id=3 /* QA */ THEN REF_Task_Status.description || ' by ' || QA.last_name ELSE REF_Task_Status.description END) AS task_status, Owner.last_name AS task_owner,
 	(Customer.description || '-' || Project.description) AS project_name, Project.project_code<!--- $issue$: poor alias --->, REF_Priority.description AS priority,
 	CASE WHEN REF_Icon.path='0' THEN 'document.gif' ELSE REF_Icon.path END AS task_icon, COALESCE(Recorded_Hours.used_hours,0) AS time_used, (COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.used_hours/Task.budgeted_hours) END,0)*100) AS percent_time_used
-FROM Task
-	INNER JOIN Project ON Task.project_id=Project.project_id
+FROM Project
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	INNER JOIN Link_Project_Company ON Project.project_id=Link_Project_Company.project_id
 		AND Link_Project_Company.company_id IN (#session.workstream_company_id#)
+	INNER JOIN Task ON Project.project_id=Task.project_id
+		AND Task.active_ind=1
 	INNER JOIN REF_Priority ON Task.priority_id=REF_Priority.priority_id
+	INNER JOIN REF_Icon ON Task.icon_id=REF_Icon.icon_id
 	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
 		AND Link_Task_Task_Status.active_ind=1
 		AND Link_Task_Task_Status.task_status_id!=7 /*exclude closed tasks*/
