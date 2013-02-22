@@ -19,7 +19,7 @@ FROM Task
 		AND Team.active_ind=1
 		AND Team.role_id=1
 		AND Team.user_account_id=#variables.user_identification#
-WHERE Task.status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
+WHERE Task.task_status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
 UNION ALL
 SELECT (Demographics.last_name || '-' || Task.name) AS task_name, Task.task_id, 2 AS sort_order
 FROM Task
@@ -33,12 +33,12 @@ FROM Task
 		AND Team.user_account_id=#variables.user_identification#
 	INNER JOIN Demographics ON Owner.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1
-WHERE Task.status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
+WHERE Task.task_status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
 UNION ALL
 /*generic codes like PTO*/
 SELECT Task.name AS task_name, Task.task_id, 3 AS sort_order
 FROM Task
-WHERE Task.status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
+WHERE Task.task_status_id NOT IN (7,9,10) /*completed, on hold, prospective*/
 	AND Task.task_id IN (713,714,719)<!--- $issue$: static tasks from original system, probably need to be replicated --->
 ORDER BY sort_order, task_name
 </cfquery>

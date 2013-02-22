@@ -43,7 +43,7 @@
 		<td class="hidden-phone">#priority#</td>
 		<td class="hidden-phone"><a href="javascript:list_to_time('#task_id#');" title="View time details for #variables.status_message#."><cfif listlen(used_hours) GT 1 AND listgetat(used_hours,2,".") GT 0>#decimalformat(used_hours)#<cfelse>#numberformat(used_hours)#</cfif><cfif budgeted_hours>/#budgeted_hours# #numberformat((used_hours/budgeted_hours)*100)#%</cfif></a></td>
 		<td>
-			<cfif NOT listfind("7,8", status_id)>
+			<cfif NOT listfind("7,8", task_status_id)>
 				<cfset variables.days_left=datediff("d", now(), due_date)>
 				<cfif variables.days_left EQ 0>
 					<span class="badge badge-warning" title="Due today"><i class="icon-white icon-bell"></i></span>&nbsp;

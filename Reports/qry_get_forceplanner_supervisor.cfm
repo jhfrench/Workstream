@@ -26,10 +26,10 @@ FROM Employee
 		AND (Link_Employee_Supervisor.supervisor_id=#variables.user_identification#
 			OR Link_Employee_Supervisor.user_account_id=#variables.user_identification#)
 	LEFT OUTER JOIN (
-		SELECT COUNT(DISTINCT CASE WHEN Task.status_id=7 /*completed*/ THEN Forecast_Assignment.task_id ELSE NULL END) AS cbt, 
-			COALESCE(SUM(CASE WHEN Task.status_id=7 /*completed*/ THEN Time_Entry.hours ELSE 0 END),0) AS cbh,
-			COUNT(DISTINCT CASE WHEN Task.status_id!=7 /*exclude closed tasks*/ THEN Forecast_Assignment.task_id ELSE NULL END) AS nbt, 
-			COALESCE(SUM(CASE WHEN task.status_id!=7 /*exclude closed tasks*/ THEN Time_Entry.hours ELSE 0 END),0) AS nbh,
+		SELECT COUNT(DISTINCT CASE WHEN Task.task_status_id=7 /*completed*/ THEN Forecast_Assignment.task_id ELSE NULL END) AS cbt, 
+			COALESCE(SUM(CASE WHEN Task.task_status_id=7 /*completed*/ THEN Time_Entry.hours ELSE 0 END),0) AS cbh,
+			COUNT(DISTINCT CASE WHEN Task.task_status_id!=7 /*exclude closed tasks*/ THEN Forecast_Assignment.task_id ELSE NULL END) AS nbt, 
+			COALESCE(SUM(CASE WHEN Task.task_status_id!=7 /*exclude closed tasks*/ THEN Time_Entry.hours ELSE 0 END),0) AS nbh,
 			Forecast_Assignment.user_account_id
 		FROM Forecast_Assignment
 			LEFT OUTER JOIN Time_Entry ON Forecast_Assignment.task_id=Time_Entry.task_id
@@ -44,10 +44,10 @@ FROM Employee
 		GROUP BY Forecast_Assignment.user_account_id
 	) AS Budgeted_Data ON Budgeted_Data.user_account_id=Demographics.user_account_id
 	LEFT OUTER JOIN (
-		SELECT COUNT(DISTINCT CASE WHEN task.status_id=7 /*completed*/ THEN Time_Entry.task_id ELSE NULL END) AS cnt, 
-			COALESCE(SUM(CASE WHEN task.status_id=7 /*completed*/ THEN Time_Entry.hours ELSE 0 END),0) AS cnh,
-			COUNT(DISTINCT CASE WHEN task.status_id!=7 /*exclude closed tasks*/ THEN Time_Entry.task_id ELSE NULL END) AS nnt, 
-			COALESCE(SUM(CASE WHEN task.status_id!=7 /*exclude closed tasks*/ THEN Time_Entry.hours ELSE 0 END),0) AS nnh,
+		SELECT COUNT(DISTINCT CASE WHEN Task.task_status_id=7 /*completed*/ THEN Time_Entry.task_id ELSE NULL END) AS cnt, 
+			COALESCE(SUM(CASE WHEN Task.task_status_id=7 /*completed*/ THEN Time_Entry.hours ELSE 0 END),0) AS cnh,
+			COUNT(DISTINCT CASE WHEN Task.task_status_id!=7 /*exclude closed tasks*/ THEN Time_Entry.task_id ELSE NULL END) AS nnt, 
+			COALESCE(SUM(CASE WHEN Task.task_status_id!=7 /*exclude closed tasks*/ THEN Time_Entry.hours ELSE 0 END),0) AS nnh,
 			Time_Entry.user_account_id
 		FROM Time_Entry
 			INNER JOIN Task ON Task.task_id=Time_Entry.task_id

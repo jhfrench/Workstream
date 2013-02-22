@@ -13,7 +13,7 @@
 	 || 
 	END FUSEDOC --->
 </cfsilent>
-<cfinclude template="../common_files/qry_get_task_stati.cfm">
+<cfinclude template="../common_files/qry_get_ref_task_status.cfm">
 	<tr valign="top">
 		<td class="btn-group">
 			<input type="checkbox" name="task_stati_box" value="1"<cfif len(attributes.task_stati)> checked="checked"</cfif> />
@@ -21,8 +21,8 @@
 		<td>Task Status</td>
 		<td>
 			<select name="task_stati" multiple="multiple" size="4" onclick="checkbox_task_stati()">
-			<cfoutput query="get_task_stati">
-				<option value="#status_id#"<cfif ListFind(attributes.task_stati, get_task_stati.status_id,",")> selected="selected"</cfif>>#status#</option>
+			<cfoutput query="get_ref_task_status">
+				<option value="#task_status_id#"<cfif listfind(attributes.task_stati, get_ref_task_status.task_status_id,",")> selected="selected"</cfif>>#status#</option>
 			</cfoutput>
 			</select>
 		</td>

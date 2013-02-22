@@ -27,7 +27,7 @@
 <cfquery name="insert_new_task" datasource="#application.datasources.main#">
 INSERT INTO Task (name, project_id, entry_date, 
 	assigned_date, due_date, icon_id,
-	budgeted_hours, status_id, description,
+	budgeted_hours, task_status_id, description,
 	created_by, priority_id<!--- ,
 	notification_frequency_id --->)
 VALUES ('#attributes.task_name#', #attributes.project_id#, CURRENT_TIMESTAMP,

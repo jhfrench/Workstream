@@ -24,7 +24,7 @@ SET <cfif get_editing_privileges.recordcount>
 	<cfif compare(attributes.priority_id,attributes.orig_priority_id)>priority_id=#attributes.priority_id#,</cfif>
 </cfif>
 <cfif compare(attributes.task_status,attributes.orig_task_status_id)>
-	status_id=#attributes.task_status#,<cfif attributes.task_status EQ 7> 
+	task_status_id=#attributes.task_status#,<cfif attributes.task_status EQ 7> 
 	complete_date=CURRENT_TIMESTAMP,
 	completed_by=#variables.user_identification#,</cfif>
 </cfif>

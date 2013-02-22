@@ -16,7 +16,7 @@
 SELECT REF_Product.product_name, AVG(Product_Completion.completion_turnaround_hours) AS avg_hours
 FROM REF_Product
 	INNER JOIN (
-		SELECT Project.product_id, (DATEDIFF(hour, Task.entry_date, COALESCE(Task.complete_date, CASE WHEN status_id!=7 THEN CURRENT_TIMESTAMP ELSE NULL END))) AS completion_turnaround_hours
+		SELECT Project.product_id, (DATEDIFF(hour, Task.entry_date, COALESCE(Task.complete_date, CASE WHEN Task.task_status_id!=7 THEN CURRENT_TIMESTAMP ELSE NULL END))) AS completion_turnaround_hours
 		FROM Project
 			INNER JOIN Task ON Project.project_id=Task.project_id
 		WHERE LOWER(Task.name) LIKE 'ts%'

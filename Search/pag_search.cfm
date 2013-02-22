@@ -27,7 +27,7 @@
 </cfscript>
 <cfinclude template="../common_files/qry_get_search_projects.cfm">
 <cfinclude template="../common_files/qry_get_priorities.cfm">
-<cfinclude template="../common_files/qry_get_task_stati.cfm">
+<cfinclude template="../common_files/qry_get_ref_task_status.cfm">
 <cfoutput>
 <cfform name="input_form" action="index.cfm?fuseaction=Search.output" method="post" class="form-horizontal">
 	<fieldset>
@@ -134,8 +134,8 @@
 			<label for="task_stati" class="control-label">Task Status</label>
 			<div class="controls">
 				<select name="task_stati" id="task_stati" multiple="multiple" size="4" class="span8">
-				<cfloop query="get_task_stati">
-					<option value="#status_id#">#status#</option>
+				<cfloop query="get_ref_task_status">
+					<option value="#task_status_id#">#status#</option>
 				</cfloop>
 				</select>
 			</div>

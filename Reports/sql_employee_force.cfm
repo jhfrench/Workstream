@@ -18,7 +18,7 @@
 <cfoutput>
 SELECT Task.task_id, (Customer.description || '-' || Project.description) AS project, Task.name AS task, 
 	(CASE WHEN Project.billable_type_id = 2 THEN 'NB' ELSE 'B' END) AS billable, REF_Priority.description AS priority, 
-	REF_Status.status, Task.due_date, Task.complete_date,
+	REF_Task_Status.description AS status, Task.due_date, Task.complete_date,
 	COALESCE(Recorded_Hours.used_hours,0) AS used_hours, Task.budgeted_hours,
 	(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (COALESCE(Recorded_Hours.used_hours,0)/Task.budgeted_hours) END,0)*100) AS budget_used,
 	(Task.due_date-Task.assigned_date)*1.0 AS given_days,
@@ -29,7 +29,7 @@ FROM Customer
 	INNER JOIN Project ON Customer.customer_id=Project.customer_id
 	INNER JOIN Task ON Project.project_id=Task.project_id
 	INNER JOIN REF_Priority ON Task.priority_id=REF_Priority.priority_id
-	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id<cfif isdefined("attributes.user_account_id")>
+	INNER JOIN REF_Task_Status ON Task.task_status_id=REF_Task_Status.task_status_id<cfif isdefined("attributes.user_account_id")>
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
 		AND Team.role_id=1
@@ -45,7 +45,7 @@ FROM Customer
 	) AS Recorded_Hours ON Task.task_id=Recorded_Hours.task_id
 WHERE Task.assigned_date IS NOT NULL
 	AND Task.due_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.through_date)#<cfif attributes.show_completed>
-	AND Task.status_id!=7 /*exclude closed tasks*/</cfif>
+	AND Task.task_status_id!=7 /*exclude closed tasks*/</cfif>
 </cfoutput>
 <!--- 
 

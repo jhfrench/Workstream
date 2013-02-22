@@ -35,7 +35,7 @@
 			<a href="javascript:order_by('used_hours');" title="Order by the task time.">Time<cfif NOT compare(variables.task_list_order_column,"used_hours")> <i class="icon-chevron-<cfif variables.task_list_order_down_ind>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
 		<th>
-			<a href="javascript:order_by('REF_Status.sort_order');" title="Order by the task status.">Status<cfif NOT compare(variables.task_list_order_column,"task_status")> <i class="icon-chevron-<cfif variables.task_list_order_down_ind>down<cfelse>up</cfif>"></i></cfif></a>
+			<a href="javascript:order_by('REF_Task_Status.sort_order');" title="Order by the task status.">Status<cfif NOT compare(variables.task_list_order_column,"task_status")> <i class="icon-chevron-<cfif variables.task_list_order_down_ind>down<cfelse>up</cfif>"></i></cfif></a>
 		</th>
 		<th>
 			<a href="javascript:order_by('due_date');" title="Order by the date that the task is due.">Due<cfif NOT compare(variables.task_list_order_column,"due_date")> <i class="icon-chevron-<cfif variables.task_list_order_down_ind>down<cfelse>up</cfif>"></i></cfif></a>

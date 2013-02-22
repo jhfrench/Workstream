@@ -51,7 +51,7 @@ FROM Task
 			AND Email.email_type_id=1
 	) AS QA ON Task.task_id=QA.task_id
 WHERE Task.notification_frequency_id!=1<!--- $issue$: commenting until this process is activated and I can figure out what task statii are elligibile
-	AND Task.status_id IN (4,5) --->
+	AND Task.task_status_id IN (4,5) --->
 GROUP BY Task.task_id, CAST(Task.description AS VARCHAR(255)), Task.name,
 	Task.due_date, Task.notification_frequency_id, Owner.email,
 	Notification.notification_type, QA.email

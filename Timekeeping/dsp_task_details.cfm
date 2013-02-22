@@ -21,7 +21,7 @@
 	variables.width=min(numberformat(get_task_details.image_width,"______"),variables.var1);
 	variables.width2=variables.var1-variables.width;
 	
-	if (get_task_details.qa_id EQ variables.user_identification AND get_task_details.status_id EQ 4) {
+	if (get_task_details.qa_id EQ variables.user_identification AND get_task_details.task_status_id EQ 4) {
 		variables.notes_type_selected=2;
 	}
 	else if (get_task_details.owner_id EQ variables.user_identification) {
@@ -37,7 +37,7 @@
 	<cfset variables.task_name=htmleditformat(get_task_details.task_name)>
 	<input type="hidden" name="last_loaded" value="#now()#" />
 	<input type="hidden" name="orig_due_date" value="#dateformat(get_task_details.due_date,"m/d/yyyy")#" />
-	<input type="hidden" name="orig_file" value="#get_task_details.status_id#" />
+	<input type="hidden" name="orig_file" value="#get_task_details.task_status_id#" />
 	<input type="hidden" name="orig_icon_id" value="#get_task_details.icon_id#" />
 	<input type="hidden" name="orig_notification" value="#valuelist(get_completion_email.email_id)#" />
 	<input type="hidden" name="orig_notification_cc" value="#valuelist(get_completion_cc_email.email_id)#" />
@@ -49,7 +49,7 @@
 	<input type="hidden" name="orig_reminder_days" value="#get_completion_days.reminder_days#" />
 	<input type="hidden" name="orig_task_description" value="#variables.task_description#" />
 	<input type="hidden" name="orig_task_name" value="#variables.task_name#" />
-	<input type="hidden" name="orig_task_status_id" value="#get_task_details.status_id#" />
+	<input type="hidden" name="orig_task_status_id" value="#get_task_details.task_status_id#" />
 	<input type="hidden" name="orig_team" value="#variables.task_team#" />
 	<input type="hidden" name="project_id" value="#get_task_details.project_id#" />
 	<input type="hidden" name="task_id" value="#task_id#" />
@@ -85,7 +85,7 @@
 				<label for="due_date" class="h5">Date Due</label>
 				<input type="date" name="due_date" id="due_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" value="#dateformat(get_task_details.due_date,'yyyy-mm-dd')#" maxlength="10" required="required"#variables.edit_status# class="span11 date" />
 				<span class="h5">Date Completed</span>
-				<div id="complete_date" class="span12 date"><cfif len(get_task_details.complete_date) AND get_task_details.status_id EQ 11>#dateformat(get_task_details.complete_date,"m/d/yyyy")#<cfelse>Not yet completed</cfif></div>
+				<div id="complete_date" class="span12 date"><cfif get_task_details.task_status_id EQ 11 AND len(get_task_details.complete_date)>#dateformat(get_task_details.complete_date,"m/d/yyyy")#<cfelse>Not yet completed</cfif></div>
 			</div>
 			<div class="span4">
 				<label for="priority_id" class="h5">Priority</label>
@@ -102,8 +102,8 @@
 				</select>
 				<label for="task_status" class="h5">Status</label>
 				<select name="task_status" id="task_status" class="span11">
-				<cfloop query="get_task_stati">
-					<option value="#status_id#"<cfif status_id EQ get_task_details.status_id> selected="selected"</cfif>>#status#</option>
+				<cfloop query="get_ref_task_status">
+					<option value="#task_status_id#"<cfif task_status_id EQ get_task_details.task_status_id> selected="selected"</cfif>>#status#</option>
 				</cfloop>
 				</select>
 			</div>

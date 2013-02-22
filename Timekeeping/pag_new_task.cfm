@@ -37,7 +37,7 @@
 <cfinclude template="../common_files/qry_get_priorities.cfm">
 <cfinclude template="qry_get_ref_icon.cfm"><!--- 
 <cfinclude template="qry_get_notification_frequency.cfm"> --->
-<cfinclude template="../common_files/qry_get_task_stati.cfm">
+<cfinclude template="../common_files/qry_get_ref_task_status.cfm">
 <cfinclude template="../common_files/qry_get_valid_projects.cfm">
 <cfinclude template="../common_files/act_call_big_team_list.cfm">
 <cfinclude template="act_call_pre_defined_names.cfm">

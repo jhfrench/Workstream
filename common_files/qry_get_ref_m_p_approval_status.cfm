@@ -23,11 +23,11 @@
 	</IO>
 </fusedoc>
 --->
-<cfparam name="attributes.m_p_approval_status_id" default="0">
+<cfparam name="attributes.m_p_approval_task_status_id" default="0">
 <cfquery name="get_ref_m_p_approval_status" datasource="#application.datasources.main#">
-SELECT m_p_approval_status_id, description, sort_order
+SELECT m_p_approval_task_status_id, description, sort_order
 FROM REF_M_P_Approval_Status
-WHERE <cfif attributes.m_p_approval_status_id NEQ 0>m_p_approval_status_id=#attributes.m_p_approval_status_id#<cfelse>active_ind=1</cfif>
+WHERE <cfif attributes.m_p_approval_task_status_id NEQ 0>m_p_approval_task_status_id=#attributes.m_p_approval_task_status_id#<cfelse>active_ind=1</cfif>
 ORDER BY sort_order
 </cfquery>
 <cfset caller.get_ref_m_p_approval_status=get_ref_m_p_approval_status>

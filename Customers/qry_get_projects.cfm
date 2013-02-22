@@ -22,7 +22,7 @@ FROM Project
 	LEFT OUTER JOIN (
 		SELECT project_id, COUNT(*) AS open_tasks
 		FROM Task
-		WHERE Task.status_id!=7 /*exclude closed tasks*/
+		WHERE Task.task_status_id!=7 /*exclude closed tasks*/
 		GROUP BY Task.project_id
 	) AS Task_Count ON Project.project_id=Task_Count.project_id
 WHERE Project.active_ind=#attributes.active_ind#<cfif isdefined("attributes.customer_id")>

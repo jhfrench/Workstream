@@ -22,7 +22,7 @@
 	<cfloop list="#attributes.list_prospective_task_id#" index="variables.task_id">
 		<cfif listfind(attributes.accept_task,variables.task_id)>
 			UPDATE Task
-			SET status_id=#evaluate("attributes.task_status#variables.task_id#")#,
+			SET task_status_id=#evaluate("attributes.task_status#variables.task_id#")#,
 				due_date=#createodbcdatetime(evaluate("attributes.task_due_date#variables.task_id#"))#<cfif isnumeric(evaluate("attributes.task_assigned#variables.task_id#"))>,
 				budgeted_hours=(
 					SELECT COALESCE(SUM(Time_Entry.hours),0)
@@ -69,7 +69,7 @@
 				AND task_id=#variables.task_id#;
 
 			UPDATE Task
-			SET status_id=9 /* on-hold */
+			SET task_status_id=9 /* on-hold */
 			WHERE task_id=#variables.task_id#;
 		</cfif>
 	</cfloop>

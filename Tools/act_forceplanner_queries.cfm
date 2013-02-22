@@ -21,12 +21,12 @@
 /*top query selects Forceplanner tasks for the selected month*/
 SELECT ' checked="checked"' AS previously_assigned, '<cfif NOT datecompare(attributes.date_linked, now())> disabled="disabled"</cfif>' AS disabled_text, 
 	CASE 
-		WHEN Task.status_id IN (9,10) /*on hold, prospective*/ THEN
+		WHEN Task.task_status_id IN (9,10) /*on hold, prospective*/ THEN
 			CASE 
 				WHEN SUM(COALESCE(Time_Entry.hours,0))=0 THEN 1 /*new*/
 				ELSE 3 /*in progress*/
 			END
-		ELSE Task.status_id 
+		ELSE Task.task_status_id 
 	END AS previous_entry, 
 	Task.task_id, Customer.description || '-' || Project.description AS project_name, Project.project_id,
 	Task.due_date, LEFT(Task.name,65) AS task_name, COALESCE(Task.budgeted_hours,0) AS budget<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">, 
@@ -62,19 +62,19 @@ WHERE Forecast.active_ind=1
 	AND Forecast.forecast_month=#attributes.force_month#
 GROUP BY Forecast_Assignment.task_id, Forecast_Assignment.user_account_id, Forecast_Assignment.hours_budgeted, 
 	Task.task_id, project_name, Project.project_id, 
-	Task.due_date, Task.status_id, task_name, Task.budgeted_hours,
+	Task.due_date, Task.task_status_id, task_name, Task.budgeted_hours,
 	REF_Billable_Type.description, REF_Billable_Type.sort_order,
 	REF_Priority.description, REF_Priority.sort_order
 UNION ALL
 /*bottom query selects tasks that weren't forceplanned for the selected month*/
 SELECT '' AS previously_assigned, '<cfif NOT datecompare(attributes.date_linked, now())> disabled="disabled"</cfif>' AS disabled_text,
 	CASE
-		WHEN Task.status_id IN (9,10) /*on hold, prospective*/ THEN
+		WHEN Task.task_status_id IN (9,10) /*on hold, prospective*/ THEN
 			CASE 
 				WHEN SUM(COALESCE(Time_Entry.hours,0))=0 THEN 1 /*new*/
 				ELSE 3 /*in progress*/
 			END
-		ELSE Task.status_id
+		ELSE Task.task_status_id
 	END AS previous_entry, 
 	Task.task_id, Customer.description || '-' || Project.description AS project_name, Project.project_id, 
 	Task.due_date, LEFT(Task.name,65) AS task_name, COALESCE(Task.budgeted_hours,0) AS budget<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">, 
@@ -116,10 +116,10 @@ WHERE Task.active_ind=1
 				AND Forecast.forecast_month=#attributes.force_month#
 			GROUP BY Forecast_Assignment.task_id
 		)
-	AND <cfif datecompare(attributes.date_linked, now())>Task.status_id!=7 /*exclude closed tasks*/
+	AND <cfif datecompare(attributes.date_linked, now())>Task.task_status_id!=7 /*exclude closed tasks*/
 	AND Task.assigned_date < <cfqueryparam cfsqltype="cf_sql_date" value="#attributes.date_linked#" /> /*show tasks assigned (to be started) before the selected month*/<cfelse>EXTRACT(MONTH FROM Task.assigned_date)=#attributes.force_month# AND EXTRACT(YEAR FROM Task.assigned_date)=#attributes.force_year# /*show tasks assigned (to be started) during the selected month*/</cfif>
 GROUP BY Task.task_id, project_name, Project.project_id, 
-	Task.status_id, Task.due_date, task_name,
+	Task.task_status_id, Task.due_date, task_name,
 	Task.budgeted_hours,
 	REF_Billable_Type.description, REF_Billable_Type.sort_order,
 	REF_Priority.description, REF_Priority.sort_order

@@ -52,7 +52,7 @@ VALUES (#attributes.project_id#, #ii#, #variables.user_identification#);
 <cfif isdefined("task_id")>
 	<cfquery name="complete_tasks" datasource="#application.datasources.main#">
 	UPDATE Task
-	SET status_id=7 /*completed*/,
+	SET task_status_id=7 /*completed*/,
 		complete_date=CURRENT_TIMESTAMP,
 		completed_by=#variables.user_identification#
 	WHERE task_id IN (#task_id#)

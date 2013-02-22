@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 <cfquery name="get_account_task_matrix" datasource="#application.datasources.main#">
 SELECT Task.task_id, (Customer.description || '-' || Project.description) AS project_name, Task.name AS task_name,
-	REF_Status.status, REF_Priority.description AS priority, Task.assigned_date,
+	REF_Task_Status.description AS status, REF_Priority.description AS priority, Task.assigned_date,
 	Task.due_date, Task.complete_date, Demographics.first_name AS owner
 FROM Task
 	INNER JOIN Project ON Task.project_id=Project.project_id
@@ -28,9 +28,9 @@ FROM Task
 	INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1
 	INNER JOIN REF_Priority ON Task.priority_id=REF_Priority.priority_id
-	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id
+	INNER JOIN REF_Task_Status ON Task.task_status_id=REF_Task_Status.task_status_id
 WHERE Task.active_ind=1
-	AND (Task.status_id!=7 /*exclude closed tasks*/
+	AND (Task.task_status_id!=7 /*exclude closed tasks*/
 		OR Task.complete_date BETWEEN CURRENT_DATE-interval '1 week' AND CURRENT_TIMESTAMP)
 ORDER BY Customer.description || '-' || Project.description, Task.due_date, Task.assigned_date
 </cfquery>

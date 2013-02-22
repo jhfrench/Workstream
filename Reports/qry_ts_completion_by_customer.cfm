@@ -17,7 +17,7 @@ SELECT Customer.description, AVG(Customer_Completion.completion_turnaround_hours
 FROM Customer
 	INNER JOIN Project ON Customer.customer_id=Project.customer_id
 	INNER JOIN (
-		SELECT Project.customer_id, (DATEDIFF(hour, Task.entry_date, COALESCE(Task.complete_date, CASE WHEN status_id!=7 THEN CURRENT_TIMESTAMP ELSE NULL END))) AS completion_turnaround_hours
+		SELECT Project.customer_id, (DATEDIFF(hour, Task.entry_date, COALESCE(Task.complete_date, CASE WHEN Task.task_status_id!=7 THEN CURRENT_TIMESTAMP ELSE NULL END))) AS completion_turnaround_hours
 		FROM Project
 			INNER JOIN Task ON Project.project_id=Task.project_id
 		WHERE LOWER(Task.name) LIKE 'ts%'

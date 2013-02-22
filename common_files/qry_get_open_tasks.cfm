@@ -40,7 +40,7 @@ FROM Task
 	) AS Link_Project_Company ON Task.project_id=Link_Project_Company.project_id
 	INNER JOIN Project ON Task.project_id=Project.project_id
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
-WHERE Task.status_id!=7 /*exclude closed tasks*/<cfif isdefined("attributes.exclude_task_id")>
+WHERE Task.task_status_id!=7 /*exclude closed tasks*/<cfif isdefined("attributes.exclude_task_id")>
 		AND Task.task_id NOT IN (#attributes.exclude_task_id#)</cfif>
 ORDER BY Customer.sort_order, project_display, task_display
 </cfquery>

@@ -21,19 +21,19 @@
 </cfsilent>
 <cfquery name="get_associated_tasks" datasource="#application.datasources.main#">
 SELECT Link_Task_Task.l_t_t_id, Task.task_id, Task.name,
-	Task.due_date, REF_Status.status, 'task_base' AS task_icon,
+	Task.due_date, REF_Task_Status.description AS status, 'task_base' AS task_icon,
 	1 AS sort_order
 FROM Link_Task_Task
 	INNER JOIN Task ON Link_Task_Task.base_task_id=Task.task_id
-	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id
+	INNER JOIN REF_Task_Status ON Task.task_status_id=REF_Task_Status.task_status_id
 WHERE Link_Task_Task.linked_task_id=#attributes.task_id#
 UNION ALL
 SELECT Link_Task_Task.l_t_t_id, Task.task_id, Task.name,
-	Task.due_date, REF_Status.status, 'task_sub' AS task_icon,
+	Task.due_date, REF_Task_Status.description AS status, 'task_sub' AS task_icon,
 	2 AS sort_order
 FROM Link_Task_Task
 	INNER JOIN Task ON Link_Task_Task.linked_task_id=Task.task_id
-	INNER JOIN REF_Status ON Task.status_id=REF_Status.status_id
+	INNER JOIN REF_Task_Status ON Task.task_status_id=REF_Task_Status.task_status_id
 WHERE Link_Task_Task.base_task_id=#attributes.task_id#
 ORDER BY sort_order, task_id
 </cfquery>
