@@ -64,11 +64,13 @@ non-billable
 </cfswitch>
 
 <cfquery name="delete_old" datasource="#application.datasources.main#">
+INSERT INTO LINK_Project_Project_Status(project_id, project_status_id, created_by)
+VALUES(#attributes.project_id#, 1, #variables.user_identification#);
+
 DELETE FROM Link_Project_Company
 WHERE project_id=#attributes.project_id#
-	AND company_id IN (#variables.company_id#)
-</cfquery>
-<cfquery name="insert_visible" datasource="#application.datasources.main#">
+	AND company_id IN (#variables.company_id#);
+	
 INSERT INTO Link_Project_Company (project_id, company_id, created_by)
 SELECT #attributes.project_id# AS project_id, company_id, #variables.user_identification#
 FROM REF_Company

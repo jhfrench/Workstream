@@ -32,7 +32,8 @@ WHERE project_id=#attributes.project_id#;
 
 UPDATE Link_Project_Project_Status
 SET active_ind=0
-WHERE active_ind=1;
+WHERE active_ind=1
+	AND project_id=#attributes.project_id#;
 
 INSERT INTO LINK_Project_Project_Status(project_id, project_status_id, created_by)
 VALUES(#attributes.project_id#, #attributes.project_status_id#, #variables.user_identification#);
