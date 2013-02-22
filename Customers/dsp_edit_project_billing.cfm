@@ -85,7 +85,7 @@
 			<input type="hidden" name="option" value="2" />
 			<input type="hidden" name="edit" value="1" />
 			<input type="hidden" name="original_billable_type_id" value="#get_project_main.billable_type_id#" />
-			<input type="hidden" name="project_dashboard_Return" value="#project_dashboard_Return#" />
+			<input type="hidden" name="project_dashboard_Return" value="#attributes.project_dashboard_return_ind#" />
 			<input type="hidden" name="customer_id" value="#attributes.customer_id#" />
 			<input type="hidden" name="project_manager_id_FIlter" value="#project_manager_id_Filter#" />
 			<input type="hidden" name="Sort" value="#sort#" />

@@ -18,9 +18,10 @@ SELECT Project.customer_id, Project.description, Project.budget,
     Project.vision, Project.business_case, Project.project_start, 
 	Project.project_end, Project.status, Project.project_manager_id,
 	Project.active_ind, Project.file_path, Project.date_go_live,
-	Project.eng_status, Project.LOE
+	Project.LOE, Link_Project_Project_Status.project_status_id
 FROM Project
+	INNER JOIN Link_Project_Project_Status ON Project.project_id=Link_Project_Project_Status.project_id
+		AND Link_Project_Project_Status.active_ind=1
 WHERE Project.project_id=#attributes.project_id#
 </cfquery>
 </cfsilent>
-

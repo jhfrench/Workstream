@@ -65,20 +65,7 @@
 				</a>
 			</td>
 			<td>
-				<!--- $issue$: either convert this to REF table, or cfswitch --->
-				<cfif eng_status EQ 0>Not Started</cfif>
-				<cfif eng_status EQ 1>Approved&ndash;In Progress</cfif>
-				<cfif eng_status EQ 11>Technical Review&ndash;Nucleus</cfif>
-				<cfif eng_status EQ 12>Technical Review&ndash;Customer</cfif>
-				<cfif eng_status EQ 2>Needs Customer Review</cfif>
-				<cfif eng_status EQ 3>Reviewed&ndash;Needs Work</cfif>
-				<cfif eng_status EQ 9>Sent for Content Approval</cfif>
-				<cfif eng_status EQ 10>Approved&ndash;Not Scheduled</cfif>
-				<cfif eng_status EQ 8>Getting LOE</cfif>
-				<cfif eng_status EQ 7>Sent for Financial Approval</cfif>
-				<cfif eng_status EQ 6>Withdrawn</cfif>
-				<cfif eng_status EQ 5>On Hold</cfif>
-				<cfif eng_status EQ 4>Completed</cfif>
+				#project_status#
 			</td>
 			<td>
 				#vision#&nbsp;

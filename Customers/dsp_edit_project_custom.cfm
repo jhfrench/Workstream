@@ -57,7 +57,7 @@
 			<input type="hidden" name="project_id" value="#attributes.project_id#" />
 			<input type="hidden" name="option" value="3" />
 			<input type="hidden" name="edit" value="1" />
-			<input type="hidden" name="project_dashboard_Return" value="#project_dashboard_Return#" />
+			<input type="hidden" name="project_dashboard_Return" value="#attributes.project_dashboard_return_ind#" />
 			<input type="hidden" name="customer_id" value="#attributes.customer_id#" />
 			<input type="hidden" name="project_manager_id" value="#attributes.project_manager_id#" />
 			<input type="hidden" name="Sort" value="#sort#" />

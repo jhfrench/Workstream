@@ -41,7 +41,7 @@ SELECT CURRVAL('Task_task_id_SEQ') AS task_id;
 <cfset attributes.task_id=insert_new_task.task_id>
 <cfquery name="insert_task_source" datasource="#application.datasources.main#">
 INSERT INTO Link_Task_Task_Status(task_id, task_status_id, created_by)
-VALUES (#attributes.task_id#, #attributes.task_status#, , #variables.user_identification#);
+VALUES (#attributes.task_id#, #attributes.task_status#, #variables.user_identification#);
 
 INSERT INTO Team(task_id, user_account_id, role_id,
 	created_by)

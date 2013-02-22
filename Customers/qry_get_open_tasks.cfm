@@ -21,7 +21,7 @@
 <cfquery name="get_open_tasks" datasource="#application.datasources.main#">
 SELECT Task.task_id, Task.name AS task_name, Task.due_date,
 	COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS time_budgeted, Link_Task_Task_Status.task_status_id,
-	(CASE WHEN Link_Task_Task_Status.task_status_id=3 /* QA */ THEN REF_Task_Status.description || ' by ' || QA.last_name ELSE REF_Task_Status.status END) AS task_status, Owner.last_name AS task_owner,
+	(CASE WHEN Link_Task_Task_Status.task_status_id=3 /* QA */ THEN REF_Task_Status.description || ' by ' || QA.last_name ELSE REF_Task_Status.description END) AS task_status, Owner.last_name AS task_owner,
 	(Customer.description || '-' || Project.description) AS project_name, Project.project_code<!--- $issue$: poor alias --->, REF_Priority.description AS priority,
 	CASE WHEN REF_Icon.path='0' THEN 'document.gif' ELSE REF_Icon.path END AS task_icon, COALESCE(Recorded_Hours.used_hours,0) AS time_used, (COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.used_hours/Task.budgeted_hours) END,0)*100) AS percent_time_used
 FROM Task

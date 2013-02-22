@@ -19,6 +19,7 @@
 <cfinclude template="qry_get_companies.cfm">
 <cfinclude template="../common_files/qry_get_link_project_company.cfm">
 <cfinclude template="../common_files/qry_get_products.cfm">
+<cfinclude template="..common_files/qry_get_ref_project_status.cfm">
 <cfset variables.linked_companies=valuelist(get_link_project_company.company_id)>
 <cfoutput>
 <cfform name="edit_project_main_form" action="index.cfm?fuseaction=Customers.edit_project" method="post" class="form-horizontal">
@@ -116,23 +117,9 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="eng_status" class="control-label">Progress</label>
+			<label for="project_status_id" class="control-label">Progress</label>
 			<div class="controls">
-				<select name="eng_status" id="eng_status">
-					<option value="0"<cfif get_project_main.eng_status EQ 0> selected="selected"</cfif>>Not Started</option>
-					<option value="1"<cfif get_project_main.eng_status EQ 1> selected="selected"</cfif>>Approved - In Progress</option>
-					<option value="11"<cfif get_project_main.eng_status EQ 11> selected="selected"</cfif>>Technical Review - Nucleus</option>
-					<option value="12"<cfif get_project_main.eng_status EQ 12> selected="selected"</cfif>>Technical Review - Customer</option>
-					<option value="2"<cfif get_project_main.eng_status EQ 2> selected="selected"</cfif>>Needs Customers Review</option>
-					<option value="3"<cfif get_project_main.eng_status EQ 3> selected="selected"</cfif>>Reviewed - Needs Work</option>
-					<option value="9"<cfif get_project_main.eng_status EQ 9> selected="selected"</cfif>>Sent for Content Approval</option>
-					<option value="10"<cfif get_project_main.eng_status EQ 10> selected="selected"</cfif>>Approved - Not Scheduled</option>
-					<option value="8"<cfif get_project_main.eng_status EQ 8> selected="selected"</cfif>>Getting LOE</option>
-					<option value="7"<cfif get_project_main.eng_status EQ 7> selected="selected"</cfif>>Sent for Financial Approval</option>
-					<option value="6"<cfif get_project_main.eng_status EQ 6> selected="selected"</cfif>>Withdrawn</option>
-					<option value="5"<cfif get_project_main.eng_status EQ 5> selected="selected"</cfif>>On Hold</option>
-					<option value="4"<cfif get_project_main.eng_status EQ 4> selected="selected"</cfif>>Completed</option>
-				</select>
+				<cfselect id="project_status_id" query="get_ref_project_status" name="project_status_id" value="project_status_id" display="description" selected="#get_project_main.project_status_id#" />
 				<p class="help-block">What is the project's current work status?</p>
 			</div>
 		</div>
@@ -161,7 +148,7 @@
 			<input type="hidden" name="project_id" value="#attributes.project_id#" />
 			<input type="hidden" name="option" value="1" />
 			<input type="hidden" name="edit" value="1" />
-			<input type="hidden" name="project_dashboard_return_ind" value="#project_dashboard_Return#" />
+			<input type="hidden" name="project_dashboard_return_ind" value="#attributes.project_dashboard_return_ind#" />
 			<input type="submit" value="Proceed" class="btn btn-primary" />
 			<input type="reset" value="Reset" class="btn" />
 		</div>

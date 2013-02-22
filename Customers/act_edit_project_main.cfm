@@ -1,5 +1,5 @@
 
-<!--Customers/qry_get_project_dashboard.cfm
+<!--Customers/act_edit_project_main.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -14,14 +14,13 @@
 	END FUSEDOC --->
 </cfsilent>
 
-<cfquery name="get_project_dashboard" datasource="#application.datasources.main#">
+<cfquery name="update_project" datasource="#application.datasources.main#">
 UPDATE Project
 SET active_ind=#attributes.active_ind#,
 	business_case='#attributes.business_case#',
 	customer_id=#attributes.customer_id#,<cfif isdate("attributes.date_go_live")>
 	date_go_live='#dateformat(attributes.date_go_live, "yyyy-mm-dd")#',</cfif>
 	description='#attributes.description#',
-	eng_status='#attributes.eng_status#',
 	file_path='#attributes.file_path#',
 	mission='#attributes.mission#',
 	product_id=#attributes.product_id#,
@@ -29,10 +28,15 @@ SET active_ind=#attributes.active_ind#,
 	project_manager_id=#attributes.project_manager_id#,
 	project_start='#dateformat(attributes.project_start, "yyyy-mm-dd")#',
 	status=#attributes.status#
-WHERE project_id=#attributes.project_id#
-</cfquery>
+WHERE project_id=#attributes.project_id#;
 
-<cfquery name="delete_old" datasource="#application.datasources.main#">
+UPDATE Link_Project_Project_Status
+SET active_ind=0
+WHERE active_ind=1;
+
+INSERT INTO LINK_Project_Project_Status(project_id, project_status_id, created_by)
+VALUES(#attributes.project_id#, #attributes.project_status_id#, #variables.user_identification#);
+
 UPDATE Link_Project_Company
 SET active_ind=0
 WHERE active_ind=1
