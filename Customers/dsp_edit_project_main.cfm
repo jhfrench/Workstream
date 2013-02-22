@@ -12,7 +12,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfparam name="project_dashboard_return_ind" default="0">
+<cfparam name="attributes.project_dashboard_return_ind" default="0">
 </cfsilent>
 <cfinclude template="qry_get_project_main.cfm">
 <cfinclude template="qry_get_root_codes.cfm">
