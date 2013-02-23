@@ -72,13 +72,19 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="active_ind" class="control-label">Status</label>
+		<fieldset>
+			<legend class="control-label">Status</legend>
 			<div class="controls">
-				<select name="active_ind" id="active_ind">
-					<option value="1" <cfif get_project_main.active_ind EQ 1> selected="selected"</cfif>>Active</option>
-					<option value="0" <cfif get_project_main.active_ind EQ 0> selected="selected"</cfif>>Inactive</option>
-				</select>
+				<label for="active_ind_1" class="radio">
+					<input type="radio" name="active_ind" id="active_ind_1" value="1" required="required"<cfif customer_change.active_ind EQ 1> checked="checked"</cfif> />
+					Active
+				</label>
+				<label for="active_ind_0" class="radio">
+					<input type="radio" name="active_ind" id="active_ind_0" value="0" required="required"<cfif customer_change.active_ind EQ 0> checked="checked"</cfif> />
+					Inactive
+				</label>
 			</div>
+		<fieldset>
 		</div>
 		<fieldset>
 		<legend>Project Dates</legend>

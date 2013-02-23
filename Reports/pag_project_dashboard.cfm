@@ -25,11 +25,17 @@
 <form name="form_project_dashboard" action="index.cfm?fuseaction=<cfoutput>#attributes.fuseaction#</cfoutput>" method="post" class="well form-inline">
 	<fieldset>
 		<legend>Criteria</legend>
-		<label for="active_ind">Project view</label>
-		<select name="active_ind" class="span2">
-			<option value="1"<cfif attributes.active_ind EQ 1> selected="selected"</cfif>>Active only</option>
-			<option value="0"<cfif attributes.active_ind EQ 0> selected="selected"</cfif>>Inactive only</option>
-		</select>
+		<fieldset>
+			<legend class="control-label">Project view</legend>
+			<label for="active_ind_1" class="radio">
+				<input type="radio" name="active_ind" id="active_ind_1" value="1" required="required"<cfif customer_change.active_ind EQ 1> checked="checked"</cfif> />
+				Active
+			</label>
+			<label for="active_ind_0" class="radio">
+				<input type="radio" name="active_ind" id="active_ind_0" value="0" required="required"<cfif customer_change.active_ind EQ 0> checked="checked"</cfif> />
+				Inactive
+			</label>
+		<fieldset>
 		<label for="customer_id">Customer</label>
 		<select name="customer_id" class="span2">
 			<option value="0" >All Customers</option>
