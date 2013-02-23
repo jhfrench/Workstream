@@ -23,7 +23,7 @@
 		<tr>
 			<th>Customer &amp; Project Name</th>
 			<th title="Date the project is to go live, or end (if known).">Due</th>
-			<th>Status</th>
+			<th>Health</th>
 			<th>Progress</th>
 			<th>Project Update</th>
 			<th>Budgeted</th>
@@ -45,6 +45,7 @@
 				</cfif>
 			</td>
 			<td>
+				<!--- $issue$: this should be converted to a REF_Project_Health table. --->
 				<a href="javascript:account_status(#project_id#);" title="View active related tasks">
 				<!--- Show status color image and set status color variable based on the status code--->
 				<cfswitch expression="#status#">

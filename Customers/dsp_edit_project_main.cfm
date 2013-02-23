@@ -111,8 +111,9 @@
 		</div>
 		</fieldset>
 		<div class="control-group">
-			<label for="status" class="control-label">Status</label>
+			<label for="status" class="control-label">Health</label>
 			<div class="controls">
+				<!--- $issue$: this should be converted to a REF_Project_Health table. --->
 				<select name="status" id="status" class="span3">
 					<option value="0"<cfif get_project_main.status EQ 0> selected="selected"</cfif>>None</option>
 					<option value="1"<cfif get_project_main.status EQ 1> selected="selected"</cfif>>Good</option>
