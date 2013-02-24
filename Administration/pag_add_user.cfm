@@ -28,7 +28,7 @@
 	<cfcase value="Add User">
 		<cfinclude template="../common_files/act_add_user.cfm">
 		<cfif len(variables.display_message)>
-			<div class="alert alert-error">#variables.display_message#</div>
+			<div class="alert alert-error"><cfoutput>#variables.display_message#</cfoutput></div>
 		</cfif>
 	</cfcase>
 
