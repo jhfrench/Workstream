@@ -32,15 +32,18 @@
 			#preservesinglequotes(attributes.sql_to_execute)#
 			</cfquery>
 			<cfcatch type="any">
-				Query Oops!
+			<div class="alert alert-error">
+				<strong>Query Oops!</strong>
 				<br />
 				<pre>
-					<cfoutput>#preservesinglequotes(attributes.sql_to_execute)#</cfoutput>
+					#preservesinglequotes(attributes.sql_to_execute)#
 				</pre>
+			</div>
 			</cfcatch>
 		</cftry>
 		<cftry>
-			<table class="table table-striped table-bordered table-condensed">
+			<a href="##form_execute_sql">Jump to Database Interface</a><br />
+			<table class="table table-striped table-bordered">
 				<thead>
 					<tr>
 					<cfloop list="#sql_executed.columnlist#" index="ii">
@@ -63,13 +66,15 @@
 				<strong>Display Oops!</strong>
 				<br />
 				<pre>
-					<cfoutput>#preservesinglequotes(attributes.sql_to_execute)#</cfoutput>
+					#preservesinglequotes(attributes.sql_to_execute)#
 				</pre>
 			</div>
 			</cfcatch>
 		</cftry>
 	</cfif>
-	<form action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
+	<form id="form_execute_sql" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-horizontal">
+	<fieldset>
+		<legend><h2>Database Interface</h2></legend>
 		<div class="control-group">
 			<label for="datasource" class="control-label">Datasource</label>
 			<div class="controls">
@@ -88,6 +93,7 @@
 		<div class="form-actions">
 			<input type="submit" name="submit" value="Submit" class="btn btn-danger" />
 		</div>
+	</fieldset>
 	</form>
 </cfif>
 </cfoutput>
