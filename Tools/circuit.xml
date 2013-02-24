@@ -65,9 +65,6 @@
 	<fuseaction name="invoice">
 		<include template="pag_invoice.cfm"/>
 	</fuseaction>
-	<fuseaction name="query_interface">
-		<include template="pag_query_interface.cfm"/>
-	</fuseaction>
 	<fuseaction name="rate_change">
 		<include template="pag_rate_change.cfm"/>
 	</fuseaction>
