@@ -28,6 +28,13 @@
 <cfset attributes.sort_order=get_ref_state_province.recordcount+1>
 <cfset attributes.code="">
 <cfoutput>
+<h2>
+	<ul class="breadcrumb">
+		<li>System Configuration <span class="divider">/</span></li>
+		<li><a href="index.cfm?fuseaction=Administration.list_ref_tables">Manage Drop Down Lists</a> <span class="divider">/</span></li>
+		<li class="active"><a href="index.cfm?fuseaction=#attributes.fuseaction#">REF_State_Province</a></li>
+	</ul>
+</h2>
 <form name="edit_ref_state_province_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="state_province_id">
 	<cfloop query="get_ref_state_province"><option value="#state_province_id#"<cfif NOT comparenocase(get_ref_state_province.state_province_id, attributes.state_province_id)> selected="selected"</cfif>>#description#</option></cfloop>

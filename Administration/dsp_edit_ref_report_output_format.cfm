@@ -26,6 +26,13 @@
 
 <cfoutput>
 <cfparam name="attributes.method" default="">
+<h2>
+	<ul class="breadcrumb">
+		<li>System Configuration <span class="divider">/</span></li>
+		<li><a href="index.cfm?fuseaction=Administration.list_ref_tables">Manage Drop Down Lists</a> <span class="divider">/</span></li>
+		<li class="active"><a href="index.cfm?fuseaction=#attributes.fuseaction#">REF_Report_Output_Format</a></li>
+	</ul>
+</h2>
 <cfmodule template="../common_files/qry_get_ref_report_output_format.cfm" report_output_format_id="0">
 <form name="ref_report_output_format_edit_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="report_output_format_id">

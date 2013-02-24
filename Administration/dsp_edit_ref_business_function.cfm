@@ -29,10 +29,17 @@
 	<div class="alert">#variables.display_message#</div>
 </cfif>
 <cfmodule template="qry_get_business_function.cfm" business_function_id="0">
+<h2>
+	<ul class="breadcrumb">
+		<li>System Configuration <span class="divider">/</span></li>
+		<li><a href="index.cfm?fuseaction=Administration.list_ref_tables">Manage Drop Down Lists</a> <span class="divider">/</span></li>
+		<li class="active"><a href="index.cfm?fuseaction=#attributes.fuseaction#">REF_Business_Function</a></li>
+	</ul>
+</h2>
 
-<form name="ref_business_function_form" action="index.cfm?fuseaction=#fuseaction#" method="post" class="well form-inline">
+<form name="ref_business_function_form" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">
 	<label for="business_function_id">Retrieve an existing business function</label>
-	<select name="business_function_id">
+	<select name="business_function_id" id="business_function_id">
 	<cfloop query="get_business_function"><option value="#business_function_id#"<cfif NOT comparenocase(get_business_function.business_function_id, attributes.business_function_id)> selected="selected"</cfif>>#description#</option></cfloop>
 	</select>
 	<input type="submit" name="method" value="Retrieve and edit business function" class="btn btn-primary" />

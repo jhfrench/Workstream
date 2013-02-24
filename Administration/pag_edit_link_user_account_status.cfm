@@ -46,6 +46,7 @@
 <cfif get_program_year.recordcount>
 	<cfset attributes.program_year_id=get_program_year.program_year_id>
 </cfif>--->
+<!--- $issue:$ this functionality is covered through the Edit User Profile page, so I think we can strip this out of the application. If we don't, we need to add the ability to select a LINK_User_Account_Status record. --->
 <h2>
 	<ul class="breadcrumb">
 		<li>System Configuration <span class="divider">/</span></li>
@@ -74,7 +75,8 @@
 		<div class="control-group">
 			<label class="control-label">Active?</label>
 			<div class="controls">
-				<label for="active_ind_yes"><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes">Yes </label> <label for="active_ind_no"><cfinput type="radio" name="active_ind" id="active_ind_no" value="0" >No </label>
+				<label for="active_ind_yes" class="radio"><cfinput type="radio" name="active_ind" id="active_ind_yes" value="1" checked="yes" />Yes </label>
+				<label for="active_ind_no" class="radio"><cfinput type="radio" name="active_ind" id="active_ind_no" value="0" />No </label>
 			</div>
 		</div>
 		<div class="form-actions">

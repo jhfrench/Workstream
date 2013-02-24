@@ -26,6 +26,13 @@
 
 <cfoutput>
 <cfparam name="attributes.method" default="">
+<h2>
+	<ul class="breadcrumb">
+		<li>System Configuration <span class="divider">/</span></li>
+		<li><a href="index.cfm?fuseaction=Administration.list_ref_tables">Manage Drop Down Lists</a> <span class="divider">/</span></li>
+		<li class="active"><a href="index.cfm?fuseaction=#attributes.fuseaction#">REF_Priority</a></li>
+	</ul>
+</h2>
 <cfmodule template="qry_get_ref_priority.cfm" priority_id="0">
 <form name="edit_ref_priority_form" action="index.cfm?fuseaction=#fuseaction#" method="post">
 	<select name="priority_id">
