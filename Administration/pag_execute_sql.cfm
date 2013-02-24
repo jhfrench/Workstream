@@ -23,6 +23,7 @@
 <cfparam name="attributes.datasource" default="">
 <cfparam name="attributes.sql_to_execute" default="">
 
+<cfoutput>
 <cfif variables.user_identification EQ 1>
 	<cfif len(attributes.sql_to_execute)>
 		<cftry>
@@ -38,43 +39,55 @@
 				</pre>
 			</cfcatch>
 		</cftry>
-		<table border="1" cellspacing="0" cellpadding="1" summary="Table displays application manager information">
 		<cftry>
-			<tr>
-			<cfoutput>
-			<cfloop list="#sql_executed.columnlist#" index="ii">
-				<td>#ii#</td>
-			</cfloop>
-			</cfoutput>
-			</tr>
-			<cfoutput query="sql_executed">
-			<tr>
-				<cfloop list="#sql_executed.columnlist#" index="ii">
-					<td>#evaluate(ii)#</td>
-				</cfloop>
-			</tr>
-			</cfoutput>
+			<table class="table table-striped table-bordered table-condensed">
+				<thead>
+					<tr>
+					<cfloop list="#sql_executed.columnlist#" index="ii">
+						<th>#ii#</th>
+					</cfloop>
+					</tr>
+				</thead>
+				<tbody>
+					<cfloop query="sql_executed">
+					<tr>
+						<cfloop list="#sql_executed.columnlist#" index="ii">
+							<td>#evaluate(ii)#</td>
+						</cfloop>
+					</tr>
+					</cfloop>
+				</tbody>
+			</table>
 			<cfcatch type="any">
-				Display Oops!
+			<div class="alert alert-error">
+				<strong>Display Oops!</strong>
 				<br />
 				<pre>
 					<cfoutput>#preservesinglequotes(attributes.sql_to_execute)#</cfoutput>
 				</pre>
+			</div>
 			</cfcatch>
 		</cftry>
-		</table>
 	</cfif>
-	<cfoutput>
-	<!--- temporary, for faster committed SQL runs --->
-	<form action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
-		<select name="datasource">
-			<option value="#application.datasources.main#"<cfif NOT comparenocase(attributes.datasource,application.datasources.main)> selected="selected"</cfif>>#application.datasources.main#</option>
-			<option value="Application_Manager"<cfif NOT comparenocase(attributes.datasource,"Application_Manager")> selected="selected"</cfif>>Application_Manager</option>
-		</select>
-		<br />
-		<textarea cols="80" rows="20" name="sql_to_execute">#attributes.sql_to_execute#</textarea>
-		<br />
-		<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
+	<form action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">
+		<div class="control-group">
+			<label for="datasource" class="control-label">Datasource</label>
+			<div class="controls">
+				<select name="datasource" id="datasource" class="span8">
+					<option value="#application.datasources.main#"<cfif NOT comparenocase(attributes.datasource,application.datasources.main)> selected="selected"</cfif>>#application.datasources.main#</option>
+					<option value="Application_Manager"<cfif NOT comparenocase(attributes.datasource,"Application_Manager")> selected="selected"</cfif>>Application_Manager</option>
+				</select>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="sql_to_execute" class="control-label">Query</label>
+			<div class="controls">
+				<textarea name="sql_to_execute" id="sql_to_execute" class="span8" rows="10">#attributes.sql_to_execute#</textarea>
+			</div>
+		</div>
+		<div class="form-actions">
+			<input type="submit" name="submit" value="Submit" class="btn btn-danger" />
+		</div>
 	</form>
-	</cfoutput>
 </cfif>
+</cfoutput>
