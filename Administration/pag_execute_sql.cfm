@@ -33,7 +33,7 @@
 			</cfquery>
 			<cftry>
 				<a href="##form_execute_sql">Jump to Database Interface</a><br />
-				<table class="table table-striped table-bordered">
+				<table class="table table-striped table-bordered table-condensed">
 					<thead>
 						<tr>
 						<cfloop list="#sql_executed.columnlist#" index="ii">
