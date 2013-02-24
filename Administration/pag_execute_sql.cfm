@@ -31,39 +31,39 @@
 			<cfquery name="sql_executed" datasource="#attributes.datasource#">
 			#preservesinglequotes(attributes.sql_to_execute)#
 			</cfquery>
-			<cfcatch type="any">
+			<cftry>
+				<a href="##form_execute_sql">Jump to Database Interface</a><br />
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+						<cfloop list="#sql_executed.columnlist#" index="ii">
+							<th>#ii#</th>
+						</cfloop>
+						</tr>
+					</thead>
+					<tbody>
+						<cfloop query="sql_executed">
+						<tr>
+							<cfloop list="#sql_executed.columnlist#" index="ii">
+								<td>#evaluate(ii)#</td>
+							</cfloop>
+						</tr>
+						</cfloop>
+					</tbody>
+				</table>
+				<cfcatch type="any">
+				<div class="alert alert-error">
+					<strong>Display Oops!</strong>
+					<br />
+					<pre>
+						#preservesinglequotes(attributes.sql_to_execute)#
+					</pre>
+				</div>
+				</cfcatch>
+			</cftry>
+			<cfcatch type="database">
 			<div class="alert alert-error">
 				<strong>Query Oops!</strong>
-				<br />
-				<pre>
-					#preservesinglequotes(attributes.sql_to_execute)#
-				</pre>
-			</div>
-			</cfcatch>
-		</cftry>
-		<cftry>
-			<a href="##form_execute_sql">Jump to Database Interface</a><br />
-			<table class="table table-striped table-bordered">
-				<thead>
-					<tr>
-					<cfloop list="#sql_executed.columnlist#" index="ii">
-						<th>#ii#</th>
-					</cfloop>
-					</tr>
-				</thead>
-				<tbody>
-					<cfloop query="sql_executed">
-					<tr>
-						<cfloop list="#sql_executed.columnlist#" index="ii">
-							<td>#evaluate(ii)#</td>
-						</cfloop>
-					</tr>
-					</cfloop>
-				</tbody>
-			</table>
-			<cfcatch type="any">
-			<div class="alert alert-error">
-				<strong>Display Oops!</strong>
 				<br />
 				<pre>
 					#preservesinglequotes(attributes.sql_to_execute)#
