@@ -21,7 +21,7 @@
 </fusedoc>
 --->
 <div class="row-fluid">
-	<div class="span4 login_background">
+	<div class="span5 login_background">
 		<div id="login_box">
 			<em class="lead">
 				This <abbr title="Applied Internet Technologies">AIT</abbr> system is for authorized users only.  By accessing this system you are consenting to complete monitoring with no expectation of privacy.  Unauthorized access or use may subject you to disciplinary action and criminal prosecution.
@@ -72,7 +72,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="span4 visible-desktop">
+	<div class="span3 visible-desktop">
 		<div id="clock_tower"></div>
 	</div>
 </div>
