@@ -105,8 +105,10 @@
 			}, remaining_time);
 		};
 		
-		//once we're loaded, let's go!
-		window.onload=onload_ready(4000);
+		//this is a fallback for if something (CSS or an imag) doesn't load; don't wait longer than 3 seconds
+		setTimeout(function() {
+			onload_ready(4000);
+		}, 50);
 	</script>
 </head>
 
