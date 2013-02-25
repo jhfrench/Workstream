@@ -88,21 +88,25 @@
 	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
 	<link rel="stylesheet" href="Application_Manager/errortemplates/error_style.css">
 	<script language="JavaScript" type="text/javascript">
-		var enhanced_link=document.getElementById('manual_link');
-		enhanced_link.href="##";
-		enhanced_link.onclick=function(){
-			submit_security_redirect();
-			return false;
-		};
-		
 		var submit_security_redirect=function() {
 			document.getElementById('security_redirect').submit();	
 		};
 		
-		//redirect after 4 seconds
-		setTimeout(function() {
-			submit_security_redirect();
-		}, 4000);
+		var onload_ready=function(remaining_time) {
+			if (arguments.callee.done) return; //don't execute more than once
+			arguments.callee.done = true;
+			document.getElementById('manual_link').href="##";
+			document.getElementById('manual_link').onclick=function(){
+				submit_security_redirect();
+				return false;
+			};
+			setTimeout(function() {
+				submit_security_redirect();
+			}, remaining_time);
+		};
+		
+		//once we're loaded, let's go!
+		window.onload=onload_ready(4000);
 	</script>
 </head>
 
