@@ -130,11 +130,11 @@ else
 								<div class="input-append">
 									<input type="text" name="header_search_criteria" title="Criteria to search" placeholder="search" class="search-query span9" />
 									<input type="submit" name="quick" value="Quick" title="Search on task ID or task name" class="btn btn-inverse" />
-									<a href="index.cfm?fuseaction=Search.home" id="navbar-search-full" title="Start a full search" class="btn btn-inverse">Full</a>
+									<a href="index.cfm?fuseaction=Search.home" id="navbar-search-full" title="Start a full search" rel="search" class="btn btn-inverse">Full</a>
 								</div>
 							</form><cfif application.help.active_ind>
 							<form class="navbar-form pull-right">
-								<a href="##help_area" id="nav_help_button" title="Access the help system" class="btn btn-info cursor_help">Help</a>
+								<a href="##help_area" id="nav_help_button" title="Access the help system" rel="help" class="btn btn-info cursor_help">Help</a>
 							</form></cfif>
 							<ul class="nav pull-right">
 								<cfif NOT isdefined("variables.user_identification")>
