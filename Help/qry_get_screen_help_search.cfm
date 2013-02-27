@@ -24,9 +24,8 @@
 --->
 <cfquery name="get_screen_help_search" datasource="#application.datasources.main#">
 SELECT 0 AS help_id, '' AS help_title, '' AS help_article_text,
-	SYSDATE AS created_date, '' AS article_author, '' AS help_text_short,
+	NOW() AS created_date, '' AS article_author, '' AS help_text_short,
 	'' AS help_type, 999 AS main_sort_order, 999 AS secondary_sort_order
-FROM DUAL
 WHERE 1=0<cfif len(trim(attributes.search_string))><cfif application.help.article_active_ind>
 UNION ALL
 SELECT Help_Article.help_article_id AS help_id, Help_Article.help_article_title AS help_title, Help_Article.help_article_text,
