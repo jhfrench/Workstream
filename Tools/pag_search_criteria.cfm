@@ -50,11 +50,11 @@
 		if (NOT isdefined("attributes.project_id")) {
 			attributes.project_id=0;
 		};
-		if (NOT isdefined("attributes.task_source")) {
-			attributes.task_source=0;
-		};
 		if (NOT isdefined("attributes.task_owner")) {
 			attributes.task_owner=0;
+		};
+		if (NOT isdefined("attributes.task_source")) {
+			attributes.task_source=0;
 		};
 		if (NOT isdefined("attributes.task_stati")) {
 			attributes.task_stati=0;
