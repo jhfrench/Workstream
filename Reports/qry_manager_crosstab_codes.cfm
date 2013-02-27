@@ -19,15 +19,19 @@ FROM Time_Entry
 		UNION ALL
 		SELECT Demographics.user_account_id
 		FROM Demographics
-			INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id<cfif variables.all_option>
-			INNER JOIN Demographics ON Employee.hire_date < #createodbcdatetime(attributes.through_date)#
-				AND COALESCE(Employee.turnover_date, CURRENT_DATE+ interval '1 day') > #createodbcdatetime(attributes.from_date)# IS NULL<cfelse>
-			INNER JOIN Link_User_Account_Supervisor ON Link_User_Account_Supervisor.user_account_id=Demographics.user_account_id 
+			INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
+				AND Link_Company_User_Account.active_ind=1<cfif listlen(session.workstream_selected_company_id)>
+				AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)</cfif><cfif variables.all_option>
+			INNER JOIN Employee ON Demographics.user_account_id=Employee.user_account_id
+				AND Employee.active_ind=1
+				AND Employee.hire_date < #createodbcdatetime(attributes.through_date)#
+				AND COALESCE(Employee.turnover_date, CURRENT_DATE+ interval '1 day') > #createodbcdatetime(attributes.from_date)#<cfelse>
+			INNER JOIN Link_User_Account_Supervisor ON Link_User_Account_Supervisor.user_account_id=Demographics.user_account_id
+				AND Link_User_Account_Supervisor.active_ind=1
 				AND Link_User_Account_Supervisor.supervisor_id=#variables.user_identification#
 				AND Link_User_Account_Supervisor.date_start < #createodbcdatetime(attributes.through_date)#
 				AND COALESCE(Link_User_Account_Supervisor.date_end, CURRENT_DATE+ interval '1 day') > #createodbcdatetime(attributes.from_date)#</cfif>
-		WHERE 1=1<cfif listlen(session.workstream_selected_company_id)>
-			AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)</cfif>
+		WHERE Demographics.active_ind=1
 	) AS Elligible_Employees ON Time_Entry.user_account_id=Elligible_Employees.user_account_id
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.work_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.through_date)#
