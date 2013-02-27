@@ -14,8 +14,6 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfscript>
-	attributes.task_id="";
-	attributes.task_name="";
 	if (isdefined("attributes.header_search_criteria")) {
 		if (isnumeric(attributes.header_search_criteria)) {
 			attributes.task_id=attributes.header_search_criteria;
@@ -23,6 +21,50 @@
 		else {
 			attributes.task_name=attributes.header_search_criteria;
 		};
+	}
+	else {
+		if (NOT isdefined("attributes.customer_id")) {
+			attributes.customer_id=0;
+		};
+		if (NOT isdefined("attributes.date_entered")) {
+			attributes.date_entered="";
+		};
+		if (NOT isdefined("attributes.date_entered_operator")) {
+			attributes.date_entered_operator=0;
+		};
+		if (NOT isdefined("attributes.description")) {
+			attributes.description="";
+		};
+		if (NOT isdefined("attributes.due_date")) {
+			attributes.due_date="";
+		};
+		if (NOT isdefined("attributes.due_date_operator")) {
+			attributes.due_date_operator=0;
+		};
+		if (NOT isdefined("attributes.notes")) {
+			attributes.notes="";
+		};
+		if (NOT isdefined("attributes.priority_id")) {
+			attributes.priority_id=0;
+		};
+		if (NOT isdefined("attributes.project_id")) {
+			attributes.project_id=0;
+		};
+		if (NOT isdefined("attributes.task_source")) {
+			attributes.task_source=0;
+		};
+		if (NOT isdefined("attributes.task_owner")) {
+			attributes.task_owner=0;
+		};
+		if (NOT isdefined("attributes.task_stati")) {
+			attributes.task_stati=0;
+		};
+	};
+	if (NOT isdefined("attributes.task_id")) {
+		attributes.task_id="";
+	};
+	if (NOT isdefined("attributes.task_name")) {
+		attributes.task_name="";
 	};
 </cfscript>
 <cfinclude template="../common_files/qry_get_search_projects.cfm">
@@ -42,28 +84,28 @@
 		<div class="control-group">
 			<label for="task_id" class="control-label">Task ID</label>
 			<div class="controls">
-				<cfinput type="text" name="task_id" id="task_id" value="#attributes.task_id#" size="50" class="span8" />
+				<input type="text" name="task_id" id="task_id" value="#attributes.task_id#" class="span8" />
 				<p class="help-block">Separate multiple IDs with commas.</p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="task_name" class="control-label">Task Name</label>
 			<div class="controls">
-				<input type="text" name="task_name" id="task_name" value="#attributes.task_name#" size="30" class="span8" />
+				<input type="text" name="task_name" id="task_name" value="#attributes.task_name#" class="span8" />
 				<p class="help-block">Separate multiple phrases with commas.</p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="description" class="control-label">Description</label>
 			<div class="controls">
-				<input type="text" name="description" id="description" size="30" class="span8" />
+				<input type="text" name="description" id="description" value="#attributes.description#" class="span8" />
 				<p class="help-block">Separate multiple phrases with commas.</p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="notes" class="control-label">Notes</label>
 			<div class="controls">
-				<input type="text" name="notes" id="notes" size="30" class="span8" />
+				<input type="text" name="notes" id="notes" value="#attributes.notes#" class="span8" />
 				<p class="help-block">Separate multiple phrases with commas.</p>
 			</div>
 		</div>
@@ -125,7 +167,7 @@
 			<div class="controls">
 			<select name="priority_id" id="priority_id" multiple="multiple" size="3" class="span8">
 			<cfloop query="get_priorities">
-				<option value="#priority_id#">#description#</option>
+				<option value="#priority_id#"<cfif listfindnocase(attributes.priority_id, priority_id)> selected="selected"</cfif>>#description#</option>
 			</cfloop>
 			</select>
 			</div>
@@ -135,7 +177,7 @@
 			<div class="controls">
 				<select name="task_stati" id="task_stati" multiple="multiple" size="4" class="span8">
 				<cfloop query="get_ref_task_status">
-					<option value="#task_status_id#">#description#</option>
+					<option value="#task_status_id#"<cfif listfindnocase(attributes.task_stati, task_status_id)> selected="selected"</cfif>>#description#</option>
 				</cfloop>
 				</select>
 			</div>

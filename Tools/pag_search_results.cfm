@@ -90,7 +90,6 @@
 
 <cfoutput>
 <a href="index.cfm?fuseaction=Tools.search_criteria" class="btn">New Search</a>
-<!--- $issue$: "edit search" does not work.
 <form name="edit_form" action="index.cfm?fuseaction=Tools.search_criteria" method="POST">
 	<input type="hidden" name="task_name" value="#attributes.task_name#" />
 	<input type="hidden" name="task_id" value="#attributes.task_id#">
@@ -106,5 +105,5 @@
 	<input type="hidden" name="task_owner" value="#attributes.task_owner#" />
 	<input type="hidden" name="task_source" value="#attributes.task_source#">
 	<input type="submit" value="Edit Search" class="btn" />
-</form> --->
+</form>
 </cfoutput>
