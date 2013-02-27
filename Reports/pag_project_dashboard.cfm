@@ -19,23 +19,20 @@
 <cfinclude template="dsp_project_dashboard_chart.cfm">
 <a href="index.cfm?fuseaction=Customers.new_project" class="btn"><i class="icon-plus-sign"></i> Create New Project</a>
 
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_project" fuseaction="Customers.edit_project" field_name="project_id" process_form_ind="true" option="1" project_dashboard_return_ind="1" customer_id="#attributes.customer_id#" project_manager_id="#attributes.project_manager_id#" sort="#attributes.sort#">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_project" fuseaction="Customers.edit_project" field_name="project_id" process_form_ind="true" option="1" project_dashboard_return_ind="1">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="account_status" fuseaction="Reports.account_status" field_name="project_id">
 
 <form name="form_project_dashboard" action="index.cfm?fuseaction=<cfoutput>#attributes.fuseaction#</cfoutput>" method="post" class="well form-inline">
 	<fieldset>
 		<legend>Criteria</legend>
-		<fieldset>
-			<legend class="control-label">Project view</legend>
-			<label for="active_ind_1" class="radio">
-				<input type="radio" name="active_ind" id="active_ind_1" value="1" required="required"<cfif attributes.active_ind EQ 1> checked="checked"</cfif> />
-				Active
-			</label>
-			<label for="active_ind_0" class="radio">
-				<input type="radio" name="active_ind" id="active_ind_0" value="0" required="required"<cfif attributes.active_ind EQ 0> checked="checked"</cfif> />
-				Inactive
-			</label>
-		<fieldset>
+		<label for="active_ind_1" class="radio">
+			<input type="radio" name="active_ind" id="active_ind_1" value="1" required="required"<cfif attributes.active_ind EQ 1> checked="checked"</cfif> />
+			Active Projects
+		</label>
+		<label for="active_ind_0" class="radio">
+			<input type="radio" name="active_ind" id="active_ind_0" value="0" required="required"<cfif attributes.active_ind EQ 0> checked="checked"</cfif> />
+			Inactive Projects
+		</label>
 		<label for="customer_id">Customer</label>
 		<select name="customer_id" class="span2">
 			<option value="0" >All Customers</option>

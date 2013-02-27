@@ -30,6 +30,7 @@
 			<th>Invoiced</th>
 			<th>Upselling Opportunities</th>
 			<th><abbr title="Project Manager">PM</abbr></th>
+			<th>Open Tasks</th>
 			<th>Updated</th>
 		</tr>
 	</thead>
@@ -46,7 +47,6 @@
 			</td>
 			<td>
 				<!--- $issue$: this should be converted to a REF_Project_Health table. --->
-				<a href="javascript:account_status(#project_id#);" title="View active related tasks">
 				<!--- Show status color image and set status color variable based on the status code--->
 				<cfswitch expression="#status#">
 					<cfcase value="0">
@@ -63,7 +63,6 @@
 						<span class="badge badge-important"><i class="icon-fire icon-white"></i></span> Danger
 					</cfdefaultcase>
 				</cfswitch>
-				</a>
 			</td>
 			<td>
 				#project_status#
@@ -83,6 +82,11 @@
 			</td>
 			<td>
 				#last_name#&nbsp;
+			</td>
+			<td class="number">
+				<a href="javascript:account_status(#project_id#);" title="View active related tasks">
+					#task_count#
+				</a>
 			</td>
 			<td class="date">
 				#dateformat(date_updated, "m/d/yyyy")#
