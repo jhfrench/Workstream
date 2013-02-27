@@ -19,7 +19,7 @@
 <cfinclude template="dsp_project_dashboard_chart.cfm">
 <a href="index.cfm?fuseaction=Customers.new_project" class="btn"><i class="icon-plus-sign"></i> Create New Project</a>
 
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_project" fuseaction="Customers.edit_project" field_name="project_id" process_form_ind="true" option="1" project_dashboard_return_ind="1">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_project" fuseaction="Customers.edit_project" field_name="project_id" field2_name="option" process_form_ind="true" project_dashboard_return_ind="1">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="account_status" fuseaction="Reports.account_status" field_name="project_id">
 
 <form name="form_project_dashboard" action="index.cfm?fuseaction=<cfoutput>#attributes.fuseaction#</cfoutput>" method="post" class="well form-inline">
@@ -51,17 +51,17 @@
 		<select name="sort" class="span2">
 			<option value="Customer.description, Project.description">select sort variable</option>
 			<option value="Customer.description, Project.description">Customer</option>
-			<option value="Customer.description, Project.description DESC " ">Customer - descending</option>
+			<option value="Customer.description, Project.description DESC">Customer - descending</option>
 			<option value="last_name"><abbr title="project manager">PM</abbr></option>
-			<option value="last_name DESC " "><abbr title="project manager">PM</abbr> - descending</option>
+			<option value="last_name DESC"><abbr title="project manager">PM</abbr> - descending</option>
 			<option value="project_end">Due Date</option>
-			<option value="project_end DESC " ">Due Date - descending</option>
+			<option value="project_end DESC">Due Date - descending</option>
 			<option value="status">Status</option>
-			<option value="status DESC " ">Status - descending</option>
+			<option value="status DESC">Status - descending</option>
 			<option value="Project.budget">Budgeted</option>
-			<option value="Project.budget DESC " ">Budgeted - descending</option>
+			<option value="Project.budget DESC">Budgeted - descending</option>
 			<option value="Project.date_updated">Updated</option>
-			<option value="Project.date_updated DESC " ">Updated - descending</option>
+			<option value="Project.date_updated DESC">Updated - descending</option>
 		</select>
 		<input type="submit" value="Update Report" class="btn btn-primary" />
 	</fieldset>

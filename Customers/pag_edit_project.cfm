@@ -12,6 +12,7 @@
 	 || 
 	END FUSEDOC --->
 <cfparam name="attributes.option" default="0">
+<cfparam name="attributes.project_dashboard_return_ind" default="0">
 <cfif attributes.option>
 	<cfset variables.colspan="4">
 <cfelse>

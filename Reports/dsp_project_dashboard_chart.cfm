@@ -38,7 +38,7 @@
 	<cfoutput query="get_project_dashboard">
 		<tr> 
 			<td id="#project_id#">
-				<a href="javascript:edit_project(#project_id#);" title="Edit this project">#customer_description#&ndash;#description# (#project_code#)</a>
+				<a href="javascript:edit_project(#project_id#,1);" title="Edit this project's main details">#customer_description#&ndash;#description# (#project_code#)</a>
 			</td>
 			<td class="date">
 				<cfif isdate(deadline_date)>
@@ -71,11 +71,15 @@
 				#vision#&nbsp;
 			</td>
 			<td class="number">
-				&##36;#numberformat(budget,'___,___,___,___')#
-				<cfif loe GT 0><br /><abbr title="estimated hours">h</abbr> #LOE#</cfif>
+				<a href="javascript:edit_project(#project_id#,2);" title="Edit this project's billing details">
+					&##36;#numberformat(budget,'___,___,___,___')#
+					<cfif loe GT 0><br /><abbr title="estimated hours">h</abbr> #LOE#</cfif>
+				</a>
 			</td>
 			<td class="number">
-				&##36;<cfif len(total_bill_amount)>#numberformat(total_bill_amount,'___,___,___,___')#<cfelse>0</cfif>
+				<a href="javascript:edit_project(#project_id#,2);" title="Edit this project's billing details">
+					&##36;<cfif len(total_bill_amount)>#numberformat(total_bill_amount,'___,___,___,___')#<cfelse>0</cfif>
+				</a>
 			</td>
 			<td>
 				#mission#&nbsp;
