@@ -9,7 +9,6 @@
 		<circuit alias="Home" path="Home/" parent=""/>
 		<circuit alias="Reports" path="Reports/" parent=""/>
 		<circuit alias="Requirements" path="Requirements/" parent=""/>
-		<circuit alias="Search" path="Search/" parent=""/>
 		<circuit alias="Timekeeping" path="Timekeeping/" parent=""/>
 		<circuit alias="Tools" path="Tools/" parent=""/>
 	</circuits>

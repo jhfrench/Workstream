@@ -68,6 +68,13 @@
 	<fuseaction name="rate_change">
 		<include template="pag_rate_change.cfm"/>
 	</fuseaction>
+	
+	<fuseaction name="search_criteria">
+		<include template="pag_search.cfm"/>
+	</fuseaction>
+	<fuseaction name="search_results">
+		<include template="pag_view_results.cfm"/>
+	</fuseaction>
 						
 	<fuseaction name="tech_task">
 		<include template="pag_home.cfm"/>

@@ -126,11 +126,11 @@ else
 								<cfmodule template="qry_get_program_year.cfm" program_year_id="#session.program_year_id#"> --->
 								<cfinclude template="dsp_navigation_module.cfm" />
 							</ul>
-							<form id="form-navbar-search" class="navbar-search pull-left" action="index.cfm?fuseaction=Search.output" method="post">
+							<form id="form-navbar-search" class="navbar-search pull-left" action="index.cfm?fuseaction=Tools.search_results" method="post">
 								<div class="input-append">
 									<input type="text" name="header_search_criteria" id="header_search_criteria" title="Criteria to search" placeholder="search" class="search-query span4" />
 									<input type="submit" name="quick" value="Quick" title="Search on task ID or task name" class="btn btn-inverse" />
-									<a href="index.cfm?fuseaction=Search.home" id="navbar-search-full" title="Start a full search" rel="search" class="btn btn-inverse">Full</a>
+									<a href="index.cfm?fuseaction=Tools.search_criteria" id="navbar-search-full" title="Start a full search" rel="search" class="btn btn-inverse">Full</a>
 								</div>
 							</form><cfif application.help.active_ind>
 							<form class="navbar-form pull-right">
