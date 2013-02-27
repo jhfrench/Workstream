@@ -1,5 +1,5 @@
 
-<!--Search/pag_view_results.cfm
+<!--Tools/pag_search_results.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -70,7 +70,7 @@
 </cfsilent>
 <cfinclude template="../common_files/act_client_vars.cfm">
 <cfinclude template="../common_files/act_task_list_order.cfm">
-<cfinclude template="qry_search.cfm">
+<cfinclude template="qry_get_search_results.cfm">
 
 <cfif get_task_list.recordcount>
 <table class="table table-striped table-bordered table-condensed">

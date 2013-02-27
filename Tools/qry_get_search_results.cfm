@@ -1,5 +1,5 @@
 
-<!--Search/qry_search.cfm
+<!--Tools/qry_get_search_results.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC

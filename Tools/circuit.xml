@@ -70,10 +70,10 @@
 	</fuseaction>
 	
 	<fuseaction name="search_criteria">
-		<include template="pag_search.cfm"/>
+		<include template="pag_search_criteria.cfm"/>
 	</fuseaction>
 	<fuseaction name="search_results">
-		<include template="pag_view_results.cfm"/>
+		<include template="pag_search_results.cfm"/>
 	</fuseaction>
 						
 	<fuseaction name="tech_task">
