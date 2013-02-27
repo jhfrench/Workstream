@@ -43,12 +43,13 @@ FROM Project
 		AND Link_Project_Project_Status.active_ind=1
 	INNER JOIN REF_Project_Status ON Link_Project_Project_Status.project_status_id=REF_Project_Status.project_status_id
 	LEFT OUTER JOIN (
-		SELECT project_id, COUNT(Task.task_id) AS task_count
+		SELECT Task.project_id, COUNT(Task.task_id) AS task_count
 		FROM Task
 			INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
 				AND Link_Task_Task_Status.active_ind=1
 				AND Link_Task_Task_Status.task_status_id NOT IN (7,9) /*completed, on hold*/
 		WHERE Task.active_ind=1
+		GROUP BY Task.project_id
 	) AS Task_Count ON Project.project_id=Task_Count.project_id
 WHERE Project.active_ind=#attributes.active_ind#
     AND Project.company_id=#session.workstream_company_id#<cfif attributes.project_manager_id NEQ 0>
