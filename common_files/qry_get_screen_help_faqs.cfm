@@ -56,11 +56,11 @@ WHERE Link_Screen_Help_FAQ.active_ind=1
 		<cfcase value="2">
 		(1=0 /*this is here just for SQL syntax purposes*/<cfif NOT session.hide_general_help_faqs>
 		/*get faq articles that apply to all screens, regardless of module*/
-		OR fuseaction LIKE 'All.%'</cfif><cfif NOT session.hide_module_all>
+		OR REF_Screen.fuseaction LIKE <cfqueryparam cfsqltype="cf_sql_varchar" value="%.%" /></cfif><cfif NOT session.hide_module_all>
 		/*get faq articles that apply to all screens for a specific module*/
-		OR fuseaction='#listfirst(attributes.fuseaction,".")#.all'</cfif>
+		OR REF_Screen.fuseaction LIKE <cfqueryparam cfsqltype="cf_sql_varchar" value="#listfirst(attributes.fuseaction,".")#.%" /></cfif>
 		/*get faq articles that apply to the specifc screen*/
-		OR fuseaction='#attributes.fuseaction#')
+		OR REF_Screen.fuseaction=<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.fuseaction#" />)
 		</cfcase>
 		<cfcase value="3">
 		/*list all help_article_faq*/

@@ -36,8 +36,8 @@ SELECT Help_Article.help_article_id, Help_Article.help_article_text, Help_Articl
 	REF_Business_Function.acronym, Link_Screen_Help_Article.l_s_h_a_id, Demographics.last_name || ', ' || Demographics.first_name AS article_author,
 	SUBSTRING(Help_Article.help_article_text, 1, 50) || '...' AS help_article_text_short,
 	CASE
-		WHEN fuseaction='#attributes.fuseaction#' THEN 'screen-specific'
-		WHEN fuseaction LIKE '#listfirst(attributes.fuseaction,".")#.%' THEN 'general&nbsp;module'
+		WHEN fuseaction=<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.fuseaction#" /> THEN 'screen-specific'
+		WHEN fuseaction LIKE <cfqueryparam cfsqltype="cf_sql_varchar" value="#listfirst(attributes.fuseaction,".")#.%" /> THEN 'general&nbsp;module'
 		ELSE 'All&nbsp;screens'
 	END AS help_article_level
 FROM Link_Screen_Help_Article
@@ -61,11 +61,11 @@ WHERE Link_Screen_Help_Article.active_ind=1
 		<cfcase value="2">
 		(1=0 /*this is here just for SQL syntax purposes*/<cfif NOT session.hide_general_help_articles>
 		/*get article articles that apply to all screens, regardless of module*/
-		OR REF_Screen.fuseaction LIKE 'All.%'</cfif><cfif NOT session.hide_module_all>
+		OR REF_Screen.fuseaction LIKE <cfqueryparam cfsqltype="cf_sql_varchar" value="%.%" /></cfif><cfif NOT session.hide_module_all>
 		/*get article articles that apply to all screens for a specific module*/
-		OR REF_Screen.fuseaction='#listfirst(attributes.fuseaction,".")#.all'</cfif>
+		OR REF_Screen.fuseaction LIKE <cfqueryparam cfsqltype="cf_sql_varchar" value="#listfirst(attributes.fuseaction,".")#.%" /></cfif>
 		/*get article articles that apply to the specifc screen*/
-		OR REF_Screen.fuseaction='#attributes.fuseaction#')
+		OR REF_Screen.fuseaction=<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.fuseaction#" />)
 		</cfcase>
 		<cfcase value="3">
 		/*list all help_article_article*/
