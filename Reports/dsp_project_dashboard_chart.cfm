@@ -73,7 +73,7 @@
 			<td class="number">
 				<a href="javascript:edit_project(#project_id#,2);" title="Edit this project's billing details">
 					&##36;#numberformat(budget,'___,___,___,___')#
-					<cfif loe GT 0><br /><abbr title="estimated hours">h</abbr> #LOE#</cfif>
+					<cfif loe GT 0><small>#LOE#<abbr title="estimated hours">h</abbr></small></cfif>
 				</a>
 			</td>
 			<td class="number">

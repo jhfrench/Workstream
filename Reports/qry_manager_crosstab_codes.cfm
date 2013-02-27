@@ -30,7 +30,7 @@ FROM Time_Entry
 			AND Link_Company_User_Account.company_id IN (#session.workstream_selected_company_id#)</cfif>
 	) AS Elligible_Employees ON Time_Entry.user_account_id=Elligible_Employees.user_account_id
 WHERE Time_Entry.active_ind=1
-	AND Time_Entry.work_date BETWEEN #createodbcdatetime(attributes.from_date)# AND#createodbcdatetime(attributes.through_date)#
+	AND Time_Entry.work_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.through_date)#
 GROUP BY Project.project_code, Project.project_id
 ORDER BY code
 </cfquery>
