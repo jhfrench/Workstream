@@ -72,7 +72,7 @@ variables.tab_content_class=' active in';
 			<cfif variables.help_admin_ind>
 				<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_help_article" fuseaction="Administration.edit_help_article" field_name="help_article_id">
 				<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="add_help_article" fuseaction="Administration.edit_help_article" field_name="screen_id">
-				<p id="help_admin"><a href="javascript:add_help_article(#get_screen_details.screen_id#);" class="btn">Create help article</a> to this screen</p>
+				<p id="help_admin"><a href="javascript:add_help_article(#get_screen_details.screen_id#);" class="btn btn-small">Create help article</a> for this screen</p>
 			</cfif>
 		</div><cfset variables.tab_content_class=""></cfif><cfif application.help.faq_active_ind>
 		<div id="help_content_faq" class="tab-pane fade#variables.tab_content_class#" role="tabpanel">

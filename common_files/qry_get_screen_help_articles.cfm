@@ -22,9 +22,6 @@
 	</IO>
 </fusedoc>
 --->
-
-<cfparam name="session.hide_general_help_articles" default="0">
-<cfparam name="session.hide_module_all" default="0">
 <cfparam name="attributes.help_articles_lookup_type_id" default="2">
 <cfquery name="get_screen_help_articles" datasource="#application.datasources.main#">
 -------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -59,17 +56,12 @@ WHERE Link_Screen_Help_Article.active_ind=1
 		Help_Article.help_article_id=<cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#attributes.help_article_id#">
 		</cfcase>
 		<cfcase value="2">
-		(1=0 /*this is here just for SQL syntax purposes*/<cfif NOT session.hide_general_help_articles>
-		/*get article articles that apply to all screens, regardless of module*/
-		OR REF_Screen.fuseaction LIKE <cfqueryparam cfsqltype="cf_sql_varchar" value="%.%" /></cfif><cfif NOT session.hide_module_all>
-		/*get article articles that apply to all screens for a specific module*/
-		OR REF_Screen.fuseaction LIKE <cfqueryparam cfsqltype="cf_sql_varchar" value="#listfirst(attributes.fuseaction,".")#.%" /></cfif>
-		/*get article articles that apply to the specifc screen*/
-		OR REF_Screen.fuseaction=<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.fuseaction#" />)
+		REF_Screen.fuseaction=<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.fuseaction#" />
 		</cfcase>
 		<cfcase value="3">
 		/*list all help_article_article*/
-		1=1</cfcase>
+		1=1
+		</cfcase>
 		<cfdefaultcase>throw_error=1</cfdefaultcase>
 	</cfswitch>
 ORDER BY REF_Module.sort_order, REF_Business_Function.sort_order, Help_Article.sort_order<cfif attributes.help_articles_lookup_type_id EQ 1>
