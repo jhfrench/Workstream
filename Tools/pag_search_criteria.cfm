@@ -17,10 +17,24 @@
 	if (isdefined("attributes.header_search_criteria")) {
 		if (isnumeric(attributes.header_search_criteria)) {
 			attributes.task_id=attributes.header_search_criteria;
+			attributes.task_name="";
 		}
 		else {
+			attributes.task_id="";
 			attributes.task_name=attributes.header_search_criteria;
 		};
+		attributes.customer_id=0;
+		attributes.date_entered="";
+		attributes.date_entered_operator=0;
+		attributes.description="";
+		attributes.due_date="";
+		attributes.due_date_operator=0;
+		attributes.notes="";
+		attributes.priority_id=0;
+		attributes.project_id=0;
+		attributes.task_owner=0;
+		attributes.task_source=0;
+		attributes.task_stati=0;
 	}
 	else {
 		if (NOT isdefined("attributes.customer_id")) {
@@ -50,6 +64,12 @@
 		if (NOT isdefined("attributes.project_id")) {
 			attributes.project_id=0;
 		};
+		if (NOT isdefined("attributes.task_id")) {
+			attributes.task_id="";
+		};
+		if (NOT isdefined("attributes.task_name")) {
+			attributes.task_name="";
+		};
 		if (NOT isdefined("attributes.task_owner")) {
 			attributes.task_owner=0;
 		};
@@ -59,12 +79,6 @@
 		if (NOT isdefined("attributes.task_stati")) {
 			attributes.task_stati=0;
 		};
-	};
-	if (NOT isdefined("attributes.task_id")) {
-		attributes.task_id="";
-	};
-	if (NOT isdefined("attributes.task_name")) {
-		attributes.task_name="";
 	};
 </cfscript>
 <cfinclude template="../common_files/qry_get_search_projects.cfm">
