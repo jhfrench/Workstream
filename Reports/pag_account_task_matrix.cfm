@@ -18,29 +18,29 @@
 	<caption><h1>Account Task Matrix</h1></caption>
 	<thead>
 		<tr>
-			<th>Project</th>
 			<th><abbr title="task id">ID</abbr></th>
-			<th>Name</th>
+			<th class="hidden-phone hidden-tablet">Owner</th>
+			<th>Task</th>
+			<th class="hidden-phone hidden-tablet">Project</th>
+			<th class="hidden-phone">Priority</th>
 			<th>Status</th>
-			<th>Priority</th>
 			<th>Assigned</th>
 			<th>Due</th>
 			<th>Completed</th>
-			<th>Owner</th>
 		</tr>
 	</thead>
 	<tbody>
 	<cfoutput query="get_account_task_matrix"> 
 		<tr>
-			<td>#project_name#</td>
-			<td class="number">#task_id#</td>
+			<td class="number" scope="row">#task_id#</td>
+			<td class="hidden-phone hidden-tablet">#owner#</td>
 			<td><a href="javascript:task_jump('#task_id#');">#task_name#</a></td>
+			<td class="hidden-phone hidden-tablet">#project_name#</td>
+			<td class="hidden-phone">#priority#</td>
 			<td>#status#</td>
-			<td>#priority#</td>
 			<td class="date">#dateformat(assigned_date,"m/d/yyyy")#</td>
 			<td class="date">#dateformat(due_date,"m/d/yyyy")#</td>
 			<td class="date">#dateformat(complete_date,"m/d/yyyy")#</td>
-			<td>#owner#</td>
 		</tr>
 	</cfoutput>
 	</tbody>
