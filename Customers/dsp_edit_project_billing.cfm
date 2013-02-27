@@ -34,7 +34,7 @@
 			<label for="budget" class="control-label">Budget</label>
 			<div class="controls">
 				<div class="input-prepend input-append">
-					<span class="add-on">$</span><input type="number" name="budget" id="budget" value="#get_project_main.budget#" step="1" min="0" required="required" class="span3 number" /><span class="add-on">.00</span>
+					<span class="add-on">$</span><input type="number" name="budget" id="budget" value="#get_project_main.budget#" step="1" min="0" required="required" class="number" /><span class="add-on">.00</span>
 				</div>
 				<p class="help-block">Specify the total budget, in dollars, for this project.</p>
 			</div>
@@ -73,7 +73,7 @@
 			<label for="charge" class="control-label">Incident Charge</label>
 			<div class="controls">
 				<div class="input-prepend input-append">
-					<span class="add-on">$</span><input type="number" name="charge" id="charge" value="#decimalformat(get_incident_charge.charge)#" step="1" min="0" max="9999" required="required" class="span3 number" /><span class="add-on">.00</span>
+					<span class="add-on">$</span><input type="number" name="charge" id="charge" value="#decimalformat(get_incident_charge.charge)#" step="1" min="0" max="9999" required="required" class="number" /><span class="add-on">.00</span>
 				</div>
 				<p class="help-block">Specify the per-incident charge that the customer will incur each time a new task is created under this project.</p>
 			</div>
