@@ -53,7 +53,7 @@ WHERE Link_Screen_Help_Article.active_ind=1
 	<cfswitch expression="#attributes.help_articles_lookup_type_id#">
 		<cfcase value="1">
 		/*specific help_article_article*/
-		Help_Article.help_article_id=<cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#attributes.help_article_id#">
+		Help_Article.help_article_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.help_article_id#">
 		</cfcase>
 		<cfcase value="2">
 		REF_Screen.fuseaction=<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.fuseaction#" />
