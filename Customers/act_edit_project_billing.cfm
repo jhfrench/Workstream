@@ -15,9 +15,9 @@
 <cfquery name="edit_project_billing" datasource="#application.datasources.main#">
 <!--- all types --->
 UPDATE Project
-SET Project.budget=#attributes.budget#,
-	Project.loe=#attributes.loe#
-WHERE Project.project_id=#attributes.project_id#
+SET budget=#attributes.budget#,
+	loe=#attributes.loe#
+WHERE project_id=#attributes.project_id#
 <cfswitch expression="#attributes.billable_type_id#">
 <cfcase value="3">
 <!--- flat-rate --->
