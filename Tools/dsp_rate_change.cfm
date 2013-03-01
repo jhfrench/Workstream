@@ -29,7 +29,7 @@
 	</thead>
 	<tbody>
 	<cfoutput query="get_billing_rate">
-	<cfif entry_count AND NOT len(rate)><cfset variables.required_text=' required="required"'><cfelse><cfset variables.required_text=""></cfif>
+	<cfif entry_count><cfset variables.required_text=' required="required"'><cfelse><cfset variables.required_text=""></cfif>
 		<tr>
 			<td scope="row">#description# <i class="icon-briefcase" title="Project Manager: #pm_last_name#, #pm_first_name#"></i></td>
 			<td scope="row">#last_name#, #first_name#</td>
