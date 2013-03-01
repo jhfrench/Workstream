@@ -47,3 +47,4 @@
 	</tbody>
 </table>
 <input type="submit" name="Submit" value="Update Billing Rates" class="btn btn-danger" />
+</cfform>
