@@ -59,9 +59,6 @@
 	<fuseaction name="home">
 		<include template="pag_home.cfm"/>
 	</fuseaction>
-	<fuseaction name="insert_rate">
-		<include template="pag_insert_rate_change.cfm"/>
-	</fuseaction>
 	<fuseaction name="invoice">
 		<include template="pag_invoice.cfm"/>
 	</fuseaction>

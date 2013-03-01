@@ -11,10 +11,10 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfinclude template="qry_new_rates.cfm">
 </cfsilent>
-<table align="center" cellpadding="3" cellspacing="0" border="0">
-<cfmodule template="../common_files/dsp_section_title.cfm" title_class="HeadText" section_color="ffffff" section_title="Customer Rate Insert" colspan="2" gutter="false" align="center">
-<cfinclude template="dsp_customer_rate_grid.cfm">
-</table>
-
+<cfif isdefined("attributes.submit")>
+	<!--- insert/update rates into Billing_Rate --->
+	<cfinclude template="act_rate_change.cfm">
+</cfif>
+<cfinclude template="qry_get_billing_rate.cfm">
+<cfinclude template="dsp_rate_change.cfm">

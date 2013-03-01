@@ -33,9 +33,9 @@ WHERE Customer.customer_id=#attributes.customer_id#
 		<cfoutput>
 		<div class="alert alert-error">
 		<cfif NOT comparenocase(cfcatch.message,"ERROR: One or more employees are missing a billing rate.")>
-			<h1>Uh oh</h1>
+			<strong>Uh oh</strong>
 			<p>#cfcatch.message#</p>
-			<a href="index.cfm?fuseaction=Tools.rate_change">Please create the necessary billing rates for customer #get_customer_invoice_details.customer_name#.</a>
+			<p>Please <a href="index.cfm?fuseaction=Tools.rate_change">create the necessary billing rates</a> for #get_customer_invoice_details.customer_name#.</p>
 		<cfelseif variables.user_identification EQ 1>
 			<h1 class="text-error">Database Error</h1>
 			<dl>
