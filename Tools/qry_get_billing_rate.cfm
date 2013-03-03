@@ -17,9 +17,9 @@
 SELECT Project.project_id, Project.description, Project.project_start,
 	Project.project_end, Project_Manager.first_name AS pm_first_name, Project_Manager.last_name AS pm_last_name,
 	Demographics.user_account_id, Demographics.first_name, Demographics.last_name,
-	COALESCE(Billing_Rate.billing_rate_id,0) AS billing_rate_id, Billing_Rate.rate, Billing_Rate.rate_start_date,
-	Billing_Rate.rate_end_date, Rateless_Time_Entry.rateless_count, Rateless_Time_Entry.last_rateless_date,
-	Latest_Billed_Entry.billed_entry_count, Latest_Billed_Entry.last_billed_time_entry_date
+	COALESCE(Billing_Rate.billing_rate_id,0) AS billing_rate_id, Billing_Rate.rate_start_date, Billing_Rate.rate_end_date,
+	Billing_Rate.rate, COALESCE(Rateless_Time_Entry.rateless_count,0) AS rateless_count, Rateless_Time_Entry.last_rateless_date,
+	COALESCE(Latest_Billed_Entry.billed_entry_count,0) AS billed_entry_count, Latest_Billed_Entry.last_billed_time_entry_date
 FROM Project
 	INNER JOIN Link_Project_Company ON Project.project_id=Link_Project_Company.project_id
 		AND Link_Project_Company.active_ind=1
