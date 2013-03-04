@@ -18,3 +18,4 @@
 </cfif>
 <cfinclude template="qry_get_billing_rate.cfm">
 <cfinclude template="dsp_rate_change.cfm">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_project" fuseaction="Customers.edit_project" field_name="project_id" field2_name="option" field2_variable_ind="1">

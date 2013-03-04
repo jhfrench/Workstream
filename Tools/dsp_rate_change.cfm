@@ -11,6 +11,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
+	<cfset variables.project_id=0>
 </cfsilent>
 <cfform id="form_rate_change" action="index.cfm?fuseaction=Tools.rate_change">
 <table class="table table-striped table-bordered table-condensed">
@@ -28,16 +29,22 @@
 		</tr>
 	</thead>
 	<tbody>
-	<cfoutput query="get_billing_rate">		
+	<cfoutput query="get_billing_rate">
 		<tr>
-			<td scope="row">#description# <i class="icon-briefcase" title="Project Manager: #pm_last_name#, #pm_first_name#"></i></td>
+			<td scope="row">
+				#description# 
+				<cfif project_id NEQ variables.project_id>
+					<cfset variables.project_id=project_id>
+					<button class="btn btn-small btn-info popover" title="Project Details" data-toggle="popover" data-placement="right" data-html="true" data-original-title="<h3>Project Details</h3>" data-content="<dl><dt>Project Manager</dt><dd>#pm_last_name#, #pm_first_name#</dd><dt>Project Start</dt><dd>#dateformat(project_start, 'm/d/yyyy')#</dd><dt>Project End</dt><dd>#dateformat(project_end, 'm/d/yyyy')#</dd></dl><a href='javascript:edit_project(#variables.project_id#)' class='btn btn-small'>edit</a>"><i class="icon-briefcase"></i></button>
+				</cfif>
+			</td>
 			<td scope="row">#last_name#, #first_name#</td>
 			<td class="number">
 				<input type="hidden" name="combination_key" value="#project_id#_#user_account_id#_#billing_rate_id#" />
 			<cfif billed_entry_count>
 				<cfset variables.required_text=' required="required"'>
 				<cfset variables.enforced_end=last_billed_time_entry_date>
-				#rate#
+				$#rate#
 				<input type="hidden" name="rate_#project_id#_#user_account_id#_#billing_rate_id#" value="#rate#" />
 			</td>
 			<td class="date">
@@ -46,7 +53,11 @@
 			<cfelse>
 				<cfset variables.required_text="">
 				<cfset variables.enforced_end=project_end>
-				<input type="number" name="rate_#project_id#_#user_account_id#_#billing_rate_id#" id="rate_#project_id#_#user_account_id#_#billing_rate_id#" step="0.25" min="0" value="#rate#" class="span8 number" />
+				<div class="input-prepend input-append">
+					<span class="add-on">$</span>
+					<input type="number" name="rate_#project_id#_#user_account_id#_#billing_rate_id#" id="rate_#project_id#_#user_account_id#_#billing_rate_id#" step="0.25" min="0" value="#rate#" class="span8 number" />
+					<span class="add-on">.00</span>
+				</div>
 			</td>
 			<td class="date">
 				<input type="date" name="rate_start_date_#project_id#_#user_account_id#_#billing_rate_id#" id="rate_start_date_#project_id#_#user_account_id#_#billing_rate_id#" min="#dateformat(project_start, 'yyyy-mm-dd')#" max="#dateformat(dateadd('d',-1,variables.enforced_end), 'yyyy-mm-dd')#" value="#dateformat(rate_start_date, 'yyyy-mm-dd')#" maxlength="10" class="span8 date" />
@@ -60,7 +71,7 @@
 	<cfif billing_rate_id AND rateless_count>
 		<!--- if we have time entries uncovered by a Billing Rate, for a person/project otherwise covered by a billing rate, provide this blank-entry form --->
 		<tr class="error">
-			<td scope="row">#description# <i class="icon-briefcase" title="Project Manager: #pm_last_name#, #pm_first_name#"></i></td>
+			<td scope="row">#description#</td>
 			<td scope="row">#last_name#, #first_name#</td>
 			<td class="number">
 				<input type="hidden" name="combination_key" value="#project_id#_#user_account_id#_0" />
@@ -95,4 +106,7 @@
 	$('#form_rate_change input[type="number"]').change( function(){
 		determine_dates_required(this);
 	} );
+	
+	//instantiate Bootstrap popovers
+	$('.popover').popover();
 </script>
