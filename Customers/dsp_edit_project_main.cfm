@@ -20,6 +20,15 @@
 <cfinclude template="../common_files/qry_get_products.cfm">
 <cfinclude template="../common_files/qry_get_ref_project_status.cfm">
 <cfset variables.linked_companies=valuelist(get_link_project_company.company_id)>
+<cfif len(get_project_main.last_work_date)>
+	<cfset variables.min_project_start=application.application_specific_settings.workstream_start_date>
+	<cfset variables.max_project_start=get_project_main.first_work_date>
+	<cfset variables.min_project_end=get_project_main.last_work_date>
+<cfelse>
+	<cfset variables.min_project_start=application.application_specific_settings.workstream_start_date>
+	<cfset variables.max_project_start=application.application_specific_settings.workstream_start_date>
+	<cfset variables.min_project_end=application.application_specific_settings.workstream_start_date>
+</cfif>
 <cfoutput>
 <cfform name="edit_project_main_form" action="index.cfm?fuseaction=Customers.edit_project" method="post" class="form-horizontal">
 	<fieldset>
@@ -90,15 +99,27 @@
 		<div class="control-group">
 			<label for="project_start" class="control-label">Start</label>
 			<div class="controls">
-				<input type="date" name="project_start" id="project_start" value="#dateformat(get_project_main.project_start,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
-				<p class="help-block">Required; please enter a proper date for which work is to begin on this project.</p>
+				<input type="date" name="project_start" id="project_start" value="#dateformat(get_project_main.project_start,'yyyy-mm-dd')#" min="#dateformat(variables.min_project_start, 'yyyy-mm-dd')#" max="#dateformat(variables.max_project_start, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+				<p class="help-block">Required; please enter a proper date for which work is to begin on this project.<cfif len(get_project_main.last_work_date)> You cannot choose a date after the project's first time entry (#dateformat(get_project_main.first_work_date,'m/d/yyyy')#)</cfif></p>
+				<label class="radio" for="extend_billing_rate_start_ind_1">
+					<input type="radio" name="extend_billing_rate_start_ind" id="extend_billing_rate_start_ind_1" value="1" checked="checked"> Extend active billing rate start dates to match this date
+				</label>
+				<label class="radio" for="">
+					<input type="radio" name="extend_billing_rate_start_ind" id="extend_billing_rate_start_ind_0" value="0"> Leave the billing rates alone
+				</label>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="project_end" class="control-label">End</label>
 			<div class="controls">
-				<input type="date" name="project_end" id="project_end" value="#dateformat(get_project_main.project_end,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
-				<p class="help-block">Optional; date for which work is expected to end on this project.</p>
+				<input type="date" name="project_end" id="project_end" value="#dateformat(get_project_main.project_end,'yyyy-mm-dd')#" min="#dateformat(min_project_end, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+				<p class="help-block">Required; date for which work is expected to end on this project.<cfif len(get_project_main.last_work_date)> You cannot choose a date earlier than the project's last time entry (#dateformat(get_project_main.last_work_date,'m/d/yyyy')#)</cfif></p>
+				<label class="radio" for="extend_billing_rate_end_ind_1">
+					<input type="radio" name="extend_billing_rate_end_ind" id="extend_billing_rate_end_ind_1" value="1" checked="checked"> Extend active billing rate end dates to match this date
+				</label>
+				<label class="radio" for="extend_billing_rate_end_ind_0">
+					<input type="radio" name="extend_billing_rate_end_ind" id="extend_billing_rate_end_ind_0" value="0"> Leave the billing rates alone
+				</label>
 			</div>
 		</div>
 		<div class="control-group">
@@ -113,11 +134,11 @@
 			<label for="status" class="control-label">Health</label>
 			<div class="controls">
 				<!--- $issue$: this should be converted to a REF_Project_Health table. --->
-				<select name="status" id="status" class="span3">
-					<option value="0"<cfif get_project_main.status EQ 0> selected="selected"</cfif>>None</option>
-					<option value="1"<cfif get_project_main.status EQ 1> selected="selected"</cfif>>Good</option>
-					<option value="2"<cfif get_project_main.status EQ 2> selected="selected"</cfif>>Warning</option>
-					<option value="3"<cfif get_project_main.status EQ 3> selected="selected"</cfif>>Danger</option>
+				<select name="project_health_id" id="project_health_id" class="span3">
+					<option value="0"<cfif get_project_main.project_health_id EQ 0> selected="selected"</cfif>>None</option>
+					<option value="1"<cfif get_project_main.project_health_id EQ 1> selected="selected"</cfif>>Good</option>
+					<option value="2"<cfif get_project_main.project_health_id EQ 2> selected="selected"</cfif>>Warning</option>
+					<option value="3"<cfif get_project_main.project_health_id EQ 3> selected="selected"</cfif>>Danger</option>
 				</select>
 				<p class="help-block">What is your impression of the health of the project?</p>
 			</div>
