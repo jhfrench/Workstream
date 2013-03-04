@@ -31,7 +31,7 @@ FROM Project
 	INNER JOIN Demographics ON Link_Company_User_Account.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1
 	INNER JOIN Employee ON Demographics.user_account_id=Employee.user_account_id
-		AND (Employee.start_date, COALESCE(Employee.turnover_date, CURRENT_DATE) OVERLAPS (Project.project_start, Project.project_end)
+		AND (Employee.hire_date, COALESCE(Employee.turnover_date, CURRENT_DATE)) OVERLAPS (Project.project_start, Project.project_end)
 	LEFT OUTER JOIN Billing_Rate ON Demographics.user_account_id=Billing_Rate.user_account_id
 		AND Project.project_id=Billing_Rate.project_id
 		AND Billing_Rate.active_ind=1
