@@ -43,7 +43,6 @@
 				<input type="hidden" name="combination_key" value="#project_id#_#user_account_id#_#billing_rate_id#" />
 			<cfif billed_entry_count>
 				<cfset variables.required_text=' required="required"'>
-				<cfset variables.enforced_end=last_billed_time_entry_date>
 				$#rate#
 				<input type="hidden" name="rate_#project_id#_#user_account_id#_#billing_rate_id#" value="#rate#" />
 			</td>
@@ -52,7 +51,6 @@
 				<input type="hidden" name="rate_start_date_#project_id#_#user_account_id#_#billing_rate_id#" value="#dateformat(rate_start_date, 'yyyy-mm-dd')#" />
 			<cfelse>
 				<cfset variables.required_text="">
-				<cfset variables.enforced_end=project_end>
 				<div class="input-prepend input-append">
 					<span class="add-on">$</span>
 					<input type="number" name="rate_#project_id#_#user_account_id#_#billing_rate_id#" id="rate_#project_id#_#user_account_id#_#billing_rate_id#" step="0.25" min="0" value="#rate#" class="span8 number" />
@@ -60,11 +58,11 @@
 				</div>
 			</td>
 			<td class="date">
-				<input type="date" name="rate_start_date_#project_id#_#user_account_id#_#billing_rate_id#" id="rate_start_date_#project_id#_#user_account_id#_#billing_rate_id#" min="#dateformat(project_start, 'yyyy-mm-dd')#" max="#dateformat(dateadd('d',-1,variables.enforced_end), 'yyyy-mm-dd')#" value="#dateformat(rate_start_date, 'yyyy-mm-dd')#" maxlength="10" class="span8 date" />
+				<input type="date" name="rate_start_date_#project_id#_#user_account_id#_#billing_rate_id#" id="rate_start_date_#project_id#_#user_account_id#_#billing_rate_id#" min="#dateformat(project_start, 'yyyy-mm-dd')#" max="#dateformat(max_rate_start_date, 'yyyy-mm-dd')#" value="#dateformat(rate_start_date, 'yyyy-mm-dd')#" maxlength="10" class="span8 date" />
 			</cfif>
 			</td>
 			<td class="date">
-				<input type="date" name="rate_end_date_#project_id#_#user_account_id#_#billing_rate_id#" id="rate_end_date_#project_id#_#user_account_id#_#billing_rate_id#" min="#dateformat(dateadd('d',1,project_start), 'yyyy-mm-dd')#" max="#dateformat(variables.enforced_end, 'yyyy-mm-dd')#" value="#dateformat(rate_end_date, 'yyyy-mm-dd')#" maxlength="10" #variables.required_text#class="span8 date" />
+				<input type="date" name="rate_end_date_#project_id#_#user_account_id#_#billing_rate_id#" id="rate_end_date_#project_id#_#user_account_id#_#billing_rate_id#" min="#dateformat(min_rate_end_date, 'yyyy-mm-dd')#" max="#dateformat(project_end, 'yyyy-mm-dd')#" value="#dateformat(rate_end_date, 'yyyy-mm-dd')#" maxlength="10" #variables.required_text#class="span8 date" />
 			</td>
 			<td class="number">#billed_entry_count#</td>
 		</tr>
