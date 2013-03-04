@@ -40,13 +40,22 @@
 			<td scope="row">#description# <i class="icon-briefcase" title="Project Manager: #pm_last_name#, #pm_first_name#"></i></td>
 			<td scope="row">#last_name#, #first_name#</td>
 			<td class="number">
+				<input type="hidden" name="combination_key" value="#project_id#_#user_account_id#_#billing_rate_id#" />
+			<cfif billed_entry_count>
 				#rate#
+				<input type="hidden" name="rate_#project_id#_#user_account_id#_#billing_rate_id#" value="#rate#" />
 			</td>
 			<td class="date">
 				#dateformat(rate_start_date, 'm/d/yyyy')#
+				<input type="hidden" name="rate_start_date_#project_id#_#user_account_id#_#billing_rate_id#" value="#dateformat(rate_start_date, 'yyyy-mm-dd')#" />
+			<cfelse>
+				<input type="number" name="rate_#project_id#_#user_account_id#_#billing_rate_id#" id="rate_#project_id#_#user_account_id#_#billing_rate_id#" step="0.25" min="0" value="#rate#" #variables.required_text#class="span8 number" />
 			</td>
 			<td class="date">
-				<input type="hidden" name="combination_key" value="#project_id#_#user_account_id#_#billing_rate_id#" />
+				<input type="date" name="rate_start_date_#project_id#_#user_account_id#_#billing_rate_id#" id="rate_start_date_#project_id#_#user_account_id#_#billing_rate_id#" min="#dateformat(project_start, 'yyyy-mm-dd')#" max="#dateformat(dateadd('d',-1,variables.enforced_end), 'yyyy-mm-dd')#" value="#dateformat(rate_start_date, 'yyyy-mm-dd')#" maxlength="10" #variables.required_text#class="span5 date" />
+			</cfif>
+			</td>
+			<td class="date">
 				<input type="date" name="rate_end_date_#project_id#_#user_account_id#_#billing_rate_id#" id="rate_end_date_#project_id#_#user_account_id#_#billing_rate_id#" min="#dateformat(dateadd('d',1,project_start), 'yyyy-mm-dd')#" max="#dateformat(variables.enforced_end, 'yyyy-mm-dd')#" value="#dateformat(rate_end_date, 'yyyy-mm-dd')#" maxlength="10" #variables.required_text#class="span8 date" />
 			</td>
 			<td class="number">#billed_entry_count#</td>
