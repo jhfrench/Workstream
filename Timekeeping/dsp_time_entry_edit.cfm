@@ -59,14 +59,12 @@
 			<label for="work_date" class="control-label">Date</label>
 			<div class="controls">
 				<input type="date" name="work_date" id="work_date" min="#dateformat(get_date_locked.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(time_entry_edit.work_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
-				<!-- LET CF create the validation JS <cfinput type="text" name="date" required="yes" message="Please enter a valid date for this task"> -->
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="hours" class="control-label">Hours Worked</label>
 			<div class="controls">
 				<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" value="#decimalformat(time_entry_edit.hours)#" class="span3" />
-				<!-- let CF create the JavaScript: <cfinput type="text" name="hours" id="hours" required="yes" validate="float" message="You must enter hours, as a number, for a time keeping entry. If you wish to delete a task, mark the delete checkbox." /> -->
 			</div>
 		</div>
 		<div class="control-group">
