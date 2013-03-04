@@ -18,7 +18,7 @@
 	<cfset variables.user_account_id=listgetat(variables.key_ii,2,"_")>
 	<cfset variables.billing_rate_id=listlast(variables.key_ii,"_")>
 	<cfset variables.rate=evaluate("attributes.rate_#variables.project_id#_#variables.user_account_id#_#variables.billing_rate_id#")>
-	<cfif len(rate)>
+	<cfif len(variables.rate)>
 		<cfset variables.rate_start_date=createodbcdate(evaluate("attributes.rate_#variables.project_id#_#variables.user_account_id#_#variables.billing_rate_id)#")>
 		<cfset variables.rate_end_date=createodbcdate(evaluate("attributes.rate_#variables.project_id#_#variables.user_account_id#_#variables.billing_rate_id)#")>
 		<cfquery name="update_billing_rate" datasource="#application.datasources.main#">
