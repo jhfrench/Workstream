@@ -18,7 +18,7 @@
 <h2>Edit Project for <a href="javascript:project_list('#get_customer_name_code.root_code#');" title="View other projects for this customer.">#get_customer_name_code.project_name#</a>&ndash;#get_customer_name_code.project_code#</h2>
 <dl>
 	<dt><a href="javascript:edit_project(1);">Main project details</a></dt>
-	<dd>Project code, name, status, visible-to, mission, vision, business case</dd>
+	<dd>Project code, name, health, status, visible-to, mission, vision, business case</dd>
 	<dt><a href="javascript:edit_project(2);">Billing information</a></dt>
 	<dd>Work start and end, billing type, budget, etc</dd>
 	<dt><a href="javascript:edit_project(3);">Custom fields</a></dt>

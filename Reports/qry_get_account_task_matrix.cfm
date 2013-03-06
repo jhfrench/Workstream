@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 <cfquery name="get_account_task_matrix" datasource="#application.datasources.main#">
 SELECT Task.task_id, (Customer.description || '-' || Project.description) AS project_name, Task.name AS task_name,
-	REF_Task_Status.description AS status, REF_Priority.description AS priority, Task.assigned_date,
+	REF_Task_Status.description AS task_status, REF_Priority.description AS priority, Task.assigned_date,
 	Task.due_date, Task.complete_date, Demographics.first_name AS owner
 FROM Task
 	INNER JOIN Project ON Task.project_id=Project.project_id

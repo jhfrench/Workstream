@@ -47,6 +47,7 @@
 				<option value ="#user_account_id#"<cfif attributes.project_manager_id EQ user_account_id> selected="selected"</cfif>>#last_name#</option>
 			</cfoutput>
 		</select>
+		<!--- $issue$: #convert this to a jQuery client-side table sort --->
 		<label for="sort">Sort option</label>
 		<select name="sort" class="span2">
 			<option value="Customer.description, Project.description">select sort variable</option>
@@ -56,8 +57,8 @@
 			<option value="last_name DESC"><abbr title="project manager">PM</abbr> - descending</option>
 			<option value="project_end">Due Date</option>
 			<option value="project_end DESC">Due Date - descending</option>
-			<option value="status">Status</option>
-			<option value="status DESC">Status - descending</option>
+			<option value="project_status">Status</option>
+			<option value="project_status DESC">Status - descending</option>
 			<option value="Project.budget">Budgeted</option>
 			<option value="Project.budget DESC">Budgeted - descending</option>
 			<option value="Project.date_updated">Updated</option>

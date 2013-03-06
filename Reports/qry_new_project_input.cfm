@@ -20,4 +20,3 @@ WHERE Link_Customer_Company.company_id IN (#session.workstream_selected_company_
 ORDER BY customer_name
 </cfquery>
 </cfsilent>
-

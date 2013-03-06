@@ -19,6 +19,7 @@
 <cfinclude template="../common_files/qry_get_link_project_company.cfm">
 <cfinclude template="../common_files/qry_get_products.cfm">
 <cfinclude template="../common_files/qry_get_ref_project_status.cfm">
+<cfinclude template="../common_files/qry_get_ref_project_health.cfm">
 <cfset variables.linked_companies=valuelist(get_link_project_company.company_id)>
 <cfif len(get_project_main.last_work_date)>
 	<cfset variables.min_project_start=application.application_specific_settings.workstream_start_date>
@@ -133,20 +134,14 @@
 		<div class="control-group">
 			<label for="status" class="control-label">Health</label>
 			<div class="controls">
-				<!--- $issue$: this should be converted to a REF_Project_Health table. --->
-				<select name="project_health_id" id="project_health_id" class="span3">
-					<option value="0"<cfif get_project_main.project_health_id EQ 0> selected="selected"</cfif>>None</option>
-					<option value="1"<cfif get_project_main.project_health_id EQ 1> selected="selected"</cfif>>Good</option>
-					<option value="2"<cfif get_project_main.project_health_id EQ 2> selected="selected"</cfif>>Warning</option>
-					<option value="3"<cfif get_project_main.project_health_id EQ 3> selected="selected"</cfif>>Danger</option>
-				</select>
+				<cfselect name="project_health_id" id="project_health_id" query="get_ref_project_health" value="project_health_id" display="description" selected="#get_project_main.project_health_id#" class="span3" />
 				<p class="help-block">What is your impression of the health of the project?</p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="project_status_id" class="control-label">Progress</label>
 			<div class="controls">
-				<cfselect id="project_status_id" query="get_ref_project_status" name="project_status_id" value="project_status_id" display="description" selected="#get_project_main.project_status_id#" class="span3" />
+				<cfselect name="project_status_id" id="project_status_id" query="get_ref_project_status" value="project_status_id" display="description" selected="#get_project_main.project_status_id#" class="span3" />
 				<p class="help-block">What is the project's current work status?</p>
 			</div>
 		</div>

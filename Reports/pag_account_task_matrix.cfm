@@ -37,7 +37,7 @@
 			<td><a href="javascript:task_jump('#task_id#');">#task_name#</a></td>
 			<td class="hidden-phone hidden-tablet">#project_name#</td>
 			<td class="hidden-phone">#priority#</td>
-			<td>#status#</td>
+			<td>#task_status#</td>
 			<td class="date">#dateformat(assigned_date,"m/d/yyyy")#</td>
 			<td class="date">#dateformat(due_date,"m/d/yyyy")#</td>
 			<td class="date">#dateformat(complete_date,"m/d/yyyy")#</td>

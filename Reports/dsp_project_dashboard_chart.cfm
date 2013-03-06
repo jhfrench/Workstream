@@ -46,23 +46,7 @@
 				</cfif>
 			</td>
 			<td>
-				<!--- $issue$: this should be converted to a REF_Project_Health table. --->
-				<!--- Show status color image and set status color variable based on the status code--->
-				<cfswitch expression="#status#">
-					<cfcase value="0">
-						<span class="badge badge-default"><i class="icon-question-sign icon-white"></i></span> Unknown
-					</cfcase>
-					<cfcase value="1">
-						<span class="badge badge-success"><i class="icon-star icon-white"></i></span> Good
-					</cfcase>
-					<cfcase value="2">
-						<span class="badge badge-warning"><i class="icon-flag icon-white"></i></span> Caution
-					</cfcase>
-					<cfdefaultcase>
-						<!--- No status so display a red so I get attention --->
-						<span class="badge badge-important"><i class="icon-fire icon-white"></i></span> Danger
-					</cfdefaultcase>
-				</cfswitch>
+				<span class="badge badge-#badge#"><i class="icon-#icon# icon-white"></i></span> #project_health#
 			</td>
 			<td>
 				#project_status#

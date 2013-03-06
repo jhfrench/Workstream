@@ -25,8 +25,7 @@ SET active_ind=<cfqueryparam cfsqltype="cf_sql_integer" value="##attributes.acti
 	mission='#attributes.mission#',
 	project_end='#dateformat(attributes.project_end, "yyyy-mm-dd")#',
 	project_manager_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_manager_id#">,
-	project_start='#dateformat(attributes.project_start, "yyyy-mm-dd")#',
-	status=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_health_id#">
+	project_start='#dateformat(attributes.project_start, "yyyy-mm-dd")#'
 WHERE project_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#">;
 
 UPDATE Link_Project_Project_Status
@@ -36,6 +35,14 @@ WHERE active_ind=1
 
 INSERT INTO Link_Project_Project_Status(project_id, project_status_id, created_by)
 VALUES(<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_status_id#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#">);
+
+UPDATE Link_Project_Project_Health
+SET active_ind=0
+WHERE active_ind=1
+	AND project_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#">;
+
+INSERT INTO Link_Project_Project_Health(project_id, project_health_id, created_by)
+VALUES(<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_health_id#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#">);
 
 UPDATE Link_Project_Company
 SET active_ind=0
@@ -86,5 +93,3 @@ WHERE Billing_Rate.project_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#a
 	AND Billing_Rate.rate_end_date=Active_Rate.rate_end_date;
 </cfif>
 </cfquery>
-
-
