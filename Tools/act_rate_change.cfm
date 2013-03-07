@@ -25,7 +25,7 @@
 			<cfif variables.billing_rate_id>
 			UPDATE Billing_Rate
 			SET rate=<cfqueryparam cfsqltype="cf_sql_numeric" value="#variables.rate#">,
-				rate_start_date=<cfqueryparam cfsqltype="cf_sql_date" value="#variables.rate_start_date#">
+				rate_start_date=<cfqueryparam cfsqltype="cf_sql_date" value="#variables.rate_start_date#">,
 				rate_end_date=<cfqueryparam cfsqltype="cf_sql_date" value="#variables.rate_end_date#">
 			WHERE billing_rate_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#variables.billing_rate_id#">
 				AND (
