@@ -51,10 +51,9 @@
 				<input type="hidden" name="rate_start_date_#project_id#_#user_account_id#_#billing_rate_id#" value="#dateformat(rate_start_date, 'yyyy-mm-dd')#" />
 			<cfelse>
 				<cfset variables.required_text="">
-				<div class="input-prepend input-append">
+				<div class="input-prepend">
 					<span class="add-on">$</span>
 					<input type="number" name="rate_#project_id#_#user_account_id#_#billing_rate_id#" id="rate_#project_id#_#user_account_id#_#billing_rate_id#" step="0.25" min="0" value="#rate#" class="span8 number" />
-					<span class="add-on">.00</span>
 				</div>
 			</td>
 			<td class="date">
@@ -73,7 +72,10 @@
 			<td scope="row">#last_name#, #first_name#</td>
 			<td class="number">
 				<input type="hidden" name="combination_key" value="#project_id#_#user_account_id#_0" />
-				<input type="number" name="rate_#project_id#_#user_account_id#_0" id="rate_#project_id#_#user_account_id#_0" step="0.25" min="0" value="" class="span8 number" />
+				<div class="input-prepend">
+					<span class="add-on">$</span>
+					<input type="number" name="rate_#project_id#_#user_account_id#_0" id="rate_#project_id#_#user_account_id#_0" step="0.25" min="0" value="" class="span8 number" />
+				</div>
 			</td>
 			<td class="date">
 				<input type="date" name="rate_start_date_#project_id#_#user_account_id#_0" id="rate_start_date_#project_id#_#user_account_id#_0" min="#dateformat(project_start, 'yyyy-mm-dd')#" max="#dateformat(dateadd('d',-1,project_end), 'yyyy-mm-dd')#" value="" maxlength="10" class="span8 date" />
