@@ -18,7 +18,7 @@ SELECT Customer.description AS customer,
 	SUM(CASE WHEN Link_Project_Project_Health.project_health_id=2 THEN COALESCE(Project.budget,1) ELSE 0 END) AS green_count,
 	SUM(CASE WHEN Link_Project_Project_Health.project_health_id=3 THEN COALESCE(Project.budget,1) ELSE 0 END) AS yellow_count,
 	SUM(CASE WHEN Link_Project_Project_Health.project_health_id=4 THEN COALESCE(Project.budget,1) ELSE 0 END) AS red_count,
-	COUNT(Link_Project_Project_Health.project_health_id) AS total_count
+	SUM(COALESCE(Project.budget,1)) AS total_count
 FROM Project
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	INNER JOIN Link_Project_Project_Health ON Project.project_id=Link_Project_Project_Health.project_id
