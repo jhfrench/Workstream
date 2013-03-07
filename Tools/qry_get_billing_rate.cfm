@@ -19,7 +19,7 @@ SELECT Project.project_id, Project.description, Project.project_start,
 	Demographics.user_account_id, Demographics.first_name, Demographics.last_name,
 	COALESCE(Billing_Rate.billing_rate_id,0) AS billing_rate_id, Billing_Rate.rate_start_date, Billing_Rate.rate_end_date,
 	Billing_Rate.rate, COALESCE(Rateless_Time_Entry.rateless_count,0) AS rateless_count, Rateless_Time_Entry.last_rateless_date,
-	COALESCE(Billed_Entries.billed_entry_count,0) AS billed_entry_count, LEAST(Project.project_end-1, Billed_Entries.first_billed_time_entry_date) AS max_rate_start_date, GREATEST(Project.project_start+1, Billed_Entries.last_billed_time_entry_date) AS min_rate_end_date
+	COALESCE(Billed_Entries.billed_entry_count,0) AS billed_entry_count, LEAST(Project.project_end-1, Billed_Entries.first_billed_Time_entry_date) AS max_rate_start_date, GREATEST(Project.project_start+1, Billed_Entries.last_billed_Time_entry_date) AS min_rate_end_date
 FROM Project
 	INNER JOIN Link_Project_Company ON Project.project_id=Link_Project_Company.project_id
 		AND Link_Project_Company.active_ind=1
@@ -37,8 +37,8 @@ FROM Project
 		AND Billing_Rate.active_ind=1
 	LEFT OUTER JOIN (
 	/*gets data for time entries that can't be billed because we haven't assigned a rate*/
-		SELECT Time_Entry.project_id, TIme_Entry.user_account_id,
-			COUNT(Time_Entry.time_entry_id) AS rateless_count, MAX(Time_Entry.work_date) AS last_rateless_date
+		SELECT Time_Entry.project_id, Time_Entry.user_account_id,
+			COUNT(Time_Entry.Time_entry_id) AS rateless_count, MAX(Time_Entry.work_date) AS last_rateless_date
 		FROM Time_Entry
 			LEFT OUTER JOIN Billing_Rate ON Time_Entry.user_account_id=Billing_Rate.user_account_id
 				AND Time_Entry.project_id=Billing_Rate.project_id
@@ -46,15 +46,15 @@ FROM Project
 				AND Billing_Rate.active_ind=1
 		WHERE Time_Entry.active_ind=1
 			AND COALESCE(Billing_Rate.billing_rate_id,0)=0
-		GROUP BY Time_Entry.project_id, TIme_Entry.user_account_id
+		GROUP BY Time_Entry.project_id, Time_Entry.user_account_id
 	) AS Rateless_Time_Entry ON Project.project_id=Rateless_Time_Entry.project_id
 		AND Demographics.user_account_id=Rateless_Time_Entry.user_account_id
 	LEFT OUTER JOIN (
 	/*gets oldest time entry that has been billed*/
-		SELECT Time_Entry.project_id, Time_Entry.user_account_id, COUNT(Time_Entry.time_entry_id) AS billed_entry_count,
-			MIN(Time_Entry.work_date) AS first_billed_time_entry_date, MAX(Time_Entry.work_date) AS last_billed_time_entry_date
+		SELECT Time_Entry.project_id, Time_Entry.user_account_id, COUNT(Time_Entry.Time_entry_id) AS billed_entry_count,
+			MIN(Time_Entry.work_date) AS first_billed_Time_entry_date, MAX(Time_Entry.work_date) AS last_billed_Time_entry_date
 		FROM Time_Entry
-			INNER JOIN Link_Invoice_Time_Entry ON Time_Entry.time_entry_id=Link_Invoice_Time_Entry.time_entry_id
+			INNER JOIN Link_Invoice_Time_Entry ON Time_Entry.Time_entry_id=Link_Invoice_Time_Entry.Time_entry_id
 				AND Link_Invoice_Time_Entry.active_ind=1
 		WHERE Time_Entry.active_ind=1
 		GROUP BY Time_Entry.project_id, Time_Entry.user_account_id
@@ -62,7 +62,10 @@ FROM Project
 		AND Billing_Rate.user_account_id=Billed_Entries.user_account_id
 WHERE Project.active_ind=1
 	AND Project.billable_type_id=1<cfif isdefined("attributes.project_id")>
-	AND Project.project_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#" null="false"></cfif>
+	AND Project.project_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#"></cfif>
+	/*only show active employees, or previous employees who still have un-billed time*/
+	AND (COALESCE(Employee.turnover_date, NOW()) > CURRENT_DATE
+		OR COALESCE(Rateless_Time_Entry.rateless_count,0)!=0)
 ORDER BY Project.description, Demographics.last_name, Demographics.first_name,
 	Billing_Rate.rate_start_date, Billing_Rate.rate_end_date
 </cfquery>
