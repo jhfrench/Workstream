@@ -119,7 +119,7 @@
 	</div>
 	<div class="content">
 		<p>#variables.error_message#</p>
-		<p>If you aren't redirected shortly, please <a href="#variables.new_location#" id="manual_link">sign in</a>.</p>
+		<p>If you aren't redirected shortly, please <a href="#variables.new_location#" id="manual_link" rel="prefetch">sign in</a>.</p>
 	</div>
 </section>
 <form id="security_redirect" action="#variables.new_location#" method="post">
