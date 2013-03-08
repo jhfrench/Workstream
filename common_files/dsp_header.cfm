@@ -77,7 +77,7 @@ else
 		},
 		{
 			load: [
-				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js'
+				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js'
 			],
 			complete: function(){
 				if ( !window.jQuery.support ) {
