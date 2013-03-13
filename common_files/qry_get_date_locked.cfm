@@ -17,7 +17,7 @@
 <cfquery name="get_date_locked" datasource="#application.datasources.main#">
 SELECT COALESCE(MAX(Billing_History.created_date), CURRENT_DATE+INTERVAL '-40 days') AS date_locked
 FROM Billing_History
-	INNER JOIN Link_Project_Company ON Billing_History.project_id=Link_Project_Company.project_id<!--- $issue$: isn't Link_Project_Company redundant to Link_Customer_Company? --->
+	INNER JOIN Link_Project_Company ON Billing_History.project_id=Link_Project_Company.project_id
 		AND Link_Project_Company.active_ind=1<cfif isdefined("attributes.project_id")>
 		AND Link_Project_Company.project_id=#attributes.project_id#</cfif><cfif isdefined("attributes.selected_company_id")>
 		AND Link_Project_Company.company_id IN (#attributes.selected_company_id#)</cfif>

@@ -91,14 +91,13 @@ WHERE customer_id=#attributes.customer_id#
 <!--- Update the visible to table, by deleting all the existing entries and then looping through the list of companies that 
 the customer is visible to and insert them into the table. --->
 <cfset attributes.visible_to_company_id=listappend(0,attributes.visible_to_company_id)>
-<cfquery name="delete_link_customer_company" datasource="#application.datasources.main#">
+<cfquery name="update_link_customer_company" datasource="#application.datasources.main#">
 UPDATE Link_Customer_Company
 SET active_ind=0
 WHERE active_ind=1
 	AND customer_id=#attributes.customer_id#
-	AND company_id NOT IN (#attributes.visible_to_company_id#)
-</cfquery>
-<cfquery name="insert_link_customer_company" datasource="#application.datasources.main#">
+	AND company_id NOT IN (#attributes.visible_to_company_id#);
+
 INSERT INTO Link_Customer_Company (customer_id, company_id, created_by)
 SELECT #attributes.customer_id#, company_id, #variables.user_identification#
 FROM REF_Company

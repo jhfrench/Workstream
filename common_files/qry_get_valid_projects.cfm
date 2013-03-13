@@ -9,7 +9,7 @@
 	Name: Jeromy French
 	||
 	Edits:
-	(2/18/13 | JF) Removing nuance from valid project look-up that used to specify companies could only se their own non-billable projects. Instead, project visibility to companies will be determined by Link_Project_Company.
+	(2/18/13 | JF) Removing nuance from valid project look-up that used to specify companies could only see their own non-billable projects. Instead, project visibility to companies will be determined by Link_Project_Company.
 	$Log$
 	 || 
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
@@ -39,16 +39,9 @@ FROM Customer
 		SELECT project_id
 		FROM Link_Project_Company
 		WHERE active_ind=1
-			AND company_id IN (#variables.valid_codes#)
+			AND company_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#variables.valid_codes#" list="true">)
 		GROUP BY project_id
 	) AS Link_Project_Company ON Project.project_id=Link_Project_Company.project_id
-	INNER JOIN (
-		SELECT customer_id
-		FROM Link_Customer_Company
-		WHERE active_ind=1
-			AND company_id IN (#variables.valid_codes#)
-		GROUP BY customer_id
-	) AS Link_Customer_Company ON Customer.customer_id=Link_Customer_Company.customer_id
 ORDER BY Customer.sort_order, display
 </cfquery>
 </cfsilent>
