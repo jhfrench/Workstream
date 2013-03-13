@@ -20,6 +20,7 @@
 <cfparam name="attributes.align" default="left">
 <cfset variables.colspan=max(attributes.colspan-1,1)>
 </cfsilent>
+<!--- $issue$: anything that uses this hasn't been Bootstrapped --->
 <cfoutput>
 	<tr bgcolor="###attributes.section_color#" class="#attributes.title_class#">
 		<cfif attributes.gutter><td colspan="1" width="1" valign="bottom" class="#attributes.title_class#">
