@@ -19,7 +19,9 @@
 	</IO>
 </fusedoc>
 --->
-<cfmail from="#application.application_specific_settings.system_email_sender#" replyto="#attributes.reply_to#" to="#attributes.reply_to#" bcc="#variables.email_recipients#" failto="#attributes.reply_to#" subject="#attributes.subject#" server="#application.email_server_name#" type="text">
+<cfmail from="#application.application_specific_settings.system_email_sender#" replyto="#attributes.reply_to#" to="#attributes.reply_to#" bcc="#variables.email_recipients#" failto="#attributes.reply_to#" subject="#attributes.subject#" type="text"
+		server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
+		port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 #attributes.email_body#
 
 <cfif len(attributes.upload_id)>

@@ -237,7 +237,9 @@
 	<!--- This is the email that the error causes to be sent. --->
 	<cfif len(application.support_email_recipients) AND len(application.email_server_name)>
 		<!-- email sent to <cfoutput>#application.support_email_recipients#, from #application.erroremailfrom# by server #application.email_server_name#</cfoutput> -->
-		<cfmail to="#application.support_email_recipients#" from="#application.erroremailfrom#" subject="#application.product_name# Tech Support Problem" server="#application.email_server_name#" type="HTML">
+		<cfmail to="#application.support_email_recipients#" from="#application.erroremailfrom#" subject="#application.product_name# Tech Support Problem" type="HTML"
+			server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
+			port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 		<html>
 		<head>
 			<title>HITSS Application Error</title>

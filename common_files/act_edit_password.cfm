@@ -38,13 +38,15 @@
 
 <cfif get_user_information.recordcount EQ 1 AND len(get_user_information.email_address)>
 	<cfset variables.url_to_application="https://#cgi.http_host##cgi.script_name#">
-	<cfmail to="#get_user_information.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# Password Reset" server="#application.email_server_name#" type="html">
+	<cfmail to="#get_user_information.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# Password Reset" type="HTML"
+		server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
+		port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 <p>Your #application.product_name# password has been set to:
 	<ul>#attributes.password#</ul>
 </p>
 
 <p>Please cut-and-paste the above text into the password field on the #application.product_name# sign in screen.<br />
 As a security feature, #application.product_name# will require you to change your password after you sign in. You may sign in at <a href="#variables.url_to_application#">#variables.url_to_application#</a></p>
-<p>Please contact the Help Desk<!--- $issue$: contact info   at 202-358-HELP(4357)---> if you did not request your password to be reset.</p>
+<p>Please contact your #application.product_name# administrator if you did not request your password to be reset.</p>
 	</cfmail>
 </cfif>

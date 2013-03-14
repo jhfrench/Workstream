@@ -45,7 +45,10 @@
 <cfif get_active_employee_email.recordcount>
 	<cfloop query="get_active_employee_email" startrow="1" endrow="#endrow#">
 		<!--- @ debug: <cfoutput>#evaluate(variables.email_name)#</cfoutput><br /> --->
-		<cfmail to="#evaluate(variables.email_name)#" from="#application.application_specific_settings.system_email_sender# " subject="Monthly Contacts Change Enquiry" server="#application.email_server_name#" type="HTML">
+		<!--- $issue$: need to give recipient of this message an "out" so they can stop receiving these notifications --->
+		<cfmail to="#evaluate(variables.email_name)#" from="#application.application_specific_settings.system_email_sender# " subject="Monthly Contacts Change Enquiry" type="HTML"
+			server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
+			port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 		<p>Dear #fname# #last_name#,<br />
 		This is a monthly email sent to remind you to review your personal and employee data in #application.product_name#. Please <a href="#variables.directory_url#">make any necessary modifications</a>.</p>
 		<p>Thank you.</p>

@@ -62,7 +62,10 @@ FROM Task
 WHERE Task.task_id=#task_id#
 </cfquery>
 <cfset variables.cc_list=valuelist(get_cc.email_to)>
-<cfmail from="#application.application_specific_settings.system_email_sender#" to="#email_to#" cc="#variables.cc_list#" subject="workstream Task Reminder: #task_name#" server="#application.email_server_name#">
+<!--- $issue$: need to give recipient of this message an "out" so they can stop receiving these notifications --->
+<cfmail from="#application.application_specific_settings.system_email_sender#" to="#email_to#" cc="#variables.cc_list#" subject="workstream Task Reminder: #task_name#" type="HTML"
+	server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
+	port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 <cfmailparam name="Reply-To" value="#email_from#">
 #first_name#,
 The following task will be due in #datediff("d",now(),dateadd("d",1,due_date))# day<cfif countdown NEQ 1>s</cfif>: 

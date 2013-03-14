@@ -95,7 +95,9 @@
 	<!--- only send if requested and if we know the asker's email address --->
 		<cfif attributes.email_requested_ind AND len(attributes.asker_email_address)>
 			<!-- email sent to <cfoutput>#attributes.asker_email_address#, from #application.application_specific_settings.system_email_sender# by server #application.email_server_name#</cfoutput> -->
-			<cfmail to="#attributes.asker_email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# FAQ Answer" server="#application.email_server_name#" type="html">
+			<cfmail to="#attributes.asker_email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# FAQ Answer" type="HTML"
+				server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
+				port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 			Your question to the #application.product_name# system has been answered.<p />
 
 			Your question:<br />
@@ -111,7 +113,9 @@
 
 		<!--- Let the other Help admins know that the question was answered--->
 		<cfif len(variables.help_email_recipients)>
-			<cfmail to="#variables.help_email_recipients#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# FAQ Answered" server="#application.email_server_name#" type="html">
+			<cfmail to="#variables.help_email_recipients#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# FAQ Answered" type="HTML"
+				server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
+				port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 			FYI: the following question to the #application.product_name# system was answered by #session.first_name# #session.last_name#.<p />
 
 			Question:<br />

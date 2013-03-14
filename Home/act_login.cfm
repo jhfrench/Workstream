@@ -108,10 +108,12 @@ VALUES (1, '#variables.encrypted_password#')
 			<cfinclude template="../common_files/qry_deactivate_user_account_status.cfm">
 			<cfinclude template="../common_files/qry_insert_link_user_account_status.cfm">
 		</cfif>
-		<cfmail to="#get_username.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# Account Locked" server="#application.email_server_name#">
+		<cfmail to="#get_username.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# Account Locked" type="HTML"
+			server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
+			port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 Your #application.product_name# '#attributes.user_name#' account has been locked.
 
-Please contact the Help Desk <!--- $issue$: contact info at 202-358-HELP(4357)  ---> to re-activate your account or if you did not attempt to sign in.
+Please contact your #application.product_name# administrator to re-activate your account or if you did not attempt to sign in.
 		</cfmail>
 	</cfif>
 </cfif>

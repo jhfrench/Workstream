@@ -48,7 +48,12 @@
 			application.active_ind=qry_get_application_basic_details.active_ind;
 			application.application_full_name=qry_get_application_basic_details.application_name;
 			application.browser_navigation_enabled_ind=qry_get_application_basic_details.browser_navigation_enabled_ind;
+			application.email_password=qry_get_application_basic_details.email_password;
+			application.email_port=qry_get_application_basic_details.email_port;
 			application.email_server_name=qry_get_application_basic_details.email_server_name;
+			application.email_username=qry_get_application_basic_details.email_username;
+			application.email_usessl=qry_get_application_basic_details.email_usessl;
+			application.email_usetls=qry_get_application_basic_details.email_usetls;
 			application.environment_name=qry_get_application_basic_details.environment_name;
 			application.error_handling_enabled_ind=qry_get_application_basic_details.error_handling_enabled_ind;
 			application.host_server_name=qry_get_application_basic_details.host_server_name;

@@ -25,7 +25,9 @@ SELECT Installation.installation_id, Installation.application_name, Installation
 	Product.applicationtimeout, Product.clientmanagement, Product.clientstorage,
 	Product.scriptprotect, Product.sessionmanagement, Product.sessiontimeout,
 	Product.setclientcookies, Product.setdomaincookies, Product_Version.product_release_version,
-	REF_Email_Server.email_server_name, REF_Environment.environment_name, REF_Host_Server.host_server_name
+	REF_Environment.environment_name, REF_Host_Server.host_server_name, REF_Email_Server.email_server_name,
+	REF_Email_Server.email_port, REF_Email_Server.email_username, REF_Email_Server.email_password,
+	REF_Email_Server.email_usessl, REF_Email_Server.email_usetls
 FROM Installation
 	INNER JOIN Installation_URL ON Installation.installation_id=Installation_URL.installation_id
 	INNER JOIN Product ON Installation.product_id=Product.product_id
