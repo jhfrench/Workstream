@@ -14,6 +14,6 @@
  --->
 <cfquery name="get_revenue_goal" datasource="#application.datasources.main#">
 SELECT *
-FROM get_revenue_goal(#session.workstream_company_id#)
+FROM get_revenue_goal(<cfqueryparam value="#session.workstream_company_id#" cfsqltype="cf_sql_integer">
 </cfquery>
 </cfsilent>
