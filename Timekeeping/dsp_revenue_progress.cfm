@@ -13,7 +13,7 @@
  --->
 </cfsilent>
 <cfsavecontent variable="variables.chart_under_menu">
-	<cfchart chartHeight="140" chartWidth="220" font="Trebuchet MS" fontsize="11" fontBold="yes" show3D="yes" showLegend="no" seriesplacement="stacked">
+	<cfchart chartHeight="140" chartWidth="350" font="Trebuchet MS" fontsize="11" fontBold="no" show3D="yes" showLegend="no" seriesplacement="stacked">
 	    <cfchartseries type="line" query="get_revenue_goal" valueColumn="revenue_goal" itemColumn="fiscal_year" dataLabelStyle="none" seriescolor="##5A9A00" />
 		<cfchartseries type="bar" query="get_revenue_goal" valueColumn="hourly_revenue" itemColumn="fiscal_year" seriescolor="##005B9A" />
 		<cfchartseries type="bar" query="get_revenue_goal" valueColumn="flat_revenue" itemColumn="fiscal_year" seriescolor="##0191C8" />
