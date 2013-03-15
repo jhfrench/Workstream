@@ -27,9 +27,11 @@
 			</div>
 		</fieldset>
 	</div>
+	<cfif get_project_timelines.recordcount>
 	<div class="control-group">
 		<div class="controls">
 			<button type="submit" class="btn btn-primary">View details</button>
 		</div>
 	</div>
+	</cfif>
 </cfform>
