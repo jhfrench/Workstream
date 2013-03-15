@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	 || 
-	--> application.application_specific_settings.image_dir: string that contains main path to the folder where all images are kept
 	--> due_date: date when task is due
 	--> task_id: unique number that identifies task entry
 	--> task_name: name or title of the task
@@ -27,9 +26,6 @@
 	--> percent_used_hours: number showing the amount of time used divided by the amount of time budgeted, shown only if time was budgeted
 	--> task_status: string that indicates the task status
  --->
-<cfset variables.quote='"'>
-<cfset variables.status_message_replace="',#variables.quote#">
-<cfset variables.status_message_replace_with=",">
 </cfsilent>
 <cfif get_task_list.recordcount>
 <tbody>
@@ -38,7 +34,7 @@
 	<tr>
 		<td scope="row">#task_id#</td>
 		<td class="hidden-phone hidden-tablet"><abbr title="#task_owner_full_name#">#task_owner#</abbr></td>
-		<td><a href="javascript:list_to_task('#task_id#');" title="View time details for #variables.status_message#."><i class="#task_icon# hidden-phone" title="#replacelist(left(task_description, 150), variables.quote, variables.status_message_replace_with)#..."></i>#task_name#</a></td>
+		<td><a href="javascript:list_to_task('#task_id#');" title="View time details for #variables.status_message#."><i class="#task_icon# hidden-phone" title="#replacelist(left(task_description, 150), '"', '')#..."></i>#task_name#</a></td>
 		<td class="hidden-phone hidden-tablet">#project_name#</td>
 		<td class="hidden-phone">#priority#</td>
 		<td class="hidden-phone"><a href="javascript:list_to_time('#task_id#');" title="View time details for #variables.status_message#."><cfif listlen(used_hours) GT 1 AND listgetat(used_hours,2,".") GT 0>#decimalformat(used_hours)#<cfelse>#numberformat(used_hours)#</cfif><cfif budgeted_hours>/#budgeted_hours# #numberformat((used_hours/budgeted_hours)*100)#%</cfif></a></td>

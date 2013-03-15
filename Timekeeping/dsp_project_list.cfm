@@ -11,7 +11,6 @@
 	Edits:
 	$Log$
 	 || 
-	--> application.application_specific_settings.image_dir: string that contains main path to the folder where all images are kept
 	--> project_code: numeric code of the project
 	--> project_end: date or string containing targeted completion date for the project
 	--> project_mission: string containing the desired outcome of the project

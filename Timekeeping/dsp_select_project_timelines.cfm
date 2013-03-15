@@ -12,20 +12,24 @@
 	$Log$
 	 || 
  --->
-<cfset variables.checked="no">
 </cfsilent>
-<cfoutput query="get_project_timelines">
-	<cfif get_project_timelines.recordcount EQ 1>
-		<cfset variables.onload="document.project_timeline.submit();">
-		<cfset variables.checked="yes">
-	</cfif>
-	<tr>
-		<td align="right">
-			<cfinput type="radio" name="project_planning_id" value="#project_planning_id#" id="p#project_planning_id#" checked="#variables.checked#" required="yes" message="Please choose a project timeline to view." onclick="document.project_timeline.submit();">
-		</td>
-		<td align="left">
-			<label for="p#project_planning_id#">#project_planning_name#</label>
-		</td>
-	</tr>
-</cfoutput>
 
+<cfform id="project_timeline" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="form-horizontal">
+	<div class="control-group">
+		<fieldset>
+			<legend>Project Timelines</legend>
+			<div class="controls">
+			<cfoutput query="get_project_timelines">
+				<label for="project_planning_id_#project_planning_id#" class="radio">
+					<cfinput type="radio" name="project_planning_id" id="project_planning_id_#project_planning_id#" value="#project_planning_id#" required="yes" message="Please choose a project timeline to view." onclick="document.project_timeline.submit();"> #project_planning_name#
+				</label>
+			</cfoutput>
+			</div>
+		</fieldset>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+			<button type="submit" class="btn btn-primary">View details</button>
+		</div>
+	</div>
+</cfform>

@@ -12,40 +12,29 @@
 	$Log$
 	 || 
  --->
-<cfset variables.quote='"'>
-<cfset variables.status_message_replace="',#variables.quote#">
-<cfset variables.status_message_replace_with=",">
-<cfset temp_grouper="">
 </cfsilent>
-<cfoutput query="get_project_timeline_details">
-<cfif compare(selection_title, temp_grouper)>
-	<cfset temp_grouper=selection_title>
-	<tr>
-		<td colspan="7"></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td colspan="6" class="SubHeadText">#selection_title#</td>
-	</tr>
-	<tr>
-		<td class="RegTextBd"></td>
-		<td class="RegTextBd"></td>
-		<td class="RegTextBd"><u>Task</u></td>
-		<td class="RegTextBd"><u>Resources</u></td>
-		<td class="RegTextBd"><u>Start Date</u></td>
-		<td class="RegTextBd"><u>End Date</u></td>
-		<td class="RegTextBd"><u>Status</u></td>
-	</tr>
-</cfif>
-	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
-		<td bgcolor="##ffffff">&nbsp;</td>
-		<td bgcolor="##ffffff">&nbsp;</td>
-		<td><a href="javascript:list_to_details('#task_id#');"><i class="#task_icon#" title="#ReplaceList(task_description, variables.quote, variables.status_message_replace_with)#"></i>&nbsp;#task_name#</a></td>
-	<cfinclude template="qry_get_team_members.cfm">
-		<td>#listchangedelims(valuelist(get_team_members.last_name),", ")#</td>
-		<td>#dateformat(assigned_date,"m/d/yyyy")#</td>
-		<td>#dateformat(due_date,"m/d/yyyy")#</td>
-		<td>#status#</td>
-	</tr>
-</cfoutput>
-
+<table class="table table-striped table-bordered">
+	<caption>#get_project_timeline_details.project_planning_name#</caption>
+	<thead>
+		<tr>
+			<th>Task</th>
+			<th>Resources</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>Status</th>
+		</tr>
+	</thead>
+	<tbody>
+	<cfoutput query="get_project_timeline_details">
+		<tr>
+			<td>#selection_title#</td>
+			<td><a href="javascript:list_to_details('#task_id#');"><i class="#task_icon#" title="#replacelist(left(task_description, 150), '"', '')#..."></i>&nbsp;#task_name#</a></td>
+			<cfinclude template="qry_get_team_members.cfm">
+			<td>#listchangedelims(valuelist(get_team_members.last_name),", ")#</td>
+			<td>#dateformat(assigned_date,"m/d/yyyy")#</td>
+			<td>#dateformat(due_date,"m/d/yyyy")#</td>
+			<td>#status#</td>
+		</tr>
+	</cfoutput>
+	</tbody>
+</table>
