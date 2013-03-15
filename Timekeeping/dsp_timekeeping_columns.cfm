@@ -25,18 +25,21 @@
 			<section id="blurb_life" class="span3">
 				<h2>#listlast(session.workstream_company_name)# Life</h2>
 				<p>#variables.life_blurb#</p>
+				<cfif listcontains(variables.allowed_business_function_id,665)>
+					<p><a href="index.cfm?fuseaction=Reports.anniversary" class="btn">View details &raquo;</a></p>
+				</cfif>
 			</section>
 			<section id="blurb_hours" class="span3">
 				<h2>Hours Worked</h2>
 				<p>#variables.hours_blurb#</p>
-				<cfif listfind(variables.allowed_modules, 3)>
+				<cfif listcontains(variables.allowed_business_function_id,675)>
 					<p><a href="index.cfm?fuseaction=Reports.individual_hours_summary" class="btn">View details &raquo;</a></p>
 				</cfif>
 			</section>
 			<section id="blurb_revenue" class="span3">
 				<h2>Revenue Goal</h2>
 				<cfinclude template="dsp_revenue_progress.cfm">
-				<cfif listfind(variables.allowed_modules, 3)>
+				<cfif listcontains(variables.allowed_business_function_id,648)>
 					<p><a href="index.cfm?fuseaction=Reports.revenue_report" class="btn">View details &raquo;</a></p>
 				</cfif>
 			</section>

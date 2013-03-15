@@ -32,5 +32,7 @@
 		</div>
 	</div>
 	</cfoutput>
-	<p><a href="index.cfm?fuseaction=Reports.project_dashboard" class="btn">View details &raquo;</a></p>
+	<cfif listcontains(variables.allowed_business_function_id,634)>
+		<p><a href="index.cfm?fuseaction=Reports.project_dashboard" class="btn">View details &raquo;</a></p>
+	</cfif>
 </section>
