@@ -21,11 +21,11 @@ FROM REF_Company
 	INNER JOIN (
 		SELECT company_id
 		FROM Link_Company_User_Account
-		WHERE Link_Company_User_Account.user_account_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" />
+		WHERE Link_Company_User_Account.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 		UNION ALL
 		SELECT company_id
 		FROM Security_Company_Access
-		WHERE Security_Company_Access.user_account_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" />
+		WHERE Security_Company_Access.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	) Associated_Companies ON REF_Company.company_id=Associated_Companies.company_id
 GROUP BY REF_Company.description, REF_Company.company_id
 ORDER BY REF_Company.description

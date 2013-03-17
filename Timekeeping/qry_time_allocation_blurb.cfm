@@ -20,11 +20,10 @@ FROM Time_Entry
 	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
 	INNER JOIN Customer ON Customer.customer_id=Project.customer_id
 WHERE Time_Entry.active_ind=1
-	AND Time_Entry.user_account_id=#variables.user_identification#
 	AND EXTRACT(MONTH FROM Time_Entry.work_date) = EXTRACT(MONTH FROM CURRENT_DATE)
 	AND EXTRACT(YEAR FROM Time_Entry.work_date) = EXTRACT(YEAR FROM CURRENT_DATE)
+	AND Time_Entry.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 GROUP BY Customer.description, Project.description, Project.project_id
 ORDER BY project_hours DESC
 </cfquery>
 </cfsilent>
-

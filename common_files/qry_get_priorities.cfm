@@ -17,8 +17,7 @@
 <cfquery name="get_priorities" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT priority_id, description
 FROM REF_Priority
-WHERE #application.last_updated#=#application.last_updated#
-ORDER BY sort_order
+WHERE <cfqueryparam value="#application.last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#application.last_updated#" cfsqltype="cf_sql_timestamp" />
+ORDER BY sort_order;
 </cfquery>
 </cfsilent>
-

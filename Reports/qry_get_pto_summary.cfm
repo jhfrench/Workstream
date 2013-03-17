@@ -13,7 +13,7 @@
 	Variables:
 
 	END FUSEDOC --->
-<cfset company_list_use = listappend(session.workstream_selected_company_id, session.workstream_company_id)>
+<cfset variables.user_relevant_company_id=listappend(session.workstream_selected_company_id, session.workstream_company_id)>
 <cfquery name="pto_hours" datasource="#application.datasources.main#">
 SELECT Demographics.first_name, Demographics.last_name, Demographics.user_account_id, 
 	COALESCE(Hours_Taken_Table.hours_taken, 0) AS pto_used_hours, 
@@ -36,7 +36,7 @@ FROM Demographics
 		GROUP BY user_account_id
 	) AS Hours_Earned ON Demographics.user_account_id=Hours_Earned.user_account_id
 	INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
-WHERE Link_Company_User_Account.company_id IN (#company_list_use#)<cfif NOT listcontainsnoCase(attributes.user_account_id,"ALL" )>
+WHERE Link_Company_User_Account.company_id IN (#variables.user_relevant_company_id#)<cfif NOT listcontainsnoCase(attributes.user_account_id,"ALL" )>
 	AND Demographics.user_account_id IN (#preservesinglequotes(attributes.user_account_id)#)</cfif>
 ORDER BY Demographics.last_name, Demographics.first_name
 </cfquery>

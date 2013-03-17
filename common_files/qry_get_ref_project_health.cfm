@@ -20,7 +20,7 @@
 SELECT project_health_id, description, badge,
 	icon
 FROM REF_Project_Health
-WHERE #application.last_updated#=#application.last_updated#
+WHERE <cfqueryparam value="#application.last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#application.last_updated#" cfsqltype="cf_sql_timestamp" />
 ORDER BY sort_order
 </cfquery>
 </cfsilent>

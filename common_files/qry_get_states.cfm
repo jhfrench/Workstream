@@ -14,7 +14,7 @@
 <cfquery name="get_states" cachedafter="08/21/1959" datasource="#application.datasources.main#">
 SELECT state, state_abbr, state_id 
 FROM REF_States
-WHERE #application.last_updated#=#application.last_updated#
+WHERE <cfqueryparam value="#application.last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#application.last_updated#" cfsqltype="cf_sql_timestamp" />
 </cfquery>
 </cfsilent>
 

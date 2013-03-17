@@ -19,7 +19,7 @@
 <cfquery name="get_ref_project_status" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT project_status_id, description
 FROM REF_Project_Status
-WHERE #application.last_updated#=#application.last_updated#
+WHERE <cfqueryparam value="#application.last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#application.last_updated#" cfsqltype="cf_sql_timestamp" />
 ORDER BY sort_order
 </cfquery>
 </cfsilent>

@@ -25,6 +25,6 @@ FROM Notes
 WHERE Notes.active_ind=1
 	AND Notes.notes_type_id IN (1,2,3,4,5,7)
 	AND Notes.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
-ORDER BY COALESCE(Time_Entry.work_date, Notes.notes_id), Time_Entry.time_entry_id
+ORDER BY COALESCE(Time_Entry.work_date, Notes.created_date), Time_Entry.time_entry_id
 </cfquery>
 </cfsilent>

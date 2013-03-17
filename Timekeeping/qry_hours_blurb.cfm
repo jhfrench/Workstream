@@ -22,7 +22,7 @@ SELECT SUM(hours) AS month_hours, EXTRACT(YEAR FROM work_date) AS work_year, EXT
 FROM Time_Entry
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
-	AND Time_Entry.work_date BETWEEN <cfqueryparam cfsqltype="cf_sql_date" value="#variables.previous_month#" /> AND <cfqueryparam cfsqltype="cf_sql_date" value="#variables.current_month#" />
+	AND Time_Entry.work_date BETWEEN <cfqueryparam value="#variables.previous_month#" cfsqltype="cf_sql_date" /> AND <cfqueryparam value="#variables.current_month#" cfsqltype="cf_sql_date" />
 GROUP BY EXTRACT(YEAR FROM work_date), EXTRACT(MONTH FROM work_date)
 ORDER BY EXTRACT(YEAR FROM work_date), EXTRACT(MONTH FROM work_date)
 </cfquery>

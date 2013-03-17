@@ -38,5 +38,5 @@ FROM REF_Hierarchy_Level
 	) Link_Business_Function_Hier ON Hierarchy_Structure.l_p_y_h_id=Link_Business_Function_Hier.l_p_y_h_id
 WHERE REF_Hierarchy_Level.active_ind=1<cfif attributes.exclude_center_ind EQ 1>
 	AND REF_Hierarchy_Level.center_ind=0</cfif>
-	AND #application.last_updated#=#application.last_updated#
+	AND <cfqueryparam value="#application.last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#application.last_updated#" cfsqltype="cf_sql_timestamp" />
 </cfoutput>

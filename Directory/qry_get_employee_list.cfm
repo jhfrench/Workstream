@@ -45,7 +45,7 @@ FROM Demographics
 		AND Phone.active_ind=1
 		AND Phone.phone_type_id=1
 WHERE Demographics.active_ind=1
-	AND #application.team_changed#=#application.team_changed#
+	AND <cfqueryparam value="#application.team_changed#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#application.team_changed#" cfsqltype="cf_sql_timestamp" />
 ORDER BY Link_Company_User_Account.company_id, Demographics.last_name, Demographics.first_name
 </cfquery>
 </cfsilent>

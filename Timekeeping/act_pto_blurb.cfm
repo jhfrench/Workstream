@@ -56,9 +56,10 @@
 		<cfquery name="get_current_carryover" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 		SELECT COALESCE(carryover_limit, 40) AS carryover_limit
 		FROM PTO_Rollover
-		WHERE user_account_id=#variables.user_identification#
+		WHERE active_ind=1
 			AND rollover_year=EXTRACT(YEAR FROM CURRENT_DATE)
-			AND #year(now())#=#year(now())#
+			AND user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
+			AND <cfqueryparam value="#year(now())#" cfsqltype="cf_sql_integer" />=<cfqueryparam value="#year(now())#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 		<cfif NOT len(get_current_carryover.carryover_limit)>
 			<cfset variables.current_carryover_limit=40>

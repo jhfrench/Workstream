@@ -47,6 +47,5 @@ This month #session.workstream_company_name# added
 <cfelseif variables.birthday_count NEQ 0>
 	, and #variables.birthday_count# people will celebrate a birthday
 </cfif>. #session.workstream_company_name# currently has #variables.employee_count# employees.
-<!--- <a href="../index.cfm?fuseaction=Reports.personal_summary">Click here to view the report.</a> --->
 </cfoutput>
 </cfsavecontent>

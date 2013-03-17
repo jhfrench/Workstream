@@ -30,15 +30,15 @@ FROM Employee
 	INNER JOIN Security_Company_Access ON Employee.user_account_id=Security_Company_Access.user_account_id
 		AND Security_Company_Access.active_ind=1
 		AND (
-			Security_Company_Access.company_id IN (#session.workstream_selected_company_id#)<cfif len(variables.user_account_id_match)>
-				OR Security_Company_Access.user_account_id IN (#variables.user_account_id_match#)</cfif>
+			Security_Company_Access.company_id IN (<cfqueryparam value="#session.workstream_selected_company_id#" cfsqltype="cf_sql_integer" list="true" />)<cfif len(variables.user_account_id_match)>
+				OR Security_Company_Access.user_account_id IN (<cfqueryparam value="#variables.user_account_id_match#" cfsqltype="cf_sql_integer" list="true" />)</cfif>
 		)
 	INNER JOIN Demographics ON Employee.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1<cfif isdefined("variables.email_only")>
 	INNER JOIN Email ON Employee.user_account_id=Email.user_account_id
 		AND Email.email_type_id=1</cfif>
 WHERE Employee.active_ind=1
-	AND #application.team_changed#=#application.team_changed#
+	AND <cfqueryparam value="#application.team_changed#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#application.team_changed#" cfsqltype="cf_sql_timestamp" />
 GROUP BY Demographics.user_account_id, Demographics.last_name, Demographics.first_name<cfif isdefined("variables.email_only")>,
 	email_type_id</cfif>
 ORDER BY Demographics.last_name, Demographics.first_name

@@ -23,6 +23,6 @@
 --->
 <cfquery name="get_user_access" datasource="#application.datasources.main#">
 SELECT *
-FROM Get_User_Access(#variables.user_identification#, 1)
+FROM Get_User_Access(<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, 1)
 </cfquery>
 <cfset caller.get_user_access=get_user_access>

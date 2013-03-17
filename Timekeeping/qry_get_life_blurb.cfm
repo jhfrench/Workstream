@@ -21,10 +21,10 @@ SELECT SUM(CASE WHEN EXTRACT(MONTH FROM CURRENT_DATE)=EXTRACT(MONTH FROM Employe
 	SUM(1) AS employee_count
 FROM Employee
 	INNER JOIN Link_Company_User_Account ON Employee.user_account_id=Link_Company_User_Account.user_account_id
-		AND Link_Company_User_Account.company_id=#listlast(session.workstream_company_id)#
+		AND Link_Company_User_Account.company_id=<cfqueryparam value="#listlast(session.workstream_company_id)#" cfsqltype="cf_sql_integer" />
 WHERE Employee.active_ind=1
 	AND CURRENT_DATE BETWEEN Employee.hire_date AND COALESCE(Employee.turnover_date, CURRENT_TIMESTAMP)
-	AND #application.team_changed#=#application.team_changed#
-	AND #month(now())#!=#year(now())#
+	AND <cfqueryparam value="#application.team_changed#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#application.team_changed#" cfsqltype="cf_sql_timestamp" />
+	AND <cfqueryparam value="#month(now())#" cfsqltype="cf_sql_integer" />!=<cfqueryparam value="#year(now())#" cfsqltype="cf_sql_integer" />
 </cfquery>
 </cfsilent>

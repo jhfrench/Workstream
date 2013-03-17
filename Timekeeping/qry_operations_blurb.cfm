@@ -24,7 +24,7 @@ FROM Project
 	INNER JOIN Link_Project_Project_Health ON Project.project_id=Link_Project_Project_Health.project_id
 		AND Link_Project_Project_Health.active_ind=1
 WHERE Project.active_ind=1
-	AND Project.company_id=#session.workstream_company_id#
+	AND Project.company_id=<cfqueryparam value="#session.workstream_company_id#" cfsqltype="cf_sql_integer" />
 GROUP BY Customer.description
 ORDER BY Customer.description
 </cfquery>
