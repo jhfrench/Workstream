@@ -19,7 +19,7 @@ FROM Team
 	INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1
 WHERE Team.active_ind=1
-	AND Team.task_id=#task_id#
+	AND Team.task_id=<cfqueryparam value="#task_id#" cfsqltype="cf_sql_integer" />
 GROUP BY Demographics.last_name, Demographics.first_name, Demographics.user_account_id
 ORDER BY Demographics.last_name, Demographics.first_name, Demographics.user_account_id
 </cfquery>

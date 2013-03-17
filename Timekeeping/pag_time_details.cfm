@@ -12,7 +12,6 @@
 	$Log$
 	 || 
  --->
-<cfset variables.var1=450>
 </cfsilent>
 <cfinclude template="../common_files/qry_get_date_locked.cfm">
 <cfif isdefined("attributes.reassign_hours")>

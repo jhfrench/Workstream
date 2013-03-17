@@ -12,7 +12,6 @@
 	$Log$
 	 || 
  --->
-<cfset variables.var1=450>
 </cfsilent>
 <cfif isdefined("attributes.notes_id")>
 	<cfinclude template="qry_reassign_entries.cfm">

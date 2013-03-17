@@ -15,11 +15,9 @@
 <cfscript>
 	variables.cols=80;
 	variables.descrip_rows=min(3,(len(get_task_details.description)/variables.cols+1));
-	variables.resolution_rows=min(8,time_entry_details.recordcount);
+	variables.resolution_rows=min(8,get_time_entry_details.recordcount);
 	variables.entry_rows=variables.descrip_rows+variables.resolution_rows-9;
 	variables.string_to_replace='<P>,"';
-	variables.width=min(numberformat(get_task_details.image_width,"______"),variables.var1);
-	variables.width2=variables.var1-variables.width;
 	
 	if (get_task_details.qa_id EQ variables.user_identification AND get_task_details.task_status_id EQ 4) {
 		variables.notes_type_selected=2;
@@ -113,8 +111,8 @@
 			<div class="row-fluid">
 				<div class="span12">
 				<label for="notes" class="h5">Progress Notes <a href="javascript:$('##notes').height( $('##notes').height()*2 );" title="Expand progress notes"><i class="icon-resize-vertical"></i></a></label>
-				<cfif time_entry_details.recordcount>
-					<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea spann11"><cfloop query="time_entry_details"><p<cfif notes_type_id EQ 2> class="alert-info"</cfif>><strong>(<abbr title="#author#">#initials#</abbr> #dateformat(date,"m/d/yyyy")#)</strong> - #trim(note)#&nbsp;&nbsp;</p></cfloop></div>
+				<cfif get_time_entry_details.recordcount>
+					<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea span11"><cfloop query="get_time_entry_details"><p<cfif notes_type_id EQ 2> class="alert-info"</cfif>><strong>(<abbr title="#author#">#initials#</abbr> #dateformat(work_date,"m/d/yyyy")#)</strong> - #trim(note)#&nbsp;&nbsp;</p></cfloop></div>
 				<cfelse>
 					<div id="notes" class="alert">
 						<a href="javascript:delete_check('#attributes.task_id#');" title="Delete this task from workstream." class="btn btn-danger"><i class="icon-trash icon-white"></i> Delete this task</a>

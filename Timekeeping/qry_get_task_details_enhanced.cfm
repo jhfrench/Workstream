@@ -22,10 +22,6 @@ SELECT Task.task_id, Task.task_type_id, Task.name AS task_name, COALESCE(Task.ta
 	REF_Task_Status.description AS status, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Time_Used.used_hours,
 	CASE
 		WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0
-		ELSE Time_Used.used_hours/Task.budgeted_hours*200
-	END AS image_width, 
-	CASE
-		WHEN COALESCE(Task.budgeted_hours,0)=0 THEN 0
 		ELSE Time_Used.used_hours/Task.budgeted_hours*100
 	END AS percent_used,
 	Task_Owner.user_account_id AS owner_id, Task_QA.user_account_id AS qa_id, Customer.description AS customer_name,
@@ -38,10 +34,10 @@ FROM Task
 	INNER JOIN Project ON Task.project_id=Project.project_id
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	LEFT OUTER JOIN (
-		SELECT #attributes.task_id# AS task_id, SUM(Time_Entry.hours) AS used_hours
+		SELECT <cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" /> AS task_id, SUM(Time_Entry.hours) AS used_hours
 		FROM Time_Entry
 		WHERE active_ind=1
-			AND task_id=#attributes.task_id#
+			AND task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 	) AS Time_Used ON Task.task_id=Time_Used.task_id
 	INNER JOIN (
 		SELECT Team.task_id, Team.user_account_id, Demographics.last_name || ', ' || Demographics.first_name AS source_name
@@ -50,23 +46,23 @@ FROM Task
 				AND Demographics.active_ind=1
 		WHERE Team.active_ind=1
 			AND Team.role_id=5
-			AND Team.task_id=#attributes.task_id#
+			AND Team.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 	) AS Task_Source ON Task.task_id=Task_Source.task_id
 	INNER JOIN (
 		SELECT Team.task_id, Team.user_account_id
 		FROM Team
 		WHERE Team.active_ind=1
 			AND Team.role_id=1
-			AND Team.task_id=#attributes.task_id#
+			AND Team.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 	) AS Task_Owner ON Task.task_id=Task_Owner.task_id
 	INNER JOIN (
 		SELECT Team.task_id, Team.user_account_id
 		FROM Team
 		WHERE Team.active_ind=1
 			AND Team.role_id=3
-			AND Team.task_id=#attributes.task_id#
+			AND Team.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 	) AS Task_QA ON Task.task_id=Task_QA.task_id
-WHERE Task.task_id=#attributes.task_id#
+WHERE Task.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 </cfquery>
 </cfsilent>
 

@@ -12,7 +12,6 @@
 	$Log$
 	 || 
  --->
-<cfset variables.var1=200>
 <cfparam name="attributes.expand" default="0">
 </cfsilent>
 <cfif isdefined("attributes.last_loaded") AND session.workstream_last_loaded NEQ attributes.last_loaded>
@@ -48,7 +47,7 @@
 		<cfinclude template="qry_get_completion_cc_email.cfm">
 		<cfinclude template="../common_files/qry_get_associated_files.cfm">
 		<cfinclude template="../common_files/qry_get_associated_tasks.cfm">
-		<cfinclude template="qry_time_entry_details.cfm">
+		<cfinclude template="qry_get_time_entry_details.cfm">
 		<cfinclude template="../common_files/qry_get_date_locked.cfm">
 		<cfset task_owner=get_task_details.owner_id>
 		<cfset variables.task_team=valuelist(get_task_Team.user_account_id)>
