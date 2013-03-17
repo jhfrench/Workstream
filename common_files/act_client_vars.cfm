@@ -43,14 +43,6 @@
 		<cfelse>
 			<cfset session.workstream_show_team=0>
 		</cfif>
-		<cfif isdefined("attributes.show_options")>
-			<cfset session.workstream_show_options=1>
-		<cfelse>
-			<cfset session.workstream_show_options=0>
-		</cfif>
-	</cfif>
-	<cfif isdefined("attributes.notes_display_sort")>
-		<cfset session.workstream_notes_display_sort=attributes.notes_display_sort>
 	</cfif>
 	<cfif isdefined("attributes.expand_tree")>
 		<cfset session.workstream_expand=attributes.expand_tree>

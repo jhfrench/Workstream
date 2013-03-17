@@ -27,19 +27,14 @@ WHERE primary_profile_ind=1
 INSERT INTO User_Profile (user_account_id, primary_profile_ind, account_changed,
 	company_id, company_name, company_select_list,
 	express_input_rows, express_notes_height, express_notes_width,
-	express_tree_height, first_name, last_loaded,
-	last_name, profile_name, project_list_order,
-	show_closed, show_closed_project_ind, show_on_hold,
-	show_options, show_team,
-	notes_display_sort, task_list_order)
+	express_tree_height, last_loaded, profile_name,
+	project_list_order, show_closed, show_closed_project_ind,
+	show_on_hold, show_team, task_list_order)
 VALUES (#variables.user_identification#,#variables.primary_profile_ind#,#createodbcdatetime(session.workstream_account_changed)#,
 	'#session.workstream_company_id#','#session.workstream_company_name#','#session.workstream_selected_company_id#',
 	#session.workstream_express_input_rows#,#session.workstream_express_notes_height#,#session.workstream_express_notes_width#,
-	#session.workstream_express_tree_height#,'#session.first_name#',#createodbcdatetime(session.workstream_last_loaded)#,
-	'#session.last_name#','#attributes.profile_name#', #session.workstream_project_list_order#,
-	#session.workstream_show_closed#, #session.show_closed_project_ind#, #workstream_show_on_hold#,
-	#session.workstream_show_options#, #session.workstream_show_team#,
-	#session.workstream_notes_display_sort#,'#session.workstream_task_list_order#')
+	#session.workstream_express_tree_height#, #createodbcdatetime(session.workstream_last_loaded)#, '#attributes.profile_name#',
+	#session.workstream_project_list_order#, #session.workstream_show_closed#, #session.show_closed_project_ind#,
+	#workstream_show_on_hold#, #session.workstream_show_team#, '#session.workstream_task_list_order#')
 </cfquery>
 </cfsilent>
-

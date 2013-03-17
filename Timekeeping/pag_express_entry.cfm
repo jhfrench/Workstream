@@ -13,7 +13,6 @@
 	 || 
  --->
 </cfsilent>
-<cfparam name="variables.not_numeric_entries" default="">
 <cfinclude template="act_validate_hours_js.cfm">
 <cfif isdefined("attributes.hours") AND listlen(attributes.hours) AND session.workstream_last_loaded NEQ attributes.last_loaded>
 	<cfinclude template="act_upload_entries.cfm">

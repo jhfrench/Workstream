@@ -12,8 +12,8 @@
 	$Log$
 	 || 
  --->
-<cfinclude template="../common_files/qry_profile_lookup.cfm">
-<cfif profile_lookup.recordcount>
+<cfinclude template="../common_files/qry_get_user_profile.cfm">
+<cfif get_user_profile.recordcount>
 	<cfinclude template="qry_delete_profile.cfm">
 </cfif>
 <cfinclude template="qry_create_profile.cfm">

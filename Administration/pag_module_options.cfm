@@ -43,7 +43,7 @@
 				<cfinclude template="../common_files/act_load_profile.cfm">
 				<cfinclude template="dsp_profile_message.cfm">
 			<cfelse>
-				<cfinclude template="../common_files/qry_profile_lookup.cfm">
+				<cfinclude template="../common_files/qry_get_user_profile.cfm">
 				<cfinclude template="dsp_load_profile.cfm">
 				<cfmodule template="../common_files/dsp_submit_options.cfm" include_reset="0" submit_value="Load Settings">
 			</cfif>

@@ -17,13 +17,17 @@ SELECT REF_Expense_Category.category || (CASE
 	ELSE '' END) AS description,
 	REF_Expense_Category.expense_category_id
 FROM REF_Expense_Category
-WHERE REF_Expense_Category.expense_category_id IN (
-	SELECT expense_category_id
-	FROM Expense
-	WHERE Expense.date_deleted IS NULL
-		AND Expense.user_account_id=#session.workstream_user_account_id#)
-	OR (REF_Expense_Category.accounting_approval_ind=1
-		AND REF_Expense_Category.active_ind=1
+WHERE 1=1
+	AND (
+			REF_Expense_Category.expense_category_id IN (
+			SELECT expense_category_id
+			FROM Expense
+			WHERE Expense.date_deleted IS NULL
+				AND Expense.user_account_id=#variables.user_identification#)
+		OR (
+			REF_Expense_Category.accounting_approval_ind=1
+			AND REF_Expense_Category.active_ind=1
+		)
 	)
 ORDER BY REF_Expense_Category.sort_order
 </cfquery>
