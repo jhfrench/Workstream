@@ -131,10 +131,10 @@ FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
 		AND Team.role_id IN (<cfqueryparam value="#variables.receiver_type#" cfsqltype="cf_sql_integer" list="true" />)
+		AND Team.user_account_id!=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" /> /*no need to send an email to the team member who reassigned the task*/
 	INNER JOIN Email ON Team.user_account_id=Email.user_account_id
 		AND Email.active_ind=1
 		AND Email.email_type_id=1
-		AND Email.user_account_id!=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1
 	LEFT OUTER JOIN (
