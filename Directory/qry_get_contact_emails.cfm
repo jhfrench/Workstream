@@ -1,6 +1,6 @@
 
 <!--Directory/qry_get_contact_emails.cfm
-	Author: Victor B -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
@@ -22,10 +22,10 @@
 </cfsilent>
 
 <cfquery name="get_contact_emails" datasource="#application.datasources.main#">
-SELECT REF_Email_Type.Email_Type, Email.Email, 
-	REF_Email_Type.email_type_id, Email.Email_ID
+SELECT REF_Email_Type.email_type_id, REF_Email_Type.email_type, Email.email, 
+	Email.email_id
 FROM REF_Email_Type
 	LEFT OUTER JOIN Email ON REF_Email_Type.email_type_id=Email.email_type_id
 		AND Email.active_ind=1
-		AND Email.user_account_id=#variables.user_account_id#
+		AND Email.user_account_id=<cfqueryparam value="#attributes.user_account_id#" cfsqltype="cf_sql_integer" />
 </cfquery>

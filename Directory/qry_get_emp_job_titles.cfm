@@ -19,7 +19,7 @@
 <cfquery name="get_emp_job_titles" datasource="#application.datasources.main#">
 SELECT job_title_id, date_start, date_end, title
 FROM Job_Title
-WHERE user_account_id=#attributes.user_account_id#
-	<!--- AND Job_Title.active_ind = 1 --->
+WHERE active_ind=1
+	AND user_account_id=<cfqueryparam value="#attributes.user_account_id#" cfsqltype="cf_sql_integer" />
 </cfquery>
 </cfsilent>

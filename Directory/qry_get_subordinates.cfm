@@ -20,5 +20,5 @@
 
 <cfquery name="get_subordinates" datasource="#application.datasources.main#">
 SELECT *
-FROM Organization_Hierarchy(#attributes.user_account_id#)
+FROM Organization_Hierarchy(<cfqueryparam value="#attributes.user_account_id#" cfsqltype="cf_sql_integer" />)
 </cfquery>

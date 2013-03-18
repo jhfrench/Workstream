@@ -18,8 +18,8 @@
 	<cfinclude template="qry_get_email_types.cfm">
 	<cfinclude template="act_param_emp_edit_form_vars.cfm">
 	<cfinclude template="qry_get_open_positions.cfm">
-	<cfinclude template="qry_get_employee_type.cfm">
-	<cfinclude template="qry_get_employee_classification.cfm">
+	<cfinclude template="../common_files/qry_get_ref_employee_type.cfm">
+	<cfinclude template="../common_files/qry_get_ref_employee_classification.cfm">
 	<cfinclude template="../common_files/qry_get_ref_account_type.cfm">
 	<cfinclude template="qry_populate_employee_form.cfm">
 

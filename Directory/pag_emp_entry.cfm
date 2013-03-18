@@ -23,8 +23,8 @@
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_employee" field_name="user_account_id" fuseaction="Administration.edit_account">
 	<cfinclude template="dsp_emp_entered_message.cfm">
 <cfelse>
-	<cfinclude template="qry_get_employee_type.cfm">
-	<cfinclude template="qry_get_employee_classification.cfm">
+	<cfinclude template="../common_files/qry_get_ref_employee_type.cfm">
+	<cfinclude template="../common_files/qry_get_ref_employee_classification.cfm">
 	<cfinclude template="../common_files/qry_get_ref_account_type.cfm">
 	<cfinclude template="../common_files/qry_get_states.cfm">
 	<cfinclude template="../common_files/qry_get_teams.cfm">

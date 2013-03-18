@@ -17,6 +17,6 @@
 <cfquery name="get_locations" datasource="#application.datasources.main#">
 SELECT location_type_id, location_type
 FROM REF_Location_Type
+ORDER BY location_type_id
 </cfquery>
 </cfsilent>
-

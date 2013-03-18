@@ -20,7 +20,7 @@
 <cfquery name="get_employee_details" datasource="#application.datasources.main#">
 SELECT Demographics.first_name, Demographics.last_name, Demographics.uupic,
 	Employee.birth_date, Employee.hire_date, COALESCE(Employee.photo_path,'nopic.jpg') AS photo_path,
-	Employee.turnover_date, COALESCE(Demographics.credentials,'') AS credentials, Emp_Biography.biography
+	Employee.turnover_date, Demographics.credentials, Emp_Biography.biography
 FROM Demographics
 	INNER JOIN Employee ON Demographics.user_account_id=Employee.user_account_id
 		AND Employee.active_ind=1
@@ -28,5 +28,5 @@ FROM Demographics
 	LEFT OUTER JOIN Emp_Biography ON Demographics.user_account_id=Emp_Biography.user_account_id
 		AND Emp_Biography.active_ind=1
 WHERE Demographics.active_ind=1<cfif isdefined("attributes.user_account_id") and len(attributes.user_account_id)>
-	AND Demographics.user_account_id=#attributes.user_account_id#</cfif>
+	AND Demographics.user_account_id=<cfqueryparam value="#attributes.user_account_id#" cfsqltype="cf_sql_integer" /></cfif>
 </cfquery>

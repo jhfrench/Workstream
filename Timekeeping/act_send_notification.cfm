@@ -124,46 +124,56 @@
 </cfswitch>
 </cfsilent>
 <cfquery name="prepare_email" datasource="#application.datasources.main#">
-SELECT Email_Source.task_source AS email_from, Email.email AS email_to, 
-	Task.task_id, Task.name AS task_name, Task.description AS description, 
-	Task.budgeted_hours, Task.due_date, Demographics.first_name, Email.email_id
+SELECT COALESCE(Email_Source.task_source,'#application.application_specific_settings.system_email_sender#') AS email_from, Email.email AS email_to, Demographics.first_name, 
+	Task.task_id, Task.name AS task_name, Task.description, 
+	Task.budgeted_hours, Task.due_date, Email.email_id
 FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
-		AND Team.role_id IN (#variables.receiver_type#)
+		AND Team.role_id IN (<cfqueryparam value="#variables.receiver_type#" cfsqltype="cf_sql_integer" list="true" />)
 	INNER JOIN Email ON Team.user_account_id=Email.user_account_id
+		AND Email.active_ind=1
 		AND Email.email_type_id=1
-		AND Email.user_account_id!=#variables.user_identification#
+		AND Email.user_account_id!=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1
-	INNER JOIN (
+	LEFT OUTER JOIN (
 		SELECT Email.email AS task_source, Team.task_id
 		FROM Team
 			INNER JOIN Email ON Team.user_account_id=Email.user_account_id
+				AND Email.active_ind=1
+				AND Email.email_type_id=1
 		WHERE Team.active_ind=1
-			AND Team.task_id=#attributes.task_id#
-			AND Team.role_id IN (#variables.sender_type#)
-			AND Email.email_type_id=1
+			AND Team.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
+			AND Team.role_id IN (<cfqueryparam value="#variables.sender_type#" cfsqltype="cf_sql_integer" list="true" />)
 	) AS Email_Source ON Task.task_id=Email_Source.task_id
 WHERE Task.task_id=#attributes.task_id#
 </cfquery>
 <cfif prepare_email.recordcount>
 	<cfset variables.email_to=valuelist(prepare_email.email_to)>
-	<cfset variables.email_from=prepare_email.email_from>
 
-	<cfif listlen(variables.email_to) AND len(variables.email_from)>
+	<cfif listlen(variables.email_to)>
+		<cfset variables.email_from=prepare_email.email_from>
 		<cfset variables.email_subject="#variables.email_subject_prefix#: #prepare_email.task_name#">
-		<cfsavecontent variable="variables.email_body">
-#prepare_email.first_name#,
+		<cfoutput>
+			<cfsavecontent variable="variables.email_body">
+				<p>#prepare_email.first_name#,</p>
+				
+				<p>
+					The following task #variables.notification_text#:
+					<dl>
+						<dt>Task:</dt><dd>#prepare_email.task_name# (#attributes.task_id#)</dd>
+						<dt>Due:</dt><dd>#prepare_email.due_date#</dd>
+						<dt>Budgeted Hours:</dt><dd>#prepare_email.budgeted_hours#</dd>
+						<dt>Description:</dt><dd>#prepare_email.description#</dd>
+					</dl>
+				</p>
+				
+				<p>Please <a href="http://#cgi.http_host#/index.cfm?fuseaction=Timekeeping.task_details&task_id=#attributes.task_id#">view task #attributes.task_id#</a>.</p>
+			</cfsavecontent>
+		</cfoutput>
 
-The following task #variables.notification_text#: #prepare_email.task_name# (#attributes.task_id#)
-Due: #prepare_email.due_date#
-Description: #prepare_email.description#
-
-<a href="http://#cgi.http_host#/index.cfm?fuseaction=Timekeeping.task_details&task_id=#attributes.task_id#">View task #attributes.task_id#</a>
-		</cfsavecontent>
-
-		<cfmodule template="../common_files/act_email.cfm" email_to="#variables.email_to#" email_from="#variables.email_from#" email_subject="#variables.email_subject#" email_body="#variables.email_body#" email_type="HTML">
+		<cfmodule template="../common_files/act_email.cfm" email_to="#variables.email_to#" email_from="#variables.email_from#" email_subject="#variables.email_subject#" email_body="#variables.email_body#">
 
 		<cfif NOT comparenocase(attributes.task_status, 3)><!--- "qa_ready" --->
 			<cfquery name="update_task_notification_cc" datasource="#application.datasources.main#">

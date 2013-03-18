@@ -19,10 +19,10 @@
  --->
 <cfquery name="get_emp_phone" datasource="#application.datasources.main#">
 SELECT REF_Phone_Type.phone_type, Phone.phone_number, Phone.extension
-FROM Phone, REF_Phone_Type
-WHERE Phone.phone_type_id=REF_Phone_Type.phone_type_id
-	AND Phone.user_account_id=#attributes.user_account_id#
+FROM Phone
+	INNER JOIN REF_Phone_Type ON Phone.phone_type_id=REF_Phone_Type.phone_type_id
+WHERE Phone.active_ind=1
+	AND Phone.user_account_id=<cfqueryparam value="#attributes.user_account_id#" cfsqltype="cf_sql_integer" />
 ORDER BY REF_Phone_Type.phone_type DESC
 </cfquery>
 </cfsilent>
-

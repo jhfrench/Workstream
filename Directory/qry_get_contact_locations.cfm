@@ -1,5 +1,5 @@
 <!--Directory/qry_get_contact_locations.cfm
-	Author: Victor B-->
+	Author: Jeromy F-->
 <cfsilent>
 	<!---FUSEDOC
 	||

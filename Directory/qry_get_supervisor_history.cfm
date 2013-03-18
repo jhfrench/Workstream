@@ -21,7 +21,7 @@ SELECT Link_User_Account_Supervisor.supervisor_id, Link_User_Account_Supervisor.
 FROM Link_User_Account_Supervisor
 	INNER JOIN Demographics ON Link_User_Account_Supervisor.supervisor_id=Demographics.user_account_id
 		AND Demographics.active_ind=1<cfif isdefined("attributes.user_account_id") AND len(attributes.user_account_id)>
-WHERE Link_User_Account_Supervisor.user_account_id=#attributes.user_account_id#</cfif>
+WHERE Link_User_Account_Supervisor.user_account_id=<cfqueryparam value="#attributes.user_account_id#" cfsqltype="cf_sql_integer" /></cfif>
 ORDER BY Link_User_Account_Supervisor.date_start, Link_User_Account_Supervisor.date_end, sup_name
 </cfquery>
 </cfsilent>

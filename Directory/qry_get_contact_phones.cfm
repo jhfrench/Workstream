@@ -1,6 +1,6 @@
 
 <!--Directory/qry_get_contact_phones.cfm
-	Author: Victor B -->
+	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
@@ -26,6 +26,6 @@ SELECT REF_Phone_Type.phone_type_id, REF_Phone_Type.Phone_Type, Phone.Phone_Numb
 FROM REF_Phone_Type
 	LEFT OUTER JOIN Phone ON REF_Phone_Type.phone_type_id=Phone.phone_type_id 
 		AND Phone.active_ind=1
-		AND Phone.user_account_id=#variables.user_account_id#
+		AND Phone.user_account_id=<cfqueryparam value="#variables.user_account_id#" cfsqltype="cf_sql_integer" />
 </cfquery>
 </cfsilent>

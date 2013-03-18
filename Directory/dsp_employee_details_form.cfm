@@ -104,7 +104,7 @@
 	<div class="control-group">
 		<label for="employee_classification" class="control-label">Employee Classification</label>
 		<div class="controls">
-			<cfselect name="employee_classification" id="employee_classification" query="get_employee_classification" selected="#employee_classification_id#" value="employee_classification_id" display="employee_classification" class="span3" />
+			<cfselect name="employee_classification" id="employee_classification" query="get_ref_employee_classification" selected="#employee_classification_id#" value="employee_classification_id" display="employee_classification" class="span3" />
 		</div>
 	</div>
 	<div class="control-group">

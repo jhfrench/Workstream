@@ -1,6 +1,6 @@
 
 <!-- Directory/act_employee_contact_update.cfm
-	Author: Victor B-->
+	Author: Jeromy F-->
 <cfsilent>
 	<!--- FUSEDOC
 	||
@@ -23,12 +23,11 @@
 	<CFTRANSACTION>
 		<!--- //////////////////////////        Phone and extensions delete        \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ --->
 
-		 <cfloop index="ii" list="#attributes.phone_id#" delimiters=",">
+		 <cfloop list="#attributes.phone_id#" index="ii">
 			<cfquery name="phone_delete" datasource="#application.datasources.main#">
 				DELETE FROM PHONE
 				WHERE user_account_id=#attributes.user_account_id#
-					AND
-				Phone_id=#ii#
+					AND phone_id=#ii#
 			</cfquery>
 		</cfloop> 
 
@@ -77,8 +76,7 @@
 			<cfquery name="location_delete" datasource="#application.datasources.main#">
 				DELETE FROM LOCATION
 				WHERE user_account_id=#attributes.user_account_id#
-					AND
-				location_id=#ii#
+					AND location_id=#ii#
 			</cfquery>
 		</cfloop>
 
@@ -119,8 +117,7 @@
 					<cfquery name="biography_delete" datasource="#application.datasources.main#">
 						DELETE FROM EMP_BIOGRAPHY
 						WHERE user_account_id=#attributes.user_account_id#
-							AND
-						emp_biography_id=#attributes.emp_biography_id#
+							AND emp_biography_id=#attributes.emp_biography_id#
 					</cfquery>
 			</cfif>
 				<cfquery name="biography_insert" datasource="#application.datasources.main#">

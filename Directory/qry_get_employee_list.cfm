@@ -30,7 +30,7 @@ SELECT (Demographics.last_name || ', ' || Demographics.first_name) AS name,
 FROM Demographics
 	INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
 		AND Link_Company_User_Account.active_ind=1
-		AND Link_Company_User_Account.company_id IN (<cfif listlen(session.workstream_selected_company_id)>#session.workstream_selected_company_id#<cfelse>0</cfif>)
+		AND Link_Company_User_Account.company_id IN (<cfif listlen(session.workstream_selected_company_id)><cfqueryparam value="#session.workstream_selected_company_id#" cfsqltype="cf_sql_integer" list="true" /><cfelse>0</cfif>)
 	INNER JOIN REF_Company ON Link_Company_User_Account.company_id=REF_Company.company_id
 	LEFT OUTER JOIN Link_User_Account_Employment_Position ON Demographics.user_account_id=Link_User_Account_Employment_Position.user_account_id
 		AND Link_User_Account_Employment_Position.active_ind=1

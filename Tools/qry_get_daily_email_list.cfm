@@ -11,7 +11,7 @@
 
  --->
 <cfquery name="get_daily_email_list" datasource="#application.datasources.main#">
-SELECT Task.task_id, CAST(Task.description AS VARCHAR(255)) AS description, Task.name AS task_name,
+SELECT Task.task_id, Task.description, Task.name AS task_name,
 	Task.due_date, Task.notification_frequency_id, MAX(date_sent),
 	CASE Notification.notification_type
 		WHEN 14 THEN Owner.email
@@ -50,7 +50,8 @@ FROM Task
 			AND Team.role_id=3
 			AND Email.email_type_id=1
 	) AS QA ON Task.task_id=QA.task_id
-	LEFT OUTER JOIN Notification ON Task.task_id=Notification.task_id<!--- $issue$: add active_ind to notification --->
+	LEFT OUTER JOIN Notification ON Task.task_id=Notification.task_id
+		AND Notification.active_ind=1
 		AND Notification.notification_type IN (7,14,15)
 WHERE Task.notification_frequency_id!=1<!--- $issue$: commenting until this process is activated and I can figure out what task statii are elligibile
 	AND Link_Task_Task_Status.task_status_id IN (4,5) --->
