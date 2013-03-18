@@ -108,15 +108,19 @@
 		</div>
 	</div>
 	<div class="span6">
-		<label for="notes" class="h5">Progress Notes <a href="javascript:$('##notes').height( $('##notes').height()*2 );" title="Expand progress notes"><i class="icon-resize-vertical"></i></a></label>
-		<cfif get_time_entry_details.recordcount>
-			<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea"><cfloop query="get_time_entry_details"><p<cfif notes_type_id EQ 2> class="alert-info"</cfif>><strong>(<abbr title="#author#">#initials#</abbr> #dateformat(work_date,"m/d/yyyy")#)</strong> - #trim(note)#&nbsp;&nbsp;</p></cfloop></div>
-		<cfelse>
-			<div id="notes" class="alert">
-				<a href="javascript:delete_check('#attributes.task_id#');" title="Delete this task from workstream." class="btn btn-danger"><i class="icon-trash icon-white"></i> Delete this task</a>
-				&nbsp;Resolution notes not yet entered for this task.
+		<div class="row-fluid">
+			<div class="span12">
+			<label for="notes" class="h5">Progress Notes <a href="javascript:$('##notes').height( $('##notes').height()*2 );" title="Expand progress notes"><i class="icon-resize-vertical"></i></a></label>
+			<cfif get_time_entry_details.recordcount>
+				<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea"><cfloop query="get_time_entry_details"><p<cfif notes_type_id EQ 2> class="alert-info"</cfif>><strong>(<abbr title="#author#">#initials#</abbr> #dateformat(work_date,"m/d/yyyy")#)</strong> - #trim(note)#<a href="time_entry_edit(#time_entry_id#);" title="edit this note"><i class="icon-edit"></i> Edit</a></p></cfloop></div>
+			<cfelse>
+				<div id="notes" class="alert">
+					<a href="javascript:delete_check('#attributes.task_id#');" title="Delete this task from workstream." class="btn btn-danger"><i class="icon-trash icon-white"></i> Delete this task</a>
+					&nbsp;Resolution notes not yet entered for this task.
+				</div>
+			</cfif>
 			</div>
-		</cfif>
+		</div>
 		<cfinclude template="dsp_task_detail_notes_entry.cfm">
 		<cfif listfind("1,5", session.account_type_id) OR session.workstream_show_hours_data_ind EQ 1>
 			<!--- show time data to employees, or customers *if* their company is set up to view hours--->

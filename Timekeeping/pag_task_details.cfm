@@ -39,7 +39,7 @@
 	<cfif get_task_details.recordcount>
 		<cfset attributes.active_only=1>
 		<cfinclude template="qry_get_task_team.cfm">
-		<cfinclude template="qry_get_note_types.cfm">
+		<cfinclude template="../common_files/qry_get_ref_notes_type.cfm">
 		<cfinclude template="qry_get_prep_email.cfm">
 		<cfinclude template="qry_get_completion_email.cfm">
 		<cfinclude template="qry_get_completion_days.cfm"><!--- 
@@ -69,7 +69,10 @@
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="delete_task" field_name="task_id" fuseaction="Timekeeping.delete_task">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_time" field_name="task_id" fuseaction="Timekeeping.time_details">
-		<cfinclude template="qry_update_task_read.cfm">
+		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="time_entry_edit" field_name="time_entry_id" fuseaction="Timekeeping.time_entry_edit">
+		<cfif NOT get_task_details.task_read_ind>
+			<cfinclude template="qry_update_task_read.cfm">
+		</cfif>
 	<cfelse>
 		<cfinclude template="dsp_no_task_details.cfm">
 	</cfif>

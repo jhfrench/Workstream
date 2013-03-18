@@ -25,12 +25,11 @@
 	</div>
 	<div class="span3">
 		<label for="notes_type_id">Type</label>
-			<select name="notes_type_id" id="notes_type_id" class="span11">
-			<cfloop query="get_note_types">
-				<option value="#notes_type_id#"<cfif notes_type_id EQ variables.notes_type_selected> selected="selected"</cfif>>#notes_type#</option>
-			</cfloop>
-			</select><!--- 
-		<cfselect name="notes_type_id" id="notes_type_id" query="get_note_types" display="notes_type" value="notes_type_id" selected="#variables.notes_type_selected#" class="span8" /> --->
+		<select name="notes_type_id" id="notes_type_id" class="span11">
+		<cfloop query="get_ref_notes_type">
+			<option value="#notes_type_id#"<cfif notes_type_id EQ variables.notes_type_selected> selected="selected"</cfif>>#notes_type#</option>
+		</cfloop>
+		</select>
 	</div>
 	<div class="span4">
 		<label for="date">Date</label>
