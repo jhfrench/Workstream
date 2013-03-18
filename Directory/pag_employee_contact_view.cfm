@@ -59,14 +59,18 @@
 			<label class="control-label" for="phone_number_#phone_type_id#">#phone_type#</label>
 			<div class="controls">
 				<input type="text" name="phone_number_#phone_type_id#" id="phone_number_#phone_type_id#" value="#phone_number#" maxlength="12" class="span8" />
-				<cfif listcontainsnocase(phone_type, "work")>
-					<input type="text" name="extension_#phone_type_id#" id="extension_#phone_type_id#" value="#extension#" maxlength="4" class="span4" />
-					<span class="help-block"><label for="extension_#phone_type_id#">Extension</label></span>
-				</cfif>
 				<input type="hidden" name="phone_id" value="#phone_id#" />
 				<input type="hidden" name="phone_type_id" value="#phone_type_id#" />
 			</div>
 		</div>
+		<cfif listcontainsnocase(phone_type, "work")>
+		<div class="control-group">
+			<label for="extension_#phone_type_id#">Extension</label>
+			<div class="controls">
+				<input type="text" name="extension_#phone_type_id#" id="extension_#phone_type_id#" value="#extension#" maxlength="4" class="span4" />
+			</div>
+		</div>
+		</cfif>
 	</cfloop>
 	</fieldset>
 
