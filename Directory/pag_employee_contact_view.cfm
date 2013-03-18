@@ -60,7 +60,8 @@
 			<div class="controls">
 				<input type="text" name="phone_number_#phone_type_id#" id="phone_number_#phone_type_id#" value="#phone_number#" maxlength="12" class="span8" />
 				<cfif listcontainsnocase(phone_type, "work")>
-					<label for="extension_#phone_type_id#">Extension</label> <input type="text" name="extension_#phone_type_id#" id="extension_#phone_type_id#" value="#extension#" maxlength="4" class="span4" />
+					<input type="text" name="extension_#phone_type_id#" id="extension_#phone_type_id#" value="#extension#" maxlength="4" class="span4" />
+					<span class="help-block"><label for="extension_#phone_type_id#">Extension</label></span>
 				</cfif>
 				<input type="hidden" name="phone_id" value="#phone_id#" />
 				<input type="hidden" name="phone_type_id" value="#phone_type_id#" />
@@ -71,7 +72,6 @@
 
 	<fieldset>
 		<legend><h3>Emails</h3></legend>
-		<!--- Emails --->
 	<cfloop query="get_contact_emails">
 		<div class="control-group">
 			<label class="control-label" for="email_#email_type_id#">#email_type#</label>
@@ -89,36 +89,36 @@
 	<cfloop query="get_contact_locations">
 		<fieldset>
 			<legend>#location_type#</legend>
-		<div class="control-group">
-			<label class="control-label" for="address1_#location_type_id#">Street</label>
-			<div class="controls">
-				<input type="text" name="address1_#location_type_id#" id="address1_#location_type_id#" value="#address1#" class="span8" />
+			<div class="control-group">
+				<label class="control-label" for="address1_#location_type_id#">Street</label>
+				<div class="controls">
+					<input type="text" name="address1_#location_type_id#" id="address1_#location_type_id#" value="#address1#" class="span8" />
+				</div>
 			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="address2_#location_type_id#">Street 2</label>
-			<div class="controls">
-				<input type="text" name="address2_#location_type_id#" id="address2_#location_type_id#" value="#address2#" class="span8" />
+			<div class="control-group">
+				<label class="control-label" for="address2_#location_type_id#">Street 2</label>
+				<div class="controls">
+					<input type="text" name="address2_#location_type_id#" id="address2_#location_type_id#" value="#address2#" class="span8" />
+				</div>
 			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="city_#location_type_id#">City</label>
-			<div class="controls">
-				<input type="text" name="city_#location_type_id#" id="city_#location_type_id#" value="#city#" class="span8" />
+			<div class="control-group">
+				<label class="control-label" for="city_#location_type_id#">City</label>
+				<div class="controls">
+					<input type="text" name="city_#location_type_id#" id="city_#location_type_id#" value="#city#" class="span8" />
+				</div>
 			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="state_#location_type_id#">State</label>
-			<div class="controls">
-				<input type="text" name="state_#location_type_id#" id="state_#location_type_id#" value="#state#" class="span8" />
+			<div class="control-group">
+				<label class="control-label" for="state_#location_type_id#">State</label>
+				<div class="controls">
+					<input type="text" name="state_#location_type_id#" id="state_#location_type_id#" value="#state#" class="span2" />
+				</div>
 			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="zip_#location_type_id#">Zip Code</label>
-			<div class="controls">
-				<input type="text" name="zip_#location_type_id#" id="zip_#location_type_id#" value="#zip#" maxlength="5" class="span4" />
+			<div class="control-group">
+				<label class="control-label" for="zip_#location_type_id#">Zip Code</label>
+				<div class="controls">
+					<input type="text" name="zip_#location_type_id#" id="zip_#location_type_id#" value="#zip#" maxlength="5" class="span4" />
+				</div>
 			</div>
-		</div>
 		</fieldset>
 		<input type="hidden" name="location_id" value="#location_id#" />
 		<input type="hidden" name="location_type_id" value="#location_type_id#" />
@@ -128,7 +128,7 @@
 	<div class="control-group">
 		<label class="control-label" for="biography">Biography</label>
 		<div class="controls">
-			<textarea name="biography" id="biography" rows="7" class="span10">
+			<textarea name="biography" id="biography" rows="7" class="span8">
 				#get_demographics.biography#
 			</textarea>
 			<input type="hidden" name="emp_biography_id" value="#get_demographics.emp_biography_id#" />
