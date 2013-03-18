@@ -18,19 +18,6 @@
 	--> project_name: name of the project
 	END FUSEDOC --->
 </cfsilent>
-
-<script type="text/javascript">
-	//if Modernizr determines they can be supported, load the following JavaScript resources
-	Modernizr.load([
-		{
-			test: Modernizr.canvas,
-			nope: 'common_files/js/excanvas.js',
-			complete: function () {
-				Modernizr.load('common_files/js/pieChart.jQuery.js');
-			}
-		}
-	]);
-</script>
 <cfoutput>
 <section id="blurb_project" class="span7">
 	<h2>Work Allocation</h2>
@@ -61,6 +48,18 @@
 				Your browser does not support canvas, a basic <a href="http://www.html5rocks.com">HTML5</a> feature.
 			</canvas>
 		</div>
+		<script type="text/javascript">
+			//if Modernizr determines they can be supported, load the following JavaScript resources
+			Modernizr.load([
+				{
+					test: Modernizr.canvas,
+					nope: 'common_files/js/excanvas.js',
+					complete: function () {
+						Modernizr.load('common_files/js/pieChart.jQuery.js');
+					}
+				}
+			]);
+		</script>
 	</div>
 <cfelse>
 	<p>You have not yet entered any time for #monthasstring(month(now()))#.</p>
