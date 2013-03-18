@@ -19,6 +19,7 @@ FROM Task
 		AND Team.active_ind=1
 		AND Team.role_id=1
 	INNER JOIN Email ON Team.user_account_id=Email.user_account_id
+		AND Email.active_ind=1
 		AND Email.email_type_id=1
 WHERE Task.task_id=#attributes.task_id#
 </cfquery>

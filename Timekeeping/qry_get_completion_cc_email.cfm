@@ -16,11 +16,12 @@
 	<-- email_id: list that contains the user_account_id's of everyone who is supposed to be CC'd on the email
  --->
 <cfquery name="get_completion_cc_email" datasource="#application.datasources.main#">
-SELECT Email.user_account_id as email_id
-FROM Notification, Email
-WHERE Notification.email_id=Email.email_id
-	AND task_id=#attributes.task_id#
-	AND notification_type=6
+SELECT Email.user_account_id AS email_id
+FROM Notification
+	INNER JOIN Email ON Notification.email_id=Email.email_id
+		AND Email.active_ind=1
+		AND Email.email_type_id=1
+WHERE Notification.notification_type=6
+	AND Notification.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 </cfquery>
 </cfsilent>
-

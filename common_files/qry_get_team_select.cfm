@@ -36,6 +36,7 @@ FROM Employee
 	INNER JOIN Demographics ON Employee.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1<cfif isdefined("variables.email_only")>
 	INNER JOIN Email ON Employee.user_account_id=Email.user_account_id
+		AND Email.active_ind=1
 		AND Email.email_type_id=1</cfif>
 WHERE Employee.active_ind=1
 	AND <cfqueryparam value="#application.team_changed#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#application.team_changed#" cfsqltype="cf_sql_timestamp" />
