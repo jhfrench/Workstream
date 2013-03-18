@@ -49,8 +49,7 @@
 <cfparam name="state" default="">
 <cfparam name="zip" default="">
 <cfoutput>
-<h1>Personal Contact Sheet</h1>
-<h2>for #get_demographics.first_name# #get_demographics.last_name#</h2>
+<h2>Personal Contact Sheet <small>#get_demographics.last_name#, #get_demographics.first_name#</small></h2>
 <form name="form_employee_contact_view" action="index.cfm?fuseaction=Directory.employee_contact_update" method="post" class="form-horizontal">
 	<fieldset>
 		<legend><h3>Phone Numbers</h3></legend>
@@ -65,7 +64,7 @@
 		</div>
 		<cfif listcontainsnocase(phone_type, "work")>
 		<div class="control-group">
-			<label for="extension_#phone_type_id#">Extension</label>
+			<label class="control-label" for="extension_#phone_type_id#">Extension</label>
 			<div class="controls">
 				<input type="text" name="extension_#phone_type_id#" id="extension_#phone_type_id#" value="#extension#" maxlength="4" class="span4" />
 			</div>
