@@ -12,8 +12,8 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfset list1="(,), ,-,x,.">
-<cfset list2=",,,,,">
+<cfset variables.list1="(,), ,-,x,.">
+<cfset variables.list2=",,,,,">
 </cfsilent>
 <cfinclude template="qry_get_employee_list.cfm">
 <cfinclude template="dsp_employee_list.cfm">

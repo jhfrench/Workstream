@@ -12,15 +12,15 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-<cfset list1="(,), ,-,x,.">
-<cfset list2=",,,,,">
+<cfset variables.list1="(,), ,-,x,.">
+<cfset variables.list2=",,,,,">
 </cfsilent>
 <h4>Phone</h4>
 <dl class="dl-horizontal">
 <cfoutput query="get_emp_phone">
 	<dt>#phone_type#</dt>
 	<dd>
-		<cfset variables.phone=replacelist(phone_number,list1,list2)>
+		<cfset variables.phone=replacelist(phone_number, variables.list1, variables.list2)>
 		<cfif len(variables.phone) EQ 10>
 			<cfset variables.phone="#left(variables.phone,3)#.#mid(variables.phone,4,3)#.#right(variables.phone,4)#">
 			<a href="tel:#replace(variables.phone, ".", "-", "all")#">#variables.phone#</a>

@@ -27,32 +27,33 @@
 		<tr>
 			<cfif listlen(session.workstream_selected_company_id) GT 1><th>Company</th></cfif>
 			<th>Name</th>
-			<th>Extension</th>
 			<th>Work Phone</th>
-			<th><abbr title="Human Resources Identifier">HRID</abbr></th>
-			<th>Pos Num</th>
+			<th>Extension</th>
 			<th>Email</th>
+			<th class="hidden-phone hidden-tablet"><abbr title="Human Resources Identifier">HRID</abbr></th>
+			<th class="hidden-phone hidden-tablet">Pos Num</th>
 		</tr>
 	</thead>
 	<tbody>
 	<cfoutput query="get_employee_list">
 		<tr>
 			<cfif listlen(session.workstream_selected_company_id) GT 1><td>#company#</td></cfif>
-			<td><a href="javascript:list_to_employee('#user_account_id#');" title="View details for #replace(name,"'","")#.">#name#</a></td>
-			<td>#extension#</td>
+			<td scope="row"><a href="javascript:list_to_employee('#user_account_id#');" title="View details for #replace(name,"'","")#.">#name#</a></td>
 			<td>
-				<cfset variables.phone=ReplaceList(phone_number,list1,list2)>
+				<cfset variables.phone=replacelist(phone_number, variables.list1, variables.list2)>
 				<cfif len(variables.phone) EQ 10>
-					(#left(variables.phone,3)#) #mid(variables.phone,4,3)#-#right(variables.phone,4)#
-				<cfelseif len(phone) EQ 7>
+					<cfset variables.phone="#left(variables.phone,3)#.#mid(variables.phone,4,3)#.#right(variables.phone,4)#">
+					<a href="tel:#replace(variables.phone, ".", "-", "all")#">#variables.phone#</a>
+				<cfelseif len(variables.phone) EQ 7>
 					#left(variables.phone,3)#-#right(variables.phone,4)#
 				<cfelse>
 					#variables.phone#
 				</cfif>
 			</td>
-			<td>#user_account_id#</td>
-			<td>#employment_position_id#</td>
+			<td>#extension#</td>
 			<td><a href="mailto:#email#">#email#</a></td>
+			<td class="hidden-phone hidden-tablet">#user_account_id#</td>
+			<td class="hidden-phone hidden-tablet">#employment_position_id#</td>
 		</tr>
 	</cfoutput>
 	</tbody>

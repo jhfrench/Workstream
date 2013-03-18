@@ -23,10 +23,9 @@
 	<-- phone_number: string containing the work phone number of an employee
  --->
 <cfquery name="get_employee_list" cachedafter="02/02/1978" datasource="#application.datasources.main#">
-SELECT (Demographics.last_name || ', ' || Demographics.first_name) AS name,
-	Demographics.user_account_id, REF_Company.description AS company,
-	COALESCE(Email.email,'NA') AS email, COALESCE(Phone.phone_number,'NA') AS phone_number,
-	COALESCE(Phone.extension,'NA') AS extension, Link_User_Account_Employment_Position.employment_position_id
+SELECT Demographics.user_account_id, (Demographics.last_name || ', ' || Demographics.first_name) AS name, REF_Company.description AS company,
+	Email.email, Phone.phone_number, Phone.extension,
+	Link_User_Account_Employment_Position.employment_position_id
 FROM Demographics
 	INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
 		AND Link_Company_User_Account.active_ind=1
