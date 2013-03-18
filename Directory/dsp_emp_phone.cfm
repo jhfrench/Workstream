@@ -16,7 +16,7 @@
 <cfset list2=",,,,,">
 </cfsilent>
 <h4>Phone</h4>
-<dl>
+<dl class="dl-horizontal">
 <cfoutput query="get_emp_phone">
 	<dt>#phone_type#</dt>
 	<dd>

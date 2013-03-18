@@ -14,6 +14,9 @@
 	END FUSEDOC --->
 </cfsilent>
 <h4>Email</h4>
+<dl class="dl-horizontal">
 <cfoutput query="get_emp_email">
-<strong>#email_type#</strong>: <a href="mailto:#email#">#email#</a><br />
+	<dt>#email_type#</dt>
+	<dd><a href="mailto:#email#">#email#</a></dd>
 </cfoutput>
+</dl>
