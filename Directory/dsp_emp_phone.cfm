@@ -16,16 +16,20 @@
 <cfset list2=",,,,,">
 </cfsilent>
 <h4>Phone</h4>
+<dl>
 <cfoutput query="get_emp_phone">
-<strong>#phone_type#</strong>: 
-<cfset phone=ReplaceList(phone_number,list1,list2)>
-<cfif len(phone) EQ 10>
-(#left(phone,3)#) #mid(phone,4,3)#-#right(phone,4)#
-<cfelseif len(phone) EQ 7>
-#left(phone,3)#-#right(phone,4)#
-<cfelse>
-#phone#
-</cfif>
-<cfif len(extension)> x#extension#</cfif><br />
+	<dt>#phone_type#</dt>
+	<dd>
+		<cfset variables.phone=replacelist(phone_number,list1,list2)>
+		<cfif len(variables.phone) EQ 10>
+			<cfset variables.phone="#left(variables.phone,3)#.#mid(variables.phone,4,3)#.#right(variables.phone,4)#">
+			<a href="tel:#replace(variables.phone, ".", "-", "all")#">#variables.phone#</a>
+		<cfelseif len(variables.phone) EQ 7>
+			#left(variables.phone,3)#-#right(variables.phone,4)#
+		<cfelse>
+			#variables.phone#
+		</cfif>
+		<cfif len(extension)> x#extension#</cfif>
+	</dd> 
 </cfoutput>
-
+</dl>
