@@ -89,9 +89,9 @@ SELECT Task.due_date, Task.task_id, Task.name AS task_name,
 	END) AS task_status
 FROM Task
 	INNER JOIN Project ON Task.project_id=Project.project_id 
-		AND Project.project_id!=<cfqueryparam value="#application.application_specific_settings.pto_project_id#" cfsqltype="cf_sql_integer" /><cfif isdefined("attributes.project_id")>
+		AND Project.project_id!=<cfqueryparam value="#application.application_specific_settings.pto_project_id#" cfsqltype="cf_sql_integer" /><cfif len(attributes.project_id)>
 		AND Project.project_id IN (<cfqueryparam value="#attributes.project_id#" cfsqltype="cf_sql_integer" list="true" />)</cfif>
-	INNER JOIN Customer ON Project.customer_id=Customer.customer_id<cfif isdefined("attributes.customer_id") AND NOT isdefined("attributes.project_id")>
+	INNER JOIN Customer ON Project.customer_id=Customer.customer_id<cfif isdefined("attributes.customer_id") AND NOT len(attributes.project_id)>
 		AND Customer.customer_id IN (<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" list="true" />)</cfif>
 	INNER JOIN Link_Project_Company ON Project.project_id=Link_Project_Company.project_id
 		AND Link_Project_Company.active_ind=1
