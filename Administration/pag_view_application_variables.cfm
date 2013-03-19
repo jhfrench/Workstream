@@ -143,10 +143,10 @@
 </h2>
 <a href="index.cfm?fuseaction=Administration.cause_error" class="btn btn-danger">Cause an error</a>
 <form id="form_view_application_variables" action="index.cfm?fuseaction=Administration.view_application_variables" method="post" class="well form-inline">
-	<label for="show_application_ind" class="checkbox"><input type="checkbox" name="show_application_ind" id="show_application_ind" value="1"<cfif attributes.show_application_ind> checked="checked"</cfif> />Show application scope</label><br />
-	<label for="show_fusebox_ind" class="checkbox"><input type="checkbox" name="show_fusebox_ind" id="show_fusebox_ind" value="1"<cfif attributes.show_fusebox_ind> checked="checked"</cfif> />Show fusebox variables</label><br />
-	<label for="show_server_ind" class="checkbox"><input type="checkbox" name="show_server_ind" id="show_server_ind" value="1"<cfif attributes.show_server_ind> checked="checked"</cfif> />Show server scope</label><br />
-	<label for="show_session_ind" class="checkbox"><input type="checkbox" name="show_session_ind" id="show_session_ind" value="1"<cfif attributes.show_session_ind> checked="checked"</cfif> />Show session scope</label><br />
+	<label for="show_application_ind" class="checkbox"><input type="checkbox" name="show_application_ind" id="show_application_ind" value="1"<cfif attributes.show_application_ind> checked="checked"</cfif> />Show application scope</label>
+	<label for="show_fusebox_ind" class="checkbox"><input type="checkbox" name="show_fusebox_ind" id="show_fusebox_ind" value="1"<cfif attributes.show_fusebox_ind> checked="checked"</cfif> />Show fusebox variables</label>
+	<label for="show_server_ind" class="checkbox"><input type="checkbox" name="show_server_ind" id="show_server_ind" value="1"<cfif attributes.show_server_ind> checked="checked"</cfif> />Show server scope</label>
+	<label for="show_session_ind" class="checkbox"><input type="checkbox" name="show_session_ind" id="show_session_ind" value="1"<cfif attributes.show_session_ind> checked="checked"</cfif> />Show session scope</label>
 	<label for="show_variables_ind" class="checkbox"><input type="checkbox" name="show_variables_ind" id="show_variables_ind" value="1"<cfif attributes.show_variables_ind> checked="checked"</cfif> />Show variables scope</label><br />
 	<input type="submit" value="show selected scopes" class="btn btn-primary" />
 </form>
