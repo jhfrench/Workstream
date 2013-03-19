@@ -16,6 +16,7 @@
 <cfparam name="attributes.report_year" default="#year(dateadd('m',-1, now()))#">
 <cfparam name="attributes.user_account_id" default="#variables.user_identification#">
 </cfsilent>
+<cfinclude template="../common_files/qry_get_employee_details.cfm">
 <cfinclude template="qry_get_individual_hours_summary.cfm">
 
 <script type="text/javascript">
@@ -30,7 +31,7 @@
 		}
 	]);
 </script>
-<h2>Hours Report Summary <small><cfoutput>#get_individual_hours_summary.employee#, #monthasstring(attributes.report_month)# #attributes.report_year#</cfoutput></small></h2>
+<h2>Hours Report Summary <small><cfoutput>#get_employee_details.employee#, #monthasstring(attributes.report_month)# #attributes.report_year#</cfoutput></small></h2>
 <cfinclude template="dsp_personal_summary_by_code.cfm">
 <cfinclude template="dsp_personal_summary_by_week.cfm">
 
