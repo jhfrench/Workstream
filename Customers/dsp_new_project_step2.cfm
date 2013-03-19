@@ -43,14 +43,14 @@
 	<div class="control-group">
 		<label class="control-label" for="start_date">Start</label>
 		<div class="controls">
-			<input type="date" name="start_date" id="start_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="start_date" id="start_date" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10" required="required" class="span3 date" />
 			<p class="help-block">Please enter a proper date for which billing is to begin on this project.</p>
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="end_date">End</label>
 		<div class="controls">
-			<input type="date" name="end_date" id="end_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" class="span3 date" />
+			<input type="date" name="end_date" id="end_date" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10" class="span3 date" />
 			<p class="help-block">Provide the dates for which the hourly rate will be effective.</p>
 		</div>
 	</div>
@@ -59,14 +59,14 @@
 	<div class="control-group">
 		<label class="control-label" for="start_date">Start</label>
 		<div class="controls">
-			<input type="date" name="start_date" id="start_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="start_date" id="start_date" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10" required="required" class="span3 date" />
 			<p class="help-block">Please enter a proper date for which billing is to begin on this project.</p>
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="end_date">End</label>
 		<div class="controls">
-			<input type="date" name="end_date" id="end_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" class="span3 date" />
+			<input type="date" name="end_date" id="end_date" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10" class="span3 date" />
 			<p class="help-block">Provide the dates for which the hourly rate will be effective.</p>
 		</div>
 	</div>
@@ -97,14 +97,14 @@
 	<div class="control-group">
 		<label class="control-label" for="project_start">Start</label>
 		<div class="controls">
-			<input type="date" name="project_start" id="project_start" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="project_start" id="project_start" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10" required="required" class="span3 date" />
 			<p class="help-block">Provide the date work is to begin on the project.</p>
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="project_end">End</label>
 		<div class="controls">
-			<input type="date" name="project_end" id="project_end" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" class="span3 date" />
+			<input type="date" name="project_end" id="project_end" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10" class="span3 date" />
 			<p class="help-block">Provide he anticipated date that work will stop.</p>
 		</div>
 	</div>

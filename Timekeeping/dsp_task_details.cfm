@@ -81,7 +81,7 @@
 				<label for="date_assigned" class="h5">Date Assigned</label>
 				<span id="date_assigned" class="span11 date">#dateformat(get_task_details.date_assigned,"m/d/yyyy")#</span>
 				<label for="due_date" class="h5">Date Due</label>
-				<input type="date" name="due_date" id="due_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" value="#dateformat(get_task_details.due_date,'yyyy-mm-dd')#" maxlength="10" required="required"#variables.edit_status# class="span11 date" />
+				<input type="date" name="due_date" id="due_date" min="#application.application_specific_settings.workstream_start_date)#" value="#dateformat(get_task_details.due_date,'yyyy-mm-dd')#" maxlength="10" required="required"#variables.edit_status# class="span11 date" />
 				<span class="h5">Date Completed</span>
 				<div id="complete_date" class="span12 date"><cfif get_task_details.task_status_id EQ 11 AND len(get_task_details.complete_date)>#dateformat(get_task_details.complete_date,"m/d/yyyy")#<cfelse>Not yet completed</cfif></div>
 			</div>

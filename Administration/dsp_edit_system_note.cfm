@@ -40,7 +40,7 @@
 					<cfelse>
 						<cfset variables.display_start_date=attributes.display_start_date>
 					</cfif>
-					<input type="date" name="display_start_date" id="display_start_date" value="#dateformat(variables.display_start_date,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+					<input type="date" name="display_start_date" id="display_start_date" value="#dateformat(variables.display_start_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10" required="required" class="span3 date" />
 				</td>
 				<td><label for="display_end_date">Display End Date (m/d/yyyy)</label>: <br />
 					<cfif attributes.system_note_id NEQ 0>
@@ -48,7 +48,7 @@
 					<cfelse>
 						<cfset variables.display_end_date=attributes.display_end_date>
 					</cfif>
-					<input type="date" name="display_end_date" id="display_end_date" value="#dateformat(variables.display_end_date,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" class="span3 date" />
+					<input type="date" name="display_end_date" id="display_end_date" value="#dateformat(variables.display_end_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10" class="span3 date" />
 				</td>
 			</tr>
 			<tr>

@@ -27,9 +27,9 @@
 	</div>
 	<div class="span6">
 			<label for="date_start" class="h5">Start Date</label>
-			<input type="date" name="date_start" id="date_start" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" value="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" required="required" class="span9 date" />
+			<input type="date" name="date_start" id="date_start" min="#application.application_specific_settings.workstream_start_date)#" value="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" required="required" class="span9 date" />
 			<label for="due_date" class="h5">Date Due</label>
-			<input type="date" name="due_date" id="due_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span9 date" />
+			<input type="date" name="due_date" id="due_date" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10" required="required" class="span9 date" />
 			<label for="priority_id" class="h5">Priority</label>
 			<cfselect name="priority_id" id="priority_id" query="get_priorities" display="description" value="priority_id" selected="3" class="span9"></cfselect>
 			<label for="icon_id" class="h5">Icon</label>

@@ -50,7 +50,7 @@
 		Date
 	</td>
 	<td>
-		<input type="date" name="date_incurred" id="date_incurred" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.date_incurred,'yyyy-mm-dd')#" required="required" maxlength="10" class="span6 date" />
+		<input type="date" name="date_incurred" id="date_incurred" min="#application.application_specific_settings.workstream_start_date)#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.date_incurred,'yyyy-mm-dd')#" required="required" maxlength="10" class="span6 date" />
 		<!-- Use CF to create validaton <cfinput type="text" name="date_incurred" required="yes" validate="date" message="Please enter the date this expense was paid (m/d/yyyy format)." size="11"> --->
 	</td>
 </tr>

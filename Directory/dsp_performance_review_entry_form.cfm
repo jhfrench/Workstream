@@ -22,7 +22,7 @@ $Log:
 			Date Reviewed:
 		</td>
 		<td class="SelectText">
-			<input type="date" name="date_reviewed" id="date_reviewed" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="date_reviewed" id="date_reviewed" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10" required="required" class="span3 date" />
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">

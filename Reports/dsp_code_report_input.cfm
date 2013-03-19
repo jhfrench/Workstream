@@ -21,9 +21,9 @@
 <fieldset>
 	<legend>Criteria</legend>
 	<label for="from_date">From</label>
-	<input type="date" name="from_date" id="from_date" value="#dateformat(attributes.from_date,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span2 date" />
+	<input type="date" name="from_date" id="from_date" value="#dateformat(attributes.from_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10" required="required" class="span2 date" />
 	<label for="from_date">From</label>
-	<input type="date" name="through_date" id="through_date" value="#dateformat(attributes.through_date,'yyyy-mm-dd')#" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span2 date" />
+	<input type="date" name="through_date" id="through_date" value="#dateformat(attributes.through_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10" required="required" class="span2 date" />
 	<label for="project_id">Project</label>
 	<cfselect name="project_id" id="project_id" multiple="yes" required="yes" message="Please specify an project." size="10" class="span4">
 		<cfloop query="project"><option value="#project_id#"<cfif listfind(attributes.project_id, project_id)> selected="selected"</cfif>>#display#</option>

@@ -77,7 +77,7 @@
 	<tr>
 
 		<td colspan="6" align="center">
-			Specify: <br />Date Range: <input type="date" name="begin_date" id="begin_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" maxlength="10" class="span6 date" /> to <input type="date" name="end_date" id="end_date" min="#dateformat(application.application_specific_settings.workstream_start_date, 'yyyy-mm-dd')#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" maxlength="10" class="span6 date" /><br />
+			Specify: <br />Date Range: <input type="date" name="begin_date" id="begin_date" min="#application.application_specific_settings.workstream_start_date)#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" maxlength="10" class="span6 date" /> to <input type="date" name="end_date" id="end_date" min="#application.application_specific_settings.workstream_start_date)#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" maxlength="10" class="span6 date" /><br />
 Status: <cfselect name="expense_status_id" size="1" query="get_expense_status" value="expense_status_id" display="description"></cfselect>
 <br />
 <input type="submit" name="submit" value="Submit" class="btn btn-primary" />
