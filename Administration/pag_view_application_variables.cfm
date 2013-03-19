@@ -175,21 +175,31 @@
 	</cfif>
 	</ul>
 	<div id="variable_scopesContent" class="tab-content">
+	<cfif attributes.show_application_ind>
 		<div class="tab-pane fade" id="show_application">
 			<p><cfdump var="#request.small_application#"></p>
 		</div>
+	</cfif>
+	<cfif attributes.show_fusebox_ind>
 		<div class="tab-pane fade" id="show_fusebox">
 			<p><cfdump var="#request.small_fusebox#"></p>
 		</div>
+	</cfif>
+	<cfif attributes.show_server_ind>
 		<div class="tab-pane fade" id="show_server">
 			<p><cfdump var="#server#"></p>
 		</div>
+	</cfif>
+	<cfif attributes.show_session_ind>
 		<div class="tab-pane fade" id="show_session">
 			<p><cfdump var="#session#"></p>
 		</div>
+	</cfif>
+	<cfif attributes.show_variables_ind>
 		<div class="tab-pane fade" id="show_variables">
 			<p><cfdump var="#request.small_variables#"></p>
 		</div>
+	</cfif>
 	</div>
 </div>
 </cfif>
