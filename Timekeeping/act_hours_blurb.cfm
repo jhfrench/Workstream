@@ -20,7 +20,7 @@
 	variables.last_month=0;
 	variables.difference=0;
 	variables.admin_time=0;
-	variables.should_have=datediff("d","#month(now())#/1/#year(now())#",now())*get_employee_details.week_hours/5;
+	variables.should_have=datediff("d","#month(now())#/1/#year(now())#",now())*get_employee_details.week_hours/7;
 </cfscript>
 
 <cfinclude template="qry_hours_blurb.cfm">
