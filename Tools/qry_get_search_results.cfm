@@ -71,6 +71,12 @@
 	<cfset attributes.task_id=variables.task_id>
 </cfif>
 
+<cfif session.account_type_id EQ 2>
+	<cfset variables.valid_codes=session.workstream_company_id>
+<cfelse>
+	<cfset variables.valid_codes=session.workstream_selected_company_id>
+</cfif>
+
 <cfif NOT listlen(attributes.project_id)>
 	<cfif isdefined("attributes.project_id_list")>
 		<cfset attributes.project_id=attributes.project_id_list>
@@ -79,14 +85,6 @@
 		<cfset attributes.project_id=valuelist(get_search_projects.project_id)>
 	</cfif>
 </cfif>
-
-<cfif listlen(attributes.customer_id)>
-	<cfset variables.use_customer_criteria=1>
-<cfelse>
-	<cfset variables.use_customer_criteria=0>
-</cfif>
-
-<cfset variables.counter=0>
 
 <cfquery name="get_task_list" datasource="#application.datasources.main#">
 SELECT Task.due_date, Task.task_id, Task.name AS task_name,
@@ -100,12 +98,13 @@ SELECT Task.due_date, Task.task_id, Task.name AS task_name,
 	END) AS task_status
 FROM Task
 	INNER JOIN Project ON Task.project_id=Project.project_id 
-		AND Project.project_id!=#application.application_specific_settings.pto_project_id#<cfif isdefined("attributes.project_id")>
-		AND Project.project_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#" list="true" />)</cfif>
-	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
+		AND Project.project_id!=<cfqueryparam value="#application.application_specific_settings.pto_project_id#" cfsqltype="cf_sql_integer" /><cfif isdefined("attributes.project_id")>
+		AND Project.project_id IN (<cfqueryparam value="#attributes.project_id#" cfsqltype="cf_sql_integer" list="true" />)</cfif>
+	INNER JOIN Customer ON Project.customer_id=Customer.customer_id<cfif isdefined("attributes.customer_id") AND NOT isdefined("attributes.project_id")>
+		AND Customer.customer_id IN (<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" list="true" />)</cfif>
 	INNER JOIN Link_Project_Company ON Project.project_id=Link_Project_Company.project_id
 		AND Link_Project_Company.active_ind=1
-		AND Link_Project_Company.company_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#session.workstream_company_id#" list="yes" />)
+		AND Link_Project_Company.company_id IN (<cfqueryparam value="#variables.valid_codes#" cfsqltype="cf_sql_integer" list="true" />) /*limit to either user's access */
 	INNER JOIN REF_Priority on Task.priority_id=REF_Priority.priority_id
 	INNER JOIN REF_Icon ON Task.icon_id=REF_Icon.icon_id
 	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
@@ -150,8 +149,7 @@ WHERE 1=1<cfif listlen(attributes.task_id)>
 	)</cfif><cfif listlen(attributes.description)>
 	AND (1=0<cfloop list="#attributes.description#" index="variables.description_ii">
 		OR LOWER(Task.description) LIKE '%#lcase(variables.description_ii)#%'</cfloop>)</cfif><cfif len(attributes.task_source)>
-	AND Task.created_by IN (#attributes.task_source#)</cfif><cfif attributes.used_by_search_ind>
-	AND Task.project_id IN (#attributes.project_id#)</cfif> /*limit to either user's access or search crietria, whichever is less*/<cfif len(attributes.priority_id)>
+	AND Task.created_by IN (#attributes.task_source#)</cfif><cfif len(attributes.priority_id)>
 	AND Task.priority_id IN (#attributes.priority_id#)</cfif><cfif isdate(attributes.date_entered)>
 	AND Task.entry_date #preservesinglequotes(variables.date_entered)#</cfif><cfif isdate(attributes.due_date)>
 	AND Task.due_date #preservesinglequotes(variables.due_date)#</cfif><cfif isdefined("variables.temp_task_list_order")>

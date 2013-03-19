@@ -33,10 +33,10 @@ SELECT Customer.customer_id, Customer.description || ' (' ||  Customer.root_code
 	</cfif>END AS display
 FROM Customer
 	INNER JOIN Project ON Customer.customer_id=Project.customer_id
-		AND Project.project_id!=<cfqueryparam cfsqltype="cf_sql_integer" value="#application.application_specific_settings.pto_project_id#">
+		AND Project.project_id!=<cfqueryparam value="#application.application_specific_settings.pto_project_id#" cfsqltype="cf_sql_integer" />
 		AND Project.active_ind=1
 	INNER JOIN Link_Project_Company ON Project.project_id=Link_Project_Company.project_id
-		AND Link_Project_Company.company_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#variables.valid_codes#" list="true">)
+		AND Link_Project_Company.company_id IN (<cfqueryparam value="#variables.valid_codes#" cfsqltype="cf_sql_integer" list="true" />)
 		AND Link_Project_Company.active_ind=1
 WHERE Customer.active_ind=1
 GROUP BY Customer.customer_id, Customer.description, Customer.root_code,
