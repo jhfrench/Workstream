@@ -93,9 +93,13 @@ FROM Task
 		AND Project.project_id IN (<cfqueryparam value="#attributes.project_id#" cfsqltype="cf_sql_integer" list="true" />)</cfif>
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id<cfif len(attributes.customer_id) AND NOT len(attributes.project_id)>
 		AND Customer.customer_id IN (<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" list="true" />)</cfif>
-	INNER JOIN Link_Project_Company ON Project.project_id=Link_Project_Company.project_id
-		AND Link_Project_Company.active_ind=1
-		AND Link_Project_Company.company_id IN (<cfqueryparam value="#variables.valid_codes#" cfsqltype="cf_sql_integer" list="true" />) /*limit to either user's access */
+	INNER JOIN (
+		SELECT project_id
+		FROM Link_Project_Company
+		WHERE Link_Project_Company.active_ind=1
+			AND Link_Project_Company.company_id IN (<cfqueryparam value="#variables.valid_codes#" cfsqltype="cf_sql_integer" list="true" />) /*limit to either user's access */
+		GROUP BY project_id
+	) AS Link_Project_Company ON Project.project_id=Link_Project_Company.project_id
 	INNER JOIN REF_Priority on Task.priority_id=REF_Priority.priority_id
 	INNER JOIN REF_Icon ON Task.icon_id=REF_Icon.icon_id
 	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
