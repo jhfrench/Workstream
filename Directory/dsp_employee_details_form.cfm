@@ -92,7 +92,7 @@
 	<div class="control-group">
 		<label for="hire_date" class="control-label">Hire date</label>
 		<div class="controls">
-			<input type="date" name="hire_date" id="hire_date" min="#application.application_specific_settings.workstream_start_date)#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(hire_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+			<input type="date" name="hire_date" id="hire_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(hire_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
 		</div>
 	</div>
 	<div class="control-group">

@@ -109,9 +109,9 @@
 <fieldset>
 	<legend>Criteria</legend>
 	<label for="from_date">Start</label>
-	<input type="date" name="from_date" id="from_date" min="#application.application_specific_settings.workstream_start_date)#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
+	<input type="date" name="from_date" id="from_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
 	<label for="through_date">End</label>
-	<input type="date" name="through_date" id="through_date" min="#application.application_specific_settings.workstream_start_date)#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
+	<input type="date" name="through_date" id="through_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
 	<input type="submit" name="submit" value="Update Report" class="btn btn-primary" />
 </fieldset>
 </form>

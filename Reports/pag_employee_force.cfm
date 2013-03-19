@@ -42,9 +42,9 @@
 <fieldset>
 	<legend>Criteria</legend>
 	<label for="from_date">Start</label>
-	<input type="date" name="from_date" id="from_date" min="#application.application_specific_settings.workstream_start_date)#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
+	<input type="date" name="from_date" id="from_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
 	<label for="through_date">End</label>
-	<input type="date" name="through_date" id="through_date" min="#application.application_specific_settings.workstream_start_date)#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.through_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
+	<input type="date" name="through_date" id="through_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.through_date, 'yyyy-mm-dd')#" maxlength="10" class="span2 date" />
 	<label for="show_completed"><input type="checkbox" name="show_completed" id="show_completed" value="1"<cfif attributes.show_completed> checked="checked"</cfif> /> Show only completed tasks</label>
 	<label for="show_budgeted_ind"><input type="checkbox" name="show_budgeted_ind" id="show_budgeted_ind" value="1"<cfif attributes.show_budgeted_ind> checked="checked"</cfif> /> Show only budgeted tasks</label>
 	<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />

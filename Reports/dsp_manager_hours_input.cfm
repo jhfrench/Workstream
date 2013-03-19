@@ -28,9 +28,9 @@
 	<fieldset>
 		<legend>Criteria</legend>
 		<label for="from_date">From</label>
-		<input type="date" name="from_date" id="from_date" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date)#" max="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+		<input type="date" name="from_date" id="from_date" value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
 		<label for="through_date">To</label>
-		<input type="date" name="through_date" id="through_date" value="#dateformat(attributes.through_date, 'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date)#" max="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+		<input type="date" name="through_date" id="through_date" value="#dateformat(attributes.through_date, 'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
 		<label for="through_date">Included Employees</label>
 		<select name="included_user_account_id" required="required" multiple="yes" size="#min(variables.recordcount,25)#" class="span3">
 			<cfloop query="#variables.source_query_name#">

@@ -20,7 +20,7 @@
 		<div class="control-group">
 			<label for="date_start" class="control-label">Date Implemented</label>
 			<div class="controls">
-				<input type="date" name="date_start" id="date_start" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10" required="required" class="span3 date" />
+				<input type="date" name="date_start" id="date_start" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 			</div>
 		</div>
 		<div class="control-group">
@@ -37,7 +37,7 @@
 		<div class="control-group">
 			<label for="end_date_#get_present_supervisor.supervisor_id#" class="control-label">#get_present_supervisor.sup_name#</label>
 			<div class="controls">
-				<input type="date" name="end_date_#get_present_supervisor.supervisor_id#" id="end_date_#get_present_supervisor.supervisor_id#" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10" class="span3 date" />
+				<input type="date" name="end_date_#get_present_supervisor.supervisor_id#" id="end_date_#get_present_supervisor.supervisor_id#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" class="span3 date" />
 				<p class="help-block">If provided, this date will be used to mark the end of this supervisor relationship.</p>
 			</div>
 		</div>

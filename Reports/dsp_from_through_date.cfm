@@ -22,9 +22,9 @@
 	<fieldset>
 		<legend>#attributes.report_name# Criteria</legend>
 		<label for="from_date">From</label>
-		<input type="date" name="from_date" id="from_date" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10"<cfif attributes.required> required="required"</cfif> value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" class="span3 date" />
+		<input type="date" name="from_date" id="from_date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10"<cfif attributes.required> required="required"</cfif> value="#dateformat(attributes.from_date, 'yyyy-mm-dd')#" class="span3 date" />
 		<label for="through_date">To</label>
-		<input type="date" name="through_date" id="through_date" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10"<cfif attributes.required> required="required"</cfif> value="#dateformat(attributes.through_date, 'yyyy-mm-dd')#" class="span3 date" />
+		<input type="date" name="through_date" id="through_date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10"<cfif attributes.required> required="required"</cfif> value="#dateformat(attributes.through_date, 'yyyy-mm-dd')#" class="span3 date" />
 		<input type="submit" value="Update Report" class="btn btn-primary" />
 	</fieldset>
 </form>

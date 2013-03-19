@@ -176,9 +176,9 @@
 	<fieldset>
 		<legend><h3>Activity Criteria</h3></legend>
 		<label class="control-label" for="start_date">Start Date</label>
-		<input type="date" name="start_date" id="start_date" value="#dateformat(attributes.start_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date)#" maxlength="10" required="required" class="span3 date" />
+		<input type="date" name="start_date" id="start_date" value="#dateformat(attributes.start_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 		<label class="control-label" for="end_date">End Date</label>
-		<input type="date" name="end_date" id="end_date" value="#dateformat(attributes.end_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date)#" max="#dateformat(dateadd('d', 1, now()),'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+		<input type="date" name="end_date" id="end_date" value="#dateformat(attributes.end_date,'yyyy-mm-dd')#" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(dateadd('d', 1, now()),'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
 		<input type="hidden" name="user_account_id" value="#attributes.user_account_id#" />
 		<input type="submit" name="method" value="Update Data" class="btn btn-primary" />
 		<input type="button" name="cancel" value="Cancel" onclick="window.history.go(-1)" class="btn" />
