@@ -31,7 +31,7 @@
 			</section>
 			<section id="blurb_hours" class="span3">
 				<h2>Hours Worked</h2>
-				<p>#variables.hours_blurb#</p>
+				#variables.hours_blurb#
 				<cfif listcontains(variables.allowed_business_function_id,675)>
 					<p><a href="index.cfm?fuseaction=Reports.individual_hours_summary" class="btn">View details &raquo;</a></p>
 				</cfif>

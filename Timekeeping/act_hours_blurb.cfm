@@ -47,8 +47,9 @@
 <cfsavecontent variable="variables.hours_blurb">
 <cfoutput>
 	<cfif variables.this_month LT variables.should_have>
-		Your timekeeping may not be up to date. 
+		<p class="label label-important">Your timekeeping may not be up to date.</p>
 	</cfif>
+	<p>
 	According to your time entries, this month you worked #decimalformat(variables.this_month)# hours. Last month you worked #decimalformat(variables.last_month)# hours. This is a projected 
 	<cfif variables.difference GT 0>
 		increase
@@ -60,6 +61,7 @@
 	<cfif time_allocation_blurb.recordcount>
 		So far this month you spent the most time (#variables.big_hours# hours) on #variables.big_project#.
 	</cfif>
+	</p>
 </cfoutput>
 </cfsavecontent>
 
