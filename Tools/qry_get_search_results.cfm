@@ -77,15 +77,6 @@
 	<cfset variables.valid_codes=session.workstream_selected_company_id>
 </cfif>
 
-<cfif NOT listlen(attributes.project_id)>
-	<cfif isdefined("attributes.project_id_list")>
-		<cfset attributes.project_id=attributes.project_id_list>
-	<cfelse>
-		<cfinclude template="../common_files/qry_get_search_projects.cfm">
-		<cfset attributes.project_id=valuelist(get_search_projects.project_id)>
-	</cfif>
-</cfif>
-
 <cfquery name="get_task_list" datasource="#application.datasources.main#">
 SELECT Task.due_date, Task.task_id, Task.name AS task_name,
 	COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Link_Task_Task_Status.task_status_id,
