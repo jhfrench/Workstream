@@ -11,7 +11,7 @@
 	$Log$
 	 || 
 	END FUSEDOC --->
-
+<cfparam name="attributes.user_account_id" default="#variables.user_identification#">
 <cfquery name="get_employee_details" datasource="#application.datasources.main#">
 SELECT Demographics.last_name || ', ' || Demographics.first_name AS employee, Employee.week_hours
 FROM Demographics
