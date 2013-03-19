@@ -94,15 +94,15 @@
 	</ul>
 </h2>
 <form id="form_cause_error" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">
-	<label for="error_handling_enabled_ind" class="checkbox">Enable error handling: <input type="checkbox" name="error_handling_enabled_ind" id="error_handling_enabled_ind" value="1"<cfif application.error_handling_enabled_ind> checked="checked"</cfif> /></label>
 	<fieldset>
 		<legend>Show error</legend>
 		<label for="show_error_process_ind_0" class="radio"><input type="radio" name="show_error_process_ind" id="show_error_process_ind_0" value="0" checked="checked" />No</label>
 		<label for="show_error_process_ind_1" class="radio"><input type="radio" name="show_error_process_ind" id="show_error_process_ind_1" value="1" />ColdFusion</label>
 		<label for="show_error_process_ind_2" class="radio"><input type="radio" name="show_error_process_ind" id="show_error_process_ind_2" value="2" />Database</label>
 	</fieldset>
-	<label for="manually_process_error_ind" class="checkbox">Manually process error:<input type="checkbox" name="manually_process_error_ind" id="manually_process_error_ind" value="1" /></label>
-	<label for="super_manually_process_error_ind" class="checkbox">Super manually process error:<input type="checkbox" name="super_manually_process_error_ind" id="super_manually_process_error_ind" value="1" /></label>
+	<label for="error_handling_enabled_ind" class="checkbox"><input type="checkbox" name="error_handling_enabled_ind" id="error_handling_enabled_ind" value="1"<cfif application.error_handling_enabled_ind> checked="checked"</cfif> />Enable error handling</label>
+	<label for="manually_process_error_ind" class="checkbox"><input type="checkbox" name="manually_process_error_ind" id="manually_process_error_ind" value="1" />Manually process error</label>
+	<label for="super_manually_process_error_ind" class="checkbox"><input type="checkbox" name="super_manually_process_error_ind" id="super_manually_process_error_ind" value="1" />Super manually process error</label>
 	<br />
 	<input type="submit" name="submit" value="Cause an error" class="btn btn-danger" />
 </form>
