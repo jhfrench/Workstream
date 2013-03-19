@@ -12,13 +12,17 @@
 	$Log$
 	 || 
  --->
-	<cfset variables.total=0>
-	<cfset variables.this_month=0>
-	<cfset variables.last_month=0>
-	<cfset variables.difference=0>
-	<cfset variables.admin_time=0>
-	<cfset variables.should_have=datediff("d","#month(now())#/1/#year(now())#",now())*1.3>
 </cfsilent>
+<cfinclude template="../common_files/qry_get_employee_details.cfm">
+<cfscript>
+	variables.total=0;
+	variables.this_month=0;
+	variables.last_month=0;
+	variables.difference=0;
+	variables.admin_time=0;
+	variables.should_have=datediff("d","#month(now())#/1/#year(now())#",now())*get_employee_details.week_hours/5;
+</cfscript>
+
 <cfinclude template="qry_hours_blurb.cfm">
 <cfinclude template="qry_time_allocation_blurb.cfm">
 <cfoutput query="hours_blurb">
@@ -34,24 +38,38 @@
 		<cfset variables.difference=numberformat((variables.this_month-variables.last_month_prorated)/variables.last_month_prorated*100)>
 	</cfif>
 </cfoutput>
-<cfset variables.hours_blurb="According to your time entries, this month you worked #decimalformat(variables.this_month)# hours. Last month you worked #decimalformat(variables.last_month)# hours.">
-<cfif variables.difference GT 0>
-	<cfset variables.hours_blurb="#variables.hours_blurb# This is a projected increase of #variables.difference#% from last month.">
-<cfelseif variables.difference LT 0>
-	<cfset variables.difference=variables.difference*-1>
-	<cfset variables.hours_blurb="#variables.hours_blurb# This is a projected decrease of #variables.difference#% from last month.">
-</cfif>
+
 <cfoutput query="time_allocation_blurb" maxrows="1">
 	<cfset variables.big_hours=decimalformat(project_hours)>
 	<cfset variables.big_project=project_name>
 </cfoutput>
-<cfif time_allocation_blurb.recordcount>
-	<cfset variables.hours_blurb="#variables.hours_blurb# So far this month you spent the most time (#variables.big_hours# hours) on #variables.big_project#.">
-</cfif>
-<cfif variables.this_month LT variables.should_have>
-	<cfset variables.hours_blurb="Your timekeeping may not be up to date. #variables.hours_blurb#">
-</cfif>
 
+<cfsavecontent variable="variables.hours_blurb">
+<cfoutput>
+	<cfif variables.this_month LT variables.should_have>
+		Your timekeeping may not be up to date. 
+	</cfif>
+	According to your time entries, this month you worked #decimalformat(variables.this_month)# hours. Last month you worked #decimalformat(variables.last_month)# hours. This is a projected 
+	<cfif variables.difference GT 0>
+		increase
+	<cfelseif variables.difference LT 0>
+		<cfset variables.difference=variables.difference*-1>
+		decrease
+	</cfif>
+	 of #variables.difference#% from last month. 
+	<cfif time_allocation_blurb.recordcount>
+		So far this month you spent the most time (#variables.big_hours# hours) on #variables.big_project#.
+	</cfif>
+</cfoutput>
+</cfsavecontent>
+
+<cfoutput query="time_allocation_blurb">
+	<cfif currentrow GT listlen(application.application_specific_settings.color_list)>
+		<cfset application.application_specific_settings.color_list=listappend(application.application_specific_settings.color_list,randrange(100000,999999))>
+	</cfif>
+</cfoutput>
+
+<!--- $issue$: this text is built in Timekeeping/dsp_time_allocation_chart.cfm in a more hard-coded manner. Will need to reinstitute this logic someday.
 <cfif time_allocation_blurb.recordcount EQ 0>
 	<cfset variables.work_allocation_text="">
 <cfelse>
@@ -78,4 +96,4 @@
 		<cfset variables.work_allocation_text="#variables.work_allocation_text# You have spent #variables.admin_time# of your time on ADMIN/PLANNING. This is #variables.over_under# the ADMIN/PLANNING work allocation target of 10% or less.">
 	</cfif>
 	<cfset variables.work_allocation_text="#variables.work_allocation_text# You allocated your time as follows:">
-</cfif>
+</cfif> --->
