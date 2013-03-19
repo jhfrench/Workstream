@@ -242,11 +242,11 @@
 			port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 		<html>
 		<head>
-			<title>HITSS Application Error</title>
+			<title>AIT Application Error</title>
 		</head>
 		<body>
 		<font face="arial" size="-1">
-			HITSS product '#application.product_name#' generated the following error information:<ul>
+			AIT product '#application.product_name#' generated the following error information:<ul>
 			<strong>User:</strong> <a href="mailto:#session.email_address#">#session.first_name# #session.last_name#</a> 
 			<br /><strong>#application.product_name# username:</strong> #session.user_name#
 			<cfif isdefined("application.application_support_contacts")>
@@ -305,7 +305,7 @@
 		<link rel="stylesheet" href="Application_Manager/errortemplates/error_style.css">
 	</head>
 	
-	<body>
+	<body class="warning">
 	<section class="center">
 		<div class="error_header">
 			<img src="Application_Manager/images/gears1.png" alt="" width="64" height="64" />
@@ -313,8 +313,8 @@
 		<div class="content">
 			<p class="header">You have encountered an unexpected error.</p>
 			<p>The Error Reference Number is<cfif isdefined("request.error_log_id") AND len(request.error_log_id)>: #request.error_log_id#<cfelse> unknown.</cfif></p>
-			<p>We apologize for the inconvenience this may cause. This page automatically sends a notification to the <abbr title="Applied Internet Technologies">AIT</abbr> Application Development department to ensure timely repair of the malfunction.</p>
-			<p>If you have any questions or concerns, please feel free to contact the <a href="mailto:info@appliedinter.net"><abbr title="Applied Internet Technologies">AIT</abbr> Help Desk</a><cfif isdefined("request.error_log_id") AND len(request.error_log_id)> and reference Error Reference Number #request.error_log_id#</cfif>.
+			<p>We apologize for the inconvenience this may cause.<cfif len(application.support_email_recipients) AND len(application.email_server_name)> This page automatically sends a notification to the <abbr title="Applied Internet Technologies">AIT</abbr> Application Development department to ensure timely repair of the malfunction.</p>
+			<p></cfif>If you have any questions or concerns, please feel free to contact the <a href="mailto:info@appliedinter.net"><abbr title="Applied Internet Technologies">AIT</abbr> Help Desk</a><cfif isdefined("request.error_log_id") AND len(request.error_log_id)> and reference Error Reference Number #request.error_log_id#</cfif>.
 				<!--- the very same code as above --->
 				<cfif isdefined("application.application_support_contacts")>
 					<cfloop list="#structKeyList(application.application_support_contacts)#" index="contact_type_ii">
@@ -331,8 +331,9 @@
 							</cfloop>
 						</ul>
 					</cfloop>
-				</cfif></p>
-				<cfif len(cgi.http_referer)><p>Please click here to <a href="#listfirst(cgi.http_referer,"?")#">return to the main #application.product_name# screen</a>.</p></cfif>
+				</cfif>
+			</p>
+			<cfif len(cgi.http_referer)><p>Please click here to <a href="#listfirst(cgi.http_referer,"?")#">return to the main #application.product_name# screen</a>.</p></cfif>
 		</div>
 	</section>
 	</body>

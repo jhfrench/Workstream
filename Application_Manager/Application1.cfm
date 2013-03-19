@@ -66,7 +66,7 @@
 		<cfset application.environment_name="Test">
 		<cfset application.product_release_version="1.0">
 	</cfcase>
-	<cfcase value="smith.ait.com">
+	<cfcase value="appliedinter.net">
 		<cfset application.error_handling_enabled_ind="1">
 		<cfset application.email_server_name="smtp.ait.com">
 		<cfset application.environment_name="Production">

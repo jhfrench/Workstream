@@ -18,11 +18,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 	<head>
-		<title>HITSS Application Manager</title>
-		<link id="_homepage_Portals__default_" rel="stylesheet" type="text/css" href="https://pims.hitsshq.com/homepage/Portals/_default/default.css"></LINK>
-		<link id="_homepage_Portals_0_Skins_Oxygen_Blue_" rel="stylesheet" type="text/css" href="https://pims.hitsshq.com/homepage/Portals/0/Skins/Oxygen-Blue/skin.css"></LINK>
-		<link id="_homepage_Portals_0_Containers_Oxygen_Blue_BlueBar_01_PS_css" rel="stylesheet" type="text/css" href="https://pims.hitsshq.com/homepage/Portals/0/Containers/Oxygen-Blue/BlueBar-01-PS.css"></LINK>
-		<link id="_homepage_Portals_0_" rel="stylesheet" type="text/css" href="https://pims.hitsshq.com/homepage/Portals/0/portal.css"></LINK>
+		<title>AIT Application Manager</title>
 		<!--- $issue$: perhaps Application_Manager should be moved to its own project and Bootstrapped. --->
 	</head>
 
