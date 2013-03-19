@@ -31,7 +31,7 @@
 </cfif>
 
 <!--- Get installation details which will be saved in application-scoped variables. --->
-<cfinclude template="get_application_basic_details.cfm">
+<cfinclude template="qry_get_application_basic_details.cfm">
 
 <cfapplication name="#left(get_application_basic_details.application_name,64)#"
 	applicationtimeout="#get_application_basic_details.applicationtimeout#"
