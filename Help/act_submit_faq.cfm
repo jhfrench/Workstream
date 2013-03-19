@@ -74,17 +74,17 @@ FROM Dual
 
 <!--- This is the email that sends the question to the people identified to handle questions (if those people are known) --->
 <cfif len(variables.help_email_recipients) AND len(application.email_server_name)>
-	<!-- email sent to <cfoutput>#variables.help_email_recipients#, from #application.application_specific_settings.system_email_sender# through #application.email_server_name#</cfoutput> -->
+	<!-- email sent to <cfoutput>#variables.help_email_recipients#, from #application.system_email_sender# through #application.email_server_name#</cfoutput> -->
 
 	<cfscript>
 		attributes.email_recipients_demographics_id=valuelist(get_help_email_recipients.demographics_id);
-		attributes.reply_to=application.application_specific_settings.system_email_sender;
+		attributes.reply_to=application.system_email_sender;
 		attributes.subject="#application.product_name# FAQ";
 		attributes.email_body="A #application.product_name# user asked the following question:<br />
 	'#attributes.question#'";
 		variables.created_by=0;
 	</cfscript>
-	<cfmail to="#variables.help_email_recipients#" from="#application.application_specific_settings.system_email_sender#" subject="#attributes.subject#" type="HTML"
+	<cfmail to="#variables.help_email_recipients#" from="#application.system_email_sender#" subject="#attributes.subject#" type="HTML"
 		server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
 		port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 A #application.product_name# user<cfif isdefined("session.first_name") AND isdefined("session.last_name")>, #session.first_name# #session.last_name#,</cfif> asked the following question:<br />

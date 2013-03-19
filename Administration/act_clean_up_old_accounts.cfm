@@ -30,7 +30,7 @@
 <!--- send email to the affected people --->
 <cfoutput>
 <cfloop query="get_password_about_to_expire">
-	<cfmail to="#get_password_about_to_expire.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="Your #application.product_name# password is getting old!" type="HTML"
+	<cfmail to="#get_password_about_to_expire.email_address#" from="#application.system_email_sender#" subject="Your #application.product_name# password is getting old!" type="HTML"
 		server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
 		port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 	Your #application.product_name# password will expire in #days_to_password_expire# days. Please log on with username #user_name# to change your password at <a href="#variables.url_to_application#">#variables.url_to_application#</a>
@@ -44,7 +44,7 @@
 <cfif get_expired_passwords.recordcount GT 0>
 	<!--- send email to the affected people --->
 	<cfoutput query="get_expired_passwords">
-		<cfmail to="#get_expired_passwords.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# Account Locked" type="HTML"
+		<cfmail to="#get_expired_passwords.email_address#" from="#application.system_email_sender#" subject="#application.product_name# Account Locked" type="HTML"
 			server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
 			port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 Your #application.product_name# '#get_expired_passwords.user_name#' account has been locked because your password has expired.<br />

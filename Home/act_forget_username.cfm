@@ -25,7 +25,7 @@
 <cfif get_username.recordcount>
 	<cfset attributes.user_account_id=get_username.user_account_id>
 	<!--- $issue$: need to give recipient of this message an "out" so they can stop receiving these notifications --->
-	<cfmail to="#get_username.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# Username" type="HTML"
+	<cfmail to="#get_username.email_address#" from="#application.system_email_sender#" subject="#application.product_name# Username" type="HTML"
 		server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
 		port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 You are receiving this email because you have requested your #application.product_name# username. 

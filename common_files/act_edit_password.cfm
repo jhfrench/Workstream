@@ -38,7 +38,7 @@
 
 <cfif get_user_information.recordcount EQ 1 AND len(get_user_information.email_address)>
 	<cfset variables.url_to_application="https://#cgi.http_host##cgi.script_name#">
-	<cfmail to="#get_user_information.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# Password Reset" type="HTML"
+	<cfmail to="#get_user_information.email_address#" from="#application.system_email_sender#" subject="#application.product_name# Password Reset" type="HTML"
 		server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
 		port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 <p>Your #application.product_name# password has been set to:

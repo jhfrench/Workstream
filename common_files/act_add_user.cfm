@@ -96,12 +96,12 @@
 
 	<!--- send email to the added user--->
 	<cfif len(attributes.email_address)>
-		<cfmail to="#attributes.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# Account Creation (1 of 2)" type="HTML"
+		<cfmail to="#attributes.email_address#" from="#application.system_email_sender#" subject="#application.product_name# Account Creation (1 of 2)" type="HTML"
 			server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
 			port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 Your #application.product_name# account has been created, welcome to the system. Your username is "#attributes.user_name#". Your initial password will be sent to you in a separate email. Once your password arrives, you can access #application.product_name# at <a href="#listfirst(cgi.http_referer,"?")#">#listfirst(cgi.http_referer,"?")#</a>.
 		</cfmail>
-		<cfmail to="#attributes.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="#application.product_name# Account Creation (2 of 2)" type="HTML"
+		<cfmail to="#attributes.email_address#" from="#application.system_email_sender#" subject="#application.product_name# Account Creation (2 of 2)" type="HTML"
 			server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
 			port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 Your #application.product_name# account has been created, welcome to the system. Your username was sent to you in a previous email. Your initial password is 

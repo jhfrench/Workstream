@@ -85,7 +85,7 @@
 		<cfset attributes.user_account_id=get_username.user_account_id>
 		<cfinclude template="../common_files/qry_deactivate_user_account_status.cfm">
 		<cfinclude template="../common_files/qry_insert_link_user_account_status.cfm">
-		<cfmail to="#get_username.email_address#" from="#application.application_specific_settings.system_email_sender#" subject="Application_Manager Account Locked" type="HTML"
+		<cfmail to="#get_username.email_address#" from="#application.system_email_sender#" subject="Application_Manager Account Locked" type="HTML"
 			server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
 			port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 		Your Application_Manager account has been locked. Please contact the administrator of this system to activate your account.

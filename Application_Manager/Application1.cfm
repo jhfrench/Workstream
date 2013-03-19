@@ -32,7 +32,7 @@
 <cfset application.product_name="FAAD">
 <cfset application.html_title="Federal Assistance Award Data">
 <cfset application.active_ind="1">
-<cfset application.erroremailfrom="customer_info@appliedinter.net">
+<cfset application.system_email_sender="customer_info@appliedinter.net">
 <cfset application.product_id="122">
 <cfset application.support_email_recipients="">
 <cfset application.installation_id="459">
@@ -41,10 +41,8 @@
 <cfset application.inactive_link="pag_application_unavailable.cfm">
 <cfset application.host_server_name="Procyon">
 <cfset application.login_for_error="session.last_name">
-<cfset application.application_specific_settings.system_email_sender=application.erroremailfrom>
 <cfset application.application_specific_settings.normal_navigation_ind=1>
 
-<cfset application.application_specific_settings.system_email_sender=application.erroremailfrom>
 <cfset application.application_specific_settings.assign_module_access_ind=0>
 <cfset application.application_specific_settings.normal_navigation_ind=1>
 <cfset application.application_specific_settings.show_comments_ind=1>

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <!-- errortemplates/error.cfm
 	Author: Jeromy F -->
 <!---
@@ -31,8 +30,8 @@
 		if(not isdefined("application.product_name")) {
 			application.product_name="";
 		}
-		if(not isdefined("application.erroremailfrom")) {
-			application.erroremailfrom="workstream@ait.com";
+		if(not isdefined("application.system_email_sender")) {
+			application.system_email_sender="workstream@appliedinter.net";
 		}
 		if(not isdefined("application.email_server_name")) {
 			application.email_server_name="";
@@ -236,8 +235,8 @@
 <cftry>
 	<!--- This is the email that the error causes to be sent. --->
 	<cfif len(application.support_email_recipients) AND len(application.email_server_name)>
-		<!-- email sent to <cfoutput>#application.support_email_recipients#, from #application.erroremailfrom# by server #application.email_server_name#</cfoutput> -->
-		<cfmail to="#application.support_email_recipients#" from="#application.erroremailfrom#" subject="#application.product_name# Tech Support Problem" type="HTML"
+		<!-- email sent to <cfoutput>#application.support_email_recipients#, from #application.system_email_sender# by server #application.email_server_name#</cfoutput> -->
+		<cfmail to="#application.support_email_recipients#" from="#application.system_email_sender#" subject="#application.product_name# Tech Support Problem" type="HTML"
 			server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
 			port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 		<html>
@@ -280,7 +279,7 @@
 		</font>
 		</body>
 		</html>
-		<cfmailparam name="Reply-To" value="#application.erroremailfrom#">
+		<cfmailparam name="Reply-To" value="#application.system_email_sender#">
 		</cfmail>
 	<cfelse>
 		<!-- No email sent (no email recipients, or no email server) -->
@@ -298,7 +297,8 @@
 </cftry>
 
 <cftry>
-	<cfoutput>
+	<cfoutput><!DOCTYPE html>
+	<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>AIT Application Error</title>
@@ -313,7 +313,7 @@
 		<div class="content">
 			<p class="header">You have encountered an unexpected error.</p>
 			<p>The Error Reference Number is<cfif isdefined("request.error_log_id") AND len(request.error_log_id)>: #request.error_log_id#<cfelse> unknown.</cfif></p>
-			<p>We apologize for the inconvenience this may cause.<cfif len(application.support_email_recipients) AND len(application.email_server_name)> This page automatically sends a notification to the <abbr title="Applied Internet Technologies">AIT</abbr> Application Development department to ensure timely repair of the malfunction.</p>
+			<p>We apologize for the inconvenience this has caused you. <cfif len(application.support_email_recipients) AND len(application.email_server_name)>This page automatically sends a notification to the <abbr title="Applied Internet Technologies">AIT</abbr> Application Development department to ensure timely repair of the malfunction.</p>
 			<p></cfif>If you have any questions or concerns, please feel free to contact the <a href="mailto:info@appliedinter.net"><abbr title="Applied Internet Technologies">AIT</abbr> Help Desk</a><cfif isdefined("request.error_log_id") AND len(request.error_log_id)> and reference Error Reference Number #request.error_log_id#</cfif>.
 				<!--- the very same code as above --->
 				<cfif isdefined("application.application_support_contacts")>

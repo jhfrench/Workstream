@@ -31,39 +31,40 @@
 </cfif>
 
 <!--- Get installation details which will be saved in application-scoped variables. --->
-<cfinclude template="qry_get_application_basic_details.cfm">
+<cfinclude template="get_application_basic_details.cfm">
 
-<cfapplication name="#left(qry_get_application_basic_details.application_name,64)#"
-	applicationtimeout="#qry_get_application_basic_details.applicationtimeout#"
-	clientmanagement="#qry_get_application_basic_details.clientmanagement#"
-	clientstorage="#qry_get_application_basic_details.clientstorage#"
-	sessionmanagement="#qry_get_application_basic_details.sessionmanagement#"
-	sessiontimeout="#qry_get_application_basic_details.sessiontimeout#"
-	setclientcookies="#qry_get_application_basic_details.setclientcookies#"
-	setdomaincookies="#qry_get_application_basic_details.setdomaincookies#">
+<cfapplication name="#left(get_application_basic_details.application_name,64)#"
+	applicationtimeout="#get_application_basic_details.applicationtimeout#"
+	clientmanagement="#get_application_basic_details.clientmanagement#"
+	clientstorage="#get_application_basic_details.clientstorage#"
+	sessionmanagement="#get_application_basic_details.sessionmanagement#"
+	sessiontimeout="#get_application_basic_details.sessiontimeout#"
+	setclientcookies="#get_application_basic_details.setclientcookies#"
+	setdomaincookies="#get_application_basic_details.setdomaincookies#">
 
 	<cfif NOT isdefined("application.product_name")>
 		<!--- If the Application_Manager database has been updated for this installation since the last time we set application variables, the application's name will also have been updated (stored at Installation.application_name). We use this to trigger a reset of all the application variables for *this* application. --->
 		<cfscript>
-			application.active_ind=qry_get_application_basic_details.active_ind;
-			application.application_full_name=qry_get_application_basic_details.application_name;
-			application.browser_navigation_enabled_ind=qry_get_application_basic_details.browser_navigation_enabled_ind;
-			application.email_password=qry_get_application_basic_details.email_password;
-			application.email_port=qry_get_application_basic_details.email_port;
-			application.email_server_name=qry_get_application_basic_details.email_server_name;
-			application.email_username=qry_get_application_basic_details.email_username;
-			application.email_usessl=qry_get_application_basic_details.email_usessl;
-			application.email_usetls=qry_get_application_basic_details.email_usetls;
-			application.environment_name=qry_get_application_basic_details.environment_name;
-			application.error_handling_enabled_ind=qry_get_application_basic_details.error_handling_enabled_ind;
-			application.host_server_name=qry_get_application_basic_details.host_server_name;
-			application.inactive_link=qry_get_application_basic_details.inactive_link;
-			application.installation_id=qry_get_application_basic_details.installation_id;
+			application.active_ind=get_application_basic_details.active_ind;
+			application.application_full_name=get_application_basic_details.application_name;
+			application.browser_navigation_enabled_ind=get_application_basic_details.browser_navigation_enabled_ind;
+			application.email_password=get_application_basic_details.email_password;
+			application.email_port=get_application_basic_details.email_port;
+			application.email_server_name=get_application_basic_details.email_server_name;
+			application.email_username=get_application_basic_details.email_username;
+			application.email_usessl=get_application_basic_details.email_usessl;
+			application.email_usetls=get_application_basic_details.email_usetls;
+			application.environment_name=get_application_basic_details.environment_name;
+			application.error_handling_enabled_ind=get_application_basic_details.error_handling_enabled_ind;
+			application.host_server_name=get_application_basic_details.host_server_name;
+			application.inactive_link=get_application_basic_details.inactive_link;
+			application.installation_id=get_application_basic_details.installation_id;
 			application.last_updated=variables.application_last_updated;
-			application.log_page_request_ind=qry_get_application_basic_details.log_page_request_ind;
-			application.product_id=qry_get_application_basic_details.product_id;
-			application.product_name=qry_get_application_basic_details.product_name;
-			application.product_release_version=qry_get_application_basic_details.product_release_version;
+			application.log_page_request_ind=get_application_basic_details.log_page_request_ind;
+			application.product_id=get_application_basic_details.product_id;
+			application.product_name=get_application_basic_details.product_name;
+			application.product_release_version=get_application_basic_details.product_release_version;
+			application.system_email_sender=get_application_basic_details.system_email_sender;
 		</cfscript>
 
 		<!--- Set datasoures into application-scoped variables. --->

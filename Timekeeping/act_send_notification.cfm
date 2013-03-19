@@ -124,7 +124,7 @@
 </cfswitch>
 </cfsilent>
 <cfquery name="prepare_email" datasource="#application.datasources.main#">
-SELECT COALESCE(Email_Source.task_source,'#application.application_specific_settings.system_email_sender#') AS email_from, Email.email AS email_to, Demographics.first_name, 
+SELECT COALESCE(Email_Source.task_source,'#application.system_email_sender#') AS email_from, Email.email AS email_to, Demographics.first_name, 
 	Task.task_id, Task.name AS task_name, Task.description, 
 	Task.budgeted_hours, Task.due_date, Email.email_id
 FROM Task

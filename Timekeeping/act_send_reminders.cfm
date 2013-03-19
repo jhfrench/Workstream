@@ -64,7 +64,7 @@ WHERE Task.active_ind=1
 	</cfquery>
 	<cfset variables.cc_list=valuelist(get_cc.email_to)>
 	<!--- $issue$: need to give recipient of this message an "out" so they can stop receiving these notifications --->
-	<cfmail from="#application.application_specific_settings.system_email_sender#" to="#pre_due_email.email_to#" cc="#variables.cc_list#" subject="Workstream Task Reminder: #pre_due_email.task_name#" type="HTML"
+	<cfmail from="#application.system_email_sender#" to="#pre_due_email.email_to#" cc="#variables.cc_list#" subject="Workstream Task Reminder: #pre_due_email.task_name#" type="HTML"
 		server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
 		port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 		<cfmailparam name="Reply-To" value="#pre_due_email.email_from#">

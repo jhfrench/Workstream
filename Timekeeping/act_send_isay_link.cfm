@@ -25,7 +25,7 @@ WHERE Task.task_id=#attributes.task_id#
 </cfquery>
 <!--- $issue$: does this get used from anywhere? --->
 <!--- $issue$: need to give recipient of this message an "out" so they can stop receiving these notifications --->
-<cfmail query="send_isay_link" to="#email_to#" from="#application.application_specific_settings.system_email_sender#" subject="Your recent IT Experience" type="html" type="HTML"
+<cfmail query="send_isay_link" to="#email_to#" from="#application.system_email_sender#" subject="Your recent IT Experience" type="html" type="HTML"
 		server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
 		port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 <p>
