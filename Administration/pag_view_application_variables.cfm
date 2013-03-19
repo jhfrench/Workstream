@@ -202,4 +202,9 @@
 	</cfif>
 	</div>
 </div>
+<script>
+	//make first tab active
+	$('#variable_scopes li:first').addClass('active');
+	$('#variable_scopesContent div:first').addClass('in active');
+</script>
 </cfif>
