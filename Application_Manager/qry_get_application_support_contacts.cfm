@@ -23,7 +23,7 @@ FROM L_Installation_Support_Contact
 	INNER JOIN REF_Support_Contact_Type ON Support_Contact_Info.support_contact_type_id=REF_Support_Contact_Type.support_contact_type_id
 WHERE L_Installation_Support_Contact.active_ind=1
 	AND Support_Contact_Info.active_ind=1
-	AND #variables.application_last_updated#=#variables.application_last_updated# <!--- date comes from Last_Updated.last_updated in Application_Manager --->
-	AND L_Installation_Support_Contact.installation_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#application.installation_id#">
+	AND <cfqueryparam value="#variables.application_last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#variables.application_last_updated#" cfsqltype="cf_sql_timestamp" /> <!--- date comes from Last_Updated.last_updated in Application_Manager --->
+	AND L_Installation_Support_Contact.installation_id=<cfqueryparam value="#application.installation_id#" cfsqltype="cf_sql_integer" />
 ORDER BY REF_Support_Contact_Type.support_contact_type_name, L_Installation_Support_Contact.sort_order
 </cfquery>

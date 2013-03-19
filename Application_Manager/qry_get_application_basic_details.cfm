@@ -38,6 +38,6 @@ FROM Installation
 WHERE Installation_URL.active_ind=1
 	AND Product.active_ind=1
 	AND Product_Version.active_ind=1
-	AND #variables.application_last_updated#=#variables.application_last_updated# /* date comes from Last_Updated.last_updated in Application_Manager */
-	AND Installation_URL.url_to_base=<cfqueryparam cfsqltype="cf_sql_varchar" value="#variables.url_to_base#">
+	AND <cfqueryparam value="#variables.application_last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#variables.application_last_updated#" cfsqltype="cf_sql_timestamp" /> /* date comes from Last_Updated.last_updated in Application_Manager */
+	AND Installation_URL.url_to_base=<cfqueryparam value="#variables.url_to_base#" cfsqltype="cf_sql_varchar" />;
 </cfquery>

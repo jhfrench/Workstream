@@ -17,7 +17,7 @@
 SELECT setting_name, setting_value
 FROM Custom_Setting
 WHERE active_ind=1
-	AND #variables.application_last_updated#=#variables.application_last_updated# <!--- date comes from Last_Updated.last_updated in Application_Manager --->
-	AND installation_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#application.installation_id#">
-ORDER BY setting_name
+	AND <cfqueryparam value="#variables.application_last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#variables.application_last_updated#" cfsqltype="cf_sql_timestamp" /> <!--- date comes from Last_Updated.last_updated in Application_Manager --->
+	AND installation_id=<cfqueryparam value="#application.installation_id#" cfsqltype="cf_sql_integer" />
+ORDER BY setting_name;
 </cfquery>
