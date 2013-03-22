@@ -10,12 +10,12 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 </cfsilent>
 <cfinclude template="../common_files/qry_get_date_locked.cfm">
 <cfif isdefined("attributes.reassign_hours")>
-	<cfinclude template="act_reassign_hours.cfm">
+	<cfinclude template="qry_update_reassign_time_entries.cfm">
 </cfif>
 <cfinclude template="qry_get_time_details.cfm">
 <cfinclude template="qry_get_task_details_enhanced.cfm">
