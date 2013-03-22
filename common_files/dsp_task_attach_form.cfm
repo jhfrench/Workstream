@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	<-- base_task_id: number that uniquely defines the base task
 	<-- linked_task_id: list of tasks to be attached to a particular task
  --->
@@ -18,7 +18,7 @@
 <SCRIPT LANGUAGE="JavaScript1.1">
 function add_to_linked_task_id_list() {
 	with (document.attach_task.task_id) {
-		if (options[selectedIndex] == null) 
+		if (options[selectedIndex] == null)
 			return false;
 		else {
 			if (document.attach_task.linked_task_id.value!='') {
@@ -52,7 +52,8 @@ function add_to_linked_task_id_list() {
 				multiple2="0"
 				size1="6"
 				size2="6"
-				width2="550"
+				class1="span6"
+				class2="span6"
 				autoselectfirst="no"
 				formname="attach_task"
 				HTMLBetween="</div><div class='control-group'><label class='control-label' for='task_id'>Task</label><div class='controls'>">

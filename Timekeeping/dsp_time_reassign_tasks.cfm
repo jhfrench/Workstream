@@ -10,13 +10,13 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 </cfsilent>
 <cfoutput>
 <div class="row-fluid">
 	<div class="span6">
-			<label class="h5" for="">Project</label>
+			<label class="h5" for="project_id">Project</label>
 			<cfmodule template="../common_files/two_related_selects.cfm"
 				query="get_open_tasks"
 				name1="project_id"
@@ -29,7 +29,8 @@
 				multiple2="0"
 				size1="6"
 				size2="6"
-				width2="600"
+				class1="span8"
+				class2="span8"
 				autoselectfirst="no"
 				formname="time_details"
 				HTMLBetween="</div>

@@ -32,10 +32,6 @@
 <cfparam name="attributes.Size2" default="1">
 <cfparam name="attributes.class1" default="">
 <cfparam name="attributes.class2" default="">
-<cfparam name="attributes.Width1" default="">
-<cfparam name="attributes.Width2" default="">
-<cfparam name="attributes.ForceWidth1" default="">
-<cfparam name="attributes.ForceWidth2" default="">
 <cfparam name="attributes.ForceWidthChar" default="&nbsp;">
 <cfparam name="attributes.EmptyText1" default="">
 <cfparam name="attributes.EmptyText2" default="">
@@ -157,23 +153,21 @@
 </cfif>
 
 <!--- OUTPUT FIRST SELECT BOX --->
-<cfoutput><select name="#attributes.Name1#" id="#attributes.id1#" onchange="#function_name#;#attributes.Element1_OnchangeEvent#" size="#attributes.Size1#" class="#attributes.class1#"<cfif len(attributes.width1)>STYLE="width:#attributes.Width1#"</cfif>></cfoutput>
+<cfoutput><select name="#attributes.Name1#" id="#attributes.id1#" onchange="#function_name#;#attributes.Element1_OnchangeEvent#" size="#attributes.Size1#" class="#attributes.class1#"></cfoutput>
 
 	<!--- SPECIAL FIRST ITEM, IF REQUESTED --->
 	<cfif len(attributes.EmptyText1)><cfoutput><option value="">#attributes.EmptyText1#</option></cfoutput></cfif>
 	<!--- GENERATE REMAINING ITEMS FROM query --->
 	<cfoutput query="Myquery" group="#attributes.Display1#"><option value="#Myquery[attributes.Value1][Myquery.currentrow]#"<cfif NOT comparenocase(Myquery[attributes.Value1][Myquery.currentrow], attributes.Default1)> selected="selected"</cfif>>#Myquery[attributes.Display1][Myquery.currentrow]#</option></cfoutput>
 
-  <!--- "FORCE WIDTH" OPTION AT BOTTOM, IF REQUESTED --->
-	<cfif len(attributes.ForceWidth1)><cfoutput><option value="">#RepeatString(attributes.ForceWidthChar, attributes.ForceWidth1)#</option></cfoutput></cfif>
-<cfoutput></SELECT></cfoutput>
+<cfoutput></select></cfoutput>
 
 
 <!--- INSERT ANY REQUESTED HTML BETWEEN THE TWO SELECT BOXES --->
 <cfoutput>#attributes.HTMLBetween#</cfoutput>
 
 <!--- OUTPUT SECOND SELECT BOX --->
-<cfoutput><select name="#attributes.Name2#" id="#attributes.id2#" size="#attributes.Size2#"<cfif len(attributes.onChange)> onChange="#attributes.OnChange#"</cfif> <cfif len(attributes.Width2)>STYLE="width:#attributes.Width2#"</cfif> class="#attributes.class2#"></cfoutput>
+<cfoutput><select name="#attributes.Name2#" id="#attributes.id2#" size="#attributes.Size2#"<cfif len(attributes.onChange)> onChange="#attributes.OnChange#"</cfif> class="#attributes.class2#"></cfoutput>
 	<!--- SPECIAL FIRST ITEM, IF REQUESTED --->
 	<cfif len(attributes.EmptyText2)><cfoutput><option value="">#attributes.EmptyText2#</option></cfoutput></cfif>
 
@@ -192,10 +186,7 @@
 		<cfoutput><option value=""></option></cfoutput>
 	</cfloop>
   </cfif>
-
-  <!--- "FORCE WIDTH" OPTION AT BOTTOM, IF REQUESTED --->
-	<cfif len(attributes.ForceWidth2)><cfoutput><option value="">#RepeatString(attributes.ForceWidthChar, attributes.ForceWidth2)#</option></cfoutput></cfif>
-<cfoutput></SELECT></cfoutput>
+<cfoutput></select></cfoutput>
 
 
 <cfsetting enablecfoutputonly="NO">
