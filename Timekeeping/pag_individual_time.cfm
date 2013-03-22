@@ -10,11 +10,11 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 </cfsilent>
 <cfif isdefined("attributes.notes_id")>
-	<cfinclude template="qry_reassign_entries.cfm">
+	<cfinclude template="qry_update_reassign_time_entries.cfm">
 </cfif>
 <cfif isdefined("attributes.user_account_id_task_id")>
 	<cfloop list="#attributes.user_account_id_task_id#" index="ii">

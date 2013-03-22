@@ -10,10 +10,8 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> attributes.reassign_hours: list, delimited by |, that contains the user_account_id of an employee and the task_id of a task
  --->
-<cfloop list="#attributes.reassign_hours#" index="ii">
-	<cfinclude template="qry_reassign_hours.cfm">
-</cfloop>
+<cfinclude template="qry_update_reassign_time_entries.cfm">
 </cfsilent>
