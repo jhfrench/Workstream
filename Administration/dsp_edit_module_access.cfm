@@ -35,10 +35,10 @@
 </h2>
 <a href="javascript:administer_user_menu('#attributes.user_account_id#');" class="btn">Manage User's Profile</a> <a href="javascript:view_user_activity('#attributes.user_account_id#');" class="btn">View User Activity</a><br />
 <cfif isdefined("attributes.access_administration_type")>
-	<div class="alert alert-info">Module access changes have been applied</div>
+	<div class="alert alert-success"><strong>You got it!</strong><br />Module access changes have been applied</div>
 </cfif>
 <div class="alert alert-info">
-	<p>You are administering user access for: 
+	<p>You are administering user access for:
 		<ul>
 			<cfloop query="get_user_information"><li>#first_name# #last_name#</li></cfloop>
 		</ul>
