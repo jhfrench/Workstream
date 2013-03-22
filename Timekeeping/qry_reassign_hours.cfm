@@ -17,16 +17,15 @@
 <cfquery name="get_project_id" datasource="#application.datasources.main#">
 SELECT project_id
 FROM Task
-WHERE task_id=#attributes.reassign_task_id#
+WHERE task_id=<cfqueryparam value="#attributes.reassign_task_id#" cfsqltype="cf_sql_integer" />
 </cfquery>
-<!--- $issue$: needs cfqueryparam --->
 <cfquery name="reassign_hours" datasource="#application.datasources.main#">
 UPDATE Time_Entry
-SET task_id=#attributes.reassign_task_id#,
-	project_id=#get_project_id.project_id#
+SET task_id=<cfqueryparam value="#attributes.reassign_task_id#" cfsqltype="cf_sql_integer" />,
+	project_id=<cfqueryparam value="#get_project_id.project_id#" cfsqltype="cf_sql_integer" />
 WHERE Time_Entry.active_ind=1
-	AND Time_Entry.task_id=#attributes.task_id#
-	AND Time_Entry.user_account_id IN (#attributes.reassign_hours#)
+	AND Time_Entry.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
+	AND Time_Entry.user_account_id IN (<cfqueryparam value="#attributes.reassign_hours#" cfsqltype="cf_sql_integer" list="true" />)
 	AND Time_Entry.time_entry_id NOT IN (
 		/* don't reassign hours that have already been billed*/
 		SELECT time_entry_id
@@ -41,9 +40,9 @@ UPDATE Notes
 SET task_id=#attributes.reassign_task_id#
 FROM Time_Entry
 WHERE Time_Entry.notes_id=Notes.notes_id
-	AND Notes.task_id=#attributes.task_id#
+	AND Notes.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 	AND Notes.active_ind=1
-	AND Notes.user_account_id IN (#attributes.reassign_hours#)
+	AND Notes.user_account_id IN (<cfqueryparam value="#attributes.reassign_hours#" cfsqltype="cf_sql_integer" list="true" />)
 	AND Time_Entry.time_entry_id NOT IN (
 		/* don't reassign hours that have already been billed*/
 		SELECT time_entry_id

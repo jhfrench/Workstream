@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> [attributes.file_path]: string, though the variable is essential used as a boolean--if it exists than the notes are being submitted from the task_details page
 	--> attributes.notes_#ii#: string that contains the notes that correspond to a particular time entry
@@ -28,8 +28,7 @@
 <cfquery name="upload_express_notes" datasource="#application.datasources.main#">
 INSERT INTO Notes (task_id, user_account_id, notes_type_id,
 	note, created_by)
-VALUES (<cfif isdefined("project_entry")>0<cfelse>#listgetat(attributes.task_id,ii)#</cfif>, #variables.user_identification#,#attributes.notes_type_id#,
+VALUES (<cfif isdefined("project_entry")>0<cfelse>#listgetat(attributes.task_id,ii)#</cfif>, #variables.user_identification#, #attributes.notes_type_id#,
 	'#HTMLEditFormat(request.note)#', #variables.user_identification#)
 </cfquery>
 </cfsilent>
-
