@@ -4,13 +4,13 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: 
+	Responsibilities:
 	||
 	Name: Jeromy French
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted from the express timekeeping page
  --->
@@ -19,13 +19,15 @@ SELECT project_id
 FROM Task
 WHERE task_id=#attributes.reassign_task_id#
 </cfquery>
+<!--- $issue$: needs cfqueryparam --->
 <cfquery name="reassign_hours" datasource="#application.datasources.main#">
 UPDATE Time_Entry
 SET task_id=#attributes.reassign_task_id#,
 	project_id=#get_project_id.project_id#
 WHERE Time_Entry.active_ind=1
-	AND user_account_id IN (#attributes.reassign_hours#)
-	AND time_entry_id NOT IN (
+	AND Time_Entry.task_id=#attributes.task_id#
+	AND Time_Entry.user_account_id IN (#attributes.reassign_hours#)
+	AND Time_Entry.time_entry_id NOT IN (
 		/* don't reassign hours that have already been billed*/
 		SELECT time_entry_id
 		FROM Link_Invoice_Time_Entry
@@ -39,6 +41,7 @@ UPDATE Notes
 SET task_id=#attributes.reassign_task_id#
 FROM Time_Entry
 WHERE Time_Entry.notes_id=Notes.notes_id
+	AND Notes.task_id=#attributes.task_id#
 	AND Notes.active_ind=1
 	AND Notes.user_account_id IN (#attributes.reassign_hours#)
 	AND Time_Entry.time_entry_id NOT IN (
@@ -52,4 +55,3 @@ WHERE Time_Entry.notes_id=Notes.notes_id
 	);
 </cfquery>
 </cfsilent>
-
