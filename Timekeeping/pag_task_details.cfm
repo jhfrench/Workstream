@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 <cfparam name="attributes.expand" default="0">
 </cfsilent>
@@ -26,13 +26,13 @@
 	<cfmodule template="../common_files/act_redirect_browser.cfm" fuseaction="Timekeeping.task_list" display="You are being redirected to your task list.">
 <cfelse>
 	<cfinclude template="../common_files/act_call_big_team_list.cfm">
-	<cfinclude template="qry_get_task_details_enhanced.cfm">
+	<cfinclude template="qry_get_task_details.cfm">
 	<cfif get_task_details.recordcount>
 		<cfset attributes.project_id=get_task_details.project_id>
 	</cfif>
 	<cfinclude template="../common_files/act_call_big_project_list.cfm">
 	<cfinclude template="../common_files/qry_get_priorities.cfm">
-	<cfinclude template="qry_get_ref_icon.cfm"><!--- 
+	<cfinclude template="qry_get_ref_icon.cfm"><!---
 	<cfinclude template="qry_get_notification_frequency.cfm"> --->
 	<cfinclude template="../common_files/qry_get_ref_task_status.cfm">
 
@@ -42,7 +42,7 @@
 		<cfinclude template="../common_files/qry_get_ref_notes_type.cfm">
 		<cfinclude template="qry_get_prep_email.cfm">
 		<cfinclude template="qry_get_completion_email.cfm">
-		<cfinclude template="qry_get_completion_days.cfm"><!--- 
+		<cfinclude template="qry_get_completion_days.cfm"><!---
 		<cfinclude template="qry_get_status_notification_frequency.cfm"> --->
 		<cfinclude template="qry_get_completion_cc_email.cfm">
 		<cfinclude template="../common_files/qry_get_associated_files.cfm">

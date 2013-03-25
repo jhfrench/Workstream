@@ -23,7 +23,7 @@
 	</cfloop>
 </cfif>
 <cfinclude template="qry_get_ind_entry_details.cfm">
-<cfinclude template="qry_get_task_details_enhanced.cfm">
+<cfinclude template="qry_get_task_details.cfm">
 <cfinclude template="qry_get_task_accumulated.cfm">
 <cfinclude template="../common_files/qry_get_open_tasks.cfm">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="time_edit" field_name="time_entry_id" field_value=0 fuseaction="Timekeeping.time_entry_edit" given_referer="Timekeeping.task_list">

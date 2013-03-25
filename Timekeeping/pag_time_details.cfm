@@ -18,7 +18,7 @@
 	<cfinclude template="qry_update_reassign_time_entries.cfm">
 </cfif>
 <cfinclude template="qry_get_time_details.cfm">
-<cfinclude template="qry_get_task_details_enhanced.cfm">
+<cfinclude template="qry_get_task_details.cfm">
 <cfinclude template="qry_get_task_accumulated.cfm">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="task_to_ind" fuseaction="Timekeeping.individual_time" field_name="user_account_id" field2_name="task_id" field2_value="#attributes.task_id#">
 <cfform name="time_details" action="index.cfm?fuseaction=Timekeeping.time_details" method="POST">
