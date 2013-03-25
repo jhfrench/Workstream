@@ -32,7 +32,7 @@
 	</cfif>
 	<cfinclude template="../common_files/act_call_big_project_list.cfm">
 	<cfinclude template="../common_files/qry_get_priorities.cfm">
-	<cfinclude template="qry_get_ref_icon.cfm"><!---
+	<cfinclude template="../common_files/qry_get_ref_icon.cfm"><!---
 	<cfinclude template="qry_get_notification_frequency.cfm"> --->
 	<cfinclude template="../common_files/qry_get_ref_task_status.cfm">
 

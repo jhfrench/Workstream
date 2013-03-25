@@ -35,7 +35,7 @@
 	<cfinclude template="dsp_no_new_task.cfm">
 </cfif>
 <cfinclude template="../common_files/qry_get_priorities.cfm">
-<cfinclude template="qry_get_ref_icon.cfm"><!--- 
+<cfinclude template="../common_files/qry_get_ref_icon.cfm"><!---
 <cfinclude template="qry_get_notification_frequency.cfm"> --->
 <cfinclude template="../common_files/qry_get_ref_task_status.cfm">
 <cfinclude template="../common_files/qry_get_valid_projects.cfm">
