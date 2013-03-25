@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> attributes.fuseaction: string containing view that user has selected
 	--> [attributes.view]: string containing label of desired task list view
 	--> [attributes.user_account_id]: number that indicates user to workstream
@@ -25,7 +25,7 @@
 		<cfset request.first_name=get_task_list.task_owner>
 		<cfset request.last_name="">
 	<cfelse>
-		<cfinclude template="../common_files/qry_get_demographics.cfm">
+		<cfinclude template="qry_get_demographics.cfm">
 		<cfset request.first_name=get_demographics.first_name>
 		<cfset request.last_name=get_demographics.last_name>
 	</cfif>

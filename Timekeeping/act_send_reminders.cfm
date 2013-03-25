@@ -10,12 +10,12 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: number that uniquely identifies a task
  --->
 <cfquery name="pre_due_email" datasource="#application.datasources.main#">
-SELECT Task.task_id, Task.name AS task_name, Task.description AS description, 
+SELECT Task.task_id, Task.name AS task_name, Task.description AS description,
 	Task.budgeted_hours, Task.due_date, Task_Source.task_source AS email_from,
 	Email.email AS email_to, Demographics.first_name, Notification.days_before_due AS countdown
 FROM Task
@@ -60,7 +60,7 @@ WHERE Task.active_ind=1
 				AND Team.role_id=5
 				AND Email.email_type_id=1
 		) AS Task_Source ON Task.task_id=Task_Source.task_id
-	WHERE Task.task_id=#task_id#
+	WHERE Task.task_id=<cfqueryparam value="#task_id#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	<cfset variables.cc_list=valuelist(get_cc.email_to)>
 	<!--- $issue$: need to give recipient of this message an "out" so they can stop receiving these notifications --->
@@ -69,7 +69,7 @@ WHERE Task.active_ind=1
 		port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
 		<cfmailparam name="Reply-To" value="#pre_due_email.email_from#">
 		<p>#pre_due_email.first_name#,</p>
-		
+
 		<p>
 			The following task will be due in #datediff("d",now(),dateadd("d",1,pre_due_email.due_date))# day<cfif pre_due_email.countdown NEQ 1>s</cfif>:
 			<dl>
@@ -79,13 +79,13 @@ WHERE Task.active_ind=1
 				<dt>Description:</dt><dd>#pre_due_email.description#</dd>
 			</dl>
 		</p>
-		
+
 		<p>Please <a href="http://#cgi.http_host#/index.cfm?fuseaction=Timekeeping.task_details&task_id=#pre_due_email.task_id#">view task #pre_due_email.task_id#</a>.</p>
 	</cfmail>
 	<cfquery name="update_notification" datasource="#application.datasources.main#">
 	UPDATE notification
 	SET date_sent=CURRENT_TIMESTAMP
-	WHERE task_id=#task_id#
+	WHERE task_id=<cfqueryparam value="#task_id#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cfloop>
 </cfsilent>

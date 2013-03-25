@@ -35,10 +35,10 @@
 	</cfcase>
 	<cfcase value="2">
 		<cfinclude template="qry_get_target_email_audience.cfm">
-		<cfinclude template="dsp_compose_email.cfm"> 
+		<cfinclude template="dsp_compose_email.cfm">
 	</cfcase>
 	<cfcase value="3">
-		<cfinclude template="act_send_email.cfm">
+		<cfinclude template="../common_files/act_send_email.cfm">
 	</cfcase>
 </cfswitch>
 </cfform>

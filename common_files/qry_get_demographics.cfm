@@ -26,7 +26,7 @@
 SELECT *
 FROM Demographics<cfif attributes.user_account_id>
 WHERE active_ind=1
-	AND user_account_id IN (#attributes.user_account_id#)</cfif>
+	AND user_account_id IN (<cfqueryparam value="#attributes.user_account_id#" cfsqltype="cf_sql_integer" list="true" />)</cfif>
 ORDER BY last_name
 </cfquery>
 <cfset caller.get_demographics=get_demographics>
