@@ -10,32 +10,26 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
-<cfquery name="get_email_id" datasource="#application.datasources.main#">
-SELECT COALESCE(email_id,0) AS email_id
-FROM Email
-WHERE user_account_id=#attributes.task_owner#
-</cfquery>
-<cfif get_email_id.recordcount>
-	<cfset email_id=get_email_id.email_id>
-<cfelse>
-	<cfset email_id=0>
-</cfif>
 <cfquery name="update_task_reminder_days" datasource="#application.datasources.main#">
-DELETE FROM Notification
-WHERE task_id=#attributes.task_id#
+UPDATE Notification
+SET active_ind=0
+WHERE active_ind=1
+	AND task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 	AND notification_type=1
 </cfquery>
 <cfif len(attributes.reminder_days)>
-<cfquery name="update_task_reminder_days" datasource="#application.datasources.main#">
-INSERT INTO Notification (task_id, email_id, date_to_send,
-	date_sent, days_before_due, notification_type)
-VALUES (#attributes.task_id#, #email_id#, <cfif isdefined("attributes.due_date")>#createodbcdate(dateadd("d",-attributes.reminder_days,attributes.due_date))#<cfelse>#createodbcdate(dateadd("d",-attributes.reminder_days,attributes.orig_due_date))#</cfif>,
-	NULL, #attributes.reminder_days#, 1)
-</cfquery>
+	<cfquery name="update_task_reminder_cc" datasource="#application.datasources.main#">
+	INSERT INTO Notification (task_id, email_id, notification_type,
+		created_by)
+	SELECT #attributes.task_id#, email_id, 1,
+		#variables.user_identification#
+	FROM Email
+	WHERE active_ind=1
+		AND user_account_id=<cfqueryparam value="#attributes.task_owner#" cfsqltype="cf_sql_integer" />
+	</cfquery>
 </cfif>
 </cfsilent>
-

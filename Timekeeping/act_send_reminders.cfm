@@ -20,6 +20,7 @@ SELECT Task.task_id, Task.name AS task_name, Task.description AS description,
 	Email.email AS email_to, Demographics.first_name, Notification.days_before_due AS countdown
 FROM Task
 	INNER JOIN Notification ON Task.task_id=Notification.task_id
+		AND Notification.active_ind=1
 		AND Notification.notification_type=1
 		AND Notification.date_to_send<=CURRENT_TIMESTAMP
 		AND Notification.date_sent IS NULL
@@ -47,6 +48,7 @@ WHERE Task.active_ind=1
 	SELECT Email.email AS email_to
 	FROM Task
 		INNER JOIN Notification ON Task.task_id=Notification.task_id
+			AND Notification.active_ind=1
 			AND Notification.notification_type=2
 		INNER JOIN Email ON Notification.email_id=Email.email_id
 			AND Email.email_type_id=1
@@ -85,7 +87,8 @@ WHERE Task.active_ind=1
 	<cfquery name="update_notification" datasource="#application.datasources.main#">
 	UPDATE notification
 	SET date_sent=CURRENT_TIMESTAMP
-	WHERE task_id=<cfqueryparam value="#task_id#" cfsqltype="cf_sql_integer" />
+	WHERE Notification.active_ind=1
+		AND task_id=<cfqueryparam value="#task_id#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cfloop>
 </cfsilent>

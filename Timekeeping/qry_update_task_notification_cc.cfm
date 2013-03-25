@@ -10,30 +10,27 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
 <cfquery name="update_task_notification_cc" datasource="#application.datasources.main#">
-DELETE FROM Notification
-WHERE task_id=#attributes.task_id#
+UPDATE Notification
+SET active_ind=0
+WHERE active_ind=1
+	AND task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 	AND notification_type=6
 </cfquery>
-<cfloop list="#attributes.notification_cc_id#" index="ii">
-<cfquery name="get_email_id" datasource="#application.datasources.main#">
-SELECT COALESCE(email_id,0) AS email_id
-FROM Email
-WHERE user_account_id=#ii#
-</cfquery>
-<cfif get_email_id.recordcount>
-	<cfset email_id=get_email_id.email_id>
-<cfelse>
-	<cfset email_id=0>
-</cfif>
-<cfquery name="update_task_notification_cc" datasource="#application.datasources.main#">
-INSERT INTO Notification (task_id, email_id, notification_type)
-VALUES (#attributes.task_id#, #email_id#, 6)
-</cfquery>
-</cfloop>
-</cfsilent>
 
+<cfif len(attributes.notification_cc_id)>
+	<cfquery name="update_task_reminder_cc" datasource="#application.datasources.main#">
+	INSERT INTO Notification (task_id, email_id, notification_type,
+		created_by)
+	SELECT #attributes.task_id#, email_id, 6,
+		#variables.user_identification#
+	FROM Email
+	WHERE active_ind=1
+		AND user_account_id IN (#attributes.notification_cc_id#)
+	</cfquery>
+</cfif>
+</cfsilent>

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
 	<-- email_id: list that contains the user_account_id's of everyone who is supposed to be CC'd on the email
@@ -21,7 +21,8 @@ FROM Notification
 	INNER JOIN Email ON Notification.email_id=Email.email_id
 		AND Email.active_ind=1
 		AND Email.email_type_id=1
-WHERE Notification.notification_type=2
+WHERE Notification.active_ind=1
+	AND Notification.notification_type=2
 	AND Notification.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 </cfquery>
 </cfsilent>

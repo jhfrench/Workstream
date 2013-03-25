@@ -10,19 +10,19 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
 <cfquery name="update_task_project_id" datasource="#application.datasources.main#">
 UPDATE Task
-SET project_id=#attributes.project_id#
-WHERE task_id=#attributes.task_id#;
+SET project_id=<cfqueryparam value="#attributes.project_id#" cfsqltype="cf_sql_integer" />
+WHERE task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />;
 
 UPDATE Time_Entry
-SET project_id=#attributes.project_id#
+SET project_id=<cfqueryparam value="#attributes.project_id#" cfsqltype="cf_sql_integer" />
 WHERE Time_Entry.active_ind=1
-	AND task_id=#attributes.task_id#
+	AND task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 	AND time_entry_id NOT IN (
 		/* don't reassign hours that have already been billed*/
 		SELECT time_entry_id
