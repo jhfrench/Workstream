@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 <cfscript>
 	variables.cols=80;
@@ -18,15 +18,15 @@
 	variables.resolution_rows=min(8,get_time_entry_details.recordcount);
 	variables.entry_rows=variables.descrip_rows+variables.resolution_rows-9;
 	variables.string_to_replace='<P>,"';
-	
+
 	if (get_task_details.qa_id EQ variables.user_identification AND get_task_details.task_status_id EQ 4) {
 		variables.notes_type_selected=2;
 	}
 	else if (get_task_details.owner_id EQ variables.user_identification) {
-		variables.notes_type_selected=1;	
+		variables.notes_type_selected=1;
 	}
 	else {
-		variables.notes_type_selected=0;	
+		variables.notes_type_selected=0;
 	}
 </cfscript>
 </cfsilent>
@@ -56,8 +56,8 @@
 		<label for="task_name" class="h5">Task Name</label>
 		<input type="text" name="task_name" id="task_name" value="#variables.task_name#" valign="top" size="#variables.cols#" maxlength="255"#variables.edit_status# class="span11" />
 		<p>
-			<span class="h5">Customer</span>: <span id="customer_name">#get_task_details.customer_name#</span> 
-			<span class="h5">Project</span>: <span id="project_name">#replace(get_task_details.project_name,"#get_task_details.customer_name#-","")#</span> 
+			<span class="h5">Customer</span>: <span id="customer_name">#get_task_details.customer_name#</span>
+			<span class="h5">Project</span>: <span id="project_name">#replace(get_task_details.project_name,"#get_task_details.customer_name#-","")#</span>
 			<a id="file_attach" href="index.cfm?task_id=#attributes.task_id#&fuseaction=common_files.project_list" role="button" data-toggle="modal" data-target="##utility" title="Change this task's project assignment." class="btn btn-mini">
 				<i class="icon-share"></i> Change
 			</a>
@@ -118,6 +118,14 @@
 					<a href="javascript:delete_check('#attributes.task_id#');" title="Delete this task from workstream." class="btn btn-danger"><i class="icon-trash icon-white"></i> Delete this task</a>
 					&nbsp;Resolution notes not yet entered for this task.
 				</div>
+				<script language="JavaScript">
+				var delete_check=function(task_id) {
+					if (confirm('Are you sure you wish to delete this task?')) {
+						delete_task(task_id);
+					};
+					return;
+				};
+				</script>
 			</cfif>
 			</div>
 		</div>

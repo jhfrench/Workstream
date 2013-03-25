@@ -76,7 +76,7 @@ var #attributes.function_name#=function(fldValue,fldValue2) {
 		</cfloop>
 	</cfif>
 	<cfif isdefined("attributes.given_referer")>
-		<input type="hidden" name="given_referer" value="#attributes.given_referer#" /><!--- $issue$ does this need its own explicit condition/set? Why not jsut use process_form=true and given_refere="xyz"?  --->
+		<input type="hidden" name="given_referer" value="#attributes.given_referer#" /><!--- $issue$ does this need its own explicit condition/set? Why not jsut use process_form=true and given_referer="xyz"?  --->
 	</cfif>
 </form>
 </cfoutput>
