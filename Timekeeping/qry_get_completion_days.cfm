@@ -19,7 +19,7 @@ SELECT days_before_due AS reminder_days
 FROM Notification
 WHERE Notification.active_ind=1
 	AND notification_type=1
-	AND task_id=#attributes.task_id#
+	AND task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 </cfquery>
 </cfsilent>
 

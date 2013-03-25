@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
 	<-- file_id: number that uniquely identifies each associated file for a particular task
@@ -21,7 +21,7 @@
 SELECT l_t_f_id, file_path
 FROM Link_Task_File
 WHERE active_ind=1
-	AND task_id=#attributes.task_id#
+	AND task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 ORDER BY file_path
 </cfquery>
 
