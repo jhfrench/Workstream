@@ -27,7 +27,7 @@
 	<cfinclude template="dsp_time_details_graph.cfm">
 </cfif>
 <cfif get_time_details.recordcount>
-	<cfinclude template="../common_files/qry_get_open_tasks.cfm">
+	<cfmodule template="../common_files/qry_get_open_tasks.cfm" exclude_task_id="#attributes.task_id#">
 	<cfinclude template="dsp_time_details.cfm">
 	<cfinclude template="dsp_time_reassign_tasks.cfm">
 <cfelse>
