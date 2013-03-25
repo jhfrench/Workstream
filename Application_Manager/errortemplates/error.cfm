@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!-- errortemplates/error.cfm
 	Author: Jeromy F -->
 <!---
@@ -151,18 +152,18 @@
 
 <!--- Insert error data into the Error_Log table --->
 		<cfquery name="insert_error_info" datasource="#application.datasources.application_manager#">
-		INSERT INTO Error_Log (installation_id, erroring_template, erroring_querystring, 
+		INSERT INTO Error_Log (installation_id, erroring_template, erroring_querystring,
 			http_referer, diagnostics, application_variables,
 			attributes_variables, cgi_variables, client_variables,
 			form_variables, request_variables, session_variables,
 			url_variables, username, remote_address,
-			user_browser, error_web_datetime, error_sql_datetime)
+			user_browser, error_web_datetime)
 		VALUES(#application.installation_id#, '#variables.error_template#', '#variables.error_querystring#',
 			'#variables.error_httpreferer#','#variables.error_diagnostics#', '#application_variables#',
-			'#attributes_variables#', '#cgi_variables#', '#client_variables#', 
+			'#attributes_variables#', '#cgi_variables#', '#client_variables#',
 			'#form_variables#', '#request_variables#', '#session_variables#',
 			'#url_variables#', '#session.user_name#', '#variables.error_remoteaddress#',
-			'#variables.error_browser#', '#dateformat(variables.error_datetime, 'yyyy-mm-dd')# #timeformat(now(), 'hh:mm:ss')#', CURRENT_TIMESTAMP)
+			'#variables.error_browser#', '#dateformat(variables.error_datetime, 'yyyy-mm-dd')# #timeformat(now(), 'hh:mm:ss')#')
 		</cfquery>
 <cftry>
 	<cfquery name="get_next_error_log_id" datasource="#application.datasources.application_manager#">
@@ -219,7 +220,7 @@
 	WHERE error_log_id=#request.error_log_id#
 	</cfquery>
 
-	<cfcatch><!--- 
+	<cfcatch><!---
 		<cfoutput>
 		<pre>
 		#CFCATCH.Detail#
@@ -239,14 +240,9 @@
 		<cfmail to="#application.support_email_recipients#" from="#application.system_email_sender#" subject="#application.product_name# Tech Support Problem" type="HTML"
 			server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
 			port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
-		<html>
-		<head>
-			<title>AIT Application Error</title>
-		</head>
-		<body>
 		<font face="arial" size="-1">
 			AIT product '#application.product_name#' generated the following error information:<ul>
-			<strong>User:</strong> <a href="mailto:#session.email_address#">#session.first_name# #session.last_name#</a> 
+			<strong>User:</strong> <a href="mailto:#session.email_address#">#session.first_name# #session.last_name#</a>
 			<br /><strong>#application.product_name# username:</strong> #session.user_name#
 			<cfif isdefined("application.application_support_contacts")>
 				<cfloop list="#structKeyList(application.application_support_contacts)#" index="contact_type_ii">
@@ -277,8 +273,6 @@
 			<br /><strong>Diagnostics:</strong><ul>#variables.error_diagnostics#</ul>
 			</ul>
 		</font>
-		</body>
-		</html>
 		<cfmailparam name="Reply-To" value="#application.system_email_sender#">
 		</cfmail>
 	<cfelse>
@@ -286,7 +280,7 @@
 	</cfif>
 	<cfcatch>
 		<cfoutput>
-		<!-- 
+		<!--
 		#CFCATCH.Detail#
 		#CFCATCH.Message#
 		#CFCATCH.SQLState#
@@ -297,14 +291,14 @@
 </cftry>
 
 <cftry>
-	<cfoutput><!DOCTYPE html>
+	<cfoutput>
 	<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>AIT Application Error</title>
 		<link rel="stylesheet" href="Application_Manager/errortemplates/error_style.css">
 	</head>
-	
+
 	<body class="warning">
 	<section class="center">
 		<div class="error_header">
@@ -341,7 +335,7 @@
 	</cfoutput>
 	<cfcatch>
 		<cfoutput>
-		<!-- 
+		<!--
 		#CFCATCH.Detail#
 		#CFCATCH.Message#
 		#CFCATCH.SQLState#
