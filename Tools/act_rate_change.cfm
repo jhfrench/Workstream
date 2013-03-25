@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 
@@ -37,7 +37,7 @@
 			INSERT INTO Billing_Rate(project_id, user_account_id, rate,
 				rate_start_date, rate_end_date, created_by)
 			VALUES (<cfqueryparam cfsqltype="cf_sql_integer" value="#variables.project_id#">,<cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_account_id#">, <cfqueryparam cfsqltype="cf_sql_numeric" value="#variables.rate#">,
-				<cfqueryparam cfsqltype="cf_sql_date" value="#variables.rate_start_date#">, <cfqueryparam cfsqltype="cf_sql_date" value="#variables.rate_end_date#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#">);
+				<cfqueryparam cfsqltype="cf_sql_date" value="#variables.rate_start_date#">, <cfqueryparam cfsqltype="cf_sql_date" value="#variables.rate_end_date#">, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
 			</cfif>
 		</cfquery>
 	</cfif>

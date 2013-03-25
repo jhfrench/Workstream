@@ -9,11 +9,11 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 
 <cfquery name="get_Expense_Type" datasource="#application.datasources.main#">
-SELECT REF_Expense_Type.Expense_Type, 
+SELECT REF_Expense_Type.Expense_Type,
     REF_Expense_Type.Expense_type_ID
 FROM expense_amount
 	INNER JOIN expense ON expense_amount.expense_id = expense.expense_id
@@ -23,7 +23,7 @@ FROM expense_amount
 	<cfif compare(project_id, 0) >and expense.project_id = #attributes.project_id#</cfif>
 	<cfif isdefined("attributes.user_account_id")>and expense.user_account_id IN(#attributes.user_account_id#)</cfif>
 	<cfelse>
-    and expense.user_account_id=#variables.user_identification#
+    and expense.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	</cfif>
 GROUP BY expense_type, REF_expense_type.expense_type_id
 ORDER BY REF_expense_type.expense_type_id

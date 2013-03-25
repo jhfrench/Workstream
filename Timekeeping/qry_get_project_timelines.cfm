@@ -10,13 +10,13 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfquery name="get_project_timelines" datasource="#application.datasources.main#">
 SELECT Project_Planning.project_planning_name, Project_Planning.project_planning_id
 FROM Project_Planning, Project_Planning_Access
 WHERE Project_Planning.project_planning_id=Project_Planning_Access.project_planning_id
-	AND Project_Planning_Access.user_account_id=#variables.user_identification#
+	AND Project_Planning_Access.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 </cfquery>
 </cfsilent>
 

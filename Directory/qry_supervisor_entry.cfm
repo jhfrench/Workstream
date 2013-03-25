@@ -8,7 +8,7 @@
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -16,7 +16,7 @@
 <cfloop list="#attributes.supervisor_id#" index="ii">
 <cfquery name="supervisor_entry" datasource="#application.datasources.main#">
 INSERT INTO Supervisor (user_account_id, supervisor_user_account_id, created_by)
-VALUES(#variables.user_account_id#, #ii#, #variables.user_identification#)
+VALUES(#variables.user_account_id#, #ii#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 </cfquery>
 </cfloop>
 

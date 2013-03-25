@@ -8,7 +8,7 @@
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -19,11 +19,11 @@
 INSERT INTO Email(user_account_id, email, email_type_id,
 	created_by)
 VALUES(#variables.user_account_id#, '#evaluate("attributes.email_#email_type_id#")#', #email_type_id#,
-	#variables.user_identification#)
+	<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 </cfquery>
 </cfif>
 </cfloop>
-</cfsilent><!--- 
+</cfsilent><!---
 <cfquery name="email_delete" datasource="#application.datasources.main#">
 DELETE Email
 WHERE user_account_id=#variables.user_account_id#

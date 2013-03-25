@@ -22,5 +22,5 @@
 --->
 <cfquery name="insert_user_account" datasource="#application.datasources.main#">
 INSERT INTO User_Account (user_name, created_by)
-VALUES('#attributes.user_name#', #variables.user_identification#)
+VALUES('#attributes.user_name#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 </cfquery>

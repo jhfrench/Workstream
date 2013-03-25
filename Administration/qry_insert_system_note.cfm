@@ -28,7 +28,7 @@
 INSERT INTO System_Note (note_text, display_start_date, display_end_date,
 	created_by, active_ind)
 VALUES ('#left(attributes.note_text,3950)#', '#dateformat(attributes.display_start_date, "dd-mmm-yyyy")#', '#dateformat(attributes.display_end_date, "dd-mmm-yyyy")#',
-	#variables.user_identification#, #attributes.active_ind#)
+	<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, #attributes.active_ind#)
 </cfquery>
 
 <!--- get the id of the inserted record --->

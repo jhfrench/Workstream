@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> [attributes.delete]: boolean that indicates a the specified record should be deleted from the table. If attributes.delete does not exist than the record should be updated with the provided data.
 	--> attributes.date: date that the user wishes to update the Time_Entry.work_date field with.
@@ -35,9 +35,9 @@ WHERE time_entry_id=#attributes.time_entry_id#
 INSERT INTO Time_Entry (user_account_id, work_date, hours,
 	project_id, task_id, notes_id,
 	created_by)
-SELECT #variables.user_identification#, '#dateformat(attributes.work_date,"yyyy-mm-dd")#', #attributes.hours#,
+SELECT <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, '#dateformat(attributes.work_date,"yyyy-mm-dd")#', #attributes.hours#,
 	<cfif isdefined("attributes.project_id")>#attributes.project_id#<cfelse>project_id</cfif>, task_id, CURRVAL('Notes_notes_id_SEQ'),
-	#variables.user_identification#
+	<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 FROM Time_Entry
 WHERE time_entry_id=#attributes.time_entry_id#
 	AND time_entry_id NOT IN (SELECT time_entry_id FROM Link_Invoice_Time_Entry WHERE active_ind=1) /*don't update or delete invoiced time*/

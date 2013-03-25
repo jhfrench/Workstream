@@ -26,7 +26,7 @@
 <cfquery name="insert_log_upload" datasource="#application.datasources.main#">
 INSERT INTO LOG_Upload (created_date, created_by, user_ip_address,
 	original_file_name, archived_file_name,	upload_source_id)
-VALUES (CURRENT_TIMESTAMP, '#variables.user_identification#', '#cgi.remote_addr#',
+VALUES (CURRENT_TIMESTAMP, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, '#cgi.remote_addr#',
 	'#variables.original_file_name#','#variables.archived_file_name#', #attributes.upload_source_id#)
 </cfquery>
 

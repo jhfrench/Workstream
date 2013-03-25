@@ -24,6 +24,6 @@
 <cfquery name="insert_user_password" datasource="#application.datasources.main#">
 INSERT INTO User_Password (user_account_id, password, created_by,
 	active_ind)
-VALUES (#attributes.user_account_id#, '#variables.encrypted_password#', #variables.user_identification#,
+VALUES (#attributes.user_account_id#, '#variables.encrypted_password#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />,
 	1)
 </cfquery>

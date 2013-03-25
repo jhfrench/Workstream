@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
@@ -22,7 +22,7 @@ WHERE task_id=#attributes.task_id#
 	AND file_path='#variables.ii#'
 
 INSERT INTO Link_Task_File (task_id, file_path, created_by)
-VALUES (#attributes.task_id#, '#variables.ii#', #variables.user_identification#)
+VALUES (#attributes.task_id#, '#variables.ii#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 </cfloop>
 </cfquery>
 </cfsilent>

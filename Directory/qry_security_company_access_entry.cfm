@@ -8,7 +8,7 @@
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:

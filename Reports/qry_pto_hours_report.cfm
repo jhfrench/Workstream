@@ -8,11 +8,11 @@
 
 	||
 	Edits:
-	$Log$ 
-	 || 
+	$Log$
+	 ||
 	END FUSEDOC --->
 <cfquery name="get_pto_hours_report" datasource="#application.datasources.main#">
-<cfif isdefined("attributes.drill_down")> 
+<cfif isdefined("attributes.drill_down")>
 SELECT Demographics.user_account_id, Demographics.first_name, Demographics.last_name,
 	PTO_Hours.Pto_Type_Indicator, REF_Company.description AS company
 FROM Demographics
@@ -21,9 +21,9 @@ FROM Demographics
 	INNER JOIN REF_Company ON Link_Company_User_Account.company_id = REF_Company.company_id
 WHERE Demographics.active_ind=1
 	AND Link_Company_User_Account.company_id IN (
-		SELECT company_id 
-		FROM Security_Company_Access 
-		WHERE user_account_id=#variables.user_identification#
+		SELECT company_id
+		FROM Security_Company_Access
+		WHERE user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	)
 	AND Demographics.user_account_id IN ('#preservesinglequotes(attributes.drill_down)#')
 ORDER BY Demographics.last_name, Demographics.first_name
@@ -33,9 +33,9 @@ SELECT DISTINCT Demographics.user_account_id, Demographics.first_name, Demograph
 FROM Demographics
 	INNER JOIN Security_Company_Access ON Demographics.user_account_id=Security_Company_Access.user_account_id
 		AND Security_Company_Access.company_id IN (
-			SELECT company_id 
-			FROM Security_Company_Access 
-			WHERE user_account_id=#variables.user_identification#
+			SELECT company_id
+			FROM Security_Company_Access
+			WHERE user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 		)
 	INNER JOIN PTO_Hours ON Demographics.user_account_id=PTO_Hours.user_account_id
 	INNER JOIN Employee ON Demographics.user_account_id=Employee.user_account_id
@@ -55,9 +55,9 @@ FROM Demographics
 					WHERE project_id=#application.application_specific_settings.pto_project_id#
 				)
 		WHERE Link_Company_User_Account.company_id IN (
-				SELECT company_id 
-				FROM Security_Company_Access 
-				WHERE user_account_id=#variables.user_identification#
+				SELECT company_id
+				FROM Security_Company_Access
+				WHERE user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 			)
 		GROUP BY Link_Company_User_Account.user_account_id
 	) AS Used_Hours ON Demographics.user_account_id=Used_Hours.user_account_id

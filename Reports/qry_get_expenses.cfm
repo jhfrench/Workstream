@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfquery name="get_expenses" datasource="#application.datasources.main#">
 SELECT junk2.*, note, expense_id
@@ -21,7 +21,7 @@ FROM Notes
 			SUM([#Get_Expense_Type.Expense_Type#]) as '#Get_Expense_Type.Expense_Type#',
 			</cfloop>notes_id
 	FROM (
-		select REF_Reimbursement_Type.Reimbursement_Type, expense.work_date, 
+		select REF_Reimbursement_Type.Reimbursement_Type, expense.work_date,
 			Notes.Note, Project.description, Project.project_code,NOTES.notes_id,
 			<cfloop query="Get_Expense_Type">
 			(CASE WHEN #Get_Expense_Type.Expense_Type_ID# = expense_amount.expense_type_id then expense_amount else 0.00 end) AS '#Get_Expense_Type.Expense_Type#',
@@ -39,12 +39,12 @@ FROM Notes
 	<cfif compare(project_id, 0) >AND expense.project_id = #attributes.project_id#</cfif>
 	<cfif isdefined("attributes.user_account_id")>AND expense.user_account_id IN (#attributes.user_account_id#)</cfif>
 	<cfelse>
-			AND expense.user_account_id=#variables.user_identification#
+			AND expense.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	</cfif>
 	) AS JUNK
 	GROUP BY Reimbursement_Type, work_date, Description,
 		project_code, expense_id, [Name],
-		last_name, notes_id 
+		last_name, notes_id
 	) AS junk2 ON junk2.notes_id = notes.notes_id
 WHERE Notes.active_ind=1
 ORDER BY  Reimbursement_Type,work_date

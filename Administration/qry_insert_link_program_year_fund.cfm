@@ -23,5 +23,5 @@
 
 <cfquery name="insert_link_program_year_fund" datasource="#application.datasources.main#">
 INSERT INTO Link_Program_Year_Fund (program_year_id, fund_id, created_by)
-VALUES (#attributes.program_year_id#, #attributes.fund_id#, #variables.user_identification#)
+VALUES (#attributes.program_year_id#, #attributes.fund_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 </cfquery>

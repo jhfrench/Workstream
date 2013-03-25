@@ -27,6 +27,6 @@
 <cfquery name="insert_ref_resource_link_type" datasource="#application.datasources.main#">
 INSERT INTO REF_Resource_Link_Type (description, sort_order, created_by,
 	active_ind)
-VALUES ('#attributes.description#', #attributes.sort_order#, #variables.user_identification#,
+VALUES ('#attributes.description#', #attributes.sort_order#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />,
 	#attributes.active_ind#)
 </cfquery>

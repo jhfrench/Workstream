@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <cfmodule template="../common_files/act_set_all_option.cfm" business_function_id="710">
@@ -73,7 +73,7 @@
 			<td colspan="6" align="center">You have no expense records that match your criteria.</td>
 		</tr>
 	</cfif>
-	<cfform action="index.cfm?fuseaction=Tools.expense_entry" method="post" name="date_range"> 
+	<cfform action="index.cfm?fuseaction=Tools.expense_entry" method="post" name="date_range">
 	<tr>
 
 		<td colspan="6" align="center">
@@ -98,7 +98,7 @@ Status: <cfselect name="expense_status_id" size="1" query="get_expense_status" v
 	<td colspan="5"><input type="submit" name="New" value="New" class="btn" /></td>
 </tr>
 	</cfform>
-	<cfform action="index.cfm?fuseaction=Tools.expense_insert" method="post" name="expense_insert"> 
+	<cfform action="index.cfm?fuseaction=Tools.expense_insert" method="post" name="expense_insert">
 	<cfinclude template="dsp_expense_entry_form.cfm">
 	</cfform>
 </table>

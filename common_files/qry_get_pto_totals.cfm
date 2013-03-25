@@ -4,10 +4,10 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I 
+	Responsibilities: I
 
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -16,7 +16,7 @@
 <cfquery name="get_carryover" cachedafter="02/02/1978" datasource="#application.datasources.main#">
 SELECT COALESCE(carryover_limit, 40) AS carryover_limit
 FROM PTO_Rollover
-WHERE user_account_id=#variables.user_identification#
+WHERE user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	AND rollover_year=EXTRACT(YEAR FROM CURRENT_DATE)-1
 	AND <cfqueryparam value="#year(now())#" cfsqltype="cf_sql_integer" />=<cfqueryparam value="#year(now())#" cfsqltype="cf_sql_integer" />
 </cfquery>
@@ -27,15 +27,15 @@ WHERE user_account_id=#variables.user_identification#
 </cfif>
 <cfquery name="get_pto_totals" cachedwithin="#createtimespan(0,0,10,0)#" datasource="#application.datasources.main#">
 SELECT COALESCE(Carryover.user_account_id, PTO_Rollover.user_account_id) AS user_account_id,
-	COALESCE(SUM(PTO_Rollover.pto_hours_earned), 0) AS pto_hours_earned, 
+	COALESCE(SUM(PTO_Rollover.pto_hours_earned), 0) AS pto_hours_earned,
 	COALESCE(
 		CASE
 			WHEN Carryover.rollover > <cfqueryparam value="#variables.carryover_limit#" cfsqltype="cf_sql_integer" /> THEN <cfqueryparam value="#variables.carryover_limit#" cfsqltype="cf_sql_integer" />
-			ELSE rollover 
+			ELSE rollover
 		END, 0
 	) AS rollover
 FROM (
-		SELECT (MAX(hours_in) - MAX(hours_out)) AS rollover, user_account_id 
+		SELECT (MAX(hours_in) - MAX(hours_out)) AS rollover, user_account_id
 		FROM
 			(
 				SELECT SUM(COALESCE(Time_Entry.hours, 0)) AS hours_out, 0 AS hours_in, Time_Entry.user_account_id
@@ -43,14 +43,14 @@ FROM (
 				WHERE Time_Entry.active_ind=1
 					AND Time_Entry.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 					AND Time_Entry.project_id=<cfqueryparam value="#application.application_specific_settings.pto_project_id#" cfsqltype="cf_sql_integer" />
-					AND Time_Entry.work_date >= (SELECT pto_start_date FROM REF_Company WHERE company_id=<cfqueryparam value="#session.workstream_company_id#" cfsqltype="cf_sql_integer" />) 
+					AND Time_Entry.work_date >= (SELECT pto_start_date FROM REF_Company WHERE company_id=<cfqueryparam value="#session.workstream_company_id#" cfsqltype="cf_sql_integer" />)
 					AND EXTRACT(YEAR FROM Time_Entry.work_date) < EXTRACT(YEAR FROM CURRENT_DATE)
 				GROUP BY Time_Entry.user_account_id
 				UNION ALL
 				SELECT 0 AS hours_out, SUM(COALESCE(PTO_Grant.granted_hours, 0)) AS hours_in, PTO_Grant.user_account_id
 				FROM PTO_Grant
 			 	WHERE PTO_Grant.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
-					AND date_granted >= (SELECT pto_start_date FROM REF_Company WHERE company_id=<cfqueryparam value="#session.workstream_company_id#" cfsqltype="cf_sql_integer" />) 
+					AND date_granted >= (SELECT pto_start_date FROM REF_Company WHERE company_id=<cfqueryparam value="#session.workstream_company_id#" cfsqltype="cf_sql_integer" />)
 					AND EXTRACT(YEAR FROM date_granted) < EXTRACT(YEAR FROM CURRENT_DATE)
 				GROUP BY PTO_Grant.user_account_id
 			) AS Previous_Years_Hours
@@ -58,14 +58,14 @@ FROM (
 	) AS Carryover
 	FULL OUTER JOIN (
 		SELECT Employee.user_account_id,
-			CASE 
-				WHEN PTO_Rollover.pto_override > 0 THEN pto_override/12 
+			CASE
+				WHEN PTO_Rollover.pto_override > 0 THEN pto_override/12
 				ELSE (
 					SELECT accrual_rate
 					FROM REF_PTO_Hours
 					WHERE COALESCE(EXTRACT(YEAR FROM CURRENT_DATE)-EXTRACT(YEAR FROM Employee.hire_date),0) BETWEEN REF_PTO_Hours.min_year AND REF_PTO_Hours.max_year
-				) 
-			END AS pto_hours_earned 
+				)
+			END AS pto_hours_earned
 		FROM Link_Company_User_Account
 			INNER JOIN ABCD_Months ON ABCD_Months.month > EXTRACT(MONTH FROM CURRENT_DATE)
 				AND ABCD_Months.year=EXTRACT(YEAR FROM CURRENT_DATE)

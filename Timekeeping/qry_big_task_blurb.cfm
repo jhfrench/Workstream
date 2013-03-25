@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> variables.user_identification: number that uniquely identifies the user
  --->
@@ -18,7 +18,7 @@
 SELECT SUM(Time_Entry.hours) AS project_hours, Time_Entry.project_id, Project.description AS project_name
 FROM Time_Entry, Project
 WHERE Time_Entry.active_ind=1
-	AND Time_Entry.user_account_id=#variables.user_identification#
+	AND Time_Entry.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	AND EXTRACT(MONTH FROM Time_Entry.work_date) = EXTRACT(MONTH FROM CURRENT_DATE)
 	AND EXTRACT(YEAR FROM Time_Entry.work_date) = EXTRACT(YEAR FROM CURRENT_DATE)
 	AND Project.project_id=Time_Entry.project_id

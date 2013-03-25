@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <cftransaction isolation="READ_COMMITTED">
@@ -18,7 +18,7 @@
 <pre>
 UPDATE Customer
 SET root_code='#attributes.root_code#',
-	description='#attributes.description#', 
+	description='#attributes.description#',
 	company_id=#attributes.company_id#,
 	active_ind=#attributes.active_ind#,
 	company_address1='#attributes.company_address1#',
@@ -32,7 +32,7 @@ WHERE customer_id=#attributes.customer_id#
 <cfquery name="update_customers" datasource="#application.datasources.main#">
 UPDATE Customer
 SET root_code='#attributes.root_code#',
-	description='#attributes.description#', 
+	description='#attributes.description#',
 	company_id=#attributes.company_id#,
 	active_ind=#attributes.active_ind#,
 	company_address1='#attributes.company_address1#',
@@ -63,7 +63,7 @@ WHERE customer_id=#attributes.customer_id#
 	<cfif NOT len(get_contact_name.user_account_id)>
 		<cfquery name="insert_user_account" datasource="#application.datasources.main#">
 		INSERT INTO User_Account (user_name, account_type_id, created_by)
-		VALUES ('#left(attributes.first_name,1)##attributes.last_name#', 2, #variables.user_identification#);
+		VALUES ('#left(attributes.first_name,1)##attributes.last_name#', 2, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
 		SELECT CURRVAL('User_Account_user_account_id_SEQ') AS user_account_id;
 		</cfquery>
 		<cfset attributes.contact_user_account_id=insert_user_account.user_account_id>
@@ -71,7 +71,7 @@ WHERE customer_id=#attributes.customer_id#
 		INSERT INTO Demographics (first_name, last_name, user_account_id,
 			created_by)
 		VALUES ('#attributes.first_name#', '#attributes.last_name#', #attributes.contact_user_account_id#,
-			#variables.user_identification#)
+			<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 		</cfquery>
 	</cfif>
 	<cfquery name="update_customer_contact" datasource="#application.datasources.main#">
@@ -88,7 +88,7 @@ WHERE customer_id=#attributes.customer_id#
 		AND contact_user_account_id IS NOT NULL
 	</cfquery>
 </cfif>
-<!--- Update the visible to table, by deleting all the existing entries and then looping through the list of companies that 
+<!--- Update the visible to table, by deleting all the existing entries and then looping through the list of companies that
 the customer is visible to and insert them into the table. --->
 <cfset attributes.visible_to_company_id=listappend(0,attributes.visible_to_company_id)>
 <cfquery name="update_link_customer_company" datasource="#application.datasources.main#">

@@ -27,6 +27,6 @@
 <cfquery name="insert_link_business_function_hier" datasource="#application.datasources.main#">
 INSERT INTO Link_Business_Function_Hier (business_function_id, l_p_y_h_id, created_by,
 	required_ind, active_ind)
-VALUES ('#attributes.business_function_id#', #attributes.l_p_y_h_id#, #variables.user_identification#,
+VALUES ('#attributes.business_function_id#', #attributes.l_p_y_h_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />,
 	#attributes.required_ind#, #attributes.active_ind#)
 </cfquery>

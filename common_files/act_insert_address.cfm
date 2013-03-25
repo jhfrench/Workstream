@@ -26,7 +26,7 @@ INSERT INTO Address (mailing_name, street_1, street_2,
 	country_id, created_by)
 VALUES ('#attributes.mailing_name#', '#attributes.street_1#', '#attributes.street_2#',
 	'#attributes.city#', '#attributes.state_province_id#', '#attributes.postal_code#',
-	'#attributes.country_id#', #variables.user_identification#)
+	'#attributes.country_id#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 </cfquery>
 <cfquery name="get_address_id" datasource="#application.datasources.main#">
 SELECT CURRVAL('Address_adress_id_SEQ') AS address_id

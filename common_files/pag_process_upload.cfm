@@ -69,7 +69,7 @@
 	INSERT INTO LOG_Upload (original_file_name, archived_file_name, upload_source_id,
 		created_by, active_ind)
 	SELECT original_file_name, archived_file_name, upload_source_id,
-		<cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" /> AS created_by, 0 AS active_ind
+		<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" /> AS created_by, 0 AS active_ind
 	FROM LOG_Upload
 	WHERE upload_id IN (<cfqueryparam cfsqltype="cf_sql_integer" list="yes" value="#attributes.delete_upload_id#" />)
 	</cfquery>

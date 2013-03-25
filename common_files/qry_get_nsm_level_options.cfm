@@ -49,7 +49,7 @@ FROM<cfloop query="get_nsm_levels">
 		<cfif attributes.parent_privilege_inheritance_ind>
 		SELECT Elligible_Organizations.parent_organization_id, Elligible_Organizations.organization_id, Elligible_Organizations.l_p_y_h_id,
 			REF_Organization.description || ' (' ||  REF_Organization.organization_code || ')' AS level_#hierarchy_level_id#_display, REF_Organization.sort_order, #hierarchy_level_id# AS hierarchy_level_id
-		FROM REF_Organization 
+		FROM REF_Organization
 			INNER JOIN (
 			<!--- $issue$: convert from Oracle-specific START WITH/CONNECT BY to Postgres recursive query --->
 				SELECT Hierarchy_Assignment.parent_organization_id, Hierarchy_Assignment.organization_id, Hierarchy_Assignment.l_p_y_h_id
@@ -65,7 +65,7 @@ FROM<cfloop query="get_nsm_levels">
 						AND Access_User_Account_Grouper.program_year_id=#attributes.program_year_id#
 						AND Access_User_Account_Grouper.module_id=#attributes.module_id#
 						AND Access_User_Account_Grouper.privilege_id=#attributes.privilege_id#
-						AND Access_User_Account_Grouper.user_account_id=#variables.user_identification#
+						AND Access_User_Account_Grouper.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 				)
 				CONNECT BY PRIOR Hierarchy_Assignment.organization_id=Hierarchy_Assignment.parent_organization_id
 			) Elligible_Organizations ON REF_Organization.organization_id=Elligible_Organizations.organization_id
@@ -92,7 +92,7 @@ FROM<cfloop query="get_nsm_levels">
 					AND Access_User_Account_Grouper.program_year_id=#attributes.program_year_id#
 					AND Access_User_Account_Grouper.module_id=#attributes.module_id#
 					AND Access_User_Account_Grouper.privilege_id=#attributes.privilege_id#
-					AND Access_User_Account_Grouper.user_account_id=#variables.user_identification#
+					AND Access_User_Account_Grouper.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 			)</cfif>
 		</cfif>
 	INNER JOIN<cfelse>
@@ -126,7 +126,7 @@ FROM<cfloop query="get_nsm_levels">
 						LEFT OUTER JOIN Access_User_Account_Grouper ON Hierarchy_Assignment.organization_id=Access_User_Account_Grouper.organization_id
 							AND Access_User_Account_Grouper.active_ind=1
 							AND Access_User_Account_Grouper.program_year_id=#attributes.program_year_id#
-							AND Access_User_Account_Grouper.user_account_id=#variables.user_identification#
+							AND Access_User_Account_Grouper.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 							AND Access_User_Account_Grouper.module_id=#attributes.module_id#
 							AND Access_User_Account_Grouper.privilege_id=#attributes.privilege_id#
 					START WITH Hierarchy_Assignment.l_p_y_h_id=#l_p_y_h_id#

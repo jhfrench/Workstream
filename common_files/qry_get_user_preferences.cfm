@@ -33,7 +33,7 @@ SELECT User_Preferences.user_preferences_id, User_Preferences.user_account_id, U
 FROM User_Preferences
 	INNER JOIN REF_Numeric_Multiplier ON User_Preferences.numeric_multiplier_id=REF_Numeric_Multiplier.numeric_multiplier_id
 WHERE <cfif attributes.user_preferences_id NEQ 0>User_Preferences.user_preferences_id=#attributes.user_preferences_id#<cfelse>User_Preferences.active_ind=1
-	AND user_account_id=<cfif isdefined("variables.user_identification")>#variables.user_identification#<cfelse>#get_username.user_account_id#</cfif></cfif>
+	AND user_account_id=<cfif isdefined("variables.user_identification")><cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" /><cfelse>#get_username.user_account_id#</cfif></cfif>
 ORDER BY User_Preferences.user_preferences_id
 </cfquery>
 

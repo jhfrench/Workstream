@@ -27,6 +27,6 @@
 <cfquery name="insert_link_user_account_status" datasource="#application.datasources.main#">
 INSERT INTO Link_User_Account_Status (user_account_id, account_status_id, created_by,
 	active_ind)
-VALUES ('#attributes.user_account_id#', #attributes.account_status_id#, #variables.user_identification#,
+VALUES ('#attributes.user_account_id#', #attributes.account_status_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />,
 	#attributes.active_ind#)
 </cfquery>

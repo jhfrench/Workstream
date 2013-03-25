@@ -26,5 +26,5 @@
 
 <cfquery name="insert_ref_form_element_type" datasource="#application.datasources.main#">
 INSERT INTO REF_Form_Element_Type (description, created_by, active_ind)
-VALUES ('#attributes.description#', #variables.user_identification#, #attributes.active_ind#)
+VALUES ('#attributes.description#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, #attributes.active_ind#)
 </cfquery>

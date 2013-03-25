@@ -8,7 +8,7 @@
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -16,6 +16,6 @@
 </cfsilent>
 <cfquery name="company_entry" datasource="#application.datasources.main#">
 INSERT INTO Link_Company_User_Account (user_account_id, company_id, created_by)
-VALUES(#variables.user_account_id#, #attributes.company_id#, #variables.user_identification#)
+VALUES(#variables.user_account_id#, #attributes.company_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 </cfquery>
 

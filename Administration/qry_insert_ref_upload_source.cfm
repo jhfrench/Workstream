@@ -29,6 +29,6 @@ INSERT INTO REF_Upload_Source (description, abbreviation, sort_order,
 	active_ind, created_by, upload_template,
 	worksheet_name)
 VALUES ('#attributes.description#', '#attributes.abbreviation#', #attributes.sort_order#,
-	#attributes.active_ind#, #variables.user_identification#, '#attributes.upload_template#',
+	#attributes.active_ind#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, '#attributes.upload_template#',
 	'#attributes.worksheet_name#')
 </cfquery>

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 </cfsilent>
 <cfset variables.full_file_path="#getdirectoryfrompath(gettemplatepath())#Uploaded_Files">
@@ -33,7 +33,7 @@
 <cfset variables.file_path="#attributes.file_path##cffile.clientfile#">
 <cfquery name="update_task_files" datasource="#application.datasources.main#">
 INSERT INTO Link_Task_File (task_id, file_path, created_by)
-VALUES (#attributes.task_id#, '#variables.file_path#', #variables.user_identification#)
+VALUES (#attributes.task_id#, '#variables.file_path#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 </cfquery>
 
 <cfoutput>

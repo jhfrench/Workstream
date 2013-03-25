@@ -9,9 +9,9 @@
 	Name: Jeromy French
 	||
 	Edits:
-	$Log: 
+	$Log:
 
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 
@@ -41,7 +41,7 @@ WHERE active_ind=1
 		created_by, salary_change_type_id, increase_amount,
 		increase_percent)
 	VALUES (#attributes.user_account_id#, '#variables.salary#', '#attributes.date#',
-		#variables.user_identification#, #attributes.salary_change_type#, '#variables.increase_amount#',
+		<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, #attributes.salary_change_type#, '#variables.increase_amount#',
 		'#variables.increase_percent#')
 	</cfquery>
 

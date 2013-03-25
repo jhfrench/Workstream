@@ -27,6 +27,6 @@
 <cfquery name="insert_ref_hierarchy_level" datasource="#application.datasources.main#">
 INSERT INTO REF_Hierarchy_Level (description, created_by, active_ind,
 	sort_order, center_ind, form_element_type_id)
-VALUES ('#attributes.description#', #variables.user_identification#, #attributes.active_ind#,
+VALUES ('#attributes.description#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, #attributes.active_ind#,
 	#attributes.sort_order#, #attributes.center_ind#, #attributes.form_element_type_id#)
 </cfquery>

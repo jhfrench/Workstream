@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.budgeted_hours: number of hours that the task is targeted to take; if the number is less than 1 it will be bumped up to 1 hour because otherwise the DB would knock it down to 0
 	--> attributes.date_start: date of when the new task is to be started
@@ -25,7 +25,7 @@
  --->
 <cftransaction isolation="READ_COMMITTED">
 <cfquery name="insert_new_task" datasource="#application.datasources.main#">
-INSERT INTO Task (name, project_id, entry_date, 
+INSERT INTO Task (name, project_id, entry_date,
 	assigned_date, due_date, icon_id,
 	budgeted_hours, description, priority_id,
 	created_by<!--- ,
@@ -33,7 +33,7 @@ INSERT INTO Task (name, project_id, entry_date,
 VALUES ('#attributes.task_name#', #attributes.project_id#, CURRENT_TIMESTAMP,
 	#createodbcdate(attributes.date_start)#, #createodbcdate(attributes.due_date)#, #attributes.icon_id#,
 	#ceiling(attributes.budgeted_hours)#, '#attributes.task_details#', #attributes.priority_id#,
-	#variables.user_identification#<!--- ,
+	<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" /><!--- ,
 	#attributes.notification_frequency_id# --->);
 
 SELECT CURRVAL('Task_task_id_SEQ') AS task_id;
@@ -41,12 +41,12 @@ SELECT CURRVAL('Task_task_id_SEQ') AS task_id;
 <cfset attributes.task_id=insert_new_task.task_id>
 <cfquery name="insert_task_source" datasource="#application.datasources.main#">
 INSERT INTO Link_Task_Task_Status(task_id, task_status_id, created_by)
-VALUES (#attributes.task_id#, #attributes.task_status#, #variables.user_identification#);
+VALUES (#attributes.task_id#, #attributes.task_status#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
 
 INSERT INTO Team(task_id, user_account_id, role_id,
 	created_by)
-VALUES (#attributes.task_id#, #variables.user_identification#, 5,
-	#variables.user_identification#);
+VALUES (#attributes.task_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, 5,
+	<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
 </cfquery>
 </cftransaction>
 </cfsilent>

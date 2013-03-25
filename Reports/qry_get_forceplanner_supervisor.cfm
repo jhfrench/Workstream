@@ -10,25 +10,25 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
  --->
 <!--- $issue$: this query probably needs to be rewritten --->
 <cfquery name="get_forceplanner_supervisor" datasource="#application.datasources.main#">
-SELECT Demographics.user_account_id, Demographics.last_name || ', ' || Demographics.first_name AS employee_name, 
-	COALESCE(Budgeted_Data.cbt,0) AS cbt, COALESCE(Budgeted_Data.cbh,0) AS cbh, COALESCE(Budgeted_Data.nbt,0) AS nbt, COALESCE(Budgeted_Data.nbh,0) AS nbh, 
+SELECT Demographics.user_account_id, Demographics.last_name || ', ' || Demographics.first_name AS employee_name,
+	COALESCE(Budgeted_Data.cbt,0) AS cbt, COALESCE(Budgeted_Data.cbh,0) AS cbh, COALESCE(Budgeted_Data.nbt,0) AS nbt, COALESCE(Budgeted_Data.nbh,0) AS nbh,
 	COALESCE(Non_Budgeted_Data.cnt,0) AS cnt, COALESCE(Non_Budgeted_Data.cnh,0) AS cnh, COALESCE(Non_Budgeted_Data.nnt,0) AS nnt, COALESCE(Non_Budgeted_Data.nnh,0) AS nnh
 FROM Employee
 	INNER JOIN Demographics ON Employee.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1
 	INNER JOIN Link_Employee_Supervisor ON Employee.user_account_id=Link_Employee_Supervisor.user_account_id
 		AND Link_Employee_Supervisor.active_ind=1
-		AND (Link_Employee_Supervisor.supervisor_id=#variables.user_identification#
-			OR Link_Employee_Supervisor.user_account_id=#variables.user_identification#)
+		AND (Link_Employee_Supervisor.supervisor_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
+			OR Link_Employee_Supervisor.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 	LEFT OUTER JOIN (
-		SELECT COUNT(DISTINCT CASE WHEN Link_Task_Task_Status.task_status_id=7 /*completed*/ THEN Forecast_Assignment.task_id ELSE NULL END) AS cbt, 
+		SELECT COUNT(DISTINCT CASE WHEN Link_Task_Task_Status.task_status_id=7 /*completed*/ THEN Forecast_Assignment.task_id ELSE NULL END) AS cbt,
 			COALESCE(SUM(CASE WHEN Link_Task_Task_Status.task_status_id=7 /*completed*/ THEN Time_Entry.hours ELSE 0 END),0) AS cbh,
-			COUNT(DISTINCT CASE WHEN Link_Task_Task_Status.task_status_id!=7 /*exclude closed tasks*/ THEN Forecast_Assignment.task_id ELSE NULL END) AS nbt, 
+			COUNT(DISTINCT CASE WHEN Link_Task_Task_Status.task_status_id!=7 /*exclude closed tasks*/ THEN Forecast_Assignment.task_id ELSE NULL END) AS nbt,
 			COALESCE(SUM(CASE WHEN Link_Task_Task_Status.task_status_id!=7 /*exclude closed tasks*/ THEN Time_Entry.hours ELSE 0 END),0) AS nbh,
 			Forecast_Assignment.user_account_id
 		FROM Forecast_Assignment
@@ -47,9 +47,9 @@ FROM Employee
 		GROUP BY Forecast_Assignment.user_account_id
 	) AS Budgeted_Data ON Budgeted_Data.user_account_id=Demographics.user_account_id
 	LEFT OUTER JOIN (
-		SELECT COUNT(DISTINCT CASE WHEN Link_Task_Task_Status.task_status_id=7 /*completed*/ THEN Time_Entry.task_id ELSE NULL END) AS cnt, 
+		SELECT COUNT(DISTINCT CASE WHEN Link_Task_Task_Status.task_status_id=7 /*completed*/ THEN Time_Entry.task_id ELSE NULL END) AS cnt,
 			COALESCE(SUM(CASE WHEN Link_Task_Task_Status.task_status_id=7 /*completed*/ THEN Time_Entry.hours ELSE 0 END),0) AS cnh,
-			COUNT(DISTINCT CASE WHEN Link_Task_Task_Status.task_status_id!=7 /*exclude closed tasks*/ THEN Time_Entry.task_id ELSE NULL END) AS nnt, 
+			COUNT(DISTINCT CASE WHEN Link_Task_Task_Status.task_status_id!=7 /*exclude closed tasks*/ THEN Time_Entry.task_id ELSE NULL END) AS nnt,
 			COALESCE(SUM(CASE WHEN Link_Task_Task_Status.task_status_id!=7 /*exclude closed tasks*/ THEN Time_Entry.hours ELSE 0 END),0) AS nnh,
 			Time_Entry.user_account_id
 		FROM Time_Entry
@@ -64,7 +64,7 @@ FROM Employee
 				AND Link_Task_Task_Status.active_ind=1
 		WHERE Time_Entry.active_ind=1
 		GROUP BY Time_Entry.user_account_id
-	) AS Non_Budgeted_Data ON Non_Budgeted_Data.user_account_id=Demographics.user_account_id 
+	) AS Non_Budgeted_Data ON Non_Budgeted_Data.user_account_id=Demographics.user_account_id
 WHERE Employee.active_ind=1
 	AND Employee.hire_date < #createodbcdatetime(attributes.through_date)#
 	AND COALESCE(Employee.turnover_date, #createodbcdatetime(dateadd("d", 1, attributes.from_date))#) > #createodbcdatetime(attributes.from_date)#

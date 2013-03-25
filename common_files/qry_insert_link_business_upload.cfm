@@ -23,5 +23,5 @@
 
 <cfquery name="insert_link_business_upload" datasource="#application.datasources.main#">
 INSERT INTO Link_Business_Upload (parent_business_id, upload_id, created_by)
-VALUES (#attributes.parent_business_id#, #attributes.upload_id#, #variables.user_identification#)
+VALUES (#attributes.parent_business_id#, #attributes.upload_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 </cfquery>

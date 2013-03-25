@@ -35,6 +35,6 @@ FROM User_Account
 	LEFT OUTER JOIN REF_Center ON Demographics.center_id=REF_Center.center_id
 WHERE Demographics.active_ind=1
 	AND Link_User_Account_Status.active_ind=1
-	AND user_account_id=<cfif isdefined("variables.user_identification")>#variables.user_identification#<cfelse>#get_username.user_account_id#</cfif>
+	AND user_account_id=<cfif isdefined("variables.user_identification")><cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" /><cfelse>#get_username.user_account_id#</cfif>
 ORDER BY Demographics.last_name, Demographics.first_name
 </cfquery>

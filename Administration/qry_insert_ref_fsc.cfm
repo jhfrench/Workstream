@@ -24,8 +24,8 @@
 --->
 
 <cfquery name="insert_ref_fsc" datasource="#application.datasources.main#">
-INSERT INTO REF_fsc (description, code, sort_order, 
+INSERT INTO REF_fsc (description, code, sort_order,
 	created_by, active_ind)
-VALUES ('#attributes.description#', '#attributes.code#', #attributes.sort_order#, 
-	#variables.user_identification#, #attributes.active_ind#)
+VALUES ('#attributes.description#', '#attributes.code#', #attributes.sort_order#,
+	<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, #attributes.active_ind#)
 </cfquery>

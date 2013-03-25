@@ -10,27 +10,27 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: number that uniquely identifies a task
  --->
 <cfset variables.user_identification=session.user_account_id>
 <cfswitch expression="#attributes.task_status#">
-	
+
 	<cfcase value="1">
 		<cfset variables.email_subject_prefix="New Workstream Task">
 		<cfset variables.notification_text="has been created">
 		<cfset variables.sender_type=5>
 		<cfset variables.receiver_type=1>
 	</cfcase>
-	
+
 	<cfcase value="3">
 		<cfset variables.email_subject_prefix="Please QA Workstream Task">
 		<cfset variables.notification_text="is ready for QA">
 		<cfset variables.sender_type=1>
 		<cfset variables.receiver_type=3>
 	</cfcase>
-	
+
 	<cfcase value="4">
 		<cfset variables.email_subject_prefix="Workstream Task Needs Work">
 		<cfset variables.notification_text="has failed QA">
@@ -45,7 +45,7 @@
 		<cfset variables.sender_type=3>
 		<cfset variables.receiver_type=1>
 	</cfcase>
-	
+
 	<cfcase value="7">
 		<cfset variables.email_subject_prefix="Completed Workstream Task">
 		<cfset variables.notification_text="has been marked complete">
@@ -100,7 +100,7 @@
 		<cfset variables.sender_type=5>
 		<cfset variables.receiver_type=1>
 	</cfcase>
-	
+
 	<cfcase value="new_owner">
 		<cfset variables.email_subject_prefix="Reassigned Workstream Task">
 		<cfset variables.notification_text="has been assigned to you">
@@ -124,8 +124,8 @@
 </cfswitch>
 </cfsilent>
 <cfquery name="prepare_email" datasource="#application.datasources.main#">
-SELECT COALESCE(Email_Source.task_source,'#application.system_email_sender#') AS email_from, Email.email AS email_to, Demographics.first_name, 
-	Task.task_id, Task.name AS task_name, Task.description, 
+SELECT COALESCE(Email_Source.task_source,'#application.system_email_sender#') AS email_from, Email.email AS email_to, Demographics.first_name,
+	Task.task_id, Task.name AS task_name, Task.description,
 	Task.budgeted_hours, Task.due_date, Email.email_id
 FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
@@ -158,7 +158,7 @@ WHERE Task.task_id=#attributes.task_id#
 		<cfoutput>
 			<cfsavecontent variable="variables.email_body">
 				<p>#prepare_email.first_name#,</p>
-				
+
 				<p>
 					The following task #variables.notification_text#:
 					<dl>
@@ -168,7 +168,7 @@ WHERE Task.task_id=#attributes.task_id#
 						<dt>Description:</dt><dd>#prepare_email.description#</dd>
 					</dl>
 				</p>
-				
+
 				<p>Please <a href="http://#cgi.http_host#/index.cfm?fuseaction=Timekeeping.task_details&task_id=#attributes.task_id#">view task #attributes.task_id#</a>.</p>
 			</cfsavecontent>
 		</cfoutput>
@@ -180,7 +180,7 @@ WHERE Task.task_id=#attributes.task_id#
 			INSERT INTO Notification (task_id, email_id, notification_type,
 				date_sent, date_to_send, created_by)
 			VALUES (#attributes.task_id#, #prepare_email.email_id#, 7,
-				CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #variables.user_identification#)
+				CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 			</cfquery>
 		</cfif>
 	</cfif>

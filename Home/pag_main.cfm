@@ -19,7 +19,7 @@
 		</out>
 	</IO>
 </fusedoc>
----><!--- 
+---><!---
 <cfdump var="#application.fusebox.circuits#" /> --->
 <cfset variables.circuit_list=listsort(structkeylist(application.fusebox.circuits), "textnocase")>
 <cfloop list="#variables.circuit_list#" index="variables.circuit_ii">
@@ -50,32 +50,32 @@
 				INSERT INTO REF_Business_Function (description, acronym, require_login_ind,
 					default_access_ind, viewable_ind, created_by)
 				VALUES ('#replace(variables.fuseaction_ii, '_', ' ')#', '#left(variables.circuit_ii,1)##left(variables.fuseaction_ii,1)#', 1,
-					0, 1, #variables.user_identification#)
+					0, 1, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 				</cfquery>
 				<cfquery name="get_business_function_id" datasource="#application.datasources.main#">
 				SELECT CURRVAL('REF_Business_Function_business_function_id_SEQ') AS business_function_id
 				</cfquery>
 				<cfset variables.business_function_id=get_business_function_id.business_function_id>
-			</cfif><!--- 
+			</cfif><!---
 			<cfoutput>
 			INSERT INTO REF_Screen (fuseaction, module_id, business_function_id,
 				starting_point_ind, created_by)
 			VALUES ('#variables.circuit_ii#.#lcase(variables.fuseaction_ii)#', #get_module.module_id#, #variables.business_function_id#,
-				1, #variables.user_identification#)
+				1, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 			</cfoutput>
 			<cfabort> --->
 			<cfquery name="insert_business_function" datasource="#application.datasources.main#">
 			INSERT INTO REF_Screen (fuseaction, module_id, business_function_id,
 				starting_point_ind, created_by)
 			VALUES ('#variables.circuit_ii#.#lcase(variables.fuseaction_ii)#', #get_module.module_id#, #variables.business_function_id#,
-				1, #variables.user_identification#)
+				1, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 			</cfquery>
 		</cfif>
 		</cfloop>
 	</cfif>
 </cfloop>
 All done...
-<!--- 
+<!---
 <cfquery name="get_fuseactions" datasource="#application.datasources.main#">
 SELECT *
 FROM (

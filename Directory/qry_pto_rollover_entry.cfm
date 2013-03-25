@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfset attributes.Carryover_limit="40">
 
@@ -20,7 +20,7 @@
 INSERT INTO PTO_Rollover (user_account_id, pto_override, carryover_limit, rollover_year,
 	created_by)
 VALUES(#variables.user_account_id#, '#attributes.pto_override#', '#attributes.carryover_limit#', EXTRACT(YEAR FROM CURRENT_DATE),
-	#variables.user_identification#)
+	<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 </cfquery>
 </cfif>
 

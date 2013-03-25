@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 <cfparam name="attributes.task_team" default=0>
 <cfparam name="attributes.reminder_cc_id" default="">
@@ -28,9 +28,9 @@
 
 <cfquery name="update_associated_file" datasource="#application.datasources.main#">
 UPDATE Link_Task_File
-SET task_id=#attributes.task_id#
+SET task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 WHERE task_id=0
-	AND created_by=#variables.user_identification#
+	AND created_by=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfif compare(attributes.linked_task_id,0)>

@@ -25,5 +25,5 @@
 --->
 <cfquery name="insert_ref_country" datasource="#application.datasources.main#">
 INSERT INTO REF_Country (description, code, created_by)
-VALUES ('#attributes.description#', '#attributes.code#', #variables.user_identification#)
+VALUES ('#attributes.description#', '#attributes.code#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 </cfquery>

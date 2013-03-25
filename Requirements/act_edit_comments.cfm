@@ -43,7 +43,7 @@
 		INSERT INTO Comments (comments_type_id, comments_number, description,
 			created_by)
 		VALUES (#attributes.comments_type_id#, #attributes.comments_number#, '#attributes.comment_description#',
-			#variables.user_identification#)
+			<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 		</cfquery>
 		<cfquery name="get_comments_id" datasource="#application.datasources.main#">
 		SELECT CURRVAL('Comments_comment_id_SEQ') AS comments_id
@@ -54,7 +54,7 @@
 		INSERT INTO Link_Screen_Comments (comments_id, screen_id, sort_order,
 			created_by)
 		VALUES (#attributes.comments_id#, #attributes.screen_id#, #attributes.sort_order#,
-			#variables.user_identification#)
+			<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 		</cfquery>
 	</cfif>
 </cftransaction>

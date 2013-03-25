@@ -26,7 +26,7 @@
 
 <cfquery name="insert_lock_module" datasource="#application.datasources.main#">
 INSERT INTO Lock_Module (module_id, comments, created_by)
-VALUES (#module_id_ii#, '#variables.module_comments#', #variables.user_identification#)
+VALUES (#module_id_ii#, '#variables.module_comments#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 </cfquery>
 
 

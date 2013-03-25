@@ -8,7 +8,7 @@
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -21,7 +21,7 @@ INSERT INTO Location(user_account_id, address1<cfif len(evaluate("attributes.add
 	location_type_id, created_by)
 VALUES(#variables.user_account_id#,'#evaluate("attributes.address1_#location_type_id#")#'<cfif len(evaluate("attributes.address2_#location_type_id#"))>,'#evaluate("attributes.address2_#location_type_id#")#'</cfif>,
 	'#evaluate("attributes.city_#location_type_id#")#','#evaluate("attributes.state_#location_type_id#")#','#evaluate("attributes.zip_#location_type_id#")#',
-	#location_type_id#, #variables.user_identification#)
+	#location_type_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 </cfquery>
 </cfif>
 </cfloop>

@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	-->project_id:  the id that indicates the project.
 	END FUSEDOC --->
 
@@ -34,7 +34,7 @@ WHERE project_id=#project_id#
 	<cfif billable_type_id EQ 3>
 		<cfquery name="insert_flat_rate" datasource="#application.datasources.main#">
 		INSERT INTO Flat_Rate (rate_start_date, rate_end_date, project_id, budget, created_by)
-		VALUES ('#attributes.start_date#', '#attributes.end_date#', #attributes.project_id#, #attributes.budget#, #variables.user_identification#)
+		VALUES ('#attributes.start_date#', '#attributes.end_date#', #attributes.project_id#, #attributes.budget#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 		</cfquery>
 	</cfif>
 
@@ -45,7 +45,7 @@ WHERE active_ind=1
 	AND project_id=#attributes.project_id#;
 <cfloop list="#attributes.company_id#" index="ii">
 INSERT INTO Link_Project_Company (project_id, company_id, created_by)
-VALUES (#attributes.project_id#, #ii#, #variables.user_identification#);
+VALUES (#attributes.project_id#, #ii#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
 </cfloop>
 </cfquery>
 
@@ -53,14 +53,14 @@ VALUES (#attributes.project_id#, #ii#, #variables.user_identification#);
 	<cfquery name="complete_tasks" datasource="#application.datasources.main#">
 	UPDATE Task
 	SET complete_date=CURRENT_TIMESTAMP,
-		completed_by=#variables.user_identification#
+		completed_by=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	WHERE task_id IN (#task_id#);
-	
+
 	UPDATE Link_Task_Task_Status
 	SET active_ind=0
 	WHERE active_ind=1
 		AND task_id IN (#task_id#);
-		
+
 	INSERT INTO Link_Task_Task_Status (task_id, task_status_id, created_by)
 	SELECT task_id, 7 /*completed*/, #variables.user_identification#
 	FROM Task

@@ -11,8 +11,8 @@
 	Name: Jeromy French
 	||
 	Edits:
-	$Log: 
-	 || 
+	$Log:
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	<-- user_account_id: id that identifies user to workstream
 	<-- first_name: string that contains first name of the user
@@ -27,7 +27,7 @@ SELECT Demographics.user_account_id, Demographics.last_name, Demographics.first_
 FROM Employee
 	INNER JOIN Demographics ON Employee.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1<cfif isdefined("variables.user_identification") and len(variables.user_identification)>
-		AND Demographics.user_account_id=#variables.user_identification#</cfif>
+		AND Demographics.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" /></cfif>
 	LEFT OUTER JOIN Emp_Biography ON Demographics.user_account_id=Emp_Biography.user_account_id
 		AND Emp_Biography.active_ind=1
 ORDER BY Demographics.last_name, Demographics.first_name

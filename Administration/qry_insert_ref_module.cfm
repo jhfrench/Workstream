@@ -28,7 +28,7 @@
 INSERT INTO REF_Module (description, sort_order, created_by,
 	viewable_ind, assign_hier_privileges_ind, required_ind,
 	active_ind)
-VALUES ('#attributes.description#', #attributes.sort_order#, #variables.user_identification#,
+VALUES ('#attributes.description#', #attributes.sort_order#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />,
 	#attributes.viewable_ind#, #attributes.assign_hier_privileges_ind#, #attributes.required_ind#,
 	#attributes.active_ind#)
 </cfquery>

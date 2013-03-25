@@ -8,9 +8,9 @@
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 
-	 || 
+	 ||
 
  --->
 </cfsilent>
@@ -24,7 +24,7 @@
 	INSERT INTO Link_User_Account_Supervisor (user_account_id, supervisor_id, date_start, active_ind,
 		created_by)
 	VALUES (#attributes.user_account_id#, #attributes.supervisor_id#, #createodbcdate(attributes.date_start)#, 1,
-		#variables.user_identification#)
+		<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 	</cfquery>
 </cfif>
 <cfif isdefined("attributes.end_date_#ii#")>

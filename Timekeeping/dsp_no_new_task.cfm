@@ -25,7 +25,7 @@ FROM Task
 WHERE Task.name='#attributes.task_name#'
 	AND Task.due_date='#attributes.due_date#'
 	AND Task.icon_id=#attributes.icon_id#
-	AND Task.created_by=#variables.user_identification#
+	AND Task.created_by=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <div class="alert alert-warning">
 <cfoutput>

@@ -28,5 +28,5 @@
 INSERT INTO REF_Center (description, center_code, abbreviation,
 	sort_order, created_by, active_ind)
 VALUES ('#attributes.description#', '#attributes.center_code#', '#attributes.abbreviation#',
-	#attributes.sort_order#, #variables.user_identification#, #attributes.active_ind#)
+	#attributes.sort_order#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, #attributes.active_ind#)
 </cfquery>

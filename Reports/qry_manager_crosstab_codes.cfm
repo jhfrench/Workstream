@@ -8,7 +8,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfquery name="manager_crosstab_codes" datasource="#application.datasources.main#">
 SELECT Project.project_code AS code, Project.project_id, SUM(Time_Entry.hours) AS codetotal
@@ -28,7 +28,7 @@ FROM Time_Entry
 				AND COALESCE(Employee.turnover_date, CURRENT_DATE+ interval '1 day') > #createodbcdatetime(attributes.from_date)#<cfelse>
 			INNER JOIN Link_User_Account_Supervisor ON Link_User_Account_Supervisor.user_account_id=Demographics.user_account_id
 				AND Link_User_Account_Supervisor.active_ind=1
-				AND Link_User_Account_Supervisor.supervisor_id=#variables.user_identification#
+				AND Link_User_Account_Supervisor.supervisor_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 				AND Link_User_Account_Supervisor.date_start < #createodbcdatetime(attributes.through_date)#
 				AND COALESCE(Link_User_Account_Supervisor.date_end, CURRENT_DATE+ interval '1 day') > #createodbcdatetime(attributes.from_date)#</cfif>
 		WHERE Demographics.active_ind=1

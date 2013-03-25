@@ -8,7 +8,7 @@
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -16,5 +16,5 @@
 </cfsilent>
 <cfquery name="act_generate_invoice" datasource="#application.datasources.main#">
 SELECT *
-FROM Act_Generate_Invoice(#attributes.customer_id#, #variables.user_identification#);
+FROM Act_Generate_Invoice(#attributes.customer_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
 </cfquery>

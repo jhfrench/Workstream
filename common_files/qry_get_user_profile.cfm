@@ -15,7 +15,7 @@
 SELECT *
 FROM User_Profile
 WHERE active_ind=1
-	AND user_account_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#">
+	AND user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	<cfif isdefined("attributes.fuseaction")>
 		<cfif isdefined("attributes.user_profile_id")>AND user_profile_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.user_profile_id#"></cfif>
 		<cfif comparenocase(listlast(attributes.fuseaction, '.'),"load_profile") AND isdefined("attributes.profile_name")>AND profile_name=<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.profile_name#"><cfelse>

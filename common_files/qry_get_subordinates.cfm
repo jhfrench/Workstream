@@ -4,13 +4,13 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: 
+	Responsibilities:
 	||
 	Name: Jeromy French (jeromy_french@hotmail.com)
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 <cfparam name="attributes.all_employees" default="0">
 </cfsilent>
@@ -21,8 +21,8 @@ SELECT Demographics.first_name, Demographics.last_name, (LEFT(Demographics.first
 FROM Demographics
 	INNER JOIN Link_User_Account_Supervisor ON Demographics.user_account_id=Link_User_Account_Supervisor.user_account_id
 		AND Link_User_Account_Supervisor.active_ind=1
-		AND (Link_User_Account_Supervisor.supervisor_id=#variables.user_identification#<cfif NOT isdefined("attributes.hide_supervisor")>
-			OR Demographics.user_account_id=#variables.user_identification#</cfif>)
+		AND (Link_User_Account_Supervisor.supervisor_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" /><cfif NOT isdefined("attributes.hide_supervisor")>
+			OR Demographics.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" /></cfif>)
 	INNER JOIN Employee ON Demographics.user_account_id=Employee.user_account_id
 		AND Employee.active_ind=1
 WHERE Demographics.active_ind=1<cfif NOT attributes.all_employees>

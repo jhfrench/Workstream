@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 
@@ -51,7 +51,7 @@ WHERE active_ind=1
 	AND company_id NOT IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.company_id#" list="true">);
 
 INSERT INTO Link_Project_Company (project_id, company_id, created_by)
-SELECT <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#">, company_id, #variables.user_identification#
+SELECT <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#">, company_id, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 FROM REF_Company
 WHERE company_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.company_id#" list="true">)
 	AND company_id NOT IN (

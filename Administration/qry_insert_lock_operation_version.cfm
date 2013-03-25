@@ -26,5 +26,5 @@
 
 <cfquery name="insert_lock_operation_version" datasource="#application.datasources.main#">
 	INSERT INTO lock_appropriation_version (appropriation_version_id, created_by)
-	VALUES (#attributes.appropriation_version_id#, #variables.user_identification#)
+	VALUES (#attributes.appropriation_version_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 </cfquery>

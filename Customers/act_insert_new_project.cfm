@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="insert_project" datasource="#application.datasources.main#">
@@ -19,8 +19,8 @@ INSERT INTO Project (root_code, customer_id, description,
 	product_id, billable_type_id, project_code,
 	active_ind, company_id, budget)
 VALUES ('#get_root_code.root_code#', #attributes.customer_id#, '#attributes.description#',
-	#variables.user_identification#<cfif len(attributes.vision)>, '#attributes.vision#'</cfif><cfif len(attributes.mission)>, '#attributes.mission#'</cfif>
-	<cfif len(attributes.business_case)>,' #attributes.business_case#'</cfif><cfif len(attributes.project_end)>, '#attributes.project_end#'</cfif><cfif len(attributes.project_start)>, '#attributes.project_start#'</cfif>, 
+	<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" /><cfif len(attributes.vision)>, '#attributes.vision#'</cfif><cfif len(attributes.mission)>, '#attributes.mission#'</cfif>
+	<cfif len(attributes.business_case)>,' #attributes.business_case#'</cfif><cfif len(attributes.project_end)>, '#attributes.project_end#'</cfif><cfif len(attributes.project_start)>, '#attributes.project_start#'</cfif>,
 	#attributes.product_id#, #attributes.billable_type_id#, '#variables.new_code#',
 	1, #session.workstream_company_id#, #attributes.budget#);
 SELECT CURRVAL('Project_project_id_SEQ') AS project_id;
@@ -50,25 +50,25 @@ non-billable
 	INSERT INTO Flat_Rate (project_id, budget, rate_start_date,
 		<cfif len(attributes.end_date)>rate_end_date, </cfif>created_by)
 	VALUES(#attributes.project_id#, #attributes.budget#, '#attributes.start_date#',
-		<cfif len(attributes.end_date)>'#attributes.end_date#', </cfif>#variables.user_identification#)
+		<cfif len(attributes.end_date)>'#attributes.end_date#', </cfif><cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 	</cfquery>
 </cfcase>
 <cfcase value="4">
 	<!--- per-incident --->
 	<cfquery name="incident_rate" datasource="#application.datasources.main#">
 	INSERT INTO Incident_Rate (project_id, charge, created_by)
-	VALUES(#attributes.project_id#, #attributes.charge#, #variables.user_identification#)
+	VALUES(#attributes.project_id#, #attributes.charge#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 	</cfquery>
 </cfcase>
 </cfswitch>
 
 <cfquery name="delete_old" datasource="#application.datasources.main#">
 INSERT INTO LINK_Project_Project_Status(project_id, project_status_id, created_by)
-VALUES(#attributes.project_id#, 1, #variables.user_identification#);
+VALUES(#attributes.project_id#, 1, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
 
 INSERT INTO LINK_Project_Project_Health(project_id, project_health_id, created_by)
-VALUES(#attributes.project_id#, 1, #variables.user_identification#);
-	
+VALUES(#attributes.project_id#, 1, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
+
 INSERT INTO Link_Project_Company (project_id, company_id, created_by)
 SELECT #attributes.project_id# AS project_id, company_id, #variables.user_identification#
 FROM REF_Company

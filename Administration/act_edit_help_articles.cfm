@@ -61,7 +61,7 @@
 		<cfquery name="insert_help_article" datasource="#application.datasources.main#">
 		INSERT INTO Help_Article (sort_order, created_by, active_ind,
 			help_article_text, help_article_title)
-		VALUES (#attributes.sort_order#, #variables.user_identification#, #attributes.active_ind#,
+		VALUES (#attributes.sort_order#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, #attributes.active_ind#,
 			<cfqueryparam value="#attributes.help_article_text#" cfsqltype="CF_SQL_LONGVARCHAR">, '#attributes.help_article_title#')
 		</cfquery>
 		<cfquery name="get_help_article_id" datasource="#application.datasources.main#">
@@ -73,7 +73,7 @@
 			<cfquery name="insert_link_screen_help_article" datasource="#application.datasources.main#">
 			INSERT INTO Link_Screen_Help_Article (screen_id, help_article_id, created_by,
 				active_ind)
-			VALUES (#variables.screen_id#, #get_help_article_id.help_article_id#, #variables.user_identification#,
+			VALUES (#variables.screen_id#, #get_help_article_id.help_article_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />,
 				#attributes.active_ind#)
 			</cfquery>
 		</cfloop>

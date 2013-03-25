@@ -10,13 +10,13 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 <cfquery name="delete_profile" datasource="#application.datasources.main#">
 UPDATE User_Profile
 SET active_ind=0
 WHERE active_ind=1
-	AND user_account_id=#variables.user_identification# 
+	AND user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	AND profile_name='#attributes.profile_name#'
 </cfquery>
 </cfsilent>

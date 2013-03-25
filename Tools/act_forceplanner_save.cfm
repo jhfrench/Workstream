@@ -4,13 +4,13 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: 
+	Responsibilities:
 	||
 	Name: Jeromy French
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 <cftransaction isolation="read_committed">
 	<cfinclude template="qry_get_forecast.cfm">
@@ -36,15 +36,15 @@
 			WHERE task_id=#variables.task_id#;
 
 			INSERT INTO Link_Task_Task_Status (task_id, task_status_id, created_by)
-			VALUES (#variables.task_id#, #evaluate("attributes.task_status#variables.task_id#")#, #variables.user_identification#);
-			
+			VALUES (#variables.task_id#, #evaluate("attributes.task_status#variables.task_id#")#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
+
 			UPDATE Team
 			SET active_ind=0
 			WHERE Team.active_ind=1
 				AND Team.role_id=4
 				AND Team.task_id=#variables.task_id#
 				AND Team.user_account_id IN (#attributes.list_subordinate_user_account_id#);
-				
+
 			UPDATE Forecast_Assignment
 			SET active_ind=0
 			WHERE active_ind=1
@@ -53,17 +53,17 @@
 				AND user_account_id IN (#attributes.list_subordinate_user_account_id#);
 				<cfloop list="#attributes.list_subordinate_user_account_id#" index="variables.user_account_id">
 					<cfif evaluate("attributes.t#variables.task_id#_#variables.user_account_id#") NEQ 0>
-	
+
 					INSERT INTO Forecast_Assignment (forecast_id, task_id, user_account_id,
 						hours_budgeted, created_by)
 					VALUES (#variables.forecast_id#, #variables.task_id#, #variables.user_account_id#,
-						#evaluate("attributes.t#variables.task_id#_#variables.user_account_id#")#, #variables.user_identification#);
-	
+						#evaluate("attributes.t#variables.task_id#_#variables.user_account_id#")#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
+
 					/*update team membership*/
 					INSERT INTO Team (task_id, user_account_id, role_id,
 						created_by)
 					VALUES(#variables.task_id#, #variables.user_account_id#, 4,
-						#variables.user_identification#);
+						<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
 					</cfif>
 				</cfloop>
 		<cfelse>
@@ -74,7 +74,7 @@
 				AND task_id=#variables.task_id#;
 
 			INSERT INTO Link_Task_Task_Status (task_id, task_status_id, created_by)
-			VALUES (#variables.task_id#, 9 /* on-hold */, #variables.user_identification#);
+			VALUES (#variables.task_id#, 9 /* on-hold */, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
 		</cfif>
 	</cfloop>
 	</cfquery>

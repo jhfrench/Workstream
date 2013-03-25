@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfquery name="manager_crosstab_hours" datasource="#application.datasources.main#">
 SELECT Elligible_Employees.name,
@@ -23,9 +23,9 @@ FROM Time_Entry,
 		AND Employee.hire_date < #createodbcdatetime(attributes.through_date)#
 		AND (Employee.turnover_date IS NULL
 			OR Employee.turnover_date > #createodbcdatetime(attributes.from_date)#)<cfelse>
-		AND Link_User_Account_Supervisor.user_account_id=Demographics.user_account_id 
-		AND (Link_User_Account_Supervisor.supervisor_id=#variables.user_identification#
-			OR Link_User_Account_Supervisor.user_account_id=#variables.user_identification#)
+		AND Link_User_Account_Supervisor.user_account_id=Demographics.user_account_id
+		AND (Link_User_Account_Supervisor.supervisor_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
+			OR Link_User_Account_Supervisor.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 		AND Link_User_Account_Supervisor.date_start < #createodbcdatetime(attributes.through_date)#
 		AND (Link_User_Account_Supervisor.date_end IS NULL
 			OR Link_User_Account_Supervisor.date_end > #createodbcdatetime(attributes.from_date)#)</cfif>
