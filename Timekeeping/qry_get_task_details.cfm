@@ -34,7 +34,7 @@ FROM Task
 	INNER JOIN Project ON Task.project_id=Project.project_id
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	LEFT OUTER JOIN (
-		SELECT <cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" /> AS task_id, SUM(Time_Entry.hours) AS used_hours
+		SELECT <cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" /> AS task_id, COALESCE(SUM(Time_Entry.hours),0) AS used_hours
 		FROM Time_Entry
 		WHERE active_ind=1
 			AND task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
