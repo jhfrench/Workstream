@@ -28,35 +28,18 @@
 	</cfif>
 	<script language="JavaScript">
 		function display_all(){
-			document.whatever.submit();
+			document.form_view_error_diagnostics.submit();
 		}
 
 		function submit_form(){
-			if(document.whatever.error_log_id.value){
-				document.whatever.display_all.value='#attributes.display_all#';
-				document.whatever.submit();
+			if(document.form_view_error_diagnostics.error_log_id.value){
+				document.form_view_error_diagnostics.display_all.value='#attributes.display_all#';
+				document.form_view_error_diagnostics.submit();
 			}else{
 				alert("Please enter error number to search for!");
 			}
-
 		}
 	</script>
-	<style>
-	label {
-	padding: 0 2em 0 0;
-	font-family: Tacoma, Arial;
-	font-size: 16px;
-	font-weight: bold;
-	}
-
-	a {
-	font-family: Tacoma, Arial;
-	font-size: 14px;
-	}
-	</style>
-</head>
-
-<body>
 
 <!--- <cfquery name="qry_get_error_diagnostics_datasource" datasource="#application.datasources.application_manager#">
 SELECT Installation.installation_id, Product.product_name, REF_Environment.environment_name,
@@ -75,19 +58,19 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 		<cfquery name="qry_get_error_log_details" datasource="#application.datasources.application_manager#">
 		SELECT *
 		FROM Error_Log
-		WHERE error_log_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.error_log_id#">
+		WHERE error_log_id=<cfqueryparam value="#attributes.error_log_id#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 
 		<cfquery name="get_previous_error_log" datasource="#application.datasources.application_manager#">
 		SELECT COALESCE(MAX(error_log_id),0) AS error_log_id
 		FROM Error_Log
-		WHERE error_log_id < <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.error_log_id#">
+		WHERE error_log_id < <cfqueryparam value="#attributes.error_log_id#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 
 		<cfquery name="get_next_error_log" datasource="#application.datasources.application_manager#">
 		SELECT COALESCE(MIN(error_log_id),0) AS error_log_id
 		FROM Error_Log
-		WHERE error_log_id > <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.error_log_id#">
+		WHERE error_log_id > <cfqueryparam value="#attributes.error_log_id#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 		<cfcatch type="Any">
 			<strong>The query did not run, you forgot to specify a valid error number!</strong>
@@ -95,27 +78,38 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 		</cfcatch>
 	</cftry>
 </cfif>
-<form name="whatever" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="struct">
-	<!--- <label>Select application installation</label>:
-	<select name="installation_id" size="1">
-		<cfloop query="qry_get_error_diagnostics_datasource"><option value="#installation_id#"<cfif comparenocase(attributes.installation_id,installation_id) EQ 0> selected="selected"</cfif>>#product_name# #environment_name#, (#url_to_base#)</option>
-		</cfloop>
-	</select>
-	<br /> --->
-	<label for="error_log_id">Enter error number</label>:
-	<cfif isdefined("get_previous_error_log")>
-		&lt;<a href="index.cfm?fuseaction=#attributes.fuseaction#&display_all=0&error_log_id=#get_previous_error_log.error_log_id#">last</a>&nbsp;
-	</cfif>
-	<input type="text" name="error_log_id" id="error_log_id" value="#attributes.error_log_id#" size="6" class="wddx" />
-
-		&nbsp;<a href="index.cfm?fuseaction=#attributes.fuseaction#&display_all=0&error_log_id=<cfif isdefined("get_next_error_log") AND get_next_error_log.error_log_id NEQ 0>#get_next_error_log.error_log_id#<cfelse>#attributes.error_log_id+1#</cfif>"><cfif NOT isdefined("get_next_error_log") OR get_next_error_log.error_log_id EQ 0>try </cfif>next</a>&gt;
-
-	<br />
-	<label for="display_all">Display All WDDX</label>:
-	Yes <input type="radio" value="1" id="display_all" name="display_all" onclick="javascript:document.whatever.submit();"<cfif attributes.display_all> checked="checked"</cfif> />
-	No <input type="radio" value="0" id="display_all" name="display_all" onclick="javascript:document.whatever.submit();"<cfif NOT attributes.display_all> checked="checked"</cfif> />
-	<br />
-	<input type="button" value="Submit" onclick="submit_form()" class="btn btn-primary" />
+<form name="form_view_error_diagnostics" id="form_view_error_diagnostics" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-horizontal">
+	<div class="control-group">
+		<label class="control-label" for="error_log_id">Error Reference Number</label>
+		<div class="controls">
+			<cfif isdefined("get_previous_error_log")><a href="index.cfm?fuseaction=#attributes.fuseaction#&display_all=0&error_log_id=#get_previous_error_log.error_log_id#">&lt; last</a>&nbsp;</cfif>
+			<input type="number" name="error_log_id" id="error_log_id" value="#attributes.error_log_id#" size="6" class="number" />
+			&nbsp;<a href="index.cfm?fuseaction=#attributes.fuseaction#&display_all=0&error_log_id=<cfif isdefined("get_next_error_log") AND get_next_error_log.error_log_id NEQ 0>#get_next_error_log.error_log_id#<cfelse>#attributes.error_log_id+1#</cfif>"><cfif NOT isdefined("get_next_error_log") OR get_next_error_log.error_log_id EQ 0>try </cfif>next &gt;</a>
+		</div>
+	</div>
+	<fieldset>
+	<div class="control-group">
+		<legend class="control-label">Display All <abbr title="Web Distributed Data eXchange">WDDX</abbr></legend>
+		<div class="controls">
+			<label for="display_all1" class="radio inline"><input type="radio" name="display_all" id="display_all1" value="1" onclick="javascript:document.form_view_error_diagnostics.submit();"<cfif attributes.display_all> checked="checked"</cfif> /> Yes</label>
+			<label for="display_all0" class="radio inline"><input type="radio" name="display_all" id="display_all0" value="0" onclick="javascript:document.form_view_error_diagnostics.submit();"<cfif NOT attributes.display_all> checked="checked"</cfif> /> No</label>
+		</div>
+	</div>
+	</fieldset><!---
+	<div class="control-group">
+		<label class="control-label" for="error_log_id">Select application installation</label>
+		<div class="controls">
+			<select name="installation_id" id="installation_id" size="1">
+				<cfloop query="qry_get_error_diagnostics_datasource"><option value="#installation_id#"<cfif comparenocase(attributes.installation_id,installation_id) EQ 0> selected="selected"</cfif>>#product_name# #environment_name#, (#url_to_base#)</option>
+				</cfloop>
+			</select>
+		</div>
+	</div> --->
+	<div class="control-group">
+		<div class="controls">
+			<input type="button" value="Submit" onclick="submit_form()" class="btn btn-primary" />
+		</div>
+	</div>
 </form>
 
 <hr>
@@ -124,20 +118,19 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 	<cfset variables.expand_when_view_all="attributes_variables,error_variables">
 
 	<cfif attributes.display_all EQ true>
-		<label><a name="links"></a>Quick Links</label>
+		<h2 id="links">Quick Links</h2>
 		<ul>
 		<cfloop list="#qry_get_error_log_details.columnlist#" index="ii">
 			<li><a href="###ii#">#ii#</a></li>
 		</cfloop>
 		</ul>
 	</cfif>
-	<br />error_log_id=#attributes.error_log_id#<br />
-
+	<h1>Error Reference Number <small>#attributes.error_log_id#</small></h1>
 <hr>
 	<cfif isdefined("qry_get_error_log_details") AND qry_get_error_log_details.recordcount>
 		<cfloop list="#qry_get_error_log_details.columnlist#" index="ii">
 			<cfif attributes.display_all EQ true OR listfindnocase(variables.always_show_these_columns, ii)>
-				<br /><a name="#ii#" href="##links">#ii#</a> =
+				<h3 id="#ii#">#ii# <small><a id="#ii#" href="##links">links</a></small></h3>
 				<cftry>
 					<cfif attributes.display_all EQ true AND listfindnocase(variables.expand_when_view_all, ii)>
 						<cfdump var="#qry_get_error_log_details[ii][1]#" expand="yes">
