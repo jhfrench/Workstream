@@ -13,20 +13,15 @@
 </fusedoc>
 --->
 
-<cfcontent type="text/html" reset="yes">
-<cfoutput>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-	<title>HITTS Error Diagnostics Viewer</title><!--- 
+<cfoutput><!---
 	<cfparam name="attributes.installation_id" default="0"> --->
 	<cfparam name="attributes.display_all" default="0">
 	<cfparam name="attributes.error_log_id" default="0">
-	<cfif isdefined("url.error_log_id")><!--- 
+	<cfif isdefined("url.error_log_id")><!---
 		<cfset attributes.installation_id=url.installation_id> --->
 		<cfset attributes.display_all=url.display_all>
 		<cfset attributes.error_log_id=url.error_log_id>
-	<cfelseif isdefined("form.error_log_id")><!--- 
+	<cfelseif isdefined("form.error_log_id")><!---
 		<cfset attributes.installation_id=form.installation_id> --->
 		<cfset attributes.display_all=form.display_all>
 		<cfset attributes.error_log_id=form.error_log_id>
@@ -100,23 +95,23 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 		</cfcatch>
 	</cftry>
 </cfif>
-<form name="whatever" action="index.cfm?fuseaction=main.view_error_diagnostics" method="post" class="struct">
+<form name="whatever" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="struct">
 	<!--- <label>Select application installation</label>:
 	<select name="installation_id" size="1">
 		<cfloop query="qry_get_error_diagnostics_datasource"><option value="#installation_id#"<cfif comparenocase(attributes.installation_id,installation_id) EQ 0> selected="selected"</cfif>>#product_name# #environment_name#, (#url_to_base#)</option>
 		</cfloop>
 	</select>
 	<br /> --->
-	<label for="error_log_id">Enter error number</label>: 
+	<label for="error_log_id">Enter error number</label>:
 	<cfif isdefined("get_previous_error_log")>
-		&lt;<a href="index.cfm?fuseaction=main.view_error_diagnostics&display_all=0&error_log_id=#get_previous_error_log.error_log_id#">last</a>&nbsp;
+		&lt;<a href="index.cfm?fuseaction=#attributes.fuseaction#&display_all=0&error_log_id=#get_previous_error_log.error_log_id#">last</a>&nbsp;
 	</cfif>
 	<input type="text" name="error_log_id" id="error_log_id" value="#attributes.error_log_id#" size="6" class="wddx" />
 
-		&nbsp;<a href="index.cfm?fuseaction=main.view_error_diagnostics&display_all=0&error_log_id=<cfif isdefined("get_next_error_log") AND get_next_error_log.error_log_id NEQ 0>#get_next_error_log.error_log_id#<cfelse>#attributes.error_log_id+1#</cfif>"><cfif NOT isdefined("get_next_error_log") OR get_next_error_log.error_log_id EQ 0>try </cfif>next</a>&gt;
+		&nbsp;<a href="index.cfm?fuseaction=#attributes.fuseaction#&display_all=0&error_log_id=<cfif isdefined("get_next_error_log") AND get_next_error_log.error_log_id NEQ 0>#get_next_error_log.error_log_id#<cfelse>#attributes.error_log_id+1#</cfif>"><cfif NOT isdefined("get_next_error_log") OR get_next_error_log.error_log_id EQ 0>try </cfif>next</a>&gt;
 
 	<br />
-	<label for="display_all">Display All WDDX</label>: 
+	<label for="display_all">Display All WDDX</label>:
 	Yes <input type="radio" value="1" id="display_all" name="display_all" onclick="javascript:document.whatever.submit();"<cfif attributes.display_all> checked="checked"</cfif> />
 	No <input type="radio" value="0" id="display_all" name="display_all" onclick="javascript:document.whatever.submit();"<cfif NOT attributes.display_all> checked="checked"</cfif> />
 	<br />
@@ -159,6 +154,4 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 		</cfloop>
 	</cfif>
 </cfif>
-</body>
-</html>
 </cfoutput>
