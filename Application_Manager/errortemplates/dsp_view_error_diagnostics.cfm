@@ -78,38 +78,22 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 		</cfcatch>
 	</cftry>
 </cfif>
-<form name="form_view_error_diagnostics" id="form_view_error_diagnostics" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-horizontal">
-	<div class="control-group">
-		<label class="control-label" for="error_log_id">Error Reference Number</label>
-		<div class="controls">
-			<cfif isdefined("get_previous_error_log")><a href="index.cfm?fuseaction=#attributes.fuseaction#&display_all=0&error_log_id=#get_previous_error_log.error_log_id#">&lt; last</a>&nbsp;</cfif>
-			<input type="number" name="error_log_id" id="error_log_id" value="#attributes.error_log_id#" size="6" class="number" />
-			&nbsp;<a href="index.cfm?fuseaction=#attributes.fuseaction#&display_all=0&error_log_id=<cfif isdefined("get_next_error_log") AND get_next_error_log.error_log_id NEQ 0>#get_next_error_log.error_log_id#<cfelse>#attributes.error_log_id+1#</cfif>"><cfif NOT isdefined("get_next_error_log") OR get_next_error_log.error_log_id EQ 0>try </cfif>next &gt;</a>
-		</div>
-	</div>
+<form name="form_view_error_diagnostics" id="form_view_error_diagnostics" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">
+	<label class="control-label" for="error_log_id">Error Reference Number</label>
+	<cfif isdefined("get_previous_error_log")><a href="index.cfm?fuseaction=#attributes.fuseaction#&display_all=0&error_log_id=#get_previous_error_log.error_log_id#">&lt; last</a>&nbsp;</cfif>
+	<input type="number" name="error_log_id" id="error_log_id" value="#attributes.error_log_id#" size="6" class="number" />
+	&nbsp;<a href="index.cfm?fuseaction=#attributes.fuseaction#&display_all=0&error_log_id=<cfif isdefined("get_next_error_log") AND get_next_error_log.error_log_id NEQ 0>#get_next_error_log.error_log_id#<cfelse>#attributes.error_log_id+1#</cfif>"><cfif NOT isdefined("get_next_error_log") OR get_next_error_log.error_log_id EQ 0>try </cfif>next &gt;</a>
 	<fieldset>
-	<div class="control-group">
 		<legend class="control-label">Display All <abbr title="Web Distributed Data eXchange">WDDX</abbr></legend>
-		<div class="controls">
-			<label for="display_all1" class="radio inline"><input type="radio" name="display_all" id="display_all1" value="1" onclick="javascript:document.form_view_error_diagnostics.submit();"<cfif attributes.display_all> checked="checked"</cfif> /> Yes</label>
-			<label for="display_all0" class="radio inline"><input type="radio" name="display_all" id="display_all0" value="0" onclick="javascript:document.form_view_error_diagnostics.submit();"<cfif NOT attributes.display_all> checked="checked"</cfif> /> No</label>
-		</div>
-	</div>
+		<label for="display_all1" class="radio inline"><input type="radio" name="display_all" id="display_all1" value="1" onclick="javascript:document.form_view_error_diagnostics.submit();"<cfif attributes.display_all> checked="checked"</cfif> /> Yes</label>
+		<label for="display_all0" class="radio inline"><input type="radio" name="display_all" id="display_all0" value="0" onclick="javascript:document.form_view_error_diagnostics.submit();"<cfif NOT attributes.display_all> checked="checked"</cfif> /> No</label>
 	</fieldset><!---
-	<div class="control-group">
-		<label class="control-label" for="error_log_id">Select application installation</label>
-		<div class="controls">
-			<select name="installation_id" id="installation_id" size="1">
-				<cfloop query="qry_get_error_diagnostics_datasource"><option value="#installation_id#"<cfif comparenocase(attributes.installation_id,installation_id) EQ 0> selected="selected"</cfif>>#product_name# #environment_name#, (#url_to_base#)</option>
-				</cfloop>
-			</select>
-		</div>
-	</div> --->
-	<div class="control-group">
-		<div class="controls">
-			<input type="button" value="Submit" onclick="submit_form()" class="btn btn-primary" />
-		</div>
-	</div>
+	<label class="control-label" for="error_log_id">Select application installation</label>
+	<select name="installation_id" id="installation_id" size="1">
+		<cfloop query="qry_get_error_diagnostics_datasource"><option value="#installation_id#"<cfif comparenocase(attributes.installation_id,installation_id) EQ 0> selected="selected"</cfif>>#product_name# #environment_name#, (#url_to_base#)</option>
+		</cfloop>
+	</select> --->
+	<input type="button" value="Submit" onclick="submit_form()" class="btn btn-primary" />
 </form>
 
 <hr>
