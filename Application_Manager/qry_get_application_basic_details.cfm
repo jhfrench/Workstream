@@ -14,7 +14,7 @@
 --->
 <cfscript>
 	variables.url_to_base=cgi.http_host;
-	if len(variables.url_base_suffix) {
+	if (len(variables.url_base_suffix)) {
 		variables.url_to_base="#variables.url_to_base##variables.url_base_suffix#";
 	}
 </cfscript>
