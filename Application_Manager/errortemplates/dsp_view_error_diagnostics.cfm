@@ -81,7 +81,7 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 <form name="form_view_error_diagnostics" id="form_view_error_diagnostics" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">
 	<label class="control-label" for="error_log_id">Error Reference Number</label>
 	<cfif isdefined("get_previous_error_log")><a href="index.cfm?fuseaction=#attributes.fuseaction#&display_all=0&error_log_id=#get_previous_error_log.error_log_id#">&lt; last</a>&nbsp;</cfif>
-	<input type="number" name="error_log_id" id="error_log_id" value="#attributes.error_log_id#" size="6" class="number" />
+	<input type="number" name="error_log_id" id="error_log_id" value="#attributes.error_log_id#" step="1" min="0" class="number span1" />
 	&nbsp;<a href="index.cfm?fuseaction=#attributes.fuseaction#&display_all=0&error_log_id=<cfif isdefined("get_next_error_log") AND get_next_error_log.error_log_id NEQ 0>#get_next_error_log.error_log_id#<cfelse>#attributes.error_log_id+1#</cfif>"><cfif NOT isdefined("get_next_error_log") OR get_next_error_log.error_log_id EQ 0>try </cfif>next &gt;</a>
 	<fieldset>
 		<legend class="control-label">Display All <abbr title="Web Distributed Data eXchange">WDDX</abbr></legend>
@@ -114,7 +114,7 @@ ORDER BY Product.product_name, REF_Environment.sort_order, Installation_URL.url_
 	<cfif isdefined("qry_get_error_log_details") AND qry_get_error_log_details.recordcount>
 		<cfloop list="#qry_get_error_log_details.columnlist#" index="ii">
 			<cfif attributes.display_all EQ true OR listfindnocase(variables.always_show_these_columns, ii)>
-				<h3 id="#ii#">#ii# <small><a id="#ii#" href="##links">links</a></small></h3>
+				<h3 id="#ii#">#ii# <small><a id="#ii#" href="##links">back to links</a></small></h3>
 				<cftry>
 					<cfif attributes.display_all EQ true AND listfindnocase(variables.expand_when_view_all, ii)>
 						<cfdump var="#qry_get_error_log_details[ii][1]#" expand="yes">
