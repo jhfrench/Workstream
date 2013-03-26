@@ -28,6 +28,16 @@
 	</IO>
 </fusedoc>
 --->
+
+<cfif isdefined("attributes.reset_application_ind")>
+	<cfquery name="update_application_name" datasource="#application.datasources.application_manager#">
+	SELECT Update_Application_Name(<cfqueryparam value="#application.installation_id#" cfsqltype="cf_sql_integer" />);
+	</cfquery>
+	<div class="alert alert-success">
+		<strong>Roger</strong><br />
+		The application has been reset; everyone will have to log back in.
+	</div>
+</cfif>
 <cfscript>
 	if (NOT isdefined("attributes.show_application_ind"))
 		attributes.show_application_ind=0;
@@ -142,6 +152,10 @@
 	</ul>
 </h2>
 <a href="index.cfm?fuseaction=Administration.cause_error" class="btn btn-danger">Cause an error</a>
+<form id="form_view_application_variables" action="index.cfm?fuseaction=Administration.view_application_variables" method="post">
+	<input type="hidden" name="reset_application_ind" value="1" />
+	<input type="submit" value="Reset Application" class="btn btn-warning" />
+</form>
 <form id="form_view_application_variables" action="index.cfm?fuseaction=Administration.view_application_variables" method="post" class="well form-inline">
 	<label for="show_application_ind" class="checkbox"><input type="checkbox" name="show_application_ind" id="show_application_ind" value="1"<cfif attributes.show_application_ind> checked="checked"</cfif> />Show application scope</label>
 	<label for="show_fusebox_ind" class="checkbox"><input type="checkbox" name="show_fusebox_ind" id="show_fusebox_ind" value="1"<cfif attributes.show_fusebox_ind> checked="checked"</cfif> />Show fusebox variables</label>
