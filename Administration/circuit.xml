@@ -252,6 +252,9 @@
 	<fuseaction name="view_calendar">
 		<include template="../common_files/pag_view_calendar.cfm"/>
 	</fuseaction>
+	<fuseaction name="view_error_diagnostics">
+		<include template="../Application_Manager/errortemplates/dsp_view_error_diagnostics.cfm"/>
+	</fuseaction>
 	<fuseaction name="view_log_upload">
 		<include template="pag_view_log_upload.cfm"/>
 	</fuseaction>

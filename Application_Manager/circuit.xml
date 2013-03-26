@@ -136,7 +136,7 @@
 		<include template="main/pag_server_details.cfm"/>
 	</fuseaction>
 	<fuseaction name="view_error_diagnostics">
-		<include template="main/../errortemplates/dsp_view_error_diagnostics.cfm"/>
+		<include template="errortemplates/dsp_view_error_diagnostics.cfm"/>
 	</fuseaction>
 	<fuseaction name="welcome">
 		<include template="main/dsp_menu.cfm"/>
