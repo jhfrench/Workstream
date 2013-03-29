@@ -35,7 +35,7 @@ WHERE time_entry_id=#attributes.time_entry_id#
 INSERT INTO Time_Entry (user_account_id, work_date, hours,
 	project_id, task_id, notes_id,
 	created_by)
-SELECT <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, '#dateformat(attributes.work_date,"yyyy-mm-dd")#', #attributes.hours#,
+SELECT user_account_id, '#dateformat(attributes.work_date,"yyyy-mm-dd")#', #attributes.hours#,
 	<cfif isdefined("attributes.project_id")>#attributes.project_id#<cfelse>project_id</cfif>, task_id, CURRVAL('Notes_notes_id_SEQ'),
 	<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 FROM Time_Entry

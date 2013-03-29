@@ -31,7 +31,7 @@ else
 		if (len(get_screen_details.lock_module_comment))
 			variables.access_message="#variables.access_message#<br />#get_screen_details.lock_module_comment#";
 	}
-</cfscript><!--- 
+</cfscript><!---
 <cfmodule template="qry_get_system_note.cfm"> --->
 
 <cfoutput>
@@ -122,7 +122,7 @@ else
 						<a href="index.cfm?fuseaction=Timekeeping.home" class="brand"><i class="icon_workstream img-circle" title="#application.application_specific_settings.organization# Workstream"></i> Workstream</a>
 						<div class="nav-collapse" id="menu">
 							<ul class="nav">
-								<cfinclude template="qry_get_module_sub_navigation.cfm" /><!--- 
+								<cfinclude template="qry_get_module_sub_navigation.cfm" /><!---
 								<cfmodule template="qry_get_program_year.cfm" program_year_id="#session.program_year_id#"> --->
 								<cfinclude template="dsp_navigation_module.cfm" />
 							</ul>
