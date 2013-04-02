@@ -75,6 +75,9 @@
 			<include template="pag_contractor_report.cfm"/>
 		<!-- End contractors report -->
 		</fuseaction>
+		<fuseaction name="customer_monthly_progress">
+			<include template="pag_customer_monthly_progress.cfm"/>
+		</fuseaction>
 		<fuseaction name="deadline_management">
 			<include template="pag_deadline_management.cfm"/>
 		</fuseaction>
