@@ -39,10 +39,10 @@
 </cfif>
 		<tr>
 		<cfif variables.task_id NEQ get_customer_monthly_progress.task_id>
-			<cfset variables.task_class="visually-hidden">
+			<cfset variables.task_class="">
 			<cfset variables.task_id=get_customer_monthly_progress.task_id>
 		<cfelse>
-			<cfset variables.task_class="">
+			<cfset variables.task_class="visually-hidden">
 		</cfif>
 			<td><span class="#variables.task_class#"><h4>#task_name# <small>#task_id#</small></h4></span></td>
 			<td class="number"><span class="#variables.task_class#">#budgeted_hours#</span></td>
