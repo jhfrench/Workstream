@@ -10,10 +10,11 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
+<!--- $issue$: this can be replaced with common_files/qry_get_link_customer_company.cfm --->
 <cfquery name="new_project_input" datasource="#application.datasources.main#">
-SELECT Customer.root_code AS root_code, (<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>Customer.root_code || '-' || Customer.description<cfelse>Customer.description || ' (' ||  Customer.root_code || ')'</cfif>) AS customer_name
+SELECT Customer.root_code, (<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>Customer.root_code || '-' || Customer.description<cfelse>Customer.description || ' (' ||  Customer.root_code || ')'</cfif>) AS customer_name
 FROM Customer
 	INNER JOIN Link_Customer_Company ON Customer.customer_id=Link_Customer_Company.customer_id
 WHERE Link_Customer_Company.company_id IN (#session.workstream_selected_company_id#)

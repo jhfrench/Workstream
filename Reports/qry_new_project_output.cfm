@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfquery name="get_first_elligible" datasource="#application.datasources.main#">
 SELECT MIN(Project.created_date) AS first_elligible
@@ -35,7 +35,7 @@ FROM
 		GROUP BY date_month, date_year
 	) AS ABCD
 	LEFT OUTER JOIN (
-		SELECT Customer.root_code AS root_code, Customer.description AS customer_name, COUNT(Project.project_id) AS project_count, 
+		SELECT Customer.root_code, Customer.description AS customer_name, COUNT(Project.project_id) AS project_count,
 			EXTRACT(MONTH FROM Project.created_date) AS month_entered, EXTRACT(YEAR FROM Project.created_date) AS year_entered
 		FROM Customer
 			INNER JOIN Project ON Customer.customer_id=Project.customer_id
