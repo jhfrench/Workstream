@@ -27,5 +27,4 @@ WHERE Customer.active_ind=1<cfif attributes.customer_id>
 	AND Customer.customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer"></cfif>
 ORDER BY Customer.sort_order
 </cfquery>
-<cfset variables.visible_to_company_id=valuelist(get_link_customer_company.company_id)>
 <cfset caller.get_link_customer_company=get_link_customer_company>
