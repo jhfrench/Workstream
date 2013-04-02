@@ -48,7 +48,7 @@
 			<td class="number"><span class="#variables.task_class#">#budgeted_hours#</span></td>
 			<td class="date"><span class="#variables.task_class#">#dateformat(due_date, 'm/d/yyyy')#</span></td>
 			<td scope="row" class="date">#dateformat(work_date, 'm/d/yyyy')#</td>
-			<td class="number">#hours#</td>
+			<td class="number">#decimalformat(hours)#</td>
 			<td>#note#</td>
 		</tr>
 </cfoutput>
