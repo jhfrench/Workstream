@@ -19,7 +19,7 @@
 <cfinclude template="../common_files/qry_get_link_customer_company.cfm">
 <cfinclude template="qry_get_customer_monthly_progress.cfm">
 
-<h2>Monthly Progress <small><cfoutput>#get_customer_monthly_progress.customer_name#, #monthasstring(attributes.report_month)# #attributes.report_year#</cfoutput></small></h2>
+<h2>Monthly Progress <small><cfoutput>#get_link_customer_company.customer_name#, #monthasstring(attributes.report_month)# #attributes.report_year#</cfoutput></small></h2>
 <cfinclude template="dsp_customer_monthly_progress.cfm">
 
 <cfoutput>
