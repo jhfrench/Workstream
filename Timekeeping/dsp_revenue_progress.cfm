@@ -19,7 +19,7 @@
 	</ul>
 	<div id="revenue_progress_tab_content" class="tab-content">
 		<div id="container_revenue_graph" class="tab-pane fade">
-			<div id="revenue_graph" style="height: 10px; width: 10px;"></div>
+			<div id="revenue_graph" style="height: 145px; width: 310px;"></div>
 		</div>
 		<div id="container_revenue_table" class="tab-pane fade in active">
 			<table id="revenue_table" class="table table-striped table-bordered table-condensed">
@@ -62,13 +62,6 @@ Modernizr.load([
 						'common_files/js/flot/jquery.flot.stack.js'
 					],
 					complete: function(){
-						//size graph container and graph to match table container and table
-						console.log('table container height1: '+$('#container_revenue_table').height());
-					    $('#container_revenue_graph').delay(2).height( $('#container_revenue_table').height()+10 );
-						console.log('table container height2: '+$('#container_revenue_table').height());
-					    $('#revenue_graph').height( $('#revenue_table').height() ).width( $('#revenue_table').width()-6 );
-					    //only after we've set sizes, we can show graph/hide table
-					    $('#revenue_progress_tab a:first').tab('show');
 
 					    var series_goal = [
 					<cfoutput query="get_revenue_goal">
@@ -149,11 +142,18 @@ Modernizr.load([
 						        }
 						    }
 					    );
+
+						//size graph container and graph to match table container and table
+						console.log('table container height1: '+$('#container_revenue_table').height());
+					    $('#container_revenue_graph').height( $('#container_revenue_table').height() );
+						console.log('table container height2: '+$('#container_revenue_table').height());
+					    $('#revenue_graph').height( $('#revenue_table').height() ).width( $('#revenue_table').width()-6 );
+					    //only after we've set sizes, we can show graph/hide table
+					    $('#revenue_progress_tab a:first').tab('show');
 					}
 				}
 			]);
 		}
 	}
 ]);
-console.log('table container height3: '+$('#container_revenue_table').height());
 </script>
