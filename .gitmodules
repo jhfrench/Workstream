@@ -1,0 +1,3 @@
+[submodule "common_files/js/flot"]
+	path = common_files/js/flot
+	url = git://github.com/flot/flot.git
