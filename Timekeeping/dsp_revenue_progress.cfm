@@ -13,9 +13,9 @@
  --->
 </cfsilent>
 <div id="revenue_progress">
-	<ul id="revenue_progress_tab" class="nav nav-tabs">
-		<li><a href="#container_revenue_graph" data-toggle="tab">Graph</a></li>
-		<li class="active"><a href="#container_revenue_table" data-toggle="tab">Data</a></li>
+	<ul id="revenue_progress_tab" class="nav nav-tabs" style="margin-bottom: 4px;">
+		<li><a href="#container_revenue_graph" data-toggle="tab" style="line-height: 4px;">Graph</a></li>
+		<li class="active"><a href="#container_revenue_table" data-toggle="tab" style="line-height: 4px;">Data</a></li>
 	</ul>
 	<div id="revenue_progress_tab_content" class="tab-content" style="overflow: hidden;">
 		<div id="container_revenue_graph" class="tab-pane fade">
@@ -64,7 +64,7 @@ Modernizr.load([
 					complete: function(){
 
 						//size graph container and graph to match table container and table
-						$('#revenue_graph').height( $('#revenue_table').height()-20 ).width( $('#revenue_table').width()-20 );
+						$('#revenue_graph').height( $('#revenue_table').height()-20 ).width( $('#revenue_table').width()-10 );
 
 						var series_goal = [
 					<cfoutput query="get_revenue_goal">
@@ -148,6 +148,7 @@ Modernizr.load([
 						//only after we've set graph size and painted the graph, we can show graph/hide table
 						$('#revenue_progress_tab a:first').tab('show');
 						setTimeout( $('#container_revenue_graph').height( $('#container_revenue_table').height() ), 400 );
+						setTimeout( $('#container_revenue_graph').height( $('#container_revenue_table').height() ), 1000 );
 					}
 				}
 			]);
