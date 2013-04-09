@@ -63,6 +63,9 @@ Modernizr.load([
 					],
 					complete: function(){
 
+						//size graph container and graph to match table container and table
+						$('#revenue_graph').height( $('#revenue_table').height() ).width( $('#revenue_table').width()-6 );
+
 						var series_goal = [
 					<cfoutput query="get_revenue_goal">
 							[#fiscal_year#, #revenue_goal#],
@@ -142,16 +145,9 @@ Modernizr.load([
 								}
 							}
 						);
-
-						//size graph container and graph to match table container and table
-						console.log('table container height1: '+$('#container_revenue_table').height());
-						$('#container_revenue_graph').height( $('#container_revenue_table').height() );
-						console.log('table container height2: '+$('#container_revenue_table').height());
-						$('#container_revenue_graph').height( $('#container_revenue_table').height() );
-						console.log('table container height3: '+$('#container_revenue_table').height());
-						$('#revenue_graph').height( $('#revenue_table').height() ).width( $('#revenue_table').width()-6 );
-						//only after we've set sizes, we can show graph/hide table
+						//only after we've set graph size and painted the graph, we can show graph/hide table
 						$('#revenue_progress_tab a:first').tab('show');
+						$('#container_revenue_graph').height( $('#container_revenue_table').height() );
 					}
 				}
 			]);
