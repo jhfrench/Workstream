@@ -147,7 +147,7 @@ Modernizr.load([
 						);
 						//only after we've set graph size and painted the graph, we can show graph/hide table
 						$('#revenue_progress_tab a:first').tab('show');
-						$('#container_revenue_graph').delay(400).height( $('#container_revenue_table').height() );
+						setTimeout( $('#container_revenue_graph').height( $('#container_revenue_table').height() ), 400 );
 					}
 				}
 			]);
