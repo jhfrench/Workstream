@@ -64,7 +64,7 @@ Modernizr.load([
 					complete: function(){
 
 						//size graph container and graph to match table container and table
-						$('#revenue_graph').height( $('#revenue_table').height() ).width( $('#revenue_table').width()-6 );
+						$('#revenue_graph').height( $('#revenue_table').height()-20 ).width( $('#revenue_table').width()-20 );
 
 						var series_goal = [
 					<cfoutput query="get_revenue_goal">
@@ -147,7 +147,7 @@ Modernizr.load([
 						);
 						//only after we've set graph size and painted the graph, we can show graph/hide table
 						$('#revenue_progress_tab a:first').tab('show');
-						$('#container_revenue_graph').height( $('#container_revenue_table').height() );
+						$('#container_revenue_graph').delay(400).height( $('#container_revenue_table').height() );
 					}
 				}
 			]);
