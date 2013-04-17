@@ -68,7 +68,7 @@
 			</cfif>
 			<cfset variables.currentrow=incrementvalue(variables.currentrow)>
 			<tr bgcolor="##dcdcdc">
-				<td><cfloop from="1" to="#nsm_level#" index="ii">&nbsp;&nbsp;</cfloop>#organization_description# (#organization_code#)</td>
+				<td><cfloop from="1" to="#workstream_level#" index="ii">&nbsp;&nbsp;</cfloop>#organization_description# (#organization_code#)</td>
 				<cfloop query="get_ref_privilege">
 				<td align="center"><cfif evaluate("get_user_privileges['privilege_#privilege_id#'][#variables.currentrow#]")>X</cfif></td>
 				</cfloop>

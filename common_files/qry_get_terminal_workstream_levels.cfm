@@ -1,7 +1,7 @@
-<!-- common_files/qry_get_terminal_nsm_levels.cfm
+<!-- common_files/qry_get_terminal_workstream_levels.cfm
 	Author: Jeromy French -->
 <!---
-<fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_terminal_nsm_levels.cfm">
+<fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_terminal_workstream_levels.cfm">
 	<responsibilities>
 	</responsibilities>
 	<properties>
@@ -23,7 +23,7 @@
 </fusedoc>
 --->
 
-<cfquery name="get_terminal_nsm_levels" dbtype="query">
+<cfquery name="get_terminal_workstream_levels" dbtype="query">
 SELECT hierarchy_level_id, hierarchy_level_label
 FROM get_business_function_hierarchy
 WHERE required_ind=0

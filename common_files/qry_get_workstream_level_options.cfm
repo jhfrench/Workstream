@@ -1,7 +1,7 @@
-<!-- common_files/qry_get_nsm_level_options.cfm
+<!-- common_files/qry_get_workstream_level_options.cfm
 	Author: Jeromy French -->
 <!---
-<fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_nsm_level_options.cfm">
+<fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_workstream_level_options.cfm">
 	<responsibilities>
 		I get the meta-data that describes the different groupers that make up the NSM structure for the specified program year.
 	</responsibilities>
@@ -31,19 +31,19 @@
 <!--- the parent privilege inheritance technique builds the query backwards, but we still want the resulting records ordered by the traditional hierarchy order --->
 <cfif attributes.parent_privilege_inheritance_ind>
 	<cfset variables.true_sort="">
-	<cfloop query="get_nsm_levels">
+	<cfloop query="get_workstream_levels">
 	<cfset variables.true_sort=listprepend(variables.true_sort,hierarchy_level_id)>
 	</cfloop>
 <cfelse>
-	<cfset variables.true_sort=valuelist(get_nsm_levels.hierarchy_level_id)>
+	<cfset variables.true_sort=valuelist(get_workstream_levels.hierarchy_level_id)>
 </cfif>
 
 <cfset variables.limit_options_ind=0>
-<cfquery name="get_nsm_level_options" datasource="#application.datasources.main#">
-SELECT <cfloop query="get_nsm_levels">NSM_Level_#hierarchy_level_id#.organization_id AS level_#hierarchy_level_id#_organization_id, NSM_Level_#hierarchy_level_id#.level_#hierarchy_level_id#_display,
+<cfquery name="get_workstream_level_options" datasource="#application.datasources.main#">
+SELECT <cfloop query="get_workstream_levels">workstream_level_#hierarchy_level_id#.organization_id AS level_#hierarchy_level_id#_organization_id, workstream_level_#hierarchy_level_id#.level_#hierarchy_level_id#_display,
 	</cfloop>1 AS sql_field
-FROM<cfloop query="get_nsm_levels">
-<cfif currentrow EQ get_nsm_levels.recordcount>
+FROM<cfloop query="get_workstream_levels">
+<cfif currentrow EQ get_workstream_levels.recordcount>
 	<cfset variables.limit_options_ind=1>
 </cfif>(<cfif variables.limit_options_ind EQ 0>
 		<cfif attributes.parent_privilege_inheritance_ind>
@@ -70,10 +70,10 @@ FROM<cfloop query="get_nsm_levels">
 				CONNECT BY PRIOR Hierarchy_Assignment.organization_id=Hierarchy_Assignment.parent_organization_id
 			) Elligible_Organizations ON REF_Organization.organization_id=Elligible_Organizations.organization_id
 		WHERE REF_Organization.active_ind=1
-			AND Elligible_Organizations.l_p_y_h_id=#get_nsm_levels.l_p_y_h_id#
+			AND Elligible_Organizations.l_p_y_h_id=#get_workstream_levels.l_p_y_h_id#
 		GROUP BY Elligible_Organizations.parent_organization_id, Elligible_Organizations.organization_id, Elligible_Organizations.l_p_y_h_id,
 			REF_Organization.description, REF_Organization.organization_code, REF_Organization.sort_order
-	) NSM_Level_#hierarchy_level_id#
+	) workstream_level_#hierarchy_level_id#
 		<cfelse>
 		SELECT REF_Organization.description || ' (' ||  REF_Organization.organization_code || ')'  AS level_#hierarchy_level_id#_display, REF_Organization.organization_id, REF_Organization.sort_order,
 			Hierarchy_Assignment.parent_organization_id, #hierarchy_level_id# AS hierarchy_level_id
@@ -84,8 +84,8 @@ FROM<cfloop query="get_nsm_levels">
 		WHERE Hierarchy_Assignment.active_ind=1
 			AND REF_Organization.active_ind=1
 			AND Hierarchy_Assignment.l_p_y_h_id=#l_p_y_h_id#
-	) NSM_Level_#hierarchy_level_id#<cfif currentrow NEQ 1> ON NSM_Level_#variables.previous_hierarchy_level_id#.organization_id=NSM_Level_#hierarchy_level_id#.parent_organization_id
-		OR NSM_Level_#variables.previous_hierarchy_level_id#.organization_id IN (
+	) workstream_level_#hierarchy_level_id#<cfif currentrow NEQ 1> ON workstream_level_#variables.previous_hierarchy_level_id#.organization_id=workstream_level_#hierarchy_level_id#.parent_organization_id
+		OR workstream_level_#variables.previous_hierarchy_level_id#.organization_id IN (
 				SELECT organization_id
 				FROM Access_User_Account_Grouper
 				WHERE Access_User_Account_Grouper.active_ind=1
@@ -106,7 +106,7 @@ FROM<cfloop query="get_nsm_levels">
 			AND Link_Program_Year_Hierarchy.active_ind=1
 			AND REF_Organization.active_ind=1
 			AND Link_Program_Year_Hierarchy.program_year_id=#attributes.program_year_id#
-		) NSM_Level_#hierarchy_level_id#<cfif currentrow NEQ 1> ON NSM_Level_#variables.previous_hierarchy_level_id#.parent_organization_id=NSM_Level_#hierarchy_level_id#.organization_id</cfif>
+		) workstream_level_#hierarchy_level_id#<cfif currentrow NEQ 1> ON workstream_level_#variables.previous_hierarchy_level_id#.parent_organization_id=workstream_level_#hierarchy_level_id#.organization_id</cfif>
 		<cfelse>
 		/*Dig deeper to find descendant privilieges*/
 		SELECT REF_Organization.description || ' (' ||  REF_Organization.organization_code || ')'  AS level_#hierarchy_level_id#_display, REF_Organization.organization_id, REF_Organization.sort_order,
@@ -139,9 +139,9 @@ FROM<cfloop query="get_nsm_levels">
 		WHERE Hierarchy_Assignment.active_ind=1
 			AND REF_Organization.active_ind=1
 			AND Hierarchy_Assignment.l_p_y_h_id=#l_p_y_h_id#
-		) NSM_Level_#hierarchy_level_id#<cfif currentrow NEQ 1> ON NSM_Level_#variables.previous_hierarchy_level_id#.organization_id=NSM_Level_#hierarchy_level_id#.parent_organization_id</cfif></cfif>
+		) workstream_level_#hierarchy_level_id#<cfif currentrow NEQ 1> ON workstream_level_#variables.previous_hierarchy_level_id#.organization_id=workstream_level_#hierarchy_level_id#.parent_organization_id</cfif></cfif>
 		</cfif><cfset variables.previous_hierarchy_level_id=hierarchy_level_id>
 </cfloop>
-ORDER BY <cfloop list="#variables.true_sort#" index="variables.true_sort_ii">NSM_Level_#variables.true_sort_ii#.hierarchy_level_id, NSM_Level_#variables.true_sort_ii#.sort_order,
+ORDER BY <cfloop list="#variables.true_sort#" index="variables.true_sort_ii">workstream_level_#variables.true_sort_ii#.hierarchy_level_id, workstream_level_#variables.true_sort_ii#.sort_order,
 	</cfloop>sql_field
 </cfquery>
