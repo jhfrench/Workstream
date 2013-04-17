@@ -143,7 +143,7 @@ Modernizr.load([
 							$('#revenue_progress_tab a:first').tab('show');
 							setTimeout( $('#container_revenue_graph').height( $('#container_revenue_table').height() ), 400 );
 							setTimeout( $('#container_revenue_graph').height( $('#container_revenue_table').height() ), 1000 );
-						}
+						})
 					}
 				}
 			]);
