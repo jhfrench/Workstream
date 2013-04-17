@@ -31,7 +31,7 @@ FROM REF_Module
 		AND REF_Business_Function.active_ind=1
 	INNER JOIN Access_User_Business_Function ON REF_Business_Function.business_function_id=Access_User_Business_Function.business_function_id
 		AND Access_User_Business_Function.active_ind=1
-		AND Access_User_Business_Function.user_account_id IN (<cfqueryparam value="#attributes.user_account_id#)" cfsqltype="cf_sql_integer" list="true" />
+		AND Access_User_Business_Function.user_account_id IN (<cfqueryparam value="#attributes.user_account_id#" cfsqltype="cf_sql_integer" list="true" />)
 	INNER JOIN REF_Program_Year ON Access_User_Business_Function.program_year_id=REF_Program_Year.program_year_id
 		AND REF_Program_Year.program_year_id=<cfqueryparam value="#attributes.program_year_id#" cfsqltype="cf_sql_integer" />
 WHERE REF_Module.active_ind=1

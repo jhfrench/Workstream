@@ -33,4 +33,4 @@
 	</ul>
 </h2>
 <cfset variables.show_buttons_ind=1>
-<cfinclude template="../common_files/dsp_view_user_access.cfm">
+<cfinclude template="dsp_view_user_access.cfm">
