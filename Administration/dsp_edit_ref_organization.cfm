@@ -59,7 +59,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td><label for="description">Abbreviation</label>:<cfinput type="text" name="abbreviation" id="abbreviation" size="30" value="#attributes.abbreviation#" required="no" maxlength="30">
+				<td><label for="abbreviation">Abbreviation</label>:<cfinput type="text" name="abbreviation" id="abbreviation" size="30" value="#attributes.abbreviation#" required="no" maxlength="30">
 				</td>
 			</tr>
 			<tr>

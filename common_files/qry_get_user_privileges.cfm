@@ -24,44 +24,30 @@
 	<cfset attributes.privilege_id=valuelist(get_ref_privilege.privilege_id)>
 </cfif>
 <cfquery name="get_user_privileges" datasource="#application.datasources.main#">
-SELECT REF_Module.module_id, REF_Module.description AS module_description, NSM_Hierarchy.nsm_level,
+SELECT REF_Module.module_id, REF_Module.description AS module_description, Workstream_Hierarchy.nsm_level,
 	CASE
-		WHEN REF_Center.center_id IS NOT NULL THEN NSM_Hierarchy.organization_description || ' - ' || REF_Center.description
-		ELSE NSM_Hierarchy.organization_description
+		WHEN REF_Center.center_id IS NOT NULL THEN Workstream_Hierarchy.organization_description || ' - ' || REF_Center.description
+		ELSE Workstream_Hierarchy.organization_description
 	END AS organization_description,
 	CASE
 		WHEN REF_Center.center_id IS NOT NULL THEN REF_Center.abbreviation
-		ELSE NSM_Hierarchy.organization_code
-	END AS organization_code<cfloop list="#attributes.privilege_id#" index="privilege_id_ii">,
-	SUM(CASE WHEN Access_User_Account_Grouper.privilege_id=#privilege_id_ii# THEN 1 ELSE 0 END) AS privilege_#privilege_id_ii#</cfloop>
+		ELSE Workstream_Hierarchy.organization_code
+	END AS organization_code<cfloop list="#attributes.privilege_id#" index="variables.privilege_id_ii">,
+	SUM(CASE WHEN Access_User_Account_Grouper.privilege_id=#variables.privilege_id_ii# THEN 1 ELSE 0 END) AS privilege_#variables.privilege_id_ii#</cfloop>
 FROM REF_Module
-	INNER JOIN (
-		<!--- $issue$: convert from Oracle-specific START WITH/CONNECT BY to Postgres recursive query --->
-		SELECT rownum AS nsm_order, Hierarchy_Assignment.organization_id, level AS nsm_level,
-			REF_Organization.description AS organization_description, REF_Organization.organization_code, 1 AS active_ind
-		FROM Hierarchy_Assignment
-			INNER JOIN Link_Program_Year_Hierarchy ON Hierarchy_Assignment.l_p_y_h_id=Link_Program_Year_Hierarchy.l_p_y_h_id
-				AND Hierarchy_Assignment.active_ind=1
-				AND Link_Program_Year_Hierarchy.active_ind=1
-				AND Link_Program_Year_Hierarchy.program_year_id=#attributes.program_year_id#
-			INNER JOIN REF_Organization ON Hierarchy_Assignment.organization_id=REF_Organization.organization_id
-				AND REF_Organization.active_ind=1
-		START WITH Hierarchy_Assignment.parent_organization_id IS NULL
-		CONNECT BY PRIOR Hierarchy_Assignment.organization_id=Hierarchy_Assignment.parent_organization_id
-		ORDER SIBLINGS BY REF_Organization.sort_order
-	) NSM_Hierarchy ON REF_Module.active_ind=NSM_Hierarchy.active_ind
-	LEFT OUTER JOIN Access_User_Account_Grouper ON NSM_Hierarchy.organization_id=Access_User_Account_Grouper.organization_id
+	INNER JOIN Workstream_Hierarchy(<cfqueryparam value="#attributes.program_year_id#" cfsqltype="cf_sql_integer" />) ON REF_Module.active_ind=Workstream_Hierarchy.active_ind
+	LEFT OUTER JOIN Access_User_Account_Grouper ON Workstream_Hierarchy.organization_id=Access_User_Account_Grouper.organization_id
 		AND REF_Module.module_id=Access_User_Account_Grouper.module_id
 		AND Access_User_Account_Grouper.active_ind=1
-		AND Access_User_Account_Grouper.program_year_id=#attributes.program_year_id#
-		AND Access_User_Account_Grouper.user_account_id IN (#attributes.user_account_id#)
-		AND Access_User_Account_Grouper.privilege_id IN (#attributes.privilege_id#)
+		AND Access_User_Account_Grouper.program_year_id=<cfqueryparam value="#attributes.program_year_id#" cfsqltype="cf_sql_integer" />
+		AND Access_User_Account_Grouper.user_account_id IN (<cfqueryparam value="#attributes.user_account_id#" cfsqltype="cf_sql_integer" list="true" />)
+		AND Access_User_Account_Grouper.privilege_id IN (<cfqueryparam value="#attributes.privilege_id#" cfsqltype="cf_sql_integer" list="true" />)
 	LEFT OUTER JOIN REF_Center ON Access_User_Account_Grouper.center_id=REF_Center.center_id
 WHERE REF_Module.assign_hier_privileges_ind=1
 GROUP BY REF_Module.sort_order, REF_Module.module_id, REF_Module.description,
-	NSM_Hierarchy.nsm_order, NSM_Hierarchy.nsm_level, NSM_Hierarchy.organization_description,
-	NSM_Hierarchy.organization_code, REF_Center.center_id, REF_Center.description,
+	Workstream_Hierarchy.sort_order, Workstream_Hierarchy.workstream_level, Workstream_Hierarchy.organization_description,
+	Workstream_Hierarchy.organization_code, REF_Center.center_id, REF_Center.description,
 	REF_Center.abbreviation, REF_Center.sort_order
-ORDER BY REF_Module.sort_order, NSM_Hierarchy.nsm_order, REF_Center.sort_order
+ORDER BY REF_Module.sort_order, Workstream_Hierarchy.sort_order, REF_Center.sort_order
 </cfquery>
 <cfset caller.get_user_privileges=get_user_privileges>
