@@ -24,7 +24,7 @@
 	<cfset attributes.privilege_id=valuelist(get_ref_privilege.privilege_id)>
 </cfif>
 <cfquery name="get_user_privileges" datasource="#application.datasources.main#">
-SELECT REF_Module.module_id, REF_Module.description AS module_description, Workstream_Hierarchy.nsm_level,
+SELECT REF_Module.module_id, REF_Module.description AS module_description, Workstream_Hierarchy.workstream_level,
 	CASE
 		WHEN REF_Center.center_id IS NOT NULL THEN Workstream_Hierarchy.organization_description || ' - ' || REF_Center.description
 		ELSE Workstream_Hierarchy.organization_description
