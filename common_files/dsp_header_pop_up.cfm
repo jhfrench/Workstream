@@ -52,7 +52,7 @@
 	Modernizr.load([
 		{
 			both: [
-				'//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js',
+				'//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
 				'//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js'
 			],
 			complete: function(){
