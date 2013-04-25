@@ -34,8 +34,6 @@
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="administer_user_menu" fuseaction="Administration.administer_user_menu" field_name="user_account_id" field_value="">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="view_user_activity" fuseaction="Administration.view_user_activity" field_name="user_account_id" field_value="">
 
-<cfinclude template="../common_files/qry_get_user_information.cfm">
-<cfinclude template="../common_files/qry_get_user_navigation_access.cfm">
 <cfset variables.module_description="thiswill_never_match_jf">
 
 <cfoutput>
@@ -46,15 +44,13 @@
 		<li class="active">Edit User Access</li>
 	</ul>
 </h2>
-<a href="javascript:administer_user_menu('#attributes.user_account_id#');" class="btn">Manage User's Profile</a>
-<a href="javascript:view_user_activity('#attributes.user_account_id#');" class="btn">View User Activity</a><br />
 <cfif isdefined("attributes.relevant_business_function_id") AND len(attributes.relevant_business_function_id)>
 	<div class="alert alert-success"><strong>You got it!</strong><br />Business function access changes have been applied</div>
 </cfif>
 <div class="alert alert-info">
 	<p>You are managing user access for:
 		<ul>
-			<cfloop query="get_user_information"><li>#first_name# #last_name#</li></cfloop>
+			<cfloop query="get_user_information"><li>#first_name# #last_name# <a href="javascript:administer_user_menu(#user_account_id#);" class="btn btn-small">Manage User's Profile</a> <a href="javascript:view_user_activity(#user_account_id#);" class="btn btn-small">View User Activity</a></li></cfloop>
 		</ul>
 	</p>
 	<p>Check the business function's box to grant access to that function</p>

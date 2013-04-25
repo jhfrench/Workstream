@@ -30,12 +30,12 @@ SELECT Demographics.demographics_id, Demographics.first_name, Demographics.last_
 	REF_Center.abbreviation AS center_abbreviation
 FROM User_Account
 	INNER JOIN Demographics ON User_Account.user_account_id=Demographics.user_account_id
+		AND Demographics.active_ind=1<cfif isdefined("attributes.last_initial") AND len(attributes.last_initial)>
+		AND UPPER(Demographics.last_name) LIKE <cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.last_initial#%"></cfif>
 	INNER JOIN Link_User_Account_Status ON User_Account.user_account_id=Link_User_Account_Status.user_account_id
+		AND Link_User_Account_Status.active_ind=1
 	INNER JOIN REF_Account_Status ON Link_User_Account_Status.account_status_id=REF_Account_Status.account_status_id
-	LEFT OUTER JOIN REF_Center ON Demographics.center_id=REF_Center.center_id
-WHERE Demographics.active_ind=1
-	AND Link_User_Account_Status.active_ind=1<cfif isdefined("attributes.user_account_id") AND len(attributes.user_account_id)>
-	AND User_Account.user_account_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.user_account_id#" list="yes">)</cfif><cfif isdefined("attributes.last_initial") AND len(attributes.last_initial)>
-	AND UPPER(Demographics.last_name) LIKE <cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.last_initial#%"></cfif>
+	LEFT OUTER JOIN REF_Center ON Demographics.center_id=REF_Center.center_id<cfif isdefined("attributes.user_account_id") AND len(attributes.user_account_id)>
+WHERE User_Account.user_account_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.user_account_id#" list="yes">)</cfif>
 ORDER BY UPPER(Demographics.last_name), UPPER(Demographics.first_name), User_Account.user_name
 </cfquery>
