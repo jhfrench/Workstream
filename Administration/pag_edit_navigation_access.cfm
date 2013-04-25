@@ -36,6 +36,6 @@
 	<cfinclude template="../common_files/qry_get_user_module_access.cfm">
 	<cfinclude template="dsp_edit_module_access.cfm">
 <cfelse>
-	<cfinclude template="../common_files/qry_get_user_navigation_access.cfm">
+	<cfinclude template="qry_get_user_navigation_access.cfm">
 	<cfinclude template="dsp_edit_navigation_access.cfm">
 </cfif>
