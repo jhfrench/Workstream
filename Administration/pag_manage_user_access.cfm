@@ -64,7 +64,7 @@
 			<label for="user_account_id_#user_account_id#">#user_name#</label>
 		</td>
 		<td>
-			<cfinput type="checkbox" name="user_account_id" id="user_account_id_#user_account_id#" value="#user_account_id#" required="yes" message="Please choose at least one user to administer." />
+			<cfinput type="checkbox" name="user_account_id" id="user_account_id_#user_account_id#" value="#user_account_id#" required="yes" message="Please choose at least one user to manage." />
 		</td>
 	</tr>
 	</cfloop>
@@ -80,4 +80,4 @@
 	</tfoot>
 </table>
 </cfform>
-</cfoutput> 
+</cfoutput>

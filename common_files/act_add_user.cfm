@@ -50,7 +50,7 @@
 <cfinclude template="qry_get_username.cfm">
 <!--- if username exists, then tell the account manager to use another username --->
 <cfif get_username.recordcount GT 0>
-	<cfset variables.display_message="The username chosen already exists. Please <a href='javascript:administer_user_menu(#get_username.user_account_id#);'>administer the existing account</a>.">
+	<cfset variables.display_message="The username chosen already exists. Please <a href='javascript:administer_user_menu(#get_username.user_account_id#);'>manage the existing account</a>.">
 	<cfset variables.add_user_error_count=incrementvalue(variables.add_user_error_count)>
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="administer_user_menu" fuseaction="Administration.administer_user_menu" field_name="user_account_id">
 </cfif>
@@ -104,7 +104,7 @@ Your #application.product_name# account has been created, welcome to the system.
 		<cfmail to="#attributes.email_address#" from="#application.system_email_sender#" subject="#application.product_name# Account Creation (2 of 2)" type="HTML"
 			server="#application.email_server_name#" username="#application.email_username#" password="#application.email_password#"
 			port="#application.email_port#" usetls="#application.email_usetls#" usessl="#application.email_usessl#">
-Your #application.product_name# account has been created, welcome to the system. Your username was sent to you in a previous email. Your initial password is 
+Your #application.product_name# account has been created, welcome to the system. Your username was sent to you in a previous email. Your initial password is
 
 "#variables.reset_password_value#"
 
@@ -117,5 +117,5 @@ You can access #application.product_name# at #listfirst(cgi.http_referer,"?")#.
 	</cfif>
 	<cfset attributes.last_name="">
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_navigation_access" fuseaction="Administration.edit_navigation_access" field_name="user_account_id" process_form_ind="1" program_year_id="1" method="Select">
-	<cfset variables.display_message="A new user has been added. You may <a href='javascript:edit_navigation_access(#attributes.user_account_id#);'>edit this user's access</a> now, or in the future by clicking on the Administration > Manage Users > Administer User Access navigation link.">
+	<cfset variables.display_message="A new user has been added. You may <a href='javascript:edit_navigation_access(#attributes.user_account_id#);'>edit this user's access</a> now, or in the future by clicking on the Administration > Manage Users > Manage User Access navigation link.">
 </cfif>

@@ -25,7 +25,7 @@
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0" summary="table head describes the data in the table below">
 	<tr>
-		<th align="left"><h2 style="margin:0px" id="top-side">Administer Actual Data</h2></th>
+		<th align="left"><h2 style="margin:0px" id="top-side">Manage Actual Data</h2></th>
 	</tr>
 </table>
 <cfinclude template="../common_files/dsp_upload.cfm">

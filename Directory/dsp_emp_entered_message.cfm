@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfquery name="get_administrators" datasource="#application.datasources.main#">
 SELECT Demographics.user_account_id, Demographics.first_name, Demographics.last_name,
@@ -18,7 +18,7 @@ SELECT Demographics.user_account_id, Demographics.first_name, Demographics.last_
 FROM Demographics
 	INNER JOIN Access_User_Business_Function ON Demographics.user_account_id=Access_User_Business_Function.user_account_id
 		AND Access_User_Business_Function.active_ind=1
-		AND Access_User_Business_Function.business_function_id=250 /*Administer User Access*/
+		AND Access_User_Business_Function.business_function_id=250 /*Manage User Access*/
 	INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
 		AND Link_Company_User_Account.company_id=#session.workstream_company_id#
 WHERE Demographics.active_ind=1
@@ -29,9 +29,9 @@ ORDER BY Demographics.last_name, Demographics.first_name
 <cfoutput>
 <div class="alert">
 	<p>#attributes.first_name# #attributes.last_name# has been entered into the workstream database.</p>
-	<p>This new account currently does not have access to any modules, reports or tools. To administer this new account (grant access to reports, change passwords, etc), please 
+	<p>This new account currently does not have access to any modules, reports or tools. To modify this new account (grant access to reports, change passwords, etc), please
 	<cfif listfind(variables.administrators_list, variables.user_identification)>
-		<a href="javascript:edit_employee(#variables.user_account_id#)">administer this account</a>.
+		<a href="javascript:edit_employee(#variables.user_account_id#)">manage this account</a>.
 	<cfelse>
 		contact the following #application.product_name# administrators to set up the appropriate access:<br />
 		<ul>

@@ -264,9 +264,6 @@
 	<fuseaction name="view_user_activity">
 		<include template="pag_view_user_activity.cfm"/>
 	</fuseaction>
-	<fuseaction name="welcome">
-		<include template="pag_welcome.cfm"/>
-	</fuseaction>
 	<postfuseaction>
 		<include template="../common_files/dsp_footer.cfm"/>
 	</postfuseaction>

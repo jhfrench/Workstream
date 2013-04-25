@@ -38,7 +38,7 @@
 	<div class="alert alert-success"><strong>You got it!</strong><br />Module access changes have been applied</div>
 </cfif>
 <div class="alert alert-info">
-	<p>You are administering user access for:
+	<p>You are managing user access for:
 		<ul>
 			<cfloop query="get_user_information"><li>#first_name# #last_name#</li></cfloop>
 		</ul>

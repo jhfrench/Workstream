@@ -46,7 +46,7 @@ Filter: <cfloop query="get_ref_account_status"> <a href="javascript:status_filte
 	</tr>
 	<cfloop query="get_user_information">
 	<tr>
-		<td><cfinput type="checkbox" name="user_account_id" id="user_account_id_#user_account_id#" value="#user_account_id#" required="yes" message="Please choose at least one user to administer." /></td>
+		<td><cfinput type="checkbox" name="user_account_id" id="user_account_id_#user_account_id#" value="#user_account_id#" required="yes" message="Please choose at least one user to manage." /></td>
 		<td>#last_name#</td>
 		<td>#first_name#</td>
 		<td scope="row"><label for="user_account_id_#user_account_id#">#user_name#</label></td>
@@ -63,4 +63,4 @@ Filter: <cfloop query="get_ref_account_status"> <a href="javascript:status_filte
 	</tr>
 </table>
 </cfform>
-</cfoutput> 
+</cfoutput>

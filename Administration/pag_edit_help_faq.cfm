@@ -28,7 +28,7 @@
 <h2>
 	<ul class="breadcrumb">
 		<li>System Configuration <span class="divider">/</span></li>
-		<li><a href="index.cfm?fuseaction=Administration.list_help_articles">Administer Help Module</a> <span class="divider">/</span></li>
+		<li><a href="index.cfm?fuseaction=Administration.list_help_articles">Manage Help Module</a> <span class="divider">/</span></li>
 		<li class="active">Manage Frequently Asked Questions</li>
 	</ul>
 </h2>

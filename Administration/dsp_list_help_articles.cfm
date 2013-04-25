@@ -24,7 +24,7 @@
 	</IO>
 </fusedoc>
 --->
-<h2>Administer Help Articles</h2>
+<h2>Manage Help Articles</h2>
 <a href="javascript:edit_listed_help_article(0);" class="btn">Create new help article</a>
 <table cols="3" summary="Table displays help articles that can be edited" class="table table-striped table-bordered table-condensed">
 	<thead>

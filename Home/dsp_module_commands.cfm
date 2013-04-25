@@ -126,13 +126,13 @@
 		<tr>
 			<td bgcolor="#aaaaaa" onmouseover="this.bgColor='#eeeeee';this.style.cursor='hand';" onmouseout="this.bgColor='#aaaaaa';this.style.cursor='default';">
 				<div style="float:left;width:15px;">&nbsp;</div>
-				<div style="float:left;width:150px;"><a href="index.cfm?fuseaction=Administration.administer_sorter_table">Administer System Sorter Table</a></div>
+				<div style="float:left;width:150px;"><a href="index.cfm?fuseaction=Administration.administer_sorter_table">Manage System Sorter Table</a></div>
 			</td>
 		</tr>
 		<tr>
 			<td bgcolor="#aaaaaa" onmouseover="this.bgColor='#eeeeee';this.style.cursor='hand';" onmouseout="this.bgColor='#aaaaaa';this.style.cursor='default';">
 				<div style="float:left;width:15px;">&nbsp;</div>
-				<div style="float:left;width:150px;"><a href="index.cfm?fuseaction=Administration.list_link_tables">Administer System LINK Tables</a></div>
+				<div style="float:left;width:150px;"><a href="index.cfm?fuseaction=Administration.list_link_tables">Manage System LINK Tables</a></div>
 			</td>
 		</tr>
 		<tr>
