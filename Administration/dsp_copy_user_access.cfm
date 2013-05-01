@@ -25,7 +25,7 @@
 <h2>Copy User Access</h2>
 
 <cfoutput>#attributes.display_message#
-<a href="##form_copy_user_access" class="visually-hidden" aria-hidden="false">skip results filtering</a>
+<a href="##form_copy_user_access" class="hide-text" aria-hidden="false">skip results filtering</a>
 <div class="btn-toolbar">
 	<div class="btn-group">
 	<cfloop list="A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z" index="variables.character_ii">

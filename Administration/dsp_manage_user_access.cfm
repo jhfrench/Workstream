@@ -23,7 +23,7 @@
 
 <h2>Manage User Access</h2>
 <cfoutput>#attributes.display_message#
-<a href="##form_manage_user_access" class="visually-hidden" aria-hidden="false">skip results filtering</a>
+<a href="##form_manage_user_access" class="hide-text" aria-hidden="false">skip results filtering</a>
 Filter: <cfloop query="get_ref_account_status"> <a href="javascript:status_filter(#account_status_id#);" title="Filter to show only #lcase(description)# accounts.">#description#</a> |</cfloop> <a href="javascript:status_filter(0);" title="Filter to show all accounts.">All</a>
 <div class="btn-toolbar">
 	<div class="btn-group">

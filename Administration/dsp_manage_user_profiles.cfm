@@ -26,7 +26,7 @@
 <h2>Manage User Profiles</h2>
 <a href="index.cfm?fuseaction=Administration.add_user" class="btn">Add user</a>
 <cfoutput>#attributes.display_message#
-<a href="##manage_user_profiles_table" class="visually-hidden" aria-hidden="false">skip results filtering</a>
+<a href="##manage_user_profiles_table" class="hide-text" aria-hidden="false">skip results filtering</a>
 <div class="btn-toolbar">
 	<div class="btn-group">
 	<cfloop list="A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z" index="variables.character_ii">
