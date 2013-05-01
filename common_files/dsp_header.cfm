@@ -109,7 +109,7 @@ else
 <body class="container-fluid">
 	<header role="banner" class="row-fluid">
 		<!-- Skip navigation link -->
-		<a href="##begin_page_content" class="visually-hidden" aria-hidden="false">Skip navigation</a>
+		<a href="##begin_page_content" class="hide-text" aria-hidden="false">Skip navigation</a>
 		<div class="span12">
 			<nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
 				<div class="navbar-inner">
