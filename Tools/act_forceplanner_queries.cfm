@@ -137,7 +137,7 @@ FROM Demographics
 	INNER JOIN Employee ON Demographics.user_account_id=Employee.user_account_id
 		AND Employee.active_ind=1
 	INNER JOIN (
-		SELECT COUNT(*)*8 AS hours_in_month, COUNT(*)/7.0 AS weeks, 1 AS active_ind
+		SELECT COUNT(*)*8 AS hours_in_month, COUNT(*)/5.0 AS weeks, 1 AS active_ind
 		FROM REF_Date
 		WHERE date_year=<cfqueryparam value="#attributes.force_year#" cfsqltype="cf_sql_integer" />
 			AND date_month=<cfqueryparam value="#attributes.force_month#" cfsqltype="cf_sql_integer" />
