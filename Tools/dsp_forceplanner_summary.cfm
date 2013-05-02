@@ -10,12 +10,12 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 </cfsilent>
 <cfoutput>
 <div class="row-fluid">
-	<div class="span8 offset4">
+	<div class="span9 offset3">
 		<table class="table table-striped table-bordered table-condensed">
 			<caption><h2>Workload Summary</h2></caption>
 			<thead>
@@ -47,9 +47,9 @@
 				</tr>
 				<tr>
 					<td scope="row">Available hours</td>
-				<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
+				<cfloop query="get_week_days">
 					<td class="number">
-						#get_week_days.hours_in_month#
+						#capacity#
 					</td>
 				</cfloop>
 					<td class="number">
@@ -64,9 +64,9 @@
 				</tr>
 				<tr>
 					<td scope="row">Capacity Used</td>
-				<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
+				<cfloop query="get_week_days">
 					<td class="number">
-						<span id="capacity_#variables.user_account_id#">#numberformat(evaluate('sum_#variables.user_account_id#')/get_week_days.hours_in_month*100,"___")#</span>%
+						<span id="capacity_#variables.user_account_id#">#numberformat(evaluate('sum_#user_account_id#')/capacity*100,"___")#</span>%
 					</td>
 				</cfloop>
 					<td class="number">

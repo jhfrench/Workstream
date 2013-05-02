@@ -10,11 +10,11 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 <cfset variables.list_prospective_task_id=valuelist(get_prospectives.task_id)>
 <cfset variables.requested_sum=0>
-<cfset variables.total_requested=get_week_days.hours_in_month*get_subordinates.recordcount>
+<cfset variables.total_requested=arraysum(get_week_days['capacity'])>
 </cfsilent>
 <cfoutput>
 <script language="JavaScript">
@@ -36,42 +36,42 @@ var ReleaseRowFields=function(task_id) {
 
 var CalculateRowFields=function(task_id, user_account_id){
 	"use strict"; //let's avoid tom-foolery in this function
-	
+
 	//calculate new hours assigned, and hours remaining, for the affected task
 	var task_total=0;
 	$('.task_id_'+task_id).each(function(){
-		task_total+=parseInt( $(this).val(), 10 );	
+		task_total+=parseInt( $(this).val(), 10 );
 	});
 	$('##task_assigned'+task_id).val(task_total);
 	$('##display_task_assigned'+task_id).text(task_total);
-		
+
 	var task_remainder=parseInt($('##accept_'+task_id).parents('tr').find('td.display_task_budget').text(),10)-task_total;
 	$('##task_remainder'+task_id).val(task_remainder);
 	$('##display_task_remainder'+task_id).text(task_remainder);
-	
+
 	//calculate affected employee's assigned hours, remaining capacity, and update those totals (and capacity used percentages) for the team
 	switch(user_account_id) {
-	<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-		case #variables.user_account_id#:
+	<cfloop query="get_week_days">
+		case #user_account_id#:
 			var employee_total=0;
 			$('.user_account_id_'+user_account_id).each(function(){
 				employee_total+=parseInt( $(this).val(), 10 );
 			});
-			$('##sum_#variables.user_account_id#').text(employee_total);
-		
-			$('##capacity_#variables.user_account_id#').text( Math.ceil(employee_total/#get_week_days.hours_in_month#*100) );
+			$('##sum_#user_account_id#').text(employee_total);
+
+			$('##capacity_#user_account_id#').text( Math.ceil(employee_total/#capacity#*100) );
 			break;
 	</cfloop>
 		case 0:
-		<cfloop list="#variables.subordinates_user_account_id#" index="variables.user_account_id">
-			var sum_#variables.user_account_id#=<cfloop list="#variables.list_prospective_task_id#" index="variables.task_id">parseInt(document.form_forceplanner.t#variables.task_id#_#variables.user_account_id#.value,10) + </cfloop>0;
-			$('##sum_#variables.user_account_id#').text(sum_#variables.user_account_id#);
-		
-			$('##capacity_#variables.user_account_id#').text( Math.ceil(sum_#variables.user_account_id#/#get_week_days.hours_in_month#*100) );
+		<cfloop query="get_week_days">
+			var sum_#user_account_id#=<cfloop list="#variables.list_prospective_task_id#" index="variables.task_id">parseInt(document.form_forceplanner.t#variables.task_id#_#user_account_id#.value,10) + </cfloop>0;
+			$('##sum_#user_account_id#').text(sum_#user_account_id#);
+
+			$('##capacity_#user_account_id#').text( Math.ceil(sum_#user_account_id#/#capacity#*100) );
 		</cfloop>
 			break;
 	}
-	
+
 	UpdateSummaryTable();
 	return task_id;
 }
@@ -115,7 +115,7 @@ var LockRow=function(task_id){
 
 var UpdateSummaryTable=function() {
 	"use strict"; //let's avoid tom-foolery in this function
-	
+
 	//update the total amount of assigned workload for all team members
 	var sum_assigned=0;
 	$('.employee_sum').each(function() {
@@ -123,13 +123,13 @@ var UpdateSummaryTable=function() {
 	});
 	$('##display_sum_assigned').text(sum_assigned);
 	$('##sum_assigned').val(sum_assigned);
-	
+
 	var sum_requested=0;
 	$('##form_forceplanner input[type="checkbox"]:checked').parents('tr').find('td.display_task_budget').each( function() {
 		sum_requested+=parseInt( $(this).text(),10 );
 	});
 	$('##display_sum_requested').text(sum_requested);
-	
+
 	//update remaining team capacity
 	var sum_remaining=sum_requested-sum_assigned;
 	$('##display_sum_remaining').text(sum_remaining);
@@ -144,7 +144,7 @@ var UpdateSummaryTable=function() {
 
 	//update percentage of remaining team capacity
 	var capacity_remaining=Math.ceil(sum_remaining/#variables.total_requested#*100);
-	$('##capacity_remaining').text(capacity_remaining);	
+	$('##capacity_remaining').text(capacity_remaining);
 }
 
 //if the user clicks the project's toggle chechbox, either select or deselect all of that project's task's checkboxes (and recalc)
