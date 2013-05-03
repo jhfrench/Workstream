@@ -13,6 +13,7 @@
 	 ||
  --->
 </cfsilent>
+<cfset attributes.task_id=attributes.base_task_id>
 <cfif isdefined("attributes.l_t_t_id")>
 	<cfinclude template="act_task_detach.cfm">
 </cfif>
