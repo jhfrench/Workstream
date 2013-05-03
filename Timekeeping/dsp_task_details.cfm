@@ -58,7 +58,7 @@
 		<p>
 			<span class="h5">Customer</span>: <span id="customer_name">#get_task_details.customer_name#</span>
 			<span class="h5">Project</span>: <span id="project_name">#replace(get_task_details.project_name,"#get_task_details.customer_name#-","")#</span>
-			<a id="file_attach" href="index.cfm?task_id=#attributes.task_id#&fuseaction=common_files.project_list" role="button" data-toggle="modal" data-target="##utility" title="Change this task's project assignment." class="btn btn-mini">
+			<a id="project_change" href="index.cfm?task_id=#attributes.task_id#&fuseaction=common_files.project_list" role="button" data-toggle="modal" data-target="##utility" title="Change this task's project assignment." class="btn btn-mini">
 				<i class="icon-share"></i> Change
 			</a>
 		</p>

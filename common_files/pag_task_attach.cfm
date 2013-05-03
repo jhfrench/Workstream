@@ -13,9 +13,7 @@
 	 ||
  --->
 </cfsilent>
-<cfoutput>
 <cfif isdefined("attributes.linked_task_id")>
 	<cfinclude template="act_task_attach.cfm">
 </cfif>
-	<cfinclude template="dsp_task_attach_form.cfm">
-</cfoutput>
+<cfinclude template="dsp_task_attach_form.cfm">

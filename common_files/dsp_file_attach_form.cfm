@@ -10,63 +10,52 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	<-- bgcolor: string that sets the backgroud color of this pop-up window
  --->
 </cfsilent>
-<!--- $issue$: does this get used? --->
-<cfoutput>
-	<cfif isdefined("attributes.tempfilename")>
-	<tr>
-		<td width="10" class="SubHeadText">
-			&nbsp;
-		</td>
-		<td class="SubHeadText">
-			Currently attached files:
-		</td>
-	</tr>
-	<tr>
-		<td class="SubHeadText">
-			&nbsp;
-		</td>
-		<td class="SelectText">
-			<cfloop list="attributes.tempfilename" index="ii">#ii#<br /></cfloop>
-		</td>
-	</tr>
-	</cfif>
-	<tr>
-		<td class="SubHeadText">
-			&nbsp;
-		</td>
-		<td class="SelectText">
-			<span class="SubHeadText">Select the file that you would like to attach.</span>
-		</td>
-	</tr>
-<!--- $issue$: we do need to come up with a company-wide network drive--perhaps something with dropbox or similar, mapped to a consistent Drive letter? --->
-<form action="" method="post" enctype="multipart/form-data" name="tempform" id="junk" onsubmit="return false">
-	<tr>
-		<td class="SubHeadText">
-			&nbsp;
-		</td>
-		<td>
-			<input type="file" name="tempfilename" size="40" value="">
-		</td>
-	</tr>
-</form>
-<form action="##" method="post" name="realform">
-	<tr>
-		<td class="SubHeadText">
-			&nbsp;
-		</td>
-		<td>
-			<input type="hidden" name="filename" value="" />
-			<input type="hidden" name="submit_flag" value="1" />
-			<input type="hidden" name="additions" value="" />
-			<input type="submit" value="Submit" onclick="sync_files()" class="btn btn-primary" />
-			<input type="button" name="addfile" onclick="sync_files()" value="Attach another file" class="btn" />
-			<input type="button" name="test" onclick="checkfields()" value="Check Additions" class="btn" />
-		</td>
-	</tr>
-</form>
-</cfoutput>
+<script language="JavaScript" type="text/javascript">
+function upload_file_type_check() {
+	if (document.forms.file_attach.MY_FILE.value=='') {
+		alert('Please select a file to upload.');
+		return false;
+	}
+	else {
+		$('#file_attach_table').toggle();
+		$('#upload_in_progress').toggle();
+		$('.form-actions').toggle();
+	}
+}
+</script>
 
+<cfinclude template="qry_get_project_attachment_path.cfm">
+<div id="pop-up-content">
+	<cfform name="file_attach" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" enctype="multipart/form-data" onsubmit="return upload_file_type_check();" class="form-horizontal">
+		<fieldset id="file_attach_table">
+			<legend><h2>Attach <cfif isdefined("form.my_file")>another<cfelse>your</cfif> document</h2></legend>
+			<div class="control-group">
+				<label class="control-label" for="file_path">Path to file</label>
+				<div class="controls">
+					<cfselect name="file_path" id="file_path" query="get_project_attachment_path" value="file_path" display="file_path" required="yes" message="Please specify the file path." class="span8" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="my_file">File to upload</label>
+				<div class="controls">
+					<input type="file" name="MY_FILE" id="my_file" required="required" class="span8" />
+				</div>
+			</div>
+			<div class="form-actions">
+			<cfoutput>
+				<input type="hidden" name="task_id" value="#attributes.task_id#" />
+				<input type="submit" name="upload_file" value="Upload File" class="btn btn-primary" />
+				<input type="reset" name="reset" value="Cancel" class="btn" />
+			</cfoutput>
+			</div>
+		</fieldset>
+	</cfform>
+	<div class="alert alert-info" id="upload_in_progress" aria-hidden="true" style="display:none">
+		<h2>Loading your file</h2>
+		<img src="images/loading.gif" alt="" width="48" height="48" style="padding:30px;" align="center" />
+	</div>
+</div>
