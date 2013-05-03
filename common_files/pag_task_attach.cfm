@@ -10,13 +10,12 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 </cfsilent>
 <cfoutput>
 <cfif isdefined("attributes.linked_task_id")>
 	<cfinclude template="act_task_attach.cfm">
-<cfelse>
-	<cfinclude template="dsp_task_attach_form.cfm">
 </cfif>
+	<cfinclude template="dsp_task_attach_form.cfm">
 </cfoutput>

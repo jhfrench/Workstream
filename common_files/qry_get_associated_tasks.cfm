@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
 	<-- due_date: date that the task is due
@@ -38,6 +38,7 @@ FROM (
 			AND Link_Task_Task.base_task_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.task_id#">
 	) AS Linked_Tasks
 	INNER JOIN Task ON Linked_Tasks.task_id=Task.task_id
+		AND Task.active_ind=1
 	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
 		AND Link_Task_Task_Status.active_ind=1
 	INNER JOIN REF_Task_Status ON Link_Task_Task_Status.task_status_id=REF_Task_Status.task_status_id

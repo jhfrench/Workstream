@@ -2,8 +2,7 @@
 	JavaScript that executes with each page-load
 	NOTE: jQuery plugins should go in common_files\js\plugins.js
 */	
-$(document).ready(
-function() {
+$(document).ready(function() {
 	$('[aria-hidden="true"]').hide(); //hide anything that's marked as hidden to screen-readers
 
 	if ( $('#navbar-search-full').length ) {
@@ -210,7 +209,7 @@ function() {
 		elapsed_time_running=setInterval(function() {update_elapsed_time()}, 900000);
 	};
 	
-	/*the followin 29 lines of code are not ready for production
+	/*the following 29 lines of code are not ready for production
 	if (!(Modernizr.input.required)) {
 	}
 	else {
@@ -249,8 +248,8 @@ function() {
 			// update modal header with contents of button that invoked the modal
 			$('#utility-label').html( $(this).html() );
 			var utility_target=$(this).attr('href')+' #content_container';
-			//console.log( utility_target );
 			//fixes a bootstrap bug that prevents a modal from being reused
+			console.log('target: '+utility_target);
 			$('#utility_body').load(
 				utility_target,
 				function(response, status, xhr) {
@@ -261,7 +260,21 @@ function() {
 					return this;
 				}
 			);
+			//converts any forms within #utility_body into using .load() to submit intended data and display the server response within the submitting modal
+			$('#utility_body form').submit(function(){
+				$('#utility_body').load(
+					$(this).attr('action')+' #content_container',
+					$(this).serialize(),
+					function(response, status, xhr) {
+						if (status === 'error') {
+							//console.log('got here');
+							$('#utility_body').html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
+						}
+						return this;
+					}
+				);
+				return false; // stops browser from doing default submit process
+			});
 		});
 	};
-}
-);
+});

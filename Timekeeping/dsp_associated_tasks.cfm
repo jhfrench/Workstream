@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> due_date: date that the task is due
 	--> status: string indicating the progress of the task
 	--> task_id: number that uniquely identifies a task
@@ -42,7 +42,7 @@
 	</tbody>
 </table>
 <cfelse>
-	<p class="text-warning">No tasks currently associated with this task.</p>
+	<p class="text-warning">No tasks currently linked to this task.</p>
 </cfif>
 <cfoutput>
 <input type="hidden" name="linked_task_id" value="0" />

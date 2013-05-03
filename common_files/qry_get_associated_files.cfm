@@ -24,4 +24,3 @@ WHERE active_ind=1
 	AND task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 ORDER BY file_path
 </cfquery>
-

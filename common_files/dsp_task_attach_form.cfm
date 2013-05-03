@@ -15,7 +15,7 @@
 	<-- linked_task_id: list of tasks to be attached to a particular task
  --->
 </cfsilent>
-<SCRIPT LANGUAGE="JavaScript1.1">
+<script language="JavaScript1.1">
 function add_to_linked_task_id_list() {
 	with (document.attach_task.task_id) {
 		if (options[selectedIndex] == null)
@@ -31,7 +31,7 @@ function add_to_linked_task_id_list() {
 		}
 	}
 }
-</SCRIPT>
+</script>
 <cfmodule template="qry_get_open_tasks.cfm" exclude_task_id="#attributes.base_task_id#">
 <cfoutput>
 <cfform name="attach_task" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="form-horizontal">

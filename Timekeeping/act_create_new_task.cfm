@@ -35,5 +35,5 @@ WHERE task_id=0
 
 <cfif compare(attributes.linked_task_id,0)>
 	<cfset attributes.base_task_id=attributes.task_id>
-	<cfinclude template="../common_files/qry_task_attach.cfm">
+	<cfinclude template="../common_files/qry_insert_link_task_task.cfm">
 </cfif>
