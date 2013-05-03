@@ -14,7 +14,7 @@
  --->
 <cfset variables.list_prospective_task_id=valuelist(get_prospectives.task_id)>
 <cfset variables.requested_sum=0>
-<cfset variables.total_requested=arraysum(valueArray(get_week_days.capacity))>
+<cfset variables.total_requested=arraysum(valuearray(get_week_days.capacity))>
 </cfsilent>
 <cfoutput>
 <script language="JavaScript">
