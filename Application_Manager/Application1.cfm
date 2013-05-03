@@ -29,8 +29,8 @@
 	sessiontimeout="0.04166666666665"
 	setclientcookies="yes"
 	setdomaincookies="no">
-<cfset application.product_name="FAAD">
-<cfset application.html_title="Federal Assistance Award Data">
+<cfset application.product_name="Application_Manager">
+<cfset application.html_title="Application Manager">
 <cfset application.active_ind="1">
 <cfset application.system_email_sender="customer_info@appliedinter.net">
 <cfset application.product_id="122">
@@ -49,7 +49,7 @@
 <cfset application.application_specific_settings.show_requirements_ind=1 >
 
 <cfset application.browser_navigation_enabled_ind="1">
-<cfset application.datasources.main="FAAD">
+<cfset application.datasources.main="application_manager">
 
 <cfswitch expression="#cgi.http_host#">
 	<cfcase value="nash.hitsshq.com">

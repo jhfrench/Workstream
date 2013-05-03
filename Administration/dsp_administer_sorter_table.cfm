@@ -3,7 +3,7 @@
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_administer_sorter_table.cfm">
 	<responsibilities>
-		I display the form for sorting FAAD system DB tables.
+		I display the form for sorting system DB tables.
 	</responsibilities>
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/28/2007" role="FuseCoder" comments="Created File">

@@ -4,7 +4,7 @@
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_manage_system_access.cfm">
 	<responsibilities>
 	</responsibilities>
-		Page to help administrator to manage FAAD system access.
+		Page to help administrator to manage system access.
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="10/4/2007" role="FuseCoder" comments="Created File">
 			$Id:$

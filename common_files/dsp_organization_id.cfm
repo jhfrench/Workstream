@@ -3,7 +3,7 @@
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_organization_id.cfm">
 	<responsibilities>
-		I display the my FAAD page to the user
+		I display the organization page to the user
 	</responsibilities>
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="3/23/2009" role="FuseCoder" comments="Created File">

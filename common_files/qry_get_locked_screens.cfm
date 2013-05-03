@@ -3,7 +3,7 @@
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="qry_get_locked_screens.cfm">
 	<responsibilities>
-		I am the query that gets pages that are locked in FAAD.
+		I am the query that gets pages that are locked in the system.
 	</responsibilities>
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="9/6/2007" role="FuseCoder" comments="Created File">

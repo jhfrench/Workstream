@@ -65,12 +65,12 @@
 	<cfparam name="error.datetime" default="#now()#">
 
 	<cfquery name="insert_error_info" datasource="#application.datasources.application_manager#">
-	INSERT INTO Error_Log (installation_id, erroring_template, erroring_querystring, 
+	INSERT INTO Error_Log (installation_id, erroring_template, erroring_querystring,
 		http_referer, diagnostics, application_variables,
 		username, remote_address, user_browser,
 		error_web_datetime, error_sql_datetime)
 	SELECT #application.installation_id#, '/Workstream/index.cfm', 'fuseaction=Administration.cause_error',
-		'http://appliedinter.net/Workstream/index.cfm?fuseaction=Administration.cause_error', 'Element SETTING_TO_A_VARIABLE_THAT_WILL_NEVER_EXIST is undefined in variables.<br />The error occurred on line 31.', 'FAAD:inst_169_date_2008-01-16 18:12:24_vers_244_env_21_host_1_e',
+		'http://appliedinter.net/Workstream/index.cfm?fuseaction=Administration.cause_error', 'Element SETTING_TO_A_VARIABLE_THAT_WILL_NEVER_EXIST is undefined in variables.<br />The error occurred on line 31.', 'Work:inst_169_date_2008-01-16 18:12:24_vers_244_env_21_host_1_e',
 		'', '198.116.131.105', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.11) Gecko/20071127 Firefox/2.0.0.11',
 		to_date('2008-02-01 10:27:01','YYYY-MM-DD HH24:MI:SS'), CURRENT_TIMESTAMP
 	FROM Dual

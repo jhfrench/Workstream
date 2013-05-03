@@ -3,7 +3,7 @@
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_upload.cfm">
 	<responsibilities>
-		I give the user an interface for uploading data into the FAAD system.
+		I give the user an interface for uploading data into the system.
 	</responsibilities>
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="6/22/2007" role="FuseCoder" comments="Created File">
@@ -69,7 +69,7 @@
 			</cfif>
 			<input type="submit" name="upload_file" value="Upload File" class="btn btn-primary" />
 			<input type="reset" value="Cancel" class="btn" />
-		</cfoutput> 
+		</cfoutput>
 		</td>
 	</tr>
 </table>

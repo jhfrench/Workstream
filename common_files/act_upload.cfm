@@ -3,7 +3,7 @@
 <!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="act_upload.cfm">
 	<responsibilities>
-		I help the user upload data into the FAAD backend.
+		I help the user upload data into the system backend.
 	</responsibilities>
 	<properties>
 		<history email="jeromy_french@hotmail.com" author="Jeromy French" type="create" date="7/12/2007" role="FuseCoder" comments="Created File">
