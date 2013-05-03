@@ -10,14 +10,14 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 </cfsilent>
 <cfquery name="delete_link_task_task" datasource="#application.datasources.main#">
 UPDATE Link_Task_Task
 SET active_ind=0
 WHERE active_ind=1
-	AND l_t_t_id IN (#attributes.del_task#)
+	AND l_t_t_id IN (#attributes.l_t_t_id#)
 </cfquery>
 <div class="alert alert-success">
 	<strong>That worked!</strong>

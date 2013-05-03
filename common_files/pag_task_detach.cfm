@@ -10,10 +10,10 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 </cfsilent>
-<cfif isdefined("attributes.del_task")>
+<cfif isdefined("attributes.l_t_t_id")>
 	<cfinclude template="act_task_detach.cfm">
 </cfif>
 <cfinclude template="qry_get_associated_tasks.cfm">

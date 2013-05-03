@@ -52,8 +52,8 @@ function add_to_linked_task_id_list() {
 				multiple2="0"
 				size1="6"
 				size2="6"
-				class1="span6"
-				class2="span6"
+				class1="span10"
+				class2="span10"
 				autoselectfirst="no"
 				formname="attach_task"
 				HTMLBetween="</div><div class='control-group'><label class='control-label' for='task_id'>Task</label><div class='controls'>">
