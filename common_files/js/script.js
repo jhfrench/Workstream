@@ -9,10 +9,10 @@ $(document).ready(function() {
 		//when it receives focus, grow the search input from span5 to span9
 		$('#header_search_criteria').focus( function() {
 				"use strict"; //let's avoid tom-foolery in this function
-				$(this).animate({width: '+=50'}, 190).addClass('span9').removeClass('span4');
+				$(this).animate({width: '+=50'}, 190).addClass('span9').removeClass('span4').removeAttr('style');
 			}).blur( function() {
 				"use strict"; //let's avoid tom-foolery in this function
-				$(this).animate({width: '-=50'}, 190).addClass('span4').removeClass('span9');
+				$(this).animate({width: '-=50'}, 190).addClass('span4').removeClass('span9').removeAttr('style');
 			});
 		
 		// change full search link to first change form target, then submit that form; change link's href to be an internal link; update link's title
