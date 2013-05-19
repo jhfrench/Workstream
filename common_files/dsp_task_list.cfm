@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> due_date: date when task is due
 	--> task_id: unique number that identifies task entry
 	--> task_name: name or title of the task
@@ -29,7 +29,7 @@
 </cfsilent>
 <cfif get_task_list.recordcount>
 <tbody>
-<cfoutput query="get_task_list"> 
+<cfoutput query="get_task_list">
 	<cfset variables.status_message=jsstringformat(task_name)>
 	<tr>
 		<td scope="row">#task_id#</td>

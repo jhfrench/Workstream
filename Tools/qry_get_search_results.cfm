@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource AS mapped in CF administrator
 	--> variables.user_identification: id that identifies user to workstream
 	--> session.workstream_show_closed: number that indicates the desire of the user to hide or show tasks which have already been completed; 1 means include the task, 0 means exclude the task
@@ -76,11 +76,12 @@
 <cfelse>
 	<cfset variables.valid_codes=session.workstream_selected_company_id>
 </cfif>
+<cfset variables.temp_task_list_order=session.workstream_task_list_order>
 
 <cfquery name="get_task_list" datasource="#application.datasources.main#">
 SELECT Task.due_date, Task.task_id, Task.name AS task_name,
 	COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Link_Task_Task_Status.task_status_id,
-	REF_Icon.class_name AS task_icon, REF_Priority.description AS priority, COALESCE(Recorded_Hours.used_hours,0) AS used_hours, 
+	REF_Icon.class_name AS task_icon, REF_Priority.description AS priority, COALESCE(Recorded_Hours.used_hours,0) AS used_hours,
 	(Customer.description || '-' || Project.description) AS project_name, Task_Owner.first_name AS task_owner, Task_Owner.last_name || ', ' || Task_Owner.first_name AS task_owner_full_name,
 	(CASE
 		WHEN Link_Task_Task_Status.task_status_id=3 /* QA */ THEN REF_Task_Status.description || ' by ' || COALESCE(Task_Tester.first_name,'unknown')
@@ -88,7 +89,7 @@ SELECT Task.due_date, Task.task_id, Task.name AS task_name,
 		ELSE REF_Task_Status.description
 	END) AS task_status
 FROM Task
-	INNER JOIN Project ON Task.project_id=Project.project_id 
+	INNER JOIN Project ON Task.project_id=Project.project_id
 		AND Project.project_id!=<cfqueryparam value="#application.application_specific_settings.pto_project_id#" cfsqltype="cf_sql_integer" /><cfif len(attributes.project_id)>
 		AND Project.project_id IN (<cfqueryparam value="#attributes.project_id#" cfsqltype="cf_sql_integer" list="true" />)</cfif>
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id<cfif len(attributes.customer_id) AND NOT len(attributes.project_id)>

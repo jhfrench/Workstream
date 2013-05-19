@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource AS mapped in CF administrator
 	--> variables.user_identification: id that identifies user to workstream
 	--> session.workstream_show_closed: number that indicates the desire of the user to hide or show tasks which have already been completed; 1 means include the task, 0 means exclude the task
@@ -52,7 +52,7 @@
 <cfquery name="get_task_list" datasource="#application.datasources.main#">
 SELECT Task.due_date, Task.task_id, Task.name AS task_name,
 	COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Link_Task_Task_Status.task_status_id,
-	REF_Icon.class_name AS task_icon, REF_Priority.description AS priority, COALESCE(Recorded_Hours.used_hours,0) AS used_hours, 
+	REF_Icon.class_name AS task_icon, REF_Priority.description AS priority, COALESCE(Recorded_Hours.used_hours,0) AS used_hours,
 	(Customer.description || '-' || Project.description) AS project_name, Task_Owner.first_name AS task_owner, Task_Owner.last_name || ', ' || Task_Owner.first_name AS task_owner_full_name,
 	(CASE
 		WHEN Link_Task_Task_Status.task_status_id=3 /* QA */ THEN REF_Task_Status.description || ' by ' || COALESCE(Task_Tester.first_name,'unknown')
@@ -60,7 +60,7 @@ SELECT Task.due_date, Task.task_id, Task.name AS task_name,
 		ELSE REF_Task_Status.description
 	END) AS task_status
 FROM Task
-	INNER JOIN Project ON Task.project_id=Project.project_id 
+	INNER JOIN Project ON Task.project_id=Project.project_id
 		AND Project.project_id!=#application.application_specific_settings.pto_project_id#<cfif isdefined("attributes.project_id")>
 		AND Project.project_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#" list="true" />)</cfif>
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
@@ -86,7 +86,7 @@ FROM Task
 			INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
 				AND Demographics.active_ind=1
 		WHERE Team.active_ind=1
-			AND Team.role_id=1 /* owner */ 
+			AND Team.role_id=1 /* owner */
 	) AS Task_Owner ON Task.task_id=Task_Owner.task_id
 	LEFT OUTER JOIN (
 		SELECT Team.task_id, Demographics.last_name, Demographics.first_name
@@ -113,8 +113,8 @@ WHERE Task.active_ind=1<cfif NOT variables.from_invoice>
 						AND Link_Task_Task_Status.task_status_id=3 /* QA */
 					)
 				)
-	)</cfif><cfif isdefined("variables.temp_task_list_order")>
-ORDER BY <cfif isdefined("attributes.user_account_id") AND listlen(attributes.user_account_id) GT 1>task_owner, </cfif>#variables.temp_task_list_order#</cfif>
+	)</cfif>
+ORDER BY <cfif isdefined("attributes.user_account_id") AND listlen(attributes.user_account_id) GT 1>task_owner, </cfif>#variables.temp_task_list_order#
 LIMIT 500
 </cfquery>
 </cfsilent>

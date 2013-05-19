@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> [attributes.order_by]: string that contains the column to give ordering preference to
 	--> [attributes.project_list_order]: number that corresponds to how the user wishes to order and display the project list pulldown
 	--> [attributes.show_closed]: boolean that indicates the desire of the user to show tasks which have already been completed
@@ -21,6 +21,7 @@
 	<-- session.workstream_show_team: number that indicates the desire of the user to hide or show tasks for which they are a member of the task team; 1 means include the task, 0 means exclude the task
 	<-- session.workstream_project_list_order: number that corresponds to how the user wishes to order and display the project list pulldown
  --->
+<!--- $issue$: need to convert this into cfscript --->
 <!--- TIMEKEEPING SETTINGS --->
 	<cfif isdefined("attributes.evaluate_task_options")>
 		<cfif isdefined("attributes.show_closed_project_ind")>
