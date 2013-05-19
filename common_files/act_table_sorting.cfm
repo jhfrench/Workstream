@@ -45,12 +45,12 @@ Modernizr.load([
 						});
 	                };
 				});
-
+<cfif attributes.tabletools_ind>
 				//apply some additional Bootstrap styling
 				$('.dataTables_length select').addClass('span3');
 				$('.dataTables_filter input').addClass('span9 search-query');
 				$('.DTTT_container').addClass('btn-group');
-				$('div.dataTables_paginate a, a.DTTT_button').addClass('btn btn-small');
+				$('div.dataTables_paginate a, a.DTTT_button').addClass('btn btn-small');</cfif>
 			});
 		}
 	}

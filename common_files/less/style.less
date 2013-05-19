@@ -11,6 +11,26 @@
 @iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 @linkColor: #483d8b;
 
+/* Sorting (from DataTables\media\css\jquery.dataTables.css) */
+	table.dataTable thead th.sorting_asc,
+	table.dataTable thead th.sorting_desc,
+	table.dataTable thead th.sorting {
+		cursor: pointer;
+		*cursor: hand;
+	}
+	
+	.sorting { background: url('../images/TBS_sort_both.png') no-repeat center right; }
+	.sorting_asc { background: url('../images/TBS_sort_asc.png') no-repeat center right; }
+	.sorting_desc { background: url('../images/TBS_sort_desc.png') no-repeat center right; }
+	
+	.sorting_asc_disabled { background: url('../images/TBS_sort_asc_disabled.png') no-repeat center right; }
+	.sorting_desc_disabled { background: url('../images/TBS_sort_desc_disabled.png') no-repeat center right; }
+	 
+	table.dataTable thead th:active,
+	table.dataTable thead td:active {
+		outline: none;
+	}
+
 .navbar-search .input-append .btn {
 	margin-left: -1px;
 	.border-radius(0 0 0 0);
