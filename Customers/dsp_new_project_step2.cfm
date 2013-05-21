@@ -7,10 +7,10 @@
 	Responsibilities: I display the second step of the 'create new project' wizard.
 	||
 	Name: Jeromy French
-	 || 
+	 ||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfset variables.start=1>
 <cfparam name="attributes.strip_trailing_ind" default="0" />
@@ -18,6 +18,10 @@
 <cfoutput>
 <fieldset>
 	<legend><h3>Billing Details</h3></legend>
+<cfif attributes.billable_type_id EQ 2>
+	<!--- Non-Billable; by definition cannot have a budget. --->
+	<input type="hidden" name="budget" id="budget" value="0" />
+<cfelse>
 	<div class="control-group">
 		<label class="control-label" for="budget">Budget</label>
 		<div class="controls">
@@ -28,8 +32,11 @@
 			<p class="help-block">Specify the total budget, in dollars, for this project.</p>
 		</div>
 	</div>
+</cfif>
 <cfswitch expression="#attributes.billable_type_id#">
 <cfcase value="1">
+	<fieldset>
+		<legend>Hourly</legend>
 	<div class="control-group">
 		<label class="control-label" for="rate">Hourly rate</label>
 		<div class="controls">
@@ -54,8 +61,11 @@
 			<p class="help-block">Provide the dates for which the hourly rate will be effective.</p>
 		</div>
 	</div>
+	</fieldset>
 </cfcase>
 <cfcase value="3">
+	<fieldset>
+		<legend>Flat-Rate</legend>
 	<div class="control-group">
 		<label class="control-label" for="start_date">Start</label>
 		<div class="controls">
@@ -77,8 +87,11 @@
 			<p class="help-block">Provide the number of months for which this project will be billed to the customer. The customer will be billed in equal increments.</p>
 		</div>
 	</div>
+	</fieldset>
 </cfcase>
 <cfcase value="4">
+	<fieldset>
+		<legend>Per-Incident</legend>
 	<div class="control-group">
 		<label class="control-label" for="charge">Incident Charge</label>
 		<div class="controls">
@@ -89,6 +102,7 @@
 			<p class="help-block">Specify the per-incident charge that the customer will incur each time a new task is created under this project.</p>
 		</div>
 	</div>
+	</fieldset>
 </cfcase>
 </cfswitch>
 </fieldset>
@@ -119,13 +133,13 @@
 		<input type="hidden" name="step" value="3" />
 		<input type="hidden" name="billable_type_id" value="#attributes.billable_type_id#" />
 		<input type="hidden" name="business_case" value="#attributes.business_case#" />
+		<cfif isdefined("attributes.company_id")><input type="hidden" name="company_id" value="#attributes.company_id#" /></cfif>
 		<input type="hidden" name="customer_id" value="#attributes.customer_id#" />
 		<input type="hidden" name="description" value="#attributes.description#" />
 		<input type="hidden" name="mission" value="#attributes.mission#" />
 		<input type="hidden" name="product_id" value="#attributes.product_id#" />
 		<input type="hidden" name="req_custom" value="#attributes.req_custom#" />
 		<input type="hidden" name="strip_trailing_ind" value="#attributes.strip_trailing_ind#" />
-		<cfif isdefined("attributes.company_id")><input type="hidden" name="company_id" value="#attributes.company_id#" /></cfif>
 		<input type="hidden" name="vision" value="#attributes.vision#" />
 		<input type="submit" value="Proceed" class="btn btn-primary" />
 	</div>
