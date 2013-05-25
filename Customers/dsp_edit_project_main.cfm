@@ -30,7 +30,7 @@
 	else if (len(get_project_main.project_end)) {
 		variables.min_project_start=application.application_specific_settings.workstream_start_date;
 		variables.max_project_start=get_project_main.project_end;
-		variables.min_project_end=get_project_main.prject_start;
+		variables.min_project_end=get_project_main.project_start;
 	}
 	else {
 		variables.min_project_start=application.application_specific_settings.workstream_start_date;
