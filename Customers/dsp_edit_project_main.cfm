@@ -1,4 +1,4 @@
- 
+
 <!--Customers/dsp_edit_project_main.cfm
 	Author: Jeromy French -->
 <cfsilent>
@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="qry_get_project_main.cfm">
@@ -20,16 +20,24 @@
 <cfinclude template="../common_files/qry_get_products.cfm">
 <cfinclude template="../common_files/qry_get_ref_project_status.cfm">
 <cfinclude template="../common_files/qry_get_ref_project_health.cfm">
-<cfset variables.linked_companies=valuelist(get_link_project_company.company_id)>
-<cfif len(get_project_main.last_work_date)>
-	<cfset variables.min_project_start=application.application_specific_settings.workstream_start_date>
-	<cfset variables.max_project_start=get_project_main.first_work_date>
-	<cfset variables.min_project_end=get_project_main.last_work_date>
-<cfelse>
-	<cfset variables.min_project_start=application.application_specific_settings.workstream_start_date>
-	<cfset variables.max_project_start=application.application_specific_settings.workstream_start_date>
-	<cfset variables.min_project_end=application.application_specific_settings.workstream_start_date>
-</cfif>
+<cfscript>
+	variables.linked_companies=valuelist(get_link_project_company.company_id);
+	if (len(get_project_main.last_work_date)) {
+		variables.min_project_start=application.application_specific_settings.workstream_start_date;
+		variables.max_project_start=get_project_main.first_work_date;
+		variables.min_project_end=get_project_main.last_work_date;
+	}
+	else if (len(get_project_main.project_end)) {
+		variables.min_project_start=application.application_specific_settings.workstream_start_date;
+		variables.max_project_start=get_project_main.project_end;
+		variables.min_project_end=get_project_main.prject_start;
+	}
+	else {
+		variables.min_project_start=application.application_specific_settings.workstream_start_date;
+		variables.max_project_start=application.application_specific_settings.workstream_start_date;
+		variables.min_project_end=application.application_specific_settings.workstream_start_date;
+	}
+</cfscript>
 <cfoutput>
 <cfform name="edit_project_main_form" action="index.cfm?fuseaction=Customers.edit_project" method="post" class="form-horizontal">
 	<fieldset>
@@ -37,20 +45,20 @@
 		<div class="control-group">
 			<label for="customer_id" class="control-label">Root Code</label>
 			<div class="controls">
-				<cfselect name="customer_id" id="customer_id" size="1" query="get_root_codes" value="customer_id" selected="#get_project_main.customer_id#" required="yes" display="display"></cfselect>
+				<cfselect name="customer_id" id="customer_id" size="1" query="get_root_codes" value="customer_id" selected="#get_project_main.customer_id#" required="yes" display="display" class="span3"></cfselect>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="description" class="control-label">Project Name</label>
 			<div class="controls">
-				<cfinput type="text" name="description" id="description" value="#get_project_main.description#" required="yes" message="Please enter an Project Name" size="45" />
+				<cfinput type="text" name="description" id="description" value="#get_project_main.description#" required="yes" message="Please enter an Project Name" class="span3" />
 				<p class="help-block">Choose a unique project name.</p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="company_id" class="control-label">Visible To</label>
 			<div class="controls">
-				<select name="company_id" id="company_id" multiple="multiple" size="4">
+				<select name="company_id" id="company_id" multiple="multiple" size="4" class="span3">
 					<cfloop query="get_companies">
 						<option value="#company_id#"<cfif listcontains(variables.linked_companies,company_id)> selected="selected"</cfif>>#description#</option>
 					</cfloop>
@@ -61,14 +69,14 @@
 		<div class="control-group">
 			<label for="project_manager_id" class="control-label"><abbr title="Project Manager">PM</abbr>/Account Management</label>
 			<div class="controls">
-				<cfmodule template="../common_files/dsp_team_select.cfm" size="6" select_name="project_manager_id" selected_value_ind="1" user_account_id="#get_project_main.project_manager_id#">
+				<cfmodule template="../common_files/dsp_team_select.cfm" size="6" select_name="project_manager_id" selected_value_ind="1" user_account_id="#get_project_main.project_manager_id#" class="span3">
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="file_path" class="control-label">File Path</label>
 			<div class="controls">
 				<div class="input-append">
-					<input type="text" name="file_path" id="file_path" value="#get_project_main.file_path#" class="span3">
+					<input type="text" name="file_path" id="file_path" value="#get_project_main.file_path#" class="span6" />
 					<a href="javascript:window.open('index.cfm?fuseaction=common_files.file_attach', 'files', 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=420,height=210');" title="Associate a file path to this task." class="btn"><i class="icon-folder-open"></i> Specify</a>
 				</div>
 			</div>
@@ -76,7 +84,7 @@
 		<div class="control-group">
 			<label for="product_id" class="control-label">Product</label>
 			<div class="controls">
-				<cfselect name="product_id" id="product_id" query="get_products" value="product_id" display="product_name" selected="#get_project_main.product_id#" required="yes" message="Please choose which product this project applies to." size="4"></cfselect>
+				<cfselect name="product_id" id="product_id" query="get_products" value="product_id" display="product_name" selected="#get_project_main.product_id#" required="yes" message="Please choose which product this project applies to." size="4" class="span3"></cfselect>
 				<p class="help-block">Specify which product this project will cover.</p>
 			</div>
 		</div>
