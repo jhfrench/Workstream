@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfquery name="get_projects" datasource="#application.datasources.main#">
 SELECT Project.project_code, Project.description, Customer.description AS customer_description,
@@ -28,8 +28,8 @@ FROM Project
 		WHERE Task.active_ind=1
 		GROUP BY Task.project_id
 	) AS Task_Count ON Project.project_id=Task_Count.project_id
-WHERE Project.active_ind=#attributes.active_ind#<cfif isdefined("attributes.customer_id")>
-	AND Project.customer_id=#attributes.customer_id#</cfif>
+WHERE Project.active_ind=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.active_ind#" /><cfif isdefined("attributes.customer_id")>
+	AND Project.customer_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.customer_id#" /></cfif>
 	AND Project.project_id IN (
 		SELECT project_id
 		FROM Link_Project_Company

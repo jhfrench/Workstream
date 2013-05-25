@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <thead>
@@ -18,7 +18,7 @@
 		<th>Customer Name</th>
 		<cfif NOT (isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2)><th>Project Code</th></cfif>
 		<th>Billing Type</th>
-		<th>Open Tasks</th>
+		<th title="Count of tasks that are in a status other than closed.">Remaining Tasks</th>
 		<th>Active</th>
 	</tr>
 </thead>
