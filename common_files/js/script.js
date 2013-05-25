@@ -183,8 +183,8 @@ $(document).ready(function() {
 
 	//if page includes resolution entry, inject a widget that will track how long the task has been open, adding a quarter hour every 15 minutes
 	if( $('#task_details_resolution_entry_hours').length ) {
-		var elapsed_time_running;
-		var elapsed_time=0.25;
+		var elapsed_time_running,
+			elapsed_time=0.25;
 		
 		function update_elapsed_time() {
 			//add quarter hour

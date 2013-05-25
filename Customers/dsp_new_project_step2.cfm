@@ -16,12 +16,12 @@
 <cfparam name="attributes.strip_trailing_ind" default="0" />
 </cfsilent>
 <cfoutput>
-<fieldset>
-	<legend><h3>Billing Details</h3></legend>
 <cfif attributes.billable_type_id EQ 2>
 	<!--- Non-Billable; by definition cannot have a budget. --->
 	<input type="hidden" name="budget" id="budget" value="0" />
 <cfelse>
+<fieldset>
+	<legend><h3>Billing Details</h3></legend>
 	<div class="control-group">
 		<label class="control-label" for="budget">Budget</label>
 		<div class="controls">
@@ -32,7 +32,6 @@
 			<p class="help-block">Specify the total budget, in dollars, for this project.</p>
 		</div>
 	</div>
-</cfif>
 <cfswitch expression="#attributes.billable_type_id#">
 <cfcase value="1">
 	<fieldset>
@@ -106,6 +105,7 @@
 </cfcase>
 </cfswitch>
 </fieldset>
+</cfif>
 <fieldset>
 	<legend><h3>Work Dates</h3></legend>
 	<div class="control-group">
@@ -119,7 +119,7 @@
 		<label class="control-label" for="project_end">End</label>
 		<div class="controls">
 			<input type="date" name="project_end" id="project_end" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" class="span3 date" />
-			<p class="help-block">Provide he anticipated date that work will stop.</p>
+			<p class="help-block">Provide the anticipated date that work will stop.</p>
 		</div>
 	</div>
 </fieldset>
