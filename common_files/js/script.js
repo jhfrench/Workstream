@@ -73,12 +73,14 @@ $(document).ready(function() {
 			//getHelp('article', default_help);
 			
 			//assign onclick event to help article anchor tags to make use of AJAX calls instead of native HTML link functionality
-			$('#help_top_article a.article').on('click', function(){
+			$('#help_top_article a.article').click(function(event) {
 				"use strict"; //let's avoid tom-foolery in this function
+				event.preventDefault(); //don't let a tag try to jump us to #help_area before we reveal it
 				getHelp( 'article', $(this).attr('data-id') );
 			}).attr('href', '#help_area').attr('aria-controls', 'help_main_article');
-			$('#help_top_article a.edit').on('click', function(){
+			$('#help_top_article a.edit').click(function(event) {
 				"use strict"; //let's avoid tom-foolery in this function
+				event.preventDefault(); //don't let a tag try to jump us to #help_area before we reveal it
 				edit_help_article( $(this).attr('data-id') );
 			}).attr('href', '#help_area');
 		}
@@ -90,12 +92,14 @@ $(document).ready(function() {
 			getHelp('faq', default_faq);
 			
 			//assign onclick event to help FAQ anchor tags to make use of AJAX calls instead of native HTML link functionality
-			$('#help_top_faq a.question').on('click', function(){
+			$('#help_top_faq a.question').click(function(event) {
 				"use strict"; //let's avoid tom-foolery in this function
+				event.preventDefault(); //don't let a tag try to jump us to #help_area before we reveal it
 				getHelp( 'faq', $(this).attr('data-id') );
 			}).attr('href', '#help_area').attr('aria-controls', 'help_main_faq');
-			$('#help_top_faq a.edit').on('click', function(){
+			$('#help_top_faq a.edit').click(function(event) {
 				"use strict"; //let's avoid tom-foolery in this function
+				event.preventDefault(); //don't let a tag try to jump us to #help_area before we reveal it
 				edit_help_faq( $(this).attr('data-id') );
 			}).attr('href', '#help_area');
 
@@ -208,8 +212,10 @@ $(document).ready(function() {
 
 		// inject clock span
 		$('#task_details_resolution_entry_hours').append( '<!-- following clock image and related HTML are injected from plugins.js --><button type="button" id="task_open_link" title="Update hours field to 0.25 hours." class="btn btn-mini"><i class="icon-time"></i> <span id="task_open_clock">0.25</span> hours</button>' );
-		$('#task_open_link').on('click', function(){
-			 $('#hours').val( elapsed_time );
+		$('#task_open_link').click(function(event) {
+			"use strict"; //let's avoid tom-foolery in this function
+			event.preventDefault(); //don't let a tag try to jump us to #help_area before we reveal it
+			$('#hours').val( elapsed_time );
 		});
 
 		// add a quarter hour every 15 minutes
