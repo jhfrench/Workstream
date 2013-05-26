@@ -24,7 +24,7 @@
 </cfsilent>
 <cfoutput>
 <tbody>
-<cfloop from="1" to="#min(variables.workstream_express_input_rows,30)#" invariables.input_row_ii="variables.input_row_ii">
+<cfloop from="1" to="#min(variables.workstream_express_input_rows,30)#" index="variables.input_row_ii">
 	<tr>
 		<td scope="row">
 			<input type="date" name="date" id="date" min="#variables.min_date#" max="#variables.max_date#" value="" maxlength="10" class="span8 date" />
