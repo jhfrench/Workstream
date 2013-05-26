@@ -9,10 +9,10 @@ $(document).ready(function() {
 		//when it receives focus, grow the search input from span5 to span9
 		$('#header_search_criteria').focus( function() {
 				"use strict"; //let's avoid tom-foolery in this function
-				$(this).animate({width: '+=50'}, 190).addClass('span9').removeClass('span4').removeAttr('style');
+				$(this).switchClass('span4', 'span9', 200);
 			}).blur( function() {
 				"use strict"; //let's avoid tom-foolery in this function
-				$(this).animate({width: '-=50'}, 190).addClass('span4').removeClass('span9').removeAttr('style');
+				$(this).switchClass('span9', 'span4', 200);
 			});
 		
 		// change full search link to first change form target, then submit that form; change link's href to be an internal link; update link's title
@@ -110,9 +110,9 @@ $(document).ready(function() {
 			// handles the submission of a user's question
 			var submit_faq = function() {
 				"use strict"; //let's avoid tom-foolery in this function
-				var errorMessage='';
-				var fieldFocus='';
-				var emailFilter = /^[\-a-z0-9~!$%\^&*_=+}{\'?]+(\.[\-a-z0-9~!$%\^&*_=+}{\'?]+)*@([a-z0-9_][\-a-z0-9_]*(\.[\-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
+				var errorMessage='',
+					fieldFocus='',
+					emailFilter = /^[\-a-z0-9~!$%\^&*_=+}{\'?]+(\.[\-a-z0-9~!$%\^&*_=+}{\'?]+)*@([a-z0-9_][\-a-z0-9_]*(\.[\-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
 				
 				//if user requests an email response to their FAQ, require that they specify a (valid) email address
 				//console.log($('#faq_form #asker_email_address').val());

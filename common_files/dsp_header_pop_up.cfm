@@ -52,14 +52,16 @@
 	Modernizr.load([
 		{
 			both: [
-				'//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'
+				'//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js',
+				'//ajax.googleapis.com/ajax/libs/jqueryui/1.1/jquery-ui.min.js'
 			],
 			complete: function(){
 				if ( !window.jQuery ) {
 					Modernizr.load([
 						{
 							both: [
-								'common_files/js/jquery.min.js'
+								'../external/jquery-2.0.0.min.js',
+								'common_files/js/jquery-ui.min.js'
 							]
 						}
 					]);
@@ -68,7 +70,7 @@
 		},
 		{
 			load: [
-				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js'
+				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js'
 			],
 			complete: function(){
 				if ( !window.jQuery.support ) {
