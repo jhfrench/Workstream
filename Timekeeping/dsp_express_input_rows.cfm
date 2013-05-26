@@ -38,12 +38,23 @@
 				<cfloop query="get_express_task_list">
 					<cfif variables.sort_order NEQ get_express_task_list.sort_order>
 						<cfset variables.sort_order=get_express_task_list.sort_order>
-						<cfif variables.sort_order EQ 1>
-							<cfset variables.optgroup_label="Your Tasks">
-						<cfelse>
-							</optgroup>
-							<cfset variables.optgroup_label="Team Tasks">
-						</cfif>
+						<cfswitch expression="#variables.sort_order#">
+							<cfcase value="1">
+								<cfset variables.optgroup_label="Your Tasks">
+							</cfcase>
+							<cfcase value="2">
+								</optgroup>
+								<cfset variables.optgroup_label="Team Tasks">
+							</cfcase>
+							<cfcase value="3">
+								</optgroup>
+								<cfset variables.optgroup_label="General Billing Codes">
+							</cfcase>
+							<cfdefaultcase>
+								</optgroup>
+								<cfset variables.optgroup_label="Undefined Grouping">
+							</cfdefaultcase>
+						</cfswitch>
 						<optgroup label="#variables.optgroup_label#">
 					</cfif>
 					<option value="#task_id#">#task_name#</option>
