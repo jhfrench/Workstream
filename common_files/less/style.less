@@ -32,25 +32,32 @@
 		outline: none;
 	}
 
-.navbar-search .input-append .btn {
-	margin-left: -1px;
-	.border-radius(0 0 0 0);
-}
-.navbar-search .input-append .search-query {
-	.border-radius(14px 0 0 14px);
-}
-.navbar-search .input-append .btn:last-child {
-	.border-radius(0 14px 14px 0);
+.navbar-search {
+	.input-append {
+		.btn {
+			margin-left: -1px;
+			.border-radius(0 0 0 0);
+		}
+		.search-query {
+			.border-radius(14px 0 0 14px);
+		}
+		
+		.btn:last-child {
+			.border-radius(0 14px 14px 0);
+		}
+	}
 }
 
-.form-inline fieldset {
-	display: inline;
-}
-.form-inline legend.control-label {
-	border-bottom: 0;
-	display: inline-block;
-	line-height: inherit;
-	margin-bottom: 0;
+.form-inline {
+	fieldset {
+		display: inline;
+	}
+	legend.control-label {
+		border-bottom: 0;
+		display: inline-block;
+		line-height: inherit;
+		margin-bottom: 0;
+	}
 }
 
 /* general settings */
@@ -74,12 +81,11 @@ footer {
 	margin-left: 0px !important;
 	overflow-y: auto;
 	white-space: pre-line;
-}
-
-.faux-textarea p {
-	margin-bottom: 0px;
-	padding-left: 10px;
-	text-indent: -10px !important; //outdent first line of each note
+	p {
+		margin-bottom: 0px;
+		padding-left: 10px;
+		text-indent: -10px !important; //outdent first line of each note
+	}
 }
 
 .cursor_help {
