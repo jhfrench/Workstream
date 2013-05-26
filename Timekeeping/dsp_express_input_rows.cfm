@@ -34,13 +34,21 @@
 		</td>
 		<td>
 			<select name="task_id" size="1" class="span9">
+				<cfset variables.sort_order=0>
 				<cfloop query="get_express_task_list">
-					<cfparam name="request.sort_order" default="#sort_order#">
-					<cfif compare(request.sort_order,"nope") AND request.sort_order NEQ sort_order><option value="0">*************</option></cfif>
+					<cfif variables.sort_order NEQ get_express_task_list.sort_order>
+						<cfset variables.sort_order=get_express_task_list.sort_order>
+						<cfif variables.sort_order EQ 1>
+							<cfset variables.optgroup_label="Your Tasks">
+						<cfelse>
+							</optgroup>
+							<cfset variables.optgroup_label="Team Tasks">
+						</cfif>
+						<optgroup label="#variables.optgroup_label#">
+					</cfif>
 					<option value="#task_id#">#task_name#</option>
-					<cfset request.sort_order=sort_order>
 				</cfloop>
-				<cfset request.sort_order="nope">
+				</optgroup>
 			</select>
 		</td>
 		<td>
