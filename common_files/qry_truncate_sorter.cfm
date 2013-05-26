@@ -23,5 +23,6 @@
 </fusedoc>
 --->
 <cfquery name="truncate_sorter" datasource="#application.datasources.main#">
-TRUNCATE TABLE Sorter
+TRUNCATE TABLE Sorter; /*empty table*/
+SELECT setval('sorter_sorter_id_seq', 0); /*reset sequence*/
 </cfquery>
