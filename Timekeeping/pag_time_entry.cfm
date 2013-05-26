@@ -14,7 +14,6 @@
  --->
 <cfset attributes.project_entry_ind="1">
 </cfsilent>
-<cfinclude template="act_validate_hours_js.cfm">
 <cfif isdefined("attributes.hours") AND listlen(attributes.hours) AND session.workstream_last_loaded NEQ attributes.last_loaded>
 	<cfinclude template="act_upload_entries.cfm">
 </cfif>
@@ -25,7 +24,7 @@
 
 <cfinclude template="dsp_express_cftree.cfm">
 
-<cfform name="myform" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST">
+<cfform name="form_time_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST">
 <table class="table table-striped table-bordered table-condensed">
 	<caption><h2><em>-Express=</em> Time Entry</h2></caption>
 	<thead>
