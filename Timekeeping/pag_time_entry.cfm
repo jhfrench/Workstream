@@ -10,9 +10,9 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
-<cfset project_entry="1">
+<cfset attributes.project_entry_ind="1">
 </cfsilent>
 <cfinclude template="act_validate_hours_js.cfm">
 <cfif isdefined("attributes.hours") AND listlen(attributes.hours) AND session.workstream_last_loaded NEQ attributes.last_loaded>

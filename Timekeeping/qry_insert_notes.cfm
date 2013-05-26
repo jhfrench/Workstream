@@ -17,18 +17,30 @@
 	--> attributes.notes_type_id: number that indicates what type of note is being entered into the database
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
 	--> variables.user_identification: id that identifies user to workstream
-	--> request.note: string that contains the note that corresponds to a particular time entry
+	--> variables.note: string that contains the note that corresponds to a particular time entry
  --->
-<cfif isdefined("attributes.file_path")>
-	<cfset request.note=attributes.notes>
-<cfelse>
-	<cfset request.note=evaluate("attributes.notes_#ii#")>
-</cfif>
-<cfparam name="attributes.notes_type_id" default=1>
-<cfquery name="upload_express_notes" datasource="#application.datasources.main#">
+<cfscript>
+	if (NOT isedfined("attributes.notes_type_id")) {
+		attributes.notes_type_id=1;
+	}
+	if (isdefined("attributes.file_path")) {
+		variables.note=attributes.notes;
+	}
+	else {
+		variables.note=evaluate("attributes.notes_#variables.hours_ii#");
+	}
+	if (isdefined("attributes.project_entry_ind")) {
+		variables.task_id="NULL";
+	}
+	else {
+		variables.task_id=listgetat(attributes.task_id,variables.hours_ii);
+	}
+</cfscript>
+<cfquery name="insert_notes" datasource="#application.datasources.main#">
 INSERT INTO Notes (task_id, user_account_id, notes_type_id,
 	note, created_by)
-VALUES (<cfif isdefined("project_entry")>0<cfelse>#listgetat(attributes.task_id,ii)#</cfif>, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, #attributes.notes_type_id#,
-	'#HTMLEditFormat(request.note)#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
+VALUES (<cfqueryparam value="#variables.task_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#attributes.notes_type_id#" cfsqltype="cf_sql_integer" />,
+	'#HTMLEditFormat(variables.note)#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
+RETURNING notes_id
 </cfquery>
 </cfsilent>

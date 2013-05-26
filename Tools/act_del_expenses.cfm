@@ -1,5 +1,5 @@
 
-<!--Tools/Act_del_expenses.cfm
+<!--Tools/act_del_expenses.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -9,26 +9,29 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 	<cfquery name="get_notes_id" datasource="#application.datasources.main#">
-	SELECT notes_id 
+	SELECT notes_id
 	FROM Expense
-	WHERE #attributes.expense_id#  = expense_id
+	WHERE expense_id=#attributes.expense_id#
 	</cfquery>
 
 	<cfquery name="delete_notes" datasource="#application.datasources.main#">
-	DELETE FROM Notes
+	UPDATE Notes
+	SET active_ind=1
 	WHERE notes_id=#get_notes_id.notes_id#
 	</cfquery>
 
 	<cfquery name="delete_expense" datasource="#application.datasources.main#">
-    DELETE FROM expense
-	    where #attributes.expense_id#  = expense_id
-     </cfquery>
+	UPDATE Expense
+	SET active_ind=1
+	WHERE expense_id=#attributes.expense_id#
+	</cfquery>
 
 	<cfquery name="delete_expense_amount" datasource="#application.datasources.main#">
-    DELETE FROM expense_amount
-	    where #attributes.expense_id#  = expense_id
-     </cfquery>
+	UPDATE Expense_Amount
+	SET active_ind=1
+	WHERE expense_id=#attributes.expense_id#
+	</cfquery>
 </cfsilent>

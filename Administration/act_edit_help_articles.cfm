@@ -63,17 +63,15 @@
 			help_article_text, help_article_title)
 		VALUES (#attributes.sort_order#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, #attributes.active_ind#,
 			<cfqueryparam value="#attributes.help_article_text#" cfsqltype="CF_SQL_LONGVARCHAR">, '#attributes.help_article_title#')
+		RETURNING help_article_id
 		</cfquery>
-		<cfquery name="get_help_article_id" datasource="#application.datasources.main#">
-		SELECT CURRVAL('Help_Article_help_article_id_SEQ') AS help_article_id
-		</cfquery>
-		<cfset attributes.help_article_id=get_help_article_id.help_article_id>
+		<cfset attributes.help_article_id=insert_help_article.help_article_id>
 		<!--- INSERT INTO Link_Screen_Help_Article (help_article_id, screen_id) --->
 		<cfloop list="#attributes.screen_id#" index="variables.screen_id">
 			<cfquery name="insert_link_screen_help_article" datasource="#application.datasources.main#">
 			INSERT INTO Link_Screen_Help_Article (screen_id, help_article_id, created_by,
 				active_ind)
-			VALUES (#variables.screen_id#, #get_help_article_id.help_article_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />,
+			VALUES (#variables.screen_id#, #insert_help_article.help_article_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />,
 				#attributes.active_ind#)
 			</cfquery>
 		</cfloop>

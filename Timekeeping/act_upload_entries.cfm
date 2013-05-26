@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 <cfparam name="variables.not_numeric_entries" default="">
 <cfif len(attributes.hours) EQ 0>
@@ -20,15 +20,14 @@
 <cfif isdefined("attributes.project_id")>
 	<cfset variables.identifier="project_id">
 </cfif>
-<cfloop from="1" to="#listlen(attributes.hours)#" index="ii">
-	<cfif isnumeric(listgetat(attributes.hours,ii))>
+<cfloop from="1" to="#listlen(attributes.hours)#" index="variables.hours_ii">
+	<cfif isnumeric(listgetat(attributes.hours,variables.hours_ii))>
 	<cftransaction isolation="READ_COMMITTED">
 		<cfinclude template="qry_insert_notes.cfm">
-		<cfinclude template="qry_get_project_details.cfm">
 		<cfinclude template="qry_insert_time_entry.cfm">
 	</cftransaction>
 	<cfelse>
-		<cfset variables.not_numeric_entries=listappend(variables.not_numeric_entries,"Date=#listgetat(attributes.date,ii)#; Hours=#listgetat(attributes.hours,ii)#; #variables.identifier#=#listgetat(evaluate('attributes.#identifier#'),ii)#; Notes=#evaluate('notes_#ii#')#")>
+		<cfset variables.not_numeric_entries=listappend(variables.not_numeric_entries,"Date=#listgetat(attributes.date,variables.hours_ii)#; Hours=#listgetat(attributes.hours,variables.hours_ii)#; #variables.identifier#=#listgetat(evaluate('attributes.#identifier#'),variables.hours_ii)#; Notes=#evaluate('notes_#variables.hours_ii#')#")>
 	</cfif>
 </cfloop>
 <cfset session.workstream_last_loaded=attributes.last_loaded>
