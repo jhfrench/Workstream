@@ -16,14 +16,22 @@
 	if (NOT isdefined("attributes.tabletools_ind")) {
 		attributes.tabletools_ind=0;
 	};
+	if (NOT isdefined("attributes.bFilter")) {
+		attributes.bFilter=0;
+	};
+	if (NOT isdefined("attributes.bPaginate")) {
+		attributes.bPaginate=0;
+	};
 </cfscript>
 </cfsilent>
+<cfoutput>
 <script type="text/javascript">
 //if Modernizr determines they can be supported, load the following CSS and JavaScript resources
 Modernizr.load([
 	{
 		load: [
-			'../external/DataTables/DataTables/media/js/jquery.dataTables.js'<cfif attributes.tabletools_ind>,
+			'../external/DataTables/DataTables/media/js/jquery.dataTables.js'<cfif attributes.bPaginate>,
+			'../external/DataTables/Plugins/pagination/bootstrap.js'</cfif><cfif attributes.tabletools_ind>,
 			'../external/DataTables/TableTools/media/js/TableTools.js',
 			'../external/DataTables/TableTools/media/js/ZeroClipboard.js'</cfif>
 		],
@@ -33,26 +41,27 @@ Modernizr.load([
 				$('table.tablesorter').each( function() {
 	                if ($(this).prop('rows').length > 2) {
 						$(this).dataTable({
-							"bPaginate": false,
 							"bAutoWidth": false,
-							"bLengthChange": false,<cfif attributes.tabletools_ind>
-							"sDom": "<'row-fluid'<'span6'f><'span6'<'pull-right'T>>r>t",
+							"bFilter": #attributes.bFilter#,
+							"bLengthChange": false,
+							"bPaginate": #attributes.bPaginate#,
+							"iDisplayLength": 50,
+							"sDom": "<cfif attributes.tabletools_ind><'row-fluid'<'span6'f><'span6'<'pull-right'T>>r></cfif>t<cfif attributes.bPaginate><'row-fluid'<'span6'i><'span6'<'pull-right'p>>></cfif>"<cfif attributes.tabletools_ind>,
 							"oTableTools": {
 								"aButtons": [ "copy", "xls", "pdf" ],
-								"sSwfPath": "http://10.20.17.226:7080/mockup_jf/js/copy_csv_xls_pdf.swf"
-							}<cfelse>
-							"bFilter": false</cfif>
+								"sSwfPath": "../external/DataTables/TableTools/media/swf/copy_csv_xls_pdf.swf"
+							}</cfif>
 						});
 	                };
 				});
-<cfif attributes.tabletools_ind>
-				//apply some additional Bootstrap styling
-				$('.dataTables_length select').addClass('span3');
-				$('.dataTables_filter input').addClass('span9 search-query');
-				$('.DTTT_container').addClass('btn-group');
-				$('div.dataTables_paginate a, a.DTTT_button').addClass('btn btn-small');</cfif>
+				//apply relevant Bootstrap styling
+				<cfif attributes.bFilter>
+				$('.dataTables_filter input').addClass('span9 search-query');</cfif><cfif attributes.tabletools_ind>
+				$('.DTTT_container').addClass('btn-group').find('a').addClass('btn btn-small');
+				$('.dataTables_length select').addClass('span3');</cfif>
 			});
 		}
 	}
 ]);
 </script>
+</cfoutput>
