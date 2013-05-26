@@ -39,6 +39,12 @@
 	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
 	<link rel="stylesheet" href="common_files/Workstream_Login.css">
 
+	<!-- pre-fetch some resources to make the app perform better-->
+	<link rel="prefetch" href="common_files/js/script.js">
+	<link rel="prefetch" href="images/spritepad_Workstream.png">
+	<link rel="prefetch" href="../external/bootstrap/img/glyphicons-halflings.png">
+	<link rel="prefetch" href="../external/bootstrap/img/glyphicons-halflings-white.png">
+
 	<script src="common_files/js/modernizr.custom.40623.js"></script>
 	<script type="text/javascript">
 	//if Modernizr determines they can be supported, load the following CSS and JavaScript resources

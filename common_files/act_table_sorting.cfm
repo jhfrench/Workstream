@@ -57,7 +57,7 @@ Modernizr.load([
 				});
 				//apply relevant Bootstrap styling
 				<cfif attributes.bFilter>
-				$('.dataTables_filter input').addClass('span9 search-query').attr('placeholder','search this table');</cfif><cfif attributes.tabletools_ind>
+				$('.dataTables_filter input').addClass('span9 search-query').attr('placeholder','search '+$(this)..parents('.dataTables_wrapper').find('caption').text());</cfif><cfif attributes.tabletools_ind>
 				$('.DTTT_container').addClass('btn-group').find('a').addClass('btn btn-small');
 				$('.dataTables_length select').addClass('span3');</cfif>
 			});
