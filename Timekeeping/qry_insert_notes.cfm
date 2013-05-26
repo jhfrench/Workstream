@@ -20,7 +20,7 @@
 	--> variables.note: string that contains the note that corresponds to a particular time entry
  --->
 <cfscript>
-	if (NOT isedfined("attributes.notes_type_id")) {
+	if (NOT isdefined("attributes.notes_type_id")) {
 		attributes.notes_type_id=1;
 	}
 	if (isdefined("attributes.file_path")) {

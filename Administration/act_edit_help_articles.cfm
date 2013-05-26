@@ -24,7 +24,7 @@
 </fusedoc>
 --->
 
-<cfparam name="help_article_id" default="0">
+<cfparam name="attributes.help_article_id" default="0">
 <cfparam name="attributes.sort_order" default="9999">
 <cftransaction>
 	<cfif attributes.help_article_id NEQ 0>
@@ -32,14 +32,14 @@
 		<cfquery name="deactivate_help_article" datasource="#application.datasources.main#">
 		UPDATE Help_Article
 		SET active_ind=0
-		WHERE help_article_id=#attributes.help_article_id#
+		WHERE help_article_id=<cfqueryparam value="#attributes.help_article_id#" cfsqltype="cf_sql_integer" />
 			AND active_ind=1
 		</cfquery>
 		<!--- deactivate Link_Screen_Help_Article record for old help_article --->
 		<cfquery name="deactivate_link_screen_help_article" datasource="#application.datasources.main#">
 		UPDATE Link_Screen_Help_Article
 		SET active_ind=0
-		WHERE help_article_id=#attributes.help_article_id#
+		WHERE help_article_id=<cfqueryparam value="#attributes.help_article_id#" cfsqltype="cf_sql_integer" />
 			AND	active_ind=1
 		</cfquery>
 	</cfif>
@@ -53,26 +53,25 @@
 				SELECT Link_Screen_Help_Article.help_article_id
 				FROM Link_Screen_Help_Article
 				WHERE Link_Screen_Help_Article.active_ind=1
-					AND Link_Screen_Help_Article.screen_id IN (#attributes.screen_id#)
+					AND Link_Screen_Help_Article.screen_id IN (<cfqueryparam value="#attributes.screen_id#" cfsqltype="cf_sql_integer" list="true" />)
 			)
-			AND sort_order >= #attributes.sort_order#
+			AND sort_order >= <cfqueryparam value="#attributes.sort_order#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 		<!--- insert new text into Help_Article, get help_article_id --->
 		<cfquery name="insert_help_article" datasource="#application.datasources.main#">
-		INSERT INTO Help_Article (sort_order, created_by, active_ind,
-			help_article_text, help_article_title)
-		VALUES (#attributes.sort_order#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, #attributes.active_ind#,
-			<cfqueryparam value="#attributes.help_article_text#" cfsqltype="CF_SQL_LONGVARCHAR">, '#attributes.help_article_title#')
+		INSERT INTO Help_Article (help_article_text, help_article_title, sort_order,
+			created_by, active_ind)
+		VALUES (<cfqueryparam value="#attributes.help_article_text#" cfsqltype="cf_sql_longvarchar" />, <cfqueryparam value="#attributes.help_article_title#" cfsqltype="cf_sql_varchar" />, <cfqueryparam value="#attributes.sort_order#" cfsqltype="cf_sql_integer" />,
+			<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, 1)
 		RETURNING help_article_id
 		</cfquery>
 		<cfset attributes.help_article_id=insert_help_article.help_article_id>
-		<!--- INSERT INTO Link_Screen_Help_Article (help_article_id, screen_id) --->
-		<cfloop list="#attributes.screen_id#" index="variables.screen_id">
+		<cfloop list="#attributes.screen_id#" index="variables.screen_id_ii">
 			<cfquery name="insert_link_screen_help_article" datasource="#application.datasources.main#">
 			INSERT INTO Link_Screen_Help_Article (screen_id, help_article_id, created_by,
 				active_ind)
-			VALUES (#variables.screen_id#, #insert_help_article.help_article_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />,
-				#attributes.active_ind#)
+			VALUES (<cfqueryparam value="#variables.screen_id_ii#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#insert_help_article.help_article_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />,
+				1)
 			</cfquery>
 		</cfloop>
 	</cfif>
