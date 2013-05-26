@@ -46,7 +46,8 @@ Modernizr.load([
 							"bLengthChange": false,
 							"bPaginate": #attributes.bPaginate#,
 							"iDisplayLength": 50,
-							"sDom": "<cfif attributes.tabletools_ind><'row-fluid'<'span6'f><'span6'<'pull-right'T>>r></cfif>t<cfif attributes.bPaginate><'row-fluid'<'span6'i><'span6'<'pull-right'p>>></cfif>"<cfif attributes.tabletools_ind>,
+							"sDom": "<cfif attributes.tabletools_ind><'row-fluid'<'span6'f><'span6'<'pull-right'T>>r></cfif>t<cfif attributes.bPaginate><'row-fluid'<'span6'i><'span6'<'pull-right'p>>></cfif>"<cfif attributes.bPaginate>,
+							"sPaginationType": "bootstrap"</cfif><cfif attributes.tabletools_ind>,
 							"oTableTools": {
 								"aButtons": [ "copy", "xls", "pdf" ],
 								"sSwfPath": "../external/DataTables/TableTools/media/swf/copy_csv_xls_pdf.swf"
@@ -56,7 +57,7 @@ Modernizr.load([
 				});
 				//apply relevant Bootstrap styling
 				<cfif attributes.bFilter>
-				$('.dataTables_filter input').addClass('span9 search-query');</cfif><cfif attributes.tabletools_ind>
+				$('.dataTables_filter input').addClass('span9 search-query').attr('placeholder','search this table');</cfif><cfif attributes.tabletools_ind>
 				$('.DTTT_container').addClass('btn-group').find('a').addClass('btn btn-small');
 				$('.dataTables_length select').addClass('span3');</cfif>
 			});
