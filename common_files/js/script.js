@@ -25,6 +25,13 @@ $(document).ready(function() {
 
 	if ( $('#help_area').length ) {
 		//console.log( $('#help_area') );
+		var jump_manager=function(target) {
+			"use strict"; //let's avoid tom-foolery in this function
+			// only jump to the revealed help area if its position is static (as opposed to "fixed")
+			if ( $('#help_area').css('position')==='static' ) {
+				window.location.hash = target;
+			}
+		};
 		
 		// bind help area reveal/conceal to relevant elements
 		$('#nav_help_button').click(function(event) {
@@ -33,10 +40,10 @@ $(document).ready(function() {
 			//adjust spans of main block and help area, set aria-hidden attribute on help block to help screen-readers
 			if ( $('#help_area').attr('aria-hidden')==='true' ) {
 				$('#content_container.span12').switchClass('span12', 'span9', 300);
-				$('#help_area').delay(300).slideToggle(300, function() { window.location.hash = "help_area"; }).attr('aria-hidden', 'false');	
+				$('#help_area').delay(300).slideToggle(300, function() { jump_manager('help_area'); }).attr('aria-hidden', 'false');	
 			}
 			else {
-				$('#help_area').slideToggle(300, function() { window.location.hash = ""; }).attr('aria-hidden', 'true');
+				$('#help_area').slideToggle(300, function() { jump_manager(''); }).attr('aria-hidden', 'true');
 				$('#content_container.span9').delay(300).switchClass('span9', 'span12', 300);
 			}
 		});
