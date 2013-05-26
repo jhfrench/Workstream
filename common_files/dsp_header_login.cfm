@@ -40,10 +40,12 @@
 	<link rel="stylesheet" href="common_files/Workstream_Login.css">
 
 	<!-- pre-fetch some resources to make the app perform better-->
+	<link rel="prefetch" href="common_files/Workstream.css">
 	<link rel="prefetch" href="common_files/js/script.js">
 	<link rel="prefetch" href="images/spritepad_Workstream.png">
 	<link rel="prefetch" href="../external/bootstrap/img/glyphicons-halflings.png">
 	<link rel="prefetch" href="../external/bootstrap/img/glyphicons-halflings-white.png">
+	<link rel="prefetch" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js">
 
 	<script src="common_files/js/modernizr.custom.40623.js"></script>
 	<script type="text/javascript">
