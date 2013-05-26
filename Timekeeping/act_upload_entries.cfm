@@ -22,13 +22,27 @@
 </cfif>
 <cfloop from="1" to="#listlen(attributes.hours)#" index="variables.hours_ii">
 	<cfif isnumeric(listgetat(attributes.hours,variables.hours_ii))>
-	<cftransaction isolation="READ_COMMITTED">
-		<cfinclude template="qry_insert_notes.cfm">
-		<cfinclude template="qry_insert_time_entry.cfm">
-	</cftransaction>
+		<cftransaction isolation="READ_COMMITTED">
+			<cfinclude template="qry_insert_notes.cfm">
+			<cfinclude template="qry_insert_time_entry.cfm">
+		</cftransaction>
 	<cfelse>
 		<cfset variables.not_numeric_entries=listappend(variables.not_numeric_entries,"Date=#listgetat(attributes.date,variables.hours_ii)#; Hours=#listgetat(attributes.hours,variables.hours_ii)#; #variables.identifier#=#listgetat(evaluate('attributes.#identifier#'),variables.hours_ii)#; Notes=#evaluate('notes_#variables.hours_ii#')#")>
 	</cfif>
 </cfloop>
 <cfset session.workstream_last_loaded=attributes.last_loaded>
 </cfsilent>
+
+<cfif listlen(variables.not_numeric_entries)>
+	<cfoutput>
+	<div class="alert alert-warning">
+		<strong>Now you're done it!</strong><br />
+		One or more of the entries you just submitted contained hours that were not numeric. These entries were not processed:
+		<ul>
+		<cfloop list="#variables.not_numeric_entries#" index="ii">
+			<li>#ii#</li>
+		</cfloop>
+		</ul>
+	</div>
+	</cfoutput>
+</cfif>

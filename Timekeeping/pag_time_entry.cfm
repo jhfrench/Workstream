@@ -23,9 +23,6 @@
 <cfinclude template="qry_get_express_time_entries.cfm">
 <cfinclude template="../common_files/qry_get_valid_projects.cfm">
 
-<cfif listlen(variables.not_numeric_entries)>
-	<cfinclude template="dsp_express_not_numeric.cfm">
-</cfif>
 <cfinclude template="dsp_express_cftree.cfm">
 
 <cfform name="myform" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST">

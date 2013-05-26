@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 </cfsilent>
 <cfinclude template="act_validate_hours_js.cfm">
@@ -21,11 +21,8 @@
 <cfinclude template="qry_get_express_time_entries.cfm">
 
 <cfinclude template="../common_files/qry_get_date_locked.cfm">
-<cfif listlen(variables.not_numeric_entries)>
-	<cfinclude template="dsp_express_not_numeric.cfm">
-</cfif>
 <cfdump var="#get_express_time_entries#" expand="0">
-<!--- 
+<!---
 <cfinclude template="dsp_express_cftree.cfm">
  --->
 
