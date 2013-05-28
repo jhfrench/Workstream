@@ -17,28 +17,52 @@
 	<cfinclude template="act_upload_entries.cfm">
 </cfif>
 <cfinclude template="../common_files/act_client_vars.cfm">
+<cfinclude template="../common_files/qry_get_date_locked.cfm">
+
+<cfparam name="session.workstream_expand" default="yes,yes,no">
+<cfset variables.min_date=dateformat(get_date_locked.date_locked, "yyyy-mm-dd")>
+<cfset variables.max_date=dateformat(dateadd("m", 2, get_date_locked.date_locked), "yyyy-mm-dd")>
+<cfset variables.workstream_express_notes_height=session.workstream_express_notes_height>
+<cfset variables.workstream_express_notes_width=session.workstream_express_notes_width>
+<cfif NOT len(session.workstream_express_input_rows)>
+	<cfset variables.workstream_express_input_rows=1>
+<cfelse>
+	<cfset variables.workstream_express_input_rows=session.workstream_express_input_rows>
+</cfif>
+<cfsavecontent variable="variables.select_work_item">
+	<select name="task_id" size="1" class="span9">
+		<cfset variables.sort_order=0>
+		<cfoutput query="get_express_task_list">
+			<cfif variables.sort_order NEQ get_express_task_list.sort_order>
+				<cfset variables.sort_order=get_express_task_list.sort_order>
+				<cfswitch expression="#variables.sort_order#">
+					<cfcase value="1">
+						<cfset variables.optgroup_label="Your Tasks">
+					</cfcase>
+					<cfcase value="2">
+						</optgroup>
+						<cfset variables.optgroup_label="Team Tasks">
+					</cfcase>
+					<cfcase value="3">
+						</optgroup>
+						<cfset variables.optgroup_label="General Billing Codes">
+					</cfcase>
+					<cfdefaultcase>
+						</optgroup>
+						<cfset variables.optgroup_label="Undefined Grouping">
+					</cfdefaultcase>
+				</cfswitch>
+				<optgroup label="#variables.optgroup_label#">
+			</cfif>
+			<option value="#task_id#">#task_name#</option>
+		</cfoutput>
+		</optgroup>
+	</select>
+</cfsavecontent>
 <cfinclude template="qry_get_express_time_entries.cfm">
 
-<cfinclude template="../common_files/qry_get_date_locked.cfm">
 <cfdump var="#get_express_time_entries#" expand="0">
-<cfdump var="#get_express_task_list#" expand="0">
 <!---
 <cfinclude template="dsp_express_cftree.cfm">
  --->
-
-<cfform name="form_time_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST">
-<table class="table table-striped table-bordered table-condensed">
-	<caption><h2><em>-Express=</em> Time Entry</h2></caption>
-	<thead>
-		<tr>
-			<th>Date</th>
-			<th>Hours</th>
-			<th><cfif compare(fuseaction, "time_entry")>Task<cfelse>Code</cfif></th>
-			<th>Notes</th>
-		</tr>
-	</thead>
-	<cfinclude template="dsp_express_input_rows.cfm">
-	<cfinclude template="dsp_express_entry_options.cfm">
-</table>
-</cfform>
-
+<cfinclude template="dsp_express_input.cfm">

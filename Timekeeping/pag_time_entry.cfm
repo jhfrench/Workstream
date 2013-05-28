@@ -19,23 +19,24 @@
 </cfif>
 <cfinclude template="../common_files/act_client_vars.cfm">
 <cfinclude template="../common_files/qry_get_date_locked.cfm">
-<cfinclude template="qry_get_express_time_entries.cfm">
 <cfinclude template="../common_files/qry_get_valid_projects.cfm">
 
-<cfinclude template="dsp_express_cftree.cfm">
+<cfparam name="session.workstream_expand" default="yes,yes,no">
+<cfset variables.min_date=dateformat(get_date_locked.date_locked, "yyyy-mm-dd")>
+<cfset variables.max_date=dateformat(dateadd("m", 2, get_date_locked.date_locked), "yyyy-mm-dd")>
+<cfset variables.workstream_express_notes_height=session.workstream_express_notes_height>
+<cfset variables.workstream_express_notes_width=session.workstream_express_notes_width>
+<cfif NOT len(session.workstream_express_input_rows)>
+	<cfset variables.workstream_express_input_rows=1>
+<cfelse>
+	<cfset variables.workstream_express_input_rows=session.workstream_express_input_rows>
+</cfif>
+<cfsavecontent variable="variables.select_work_item">
+	<select name="project_id" size="1"><cfloop query="get_valid_projects">
+		<option value="#project_id#">#display#</option></cfloop>
+	</select>
+</cfsavecontent>
+<cfinclude template="qry_get_express_time_entries.cfm">
 
-<cfform name="form_time_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST">
-<table class="table table-striped table-bordered table-condensed">
-	<caption><h2><em>-Express=</em> Time Entry</h2></caption>
-	<thead>
-		<tr>
-			<th>Date</th>
-			<th>Hours</th>
-			<th><cfif compare(fuseaction, "time_entry")>Project<cfelse>Task</cfif></th>
-			<th>Notes</th>
-		</tr>
-	</thead>
-	<cfinclude template="dsp_time_entry_input_rows.cfm">
-	<cfinclude template="dsp_express_entry_options.cfm">
-</table>
-</cfform>
+<cfinclude template="dsp_express_cftree.cfm">
+<cfinclude template="dsp_express_input.cfm">
