@@ -28,7 +28,7 @@ FROM Time_Entry
 		FROM Time_Entry
 		WHERE Time_Entry.active_ind=1
 			AND Time_Entry.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
-			AND Time_Entry.work_date-60 >= CURRENT_DATE
+			AND Time_Entry.work_date >= CURRENT_DATE-60 /*within the past 60 days*/
 		GROUP BY Time_Entry.work_date, Time_Entry.user_account_id
 	) AS Hours_Pin_Date ON Time_Entry.user_account_id=Hours_Pin_Date.user_account_id
 		AND Time_Entry.work_date=Hours_Pin_Date.work_date
@@ -43,7 +43,7 @@ FROM Time_Entry
 		AND EXTRACT(WEEK FROM Time_Entry.work_date)=Hours_Pin_Week.week
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
-	AND Time_Entry.work_date-60 >= CURRENT_DATE
+	AND Time_Entry.work_date >= CURRENT_DATE-60 /*within the past 60 days*/
 ORDER BY Time_Entry.work_date DESC, Notes.created_date DESC, Project.project_code
 </cfquery>
 </cfsilent>

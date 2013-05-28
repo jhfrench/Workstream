@@ -10,26 +10,27 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
-<cfset variables.go_back_to=datediff("d",get_date_locked.date_locked,dateadd("m",1,now()))-1>
+<cfset variables.min_date=dateformat(get_date_locked.date_locked, "yyyy-mm-dd")>
+<cfset variables.max_date=dateformat(dateadd("m", 1, get_date_locked.date_locked), "yyyy-mm-dd")>
+<cfset variables.workstream_express_notes_height=session.workstream_express_notes_height>
+<cfset variables.workstream_express_notes_width=session.workstream_express_notes_width>
 <cfif NOT len(session.workstream_express_input_rows)>
-	<cfset session.workstream_express_input_rows=1>
+	<cfset variables.workstream_express_input_rows=1>
+<cfelse>
+	<cfset variables.workstream_express_input_rows=session.workstream_express_input_rows>
 </cfif>
 </cfsilent>
-<tbody>
 <cfoutput>
-<cfloop index="dex" from="1" to="#min(session.workstream_express_input_rows,30)#">
+<tbody>
+<cfloop from="1" to="#min(variables.workstream_express_input_rows,30)#" index="variables.input_row_ii">
 	<tr>
-		<td>
-			<select name="date" class="date">
-			<cfloop from="0" to="#variables.go_back_to#" index="variables.date_adjust_ii">
-				<cfset variables.temp_date=dateadd("m",1,now())-variables.date_adjust_ii>
-				<option value="#dateformat(variables.temp_date,'m/d/yyyy')#"<cfif NOT datediff("d",now(),variables.temp_date)> selected="selected"</cfif>>#dateformat(variables.temp_date,"m/d/yyyy (ddd)")#</option></cfloop>
-			</select>
+		<td scope="row">
+			<input type="date" name="date" id="date" min="#variables.min_date#" max="#variables.max_date#" value="" maxlength="10" class="span8 date" />
 		</td>
 		<td>
-			<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" class="number span6">
+			<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" class="number span6" />
 		</td>
 		<td>
 			<select name="project_id" size="1"><cfloop query="get_valid_projects">
@@ -37,9 +38,9 @@
 			</select>
 		</td>
 		<td>
-			<textarea rows="#session.workstream_express_notes_height#" cols="#session.workstream_express_notes_width#" name="notes_#DEX#" wrap="soft"></textarea>
+			<textarea rows="#variables.workstream_express_notes_height#" cols="#variables.workstream_express_notes_width#" name="notes_#variables.input_row_ii#" wrap="soft" class="span12"></textarea>
 		</td>
 	</tr>
 </cfloop>
-</cfoutput>
 </tbody>
+</cfoutput>
