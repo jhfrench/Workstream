@@ -25,7 +25,7 @@
 			<th>Notes</th>
 		</tr>
 	</thead>
-	<tfoot>
+	<tfoot class="well">
 		<tr>
 			<td colspan="4">
 				You are currently set to
@@ -48,10 +48,7 @@
 						 Day
 					</label>
 				</cfoutput>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="4">
+				<br />
 				<input name="date_locked" type="hidden" value="#get_date_locked.date_locked#" />
 				<input name="last_loaded" type="hidden" value="#now()#" />
 				<input type="button" value="Submit Time Entry" name="Submit" onclick="check_form('hours')" class="btn btn-primary" />
