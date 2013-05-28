@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 </cfsilent>
 <cfoutput>
@@ -43,14 +43,6 @@
 	<tr>
 		<td>
 			<input type="number" name="express_input_rows" id="express_input_rows" value="#session.workstream_express_input_rows#" step="1" min="0" max="100" required="required" class="span5" /> lines per page load for express input
-		</td>
-		<td>
-			<input type="number" name="express_notes_width" id="express_notes_width" value="#session.workstream_express_notes_width#" step="1" min="0" max="100" required="required" class="span5" /> width of the express input text box
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<input type="number" name="express_notes_height" id="express_notes_height" value="#session.workstream_express_notes_height#" step="1" min="0" max="500" required="required" class="span5" /> height of the express input text box
 		</td>
 		<td>
 			<input type="number" name="express_tree_height" id="express_tree_height" value="#session.workstream_express_tree_height#" step="1" min="0" max="500" required="required" class="span5" /> height of the express input folder box

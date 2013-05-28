@@ -24,8 +24,6 @@
 <cfparam name="session.workstream_expand" default="yes,yes,no">
 <cfset variables.min_date=dateformat(get_date_locked.date_locked, "yyyy-mm-dd")>
 <cfset variables.max_date=dateformat(dateadd("m", 2, get_date_locked.date_locked), "yyyy-mm-dd")>
-<cfset variables.workstream_express_notes_height=session.workstream_express_notes_height>
-<cfset variables.workstream_express_notes_width=session.workstream_express_notes_width>
 <cfif NOT len(session.workstream_express_input_rows)>
 	<cfset variables.workstream_express_input_rows=1>
 <cfelse>

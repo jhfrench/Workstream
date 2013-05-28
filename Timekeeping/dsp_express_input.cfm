@@ -29,11 +29,25 @@
 		<tr>
 			<td colspan="4">
 				You are currently set to
-				<input type="number" name="express_input_rows" id="express_input_rows" value="#session.workstream_express_input_rows#" step="1" min="0" max="100" required="required" class="span1" /> lines of input (max = 30), a width of
-				<input type="number" name="express_notes_width" id="express_notes_width" value="#session.workstream_express_notes_width#" step="1" min="0" max="100" required="required" class="span1" /> columns for the notes box and
-				<input type="number" name="express_notes_height" id="express_notes_height" value="#session.workstream_express_notes_height#" step="1" min="0" max="100" required="required" class="span1" /> row(s). Your folder box is set to a height of
-				<input type="number" name="express_tree_height" id="express_tree_height" value="#session.workstream_express_tree_height#" step="1" min="0" max="100" required="required" class="span1" />
-				. Expand express tree to this level:&nbsp;<cfoutput><label for="root" class=""><input type="radio" name="expand_tree" id="root" value="yes,no,no"<cfif NOT compare(session.workstream_expand,"yes,no,no")> checked="checked"</cfif> class="SelectText"> Root</label>&nbsp;<label for="week"><input type="radio" name="expand_tree" id="week" value="yes,yes,no"<cfif NOT compare(session.workstream_expand,"yes,yes,no")> checked="checked"</cfif> class="SelectText"> Week</label>&nbsp;<label for="day"><input type="radio" name="expand_tree" id="day" value="yes,yes,yes"<cfif NOT compare(session.workstream_expand,"yes,yes,yes")> checked="checked"</cfif> class="SelectText"> Day</label></cfoutput>
+				<input type="number" name="express_input_rows" id="express_input_rows" value="#session.workstream_express_input_rows#" step="1" min="0" max="30" required="required" class="span1" /> lines of input (max = 30). Your folder box is set to a height of
+				<input type="number" name="express_tree_height" id="express_tree_height" value="#session.workstream_express_tree_height#" step="1" min="0" max="100" required="required" class="span1" />.
+				Expand express tree to this level:&nbsp;
+				<cfoutput>
+					<label for="root" class="radio inline">
+						<input type="radio" name="expand_tree" id="root" value="yes,no,no"<cfif NOT compare(session.workstream_expand,"yes,no,no")> checked="checked"</cfif> />
+						 Root
+					</label>
+					&nbsp;
+					<label for="week" class="radio inline">
+						<input type="radio" name="expand_tree" id="week" value="yes,yes,no"<cfif NOT compare(session.workstream_expand,"yes,yes,no")> checked="checked"</cfif> />
+						 Week
+					</label>
+					&nbsp;
+					<label for="day" class="radio inline">
+						<input type="radio" name="expand_tree" id="day" value="yes,yes,yes"<cfif NOT compare(session.workstream_expand,"yes,yes,yes")> checked="checked"</cfif> />
+						 Day
+					</label>
+				</cfoutput>
 			</td>
 		</tr>
 		<tr>
@@ -57,7 +71,7 @@
 				#variables.select_work_item#
 			</td>
 			<td>
-				<textarea rows="#variables.workstream_express_notes_height#" cols="#variables.workstream_express_notes_width#" name="notes_#variables.input_row_ii#" wrap="soft" class="span12"></textarea>
+				<textarea rows="1" cols="25" name="notes_#variables.input_row_ii#" wrap="soft" class="span12"></textarea>
 			</td>
 		</tr>
 	</cfloop>
