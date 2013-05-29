@@ -9,3 +9,18 @@ window.log = function f(){ log.history = log.history || []; log.history.push(arg
 if (!('console' in this)) console={}; 'log info warn error dir clear'.replace(/\w+/g,function(f) {   if (!(f in console)) console[f]=console.log||new Function; }); 
 
 // place any jQuery/helper plugins in here, instead of separate, slower script files.
+
+// .tree widget
+	$('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+    $('.tree li.parent_li > span').on('click', function (e) {
+        var children = $(this).parent('li.parent_li').find(' > ul > li');
+        if (children.is(":visible")) {
+    		children.hide('fast');
+    		$(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+        }
+        else {
+    		children.show('fast');
+    		$(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+        }
+        e.stopPropagation();
+    });

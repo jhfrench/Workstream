@@ -10,16 +10,72 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
-<cfparam name="session.workstream_expand" default="yes,yes,no">
-<cfset variables.tree_expand=listdeleteat(session.workstream_expand,1)>
+<!--- <cfparam name="session.workstream_expand" default="yes,yes,no">
+<cfset variables.tree_expand=listdeleteat(session.workstream_expand,1)> --->
 </cfsilent>
-<div style="z-index: -100;" class="span12">
-	<cfform enablecab="no" name="cftree_form" action="submit" method="post">
-		<cftree name="express_tree" width="750" height="#session.workstream_express_tree_height#" font="Tahoma" fontsize="12">
-			<cftreeitem value="Workweek" parent="express_tree" expand="yes" img="remote" href="##">
-			<cftreeitem value="Workweek,Workdays,time_entry_id" display="Workweek,Workdays,clientname_data" expand="#variables.tree_expand#" query="get_express_time_entries" parent="workweek" queryasroot="no" IMG="folder,folder,document" HREF="##,##, index.cfm?fuseaction=Timekeeping.time_entry_edit&coming_from=#attributes.fuseaction#&cache_escape=#variables.cache_escape#">
-		</cftree>
-	</cfform>
+
+<div class="tree">
+    <ul>
+        <li>
+            <span><i class="icon-calendar"></i> 2013, Week 2</span>
+            <ul>
+                <li>
+                	<span class="badge badge-success"><i class="icon-minus-sign"></i> Monday, January 7: 8.00 hours</span>
+                    <ul>
+                        <li>
+	                        <a href=""><span><i class="icon-time"></i> 8.00</span> &ndash; Changed CSS to accomodate...</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                	<span class="badge badge-success"><i class="icon-minus-sign"></i> Tuesday, January 8: 8.00 hours</span>
+                    <ul>
+                        <li>
+	                        <span><i class="icon-time"></i> 6.00</span> &ndash; <a href="">Altered code...</a>
+                        </li>
+                        <li>
+	                        <span><i class="icon-time"></i> 2.00</span> &ndash; <a href="">Simplified our approach to...</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                	<span class="badge badge-warning"><i class="icon-minus-sign"></i> Wednesday, January 9: 6.00 hours</span>
+                    <ul>
+                        <li>
+	                        <a href=""><span><i class="icon-time"></i> 3.00</span> &ndash; Fixed bug caused by...</a>
+                        </li>
+                        <li>
+	                        <a href=""><span><i class="icon-time"></i> 3.00</span> &ndash; Comitting latest code to Git...</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                	<span class="badge badge-important"><i class="icon-minus-sign"></i> Wednesday, January 9: 4.00 hours</span>
+                    <ul>
+                        <li>
+	                        <a href=""><span><i class="icon-time"></i> 2.00</span> &ndash; Create component that...</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <span><i class="icon-calendar"></i> 2013, Week 3</span>
+            <ul>
+                <li>
+                	<span class="badge badge-success"><i class="icon-minus-sign"></i> Monday, January 14: 8.00 hours</span>
+                    <ul>
+                        <li>
+	                        <span><i class="icon-time"></i> 7.75</span> &ndash; <a href="">Writing documentation...</a>
+                        </li>
+                        <li>
+	                        <span><i class="icon-time"></i> 0.25</span> &ndash; <a href="">Reverting code back to...</a>
+                        </li>
+                    </ul>
+                </li>
+		    </ul>
+        </li>
+    </ul>
 </div>

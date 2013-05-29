@@ -2,6 +2,8 @@
 @import "../../../external/bootstrap/less/bootstrap.less";
 @import "../../../external/bootstrap/less/responsive.less";
 @import "spritepad_Workstream.less";
+@import "bootstrap-tree.less";
+@import "bootstrap-dataTables.less";
 
 /* custom settings that deviate from Bootstrap's default values; set *after* the bootstrap imports */
 @sansFontFamily: Trebuchet MS, Tahoma, sans-serif, Arial;
@@ -11,26 +13,7 @@
 @iconWhiteSpritePath: "../../external/bootstrap/img/glyphicons-halflings-white.png";
 @linkColor: #483d8b;
 
-/* Sorting (from DataTables\media\css\jquery.dataTables.css) */
-	table.dataTable thead th.sorting_asc,
-	table.dataTable thead th.sorting_desc,
-	table.dataTable thead th.sorting {
-		cursor: pointer;
-		*cursor: hand;
-	}
-	
-	/* $issue$: need to change these images to sprites */
-	.sorting { background: url('../images/TBS_sort_both.png') no-repeat center right; }
-	.sorting_asc { background: url('../images/TBS_sort_asc.png') no-repeat center right; }
-	.sorting_desc { background: url('../images/TBS_sort_desc.png') no-repeat center right; }
-	
-	.sorting_asc_disabled { background: url('../images/TBS_sort_asc_disabled.png') no-repeat center right; }
-	.sorting_desc_disabled { background: url('../images/TBS_sort_desc_disabled.png') no-repeat center right; }
-	 
-	table.dataTable thead th:active,
-	table.dataTable thead td:active {
-		outline: none;
-	}
+
 
 .navbar-search {
 	.input-append {
