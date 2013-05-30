@@ -62,3 +62,4 @@
 <cfdump var="#get_express_time_entries#" expand="0">
 <cfinclude template="dsp_express_cftree.cfm">
 <cfinclude template="dsp_express_input.cfm">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="time_entry_edit" field_name="time_entry_id" fuseaction="Timekeeping.time_entry_edit">
