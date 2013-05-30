@@ -17,7 +17,7 @@
 <cfset variables.sort_order=0>
 </cfsilent>
 
-<pre>
+<div class="tree">
 <cfoutput query="get_express_time_entries">
 	<!-- loop from="#sort_order#" to="#variables.sort_order#"  -->
 	<cfloop from="#sort_order#" to="#variables.sort_order#" index="variables.close_ul_ii"><!-- "#variables.close_ul_ii#"  --></li><cfif sort_order NEQ 3></ul></cfif></cfloop>
@@ -42,11 +42,9 @@
 		<li>This is a level of data Workstream cannot handle.</li>
 	</cfdefaultcase>
 </cfswitch>
+</cfoutput>
 		</li>
 	</ul>
-</cfoutput>
-</pre>
-<div class="tree">
 	<ul>
 		<li>
 			<span><i class="icon-calendar"></i> 2013, Week 2</span>
