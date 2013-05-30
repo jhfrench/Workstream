@@ -20,7 +20,7 @@
 <div class="tree">
 <cfoutput query="get_express_time_entries">
 <cfswitch expression="#sort_order#">
-	<cfloop from="sort_order" to="#variables.sort_order#" index="variables.close_ul_ii"></li><cfif sort_order NEQ 3></ul></cfif></cfif>
+	<cfloop from="sort_order" to="#variables.sort_order#" index="variables.close_ul_ii"></li><cfif sort_order NEQ 3></ul></cfif></cfloop>
 	<cfset variables.sort_order=sort_order>
 	<cfcase value="1">
 	<ul>
@@ -35,7 +35,7 @@
 	<cfcase value="3">
 					<ul>
 						<li>
-							<a href="javascript:time_entry_edit(#time_entry_id#);" title="edit this entry"><span><i class="icon-time"></i> #numberformat(hours, "90.00")#</span> &ndash; #note#...</a>
+							<a href="javascript:time_entry_edit(#time_entry_id#);" title="edit this entry" class=""><span><i class="icon-time"></i> #numberformat(hours, "90.00")#</span> &ndash; #note#...</a>
 	</cfcase>
 	<cfdefaultcase>
 		<li>This is a level of data Workstream cannot handle.</li>
