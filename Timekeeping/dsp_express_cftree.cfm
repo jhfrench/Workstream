@@ -30,12 +30,12 @@
 	<cfcase value="2">
 			<ul>
 				<li>
-					<span class="badge badge-<cfif hours GTE 8>success<cfelseif hours GTE 6>warning<cfelse>important</cfif>"><i class="icon-minus-sign"></i> #dayofweekasstring(day_of_week_number)#, #monthasstring(date_month)# dateformat(odbc_date, "d"): #numberformat(hours, "900.00")# hours</span>
+					<span class="badge badge-<cfif hours GTE 8>success<cfelseif hours GTE 6>warning<cfelse>important</cfif>"><i class="icon-minus-sign"></i> #dayofweekasstring(day_of_week_number)#, #monthasstring(date_month)# #dateformat(odbc_date, "d")#: #numberformat(hours, "__0.00")# hours</span>
 	</cfcase>
 	<cfcase value="3">
 					<ul>
 						<li>
-							<a href="javascript:time_entry_edit(#time_entry_id#);" title="edit this entry" class=""><span><i class="icon-time"></i> #numberformat(hours, "90.00")#</span> &ndash; #note#...</a>
+							<a href="javascript:time_entry_edit(#time_entry_id#);" title="edit this entry" class=""><span><i class="icon-time"></i> #numberformat(hours, "_0.00")#</span> &ndash; #note#...</a>
 	</cfcase>
 	<cfdefaultcase>
 		<li>This is a level of data Workstream cannot handle.</li>
