@@ -17,7 +17,7 @@
 <cfset variables.sort_order=0>
 </cfsilent>
 
-<div class="tree">
+<pre>
 <cfoutput query="get_express_time_entries">
 	<!-- loop from="#sort_order#" to="#variables.sort_order#"  -->
 	<cfloop from="#sort_order#" to="#variables.sort_order#" index="variables.close_ul_ii"><!-- "#variables.close_ul_ii#"  --></li><cfif sort_order NEQ 3></ul></cfif></cfloop>
@@ -45,6 +45,8 @@
 		</li>
 	</ul>
 </cfoutput>
+</pre>
+<div class="tree">
 	<ul>
 		<li>
 			<span><i class="icon-calendar"></i> 2013, Week 2</span>
