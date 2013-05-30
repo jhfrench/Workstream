@@ -35,7 +35,7 @@
 	<cfcase value="3">
 					<cfif variables.sort_order NEQ 3><ul></cfif>
 						<li>
-							<a href="javascript:time_entry_edit(#time_entry_id#);" title="edit this entry" class=""><span><i class="icon-time"></i> #numberformat(hours, "_0.00")#</span> &ndash; #note#...</a>
+							<a href="javascript:time_entry_edit(#time_entry_id#);" title="edit this entry"><span><i class="icon-time"></i> #numberformat(hours, "_0.00")#</span> &ndash; #note#...</a>
 	</cfcase>
 	<cfdefaultcase>
 		<li>This is a level of data Workstream cannot handle.</li>
