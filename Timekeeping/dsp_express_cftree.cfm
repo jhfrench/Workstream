@@ -30,7 +30,7 @@
 	<cfcase value="2">
 			<ul>
 				<li>
-					<span class="badge badge-<cfif hours GTE 8>success<cfelseif hours GTE 6>warning<cfelse>important</cfif>"><i class="icon-minus-sign"></i> #dayofweekasstring(day_of_week_number)#, #monthasstring(date_month)# #dateformat(odbc_date, "d")#: #numberformat(hours, "__0.00")# hours</span>
+					<span class="badge badge-<cfif hours GTE 8>success<cfelseif hours GTE 6>warning<cfelse>important</cfif>"><i class="icon-minus-sign"></i> #dayofweekasstring(day_of_week_number)#, #monthasstring(date_month)# #dateformat(work_date, "d")#: #numberformat(hours, "__0.00")# hours</span>
 	</cfcase>
 	<cfcase value="3">
 					<ul>

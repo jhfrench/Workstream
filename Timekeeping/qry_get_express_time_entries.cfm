@@ -60,6 +60,6 @@ FROM Time_Entry
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	AND Time_Entry.work_date BETWEEN CURRENT_DATE-60 AND CURRENT_DATE+14 /*within the past 60 days*/
-ORDER BY work_date, sort_order
+ORDER BY work_date, created_date, sort_order
 </cfquery>
 </cfsilent>
