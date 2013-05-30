@@ -18,7 +18,7 @@ SELECT Day_Level_Dates.date_year, Day_Level_Dates.date_month, Day_Level_Dates.da
 	NULL AS day_of_week_number, MIN(Day_Level_Dates.odbc_date) AS work_date,
 	0 AS time_entry_id, COALESCE(SUM(Time_Entry.hours),0) AS hours, NULL AS project_code,
 	NULL AS project_description, NULL AS note, CAST(NULL AS TIMESTAMP) AS created_date,
-	0 AS billed_ind, 1 AS sort_order
+	1 AS sort_order
 FROM (
 		SELECT date_year, date_month, date_week, day_of_week_number, odbc_date
 		FROM REF_Date
@@ -34,7 +34,7 @@ SELECT Day_Level_Dates.date_year, Day_Level_Dates.date_month, Day_Level_Dates.da
 	Day_Level_Dates.day_of_week_number, Day_Level_Dates.odbc_date AS work_date,
 	0 AS time_entry_id, COALESCE(SUM(Time_Entry.hours),0) AS hours, NULL AS project_code,
 	NULL AS project_description, NULL AS note, NULL AS created_date,
-	0 AS billed_ind, 2 AS sort_order
+	2 AS sort_order
 FROM (
 		SELECT date_year, date_month, date_week, day_of_week_number, odbc_date
 		FROM REF_Date
@@ -51,20 +51,12 @@ SELECT NULL AS date_year, NULL AS date_month, NULL AS date_week,
 	NULL AS day_of_week_number, Time_Entry.work_date,
 	Time_Entry.time_entry_id, Time_Entry.hours, Project.project_code,
 	Project.description, Notes.note, Notes.created_date,
-	COALESCE(Billed_Indicator.time_entry_id,0) AS billed_ind, 3 AS sort_order
+	3 AS sort_order
 FROM Time_Entry
 	LEFT OUTER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
 		AND Notes.active_ind=1
 	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
 		AND Project.active_ind=1
-	LEFT OUTER JOIN (
-		SELECT Link_Invoice_Time_Entry.time_entry_id
-		FROM Invoice
-			INNER JOIN Link_Invoice_Time_Entry ON Invoice.invoice_id=Link_Invoice_Time_Entry.invoice_id
-				AND Link_Invoice_Time_Entry.active_ind=1
-		WHERE Invoice.active_ind=1
-		GROUP BY Link_Invoice_Time_Entry.time_entry_id
-	) AS Billed_Indicator ON Time_Entry.time_entry_id=Billed_Indicator.time_entry_id
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	AND Time_Entry.work_date BETWEEN CURRENT_DATE-60 AND CURRENT_DATE+14 /*within the past 60 days*/
