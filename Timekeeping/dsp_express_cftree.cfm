@@ -30,12 +30,12 @@
 	<cfcase value="2">
 			<ul role="group">
 				<li role="treeitem">
-					<span class="badge badge-<cfif hours GTE variables.full_day>success<cfelseif hours GTE variables.partial_day>warning<cfelse>important</cfif>"><i class="icon-minus-sign"></i> #dayofweekasstring(day_of_week_number)#, #monthasstring(date_month)# #dateformat(work_date, "d")#: #numberformat(hours, "__0.00")# hours</span>
+					<span class="badge badge-<cfif hours GTE variables.full_day>success<cfelseif hours GTE variables.partial_day>warning<cfelse>important</cfif>"><i class="icon-minus-sign"></i> #dayofweekasstring(day_of_week_number)#, #monthasstring(date_month)# #dateformat(work_date, "d")#: #numberformat(hours, "___.__")# hours</span>
 	</cfcase>
 	<cfcase value="3">
 					<cfif variables.sort_order NEQ 3><ul></cfif>
 						<li role="treeitem">
-							<a href="javascript:time_entry_edit(#time_entry_id#);" title="edit this entry"><span><i class="icon-time"></i> #numberformat(hours, "_0.00")#</span> &ndash; #note#</a>
+							<a href="javascript:time_entry_edit(#time_entry_id#);" title="edit this entry"><span><i class="icon-time"></i> #numberformat(hours, "__.__")#</span> &ndash; #note#</a>
 	</cfcase>
 	<cfdefaultcase>
 		<li>This is a level of data Workstream cannot handle.</li>
