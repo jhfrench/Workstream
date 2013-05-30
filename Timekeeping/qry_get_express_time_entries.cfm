@@ -50,7 +50,7 @@ UNION ALL
 SELECT NULL AS date_year, NULL AS date_month, NULL AS date_week,
 	NULL AS day_of_week_number, Time_Entry.work_date,
 	Time_Entry.time_entry_id, Time_Entry.hours, Project.project_code,
-	Project.description, Notes.note, Notes.created_date,
+	Project.description, SUBSTR(Notes.note, 0, 140) AS note, Notes.created_date,
 	3 AS sort_order
 FROM Time_Entry
 	LEFT OUTER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
