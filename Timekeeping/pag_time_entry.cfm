@@ -20,7 +20,10 @@
 <cfinclude template="../common_files/act_client_vars.cfm">
 <cfinclude template="../common_files/qry_get_date_locked.cfm">
 <cfinclude template="../common_files/qry_get_valid_projects.cfm">
+<cfinclude template="../common_files/qry_get_employee_details.cfm">
 
+<cfset variables.full_day=get_employee_details.week_hours/5>
+<cfset variables.partial_day=get_employee_details.week_hours/6.66>
 <cfparam name="session.workstream_expand" default="yes,yes,no">
 <cfset variables.min_date=dateformat(get_date_locked.date_locked, "yyyy-mm-dd")>
 <cfset variables.max_date=dateformat(dateadd("m", 2, get_date_locked.date_locked), "yyyy-mm-dd")>

@@ -23,18 +23,18 @@
 	<cfloop from="#sort_order#" to="#variables.sort_order#" index="variables.close_ul_ii"><!-- "#variables.close_ul_ii#"  --></li><cfif sort_order NEQ 3></ul></cfif></cfloop>
 <cfswitch expression="#sort_order#">
 	<cfcase value="1">
-	<ul>
-		<li>
+	<ul role="tree">
+		<li role="treeitem">
 			<span><i class="icon-calendar"></i> #date_year#, Week #date_week#</span>
 	</cfcase>
 	<cfcase value="2">
-			<ul>
-				<li>
-					<span class="badge badge-<cfif hours GTE 8>success<cfelseif hours GTE 6>warning<cfelse>important</cfif>"><i class="icon-minus-sign"></i> #dayofweekasstring(day_of_week_number)#, #monthasstring(date_month)# #dateformat(work_date, "d")#: #numberformat(hours, "__0.00")# hours</span>
+			<ul role="group">
+				<li role="treeitem">
+					<span class="badge badge-<cfif hours GTE variables.full_day>success<cfelseif hours GTE variables.partial_day>warning<cfelse>important</cfif>"><i class="icon-minus-sign"></i> #dayofweekasstring(day_of_week_number)#, #monthasstring(date_month)# #dateformat(work_date, "d")#: #numberformat(hours, "__0.00")# hours</span>
 	</cfcase>
 	<cfcase value="3">
 					<cfif variables.sort_order NEQ 3><ul></cfif>
-						<li>
+						<li role="treeitem">
 							<a href="javascript:time_entry_edit(#time_entry_id#);" title="edit this entry"><span><i class="icon-time"></i> #numberformat(hours, "_0.00")#</span> &ndash; #note#</a>
 	</cfcase>
 	<cfdefaultcase>
