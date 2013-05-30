@@ -21,7 +21,6 @@
 <cfoutput query="get_express_time_entries">
 	<!-- loop from="#sort_order#" to="#variables.sort_order#"  -->
 	<cfloop from="#sort_order#" to="#variables.sort_order#" index="variables.close_ul_ii"><!-- "#variables.close_ul_ii#"  --></li><cfif sort_order NEQ 3></ul></cfif></cfloop>
-	<cfset variables.sort_order=sort_order>
 <cfswitch expression="#sort_order#">
 	<cfcase value="1">
 	<ul>
@@ -34,7 +33,7 @@
 					<span class="badge badge-<cfif hours GTE 8>success<cfelseif hours GTE 6>warning<cfelse>important</cfif>"><i class="icon-minus-sign"></i> #dayofweekasstring(day_of_week_number)#, #monthasstring(date_month)# #dateformat(work_date, "d")#: #numberformat(hours, "__0.00")# hours</span>
 	</cfcase>
 	<cfcase value="3">
-					<ul>
+					<cfif variables.sort_order NEQ 3><ul></cfif>
 						<li>
 							<a href="javascript:time_entry_edit(#time_entry_id#);" title="edit this entry" class=""><span><i class="icon-time"></i> #numberformat(hours, "_0.00")#</span> &ndash; #note#...</a>
 	</cfcase>
@@ -42,6 +41,7 @@
 		<li>This is a level of data Workstream cannot handle.</li>
 	</cfdefaultcase>
 </cfswitch>
+<cfset variables.sort_order=sort_order>
 </cfoutput>
 <!-- final closers  -->
 <cfloop from="1" to="#variables.sort_order#" index="variables.close_ul_ii"><!-- "#variables.close_ul_ii#"  --></li></ul></cfloop>
