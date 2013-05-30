@@ -20,7 +20,7 @@
 <div class="tree">
 <cfoutput query="get_express_time_entries">
 	<!-- was #variables.sort_order#, now will be #sort_order#  -->
-	<cfloop from="sort_order" to="#variables.sort_order#" index="variables.close_ul_ii"></li><cfif sort_order NEQ 3></ul></cfif></cfloop>
+	<cfloop from="#sort_order#" to="#variables.sort_order#" index="variables.close_ul_ii"></li><cfif sort_order NEQ 3></ul></cfif></cfloop>
 	<cfset variables.sort_order=sort_order>
 <cfswitch expression="#sort_order#">
 	<cfcase value="1">
