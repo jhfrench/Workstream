@@ -12,38 +12,62 @@
 	$Log$
 	 ||
  --->
+<!--- $issue$: can we get rid of REF_Day_of_Week?  --->
 <cfquery name="get_express_time_entries" datasource="#application.datasources.main#">
-SELECT Time_Entry.time_entry_id, Hours_Pin_Week.sumhoursweek, Hours_Pin_Week.week,
-	Hours_Pin_Week.year,
-	(CAST(ROUND(Time_Entry.hours,2) AS VARCHAR(25)) || '-' || LEFT(Project.project_code,22) || '(' || LEFT(Project.description,22) || ') ' || ' - ' || CAST(notes.note AS VARCHAR(70))) AS clientname_data,
-	(CAST(REF_Day_Of_Week.day_name AS VARCHAR(9)) || ', ' || CAST(EXTRACT(MONTH FROM Time_Entry.work_date) AS VARCHAR(2)) || '/' || CAST(EXTRACT(DAY FROM Time_Entry.work_date) AS VARCHAR(11)) || '/' || RIGHT(CAST(EXTRACT(YEAR FROM Time_Entry.work_date) AS VARCHAR(4)), 2) || '- ' || CAST(Hours_Pin_Date.sumhours AS VARCHAR(11))) AS workdays,
-	('Week Beginning ' || CAST(EXTRACT(MONTH FROM Hours_Pin_Week.mindate) AS VARCHAR(9)) || ' ' || CAST(EXTRACT(DAY FROM Hours_Pin_Week.mindate) AS VARCHAR(2)) || ', ' || CAST(EXTRACT(YEAR FROM Hours_Pin_Week.mindate) AS VARCHAR(4)) || ' - ' || CAST(ROUND(Hours_Pin_Week.sumhoursweek,2) AS VARCHAR(10))) AS workweek
+SELECT Day_Level_Dates.date_year, Day_Level_Dates.date_month, Day_Level_Dates.date_week,
+	NULL AS day_of_week_number, MIN(Day_Level_Dates.odbc_date) AS work_date,
+	0 AS time_entry_id, COALESCE(SUM(Time_Entry.hours),0) AS hours, NULL AS project_code,
+	NULL AS project_description, NULL AS note, CAST(NULL AS TIMESTAMP) AS created_date,
+	0 AS billed_ind, 1 AS sort_order
+FROM (
+		SELECT date_year, date_month, date_week, day_of_week_number, odbc_date
+		FROM REF_Date
+		WHERE odbc_date BETWEEN CURRENT_DATE-60 AND CURRENT_DATE+14 /*within the past 60 days*/
+	) Day_Level_Dates
+	LEFT OUTER JOIN Time_Entry ON Day_Level_Dates.odbc_date=Time_Entry.work_date
+		AND Time_Entry.active_ind=1
+		AND Time_Entry.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
+		AND Time_Entry.work_date BETWEEN CURRENT_DATE-60 AND CURRENT_DATE+14 /*within the past 60 days*/
+GROUP BY Day_Level_Dates.date_year, Day_Level_Dates.date_month, Day_Level_Dates.date_week
+UNION ALL
+SELECT Day_Level_Dates.date_year, Day_Level_Dates.date_month, Day_Level_Dates.date_week,
+	Day_Level_Dates.day_of_week_number, Day_Level_Dates.odbc_date AS work_date,
+	0 AS time_entry_id, COALESCE(SUM(Time_Entry.hours),0) AS hours, NULL AS project_code,
+	NULL AS project_description, NULL AS note, NULL AS created_date,
+	0 AS billed_ind, 2 AS sort_order
+FROM (
+		SELECT date_year, date_month, date_week, day_of_week_number, odbc_date
+		FROM REF_Date
+		WHERE odbc_date BETWEEN CURRENT_DATE-60 AND CURRENT_DATE+14 /*within the past 60 days*/
+	) Day_Level_Dates
+	LEFT OUTER JOIN Time_Entry ON Day_Level_Dates.odbc_date=Time_Entry.work_date
+		AND Time_Entry.active_ind=1
+		AND Time_Entry.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
+		AND Time_Entry.work_date BETWEEN CURRENT_DATE-60 AND CURRENT_DATE+14 /*within the past 60 days*/
+GROUP BY Day_Level_Dates.date_year, Day_Level_Dates.date_month, Day_Level_Dates.date_week,
+	Day_Level_Dates.day_of_week_number, Day_Level_Dates.odbc_date
+UNION ALL
+SELECT NULL AS date_year, NULL AS date_month, NULL AS date_week,
+	NULL AS day_of_week_number, Time_Entry.work_date,
+	Time_Entry.time_entry_id, Time_Entry.hours, Project.project_code,
+	Project.description, Notes.note, Notes.created_date,
+	COALESCE(Billed_Indicator.time_entry_id,0) AS billed_ind, 3 AS sort_order
 FROM Time_Entry
-	INNER JOIN REF_Day_of_Week ON EXTRACT (DOW FROM Time_Entry.work_date)=REF_Day_Of_Week.day_of_week_id
-	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
-	INNER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
+	LEFT OUTER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
 		AND Notes.active_ind=1
-	INNER JOIN (
-		SELECT Time_Entry.work_date, Time_Entry.user_account_id, SUM(Time_Entry.Hours) AS sumhours
-		FROM Time_Entry
-		WHERE Time_Entry.active_ind=1
-			AND Time_Entry.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
-			AND Time_Entry.work_date >= CURRENT_DATE-60 /*within the past 60 days*/
-		GROUP BY Time_Entry.work_date, Time_Entry.user_account_id
-	) AS Hours_Pin_Date ON Time_Entry.user_account_id=Hours_Pin_Date.user_account_id
-		AND Time_Entry.work_date=Hours_Pin_Date.work_date
-	INNER JOIN (
-		SELECT EXTRACT(YEAR FROM Time_Entry.work_date) AS year, EXTRACT(WEEK FROM Time_Entry.work_date) AS week, SUM(Time_Entry.hours) AS sumhoursweek,
-			MIN(Time_Entry.work_date) AS mindate
-		FROM Time_Entry
-		WHERE Time_Entry.active_ind=1
-			AND Time_Entry.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
-		GROUP BY EXTRACT(YEAR FROM Time_Entry.work_date), EXTRACT(WEEK FROM Time_Entry.work_date)
-	) AS Hours_Pin_Week ON EXTRACT(YEAR FROM Time_Entry.work_date)=Hours_Pin_Week.year
-		AND EXTRACT(WEEK FROM Time_Entry.work_date)=Hours_Pin_Week.week
+	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
+		AND Project.active_ind=1
+	LEFT OUTER JOIN (
+		SELECT Link_Invoice_Time_Entry.time_entry_id
+		FROM Invoice
+			INNER JOIN Link_Invoice_Time_Entry ON Invoice.invoice_id=Link_Invoice_Time_Entry.invoice_id
+				AND Link_Invoice_Time_Entry.active_ind=1
+		WHERE Invoice.active_ind=1
+		GROUP BY Link_Invoice_Time_Entry.time_entry_id
+	) AS Billed_Indicator ON Time_Entry.time_entry_id=Billed_Indicator.time_entry_id
 WHERE Time_Entry.active_ind=1
 	AND Time_Entry.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
-	AND Time_Entry.work_date >= CURRENT_DATE-60 /*within the past 60 days*/
-ORDER BY Time_Entry.work_date DESC, Notes.created_date DESC, Project.project_code
+	AND Time_Entry.work_date BETWEEN CURRENT_DATE-60 AND CURRENT_DATE+14 /*within the past 60 days*/
+ORDER BY work_date, sort_order
 </cfquery>
 </cfsilent>
