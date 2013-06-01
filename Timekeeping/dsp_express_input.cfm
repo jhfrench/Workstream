@@ -21,7 +21,7 @@
 		<tr>
 			<th>Date</th>
 			<th>Hours</th>
-			<th><cfif compare(fuseaction, "time_entry")>Project<cfelse>Task</cfif></th>
+			<th><cfif NOT comparenocase(fuseaction, "time_entry")>Project<cfelse>Task</cfif></th>
 			<th>Notes</th>
 		</tr>
 	</thead>
