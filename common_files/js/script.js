@@ -8,12 +8,12 @@ $(document).ready(function() {
 	if ( $('#navbar-search-full').length ) {
 		//when it receives focus, grow the search input from span5 to span9
 		$('#header_search_criteria').focus( function() {
-				"use strict"; //let's avoid tom-foolery in this function
-				$(this).switchClass('span4', 'span9', 200);
-			}).blur( function() {
-				"use strict"; //let's avoid tom-foolery in this function
-				$(this).switchClass('span9', 'span4', 200);
-			});
+			"use strict"; //let's avoid tom-foolery in this function
+			$(this).switchClass('span4', 'span9', 200);
+		}).blur( function() {
+			"use strict"; //let's avoid tom-foolery in this function
+			$(this).delay(200).switchClass('span9', 'span4', 200);
+		});
 		
 		// change full search link to first change form target, then submit that form; change link's href to be an internal link; update link's title
 		$('#navbar-search-full').click( function(event) {
