@@ -4,8 +4,8 @@
 	.box-shadow(inset 0 1px 1px rgba(0,0,0,.05));
 	background-color: lighten(@grayLighter, 5%);
 	border: 1px solid @grayLight;
-	margin-bottom: 20px;
-	max-height: 360px;
+	margin-bottom: 10px;
+	max-height: 300px;
 	min-height: 20px;
 	overflow-y: auto;
 	padding: 19px;
@@ -16,54 +16,55 @@
 		width: 90%;
 	}
 	li {
-	    list-style-type: none;
-	    margin: 0px 0;
-	    padding: 10px 5px 0px 5px;
-	    position: relative;
+		list-style-type: none;
+		margin: 0px 0;
+		padding: 4px 0px 0px 2px;
+		position: relative;
 	}
 	li::before, li::after {
-	    content:'';
-	    left: -20px;
-	    position: absolute;
-	    right: auto;
+		content:'';
+		left: -20px;
+		position: absolute;
+		right: auto;
 	}
 	li::before {
-	    border-left: 1px solid @grayLight;
-	    bottom: 50px;
-	    height: 100%;
-	    top: 0;
-	    width: 1px;
+		border-left: 1px solid @grayLight;
+		bottom: 50px;
+		height: 100%;
+		top: 0;
+		width: 1px;
 	}
 	li::after {
-	    border-top: 1px solid @grayLight;
-	    height: 20px;
-	    top: 25px;
-	    width: 25px;
+		border-top: 1px solid @grayLight;
+		height: 20px;
+		top: 13px;
+		width: 23px;
 	}
 	li span {
-	    -moz-border-radius: 5px;
-	    -webkit-border-radius: 5px;
-	    border: 1px solid @grayLight;
-	    border-radius: 5px;
-	    display: inline-block;
-	    padding: 3px 8px;
-	    text-decoration: none;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border: 1px solid @grayLight;
+		border-radius: 5px;
+		display: inline-block;
+		line-height: 14px;
+		padding: 2px 4px;
+		text-decoration: none;
 	}
 	li.parent_li > span {
-	    cursor: pointer;
+		cursor: pointer;
 	}
 	/*Remove connectors before root*/
 	> ul > li::before, > ul > li::after {
-	    border: 0;
+		border: 0;
 	}
 	/*Remove connectors after last child*/
 	li:last-child::before {
-	    height: 30px;
+		height: 30px;
 	}
 	/*Time for some hover effects*/
 	li.parent_li > span:hover, li.parent_li > span:hover+ul li span {
-	    background: @grayLighter;
-	    border: 1px solid @gray;
-	    color: #000;
+		background: @grayLighter;
+		border: 1px solid @gray;
+		color: #000;
 	}
 }
