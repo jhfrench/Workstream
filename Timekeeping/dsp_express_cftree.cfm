@@ -19,8 +19,7 @@
 
 <div class="tree">
 <cfoutput query="get_express_time_entries">
-	<!-- loop from="#sort_order#" to="#variables.sort_order#"  -->
-	<cfloop from="#sort_order#" to="#variables.sort_order#" index="variables.close_ul_ii"><!-- "#variables.close_ul_ii#"  --></li><cfif sort_order NEQ 3></ul></cfif></cfloop>
+	<cfloop from="#sort_order#" to="#variables.sort_order#" index="variables.close_ul_ii"></li><cfif sort_order NEQ 3></ul></cfif></cfloop>
 <cfswitch expression="#sort_order#">
 	<cfcase value="1">
 	<ul role="tree">
@@ -43,6 +42,5 @@
 </cfswitch>
 <cfset variables.sort_order=sort_order>
 </cfoutput>
-<!-- final closers  -->
-<cfloop from="1" to="#variables.sort_order#" index="variables.close_ul_ii"><!-- "#variables.close_ul_ii#"  --></li></ul></cfloop>
+<cfloop from="1" to="#variables.sort_order#" index="variables.close_ul_ii"></li></ul></cfloop>
 </div>
