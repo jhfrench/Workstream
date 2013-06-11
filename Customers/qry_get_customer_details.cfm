@@ -17,14 +17,14 @@ SELECT Customer.customer_id, Customer.root_code, Customer.company_id,
 	Customer.company_address2, Customer.company_city, Customer.company_state,
 	Customer.company_zip, Customer.contact_user_account_id, Demographics.first_name,
 	Demographics.last_name, REF_Company.description AS company, REF_Active_Indicator.active_ind_type,
-	Drill_Table.drill_ind
+	COALESCE(Drill_Table.drill_ind),0) AS drill_ind
 FROM Customer
 	INNER JOIN REF_Company ON Customer.company_id=REF_Company.company_id
 	INNER JOIN REF_Active_Indicator ON Customer.active_ind=REF_Active_Indicator.active_ind
 	LEFT OUTER JOIN Demographics ON Customer.contact_user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1
 	LEFT OUTER JOIN (
-		SELECT Project.customer_id, COALESCE(SUM(Project.active_ind),0) AS drill_ind
+		SELECT Project.customer_id, SUM(Project.active_ind) AS drill_ind
 		FROM Project
 			INNER JOIN Link_Project_Company ON Project.project_id=Link_Project_Company.project_id
 				AND Link_Project_Company.company_id IN (<cfqueryparam value="#session.workstream_selected_company_id#" cfsqltype="cf_sql_integer" list="true">)
