@@ -38,7 +38,7 @@
 				</cfif></a>
 			</td>
 			<td>
-				#active#
+				#active_ind_type#
 			</td>
 			<td align="center">
 				<a href="javascript:edit(#customer_id#)" class="btn btn-mini">Edit</a>
