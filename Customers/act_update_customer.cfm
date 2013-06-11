@@ -26,7 +26,7 @@ SET root_code='#attributes.root_code#',
 	company_city = '#attributes.company_city#',
 	company_state='#attributes.company_state#',
 	company_zip='#attributes.company_zip#'
-WHERE customer_id=#attributes.customer_id#
+WHERE customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" />
 </pre>
 </cfoutput> --->
 <cfquery name="update_customers" datasource="#application.datasources.main#">
@@ -37,16 +37,16 @@ SET root_code='#attributes.root_code#',
 	active_ind=#attributes.active_ind#,
 	company_address1='#attributes.company_address1#',
 	company_address2='#attributes.company_address2#',
-	company_city = '#attributes.company_city#',
+	company_city='#attributes.company_city#',
 	company_state='#attributes.company_state#',
 	company_zip='#attributes.company_zip#'
-WHERE customer_id=#attributes.customer_id#
+WHERE customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cfquery name="update_projects" datasource="#application.datasources.main#">
 UPDATE Project
 SET root_code='#attributes.root_code#',
 	project_code='#attributes.root_code#' || RIGHT(project_code,LENGTH(project_code)-4)
-WHERE customer_id=#attributes.customer_id#
+WHERE customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <!--- See if the fields for first and last name are populated on the form. --->
 <cfif len(attributes.first_name) OR len(attributes.last_name)>
@@ -77,25 +77,24 @@ WHERE customer_id=#attributes.customer_id#
 	<cfquery name="update_customer_contact" datasource="#application.datasources.main#">
 	UPDATE Customer
 	SET contact_user_account_id=#attributes.contact_user_account_id#
-	WHERE customer_id=#attributes.customer_id#
+	WHERE customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 <!---This is if the form is empty for contact information --->
 <cfelse>
 	<cfquery name="remove_customer_contact" datasource="#application.datasources.main#">
 	UPDATE Customer
 	SET contact_user_account_id=NULL
-	WHERE customer_id=#attributes.customer_id#
+	WHERE customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" />
 		AND contact_user_account_id IS NOT NULL
 	</cfquery>
 </cfif>
-<!--- Update the visible to table, by deleting all the existing entries and then looping through the list of companies that
-the customer is visible to and insert them into the table. --->
+<!--- Update the Link_Customer_Company table, by deleting all the existing entries and then looping through the list of companies that the customer is visible to and insert them into the table. --->
 <cfset attributes.visible_to_company_id=listappend(0,attributes.visible_to_company_id)>
 <cfquery name="update_link_customer_company" datasource="#application.datasources.main#">
 UPDATE Link_Customer_Company
 SET active_ind=0
 WHERE active_ind=1
-	AND customer_id=#attributes.customer_id#
+	AND customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" />
 	AND company_id NOT IN (#attributes.visible_to_company_id#);
 
 INSERT INTO Link_Customer_Company (customer_id, company_id, created_by)
@@ -106,7 +105,7 @@ WHERE company_id IN (#attributes.visible_to_company_id#)
 		SELECT company_id
 		FROM Link_Customer_Company
 		WHERE active_ind=1
-			AND customer_id=#attributes.customer_id#
+			AND customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" />
 	)
 </cfquery>
 </cftransaction>

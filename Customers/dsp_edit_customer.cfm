@@ -19,21 +19,22 @@
 	<fieldset>
 		<legend><h3>General</h3></legend>
 		<div class="control-group">
-			<label for="root_code" class="control-label">Root Code</label>
-			<div class="controls">
-				<input type="text" name="root_code" id="root_code" value="#get_customer_details.root_code#" maxlength="4" class="span4" />
-			</div>
-		</div>
-		<div class="control-group">
 			<label for="description" class="control-label">Name</label>
 			<div class="controls">
 				<input type="text" name="description" id="description" value="#get_customer_details.client_name#" class="span4" />
 			</div>
 		</div>
 		<div class="control-group">
+			<label for="root_code" class="control-label">Root Code</label>
+			<div class="controls">
+				<input type="text" name="root_code" id="root_code" value="#get_customer_details.root_code#" maxlength="4" class="span4" />
+			</div>
+		</div>
+		<div class="control-group">
 			<label for="company_id" class="control-label">Company</label>
 			<div class="controls">
 				<cfselect name="company_id" id="company_id" size="1" query="get_companies" value="company_id" display="description" selected="#get_customer_details.company_id#" class="span4" />
+				<p class="help-block">Company with the primary relationship with the customer.</p>
 			</div>
 		</div>
 		<div class="control-group">

@@ -15,7 +15,7 @@
 <cfquery name="get_root_code" datasource="#application.datasources.main#">
 SELECT LEFT(root_code, 4) AS root_code, billable_type_id, company_id, description
 FROM Customer
-WHERE customer_id=#attributes.customer_id#
+WHERE customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" />
 </cfquery>
 
 <cfif isdefined("attributes.company_id")>
@@ -25,7 +25,8 @@ WHERE customer_id=#attributes.customer_id#
 	<cfquery name="get_company_id" datasource="#application.datasources.main#">
 	SELECT company_id AS visible
 	FROM Link_Customer_Company
-	WHERE customer_id=#attributes.customer_id#
+	WHERE active_ind=1
+		AND customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	<cfset variables.company_id=valuelist(get_company_id.visible)>
 </cfif>
