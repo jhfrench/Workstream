@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 	 
+	 ||
 		END FUSEDOC --->
 </cfsilent>
 <table class="table table-striped table-bordered table-condensed">
@@ -28,13 +28,13 @@
 	</tr>
 	</thead>
 	<tbody>
-	<cfoutput query="get_customers">
+	<cfoutput query="get_customer_details">
 		<tr>
 			<td>
-				<a href="<cfif get_customers.drill>javascript:customer(#customer_id#)<cfelse>##</cfif>" title="View projects for #clientname#."><cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
-					#clientcode# - #clientname#
+				<a href="<cfif get_customer_details.drill_ind>javascript:customer(#customer_id#)<cfelse>##</cfif>" title="View projects for #clientname#."><cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
+					#root_code# - #clientname#
 				<cfelse>
-					#clientname# (#clientcode#)
+					#clientname# (#root_code#)
 				</cfif></a>
 			</td>
 			<td>

@@ -9,12 +9,12 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="../common_files/qry_get_states.cfm">
 <cfinclude template="qry_get_companies.cfm">
-<cfinclude template="qry_customer_change.cfm">
-<cfset code=customer_change.root_code>
+<cfinclude template="qry_get_customer_details.cfm">
 <cfinclude template="../common_files/qry_get_link_customer_company.cfm">
+<cfset variables.visible_to_company_id=valuelist(get_link_customer_company.company_id)>
 <cfinclude template="dsp_edit_customer.cfm">
