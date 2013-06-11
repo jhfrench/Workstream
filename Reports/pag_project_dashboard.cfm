@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfparam name="attributes.active_ind" default="1">
 </cfsilent>
@@ -19,7 +19,7 @@
 <cfinclude template="dsp_project_dashboard_chart.cfm">
 <a href="index.cfm?fuseaction=Customers.new_project" class="btn"><i class="icon-plus-sign"></i> Create New Project</a>
 
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_project" fuseaction="Customers.edit_project" field_name="project_id" field2_name="option" field2_variable_ind="1" process_form_ind="true" project_dashboard_return_ind="1">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_project" fuseaction="Customers.edit_project" field_name="project_id" field2_name="option" field2_variable_ind="1" process_form_ind="true">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="account_status" fuseaction="Reports.account_status" field_name="project_id">
 
 <form name="form_project_dashboard" action="index.cfm?fuseaction=<cfoutput>#attributes.fuseaction#</cfoutput>" method="post" class="well form-inline">

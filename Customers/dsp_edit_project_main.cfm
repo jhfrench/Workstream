@@ -178,7 +178,6 @@
 			<input type="hidden" name="project_id" value="#attributes.project_id#" />
 			<input type="hidden" name="option" value="1" />
 			<input type="hidden" name="edit" value="1" />
-			<input type="hidden" name="project_dashboard_return_ind" value="#attributes.project_dashboard_return_ind#" />
 			<input type="submit" value="Proceed" class="btn btn-primary" />
 			<input type="reset" value="Reset" class="btn" />
 		</div>

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC ---></cfsilent>
 <!--- <cftransaction isolation="READ_COMMITTED"></cftransaction> --->
 <cfquery name="get_user_fields" datasource="#application.datasources.main#">
@@ -59,6 +59,7 @@ WHERE User_Fields.active_ind=1
 		</cfif>
 	</cfloop>
 </cfif>
-<cfif project_dashboard_return_ind EQ 1>
-	<cflocation url="../index.cfm?fuseaction=Reports.project_dashboard&customer_id=#attributes.customer_id#&project_manager_id=#attributes.project_manager_id#&sort=#sort#&###Project_ID#" addtoken="no">
-</cfif>
+<div class="alert alert-success">
+	<strong>No problem!</strong>
+	<cfif listcontains(variables.allowed_business_function_id,634)><p><a href="index.cfm?fuseaction=Reports.project_dashboard" class="btn">Check out the project dashboard</a></p></cfif>
+</div>

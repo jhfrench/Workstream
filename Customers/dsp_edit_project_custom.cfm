@@ -10,12 +10,11 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfset variables.start=1>
 </cfsilent>
 <cfparam name="attributes.customer_id" default="0">
-<cfparam name="project_dashboard_return_ind" default="0">
 <cfparam name="attributes.project_manager_id" default="0">
 <cfparam name="sort" default="Customer.description,Project.description">
 <cfset attributes.req_custom=1>
@@ -57,7 +56,6 @@
 			<input type="hidden" name="project_id" value="#attributes.project_id#" />
 			<input type="hidden" name="option" value="3" />
 			<input type="hidden" name="edit" value="1" />
-			<input type="hidden" name="project_dashboard_return_ind" value="#attributes.project_dashboard_return_ind#" />
 			<input type="hidden" name="customer_id" value="#attributes.customer_id#" />
 			<input type="hidden" name="project_manager_id" value="#attributes.project_manager_id#" />
 			<input type="hidden" name="Sort" value="#sort#" />
