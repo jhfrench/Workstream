@@ -193,7 +193,7 @@ $(document).ready(function() {
 	}
 
 	//if page includes resolution entry, inject a widget that will track how long the task has been open, adding a quarter hour every 15 minutes
-	if( $('#task_details_resolution_entry_hours').length ) {
+	if( $('#task_details_resolution_entry_hours').length && !$('#task_open_link').length ) {
 		var elapsed_time_running,
 			elapsed_time=0.25;
 		
@@ -272,7 +272,8 @@ $(document).ready(function() {
 					}
 					else {
 						//converts any forms within #utility_body into using .load() to submit intended data and display the server response within the submitting modal
-						$('#utility_body form').submit(function(){
+						$('#utility_body form').submit(function(e){
+							e.preventDefault(); // stops browser from doing default submit process
 							$('#utility_body').load(
 								$(this).attr('action')+' #content_container',
 								$(this).serialize(),
@@ -284,7 +285,6 @@ $(document).ready(function() {
 									return this;
 								}
 							);
-							return false; // stops browser from doing default submit process
 						});
 					};
 					
