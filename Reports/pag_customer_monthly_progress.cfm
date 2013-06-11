@@ -16,10 +16,10 @@
 <cfparam name="attributes.report_year" default="#year(dateadd('m',-1, now()))#">
 <cfparam name="attributes.customer_id" default="1">
 </cfsilent>
-<cfinclude template="../common_files/qry_get_link_customer_company.cfm">
+<cfinclude template="../common_files/qry_get_visible_customers.cfm">
 <cfinclude template="qry_get_customer_monthly_progress.cfm">
 
-<h2>Monthly Progress <small><cfoutput>#get_link_customer_company.customer_name#, #monthasstring(attributes.report_month)# #attributes.report_year#</cfoutput></small></h2>
+<h2>Monthly Progress <small><cfoutput>#get_visible_customers.customer_name#, #monthasstring(attributes.report_month)# #attributes.report_year#</cfoutput></small></h2>
 <cfinclude template="dsp_customer_monthly_progress.cfm">
 
 <cfoutput>
@@ -37,9 +37,9 @@
 		</cfloop>
 	</select>
 	<label for="customer_id">Customer</label>
-	<cfmodule template="../common_files/qry_get_link_customer_company.cfm">
+	<cfmodule template="../common_files/qry_get_visible_customers.cfm">
 	<select name="customer_id" id="customer_id">
-		<cfloop query="get_link_customer_company">
+		<cfloop query="get_visible_customers">
 		<option value="#customer_id#"<cfif attributes.customer_id EQ customer_id> selected="selected"</cfif>>#customer_name#</option>
 		</cfloop>
 	</select>
