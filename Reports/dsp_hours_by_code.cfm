@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 
@@ -51,7 +51,7 @@
 			<cfloop query="get_hours_by_code">
 				<tr>
 					<td>#employee_classification#</td>
-					<td class="graph_label">#clientname#</td>
+					<td class="graph_label">#client_name#</td>
 					<td class="graph_data">#numberformat(hours)#</td>
 				</tr>
 			</cfloop>

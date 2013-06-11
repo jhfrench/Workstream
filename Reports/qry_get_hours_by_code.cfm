@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="get_hours_by_code" datasource="#application.datasources.main#">
@@ -22,7 +22,7 @@ SELECT SUM(Time_Entry.hours) AS hours, Project.project_code,
 	<cfelse>
 			THEN (Customer.description || '-' || Project.description || ' (' ||  Project.project_code || ')')
 		ELSE (Project.description || ' (' ||  Project.project_code || ')')
-	</cfif>END AS clientname, 
+	</cfif>END AS client_name,
 	COALESCE(REF_Employee_Classification.employee_classification, 'Unknown') AS employee_classification
 FROM Time_Entry
 	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
@@ -36,7 +36,7 @@ WHERE Time_Entry.active_ind=1
 	AND Time_Entry.work_date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.through_date)#
 GROUP BY Project.project_code, Project.description, Customer.description,
 	REF_Employee_Classification.employee_classification
-ORDER BY clientname
+ORDER BY client_name
 </cfquery>
 
 <cfquery name="get_hours_by_code_totals" dbtype="query">

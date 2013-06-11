@@ -12,12 +12,12 @@
 	 ||
 	END FUSEDOC --->
 </cfsilent>
-	<cfif comparenocase(variables.temp_client_name, ClientName)>
-		<cfset variables.temp_client_name=ClientName>
+	<cfif comparenocase(variables.temp_client_name, client_name)>
+		<cfset variables.temp_client_name=client_name>
 	</cfif>
 	<cfoutput>
 		<tr>
-			<td>#clientName# #project_code#</td>
+			<td>#client_name# #project_code#</td>
 			<td> #last_name#, #first_name# </td>
 			<td align="right"> #decimalformat(hours)# <cfset total_hours=total_hours+hours> </td>
 		</tr></cfoutput>

@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 <cfquery name="get_customer_details" datasource="#application.datasources.main#">
 SELECT Customer.customer_id, Customer.root_code, Customer.company_id,
-	Customer.description AS clientname, Customer.active_ind, Customer.company_address1,
+	Customer.description AS client_name, Customer.active_ind, Customer.company_address1,
 	Customer.company_address2, Customer.company_city, Customer.company_state,
 	Customer.company_zip, Customer.contact_user_account_id, Demographics.first_name,
 	Demographics.last_name, REF_Company.description AS company, REF_Active_Indicator.active_ind_type,

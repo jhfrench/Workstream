@@ -27,7 +27,7 @@
 		<div class="control-group">
 			<label for="description" class="control-label">Name</label>
 			<div class="controls">
-				<input type="text" name="description" id="description" value="#get_customer_details.description#" class="span4" />
+				<input type="text" name="description" id="description" value="#get_customer_details.client_name#" class="span4" />
 			</div>
 		</div>
 		<div class="control-group">

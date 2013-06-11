@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfparam name="variables.show_details_ind" default="1">
 </cfsilent>
@@ -27,7 +27,7 @@
 	<tr<cfif (currentrow MOD 2)> bgcolor="##E1E1E1"</cfif>>
 		<cfif variables.show_details_ind><td align="center">#name#</td>
 		<td align="center">#month#/#year#</td></cfif>
-		<td align="left">#clientname#</td>
+		<td align="left">#client_name#</td>
 		<td align="right">#decimalformat(sumofhours)#</td>
 	</tr>
 </cfoutput>

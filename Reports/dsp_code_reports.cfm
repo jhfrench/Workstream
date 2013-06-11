@@ -67,8 +67,8 @@
 <cfoutput group="project_code">
 <cfoutput>
 	<tr<cfif currentrow MOD 2> bgcolor="##e1e1e1"</cfif>>
-		<td>#clientName#&nbsp;</td>
-		<td>#last_name#, #first_name#&nbsp;</td>
+		<td>#client_name#</td>
+		<td>#last_name#, #first_name#</td>
 <cfif variables.month_loop GT 1>
 <cfloop from="1" to="#variables.month_loop#" index="ii">
 		<cfset "variables.sum_period_#ii#"=evaluate("period_#ii#")+evaluate("variables.sum_period_#ii#")>
@@ -81,7 +81,7 @@
 </cfoutput>
 	<tr valign="top">
 		<td colspan="<cfif variables.month_loop GT 1>2<cfelse>3</cfif>" align="right" class="RegTextIt">
-			<cfif variables.month_loop GT 1>#variables.employee_classification#<cfelse>#clientname#</cfif> Hour Totals:
+			<cfif variables.month_loop GT 1>#variables.employee_classification#<cfelse>#client_name#</cfif> Hour Totals:
 		</td>
 <cfif variables.month_loop GT 1>
 <cfloop from="1" to="#variables.month_loop#" index="ii">
