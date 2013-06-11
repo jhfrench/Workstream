@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfif variables.month_loop GT 1>
 	<cfloop from="1" to="#variables.month_loop#" index="ii">
@@ -64,7 +64,7 @@
 			&nbsp;Employee Type Subtotal&nbsp;
 		</td></cfif>
 	</tr>
-<cfoutput group="clientcode">
+<cfoutput group="project_code">
 <cfoutput>
 	<tr<cfif currentrow MOD 2> bgcolor="##e1e1e1"</cfif>>
 		<td>#clientName#&nbsp;</td>
@@ -81,7 +81,7 @@
 </cfoutput>
 	<tr valign="top">
 		<td colspan="<cfif variables.month_loop GT 1>2<cfelse>3</cfif>" align="right" class="RegTextIt">
-			<cfif variables.month_loop GT 1>#variables.employee_classification#<cfelse>#clientname#</cfif> Hour Totals: 
+			<cfif variables.month_loop GT 1>#variables.employee_classification#<cfelse>#clientname#</cfif> Hour Totals:
 		</td>
 <cfif variables.month_loop GT 1>
 <cfloop from="1" to="#variables.month_loop#" index="ii">

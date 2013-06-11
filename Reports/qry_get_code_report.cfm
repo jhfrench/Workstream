@@ -9,15 +9,15 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfquery name="get_code_report" datasource="#application.datasources.main#">
 SELECT Demographics.first_name, Demographics.last_name, REF_Employee_Classification.employee_classification,
-	Project.project_code AS clientcode, Project.description AS clientname, 
+	Project.project_code, Project.description AS clientname,
 	<cfif isdefined("variables.month_loop")><cfloop from="1" to="#variables.month_loop#" index="ii"><cfset variables.current_month=dateformat(dateadd("m",ii-1,variables.from_date), "mm/yyyy")>SUM(CASE WHEN EXTRACT(MONTH FROM Time_Entry.work_date)=#month(variables.current_month)# AND EXTRACT(YEAR FROM Time_Entry.work_date)=#year(variables.current_month)# THEN Time_Entry.hours ELSE 0 END) AS period_#ii#,
-	</cfloop></cfif>SUM(Time_Entry.hours) AS hours, 
+	</cfloop></cfif>SUM(Time_Entry.hours) AS hours,
 	REF_Company.description AS company
-FROM Demographics 
+FROM Demographics
 	INNER JOIN Time_Entry ON Demographics.user_account_id=Time_Entry.user_account_id
 		AND Time_Entry.active_ind=1
 		AND Time_Entry.work_date BETWEEN #createodbcdate(attributes.from_date)# AND #createodbcdate(attributes.through_date)#

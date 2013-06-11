@@ -8,12 +8,12 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfparam name="session.workstream_project_list_order" default="1">
 <cfparam name="variables.non_billable_ind" default="False">
 <cfquery name="get_monthly_hours" datasource="#application.datasources.main#">
-SELECT Demographics.first_name, Demographics.last_name, Project.project_code AS clientcode,
+SELECT Demographics.first_name, Demographics.last_name, Project.project_code,
 	CASE
 		WHEN Customer.description!=Project.description
 	<cfif session.workstream_project_list_order EQ 2>
