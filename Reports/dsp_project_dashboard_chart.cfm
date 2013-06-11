@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I display the project list dashboard and a form for restricting and sorting the records. 
+	Responsibilities: I display the project list dashboard and a form for restricting and sorting the records.
 	I am used to give a overview of all projects or select engagments as selected on the form I display.
 	The form has the following option restriction can be placed on Customer and IE.
 	Sorting can be done on any column.
@@ -13,7 +13,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 
@@ -36,7 +36,7 @@
 	</thead>
 	<tbody>
 	<cfoutput query="get_project_dashboard">
-		<tr> 
+		<tr>
 			<td id="#project_id#">
 				<a href="javascript:edit_project(#project_id#,1);" title="Edit this project's main details">#customer_description#&ndash;#description# (#project_code#)</a>
 			</td>
@@ -52,7 +52,7 @@
 				#project_status#
 			</td>
 			<td>
-				#vision#&nbsp;
+				#vision#
 			</td>
 			<td class="number">
 				<a href="javascript:edit_project(#project_id#,2);" title="Edit this project's billing details">
@@ -66,10 +66,10 @@
 				</a>
 			</td>
 			<td>
-				#mission#&nbsp;
+				#mission#
 			</td>
 			<td>
-				#last_name#&nbsp;
+				#last_name#
 			</td>
 			<td class="number">
 				<a href="javascript:account_status(#project_id#);" title="View active related tasks">
