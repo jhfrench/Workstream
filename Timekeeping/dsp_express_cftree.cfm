@@ -24,7 +24,7 @@
 	<cfcase value="1">
 	<ul role="tree">
 		<li role="treeitem">
-			<span><i class="icon-calendar"></i> #date_year#, Week #date_week#</span>
+			<span class="badge badge-<cfif hours GTE get_employee_details.week_hours>success<cfelseif hours GTE variables.partial_week>warning<cfelse>important</cfif>"><i class="icon-calendar"></i> #date_year#, Week #date_week#</span>
 	</cfcase>
 	<cfcase value="2">
 			<ul role="group">
