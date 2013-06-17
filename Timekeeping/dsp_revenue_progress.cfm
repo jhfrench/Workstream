@@ -48,7 +48,7 @@ Modernizr.load([
 			Modernizr.load([
 				{
 					load: [
-						'//s3.amazonaws.com/external-projects/flot/flot/jquery.flot.stack.js'
+						'//s3.amazonaws.com/external-projects/flot/jquery.flot.stack.js'
 					],
 					complete: function(){
 						$(document).ready(function() {
