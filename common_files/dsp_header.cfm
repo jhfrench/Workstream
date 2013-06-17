@@ -53,7 +53,7 @@ else
 	<link href="//s3.amazonaws.com/Workstream/images/workstream_icon.ico" rel="SHORTCUT ICON" />
 	<link rel="stylesheet" href="//s3.amazonaws.com/Workstream/Workstream.css">
 
-	<script src="//s3.amazonaws.com/external-projects/modernizr.custom.40623.js"></script>
+	<script src="//s3.amazonaws.com/Workstream/modernizr.custom.40623.js"></script>
 	<script type="text/javascript">
 	//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
 	Modernizr.load([
