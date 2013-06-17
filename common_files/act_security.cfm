@@ -85,13 +85,13 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>#application.product_name#</title>
-	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
+	<link href="//s3.amazonaws.com/Workstream/images/workstream_icon.ico" rel="SHORTCUT ICON" />
 	<link rel="stylesheet" href="Application_Manager/errortemplates/error_style.css">
 	<script language="JavaScript" type="text/javascript">
 		var submit_security_redirect=function() {
-			document.getElementById('security_redirect').submit();	
+			document.getElementById('security_redirect').submit();
 		};
-		
+
 		var onload_ready=function(remaining_time) {
 			if (arguments.callee.done) return; //don't execute more than once
 			arguments.callee.done = true;
@@ -104,7 +104,7 @@
 				submit_security_redirect();
 			}, remaining_time);
 		};
-		
+
 		//this is a fallback for if something (CSS or an imag) doesn't load; don't wait longer than 3 seconds
 		setTimeout(function() {
 			onload_ready(4000);

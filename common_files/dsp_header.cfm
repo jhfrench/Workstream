@@ -50,10 +50,10 @@ else
 
 	<meta name="viewport" content="width=device-width">
 
-	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
-	<link rel="stylesheet" href="common_files/Workstream.css">
+	<link href="//s3.amazonaws.com/Workstream/images/workstream_icon.ico" rel="SHORTCUT ICON" />
+	<link rel="stylesheet" href="//s3.amazonaws.com/Workstream/Workstream.css">
 
-	<script src="common_files/js/modernizr.custom.40623.js"></script>
+	<script src="//s3.amazonaws.com/external-projects/modernizr.custom.40623.js"></script>
 	<script type="text/javascript">
 	//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
 	Modernizr.load([
@@ -67,8 +67,8 @@ else
 					Modernizr.load([
 						{
 							both: [
-								'../external/jquery-2.0.0.min.js',
-								'common_files/js/jquery-ui.min.js'
+								'//s3.amazonaws.com/external-projects/jquery-2.0.0.min.js',
+								'//s3.amazonaws.com/external-projects/jquery-ui.min.js'
 
 							]
 						}
@@ -85,7 +85,7 @@ else
 					Modernizr.load([
 						{
 							load: [
-								'../external/bootstrap.min.js'
+								'//s3.amazonaws.com/external-projects/bootstrap.min.js'
 							]
 						}
 					]);
@@ -95,8 +95,8 @@ else
 		{
 			// This will wait for the fallback to load and execute if it needs to.
 			both: [
-				'common_files/js/plugins.js',
-				'common_files/js/script.js'
+				'//s3.amazonaws.com/Workstream/plugins.js',
+				'//s3.amazonaws.com/Workstream/script.js'
 			],
 			complete: function () {
 				$(document).ready(function() {

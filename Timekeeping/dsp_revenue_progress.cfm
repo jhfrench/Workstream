@@ -42,13 +42,13 @@
 Modernizr.load([
 	{
 		load: [
-			'common_files/js/flot/jquery.flot.js'
+			'//s3.amazonaws.com/external-projects/flot/jquery.flot.js'
 		],
 		complete: function(){
 			Modernizr.load([
 				{
 					load: [
-						'common_files/js/flot/jquery.flot.stack.js'
+						'//s3.amazonaws.com/external-projects/flot/flot/jquery.flot.stack.js'
 					],
 					complete: function(){
 						$(document).ready(function() {

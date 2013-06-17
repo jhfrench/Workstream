@@ -26,7 +26,7 @@
 </head>
 
 <body>
-	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
+	<link href="//s3.amazonaws.com/Workstream/images/workstream_icon.ico" rel="SHORTCUT ICON" />
 	<table summary="Table displays Application unavailable">
 		<tr>
 			<td class="Forum_AltHeaderText">Sorry</td>

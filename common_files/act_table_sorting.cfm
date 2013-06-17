@@ -30,10 +30,10 @@
 Modernizr.load([
 	{
 		load: [
-			'../external/DataTables/DataTables/media/js/jquery.dataTables.js'<cfif attributes.bPaginate>,
-			'../external/DataTables/Plugins/pagination/bootstrap.js'</cfif><cfif attributes.tabletools_ind>,
-			'../external/DataTables/TableTools/media/js/TableTools.js',
-			'../external/DataTables/TableTools/media/js/ZeroClipboard.js'</cfif>
+			'//s3.amazonaws.com/external-projects/DataTables/DataTables/media/js/jquery.dataTables.js'<cfif attributes.bPaginate>,
+			'//s3.amazonaws.com/external-projects/DataTables/Plugins/pagination/bootstrap.js'</cfif><cfif attributes.tabletools_ind>,
+			'//s3.amazonaws.com/external-projects/DataTables/TableTools/media/js/TableTools.js',
+			'//s3.amazonaws.com/external-projects/DataTables/TableTools/media/js/ZeroClipboard.js'</cfif>
 		],
 		complete: function() {
 			//power ACRQ detail table sorting
@@ -50,7 +50,7 @@ Modernizr.load([
 							"sPaginationType": "bootstrap"</cfif><cfif attributes.tabletools_ind>,
 							"oTableTools": {
 								"aButtons": [ "copy", "xls", "pdf" ],
-								"sSwfPath": "../external/DataTables/TableTools/media/swf/copy_csv_xls_pdf.swf"
+								"sSwfPath": "//s3.amazonaws.com/external-projects/DataTables/TableTools/media/swf/copy_csv_xls_pdf.swf"
 							}</cfif>
 						});
 	                };

@@ -40,7 +40,7 @@ else {
 <cfif isdefined("request.no_check_variables") OR isdefined("request.no_relocate")>
 <html>
 <head>
-	<link href="common_files/Workstream.css" rel="stylesheet">
+	<link href="//s3.amazonaws.com/Workstream/Workstream.css" rel="stylesheet">
 </head>
 <body>
 <cfif isdefined("request.no_check_variables")>
@@ -83,7 +83,7 @@ else {
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>#application.product_name#</title>
-	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
+	<link href="//s3.amazonaws.com/Workstream/images/workstream_icon.ico" rel="SHORTCUT ICON" />
 	<link rel="stylesheet" href="Application_Manager/errortemplates/error_style.css">
 	<script language="JavaScript" type="text/javascript">
 		//send the user to the appropriate page after an annoying wait

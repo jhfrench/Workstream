@@ -56,6 +56,6 @@ function upload_file_type_check() {
 	</cfform>
 	<div class="alert alert-info" id="upload_in_progress" aria-hidden="true" style="display:none">
 		<h2>Loading your file</h2>
-		<img src="images/loading.gif" alt="" width="48" height="48" style="padding:30px;" align="center" />
+		<img src="//s3.amazonaws.com/Workstream/images/loading.gif" alt="" width="48" height="48" style="padding:30px;" align="center" />
 	</div>
 </div>

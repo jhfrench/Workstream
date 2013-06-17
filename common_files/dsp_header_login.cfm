@@ -36,18 +36,18 @@
 
 	<meta name="viewport" content="width=device-width">
 
-	<link href="images/workstream_icon.ico" rel="SHORTCUT ICON" />
-	<link rel="stylesheet" href="common_files/Workstream_Login.css">
+	<link href="//s3.amazonaws.com/Workstream/images/workstream_icon.ico" rel="SHORTCUT ICON" />
+	<link rel="stylesheet" href="//s3.amazonaws.com/Workstream/Workstream_Login.css">
 
 	<!-- pre-fetch some resources to make the app perform better-->
-	<link rel="prefetch" href="common_files/Workstream.css">
-	<link rel="prefetch" href="common_files/js/script.js">
-	<link rel="prefetch" href="images/spritepad_Workstream.png">
-	<link rel="prefetch" href="../external/bootstrap/img/glyphicons-halflings.png">
-	<link rel="prefetch" href="../external/bootstrap/img/glyphicons-halflings-white.png">
+	<link rel="prefetch" href="//s3.amazonaws.com/Workstream/Workstream.css">
+	<link rel="prefetch" href="//s3.amazonaws.com/Workstream/script.js">
+	<link rel="prefetch" href="//s3.amazonaws.com/Workstream/images/spritepad_Workstream.png">
+	<link rel="prefetch" href="//s3.amazonaws.com/external-projects/bootstrap/img/glyphicons-halflings.png">
+	<link rel="prefetch" href="//s3.amazonaws.com/external-projects/bootstrap/img/glyphicons-halflings-white.png">
 	<link rel="prefetch" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js">
 
-	<script src="common_files/js/modernizr.custom.40623.js"></script>
+	<script src="//s3.amazonaws.com/Workstream/modernizr.custom.40623.js"></script>
 	<script type="text/javascript">
 	//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
 	Modernizr.load([
@@ -60,7 +60,7 @@
 					Modernizr.load([
 						{
 							both: [
-								'../external/jquery-2.0.0.min.js',
+								'//s3.amazonaws.com/external-projects/jquery-2.0.0.min.js',
 							]
 						}
 					]);
@@ -76,7 +76,7 @@
 					Modernizr.load([
 						{
 							load: [
-								'../external/bootstrap.min.js'
+								'//s3.amazonaws.com/external-projects/bootstrap.min.js'
 							]
 						}
 					]);
@@ -86,8 +86,8 @@
 		{
 			// This will wait for the fallback to load and execute if it needs to.
 			both: [
-				'common_files/js/plugins.js',
-				'common_files/js/clockTower.js'
+				'//s3.amazonaws.com/Workstream/plugins.js',
+				'//s3.amazonaws.com/Workstream/clockTower.js'
 			]
 		}
 	]);

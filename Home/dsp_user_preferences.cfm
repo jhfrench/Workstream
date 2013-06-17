@@ -29,7 +29,7 @@
 		<th align="left"><h2 style="margin:0px" id="top-side">User Preferences</h2></th>
 	</tr>
 </table>
-<img src="images/spacer.gif" alt="" width="560" height="1"><br />
+<img src="//s3.amazonaws.com/Workstream/images/spacer.gif" alt="" width="560" height="1"><br />
 <cfoutput>
 <cfform name="form_user_preferences_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
 <div class="datachart" style="border:1px solid ##999999">

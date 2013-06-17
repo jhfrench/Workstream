@@ -34,7 +34,7 @@
 	</ul>
 </h2>
 
-<img src="images/spacer.gif" alt="" width="560" height="1"><br />
+<img src="//s3.amazonaws.com/Workstream/images/spacer.gif" alt="" width="560" height="1"><br />
 
 <div class="datachart" style="border:1px solid #999999">
 <table cellpadding="3" cellspacing="0" width="100%" border="0" summary="Table displays system messages">

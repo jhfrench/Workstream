@@ -53,9 +53,9 @@
 			Modernizr.load([
 				{
 					test: Modernizr.canvas,
-					nope: 'common_files/js/excanvas.js',
+					nope: '//s3.amazonaws.com/external-projects/excanvas.js',
 					complete: function () {
-						Modernizr.load('common_files/js/pieChart.jQuery.js');
+						Modernizr.load('//s3.amazonaws.com/external-projects/pieChart.jQuery.js');
 					}
 				}
 			]);

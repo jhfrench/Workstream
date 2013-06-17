@@ -29,9 +29,9 @@
 </select>
 <br />
 <a href="http://www.microsoft.com/en-us/download/search.aspx?q=excel+viewer" target="_blank">
-	<img src="images/excel_logo.jpg" border="0" height="21" width="21" alt="Microsoft Excel logo" /> Excel output requires Excel viewer.
+	<img src="//s3.amazonaws.com/Workstream/images/excel_logo.jpg" border="0" height="21" width="21" alt="Microsoft Excel logo" /> Excel output requires Excel viewer.
 </a>
 <br />
 <a href="http://www.adobe.com/products/acrobat/readstep2.html" target="_blank">
-	<img src="images/pdf_logo.png" border="0" height="21" width="21" alt="P D F logo" /> <abbr title="Portable Document Format">PDF</abbr> output requires <abbr title="Portable Document Format">PDF</abbr> viewer.
+	<img src="//s3.amazonaws.com/Workstream/images/pdf_logo.png" border="0" height="21" width="21" alt="P D F logo" /> <abbr title="Portable Document Format">PDF</abbr> output requires <abbr title="Portable Document Format">PDF</abbr> viewer.
 </a>

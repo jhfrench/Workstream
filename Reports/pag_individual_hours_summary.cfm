@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfparam name="attributes.report_month" default="#month(dateadd('m',-1, now()))#">
 <cfparam name="attributes.report_year" default="#year(dateadd('m',-1, now()))#">
@@ -24,9 +24,9 @@
 	Modernizr.load([
 		{
 			test: Modernizr.canvas,
-			nope: 'common_files/js/excanvas.js',
+			nope: '//s3.amazonaws.com/external-projects/excanvas.js',
 			complete: function () {
-				Modernizr.load('common_files/js/pieChart.jQuery.js');
+				Modernizr.load('//s3.amazonaws.com/external-projects/pieChart.jQuery.js');
 			}
 		}
 	]);
