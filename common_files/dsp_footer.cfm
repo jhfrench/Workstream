@@ -39,8 +39,8 @@
 			This application provides the optimal experience when JavaScript is enabled.
 			</noscript>
 		</div>
-		<div style="float: right" class="span4">
-			<cfoutput>Version #application.product_release_version# (Last Updated: #dateformat(application.last_updated, "mmmm d, yyyy")#)</cfoutput>&nbsp;
+		<div class="span4 pull-right">
+			<cfoutput>Version #application.product_release_version# (Last Updated: #dateformat(application.last_updated, "mmmm d, yyyy")#)</cfoutput>
 		</div>
 	</footer>
 	<!--- I provide a hidden div within which you can have Ajax load (and process) a specified fuseaction. This is useful for things like ordering lots of data after an upload (without making the upload wait for the ordering), or setting session variables without reloading the controlling page (like hiding the navigation bar). --->
