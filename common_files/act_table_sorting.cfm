@@ -36,11 +36,12 @@ Modernizr.load([
 			'//s3.amazonaws.com/external-projects/DataTables/TableTools/media/js/ZeroClipboard.js'</cfif>
 		],
 		complete: function() {
-			//power ACRQ detail table sorting
+			//power table sorting
 			$(document).ready(function () {
 				$('table.tablesorter').each( function() {
 	                if ($(this).prop('rows').length > 2) {
 						$(this).dataTable({
+							"aaSorting": [ ],
 							"bAutoWidth": false,
 							"bFilter": #attributes.bFilter#,
 							"bLengthChange": false,
