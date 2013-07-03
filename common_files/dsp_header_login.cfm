@@ -53,14 +53,14 @@
 	Modernizr.load([
 		{
 			both: [
-				'//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js',
+				'//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js',
 			],
 			complete: function(){
 				if ( !window.jQuery ) {
 					Modernizr.load([
 						{
 							both: [
-								'//s3.amazonaws.com/external-projects/jquery-2.0.0.min.js',
+								'//s3.amazonaws.com/external-projects/jquery.min.js',
 							]
 						}
 					]);
