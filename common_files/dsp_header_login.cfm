@@ -52,15 +52,15 @@
 	//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
 	Modernizr.load([
 		{
-			both: [
-				'//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js',
+			load: [
+				'//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js'
 			],
 			complete: function(){
 				if ( !window.jQuery ) {
 					Modernizr.load([
 						{
-							both: [
-								'//s3.amazonaws.com/external-projects/jquery.min.js',
+							load: [
+								'//s3.amazonaws.com/external-projects/jquery.min.js'
 							]
 						}
 					]);
