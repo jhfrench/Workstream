@@ -184,15 +184,15 @@ $(document).ready(function(){
 	$('[aria-hidden="true"]').hide(); //hide anything that's marked as hidden to screen-readers
 
 	if( $('#clock_tower:visible').length ) {
-		$('#clock_tower').tzineClock(); //create the clock
+		$('#clock_tower').hide().tzineClock().fadeIn(); //create the clock
 		$('.login_background').height( $('#clock_tower').height() ); //make login form the same height as the clock
 	};
 
 	//show the login form (on larger screens)
 	if( $('.js .login_form').length ) {
-		$('.js div.login_form').show('slow');
+		$('.js').find('div.login_form').show('slow');
 		if(typeof shake_ind !== 'undefined' && shake_ind) {
-			$('.js .login_form').effect('shake', 2500);
+			$('.js').find('.login_form').effect('shake', 2500);
 		}
 	};
 
