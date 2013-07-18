@@ -21,6 +21,7 @@ FROM Task
 		AND Team.active_ind=1
 		AND Team.role_id=1
 	INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
+		AND Demographics.active_ind=1
 	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
 		AND Link_Task_Task_Status.active_ind=1
 		AND Link_Task_Task_Status.task_status_id NOT IN (7,9,10) /*completed, on hold, prospective*/

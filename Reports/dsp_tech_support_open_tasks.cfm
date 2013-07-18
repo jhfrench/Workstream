@@ -17,25 +17,25 @@
 	<caption><h3>Open Tech Support Tasks</h3></caption>
 	<thead>
 		<tr>
-			<th>Due</th>
 			<th>ID</th>
-			<th>Budgeted Hours</th>
-			<th>Current Owner</th>
-			<th>Name</th>
-			<th>Status</th>
+			<th>Owner</th>
+			<th>Task</th>
 			<th>Priority</th>
+			<th>Budgeted Hours</th>
+			<th>Status</th>
+			<th>Due</th>
 		</tr>
 	</thead>
 	<tbody>
 	<cfoutput query="open_ts_tasks">
 		<tr>
-			<td class="date">#dateformat(due_date,"m/d/yyyy")#</td>
-			<td class="number">#task_id#</td>
-			<td class="number">#budgeted_hours#</td>
+			<td>#task_id#</td>
 			<td>#last_name#</td>
 			<td><a href="javascript:list_to_task('#task_id#');">#name#</a></td>
-			<td>#status#</td>
 			<td>#priority#</td>
+			<td class="number">#budgeted_hours#</td>
+			<td>#status#</td>
+			<td class="date">#dateformat(due_date,"m/d/yyyy")#</td>
 		</tr>
 	</cfoutput>
 	</tbody>

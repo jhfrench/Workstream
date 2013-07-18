@@ -21,7 +21,7 @@
 <cfinclude template="qry_ts_task_count.cfm">
 <cfinclude template="qry_get_tech_support_completion_by_customer.cfm">
 <cfinclude template="qry_get_tech_support_completion_by_product.cfm">
-<h1>Tech Support</h1>
+<h1>Tech Support (<cfoutput>#attributes.report_cached_within#</cfoutput>)</h1>
 <cfinclude template="dsp_tech_support_open_tasks.cfm">
 
 
