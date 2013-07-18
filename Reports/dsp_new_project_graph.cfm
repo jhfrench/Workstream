@@ -10,10 +10,10 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
-		Graph goes here<!--- 
+$issue$: put new graph here<!---
 <cfset temp_month=0>
 <cfset temp_total=0>
 <cfset variables.temp_year=0>

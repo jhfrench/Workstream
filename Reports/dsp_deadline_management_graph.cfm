@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> due_year: number containing a year
 	--> due_month: number containing a month
 	--> on_time_percent: decimal number that indicates the number of tasks in the given due_year and due_month that were completed on time or early.
@@ -19,9 +19,9 @@
 </cfsilent>
 			graph goes here
 			<!--- $issue$: change to canvas graph --->
-			
-<!--- 
-			
+
+<!---
+
 <cfset variables.temp_year=0>
 <cfset plotAreaLeft=11/100>
 <cfset graphheight=(deadline_management_main.recordcount*19.25)+10>
@@ -40,7 +40,9 @@
 	<cfset dataset0yvalues=listprepend(dataset0yvalues,(on_time_percent))>
 </cfoutput>
 Deadline Management Percent<br />
-<cfoutput><applet code="javachart.applet.stackBarApp.class" codebase="#application.graphbase#" width="600" height="#graphheight#">
+<cfoutput>
+$issue$: put new graph here
+<applet code="javachart.applet.stackBarApp.class" codebase="#application.graphbase#" width="600" height="#graphheight#">
 	<param name="plotAreaColor" value="ffffff">
 	<param name="backgroundColor" value="ffffff">
 	<param name="2D" value="yes">

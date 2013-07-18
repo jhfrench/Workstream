@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfset variables.temp_year=0>
 <cfset plotAreaLeft=12/100>
@@ -31,7 +31,9 @@
 </cfoutput>
 </cfsilent>
 IT Time Percent<br />
-<cfoutput><applet code="javachart.applet.stackBarApp.class" codebase="#application.graphbase#" width="600" height="#variables.graph_height#">
+<cfoutput>
+	<!--- $issue$: put new graph here
+	<applet code="javachart.applet.stackBarApp.class" codebase="#application.graphbase#" width="600" height="#variables.graph_height#">
 	<param name="plotAreaColor" value="ffffff">
 	<param name="backgroundColor" value="ffffff">
 	<param name="2D" value="yes">
@@ -85,5 +87,5 @@ IT Time Percent<br />
 	<param name="legendLabelColor" value="black">
 	<param name="iconWidth" value=".02">
 	<param name="iconHeight" value=".02">
-</applet><br />Percent of IT time</cfoutput>
+</applet> ---><br />Percent of IT time</cfoutput>
 

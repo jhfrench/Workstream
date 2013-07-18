@@ -16,6 +16,7 @@
 <cfset X_label="000000">
 <cfset xAxisLabels="">
 </cfsilent>
+<!--- $issue$: put new graph here
 <cfoutput>
 <applet code="javachart.applet.columnApp.class" archive="javachart/jars/line.jar, javachart/jars/base.jar" codebase="#application.graphbase#" width="500" height="300">
 				<param name="backgroundColor" value="ffffff">
@@ -67,5 +68,5 @@
 				<param name="dataset0yvalues" value="#valuelist(get_tech_support_completion_by_customer.avg_hours)#">
 				<param name="dataset0labels" value="#valuelist(get_tech_support_completion_by_customer.description)#">
 				</cfoutput>
-			</applet>
+			</applet> --->
 

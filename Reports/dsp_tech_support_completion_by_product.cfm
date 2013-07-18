@@ -13,6 +13,7 @@
 	 ||
 	END FUSEDOC --->
 </cfsilent>
+<!--- $issue$: put new graph here
 <cfoutput>
 <applet code="javachart.applet.columnApp.class" archive="javachart/jars/line.jar, javachart/jars/base.jar" codebase="#application.graphbase#" width="500" height="300">
 				<param name="backgroundColor" value="ffffff">
@@ -64,5 +65,5 @@
 				<param name="dataset0yvalues" value="#valuelist(get_tech_support_completion_by_product.avg_hours)#">
 				<param name="dataset0labels" value="#valuelist(get_tech_support_completion_by_product.product_name)#">
 				</cfoutput>
-			</applet>
+			</applet> --->
 

@@ -19,6 +19,7 @@
 </cfloop>
 </cfsilent>
 <cfoutput>
+		<!--- $issue$: put new graph here
 		<applet code="javachart.applet.spinningPie.class" archive="javachart/jars/pie.jar, javachart/jars/base.jar" codebase="#application.graphbase#" width="300" height="150">
 			<param name="CopyrightNotification" value="JavaChart is a copyrighted work, and subject to full legal protection">
 			<param name="3D" value="true">
@@ -39,6 +40,6 @@
 			<param name="dwellUseXValue" value="false">
 			<param name="dwellUseYValue" value="true">
 			<param name="dwellYString" value="(## tasks)">
-		</applet>
+		</applet> --->
 </cfoutput>
 

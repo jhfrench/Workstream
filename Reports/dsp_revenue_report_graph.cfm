@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfset plotAreaLeft=11/100>
 <cfset variables.graph_height=(get_revenue_report.recordcount*13.95)+10>
@@ -29,7 +29,8 @@
 	</cfif>
 </cfoutput>
 </cfsilent>
-Sales By Billing Type<br /><!--- 
+Sales By Billing Type<br /><!---
+$issue$: put new graph here
 <cfoutput><applet code="javachart.applet.stackBarApp.class" codebase="#application.graphbase#" width="600" height="#variables.graph_height#">
 	<param name="plotAreaColor" value="ffffff">
 	<param name="backgroundColor" value="ffffff">

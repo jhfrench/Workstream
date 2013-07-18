@@ -10,12 +10,13 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
 <tr>
 	<td colspan="7" align="center">
+		<!--- $issue$: put new graph here
 		<applet code="javachart.applet.labelLineApp.class" archive="javachart/jars/line.jar, javachart/jars/base.jar" codebase="#application.graphbase#" width="990" height="180">
 			<param name="backgroundColor" value="ffffff">
 			<param name="2D" value="yes">
@@ -62,7 +63,7 @@
 			<param name="dataset0LineWidth" value="2">
 			<param name="dataset0color" value="5AA29C">
 			<param name="dataset0yvalues" value="#valuelist(ts_task_count.task_count)#">
-		</applet>
+		</applet> --->
 	</td>
 </tr>
 </cfoutput>
