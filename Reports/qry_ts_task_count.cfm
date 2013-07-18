@@ -18,7 +18,7 @@ SELECT EXTRACT(YEAR FROM Task.entry_date) AS task_year, EXTRACT(MONTH FROM Task.
 	COUNT(Task.task_id) AS task_count
 FROM Task
 WHERE Task.name LIKE 'TS%'
-	AND #attributes.report_last_updated#=#attributes.report_last_updated#
+	AND <cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />
 GROUP BY EXTRACT(YEAR FROM Task.entry_date), EXTRACT(MONTH FROM Task.entry_date)
 ORDER BY task_year, task_month
 </cfquery>

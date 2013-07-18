@@ -18,7 +18,7 @@ FROM Task, Project, REF_Product
 WHERE Task.project_id=Project.project_id
 	AND Project.product_id=REF_Product.product_id
 	AND Task.name LIKE 'TS%'
-	AND #attributes.report_last_updated#=#attributes.report_last_updated#
+	AND <cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />
 GROUP BY REF_Product.product_name
 ORDER BY task_count DESC
 </cfquery>

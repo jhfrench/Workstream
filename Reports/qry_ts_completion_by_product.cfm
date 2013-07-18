@@ -24,7 +24,7 @@ FROM REF_Product
 		WHERE Task.active_ind=1
 			AND LOWER(Task.name) LIKE 'ts%'
 	) AS Product_Completion ON Product_Completion.product_id=REF_Product.product_id
-WHERE #attributes.report_last_updated#=#attributes.report_last_updated#
+WHERE <cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />
 GROUP BY REF_Product.product_name
 ORDER BY avg_hours
 </cfquery>

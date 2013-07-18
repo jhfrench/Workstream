@@ -18,7 +18,7 @@ FROM Task, Project, Customer
 WHERE Task.project_id=Project.project_id
 	AND Project.customer_id=Customer.customer_id
 	AND Task.name LIKE 'TS%'
-	AND #attributes.report_last_updated#=#attributes.report_last_updated#
+	AND <cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />
 GROUP BY LEFT(Customer.description,8)
 ORDER BY task_count DESC
 </cfquery>
