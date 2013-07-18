@@ -17,7 +17,7 @@
 	<caption><h3>Open Tech Support Tasks</h3></caption>
 	<thead>
 		<tr>
-			<th>ID</th>
+			<th>Task <abbr title="Identifier">ID</abbr></th>
 			<th>Owner</th>
 			<th>Task</th>
 			<th>Priority</th>
@@ -27,7 +27,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	<cfoutput query="open_ts_tasks">
+	<cfoutput query="get_tech_support_open_tasks">
 		<tr>
 			<td>#task_id#</td>
 			<td>#last_name#</td>

@@ -1,5 +1,5 @@
 
-<!--Reports/qry_open_ts_tasks.cfm
+<!--Reports/qry_get_tech_support_open_tasks.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -12,7 +12,7 @@
 	$Log$
 	 ||
 	END FUSEDOC --->
-<cfquery name="open_ts_tasks" cachedwithin="#attributes.report_cached_within#" datasource="#application.datasources.main#">
+<cfquery name="get_tech_support_open_tasks" cachedwithin="#attributes.report_cached_within#" datasource="#application.datasources.main#">
 SELECT Demographics.last_name, Task.task_id, Task.name,
 	Task.due_date,  COALESCE(Task.budgeted_hours,0) AS budgeted_hours, REF_Task_Status.description AS status,
 	REF_Priority.description AS priority

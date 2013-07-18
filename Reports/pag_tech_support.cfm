@@ -16,7 +16,7 @@
 <cfset variables.link='<a href="javascript:document.reset_cache.submit();" class="btn"><i class="icon-refresh"></i> Update Graphs</a>'>
 <cfparam name="attributes.report_cached_within" default="#createtimespan(0,0,10,0)#">
 </cfsilent>
-<cfinclude template="qry_open_ts_tasks.cfm">
+<cfinclude template="qry_get_tech_support_open_tasks.cfm">
 <cfinclude template="qry_get_tech_support_historical.cfm">
 <cfinclude template="qry_ts_task_count.cfm">
 <cfinclude template="qry_get_tech_support_completion_by_customer.cfm">
