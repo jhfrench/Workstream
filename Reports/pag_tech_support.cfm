@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfset variables.link='<a href="javascript:document.reset_cache.submit();" class="RegTextWhite">Update Graphs</a>'>
 <cfparam name="attributes.report_last_updated" default="#now()#">
@@ -21,9 +21,9 @@
 <cfinclude template="qry_open_ts_tasks.cfm">
 <cfinclude template="qry_get_tech_support_historical.cfm">
 <cfinclude template="qry_ts_task_count.cfm">
-<cfinclude template="qry_ts_completion_by_customer.cfm">
-<cfinclude template="qry_ts_completion_by_product.cfm">
-<!--- <cfinclude template="qry_ts_client_count.cfm"> --->
+<cfinclude template="qry_get_tech_support_completion_by_customer.cfm">
+<cfinclude template="qry_get_tech_support_completion_by_product.cfm">
+<!--- <cfinclude template="qry_get_tech_support_client_count.cfm"> --->
 <!--- <cfinclude template="qry_ts_product_count.cfm"> --->
 <table align="center" border="0" cellpadding="0" cellspacing="0" width="98%">
 	<cfmodule template="../common_files/dsp_section_title.cfm" align="center" colspan="8" gutter="0" section_color="008080" section_title="&nbsp;Tech Support" title_class="HeadTextWhite">
@@ -36,7 +36,7 @@
 </table>
 <table align="center" border="0" cellpadding="0" cellspacing="0" width="98%">
 	<cfmodule template="../common_files/dsp_section_title.cfm" align="left" colspan="3" gutter="0" section_color="5F5F5F" section_title="&nbsp;Completion Time Breakdown - Average Time per Task   (#variables.link#)" title_class="SubHeadTextWhite">
-	<cfinclude template="dsp_ts_turnaround_break.cfm">
+	<cfinclude template="dsp_tech_support_turnaround_break.cfm">
 	<!--- <cfmodule template="../common_files/dsp_section_title.cfm" align="left" colspan="3" gutter="0" section_color="5F5F5F" section_title="&nbsp;Task Count Analysis-#variables.link#" title_class="SubHeadTextWhite">
 	<cfinclude template="dsp_ts_counts.cfm"> --->
 </table>

@@ -1,5 +1,5 @@
 
-<!--Reports/qry_ts_completion_by_product.cfm
+<!--Reports/qry_get_tech_support_completion_by_product.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -12,11 +12,11 @@
 	$Log$
 	 ||
 	END FUSEDOC --->
-<cfquery name="ts_completion_by_product" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
+<cfquery name="get_tech_support_completion_by_product" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
 SELECT REF_Product.product_name, AVG(Product_Completion.completion_turnaround_hours) AS avg_hours
 FROM REF_Product
 	INNER JOIN (
-		SELECT Project.product_id, (DATEDIFF(hour, Task.entry_date, COALESCE(Task.complete_date, CASE WHEN Link_Task_Task_Status.task_status_id!=7 THEN CURRENT_TIMESTAMP ELSE NULL END))) AS completion_turnaround_hours
+		SELECT Project.product_id, EXTRACT(EPOCH FROM COALESCE(Task.complete_date, CASE WHEN Link_Task_Task_Status.task_status_id!=7 THEN CURRENT_TIMESTAMP ELSE NULL END)-Task.entry_date)/3600 AS completion_turnaround_hours
 		FROM Project
 			INNER JOIN Task ON Project.project_id=Task.project_id
 			INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
@@ -29,4 +29,3 @@ GROUP BY REF_Product.product_name
 ORDER BY avg_hours
 </cfquery>
 </cfsilent>
-

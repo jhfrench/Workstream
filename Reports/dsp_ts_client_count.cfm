@@ -10,9 +10,9 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
-<cfloop query="ts_client_count">
+<cfloop query="get_tech_support_client_count">
 <cfif currentrow GT listlen(variables.initial_color_list)>
 	<cfset application.application_specific_settings.color_list=listappend(application.application_specific_settings.color_list,randrange(100000,999999))>
 </cfif>
@@ -28,8 +28,8 @@
 			<param name="yLoc" value=".6">
 			<param name="startDegrees" value="90">
 
-			<param name="dataset0yValues" value="#valuelist(ts_client_count.task_count)#">
-			<param name="dataset0Labels" value="#valuelist(ts_client_count.customer)#">
+			<param name="dataset0yValues" value="#valuelist(get_tech_support_client_count.task_count)#">
+			<param name="dataset0Labels" value="#valuelist(get_tech_support_client_count.customer)#">
 
 			<param name="dataset0Colors" value="#application.application_specific_settings.color_list#">
 			<param name="labelFont" value="Trebuchet MS,9,1">

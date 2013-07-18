@@ -26,11 +26,10 @@ FROM (
 			GROUP BY task_id
 		) Initial_Assessment ON Task.task_id=Initial_Assessment.task_id
 	WHERE active_ind=1
-		AND Task.name LIKE 'TS%'
+		AND LOWER(Task.name) LIKE 'ts%'
 		AND <cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />
 	) AS Task_Dates
 GROUP BY EXTRACT(YEAR FROM Task_Dates.entry_date), EXTRACT(MONTH FROM Task_Dates.entry_date)
 ORDER BY task_year, task_month
 </cfquery>
 </cfsilent>
-

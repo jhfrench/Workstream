@@ -1,5 +1,5 @@
 
-<!--Reports/dsp_ts_completion_by_customer.cfm
+<!--Reports/dsp_tech_support_completion_by_customer.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!--- FUSEDOC
@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfset Y_TickBar="708090">
 <cfset X_label="000000">
@@ -35,7 +35,7 @@
 				<param name="dwellYString" value="## hours worked">
 				<param name="dwellUseYValue" value="true">
 				<param name="dwellUseXValue" value="false">
-				<!--- 
+				<!---
 				<param name="yAxisOptions" value="rotateTitle, gridOn, noAutoScale">
 				<param name="yAxisStart" value="0">
 				<param name="yAxisEnd" value="90"> --->
@@ -64,8 +64,8 @@
 				<param name="dataset0LineWidth" value="2">
 
 				<param name="dataset0color" value="5A82B5">
-				<param name="dataset0yvalues" value="#valuelist(ts_completion_by_customer.avg_hours)#">
-				<param name="dataset0labels" value="#valuelist(ts_completion_by_customer.description)#">
+				<param name="dataset0yvalues" value="#valuelist(get_tech_support_completion_by_customer.avg_hours)#">
+				<param name="dataset0labels" value="#valuelist(get_tech_support_completion_by_customer.description)#">
 				</cfoutput>
 			</applet>
 
