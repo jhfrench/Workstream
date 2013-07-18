@@ -28,7 +28,7 @@ FROM
 		AND Project.product_id=REF_Product.product_id
 		AND Time_Entry.active_ind=1
 		AND Task.name LIKE 'TS%'
-		AND #session.workstream_cache_query#=#session.workstream_cache_query#
+		AND #attributes.report_last_updated#=#attributes.report_last_updated#
 	GROUP BY Task.task_id, Task.entry_date, Task.complete_date)
 AS Turnaround_Times
 GROUP BY EXTRACT(YEAR FROM Turnaround_Times.entry_date), EXTRACT(MONTH FROM Turnaround_Times.entry_date)

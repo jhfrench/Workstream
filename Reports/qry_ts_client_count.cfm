@@ -18,7 +18,7 @@ FROM Task, Project, Customer
 WHERE Task.project_id=Project.project_id
 	AND Project.customer_id=Customer.customer_id
 	AND Task.name LIKE 'TS%'
-	AND #session.workstream_cache_query#=#session.workstream_cache_query#
+	AND #attributes.report_last_updated#=#attributes.report_last_updated#
 GROUP BY LEFT(Customer.description,8)
 ORDER BY task_count DESC
 </cfquery>

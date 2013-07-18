@@ -13,9 +13,9 @@
 	 || 
 	END FUSEDOC --->
 <cfset variables.link='<a href="javascript:document.reset_cache.submit();" class="RegTextWhite">Update Graphs</a>'>
-<cfparam name="session.workstream_cache_query" default="#now()#">
+<cfparam name="attributes.report_last_updated" default="#now()#">
 <cfif isdefined("attributes.reset_cache")>
-	<cfset session.workstream_cache_query=now()>
+	<cfset attributes.report_last_updated=now()>
 </cfif>
 </cfsilent>
 <cfinclude template="qry_open_ts_tasks.cfm">

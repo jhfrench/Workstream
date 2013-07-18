@@ -26,7 +26,7 @@ FROM Customer
 			AND LOWER(Task.name) LIKE 'ts%'
 	) AS Customer_Completion ON Customer.customer_id=Customer_Completion.customer_id
 WHERE Customer_Completion.completion_turnaround_hours!=0
-	AND #session.workstream_cache_query#=#session.workstream_cache_query#
+	AND #attributes.report_last_updated#=#attributes.report_last_updated#
 GROUP BY Customer.description
 ORDER BY avg_hours
 </cfquery>

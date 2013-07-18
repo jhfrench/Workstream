@@ -18,7 +18,7 @@ FROM Task, Project, REF_Product
 WHERE Task.project_id=Project.project_id
 	AND Project.product_id=REF_Product.product_id
 	AND Task.name LIKE 'TS%'
-	AND #session.workstream_cache_query#=#session.workstream_cache_query#
+	AND #attributes.report_last_updated#=#attributes.report_last_updated#
 GROUP BY REF_Product.product_name
 ORDER BY task_count DESC
 </cfquery>
