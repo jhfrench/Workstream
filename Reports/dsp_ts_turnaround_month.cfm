@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfset Y_TickBar="708090">
 <cfset X_label="000000">
@@ -27,6 +27,7 @@
 <cfoutput>
 <tr>
 	<td colspan="7" align="center">
+		<!--- $issue$: put new graph here
 		<applet code="javachart.applet.labelLineApp.class" archive="javachart/jars/line.jar, javachart/jars/base.jar" codebase="#application.graphbase#" width="990" height="180">
 			<param name="backgroundColor" value="ffffff">
 			<param name="2D" value="yes">
@@ -83,7 +84,7 @@
 			<param name="dataset1LineWidth" value="2">
 			<param name="dataset1color" value="5A82B5">
 			<param name="dataset1yvalues" value="#valuelist(get_tech_support_historical.average_completion_hours)#">
-		</applet>
+		</applet> --->
 	</td>
 </tr>
 </cfoutput>
