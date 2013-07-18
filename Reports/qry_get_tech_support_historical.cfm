@@ -12,7 +12,7 @@
 	$Log$
 	 ||
 	END FUSEDOC --->
-<cfquery name="get_tech_support_historical" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
+<cfquery name="get_tech_support_historical" cachedwithin="#createtimespan(attributes.report_cached_within)#" datasource="#application.datasources.main#">
 SELECT EXTRACT(YEAR FROM Task_Dates.entry_date) AS task_year, EXTRACT(MONTH FROM Task_Dates.entry_date) AS task_month,
 	AVG(EXTRACT(EPOCH FROM Task_Dates.initial_note_date-Task_Dates.entry_date)/3600) AS average_assessment_hours,
 	AVG(EXTRACT(EPOCH FROM Task_Dates.complete_date-Task_Dates.entry_date)/3600) AS average_completion_hours
@@ -27,7 +27,6 @@ FROM (
 		) Initial_Assessment ON Task.task_id=Initial_Assessment.task_id
 	WHERE active_ind=1
 		AND LOWER(Task.name) LIKE 'ts%'
-		AND <cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />
 	) AS Task_Dates
 GROUP BY EXTRACT(YEAR FROM Task_Dates.entry_date), EXTRACT(MONTH FROM Task_Dates.entry_date)
 ORDER BY task_year, task_month

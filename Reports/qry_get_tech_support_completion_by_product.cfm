@@ -12,7 +12,7 @@
 	$Log$
 	 ||
 	END FUSEDOC --->
-<cfquery name="get_tech_support_completion_by_product" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
+<cfquery name="get_tech_support_completion_by_product" cachedwithin="#createtimespan(attributes.report_cached_within)#" datasource="#application.datasources.main#">
 SELECT REF_Product.product_name, AVG(Product_Completion.completion_turnaround_hours) AS avg_hours
 FROM REF_Product
 	INNER JOIN (
@@ -24,7 +24,6 @@ FROM REF_Product
 		WHERE Task.active_ind=1
 			AND LOWER(Task.name) LIKE 'ts%'
 	) AS Product_Completion ON Product_Completion.product_id=REF_Product.product_id
-WHERE <cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />
 GROUP BY REF_Product.product_name
 ORDER BY avg_hours
 </cfquery>

@@ -12,13 +12,11 @@
 	$Log$
 	 ||
 	END FUSEDOC --->
-	<!--- $issue$: attributes.report_last_updated? --->
-<cfquery name="ts_task_count" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
+<cfquery name="ts_task_count" cachedwithin="#createtimespan(attributes.report_cached_within)#" datasource="#application.datasources.main#">
 SELECT EXTRACT(YEAR FROM Task.entry_date) AS task_year, EXTRACT(MONTH FROM Task.entry_date) AS task_month,
 	COUNT(Task.task_id) AS task_count
 FROM Task
-WHERE Task.name LIKE 'TS%'
-	AND <cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />
+WHERE LOWER(Task.name) LIKE 'ts%'
 GROUP BY EXTRACT(YEAR FROM Task.entry_date), EXTRACT(MONTH FROM Task.entry_date)
 ORDER BY task_year, task_month
 </cfquery>

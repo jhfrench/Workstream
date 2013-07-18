@@ -12,13 +12,12 @@
 	$Log$
 	 ||
 	END FUSEDOC --->
-<cfquery name="ts_product_count" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
+<cfquery name="ts_product_count" cachedwithin="#createtimespan(attributes.report_cached_within)#" datasource="#application.datasources.main#">
 SELECT REF_Product.product_name, COUNT(Task.task_id) AS task_count
 FROM Task, Project, REF_Product
 WHERE Task.project_id=Project.project_id
 	AND Project.product_id=REF_Product.product_id
-	AND Task.name LIKE 'TS%'
-	AND <cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#attributes.report_last_updated#" cfsqltype="cf_sql_timestamp" />
+	AND LOWER(Task.name) LIKE 'ts%'
 GROUP BY REF_Product.product_name
 ORDER BY task_count DESC
 </cfquery>
