@@ -12,7 +12,7 @@
 	$Log$
 	 ||
 	END FUSEDOC --->
-<cfquery name="ts_task_count" cachedwithin="#createtimespan(attributes.report_cached_within)#" datasource="#application.datasources.main#">
+<cfquery name="ts_task_count" cachedwithin="#attributes.report_cached_within#" datasource="#application.datasources.main#">
 SELECT EXTRACT(YEAR FROM Task.entry_date) AS task_year, EXTRACT(MONTH FROM Task.entry_date) AS task_month,
 	COUNT(Task.task_id) AS task_count
 FROM Task

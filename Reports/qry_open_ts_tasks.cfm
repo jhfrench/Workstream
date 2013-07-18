@@ -10,11 +10,11 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
-<cfquery name="open_ts_tasks" datasource="#application.datasources.main#">
+<cfquery name="open_ts_tasks" cachedwithin="#attributes.report_cached_within#" datasource="#application.datasources.main#">
 SELECT Demographics.last_name, Task.task_id, Task.name,
-	Task.due_date,  COALESCE(Task.budgeted_hours,0) AS budgeted_hours, REF_Task_Status.description AS status, 
+	Task.due_date,  COALESCE(Task.budgeted_hours,0) AS budgeted_hours, REF_Task_Status.description AS status,
 	REF_Priority.description AS priority
 FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id

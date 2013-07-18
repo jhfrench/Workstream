@@ -12,7 +12,7 @@
 	$Log$
 	 ||
 	END FUSEDOC --->
-<cfquery name="get_tech_support_completion_by_customer" cachedwithin="#createtimespan(attributes.report_cached_within)#" datasource="#application.datasources.main#">
+<cfquery name="get_tech_support_completion_by_customer" cachedwithin="#attributes.report_cached_within#" datasource="#application.datasources.main#">
 SELECT Customer.description, AVG(EXTRACT(EPOCH FROM COALESCE(Task.complete_date, CASE WHEN Link_Task_Task_Status.task_status_id!=7 THEN CURRENT_TIMESTAMP ELSE NULL END)-Task.entry_date)/3600) AS avg_hours
 FROM Task
 	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id

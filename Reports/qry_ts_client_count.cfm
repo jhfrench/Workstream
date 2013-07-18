@@ -12,7 +12,7 @@
 	$Log$
 	 ||
 	END FUSEDOC --->
-<cfquery name="get_tech_support_client_count" cachedwithin="#createtimespan(attributes.report_cached_within)#" datasource="#application.datasources.main#">
+<cfquery name="get_tech_support_client_count" cachedwithin="#attributes.report_cached_within#" datasource="#application.datasources.main#">
 SELECT LEFT(Customer.description,8) AS customer, COUNT(Task.task_id) AS task_count
 FROM Task, Project, Customer
 WHERE Task.project_id=Project.project_id

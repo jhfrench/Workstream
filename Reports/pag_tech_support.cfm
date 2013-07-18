@@ -12,8 +12,9 @@
 	$Log$
 	 ||
 	END FUSEDOC --->
+<!--- $issue$: report needs to limit user to Link_Company_User_Account --->
 <cfset variables.link='<a href="javascript:document.reset_cache.submit();" class="btn">Update Graphs</a>'>
-<cfparam name="attributes.report_cached_within" default="0,0,10,0">
+<cfparam name="attributes.report_cached_within" default="#createtimespan(0,0,10,0)#">
 </cfsilent>
 <cfinclude template="qry_open_ts_tasks.cfm">
 <cfinclude template="qry_get_tech_support_historical.cfm">
@@ -51,4 +52,4 @@
 </div>
 
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="reset_cache" field_name="report_cached_within" field_value="0,0,0,1" fuseaction="Reports.tech_support">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="reset_cache" field_name="report_cached_within" field_value="#createtimespan(0,0,0,1)#" fuseaction="Reports.tech_support">

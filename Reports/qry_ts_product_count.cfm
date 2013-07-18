@@ -12,7 +12,7 @@
 	$Log$
 	 ||
 	END FUSEDOC --->
-<cfquery name="ts_product_count" cachedwithin="#createtimespan(attributes.report_cached_within)#" datasource="#application.datasources.main#">
+<cfquery name="ts_product_count" cachedwithin="#attributes.report_cached_within#" datasource="#application.datasources.main#">
 SELECT REF_Product.product_name, COUNT(Task.task_id) AS task_count
 FROM Task, Project, REF_Product
 WHERE Task.project_id=Project.project_id
