@@ -16,7 +16,7 @@
 <cfset X_label="000000">
 <cfset xAxisLabels="">
 <cfset dataset0yvalues="">
-<cfoutput query="historical_ts_data">
+<cfoutput query="get_tech_support_historical">
 	<cfif task_year GT 2001>
 		<cfset dataset0yvalues=listappend(dataset0yvalues,average_assessment_hours)>
 	<cfelse>
@@ -65,7 +65,7 @@
 			<param name="xAxisGridColor" value="#X_label#">
 			<param name="xAxisLabelColor" value="#X_label#">
 			<param name="xAxisLabelFont" value="Trebuchet MS,11,1">
-			<param name="xAxisLabels" value="#valuelist(historical_ts_data.task_month)#">
+			<param name="xAxisLabels" value="#valuelist(get_tech_support_historical.task_month)#">
 			<param name="xAxisTickColor" value="#X_label#">
 			<param name="xAxisTitle" value="Month">
 			<param name="xAxisTitleFont" value="Trebuchet MS,11,1">
@@ -82,7 +82,7 @@
 			<param name="dataset1name" value="Hours to Complete">
 			<param name="dataset1LineWidth" value="2">
 			<param name="dataset1color" value="5A82B5">
-			<param name="dataset1yvalues" value="#valuelist(historical_ts_data.average_completion_hours)#">
+			<param name="dataset1yvalues" value="#valuelist(get_tech_support_historical.average_completion_hours)#">
 		</applet>
 	</td>
 </tr>

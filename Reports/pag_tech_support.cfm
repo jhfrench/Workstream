@@ -19,7 +19,7 @@
 </cfif>
 </cfsilent>
 <cfinclude template="qry_open_ts_tasks.cfm">
-<cfinclude template="qry_historical_ts_data.cfm">
+<cfinclude template="qry_get_tech_support_historical.cfm">
 <cfinclude template="qry_ts_task_count.cfm">
 <cfinclude template="qry_ts_completion_by_customer.cfm">
 <cfinclude template="qry_ts_completion_by_product.cfm">
