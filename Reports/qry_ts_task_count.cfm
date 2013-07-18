@@ -10,10 +10,11 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
-<cfquery name="ts_task_count" datasource="#application.datasources.main#" cachedafter="02/02/1978">
-SELECT EXTRACT(YEAR FROM Task.entry_date) AS task_year, EXTRACT(MONTH FROM Task.entry_date) AS task_month, 
+	<!--- $issue$: session.workstream_cache_query? --->
+<cfquery name="ts_task_count" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
+SELECT EXTRACT(YEAR FROM Task.entry_date) AS task_year, EXTRACT(MONTH FROM Task.entry_date) AS task_month,
 	COUNT(Task.task_id) AS task_count
 FROM Task
 WHERE Task.name LIKE 'TS%'

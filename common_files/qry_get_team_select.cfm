@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.team_changed: date of the last employee-themed tables were probably updated; used to drive query caching
 	--> session.workstream_company_id: id that identifies company of the user to workstream
 	--> session.workstream_selected_company_id: id of the companies that the employee wishes to see
@@ -23,7 +23,7 @@
 <cfparam name="variables.user_account_id_match" default="">
 <cfparam name="attributes.all_employees" default="0">
 <!--- $issue$: Security_Company_Access should be switched over to Access_User_Account_Grouper --->
-<cfquery name="get_team_select" cachedafter="02/02/1978" datasource="#application.datasources.main#">
+<cfquery name="get_team_select" datasource="#application.datasources.main#" cachedwithin="#createtimespan(30, 0, 0, 0)#">
 SELECT Demographics.user_account_id, Demographics.last_name, Demographics.first_name,
 	COALESCE(Demographics.last_name,'unknown') || ', ' || LEFT(COALESCE(Demographics.first_name,'unknown'),2) AS display<cfif isdefined("variables.email_only")>, email_type_id</cfif>
 FROM Employee

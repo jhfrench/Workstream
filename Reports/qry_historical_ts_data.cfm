@@ -10,14 +10,14 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
-<cfquery name="historical_ts_data" datasource="#application.datasources.main#" cachedafter="02/02/1978">
-SELECT EXTRACT(YEAR FROM Turnaround_Times.entry_date) AS task_year, EXTRACT(MONTH FROM Turnaround_Times.entry_date) AS task_month, 
-	AVG(Turnaround_Times.assessment_turnaround_hours) AS average_assessment_hours, 
+<cfquery name="historical_ts_data" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
+SELECT EXTRACT(YEAR FROM Turnaround_Times.entry_date) AS task_year, EXTRACT(MONTH FROM Turnaround_Times.entry_date) AS task_month,
+	AVG(Turnaround_Times.assessment_turnaround_hours) AS average_assessment_hours,
 	AVG(Turnaround_Times.completion_turnaround_hours) AS average_completion_hours
 FROM
-	(SELECT Task.entry_date, 
+	(SELECT Task.entry_date,
 		(DATEDIFF(n, Task.entry_date, MIN(Notes.created_date))/60.0) AS assessment_turnaround_hours,
 		(DATEDIFF(n, Task.entry_date, COALESCE(Task.complete_date,CURRENT_TIMESTAMP))/60.0) AS completion_turnaround_hours
 	FROM Task, Time_Entry, Notes, Project, REF_Product

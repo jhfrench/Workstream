@@ -131,7 +131,7 @@ ORDER BY billable_type_order, project_name, priority_order,
 	due_date, task_name, main_sort
 </cfquery>
 
-<cfquery name="get_week_days" cachedafter="02/02/1978" datasource="#application.datasources.main#">
+<cfquery name="get_week_days" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
 SELECT Demographics.user_account_id, COALESCE(ROUND(Employee.week_hours*Applicable_Weeks.weeks, 2),0) AS capacity, Applicable_Weeks.hours_in_month
 FROM Demographics
 	INNER JOIN Employee ON Demographics.user_account_id=Employee.user_account_id

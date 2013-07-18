@@ -13,7 +13,7 @@
 	Variables:
 
 	END FUSEDOC --->
-<cfquery name="get_carryover" cachedafter="02/02/1978" datasource="#application.datasources.main#">
+<cfquery name="get_carryover" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
 SELECT COALESCE(carryover_limit, 40) AS carryover_limit
 FROM PTO_Rollover
 WHERE user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />

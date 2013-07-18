@@ -10,9 +10,9 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
-<cfquery name="ts_completion_by_customer" datasource="#application.datasources.main#" cachedafter="02/02/1978">
+<cfquery name="ts_completion_by_customer" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
 SELECT Customer.description, AVG(Customer_Completion.completion_turnaround_hours) AS avg_hours
 FROM Customer
 	INNER JOIN Project ON Customer.customer_id=Project.customer_id

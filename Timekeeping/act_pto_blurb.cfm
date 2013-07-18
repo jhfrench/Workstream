@@ -4,13 +4,13 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: 
+	Responsibilities:
 	||
 	Name: Jeromy French
 	||
 	Edits:
 	$Log: act_pto_blurb.cfm,v $
-	 || 
+	 ||
  --->
 </cfsilent>
 
@@ -53,13 +53,12 @@
 
 	<!--- Last three months of the year, remind employees about how much time they need to use --->
 	<cfif month(now()) GT 8>
-		<cfquery name="get_current_carryover" cachedafter="02/02/1978" datasource="#application.datasources.main#">
+		<cfquery name="get_current_carryover" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
 		SELECT COALESCE(carryover_limit, 40) AS carryover_limit
 		FROM PTO_Rollover
 		WHERE active_ind=1
-			AND rollover_year=EXTRACT(YEAR FROM CURRENT_DATE)
+			AND rollover_year=<cfqueryparam value="#year(now())#" cfsqltype="cf_sql_integer" />
 			AND user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
-			AND <cfqueryparam value="#year(now())#" cfsqltype="cf_sql_integer" />=<cfqueryparam value="#year(now())#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 		<cfif NOT len(get_current_carryover.carryover_limit)>
 			<cfset variables.current_carryover_limit=40>

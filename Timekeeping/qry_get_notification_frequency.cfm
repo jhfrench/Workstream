@@ -15,7 +15,7 @@
 	--> attributes.task_id: list that contains task id's submitted fromthe express timekeeping page
  --->
  <!--- $issue$: this table doesn't exist--does it need to? --->
-<cfquery name="get_notification_frequency" cachedafter="02/02/1978" datasource="#application.datasources.main#">
+<cfquery name="get_notification_frequency" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
 SELECT notification_frequency_id, description
 FROM REF_Notification_Frequency
 ORDER BY sort_order

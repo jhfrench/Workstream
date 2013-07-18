@@ -8,7 +8,7 @@
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -22,7 +22,7 @@
 	<-- name: string containing the first name of an employee
 	<-- phone_number: string containing the work phone number of an employee
  --->
-<cfquery name="get_employee_list" cachedafter="02/02/1978" datasource="#application.datasources.main#">
+<cfquery name="get_employee_list" datasource="#application.datasources.main#" cachedwithin="#createtimespan(30, 0, 0, 0)#">
 SELECT Demographics.user_account_id, (Demographics.last_name || ', ' || Demographics.first_name) AS name, REF_Company.description AS company,
 	Email.email, Phone.phone_number, Phone.extension,
 	Link_User_Account_Employment_Position.employment_position_id

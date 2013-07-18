@@ -14,7 +14,7 @@
 --->
 
 <!--- Determine which installation's records we should pull based on the application.installation_id--->
-<cfquery name="qry_get_application_datasource" cachedafter="02/02/1978" datasource="Application_Manager">
+<cfquery name="qry_get_application_datasource" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="Application_Manager">
 <!--- Following query used to get the database(s) that support(s) the application being used. It is a cached query controlled by the Application_Manager tool. --->
 SELECT L_Installation_Supporting_DB.l_i_s_d_id, REF_Database_Type.database_type_name, REF_Database_Server.database_server_name, 
 	L_Installation_Supporting_DB.datasource_name, Supporting_Database.database_name

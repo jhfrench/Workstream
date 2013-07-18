@@ -16,7 +16,7 @@
 	<-- project_health_id: number that identifies a status to workstream
 	<-- status: string that contains the name (of the status) to display to the user
  --->
-<cfquery name="get_ref_project_health" cachedafter="02/02/1978" datasource="#application.datasources.main#">
+<cfquery name="get_ref_project_health" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
 SELECT project_health_id, description, badge,
 	icon
 FROM REF_Project_Health

@@ -4,15 +4,15 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: 
+	Responsibilities:
 	||
 	Name: Jeromy French
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
-<cfquery name="ts_client_count" datasource="#application.datasources.main#" cachedafter="02/02/1978">
+<cfquery name="ts_client_count" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
 SELECT LEFT(Customer.description,8) AS customer, COUNT(Task.task_id) AS task_count
 FROM Task, Project, Customer
 WHERE Task.project_id=Project.project_id

@@ -10,9 +10,9 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
-<cfquery name="ts_completion_by_product" datasource="#application.datasources.main#" cachedafter="02/02/1978">
+<cfquery name="ts_completion_by_product" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
 SELECT REF_Product.product_name, AVG(Product_Completion.completion_turnaround_hours) AS avg_hours
 FROM REF_Product
 	INNER JOIN (

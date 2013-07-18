@@ -20,7 +20,7 @@
 </cfscript>
 <!--- $issue$: this should be converted into a stored procedure --->
 <!--- Following query used to get CF application.name and other generic application variables. It is a cached query controlled by the Application_Manager tool. Determine which installation's records we should pull based on the URL through which the user acesses the system--->
-<cfquery name="get_application_basic_details" cachedafter="02/02/1978" datasource="Application_Manager">
+<cfquery name="get_application_basic_details" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="Application_Manager">
 SELECT Installation.installation_id, Installation.application_name, Installation.active_ind,
 	Installation.error_handling_enabled_ind, Installation.log_page_request_ind, Installation.system_email_sender,
 	Product.product_name, Product.browser_navigation_enabled_ind, Product.inactive_link,

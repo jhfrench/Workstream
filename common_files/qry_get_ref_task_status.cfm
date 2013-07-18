@@ -16,7 +16,7 @@
 	<-- task_status_id: number that identifies a status to workstream
 	<-- status: string that contains the name (of the status) to display to the user
  --->
-<cfquery name="get_ref_task_status" cachedafter="02/02/1978" datasource="#application.datasources.main#">
+<cfquery name="get_ref_task_status" cachedwithin="#createtimespan(30, 0, 0, 0)#" datasource="#application.datasources.main#">
 SELECT task_status_id, description
 FROM REF_Task_Status
 WHERE <cfqueryparam value="#application.last_updated#" cfsqltype="cf_sql_timestamp" />=<cfqueryparam value="#application.last_updated#" cfsqltype="cf_sql_timestamp" />
