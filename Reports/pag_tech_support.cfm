@@ -13,7 +13,7 @@
 	 ||
 	END FUSEDOC --->
 <!--- $issue$: report needs to limit user to Link_Company_User_Account --->
-<cfset variables.link='<a href="javascript:document.reset_cache.submit();" class="btn">Update Graphs</a>'>
+<cfset variables.link='<a href="javascript:document.reset_cache.submit();" class="btn"><i class="icon-refresh"></i> Update Graphs</a>'>
 <cfparam name="attributes.report_cached_within" default="#createtimespan(0,0,10,0)#">
 </cfsilent>
 <cfinclude template="qry_open_ts_tasks.cfm">
@@ -27,7 +27,7 @@
 
 <!--- <cfinclude template="qry_get_tech_support_client_count.cfm"> --->
 <!--- <cfinclude template="qry_ts_product_count.cfm"> --->
-<h2>Monthly Trend Graphs #variables.link#</h2>
+<h2>Monthly Trend Graphs <cfoutput>#variables.link#</cfoutput></h2>
 <div class="row-fluid">
 	<div class="span6">
 		<h3>Turnaround and Completion <small>Average Time Per Task</small></h3>
@@ -39,7 +39,7 @@
 	</div>
 </div>
 
-<h2>Benchmarking Graphs #variables.link#</h2>
+<h2>Benchmarking Graphs <cfoutput>#variables.link#</cfoutput></h2>
 <div class="row-fluid">
 	<div class="span6">
 		<h3>By Customer <small>Average Time Per Task</small></h3>
