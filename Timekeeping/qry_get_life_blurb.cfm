@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> variables.user_identification: number that uniquely identifies the user
  --->
@@ -21,6 +21,7 @@ SELECT SUM(CASE WHEN EXTRACT(MONTH FROM CURRENT_DATE)=EXTRACT(MONTH FROM Employe
 	SUM(1) AS employee_count
 FROM Employee
 	INNER JOIN Link_Company_User_Account ON Employee.user_account_id=Link_Company_User_Account.user_account_id
+		AND Link_Company_User_Account.active_ind=1
 		AND Link_Company_User_Account.company_id=<cfqueryparam value="#listlast(session.workstream_company_id)#" cfsqltype="cf_sql_integer" />
 WHERE Employee.active_ind=1
 	AND CURRENT_DATE BETWEEN Employee.hire_date AND COALESCE(Employee.turnover_date, CURRENT_TIMESTAMP)
