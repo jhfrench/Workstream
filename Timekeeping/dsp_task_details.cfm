@@ -19,10 +19,12 @@
 	variables.entry_rows=variables.descrip_rows+variables.resolution_rows-9;
 	variables.string_to_replace='<P>,"';
 
-	if (get_task_details.qa_id EQ variables.user_identification AND get_task_details.task_status_id EQ 4) {
+	if (get_task_details.qa_id EQ variables.user_identification AND get_task_details.task_status_id EQ 3) {
+		//task needs QA and the user is the assigned tester
 		variables.notes_type_selected=2;
 	}
 	else if (get_task_details.owner_id EQ variables.user_identification) {
+		//task owner
 		variables.notes_type_selected=1;
 	}
 	else {

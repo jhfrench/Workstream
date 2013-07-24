@@ -11,9 +11,8 @@
 	$Log$
 	||
 	Variables:
-	 || 
+	 ||
 	END FUSEDOC --->
-<cfset variables.go_back_to=datediff("d", get_date_locked.date_locked, now())-1>
 </cfsilent>
 <cfoutput>
 <fieldset class="well" id="task_detail_notes_entry">
