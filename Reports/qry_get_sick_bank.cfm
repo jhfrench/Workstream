@@ -23,11 +23,11 @@ FROM Demographics
 		FROM Time_Entry
 		WHERE Time_Entry.active_ind=1
 			AND project_id=1881
-			AND user_account_id IN (<cfif comparenocase(attributes.user_account_id,"all")>#attributes.user_account_id#<cfelse>#valuelist(get_pto_names.user_account_id)#</cfif>)
+			AND user_account_id IN (<cfqueryparam cfsqltype="cf_sql_integer" list="true" value="#attributes.user_account_id#" />)
 		GROUP BY user_account_id
 	) AS Time_Taken ON Demographics.user_account_id=Time_Taken.user_account_id
 WHERE Demographics.active_ind=1
-	AND Demographics.user_account_id IN (<cfif comparenocase(attributes.user_account_id,"all")>#attributes.user_account_id#<cfelse>#valuelist(get_pto_names.user_account_id)#</cfif>)
+	AND Demographics.user_account_id IN (<cfqueryparam cfsqltype="cf_sql_integer" list="true" value="#attributes.user_account_id#" />)
 ORDER BY Demographics.last_name, Demographics.first_name
 </cfquery>
 </cfsilent>
