@@ -10,13 +10,14 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfparam name="attributes.user_account_id" default="">
 </cfsilent>
 
-<!--- Check to see if user has access to 'All' --->
-<cfmodule template="../common_files/act_set_all_option.cfm" business_function_id="655">
+<!--- $issue$: do we still need act_set_all_option.cfm?
+Check to see if user has access to 'All'
+<cfmodule template="../common_files/act_set_all_option.cfm" business_function_id="655"> --->
 <cfinclude template="../common_files/qry_get_subordinates.cfm">
 <cfinclude template="qry_get_pto_names.cfm">
 

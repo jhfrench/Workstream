@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfparam name="session.workstream_pto_accrual_type_id" default="2">
 <cfif session.workstream_pto_accrual_type_id EQ 1>
@@ -19,10 +19,9 @@
 </cfif>
 </cfsilent>
 <cfinclude template="act_pto_name_select.cfm">
-<cfform name="pto_report_input" action="index.cfm?fuseaction=Reports.#action#" method="POST">
-<table border="0" cellpadding="1" cellspacing="0" align="center" width="30%">
-	<cfmodule template="../common_files/dsp_section_title.cfm" colspan="2" gutter="1" section_color="008080" section_title="&nbsp;Personal Time Off Report" title_class="HeadTextWhite">
+<cfform name="pto_report_input" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="form-horizontal">
+<fieldset>
+	<legend>Personal Time Off Report</legend>
 	<cfinclude template="dsp_pto_report_input.cfm">
-</table>
+</fieldset>
 </cfform>
-
