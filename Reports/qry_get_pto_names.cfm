@@ -23,7 +23,6 @@ WHERE Demographics.active_ind=1
 	AND Link_Company_User_Account.company_id=<cfqueryparam value="#session.workstream_company_id#" cfsqltype="cf_sql_integer" />
 	AND (Demographics.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" /><cfif get_subordinates.recordcount>
 		OR Demographics.user_account_id IN (<cfqueryparam value="#valuelist(get_subordinates.user_account_id)#,#variables.user_identification#" cfsqltype="cf_sql_integer" list="true" />)</cfif>)
-	</cfif>
 GROUP BY Demographics.last_name, Demographics.first_name, Demographics.user_account_id
 ORDER BY Demographics.last_name, Demographics.first_name
 </cfquery>
