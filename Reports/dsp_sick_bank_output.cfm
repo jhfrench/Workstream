@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <table class="table table-striped table-bordered table-condensed">
-	<caption>Sick Bank Report</caption>
+	<caption><h2>Sick Bank Report</h2></caption>
 	<thead>
 		<tr>
 			<th>Employee</th>

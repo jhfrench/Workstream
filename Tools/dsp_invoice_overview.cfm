@@ -8,7 +8,7 @@
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -47,7 +47,7 @@
 	<cfloop query="get_invoice_overview">
 		<tr>
 			<td scope="row">
-				<a href="javascript:get_invoice_detail#major_sort_order#(#invoice_id#,#customer_id#);" title="View invoice details">#customer_name#</a>
+				#customer_name# <a href="javascript:customer(#customer_id#);"><i class="icon-zoom-in"></i> View projects</a>
 			</td>
 			<td>
 				<cfif major_sort_order EQ 1>
@@ -65,7 +65,7 @@
 				#invoicer#
 			</td>
 			<td class="number">
-				#dollarformat(invoice_bill_amount)#
+				<a href="javascript:get_invoice_detail#major_sort_order#(#invoice_id#,#customer_id#);" title="View invoice details">#dollarformat(invoice_bill_amount)#</a>
 			</td>
 			<td class="number">
 				#dollarformat(invoice_received_amount)#

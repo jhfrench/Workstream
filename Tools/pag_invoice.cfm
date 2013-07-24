@@ -8,7 +8,7 @@
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -24,6 +24,7 @@
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_detail1" fuseaction="#attributes.fuseaction#" field_name="invoice_id" field2_variable_ind="1" field2_name="customer_id" process_form_ind="1" step="2" current_month_ind="0">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_detail2" fuseaction="#attributes.fuseaction#" field_name="invoice_id" field2_variable_ind="1" field2_name="customer_id" process_form_ind="1" step="2" current_month_ind="0">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_detail3" fuseaction="#attributes.fuseaction#" field_name="invoice_id" field2_variable_ind="1" field2_name="customer_id" process_form_ind="1" step="2" current_month_ind="1">
+		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="customer" fuseaction="Customers.projects" field_name="customer_id">
 	</cfcase>
 	<cfcase value="2">
 		<cfinclude template="qry_get_invoice_detail.cfm">

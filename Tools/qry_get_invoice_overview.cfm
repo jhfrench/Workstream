@@ -8,13 +8,14 @@
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
 	END FUSEDOC --->
 </cfsilent>
 <cfquery name="get_invoice_overview" datasource="#application.datasources.main#">
+/*previosuly billed*/
 SELECT 1 AS major_sort_order, Invoice.invoice_id, Invoice.created_date,
 	Customer.customer_id, Customer.sort_order, Customer.description AS customer_name,
 	Demographics.last_name||', '||Demographics.first_name AS invoicer, SUM(Billing_History.total_bill_amount) AS invoice_bill_amount, COALESCE(Invoice.payment_received_amount,0) AS invoice_received_amount,
@@ -31,6 +32,7 @@ GROUP BY Invoice.invoice_id, Invoice.created_date, Invoice.payment_received_amou
 	Customer.customer_id, Customer.sort_order, Customer.description,
 	Demographics.last_name, Demographics.first_name
 UNION ALL
+/*ready to bill*/
 SELECT 2 AS major_sort_order, 0 AS invoice_id, NULL AS created_date,
 	Customer.customer_id, Customer.sort_order, Customer.description AS customer_name,
 	NULL AS invoicer, SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS invoice_bill_amount, 0 AS invoice_received_amount,
@@ -47,6 +49,7 @@ WHERE Time_Entry.active_ind=1
 	AND Time_Entry.work_date <  DATE_TRUNC('MONTH', CURRENT_TIMESTAMP) /*previous months are elligible for invoicing*/
 GROUP BY Customer.customer_id, Customer.sort_order, Customer.description
 UNION ALL
+/*time entered, but not yet eligible to be billed*/
 SELECT 3 AS major_sort_order, 0 AS invoice_id, NULL AS created_date,
 	Customer.customer_id, Customer.sort_order, Customer.description AS customer_name,
 	NULL AS invoicer, SUM(Time_Entry.hours * COALESCE(Billing_Rate.rate,0)) AS invoice_bill_amount, 0 AS invoice_received_amount,
