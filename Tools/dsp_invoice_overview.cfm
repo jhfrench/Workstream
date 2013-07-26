@@ -47,7 +47,7 @@
 	<cfloop query="get_invoice_overview">
 		<tr>
 			<td scope="row">
-				#customer_name# <a href="javascript:customer(#customer_id#);"><i class="icon-zoom-in"></i> View projects</a>
+				<a href="javascript:customer(#customer_id#);" title="View projects">#customer_name# <i class="icon-zoom-in"></i></a>
 			</td>
 			<td>
 				<cfif major_sort_order EQ 1>
