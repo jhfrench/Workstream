@@ -1,5 +1,5 @@
 
-<!--Timekeeping/qry_edit_notes.cfm
+<!--Timekeeping/qry_update_notes.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -16,10 +16,10 @@
 	--> attributes.note: string containing the text that the user wishes to update the Notes.note field with.
 	--> attributes.notes_id: number that corresponds to the identity column of the Notes table.
  --->
-<cfquery name="edit_notes" datasource="#application.datasources.main#">
+<cfquery name="update_notes" datasource="#application.datasources.main#">
 UPDATE Notes
 SET active_ind=0
-WHERE notes_id=#attributes.notes_id#
+WHERE notes_id=<cfqueryparam value="#attributes.notes_id#" cfsqltype="cf_sql_integer" />
 	/*don't update or delete invoiced time*/
 	AND notes_id NOT IN (
 		SELECT Time_Entry.notes_id
@@ -30,10 +30,10 @@ WHERE notes_id=#attributes.notes_id#
 <cfif isdefined("attributes.method") AND comparenocase(attributes.method,"delete this entry")>
 INSERT INTO Notes (user_account_id, notes_type_id, note,
 	task_id, created_by)
-SELECT user_account_id, notes_type_id, '#attributes.note#',
-	task_id, #variables.user_identification#
+SELECT user_account_id, <cfqueryparam value="#attributes.notes_type_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#htmleditformat(attributes.note)#" cfsqltype="cf_sql_longvarchar" />,
+	task_id, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 FROM Notes
-WHERE notes_id=#attributes.notes_id#
+WHERE notes_id=<cfqueryparam value="#attributes.notes_id#" cfsqltype="cf_sql_integer" />
 	/*don't update or delete invoiced time*/
 	AND notes_id NOT IN (
 		SELECT Time_Entry.notes_id
@@ -42,6 +42,7 @@ WHERE notes_id=#attributes.notes_id#
 		WHERE Time_Entry.active_ind=1
 			AND Link_Invoice_Time_Entry.active_ind=1
 	)
+RETURNING notes_id
 </cfif>
 </cfquery>
 </cfsilent>

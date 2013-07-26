@@ -28,7 +28,7 @@
 	</div>
 <cfelse>
 	<cfinclude template="../common_files/qry_get_valid_projects.cfm">
-	<cfinclude template="../common_files/get_ref_notes_type">
+	<cfinclude template="../common_files/get_ref_notes_type.cfm">
 	<cfinclude template="qry_get_time_entry_edit.cfm">
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="note_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
 	<cfinclude template="dsp_time_entry_edit.cfm">

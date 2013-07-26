@@ -10,10 +10,10 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 </cfsilent>
 <cftransaction>
-	<cfinclude template="qry_edit_notes.cfm">
-	<cfinclude template="qry_edit_time_entry.cfm">
+	<cfinclude template="qry_update_notes.cfm">
+	<cfinclude template="qry_update_time_entry.cfm">
 </cftransaction>
