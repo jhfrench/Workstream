@@ -21,7 +21,7 @@
 <cfquery name="edit_time_entry" datasource="#application.datasources.main#">
 UPDATE Time_Entry
 SET active_ind=0
-WHERE time_entry_id=#attributes.time_entry_id#
+WHERE time_entry_id=<cfqueryparam value="#attributes.time_entry_id#" cfsqltype="cf_sql_integer" />
 	AND time_entry_id NOT IN (
 		/* don't reassign hours that have already been billed*/
 		SELECT time_entry_id
@@ -39,7 +39,7 @@ SELECT user_account_id, '#dateformat(attributes.work_date,"yyyy-mm-dd")#', #attr
 	<cfif isdefined("attributes.project_id")>#attributes.project_id#<cfelse>project_id</cfif>, task_id, CURRVAL('Notes_notes_id_SEQ'),
 	<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 FROM Time_Entry
-WHERE time_entry_id=#attributes.time_entry_id#
+WHERE time_entry_id=<cfqueryparam value="#attributes.time_entry_id#" cfsqltype="cf_sql_integer" />
 	AND time_entry_id NOT IN (SELECT time_entry_id FROM Link_Invoice_Time_Entry WHERE active_ind=1) /*don't update or delete invoiced time*/
 </cfif>
 </cfquery>
