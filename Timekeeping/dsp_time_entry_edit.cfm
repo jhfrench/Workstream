@@ -32,7 +32,7 @@
 <cfoutput>
 <form action="index.cfm?fuseaction=Timekeeping.time_entry_edit" name="time_entry_edit" method="POST" class="form-horizontal">
 	<fieldset>
-		<legend><h2>Update #completed_by#'s Time Entry</h2></legend>
+		<legend><h2>Update #get_time_entry_edit.completed_by#'s Time Entry</h2></legend>
 		<dl class="dl-horizontal">
 			<dt>Customer</dt>
 			<dd>#get_time_entry_edit.customer_description#</dd>
