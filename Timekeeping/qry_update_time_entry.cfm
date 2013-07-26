@@ -36,7 +36,7 @@ INSERT INTO Time_Entry (user_account_id, work_date, hours,
 	project_id, task_id, notes_id,
 	created_by)
 SELECT user_account_id, <cfqueryparam value="#createodbcdate(attributes.work_date)#" cfsqltype="cf_sql_date" />, <cfqueryparam value="#attributes.hours#" cfsqltype="cf_sql_numeric" />,
-	<cfif isdefined("attributes.project_id")><cfqueryparam value="#attributes.project_id#" cfsqltype="cf_sql_integer" /><cfelse>project_id</cfif>, task_id, <cfqueryparam value="#update.notes_id#" cfsqltype="cf_sql_integer" />,
+	<cfif isdefined("attributes.project_id")><cfqueryparam value="#attributes.project_id#" cfsqltype="cf_sql_integer" /><cfelse>project_id</cfif>, task_id, <cfqueryparam value="#update_notes.notes_id#" cfsqltype="cf_sql_integer" />,
 	<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 FROM Time_Entry
 WHERE time_entry_id=<cfqueryparam value="#attributes.time_entry_id#" cfsqltype="cf_sql_integer" />
