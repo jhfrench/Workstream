@@ -20,12 +20,9 @@
 	<-- project_description: string that identifies the project for a particular task
 	<-- task_name: string that identifies the task name for a particular task
  --->
-<!--- $issue$ hours as hours --->
-<!--- $issue$ note as note --->
-<!--- $issue$ notes_id as notes_id --->
 <cfquery name="get_time_entry_edit" datasource="#application.datasources.main#">
-SELECT Time_Entry.work_date, Time_Entry.hours AS hours, Demographics.last_name AS completed_by,
-	Notes.notes_id AS notes_id, Notes.note AS note, Notes.notes_type_id,
+SELECT Time_Entry.work_date, Time_Entry.hours, Demographics.first_name || ' ' || Demographics.last_name AS author,
+	Notes.notes_id, Notes.note, Notes.notes_type_id,
 	Task.task_id, Task.name AS task_name, Project.description AS project_description,
 	Project.project_id, Customer.description AS customer_description
 FROM Time_Entry

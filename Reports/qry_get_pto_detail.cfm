@@ -4,10 +4,10 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I 
+	Responsibilities: I
 
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -17,7 +17,7 @@ SELECT COALESCE(hours_out,0) AS hours_out, COALESCE(hours_in,0) AS hours_in, tra
 	comments, time_entry_id, EXTRACT(YEAR FROM transaction_date) AS transaction_year
 FROM
 	(SELECT Time_Entry.hours AS hours_out, 0 AS hours_in, Time_Entry.work_date AS transaction_date,
-		CAST(Notes.note AS VARCHAR(50)) AS comments, Time_Entry.time_entry_id AS time_entry_id
+		CAST(Notes.note AS VARCHAR(50)) AS comments, Time_Entry.time_entry_id
 	FROM Time_Entry
 		INNER JOIN Notes ON Time_Entry.notes_id=Notes.notes_id
 	WHERE Time_Entry.active_ind=1

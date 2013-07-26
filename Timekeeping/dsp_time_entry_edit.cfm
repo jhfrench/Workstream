@@ -32,14 +32,14 @@
 <cfoutput>
 <form action="index.cfm?fuseaction=Timekeeping.time_entry_edit" name="time_entry_edit" method="POST" class="form-horizontal">
 	<fieldset>
-		<legend><h2>Update #get_time_entry_edit.completed_by#'s Time Entry</h2></legend>
+		<legend><h2>Update #get_time_entry_edit.author#'s Time Entry</h2></legend>
 		<dl class="dl-horizontal">
 			<dt>Customer</dt>
 			<dd>#get_time_entry_edit.customer_description#</dd>
 			<dt>Project</dt>
 			<dd>#replace(get_time_entry_edit.project_description,"#get_time_entry_edit.customer_description#-","")#</dd>
 			<dt>Task Name</dt>
-			<dd>#get_time_entry_edit.task_name# <a href="javascript:note_to_task('#get_time_entry_edit.task_id#');" class="btn">View this task</a></dd>
+			<dd><a href="javascript:note_to_task('#get_time_entry_edit.task_id#');" title="View task details">#get_time_entry_edit.task_name# <i class="icon-zoom-in"></i></a></dd>
 		</dl>
 		<div class="control-group">
 			<label for="hours" class="control-label">Hours</label>
@@ -51,7 +51,7 @@
 		<div class="control-group">
 			<label for="notes_type_id" class="control-label">Type</label>
 			<div class="controls">
-				<select name="notes_type_id" id="notes_type_id" class="span11">
+				<select name="notes_type_id" id="notes_type_id" class="span3">
 				<cfloop query="get_ref_notes_type">
 					<option value="#get_ref_notes_type.notes_type_id#"<cfif get_ref_notes_type.notes_type_id EQ get_time_entry_edit.notes_type_id> selected="selected"</cfif>>#notes_type#</option>
 				</cfloop>

@@ -8,17 +8,17 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfquery name="get_individual_hours_detail" datasource="#application.datasources.main#">
 SELECT Demographics.last_name || ', ' || Demographics.first_name AS employee, Time_Entry.work_date, Time_Entry.hours,
-	Notes.note AS notes,
+	Notes.note,
 	CASE WHEN Customer.description!=Project.description <cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
-		THEN (Project.project_code || '-' || Customer.description || '-' || Project.description) 
+		THEN (Project.project_code || '-' || Customer.description || '-' || Project.description)
 		ELSE (Project.project_code || '-' || Project.description)
 	<cfelse>
-		THEN (Customer.description || '-' || Project.description || ' (' ||  Project.project_code || ')') 
-		ELSE (Project.description || ' (' ||  Project.project_code || ')') 
+		THEN (Customer.description || '-' || Project.description || ' (' ||  Project.project_code || ')')
+		ELSE (Project.description || ' (' ||  Project.project_code || ')')
 	</cfif>
 	END AS project_display
 FROM Time_Entry

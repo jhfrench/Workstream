@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfparam name="attributes.from_date" default="#dateadd('m',-1, now())#">
 <cfparam name="attributes.through_date" default="#now()#">
@@ -47,7 +47,7 @@
 				#project_display#
 			</td>
 			<td>
-				#notes#
+				#note#
 			</td>
 			<td class="number">
 				#decimalformat(hours)#
