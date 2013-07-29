@@ -1,5 +1,5 @@
 
-<!--Timekeeping/qry_time_allocation_blurb.cfm
+<!--Timekeeping/qry_get_time_allocation_blurb.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -10,11 +10,11 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> variables.user_identification: number that uniquely identifies the user
  --->
-<cfquery name="time_allocation_blurb" datasource="#application.datasources.main#">
+<cfquery name="get_time_allocation_blurb" datasource="#application.datasources.main#">
 SELECT SUM(hours) AS project_hours, (Customer.description || '-' || Project.description) AS project_name, Project.project_id
 FROM Time_Entry
 	INNER JOIN Project ON Time_Entry.project_id=Project.project_id

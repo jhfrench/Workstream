@@ -21,8 +21,8 @@
 <cfoutput>
 <section id="blurb_project" class="span7">
 	<h2>Work Allocation</h2>
-<cfif time_allocation_blurb.recordcount>
-	<p>So far this month you have worked on #time_allocation_blurb.recordcount# <cfif time_allocation_blurb.recordcount EQ 1>project<cfelse>different projects</cfif>. You have spent none of your time on ADMIN/PLANNING. This is under the ADMIN/PLANNING work allocation target of 10% or less. You allocated your time as follows:</p>
+<cfif get_time_allocation_blurb.recordcount>
+	<p>So far this month you have worked on #get_time_allocation_blurb.recordcount# <cfif get_time_allocation_blurb.recordcount EQ 1>project<cfelse>different projects</cfif>. You have spent none of your time on ADMIN/PLANNING. This is under the ADMIN/PLANNING work allocation target of 10% or less. You allocated your time as follows:</p>
 	<div class="row-fluid">
 		<div class="span4">
 			<table id="work_allocation" class="table table-striped table-bordered table-condensed pieChart">
@@ -33,9 +33,9 @@
 					</tr>
 				</thead>
 				<tbody style="cursor: pointer;">
-				<cfloop query="time_allocation_blurb">
+				<cfloop query="get_time_allocation_blurb">
 					<tr>
-						<td style="background-color:###listgetat(application.application_specific_settings.color_list,time_allocation_blurb.currentrow)#;" class="graph_label_color">&nbsp;</td>
+						<td style="background-color:###listgetat(application.application_specific_settings.color_list,get_time_allocation_blurb.currentrow)#;" class="graph_label_color">&nbsp;</td>
 						<td class="graph_label">#project_name#</td>
 						<td class="graph_data">#decimalformat(project_hours)#</td>
 					</tr>

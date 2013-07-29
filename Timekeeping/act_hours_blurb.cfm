@@ -4,13 +4,13 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: 
+	Responsibilities:
 	||
 	Name: Jeromy French
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 </cfsilent>
 <cfinclude template="../common_files/qry_get_employee_details.cfm">
@@ -24,7 +24,7 @@
 </cfscript>
 
 <cfinclude template="qry_hours_blurb.cfm">
-<cfinclude template="qry_time_allocation_blurb.cfm">
+<cfinclude template="qry_get_time_allocation_blurb.cfm">
 <cfoutput query="hours_blurb">
 	<cfset variables.transaction_date=month("#work_month#/13/#work_year#")>
 	<cfset variables.total=month_hours+variables.total>
@@ -39,7 +39,7 @@
 	</cfif>
 </cfoutput>
 
-<cfoutput query="time_allocation_blurb" maxrows="1">
+<cfoutput query="get_time_allocation_blurb" maxrows="1">
 	<cfset variables.big_hours=decimalformat(project_hours)>
 	<cfset variables.big_project=project_name>
 </cfoutput>
@@ -50,32 +50,32 @@
 		<p class="label label-important">Your timekeeping may not be up to date.</p>
 	</cfif>
 	<p>
-	According to your time entries, this month you worked #decimalformat(variables.this_month)# hours. Last month you worked #decimalformat(variables.last_month)# hours. This is a projected 
+	According to your time entries, this month you worked #decimalformat(variables.this_month)# hours. Last month you worked #decimalformat(variables.last_month)# hours. This is a projected
 	<cfif variables.difference GT 0>
 		increase
 	<cfelseif variables.difference LT 0>
 		<cfset variables.difference=variables.difference*-1>
 		decrease
 	</cfif>
-	 of #variables.difference#% from last month. 
-	<cfif time_allocation_blurb.recordcount>
+	 of #variables.difference#% from last month.
+	<cfif get_time_allocation_blurb.recordcount>
 		So far this month you spent the most time (#variables.big_hours# hours) on #variables.big_project#.
 	</cfif>
 	</p>
 </cfoutput>
 </cfsavecontent>
 
-<cfoutput query="time_allocation_blurb">
+<cfoutput query="get_time_allocation_blurb">
 	<cfif currentrow GT listlen(application.application_specific_settings.color_list)>
 		<cfset application.application_specific_settings.color_list=listappend(application.application_specific_settings.color_list,randrange(100000,999999))>
 	</cfif>
 </cfoutput>
 
 <!--- $issue$: this text is built in Timekeeping/dsp_time_allocation_chart.cfm in a more hard-coded manner. Will need to reinstitute this logic someday.
-<cfif time_allocation_blurb.recordcount EQ 0>
+<cfif get_time_allocation_blurb.recordcount EQ 0>
 	<cfset variables.work_allocation_text="">
 <cfelse>
-	<cfoutput query="time_allocation_blurb">
+	<cfoutput query="get_time_allocation_blurb">
 		<cfif currentrow GT listlen(application.application_specific_settings.color_list)>
 			<cfset application.application_specific_settings.color_list=listappend(application.application_specific_settings.color_list,randrange(100000,999999))>
 		</cfif>
@@ -83,7 +83,7 @@
 			<cfset variables.admin_time=decimalformat(project_hours/variables.this_month*100)>
 		</cfif>
 	</cfoutput>
-	<cfset variables.work_allocation_text="So far this month you have worked on #time_allocation_blurb.recordcount# different projects.">
+	<cfset variables.work_allocation_text="So far this month you have worked on #get_time_allocation_blurb.recordcount# different projects.">
 	<cfif session.workstream_company_id EQ 1>
 		<cfif variables.admin_time LT 10>
 			<cfset variables.over_under="under">
