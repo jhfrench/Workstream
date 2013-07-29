@@ -37,7 +37,7 @@
 	</cfif>
 	<cfset variables.actual_accrual=variables.hours_earned+variables.rollover>
 
-	<cfset variables.pto_blurb="This month you have #variables.remain# hours of PTO remaining, you ended last month with #pto_blurb.last_month# hours.">
+	<cfset variables.pto_blurb="This month you have #variables.remain# hours of PTO remaining, you ended last month with #get_pto_blurb.last_month# hours.">
 	<cfif variables.difference GT 0>
 		<cfset variables.pto_blurb="#variables.pto_blurb# This is an increase of #numberformat(variables.difference)#% from last month. ">
 	<cfelseif variables.difference LT 0>

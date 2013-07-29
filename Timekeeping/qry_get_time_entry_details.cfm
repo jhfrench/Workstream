@@ -37,7 +37,7 @@ FROM Time_Entry
 	) AS Link_Invoice_Time_Entry ON Time_Entry.time_entry_id=Link_Invoice_Time_Entry.time_entry_id
 WHERE Time_Entry.active_ind=1<cfif isdefined("attributes.time_entry_id")>
 	AND Time_Entry.time_entry_id=<cfqueryparam value="#attributes.time_entry_id#" cfsqltype="cf_sql_integer" /><cfelse>
-	AND Time_Entry.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" /><cfif isdefined("attributes.user_account_id#")>
+	AND Time_Entry.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" /><cfif isdefined("attributes.user_account_id")>
 	AND Time_Entry.user_account_id=<cfqueryparam value="#attributes.user_account_id#" cfsqltype="cf_sql_integer" /></cfif></cfif>
 ORDER BY COALESCE(Time_Entry.work_date, Notes.created_date), Time_Entry.time_entry_id
 </cfquery>

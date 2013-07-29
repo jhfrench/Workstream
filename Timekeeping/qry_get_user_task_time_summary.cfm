@@ -1,19 +1,19 @@
 
-<!--Timekeeping/qry_get_time_details.cfm
+<!--Timekeeping/qry_get_user_task_time_summary.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: 
+	Responsibilities:
 	||
 	Name: Jeromy French
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
  --->
-<cfquery name="get_time_details" datasource="#application.datasources.main#">
+<cfquery name="get_user_task_time_summary" datasource="#application.datasources.main#">
 SELECT Demographics.last_name, Time_Entry.user_account_id, Time_Entry.task_id,
 	SUM(Time_Entry.hours) AS hours
 FROM Time_Entry

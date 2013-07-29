@@ -30,7 +30,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	<cfoutput query="get_time_details">
+	<cfoutput query="get_user_task_time_summary">
 		<tr>
 			<th scope="row">
 				<a href="javascript:tindividual_time#user_account_id#);" title="View individual time entries for #last_name#.">#last_name#</a>
