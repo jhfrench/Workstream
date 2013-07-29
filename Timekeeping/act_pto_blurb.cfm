@@ -14,14 +14,14 @@
  --->
 </cfsilent>
 
-<cfinclude template="qry_pto_blurb.cfm">
-<cfif pto_blurb.recordcount EQ 0>
+<cfinclude template="qry_get_pto_blurb.cfm">
+<cfif get_pto_blurb.recordcount EQ 0>
 	<cfset variables.pto_blurb="You have no PTO available according to your Workstream data.">
 <cfelse>
-	<cfset variables.remain=pto_blurb.remain>
+	<cfset variables.remain=get_pto_blurb.remain>
 	<cfset variables.difference=0>
-	<cfif pto_blurb.last_month NEQ 0>
-		<cfset variables.difference=(variables.remain-pto_blurb.last_month)/pto_blurb.last_month*100>
+	<cfif get_pto_blurb.last_month NEQ 0>
+		<cfset variables.difference=(variables.remain-get_pto_blurb.last_month)/get_pto_blurb.last_month*100>
 	</cfif>
 
 	<cfinclude template="../common_files/qry_get_pto_totals.cfm">

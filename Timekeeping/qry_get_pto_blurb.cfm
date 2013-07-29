@@ -1,5 +1,5 @@
 
-<!--Timekeeping/qry_pto_blurb.cfm
+<!--Timekeeping/qry_get_pto_blurb.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -10,16 +10,16 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource AS mapped in CF administrator
 	--> variables.user_identification: number that uniquely identifies the user
  --->
 
 <cfset variables.user_relevant_company_id=listappend(session.workstream_selected_company_id, session.workstream_company_id)>
-<cfquery name="pto_blurb" cachedwithin="#createtimespan(0,0,10,0)#" datasource="#application.datasources.main#">
+<cfquery name="get_pto_blurb" cachedwithin="#createtimespan(0,0,10,0)#" datasource="#application.datasources.main#">
 SELECT COALESCE(Remainder.remain,0) AS remain, COALESCE(Remainder.remain,0)+COALESCE(Last_Month_Taken.hours_taken,0)-COALESCE(Last_Month_Earned.earned_hours,0) AS last_month
 FROM (
-		SELECT User_Account.user_account_id, COALESCE(Hours_Taken_Table.hours_taken, 0) AS PTO_used_hours, COALESCE(Hours_Earned.earned_hours,0) AS pto_hours_earned, 
+		SELECT User_Account.user_account_id, COALESCE(Hours_Taken_Table.hours_taken, 0) AS PTO_used_hours, COALESCE(Hours_Earned.earned_hours,0) AS pto_hours_earned,
 			COALESCE(Hours_Earned.earned_hours,0)-COALESCE(Hours_Taken_Table.hours_taken,0) AS remain
 		FROM User_Account
 			INNER JOIN Link_Company_User_Account ON User_Account.user_account_id=Link_Company_User_Account.user_account_id
