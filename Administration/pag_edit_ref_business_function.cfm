@@ -54,41 +54,40 @@
 		<cfset variables.display_message=variables.display_message & "<br />Please enter sort order.">
 		<cfset variables.check_form_field=variables.check_form_field+1>
 	</cfif>
-	<!--- if there is no error --->
-	<cfif variables.check_form_field EQ 0>
-	<!--- DO YOUR PROCESSING --->
-		<cfif isdefined("attributes.created_by")>
-			<!--- deactivate old record --->
-			<cfinclude template="qry_deactivate_ref_business_function.cfm">
-			<cfif attributes.active_ind>
-				<!--- reorder existing records --->
+	<!--- if there is no error do the processing --->
+	<cfif variables.check_form_field EQ 0 AND isdefined("attributes.created_by")>
+		<!--- deactivate old record --->
+		<cfinclude template="qry_deactivate_ref_business_function.cfm">
+		<cfif attributes.active_ind>
+			<!--- reorder existing records --->
+			<cfquery name="update_ref_business_function_sort_order" datasource="#application.datasources.main#">
+			UPDATE REF_Business_Function
+			SET sort_order=sort_order+1
+			WHERE active_ind=1
+				AND sort_order >=#attributes.sort_order#
+			</cfquery>
+			<cfif attributes.business_function_id EQ 0>
+				<!--- insert new record --->
+				<cfinclude template="qry_insert_ref_business_function.cfm">
+			<cfelse>
+			<!--- update existing record --->
 				<cfquery name="update_ref_business_function_sort_order" datasource="#application.datasources.main#">
 				UPDATE REF_Business_Function
-				SET sort_order=sort_order+1
-				WHERE active_ind=1
-					AND sort_order >=#attributes.sort_order#
+				SET parent_business_function_id=#attributes.parent_business_function_id#,
+					description='#attributes.description#',
+					acronym='#attributes.acronym#',
+					require_login_ind=#attributes.require_login_ind#,
+					default_access_ind=#attributes.default_access_ind#,
+					viewable_ind=#attributes.viewable_ind#,
+					sort_order=#attributes.sort_order#,
+					created_by=#attributes.created_by#,
+					active_ind=#attributes.active_ind#
+				WHERE business_function_id=#attributes.business_function_id#
 				</cfquery>
-				<cfif attributes.business_function_id EQ 0>
-					<!--- insert new record --->
-					<cfinclude template="qry_insert_ref_business_function.cfm">
-				<cfelse>
-				<!--- update existing record --->
-					<cfquery name="update_ref_business_function_sort_order" datasource="#application.datasources.main#">
-					UPDATE REF_Business_Function
-					SET parent_business_function_id=#attributes.parent_business_function_id#,
-						description='#attributes.description#',
-						acronym='#attributes.acronym#',
-						require_login_ind=#attributes.require_login_ind#,
-						default_access_ind=#attributes.default_access_ind#,
-						viewable_ind=#attributes.viewable_ind#,
-						sort_order=#attributes.sort_order#,
-						created_by=#attributes.created_by#,
-						active_ind=#attributes.active_ind#
-					WHERE business_function_id=#attributes.business_function_id#
-					</cfquery>
-				</cfif>
 			</cfif>
 		</cfif>
+		<!--- reset application.private_fuseactions --->
+		<cfinclude template="../common_files/qry_get_secured_screens.cfm">
 	</cfif>
 </cfif>
 
