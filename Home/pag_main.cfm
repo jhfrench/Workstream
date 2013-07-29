@@ -52,6 +52,7 @@
 				VALUES ('#replace(variables.fuseaction_ii, '_', ' ')#', '#left(variables.circuit_ii,1)##left(variables.fuseaction_ii,1)#', 1,
 					0, 1, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 				</cfquery>
+<!--- $issue$ change this into "RETURNING" --->
 				<cfquery name="get_business_function_id" datasource="#application.datasources.main#">
 				SELECT CURRVAL('REF_Business_Function_business_function_id_SEQ') AS business_function_id
 				</cfquery>

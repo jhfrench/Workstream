@@ -35,6 +35,7 @@
 			'#attributes.discussion_text#', '#attributes.link#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 		</cfquery>
 
+<!--- $issue$ change this into "RETURNING" --->
 		<!--- get the id of the inserted record --->
 		<cfquery name="get_discussion_id" datasource="#application.datasources.main#">
 		SELECT CURRVAL('Discussion_discuss_id_SEQ') AS discussion_id

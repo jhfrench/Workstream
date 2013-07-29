@@ -4,17 +4,17 @@
 
 	<!--- FUSEDOC
 	||
-	Responsibilities: I am the page that will dipslay all the tasks that are being completed by the inactivation of the parent client code.
+	Responsibilities: I am the page that will display all the tasks that are being completed by the inactivation of the parent client code.
 
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> client_code: this the client code that is being inactivated
 	<-- Outgoing Paramater
 
 	END FUSEDOC --->
-<cfparam name="delete_user_field_list" default="None">
+<cfparam name="attributes.delete_user_field_list" default="">
 <cfif attributes.active_ind EQ 1>
 <table class="table table-striped table-bordered table-condensed">
 	<caption><h2>Tasks To Be Closed</h2></caption>
@@ -64,12 +64,12 @@
 		<input type="hidden" name="new_code" value="#attributes.project_id#">
 		<cfloop from="1" to="#listlen(attributes.Field_Title)#" index="ii">
 		<cfset current_selection_title = "selection_title" & #ii#>
-		<input type="hidden" name="#Current_Selection_Title#" value="#Evaluate(Current_Selection_Title)#">
+		<input type="hidden" name="#Current_Selection_Title#" value="#evaluate(Current_Selection_Title)#">
 		</cfloop>
-		<input type="hidden" name="delete_user_field_list" value="#delete_user_field_list#">
+		<input type="hidden" name="delete_user_field_list" value="#attributes.delete_user_field_list#">
 	</fieldset>
 </form>
-</cfoutput> 
+</cfoutput>
 <cfelse>
 
 <cfoutput>
@@ -91,8 +91,8 @@
 	<cfset current_selection_title = "selection_title" & #ii#>
 	<input type="hidden" name="#Current_Selection_Title#" value="#Evaluate(Current_Selection_Title)#">
 	</cfloop>
-	<input type="hidden" name="delete_user_field_list" value="#delete_user_field_list#">
-</form> 
+	<input type="hidden" name="delete_user_field_list" value="#attributes.delete_user_field_list#">
+</form>
 <script type="text/javascript">
 document.auto.submit()
 </script>

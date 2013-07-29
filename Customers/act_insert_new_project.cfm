@@ -12,6 +12,7 @@
 	 ||
 	END FUSEDOC --->
 </cfsilent>
+<!--- $issue$ change this into "RETURNING" --->
 <cfquery name="insert_project" datasource="#application.datasources.main#">
 INSERT INTO Project (root_code, customer_id, description,
 	created_by<cfif len(attributes.vision)>, vision</cfif><cfif len(attributes.mission)>, mission</cfif>

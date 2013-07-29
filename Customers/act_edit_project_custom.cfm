@@ -36,22 +36,23 @@ WHERE User_Fields.active_ind=1
 		<cfif len(evaluate("attributes.type_#user_field_type_id#_num_1_name")) NEQ 0>
 			<cfset variables.field_title=replace(evaluate("attributes.type_#user_field_type_id#_num_1_name"), "', /,%", "''", "All")>
 			<cftransaction>
-				<cfquery name="add_custom_fields" datasource="#application.datasources.main#">
+				<cfquery name="insert_user_fields" datasource="#application.datasources.main#">
 				INSERT INTO User_Fields (field_user_field_type_id, field_title, created_by)
 				VALUES (<cfqueryparam value="#user_field_type_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#variables.field_title#" cfsqltype="cf_sql_varchar" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
+				RETURNING user_field_id
 				</cfquery>
 				<cfquery name="add_to_link_table" datasource="#application.datasources.main#">
 				INSERT INTO User_Field_Project_Link (user_field_id, project_id, created_by)
-				VALUES(CURRVAL('User_Fields_user_field_id_SEQ'), <cfqueryparam value="#attributes.project_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
+				VALUES(#insert_user_fields.user_field_id#, <cfqueryparam value="#attributes.project_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 				</cfquery>
 				<cfif user_field_type_id EQ 1>
 				<cfloop from="1" to="8" index="variables.opt_ii">
-					<cfif len(evaluate("attributes.type_#user_field_type_id#_num_1_opt_#variables.opt_ii#"))>
 					<cfset variables.selection_title=replace(evaluate("attributes.type_#user_field_type_id#_num_1_opt_#variables.opt_ii#"), "', /,%", "''", "All")>
-					<cfquery name="add_custom_field_options" datasource="#application.datasources.main#">
-					INSERT INTO User_Field_Items (user_field_id, selection_title, created_by)
-					VALUES(CURRVAL('User_Fields_user_field_id_SEQ'), <cfqueryparam value="#variables.selection_title#" cfsqltype="cf_sql_varchar" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
-					</cfquery>
+					<cfif len(variables.selection_title)>
+						<cfquery name="add_custom_field_options" datasource="#application.datasources.main#">
+						INSERT INTO User_Field_Items (user_field_id, selection_title, created_by)
+						VALUES(#insert_user_fields.user_field_id#, <cfqueryparam value="#variables.selection_title#" cfsqltype="cf_sql_varchar" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
+						</cfquery>
 					</cfif>
 				</cfloop>
 				</cfif>

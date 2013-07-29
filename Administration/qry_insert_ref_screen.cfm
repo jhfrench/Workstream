@@ -28,15 +28,12 @@
 INSERT INTO REF_Screen (active_ind, fuseaction, business_function_id,
 	module_id, check_variable, relocate,
 	starting_point_ind, body_onload, created_by)
-SELECT #attributes.active_ind#, REPLACE(REPLACE(description, ' ', '_'), '/', '_') || '.#attributes.new_fuseaction#', #attributes.business_function_id#,
-	#attributes.module_id#, '#attributes.check_variable#', '<cfif len(attributes.check_variable)>#attributes.relocate#</cfif>',
-	#attributes.starting_point_ind#, '#attributes.body_onload#', #variables.user_identification#
+SELECT <cfqueryparam value="#attributes.active_ind#" cfsqltype="cf_sql_integer" />, REPLACE(REPLACE(description, ' ', '_'), '/', '_') || '.#attributes.new_fuseaction#', <cfqueryparam value="#attributes.business_function_id#" cfsqltype="cf_sql_integer" />,
+	<cfqueryparam value="#attributes.module_id#" cfsqltype="cf_sql_integer" />, '#attributes.check_variable#', '<cfif len(attributes.check_variable)>#attributes.relocate#</cfif>',
+	<cfqueryparam value="#attributes.starting_point_ind#" cfsqltype="cf_sql_integer" />, '#attributes.body_onload#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 FROM REF_Module
-WHERE module_id=#attributes.module_id#
+WHERE module_id=<cfqueryparam value="#attributes.module_id#" cfsqltype="cf_sql_integer" />
+RETURNING screen_id
 </cfquery>
-
 <!--- get the id of the inserted record because it will be needed to populate Demographics table --->
-<cfquery name="get_screen_id" datasource="#application.datasources.main#">
-SELECT CURRVAL('REF_Screen_screen_id_SEQ') AS screen_id
-</cfquery>
-<cfset attributes.screen_id=get_screen_id.screen_id>
+<cfset attributes.screen_id=insert_ref_screen.screen_id>

@@ -12,6 +12,7 @@
 	$Log$
 	 ||
  --->
+<!--- $issue$ change this into "RETURNING" --->
 <cfquery name="insert_forecast" datasource="#application.datasources.main#">
 INSERT INTO Forecast (forecast_month, forecast_year, created_by)
 VALUES(#attributes.force_month#, #attributes.force_year#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);

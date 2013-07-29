@@ -24,6 +24,7 @@
 	--> variables.user_identification: number that identifies the workstream account that created the task
  --->
 <cftransaction isolation="READ_COMMITTED">
+<!--- $issue$ change this into "RETURNING" --->
 <cfquery name="insert_new_task" datasource="#application.datasources.main#">
 INSERT INTO Task (name, project_id, entry_date,
 	assigned_date, due_date, icon_id,

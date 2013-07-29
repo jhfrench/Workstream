@@ -24,6 +24,7 @@ INSERT INTO Expense (work_date, user_account_id, project_id,
 VALUES ('#attributes.datefield1#', #attributes.user_account_id#, #attributes.project_id#,
 	#attributes.reimbursement_type_id#, #insert_notes.notes_id#)
 </cfquery>
+<!--- $issue$ change this into "RETURNING" --->
 <cfquery name="get_expense_id" datasource="#application.datasources.main#">
 SELECT CURRVAL('Expense_expense_id_SEQ') AS expense_id
 </cfquery>

@@ -61,6 +61,7 @@ WHERE customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_s
 	<cfset attributes.contact_user_account_id=get_contact_name.user_account_id>
 	<!--- If the person doesn't exist in the system, insert him into the system --->
 	<cfif NOT len(get_contact_name.user_account_id)>
+<!--- $issue$ change this into "RETURNING" --->
 		<cfquery name="insert_user_account" datasource="#application.datasources.main#">
 		INSERT INTO User_Account (user_name, account_type_id, created_by)
 		VALUES ('#left(attributes.first_name,1)##attributes.last_name#', 2, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);

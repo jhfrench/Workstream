@@ -20,6 +20,7 @@ INSERT INTO User_Account (user_name, account_type_id, created_by)
 VALUES ('#left(attributes.first_name, 1)##left(attributes.middle_initial, 1)##attributes.last_name#', #attributes.account_type_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
 </cfquery>
 
+<!--- $issue$ change this into "RETURNING" --->
 <cfquery name="max_user_account_id" datasource="#application.datasources.main#">
 SELECT CURRVAL('User_Account_user_account_id_SEQ') AS user_account_id
 </cfquery>

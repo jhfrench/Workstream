@@ -45,6 +45,7 @@
 		VALUES (#attributes.requirement_type_id#, #attributes.requirement_number#, '#attributes.requirement_description#',
 			#attributes.product_version_id#, #attributes.priority_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 		</cfquery>
+<!--- $issue$ change this into "RETURNING" --->
 		<cfquery name="get_requirement_id" datasource="#application.datasources.main#">
 		SELECT CURRVAL('Requirement_requirement_id_SEQ') AS requirement_id
 		</cfquery>

@@ -9,7 +9,7 @@
 	Name: Jeromy French
 	||
 	Edits:
-	 || 
+	 ||
 	END FUSEDOC --->
 
 <cfquery name="get_max_sort_order" datasource="#application.datasources.main#">
@@ -20,6 +20,7 @@ WHERE expense_category_id!=18
 
 <cfset variables.sort_order=get_max_sort_order.sort_order_number + 1>
 <cfset variables.category_name=ucase(left(attributes.optional_new_category,1)) & right(attributes.optional_new_category, len(attributes.optional_new_category) - 1)>
+<!--- $issue$ change this into "RETURNING" --->
 <cfquery name="insert_optional_category" datasource="#application.datasources.main#">
 INSERT INTO REF_Expense_Category (category, sort_order, accounting_approval_ind,
 		active_ind)

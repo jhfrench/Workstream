@@ -1,6 +1,6 @@
 <!-- Help/act_submit_faq.cfm
 	Author: Jeromy French -->
-<!--- 
+<!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_submit_faq.cfm">
 	<responsibilities>
 		I show the Help_Article records associated with the fuseaction of the page the user is viewing.
@@ -58,6 +58,7 @@ WHERE active_ind=1
 
 <!--- insert new text into Help_FAQ, get help_faq_id --->
 <cfinclude template="../common_files/qry_insert_help_faq.cfm">
+<!--- $issue$ change this into "RETURNING" --->
 <cfquery name="get_help_faq_id" datasource="#application.datasources.main#">
 SELECT CURRVAL('Help_FAQ_help_faq_id_SEQ') AS help_faq_id
 FROM Dual

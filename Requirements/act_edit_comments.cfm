@@ -45,6 +45,7 @@
 		VALUES (#attributes.comments_type_id#, #attributes.comments_number#, '#attributes.comment_description#',
 			<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 		</cfquery>
+<!--- $issue$ change this into "RETURNING" --->
 		<cfquery name="get_comments_id" datasource="#application.datasources.main#">
 		SELECT CURRVAL('Comments_comment_id_SEQ') AS comments_id
 		</cfquery>
