@@ -21,7 +21,7 @@
 </fusedoc>
 --->
 
-<cfif NOT isdefined("application.application_specific_settings.valid_files")>
+<cfif NOT isdefined("application.team_changed")>
 	<cfquery name="get_secured_screens" datasource="#application.datasources.main#">
 	SELECT REF_Screen.fuseaction
 	FROM REF_Screen
@@ -33,6 +33,15 @@
 	ORDER BY REF_Screen.fuseaction
 	</cfquery>
 	<cfset application.private_fuseactions=valuelist(get_secured_screens.fuseaction)>
+
+	<cfquery name="get_ref_file_type" datasource="#application.datasources.main#">
+	SELECT extension
+	FROM REF_File_Type
+	WHERE REF_File_Type.active_ind=1
+	ORDER BY sort_order
+	</cfquery>
+	<cfset application.application_specific_settings.valid_files=valuelist(get_ref_file_type.extension)>
+
 	<cfscript>
 		application.help.admin_business_function_id=246;
 		application.help.active_ind=1;
@@ -42,9 +51,6 @@
 		application.help.search_active_ind=1; //FYI: if articles and faq are inactivate there will be nothing to search
 
 		application.team_changed=now();
-		
-		// $issue$ THIS SHOULD GO INTO REF_File_Type: description, extension, sort_order, created_by, created_date, active_ind
-		application.application_specific_settings.valid_files="cfm,doc,gif,htm,jpg,msg,pdf,ppt,sql,vsd,txt,xls,zip";
 	</cfscript>
 </cfif>
 
