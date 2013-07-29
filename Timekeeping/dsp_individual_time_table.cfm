@@ -24,7 +24,7 @@
 		</td>
 	</thead>
 	<tbody>
-	<cfoutput query="get_ind_entry_details">
+	<cfoutput query="get_time_entry_details">
 		<tr>
 			<td>
 				<cfif billed_ind>Time previouly billed.<cfelse><cfinput type="checkbox" name="notes_id" value="#notes_id#" required="yes" message="Please mark which hours you wish to reassign."></cfif>

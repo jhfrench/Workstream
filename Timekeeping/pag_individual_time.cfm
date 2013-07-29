@@ -22,7 +22,7 @@
 		<cfset attributes.task_id=listgetat(ii,2,"|")>
 	</cfloop>
 </cfif>
-<cfinclude template="qry_get_ind_entry_details.cfm">
+<cfinclude template="qry_get_time_entry_details.cfm">
 <cfinclude template="qry_get_task_details.cfm">
 <cfinclude template="qry_get_task_accumulated.cfm">
 <cfinclude template="../common_files/qry_get_open_tasks.cfm">
@@ -34,7 +34,7 @@
 <cfif get_task_accumulated.budgeted_hours GT 0>
 	<cfinclude template="dsp_time_details_graph.cfm">
 </cfif>
-<cfif get_ind_entry_details.recordcount>
+<cfif get_time_entry_details.recordcount>
 	<cfinclude template="dsp_individual_time_table.cfm">
 	<cfinclude template="dsp_time_reassign_tasks.cfm">
 <cfelse>
