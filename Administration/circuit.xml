@@ -49,9 +49,6 @@
 	<fuseaction name="create_update_triggers">
 		<include template="pag_create_update_triggers.cfm"/>
 	</fuseaction>
-	<fuseaction name="data_factory_ping">
-		<include template="act_data_factory_ping.cfm"/>
-	</fuseaction>
 	<fuseaction name="display_help_article">
 		<include template="pag_display_help_article.cfm"/>
 	</fuseaction>
