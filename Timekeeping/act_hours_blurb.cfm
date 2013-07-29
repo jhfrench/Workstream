@@ -23,9 +23,9 @@
 	variables.should_have=datediff("d","#month(now())#/1/#year(now())#",now())*get_employee_details.week_hours/7;
 </cfscript>
 
-<cfinclude template="qry_hours_blurb.cfm">
+<cfinclude template="qry_get_hours_blurb.cfm">
 <cfinclude template="qry_get_time_allocation_blurb.cfm">
-<cfoutput query="hours_blurb">
+<cfoutput query="get_hours_blurb">
 	<cfset variables.transaction_date=month("#work_month#/13/#work_year#")>
 	<cfset variables.total=month_hours+variables.total>
 	<cfif variables.transaction_date EQ month(dateadd("m",-1,now()))>

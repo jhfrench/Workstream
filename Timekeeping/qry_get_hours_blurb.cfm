@@ -1,5 +1,5 @@
 
-<!--Timekeeping/qry_hours_blurb.cfm
+<!--Timekeeping/qry_get_hours_blurb.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -10,14 +10,14 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> variables.user_identification: number that uniquely identifies the user
  --->
 <cfset variables.temp_date=dateadd("m",-1,now())>
 <cfset variables.previous_month=createodbcdate("#month(variables.temp_date)#/1/#year(variables.temp_date)#")>
 <cfset variables.current_month=createodbcdate("#month(now())#/#daysinmonth(now())#/#year(now())#")>
-<cfquery name="hours_blurb" datasource="#application.datasources.main#">
+<cfquery name="get_hours_blurb" datasource="#application.datasources.main#">
 SELECT SUM(hours) AS month_hours, EXTRACT(YEAR FROM work_date) AS work_year, EXTRACT(MONTH FROM work_date) AS work_month
 FROM Time_Entry
 WHERE Time_Entry.active_ind=1
