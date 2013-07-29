@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 
@@ -62,7 +62,7 @@
 		</cfif>
 		</div>
 		<div class="row-fluid">
-		<cfif operations_blurb.recordcount>
+		<cfif get_operations_blurb.recordcount>
 			<cfinclude template="dsp_operations_blurb.cfm">
 		</cfif>
 		<cfinclude template="dsp_time_allocation_chart.cfm">

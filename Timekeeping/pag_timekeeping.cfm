@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <cfif session.account_type_id EQ 1>
@@ -21,5 +21,5 @@
 </cfif>
 <cfinclude template="act_hours_blurb.cfm">
 <cfinclude template="../common_files/qry_get_revenue_goal.cfm">
-<cfinclude template="qry_operations_blurb.cfm">
+<cfinclude template="qry_get_operations_blurb.cfm">
 <cfinclude template="dsp_timekeeping_columns.cfm">

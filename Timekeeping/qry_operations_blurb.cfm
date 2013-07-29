@@ -1,5 +1,5 @@
 
-<!--Timekeeping/qry_operations_blurb.cfm
+<!--Timekeeping/qry_get_operations_blurb.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -10,9 +10,9 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
-<cfquery name="operations_blurb" datasource="#application.datasources.main#">
+<cfquery name="get_operations_blurb" datasource="#application.datasources.main#">
 SELECT Customer.description AS customer,
 	SUM(CASE WHEN COALESCE(Link_Project_Project_Health.project_health_id,2)=1 THEN COALESCE(Project.budget,1) ELSE 0 END) AS blue_count,
 	SUM(CASE WHEN Link_Project_Project_Health.project_health_id=2 THEN COALESCE(Project.budget,1) ELSE 0 END) AS green_count,

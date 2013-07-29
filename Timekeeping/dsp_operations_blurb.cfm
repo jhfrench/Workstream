@@ -4,20 +4,20 @@
 <cfsilent>
 	<!---FUSEDOC
 	||
-	Responsibilities: 
+	Responsibilities:
 	||
 	Name: Jeromy French
 	||
 	Edits:
 	$Log$
 	(10/2/12 | JF) Converted stretched images to Bootstrap's 2.+ stacked progress bars
-	 || 
+	 ||
  --->
 </cfsilent>
 
 <section id="blurb_dashboard" class="span5">
 	<h2>Account Management Dashboard</h2>
-	<cfoutput query="operations_blurb">
+	<cfoutput query="get_operations_blurb">
 	<div class="row-fluid">
 		<div class="span4">
 			#customer#
