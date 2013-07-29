@@ -27,14 +27,14 @@
 	<cfquery name="deactivate_Comments" datasource="#application.datasources.main#">
 	UPDATE Comments
 	SET active_ind=0
-	WHERE comments_id=#attributes.comments_id#
+	WHERE comments_id=<cfqueryparam value="#attributes.comments_id#" cfsqltype="cf_sql_integer" />
 		AND active_ind=1
 	</cfquery>
 	<!--- deactivate Link_Screen_Comments record for old Comments --->
 	<cfquery name="deactivate_link_screen_Comments" datasource="#application.datasources.main#">
 	UPDATE Link_Screen_Comments
 	SET active_ind=0
-	WHERE comments_id=#attributes.comments_id#
+	WHERE comments_id=<cfqueryparam value="#attributes.comments_id#" cfsqltype="cf_sql_integer" />
 		AND	active_ind=1
 	</cfquery>
 	<cfif attributes.active_ind EQ 1>
@@ -44,17 +44,15 @@
 			created_by)
 		VALUES (#attributes.comments_type_id#, #attributes.comments_number#, '#attributes.comment_description#',
 			<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
+		RETURNING comments_id
 		</cfquery>
-<!--- $issue$ change this into "RETURNING" --->
-		<cfquery name="get_comments_id" datasource="#application.datasources.main#">
-		SELECT CURRVAL('Comments_comment_id_SEQ') AS comments_id
-		</cfquery>
-		<cfset attributes.comments_id=get_comments_id.comments_id>
+		<cfset attributes.comments_id=insert_comments.comments_id>
+
 		<!--- INSERT INTO Link_Screen_Comments (comments_id, screen_id) --->
 		<cfquery name="insert_link_screen_comments" datasource="#application.datasources.main#">
 		INSERT INTO Link_Screen_Comments (comments_id, screen_id, sort_order,
 			created_by)
-		VALUES (#attributes.comments_id#, #attributes.screen_id#, #attributes.sort_order#,
+		VALUES (<cfqueryparam value="#attributes.comments_id#" cfsqltype="cf_sql_integer" />, #attributes.screen_id#, #attributes.sort_order#,
 			<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 		</cfquery>
 	</cfif>

@@ -12,7 +12,6 @@
 	 ||
 	END FUSEDOC --->
 </cfsilent>
-<!--- $issue$ change this into "RETURNING" --->
 <cfquery name="insert_project" datasource="#application.datasources.main#">
 INSERT INTO Project (root_code, customer_id, description,
 	created_by<cfif len(attributes.vision)>, vision</cfif><cfif len(attributes.mission)>, mission</cfif>
@@ -24,7 +23,7 @@ VALUES ('#get_root_code.root_code#', #attributes.customer_id#, '#attributes.desc
 	<cfif len(attributes.business_case)>,' #attributes.business_case#'</cfif><cfif len(attributes.project_end)>, '#attributes.project_end#'</cfif><cfif len(attributes.project_start)>, '#attributes.project_start#'</cfif>,
 	#attributes.product_id#, #attributes.billable_type_id#, '#variables.new_code#',
 	1, #session.workstream_company_id#, #attributes.budget#);
-SELECT CURRVAL('Project_project_id_SEQ') AS project_id;
+RETURNING project_id;
 </cfquery>
 <cfset attributes.project_id=insert_project.project_id>
 

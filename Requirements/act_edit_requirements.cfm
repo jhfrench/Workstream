@@ -44,22 +44,19 @@
 			product_version_id, priority_id, created_by)
 		VALUES (#attributes.requirement_type_id#, #attributes.requirement_number#, '#attributes.requirement_description#',
 			#attributes.product_version_id#, #attributes.priority_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
-		</cfquery>
-<!--- $issue$ change this into "RETURNING" --->
-		<cfquery name="get_requirement_id" datasource="#application.datasources.main#">
-		SELECT CURRVAL('Requirement_requirement_id_SEQ') AS requirement_id
+		RETURNING requirement_id
 		</cfquery>
 		<!--- INSERT INTO Link_Screen_Requirement (requirement_id, screen_id) --->
 		<cfquery name="insert_link_screen_requirement" datasource="#application.datasources.main#">
 		INSERT INTO Link_Screen_Requirement (requirement_id, screen_id, sort_order,
 			created_by)
-		VALUES (#get_requirement_id.requirement_id#, #attributes.screen_id#, #attributes.sort_order#,
+		VALUES (#insert_requirement.requirement_id#, #attributes.screen_id#, #attributes.sort_order#,
 			<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 		</cfquery>
 		<cfquery name="insert_requirement_history" datasource="#application.datasources.main#">
 		INSERT INTO Requirement_History (original_requirement_id, replacement_requirement_id)
-		VALUES (<cfif attributes.requirement_id>#attributes.requirement_id#<cfelse>NULL</cfif>, #get_requirement_id.requirement_id#)
+		VALUES (<cfif attributes.requirement_id>#attributes.requirement_id#<cfelse>NULL</cfif>, #insert_requirement.requirement_id#)
 		</cfquery>
-		<cfset attributes.requirement_id=get_requirement_id.requirement_id>
+		<cfset attributes.requirement_id=insert_requirement.requirement_id>
 	</cfif>
 </cftransaction>

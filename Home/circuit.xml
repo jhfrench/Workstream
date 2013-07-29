@@ -68,11 +68,6 @@
 	<fuseaction name="logout">
 		<include template="act_logout.cfm"/>
 	</fuseaction>
-	<fuseaction name="main">
-		<include template="../common_files/act_header.cfm"/>
-		<include template="pag_main.cfm"/>
-		<include template="../common_files/dsp_footer.cfm"/>
-	</fuseaction>
 	<fuseaction name="message_commands">
 		<include template="dsp_message_commands.cfm"/>
 	</fuseaction>

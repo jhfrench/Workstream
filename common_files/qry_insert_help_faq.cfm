@@ -76,4 +76,6 @@ VALUES (<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.question#">,
 	<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.answer#">, #variables.created_by#, <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.answered_by#" null="#variables.answer_null#">,
 	<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.public_ind#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.sort_order#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#variables.created_by#" null="#variables.created_by_null#">,
 	<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.active_ind#">)
+RETURNING help_faq_id
 </cfquery>
+<cfset attributes.help_faq_id=insert_help_faq.help_faq_id>

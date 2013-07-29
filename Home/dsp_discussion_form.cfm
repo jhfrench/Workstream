@@ -33,15 +33,9 @@
 			discussion_text, link, created_by)
 		VALUES (#attributes.parent_discussion_id#, '#attributes.discussion_category#', '#left(attributes.discussion_text,30)#',
 			'#attributes.discussion_text#', '#attributes.link#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
+		RETURNING discussion_id
 		</cfquery>
-
-<!--- $issue$ change this into "RETURNING" --->
-		<!--- get the id of the inserted record --->
-		<cfquery name="get_discussion_id" datasource="#application.datasources.main#">
-		SELECT CURRVAL('Discussion_discuss_id_SEQ') AS discussion_id
-		FROM Dual
-		</cfquery>
-		<cfset attributes.discussion_id=get_discussion_id.discussion_id>
+		<cfset attributes.discussion_id=insert_discussion.discussion_id>
 
 		<cfif NOT len(file_attachment)>
 			<cfset variables.new_file_name="">

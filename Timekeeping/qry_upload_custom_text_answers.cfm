@@ -17,17 +17,14 @@
 <cfif len(evaluate("attributes.custom_text#ii#"))>
 	<cfset variables.insert_text=evaluate("attributes.custom_text#ii#")>
 	<cftransaction>
-		<cfquery name="reset_custom_text_answers" datasource="#application.datasources.main#">
-		INSERT INTO User_Field_Items(selection_title,user_field_id)
-		VALUES('#variables.insert_text#',#ii#)
-		</cfquery>
-<!--- $issue$ change this into "RETURNING" --->
-		<cfquery name="get_last_entry" datasource="#application.datasources.main#">
-		SELECT CURRVAL('User_Field_Items_user_field_items_id_SEQ') AS last_entry
+		<cfquery name="insert_user_field_items" datasource="#application.datasources.main#">
+		INSERT INTO User_Field_Items(selection_title, user_field_id)
+		VALUES('#variables.insert_text#', #ii#)
+		RETURNING user_field_items_id
 		</cfquery>
 		<cfquery name="upload_custom_text_answers" datasource="#application.datasources.main#">
-		INSERT INTO User_Field_Values(task_id,user_field_id,user_field_items_id)
-		VALUES (#attributes.task_id#,#ii#,#get_last_entry.last_entry#)
+		INSERT INTO User_Field_Values(task_id, user_field_id, user_field_items_id)
+		VALUES (#attributes.task_id#, #ii#, #insert_user_field_items.user_field_items_id#)
 		</cfquery>
 	</cftransaction>
 </cfif>

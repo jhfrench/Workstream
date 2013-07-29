@@ -14,18 +14,12 @@
 	Variables:
  --->
 </cfsilent>
-<cftransaction>
 <cfquery name="insert_user_account" datasource="#application.datasources.main#">
 INSERT INTO User_Account (user_name, account_type_id, created_by)
 VALUES ('#left(attributes.first_name, 1)##left(attributes.middle_initial, 1)##attributes.last_name#', #attributes.account_type_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
+RETURNING user_account_id
 </cfquery>
-
-<!--- $issue$ change this into "RETURNING" --->
-<cfquery name="max_user_account_id" datasource="#application.datasources.main#">
-SELECT CURRVAL('User_Account_user_account_id_SEQ') AS user_account_id
-</cfquery>
-</cftransaction>
-<cfset variables.user_account_id=max_user_account_id.user_account_id>
+<cfset variables.user_account_id=insert_user_account.user_account_id>
 <cfset attributes.user_account_id=variables.user_account_id>
 
 <!--- initialize the account with a active status --->
