@@ -165,7 +165,7 @@ var adjustColumnWidths=function() {
 
 <cfsavecontent variable="variables.forceplanner_subordinates">
 	<cfloop query="get_subordinates">
-		<th class="th_#user_account_id#"><abbr title="#first_name# #last_name#">#initials#</abbr> <a href="javascript:list_to_employee();" title="View employee's details"><i class="icon-user"></i></a></th>
+		<th class="th_#user_account_id#"><abbr title="#first_name# #last_name#">#initials#</abbr> <a href="javascript:list_to_employee(#user_account_id#);" title="View employee's details"><i class="icon-user"></i></a></th>
 	</cfloop>
 </cfsavecontent>
 </cfoutput>
