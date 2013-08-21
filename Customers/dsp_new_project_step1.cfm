@@ -7,10 +7,10 @@
 	Responsibilities: I display the first step of the 'create new project' wizard.
 	||
 	Name: Jeromy French
-	 || 
+	 ||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="qry_get_root_codes.cfm">
@@ -68,13 +68,13 @@
 	<div class="control-group">
 		<label class="control-label" for="billable_type_id">Billing Type</label>
 		<div class="controls">
-			<cfselect name="billable_type_id" id="billable_type_id" size="4" query="get_ref_billable_type" value="billable_type_id" display="description" required="yes" message="Please specify the billing type for this project." class="span9"></cfselect>
+			<cfloop query="get_ref_billable_type">
+				<label for="billable_type_id_#billable_type_id#" class="radio">
+					<input type="radio" name="billable_type_id" id="billable_type_id_#billable_type_id#" value="#billable_type_id#" required="required" /> #description#&ndash;#definition#
+				</label>
+			</cfloop>
 			<p class="help-block">
-				Choose the billing structure for this project:
-					<dl class="dl-horizontal"><cfloop query="get_ref_billable_type">
-						<dt>#description#</dt>
-						<dd>#definition#</dd>
-					</cfloop></dl>
+				Choose the billing structure for this project.
 			</p>
 		</div>
 	</div>
@@ -104,4 +104,3 @@
 		<input type="submit" value="Proceed" class="btn btn-primary" />
 	</div>
 </cfoutput>
-	
