@@ -16,6 +16,7 @@
 <cfparam name="attributes.step" default="1">
 </cfsilent>
 
+<!--- $issue$: need to add a section that shows all the charges that cannot be billed because of a missing Billing_Rate entry --->
 <cfswitch expression="#attributes.step#">
 	<cfcase value="1">
 		<cfinclude template="qry_get_invoice_overview.cfm">

@@ -23,8 +23,8 @@ SET active_ind=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.activ
 	description='#attributes.description#',
 	file_path='#attributes.file_path#',
 	mission='#attributes.mission#',
-	project_end='#dateformat(attributes.project_end, "yyyy-mm-dd")#',
-	project_manager_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_manager_id#">,
+	project_end='#dateformat(attributes.project_end, "yyyy-mm-dd")#'<cfif isdefined("attributes.project_manager_id")>,
+	project_manager_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_manager_id#"></cfif>,
 	project_start='#dateformat(attributes.project_start, "yyyy-mm-dd")#'
 WHERE project_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#">;
 
