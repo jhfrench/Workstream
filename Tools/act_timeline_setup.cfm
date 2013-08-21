@@ -23,7 +23,7 @@
 <cfquery name="insert_project_planning" datasource="#application.datasources.main#">
 INSERT INTO Project_Planning (project_planning_name,project_id,user_field_id,show_tasks_ind,hide_user_field_item_id)
 VALUES ('#attributes.project_planning_name#',#attributes.project_id#,#attributes.user_field_id#,0,#attributes.hide_user_field_item_id#)
-RETURNING project_planing_id
+RETURNING project_planing_id;
 </cfquery>
 <cfset attributes.user_account_id=listchangedelims(attributes.user_account_id,variables.new_delim,"|")>
 <cfloop list="#attributes.user_account_id#" index="ii">

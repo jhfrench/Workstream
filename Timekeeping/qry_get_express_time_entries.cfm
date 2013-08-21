@@ -12,7 +12,6 @@
 	$Log$
 	 ||
  --->
-<!--- $issue$: can we get rid of REF_Day_of_Week?  --->
 <cfquery name="get_express_time_entries" datasource="#application.datasources.main#">
 SELECT Day_Level_Dates.date_year, Day_Level_Dates.date_month, Day_Level_Dates.date_week,
 	NULL AS day_of_week_number, MIN(Day_Level_Dates.odbc_date) AS work_date,

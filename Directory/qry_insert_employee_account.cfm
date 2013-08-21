@@ -16,8 +16,8 @@
 </cfsilent>
 <cfquery name="insert_user_account" datasource="#application.datasources.main#">
 INSERT INTO User_Account (user_name, account_type_id, created_by)
-VALUES ('#left(attributes.first_name, 1)##left(attributes.middle_initial, 1)##attributes.last_name#', #attributes.account_type_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
-RETURNING user_account_id
+VALUES ('#left(attributes.first_name, 1)##left(attributes.middle_initial, 1)##attributes.last_name#', #attributes.account_type_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
+RETURNING user_account_id;
 </cfquery>
 <cfset variables.user_account_id=insert_user_account.user_account_id>
 <cfset attributes.user_account_id=variables.user_account_id>

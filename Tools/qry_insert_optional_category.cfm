@@ -26,7 +26,7 @@ INSERT INTO REF_Expense_Category (category, sort_order, accounting_approval_ind,
 		active_ind)
 VALUES ('#variables.category_name#', #variables.sort_order#, 0,
 		1)
-RETURNING expense_category_id
+RETURNING expense_category_id;
 </cfquery>
 <cfset variables.expense_category_id=insert_optional_category.expense_category_id>
 </cfsilent>

@@ -61,7 +61,7 @@
 		<div class="control-group">
 			<label for="work_date" class="control-label">Date</label>
 			<div class="controls">
-				<input type="date" name="work_date" id="work_date" min="#dateformat(get_date_locked.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(get_time_entry_details.work_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+				<input type="date" name="work_date" id="work_date" value="#dateformat(get_time_entry_details.work_date, 'yyyy-mm-dd')#" min="#dateformat(get_date_locked.date_locked, 'yyyy-mm-dd')#" max="#dateformat(now(), 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
 			</div>
 		</div>
 		<div class="control-group">

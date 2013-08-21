@@ -22,7 +22,7 @@ VALUES ('#get_root_code.root_code#', #attributes.customer_id#, '#attributes.desc
 	<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" /><cfif len(attributes.vision)>, '#attributes.vision#'</cfif><cfif len(attributes.mission)>, '#attributes.mission#'</cfif>
 	<cfif len(attributes.business_case)>,' #attributes.business_case#'</cfif><cfif len(attributes.project_end)>, '#attributes.project_end#'</cfif><cfif len(attributes.project_start)>, '#attributes.project_start#'</cfif>,
 	#attributes.product_id#, #attributes.billable_type_id#, '#variables.new_code#',
-	1, #session.workstream_company_id#, #attributes.budget#);
+	1, #session.workstream_company_id#, #attributes.budget#)
 RETURNING project_id;
 </cfquery>
 <cfset attributes.project_id=insert_project.project_id>
