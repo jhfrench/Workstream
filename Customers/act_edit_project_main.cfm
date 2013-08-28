@@ -16,9 +16,9 @@
 
 <cfquery name="update_project" datasource="#application.datasources.main#">
 UPDATE Project
-SET active_ind=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.active_ind#">,
+SET active_ind=<cfqueryparam value="#attributes.active_ind#" cfsqltype="cf_sql_integer">,
 	business_case='#attributes.business_case#',
-	customer_id=#attributes.customer_id#,<cfif isdate("attributes.date_go_live")>
+	customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer">,<cfif isdate("attributes.date_go_live")>
 	date_go_live='#dateformat(attributes.date_go_live, "yyyy-mm-dd")#',</cfif>
 	description='#attributes.description#',
 	file_path='#attributes.file_path#',
