@@ -16,7 +16,7 @@
 </cfsilent>
 
 <cfoutput>
-<table class="table table-striped table-bordered table-condensed">
+<table class="table table-striped table-bordered table-condensed tablesorter">
 	<caption>
 		<h1>Invoicing Overview</h1>
 	</caption>

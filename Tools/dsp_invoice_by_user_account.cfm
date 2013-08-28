@@ -8,14 +8,14 @@
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<table class="table table-striped table-bordered table-condensed">
+<table class="table table-striped table-bordered table-condensed tablesorter">
 	<caption>
 		<h1>Invoicing Details</h1>
 		<h2>for #get_invoice_by_user_account.project_name#</h2>

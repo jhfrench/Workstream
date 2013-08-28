@@ -8,14 +8,14 @@
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<table class="table table-striped table-bordered table-condensed">
+<table class="table table-striped table-bordered table-condensed tablesorter">
 	<caption>
 		<h1>Invoicing Details</h1>
 		<h2>for #get_invoice_detail.customer_name#</h2>
@@ -47,7 +47,7 @@
 	<cfloop query="get_invoice_detail">
 		<tr>
 			<td scope="row">
-				<a href="javascript:get_invoice_by_user_account(#invoice_id#,#project_id#);" title="View invoice details">#project_code# #project_name#</a>
+				<a href="javascript:edit_project(#project_id#);" title="View project details">#project_code# #project_name# <i class="icon-zoom-in"></i></a>
 			</td>
 			<td>
 				#billable_type#
@@ -59,7 +59,7 @@
 				#invoicer#
 			</td>
 			<td class="number">
-				#dollarformat(total_bill_amount)#
+				<a href="javascript:get_invoice_by_user_account(#invoice_id#,#project_id#);" title="View invoice details">#dollarformat(total_bill_amount)#</a>
 			</td>
 			<td class="number">
 				#dollarformat(payment_received_amount)#

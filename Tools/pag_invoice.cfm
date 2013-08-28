@@ -15,6 +15,7 @@
 	END FUSEDOC --->
 <cfparam name="attributes.step" default="1">
 </cfsilent>
+<cfinclude template="../common_files/act_table_sorting.cfm">
 
 <!--- $issue$: need to add a section that shows all the charges that cannot be billed because of a missing Billing_Rate entry --->
 <cfswitch expression="#attributes.step#">
@@ -30,6 +31,7 @@
 	<cfcase value="2">
 		<cfinclude template="qry_get_invoice_detail.cfm">
 		<cfinclude template="dsp_invoice_detail.cfm">
+		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="edit_project" fuseaction="Customers.edit_project" field_name="project_id">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_by_user_account" fuseaction="#attributes.fuseaction#" field_name="invoice_id" field2_variable_ind="1" field2_name="project_id" process_form_ind="1" step="3" current_month_ind="#attributes.current_month_ind#">
 	</cfcase>
 	<cfcase value="3">
