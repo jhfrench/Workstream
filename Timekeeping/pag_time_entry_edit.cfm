@@ -19,8 +19,7 @@
 </cfsilent>
 <cfinclude template="../common_files/qry_get_date_locked.cfm">
 <cfif isdefined("attributes.referer")>
-	<cfinclude template="act_upload_time_entry_edits.cfm"><!---
-	<cflocation url="index.cfm?fuseaction=#attributes.referer#" addtoken="No"> --->
+	<cfinclude template="act_upload_time_entry_edits.cfm">
 	<div class="alert alert-success">
 		<strong>Mos Def</strong>
 		<p>That time entry is updated.</p>
@@ -30,6 +29,6 @@
 	<cfinclude template="../common_files/qry_get_valid_projects.cfm">
 	<cfinclude template="../common_files/qry_get_ref_notes_type.cfm">
 	<cfinclude template="qry_get_time_entry_details.cfm">
-	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="note_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
 	<cfinclude template="dsp_time_entry_edit.cfm">
+	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="note_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
 </cfif>

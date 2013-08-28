@@ -27,7 +27,6 @@
 <cfelse>
 	<cfset attributes.referer="Timekeeping.express_entry">
 </cfif>
-<cfset variables.go_back_to=datediff("d",get_date_locked.date_locked,now())-1>
 </cfsilent>
 <cfoutput>
 <form action="index.cfm?fuseaction=Timekeeping.time_entry_edit" name="time_entry_edit" method="POST" class="form-horizontal">
@@ -74,10 +73,11 @@
 			<input type="hidden" name="notes_id" value="#get_time_entry_details.notes_id#" />
 			<input type="hidden" name="referer" value="#attributes.referer#" />
 			<input type="hidden" name="time_entry_id" value="#attributes.time_entry_id#" />
+			<cfif get_time_entry_details.billed_ind><div class="alert alert-info">This time has already been billed and cannot be edited.</div></cfif>
 			<div class="btn-group">
-				<input type="submit" name="method" value="Save changes" class="btn btn-primary" />
+				<cfif NOT get_time_entry_details.billed_ind><input type="submit" name="method" value="Save changes" class="btn btn-primary" /></cfif>
 				<a href="index.cfm?fuseaction=#attributes.referer#" class="btn">Return without saving</a>
-				<cfif get_time_entry_details.work_date GT dateformat(now()-variables.go_back_to,"m/d/yyyy")><input type="submit" name="method" value="Delete this entry" class="btn btn-danger" /></cfif>
+				<cfif NOT get_time_entry_details.billed_ind><input type="submit" name="method" value="Delete this entry" class="btn btn-danger" /></cfif>
 			</div>
 		</div>
 	</fieldset>
