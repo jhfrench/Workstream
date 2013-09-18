@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	END FUSEDOC --->
 </cfsilent>
@@ -37,7 +37,7 @@ FROM (<cfif attributes.invoice_id>
 				AND Time_Entry.work_date BETWEEN Billing_Rate.rate_start_date AND Billing_Rate.rate_end_date
 		WHERE Time_Entry.active_ind=1
 			AND Time_Entry.time_entry_id NOT IN (SELECT Link_Invoice_Time_Entry.time_entry_id FROM Link_Invoice_Time_Entry WHERE Link_Invoice_Time_Entry.active_ind=1)<cfif attributes.current_month_ind>
-			AND DATE_TRUNC('MONTH', Time_Entry.work_date)=DATE_TRUNC('MONTH', CURRENT_TIMESTAMP) /*let's only look at the current month*/<cfelse>
+			AND Time_Entry.work_date >= DATE_TRUNC('MONTH', CURRENT_TIMESTAMP) /*let's only look at the current month*/<cfelse>
 			AND Time_Entry.work_date < DATE_TRUNC('MONTH', CURRENT_TIMESTAMP) /*let's only look at entries from before this month*/</cfif>
 		GROUP BY Time_Entry.project_id
 	</cfif>

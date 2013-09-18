@@ -20,8 +20,23 @@
 <!--- $issue$: need to add a section that shows all the charges that cannot be billed because of a missing Billing_Rate entry --->
 <cfswitch expression="#attributes.step#">
 	<cfcase value="1">
-		<cfinclude template="qry_get_invoice_overview.cfm">
-		<cfinclude template="dsp_invoice_overview.cfm">
+		<cfinclude template="qry_get_invoice_previous.cfm">
+		<cfinclude template="qry_get_invoice_ready.cfm">
+		<cfinclude template="qry_get_invoice_future.cfm">
+		<h1>Invoicing List</h1>
+		<div class="row-fluid">
+			<div class="span12">
+				<cfinclude template="dsp_invoice_previous.cfm">
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span6">
+				<cfinclude template="dsp_invoice_ready.cfm">
+			</div>
+			<div class="span6">
+				<cfinclude template="dsp_invoice_future.cfm">
+			</div>
+		</div>
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="generate_invoice" fuseaction="Tools.generate_invoice" field_name="customer_id" process_form_ind="1" target="generate_invoice">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_detail1" fuseaction="#attributes.fuseaction#" field_name="invoice_id" field2_variable_ind="1" field2_name="customer_id" process_form_ind="1" step="2" current_month_ind="0">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="get_invoice_detail2" fuseaction="#attributes.fuseaction#" field_name="invoice_id" field2_variable_ind="1" field2_name="customer_id" process_form_ind="1" step="2" current_month_ind="0">
