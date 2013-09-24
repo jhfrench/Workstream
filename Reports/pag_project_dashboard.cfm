@@ -14,6 +14,7 @@
 <cfparam name="attributes.project_status_id" default="0">
 </cfsilent>
 <cfinclude template="qry_get_project_dashboard.cfm">
+<cfinclude template="../common_files/qry_get_project_customer.cfm">
 <cfinclude template="../common_files/qry_get_project_manager.cfm">
 <cfinclude template="../common_files/act_table_sorting.cfm">
 
