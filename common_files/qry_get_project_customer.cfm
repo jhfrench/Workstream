@@ -12,13 +12,11 @@
 	||
 	END FUSEDOC --->
 <cfquery name="get_project_customer" datasource="#application.datasources.main#">
-SELECT Customer.customer_id, Customer.description
-FROM Customer
-WHERE customer_id IN (
-		SELECT customer_id
-		FROM Project
-		WHERE Project.active_ind=1
-	)
+SELECT Customer.description, Customer.customer_id
+FROM Project
+	INNER JOIN Customer ON Customer.customer_id=Project.customer_id
+WHERE Project.active_ind=1
+GROUP BY Customer.description, Customer.customer_id
 ORDER BY Customer.description
 </cfquery>
 </cfsilent>
