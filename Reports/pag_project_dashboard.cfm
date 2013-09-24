@@ -11,7 +11,7 @@
 	$Log$
 	 ||
 	END FUSEDOC --->
-<cfparam name="attributes.project_status_id" default="0">
+<cfparam name="attributes.project_status_id" default="1,2,3,4,5,6,7,8,10,11">
 <cfparam name="attributes.customer_id" default="0">
 <cfparam name="attributes.project_manager_id" default="0">
 </cfsilent>
