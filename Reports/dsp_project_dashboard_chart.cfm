@@ -61,12 +61,14 @@
 				</a>
 			</td>
 			<td>
-				<dl>
-					<dt>Project Update</dt>
-					<dd>#vision#</dd>
-					<dt>Upselling Opportunities</dt>
-					<dd>#mission#</dd>
-				</dl>
+				<cfif len(vision) OR len(mission)>
+					<dl class="dl-horizontal">
+						<dt>Project Update</dt>
+						<dd>#vision#</dd>
+						<dt>Upselling Opportunities</dt>
+						<dd>#mission#</dd>
+					</dl>
+				</cfif>
 			</td>
 			<td>
 				<span title="#last_name#, #first_name#">#last_name#, #left(first_name, 2)#</span>
