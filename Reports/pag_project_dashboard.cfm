@@ -12,6 +12,8 @@
 	 ||
 	END FUSEDOC --->
 <cfparam name="attributes.project_status_id" default="0">
+<cfparam name="attributes.customer_id" default="0">
+<cfparam name="attributes.project_manager_id" default="0">
 </cfsilent>
 <cfinclude template="qry_get_project_dashboard.cfm">
 <cfinclude template="../common_files/qry_get_project_customer.cfm">
@@ -27,12 +29,12 @@
 <form name="form_project_dashboard" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post" class="well form-inline">
 	<fieldset>
 		<legend>Criteria</legend>
-		<label for="project_status_id1" class="checkbox inline">
-			<input type="checkbox" name="project_status_id" id="project_status_id_1" value="1,2,3,4,5,6,7,8,10,11" required="required"<cfif listfindnocase(attributes.project_status_id, 1)> checked="checked"</cfif> />
+		<label for="project_status_id_1" class="checkbox inline">
+			<input type="checkbox" name="project_status_id" id="project_status_id_1" value="1,2,3,4,5,6,7,8,10,11"<cfif listfindnocase(attributes.project_status_id, 1)> checked="checked"</cfif> />
 			Active Projects
 		</label>
-		<label for="project_status_id2" class="checkbox inline">
-			<input type="checkbox" name="project_status_id" id="project_status_id_2" value="9,12,13" required="required"<cfif listfindnocase(attributes.project_status_id, 9)> checked="checked"</cfif> />
+		<label for="project_status_id_2" class="checkbox inline">
+			<input type="checkbox" name="project_status_id" id="project_status_id_2" value="9,12,13"<cfif listfindnocase(attributes.project_status_id, 9)> checked="checked"</cfif> />
 			Inactive Projects
 		</label>
 		<label for="customer_id">Customer</label>

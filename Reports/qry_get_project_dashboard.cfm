@@ -12,9 +12,6 @@
 	$Log$
 	 ||
 	END FUSEDOC --->
-<cfparam name="attributes.customer_id" default="0">
-<cfparam name="attributes.project_manager_id" default="0">
-<cfparam name="attributes.sort" default="Customer.description, Project.description">
 </cfsilent>
 
 <cfquery name="get_project_dashboard" datasource="#application.datasources.main#">
@@ -41,7 +38,7 @@ FROM Project
 	) AS Billing_History ON Project.project_id=Billing_History.project_id
 	INNER JOIN Link_Project_Project_Status ON Project.project_id=Link_Project_Project_Status.project_id
 		AND Link_Project_Project_Status.active_ind=1<cfif attributes.project_status_id NEQ 0>
-		AND Link_Project_Project_Status.project_status_id IN ()</cfif>
+		AND Link_Project_Project_Status.project_status_id IN (<cfqueryparam value="#attributes.project_status_id#" cfsqltype="cf_sql_integer" list="true" />)</cfif>
 	INNER JOIN REF_Project_Status ON Link_Project_Project_Status.project_status_id=REF_Project_Status.project_status_id
 	INNER JOIN Link_Project_Project_Health ON Project.project_id=Link_Project_Project_Health.project_id
 		AND Link_Project_Project_Health.active_ind=1
@@ -56,8 +53,8 @@ FROM Project
 		GROUP BY Task.project_id
 	) AS Task_Count ON Project.project_id=Task_Count.project_id
 WHERE Project.active_ind=1
-    AND Project.company_id=#session.workstream_company_id#<cfif attributes.project_manager_id NEQ 0>
-	AND Project.project_manager_id=#attributes.project_manager_id#</cfif><cfif attributes.customer_id NEQ 0>
-	AND Project.customer_id=#attributes.customer_id#</cfif>
+    AND Project.company_id=<cfqueryparam value="#session.workstream_company_id#" cfsqltype="cf_sql_integer" /><cfif attributes.project_manager_id NEQ 0>
+	AND Project.project_manager_id=<cfqueryparam value="#attributes.project_manager_id#" cfsqltype="cf_sql_integer" /></cfif><cfif attributes.customer_id NEQ 0>
+	AND Project.customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" /></cfif>
 ORDER BY Customer.description, Project.description, REF_Project_Status.sort_order
 </cfquery>

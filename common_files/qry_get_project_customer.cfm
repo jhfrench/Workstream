@@ -16,6 +16,7 @@ SELECT Customer.description, Customer.customer_id
 FROM Project
 	INNER JOIN Customer ON Customer.customer_id=Project.customer_id
 WHERE Project.active_ind=1
+    AND Project.company_id=<cfqueryparam value="#session.workstream_company_id#" cfsqltype="cf_sql_integer" />
 GROUP BY Customer.description, Customer.customer_id
 ORDER BY Customer.description
 </cfquery>
