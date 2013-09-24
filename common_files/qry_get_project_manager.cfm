@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 
 <cfquery name="get_project_manager" datasource="#application.datasources.main#">
-SELECT COALESCE(Demographics.user_account_id,0) AS user_account_id, COALESCE((Demographics.last_name ||', '|| Demographics.first_name), 'Unassigned') AS last_name
+SELECT COALESCE(Demographics.user_account_id,0) AS user_account_id, COALESCE(Demographics.last_name, 'Unassigned') AS last_name, COALESCE(Demographics.first_name, 'Unassigned') AS first_name
 FROM Project
 	LEFT OUTER JOIN Demographics ON Demographics.user_account_id=Project.project_manager_id
 		AND Demographics.active_ind=1
