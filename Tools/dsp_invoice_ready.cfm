@@ -41,7 +41,7 @@
 	<cfloop query="get_invoice_ready">
 		<tr>
 			<td scope="row">
-				<a href="javascript:customer(#customer_id#);" title="View projects">#customer_name# <i class="icon-zoom-in"></i></a> <a href="javascript:generate_invoice(#customer_id#);" data-loading-text="Generating..." class="btn btn-danger"><i class="icon-tag icon-white"></i> Generate Invoice</a>
+				<a href="javascript:customer(#customer_id#);" title="View projects">#customer_name# <i class="icon-zoom-in"></i></a> <a href="javascript:generate_invoice(#customer_id#);" data-loading-text="Generating..." class="btn btn-small btn-danger"><i class="icon-tag icon-white"></i> Generate Invoice</a>
 			</td>
 			<td class="number">
 				<a href="javascript:get_invoice_detail2(0,#customer_id#);" title="View invoice details">#dollarformat(invoice_bill_amount)#</a>

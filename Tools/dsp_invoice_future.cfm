@@ -19,7 +19,7 @@
 <cfif get_invoice_future.recordcount>
 <table class="table table-striped table-bordered table-condensed tablesorter">
 	<caption>
-		<h1>Invoice Preview</h1>
+		<h2>Invoice Preview</h2>
 	</caption>
 	<thead>
 		<tr>

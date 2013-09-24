@@ -25,16 +25,16 @@
 		<cfinclude template="qry_get_invoice_future.cfm">
 		<h1>Invoicing List</h1>
 		<div class="row-fluid">
-			<div class="span12">
-				<cfinclude template="dsp_invoice_previous.cfm">
-			</div>
-		</div>
-		<div class="row-fluid">
 			<div class="span6">
 				<cfinclude template="dsp_invoice_ready.cfm">
 			</div>
 			<div class="span6">
 				<cfinclude template="dsp_invoice_future.cfm">
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<cfinclude template="dsp_invoice_previous.cfm">
 			</div>
 		</div>
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="generate_invoice" fuseaction="Tools.generate_invoice" field_name="customer_id" process_form_ind="1" target="generate_invoice">
