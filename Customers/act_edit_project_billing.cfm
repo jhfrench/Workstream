@@ -16,7 +16,8 @@
 <!--- all types --->
 UPDATE Project
 SET budget=#attributes.budget#,
-	loe=#attributes.loe#
+	loe=#attributes.loe#,
+	date_updated=CURRENT_TIMESTAMP
 WHERE project_id=#attributes.project_id#
 <cfswitch expression="#attributes.billable_type_id#">
 	<cfcase value="3">

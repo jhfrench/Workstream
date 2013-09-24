@@ -25,7 +25,8 @@ SET active_ind=<cfqueryparam value="#attributes.active_ind#" cfsqltype="cf_sql_i
 	mission='#attributes.mission#',
 	project_end='#dateformat(attributes.project_end, "yyyy-mm-dd")#'<cfif isdefined("attributes.project_manager_id")>,
 	project_manager_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_manager_id#"></cfif>,
-	project_start='#dateformat(attributes.project_start, "yyyy-mm-dd")#'
+	project_start='#dateformat(attributes.project_start, "yyyy-mm-dd")#',
+	date_updated=CURRENT_TIMESTAMP
 WHERE project_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.project_id#">;
 
 UPDATE Link_Project_Project_Status

@@ -23,11 +23,10 @@
 			<th>Customer &amp; Project Name</th>
 			<th title="Date the project is to go live, or end (if known).">Due</th>
 			<th>Health</th>
-			<th>Progress</th>
-			<th>Project Update</th>
+			<th>Status</th>
 			<th>Budgeted</th>
 			<th>Invoiced</th>
-			<th>Upselling Opportunities</th>
+			<th>Notes</th>
 			<th><abbr title="Project Manager">PM</abbr></th>
 			<th>Open Tasks</th>
 			<th>Updated</th>
@@ -50,9 +49,6 @@
 			<td>
 				#project_status#
 			</td>
-			<td>
-				#vision#
-			</td>
 			<td class="number">
 				<a href="javascript:edit_project(#project_id#,2);" title="Edit this project's billing details">
 					&##36;#numberformat(budget,'___,___,___,___')#
@@ -65,7 +61,12 @@
 				</a>
 			</td>
 			<td>
-				#mission#
+				<dl>
+					<dt>Project Update</dt>
+					<dd>#vision#</dd>
+					<dt>Upselling Opportunities</dt>
+					<dd>#mission#</dd>
+				</dl>
 			</td>
 			<td>
 				<span title="#last_name#, #first_name#">#last_name#, #left(first_name, 2)#</span>
