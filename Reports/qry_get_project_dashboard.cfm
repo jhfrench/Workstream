@@ -10,9 +10,8 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
-<cfparam name="attributes.active_ind" default="1">
 <cfparam name="attributes.customer_id" default="0">
 <cfparam name="attributes.project_manager_id" default="0">
 <cfparam name="attributes.sort" default="Customer.description, Project.description">
@@ -25,7 +24,7 @@ SELECT Project.project_id, Project.project_code, Project.description,
 	REF_Project_Health.badge, REF_Project_Health.icon, REF_Project_Status.description AS project_status,
 	Project.billable_type_id, Project.loe, Project.budget,
 	Project.mission, Project.vision, Project.date_updated,
-	Project.file_path, Project.active_ind, Customer.description AS customer_description, 
+	Project.file_path, Project.active_ind, Customer.description AS customer_description,
 	Billing_History.total_bill_amount, REF_Billable_Type.description AS billable_type,
 	Customer.customer_id, Demographics.last_name, Demographics.first_name,
 	COALESCE(Task_Count.task_count,0) AS task_count
@@ -41,7 +40,8 @@ FROM Project
 		GROUP BY project_id
 	) AS Billing_History ON Project.project_id=Billing_History.project_id
 	INNER JOIN Link_Project_Project_Status ON Project.project_id=Link_Project_Project_Status.project_id
-		AND Link_Project_Project_Status.active_ind=1
+		AND Link_Project_Project_Status.active_ind=1<cfif attributes.project_status_id NEQ 0>
+		AND Link_Project_Project_Status.project_status_id IN ()</cfif>
 	INNER JOIN REF_Project_Status ON Link_Project_Project_Status.project_status_id=REF_Project_Status.project_status_id
 	INNER JOIN Link_Project_Project_Health ON Project.project_id=Link_Project_Project_Health.project_id
 		AND Link_Project_Project_Health.active_ind=1
@@ -55,9 +55,9 @@ FROM Project
 		WHERE Task.active_ind=1
 		GROUP BY Task.project_id
 	) AS Task_Count ON Project.project_id=Task_Count.project_id
-WHERE Project.active_ind=#attributes.active_ind#
+WHERE Project.active_ind=1
     AND Project.company_id=#session.workstream_company_id#<cfif attributes.project_manager_id NEQ 0>
 	AND Project.project_manager_id=#attributes.project_manager_id#</cfif><cfif attributes.customer_id NEQ 0>
 	AND Project.customer_id=#attributes.customer_id#</cfif>
-ORDER BY #attributes.sort#
+ORDER BY Customer.description, Project.description, REF_Project_Status.sort_order
 </cfquery>

@@ -16,8 +16,7 @@
 	 ||
 	END FUSEDOC --->
 </cfsilent>
-
-<table class="table table-striped table-bordered table-condensed">
+<table class="table table-striped table-bordered table-condensed tablesorter">
 	<caption><h2>Project Dashboard</h2></caption>
 	<thead>
 		<tr>
@@ -69,7 +68,7 @@
 				#mission#
 			</td>
 			<td>
-				#last_name#
+				<span title="#last_name#, #first_name#">#last_name#, #left(first_name, 2)#</span>
 			</td>
 			<td class="number">
 				<a href="javascript:account_status(#project_id#);" title="View active related tasks">
