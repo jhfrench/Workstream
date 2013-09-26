@@ -45,39 +45,8 @@
 	Modernizr.load([
 		{
 			load: [
-				'//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js'
-			],
-			complete: function(){
-				if ( !window.jQuery ) {
-					Modernizr.load([
-						{
-							load: [
-								'//s3.amazonaws.com/external-projects/jquery.min.js'
-							]
-						}
-					]);
-				};
-			}
-		},
-		{
-			load: [
-				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js'
-			],
-			complete: function(){
-				if ( !window.jQuery.support ) {
-					Modernizr.load([
-						{
-							load: [
-								'//s3.amazonaws.com/external-projects/bootstrap.min.js'
-							]
-						}
-					]);
-				}
-			}
-		},
-		{
-			// This will wait for the fallback to load and execute if it needs to.
-			both: [
+				'//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js',
+				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js',
 				'//s3.amazonaws.com/Workstream/script.js',
 				'//s3.amazonaws.com/Workstream/clockTower.js',
 				//pre-fetch some resources to make the app perform better

@@ -60,41 +60,8 @@ else
 		{
 			both: [
 				'//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js',
-				'//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js'
-			],
-			complete: function(){
-				if ( !window.jQuery ) {
-					Modernizr.load([
-						{
-							both: [
-								'//s3.amazonaws.com/external-projects/jquery.min.js',
-								'//s3.amazonaws.com/external-projects/jquery-ui.min.js'
-
-							]
-						}
-					]);
-				};
-			}
-		},
-		{
-			load: [
-				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js'
-			],
-			complete: function(){
-				if ( !window.jQuery.support ) {
-					Modernizr.load([
-						{
-							load: [
-								'//s3.amazonaws.com/external-projects/bootstrap.min.js'
-							]
-						}
-					]);
-				}
-			}
-		},
-		{
-			// This will wait for the fallback to load and execute if it needs to.
-			load: [
+				'//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js',
+				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js',
 				'//s3.amazonaws.com/Workstream/script.js'
 			]<cfif len(get_screen_details.body_onload)>,
 			complete: function () {
