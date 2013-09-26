@@ -50,7 +50,6 @@
 				'//s3.amazonaws.com/Workstream/script.js',
 				'//s3.amazonaws.com/Workstream/clockTower.js',
 				//pre-fetch some resources to make the app perform better
-				'preload!//s3.amazonaws.com/Workstream/Workstream.css',
 				'preload!//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js',
 				'preload!//s3.amazonaws.com/external-projects/DataTables/DataTables/media/js/jquery.dataTables.min.js'
 			]
@@ -59,6 +58,7 @@
 	</script>
 
 	<!-- pre-fetch some images to make the app perform better -->
+	<link rel="prefetch prerender next" href="preload!//s3.amazonaws.com/Workstream/Workstream.css">
 	<link rel="prefetch prerender next" href="preload!//s3.amazonaws.com/Workstream/images/spritepad_Workstream.png">
 	<link rel="prefetch prerender next" href="preload!//s3.amazonaws.com/external-projects/bootstrap/img/glyphicons-halflings.png">
 	<link rel="prefetch prerender next" href="preload!//s3.amazonaws.com/external-projects/bootstrap/img/glyphicons-halflings-white.png">
