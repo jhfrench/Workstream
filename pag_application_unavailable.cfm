@@ -19,20 +19,27 @@
 	</IO>
 </fusedoc>
 --->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]> <html class="no-js" lang="en"> <![endif]-->
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<title>Application Unavailable</title>
-</head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<body>
+	<title>Application Unavailable</title>
+	<meta name="description" content="Applied Internet Technologies timekeeping software">
+
+	<meta name="viewport" content="width=device-width">
+
 	<link href="//s3.amazonaws.com/Workstream/images/workstream_icon.ico" rel="SHORTCUT ICON" />
-	<table summary="Table displays Application unavailable">
-		<tr>
-			<td class="Forum_AltHeaderText">Sorry</td>
-			<td>This application is currently unavailable.</td>
-		</tr>
-	</table>
+	<link rel="stylesheet" href="//s3.amazonaws.com/Workstream/Workstream.css">
+</head>
+<body class="container-fluid">
+	<div class="alert alert-warning">
+		<strong>Sorry</strong><br />
+		Workstream is currently available due to maintenance.
+	</div>
 </body>
 
 </html>

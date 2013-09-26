@@ -87,7 +87,6 @@
 		{
 			// This will wait for the fallback to load and execute if it needs to.
 			both: [
-				'//s3.amazonaws.com/Workstream/plugins.js',
 				'//s3.amazonaws.com/Workstream/script.js'
 			],
 			complete: function () {

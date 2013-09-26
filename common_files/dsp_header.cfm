@@ -94,15 +94,14 @@ else
 		},
 		{
 			// This will wait for the fallback to load and execute if it needs to.
-			both: [
-				'//s3.amazonaws.com/Workstream/plugins.js',
+			load: [
 				'//s3.amazonaws.com/Workstream/script.js'
-			],
+			]<cfif len(get_screen_details.body_onload)>,
 			complete: function () {
 				$(document).ready(function() {
 					<cfoutput>#get_screen_details.body_onload#</cfoutput>
 				});
-			}
+			}</cfif>
 		}
 	]);
 	</script>
