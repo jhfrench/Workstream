@@ -9,10 +9,10 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
-<table class="table table-striped table-bordered table-condensed">
+<table class="table table-striped table-bordered table-condensed tablesorter">
 	<caption><h2><cfif listcontains(attributes.user_account_id,"all")>Manager </cfif> Personal Time Off Report</h2></caption>
 	<thead>
 		<tr>
@@ -37,7 +37,7 @@
 			</td>
 			<td class="number">
 				#decimalformat(get_pto_hours_summary.remain)#
-			</td> 
+			</td>
 		</tr>
 	</cfoutput>
 	</tfoot>
@@ -58,7 +58,7 @@
 			</td>
 			<td class="number">
 				#decimalformat(remain)#
-			</td> 
+			</td>
 		</tr>
 	</cfoutput>
 	</tbody>
