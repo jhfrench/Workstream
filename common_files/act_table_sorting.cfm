@@ -36,7 +36,7 @@ Modernizr.load([
 			//power table sorting
 			$(document).ready(function () {
 				$('table.tablesorter').each( function() {
-	                if ($(this).prop('rows').length > 2) {
+	                if ($(this).find('tbody').prop('rows').length > 2) {
 						$(this).dataTable({
 							"aaSorting": [ ],
 							"bAutoWidth": false,
