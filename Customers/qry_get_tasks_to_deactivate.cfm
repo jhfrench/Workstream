@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfquery name="get_tasks_to_deactivate" datasource="#application.datasources.main#">
 SELECT Task.description AS task_description, Task.name, Task.project_code,
@@ -17,7 +17,7 @@ SELECT Task.description AS task_description, Task.name, Task.project_code,
 FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
-		AND Team.role_id=1
+		AND Team.role_id=1 /* owner */
 	INNER JOIN Project ON Task.project_id=Project.project_id
 	INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1
