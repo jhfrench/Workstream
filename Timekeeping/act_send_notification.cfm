@@ -129,12 +129,14 @@ SELECT Task.name AS task_name, Task.description, Task.budgeted_hours,
 	Recipient.first_name
 FROM Task
 	INNER JOIN (
-		SELECT Email.email_id, Email.email, Demographics.first_name
+		SELECT <cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" /> AS task_id, Email.email_id, Email.email,
+			Demographics.first_name
 		FROM Email
 			INNER JOIN Demographics ON Email.user_account_id=Demographics.user_account_id
 				AND Demographics.active_ind=1
 			<cfif variables.receiver_type NEQ 6>
-			INNER JOIN Team ON Email.user_account_id=Team.user_account_idTeam.active_ind=1
+			INNER JOIN Team ON Email.user_account_id=Team.user_account_id
+				AND Team.active_ind=1
 				AND Team.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 				AND Team.role_id IN (<cfqueryparam value="#variables.receiver_type#" cfsqltype="cf_sql_integer" list="true" />)
 			<cfelse>
@@ -146,7 +148,7 @@ FROM Task
 		WHERE Email.active_ind=1
 				AND Email.email_type_id=1
 				AND Email.user_account_id!=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" /> /*no need to send an email to the team member who adjusted the task*/
-	) AS Recipient
+	) AS Recipient ON Task.task_id=Recipient.task_id
 	LEFT OUTER JOIN (
 		SELECT Email.email AS task_source, Team.task_id
 		FROM Team
