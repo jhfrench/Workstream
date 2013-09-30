@@ -56,7 +56,7 @@
 	<div class="control-group">
 		<label class="control-label" for="end_date">End</label>
 		<div class="controls">
-			<input type="date" name="end_date" id="end_date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" class="span3 date" />
+			<input type="date" name="end_date" id="end_date" min="#application.application_specific_settings.workstream_start_date#" maxlength="10" required="required" class="span3 date" />
 			<p class="help-block">Provide the dates for which the hourly rate will be effective.</p>
 		</div>
 	</div>

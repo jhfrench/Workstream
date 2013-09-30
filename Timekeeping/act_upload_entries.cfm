@@ -36,8 +36,8 @@
 <cfif listlen(variables.not_numeric_entries)>
 	<cfoutput>
 	<div class="alert alert-warning">
-		<strong>Now you're done it!</strong><br />
-		One or more of the entries you just submitted contained hours that were not numeric. These entries were not processed:
+		<strong>Now you've done it!</strong><br />
+		One or more of the entries you just submitted contained hours that were not numeric. So these entries were not processed:
 		<ul>
 		<cfloop list="#variables.not_numeric_entries#" index="ii">
 			<li>#ii#</li>

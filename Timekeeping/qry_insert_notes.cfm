@@ -40,7 +40,7 @@
 INSERT INTO Notes (task_id, user_account_id, notes_type_id,
 	note, created_by)
 VALUES (<cfqueryparam value="#variables.task_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#attributes.notes_type_id#" cfsqltype="cf_sql_integer" />,
-	'#variables.note#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
+	<cfqueryparam value="#variables.note#" cfsqltype="cf_sql_varchar" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 RETURNING notes_id
 </cfquery>
 </cfsilent>
