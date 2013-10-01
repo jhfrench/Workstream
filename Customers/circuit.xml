@@ -28,9 +28,6 @@
 	<prefuseaction callsuper="true">
 		<include template="../common_files/act_header.cfm"/>
 	</prefuseaction>
-	<fuseaction name="add_customer">
-		<include template="pag_add_customer.cfm"/>
-	</fuseaction>
 	<fuseaction name="add_project">
 		<include template="pag_add_project.cfm"/>
 	</fuseaction>

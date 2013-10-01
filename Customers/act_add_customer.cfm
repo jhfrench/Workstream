@@ -9,6 +9,8 @@
 	$Log$
 	 ||
 	END FUSEDOC --->
+
+<cfinclude template="act_set_root_code.cfm">
 <cftransaction isolation="READ_COMMITTED">
 	<cfif len(attributes.last_name)>
 		<cfquery name="insert_user_account" datasource="#application.datasources.main#">
@@ -52,3 +54,5 @@
 	</cfquery>
 </cftransaction>
 </cfsilent>
+
+<cflocation url="index.cfm?fuseaction=Customers.customers" addtoken="no">
