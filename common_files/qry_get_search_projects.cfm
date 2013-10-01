@@ -47,4 +47,3 @@ WHERE Customer.active_ind=1
 ORDER BY display
 </cfquery>
 </cfsilent>
-<cfdump var="#get_search_projects#">

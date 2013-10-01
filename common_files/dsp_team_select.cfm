@@ -27,15 +27,16 @@
 	if (isdefined("attributes.email_only")) {
 		variables.email_only=1;
 	}
+
 	if (isdefined("attributes.user_account_id")) {
 		variables.user_account_id_match=attributes.user_account_id;
 	}
-	else {
-		variables.user_account_id_match=caller.variables.user_identification;
-	}
-	if (isdefined("get_expense_details.user_account_id")) {
+	else if (isdefined("get_expense_details.user_account_id")) {
 		variables.user_account_id_match=get_expense_details.user_account_id;
 	}
+	else {
+		variables.user_account_id_match=caller.variables.user_identification;
+	};
 
 	if (NOT isdefined("attributes.valuelist")) {
 		attributes.valuelist="true";

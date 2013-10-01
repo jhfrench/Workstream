@@ -23,29 +23,51 @@
 	--> last_name: string containing the last name of an employee
 	<-- #attributes.select_name#: (variable name based on what is passed in through the module select_name attribute) number of the employee(s) selected
  --->
-<cfif isdefined("attributes.email_only")>
-	<cfset variables.email_only=1>
-</cfif>
-<cfif isdefined("attributes.user_account_id")>
-	<cfset variables.user_account_id_match=attributes.user_account_id>
-<cfelse>
-	<cfset variables.user_account_id_match=variables.user_identification>
-</cfif>
-<cfif isdefined("get_expense_details.user_account_id")>
-	<cfset variables.user_account_id_match=get_expense_details.user_account_id>
-</cfif>
-<!--- <cfset variables.user_account_id=get_expense_details.user_account_id> --->
+
+
+<cfscript>
+	if (isdefined("attributes.email_only")) {
+		variables.email_only=1;
+	}
+
+	if (isdefined("get_expense_details.user_account_id")) {
+		variables.user_account_id_match=get_expense_details.user_account_id;
+	}
+	else if (isdefined("attributes.user_account_id")) {
+		variables.user_account_id_match=attributes.user_account_id;
+	}
+	else {
+		variables.user_account_id_match=caller.variables.user_identification;
+	};
+
+	if (NOT isdefined("attributes.valuelist")) {
+		attributes.valuelist="true";
+	}
+	if (NOT isdefined("attributes.select_name")) {
+		attributes.select_name="user_account_id";
+	}
+	if (NOT isdefined("attributes.multi")) {
+		attributes.multi=0;
+	}
+	if (NOT isdefined("attributes.size")) {
+		attributes.size=0;
+	}
+	if (NOT isdefined("attributes.onchange")) {
+		attributes.onchange="";
+	}
+	if (NOT isdefined("attributes.show_team")) {
+		attributes.show_team=0;
+	}
+	if (NOT isdefined("attributes.class")) {
+		attributes.class="";
+	}
+	if (NOT isdefined("attributes.selected_value_ind")) {
+		attributes.selected_value_ind=1;
+	}
+	variables.company_id=0;
+</cfscript>
 <cfparam name="attributes.task_owner" default="">
 <cfparam name="attributes.task_source" default="">
-<cfparam name="attributes.valuelist" default="true">
-<cfparam name="attributes.select_name" default="user_account_id">
-<cfparam name="attributes.multi" default=0>
-<cfparam name="attributes.size" default=0>
-<cfparam name="attributes.onchange" default="">
-<cfparam name="attributes.show_team" default="0">
-<cfparam name="attributes.class" default="SelectText">
-<cfparam name="attributes.selected_value_ind" default="1">
-<cfset variables.company_id=0>
 </cfsilent>
 <cfif NOT isdefined("get_team_select.recordcount")><cfinclude template="qry_get_team_select.cfm"></cfif>
 <cfif attributes.selected_value_ind>
