@@ -18,7 +18,8 @@
 SELECT *
 FROM REF_Company
 WHERE active_ind=1<cfif isdefined("attributes.company_id")>
-	AND company_id IN (#session.workstream_selected_company_id#)</cfif>
+	AND company_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.company_id#" list="yes">)</cfif>
 ORDER BY sort_order
 </cfquery>
+<cfset caller.attributes.get_ref_company=get_ref_company>
 </cfsilent>

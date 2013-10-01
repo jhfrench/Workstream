@@ -11,7 +11,7 @@
 	 ||
 	END FUSEDOC --->
 	</cfsilent>
-<cfinclude template="../common_files/qry_get_ref_company.cfm">
+<cfmodule template="../common_files/qry_get_ref_company.cfm" company_id="#session.workstream_selected_company_id#">
 <cfinclude template="../common_files/qry_get_states.cfm">
 
 <cfform id="new_customer" action="index.cfm?fuseaction=Customers.add_customer" method="POST" class="form-horizontal">
