@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
  --->
 
@@ -19,17 +19,18 @@
 <cfelse>
 	<cfset variables.valid_codes=session.workstream_selected_company_id>
 </cfif>
+<cfset application.team_changed=now()>
 <cfquery name="get_search_projects" datasource="#application.datasources.main#">
 SELECT Customer.customer_id, Customer.description || ' (' ||  Customer.root_code || ')' AS customer,
 	Project.project_id, Project.project_code, Project.description AS project_name,
 	CASE
 		WHEN Customer.description!=Project.description
 	<cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>
-		THEN (Project.project_code || '-' || Customer.description || '-' || Project.description) 
+		THEN (Project.project_code || '-' || Customer.description || '-' || Project.description)
 		ELSE (Project.project_code || '-' || Project.description)
 	<cfelse>
-		THEN (Customer.description || '-' || Project.description || ' (' ||  Project.project_code || ')') 
-		ELSE (Project.description || ' (' ||  Project.project_code || ')') 
+		THEN (Customer.description || '-' || Project.description || ' (' ||  Project.project_code || ')')
+		ELSE (Project.description || ' (' ||  Project.project_code || ')')
 	</cfif>END AS display
 FROM Customer
 	INNER JOIN Project ON Customer.customer_id=Project.customer_id
@@ -46,3 +47,4 @@ WHERE Customer.active_ind=1
 ORDER BY display
 </cfquery>
 </cfsilent>
+<cfdump var="#get_search_projects#">

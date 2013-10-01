@@ -57,6 +57,12 @@
 	</cfquery>
 
 	<cfif isdefined("attributes.create_user_account_ind")>
+		<cfquery name="insert_link_user_account_status" datasource="#application.datasources.main#">
+		INSERT INTO Employee (user_account_id, employee_classification_id, overtime_elligible_ind,
+			hire_date, created_by)
+		VALUES (<cfqueryparam value="#insert_user_account.user_account_id#" cfsqltype="cf_sql_integer" />, 1, 0,
+			CURRENT_TIMESTAMP, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
+		</cfquery>
 		<!--- mark account as active --->
 		<cfquery name="insert_link_user_account_status" datasource="#application.datasources.main#">
 		INSERT INTO Link_User_Account_Status (user_account_id, account_status_id, created_by)

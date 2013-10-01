@@ -44,4 +44,3 @@ GROUP BY Demographics.user_account_id, Demographics.last_name, Demographics.firs
 ORDER BY Demographics.last_name, Demographics.first_name
 </cfquery>
 </cfsilent>
-<cfdump var="#get_team_select#">
