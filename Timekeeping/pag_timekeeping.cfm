@@ -22,5 +22,8 @@
 	<cfinclude template="dsp_timekeeping_columns.cfm">
 <cfelse>
 	<!--- $issue$: queries that support latest/remaining/unbilled work will go here --->
-	<cflocation url="index.cfm?fuseaction=Timekeeping.task_list" addtoken="no">
+	<div class="hero-unit">
+		<h1>Welcome to <cfoutput>#application.product_name#</cfoutput></h1>
+		<p>Please use the links in the navigation bar at the top of the screen.</p>
+	</div>
 </cfif>
