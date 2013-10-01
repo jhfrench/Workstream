@@ -21,9 +21,9 @@
 	</cfquery>
 	<cfquery name="insert_demographics" datasource="#application.datasources.main#">
 	INSERT INTO Demographics (first_name, last_name, user_account_id,
-		created_by)
+		email_address, created_by)
 	VALUES ('#attributes.first_name#', '#attributes.last_name#', <cfqueryparam value="#insert_user_account.user_account_id#" cfsqltype="cf_sql_integer" />,
-		<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
+		<cfqueryparam value="#attributes.email#" cfsqltype="cf_sql_varchar" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 	</cfquery>
 	<cfif len(attributes.phone)>
 		<cfquery name="insert_phone" datasource="#application.datasources.main#">
@@ -34,7 +34,7 @@
 	<cfif len(attributes.email)>
 		<cfquery name="insert_email" datasource="#application.datasources.main#">
 		INSERT INTO Email (email, user_account_id, email_type_id, created_by)
-		VALUES ('#attributes.email#', <cfqueryparam value="#insert_user_account.user_account_id#" cfsqltype="cf_sql_integer" />, 1, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
+		VALUES (<cfqueryparam value="#attributes.email#" cfsqltype="cf_sql_varchar" />, <cfqueryparam value="#insert_user_account.user_account_id#" cfsqltype="cf_sql_integer" />, 1, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 		</cfquery>
 	</cfif>
 
@@ -69,6 +69,10 @@
 		VALUES (<cfqueryparam value="#attributes.description#" cfsqltype="cf_sql_varchar" />, <cfqueryparam value="#variables.new_code#" cfsqltype="cf_sql_varchar" />, 1,
 			999, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 		RETURNING company_id;
+		</cfquery>
+		<cfquery name="insert_link_company_user_account" datasource="#application.datasources.main#">
+		INSERT INTO Link_Company_User_Account (user_account_id, company_id, created_by)
+		VALUES (<cfqueryparam value="#insert_user_account.user_account_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#insert_ref_company.company_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
 		</cfquery>
 		<cfquery name="insert_link_customer_company" datasource="#application.datasources.main#">
 		INSERT INTO Link_Customer_Company (customer_id, company_id, created_by)
