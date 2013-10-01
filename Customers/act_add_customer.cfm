@@ -49,12 +49,6 @@
 		<cfif len(attributes.last_name)>, <cfqueryparam value="#insert_user_account.user_account_id#" cfsqltype="cf_sql_integer" /></cfif>, 1, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 	RETURNING customer_id;
 	</cfquery>
-	<cfquery name="insert_link_customer_company" datasource="#application.datasources.main#">
-	INSERT INTO Link_Customer_Company (customer_id, company_id, created_by)
-	SELECT <cfqueryparam value="#insert_customer.customer_id#" cfsqltype="cf_sql_integer" />, company_id, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
-	FROM REF_Company
-	WHERE company_id IN (<cfqueryparam value="#attributes.company_id#" cfsqltype="cf_sql_integer" list="true" />);
-	</cfquery>
 
 	<cfif isdefined("attributes.create_user_account_ind")>
 		<cfquery name="insert_link_user_account_status" datasource="#application.datasources.main#">
@@ -76,10 +70,6 @@
 			999, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 		RETURNING company_id;
 		</cfquery>
-		<cfquery name="insert_link_company_user_account" datasource="#application.datasources.main#">
-		INSERT INTO Link_Company_User_Account (user_account_id, company_id, created_by)
-		VALUES (<cfqueryparam value="#insert_user_account.user_account_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#insert_ref_company.company_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
-		</cfquery>
 		<cfquery name="insert_link_customer_company" datasource="#application.datasources.main#">
 		INSERT INTO Link_Customer_Company (customer_id, company_id, created_by)
 		VALUES (<cfqueryparam value="#insert_customer.customer_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#insert_ref_company.company_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
@@ -88,6 +78,13 @@
 		INSERT INTO Security_Company_Access (user_account_id, company_id, created_by)
 		VALUES (<cfqueryparam value="#insert_user_account.user_account_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#insert_ref_company.company_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
 		</cfquery>
+		<cfset attributes.company_id=lsitappend(attributes.company_id,insert_ref_company.company_id)>
 	</cfif>
+	<cfquery name="insert_link_customer_company" datasource="#application.datasources.main#">
+	INSERT INTO Link_Customer_Company (customer_id, company_id, created_by)
+	SELECT <cfqueryparam value="#insert_customer.customer_id#" cfsqltype="cf_sql_integer" />, company_id, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
+	FROM REF_Company
+	WHERE company_id IN (<cfqueryparam value="#attributes.company_id#" cfsqltype="cf_sql_integer" list="true" />);
+	</cfquery>
 </cftransaction>
 </cfsilent>

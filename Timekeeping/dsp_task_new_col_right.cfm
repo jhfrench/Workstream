@@ -10,14 +10,13 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> customer_name: string that identifies the customer for whom the task is created
 	--> project_name: string that contains the name of the project the task is assigned to
  --->
 </cfsilent>
 
 <script language="JavaScript" type="text/javascript">
-<!--
 function checkTheDescription(arg){
 	if (arg == "to_inbox") {
 		document.new_task_form.to_inbox.value = 1
@@ -45,7 +44,7 @@ function myTrim(inputString) {
 var carriageReturn = new RegExp("\r");
 
 //alert("-->" + carriageReturn.test(inputString) + "<--" + "-->" + inputString.length + "<--");
-//if (typeof inputString!="string") { 
+//if (typeof inputString!="string") {
 //	return inputString;
 //	}
 var retValue = inputString;
@@ -83,9 +82,6 @@ while (retValue.indexOf(" ")!=-1) { // Note that there are two spaces in the str
 }
 return retValue;
 }
-
-
-//-->
 </script>
 <cfoutput>
 <div class="row-fluid">

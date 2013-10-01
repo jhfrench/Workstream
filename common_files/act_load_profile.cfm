@@ -42,8 +42,13 @@
 	<cfscript>
 		session.workstream_account_changed="#now()#";
 		session.workstream_company_id=get_general_user_info.company_id;
-		session.workstream_company_name=valuelist(get_general_user_info.company_name);
-		session.workstream_selected_company_id=valuelist(get_general_user_info.company_id);
+		session.workstream_company_name=get_general_user_info.company_name;
+		if (get_general_user_info.account_type_id EQ 2) {
+			session.workstream_selected_company_id=listappend(get_link_customer_company.company_id,1);
+		}
+		else {
+			session.workstream_selected_company_id=get_link_customer_company.company_id;
+		};
 		session.workstream_express_input_rows=5;
 		session.workstream_express_tree_height=300;
 		session.workstream_last_loaded="#now()#";

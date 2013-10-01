@@ -29,7 +29,9 @@ FROM Employee
 	INNER JOIN Security_Company_Access ON Employee.user_account_id=Security_Company_Access.user_account_id
 		AND Security_Company_Access.active_ind=1
 		AND (
+			/*include employees of all the companies the user is working with*/
 			Security_Company_Access.company_id IN (<cfqueryparam value="#session.workstream_selected_company_id#" cfsqltype="cf_sql_integer" list="true" />)<cfif len(variables.user_account_id_match)>
+				/*show the user in the team drop-down*/
 				OR Security_Company_Access.user_account_id IN (<cfqueryparam value="#variables.user_account_id_match#" cfsqltype="cf_sql_integer" list="true" />)</cfif>
 		)
 	INNER JOIN Demographics ON Employee.user_account_id=Demographics.user_account_id
