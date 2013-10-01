@@ -45,31 +45,36 @@
 			</section>
 		<cfelse>
 			<section id="blurb_latest_work" class="span6">
-				<table id="latest_work_table" class="table table-striped table-bordered table-condensed">
-					<caption><h2>Latest Work</h2></caption>
-					<thead>
-						<tr>
-							<th>Task <abbr title="Identifier">ID</abbr></th>
-							<th>Date</th>
-							<th>Note</th>
-							<th>Hours</th>
-							<th>Employee</th>
-						</tr>
-					</thead>
-					<tbody>
-					<cfoutput query="get_most_recent_relevant_time_entry">
-						<tr>
-							<td scope="row"><a href="javascript:list_to_task('#task_id#');" title="View details for this task.">#task_id#</a></td>
-							<td class="date">#dateformat(work_date, "m/d/yyyy")#</td>
-							<td>#note#</td>
-							<td class="number">#numberformat(hours)#</td>
-							<td class="hidden-phone hidden-tablet"><abbr title="#last_name#, #last_name#">#first_name#</abbr></td>
-						</tr>
-					</cfoutput>
-					</tbody>
-				</table>
+				<h2>Latest Work</h2>
 				<cfif get_most_recent_relevant_time_entry.recordcount>
+					<table id="latest_work_table" class="table table-striped table-bordered table-condensed">
+						<caption>50 most recent time entries for your projects</caption>
+						<thead>
+							<tr>
+								<th>Task <abbr title="Identifier">ID</abbr></th>
+								<th>Date</th>
+								<th>Note</th>
+								<th>Hours</th>
+								<th>Employee</th>
+							</tr>
+						</thead>
+						<tbody>
+						<cfoutput query="get_most_recent_relevant_time_entry">
+							<tr>
+								<td scope="row"><a href="javascript:list_to_task('#task_id#');" title="View details for this task.">#task_id#</a></td>
+								<td class="date">#dateformat(work_date, "m/d/yyyy")#</td>
+								<td>#note#</td>
+								<td class="number">#numberformat(hours)#</td>
+								<td class="hidden-phone hidden-tablet"><abbr title="#last_name#, #last_name#">#first_name#</abbr></td>
+							</tr>
+						</cfoutput>
+						</tbody>
+					</table>
 					<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
+				<cfelse>
+					<div class="alert alert-info">
+						Time has not yet been entered for any of your projects.
+					</div>
 				</cfif>
 			</section>
 			<section id="blurb_remaining_work" class="span3">
