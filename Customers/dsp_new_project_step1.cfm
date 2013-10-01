@@ -14,7 +14,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="qry_get_root_codes.cfm">
-<cfinclude template="qry_get_companies.cfm">
+<cfinclude template="../common_files/qry_get_ref_company.cfm">
 <cfinclude template="../common_files/qry_get_ref_billable_type.cfm">
 <cfinclude template="../common_files/qry_get_products.cfm">
 <cfoutput>
@@ -34,7 +34,7 @@
 	<div class="control-group">
 		<label class="control-label" for="company_id">Visible To</label>
 		<div class="controls">
-			<cfselect name="company_id" id="company_id" query="get_companies" value="company_id" display="description" size="4" required="yes" message="Please specify which companies should see this project." multiple="yes" class="span9"></cfselect>
+			<cfselect name="company_id" id="company_id" query="get_ref_company" value="company_id" display="description" size="4" required="yes" message="Please specify which companies should see this project." multiple="yes" class="span9"></cfselect>
 			<p class="help-block">Specify which companies' employees should see this project.</p>
 		</div>
 	</div>

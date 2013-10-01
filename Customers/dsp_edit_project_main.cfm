@@ -15,7 +15,7 @@
 </cfsilent>
 <cfinclude template="qry_get_project_main.cfm">
 <cfinclude template="qry_get_root_codes.cfm">
-<cfinclude template="qry_get_companies.cfm">
+<cfinclude template="../common_files/qry_get_ref_company.cfm">
 <cfinclude template="../common_files/qry_get_link_project_company.cfm">
 <cfinclude template="../common_files/qry_get_products.cfm">
 <cfinclude template="../common_files/qry_get_ref_project_status.cfm">
@@ -59,7 +59,7 @@
 			<label for="company_id" class="control-label">Visible To</label>
 			<div class="controls">
 				<select name="company_id" id="company_id" multiple="multiple" size="4" class="span3">
-					<cfloop query="get_companies">
+					<cfloop query="get_ref_company">
 						<option value="#company_id#"<cfif listcontains(variables.linked_companies,company_id)> selected="selected"</cfif>>#description#</option>
 					</cfloop>
 				</select>

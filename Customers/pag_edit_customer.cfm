@@ -13,7 +13,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="../common_files/qry_get_states.cfm">
-<cfinclude template="qry_get_companies.cfm">
+<cfinclude template="../common_files/qry_get_ref_company.cfm">
 <cfinclude template="qry_get_customer_details.cfm">
 <cfinclude template="../common_files/qry_get_link_customer_company.cfm">
 <cfset variables.visible_to_company_id=valuelist(get_link_customer_company.company_id)>

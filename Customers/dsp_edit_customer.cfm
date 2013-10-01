@@ -41,7 +41,7 @@
 			<label for="visible_to_company_id" class="control-label">Visible To</label>
 			<div class="controls">
 				<cfselect name="visible_to_company_id" id="visible_to_company_id" size="3" multiple="yes" required="yes" message="You must select a company to be visible to." class="span4">
-					<cfloop query="get_companies">
+					<cfloop query="get_ref_company">
 						<option value="#company_id#"<cfif listfind(variables.visible_to_company_id,company_id)> selected="selected"</cfif>>#description#</option>
 					</cfloop>
 				</cfselect>

@@ -8,10 +8,10 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 	</cfsilent>
-<cfinclude template="qry_get_companies.cfm">
+<cfinclude template="../common_files/qry_get_ref_company.cfm">
 <cfinclude template="../common_files/qry_get_states.cfm">
 
 <cfform id="new_customer" action="index.cfm?fuseaction=Customers.add_customer" method="POST" class="form-horizontal">
@@ -40,13 +40,14 @@
 		<div class="control-group">
 			<label for="company_id" class="control-label">Company</label>
 			<div class="controls">
-				<cfselect name="company_id" id="company_id" query="get_companies" value="company_id" display="description" selected="#session.workstream_company_name#" message="Please Select a Company" required="yes" size="1" class="span5"></cfselect>
+				<cfselect name="company_id" id="company_id" query="get_ref_company" value="company_id" display="description" selected="#session.workstream_company_name#" message="Please select a company" required="yes" size="1" class="span5"></cfselect>
+				<p class="help-block">This is the company primarily responsible for servicing this customer.</p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="visible_to" class="control-label">Visible To</label>
 			<div class="controls">
-				<cfselect name="visible_to" id="visible_to" query="get_companies" value="company_id" display="description" required="no" message="Please Select a Company" size="6" multiple="yes" class="span5"></cfselect>
+				<cfselect name="visible_to" id="visible_to" query="get_ref_company" value="company_id" display="description" required="no" message="Please Select a Company" size="6" multiple="yes" class="span5"></cfselect>
 				<p class="help-block">This new customer will be visible to the employees of the specified companies.</p>
 			</div>
 		</div>
