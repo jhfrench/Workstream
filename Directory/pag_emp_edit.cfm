@@ -4,10 +4,10 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I 
+	Responsibilities: I
 
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -16,7 +16,6 @@
 	<cfinclude template="qry_get_locations.cfm">
 	<cfinclude template="qry_get_phone_types.cfm">
 	<cfinclude template="qry_get_email_types.cfm">
-	<cfinclude template="act_param_emp_edit_form_vars.cfm">
 	<cfinclude template="qry_get_open_positions.cfm">
 	<cfinclude template="../common_files/qry_get_ref_employee_type.cfm">
 	<cfinclude template="../common_files/qry_get_ref_employee_classification.cfm">

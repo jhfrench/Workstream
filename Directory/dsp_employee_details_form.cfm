@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
@@ -108,10 +108,10 @@
 		</div>
 	</div>
 	<div class="control-group">
-		<label for="visable_company" class="control-label">Visible Companies</label>
+		<label for="visible_company_id" class="control-label">Visible Companies</label>
 		<div class="controls">
-			<select name="visable_company" id="visable_company" size="#min(get_teams.recordcount,3)#" multiple="multiple" class="span3"><cfloop query="get_teams">
-				<option value="#company_id#"<cfif listcontains(visable_company,company_id)> selected="selected"</cfif>>#company#</option></cfloop> 
+			<select name="visible_company_id" id="visible_company_id" size="#min(get_teams.recordcount,3)#" multiple="multiple" class="span3"><cfloop query="get_teams">
+				<option value="#company_id#"<cfif listcontains(attributes.visible_company_id,company_id)> selected="selected"</cfif>>#company#</option></cfloop>
 			</select>
 		</div>
 	</div>

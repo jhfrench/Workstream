@@ -1,5 +1,4 @@
-<!--- $issue$: convert to insert_* --->
-<!--Directory/qry_security_company_access_entry.cfm
+<!--Directory/qry_insert_security_company_access.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -14,10 +13,10 @@
 	Variables:
  --->
 </cfsilent>
-<cfset variables.company_id=listappend(attributes.visable_company,attributes.company_id)>
-<cfquery name="Security_Company_Access_entry" datasource="#application.datasources.main#">
+<cfset variables.company_id=listappend(attributes.visible_company_id,attributes.company_id)>
+<cfquery name="insert_security_company_access" datasource="#application.datasources.main#">
 INSERT INTO Security_Company_Access(user_account_id, company_id, created_by)
-SELECT #variables.user_account_id#, company_id, #variables.user_identification#
+SELECT <cfqueryparam value="#variables.user_account_id#" cfsqltype="cf_sql_integer" />, company_id, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 FROM REF_Company
-WHERE company_id IN (#variables.company_id#)
+WHERE company_id IN (<cfqueryparam value="#variables.company_id#" cfsqltype="cf_sql_integer" list="true" />)
 </cfquery>

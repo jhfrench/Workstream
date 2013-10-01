@@ -4,10 +4,10 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I 
+	Responsibilities: I
 
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -31,32 +31,32 @@
 </cfif>
 <cfparam default="" name="first_name">
 <cfparam default="" name="last_name">
-<cfparam default="" name="middle_initial"> 
-<cfparam default="" name="credentials"> 
-<cfparam default="" name="birth_date"> 
+<cfparam default="" name="middle_initial">
+<cfparam default="" name="credentials">
+<cfparam default="" name="birth_date">
 <cfparam default="" name="uupic">
-<cfparam default="" name="photo_path"> 
-<cfparam default="" name="biography"> 
-<cfparam default="#session.workstream_company_id#" name="company_id"> 
-<cfparam default="#session.workstream_company_id#" name="visable_company"> 
-<cfparam default="0" name="supervisor_id"> 
-<cfparam default="#dateformat(now(),"m/d/yyyy")#" name="hire_date"> 
-<cfparam default="" name="employee_classification"> 
+<cfparam default="" name="photo_path">
+<cfparam default="" name="biography">
+<cfparam name="company_id" default="#session.workstream_company_id#">
+<cfparam name="attributes.visible_company_id" default="#session.workstream_company_id#">
+<cfparam default="0" name="supervisor_id">
+<cfparam default="#dateformat(now(),"m/d/yyyy")#" name="hire_date">
+<cfparam default="" name="employee_classification">
 <cfparam default="" name="employee_classification_id">
 <cfparam default="" name="account_type_id">
 <cfparam default="" name="employee_type">
 <cfparam default="0" name="workstream">
 <cfloop from="1" to="#loop_to_phone#" index="ii">
-	<cfparam default="" name="phone_#ii#"> 
+	<cfparam default="" name="phone_#ii#">
 	<cfparam default="" name="phone_#ii#_ext">
 </cfloop>
 <cfloop from="1" to ="#loop_to_email#" index="ii">
-	<cfparam default="" name="email_#ii#"> 
+	<cfparam default="" name="email_#ii#">
 </cfloop>
 <cfloop from="1" to="#loop_to_location#" index="ii">
-	<cfparam default="" name="address1_#ii#"> 
-	<cfparam default="" name="address2_#ii#"> 
+	<cfparam default="" name="address1_#ii#">
+	<cfparam default="" name="address2_#ii#">
 	<cfparam default="" name="city_#ii#">
 	<cfparam default="" name="state_#ii#">
-	<cfparam default="" name="zip_#ii#"> 
+	<cfparam default="" name="zip_#ii#">
 </cfloop>

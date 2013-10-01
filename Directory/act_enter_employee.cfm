@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <!--- <cfset variables.destination="#replace(cgi.PATH_TRANSLATED, listchangedelims(cgi.SCRIPT_NAME, "\", "/"),"")#isay\Create\upload.cfm">
@@ -25,7 +25,7 @@
 	<cfinclude template="qry_get_supervisor_history.cfm">
 	<cfinclude template="qry_get_present_supervisor.cfm">
 	<cfinclude template="qry_emp_supervisor_entry.cfm">
-	<cfinclude template="qry_security_company_access_entry.cfm">
+	<cfinclude template="qry_insert_security_company_access.cfm">
 	<cfinclude template="qry_email_entry.cfm">
 	<cfinclude template="qry_phone_entry.cfm">
 	<cfinclude template="qry_emp_biography_entry.cfm">
