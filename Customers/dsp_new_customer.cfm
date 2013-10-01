@@ -27,9 +27,9 @@
 			<label for="root_code" class="control-label">Root Code</label>
 			<div class="controls">
 				<div id="code_options">
-					<a href="javascript:void(0);" onclick="javascript:('#root_code_entry').show();('#code_options').hide();">Specify A Root Code</a>
+					<a href="javascript:void(0);" onclick="javascript:$('#root_code_entry').show();$('#code_options').hide();">Specify A Root Code</a>
 				</div>
-				<div id="root_code_entry" style="display:none;">
+				<div id="root_code_entry" aria-hidden="true">
 					<input type="text" name="root_code" id="root_code" size="4" class="span3" />
 					<p class="help-block">If you select a root code yourself, make sure that it isn't used already.</p>
 				</div>
@@ -63,14 +63,14 @@
 		<div class="control-group">
 			<label for="first_name" class="control-label">First Name</label>
 			<div class="controls">
-				<input type="text" name="first_name" id="first_name" class="span5" />
+				<input type="text" name="first_name" id="first_name" required="required" class="span5" />
 				<p class="help-block">Our main point-of-contact for this customer</p>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="last_name" class="control-label">Last Name</label>
 			<div class="controls">
-				<input type="text" name="last_name" id="last_name" class="span5" />
+				<input type="text" name="last_name" id="last_name" required="required" class="span5" />
 			</div>
 		</div>
 		<div class="control-group">
@@ -87,7 +87,9 @@
 		</div>
 		<div class="control-group">
 			<div class="controls">
-				<label for="create_user_account_ind" class="checkbox"><input type="checkbox" name="create_user_account_ind" id="create_user_account_ind" value="1" /></label>
+				<label for="create_user_account_ind" class="checkbox">
+					<input type="checkbox" name="create_user_account_ind" id="create_user_account_ind" value="1" checked="checked" /> Create a Workstream account for this contact
+				</label>
 			</div>
 		</div>
 	</fieldset>
