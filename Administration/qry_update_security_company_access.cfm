@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 <cfquery name="update_Security_Company_Access" datasource="#application.datasources.main#">
 /*wipe out old access*/
@@ -24,4 +24,3 @@ FROM REF_Company
 WHERE company_id IN (#attributes.company_id#);
 </cfquery>
 </cfsilent>
-

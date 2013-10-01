@@ -14,7 +14,6 @@
 	--> application.team_changed: date of the last employee-themed tables were probably updated; used to drive query caching
 	--> session.workstream_company_id: id that identifies company of the user to workstream
 	--> session.workstream_selected_company_id: id of the companies that the employee wishes to see
-	<-- company: number that contains the REF_Company.company_id for an employee
 	<-- user_account_id: id that identifies user to workstream
 	<-- f_init: string containing the first initial of an employee
 	<-- last_name: string containing the last name of an employee

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> application.datasources.main: string that contains the name of the datasource as mapped in CF administrator
 	--> variables.user_identification: integer that identifies a user
 	END FUSEDOC --->
@@ -18,7 +18,7 @@
 <cfquery name="get_teams" datasource="#application.datasources.main#">
 SELECT REF_Company.description AS company, REF_Company.company_id
 FROM REF_Company
-	INNER JOIN (
+WHERE REF_Company.company_id IN (
 		SELECT company_id
 		FROM Link_Company_User_Account
 		WHERE Link_Company_User_Account.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
@@ -27,6 +27,5 @@ FROM REF_Company
 		FROM Security_Company_Access
 		WHERE Security_Company_Access.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	) Associated_Companies ON REF_Company.company_id=Associated_Companies.company_id
-GROUP BY REF_Company.description, REF_Company.company_id
-ORDER BY REF_Company.description
+ORDER BY REF_Company.sort_order
 </cfquery>

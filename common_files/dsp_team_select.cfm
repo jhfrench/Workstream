@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	--> [attributes.class]: string that contains the CSS class to apply to the select box
 	--> [attributes.user_account_id]: identifies user to the workstream system
 	--> [attributes.multi]: boolean that indicates whether or not select box will allow multiple selections
@@ -19,7 +19,6 @@
 	--> [attributes.size]: number that indicates how many options the select box should display simultaneously
 	--> [attributes.selected_value_ind]: flag that determines whether there are pre-selected items in the select box
 	--> variables.user_account_id_match: item to default select if criteria matches
-	--> company: number that contains the REF_Company.company_id for an employee
 	--> user_account_id: id that identifies user to workstream
 	--> last_name: string containing the last name of an employee
 	<-- #attributes.select_name#: (variable name based on what is passed in through the module select_name attribute) number of the employee(s) selected

@@ -41,6 +41,6 @@ WHERE <cfif isdefined("attributes.customer_id")>Customer.customer_id=<cfquerypar
 		WHERE Link_Customer_Company.company_id IN (<cfqueryparam value="#session.workstream_selected_company_id#" cfsqltype="cf_sql_integer" list="true">)
 			AND Link_Customer_Company.active_ind=1
 	)
-ORDER BY <cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>Customer.root_code<cfelse>Customer.description</cfif>
+ORDER BY <cfif isdefined("session.workstream_project_list_order") AND session.workstream_project_list_order EQ 2>Customer.root_code<cfelse>Customer.sort_order</cfif>
 </cfquery>
 </cfsilent>

@@ -18,13 +18,13 @@ SELECT Demographics.user_account_id, Demographics.first_name, Demographics.last_
 FROM Demographics
 	INNER JOIN PTO_Hours ON Demographics.user_account_id=PTO_Hours.user_account_id
 	INNER JOIN Link_Company_User_Account ON Demographics.user_account_id=Link_Company_User_Account.user_account_id
+		AND Link_Company_User_Account.company_id IN (
+			SELECT company_id
+			FROM Security_Company_Access
+			WHERE user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
+		)
 	INNER JOIN REF_Company ON Link_Company_User_Account.company_id = REF_Company.company_id
 WHERE Demographics.active_ind=1
-	AND Link_Company_User_Account.company_id IN (
-		SELECT company_id
-		FROM Security_Company_Access
-		WHERE user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
-	)
 	AND Demographics.user_account_id IN ('#preservesinglequotes(attributes.drill_down)#')
 ORDER BY Demographics.last_name, Demographics.first_name
 <cfelse>
@@ -63,7 +63,7 @@ FROM Demographics
 	) AS Used_Hours ON Demographics.user_account_id=Used_Hours.user_account_id
 WHERE Demographics.active_ind=1<cfif NOT listcontainsnoCase(attributes.user_account_id,"ALL" )>
 	AND Demographics.user_account_id IN (#preservesinglequotes(attributes.user_account_id)#)</cfif>
-ORDER BY last_name
+ORDER BY Demographics.last_name, Demographics.first_name
 </cfif>
 </cfquery>
 </cfsilent>

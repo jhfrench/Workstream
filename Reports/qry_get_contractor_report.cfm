@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
  <cfquery name="get_contractor_report" datasource="#application.datasources.main#">
@@ -30,4 +30,5 @@ FROM Employee
 WHERE Employee.active_ind=1
 	AND Employee.employee_classification_id=2
 	AND Employee.turnover_date IS NULL
+ORDER BY REF_Company.sort_order, Demographics.last_name, Demographics.first_name
 </cfquery>
