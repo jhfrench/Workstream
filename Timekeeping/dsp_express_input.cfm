@@ -14,7 +14,7 @@
  --->
 </cfsilent>
 <cfoutput>
-<cfform name="form_time_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST">
+<form name="form_time_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST">
 <table class="table table-striped table-bordered table-condensed">
 	<caption><h2><em>-Express=</em> Time Entry</h2></caption>
 	<thead>
@@ -49,9 +49,9 @@
 					</label>
 				</cfoutput>
 				<br />
-				<input name="date_locked" type="hidden" value="#get_date_locked.date_locked#" />
-				<input name="last_loaded" type="hidden" value="#now()#" />
-				<input type="button" value="Submit Time Entry" name="Submit" onclick="check_form('hours')" class="btn btn-primary" />
+				<input type="hidden" name="date_locked" value="#get_date_locked.date_locked#" />
+				<input type="hidden" name="last_loaded" value="#now()#" />
+				<input type="submit" name="Submit" value="Submit Time Entry" class="btn btn-primary" />
 			</td>
 		</tr>
 	</tfoot>
@@ -74,5 +74,5 @@
 	</cfloop>
 	</tbody>
 </table>
-</cfform>
+<form>
 </cfoutput>
