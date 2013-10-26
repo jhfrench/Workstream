@@ -74,5 +74,5 @@
 	</cfloop>
 	</tbody>
 </table>
-<form>
+</form>
 </cfoutput>
