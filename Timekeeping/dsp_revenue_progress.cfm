@@ -61,29 +61,29 @@ Modernizr.load([
 						[#fiscal_year#, #revenue_goal#],
 				</cfoutput>
 						[2080, <cfoutput>#listlast(valuelist(get_revenue_goal.revenue_goal))#</cfoutput>]
-					];
-					var series_hourly = [
+					],
+					series_hourly = [
 				<cfoutput query="get_revenue_goal">
 						[#fiscal_year#, #hourly_revenue#],
 				</cfoutput>
 						[0, 0]
-					];
-					var series_flat = [
+					],
+					series_flat = [
 				<cfoutput query="get_revenue_goal">
 						[#fiscal_year#, #flat_revenue#],
 				</cfoutput>
 						[0, 0]
-					];
-					var series_incident = [
+					],
+					series_incident = [
 				<cfoutput query="get_revenue_goal">
 						[#fiscal_year#, #incident_revenue#],
 				</cfoutput>
 						[0, 0]
-					];
-					var series_projected = [
+					],
+					series_projected = [
 				<cfoutput query="get_revenue_goal">
 					<cfset variables.total_revenue=hourly_revenue+flat_revenue+incident_revenue>
-						[#fiscal_year#, #(variables.total_revenue/dayofyear(now())*365)-variables.total_revenue#],
+						[#fiscal_year#, #round((variables.total_revenue/dayofyear(now())*365)-variables.total_revenue)#],
 				</cfoutput>
 						[0, 0]
 					];
