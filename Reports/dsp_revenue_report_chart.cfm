@@ -10,10 +10,9 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfset variables.temp_year=0>
-<cfset revisedrecordcount=0>
 <cfset counter=0>
 <cfset counter2=0>
 <cfset tri_month_flat=0>
@@ -48,21 +47,20 @@
 	<tbody>
 	<cfoutput query="get_revenue_report">
 	<cfif month_revenue GT 0 OR (hour_revenue GT 0 OR flat_revenue GT 0 OR incident_revenue GT 0)>
-	<cfset revisedrecordcount=IncrementValue(revisedrecordcount)>
-	<cfif counter LT 3>
-		<cfset tri_month_flat=tri_month_flat+flat_revenue>
-		<cfset tri_month_hour=tri_month_hour+hour_revenue>
-		<cfset tri_month_incident=tri_month_incident+incident_revenue>
-		<cfset tri_month_revenue=tri_month_revenue+month_revenue>
-		<cfset counter=IncrementValue(counter)>
-	</cfif>
-	<cfif counter2 LT 12>
-		<cfset twelve_month_flat=twelve_month_flat+flat_revenue>
-		<cfset twelve_month_hour=twelve_month_hour+hour_revenue>
-		<cfset twelve_month_incident=twelve_month_incident+incident_revenue>
-		<cfset twelve_month_revenue=twelve_month_revenue+month_revenue>
-		<cfset counter2=IncrementValue(counter2)>
-	</cfif>
+		<cfif counter LT 3>
+			<cfset tri_month_flat=tri_month_flat+flat_revenue>
+			<cfset tri_month_hour=tri_month_hour+hour_revenue>
+			<cfset tri_month_incident=tri_month_incident+incident_revenue>
+			<cfset tri_month_revenue=tri_month_revenue+month_revenue>
+			<cfset counter=IncrementValue(counter)>
+		</cfif>
+		<cfif counter2 LT 12>
+			<cfset twelve_month_flat=twelve_month_flat+flat_revenue>
+			<cfset twelve_month_hour=twelve_month_hour+hour_revenue>
+			<cfset twelve_month_incident=twelve_month_incident+incident_revenue>
+			<cfset twelve_month_revenue=twelve_month_revenue+month_revenue>
+			<cfset counter2=IncrementValue(counter2)>
+		</cfif>
 		<cfset ytd_flat=ytd_flat+flat_revenue>
 		<cfset ytd_hour=ytd_hour+hour_revenue>
 		<cfset ytd_incident=ytd_incident+incident_revenue>
@@ -105,40 +103,40 @@
 	<tfoot>
 	<cfoutput>
 		<tr>
-			<td align="center" colspan="2" class="SubHeadText">&nbsp;</td>
-			<td align="center" bgcolor="##BAEE9B" class="SubHeadText">Flat-Rate</td>
-			<td align="center" class="SubHeadText">Hourly</td>
-			<td align="center" bgcolor="##BAEE9B" class="SubHeadText">Per Incident</td>
-			<td align="center" class="SubHeadText">Total Sales</td>
+			<td colspan="2">&nbsp;</td>
+			<td bgcolor="##BAEE9B">Flat-Rate</td>
+			<td>Hourly</td>
+			<td bgcolor="##BAEE9B">Per Incident</td>
+			<td>Total Sales</td>
 		</tr>
 		<tr bgcolor="##c0c0c0">
-			<td align="center">Totals:</td>
-			<td align="center">#revisedrecordcount# months</td>
-			<td align="right" bgcolor="##BAEE9B">&nbsp;#decimalformat(total_flat)#</td>
-			<td align="right">&nbsp;#decimalformat(total_hour)#</td>
-			<td align="right" bgcolor="##BAEE9B">&nbsp;#decimalformat(total_incident)#</td>
-			<td align="right">&nbsp;#dollarformat(total_revenue)#</td>
+			<td>Totals:</td>
+			<td>#get_revenue_report.recordcount# months</td>
+			<td class="number" bgcolor="##BAEE9B">&nbsp;#decimalformat(total_flat)#</td>
+			<td class="number">&nbsp;#decimalformat(total_hour)#</td>
+			<td class="number" bgcolor="##BAEE9B">&nbsp;#decimalformat(total_incident)#</td>
+			<td class="number">&nbsp;#dollarformat(total_revenue)#</td>
 		</tr>
 		<tr bgcolor="##c0c0c0">
-			<td align="left" colspan="2">Monthly Average</td>
-			<td align="right" bgcolor="##BAEE9B">&nbsp;<cfif revisedrecordcount>#decimalformat(total_flat/revisedrecordcount)#<cfelse>0</cfif></td>
-			<td align="right">&nbsp;<cfif revisedrecordcount>#decimalformat(total_hour/revisedrecordcount)#<cfelse>0</cfif></td>
-			<td align="right" bgcolor="##BAEE9B">&nbsp;<cfif revisedrecordcount>#decimalformat(total_incident/revisedrecordcount)#<cfelse>0</cfif></td>
-			<td align="right">&nbsp;<cfif revisedrecordcount>#dollarformat(total_revenue/revisedrecordcount)#<cfelse>0</cfif></td>
+			<td colspan="2">Monthly Average</td>
+			<td class="number" bgcolor="##BAEE9B">&nbsp;<cfif get_revenue_report.recordcount>#decimalformat(total_flat/get_revenue_report.recordcount)#<cfelse>0</cfif></td>
+			<td class="number">&nbsp;<cfif get_revenue_report.recordcount>#decimalformat(total_hour/get_revenue_report.recordcount)#<cfelse>0</cfif></td>
+			<td class="number" bgcolor="##BAEE9B">&nbsp;<cfif get_revenue_report.recordcount>#decimalformat(total_incident/get_revenue_report.recordcount)#<cfelse>0</cfif></td>
+			<td class="number">&nbsp;<cfif get_revenue_report.recordcount>#dollarformat(total_revenue/get_revenue_report.recordcount)#<cfelse>0</cfif></td>
 		</tr>
 		<tr bgcolor="##c0c0c0">
-			<td align="left" colspan="2">3 Month Average</td>
-			<td align="right" bgcolor="##BAEE9B">&nbsp;#decimalformat(tri_month_flat/3)#</td>
-			<td align="right">&nbsp;#decimalformat(tri_month_hour/3)#</td>
-			<td align="right" bgcolor="##BAEE9B">&nbsp;#decimalformat(tri_month_incident/3)#</td>
-			<td align="right">&nbsp;#dollarformat(tri_month_revenue/3)#</td>
+			<td colspan="2">3 Month Average</td>
+			<td class="number" bgcolor="##BAEE9B">&nbsp;#decimalformat(tri_month_flat/3)#</td>
+			<td class="number">&nbsp;#decimalformat(tri_month_hour/3)#</td>
+			<td class="number" bgcolor="##BAEE9B">&nbsp;#decimalformat(tri_month_incident/3)#</td>
+			<td class="number">&nbsp;#dollarformat(tri_month_revenue/3)#</td>
 		</tr>
 		<tr bgcolor="##c0c0c0">
-			<td align="left" colspan="2">12 Month Average</td>
-			<td align="right" bgcolor="##BAEE9B">&nbsp;#decimalformat(twelve_month_flat/12)#</td>
-			<td align="right">&nbsp;#decimalformat(twelve_month_hour/12)#</td>
-			<td align="right" bgcolor="##BAEE9B">&nbsp;#decimalformat(twelve_month_incident/12)#</td>
-			<td align="right">&nbsp;#dollarformat(twelve_month_revenue/12)#</td>
+			<td colspan="2">12 Month Average</td>
+			<td class="number" bgcolor="##BAEE9B">&nbsp;#decimalformat(twelve_month_flat/12)#</td>
+			<td class="number">&nbsp;#decimalformat(twelve_month_hour/12)#</td>
+			<td class="number" bgcolor="##BAEE9B">&nbsp;#decimalformat(twelve_month_incident/12)#</td>
+			<td class="number">&nbsp;#dollarformat(twelve_month_revenue/12)#</td>
 		</tr>
 	</cfoutput>
 	</tfoot>

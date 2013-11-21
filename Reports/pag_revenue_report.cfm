@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="qry_get_revenue_report.cfm">
@@ -22,8 +22,6 @@
 		<!--- $issue$: needs canvas graphs --->
 		<!--- stacked bar chart of revenue by month/year --->
 		<!--- pie graph of revenue by type --->
-		<cfif revisedrecordcount>
-			<cfinclude template="dsp_revenue_report_graph.cfm">
-		</cfif>
+		<cfinclude template="dsp_revenue_report_graph.cfm">
 	</div>
 </div>
