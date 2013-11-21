@@ -38,6 +38,43 @@
 </div>
 
 <script type="text/javascript">
+
+	var series_goal = [
+<cfoutput query="get_revenue_goal">
+		[#fiscal_year#, #revenue_goal#],
+</cfoutput>
+		[2080, <cfoutput>#listlast(valuelist(get_revenue_goal.revenue_goal))#</cfoutput>]
+	],
+	series_hourly = [
+<cfoutput query="get_revenue_goal">
+		[#fiscal_year#, #hourly_revenue#],
+</cfoutput>
+		[0, 0]
+	],
+	series_flat = [
+<cfoutput query="get_revenue_goal">
+		[#fiscal_year#, #flat_revenue#],
+</cfoutput>
+		[0, 0]
+	],
+	series_incident = [
+<cfoutput query="get_revenue_goal">
+		[#fiscal_year#, #incident_revenue#],
+</cfoutput>
+		[0, 0]
+	],
+	series_projected = [
+<cfoutput query="get_revenue_goal">
+	<cfset variables.total_revenue=hourly_revenue+flat_revenue+incident_revenue>
+	<cfif fiscal_year EQ year(now())>
+		<cfset variables.projected_revenue=(variables.total_revenue/dayofyear(now())*365)-variables.total_revenue>
+	<cfelse>
+		<cfset variables.projected_revenue=variables.total_revenue>
+	</cfif>
+		[#fiscal_year#, #round(projected_revenue)#],
+</cfoutput>
+		[0, 0]
+	];
 //if Modernizr determines they can be supported, load the following CSS and JavaScript resources
 Modernizr.load([
 	{
@@ -54,38 +91,6 @@ Modernizr.load([
 					.prepend('<ul id="revenue_progress_tab" class="nav nav-tabs" style="margin-bottom: 4px;"><li><a href="#container_revenue_graph" data-toggle="tab" style="line-height: 4px;">Graph</a></li><li class="active"><a href="#container_revenue_table" data-toggle="tab" style="line-height: 4px;">Data</a></li></ul>');
 				//size graph container and graph to match table container and table
 				$('#revenue_graph').height( $('#revenue_table').height()-20 ).width( $('#revenue_table').width()-10 );
-
-				var series_goal = [
-			<cfoutput query="get_revenue_goal">
-					[#fiscal_year#, #revenue_goal#],
-			</cfoutput>
-					[2080, <cfoutput>#listlast(valuelist(get_revenue_goal.revenue_goal))#</cfoutput>]
-				],
-				series_hourly = [
-			<cfoutput query="get_revenue_goal">
-					[#fiscal_year#, #hourly_revenue#],
-			</cfoutput>
-					[0, 0]
-				],
-				series_flat = [
-			<cfoutput query="get_revenue_goal">
-					[#fiscal_year#, #flat_revenue#],
-			</cfoutput>
-					[0, 0]
-				],
-				series_incident = [
-			<cfoutput query="get_revenue_goal">
-					[#fiscal_year#, #incident_revenue#],
-			</cfoutput>
-					[0, 0]
-				],
-				series_projected = [
-			<cfoutput query="get_revenue_goal">
-				<cfset variables.total_revenue=hourly_revenue+flat_revenue+incident_revenue>
-					[#fiscal_year#, #round((variables.total_revenue/dayofyear(now())*365)-variables.total_revenue)#],
-			</cfoutput>
-					[0, 0]
-				];
 
 				$.plot(
 					$("#revenue_graph"),
