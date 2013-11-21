@@ -16,7 +16,7 @@
 <div class="row-fluid">
 	<div class="span8">
 <table class="table table-striped table-bordered table-condensed">
-	<caption><h3>Summary of Hours by Week</h3></caption>
+	<caption><h3>Summary of Hours by Week <small><cfoutput>#get_employee_details.week_hours# expected</cfoutput></small></h3></caption>
 	<thead>
 		<tr>
 			<th>Week</th>
