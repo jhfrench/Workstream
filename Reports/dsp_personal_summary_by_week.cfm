@@ -10,13 +10,13 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <div class="row-fluid">
 	<div class="span8">
 <table class="table table-striped table-bordered table-condensed">
-	<caption><h3>Summary of Hours by Week &amp; Employee</h3></caption>
+	<caption><h3>Summary of Hours by Week</h3></caption>
 	<thead>
 		<tr>
 			<th>Week</th>

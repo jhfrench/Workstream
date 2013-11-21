@@ -10,17 +10,17 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <div class="row-fluid">
 	<div class="span8">
 <table id="work_allocation" class="table table-striped table-bordered table-condensed pieChart">
-	<caption><h3>Summary of Hours by Client Code &amp; Employee</h3></caption>
+	<caption><h3>Summary of Hours by Client Code</h3></caption>
 	<thead>
 		<tr>
-			<th colspan="2" scope="col" title="label">Customer &amp; Project Name</th>
-			<th scope="col">Hours</th>
+			<th colspan="2" title="label">Customer &amp; Project Name</th>
+			<th>Hours</th>
 		</tr>
 	</thead>
 	<tbody style="cursor: pointer;">
