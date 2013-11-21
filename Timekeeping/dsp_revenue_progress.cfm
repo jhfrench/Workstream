@@ -65,11 +65,11 @@
 	],
 	series_projected = [
 <cfoutput query="get_revenue_goal">
-	<cfset variables.total_revenue=hourly_revenue+flat_revenue+incident_revenue>
 	<cfif fiscal_year EQ year(now())>
+		<cfset variables.total_revenue=hourly_revenue+flat_revenue+incident_revenue>
 		<cfset variables.projected_revenue=(variables.total_revenue/dayofyear(now())*365)-variables.total_revenue>
 	<cfelse>
-		<cfset variables.projected_revenue=variables.total_revenue>
+		<cfset variables.projected_revenue=0>
 	</cfif>
 		[#fiscal_year#, #round(projected_revenue)#],
 </cfoutput>
