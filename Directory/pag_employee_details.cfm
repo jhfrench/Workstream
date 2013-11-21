@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <cfinclude template="qry_get_emp_position_number.cfm">
@@ -18,7 +18,7 @@
 <cfinclude template="gry_get_performance_review.cfm">
 <cfinclude template="qry_get_emp_benefits_info.cfm">
 <cfinclude template="qry_get_emp_salary_info.cfm">
-<cfinclude template="qry_get_employee_details.cfm">
+<cfinclude template="../common_files/qry_get_employee_details.cfm">
 <cfinclude template="qry_get_emp_phone.cfm">
 <cfinclude template="qry_get_emp_email.cfm">
 <cfinclude template="qry_get_emp_companies.cfm">

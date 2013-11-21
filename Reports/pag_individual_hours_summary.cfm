@@ -31,7 +31,7 @@
 		}
 	]);
 </script>
-<h2>Hours Report Summary <small><cfoutput>#get_employee_details.employee#, #monthasstring(attributes.report_month)# #attributes.report_year#</cfoutput></small></h2>
+<h2>Hours Report Summary <small><cfoutput>#get_employee_details.last_name#, #get_employee_details.first_name#; #monthasstring(attributes.report_month)# #attributes.report_year#</cfoutput></small></h2>
 <cfinclude template="dsp_personal_summary_by_code.cfm">
 <cfinclude template="dsp_personal_summary_by_week.cfm">
 
