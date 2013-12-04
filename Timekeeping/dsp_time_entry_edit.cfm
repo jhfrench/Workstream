@@ -34,7 +34,7 @@
 			<dt>Project</dt>
 			<dd>#replace(get_time_entry_details.project_description,"#get_time_entry_details.customer_description#-","")#</dd>
 			<dt>Task Name</dt>
-			<dd><a href="javascript:note_to_task('#get_time_entry_details.task_id#');" title="View task details">#get_time_entry_details.task_name# <i class="icon-zoom-in"></i></a></dd>
+			<dd><a href="javascript:note_to_task(#get_time_entry_details.task_id#);" title="View task details">#get_time_entry_details.task_name# <i class="icon-zoom-in"></i></a></dd>
 		</dl>
 		<div class="control-group">
 			<label for="hours" class="control-label">Hours</label>
@@ -72,7 +72,7 @@
 			<cfif get_time_entry_details.billed_ind><div class="alert alert-info">This time has already been billed and cannot be edited.</div></cfif>
 			<div class="btn-group">
 				<cfif NOT get_time_entry_details.billed_ind><input type="submit" name="method" value="Save changes" class="btn btn-primary" /></cfif>
-				<a href="index.cfm?fuseaction=#attributes.given_referer#" class="btn">Return without saving</a>
+				<a href="javascript:return_to_referer(#get_time_entry_details.task_id#);" class="btn">Return without saving</a>
 				<cfif NOT get_time_entry_details.billed_ind><input type="submit" name="method" value="Delete this entry" class="btn btn-danger" /></cfif>
 			</div>
 		</div>

@@ -30,12 +30,12 @@ GROUP BY time_entry_id
 	<div class="alert alert-success">
 		<strong>Mos Def</strong>
 		<p>That time entry is updated.</p>
-		<p>You can <a href="index.cfm?fuseaction=<cfoutput>#attributes.given_referer#</cfoutput>">return</a> to what you were doing.</p>
+		<p>You can <a href="javascript:return_to_referer(<cfoutput>#get_time_entry_details.task_id#</cfoutput>)">return</a> to what you were doing.</p>
 	</div>
 <cfelse>
 	<div class="alert alert-error">
 		<strong>Wha?!</strong>
 		<p>That time entry has already been invoiced.</p>
-		<p>You can <a href="index.cfm?fuseaction=<cfoutput>#attributes.given_referer#</cfoutput>">return</a> to what you were doing.</p>
+		<p>You can <a href="javascript:return_to_referer(<cfoutput>#get_time_entry_details.task_id#</cfoutput>)">return</a> to what you were doing.</p>
 	</div>
 </cfif>

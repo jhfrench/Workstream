@@ -26,3 +26,4 @@
 <cfinclude template="qry_get_time_entry_details.cfm">
 <cfinclude template="dsp_time_entry_edit.cfm">
 <cfmodule template="../common_files/act_drilldown_form.cfm" function_name="note_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="return_to_referer" field_name="task_id" fuseaction="#attributes.given_referer#">
