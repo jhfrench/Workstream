@@ -19,14 +19,7 @@
 <cfquery name="update_notes" datasource="#application.datasources.main#">
 UPDATE Notes
 SET active_ind=0
-WHERE notes_id=<cfqueryparam value="#attributes.notes_id#" cfsqltype="cf_sql_integer" />
-	/*don't update or delete invoiced time*/
-	AND notes_id NOT IN (
-		SELECT Time_Entry.notes_id
-		FROM Link_Invoice_Time_Entry
-			INNER JOIN Time_Entry ON Link_Invoice_Time_Entry.time_entry_id=Time_Entry.time_entry_id
-		WHERE Link_Invoice_Time_Entry.active_ind=1
-	);
+WHERE notes_id=<cfqueryparam value="#attributes.notes_id#" cfsqltype="cf_sql_integer" />;
 <cfif isdefined("attributes.method") AND comparenocase(attributes.method,"delete this entry")>
 INSERT INTO Notes (user_account_id, notes_type_id, note,
 	task_id, created_by)
@@ -34,14 +27,6 @@ SELECT user_account_id, <cfqueryparam value="#attributes.notes_type_id#" cfsqlty
 	task_id, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 FROM Notes
 WHERE notes_id=<cfqueryparam value="#attributes.notes_id#" cfsqltype="cf_sql_integer" />
-	/*don't update or delete invoiced time*/
-	AND notes_id NOT IN (
-		SELECT Time_Entry.notes_id
-		FROM Link_Invoice_Time_Entry
-			INNER JOIN Time_Entry ON Link_Invoice_Time_Entry.time_entry_id=Time_Entry.time_entry_id
-		WHERE Time_Entry.active_ind=1
-			AND Link_Invoice_Time_Entry.active_ind=1
-	)
 RETURNING notes_id
 </cfif>
 </cfquery>

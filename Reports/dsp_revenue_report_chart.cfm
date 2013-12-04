@@ -62,7 +62,7 @@
 		<cfset ytd_incident=ytd_incident+incident_revenue>
 		<cfset ytd_revenue=ytd_revenue+month_revenue>
 		<tr>
-			<td scope="row"><span class="hidden">#year##month#</span>#monthasstring(month)#-#year#</td>
+			<td scope="row"><span class="hidden">#year##right("0#month#",2)#</span>#monthasstring(month)#-#year#</td>
 			<td class="number">#decimalformat(flat_revenue)#</td>
 			<td class="number">#decimalformat(hour_revenue)#</td>
 			<td class="number">#decimalformat(incident_revenue)#</td>

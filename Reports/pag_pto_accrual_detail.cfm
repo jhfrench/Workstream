@@ -4,12 +4,12 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I am the page that tells employees how much Paid time off they have used and how much they have earned 
+	Responsibilities: I am the page that tells employees how much Paid time off they have used and how much they have earned
 
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfparam name="variables.individual" default="yes">
 <cfset attributes.user_account_id=variables.user_identification>
@@ -29,7 +29,7 @@
 <cfinclude template="qry_get_pto_detail.cfm">
 <cfinclude template="qry_get_pto_year_summary.cfm">
 
-<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="time_edit" field_name="time_entry_id" field_value="0" fuseaction="Timekeeping.time_entry_edit" given_referer="Timekeeping.task_list">
+<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="time_edit" field_name="time_entry_id" field_value="0" fuseaction="Timekeeping.time_entry_edit" process_form_ind="1" given_referer="#attributes.fuseaction#">
 <cfinclude template="dsp_pto_accrual_detail.cfm">
 
 <cfif variables.user_identification EQ 1>

@@ -68,7 +68,7 @@
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="delete_task" field_name="task_id" fuseaction="Timekeeping.delete_task">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_task" field_name="task_id" fuseaction="Timekeeping.task_details">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="list_to_time" field_name="task_id" fuseaction="Timekeeping.time_details">
-		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="time_entry_edit" field_name="time_entry_id" fuseaction="Timekeeping.time_entry_edit">
+		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="time_entry_edit" field_name="time_entry_id" fuseaction="Timekeeping.time_entry_edit" process_form_ind="1" given_referer="#attributes.fuseaction#">
 		<cfif NOT get_task_details.task_read_ind>
 			<cfinclude template="qry_update_task_read.cfm">
 		</cfif>

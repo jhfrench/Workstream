@@ -10,7 +10,7 @@
 	Edits:
 	$Log$
 	 ||
-	<-> attributes.referer: string that incidicates which fuseaction to pursue.
+	<-> attributes.given_referer: string that incidicates which fuseaction to pursue.
 	<-- attributes.notes_id: number that corresponds to the identity column of the Notes table
 	<-- attributes.time_entry_id: number that corresponds to the identity column of the Time_Entry table, set at pag_time_entry_edit.cfm.
 	--> [attributes.given_referer]: string that incidicates which fuseaction to pursue.
@@ -22,11 +22,7 @@
 	--> get_time_entry_details.project_description: string that identifies the project for a particular task
 	--> get_time_entry_details.task_name: string that identifies the task name for a particular task
  --->
-<cfif isdefined("attributes.given_referer")>
-	<cfset attributes.referer=attributes.given_referer>
-<cfelse>
-	<cfset attributes.referer="Timekeeping.express_entry">
-</cfif>
+	<cfparam name="attributes.given_referer" default="Timekeeping.express_entry" />
 </cfsilent>
 <cfoutput>
 <form action="index.cfm?fuseaction=Timekeeping.time_entry_edit" name="time_entry_edit" method="POST" class="form-horizontal">
@@ -71,12 +67,12 @@
 		</div>
 		<div class="form-actions">
 			<input type="hidden" name="notes_id" value="#get_time_entry_details.notes_id#" />
-			<input type="hidden" name="referer" value="#attributes.referer#" />
+			<input type="hidden" name="given_referer" value="#attributes.given_referer#" />
 			<input type="hidden" name="time_entry_id" value="#attributes.time_entry_id#" />
 			<cfif get_time_entry_details.billed_ind><div class="alert alert-info">This time has already been billed and cannot be edited.</div></cfif>
 			<div class="btn-group">
 				<cfif NOT get_time_entry_details.billed_ind><input type="submit" name="method" value="Save changes" class="btn btn-primary" /></cfif>
-				<a href="index.cfm?fuseaction=#attributes.referer#" class="btn">Return without saving</a>
+				<a href="index.cfm?fuseaction=#attributes.given_referer#" class="btn">Return without saving</a>
 				<cfif NOT get_time_entry_details.billed_ind><input type="submit" name="method" value="Delete this entry" class="btn btn-danger" /></cfif>
 			</div>
 		</div>

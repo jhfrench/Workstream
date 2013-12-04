@@ -64,8 +64,5 @@ function #attributes.function_name#(fldValue<cfif attributes.field2_variable_ind
 			</cfif>
 		</cfloop>
 	</cfif>
-	<cfif isdefined("attributes.given_referer")>
-		<input type="hidden" name="given_referer" value="#attributes.given_referer#" />
-	</cfif>
 </form>
 </cfoutput>

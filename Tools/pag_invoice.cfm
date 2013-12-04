@@ -66,7 +66,7 @@
 		<cfinclude template="qry_get_invoice_time_entry.cfm">
 		<cfinclude template="dsp_invoice_time_entry.cfm">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="employee_details" fuseaction="Directory.employee_details" field_name="user_account_id">
-		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="time_entry_edit" fuseaction="Timekeeping.time_entry_edit" field_name="time_entry_id">
+		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="time_entry_edit" fuseaction="Timekeeping.time_entry_edit" field_name="time_entry_id" process_form_ind="1" given_referer="#attributes.fuseaction#">
 		<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="task_details" fuseaction="Timekeeping.task_details" field_name="task_id">
 	</cfcase>
 </cfswitch>

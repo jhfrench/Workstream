@@ -21,16 +21,7 @@
 <cfquery name="update_time_entry" datasource="#application.datasources.main#">
 UPDATE Time_Entry
 SET active_ind=0
-WHERE time_entry_id=<cfqueryparam value="#attributes.time_entry_id#" cfsqltype="cf_sql_integer" />
-	AND time_entry_id NOT IN (
-		/* don't reassign hours that have already been billed*/
-		SELECT time_entry_id
-		FROM Link_Invoice_Time_Entry
-			INNER JOIN Invoice ON Link_Invoice_Time_Entry.invoice_id=Invoice.invoice_id
-		WHERE Link_Invoice_Time_Entry.active_ind=1
-			AND Invoice.active_ind=1
-		GROUP BY time_entry_id
-	);
+WHERE time_entry_id=<cfqueryparam value="#attributes.time_entry_id#" cfsqltype="cf_sql_integer" />;
 <cfif isdefined("attributes.method") AND comparenocase(attributes.method,"delete this entry")>
 INSERT INTO Time_Entry (user_account_id, work_date, hours,
 	project_id, task_id, notes_id,
@@ -39,7 +30,6 @@ SELECT user_account_id, <cfqueryparam value="#createodbcdate(attributes.work_dat
 	<cfif isdefined("attributes.project_id")><cfqueryparam value="#attributes.project_id#" cfsqltype="cf_sql_integer" /><cfelse>project_id</cfif>, task_id, <cfqueryparam value="#update_notes.notes_id#" cfsqltype="cf_sql_integer" />,
 	<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 FROM Time_Entry
-WHERE time_entry_id=<cfqueryparam value="#attributes.time_entry_id#" cfsqltype="cf_sql_integer" />
-	AND time_entry_id NOT IN (SELECT time_entry_id FROM Link_Invoice_Time_Entry WHERE active_ind=1) /*don't update or delete invoiced time*/
+WHERE time_entry_id=<cfqueryparam value="#attributes.time_entry_id#" cfsqltype="cf_sql_integer" />;
 </cfif>
 </cfquery>

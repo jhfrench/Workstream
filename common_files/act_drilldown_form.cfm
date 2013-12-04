@@ -53,6 +53,7 @@ var #attributes.function_name#=function(fldValue,fldValue2) {
 	document.#attributes.function_name#.#attributes.field_name#.value=fldValue;<cfif attributes.field2_variable_ind>
 	document.#attributes.function_name#.#attributes.field2_name#.value=fldValue2;</cfif>
 	<cfif attributes.process_form_ind>
+		<!--- $issue$ why do this processing? Aren't these values already set? --->
 		<cfloop collection="#attributes#" item="variables.field">
 			<cfif NOT listcontains(variables.javascript_ignore,lcase(variables.field))>
 				document.#attributes.function_name#.#variables.field#.value='#xmlformat(evaluate("attributes.#variables.field#"))#';
@@ -74,9 +75,6 @@ var #attributes.function_name#=function(fldValue,fldValue2) {
 				<input type="hidden" name="#variables.field#" id="#variables.field#" value="#xmlformat(evaluate("attributes.#variables.field#"))#" />
 			</cfif>
 		</cfloop>
-	</cfif>
-	<cfif isdefined("attributes.given_referer")>
-		<input type="hidden" name="given_referer" value="#attributes.given_referer#" /><!--- $issue$ does this need its own explicit condition/set? Why not jsut use process_form=true and given_referer="xyz"?  --->
 	</cfif>
 </form>
 </cfoutput>
