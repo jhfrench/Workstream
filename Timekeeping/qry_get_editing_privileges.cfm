@@ -33,7 +33,7 @@ FROM Link_User_Account_Supervisor
 		AND Link_User_Account_Supervisor.active_ind=1
 WHERE Team.active_ind=1
 	AND Team.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
-	AND Team.role_id=1
+	AND Team.role_id=1 /* owner */
 	AND Team.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 </cfquery>
 </cfsilent>

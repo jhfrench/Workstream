@@ -7,7 +7,7 @@
 	Responsibilities: I get a list of emails that need to be sent today to people for tasks that have changed status
 	||
 	Name: Jeromy F
-	 || 
+	 ||
 
  --->
 <cfquery name="get_daily_email_list" datasource="#application.datasources.main#">
@@ -39,7 +39,7 @@ FROM Task
 		FROM Email, Team
 		WHERE Email.user_account_id=Team.user_account_id
 			AND Team.active_ind=1
-			AND Team.role_id=1
+			AND Team.role_id=1 /* owner */
 			AND Email.email_type_id=1
 	) AS Owner ON Task.task_id=Owner.task_id
 	INNER JOIN (
@@ -47,7 +47,7 @@ FROM Task
 		FROM Email, Team
 		WHERE Email.user_account_id=Team.user_account_id
 			AND Team.active_ind=1
-			AND Team.role_id=3
+			AND Team.role_id=3 /* QA */
 			AND Email.email_type_id=1
 	) AS QA ON Task.task_id=QA.task_id
 	LEFT OUTER JOIN Notification ON Task.task_id=Notification.task_id
@@ -58,7 +58,7 @@ WHERE Task.notification_frequency_id!=1<!--- $issue$: commenting until this proc
 GROUP BY Task.task_id, CAST(Task.description AS VARCHAR(255)), Task.name,
 	Task.due_date, Task.notification_frequency_id, Owner.email,
 	Notification.notification_type, QA.email
-HAVING 
+HAVING
 	CASE Task.notification_frequency_id
 		WHEN 2 THEN MAX(date_sent)+'1 day'
 		WHEN 3 THEN MAX(date_sent)+'7 day'

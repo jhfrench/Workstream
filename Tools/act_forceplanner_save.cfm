@@ -42,7 +42,7 @@
 		UPDATE Team
 		SET active_ind=0
 		WHERE Team.active_ind=1
-			AND Team.role_id=4
+			AND Team.role_id=4 /* team */
 			AND Team.task_id=<cfqueryparam value="#variables.task_id#" cfsqltype="cf_sql_integer" />
 			AND Team.user_account_id IN (<cfqueryparam value="#attributes.list_subordinate_user_account_id#" cfsqltype="cf_sql_integer" list="true" />);
 

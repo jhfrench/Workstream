@@ -4,11 +4,11 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I 
+	Responsibilities: I
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -16,8 +16,8 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-SELECT Task.task_id, (Customer.description || '-' || Project.description) AS project, Task.name AS task, 
-	(CASE WHEN Project.billable_type_id = 2 THEN 'NB' ELSE 'B' END) AS billable, REF_Priority.description AS priority, 
+SELECT Task.task_id, (Customer.description || '-' || Project.description) AS project, Task.name AS task,
+	(CASE WHEN Project.billable_type_id = 2 THEN 'NB' ELSE 'B' END) AS billable, REF_Priority.description AS priority,
 	REF_Task_Status.description AS status, Task.due_date, Task.complete_date,
 	COALESCE(Recorded_Hours.used_hours,0) AS used_hours, Task.budgeted_hours,
 	(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (COALESCE(Recorded_Hours.used_hours,0)/Task.budgeted_hours) END,0)*100) AS budget_used,
@@ -35,7 +35,7 @@ FROM Customer
 	INNER JOIN REF_Task_Status ON Link_Task_Task_Status.task_status_id=REF_Task_Status.task_status_id<cfif isdefined("attributes.user_account_id")>
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
-		AND Team.role_id=1
+		AND Team.role_id=1 /* owner */
 		AND Team.user_account_id IN (#attributes.user_account_id#)</cfif><cfif attributes.show_budgeted_ind>
 	INNER JOIN Forecast_Assignment ON Task.task_id=Forecast_Assignment.task_id
 		AND Forecast_Assignment.active_ind=1</cfif>
@@ -49,7 +49,7 @@ FROM Customer
 WHERE Task.assigned_date IS NOT NULL
 	AND Task.due_date BETWEEN #createodbcdatetime(attributes.from_date)# AND #createodbcdatetime(attributes.through_date)#
 </cfoutput>
-<!--- 
+<!---
 
 /*Reports/sql_employee_force.cfm
 	Author: Jeromy F */

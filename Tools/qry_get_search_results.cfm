@@ -28,7 +28,6 @@
 	<-- task_id: unique number that identifies task entry
 	<-- task_name: name or title of the task
 	<-- task_owner: last name of the person ultimately responsible for succesful task resolution
-	<-- task_qa: last name of the person in charge of performing quality analysis on the tasks
 	<-- task_status: string that indicates the current status of the task
 	<-- time_used: total amount of time recorded towards completion of the task
  --->

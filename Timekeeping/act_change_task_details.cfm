@@ -10,26 +10,26 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 <cfscript>
 	if (NOT isdefined("attributes.notification_cc_id")) {
-		attributes.notification_cc_id="";	
+		attributes.notification_cc_id="";
 	}
 	if (NOT isdefined("attributes.notification_to_id")) {
-		attributes.notification_to_id="";	
+		attributes.notification_to_id="";
 	}
 	if (NOT isdefined("attributes.reminder_cc_id")) {
-		attributes.reminder_cc_id="";	
+		attributes.reminder_cc_id="";
 	}
 	if (NOT isdefined("attributes.status_notification_frequency")) {
-		attributes.status_notification_frequency="";	
+		attributes.status_notification_frequency="";
 	}
 	if (NOT isdefined("attributes.task_qa")) {
-		attributes.task_qa="";	
+		attributes.task_qa=0;
 	}
 	if (NOT isdefined("attributes.task_team")) {
-		attributes.task_team=0;	
+		attributes.task_team=0;
 	}
 </cfscript>
 </cfsilent>
@@ -43,14 +43,14 @@
 </cfif>
 
 <cfif compare(attributes.task_owner,attributes.orig_owner)>
-	<cfinclude template="qry_update_task_owner.cfm">
+	<cfmodule template="qry_update_task_assignment.cfm" task_id="#attributes.task_id#" role_id="1" user_account_id="#attributes.task_owner#">
 	<cfmodule template="act_send_notification.cfm" task_status="new_owner" task_id="#attributes.task_id#">
 </cfif>
 <cfif compare(listsort(attributes.task_team,"numeric"),listsort(attributes.orig_team,"numeric"))>
-	<cfinclude template="qry_update_task_team.cfm">
+	<cfmodule template="qry_update_task_assignment.cfm" task_id="#attributes.task_id#" role_id="4" user_account_id="#attributes.task_team#">
 </cfif>
 <cfif compare(attributes.task_qa,attributes.orig_qa)>
-	<cfinclude template="qry_update_task_qa.cfm">
+	<cfmodule template="qry_update_task_assignment.cfm" task_id="#attributes.task_id#" role_id="3" user_account_id="#attributes.task_qa#">
 </cfif>
 <cfif listfindnocase("1,3,4,5,7,8,19,20,21,23,24",attributes.task_status) AND compare(attributes.task_status,attributes.orig_task_status_id)>
 	<cfmodule template="act_send_notification.cfm" task_status="#attributes.task_status#" task_id="#attributes.task_id#">

@@ -44,7 +44,7 @@
 	<input type="hidden" name="orig_owner" value="#task_owner#" />
 	<input type="hidden" name="orig_priority_id" value="#get_task_details.priority#" />
 	<input type="hidden" name="orig_project_id" value="#get_task_details.project_id#" />
-	<input type="hidden" name="orig_qa" value="#task_qa#" />
+	<input type="hidden" name="orig_qa" value="#attributes.task_qa#" />
 	<input type="hidden" name="orig_reminder_cc" value="#valuelist(get_prep_email.email_id)#" />
 	<input type="hidden" name="orig_reminder_days" value="#get_completion_days.reminder_days#" />
 	<input type="hidden" name="orig_task_description" value="#variables.task_description#" />
@@ -75,7 +75,7 @@
 				<label for="task_team" class="h5">Team</label>
 				<cfmodule template="../common_files/dsp_team_select.cfm" multi="1" size="4" select_name="task_team" user_account_id="#variables.task_team#" class="span11">
 				<label for="task_qa" class="h5"><abbr title="Quality Assurance Tester">QA</abbr></label>
-				<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_qa" user_account_id="#task_qa#" class="span11">
+				<cfmodule template="../common_files/dsp_team_select.cfm" select_name="task_qa" user_account_id="#attributes.task_qa#" class="span11">
 				<label for="task_source" class="h5">Source</label>
 				<span id="task_source">#get_task_details.source_name#</span>
 			</div>

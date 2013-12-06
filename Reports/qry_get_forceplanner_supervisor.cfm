@@ -40,7 +40,7 @@ FROM Employee
 			INNER JOIN Team ON Forecast_Assignment.user_account_id=Team.user_account_id
 				AND Forecast_Assignment.task_id=Team.task_id
 				AND Team.active_ind=1
-				AND Team.role_id=1
+				AND Team.role_id=1 /* owner */
 			INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
 				AND Link_Task_Task_Status.active_ind=1
 		WHERE Forecast_Assignment.active_ind=1
@@ -59,7 +59,7 @@ FROM Employee
 			INNER JOIN Team ON Time_Entry.user_account_id=Team.user_account_id
 				AND Time_Entry.task_id=Team.task_id
 				AND Time_Entry.active_ind=1<!--- $issue$ perhaps Team also needs date_deleted so we can look at historical relationships like this one--->
-				AND Team.role_id=1
+				AND Team.role_id=1 /* owner */
 			INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
 				AND Link_Task_Task_Status.active_ind=1
 		WHERE Time_Entry.active_ind=1

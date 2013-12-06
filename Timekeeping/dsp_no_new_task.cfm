@@ -20,7 +20,7 @@ SELECT COALESCE(Task.task_id,0) AS task_id
 FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
-		AND Team.role_id=1
+		AND Team.role_id=1 /* owner */
 		AND Team.user_account_id=#attributes.task_owner#
 WHERE Task.name='#attributes.task_name#'
 	AND Task.due_date='#attributes.due_date#'

@@ -44,7 +44,7 @@ FROM Customer
 				Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>)
 					AND Link_Task_Task_Status.task_status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>10)<!--- completed, on hold, prospective --->
 				)
-				OR (Team.role_id=3
+				OR (Team.role_id=3 /* QA */
 					AND Link_Task_Task_Status.task_status_id=3 /*needs QA*/)
 			)
 	INNER JOIN Link_Project_Company ON Link_Project_Company.project_id=Project.project_id

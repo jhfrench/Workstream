@@ -18,9 +18,9 @@
 <cfparam name="attributes.notification_cc_id" default="">
 </cfsilent>
 <cfinclude template="qry_insert_new_task.cfm">
-<cfinclude template="qry_update_task_owner.cfm">
-<cfinclude template="qry_update_task_team.cfm">
-<cfinclude template="qry_update_task_qa.cfm">
+<cfmodule template="qry_update_task_assignment.cfm" task_id="#attributes.task_id#" role_id="1" user_account_id="#attributes.task_owner#">
+<cfmodule template="qry_update_task_assignment.cfm" task_id="#attributes.task_id#" role_id="4" user_account_id="#attributes.task_team#">
+<cfmodule template="qry_update_task_assignment.cfm" task_id="#attributes.task_id#" role_id="3" user_account_id="#attributes.task_qa#">
 <cfinclude template="qry_update_task_reminder_days.cfm">
 <cfinclude template="qry_update_task_reminder_cc.cfm">
 <cfinclude template="qry_update_task_notification.cfm">

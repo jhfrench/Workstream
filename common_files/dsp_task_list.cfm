@@ -20,7 +20,6 @@
 	--> billing_code: code which task time will be invoiced to
 	--> project_name: name of project which corresponds to the task
 	--> task_status: current status of the task
-	--> task_qa: last name of the person in charge of performing quality analysis on the tasks
 	--> used_hours: total amount of time recorded towards completion of the task
 	--> budgeted_hours: amount of time allocated or targeted to complete the task
 	--> percent_used_hours: number showing the amount of time used divided by the amount of time budgeted, shown only if time was budgeted

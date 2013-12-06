@@ -19,7 +19,7 @@ SELECT Demographics.last_name, Task.task_id, Task.name,
 FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
-		AND Team.role_id=1
+		AND Team.role_id=1 /* owner */
 	INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1
 	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id

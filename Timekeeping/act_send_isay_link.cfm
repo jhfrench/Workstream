@@ -10,14 +10,14 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 <cfquery name="send_isay_link" datasource="#application.datasources.main#">
 SELECT Task.name AS task_name, Email.email AS email_to
 FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
-		AND Team.role_id=1
+		AND Team.role_id=1 /* owner */
 	INNER JOIN Email ON Team.user_account_id=Email.user_account_id
 		AND Email.active_ind=1
 		AND Email.email_type_id=1

@@ -17,7 +17,7 @@ SELECT Task.name AS task_name, Task.task_id, 1 AS sort_order
 FROM Task
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
-		AND Team.role_id=1
+		AND Team.role_id=1 /* owner */
 		AND Team.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
 		AND Link_Task_Task_Status.active_ind=1
@@ -28,11 +28,11 @@ SELECT (Demographics.last_name || '-' || Task.name) AS task_name, Task.task_id, 
 FROM Task
 	INNER JOIN Team AS Owner ON Task.task_id=Owner.task_id
 		AND Owner.active_ind=1
-		AND Owner.role_id=1
+		AND Owner.role_id=1 /* owner */
 		AND Owner.user_account_id!=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
-		AND Team.role_id=4
+		AND Team.role_id=4 /* team */
 		AND Team.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
 	INNER JOIN Demographics ON Owner.user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1

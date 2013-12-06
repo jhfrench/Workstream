@@ -36,7 +36,7 @@ FROM Task
 				AND Email.active_ind=1
 				AND Email.email_type_id=1
 		WHERE Team.active_ind=1
-			AND Team.role_id=5
+			AND Team.role_id=5 /* source */
 	) AS Task_Source ON Task.task_id=Task_Source.task_id
 	INNER JOIN Link_Task_Task_Status ON Task.task_id=Link_Task_Task_Status.task_id
 		AND Link_Task_Task_Status.active_ind=1
@@ -59,10 +59,10 @@ WHERE Task.active_ind=1
 			FROM Team
 				INNER JOIN Email ON Team.user_account_id=Email.user_account_id
 			WHERE Team.active_ind=1
-				AND Team.role_id=5
+				AND Team.role_id=5 /* source */
 				AND Email.email_type_id=1
 		) AS Task_Source ON Task.task_id=Task_Source.task_id
-	WHERE Task.task_id=<cfqueryparam value="#task_id#" cfsqltype="cf_sql_integer" />
+	WHERE Task.task_id=<cfqueryparam value="#pre_due_email.task_id#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 	<cfset variables.cc_list=valuelist(get_cc.email_to)>
 	<!--- $issue$: need to give recipient of this message an "out" so they can stop receiving these notifications --->
@@ -85,10 +85,10 @@ WHERE Task.active_ind=1
 		<p>Please <a href="http://#cgi.http_host#/index.cfm?fuseaction=Timekeeping.task_details&task_id=#pre_due_email.task_id#">view task #pre_due_email.task_id#</a>.</p>
 	</cfmail>
 	<cfquery name="update_notification" datasource="#application.datasources.main#">
-	UPDATE notification
+	UPDATE Notification
 	SET date_sent=CURRENT_TIMESTAMP
 	WHERE Notification.active_ind=1
-		AND task_id=<cfqueryparam value="#task_id#" cfsqltype="cf_sql_integer" />
+		AND task_id=<cfqueryparam value="#pre_due_email.task_id#" cfsqltype="cf_sql_integer" />
 	</cfquery>
 </cfloop>
 </cfsilent>

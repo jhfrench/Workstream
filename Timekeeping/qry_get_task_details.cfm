@@ -45,21 +45,21 @@ FROM Task
 			INNER JOIN Demographics ON Team.user_account_id=Demographics.user_account_id
 				AND Demographics.active_ind=1
 		WHERE Team.active_ind=1
-			AND Team.role_id=5
+			AND Team.role_id=5 /* source */
 			AND Team.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 	) AS Task_Source ON Task.task_id=Task_Source.task_id
 	INNER JOIN (
 		SELECT Team.task_id, Team.user_account_id
 		FROM Team
 		WHERE Team.active_ind=1
-			AND Team.role_id=1
+			AND Team.role_id=1 /* owner */
 			AND Team.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 	) AS Task_Owner ON Task.task_id=Task_Owner.task_id
 	INNER JOIN (
 		SELECT Team.task_id, Team.user_account_id
 		FROM Team
 		WHERE Team.active_ind=1
-			AND Team.role_id=3
+			AND Team.role_id=3 /* QA */
 			AND Team.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />
 	) AS Task_QA ON Task.task_id=Task_QA.task_id
 WHERE Task.task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />

@@ -28,7 +28,6 @@
 	<-- task_id: unique number that identifies task entry
 	<-- task_name: name or title of the task
 	<-- task_owner: last name of the person ultimately responsible for succesful task resolution
-	<-- task_qa: last name of the person in charge of performing quality analysis on the tasks
 	<-- task_status: string that indicates the current status of the task
 	<-- time_used: total amount of time recorded towards completion of the task
  --->
@@ -105,11 +104,11 @@ WHERE Task.active_ind=1<cfif NOT variables.from_invoice>
 				AND Team.user_account_id IN (<cfif isdefined("attributes.user_account_id")><cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.user_account_id#" /><cfelse><cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_identification#" list="yes" /></cfif>)
 				AND (
 					(
-						Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>)
+						Team.role_id IN (1<cfif session.workstream_show_team>,4</cfif>) /* owner, team */
 							AND Link_Task_Task_Status.task_status_id NOT IN (<cfif NOT session.workstream_show_closed>7,</cfif><cfif NOT session.workstream_show_on_hold>9,</cfif>10) /*completed, on hold, prospective*/
 					)
 					OR (
-					Team.role_id=3
+					Team.role_id=3 /* QA */
 						AND Link_Task_Task_Status.task_status_id=3 /* QA */
 					)
 				)

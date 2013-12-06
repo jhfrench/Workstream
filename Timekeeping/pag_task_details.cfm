@@ -51,7 +51,7 @@
 		<cfinclude template="../common_files/qry_get_date_locked.cfm">
 		<cfset task_owner=get_task_details.owner_id>
 		<cfset variables.task_team=valuelist(get_task_Team.user_account_id)>
-		<cfset task_qa=get_task_details.qa_id>
+		<cfset attributes.task_qa=get_task_details.qa_id>
 		<cfinclude template="../common_files/qry_get_user_fields.cfm">
 		<cfinclude template="qry_get_editing_privileges.cfm">
 		<cfif get_editing_privileges.recordcount>
