@@ -24,7 +24,7 @@ WHERE task_id=<cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integ
 	INSERT INTO Team(task_id, user_account_id, role_id,
 		created_by)
 	SELECT <cfqueryparam value="#attributes.task_id#" cfsqltype="cf_sql_integer" />, user_account_id, <cfqueryparam value="#attributes.role_id#" cfsqltype="cf_sql_integer" />,
-		<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
+		<cfqueryparam value="#caller.variables.user_identification#" cfsqltype="cf_sql_integer" />
 	FROM User_Account
 	WHERE user_account_id IN (<cfqueryparam value="#attributes.user_account_id#" cfsqltype="cf_sql_integer" list="true" />)
 		/*don't duplicate team assignments*/
