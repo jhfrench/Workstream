@@ -18,7 +18,7 @@
 <cfquery name="get_teams" datasource="#application.datasources.main#">
 SELECT REF_Company.description AS company, REF_Company.company_id
 FROM REF_Company
-WHERE REF_Company.company_id IN (
+	INNER JOIN (
 		SELECT company_id
 		FROM Link_Company_User_Account
 		WHERE Link_Company_User_Account.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
@@ -26,6 +26,7 @@ WHERE REF_Company.company_id IN (
 		SELECT company_id
 		FROM Security_Company_Access
 		WHERE Security_Company_Access.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
+		GROUP BY company_id
 	) Associated_Companies ON REF_Company.company_id=Associated_Companies.company_id
 ORDER BY REF_Company.sort_order
 </cfquery>
