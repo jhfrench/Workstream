@@ -144,8 +144,8 @@
 		);
 		//only after we've set graph size and painted the graph, we can show graph/hide table
 		$('#revenue_progress_tab a:first').tab('show');
-		setTimeout( $('#container_revenue_graph').height( $('#container_revenue_table').height() ), 400 );
-		setTimeout( $('#container_revenue_graph').height( $('#container_revenue_table').height() ), 1000 );
+		setTimeout( function(){$('#container_revenue_graph').height( $('#container_revenue_table').height() )}, 400 );
+		setTimeout( function(){$('#container_revenue_graph').height( $('#container_revenue_table').height() )}, 1000 );
 	};
 	//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
 	Modernizr.load([
