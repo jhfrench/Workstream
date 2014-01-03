@@ -38,7 +38,6 @@
 </div>
 
 <script type="text/javascript">
-
 	var series_goal = [
 <cfoutput query="get_revenue_goal">
 		[#fiscal_year#, #revenue_goal#],
@@ -67,13 +66,10 @@
 <cfoutput query="get_revenue_goal">
 	<cfif fiscal_year EQ year(now())>
 		<cfset variables.total_revenue=hourly_revenue+flat_revenue+incident_revenue>
-		<cfset variables.projected_revenue=(variables.total_revenue/dayofyear(now())*365)-variables.total_revenue>
-	<cfelse>
-		<cfset variables.projected_revenue=0>
+		<cfset variables.projected_revenue=>
+		[#fiscal_year#, #round((variables.total_revenue/dayofyear(now())*365)-variables.total_revenue)#]
 	</cfif>
-		[#fiscal_year#, #round(projected_revenue)#],
 </cfoutput>
-		[0, 0]
 	],
 	draw_revenue_graph=function() {
 		//encapsulate table in Bootstrap tab, add container for graph
@@ -152,18 +148,18 @@
 		setTimeout( $('#container_revenue_graph').height( $('#container_revenue_table').height() ), 400 );
 		setTimeout( $('#container_revenue_graph').height( $('#container_revenue_table').height() ), 1000 );
 	};
-//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
-Modernizr.load([
-	{
-		load: [
-			'//s3.amazonaws.com/external-projects/flot/jquery.flot.js',
-			'//s3.amazonaws.com/external-projects/flot/jquery.flot.stack.js'
-		],
-		complete: function(){
-			$(document).ready(
-				draw_revenue_graph();
-			);
+	//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
+	Modernizr.load([
+		{
+			load: [
+				'//s3.amazonaws.com/external-projects/flot/jquery.flot.js',
+				'//s3.amazonaws.com/external-projects/flot/jquery.flot.stack.js'
+			],
+			complete: function(){
+				$(document).ready(
+					draw_revenue_graph()
+				);
+			}
 		}
-	}
-]);
+	]);
 </script>
