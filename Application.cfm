@@ -29,7 +29,7 @@
 </cfsilent>
 
 <!--- use Application_Manager to get installation-specific settings (which we'll set in the application scope) --->
-<cfinclude template="Application_Manager/act_application_settings.cfm">
+<cfinclude template="../Application_Manager/act_application_settings.cfm">
 
 <cfinclude template="app_cf_settings.cfm">
 
@@ -40,7 +40,7 @@
 </cfif>
 
 <!--- Error Handling --->
-<cfinclude template="Application_Manager/errortemplates/act_setup_error_handling.cfm">
+<cfinclude template="../Application_Manager/errortemplates/act_setup_error_handling.cfm">
 
 <cfif isdefined("session.user_account_id")>
 	<cfset variables.user_identification=session.user_account_id>
@@ -50,5 +50,5 @@
 
 <!--- if configured to do so on the Installation table, log page requests --->
 <cfif application.log_page_request_ind>
-	<cfmodule template="Application_Manager/act_log_page_request.cfm" log_type_id="1" user_identification="#variables.user_identification#">
+	<cfmodule template="../Application_Manager/act_log_page_request.cfm" log_type_id="1" user_identification="#variables.user_identification#">
 </cfif>

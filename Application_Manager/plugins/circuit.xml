@@ -1,8 +1,0 @@
-<circuit access="public"> 
-    <prefuseaction callsuper="true"> 
-    </prefuseaction>
-    <fuseaction name="welcome">
-    </fuseaction>
-    <postfuseaction>
-    </postfuseaction>
-</circuit>
