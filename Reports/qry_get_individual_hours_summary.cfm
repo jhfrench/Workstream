@@ -13,7 +13,8 @@
 	END FUSEDOC --->
 
 <cfquery name="get_individual_hours_summary" datasource="#application.datasources.main#">
-SELECT (Customer.description || '-' || Project.description || ' (' || Project.project_code || ')') AS project_name, EXTRACT(WEEK FROM Time_Entry.work_date) AS work_week, Time_Entry.hours
+SELECT (Customer.description || '-' || Project.description || ' (' || Project.project_code || ')') AS project_name, EXTRACT(YEAR FROM Time_Entry.work_date) AS work_year, EXTRACT(WEEK FROM Time_Entry.work_date) AS work_week,
+	Time_Entry.hours
 FROM Time_Entry
 	INNER JOIN Project ON Time_Entry.project_id=Project.project_id
 		AND Project.active_ind=1
@@ -36,6 +37,6 @@ ORDER BY SUM(hours) DESC
 SELECT work_week, SUM(hours) AS hours_worked
 FROM get_individual_hours_summary
 GROUP BY work_week
-ORDER BY work_week
+ORDER BY work_year, work_week
 </cfquery>
 </cfsilent>
