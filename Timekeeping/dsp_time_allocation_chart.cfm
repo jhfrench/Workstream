@@ -24,7 +24,7 @@
 <cfif get_time_allocation_blurb.recordcount>
 	<p>So far this month you have worked on #get_time_allocation_blurb.recordcount# <cfif get_time_allocation_blurb.recordcount EQ 1>project<cfelse>different projects</cfif>. You have spent none of your time on ADMIN/PLANNING. This is under the ADMIN/PLANNING work allocation target of 10% or less. You allocated your time as follows:</p>
 	<div class="row-fluid">
-		<div class="span4">
+		<div class="span6">
 			<table id="work_allocation" class="table table-striped table-bordered table-condensed pieChart">
 				<caption><h4>#monthasstring(month(now()))# Hours Per Project</h4></caption>
 				<thead>
@@ -43,7 +43,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="span8">
+		<div class="span6">
 			<canvas id="work_allocation_canvas" width="300" height="250" style="cursor:pointer;">
 				Your browser does not support canvas, a basic <a href="http://www.html5rocks.com">HTML5</a> feature.
 			</canvas>
