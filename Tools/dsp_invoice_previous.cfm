@@ -16,7 +16,7 @@
 </cfsilent>
 
 <cfoutput>
-<table class="table table-striped table-bordered table-condensed tablesorter">
+<table class="table table-striped table-bordered table-condensed table-sorted">
 	<caption>
 		<h2>Previously Invoiced</h2>
 	</caption>

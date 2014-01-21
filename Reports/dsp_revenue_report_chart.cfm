@@ -31,7 +31,7 @@
 <cfset ytd_revenue=0>
 </cfsilent>
 <cfinclude template="../common_files/act_table_sorting.cfm">
-<table class="table table-striped table-bordered table-condensed tablesorter">
+<table class="table table-striped table-bordered table-condensed table-sorted">
 	<caption><h3>Monthly Sales</h3></caption>
 	<thead>
 		<tr>

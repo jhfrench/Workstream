@@ -16,7 +16,7 @@
 	 ||
 	END FUSEDOC --->
 </cfsilent>
-<table class="table table-striped table-bordered table-condensed tablesorter">
+<table class="table table-striped table-bordered table-condensed table-sorted">
 	<caption><h2>Project Dashboard</h2></caption>
 	<thead>
 		<tr>

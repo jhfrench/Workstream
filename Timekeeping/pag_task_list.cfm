@@ -19,7 +19,7 @@
 <cfinclude template="../common_files/dsp_dropdowns.cfm">
 <cfif get_task_list.recordcount>
 <cfinclude template="../common_files/act_table_sorting.cfm">
-<table class="table table-striped table-bordered table-condensed tablesorter">
+<table class="table table-striped table-bordered table-condensed table-sorted">
 	<cfinclude template="../common_files/dsp_task_list_header.cfm">
 	<cfinclude template="../common_files/dsp_task_list.cfm">
 </table>

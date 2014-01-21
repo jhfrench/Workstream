@@ -30,7 +30,7 @@
 </cfsilent>
 <cfif get_open_tasks.recordcount>
 <cfmodule template="../common_files/act_table_sorting.cfm" tabletools_ind="1" bFilter="1" bPaginate="1">
-<table class="table table-striped table-bordered table-condensed tablesorter">
+<table class="table table-striped table-bordered table-condensed table-sorted">
 	<caption><h2>Open Tasks for <cfoutput>#get_open_tasks.project_name#-#get_open_tasks.project_code#</cfoutput></h2></caption>
 	<thead>
 		<tr>
