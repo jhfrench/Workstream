@@ -15,8 +15,8 @@
 </cfsilent>
 <cfif isdefined("attributes.hours") AND listlen(attributes.hours) AND session.workstream_last_loaded NEQ attributes.last_loaded>
 	<cfinclude template="act_upload_entries.cfm">
+	<cfinclude template="../common_files/act_client_vars.cfm">
 </cfif>
-<cfinclude template="../common_files/act_client_vars.cfm">
 <cfinclude template="../common_files/qry_get_date_locked.cfm">
 <cfinclude template="../common_files/qry_get_employee_details.cfm">
 
