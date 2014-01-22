@@ -27,11 +27,6 @@
 <cfparam name="session.workstream_expand" default="yes,yes,no">
 <cfset variables.min_date=dateformat(get_date_locked.date_locked, "yyyy-mm-dd")>
 <cfset variables.max_date=dateformat(dateadd("m", 2, get_date_locked.date_locked), "yyyy-mm-dd")>
-<cfif NOT len(session.workstream_express_input_rows)>
-	<cfset variables.workstream_express_input_rows=1>
-<cfelse>
-	<cfset variables.workstream_express_input_rows=session.workstream_express_input_rows>
-</cfif>
 <cfsavecontent variable="variables.select_work_item">
 	<select name="project_id" size="1"><cfloop query="get_valid_projects">
 		<option value="#project_id#">#display#</option></cfloop>

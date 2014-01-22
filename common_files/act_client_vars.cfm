@@ -51,9 +51,6 @@
 	<cfif isdefined("attributes.express_tree_height")>
 		<cfset session.workstream_express_tree_height=attributes.express_tree_height>
 	</cfif>
-	<cfif isdefined("attributes.express_input_rows")>
-		<cfset session.workstream_express_input_rows=attributes.express_input_rows>
-	</cfif>
 <!--- APPLICATION SETTINGS --->
 	<cfif isdefined("attributes.evaluate_app_options")>
 		<cfif isdefined("attributes.company_select_list")>

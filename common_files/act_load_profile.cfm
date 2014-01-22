@@ -28,7 +28,6 @@
 		session.workstream_company_id=get_user_profile.company_id;
 		session.workstream_company_name=get_user_profile.company_name;
 		session.workstream_selected_company_id=get_user_profile.company_select_list;
-		session.workstream_express_input_rows=get_user_profile.express_input_rows;
 		session.workstream_express_tree_height=get_user_profile.express_tree_height;
 		session.workstream_last_loaded=get_user_profile.last_loaded;
 		session.workstream_project_list_order=get_user_profile.project_list_order;
@@ -50,7 +49,6 @@
 		else {
 			session.workstream_selected_company_id=get_general_user_info.company_id;
 		};
-		session.workstream_express_input_rows=5;
 		session.workstream_express_tree_height=300;
 		session.workstream_last_loaded="#now()#";
 		session.workstream_project_list_order=1;
