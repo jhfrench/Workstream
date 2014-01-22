@@ -16,19 +16,33 @@
 <cfoutput>
 <form name="form_time_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="POST" class="add_row">
 	<h2><em>-Express=</em> Time Entry</h2>
+		<div class="row-fluid">
+			<div class="span3 h4" id="label_date">
+				Date
+			</div>
+			<div class="span1 h4" id="label_hours">
+				Hours
+			</div>
+			<div class="span4 h4" id="label_task_id">
+				Task
+			</div>
+			<div class="span4 h4" id="label_notes">
+				Notes
+			</div>
+		</div>
 	<span class="template">
 		<div class="row-fluid">
 			<div class="span3">
-				<input type="date" name="date" min="#variables.min_date#" max="#variables.max_date#" value="" maxlength="10" required="required" class="span8 date" />
+				<input type="date" name="date" aria-labelledby="label_date" min="#variables.min_date#" max="#variables.max_date#" value="" maxlength="10" required="required" class="span8 date" />
 			</div>
 			<div class="span1">
-				<input type="number" name="hours" step="0.25" min="0" max="24" required="required" class="number span12" />
+				<input type="number" name="hours" aria-labelledby="label_hours" step="0.25" min="0" max="24" required="required" class="number span12" />
 			</div>
 			<div class="span4">
 				#variables.select_work_item#
 			</div>
 			<div class="span4">
-				<textarea rows="1" cols="25" name="notes_1" id="notes_1" wrap="soft" data-name_prefix="notes_" required="required" class="span12"></textarea>
+				<textarea rows="1" cols="25" name="notes_1" id="notes_1" aria-labelledby="label_notes" wrap="soft" data-name_prefix="notes_" required="required" class="span12"></textarea>
 			</div>
 		</div>
 	</span>
