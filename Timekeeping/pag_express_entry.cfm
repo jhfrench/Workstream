@@ -32,7 +32,7 @@
 	<cfset variables.workstream_express_input_rows=session.workstream_express_input_rows>
 </cfif>
 <cfsavecontent variable="variables.select_work_item">
-	<select name="task_id" size="1" class="span9">
+	<select name="task_id" size="1" class="span12">
 		<cfset variables.sort_order=0>
 		<cfoutput query="get_express_task_list">
 			<cfif variables.sort_order NEQ get_express_task_list.sort_order>
