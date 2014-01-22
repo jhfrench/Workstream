@@ -9,8 +9,8 @@
 	Name: Jeromy French
 	||
 	Edits:
-	$Log$ 
-	 || 
+	$Log$
+	 ||
  --->
 <cfparam name="attributes.order_by" default="due_date">
 <cfif NOT comparenocase(listlast(attributes.fuseaction, '.'),"admin_options")>
@@ -49,7 +49,7 @@
 			</cfif>
 		</cfcase>
 		<cfcase value="timekeeping_options">
-			<cfinclude template="dsp_timekeeping_options.cfm">
+			<cfinclude template="../common_files/dsp_timekeeping_options.cfm">
 			<cfinclude template="../common_files/dsp_submit_options.cfm">
 		</cfcase>
 		<cfdefaultcase>
