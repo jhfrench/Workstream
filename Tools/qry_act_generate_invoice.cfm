@@ -16,5 +16,5 @@
 </cfsilent>
 <cfquery name="act_generate_invoice" datasource="#application.datasources.main#">
 SELECT *
-FROM Act_Generate_Invoice(#attributes.customer_id#, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
+FROM Act_Generate_Invoice(<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
 </cfquery>

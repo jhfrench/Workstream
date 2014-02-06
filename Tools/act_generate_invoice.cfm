@@ -8,7 +8,7 @@
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -24,7 +24,7 @@ SELECT Customer.root_code, Customer.abbreviation, Customer.description AS custom
 FROM Customer
 	LEFT OUTER JOIN Demographics ON Customer.contact_user_account_id=Demographics.user_account_id
 		AND Demographics.active_ind=1
-WHERE Customer.customer_id=#attributes.customer_id#
+WHERE Customer.customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" />
 </cfquery>
 <cftry>
 	<cfinclude template="qry_act_generate_invoice.cfm">

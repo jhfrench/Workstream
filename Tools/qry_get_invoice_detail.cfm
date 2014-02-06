@@ -44,7 +44,7 @@ FROM (<cfif attributes.invoice_id>
 	) AS Invoice_Detail
 	INNER JOIN Project ON Invoice_Detail.project_id=Project.project_id
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
-		AND Customer.customer_id=#attributes.customer_id#
+		AND Customer.customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" />
 	INNER JOIN REF_Billable_Type ON Project.billable_type_id=REF_Billable_Type.billable_type_id
 	LEFT OUTER JOIN Demographics ON Invoice_Detail.created_by=Demographics.user_account_id
 		AND Demographics.active_ind=1

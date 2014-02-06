@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfquery name="get_account_task_matrix" datasource="#application.datasources.main#">
 SELECT Task.task_id, (Customer.description || '-' || Project.description) AS project_name, Task.name AS task_name,
@@ -21,7 +21,7 @@ FROM Task
 		AND Project.project_id=#attributes.project_id#</cfif>
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 		AND Customer.active_ind=1<cfif isdefined("attributes.customer_id")>
-		AND Customer.customer_id=#attributes.customer_id#</cfif>
+		AND Customer.customer_id=<cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" /></cfif>
 	INNER JOIN Team ON Task.task_id=Team.task_id
 		AND Team.active_ind=1
 		AND Team.role_id=1 /*owner*/
