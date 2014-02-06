@@ -30,7 +30,7 @@
 	</thead>
 	<tbody>
 	<cfoutput query="get_billing_rate">
-		<tr<cfif billed_entry_count AND NOT len(rate)> class="error"</cfif>>
+		<tr<cfif rateless_count> class="error"</cfif>>
 			<td scope="row">
 				#description#
 				<cfif get_billing_rate.project_id NEQ variables.project_id>
@@ -103,7 +103,7 @@
 		}
 
 	};
-	$('#form_rate_change input[type="number"]').change( function(){
+	$('#form_rate_change').find('input[type="number"]').change( function(){
 		determine_dates_required(this);
 	} );
 
