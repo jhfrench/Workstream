@@ -102,11 +102,13 @@
 			$(changed_field).parents('tr').find('input[type="date"]').attr('required','required');
 		}
 
-	};
-	$('#form_rate_change').find('input[type="number"]').change( function(){
-		determine_dates_required(this);
-	} );
+	},
+	rate_change=function() {
+		$('#form_rate_change').find('input[type="number"]').change( function(){
+			determine_dates_required(this);
+		} );
 
-	//instantiate Bootstrap popovers
-	$('button[data-toggle="popover"]').popover();
+		//instantiate Bootstrap popovers
+		$('button[data-toggle="popover"]').popover();
+	};
 </script>
