@@ -19,7 +19,7 @@ SELECT Project.project_id, Project.description, Project.project_start,
 	Demographics.user_account_id, Demographics.first_name, Demographics.last_name,
 	COALESCE(Billing_Rate.billing_rate_id,0) AS billing_rate_id, Billing_Rate.rate_start_date, Billing_Rate.rate_end_date,
 	Billing_Rate.rate, COALESCE(Rateless_Time_Entry.rateless_count,0) AS rateless_count, Rateless_Time_Entry.last_rateless_date,
-	COALESCE(Billed_Entries.billed_entry_count,0) AS billed_entry_count, LEAST(Project.project_start, Project.project_end-1, Billed_Entries.first_billed_time_entry_date, Rateless_Time_Entry.first_rateless_date) AS max_rate_start_date, GREATEST(Project.project_start+1, Project.project_end, Billed_Entries.last_billed_time_entry_date, Rateless_Time_Entry.last_rateless_date) AS min_rate_end_date
+	COALESCE(Billed_Entries.billed_entry_count,0) AS billed_entry_count, LEAST(Project.project_end-1, Billed_Entries.first_billed_time_entry_date, Rateless_Time_Entry.first_rateless_date) AS max_rate_start_date, GREATEST(Project.project_start+1, Billed_Entries.last_billed_time_entry_date, Rateless_Time_Entry.last_rateless_date) AS min_rate_end_date
 FROM Project
 	INNER JOIN Link_Project_Company ON Project.project_id=Link_Project_Company.project_id
 		AND Link_Project_Company.active_ind=1
