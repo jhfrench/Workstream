@@ -35,7 +35,7 @@
 				#description#
 				<cfif get_billing_rate.project_id NEQ variables.project_id>
 					<cfset variables.project_id=get_billing_rate.project_id>
-					<button class="btn btn-small btn-info" title="Project Details" data-toggle="popover" data-placement="right" data-html="true" data-original-title="<h3>Project Details</h3>" data-content="<dl class='dl-horizontal'><dt>Project Manager</dt><dd>#pm_last_name#, #pm_first_name#</dd><dt>Project Start</dt><dd>#dateformat(project_start, 'm/d/yyyy')#</dd><dt>Project End</dt><dd>#dateformat(project_end, 'm/d/yyyy')#</dd></dl><a href='javascript:edit_project(#variables.project_id#)' class='btn btn-small'>edit</a>"><i class="icon-briefcase"></i></button>
+					<button type="button" class="btn btn-small btn-info" title="Project Details" data-toggle="popover" data-placement="right" data-html="true" data-original-title="<h3>Project Details</h3>" data-content="<dl class='dl-horizontal'><dt>Project Manager</dt><dd>#pm_last_name#, #pm_first_name#</dd><dt>Project Start</dt><dd>#dateformat(project_start, 'm/d/yyyy')#</dd><dt>Project End</dt><dd>#dateformat(project_end, 'm/d/yyyy')#</dd></dl><a href='javascript:edit_project(#variables.project_id#)' class='btn btn-small'>edit</a>"><i class="icon-briefcase"></i></button>
 				</cfif>
 			</td>
 			<td scope="row">#last_name#, #first_name#</td>
