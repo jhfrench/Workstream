@@ -33,5 +33,5 @@ FROM Time_Entry
 WHERE time_entry_id=<cfqueryparam value="#attributes.time_entry_id#" cfsqltype="cf_sql_integer" />
 RETURNING time_entry_id;
 </cfif>
-<cfif isdefined("update_time_entry.time_entry_id")><cfset attributes.time_entry_id=update_time_entry.time_entry_id></cfif>
 </cfquery>
+<cfif isdefined("update_time_entry.time_entry_id")><cfset attributes.time_entry_id=update_time_entry.time_entry_id></cfif>
