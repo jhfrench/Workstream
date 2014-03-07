@@ -24,12 +24,6 @@ GROUP BY time_entry_id
 </cfquery>
 
 <cfoutput>
-	<cfsavecontent variable="variables.proceed_link">
-		<cfif isdefined("get_time_entry_details")>
-			<p>You can <a href="javascript:return_to_referer(#get_time_entry_details.task_id#)">return</a> to what you were doing.</p>
-		</cfif>
-	</cfsavecontent>
-
 	<cfif get_check_previous_invoice.recordcount EQ 0>
 		<cftransaction>
 			<cfinclude template="qry_update_notes.cfm">
@@ -38,13 +32,13 @@ GROUP BY time_entry_id
 		<div class="alert alert-success">
 			<strong>Mos Def</strong>
 			<p>That time entry is updated.</p>
-			#variables.proceed_link#
+			<p>You can <a href="javascript:return_to_referer(#attributes.task_id#)">return</a> to what you were doing.</p>
 		</div>
 	<cfelse>
 		<div class="alert alert-error">
 			<strong>Wha?!</strong>
 			<p>That time entry has already been invoiced.</p>
-			#variables.proceed_link#
+			<p>You can <a href="javascript:return_to_referer(#attributes.task_id#)">return</a> to what you were doing.</p>
 		</div>
 	</cfif>
 </cfoutput>

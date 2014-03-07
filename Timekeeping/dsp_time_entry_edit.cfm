@@ -66,8 +66,9 @@
 			</div>
 		</div>
 		<div class="form-actions">
-			<input type="hidden" name="notes_id" value="#get_time_entry_details.notes_id#" />
 			<input type="hidden" name="given_referer" value="#attributes.given_referer#" />
+			<input type="hidden" name="notes_id" value="#get_time_entry_details.notes_id#" />
+			<input type="hidden" name="task_id" value="#get_time_entry_details.task_id#" />
 			<input type="hidden" name="time_entry_id" value="#attributes.time_entry_id#" />
 			<cfif get_time_entry_details.billed_ind><div class="alert alert-info">This time has already been billed and cannot be edited.</div></cfif>
 			<div class="btn-group">
