@@ -4,6 +4,7 @@
 @import "spritepad_Workstream.less";
 @import "bootstrap-tree.less";
 @import "bootstrap-dataTables.less";
+@import "task_centric_help.less";
 
 /* custom settings that deviate from Bootstrap's default values; set *after* the bootstrap imports */
 @sansFontFamily: Trebuchet MS, Tahoma, sans-serif, Arial;
@@ -72,14 +73,6 @@ footer {
 	}
 }
 
-.cursor_help {
-	cursor:help;
-}
-
-#help_area {
-	padding: 2px;
-}
-
 /*medium screens (and larger)*/
 @media (min-width: 769px) {
 	footer {
@@ -92,20 +85,6 @@ footer {
 	}
 	footer div[class*="span"] {
 		min-height: 0px !important;
-	}
-
-	#help_area {
-		position: fixed;
-		right: 10px;
-	}
-	.js .help_top {
-		height: 140px;
-		overflow-y: auto;
-	}
-	.js .help_main {
-		border-top: 1px solid #ddd;
-		height: 460px;
-		overflow-y: auto;
 	}
 
 	#blurb_dashboard [class*="span"] {
@@ -129,22 +108,6 @@ footer {
 		position: relative;
 		top: auto;
 		margin-top: -30px;
-	}
-}
-
-/*thin screens*/
-@media (max-width: 768px) {
-	#help_area {
-		position: static;
-	}
-	.js .help_top {
-		height: 100px;
-		overflow-y: auto;
-	}
-	.js .help_main {
-		border-top: 1px solid #ddd;
-		height: 220px;
-		overflow-y: auto;
 	}
 }
 

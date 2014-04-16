@@ -1,0 +1,48 @@
+/* task-centric help styles */
+.cursor_help {
+	cursor:help;
+}
+
+#help_area {
+	padding: 2px;
+}
+
+/*medium screens (and larger)*/
+@media (min-width: 769px) {
+	html, body {
+		height: 100%;
+	}
+	#help_area {
+		height:85%;
+		position:fixed;
+		right:10px;
+	}
+	html.js {
+		.help_top {
+			height:160px;
+			overflow-y:auto;
+		}
+		.help_main {
+			border-top:1px solid #ddd;
+			overflow-y:auto;
+		}
+	}
+}
+
+/*thin screens*/
+@media (max-width: 768px) {
+	#help_area {
+		position:static;
+	}
+	html.js {
+		.help_top {
+			height:100px;
+			overflow-y:auto;
+		}
+		.help_main {
+			border-top:1px solid #ddd;
+			height:220px;
+			overflow-y:auto;
+		}
+	}
+}

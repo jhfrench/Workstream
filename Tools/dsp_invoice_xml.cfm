@@ -7,7 +7,7 @@
 	||
 	Name: Jeromy French
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -474,7 +474,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Invoice Overview">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="23" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="13.2">
    <Column ss:Index="2" ss:Width="99"/>
    <Column ss:Width="150"/>
