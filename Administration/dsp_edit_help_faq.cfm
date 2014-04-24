@@ -30,13 +30,13 @@
 	<div class="control-group">
 		<label class="control-label" for="question">Question</label>
 		<div class="controls">
-			<textarea name="question" id="question" title="User's Question." cols="90" rows="8" height="300" wrap="virtual" value="#get_help_faq.question#" required="required" class="span6"></textarea>
+			<textarea name="question" id="question" title="User's Question." wrap="virtual" required="required" class="span6">#get_help_faq.question#</textarea>
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="answer">Answer</label>
 		<div class="controls">
-			<textarea name="answer" id="answer" title="Frequently Asked Question's answer." cols="90" rows="16" height="600" wrap="virtual" value="#get_help_faq.answer#" class="span6"></textarea>
+			<textarea name="answer" id="answer" title="Frequently Asked Question's answer." wrap="virtual" class="span6">#get_help_faq.answer#</textarea>
 		</div>
 	</div>
 	<div class="control-group">

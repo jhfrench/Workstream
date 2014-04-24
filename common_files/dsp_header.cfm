@@ -101,7 +101,7 @@ else
 								</div>
 							</form><cfif application.help.active_ind>
 							<form class="navbar-form pull-right">
-								<a href="##help_area" id="nav_help_button" title="Access the help system" rel="help" class="btn btn-info cursor_help">Help</a>
+								<a href="##help_area" id="nav_help_button" title="Access the help system" rel="help" class="btn btn-info cursor_help" data-toggle="button">Help</a>
 							</form></cfif>
 							<ul class="nav pull-right">
 								<cfif NOT isdefined("variables.user_identification")>

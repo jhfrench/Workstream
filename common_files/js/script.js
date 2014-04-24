@@ -35,12 +35,13 @@ $(document).ready(function() {
 		}).attr('title', $('#navbar-search-full').attr('title')+' with entered criteria');
 	}
 
-	if ( $('#help_area').length ) {
-		//console.log( $('#help_area') );
+	$help_area=$('#help_area');
+	if ( $help_area.length ) {
+		//console.log( $help_area );
 		var jump_manager=function(target) {
 			"use strict"; //let's avoid tom-foolery in this function
 			// only jump to the revealed help area if its position is static (as opposed to "fixed")
-			if ( $('#help_area').css('position')==='static' ) {
+			if ( $help_area.css('position')==='static' ) {
 				window.location.hash = target;
 			}
 		};
@@ -50,12 +51,12 @@ $(document).ready(function() {
 			"use strict"; //let's avoid tom-foolery in this function
 			event.preventDefault(); //don't let a tag try to jump us to #help_area before we reveal it
 			//adjust spans of main block and help area, set aria-hidden attribute on help block to help screen-readers
-			if ( $('#help_area').attr('aria-hidden')==='true' ) {
+			if ( $help_area.attr('aria-hidden')==='true' ) {
 				$('#content_container.span12').switchClass('span12', 'span9', 300);
-				$('#help_area').delay(300).slideToggle(300, function() { jump_manager('help_area'); }).attr('aria-hidden', 'false');	
+				$help_area.delay(300).slideToggle(300, function() { jump_manager('help_area'); }).attr('aria-hidden', 'false');	
 			}
 			else {
-				$('#help_area').slideToggle(300, function() { jump_manager(''); }).attr('aria-hidden', 'true');
+				$help_area.slideToggle(300, function() { jump_manager(''); }).attr('aria-hidden', 'true');
 				$('#content_container.span9').delay(300).switchClass('span9', 'span12', 300);
 			}
 		});
@@ -63,15 +64,15 @@ $(document).ready(function() {
 		// when called, getHelp loads relevant help area with content from jQuery's AJAX call
 		var getHelp = function (helpType, helpID) {
 			"use strict"; //let's avoid tom-foolery in this function
-			//console.log('$(\'div #help_main_'+helpType+'\').load(\'index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd\');');
-			//console.log('index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd');
-			//console.log( $('div #help_main_'+helpType) );
-			$('div #help_main_'+helpType).load(
+//console.log('$(\'#help_main_'+helpType+'\').load(\'index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd\');');
+//console.log('index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd');
+//console.log( $('#help_main_'+helpType) );
+			$('#help_main_'+helpType).load(
 				'index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd',
 				function(response, status, xhr) {
 					if (status === 'error') {
 						//console.log('got here');
-						$('div #help_main_'+helpType).html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
+						$('#help_main_'+helpType).html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
 					}
 					return this;
 				}
@@ -85,12 +86,12 @@ $(document).ready(function() {
 			//getHelp('article', default_help);
 			
 			//assign onclick event to help article anchor tags to make use of AJAX calls instead of native HTML link functionality
-			$('#help_top_article a.article').click(function(event) {
+			$('#help_top_article').find('a.article').click(function(event) {
 				"use strict"; //let's avoid tom-foolery in this function
 				event.preventDefault(); //don't let a tag try to jump us to #help_area before we reveal it
 				getHelp( 'article', $(this).attr('data-id') );
 			}).attr('href', '#help_area').attr('aria-controls', 'help_main_article');
-			$('#help_top_article a.edit').click(function(event) {
+			$('#help_top_article').find('a.edit').click(function(event) {
 				"use strict"; //let's avoid tom-foolery in this function
 				event.preventDefault(); //don't let a tag try to jump us to #help_area before we reveal it
 				edit_help_article( $(this).attr('data-id') );
@@ -104,12 +105,12 @@ $(document).ready(function() {
 			getHelp('faq', default_faq);
 			
 			//assign onclick event to help FAQ anchor tags to make use of AJAX calls instead of native HTML link functionality
-			$('#help_top_faq a.question').click(function(event) {
+			$('#help_top_faq').find('a.question').click(function(event) {
 				"use strict"; //let's avoid tom-foolery in this function
 				event.preventDefault(); //don't let a tag try to jump us to #help_area before we reveal it
 				getHelp( 'faq', $(this).attr('data-id') );
 			}).attr('href', '#help_area').attr('aria-controls', 'help_main_faq');
-			$('#help_top_faq a.edit').click(function(event) {
+			$('#help_top_faq').find('a.edit').click(function(event) {
 				"use strict"; //let's avoid tom-foolery in this function
 				event.preventDefault(); //don't let a tag try to jump us to #help_area before we reveal it
 				edit_help_faq( $(this).attr('data-id') );
@@ -126,7 +127,7 @@ $(document).ready(function() {
 					$('#asker_email_address').attr('required','required');
 				}
 				else {
-					$('#asker_email_address').removeAttr('required','required');
+					$('#asker_email_address').removeAttr('required');
 				}
 			});
 			
@@ -140,7 +141,7 @@ $(document).ready(function() {
 				//if user requests an email response to their FAQ, require that they specify a (valid) email address
 				//console.log($('#faq_form #asker_email_address').val());
 				if( $('#faq_form #asker_email_address').attr('required') === 'required' ) {
-					var emailAddressValue=$('#faq_form #asker_email_address').val();
+					var emailAddressValue=$('#faq_form').find('#asker_email_address').val();
 					if( !emailAddressValue.length ) {
 						errorMessage+='Please enter your email address so we can send the response to you as (you requested).';
 						fieldFocus='#asker_email_address';
@@ -152,7 +153,7 @@ $(document).ready(function() {
 				}
 				
 				//require a question
-				//console.log($('#faq_form #question').val());
+				//console.log($('#faq_form').find('#question').val());
 				if($('#faq_form #question').val() === '') {
 					errorMessage='Please enter your question.\n'+errorMessage;
 					fieldFocus='#question';
@@ -163,12 +164,12 @@ $(document).ready(function() {
 					$(fieldFocus).focus();
 				}
 				else {
-					$('div #help_main_faq').load(
+					$('#help_main_faq').load(
 						faq_form_action+' #faq_result',
 						$('#faq_form').serialize(),
 						function(response, status, xhr) {
 							if (status === 'error') {
-								$('div #help_main_faq').html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
+								$('#help_main_faq').html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
 							}
 							else {
 								$('#question').val('');
@@ -189,17 +190,17 @@ $(document).ready(function() {
 			
 			var submit_search = function() {
 				"use strict"; //let's avoid tom-foolery in this function
-				$('div #help_main_search').load(
+				$('#help_main_search').load(
 					help_search_form_action+' #search_result',
 					$('#help_search_form').serialize(),
 					function(response, status, xhr) {
 						if (status === 'error') {
-							$('div #help_main_faq').html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
+							$('#help_main_faq').html('<h2>Oh boy</h2><p>Sorry, but there was an error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
 						}
 						return this;
 					}
 				);
-				$('div #help_main_search').focus();
+				$('#help_main_search').focus();
 			};
 		}
 	}
@@ -226,7 +227,7 @@ $(document).ready(function() {
 		$('#task_details_resolution_entry_hours').append( '<!-- following clock image and related HTML are injected from plugins.js --><button type="button" id="task_open_link" title="Update hours field to 0.25 hours." class="btn btn-mini"><i class="icon-time"></i> <span id="task_open_clock">0.25</span> hours</button>' );
 		$('#task_open_link').click(function(event) {
 			"use strict"; //let's avoid tom-foolery in this function
-			event.preventDefault(); //don't let a tag try to jump us to #help_area before we reveal it
+			event.preventDefault(); //don't let a tag try to jump us within the page
 			$('#hours').val( elapsed_time );
 		});
 
@@ -240,9 +241,9 @@ $(document).ready(function() {
 	else {
 		//everything in here actually goes above, and this else block gets deleted.
 		//bind client-side validation to required input elements
-		$('form input:required').parents('form').submit( function() {
+		$('form').find('input:required').parents('form').submit( function() {
 			// console.log('Handler for submit called');
-			$('form input:required').each( function () {
+			$('form').find('input:required').each( function () {
 				if (!$(this).val().length) {
 					alert('Please enter a value for '+$(this).prev('label').html());
 					return false;
