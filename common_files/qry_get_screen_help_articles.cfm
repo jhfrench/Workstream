@@ -32,8 +32,8 @@ FROM Help_Article
 	INNER JOIN Link_Screen_Help_Article ON Help_Article.help_article_id=Link_Screen_Help_Article.help_article_id
 		AND Link_Screen_Help_Article.active_ind=1<cfif attributes.help_articles_lookup_type_id EQ 1>
 		/*specific help_article_article*/
-		AND Help_Article.help_article_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.help_article_id#">
-	INNER JOIN REF_Screen ON Link_Screen_Help_Article.screen_id=REF_Screen.screen_id<cfelse>
+		AND Help_Article.help_article_id=<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.help_article_id#"><cfelse>
+	INNER JOIN REF_Screen ON Link_Screen_Help_Article.screen_id=REF_Screen.screen_id
 		AND REF_Screen.active_ind=1
 		AND REF_Screen.fuseaction=<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.fuseaction#" /></cfif>
 WHERE Help_Article.active_ind=1
