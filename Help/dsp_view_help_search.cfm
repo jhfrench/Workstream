@@ -1,6 +1,6 @@
 <!-- Help/dsp_view_help_search.cfm
 	Author: Jeromy French -->
-<!--- 
+<!---
 <fusedoc language="ColdFusion MX" specification="2.0" template="dsp_view_help_search.cfm">
 	<responsibilities>
 		I show the Help_Article records associated with the fuseaction of the page the user is viewing.
@@ -24,14 +24,11 @@
 </fusedoc>
 --->
 <cfsetting showdebugoutput="no">
-<!--- this string of numbers will always be unique, which defeats the browser caching of the Main navigation menu --->
-<cfset variables.cache_escape="#dateformat(now(),'yyyymmdd')##timeformat(now(),'hhmmss')#">
-<cfset attributes.show_page_specific_help_searchs_ind=0>
 <cfparam name="attributes.case_sensitive_ind" default="0">
 <cfinclude template="qry_get_screen_help_search.cfm">
 <div id="search_result">
 <cfif get_screen_help_search.recordcount>
-	<!--- these hidden forms allow us to retrieve an individual help or faq entry ---><!--- 
+	<!--- these hidden forms allow us to retrieve an individual help or faq entry ---><!---
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="view_help_article" fuseaction="Help.view_help_article" field_name="help_article_id"> --->
 	<cfmodule template="../common_files/act_drilldown_form.cfm" function_name="view_help_faq" fuseaction="Help.view_help_faq" field_name="help_faq_id">
 	<span class="label label-success">We found something</span>
