@@ -28,8 +28,6 @@
 <cfparam name="attributes.answered_previously_ind" default="0">
 <cfparam name="attributes.help_faq_id" default="0">
 
-<cfinclude template="../common_files/qry_get_help_email_recipients.cfm">
-
 <cftransaction>
 	<cfif attributes.help_faq_id NEQ 0>
 		<!--- deactivate Help_FAQ record for old help_faq --->
@@ -74,11 +72,6 @@
 	}
 	</cfscript>
 	<cfinclude template="../common_files/qry_insert_help_faq.cfm">
-	<cfquery name="get_help_faq_id" datasource="#application.datasources.main#">
-	SELECT CURRVAL('HELP_FAQ_help_faq_id_SEQ') AS help_faq_id
-	FROM Dual
-	</cfquery>
-	<cfset attributes.help_faq_id=get_help_faq_id.help_faq_id>
 
 	<cfif isdefined("attributes.screen_id") AND listlen(attributes.screen_id)>
 		<!--- INSERT INTO Link_Screen_Help_FAQ (help_faq_id, screen_id) --->
@@ -111,6 +104,7 @@
 			</cfmail>
 		</cfif>
 
+		<cfinclude template="../common_files/qry_get_help_email_recipients.cfm">
 		<!--- Let the other Help admins know that the question was answered--->
 		<cfif len(variables.help_email_recipients)>
 			<cfmail to="#variables.help_email_recipients#" from="#application.system_email_sender#" subject="#application.product_name# FAQ Answered" type="HTML"

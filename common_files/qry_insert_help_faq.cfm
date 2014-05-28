@@ -29,6 +29,9 @@ if (NOT isdefined("attributes.answer")) {
 if (NOT isdefined("attributes.answered_by")) {
 	attributes.answered_by="";
 }
+if (NOT isdefined("attributes.asked_by")) {
+	attributes.asked_by=variables.created_by;
+}
 if (NOT isdefined("attributes.asker_email_address")) {
 	attributes.asker_email_address="";
 }
@@ -73,7 +76,7 @@ INSERT INTO Help_FAQ (question, email_requested_ind, asker_email_address,
 	public_ind, sort_order, created_by,
 	active_ind)
 VALUES (<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.question#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.email_requested_ind#">, <cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.asker_email_address#">,
-	<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.answer#">, #variables.created_by#, <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.answered_by#" null="#variables.answer_null#">,
+	<cfqueryparam cfsqltype="cf_sql_varchar" value="#attributes.answer#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.asked_by#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.answered_by#" null="#variables.answer_null#">,
 	<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.public_ind#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.sort_order#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#variables.created_by#" null="#variables.created_by_null#">,
 	<cfqueryparam cfsqltype="cf_sql_integer" value="#attributes.active_ind#">)
 RETURNING help_faq_id

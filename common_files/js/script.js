@@ -14,6 +14,9 @@ if (!('console' in this)) console={}; 'log info warn error dir clear'.replace(/\
 
 // place any jQuery/helper plugins in here, instead of separate, slower script files.
 
+var submit_faq=function(){},
+	faq_form_action;
+
 $(document).ready(function() {
 	$('[aria-hidden="true"]').hide(); //hide anything that's marked as hidden to screen-readers
 
@@ -117,7 +120,7 @@ $(document).ready(function() {
 			}).attr('href', '#help_area');
 
 			//grab form actions from baseline HTML then replace with javascript that will call Ajax functions
-			var faq_form_action=$('#faq_form').attr('action');
+			faq_form_action=$('#faq_form').attr('action');
 			$('#faq_form').attr('action', 'javascript:submit_faq();');
 			
 			// if user requests an email response to their FAQ, require that they specify an email address
@@ -132,7 +135,7 @@ $(document).ready(function() {
 			});
 			
 			// handles the submission of a user's question
-			var submit_faq = function() {
+			submit_faq = function() {
 				"use strict"; //let's avoid tom-foolery in this function
 				var errorMessage='',
 					fieldFocus='',
