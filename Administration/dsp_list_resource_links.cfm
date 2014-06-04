@@ -50,7 +50,7 @@
 		<tr bgcolor="###variables.row_color#" onmouseover="this.bgColor='##cfdee3';this.style.cursor='hand';" onmouseout="this.bgColor='###variables.row_color#';this.style.cursor='default';" onclick="javascript:Element.toggle('var_id_#currentrow#'); return false;">
 			<td><a href="javascript:administer_bw_reports(#bw_report_links_id#);">#resource_link_type#</a></td>
 			<td><a href="javascript:administer_bw_reports(#bw_report_links_id#);">#link_label#</a></td>
-			<td><a href="javascript:administer_bw_reports(#bw_report_links_id#);">#dateformat(created_date,"m/d/yyyy")#</a></td>
+			<td><a href="javascript:administer_bw_reports(#bw_report_links_id#);">#dateformat(created_date,"mm/dd/yyyy")#</a></td>
 		</tr>
 	</cfoutput>
 </table>

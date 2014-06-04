@@ -22,7 +22,7 @@
 		<br />
 		<strong>Birthdate</strong> #dateformat(get_employee_details.birth_date, "mm/dd")#<br />
 		<strong>Hire Date</strong> #dateformat(get_employee_details.hire_date, "m/d/yyyy")#<br />
-		<cfif compare(get_employee_details.turnover_date,"")><strong>End Date</strong> #dateformat(get_employee_details.turnover_date,"m/d/yyyy")#</cfif>
+		<cfif compare(get_employee_details.turnover_date,"")><strong>End Date</strong> #dateformat(get_employee_details.turnover_date,"mm/dd/yyyy")#</cfif>
 		<cfif get_emp_phone.recordcount>
 			<cfinclude template="dsp_emp_phone.cfm">
 		</cfif>

@@ -21,7 +21,7 @@ function OpenPreTaskWindow(arg, arg1){
 <cfloop list="task_name" index="ii">
 if (arg == "#ii#")
 {
-	document.forms[0].#ii#.value = window.showModalDialog('#attributes.dir_level#index.cfm?fuseaction=Timekeeping.pre_name&formname=#ii#&date=#dateformat(now(),"m/d/yyyy")#&hour=#hour(now())#&minute=#minute(now())#',"#ii#","center=yes;dialogWidth=350pt;dialogHeight=200pt");
+	document.forms[0].#ii#.value = window.showModalDialog('#attributes.dir_level#index.cfm?fuseaction=Timekeeping.pre_name&formname=#ii#&date=#dateformat(now(),"mm/dd/yyyy")#&hour=#hour(now())#&minute=#minute(now())#',"#ii#","center=yes;dialogWidth=350pt;dialogHeight=200pt");
 }
 </cfloop>
   }

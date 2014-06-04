@@ -37,7 +37,7 @@
 	<cfmodule template="qry_get_ref_product_version.cfm" product_version_id="#attributes.product_version_id#">
 	<cfset attributes.description=get_ref_product_version.description>
 	<cfset attributes.product_version_id=get_ref_product_version.product_version_id>
-	<cfset attributes.scheduled_release_date=dateformat(get_ref_product_version.scheduled_release_date,"m/d/yyyy")>
+	<cfset attributes.scheduled_release_date=dateformat(get_ref_product_version.scheduled_release_date,"mm/dd/yyyy")>
 	<cfset attributes.sort_order=get_ref_product_version.sort_order>
 </cfif>
 <cfform name="form_ref_product_version_entry" action="index.cfm?fuseaction=#attributes.fuseaction#" method="post">
