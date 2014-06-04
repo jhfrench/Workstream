@@ -38,9 +38,9 @@
 			<td class="hidden-phone hidden-tablet">#project_name#</td>
 			<td class="hidden-phone">#priority#</td>
 			<td>#task_status#</td>
-			<td class="date">#dateformat(assigned_date,"mm/dd/yyyy")#</td>
-			<td class="date">#dateformat(due_date,"mm/dd/yyyy")#</td>
-			<td class="date">#dateformat(complete_date,"mm/dd/yyyy")#</td>
+			<td class="date">#dateformat(assigned_date, "mm/dd/yyyy")#</td>
+			<td class="date">#dateformat(due_date, "mm/dd/yyyy")#</td>
+			<td class="date">#dateformat(complete_date, "mm/dd/yyyy")#</td>
 		</tr>
 	</cfoutput>
 	</tbody>

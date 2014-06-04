@@ -36,7 +36,7 @@
 				<a href="javascript:list_to_task('#task_id#');" title="View task."><i class="#task_icon#" title="<cfif sort_order EQ 1>#name# is a sub task to the task you are viewing (task #attributes.task_id#).<cfelse>The task you are viewing (task #attributes.task_id#) is a sub task to #name#</cfif>"></i>&nbsp;#name#</a>
 			</td>
 			<td>#status#</td>
-			<td class="date">#dateformat(due_date,"mm/dd/yyyy")#</td><!--- $issue$: change dateformat filters to use application-scoped variable? --->
+			<td class="date">#dateformat(due_date, "mm/dd/yyyy")#</td><!--- $issue$: change dateformat filters to use application-scoped variable? --->
 		</tr>
 	</cfoutput>
 	</tbody>

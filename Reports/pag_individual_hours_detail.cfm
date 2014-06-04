@@ -41,7 +41,7 @@
 	<cfloop query="get_individual_hours_detail">
 		<tr>
 			<td class="date">
-				#dateformat(work_date, "m/d/yyyy")#
+				#dateformat(work_date, "mm/dd/yyyy")#
 			</td>
 			<td>
 				#project_display#

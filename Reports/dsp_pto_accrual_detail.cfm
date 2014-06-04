@@ -48,7 +48,7 @@
 	<cfoutput query="get_pto_detail">
 		<tr>
 			<td class="date">
-				#dateformat(transaction_date,'m/d/yyyy')#
+				#dateformat(transaction_date, "mm/dd/yyyy")#
 			</td>
 			<td>
 				<cfif hours_out EQ 0>#comments#<cfelse><a href="javascript:time_edit('#time_entry_id#');"><cfif len(comments)>#comments#<cfelse>PTO Usage</cfif></a></cfif>

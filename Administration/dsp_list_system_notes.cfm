@@ -55,8 +55,8 @@
 			<td id="system_note_id" width="40%">
 				<a href="javascript:edit_system_note(#system_note_id#)">#jsstringformat(left(note_text, 50))#<cfif len(note_text) GT 50>...</cfif></a>
 			</td>
-			<td id="display_start_date">#dateformat(display_start_date, 'm/d/yyyy')#</td>
-			<td id="display_end_date">#dateformat(display_end_date, 'm/d/yyyy')#</td>
+			<td id="display_start_date">#dateformat(display_start_date, "mm/dd/yyyy")#</td>
+			<td id="display_end_date">#dateformat(display_end_date, "mm/dd/yyyy")#</td>
 			<td id="created_by">#created_by#</td>
 		</tr>
 	</cfoutput>

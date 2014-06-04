@@ -95,7 +95,7 @@
 							<td valign="top"><div class="forum" id="collapse#discussion_id#" title="icon will collapse or expand the entire discussion thread an all sub topics"><a href="##" onclick="javascript:blocking('#discussion_id#');"><i class="icon-zoom-out"></i></a></div>
 
 							<div class="forum" id="#discussion_id#" title="Top level discussion thread entry">
-							Posted By: #created_by# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #dateformat(created_date, "m/d/yyyy")# at #timeformat(created_date, 'h:mm tt')#
+							Posted By: #created_by# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #dateformat(created_date, "mm/dd/yyyy")# at #timeformat(created_date, 'h:mm tt')#
 							<br />
 							#discussion_text#
 							<cfif len(get_discussion.link)>

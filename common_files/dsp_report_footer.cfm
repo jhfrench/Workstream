@@ -26,7 +26,7 @@
 	<table border="0" cellspacing="0" cols="2" width="100%" summary="Report footer">
 		<tr bgcolor="##999999">
 			<td align="left">
-				#dateformat(now(),"mm/dd/yyyy")#
+				#dateformat(now(), "mm/dd/yyyy")#
 			</td>
 			<td class="number">
 				#cfdocument.currentpagenumber# of #cfdocument.totalpagecount#

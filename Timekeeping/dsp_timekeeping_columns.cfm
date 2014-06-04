@@ -62,7 +62,7 @@
 						<cfoutput query="get_most_recent_relevant_time_entry">
 							<tr>
 								<td scope="row"><a href="javascript:list_to_task('#task_id#');" title="View details for this task.">#task_id#</a></td>
-								<td class="date">#dateformat(work_date, "m/d/yyyy")#</td>
+								<td class="date">#dateformat(work_date, "mm/dd/yyyy")#</td>
 								<td>#note#</td>
 								<td class="number">#numberformat(hours)#</td>
 								<td class="hidden-phone hidden-tablet"><abbr title="#last_name#, #last_name#">#first_name#</abbr></td>

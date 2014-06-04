@@ -53,7 +53,7 @@
 				#billable_type#
 			</td>
 			<td scope="row" class="date">
-				#dateformat(created_date, "m/d/yyyy")#
+				#dateformat(created_date, "mm/dd/yyyy")#
 			</td>
 			<td>
 				#invoicer#

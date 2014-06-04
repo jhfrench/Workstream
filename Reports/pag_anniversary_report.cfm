@@ -29,7 +29,7 @@
 		<tr>
 			<td>#last_name#</td>
 			<td>#first_name#</td>
-			<td class="date">#dateformat(hire_date,"mm/dd/yyyy")#</td>
+			<td class="date">#dateformat(hire_date, "mm/dd/yyyy")#</td>
 			<td class="number">#decimalformat(years_employed)#</td>
 			<td class="date">#dateformat(birth_date,"mm/dd")#</td>
 		</tr>

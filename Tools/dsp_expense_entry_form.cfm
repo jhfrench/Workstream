@@ -8,7 +8,7 @@
 	Name: Jeromy French
 	||
 	Edits:
-	 || 
+	 ||
 	END FUSEDOC --->
 <cfparam name="attributes.amount" default="">
 <cfparam name="attributes.client_billable_ind" default="">
@@ -28,7 +28,7 @@
 	<cfset attributes.expense_note=get_expense_details.expense_note>
 	<cfset attributes.paid_by_id=get_expense_details.paid_by_id>
 	<cfset attributes.payee_name=get_expense_details.payee_name>
-	<cfset attributes.project_id=get_expense_details.project_id><!--- 
+	<cfset attributes.project_id=get_expense_details.project_id><!---
 	<cfset attributes.supervisor_flag=url.supervisor_flag> --->
 	<cfset attributes.expense_status_id=get_expense_details.expense_status_id>
 	<cfset attributes.accounting_approval_memo=get_expense_details.accounting_approval_memo>
@@ -51,7 +51,6 @@
 	</td>
 	<td>
 		<input type="date" name="date_incurred" id="date_incurred" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now()+30, 'yyyy-mm-dd')#" value="#dateformat(attributes.date_incurred,'yyyy-mm-dd')#" required="required" maxlength="10" class="span6 date" />
-		<!-- Use CF to create validaton <cfinput type="text" name="date_incurred" required="yes" validate="date" message="Please enter the date this expense was paid (m/d/yyyy format)." size="11"> --->
 	</td>
 </tr>
 <tr>

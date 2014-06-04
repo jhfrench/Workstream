@@ -36,7 +36,7 @@
 	<cfset variables.task_description=replaceList(paragraphformat(get_task_details.description),'<P>,"',",")>
 	<cfset variables.task_name=htmleditformat(get_task_details.task_name)>
 	<input type="hidden" name="last_loaded" value="#now()#" />
-	<input type="hidden" name="orig_due_date" value="#dateformat(get_task_details.due_date,"mm/dd/yyyy")#" />
+	<input type="hidden" name="orig_due_date" value="#dateformat(get_task_details.due_date, "mm/dd/yyyy")#" />
 	<input type="hidden" name="orig_file" value="#get_task_details.task_status_id#" />
 	<input type="hidden" name="orig_icon_id" value="#get_task_details.icon_id#" />
 	<input type="hidden" name="orig_notification" value="#valuelist(get_completion_email.email_id)#" />
@@ -81,11 +81,11 @@
 			</div>
 			<div class="span4">
 				<label for="date_assigned" class="h5">Date Assigned</label>
-				<span id="date_assigned" class="span11 date">#dateformat(get_task_details.date_assigned,"mm/dd/yyyy")#</span>
+				<span id="date_assigned" class="span11 date">#dateformat(get_task_details.date_assigned, "mm/dd/yyyy")#</span>
 				<label for="due_date" class="h5">Date Due</label>
 				<input type="date" name="due_date" id="due_date" min="#application.application_specific_settings.workstream_start_date#" value="#dateformat(get_task_details.due_date,'yyyy-mm-dd')#" maxlength="10" required="required"#variables.edit_status# class="span11 date" />
 				<span class="h5">Date Completed</span>
-				<div id="complete_date" class="span12 date"><cfif get_task_details.task_status_id EQ 11 AND len(get_task_details.complete_date)>#dateformat(get_task_details.complete_date,"mm/dd/yyyy")#<cfelse>Not yet completed</cfif></div>
+				<div id="complete_date" class="span12 date"><cfif get_task_details.task_status_id EQ 11 AND len(get_task_details.complete_date)>#dateformat(get_task_details.complete_date, "mm/dd/yyyy")#<cfelse>Not yet completed</cfif></div>
 			</div>
 			<div class="span4">
 				<label for="priority_id" class="h5">Priority</label>
@@ -114,7 +114,7 @@
 			<div class="span12">
 			<label for="notes" class="h5">Progress Notes <a href="javascript:$('##notes').height( $('##notes').height()*2 );" title="Expand progress notes"><i class="icon-resize-vertical"></i></a></label>
 			<cfif get_time_entry_details.recordcount>
-				<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea span12"><cfloop query="get_time_entry_details"><p<cfif notes_type_id EQ 2> class="alert-info"</cfif>><strong>(<abbr title="#author#">#initials#</abbr> #dateformat(work_date,"mm/dd/yyyy")#)</strong> - #trim(note)# <cfif time_entry_id><a href="javascript:time_entry_edit(#time_entry_id#);" title="edit this note"><i class="icon-edit"></i> Edit</a></cfif></p></cfloop></div>
+				<div id="notes" style="height:#variables.resolution_rows*40#px;" class="faux-textarea span12"><cfloop query="get_time_entry_details"><p<cfif notes_type_id EQ 2> class="alert-info"</cfif>><strong>(<abbr title="#author#">#initials#</abbr> #dateformat(work_date, "mm/dd/yyyy")#)</strong> - #trim(note)# <cfif time_entry_id><a href="javascript:time_entry_edit(#time_entry_id#);" title="edit this note"><i class="icon-edit"></i> Edit</a></cfif></p></cfloop></div>
 			<cfelse>
 				<div id="notes" class="alert">
 					<a href="javascript:delete_check('#attributes.task_id#');" title="Delete this task from workstream." class="btn btn-danger"><i class="icon-trash icon-white"></i> Delete this task</a>

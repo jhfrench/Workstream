@@ -70,10 +70,10 @@
 				#status#
 			</td>
 			<td class="date">
-				#dateformat(due_date,"mm/dd/yyyy")#
+				#dateformat(due_date, "mm/dd/yyyy")#
 			</td>
 			<td class="date">
-				#dateformat(complete_date,"mm/dd/yyyy")#
+				#dateformat(complete_date, "mm/dd/yyyy")#
 			</td>
 			<td class="number">
 				<span<cfif on_budget EQ 0> class="text-error"</cfif>>#decimalformat(used_hours)#</span>

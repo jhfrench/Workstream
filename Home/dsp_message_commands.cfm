@@ -32,7 +32,7 @@
 	<tr>
 		<td bgcolor="###variables.row_color#">
 			<p style="margin-top:0px;margin-bottom:2px;color:black">#note_text#</span></p>
-			<p align="right" style="margin-top:0px;margin-bottom:0px;"><small><i>&raquo;#created_by#&ndash;#dateformat(created_date,"mm/dd/yyyy")#</small></i></p>
+			<p align="right" style="margin-top:0px;margin-bottom:0px;"><small><i>&raquo;#created_by#&ndash;#dateformat(created_date, "mm/dd/yyyy")#</small></i></p>
 		</td>
 	</tr>
 </cfoutput>

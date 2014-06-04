@@ -31,8 +31,8 @@
 			<td><a href="javascript:list_to_details('#task_id#');"><i class="#task_icon#" title="#replacelist(left(task_description, 150), '"', '')#..."></i>&nbsp;#task_name#</a></td>
 			<cfinclude template="qry_get_team_members.cfm">
 			<td>#listchangedelims(valuelist(get_team_members.last_name),", ")#</td>
-			<td>#dateformat(assigned_date,"mm/dd/yyyy")#</td>
-			<td>#dateformat(due_date,"mm/dd/yyyy")#</td>
+			<td>#dateformat(assigned_date, "mm/dd/yyyy")#</td>
+			<td>#dateformat(due_date, "mm/dd/yyyy")#</td>
 			<td>#status#</td>
 		</tr>
 	</cfoutput>

@@ -109,7 +109,7 @@
 			<label for="project_start" class="control-label">Start</label>
 			<div class="controls">
 				<input type="date" name="project_start" id="project_start" value="#dateformat(get_project_main.project_start,'yyyy-mm-dd')#" min="#dateformat(variables.min_project_start, 'yyyy-mm-dd')#" max="#dateformat(variables.max_project_start, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
-				<p class="help-block">Required; please enter a proper date for which work is to begin on this project.<cfif len(get_project_main.last_work_date)> You cannot choose a date after the project's first time entry (#dateformat(get_project_main.first_work_date,'m/d/yyyy')#)</cfif></p>
+				<p class="help-block">Required; please enter a proper date for which work is to begin on this project.<cfif len(get_project_main.last_work_date)> You cannot choose a date after the project's first time entry (#dateformat(get_project_main.first_work_date, "mm/dd/yyyy")#)</cfif></p>
 				<label class="radio" for="extend_billing_rate_start_ind_1">
 					<input type="radio" name="extend_billing_rate_start_ind" id="extend_billing_rate_start_ind_1" value="1" checked="checked"> Extend active billing rate start dates to match this date
 				</label>
@@ -122,7 +122,7 @@
 			<label for="project_end" class="control-label">End</label>
 			<div class="controls">
 				<input type="date" name="project_end" id="project_end" value="#dateformat(get_project_main.project_end,'yyyy-mm-dd')#" min="#dateformat(min_project_end, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
-				<p class="help-block">Required; date for which work is expected to end on this project.<cfif len(get_project_main.last_work_date)> You cannot choose a date earlier than the project's last time entry (#dateformat(get_project_main.last_work_date,'m/d/yyyy')#)</cfif></p>
+				<p class="help-block">Required; date for which work is expected to end on this project.<cfif len(get_project_main.last_work_date)> You cannot choose a date earlier than the project's last time entry (#dateformat(get_project_main.last_work_date, "mm/dd/yyyy")#)</cfif></p>
 				<label class="radio" for="extend_billing_rate_end_ind_1">
 					<input type="radio" name="extend_billing_rate_end_ind" id="extend_billing_rate_end_ind_1" value="1" checked="checked"> Extend active billing rate end dates to match this date
 				</label>

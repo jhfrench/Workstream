@@ -45,7 +45,7 @@
 		<tr>
 			<td><a href="javascript:task_details(#task_id#);" title="View task #task_id#">#task_id#</a></td>
 			<td><a href="javascript:task_details(#task_id#);" title="View task #task_id#">#task_name#</a></td>
-			<td class="date">#dateformat(work_date,"mm/dd/yyyy")#</td>
+			<td class="date">#dateformat(work_date, "mm/dd/yyyy")#</td>
 			<td>#note#</td>
 			<td class="number"><a href="javascript:time_entry_edit(#time_entry_id#);" title="Edit note details">#decimalformat(hours)#</a></td>
 			<td class="number">#dollarformat(bill)#</td>

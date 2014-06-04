@@ -38,10 +38,10 @@
 				<a href="javascript:list_to_employee('#get_supervisor_history.supervisor_id#');" title="View details for #replace(get_supervisor_history.sup_name,"'","")#.">#get_supervisor_history.sup_name#</a><br />
 			</td>
 			<td class="date">
-				#dateformat(get_supervisor_history.date_start,'m/d/yyyy')#
+				#dateformat(get_supervisor_history.date_start, "mm/dd/yyyy")#
 			</td>
 			<td class="date">
-				#dateformat(get_supervisor_history.date_end,'m/d/yyyy')#
+				#dateformat(get_supervisor_history.date_end, "mm/dd/yyyy")#
 			</td>
 	</cfoutput>
 	</tbody>

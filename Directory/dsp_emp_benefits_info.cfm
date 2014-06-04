@@ -30,7 +30,7 @@ javascript:window.open('index.cfm?fuseaction=Directory.benefits_entry&user_accou
 	<cfoutput query="get_emp_benefits_info">
 		<tr>
 			<td>#description#</td>
-			<td class="date">#dateformat(date_start,"mm/dd/yyyy")#</td>
+			<td class="date">#dateformat(date_start, "mm/dd/yyyy")#</td>
 			<td class="number">#dollarformat(benefit_amount)#</td>
 		</tr>
 	</cfoutput>

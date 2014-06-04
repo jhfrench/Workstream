@@ -35,7 +35,7 @@
 				#description#
 				<cfif get_billing_rate.project_id NEQ variables.project_id>
 					<cfset variables.project_id=get_billing_rate.project_id>
-					<button type="button" class="btn btn-small btn-info" title="Project Details" data-toggle="popover" data-placement="right" data-html="true" data-original-title="<h3>Project Details</h3>" data-content="<dl class='dl-horizontal'><dt>Project Manager</dt><dd>#pm_last_name#, #pm_first_name#</dd><dt>Project Start</dt><dd>#dateformat(project_start, 'm/d/yyyy')#</dd><dt>Project End</dt><dd>#dateformat(project_end, 'm/d/yyyy')#</dd></dl><a href='javascript:edit_project(#variables.project_id#)' class='btn btn-small'>edit</a>"><i class="icon-briefcase"></i></button>
+					<button type="button" class="btn btn-small btn-info" title="Project Details" data-toggle="popover" data-placement="right" data-html="true" data-original-title="<h3>Project Details</h3>" data-content="<dl class='dl-horizontal'><dt>Project Manager</dt><dd>#pm_last_name#, #pm_first_name#</dd><dt>Project Start</dt><dd>#dateformat(project_start, "mm/dd/yyyy")#</dd><dt>Project End</dt><dd>#dateformat(project_end, "mm/dd/yyyy")#</dd></dl><a href='javascript:edit_project(#variables.project_id#)' class='btn btn-small'>edit</a>"><i class="icon-briefcase"></i></button>
 				</cfif>
 			</td>
 			<td scope="row">#last_name#, #first_name#</td>
@@ -47,7 +47,7 @@
 				<input type="hidden" name="rate_#project_id#_#user_account_id#_#billing_rate_id#" value="#rate#" />
 			</td>
 			<td class="date">
-				#dateformat(rate_start_date, 'm/d/yyyy')#
+				#dateformat(rate_start_date, "mm/dd/yyyy")#
 				<input type="hidden" name="rate_start_date_#project_id#_#user_account_id#_#billing_rate_id#" value="#dateformat(rate_start_date, 'yyyy-mm-dd')#" />
 			<cfelse>
 				<cfset variables.required_text="">

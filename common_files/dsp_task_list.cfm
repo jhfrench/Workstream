@@ -47,7 +47,7 @@
 				</cfif>
 			</cfif>#task_status#
 		</td>
-		<td class="date">#dateformat(due_date, "m/d/yyyy")#</td>
+		<td class="date">#dateformat(due_date, "mm/dd/yyyy")#</td>
 	</tr>
 </cfoutput>
 </tbody>

@@ -40,7 +40,7 @@
 			</td>
 			<td class="date">
 				<cfif isdate(deadline_date)>
-					#dateformat(deadline_date,'m/d/yyyy')#
+					#dateformat(deadline_date, "mm/dd/yyyy")#
 				</cfif>
 			</td>
 			<td>
@@ -79,7 +79,7 @@
 				</a>
 			</td>
 			<td class="date">
-				#dateformat(date_updated, "m/d/yyyy")#
+				#dateformat(date_updated, "mm/dd/yyyy")#
 			</td>
 		</tr>
 	</cfoutput>

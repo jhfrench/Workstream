@@ -26,7 +26,7 @@ $Log:
 	<tbody>
 	<cfoutput query="get_performance_review">
 		<tr>
-			<td class="date">#dateformat(date_reviewed, "m/d/yyyy")#</td>
+			<td class="date">#dateformat(date_reviewed, "mm/dd/yyyy")#</td>
 			<td>#rating#</td>
 			<td>#last_name#, #first_name#</td>
 		</tr>

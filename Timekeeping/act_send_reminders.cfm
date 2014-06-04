@@ -76,7 +76,7 @@ WHERE Task.active_ind=1
 			The following task will be due in #datediff("d",now(),dateadd("d",1,pre_due_email.due_date))# day<cfif pre_due_email.countdown NEQ 1>s</cfif>:
 			<dl>
 				<dt>Task:</dt><dd>#pre_due_email.task_name# (#pre_due_email.task_id#)</dd>
-				<dt>Due:</dt><dd>#dateformat(pre_due_email.due_date,"mm/dd/yyyy")#</dd>
+				<dt>Due:</dt><dd>#dateformat(pre_due_email.due_date, "mm/dd/yyyy")#</dd>
 				<dt>Budgeted Hours:</dt><dd>pre_due_email.budgeted_hours#</dd>
 				<dt>Description:</dt><dd>#pre_due_email.description#</dd>
 			</dl>

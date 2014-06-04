@@ -46,8 +46,8 @@
 		</cfif>
 			<td><span class="#variables.task_class#"><h4>#task_name# <small>#task_id#</small></h4></span></td>
 			<td class="number"><span class="#variables.task_class#">#budgeted_hours#</span></td>
-			<td class="date"><span class="#variables.task_class#">#dateformat(due_date, 'm/d/yyyy')#</span></td>
-			<td scope="row" class="date">#dateformat(work_date, 'm/d/yyyy')#</td>
+			<td class="date"><span class="#variables.task_class#">#dateformat(due_date, "mm/dd/yyyy")#</span></td>
+			<td scope="row" class="date">#dateformat(work_date, "mm/dd/yyyy")#</td>
 			<td class="number">#decimalformat(hours)#</td>
 			<td>#note#</td>
 		</tr>

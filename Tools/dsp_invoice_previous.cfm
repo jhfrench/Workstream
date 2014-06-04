@@ -49,7 +49,7 @@
 				<a href="javascript:customer(#customer_id#);" title="View projects">#customer_name# <i class="icon-zoom-in"></i></a>
 			</td>
 			<td scope="row" class="date">
-				#dateformat(created_date, "m/d/yyyy")#
+				#dateformat(created_date, "mm/dd/yyyy")#
 			</td>
 			<td>
 				#invoicer#

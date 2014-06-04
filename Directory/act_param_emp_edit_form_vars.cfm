@@ -40,7 +40,7 @@
 <cfparam name="company_id" default="#session.workstream_company_id#">
 <cfparam name="attributes.visible_company_id" default="#session.workstream_company_id#">
 <cfparam default="0" name="supervisor_id">
-<cfparam default="#dateformat(now(),"mm/dd/yyyy")#" name="hire_date">
+<cfparam default="#dateformat(now(), "mm/dd/yyyy")#" name="hire_date">
 <cfparam default="" name="employee_classification">
 <cfparam default="" name="employee_classification_id">
 <cfparam default="" name="account_type_id">

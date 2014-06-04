@@ -29,7 +29,7 @@
 	<ul class="breadcrumb">
 		<li><a href="index.cfm?fuseaction=Administration.manage_user_access">Manage User Access</a> <span class="divider">/</span></li>
 		<li>View User Activity <span class="divider">/</span></li>
-		<li class="active">#get_user_information.first_name# #get_user_information.last_name#<cfif isdate(attributes.start_date) AND isdate(attributes.end_date)> <small>between #dateformat(attributes.start_date, "m/d/yyyy")# and #dateformat(attributes.end_date, "m/d/yyyy")#</small></cfif></li>
+		<li class="active">#get_user_information.first_name# #get_user_information.last_name#<cfif isdate(attributes.start_date) AND isdate(attributes.end_date)> <small>between #dateformat(attributes.start_date, "mm/dd/yyyy")# and #dateformat(attributes.end_date, "mm/dd/yyyy")#</small></cfif></li>
 	</ul>
 </h2>
 <a href="javascript:edit_navigation_access(#attributes.user_account_id#);" class="btn">Manage User's Access</a>
@@ -50,7 +50,7 @@
 			<tbody>
 			<cfloop query="get_user_login_attempts" startrow="1" endrow="100">
 				<tr class="<cfif locked_ind>error<cfelseif NOT success_ind>warning<cfelse>success</cfif>">
-					<td scope="row" class="date">#dateformat(created_date, 'm/d/yyyy')#&nbsp;#timeformat(created_date)#</td>
+					<td scope="row" class="date">#dateformat(created_date, "mm/dd/yyyy")#&nbsp;#timeformat(created_date)#</td>
 					<td><cfif success_ind>Success<cfelse>Fail</cfif></td>
 					<td><cfif locked_ind>Locked</cfif></td>
 				</tr>
@@ -140,7 +140,7 @@
 				<tr>
 					<td scope="row">#page_request_id#</td>
 					<td>#url_requested#</td>
-					<td class="date">#dateformat(request_date, "m/d/yyyy")#&nbsp;#timeformat(request_time)#</td>
+					<td class="date">#dateformat(request_date, "mm/dd/yyyy")#&nbsp;#timeformat(request_time)#</td>
 				</tr>
 			</cfloop>
 			</tbody>
@@ -164,7 +164,7 @@
 					<td scope="row">#page_request_id#</td>
 					<td>#url_requested#</td>
 					<td class="number">#page_load_time#</td>
-					<td class="date">#dateformat(request_date, "m/d/yyyy")#&nbsp;#timeformat(request_time)#</td>
+					<td class="date">#dateformat(request_date, "mm/dd/yyyy")#&nbsp;#timeformat(request_time)#</td>
 				</tr>
 			</cfloop>
 			</tbody>

@@ -30,7 +30,7 @@
 				<cfif billed_ind>Time previouly billed.<cfelse><cfinput type="checkbox" name="notes_id" value="#notes_id#" required="yes" message="Please mark which hours you wish to reassign."></cfif>
 			</td>
 			<td scope="row" class="date">
-				<a href="javascript:time_edit('#time_entry_id#');" title="Edit this time entry.">#dateformat(work_date,"mm/dd/yyyy")#</a>
+				<a href="javascript:time_edit('#time_entry_id#');" title="Edit this time entry.">#dateformat(work_date, "mm/dd/yyyy")#</a>
 			</td>
 			<td class="number">
 				<a href="javascript:time_edit('#time_entry_id#');" title="Edit this time entry.">#decimalformat(hours)#</a>
