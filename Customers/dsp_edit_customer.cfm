@@ -33,7 +33,7 @@
 		<div class="control-group">
 			<label for="company_id" class="control-label">Company</label>
 			<div class="controls">
-				<cfselect name="company_id" id="company_id" size="1" query="get_companies" value="company_id" display="description" selected="#get_customer_details.company_id#" class="span4" />
+				<cfselect name="company_id" id="company_id" size="1" query="get_ref_company" value="company_id" display="description" selected="#get_customer_details.company_id#" class="span4" />
 				<p class="help-block">Company with the primary relationship with the customer.</p>
 			</div>
 		</div>
