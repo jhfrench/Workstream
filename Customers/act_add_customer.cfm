@@ -78,7 +78,7 @@
 		INSERT INTO Security_Company_Access (user_account_id, company_id, created_by)
 		VALUES (<cfqueryparam value="#insert_user_account.user_account_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#insert_ref_company.company_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />);
 		</cfquery>
-		<cfset attributes.company_id=lsitappend(attributes.company_id,insert_ref_company.company_id)>
+		<cfset attributes.company_id=listappend(attributes.company_id,insert_ref_company.company_id)>
 	</cfif>
 	<cfquery name="insert_link_customer_company" datasource="#application.datasources.main#">
 	INSERT INTO Link_Customer_Company (customer_id, company_id, created_by)
