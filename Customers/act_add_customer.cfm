@@ -43,7 +43,7 @@
 		company_id<cfif len(attributes.company_address1)>, company_address1</cfif><cfif len(attributes.company_address2)>, company_address2</cfif>
 		<cfif len(attributes.company_city)>, company_city</cfif>, company_state<cfif len(attributes.company_zip)>, company_zip</cfif>
 		<cfif len(attributes.last_name)>, contact_user_account_id</cfif>, active_ind, created_by)
-	VALUES (<cfqueryparam value="#variables.new_code#" cfsqltype="cf_sql_varchar" />, <cfqueryparam value="#attributes.description#" cfsqltype="cf_sql_varchar" />, #attributes.billable_type_id#,
+	VALUES (<cfqueryparam value="#variables.new_code#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#attributes.description#" cfsqltype="cf_sql_varchar" />, #attributes.billable_type_id#,
 		#attributes.company_id# <cfif len(attributes.company_address1)>, '#attributes.company_address1#'</cfif><cfif len(attributes.company_address2)>, '#attributes.company_address2#'</cfif>
 		<cfif len(attributes.company_city)>, '#attributes.company_city#'</cfif>, '#attributes.company_state#'<cfif len(attributes.company_zip)>, '#attributes.company_zip#'</cfif>
 		<cfif len(attributes.last_name)>, <cfqueryparam value="#insert_user_account.user_account_id#" cfsqltype="cf_sql_integer" /></cfif>, 1, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
@@ -66,7 +66,7 @@
 		<cfquery name="insert_ref_company" datasource="#application.datasources.main#">
 		INSERT INTO REF_Company (description, code_prefix, show_hours_data_ind,
 			sort_order, created_by)
-		VALUES (<cfqueryparam value="#attributes.description#" cfsqltype="cf_sql_varchar" />, <cfqueryparam value="#variables.new_code#" cfsqltype="cf_sql_varchar" />, 1,
+		VALUES (<cfqueryparam value="#attributes.description#" cfsqltype="cf_sql_varchar" />, <cfqueryparam value="#variables.new_code#" cfsqltype="cf_sql_integer" />, 1,
 			999, <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 		RETURNING company_id;
 		</cfquery>

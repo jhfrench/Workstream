@@ -38,7 +38,7 @@
 <body class="container-fluid">
 	<div class="alert alert-warning">
 		<strong>Sorry</strong><br />
-		Workstream is currently available due to maintenance.
+		Workstream is currently unavailable due to maintenance.
 	</div>
 </body>
 

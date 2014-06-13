@@ -21,7 +21,7 @@ INSERT INTO Project (root_code, customer_id, description,
 VALUES ('#get_root_code.root_code#', <cfqueryparam value="#attributes.customer_id#" cfsqltype="cf_sql_integer" />, '#attributes.description#',
 	<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" /><cfif len(attributes.vision)>, '#attributes.vision#'</cfif><cfif len(attributes.mission)>, '#attributes.mission#'</cfif>
 	<cfif len(attributes.business_case)>,' #attributes.business_case#'</cfif><cfif len(attributes.project_end)>, '#attributes.project_end#'</cfif><cfif len(attributes.project_start)>, '#attributes.project_start#'</cfif>,
-	<cfqueryparam value="#attributes.product_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#attributes.billable_type_id#" cfsqltype="cf_sql_integer" />, '#variables.new_code#',
+	<cfqueryparam value="#attributes.product_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#attributes.billable_type_id#" cfsqltype="cf_sql_integer" />, <cfqueryparam value="#variables.new_code#" cfsqltype="cf_sql_integer" />,
 	1, <cfqueryparam value="#session.workstream_company_id#" cfsqltype="cf_sql_integer" />, #attributes.budget#)
 RETURNING project_id;
 </cfquery>
