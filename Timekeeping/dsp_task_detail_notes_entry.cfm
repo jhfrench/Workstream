@@ -20,7 +20,7 @@
 <div class="row-fluid">
 	<div id="task_details_resolution_entry_hours" class="span5">
 		<label for="hours">Hours</label>
-		<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" class="span5" />
+		<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" class="span5 number" />
 	</div>
 	<div class="span3">
 		<label for="notes_type_id">Type</label>

@@ -84,7 +84,7 @@ else {
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>#application.product_name#</title>
 	<link href="//s3.amazonaws.com/Workstream/images/workstream_icon.ico" rel="SHORTCUT ICON" />
-	<link rel="stylesheet" href="Application_Manager/errortemplates/error_style.css">
+	<link rel="stylesheet" href="//s3.amazonaws.com/Application_Manager/error_style.css">
 	<script language="JavaScript" type="text/javascript">
 		//send the user to the appropriate page after an annoying wait
 		setTimeout(function() {
@@ -96,7 +96,7 @@ else {
 <body class="warning">
 <section class="center">
 	<div class="error_header" aria-hidden="true">
-		<img src="Application_Manager/images/gears1.png" alt="" width="64" height="64" />
+		<img src="//s3.amazonaws.com/Application_Manager/images/gears1.png" alt="" width="64" height="64" />
 	</div>
 	<div class="content">
 		<p class="header">You have entered #application.product_name# through an illegal URL.</p>
