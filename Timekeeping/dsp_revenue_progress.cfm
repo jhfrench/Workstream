@@ -159,7 +159,7 @@
 					else {
 						console.log('cant chart yet');
 						draw_revenue_graph();
-					}
+					};
 				}
 			}
 		]);

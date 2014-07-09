@@ -54,7 +54,7 @@
 		<cfif parent_business_function_id NEQ business_function_id>
 			<cfset variables.hierachy_level=hierachy_level>
 			<cfset variables.flyout_opened_ind=1>
-			<li class="dropdown"><a href="##" title="#parent_business_function#" class="dropdown-toggle" data-toggle="dropdown">#parent_business_function#<b class="caret"></b></a>
+			<li class="dropdown-submenu"><a href="##" title="#parent_business_function#">#parent_business_function#</a>
 				<ul class="dropdown-menu">
 		</cfif>
 	</cfif>
