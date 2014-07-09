@@ -50,7 +50,7 @@
 				'//s3.amazonaws.com/Workstream/script.js',
 				'//s3.amazonaws.com/Workstream/clockTower.js',
 				//pre-fetch some resources to make the app perform better
-				'preload!//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js',
+				'preload!//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js',
 				'preload!//s3.amazonaws.com/external-projects/DataTables/DataTables/media/js/jquery.dataTables.min.js'
 			]
 		}
