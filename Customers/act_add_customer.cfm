@@ -38,6 +38,7 @@
 		</cfquery>
 	</cfif>
 
+	/*there is a trigger on the Customer table that maintains Customer.sort_order*/
 	<cfquery name="insert_customer" datasource="#application.datasources.main#">
 	INSERT INTO Customer (root_code, description, billable_type_id,
 		company_id<cfif len(attributes.company_address1)>, company_address1</cfif><cfif len(attributes.company_address2)>, company_address2</cfif>
