@@ -30,32 +30,28 @@ var applyTableSorting=function(){
 	Modernizr.load([
 		{
 			load: [
-				'//s3.amazonaws.com/external-projects/DataTables/DataTables/media/js/jquery.dataTables.min.js'
+				'//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js'
 			],
 			complete: function() {
 				//power table sorting
 				$(document).ready(function () {
-					$('table.table-sorted').each( function() {
-		                if ($(this).find('tbody').prop('rows').length > 2) {
-							$(this).dataTable({
-								"aaSorting": [ ],
-								"bAutoWidth": false,
-								"bFilter": #attributes.bFilter#,
-								"bLengthChange": false,
-								"bPaginate": #attributes.bPaginate#,
-								"iDisplayLength": 50,
-								"sDom": "<cfif attributes.tabletools_ind><'row-fluid'<'span6'f><'span6'<'pull-right'T>>r></cfif>t<cfif attributes.bPaginate><'row-fluid'<'span6'i><'span6'<'pull-right'p>>></cfif>"<cfif attributes.bPaginate>,
-								"sPaginationType": "bootstrap"</cfif><cfif attributes.tabletools_ind>,
-								"oTableTools": {
-									"aButtons": [ "copy", "xls", "pdf" ],
-									"sSwfPath": "//s3.amazonaws.com/external-projects/DataTables/TableTools/media/swf/copy_csv_xls_pdf.swf"
-								}</cfif>
-							});
-		                };
-					});
+					$('table.table-sorted').filter( function(){ return $(this).find('tbody').prop('rows').length > 2 } )
+						.dataTable({
+							"aaSorting": [ ],
+							"bAutoWidth": false,
+							"bFilter": #attributes.bFilter#,
+							"bLengthChange": false,
+							"bPaginate": #attributes.bPaginate#,
+							"iDisplayLength": 50,
+							"sDom": "<cfif attributes.tabletools_ind><'row-fluid'<'span6'f><'span6'<'pull-right'T>>r></cfif>t<cfif attributes.bPaginate><'row-fluid'<'span6'i><'span6'<'pull-right'p>>></cfif>"<cfif attributes.bPaginate>,
+							"sPaginationType": "bootstrap"</cfif><cfif attributes.tabletools_ind>,
+							"oTableTools": {
+								"aButtons": [ "copy", "xls", "pdf" ],
+								"sSwfPath": "//s3.amazonaws.com/external-projects/DataTables/TableTools/media/swf/copy_csv_xls_pdf.swf"
+							}</cfif>
+						});
 					//apply relevant Bootstrap styling
 					var $dataTables_wrapper=$('div.dataTables_wrapper');<cfif attributes.bFilter>
-					//apply relevant Bootstrap styling
 					$dataTables_wrapper.find('.dataTables_filter').find('.input').addClass('span9 search-query').attr('placeholder','search '+$(this).parents('div.dataTables_wrapper').find('caption').text());</cfif><cfif attributes.tabletools_ind>
 					$dataTables_wrapper.find('.DTTT_container').addClass('btn-group').find('a').addClass('btn btn-small');
 					$dataTables_wrapper.find('.dataTables_length').find('select').addClass('span3');</cfif>

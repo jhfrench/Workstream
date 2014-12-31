@@ -45,13 +45,13 @@
 	Modernizr.load([
 		{
 			load: [
-				'//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js',
+				'//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js',
 				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js',
 				'//s3.amazonaws.com/Workstream/script.js',
 				'//s3.amazonaws.com/Workstream/clockTower.js',
 				//pre-fetch some resources to make the app perform better
-				'preload!//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js',
-				'preload!//s3.amazonaws.com/external-projects/DataTables/DataTables/media/js/jquery.dataTables.min.js'
+				'preload!//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js',
+				'preload!//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js'
 			]
 		}
 	]);
