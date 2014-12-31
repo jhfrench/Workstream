@@ -40,6 +40,9 @@ $(document).ready(function() {
 
 	$help_area=$('#help_area');
 	if ( $help_area.length ) {
+        //progressively-enhance help area to 1) make it hidden, 2) change it to span3, and 3) class it as `.docked`, 4) unwrap its parent `.row-fluid` and 5) append it to content container
+        $help_area.attr('aria-hidden', 'true').hide().switchClass('span12', 'span3').addClass('docked').unwrap().insertAfter('#content_container');
+
 		//console.log( $help_area );
 		var jump_manager=function(target) {
 			"use strict"; //let's avoid tom-foolery in this function

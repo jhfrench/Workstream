@@ -24,12 +24,14 @@
 <!-- END MAIN BODY -->
 <cfif variables.show_footer_ind>
 		</section>
-		<cfif application.help.active_ind>
-		<aside id="help_area" aria-hidden="true" role="complementary" class="span3 alert alert-info">
+	</div>
+	<cfif application.help.active_ind>
+	<div class="row-fluid">
+		<aside id="help_area" role="complementary" class="span12 alert alert-info">
 			<cfinclude template="../Help/dsp_screen_help.cfm">
 		</aside>
-		</cfif>
 	</div>
+	</cfif>
 	<footer role="contentinfo" class="row-fluid visible-desktop">
 		<div class="span4">
 			&nbsp;<cfoutput>&copy; #year(now())# #application.application_specific_settings.organization#</cfoutput>

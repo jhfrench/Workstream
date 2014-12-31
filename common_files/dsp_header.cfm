@@ -59,14 +59,14 @@ else
 	Modernizr.load([
 		{
 			both: [
-				'//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js',
-				'//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js',
+				'//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js',
+				'//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js',
 				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js',
 				'//s3.amazonaws.com/Workstream/script.js'
 			]<cfif len(get_screen_details.body_onload)>,
 			complete: function () {
 				$(document).ready(function() {
-					<cfoutput>#get_screen_details.body_onload#</cfoutput>
+					#get_screen_details.body_onload#
 				});
 			}</cfif>
 		}
@@ -107,7 +107,7 @@ else
 								<cfif NOT isdefined("variables.user_identification")>
 									<li><a href="index.cfm?fuseaction=Home.login" class="login_link"><strong>Sign in for More Access</strong></a></li>
 								<cfelseif session.password_created_by EQ variables.user_identification>
-									<li><a href="index.cfm?fuseaction=Home.logout" class="login_link"><strong>Sign out <cfoutput>#session.first_name# #session.last_name#</cfoutput></strong></a></li>
+									<li><a href="index.cfm?fuseaction=Home.logout" class="login_link"><strong>Sign out #session.first_name# #session.last_name#</strong></a></li>
 								</cfif>
 							</ul>
 						</div><!--/.nav-collapse -->
