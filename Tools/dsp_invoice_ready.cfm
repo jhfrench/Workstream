@@ -54,3 +54,12 @@
 	<div class="alert alert-success">All eligible time has already been invoiced.</div>
 </cfif>
 </cfoutput>
+
+<script>
+	$(document).ready(function(){
+		$('a[data-loading-text]').click(function(){
+			$(this).button('loading');
+			window.setTimeout(function(){ $(this).remove(); }, 3000);
+		});
+	});
+</script>
