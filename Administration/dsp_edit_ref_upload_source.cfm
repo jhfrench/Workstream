@@ -52,25 +52,25 @@
 		<td>
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table displays new user information">
 			<tr>
-				<td><label for="description">Upload Source description</label>: 
+				<td><label for="description">Upload Source description</label>:
 					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="40" required="yes" message="Please enter upload source description." maxlength="4000">
 				</td>
-				<td><label for="abbreviation">Upload Source Abbreviation</label>: 
+				<td><label for="abbreviation">Upload Source Abbreviation</label>:
 					<br /><cfinput type="text" name="abbreviation" id="abbreviation" value="#attributes.abbreviation#" size="25" required="yes" message="Please enter upload source abbreviation." maxlength="4000">
 				</td>
-				<td><label for="upload_template">Upload Template</label>: 
+				<td><label for="upload_template">Upload Template</label>:
 					<br /><cfinput type="text" name="upload_template" id="upload_template" value="#attributes.upload_template#" size="40" required="yes" message="Please enter upload template." maxlength="4000">
 				</td>
 			</tr>
 			<tr>
-				<td><label for="worksheet_name">Worksheet Name</label>: 
+				<td><label for="worksheet_name">Worksheet Name</label>:
 					<br /><cfinput type="text" name="worksheet_name" id="worksheet_name" value="#attributes.worksheet_name#" size="40" maxlength="80"
 							required="yes" message="Please enter worksheet name.">
 				</td>
 				<td>
-					<label for="sort_order">Sort Order</label>: 
+					<label for="sort_order">Sort Order</label>:
 					<br />
-					<input type="number" name="sort_order" id="sort_order" value="#IIf(attributes.upload_source_id EQ 0, ('get_ref_upload_source.recordcount+1'), ('get_ref_upload_source.sort_order'))#" step="1" min="1" required="required" class="span5" />
+					<input type="number" name="sort_order" id="sort_order" value="#IIf(attributes.upload_source_id EQ 0, ('get_ref_upload_source.recordcount+1'), ('get_ref_upload_source.sort_order'))#" step="1" min="1" required="required" class="span5 number" />
 				</td>
 				<cfif attributes.upload_source_id EQ 0>
 					<input type="hidden" name="active_ind" value="1" />

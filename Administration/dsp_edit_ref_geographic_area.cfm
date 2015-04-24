@@ -50,16 +50,16 @@
 		<td>
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="table displays geographic area information">
 			<tr>
-				<td><label for="description">Description</label>: 
+				<td><label for="description">Description</label>:
 					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" message="Please enter description." maxlength="128">
 				</td>
-				<td><label for="code">Code</label>: 
+				<td><label for="code">Code</label>:
 					<br /><cfinput type="text" name="code" id="code" value="#attributes.code#" size="20" required="yes" message="Please enter code." maxlength="20">
 				</td>
 				<td>
-					<label for="sort_order">Sort Order</label>: 
+					<label for="sort_order">Sort Order</label>:
 					<br />
-					<input type="number" name="sort_order" id="sort_order" value="#attributes.sort_order#" step="1" min="1" required="required" class="span5" />
+					<input type="number" name="sort_order" id="sort_order" value="#attributes.sort_order#" step="1" min="1" required="required" class="span5 number" />
 				</td>
 				<cfif attributes.geographic_area_id EQ 0>
 					<input type="hidden" name="active_ind" value="1" />

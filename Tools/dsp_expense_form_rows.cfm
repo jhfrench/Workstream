@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 
 </cfsilent>
@@ -42,7 +42,7 @@
 					<cfoutput>#Get_Expense_Type.Expense_Type[ii]#</cfoutput>:
 				</td>
 				<td>
-					<input type="number" name="et_#ii#" id="et_#ii#" value="#evaluate('expense_cross_tab.et_#ii#')#" step="0.01" min="0" required="required" class="span5" />
+					<input type="number" name="et_#ii#" id="et_#ii#" value="#evaluate('expense_cross_tab.et_#ii#')#" step="0.01" min="0" required="required" class="span5 number" />
 				</td>
 			</tr>
 			<cfset start=IncrementValue(start)>
@@ -58,7 +58,7 @@
 					<cfoutput>#Get_Expense_Type.Expense_Type[ii]#</cfoutput>:
 				</td>
 				<td>
-					<input type="number" name="et_#ii#" id="et_#ii#" value="#evaluate('expense_cross_tab.et_#ii#')#" step="0.01" min="0" required="required" class="span5" />
+					<input type="number" name="et_#ii#" id="et_#ii#" value="#evaluate('expense_cross_tab.et_#ii#')#" step="0.01" min="0" required="required" class="span5 number" />
 				</td>
 			</tr>
 			</cfloop>

@@ -10,7 +10,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
  --->
 </cfsilent>
 <cfoutput>
@@ -35,7 +35,7 @@
 			<label for="icon_id" class="h5">Icon</label>
 			<cfselect query="get_ref_icon" name="icon_id" id="icon_id" display="icon_name" value="icon_id" selected="1" class="span9"></cfselect>
 			<label for="budgeted_hours" class="h5">Hours Budgeted</label>
-			<input type="number" name="budgeted_hours" id="budgeted_hours" step="1" min="0" max="999" class="span9" />
+			<input type="number" name="budgeted_hours" id="budgeted_hours" step="1" min="0" max="999" class="span9 number" />
 			<!-- let CF create the JavaScript: <cfinput type="text" name="budgeted_hours" id="budgeted_hours" required="yes" validate="float" message="Please enter a number for hours budgeted." class="span6"> -->
 	</div>
 </div>

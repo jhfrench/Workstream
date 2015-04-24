@@ -51,13 +51,13 @@
 					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" message="Please enter description." maxlength="2000">
 				</td>
 				<td>
-					<label for="notes">Notes</label>: 
+					<label for="notes">Notes</label>:
 					<br /><cfinput type="text" name="notes" id="notes" size="30" value="#IIf(attributes.email_category_id EQ 0, (""), ("get_ref_email_category.notes"))#" required="yes" message="Please enter notes." maxlength="400">
 				</td>
 				<td>
 					<label for="sort_order">Sort Order</label>:
 					<br />
-					<input type="number" name="sort_order" id="sort_order" value="#IIf(attributes.email_category_id EQ 0, ('get_ref_email_category.recordcount+1'), ('get_ref_email_category.sort_order'))#" step="1" min="0" max="100" required="required" class="span5" />
+					<input type="number" name="sort_order" id="sort_order" value="#IIf(attributes.email_category_id EQ 0, ('get_ref_email_category.recordcount+1'), ('get_ref_email_category.sort_order'))#" step="1" min="0" max="100" required="required" class="span5 number" />
 				</td>
 				<cfif attributes.email_category_id EQ 0>
 					<input type="hidden" name="active_ind" value="1" />

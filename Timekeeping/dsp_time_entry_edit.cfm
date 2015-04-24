@@ -40,7 +40,7 @@
 			<div class="control-group">
 				<label for="hours" class="control-label">Hours</label>
 				<div class="controls">
-					<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" value="#decimalformat(get_time_entry_details.hours)#" class="span3" />
+					<input type="number" name="hours" id="hours" step="0.25" min="0" max="24" value="#decimalformat(get_time_entry_details.hours)#" class="span3 number" />
 					<span class="help-block">How many hours of work were performed?</span>
 				</div>
 			</div>

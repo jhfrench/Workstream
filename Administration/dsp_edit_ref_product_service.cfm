@@ -63,7 +63,7 @@
 			<tr>
 				<td><label for="sort_order">Sort Order</label>: </td>
 				<td>
-					<input type="number" name="sort_order" id="sort_order" value="#attributes.sort_order#" step="1" min="0" max="999" required="required" class="span5" />
+					<input type="number" name="sort_order" id="sort_order" value="#attributes.sort_order#" step="1" min="0" max="999" required="required" class="span5 number" />
 				</td>
 			</tr>
 			<tr>

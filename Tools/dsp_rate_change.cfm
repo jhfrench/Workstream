@@ -93,13 +93,15 @@
 </cfform>
 
 <script type="text/javascript">
+	/*$issue$ all this JavaScript can be improved */
 	//if any rates are populated, require start and end dates for that row
 	var determine_dates_required=function(changed_field) {
-		if ($(changed_field).val().length===0) {
-			$(changed_field).parents('tr').find('input[type="date"]').removeAttr('required');
+		var $changed_field=$(changed_field);
+		if ($changed_field.val().length===0) {
+			$changed_field.parents('tr').find('input[type="date"]').removeAttr('required');
 		}
 		else {
-			$(changed_field).parents('tr').find('input[type="date"]').attr('required','required');
+			$changed_field.parents('tr').find('input[type="date"]').attr('required','required');
 		}
 
 	},

@@ -143,7 +143,7 @@
 	<div class="control-group">
 		<label for="pto_override" class="control-label"><abbr title="Paid Time Off">PTO</abbr> Annual Accrual</label>
 		<div class="controls">
-			<input type="number" name="pto_override" id="pto_override" min="0" max="204" step="0.1" class="span3" />
+			<input type="number" name="pto_override" id="pto_override" min="0" max="204" step="0.1" class="span3 number" />
 			<p class="help-block">If not standard accrual, enter a valid number for PTO Annual Hours Accrued</p>
 		</div>
 	</div>

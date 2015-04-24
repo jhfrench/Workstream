@@ -64,7 +64,7 @@
 				<td>
 					<label for="requirement_number">Requirement Number</label>:
 					<br />
-					<input type="number" name="requirement_number" id="requirement_number" value="#get_requirement.requirement_number#" step="1" min="0" required="required" class="span5" />
+					<input type="number" name="requirement_number" id="requirement_number" value="#get_requirement.requirement_number#" step="1" min="0" required="required" class="span5 number" />
 				</td>
 			</tr>
 			<tr>
@@ -75,7 +75,7 @@
 				<td>
 					<label for="sort_order">Sort Order</label>:
 					<br />
-					<input type="number" name="sort_order" id="sort_order" value="#get_requirement.sort_order#" step="1" min="0" max="100" required="required" class="span5" />
+					<input type="number" name="sort_order" id="sort_order" value="#get_requirement.sort_order#" step="1" min="0" max="100" required="required" class="span5 number" />
 				</td>
 				<cfif attributes.requirement_id EQ 0>
 					<input type="hidden" name="active_ind" value="1" />

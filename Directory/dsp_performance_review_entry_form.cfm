@@ -9,10 +9,10 @@
 	Name: Jeromy French
 	||
 	Edits:
-$Log: 
+$Log:
 
- 
-	 || 
+
+	 ||
  --->
 
 </cfsilent>
@@ -40,7 +40,7 @@ $Log:
 			Rating:
 		</td>
 		<td class="SelectText">
-			<input type="number" name="rating" id="rating" step="1" min="0" max="100" required="required" class="span5" />
+			<input type="number" name="rating" id="rating" step="1" min="0" max="100" required="required" class="span5 number" />
 		</td>
 	</tr>
 	<tr align="center" bordercolor="##78A0EB" bgcolor="##78A0EB">

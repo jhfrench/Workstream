@@ -9,10 +9,10 @@
 	Name: Jeromy French
 	||
 	Edits:
-$Log: 
+$Log:
 
- 
-	 || 
+
+	 ||
  --->
 </cfsilent>
 <cfoutput>
@@ -31,7 +31,7 @@ $Log:
 		<div class="controls">
 			<div class="input-prepend">
 				<span class="add-on">&##36;</span>
-				<input type="number" name="salary" id="salary" step="1" min="0" max="9999999999" required="required" class="span5" />
+				<input type="number" name="salary" id="salary" step="1" min="0" max="9999999999" required="required" class="span5 number" />
 			</div>
 		</div>
 	</div>

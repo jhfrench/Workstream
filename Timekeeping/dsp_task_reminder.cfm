@@ -28,7 +28,7 @@
 	<div class="control-group">
 		<label for="reminder_days" class="h5 control-label">Days</label>
 		<div class="controls">
-		<input type="number" name="reminder_days" id="reminder_days" value="#variables.reminder_days#" step="1" min="0" max="90" class="span2" />
+		<input type="number" name="reminder_days" id="reminder_days" value="#variables.reminder_days#" step="1" min="0" max="90" class="span2 number" />
 		<span class="help-inline">Please specify your pre due date reminder as a number of whole days before the due date.</span>
 		</div>
 	</div>

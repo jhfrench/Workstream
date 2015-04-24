@@ -49,13 +49,13 @@
 		<td>
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="Table used to add new program year">
 			<tr>
-				<td><label for="description">description</label>: 
+				<td><label for="description">description</label>:
 					<br /><cfinput type="text" name="description" id="description" value="#attributes.description#" size="30" required="yes" message="Please enter description." maxlength="4000">
 				</td>
 				<td>
-					<label for="sort_order">Sort Order</label>: 
+					<label for="sort_order">Sort Order</label>:
 					<br />
-					<input type="number" name="sort_order" id="sort_order" value="#attributes.sort_order#" step="1" min="1" required="required" class="span5" />
+					<input type="number" name="sort_order" id="sort_order" value="#attributes.sort_order#" step="1" min="1" required="required" class="span5 number" />
 				</td>
 				<cfif attributes.program_year_id EQ 0>
 					<input type="hidden" name="active_ind" value="1" />

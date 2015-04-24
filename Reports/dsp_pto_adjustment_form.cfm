@@ -9,7 +9,7 @@
 	||
 	Edits:
 	$Log$
-	 || 
+	 ||
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
@@ -25,7 +25,7 @@
 		<div class="control-group">
 			<label for="granted_hours" class="control-label">Hours</label>
 			<div class="controls">
-				<input type="number" name="granted_hours" id="granted_hours" step="0.25" min="-999" max="999" required="required" class="span5" />
+				<input type="number" name="granted_hours" id="granted_hours" step="0.25" min="-999" max="999" required="required" class="span5 number" />
 			</div>
 		</div>
 		<div class="control-group">

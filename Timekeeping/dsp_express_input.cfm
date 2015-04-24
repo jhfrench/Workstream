@@ -36,7 +36,7 @@
 				<input type="date" name="date" aria-labelledby="label_date" min="#variables.min_date#" max="#variables.max_date#" value="" maxlength="10" required="required" class="span8 date" />
 			</div>
 			<div class="span1">
-				<input type="number" name="hours" aria-labelledby="label_hours" step="0.25" min="0" max="24" required="required" class="number span12" />
+				<input type="number" name="hours" aria-labelledby="label_hours" step="0.25" min="0" max="24" required="required" class="span12 number" />
 			</div>
 			<div class="span4">
 				#variables.select_work_item#

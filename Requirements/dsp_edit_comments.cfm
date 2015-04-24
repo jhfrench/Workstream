@@ -47,7 +47,7 @@
 				<td>
 					<label for="comments_number">Comment Number</label>:
 					<br />
-					<input type="number" name="comments_number" id="comments_number" value="#get_comment.comments_number#" step="1" min="0" required="required" class="span5" />
+					<input type="number" name="comments_number" id="comments_number" value="#get_comment.comments_number#" step="1" min="0" required="required" class="span5 number" />
 				</td>
 				<cfif attributes.comments_id EQ 0>
 					<input type="hidden" name="active_ind" value="1" />
@@ -61,7 +61,7 @@
 				<td>
 					<label for="sort_order">Sort Order</label>:
 					<br />
-					<input type="number" name="sort_order" id="sort_order" value="#get_comment.sort_order#" step="1" min="0" max="100" required="required" class="span5" />
+					<input type="number" name="sort_order" id="sort_order" value="#get_comment.sort_order#" step="1" min="0" max="100" required="required" class="span5 number" />
 				</td>
 			</tr>
 			<tr>

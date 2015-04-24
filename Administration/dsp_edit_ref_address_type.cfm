@@ -47,13 +47,13 @@
 		<td>
 		<table width="100%" cellspacing="0" cellpadding="8" border="0" summary="table displays user account information">
 			<tr>
-				<td><label for="description">description</label>: 
+				<td><label for="description">description</label>:
 					<br /><cfinput type="text" name="description" id="description" size="30" value="#attributes.description#" required="yes" message="Please enter description." maxlength="400">
 				</td>
 				<td>
-					<label for="sort_order">Sort Order</label>: 
+					<label for="sort_order">Sort Order</label>:
 					<br />
-					<input type="number" name="sort_order" id="sort_order" value="#iif(attributes.address_type_id EQ 0, ('get_ref_address_type.recordcount+1'), ('get_ref_address_type.sort_order'))#" step="1" min="1" required="required" class="span5" />
+					<input type="number" name="sort_order" id="sort_order" value="#iif(attributes.address_type_id EQ 0, ('get_ref_address_type.recordcount+1'), ('get_ref_address_type.sort_order'))#" step="1" min="1" required="required" class="span5 number" />
 				</td>
 				<cfif attributes.address_type_id EQ 0>
 					<input type="hidden" name="active_ind" value="1" />
