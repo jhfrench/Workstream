@@ -1,5 +1,5 @@
 
-<!--Directory/qry_phone_entry.cfm
+<!--Directory/qry_insert_phone.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -15,7 +15,7 @@
  --->
 <cfloop query="get_phone_types">
 <cfif len(evaluate("attributes.phone_#phone_type_id#")) OR len(evaluate("attributes.phone_#phone_type_id#_ext"))>
-<cfquery name="phone_entry" datasource="#application.datasources.main#">
+<cfquery name="insert_phone" datasource="#application.datasources.main#">
 INSERT INTO Phone(user_account_id, phone_number<cfif len(evaluate("attributes.phone_#phone_type_id#_ext"))>, extension</cfif>,
 	phone_type_id, created_by)
 VALUES(#variables.user_account_id#, '#evaluate("attributes.phone_#phone_type_id#")#'<cfif len(evaluate("attributes.phone_#phone_type_id#_ext"))>, '#evaluate("attributes.phone_#phone_type_id#_ext")#'</cfif>,

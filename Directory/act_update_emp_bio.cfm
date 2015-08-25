@@ -4,10 +4,10 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I 
+	Responsibilities: I
 
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -18,7 +18,7 @@ DELETE FROM Emp_Biography
 WHERE user_account_id=#attributes.user_account_id#
 </cfquery>
 <cfif len(attributes.biography)>
-	<cfquery name="emp_biography_entry" datasource="#application.datasources.main#">
+	<cfquery name="insert_emp_biography" datasource="#application.datasources.main#">
 		INSERT INTO Emp_Biography (user_account_id,biography)
 		VALUES(#attributes.user_account_id#,'#stripcr(attributes.biography)#')
 	</cfquery>

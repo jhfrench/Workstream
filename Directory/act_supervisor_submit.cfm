@@ -9,11 +9,11 @@
 	Name: Jeromy French
 	||
 	Edits:
-	$Log: 
+	$Log:
 
-	 || 
+	 ||
 	END FUSEDOC --->
 
 </cfsilent>
-<cfinclude template="qry_emp_supervisor_entry.cfm">
+<cfinclude template="qry_insert_link_user_account_supervisor.cfm">
 <cfinclude template="../common_files/js_reload_and_close.cfm">

@@ -4,7 +4,7 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I select a list of all the companies that a user is allowed to see.
+	Responsibilities: I select a list of all the companies that the specified user is allowed to see.
 	||
 	Name: Jeromy French
 	||
@@ -22,7 +22,7 @@ FROM REF_Company
 		SELECT company_id
 		FROM Link_Company_User_Account
 		WHERE Link_Company_User_Account.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />
-		UNION ALL
+		UNION
 		SELECT company_id
 		FROM Security_Company_Access
 		WHERE Security_Company_Access.user_account_id=<cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />

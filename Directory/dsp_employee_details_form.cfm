@@ -19,25 +19,25 @@
 	<div class="control-group">
 		<label for="last_name" class="control-label">Last Name</label>
 		<div class="controls">
-			<cfinput type="text" name="last_name" id="last_name" value="#last_name#" required="yes" message="Please enter a last name." class="span3" />
+			<cfinput type="text" name="last_name" id="last_name" value="#last_name#" required="yes" message="Please enter a last name." maxlength="50" class="span3" />
 		</div>
 	</div>
 	<div class="control-group">
 		<label for="first_name" class="control-label">First Name</label>
 		<div class="controls">
-			<cfinput type="text" name="first_name" id="first_name" value="#first_name#" required="yes" message="Please enter a first name." class="span3" />
+			<cfinput type="text" name="first_name" id="first_name" value="#first_name#" required="yes" message="Please enter a first name." maxlength="50" class="span3" />
 		</div>
 	</div>
 	<div class="control-group">
 		<label for="middle_initial" class="control-label">Middle Initial</label>
 		<div class="controls">
-			<input type="text" name="middle_initial" id="middle_initial" value="#middle_initial#" class="span3" />
+			<input type="text" name="middle_initial" id="middle_initial" value="#middle_initial#" maxlength="50" class="span3" />
 		</div>
 	</div>
 	<div class="control-group">
 		<label for="credentials" class="control-label">Credentials</label>
 		<div class="controls">
-			<input type="text" name="credentials" id="credentials" value="#credentials#" class="span3" />
+			<input type="text" name="credentials" id="credentials" value="#credentials#" maxlength="50" class="span3" />
 		</div>
 	</div>
 	<div class="control-group">
@@ -76,77 +76,79 @@
 	</fieldset>
 	<fieldset>
 		<legend><h3>General</h3></legend>
-	<div class="control-group">
-		<label for="employment_position_id" class="control-label">Position Number</label>
-		<div class="controls">
-		<cfif isdefined("attributes.user_account_id")>
-			<span id="employment_position_id">Can't be changed from this screen.</span>
-		<cfelse>
-			<cfselect name="employment_position_id" id="employment_position_id" query="get_open_positions" value="employment_position_id" display="employment_position_id" required="yes" message="You must select a position number to enter this employee into workstream." class="span3">
+		<div class="control-group">
+			<label for="employment_position_id" class="control-label">Position Number</label>
+			<div class="controls">
+			<cfif isdefined("attributes.user_account_id")>
+				<span id="employment_position_id">Can't be changed from this screen.</span>
+			<cfelse>
+				<cfselect name="employment_position_id" id="employment_position_id" query="get_open_positions" value="employment_position_id" display="employment_position_id" required="yes" message="You must select a position number to enter this employee into workstream." class="span3">
 					<option value="-1">-1</option>
-			</cfselect>
-			<p class="help-block">If the position number drop-down is empty, or you can't find the appropriate position number, you need to mark the incumbant as inactive or have a new position approved.</p>
-		</cfif>
+				</cfselect>
+				<p class="help-block">If the position number drop-down is empty, or you can't find the appropriate position number, you need to mark the incumbant as inactive or have a new position approved.</p>
+			</cfif>
+			</div>
 		</div>
-	</div>
-	<div class="control-group">
-		<label for="hire_date" class="control-label">Hire date</label>
-		<div class="controls">
-			<input type="date" name="hire_date" id="hire_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(hire_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+		<div class="control-group">
+			<label for="hire_date" class="control-label">Hire date</label>
+			<div class="controls">
+				<input type="date" name="hire_date" id="hire_date" min="#application.application_specific_settings.workstream_start_date#" max="#dateformat(now(), 'yyyy-mm-dd')#" value="#dateformat(hire_date, 'yyyy-mm-dd')#" maxlength="10" required="required" class="span3 date" />
+			</div>
 		</div>
-	</div>
-	<div class="control-group">
-		<label for="company_id" class="control-label">Company</label>
-		<div class="controls">
-			<cfselect query="get_teams" name="company_id" id="company_id" value="company_id" display="company" selected="#company_id#" class="span3" />
+		<div class="control-group">
+			<label for="employee_classification" class="control-label">Employee Classification</label>
+			<div class="controls">
+				<cfselect name="employee_classification" id="employee_classification" query="get_ref_employee_classification" selected="#employee_classification_id#" value="employee_classification_id" display="employee_classification" class="span3" />
+			</div>
 		</div>
-	</div>
-	<div class="control-group">
-		<label for="employee_classification" class="control-label">Employee Classification</label>
-		<div class="controls">
-			<cfselect name="employee_classification" id="employee_classification" query="get_ref_employee_classification" selected="#employee_classification_id#" value="employee_classification_id" display="employee_classification" class="span3" />
+		<div class="control-group">
+			<label for="company_id" class="control-label">Employing Company</label>
+			<div class="controls">
+				<cfselect query="get_teams" name="company_id" id="company_id" value="company_id" display="company" selected="#company_id#" class="span3" />
+				<p class="help-block">This is the company for which the employee works</p>
+			</div>
 		</div>
-	</div>
-	<div class="control-group">
-		<label for="visible_company_id" class="control-label">Visible Companies</label>
-		<div class="controls">
-			<select name="visible_company_id" id="visible_company_id" size="#min(get_teams.recordcount,3)#" multiple="multiple" class="span3"><cfloop query="get_teams">
-				<option value="#company_id#"<cfif listcontains(attributes.visible_company_id,company_id)> selected="selected"</cfif>>#company#</option></cfloop>
-			</select>
+		<div class="control-group">
+			<label for="visible_company_id" class="control-label">Visible Companies</label>
+			<div class="controls">
+				<select name="visible_company_id" id="visible_company_id" size="#min(get_teams.recordcount,6)#" multiple="multiple" class="span3"><cfloop query="get_teams">
+					<option value="#company_id#"<cfif listcontains(attributes.visible_company_id,company_id)> selected="selected"</cfif>>#company#</option></cfloop>
+				</select>
+				<p class="help-block">Used to grant Workstream additional access to projects and tasks (for companies other than the "Employing Company" above).</p>
+			</div>
 		</div>
-	</div>
-	<div class="control-group">
-		<label for="account_type_id" class="control-label">User Type</label>
-		<div class="controls">
-			<cfselect name="account_type_id" id="account_type_id" selected="#account_type_id#" query="get_ref_account_type" value="account_type_id" display="description" class="span3" />
+		<div class="control-group">
+			<label for="account_type_id" class="control-label">User Type</label>
+			<div class="controls">
+				<cfselect name="account_type_id" id="account_type_id" selected="#account_type_id#" query="get_ref_account_type" value="account_type_id" display="description" class="span3" />
+			</div>
 		</div>
-	</div>
-	<div class="control-group">
-		<label for="supervisor_id" class="control-label">Supervisor</label>
-		<cfif isdefined("attributes.user_account_id")>
-			<span id="supervisor_id">Can't be changed from this screen.</span><input type="hidden" name="supervisor_id" value="#supervisor_id#">
-		<cfelse>
-		<div class="controls">
-			<cfmodule template="../common_files/dsp_team_select.cfm" multi="1" valuelist="false" element_name="supervisor_id" selected_value_ind="0" message="Please select a supervisor." user_account_id="#supervisor_id#" class="span3">
+		<div class="control-group">
+			<label for="supervisor_id" class="control-label">Supervisor</label>
+			<cfif isdefined("attributes.user_account_id")>
+				<span id="supervisor_id" class="text-warning">Can't be changed from this screen.</span>
+				<input type="hidden" name="supervisor_id" value="#supervisor_id#" />
+			<cfelse>
+			<div class="controls">
+				<cfmodule template="../common_files/dsp_team_select.cfm" multi="1" valuelist="false" element_name="supervisor_id" selected_value_ind="0" message="Please select a supervisor." user_account_id="#supervisor_id#" class="span3">
+			</div>
+			</cfif>
 		</div>
-		</cfif>
-	</div>
-	<div class="control-group">
-		<label for="overtime_elligible_ind" class="control-label">Overtime Paid</label>
-		<div class="controls">
-			<select name="overtime_elligible_ind" id="overtime_elligible_ind" class="span3">
-				<option value="0">No</option>
-				<option value="1">Yes</option>
-			</select>
+		<div class="control-group">
+			<div class="controls">
+				<!--- $issue$ need to pre-populate these fields for the edit screen --->
+				<label class="radio"><input type="radio" name="overtime_elligible_ind" id="overtime_elligible_ind_0" value="0" />This employee will not be paid overtime wages</label>
+				<label class="radio"><input type="radio" name="overtime_elligible_ind" id="overtime_elligible_ind_1" value="1" />This employee is eligible for overtime wages</label>
+			</div>
 		</div>
-	</div>
-	<div class="control-group">
-		<label for="pto_override" class="control-label"><abbr title="Paid Time Off">PTO</abbr> Annual Accrual</label>
-		<div class="controls">
-			<input type="number" name="pto_override" id="pto_override" min="0" max="204" step="0.1" class="span3 number" />
-			<p class="help-block">If not standard accrual, enter a valid number for PTO Annual Hours Accrued</p>
+		<div class="control-group">
+			<label for="pto_override" class="control-label"><abbr title="Paid Time Off">PTO</abbr> Annual Accrual</label>
+			<div class="controls">
+				<!--- $issue$ need to pre-populate these fields for the edit screen --->
+				<input type="number" name="pto_override" id="pto_override" min="0" max="204" step="0.1" class="span3 number" />
+				<p class="help-block">If this employee is not awarded the standard <abbr title="Paid Time Off">PTO</abbr> accrual, enter the number of annual hours they will accrue.</p>
+			</div>
 		</div>
-	</div>
 	</fieldset>
 	<div class="form-actions">
 		<input type="hidden" name="user_account_id" value="<cfif isdefined("attributes.user_account_id")>#attributes.user_account_id#</cfif>">

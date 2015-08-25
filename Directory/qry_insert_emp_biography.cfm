@@ -1,5 +1,5 @@
 
-<!--Directory/qry_emp_biography_entry.cfm
+<!--Directory/qry_insert_emp_biography.cfm
 	Author: Jeromy F -->
 <cfsilent>
 	<!---FUSEDOC
@@ -14,7 +14,7 @@
 	Variables:
  --->
 <cfif len(attributes.biography)>
-<cfquery name="emp_biography_entry" datasource="#application.datasources.main#">
+<cfquery name="insert_emp_biography" datasource="#application.datasources.main#">
 INSERT INTO Emp_Biography(user_account_id, biography, created_by)
 VALUES(#variables.user_account_id#, '#stripcr(paragraphformat(attributes.biography))#', <cfqueryparam value="#variables.user_identification#" cfsqltype="cf_sql_integer" />)
 </cfquery><!---

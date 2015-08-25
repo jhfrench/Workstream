@@ -19,18 +19,18 @@
 <cftransaction isolation="READ_COMMITTED">
 	<cfinclude template="qry_insert_employee_account.cfm">
 	<cfinclude template="qry_insert_employee.cfm">
-	<cfinclude template="qry_company_entry.cfm">
-	<cfinclude template="qry_location_entry.cfm">
+	<cfinclude template="qry_insert_link_company_user_account.cfm">
+	<cfinclude template="qry_insert_location.cfm">
 	<!--- <cfset need_all_supervisors = 1> --->
 	<cfinclude template="qry_get_supervisor_history.cfm">
 	<cfinclude template="qry_get_present_supervisor.cfm">
-	<cfinclude template="qry_emp_supervisor_entry.cfm">
+	<cfinclude template="qry_insert_link_user_account_supervisor.cfm">
 	<cfinclude template="qry_insert_security_company_access.cfm">
-	<cfinclude template="qry_email_entry.cfm">
-	<cfinclude template="qry_phone_entry.cfm">
-	<cfinclude template="qry_emp_biography_entry.cfm">
-	<cfinclude template="qry_pto_rollover_entry.cfm">
-	<cfinclude template="qry_position_number_entry.cfm">
+	<cfinclude template="qry_insert_email.cfm">
+	<cfinclude template="qry_insert_phone.cfm">
+	<cfinclude template="qry_insert_emp_biography.cfm">
+	<cfinclude template="qry_insert_pto_rollover.cfm">
+	<cfinclude template="qry_insert_link_user_account_employment_position.cfm">
 
 	<cfset application.team_changed=now()>
 </cftransaction>

@@ -4,10 +4,10 @@
 <cfsilent>
 	<!--- FUSEDOC
 	||
-	Responsibilities: I 
+	Responsibilities: I
 
 	||
-	Edits: 
+	Edits:
 	$Log$
 	||
 	Variables:
@@ -21,11 +21,11 @@ WHERE user_account_id=#attributes.user_account_id#
 <cfloop query="get_email_types">
 	<cfif len(evaluate("attributes.email_#email_type_id#"))>
 		<cfset email = evaluate("attributes.email_#email_type_id#")>
-		<cfquery name="email_entry" datasource="#application.datasources.main#">
+		<cfquery name="insert_email" datasource="#application.datasources.main#">
 		INSERT INTO Email(user_account_id,email,email_type_id)
 		VALUES(#attributes.user_account_id#,'#email#',#email_type_id#)
 		</cfquery>
 	</cfif>
-</cfloop> 
+</cfloop>
 
 </cfsilent>
