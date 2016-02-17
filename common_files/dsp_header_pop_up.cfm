@@ -46,24 +46,11 @@
 	<link href="//s3.amazonaws.com/Workstream/images/workstream_icon.ico" rel="SHORTCUT ICON" />
 	<link rel="stylesheet" href="//s3.amazonaws.com/Workstream/Workstream.css">
 
-	<script src="//s3.amazonaws.com/Workstream/modernizr.custom.40623.js"></script>
+	<script src="//s3.amazonaws.com/Workstream/Workstream.min.js"></script>
 	<script type="text/javascript">
-	//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
-	Modernizr.load([
-		{
-			both: [
-				'//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js',
-				'//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js',
-				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js',
-				'//s3.amazonaws.com/Workstream/script.js'
-			],
-			complete: function () {
-				$(document).ready(function() {
-					<cfoutput>#get_screen_details.body_onload#</cfoutput>
-				});
-			}
-		}
-	]);
+	$(document).ready(function() {
+		<cfoutput>#get_screen_details.body_onload#</cfoutput>
+	});
 	</script>
 </head>
 <body class="container-fluid">

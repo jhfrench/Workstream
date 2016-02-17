@@ -39,20 +39,15 @@
 	<link href="//s3.amazonaws.com/Workstream/images/workstream_icon.ico" rel="SHORTCUT ICON" />
 	<link rel="stylesheet" href="//s3.amazonaws.com/Workstream/Workstream_Login.css">
 
-	<script src="//s3.amazonaws.com/Workstream/modernizr.custom.40623.js"></script>
+	<script src="//s3.amazonaws.com/Workstream/Workstream.min.js"></script>
 	<script type="text/javascript">
 	//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
 	Modernizr.load([
 		{
 			load: [
-				'//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js',
-				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js',
-				'//s3.amazonaws.com/Workstream/script.js',
 				'//s3.amazonaws.com/Workstream/clockTower.js',
-				//pre-fetch some resources to make the app perform better
-				'preload!//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js',
-				'preload!//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js',
-				'preload!//s3.amazonaws.com/external-projects/highcharts/highcharts.js'
+				//pre-fetch resources to make the app perform better
+				'preload!//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js'
 			]
 		}
 	]);
