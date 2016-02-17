@@ -45,7 +45,7 @@
 	Modernizr.load([
 		{
 			load: [
-				'//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"',
+				'//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js',
 				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js',
 				'//s3.amazonaws.com/Workstream/script.js',
 				'//s3.amazonaws.com/Workstream/clockTower.js',
