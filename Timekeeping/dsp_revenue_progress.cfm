@@ -122,22 +122,7 @@ var $revenue_table,
 					data: chart_series_goal
 				}
 			];
-
-			//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
-			Modernizr.load([
-				{
-					load: [
-						'//s3.amazonaws.com/external-projects/highcharts/highcharts.js'
-					],
-					complete: function(){
-						draw_revenue_graph_highcharts();
-					}
-				}
-			]);
-		};
-	},
-	draw_revenue_graph_highcharts = function() {
-		if(typeof Highcharts != 'undefined') {
+			
 			Highcharts.setOptions({
 				colors: ['rgba(220, 245, 220, 0.50)', 'rgba(124, 195, 124, 0.50)', 'rgba(70, 136, 71, 0.50)', 'rgba(65, 102, 65, 0.50)']
 			});
@@ -195,10 +180,7 @@ var $revenue_table,
 			$('#revenue_progress_tab a:first').tab('show');
 			// setTimeout( function(){$('#container_revenue_graph').height( $('#container_revenue_table').height() )}, 400 );
 			// setTimeout( function(){$('#container_revenue_graph').height( $('#container_revenue_table').height() )}, 1000 );
-		}
-		else {
-			console.log('Highcharts is not yet defined');
-			draw_revenue_graph_highcharts();
-		}
+			
+		};
 	};
 </script>
