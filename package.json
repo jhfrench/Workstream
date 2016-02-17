@@ -1,0 +1,43 @@
+{
+  "name": "Workstream",
+  "version": "1.0.0",
+  "description": "Timekeeping/Workflow system",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "glob": "^4.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp": "^3.9.0",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-jshint": "^1.11.1",
+    "gulp-minify-css": "^1.2.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-svgmin": "^1.1.2"
+  },
+  "devDependencies": {
+    "glob": "^4.5.3",
+    "gulp": "^3.9.0",
+    "gulp-cache": "^0.2.10",
+    "gulp-concat": "^2.6.0",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-debug": "^2.1.2",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-jshint": "^1.12.0",
+    "gulp-less": "^3.0.5",
+    "gulp-minify-css": "^1.2.3",
+    "gulp-minify-html": "^1.0.5",
+    "gulp-svgmin": "^1.2.2",
+    "gulp-uglify": "^1.5.2",
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "^4.3.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "AIT",
+    "Workstream"
+  ],
+  "author": "Jeromy French",
+  "license": "ISC"
+}
