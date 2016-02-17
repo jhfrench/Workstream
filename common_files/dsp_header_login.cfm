@@ -40,18 +40,7 @@
 	<link rel="stylesheet" href="//s3.amazonaws.com/Workstream/Workstream_Login.css">
 
 	<script src="//s3.amazonaws.com/Workstream/Workstream.min.js"></script>
-	<script type="text/javascript">
-	//if Modernizr determines they can be supported, load the following CSS and JavaScript resources
-	Modernizr.load([
-		{
-			load: [
-				'//s3.amazonaws.com/Workstream/clockTower.js',
-				//pre-fetch resources to make the app perform better
-				'preload!//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js'
-			]
-		}
-	]);
-	</script>
+	<script src="//s3.amazonaws.com/Workstream/clockTower.js"></script>
 
 	<!-- pre-fetch some images to make the app perform better -->
 	<link rel="prefetch prerender next" href="//s3.amazonaws.com/Workstream/Workstream.css">
