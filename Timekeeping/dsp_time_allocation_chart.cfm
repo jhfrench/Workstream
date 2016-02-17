@@ -44,21 +44,81 @@
 			</table>
 		</div>
 		<div class="span6">
-			<canvas id="work_allocation_canvas" width="300" height="250" style="cursor:pointer;">
-				Your browser does not support canvas, a basic <a href="http://www.html5rocks.com">HTML5</a> feature.
-			</canvas>
+			<div id="work_allocation_chart">
+			</div>
 		</div>
 		<script type="text/javascript">
-			//if Modernizr determines they can be supported, load the following JavaScript resources
-			Modernizr.load([
-				{
-					test: Modernizr.canvas,
-					nope: '//s3.amazonaws.com/external-projects/excanvas.js',
-					complete: function () {
-						Modernizr.load('//s3.amazonaws.com/external-projects/pieChart.jQuery.js');
+		var $work_allocation_chart,
+			color_counter=0,
+			series_data=new Array(),
+			$work_allocation;
+
+		$(function() {
+			$work_allocation=$('##work_allocation');
+			
+			$work_allocation.find('tbody').find('tr').each(function(){
+				var series_data_ii = new Object(),
+				$this=$(this);
+
+				/* map table's coloring to Highcharts */
+				Highcharts.getOptions().colors.splice(color_counter, 0, $this.find('td.graph_label_color').css('background-color'));
+				color_counter+=1;
+
+				/* extract pis slice name and value from table */
+				series_data_ii.name = $this.find('td.graph_label').html();
+				series_data_ii.y = parseFloat($this.find('td.graph_data').text());
+				series_data.push(series_data_ii);
+			});
+
+			// Radialize the colors
+			Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function(color) {
+				return {
+					radialGradient: {
+						cx: 0.5,
+						cy: 0.3,
+						r: 0.7
+					},
+					stops: [
+						[0, color],
+						[1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+					]
+				};
+			});
+
+			// Build the chart
+			$work_allocation_chart = $('##work_allocation_chart').height( Math.max($work_allocation.height(), 250)  ).highcharts({
+				chart: {
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false,
+					type: 'pie'
+				},
+				credits: {
+					enabled: false
+				},
+				legend: {
+					enabled: false
+				},
+				title: {
+					text: null
+				},
+				tooltip: {
+					pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: false
+						}
 					}
-				}
-			]);
+				},
+				series: [{
+					data: series_data
+				}]
+			});
+		});
 		</script>
 	</div>
 <cfelse>
