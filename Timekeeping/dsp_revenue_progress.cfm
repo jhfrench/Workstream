@@ -58,7 +58,7 @@ var $revenue_table,
 			//encapsulate table in Bootstrap tab, add container for graph
 			$('#container_revenue_table').addClass('tab-pane fade in active').wrap('<div id="revenue_progress" />')
 				.wrap('<div id="revenue_progress_tab_content" class="tab-content" style="overflow: hidden;" />').parent()
-				.prepend('<div id="container_revenue_graph" class="tab-pane fade"><div id="revenue_graph" style="height: 145px; width: 310px;"></div></div>').parent()
+				.prepend('<div id="container_revenue_graph" class="tab-pane fade"><div id="revenue_graph"></div></div>').parent()
 				.prepend('<ul id="revenue_progress_tab" class="nav nav-tabs" style="margin-bottom: 4px;"><li><a href="#container_revenue_graph" data-toggle="tab" style="line-height:4px;">Graph</a></li><li class="active"><a href="#container_revenue_table" data-toggle="tab" style="line-height: 4px;">Data</a></li></ul>');
 
 			$revenue_table.find('td.date').each(function(index, item) {
@@ -134,68 +134,71 @@ var $revenue_table,
 					}
 				}
 			]);
-		} else {
-			console.log('cant chart yet');
-			draw_revenue_graph();
 		};
 	},
 	draw_revenue_graph_highcharts = function() {
-			
-		Highcharts.setOptions({
-			colors: ['rgba(220, 245, 220, 0.50)', 'rgba(124, 195, 124, 0.50)', 'rgba(70, 136, 71, 0.50)', 'rgba(65, 102, 65, 0.50)']
-		});
+		if(typeof Highcharts != 'undefined') {
+			Highcharts.setOptions({
+				colors: ['rgba(220, 245, 220, 0.50)', 'rgba(124, 195, 124, 0.50)', 'rgba(70, 136, 71, 0.50)', 'rgba(65, 102, 65, 0.50)']
+			});
 
-		//size graph container and graph to match table container and table
-		$('#revenue_graph').height($revenue_table.height() + 2).width($revenue_table.width() - 10).css('margin-bottom', '18px')
-			.highcharts({
-				chart: {
-					borderColor: '#000000',
-					borderWidth: 2
-				},
-				credits: {
-					enabled: false
-				},
-				xAxis: {
-					categories: chart_categories
-				},
-				yAxis: {
-					max: 30000,
-					minorGridLineWidth: 1,
-					minorTickInterval: 10000,
-					title: {
-						enabled: false
-					}
-				},
-				legend: {
-					enabled: false
-				},
-				title: {
-					text: null
-				},
-				plotOptions: {
-					column: {
-						borderWidth: 2,
-						lineWidth: 2,
-						stacking: 'normal'
+			//size graph container and graph to match table container and table
+			$('#revenue_graph').height($revenue_table.height() + 2).width($revenue_table.width() - 10).css('margin-bottom', '18px')
+				.highcharts({
+					chart: {
+						borderColor: '#000000',
+						borderWidth: 2
 					},
-					line: {
-							lineWidth: 2,
-							shadow: true,
-							states: {
-								hover: {
-									lineWidth: 3
-								}
-							},
-							marker: {
+					credits: {
+						enabled: false
+					},
+					xAxis: {
+						categories: chart_categories
+					},
+					yAxis: {
+						max: 30000,
+						minorGridLineWidth: 1,
+						minorTickInterval: 10000,
+						title: {
 							enabled: false
 						}
-					}
-				},
-				series: chart_series
-			});
-		//only after we've set graph size and painted the graph, we can show graph/hide table
-		$('#revenue_progress_tab a:first').tab('show');
-		// setTimeout( function(){$('#container_revenue_graph').height( $('#container_revenue_table').height() )}, 400 );
-		// setTimeout( function(){$('#container_revenue_graph').height( $('#container_revenue_table').height() )}, 1000 );
+					},
+					legend: {
+						enabled: false
+					},
+					title: {
+						text: null
+					},
+					plotOptions: {
+						column: {
+							borderWidth: 2,
+							lineWidth: 2,
+							stacking: 'normal'
+						},
+						line: {
+								lineWidth: 2,
+								shadow: true,
+								states: {
+									hover: {
+										lineWidth: 3
+									}
+								},
+								marker: {
+								enabled: false
+							}
+						}
+					},
+					series: chart_series
+				});
+
+			//only after we've set graph size and painted the graph, we can show graph/hide table
+			$('#revenue_progress_tab a:first').tab('show');
+			// setTimeout( function(){$('#container_revenue_graph').height( $('#container_revenue_table').height() )}, 400 );
+			// setTimeout( function(){$('#container_revenue_graph').height( $('#container_revenue_table').height() )}, 1000 );
+		}
+		else {
+			console.log('Highcharts is not yet defined');
+			draw_revenue_graph_highcharts();
+		}
 	};
 </script>
