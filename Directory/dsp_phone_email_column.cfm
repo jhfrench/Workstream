@@ -21,7 +21,7 @@
 			<label for="phone_#phone_type_id#" class="control-label">#phone_type#</label>
 			<div class="controls">
 				<div class="input-prepend input-append">
-					<input type="tel" name="phone_#phone_type_id#" id="phone_#phone_type_id#" value="#evaluate('phone_#phone_type_id#')#" pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="999-999-9999" class="span4" />
+					<input type="tel" name="phone_#phone_type_id#" id="phone_#phone_type_id#" value="#evaluate('phone_#phone_type_id#')#" pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="999-999-9999" class="span5" />
 					<span class="add-on"><abbr title="extension">ext</abbr></span>
 					<input type="number" name="phone_#phone_type_id#_ext" value="#evaluate('phone_#phone_type_id#_ext')#" step="1" min="0" max="9999" maxlength="4" class="span3">
 				</div>
