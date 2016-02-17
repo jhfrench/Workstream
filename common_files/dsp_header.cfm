@@ -59,8 +59,8 @@ else
 	Modernizr.load([
 		{
 			both: [
-				'//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js',
-				'//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js',
+				'//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"',
+				'//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js',
 				'//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js',
 				'//s3.amazonaws.com/Workstream/script.js'
 			]<cfif len(get_screen_details.body_onload)>,
