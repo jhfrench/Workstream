@@ -39,6 +39,7 @@
 
 <script type="text/javascript">
 var $revenue_table,
+	$revenue_table_body,
 	$current_year_revenue,
 	previous_years,
 	chart_categories = new Array(),
@@ -50,9 +51,10 @@ var $revenue_table,
 	chart_series_projected = new Array(),
 	current_year_revenue = 0,
 	draw_revenue_graph = function() {
-		$revenue_table = $('#revenue_table').find('tbody');
-		$current_year_revenue = $revenue_table.find('tr:last').find('td.number').filter(':nth-child(1n+3)');
-		previous_years = $revenue_table.find('tr').length - 1;
+		$revenue_table = $('#revenue_table');
+		$revenue_table_body = $revenue_table.find('tbody');
+		$current_year_revenue = $revenue_table_body.find('tr:last').find('td.number').filter(':nth-child(1n+3)');
+		previous_years = $revenue_table_body.find('tr').length - 1;
 		
 		if ($('#container_revenue_table').length) {
 			//encapsulate table in Bootstrap tab, add container for graph
@@ -61,12 +63,12 @@ var $revenue_table,
 				.prepend('<div id="container_revenue_graph" class="tab-pane fade"><div id="revenue_graph"></div></div>').parent()
 				.prepend('<ul id="revenue_progress_tab" class="nav nav-tabs" style="margin-bottom: 4px;"><li><a href="#container_revenue_graph" data-toggle="tab" style="line-height:4px;">Graph</a></li><li class="active"><a href="#container_revenue_table" data-toggle="tab" style="line-height: 4px;">Data</a></li></ul>');
 
-			$revenue_table.find('td.date').each(function(index, item) {
+			$revenue_table_body.find('td.date').each(function(index, item) {
 				chart_categories[index] = item.innerText;
 			});
 
 
-			$revenue_table.find('td.number')
+			$revenue_table_body.find('td.number')
 				.filter(':nth-child(2)').each(function(i) {
 					chart_series_goal.push(Number.parseInt($(this).text(), 10));
 				}).end()
@@ -128,12 +130,8 @@ var $revenue_table,
 			});
 
 			//size graph container and graph to match table container and table
-			$('#revenue_graph').height($revenue_table.height() + 2).width($revenue_table.width() - 10).css('margin-bottom', '18px')
+			$('#revenue_graph').height($revenue_table.height()).width($revenue_table.width()).css('margin-bottom', '18px')
 				.highcharts({
-					chart: {
-						borderColor: '#000000',
-						borderWidth: 2
-					},
 					credits: {
 						enabled: false
 					},
