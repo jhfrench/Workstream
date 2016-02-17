@@ -56,6 +56,9 @@ gulp.task('js-aggregate-Workstream', function() {
 		'../external-projects/jquery-ui.js',
 		'../external-projects/bootstrap.js',
 		'common_files/js/script.js',
+		'../external-projects/DataTables/jquery.dataTables.js',
+		'../external-projects/DataTables/dataTables.tableTools.js',
+		'../external-projects/DataTables/dataTables.bootstrap.js',
 		'../external-projects/highcharts.com/js/highcharts.src.js'
 	])
 	.pipe(debug({title: 'js-aggregate-Workstream:'}))
