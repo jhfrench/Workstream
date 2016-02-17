@@ -142,6 +142,7 @@ var $revenue_table,
 						max: 30000,
 						minorGridLineWidth: 1,
 						minorTickInterval: 10000,
+						tickInterval: 10000,
 						title: {
 							enabled: false
 						}
