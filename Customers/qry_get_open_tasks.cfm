@@ -24,7 +24,8 @@ SELECT Task.task_id, Task.name AS task_name, Task.due_date,
 	(CASE WHEN Link_Task_Task_Status.task_status_id=3 /* QA */ THEN REF_Task_Status.description || ' by ' || QA.last_name ELSE REF_Task_Status.description END) AS task_status,
 	Owner.last_name AS task_owner, Owner.last_name || ', ' || Owner.first_name AS task_owner_full_name,
 	(Customer.description || '-' || Project.description) AS project_name, Project.project_code<!--- $issue$: poor alias --->, REF_Priority.description AS priority,
-	REF_Icon.class_name AS task_icon, COALESCE(Recorded_Hours.used_hours,0) AS time_used, (COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.used_hours/Task.budgeted_hours) END,0)*100) AS percent_time_used
+	REF_Priority.sort_order AS priority_sort, REF_Icon.class_name AS task_icon, COALESCE(Recorded_Hours.used_hours,0) AS time_used,
+	(COALESCE(CASE WHEN COALESCE(Task.budgeted_hours,0) = 0 THEN 0 ELSE (Recorded_Hours.used_hours/Task.budgeted_hours) END,0)*100) AS percent_time_used
 FROM Project
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
 	INNER JOIN Link_Project_Company ON Project.project_id=Link_Project_Company.project_id

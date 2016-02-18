@@ -17,7 +17,7 @@
 
 <cfoutput>
 <cfif get_invoice_future.recordcount>
-<table class="table table-striped table-bordered table-condensed table-sorted">
+<table class="table table-striped table-bordered table-condensed dataTables">
 	<caption>
 		<h2>Invoice Preview</h2>
 	</caption>

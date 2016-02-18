@@ -30,8 +30,7 @@
 <cfset ytd_incident=0>
 <cfset ytd_revenue=0>
 </cfsilent>
-<cfinclude template="../common_files/act_table_sorting.cfm">
-<table class="table table-striped table-bordered table-condensed table-sorted">
+<table class="table table-striped table-bordered table-condensed">
 	<caption><h3>Monthly Sales</h3></caption>
 	<thead>
 		<tr>
@@ -62,7 +61,7 @@
 		<cfset ytd_incident=ytd_incident+incident_revenue>
 		<cfset ytd_revenue=ytd_revenue+month_revenue>
 		<tr>
-			<td scope="row"><span class="hidden">#year##right("0#month#",2)#</span>#monthasstring(month)#-#year#</td>
+			<td scope="row">#monthasstring(month)#-#year#</td>
 			<td class="number">#decimalformat(flat_revenue)#</td>
 			<td class="number">#decimalformat(hour_revenue)#</td>
 			<td class="number">#decimalformat(incident_revenue)#</td>

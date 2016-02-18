@@ -17,7 +17,6 @@
 <cfparam name="individual" default="Yes">
 <cfparam name="attributes.user_account_id" default="#variables.user_identification#">
 </cfsilent>
-<cfinclude template="../common_files/act_table_sorting.cfm">
 
 <cfinclude template="qry_get_pto_summary.cfm">
 <cfinclude template="dsp_pto_details_table.cfm">

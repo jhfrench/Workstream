@@ -18,7 +18,6 @@
 <cfinclude template="qry_get_project_dashboard.cfm">
 <cfinclude template="../common_files/qry_get_project_customer.cfm">
 <cfinclude template="../common_files/qry_get_project_manager.cfm">
-<cfinclude template="../common_files/act_table_sorting.cfm">
 
 <cfinclude template="dsp_project_dashboard_chart.cfm">
 <a href="index.cfm?fuseaction=Customers.new_project" class="btn"><i class="icon-plus-sign"></i> Create New Project</a>

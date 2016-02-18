@@ -15,7 +15,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<table class="table table-striped table-bordered table-condensed table-sorted">
+<table class="table table-striped table-bordered table-condensed dataTables" data-page-length='25'>
 	<caption>
 		<h1>Invoicing Details</h1>
 		<h2>for #get_invoice_detail.customer_name#</h2>
@@ -52,7 +52,7 @@
 			<td>
 				#billable_type#
 			</td>
-			<td scope="row" class="date">
+			<td scope="row" class="date" data-sort="#dateformat(created_date, "yyyymmdd")#">
 				#dateformat(created_date, "mm/dd/yyyy")#
 			</td>
 			<td>

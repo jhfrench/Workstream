@@ -33,7 +33,7 @@
 		<cfinclude template="dsp_employee_force_totals.cfm">
 	</div>
 	<div class="span6">
-		Horizontal bar graph goes here
+		<!--- $issue$ Horizontal bar graph goes here -->
 	</div>
 </div>
 

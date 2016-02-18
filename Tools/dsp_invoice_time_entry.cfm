@@ -15,7 +15,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<table class="table table-striped table-bordered table-condensed table-sorted">
+<table class="table table-striped table-bordered table-condensed dataTables" data-page-length='25' data-order='[[0, "asc"], [2, "asc"]]'>
 	<caption><h1>Work Notes</h1> <h3>for #get_invoice_time_entry.employee# <a href="javascript:employee_details(#get_invoice_time_entry.user_account_id#);" title="View employee details"><i class="icon-user"></i></a></h3></caption>
 	<thead>
 		<tr>
@@ -45,7 +45,7 @@
 		<tr>
 			<td><a href="javascript:task_details(#task_id#);" title="View task #task_id#">#task_id#</a></td>
 			<td><a href="javascript:task_details(#task_id#);" title="View task #task_id#">#task_name#</a></td>
-			<td class="date">#dateformat(work_date, "mm/dd/yyyy")#</td>
+			<td class="date" data-sort="#dateformat(created_date, "work_date")#">#dateformat(work_date, "mm/dd/yyyy")#</td>
 			<td>#note#</td>
 			<td class="number"><a href="javascript:time_entry_edit(#time_entry_id#);" title="Edit note details">#decimalformat(hours)#</a></td>
 			<td class="number">#dollarformat(bill)#</td>

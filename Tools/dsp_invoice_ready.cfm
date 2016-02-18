@@ -17,7 +17,7 @@
 
 <cfoutput>
 <cfif get_invoice_ready.recordcount>
-<table class="table table-striped table-bordered table-condensed table-sorted">
+<table class="table table-striped table-bordered table-condensed dataTables">
 	<caption>
 		<h2>Ready to Invoice</h2>
 	</caption>

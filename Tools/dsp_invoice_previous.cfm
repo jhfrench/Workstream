@@ -16,7 +16,7 @@
 </cfsilent>
 
 <cfoutput>
-<table class="table table-striped table-bordered table-condensed table-sorted">
+<table class="table table-striped table-bordered table-condensed dataTables" data-page-length='25' data-order='[[ 1, "asc" ], [ 0, "asc" ], [ 3, "desc" ]]'>
 	<caption>
 		<h2>Previously Invoiced</h2>
 	</caption>
@@ -48,7 +48,7 @@
 			<td scope="row">
 				<a href="javascript:customer(#customer_id#);" title="View projects">#customer_name# <i class="icon-zoom-in"></i></a>
 			</td>
-			<td scope="row" class="date">
+			<td scope="row" class="date" data-sort="#dateformat(created_date, "yyyymmdd")#">
 				#dateformat(created_date, "mm/dd/yyyy")#
 			</td>
 			<td>

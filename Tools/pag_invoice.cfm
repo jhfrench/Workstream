@@ -15,7 +15,6 @@
 	END FUSEDOC --->
 <cfparam name="attributes.step" default="1">
 </cfsilent>
-<cfinclude template="../common_files/act_table_sorting.cfm">
 
 <!--- $issue$: need to add a section that shows all the charges that cannot be billed because of a missing Billing_Rate entry --->
 <cfswitch expression="#attributes.step#">

@@ -15,7 +15,7 @@
 </cfsilent>
 <div class="row-fluid">
 	<div class="span8">
-<table class="table table-striped table-bordered table-condensed">
+<table class="table table-striped table-bordered table-condensed table-to-chart" data-chart-type="column" data-chart-target="personal_summary_by_week_chart">
 	<caption><h3>Summary of Hours by Week <small><cfoutput>#get_employee_details.week_hours# expected</cfoutput></small></h3></caption>
 	<thead>
 		<tr>
@@ -34,6 +34,6 @@
 </table>
 	</div>
 	<div class="span4">
-		<cfinclude template="dsp_personal_summary_by_week_graph.cfm"><!--- $issue$: change to canvas graph --->
+		<cfinclude template="dsp_personal_summary_by_week_graph.cfm">
 	</div>
 </div>

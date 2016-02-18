@@ -22,21 +22,29 @@
 <section id="blurb_project" class="span7">
 	<h2>Work Allocation</h2>
 <cfif get_time_allocation_blurb.recordcount>
+	<style>
+		i.graph_label_color {
+			width: 12px;
+			height: 12px;
+			display: inline-block;
+			margin-right: 5px;
+		}
+	</style>
 	<p>So far this month you have worked on #get_time_allocation_blurb.recordcount# <cfif get_time_allocation_blurb.recordcount EQ 1>project<cfelse>different projects</cfif>. You have spent none of your time on ADMIN/PLANNING. This is under the ADMIN/PLANNING work allocation target of 10% or less. You allocated your time as follows:</p>
 	<div class="row-fluid">
 		<div class="span6">
-			<table id="work_allocation" class="table table-striped table-bordered table-condensed pieChart">
+			<table id="work_allocation" class="table table-striped table-bordered table-condensed table-to-chart" data-chart-type="pie"><!--- $issue$ need to enhance Highcharts to read DOM attributes --->
 				<caption><h4>#monthasstring(month(now()))# Hours Per Project</h4></caption>
 				<thead>
 					<tr>
-						<th colspan="2" scope="col" title="label">Project</th><th scope="col">Hours</th>
+						<th scope="col" title="label">Project</th>
+						<th scope="col">Hours</th>
 					</tr>
 				</thead>
 				<tbody style="cursor: pointer;">
 				<cfloop query="get_time_allocation_blurb">
 					<tr>
-						<td style="background-color:###listgetat(application.application_specific_settings.color_list,get_time_allocation_blurb.currentrow)#;" class="graph_label_color">&nbsp;</td>
-						<td class="graph_label">#project_name#</td>
+						<td class="graph_label"><i style="background-color:###listgetat(application.application_specific_settings.color_list,get_time_allocation_blurb.currentrow)#;" class="graph_label_color"></i>#project_name#</td>
 						<td class="graph_data">#decimalformat(project_hours)#</td>
 					</tr>
 				</cfloop>
@@ -61,7 +69,7 @@
 				$this=$(this);
 
 				/* map table's coloring to Highcharts */
-				Highcharts.getOptions().colors.splice(color_counter, 0, $this.find('td.graph_label_color').css('background-color'));
+				Highcharts.getOptions().colors.splice(color_counter, 0, $this.find('.graph_label_color').css('background-color'));
 				color_counter+=1;
 
 				/* extract pis slice name and value from table */

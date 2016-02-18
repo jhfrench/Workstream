@@ -13,10 +13,10 @@
 	||
 	Edits:
 	$Log$
-	 ||
+	||
 	END FUSEDOC --->
 </cfsilent>
-<table class="table table-striped table-bordered table-condensed table-sorted">
+<table class="table table-striped table-bordered table-condensed dataTables" data-page-length='25'>
 	<caption><h2>Project Dashboard</h2></caption>
 	<thead>
 		<tr>
@@ -34,14 +34,19 @@
 	</thead>
 	<tbody>
 	<cfoutput query="get_project_dashboard">
+	<cfif isdate(deadline_date)>
+		<cfset variables.deadline_date_sort=dateformat(deadline_date, "yyyymmdd")>
+		<cfset variables.deadline_date_display=dateformat(deadline_date, "mm/dd/yyyy")>
+	<cfelse>
+		<cfset variables.deadline_date_sort="">
+		<cfset variables.deadline_date_display="">
+	</cfif>
 		<tr>
 			<td id="#project_id#">
 				<a href="javascript:edit_project(#project_id#,1);" title="Edit this project's main details">#customer_description#&ndash;#description# (#project_code#)</a>
 			</td>
-			<td class="date">
-				<cfif isdate(deadline_date)>
-					#dateformat(deadline_date, "mm/dd/yyyy")#
-				</cfif>
+			<td class="date" data-sort="#variables.deadline_date_sort#">
+				#variables.deadline_date_display#
 			</td>
 			<td>
 				<span class="badge badge-#badge#"><i class="icon-#icon# icon-white"></i></span> #project_health#
@@ -78,7 +83,7 @@
 					#task_count#
 				</a>
 			</td>
-			<td class="date">
+			<td class="date" data-sort="#dateformat(date_updated, "yyyymmdd")#">
 				#dateformat(date_updated, "mm/dd/yyyy")#
 			</td>
 		</tr>
