@@ -80,7 +80,8 @@
 <cfquery name="get_task_list" datasource="#application.datasources.main#">
 SELECT Task.due_date, Task.task_id, Task.name AS task_name,
 	COALESCE(Task.description, 'No description provided.') AS task_description, COALESCE(Task.budgeted_hours,0) AS budgeted_hours, Link_Task_Task_Status.task_status_id,
-	REF_Icon.class_name AS task_icon, REF_Priority.description AS priority, COALESCE(Recorded_Hours.used_hours,0) AS used_hours,
+	REF_Icon.class_name AS task_icon, REF_Priority.description AS priority, REF_Priority.sort_order AS priority_sort,
+	COALESCE(Recorded_Hours.used_hours,0) AS used_hours,
 	(Customer.description || '-' || Project.description) AS project_name, Task_Owner.first_name AS task_owner, Task_Owner.last_name || ', ' || Task_Owner.first_name AS task_owner_full_name,
 	(CASE
 		WHEN Link_Task_Task_Status.task_status_id=3 /* QA */ THEN REF_Task_Status.description || ' by ' || COALESCE(Task_Tester.first_name,'unknown')
