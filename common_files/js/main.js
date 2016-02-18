@@ -132,12 +132,30 @@ $(document).ready(function(){
 	apply_hidden(); 
 	apply_disabled_action();
 
+	if ( $('#navbar-search-full').length ) {
+		//when it receives focus, grow the search input from span5 to span9
+		$('#header_search_criteria').focus( function() {
+			"use strict"; //let's avoid tom-foolery in this function
+			$(this).switchClass('span4', 'span9', 200);
+		}).blur( function() {
+			"use strict"; //let's avoid tom-foolery in this function
+			$(this).delay(200).switchClass('span9', 'span4', 200);
+		});
+		
+		// change full search link to first change form target, then submit that form; change link's href to be an internal link; update link's title
+		$('#navbar-search-full').click( function(event) {
+			"use strict"; //let's avoid tom-foolery in this function
+			event.preventDefault(); //don't let the link open a new page
+			$('#form-navbar-search').attr('action',  $(this).attr('href')).submit(); //instead, change the search form action, then submit it
+		}).attr('title', $('#navbar-search-full').attr('title')+' with entered criteria');
+	}
+
 	$help_area=$('#help_area');
 	if ( $help_area.length ) {
 		//console.log( $help_area );
 		
-		//progressively-enhance help area to 1) make it hidden, 2) change it to span3, and 3) class it as `.docked`, 4) unwrap its parent `.row-fluid` and 5) append it to the first content row
-		$help_area.attr('aria-hidden', 'true').hide().switchClass('span12', 'span3').addClass('docked').unwrap().appendTo('#begin_page_content div.row-fluid:eq(0)');
+		//progressively-enhance help area to 1) make it hidden, 2) change it to span3, and 3) class it as `.docked`, 4) unwrap its parent `.row-fluid` and 5) append it to #content_container
+		$help_area.attr('aria-hidden', 'true').hide().switchClass('span12', 'span3').addClass('docked').unwrap().insertAfter('#content_container');
 		
 		var jump_manager=function(target) {
 			"use strict"; //let's avoid tom-foolery in this function
@@ -167,7 +185,7 @@ $(document).ready(function(){
 			"use strict"; //let's avoid tom-foolery in this function
 			
 			if( typeof helpID!=='undefined' ){
-//				console.log('$(\'#help_main_'+helpType+'\').load(\'../TASK_CENTRIC_HELP/pag_view_help_'+helpType+'.php?help_'+helpType+'_uid='+helpID+' #content_container>dl>dd\');');
+//				console.log('$(\'#help_main_'+helpType+'\').load(\'index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd\');');
 				$('#help_main_'+helpType).html('<img src="/img/ajax-ca-loader.gif" alt="Your data is loading" class="thumper" /><p class="text-center muted">Retrieving your data</p>').load(
 					'../TASK_CENTRIC_HELP/pag_view_help_'+helpType+'.php?help_'+helpType+'_uid='+helpID+' #content_container>dl>dd',
 					function(response, status, xhr) {
