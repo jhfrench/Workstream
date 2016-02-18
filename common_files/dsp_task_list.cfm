@@ -35,7 +35,7 @@
 		<td class="hidden-phone hidden-tablet"><abbr title="#task_owner_full_name#">#task_owner#</abbr></td>
 		<td><a href="javascript:list_to_task('#task_id#');" title="View time details for #variables.status_message#."><i class="#task_icon# hidden-phone" title="#replacelist(left(task_description, 150), '"', '')#..."></i>#task_name#</a></td>
 		<td class="hidden-phone hidden-tablet">#project_name#</td>
-		<td class="hidden-phone">#priority#</td>
+		<td class="hidden-phone" data-sort='#priority_sort#'>#priority#</td>
 		<td class="hidden-phone"><a href="javascript:list_to_time('#task_id#');" title="View time details for #variables.status_message#."><cfif listlen(used_hours) GT 1 AND listgetat(used_hours,2,".") GT 0>#decimalformat(used_hours)#<cfelse>#numberformat(used_hours)#</cfif><cfif budgeted_hours>/#budgeted_hours# #numberformat((used_hours/budgeted_hours)*100)#%</cfif></a></td>
 		<td>
 			<cfif NOT listfind("7,8", task_status_id)>
@@ -47,7 +47,7 @@
 				</cfif>
 			</cfif>#task_status#
 		</td>
-		<td class="date">#dateformat(due_date, "mm/dd/yyyy")#</td>
+		<td class="date" data-sort='#dateformat(due_date, "yyyymmdd")#'>#dateformat(due_date, "mm/dd/yyyy")#</td>
 	</tr>
 </cfoutput>
 </tbody>
