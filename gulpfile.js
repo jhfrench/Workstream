@@ -12,9 +12,19 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	imagemin = require('gulp-imagemin');
 
-//gulp.task('default', ['less', 'css-jquery-ui', 'apply_datepicker', 'apply_placeholder', 'form_enhanced', 'placeholder', 'img'], function () {});
-gulp.task('default', ['less', 'js-aggregate-Workstream'], function () {
-	return gutil.log('Common gulp ran');
+// define the default task and add the watch task to it
+gulp.task('default', ['watch-js', 'watch-less'], function () {
+	return gutil.log('Gulp is on duty');
+});
+
+// configure which files to watch and what tasks to use on file changes
+gulp.task('watch-js', function() {
+  gulp.watch('common_files/js/**/*.js', ['js-aggregate-Workstream']);
+});
+
+// configure which files to watch and what tasks to use on file changes
+gulp.task('watch-less', function() {
+  gulp.watch('common_files/less/**/*.less', ['less']);
 });
 
 gulp.task('less', function() {
@@ -55,9 +65,11 @@ gulp.task('js-aggregate-Workstream', function() {
 		'../external-projects/jquery-ui.js',
 		'../external-projects/bootstrap.js',
 		'common_files/js/script.js',
-		'../external-projects/DataTables/jquery.dataTables.js',
-		'../external-projects/DataTables/dataTables.tableTools.js',
-		'../external-projects/DataTables/dataTables.bootstrap.js',
+		'../external-projects/DataTables/DataTables/media/js/jquery.dataTables.js',
+		'../external-projects/DataTables/Buttons/js/dataTables.buttons.js',
+		'../external-projects/DataTables/Buttons/js/buttons.html5.js',
+		'../external-projects/DataTables/Buttons/js/buttons.bootstrap.js',
+		'common_files/js/dataTables.bootstrap.js',
 		'../external-projects/highcharts.com/js/highcharts.src.js'
 	])
 	.pipe(debug({title: 'js-aggregate-Workstream:'}))
