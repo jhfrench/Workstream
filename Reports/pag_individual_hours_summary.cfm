@@ -95,30 +95,36 @@ $(function() {
 		});
 		
 		// Build the chart
-		$('#'+$source_data_table_ii.attr('data-chart-target')).height( Math.max($source_data_table_ii.height(), 250)  ).highcharts({
-			chart: {
-				plotBackgroundColor: null,
-				plotBorderWidth: null,
-				plotShadow: false,
-				type: $source_data_table_ii.attr('data-chart-type')
-			},
-			credits: {
-				enabled: false
-			},
-			legend: {
-				enabled: false
-			},
-			title: {
-				text: null
-			},
-			tooltip: {
-				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-			},
-			plotOptions: plot_options,
-			series: [{
-				data: series_data
-			}]
-		});
+		$('#'+$source_data_table_ii.attr('data-chart-target'))
+			.attr('aria-labelledby', $source_data_table_ii.prop('id'))
+			.height( Math.max($source_data_table_ii.height(), 250)  )
+			.highcharts({
+				chart: {
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false,
+					type: $source_data_table_ii.attr('data-chart-type')
+				},
+				credits: {
+					enabled: false
+				},
+				legend: {
+					enabled: false
+				},
+				title: {
+					text: null
+				},
+				tooltip: {
+					pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+				},
+				plotOptions: plot_options,
+				series: [{
+					data: series_data
+				}]
+			});
+		
+		console.log(plot_options);
+		console.log(series_data);
 	});
 });
 </script>
