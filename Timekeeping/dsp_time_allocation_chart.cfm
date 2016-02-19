@@ -22,14 +22,6 @@
 <section id="blurb_project" class="span7">
 	<h2>Work Allocation</h2>
 <cfif get_time_allocation_blurb.recordcount>
-	<style>
-		i.graph_label_color {
-			width: 12px;
-			height: 12px;
-			display: inline-block;
-			margin-right: 5px;
-		}
-	</style>
 	<p>So far this month you have worked on #get_time_allocation_blurb.recordcount# <cfif get_time_allocation_blurb.recordcount EQ 1>project<cfelse>different projects</cfif>. You have spent none of your time on ADMIN/PLANNING. This is under the ADMIN/PLANNING work allocation target of 10% or less. You allocated your time as follows:</p>
 	<div class="row-fluid">
 		<div class="span6">

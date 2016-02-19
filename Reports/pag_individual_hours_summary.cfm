@@ -69,6 +69,15 @@ $(function() {
 			series_data_ii.y = parseFloat($this.find('td.graph_data').text());
 			series_data.push(series_data_ii);
 		});
+		
+		var plot_options = new Object();
+		plot_options[$source_data_table_ii.attr('data-chart-type')] = {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: false
+					}
+				};
 
 		// Radialize the colors
 		Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function(color) {
@@ -105,15 +114,7 @@ $(function() {
 			tooltip: {
 				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
 			},
-			plotOptions: {
-				$source_data_table_ii.attr('data-chart-type'): {
-					allowPointSelect: true,
-					cursor: 'pointer',
-					dataLabels: {
-						enabled: false
-					}
-				}
-			},
+			plotOptions: plot_options,
 			series: [{
 				data: series_data
 			}]
