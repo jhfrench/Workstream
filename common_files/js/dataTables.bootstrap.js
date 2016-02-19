@@ -46,7 +46,7 @@ var DataTable = $.fn.dataTable;
 /* Set the defaults for DataTables initialisation */
 $.extend( true, DataTable.defaults, {
 	dom:
-		"<'row-fluid'f<'span6'<'pull-right'T>r>" +
+		"<'row-fluid'f<'span6'<'pull-right'B>r>>" +
 		"<'row-fluid'<'span12't>>" +
 		"<'row-fluid'lip>",
 	renderer: 'bootstrap',
@@ -54,9 +54,9 @@ $.extend( true, DataTable.defaults, {
 		sLengthMenu: "_MENU_ records per page",
 		sSearch: "_INPUT_",
 		sSearchPlaceholder: "Filter this table"
-	}
+	},
+	pageLength: 25
 } );
-
 
 /* Default class modification */
 $.extend( DataTable.ext.classes, {
@@ -66,7 +66,7 @@ $.extend( DataTable.ext.classes, {
 	sFilterInput:  "span10 search-query",
 	sLength:       "span5",
 	sLengthSelect: "span3",
-	sPaging:       "span5 text-right", /* Note that the type is postfixed */
+	sPaging:       "span5 text-right ", /* Note that the type is postfixed */
 } );
 
 
@@ -185,6 +185,12 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 	}
 };
 
-
 return DataTable;
 }));
+
+//DataTable.Buttons.defaults.buttons=["copy","xls","pdf"];
+new $.fn.dataTable.Buttons( table, {
+    buttons: [
+        'copy', 'csv', 'pdf'
+    ]
+} );

@@ -1,18 +1,22 @@
 /* Sorting (from DataTables\media\css\jquery.dataTables.css) */
-	table.dataTable thead {
-		th.sorting_asc, th.sorting_desc, th.sorting {
-			cursor: pointer;
-			*cursor: hand;
-		}
-		th:active, td:active {
-			outline: none;
-		}
+table.dataTable thead {
+	th.sorting_asc, th.sorting_desc, th.sorting {
+		cursor: pointer;
+		*cursor: hand;
 	}
-	
-	/* $issue$: need to change these images to sprites */
-	.sorting { background: url('//s3.amazonaws.com/Workstream/images/TBS_sort_both.png') no-repeat center right; }
-	.sorting_asc { background: url('//s3.amazonaws.com/Workstream/images/TBS_sort_asc.png') no-repeat center right; }
-	.sorting_desc { background: url('//s3.amazonaws.com/Workstream/images/TBS_sort_desc.png') no-repeat center right; }
-	
-	.sorting_asc_disabled { background: url('//s3.amazonaws.com/Workstream/images/TBS_sort_asc_disabled.png') no-repeat center right; }
-	.sorting_desc_disabled { background: url('//s3.amazonaws.com/Workstream/images/TBS_sort_desc_disabled.png') no-repeat center right; }
+	th:active, td:active {
+		outline: none;
+	}
+}
+
+div.dt-bootstrap .pagination {
+	margin-top: 0;
+}
+
+/* $issue$: need to change these images to sprites */
+.sorting { background: url('//s3.amazonaws.com/Workstream/images/TBS_sort_both.png') no-repeat center right; }
+.sorting_asc { background: url('//s3.amazonaws.com/Workstream/images/TBS_sort_asc.png') no-repeat center right; }
+.sorting_desc { background: url('//s3.amazonaws.com/Workstream/images/TBS_sort_desc.png') no-repeat center right; }
+
+.sorting_asc_disabled { background: url('//s3.amazonaws.com/Workstream/images/TBS_sort_asc_disabled.png') no-repeat center right; }
+.sorting_desc_disabled { background: url('//s3.amazonaws.com/Workstream/images/TBS_sort_desc_disabled.png') no-repeat center right; }

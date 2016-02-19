@@ -6677,6 +6677,9 @@ table.dataTable thead th:active,
 table.dataTable thead td:active {
   outline: none;
 }
+div.dt-bootstrap .pagination {
+  margin-top: 0;
+}
 /* $issue$: need to change these images to sprites */
 .sorting {
   background: url('//s3.amazonaws.com/Workstream/images/TBS_sort_both.png') no-repeat center right;

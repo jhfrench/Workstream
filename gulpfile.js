@@ -19,12 +19,10 @@ gulp.task('default', ['watch-js', 'watch-less'], function () {
 
 // configure which files to watch and what tasks to use on file changes
 gulp.task('watch-js', function() {
-  gulp.watch('common_files/js/**/*.js', ['js-aggregate-Workstream']);
+  gulp.watch(['common_files/js/**/*.js','../external-projects/*.js','../external-projects/DataTables/**/js/*.js','../external-projects/jszip/dist/jszip.js', '../external-projects/pdfmake/build/*.js', '../external-projects/highcharts.com/js/highcharts.src.js'], ['js-aggregate-Workstream']);
 });
-
-// configure which files to watch and what tasks to use on file changes
 gulp.task('watch-less', function() {
-  gulp.watch('common_files/less/**/*.less', ['less']);
+  gulp.watch(['common_files/less/**/*.less'], ['less']);
 });
 
 gulp.task('less', function() {
@@ -67,6 +65,9 @@ gulp.task('js-aggregate-Workstream', function() {
 		'common_files/js/script.js',
 		'../external-projects/DataTables/DataTables/media/js/jquery.dataTables.js',
 		'../external-projects/DataTables/Buttons/js/dataTables.buttons.js',
+		'../external-projects/jszip/dist/jszip.js',
+		'../external-projects/pdfmake/build/pdfmake.js',
+		'../external-projects/pdfmake/build/vfs_fonts.js',
 		'../external-projects/DataTables/Buttons/js/buttons.html5.js',
 		'../external-projects/DataTables/Buttons/js/buttons.bootstrap.js',
 		'common_files/js/dataTables.bootstrap.js',
@@ -74,10 +75,10 @@ gulp.task('js-aggregate-Workstream', function() {
 	])
 	.pipe(debug({title: 'js-aggregate-Workstream:'}))
 	.pipe(concat('Workstream.js'))
-	.pipe(gulp.dest('common_files/js'))
+	.pipe(gulp.dest('./'))
 	.pipe(concat('Workstream.min.js'))
 	.pipe(uglify({ preserveComments:'some' }))
-	.pipe(gulp.dest('common_files/js'));
+	.pipe(gulp.dest('./'));
 });
 gulp.task('apply_datepicker', function() {
 	gutil.log('...apply_datepicker task is running');
