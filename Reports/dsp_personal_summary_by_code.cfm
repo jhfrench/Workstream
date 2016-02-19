@@ -26,7 +26,7 @@
 	<tbody style="cursor: pointer;">
 	<cfoutput query="get_individual_hours_summary_by_client">
 		<tr>
-			<td class="graph_label"><i style="background-color:###listgetat(application.application_specific_settings.color_list,get_time_allocation_blurb.currentrow)#;" class="graph_label_color"></i>#project_name#</td>
+			<td class="graph_label"><i style="background-color:###listgetat(application.application_specific_settings.color_list,get_individual_hours_summary_by_client.currentrow)#;" class="graph_label_color"></i>#project_name#</td>
 			<td class="graph_data">#decimalformat(hours_worked)#</td>
 		</tr>
 	</cfoutput>
