@@ -33,7 +33,7 @@
 	<meta name="viewport" content="width=device-width">
 
 	<link href="//s3.amazonaws.com/Workstream/images/workstream_icon.ico" rel="SHORTCUT ICON" />
-	<link rel="stylesheet" href="//s3.amazonaws.com/Workstream/Workstream.css">
+	<link rel="stylesheet" href="//s3.amazonaws.com/Workstream/Workstream.min.css">
 </head>
 <body class="container-fluid">
 	<div class="alert alert-warning">

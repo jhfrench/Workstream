@@ -14,6 +14,15 @@
 @iconWhiteSpritePath: "//s3.amazonaws.com/external-projects/bootstrap/img/glyphicons-halflings-white.png";
 @linkColor: #483d8b;
 
+/* fixes a Bootstrap LESS2 compiler issue; see http://stackoverflow.com/a/28182792/1430996 */
+#grid {
+    .core  {
+        .span(@gridColumns) {
+            width: (@gridColumnWidth * @gridColumns) + (@gridGutterWidth * (@gridColumns - 1));
+        }
+    }
+};
+
 .navbar .nav>li>a {
 	padding: 11px;
 }
@@ -154,4 +163,11 @@ footer {
   font-size: 11px;
   color: @grayLight;
   text-transform: uppercase;
+}
+
+i.graph_label_color {
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+	margin-right: 5px;
 }

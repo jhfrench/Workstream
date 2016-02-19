@@ -51,7 +51,7 @@ else
 	<meta name="viewport" content="width=device-width">
 
 	<link href="//s3.amazonaws.com/Workstream/images/workstream_icon.ico" rel="SHORTCUT ICON" />
-	<link rel="stylesheet" href="//s3.amazonaws.com/Workstream/Workstream.css">
+	<link rel="stylesheet" href="//s3.amazonaws.com/Workstream/Workstream.min.css">
 
 	<script src="//s3.amazonaws.com/Workstream/Workstream.min.js"></script>
 	<cfif len(get_screen_details.body_onload)>

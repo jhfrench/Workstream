@@ -90,7 +90,7 @@ $(function() {
 		});
 		
 		// Build the chart
-		$('#'+$source_data_table_ii.attr('data-chart-target')).each(function(){})$(this).height( Math.max($source_data_table_ii.height(), 250)  ).highcharts({
+		$('#'+$source_data_table_ii.attr('data-chart-target')).height( Math.max($source_data_table_ii.height(), 250)  ).highcharts({
 			chart: {
 				plotBackgroundColor: null,
 				plotBorderWidth: null,

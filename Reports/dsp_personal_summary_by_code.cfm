@@ -19,7 +19,7 @@
 	<caption><h3>Summary of Hours by Client Code</h3></caption>
 	<thead>
 		<tr>
-			<th colspan="2" title="label">Customer &amp; Project Name</th>
+			<th title="label">Customer &amp; Project Name</th>
 			<th>Hours</th>
 		</tr>
 	</thead>

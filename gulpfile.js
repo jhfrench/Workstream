@@ -13,20 +13,19 @@ var gulp = require('gulp'),
 	imagemin = require('gulp-imagemin');
 
 //gulp.task('default', ['less', 'css-jquery-ui', 'apply_datepicker', 'apply_placeholder', 'form_enhanced', 'placeholder', 'img'], function () {});
-gulp.task('default', ['js-aggregate-Workstream'], function () {
+gulp.task('default', ['less', 'js-aggregate-Workstream'], function () {
 	return gutil.log('Common gulp ran');
 });
 
 gulp.task('less', function() {
-	gulp.src('css/less/ccd_production.less')
+	gulp.src('common_files/less/style.less')
 		.pipe(debug({title: 'LESS:'}))
 		.pipe(less())
-		.pipe(concat('bootstrap-combined.css'))
-		.pipe(gulp.dest('css'))
-		.pipe(gulp.dest('../../dist/css'))
-		.pipe(concat('bootstrap-combined.min.css'))
+		.pipe(concat('Workstream.css'))
+		.pipe(gulp.dest('common_files'))
+		.pipe(concat('Workstream.min.css'))
 		.pipe(minifycss())
-		.pipe(gulp.dest('../../dist/css'));
+		.pipe(gulp.dest('common_files'))
 });
 
 // CSS concatenation + minification tasks

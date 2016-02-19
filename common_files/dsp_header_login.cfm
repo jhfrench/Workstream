@@ -43,7 +43,7 @@
 	<script src="//s3.amazonaws.com/Workstream/clockTower.js"></script>
 
 	<!-- pre-fetch some images to make the app perform better -->
-	<link rel="prefetch prerender next" href="//s3.amazonaws.com/Workstream/Workstream.css">
+	<link rel="prefetch prerender next" href="//s3.amazonaws.com/Workstream/Workstream.min.css">
 	<link rel="prefetch prerender next" href="//s3.amazonaws.com/Workstream/images/spritepad_Workstream.png">
 	<link rel="prefetch prerender next" href="//s3.amazonaws.com/external-projects/bootstrap/img/glyphicons-halflings.png">
 	<link rel="prefetch prerender next" href="//s3.amazonaws.com/external-projects/bootstrap/img/glyphicons-halflings-white.png">

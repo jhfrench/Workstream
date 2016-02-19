@@ -40,7 +40,7 @@ else {
 <cfif isdefined("request.no_check_variables") OR isdefined("request.no_relocate")>
 <html>
 <head>
-	<link href="//s3.amazonaws.com/Workstream/Workstream.css" rel="stylesheet">
+	<link href="//s3.amazonaws.com/Workstream/Workstream.min.css" rel="stylesheet">
 </head>
 <body>
 <cfif isdefined("request.no_check_variables")>
