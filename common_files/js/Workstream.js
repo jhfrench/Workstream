@@ -28944,7 +28944,7 @@ $(document).ready(function() {
 			
 			if( typeof helpID!=='undefined' ){
 //				console.log('$(\'#help_main_'+helpType+'\').load(\'index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd\');');
-				$('#help_main_'+helpType).html('<img src="/img/ajax-ca-loader.gif" alt="Your data is loading" class="thumper" /><p class="text-center muted">Retrieving your data</p>').load(
+				$('#help_main_'+helpType).html('<img src="//s3.amazonaws.com/Workstream/images/loading.gif" alt="Your data is loading" class="thumper" /><p class="text-center muted">Retrieving your data</p>').load(
 					'index.cfm?fuseaction=Help.view_help_'+helpType+'&help_'+helpType+'_id='+helpID+' dl dd',
 					function(response, status, xhr) {
 						if (status === 'error') {
