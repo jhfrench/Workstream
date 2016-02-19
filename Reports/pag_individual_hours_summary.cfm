@@ -44,8 +44,7 @@
 </cfoutput>
 
 <script type="text/javascript">
-var $target_chart_element,
-	color_counter=0,
+var color_counter=0,
 	series_data=new Array(),
 	$source_data_table,
 	$source_data_table_ii;
@@ -55,6 +54,8 @@ $(function() {
 
 	$source_data_table.each(function(){
 		$source_data_table_ii=$(this);
+		color_counter=0;
+		series_data=new Array();
 		
 		$source_data_table_ii.find('tbody').find('tr').each(function(){
 			var series_data_ii = new Object(),

@@ -26,8 +26,8 @@
 	<tbody>
 	<cfoutput query="get_individual_hours_summary_by_week">
 		<tr class="<cfif hours_worked GT get_employee_details.week_hours*1.1>info<cfelseif hours_worked LT get_employee_details.week_hours*0.9>warning</cfif>">
-			<td>Week #work_week#</td>
-			<td class="number">#decimalformat(hours_worked)#</td>
+			<td class="graph_label">Week #work_week#</td>
+			<td class="number graph_data">#decimalformat(hours_worked)#</td>
 		</tr>
 	</cfoutput>
 	<tbody>
