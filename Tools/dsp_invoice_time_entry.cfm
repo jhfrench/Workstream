@@ -15,7 +15,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<table class="table table-striped table-bordered table-condensed dataTables" data-page-length='25' data-order='[[0, "asc"], [2, "asc"]]'>
+<table class="table table-striped table-bordered table-condensed dataTables detach_caption" data-order='[[0, "asc"], [2, "asc"]]'>
 	<caption><h1>Work Notes</h1> <h3>for #get_invoice_time_entry.employee# <a href="javascript:employee_details(#get_invoice_time_entry.user_account_id#);" title="View employee details"><i class="icon-user"></i></a></h3></caption>
 	<thead>
 		<tr>

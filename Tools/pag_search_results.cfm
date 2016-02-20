@@ -72,7 +72,7 @@
 <cfinclude template="qry_get_search_results.cfm">
 
 <cfif get_task_list.recordcount>
-<table class="table table-striped table-bordered table-condensed dataTables" data-page-length='25' data-order='[[ 4, "asc" ], [ 7, "desc" ], [ 0, "asc" ]]'>
+<table class="table table-striped table-bordered table-condensed dataTables detach_caption" data-order='[[ 4, "asc" ], [ 7, "desc" ], [ 0, "asc" ]]'>
 	<caption><h2><cfoutput>#application.application_specific_settings.organization#</cfoutput> Knowledgebase Search Results</h2></caption>
 	<cfinclude template="../common_files/dsp_task_list_header.cfm">
 	<cfinclude template="../common_files/dsp_task_list.cfm">

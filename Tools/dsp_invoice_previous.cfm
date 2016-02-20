@@ -16,7 +16,7 @@
 </cfsilent>
 
 <cfoutput>
-<table class="table table-striped table-bordered table-condensed dataTables" data-page-length='25' data-order='[[ 1, "asc" ], [ 0, "asc" ], [ 3, "desc" ]]'>
+<table class="table table-striped table-bordered table-condensed dataTables detach_caption" data-order='[[ 1, "asc" ], [ 0, "asc" ], [ 3, "desc" ]]'>
 	<caption>
 		<h2>Previously Invoiced</h2>
 	</caption>
