@@ -47,7 +47,7 @@
 			<section id="blurb_latest_work" class="span6">
 				<h2>Latest Work</h2>
 				<cfif get_most_recent_relevant_time_entry.recordcount>
-					<table id="latest_work_table" class="table table-striped table-bordered table-condensed dataTables" data-page-length="50">
+					<table id="latest_work_table" class="table table-striped table-bordered table-condensed dataTables detach_caption">
 						<caption>50 most recent time entries for your projects</caption>
 						<thead>
 							<tr>

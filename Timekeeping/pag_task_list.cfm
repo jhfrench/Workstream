@@ -18,7 +18,7 @@
 <cfinclude template="qry_get_task_list.cfm">
 <cfinclude template="../common_files/dsp_dropdowns.cfm">
 <cfif get_task_list.recordcount>
-<table class="table table-striped table-bordered table-condensed dataTables" data-page-length='25' data-order='[[ 4, "asc" ], [ 7, "desc" ], [ 0, "asc" ]]'>
+<table class="table table-striped table-bordered table-condensed dataTables detach_caption" data-order='[[ 4, "asc" ], [ 7, "desc" ], [ 0, "asc" ]]'>
 	<cfinclude template="../common_files/dsp_task_list_header.cfm">
 	<cfinclude template="../common_files/dsp_task_list.cfm">
 </table>

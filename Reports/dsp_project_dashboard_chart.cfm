@@ -16,7 +16,7 @@
 	||
 	END FUSEDOC --->
 </cfsilent>
-<table class="table table-striped table-bordered table-condensed dataTables" data-page-length='25'>
+<table class="table table-striped table-bordered table-condensed dataTables detach_caption">
 	<caption><h2>Project Dashboard</h2></caption>
 	<thead>
 		<tr>

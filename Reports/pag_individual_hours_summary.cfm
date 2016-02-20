@@ -68,6 +68,7 @@ $(function() {
 			/* extract pis slice name and value from table */
 			series_data_ii.name = $this.find('td.graph_label').html();
 			series_data_ii.y = parseFloat($this.find('td.graph_data').text());
+			series_data_ii.data = series_data_ii.y;
 			series_data.push(series_data_ii);
 		});
 		

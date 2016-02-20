@@ -15,7 +15,7 @@
 	END FUSEDOC --->
 </cfsilent>
 <cfoutput>
-<table class="table table-striped table-bordered table-condensed dataTables" data-page-length='25'>
+<table class="table table-striped table-bordered table-condensed dataTables detach_caption">
 	<caption>
 		<h1>Invoicing Details</h1>
 		<h2>for #get_invoice_by_user_account.project_name#</h2>
