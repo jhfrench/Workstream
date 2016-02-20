@@ -63,14 +63,14 @@ gulp.task('js-aggregate-Workstream', function() {
 		'../external-projects/jquery-ui.js',
 		'../external-projects/bootstrap.js',
 		'common_files/js/script.js',
-		'../external-projects/DataTables/DataTables/media/js/jquery.dataTables.js',
-		'../external-projects/DataTables/Buttons/js/dataTables.buttons.js',
 		'../external-projects/jszip/dist/jszip.js',
 		'../external-projects/pdfmake/build/pdfmake.js',
 		'../external-projects/pdfmake/build/vfs_fonts.js',
-		'../external-projects/DataTables/Buttons/js/buttons.html5.js',
-		'../external-projects/DataTables/Buttons/js/buttons.bootstrap.js',
+		'../external-projects/DataTables/DataTables/media/js/jquery.dataTables.js',
 		'common_files/js/dataTables.bootstrap.js',
+		'../external-projects/DataTables/Buttons/js/dataTables.buttons.js',
+		'../external-projects/DataTables/Buttons/js/buttons.bootstrap.js',
+		'../external-projects/DataTables/Buttons/js/buttons.html5.js',
 		'../external-projects/highcharts.com/js/highcharts.src.js'
 	])
 	.pipe(debug({title: 'js-aggregate-Workstream:'}))

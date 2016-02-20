@@ -188,9 +188,17 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 return DataTable;
 }));
 
-//DataTable.Buttons.defaults.buttons=["copy","xls","pdf"];
-new $.fn.dataTable.Buttons( table, {
-    buttons: [
-        'copy', 'csv', 'pdf'
-    ]
-} );
+//turn buttons on
+$.extend($.fn.dataTable.defaults, {
+    buttons: [ 'copy', 'csv', 'pdf' ],
+	language: {
+		buttons: {
+			copyTitle: 'Table copied',
+			copyInfo: {
+				_: 'Copied %d rows to the clipboard.',
+				1: 'Copied 1 row to the clipboard.'
+			}
+		}
+	}
+});
+
