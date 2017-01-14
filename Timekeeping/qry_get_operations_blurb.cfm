@@ -21,6 +21,7 @@ SELECT Customer.description AS customer,
 	SUM(COALESCE(Project.budget,1)) AS total_count
 FROM Project
 	INNER JOIN Customer ON Project.customer_id=Customer.customer_id
+		AND Customer.active_ind=1
 	INNER JOIN Link_Project_Project_Health ON Project.project_id=Link_Project_Project_Health.project_id
 		AND Link_Project_Project_Health.active_ind=1
 WHERE Project.active_ind=1
